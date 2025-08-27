@@ -1,7 +1,12 @@
 ---
 layout: default
-title: Web Design
+title: 'Showroom · 2025 Fall'
 lang: en
+permalink: /2025-fall/en/
+term: '2025-fall'
 ---
 
-Lessons will appear here.
+# {{ site.data.course.en.course_name }} — {{ site.data.course.en.term }}
+
+{% include students-list.html %}
+{% include lang-switcher.html %}

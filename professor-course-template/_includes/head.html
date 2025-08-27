@@ -38,9 +38,5 @@
 		"keywords": ["web pedagogy", "front-end education", "project-based learning", "accessibility", "critical coding"]
 	}
 </script>
-{% if page.collection == 'lessons' and page.key and page.lang %} {% assign locales = site.data.locales %} {% for loc in
-locales %} {% assign alt = site.lessons | where: "key", page.key | where: "lang", loc | first %} {% if alt %}
-<link rel="alternate" hreflang="{{ loc }}" href="{{ alt.url | absolute_url }}" />
-{% endif %} {% endfor %}
-<link rel="alternate" hreflang="x-default" href="{{ page.url | absolute_url }}" />
-{% endif %}
+{% include head-hreflang.html %}
+

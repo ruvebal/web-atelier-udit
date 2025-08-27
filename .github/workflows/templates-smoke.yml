@@ -1,0 +1,100 @@
+name: Templates & Foundations — Smoke Tests
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'web-foundations/**'
+      - 'professor-course-template/**'
+      - 'student-project-template/**'
+      - '.github/workflows/templates-smoke.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'web-foundations/**'
+      - 'professor-course-template/**'
+      - 'student-project-template/**'
+      - '.github/workflows/templates-smoke.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  # --- 1) YAML sanity across the repo (esp. data files and samples) ---
+  yaml-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Install yaml-lint
+        run: npm i -D yaml-lint
+      - name: Lint YAML files
+        run: |
+          set -e
+          YMLS=$(git ls-files | grep -E '\.ya?ml$' || true)
+          if [ -n "$YMLS" ]; then
+            for f in $YMLS; do
+              echo "Linting $f"
+              npx yaml-lint "$f"
+            done
+          else
+            echo "No YAML files found."
+          fi
+
+  # --- 2) Foundations Jekyll build (docs & lessons compile) ---
+  web-foundations-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Install deps (if Gemfile exists)
+        working-directory: web-foundations
+        run: |
+          if [ -f Gemfile ]; then bundle install --path vendor/bundle; fi
+      - name: Build foundations (best-effort)
+        working-directory: web-foundations
+        run: |
+          if [ -f Gemfile ] || [ -f _config.yml ] || [ -d docs ]; then
+            bundle exec jekyll build --trace || (echo "Jekyll build failed" && exit 1)
+          else
+            echo "No Jekyll site detected in web-foundations — skipping build."
+          fi
+
+  # --- 3) Professor template smoke build (ensures it compiles when cloned) ---
+  professor-template-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Install deps (if Gemfile exists)
+        working-directory: professor-course-template
+        run: |
+          if [ -f Gemfile ]; then bundle install --path vendor/bundle; fi
+      - name: Jekyll smoke build
+        working-directory: professor-course-template
+        run: |
+          if [ -f Gemfile ] || [ -f _config.yml ]; then
+            bundle exec jekyll build --trace || (echo "Professor template build failed" && exit 1)
+          else
+            echo "No Jekyll site detected in professor-course-template — skipping."
+          fi
+
+  # --- 4) Student template sanity (no build required, but check basics) ---
+  student-template-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure key files exist
+        working-directory: student-project-template
+        run: |
+          test -f index.html || (echo "Missing student index.html" && exit 1)
+          test -f project.yaml || (echo "Missing student project.yaml" && exit 1)
+          test -f project-brief.md || (echo "Missing student project-brief.md" && exit 1)
+          echo "Student template looks OK."

@@ -1,0 +1,82 @@
+name: Docs Portal — Build & Deploy (Jekyll + Checks)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - '_config.yml'
+      - '_layouts/**'
+      - '_includes/**'
+      - 'assets/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+env:
+  JEKYLL_ENV: production
+  # Set where your portal source lives; change to '.' if your site is at root
+  SITE_SOURCE: docs
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby (Jekyll)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install Jekyll deps
+        run: |
+          if [ -f Gemfile ]; then bundle install --path vendor/bundle; fi
+
+      - name: Build site
+        run: |
+          # If your site is under /docs, Jekyll will pick it up via config or default
+          B_OPTS=""
+          if [ -d "$SITE_SOURCE" ]; then B_OPTS="--source $SITE_SOURCE"; fi
+          bundle exec jekyll build $B_OPTS --trace
+
+      # --- Optional quality checks on the built site (fast & useful) ---
+      - name: Setup Node for checks
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install check tools
+        run: npm i -D http-server linkinator
+      - name: Serve _site
+        run: npx http-server _site -p 8080 & echo $! > /tmp/http.pid; sleep 2
+      - name: Link check (internal)
+        run: npx linkinator "http://127.0.0.1:8080" --recurse --timeout 12000
+      - name: Stop server
+        if: always()
+        run: kill $(cat /tmp/http.pid) || true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

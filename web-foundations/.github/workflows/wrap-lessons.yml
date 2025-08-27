@@ -1,3 +1,0 @@
-name: Wrap Lessons (i18n)
-'on': {push: {paths: ['docs/lessons/**','_data/lessons.yml']}}
-jobs:{build:{runs-on:'ubuntu-latest',steps:[{uses:'actions/checkout@v4'}]}}
