@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "wrap:i18n": "node scripts/wrap-frontmatter-i18n.mjs"
+  }
+}

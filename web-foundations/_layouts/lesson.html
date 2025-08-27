@@ -1,0 +1,14 @@
+---
+layout: template
+---
+
+<article class="lesson prose">
+	<header>
+		<p class="muted">WEB ATELIER (UDIT) · Canonical lesson</p>
+		<h1>{{ page.title }}</h1>
+		{% if page.author %}
+		<p class="muted">By {{ page.author }}</p>
+		{% endif %}
+	</header>
+	{{ content }}
+</article>

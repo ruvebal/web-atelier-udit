@@ -1,0 +1,13 @@
+title: 'Web Foundations (Canonical Lessons)'
+url: 'https://ruvebal.github.io'
+baseurl: '/web-foundations'
+markdown: kramdown
+theme: null
+collections:
+ lessons:
+  output: true
+  permalink: /:lang/lessons/:slug/
+defaults:
+ - scope: { path: '_lessons', type: 'lessons' }
+   values:
+    layout: lesson

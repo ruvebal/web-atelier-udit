@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+title: 'WEB ATELIER: Critical Coding for a Better Living'
+authors:
+ - family-names: Vega Balbás
+   given-names: Rubén
+   orcid: 'https://orcid.org/0000-0001-6862-9081'
+affiliation: 'UDIT, University of Design, Innovation and Technology'
+date-released: 2025
+abstract: 'Agile Teaching for Experiential Learning in Iterative Repositories. Commit-based, practice-first pedagogy for web design and front-end education with accessibility, i18n, and research integration.'
+license: 'Code MIT; Content CC BY-NC 4.0'
+version: '0.0.1'
+repository-code: 'https://github.com/ruvebal/web-atelier-udit'
+keywords: ['web pedagogy', 'front-end education', 'project-based learning', 'accessibility', 'i18n', 'GitHub Pages']

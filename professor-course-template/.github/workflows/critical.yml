@@ -1,0 +1,14 @@
+name: Critical CI
+on: [push, pull_request]
+jobs:
+  critical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm i -D http-server pa11y-ci node-fetch
+      - run: npx http-server -p 8080 & sleep 2
+      - run: echo 'skip link check placeholder'
+      - run: echo 'skip weight budget placeholder'
+      - run: npx pa11y-ci || true

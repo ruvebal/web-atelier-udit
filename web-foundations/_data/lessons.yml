@@ -1,0 +1,4 @@
+lessons:
+  developmentEnvironment:
+    es: { file: docs/lessons/es/entorno-de-desarrollo.md, slug: entorno-de-desarrollo, title: "Entorno de desarrollo", author: "Rubén Vega Balbás (UDIT)" }
+    en: { file: docs/lessons/en/development-environment.md, slug: development-environment, title: "Development environment", author: "Rubén Vega Balbás (UDIT)" }
