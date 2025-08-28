@@ -6,7 +6,7 @@ description: 'Canonical lessons, methodology, and templates for ATELIER UDIT.'
 baseurl: '/web-atelier-udit'
 # If you publish at the root (https://<user>.github.io/), set baseurl: "" (empty)
 url: 'https://ruvebal.github.io'
-
+repository: 'ruvebal/web-atelier-udit'
 # --- Build options ---
 markdown: kramdown
 highlighter: rouge
