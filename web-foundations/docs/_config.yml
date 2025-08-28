@@ -1,0 +1,58 @@
+# --- Site identity ---
+title: 'WEB ATELIER (UDIT) – Web Foundations'
+description: 'Canonical lessons, methodology, and templates for ATELIER UDIT.'
+# If this site is published as a project site under: https://<user>.github.io/web-atelier-udit
+# keep baseurl as the repository name (with leading slash):
+baseurl: '/web-atelier-udit'
+# If you publish at the root (https://<user>.github.io/), set baseurl: "" (empty)
+url: 'https://ruvebal.github.io'
+
+# --- Build options ---
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:path/
+
+# Process any file with front matter, including nested lessons in es/ and en/
+include:
+ - lessons
+ - assets
+ - _data
+
+# Exclude CI and dev artifacts
+exclude:
+ - node_modules
+ - vendor
+ - Gemfile
+ - Gemfile.lock
+ - package.json
+ - package-lock.json
+ - scripts
+ - .github
+
+# --- Plugins available on GitHub Pages via 'github-pages' gem ---
+plugins:
+ - jekyll-seo-tag
+ - jekyll-sitemap
+
+# --- kramdown tweaks (optional) ---
+kramdown:
+ input: GFM
+ hard_wrap: false
+ syntax_highlighter_opts:
+  line_numbers: false
+
+# --- Defaults (helpful for your i18n folders) ---
+defaults:
+ - scope:
+    path: 'lessons/es'
+   values:
+    lang: 'es'
+    layout: 'default'
+ - scope:
+    path: 'lessons/en'
+   values:
+    lang: 'en'
+    layout: 'default'
+# --- SEO / sitemap hints ---
+# Ensure canonical URLs are constructed correctly in templates:
+# Use {{ "/path" | relative_url }} and {{ "/path" | absolute_url }} in layouts/includes.
