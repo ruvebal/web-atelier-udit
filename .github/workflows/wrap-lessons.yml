@@ -4,8 +4,9 @@ on:
  push:
   branches: [main]
   paths:
-   - 'docs/lessons/**'
-   - '_data/lessons.yml'
+   - 'web-foundations/docs/lessons/**'
+   - 'web-foundations/docs/_data/lessons.yml'
+   - 'scripts/wrap-lessons.mjs'
  workflow_dispatch:
 
 permissions:
@@ -25,17 +26,17 @@ jobs:
      with:
       node-version: '20'
 
-   - name: Install wrap deps
+   - name: Install wrap deps (no-save)
      run: |
-      npm i -D gray-matter yaml glob fs-extra slugify
+      npm install --no-save gray-matter yaml glob fs-extra slugify
 
-   - name: Run wrapper (generate ES/EN scaffolds)
+   - name: Run wrapper (generate ES/EN scaffolds + lessons index)
      run: node scripts/wrap-lessons.mjs
 
    # Optional: validate the YAML index after wrapping
-   - name: Sanity check _data/lessons.yml
+   - name: Sanity check lessons index
      run: |
-      node -e "require('yaml').parse(require('fs').readFileSync('_data/lessons.yml','utf8')); console.log('lessons.yml OK')"
+      node -e "const fs=require('fs'); const yaml=require('yaml'); const p='web-foundations/docs/_data/lessons.yml'; yaml.parse(fs.readFileSync(p,'utf8')); console.log('lessons.yml OK:', p)"
 
    # Auto-commit any generated/updated files
    - name: Auto-commit changes
