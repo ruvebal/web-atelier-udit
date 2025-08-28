@@ -7,6 +7,16 @@ date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'
 lang: es
 date: 2025-09-08
+permalink: /lessons/es/entorno-de-desarrollo/
+---
+
+> **Objetivo de la sesión (2h)**
+>
+> 1. Tener VS Code + Git operativos.
+> 2. Crear **un repositorio personal** en GitHub.
+> 3. Publicar un **Hello, Web** en GitHub Pages.
+>    **ATELIER Note:** al final, cada estudiante hará **un commit obligatorio** con un mensaje claro y un `README.md` breve. Este commit será la evidencia de aprendizaje de la sesión.
+
 ---
 
 # **Guía para Configurar un Entorno de Desarrollo Web para Estudiantes**
@@ -397,4 +407,58 @@ Homebrew es un gestor de paquetes para macOS que simplifica la instalación de s
 - **Homebrew (para macOS)**:  
   https://brew.sh/
 
+# Adaptaciones ATELIER
+
+## ATELIER Note: Vinculación metodológica
+
+Este es el **primer sprint** del curso. La dinámica de _un commit por clase_ garantiza que cada estudiante registre su progreso de forma incremental. El objetivo no es solo instalar herramientas, sino **aprender a documentar con commits** desde el principio.
+
+## Sugerencia: Añadir rúbrica de evaluación
+
+Al final de la sesión, cada estudiante debe realizar un commit con mensaje estándar:
+
+```bash
+git commit -m "chore: environment set up · repo + index.html + pages live"
+```
+
+**Rúbrica rápida (0–2 puntos):**
+
+- **0** — no commit / falla la publicación.
+- **1** — commit presente pero documentación pobre.
+- **2** — commit correcto + README completo + URL de Pages.
+
+## ATELIER Note: Git Pro Tip del día
+
+Antes de cada commit, ejecutar:
+
+```bash
+git status
+git diff
+```
+
+Esto obliga a **leer los cambios** y evita errores comunes.
+
+## ATELIER Note: Accesibilidad y ética
+
+- Añade siempre `lang="es"` en el `<html>` para accesibilidad.
+- Los commits deben ser **propios y documentados**. IA puede ayudar con boilerplate, pero debe reconocerse en el README (transparencia académica).
+- Se fomenta el **trabajo incremental** en lugar de acumulación de tareas al final (bienestar).
+
+## Sugerencia: Conexión con la filosofía
+
+Recuerda que este curso se enmarca en el lema **Critical Coding for a Better Living**: aprender código no solo como técnica, sino como práctica crítica y creativa que mejora la vida.
+
 ---
+
+# Cierre de la Lección 01
+
+- Has preparado tu **entorno de desarrollo**.
+- Has creado tu **primer repo personal**.
+- Has desplegado un **Hello, Web** en GitHub Pages.
+- Has realizado tu **primer commit evaluable**.
+
+**ATELIER Note:** Este commit se convierte en la base de tu portafolio; cada semana irás añadiendo una pieza más hasta culminar en un proyecto completo.
+
+```
+
+```
