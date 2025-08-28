@@ -1,92 +1,101 @@
 name: Build & Deploy (Pages by Term)
 
 on:
- push:
-  branches: [main]
-  paths:
-   - '20[0-9][0-9]-*/**'
-   - '_data/students-*.yml'
-   - '_includes/**'
-   - '_layouts/**'
-   - '_config.yml'
- workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - '20[0-9][0-9]-*/**'
+      - '_data/students-*.yml'
+      - '_includes/**'
+      - '_layouts/**'
+      - '_config.yml'
+  workflow_dispatch:
 
 permissions:
- contents: read
- pages: write
- id-token: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
- group: 'pages'
- cancel-in-progress: true
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
- build:
-  runs-on: ubuntu-latest
-  steps:
-   - uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-   - id: detect
-     name: Detect changed term
-     run: |
-      CHANGED=$(git diff --name-only HEAD~1 HEAD || true)
-      TERM=""
-      for f in $CHANGED; do
-        case "$f" in
-          20[0-9][0-9]-*/*) TERM="${f%%/*}"; break;;
-          _data/students-*.yml) TERM="${f##*_data/students-}"; TERM="${TERM%.yml}"; break;;
-        esac
-      done
-      if [ -z "$TERM" ]; then TERM="$(ls -d 20[0-9][0-9]-* | head -n1 || true)"; fi
-      echo "term_dir=$TERM"   >> $GITHUB_OUTPUT
-      echo "term_key=$TERM"   >> $GITHUB_OUTPUT
-      echo "Detected term: $TERM"
+      - id: detect
+        name: Detect changed term
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD || true)
+          TERM=""
+          for f in $CHANGED; do
+            case "$f" in
+              20[0-9][0-9]-*/*) TERM="${f%%/*}"; break;;
+              _data/students-*.yml) TERM="${f##*_data/students-}"; TERM="${TERM%.yml}"; break;;
+            esac
+          done
+          if [ -z "$TERM" ]; then TERM="$(ls -d 20[0-9][0-9]-* | head -n1 || true)"; fi
+          echo "term_dir=$TERM" >> $GITHUB_OUTPUT
+          echo "term_key=$TERM" >> $GITHUB_OUTPUT
+          echo "Detected term: $TERM"
 
-   - uses: ruby/setup-ruby@v1
-     with: { ruby-version: '3.2', bundler-cache: true }
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
 
-   - name: Install Jekyll deps
-     run: |
-      if [ -f Gemfile ]; then bundle install --path vendor/bundle; fi
+      - name: Install Jekyll deps
+        run: |
+          if [ -f Gemfile ]; then bundle install --path vendor/bundle; fi
 
-   - name: Jekyll build
-     run: bundle exec jekyll build --trace
-     env: { JEKYLL_ENV: production }
+      - name: Jekyll build
+        run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
 
-   - name: Setup Node (checks)
-     uses: actions/setup-node@v4
-     with: { node-version: '20' }
+      - name: Setup Node (checks)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-   - name: Install check tools
-     run: npm i -D linkinator pa11y-ci http-server
+      - name: Install check tools
+        run: npm i -D linkinator pa11y-ci http-server
 
-   - name: Serve _site
-     run: npx http-server _site -p 8080 & echo $! > /tmp/http.pid; sleep 2
+      - name: Serve _site
+        run: npx http-server _site -p 8080 & echo $! > /tmp/http.pid; sleep 2
 
-   - name: Link check (ES/EN for term)
-     run: |
-      if [ -n "${{ steps.detect.outputs.term_dir }}" ]; then
-        npx linkinator http://127.0.0.1:8080/${{ steps.detect.outputs.term_dir }}/es/ --recurse --timeout 10000
-        npx linkinator http://127.0.0.1:8080/${{ steps.detect.outputs.term_dir }}/en/ --recurse --timeout 10000
-      fi
+      - name: Link check (ES/EN for term)
+        run: |
+          TERM="${{ steps.detect.outputs.term_dir }}"
+          if [ -n "$TERM" ]; then
+            echo "Checking links for term: $TERM"
+            npx linkinator "http://127.0.0.1:8080/$TERM/es/" --recurse --timeout 10000
+            npx linkinator "http://127.0.0.1:8080/$TERM/en/" --recurse --timeout 10000
+          fi
 
-   - name: Accessibility spot-check
-     run: npx pa11y-ci --sitemap http://127.0.0.1:8080/sitemap.xml || true
+      - name: Accessibility spot-check
+        run: |
+          echo "Running pa11y-ci against sitemap..."
+          npx pa11y-ci --sitemap http://127.0.0.1:8080/sitemap.xml || true
 
-   - name: Upload Pages artifact
-     uses: actions/upload-pages-artifact@v3
-     with: { path: _site }
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
 
-   - name: Stop server
-     if: always()
-     run: kill $(cat /tmp/http.pid) || true
+      - name: Stop server
+        if: always()
+        run: kill $(cat /tmp/http.pid) || true
 
- deploy:
-  needs: build
-  runs-on: ubuntu-latest
-  environment:
-   name: github-pages
-   url: ${{ steps.deployment.outputs.page_url }}
-  steps:
-   - id: deployment
-     uses: actions/deploy-pages@v4
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

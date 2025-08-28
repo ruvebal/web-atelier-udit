@@ -45,10 +45,16 @@ jobs:
      run: |
       bundle exec jekyll build --source docs --destination _site --trace
 
+   - name: Prepare artifact (flatten path)
+     run: |
+      rm -rf site-root
+      mkdir site-root
+      cp -r web-foundations/_site/* site-root/
+
    - name: Upload Pages artifact
      uses: actions/upload-pages-artifact@v3
      with:
-      path: web-foundations/_site
+      path: site-root
 
  deploy:
   needs: build
