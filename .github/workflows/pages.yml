@@ -22,7 +22,6 @@ concurrency:
 
 env:
  JEKYLL_ENV: production
- SITE_SOURCE: web-foundations/docs # <— nested source
 
 jobs:
  build:
@@ -31,20 +30,25 @@ jobs:
    - uses: actions/checkout@v4
 
    - uses: ruby/setup-ruby@v1
-     with: { ruby-version: '3.2', bundler-cache: true }
+     with:
+      ruby-version: '3.2'
+      bundler-cache: true
 
-   - name: Install Jekyll deps
+   - name: Install Jekyll deps (web-foundations)
+     working-directory: web-foundations
      run: |
-      if [ -f Gemfile ]; then bundle install --path vendor/bundle; fi
+      bundle config set path 'vendor/bundle'
+      bundle install --jobs 4 --retry 3
 
-   - name: Build site (from nested source)
+   - name: Build site (from nested source web-foundations/docs)
+     working-directory: web-foundations
      run: |
-      bundle exec jekyll build --source "$SITE_SOURCE" --trace
+      bundle exec jekyll build --source docs --destination _site --trace
 
    - name: Upload Pages artifact
      uses: actions/upload-pages-artifact@v3
      with:
-      path: _site
+      path: web-foundations/_site
 
  deploy:
   needs: build
