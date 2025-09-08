@@ -3,6 +3,12 @@
 	--max: 72ch;
 	--muted: #6b7280;
 	--accent: #111827;
+	--primary: #667eea;
+	--primary-hover: #5a6fd8;
+	--bg-light: #f7fafc;
+	--border-light: #e2e8f0;
+	--text-secondary: #4a5568;
+	--text-primary: #2d3748;
 }
 
 * {
@@ -96,4 +102,295 @@ body {
 	padding: 0.75rem 1rem;
 	border: 1px solid #e5e7eb;
 	border-radius: 0.5rem;
+}
+
+/* ========================================
+   HOMEPAGE SPECIFIC STYLES
+   ======================================== */
+
+/* Hero Section */
+.hero-section {
+	background: linear-gradient(135deg, var(--primary) 0%, #764ba2 100%);
+	color: white;
+	padding: 4rem 0;
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.hero-title {
+	font-size: clamp(2.5rem, 5vw, 4rem);
+	font-weight: 700;
+	margin-bottom: 1rem;
+	line-height: 1.2;
+}
+
+.hero-title .brand {
+	display: block;
+	font-weight: 800;
+	color: inherit;
+}
+
+.hero-title .institution {
+	font-size: 0.8em;
+	opacity: 0.9;
+}
+
+.hero-subtitle {
+	font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+	margin-bottom: 0.5rem;
+	opacity: 0.95;
+}
+
+.hero-tagline {
+	font-size: clamp(1rem, 2vw, 1.25rem);
+	opacity: 0.9;
+	margin-bottom: 2rem;
+}
+
+.lead {
+	font-size: 1.125rem;
+	line-height: 1.6;
+	max-width: 800px;
+	margin: 0 auto;
+	opacity: 0.95;
+}
+
+/* Main Content Layout */
+.content-main {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.section-title {
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 2rem;
+	text-align: center;
+	color: var(--text-primary);
+}
+
+/* Lessons Section */
+.lessons-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	margin-bottom: 4rem;
+}
+
+.lesson-card {
+	background: var(--bg-light);
+	border: 2px solid var(--border-light);
+	border-radius: 12px;
+	padding: 2rem;
+	text-align: center;
+	transition: all 0.3s ease;
+}
+
+.lesson-card:hover {
+	border-color: var(--primary);
+	transform: translateY(-4px);
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.flag {
+	font-size: 2rem;
+	margin-right: 0.5rem;
+}
+
+.card-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	color: var(--text-primary);
+}
+
+.card-description {
+	color: var(--text-secondary);
+	margin-bottom: 1.5rem;
+	line-height: 1.6;
+}
+
+/* Button Styles */
+.btn {
+	display: inline-block;
+	padding: 0.75rem 1.5rem;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 0.2s ease;
+}
+
+.btn-primary {
+	background: var(--primary);
+	color: white;
+}
+
+.btn-primary:hover {
+	background: var(--primary-hover);
+	transform: translateY(-2px);
+}
+
+/* Methodology Section */
+.methodology-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2rem;
+	margin-bottom: 4rem;
+}
+
+.method-item {
+	text-align: center;
+	padding: 1.5rem;
+}
+
+.method-icon {
+	font-size: 3rem;
+	display: block;
+	margin-bottom: 1rem;
+}
+
+.method-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	color: var(--text-primary);
+}
+
+.method-description {
+	color: var(--text-secondary);
+	line-height: 1.6;
+}
+
+/* Resources Section */
+.resources-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 2rem;
+	margin-bottom: 4rem;
+}
+
+.resource-card {
+	background: white;
+	border: 1px solid var(--border-light);
+	border-radius: 8px;
+	padding: 2rem;
+	transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+	border-color: #cbd5e0;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.resource-icon {
+	font-size: 2.5rem;
+	display: block;
+	margin-bottom: 1rem;
+}
+
+.resource-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	color: var(--text-primary);
+}
+
+.resource-description {
+	color: var(--text-secondary);
+	margin-bottom: 1.5rem;
+	line-height: 1.6;
+}
+
+.resource-link {
+	color: var(--primary);
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.resource-link:hover {
+	text-decoration: underline;
+}
+
+.external-link-icon {
+	margin-left: 0.25rem;
+	opacity: 0.7;
+}
+
+/* Sidebar Info */
+.sidebar-info {
+	max-width: 1200px;
+	margin: 4rem auto 0;
+	padding: 0 1rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+}
+
+.info-card {
+	background: var(--bg-light);
+	border: 1px solid var(--border-light);
+	border-radius: 8px;
+	padding: 2rem;
+}
+
+.info-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	color: var(--text-primary);
+}
+
+.author-links {
+	margin-top: 1rem;
+}
+
+.author-link {
+	display: inline-block;
+	margin-right: 1rem;
+	color: var(--primary);
+	text-decoration: none;
+}
+
+.author-link:hover {
+	text-decoration: underline;
+}
+
+.license-link {
+	color: var(--primary);
+	text-decoration: none;
+}
+
+.license-link:hover {
+	text-decoration: underline;
+}
+
+/* Accessibility */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.hero-section {
+		padding: 2rem 0;
+	}
+
+	.lessons-grid,
+	.methodology-grid,
+	.resources-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.sidebar-info {
+		grid-template-columns: 1fr;
+	}
 }
