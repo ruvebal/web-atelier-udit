@@ -1,10 +1,9 @@
 # --- Site identity ---
 title: 'WEB ATELIER (UDIT) – Web Foundations'
 description: 'Canonical lessons, methodology, and templates for ATELIER UDIT.'
-# If this site is published as a project site under: https://<user>.github.io/web-atelier-udit
-# keep baseurl as the repository name (with leading slash):
+# GitHub Pages configuration for web-foundations subdirectory
+# This publishes the foundations at: https://ruvebal.github.io/web-atelier-udit/
 baseurl: '/web-atelier-udit'
-# If you publish at the root (https://<user>.github.io/), set baseurl: "" (empty)
 url: 'https://ruvebal.github.io'
 repository: 'ruvebal/web-atelier-udit'
 # --- Build options ---

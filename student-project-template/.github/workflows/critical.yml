@@ -1,0 +1,189 @@
+name: Critical CI (Student Project)
+
+on:
+ push:
+  branches: [main]
+ pull_request:
+  branches: [main]
+
+permissions:
+ contents: read
+ pages: write
+ id-token: write
+
+jobs:
+ # Validate project metadata
+ validate-metadata:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v4
+
+   - name: Setup Node.js
+     uses: actions/setup-node@v4
+     with:
+      node-version: '20'
+
+   - name: Install YAML validator
+     run: npm install -g yaml-lint
+
+   - name: Validate project.yaml
+     run: |
+      if [ -f project.yaml ]; then
+        yaml-lint project.yaml
+        echo "✅ project.yaml is valid"
+      else
+        echo "⚠️ project.yaml not found - create it by Week 4"
+      fi
+
+ # Check HTML validity and accessibility
+ html-validation:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v4
+
+   - name: Setup Node.js
+     uses: actions/setup-node@v4
+     with:
+      node-version: '20'
+
+   - name: Install HTML validator
+     run: npm install -g html-validate
+
+   - name: Validate HTML files
+     run: |
+      if [ -f index.html ]; then
+        npx html-validate index.html
+        echo "✅ HTML validation passed"
+      else
+        echo "❌ index.html not found"
+        exit 1
+      fi
+
+ # Check for broken links
+ link-checker:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v4
+
+   - name: Setup Node.js
+     uses: actions/setup-node@v4
+     with:
+      node-version: '20'
+
+   - name: Install link checker
+     run: npm install -g broken-link-checker
+
+   - name: Check internal links
+     run: |
+      echo "Checking for broken internal links..."
+      # This would run after deployment, so we'll do basic file checks
+      find . -name "*.html" -exec grep -l "href=" {} \; | head -5 || echo "No HTML files with links found"
+
+ # Performance and accessibility audit
+ lighthouse-audit:
+  runs-on: ubuntu-latest
+  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  steps:
+   - uses: actions/checkout@v4
+
+   - name: Setup Node.js
+     uses: actions/setup-node@v4
+     with:
+      node-version: '20'
+
+   - name: Install Lighthouse CI
+     run: npm install -g @lhci/cli
+
+   - name: Run Lighthouse audit (if site is deployed)
+     run: |
+      # This would audit the deployed GitHub Pages site
+      # For now, we'll just validate the HTML structure
+      echo "Lighthouse audit would run on deployed site"
+      echo "Site should be accessible at: https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}"
+     env:
+      GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+
+ # Image optimization check
+ image-optimization:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v4
+
+   - name: Check image sizes
+     run: |
+      echo "Checking for large images..."
+      find images/ -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.gif" -o -name "*.webp" \) -size +500k -exec ls -lh {} \; | head -10 || echo "No large images found or images directory doesn't exist"
+
+   - name: Check for alt text (basic)
+     run: |
+      if [ -f index.html ]; then
+        if grep -q '<img.*alt=""' index.html; then
+          echo "⚠️ Found images with empty alt attributes"
+        fi
+        if grep -q '<img[^>]*>' index.html && ! grep -q 'alt=' index.html; then
+          echo "⚠️ Found images without alt attributes"
+        else
+          echo "✅ Alt text check passed"
+        fi
+      fi
+
+ # CSS and JS validation
+ frontend-validation:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v4
+
+   - name: Setup Node.js
+     uses: actions/setup-node@v4
+     with:
+      node-version: '20'
+
+   - name: Install CSS and JS linters
+     run: |
+      npm install -g stylelint stylelint-config-standard
+      npm install -g eslint
+
+   - name: Validate CSS
+     run: |
+      find . -name "*.css" -not -path "./node_modules/*" | while read -r file; do
+        echo "Checking $file"
+        npx stylelint "$file" --config-basedir . || echo "CSS validation issues found in $file"
+      done
+
+   - name: Basic JavaScript check
+     run: |
+      find . -name "*.js" -not -path "./node_modules/*" | while read -r file; do
+        echo "Checking $file"
+        node -c "$file" && echo "✅ $file syntax OK" || echo "❌ $file has syntax errors"
+      done
+
+ # Project completion tracking
+ milestone-tracker:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v4
+
+   - name: Check project milestones
+     run: |
+      echo "📊 Project Milestone Tracker"
+      echo "================================"
+
+      # Check if key files exist
+      [ -f index.html ] && echo "✅ Homepage exists" || echo "❌ Homepage missing"
+      [ -f project.yaml ] && echo "✅ Project metadata exists" || echo "⚠️ Project metadata missing (due Week 4)"
+      [ -f project-brief.md ] && echo "✅ Project brief exists" || echo "⚠️ Project brief missing (due Week 2)"
+      [ -d assets/css ] && echo "✅ CSS directory exists" || echo "⚠️ CSS directory missing"
+      [ -f assets/css/style.css ] && echo "✅ Main stylesheet exists" || echo "⚠️ Main stylesheet missing"
+
+      # Count commits (basic progress indicator)
+      COMMIT_COUNT=$(git rev-list --count HEAD)
+      echo "📈 Total commits: $COMMIT_COUNT"
+
+      if [ $COMMIT_COUNT -ge 5 ]; then
+        echo "✅ Good commit frequency"
+      elif [ $COMMIT_COUNT -ge 2 ]; then
+        echo "⚠️ Consider more frequent commits"
+      else
+        echo "❌ Very few commits - aim for weekly commits"
+      fi

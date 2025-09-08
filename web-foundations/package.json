@@ -1,7 +1,28 @@
 {
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "wrap:i18n": "node scripts/wrap-frontmatter-i18n.mjs"
-  }
+	"name": "web-foundations",
+	"version": "1.0.0",
+	"description": "Canonical lessons and methodology for WEB ATELIER (UDIT)",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "bundle exec jekyll serve --source docs --livereload",
+		"build": "bundle exec jekyll build --source docs --destination _site",
+		"wrap:i18n": "node scripts/wrap-frontmatter-i18n.mjs",
+		"validate:lessons": "yaml-lint docs/_data/lessons.yml",
+		"validate:yaml": "find docs/_data -name '*.yml' -exec yaml-lint {} \\;"
+	},
+	"devDependencies": {
+		"yaml-lint": "^1.7.0",
+		"gray-matter": "^4.0.3",
+		"glob": "^10.3.10",
+		"fs-extra": "^11.2.0",
+		"slugify": "^1.6.6"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ruvebal/web-atelier-udit.git",
+		"directory": "web-foundations"
+	},
+	"author": "Rubén Vega Balbás, PhD",
+	"license": "MIT"
 }

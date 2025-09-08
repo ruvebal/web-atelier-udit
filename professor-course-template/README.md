@@ -55,14 +55,37 @@ This repository leverages modern web and DevOps tools to create a seamless teach
 ## Repository Structure
 
 ```plaintext
-web-foundations/
-├── docs/
-│   ├── lessons/       # Core lesson content (Markdown files)
-│   ├── methodology/   # Pedagogical guides
-│   └── templates/     # Templates for project briefs and YAML samples
-├── _config.yml        # Jekyll configuration
-├── Gemfile            # Dependencies for local Jekyll builds
-└── README.md          # This document
+professor-course-template/
+├── 2025-fall/                    # Semester-specific content
+│   ├── es/
+│   │   └── index.md             # Course homepage (Spanish)
+│   └── en/
+│       └── index.md             # Course homepage (English)
+├── _data/
+│   ├── course/
+│   │   ├── en.yml               # Course metadata (English)
+│   │   └── es.yml               # Course metadata (Spanish)
+│   ├── lessons/
+│   │   ├── en.yml               # Lesson links (English)
+│   │   └── es.yml               # Lesson links (Spanish)
+│   ├── locales.yml              # Language configuration
+│   └── students/
+│       └── 2025-fall/           # Student data by semester
+│           ├── sample-student.yml # Individual student files
+│           └── .gitkeep
+├── _includes/
+│   ├── head.html                # HTML head template
+│   ├── header.html              # Site header
+│   ├── footer.html              # Site footer
+│   ├── lang-switcher.html       # Language switching
+│   ├── head-hreflang.html       # Multilingual SEO
+│   ├── head-jsonld.html         # Structured data
+│   └── students-list-by-files.html # Student showroom (file-based)
+├── assets/css/
+│   └── site.css                 # Course site styles
+├── _config.yml                  # Jekyll configuration
+├── Gemfile                      # Ruby dependencies
+└── README.md                    # This document
 ```
 
 ## References

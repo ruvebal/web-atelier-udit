@@ -42,14 +42,21 @@ This repository is the **starting point for each student’s personal project** 
 
 ```plaintext
 student-project-template/
-├── index.html         # Homepage (starter HTML)
-├── assets/css/        # Stylesheets
-├── assets/js/         # Scripts
-├── images/            # Image assets
-├── project.yaml       # Student fills with project metadata
-├── project-brief.md   # Template to define concept in Week 2
-├── README.md          # Instructions and weekly log
-└── .github/workflows/critical.yml  # CI checks (optional)
+├── index.html         # Homepage (starter HTML with semantic structure)
+├── assets/            # Modern asset organization
+│   ├── css/
+│   │   └── style.css  # Main stylesheet with responsive design
+│   └── js/
+│       └── main.js    # JavaScript functionality
+├── images/            # Image assets (keep optimized)
+├── css/               # Legacy CSS (imports from assets/css/)
+│   └── style.css      # Compatibility layer
+├── project.yaml       # Project metadata (complete by Week 4)
+├── project-brief.md   # Project concept definition (Week 2)
+├── README.md          # Instructions and weekly progress log
+├── .nojekyll          # Prevents Jekyll processing conflicts
+└── .github/workflows/
+    └── critical.yml   # Automated quality checks (CI/CD)
 ```
 
 ## Workflow in Practice

@@ -1,6 +1,6 @@
 title: 'Web Foundations (Canonical Lessons)'
 url: 'https://ruvebal.github.io'
-baseurl: '/web-foundations'
+baseurl: '/web-atelier-udit'
 markdown: kramdown
 theme: null
 collections:

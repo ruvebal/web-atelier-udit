@@ -1,7 +1,29 @@
+- slug: development-environment
+  title:
+   es: Entorno de Desarrollo
+   en: Development Environment
+  path:
+   es: /lessons/es/development-environment.html
+   en: /lessons/en/development-environment.html
+  file:
+   es: lessons/es/development-environment.md
+   en: lessons/en/development-environment.md
+  status:
+   es: complete
+   en: complete
+  week: 1
+
 - slug: typography-color
   title:
-    es: Tipografía y Color
-    en: Typography & Color
+   es: Tipografía y Color
+   en: Typography & Color
   path:
-    es: /lessons/es/typography-color.html
-    en: /lessons/en/typography-color.html
+   es: /lessons/es/typography-color.html
+   en: /lessons/en/typography-color.html
+  file:
+   es: lessons/es/typography-color.md
+   en: lessons/en/typography-color.md
+  status:
+   es: complete
+   en: stub
+  week: 3

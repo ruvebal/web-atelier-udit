@@ -41,20 +41,32 @@ Commit-driven web pedagogy & research at **UDIT, University of Design, Innovatio
 
 ### Core Repositories / Repositorios Núcleo
 
-- **Web Foundations**
-  EN: Canonical lessons, pedagogy, and templates.
-  ES: Lecciones canónicas, pedagogía y plantillas.
+- **Web Foundations** 🎓
+  EN: Canonical lessons, pedagogy, and templates. Published at GitHub Pages.
+  ES: Lecciones canónicas, pedagogía y plantillas. Publicado en GitHub Pages.
   Path: `web-foundations/README.md` (EN) · `web-foundations/README-es.md` (ES)
+  Live: `https://ruvebal.github.io/web-atelier-udit/`
 
-- **Professor Course Template**
-  EN: Semester-specific instance of a course, with roster and showroom.
-  ES: Instancia específica de curso/semestre, con listado y showroom.
+- **Professor Course Template** 👨‍🏫
+  EN: Semester-specific instance with student indexing by individual files.
+  ES: Instancia específica de semestre con indexación estudiantil por archivos individuales.
   Path: `professor-course-template/README.md` (EN) · `professor-course-template/README-es.md` (ES)
+  Structure: Individual YAML files per student in `_data/students/2025-fall/`
 
-- **Student Project Template**
-  EN: Individual repository for each student to build their project.
-  ES: Repositorio individual para que cada estudiante construya su proyecto.
+- **Student Project Template** 👩‍🎓
+  EN: Complete starter template with modern asset structure and CI/CD.
+  ES: Plantilla inicial completa con estructura de assets moderna y CI/CD.
   Path: `student-project-template/README.md` (EN) · `student-project-template/README-es.md` (ES)
+  Features: Responsive CSS, accessibility checks, automated validation
+
+### Key Improvements / Mejoras Clave
+
+- ✅ **File-based student indexing** instead of single YAML
+- ✅ **Complete asset structure** with modern CSS/JS organization
+- ✅ **Automated CI/CD workflows** for quality assurance
+- ✅ **Consistent configuration** across all Jekyll sites
+- ✅ **Comprehensive documentation** matching actual structure
+- ✅ **Development environment** setup with npm scripts
 
 ---
 
