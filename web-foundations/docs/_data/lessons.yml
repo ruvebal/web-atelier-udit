@@ -1,26 +1,40 @@
 - slug: development-environment
   title:
-    es: Entorno de Desarrollo
-    en: Development Environment
+   es: Entorno de Desarrollo
+   en: Development Environment
   path:
-    es: /lessons/es/entorno-de-desarrollo
-    en: /lessons/en/development-environment
+   es: /lessons/es/entorno-de-desarrollo
+   en: /lessons/en/development-environment
   file:
-    es: lessons/es/development-environment.md
-    en: lessons/en/development-environment.md
+   es: lessons/es/development-environment.md
+   en: lessons/en/development-environment.md
   status:
-    es: complete
-    en: complete
+   es: complete
+   en: complete
 - slug: typography-color
   title:
-    es: Tipografía y Color
-    en: Typography & Color
+   es: Tipografía y Color
+   en: Typography & Color
   path:
-    es: /lessons/es/typography-color.html
-    en: /lessons/en/typography-color.html
+   es: /lessons/es/typography-color.html
+   en: /lessons/en/typography-color.html
   file:
-    es: lessons/es/tipografia-color.md
-    en: lessons/en/typography-color.md
+   es: lessons/es/tipografia-color.md
+   en: lessons/en/typography-color.md
   status:
-    es: complete
-    en: stub
+   es: complete
+   en: stub
+
+- slug: inspiration-kickoff
+  title:
+   es: Inicio & Inspiración
+   en: Inspiration & Kickoff
+  path:
+   es: /lessons/es/inicio-inspiracion/
+   en: /lessons/en/inspiration-kickoff/
+  file:
+   es: lessons/es/inicio-inspiracion/index.md
+   en: lessons/en/inspiration-kickoff/index.md
+  status:
+   es: complete
+   en: complete
