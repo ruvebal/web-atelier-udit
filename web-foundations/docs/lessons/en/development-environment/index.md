@@ -27,10 +27,11 @@ permalink: /lessons/en/development-environment/
 3. [Steps to set up the development environment](#steps-to-set-up-the-development-environment)
    - [Install Visual Studio Code](#1-install-visual-studio-code)
    - [Install Git](#2-install-git)
-   - [Create a repository on GitHub and clone it in Visual Studio Code](#3-create-a-repository-on-github-and-clone-it-in-visual-studio-code)
-   - [Create an `index.html` file in the cloned repository](#4-create-an-indexhtml-file-in-the-cloned-repository)
+   - [Start from Student Project Template (beginner first, advanced below)](#3-start-from-student-project-template-beginner-first-advanced-below)
+   - [Explore the cloned directory structure](#4-explore-the-cloned-directory-structure)
    - [Local development with Live Server](#5-local-development-with-live-server)
    - [Live development with GitHub Pages](#6-live-development-with-github-pages)
+   - [Host and optimize images with ImageKit.io](#7-host-and-optimize-images-with-imagekitio)
 4. [Daily workflow](#daily-workflow)
 5. [Glossary of concepts](#glossary-of-concepts)
    - [System terms](#system-terms)
@@ -169,11 +170,13 @@ Learning this workflow helps adopt professional practices and lays the groundwor
 4. **Configure your name and email for Git:**
 
    - **Set your name:**
+
      ```bash
      git config --global user.name "Your Name"
      ```
 
    - **Set your email:**
+
      ```bash
      git config --global user.email "your.email@example.com"
      ```
@@ -185,53 +188,85 @@ Learning this workflow helps adopt professional practices and lays the groundwor
 
 ---
 
-### **3. Create a repository on GitHub and clone it in Visual Studio Code**
+### **3. Start from Student Project Template (beginner first, advanced below)**
 
-#### **From the GitHub website**
+Use the official student starter located here: `student-project-template` in the course monorepo. Reference:
 
-1. Sign in to your GitHub account.
-2. Click the **New** button to create a new repository.
-3. Assign a name to the repository (for example, `my-web-project`).
-4. Choose public or private settings according to your preference.
-5. Do not add any initial files (such as `README.md`).
-6. Click **Create repository**.
+- Student template (GitHub): https://github.com/ruvebal/web-atelier-udit/tree/main/student-project-template
 
-#### **Clone the repository in VS Code**
+#### Beginner — Download ZIP in your browser (Windows/macOS)
 
-1. Copy the repository URL (HTTPS or SSH).
-2. Open VS Code and go to **Source Control**.
-3. Click **Clone Repository** and enter the copied URL.
-4. Select a local folder where you want to save the repository.
-
-**Note**: Internally, VS Code runs the equivalent command:
+1. Go to the repository home and click the green "Code" button, then "Download ZIP".
+2. Unzip it. Open the unzipped folder and locate `student-project-template/`.
+3. Copy the contents of `student-project-template/` into a new folder named after your project (e.g., `my-web-project`).
+4. Create a new empty repository on GitHub (same name as your folder).
+5. Initialize and push:
 
 ```bash
-git clone <repository-url>
+cd my-web-project
+git init
+git add .
+git commit -m "chore: scaffold from student-project-template"
+git branch -M main
+git remote add origin https://github.com/<your-username>/my-web-project.git
+git push -u origin main
 ```
 
-In addition, VS Code performs an automatic **pull** when opening a cloned repository to sync any remote changes.
+#### Beginner — GitHub Desktop (Windows/macOS GUI)
+
+1. Install GitHub Desktop and sign in.
+2. File → Clone repository → URL: `https://github.com/ruvebal/web-atelier-udit` → choose a local path.
+3. In Finder/Explorer, open the cloned repo and copy the folder `student-project-template/` to a new location named `my-web-project`.
+4. In GitHub Desktop: File → Add local repository → select `my-web-project`.
+5. Click "Publish repository" to create it on your GitHub account and push.
 
 ---
 
-### **4. Create an `index.html` file in the cloned repository**
+#### Advanced — VS Code (Clone) and CLI options
 
-1. Create a new file named `index.html` in the repository.
-2. Write the basic HTML structure using **GitHub Copilot**:
-   - Type `!` and press **Tab** to generate the HTML boilerplate.
-   - Customize the file, for example:
-     ```html
-     <!DOCTYPE html>
-     <html lang="es">
-        <head>
-                <meta charset="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>My Website</title>
-        </head>
-        <body>
-                <h1>Welcome to My Website</h1>
-        </body>
-     </html>
-     ```
+- VS Code GUI clone (intermediate): Source Control → "Clone Repository" → paste `https://github.com/ruvebal/web-atelier-udit` → then copy `student-project-template/` out to its own repo folder.
+- CLI (Node):
+
+```bash
+# Using tiged to fetch only the subdirectory
+npx tiged ruvebal/web-atelier-udit/student-project-template my-web-project
+```
+
+- CLI (no Node):
+
+```bash
+svn export https://github.com/ruvebal/web-atelier-udit/trunk/student-project-template my-web-project
+```
+
+Then `git init`, commit, and push to your new repository.
+
+---
+
+### **4. Explore the cloned directory structure**
+
+After scaffolding from the template, you should see this structure:
+
+```plaintext
+student-project-template/
+├── index.html                 # Semantic starter page
+├── assets/
+│   ├── css/
+│   │   └── style.css          # Responsive, accessible styles
+│   └── js/
+│       └── main.js            # Basic interactions
+├── images/                    # Put local images here (or use ImageKit)
+├── css/style.css              # Legacy import shim to assets/css/style.css
+├── project.yaml               # Project metadata (fill by Week 4)
+├── project-brief.md           # Project concept (Week 2)
+└── .github/workflows/critical.yml  # Optional CI checks
+```
+
+Next actions:
+
+- Open `index.html` and set the project title and description.
+- Open `project.yaml` and fill your handle, URLs, and titles (ES/EN).
+- Open `project-brief.md` and complete the brief for Week 2.
+- Start `npm install` then `npm run dev` if you want a live server (optional, advanced).
 
 ---
 
@@ -276,6 +311,54 @@ In addition, VS Code performs an automatic **pull** when opening a cloned reposi
    - On GitHub, go to **Settings** > **Pages**.
    - Select the branch and save the changes.
    - Your site will be live at: `https://your-username.github.io/your-repository/`.
+
+### **7. Host and optimize images with ImageKit.io**
+
+Large images should not live in your Git repository. Use a CDN to optimize delivery.
+
+1. Sign up and create a media library at ImageKit.io.
+2. Note your URL Endpoint (example): `https://ik.imagekit.io/your_id`
+3. Upload images to folders (example path: `portfolio/hero.jpg`).
+4. Use automatic transformations in your HTML to serve optimized sizes:
+
+```html
+<!-- 800px wide, quality 80 -->
+<img
+	src="https://ik.imagekit.io/your_id/portfolio/hero.jpg?tr=w-800,q-80"
+	alt="Hero image describing the project"
+	width="800"
+	height="auto" />
+```
+
+Responsive example with `srcset`:
+
+```html
+<img
+	src="https://ik.imagekit.io/your_id/portfolio/hero.jpg?tr=w-800,q-80"
+	srcset="
+		https://ik.imagekit.io/your_id/portfolio/hero.jpg?tr=w-400,q-80   400w,
+		https://ik.imagekit.io/your_id/portfolio/hero.jpg?tr=w-800,q-80   800w,
+		https://ik.imagekit.io/your_id/portfolio/hero.jpg?tr=w-1200,q-80 1200w
+	"
+	sizes="(max-width: 600px) 100vw, 800px"
+	alt="Responsive hero image" />
+```
+
+Background image in CSS:
+
+```css
+.hero {
+	background-image: url('https://ik.imagekit.io/your_id/portfolio/texture.png?tr=w-1600,q-70');
+	background-size: cover;
+	background-position: center;
+}
+```
+
+Accessibility notes:
+
+- Always provide meaningful `alt` text (or `alt=""` only for decorative images).
+- Prefer modern formats (AVIF/WEBP) when available: `?tr=f-webp`.
+- Keep local `/images` only for tiny assets; use CDN for photos/artwork.
 
 ---
 
@@ -454,6 +537,3 @@ Remember that this course is framed by the motto **Critical Coding for a Better 
 - You have made your **first gradable commit**.
 
 **ATELIER Note:** This commit becomes the foundation of your portfolio; every week you will add another piece until you culminate in a complete project.
-
-```
-```

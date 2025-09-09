@@ -28,10 +28,11 @@ permalink: /lessons/es/entorno-de-desarrollo/
 3. [Pasos para configurar el entorno de desarrollo](#pasos-para-configurar-el-entorno-de-desarrollo)
    - [Instalar Visual Studio Code](#1-instalar-visual-studio-code)
    - [Instalar Git](#2-instalar-git)
-   - [Crear un repositorio en GitHub y clonarlo en Visual Studio Code](#3-crear-un-repositorio-en-github-y-clonarlo-en-visual-studio-code)
-   - [Crear un archivo `index.html` en el repositorio clonado](#4-crear-un-archivo-indexhtml-en-el-repositorio-clonado)
+   - [Iniciar desde la Plantilla de Proyecto del Estudiante (fácil primero, avanzado abajo)](#3-iniciar-desde-la-plantilla-de-proyecto-del-estudiante-fácil-primero-avanzado-abajo)
+   - [Explorar la estructura del directorio clonado](#4-explorar-la-estructura-del-directorio-clonado)
    - [Desarrollo local con Live Server](#5-desarrollo-local-con-live-server)
    - [Desarrollo Live con GitHub Pages](#6-desarrollo-en-vivo-con-github-pages)
+   - [Alojar y optimizar imágenes con ImageKit.io](#7-alojar-y-optimizar-imágenes-con-imagekitio)
 4. [Flujo diario de trabajo](#flujo-diario-de-trabajo)
 5. [Glosario de conceptos](#glosario-de-conceptos)
    - [Términos del sistema](#términos-del-sistema)
@@ -188,53 +189,85 @@ Aprender este flujo de trabajo ayuda a adoptar prácticas profesionales y sentar
 
 ---
 
-### **3. Crear un repositorio en GitHub y clonarlo en Visual Studio Code**
+### **3. Iniciar desde la Plantilla de Proyecto del Estudiante (fácil primero, avanzado abajo)**
 
-#### **Desde la web de GitHub**
+Usa la plantilla oficial del estudiante en el monorepo del curso: `student-project-template`. Referencia:
 
-1. Inicia sesión en tu cuenta de GitHub.
-2. Haz clic en el botón **New** para crear un nuevo repositorio.
-3. Asigna un nombre al repositorio (por ejemplo, `mi-proyecto-web`).
-4. Elige la configuración pública o privada según tu preferencia.
-5. No añadas ningún archivo inicial (como `README.md`).
-6. Haz clic en **Create repository**.
+- Plantilla del estudiante (GitHub): https://github.com/ruvebal/web-atelier-udit/tree/main/student-project-template
 
-#### **Clonar el repositorio en VS Code**
+#### Principiante — Descargar ZIP en el navegador (Windows/macOS)
 
-1. Copia la URL del repositorio (HTTPS o SSH).
-2. Abre VS Code y ve a **Source Control**.
-3. Haz clic en **Clone Repository** e introduce la URL copiada.
-4. Selecciona una carpeta local donde deseas guardar el repositorio.
-
-**Nota**: Internamente, VS Code ejecuta el comando equivalente:
+1. Entra al repo, botón verde "Code" → "Download ZIP".
+2. Descomprime. Dentro, localiza `student-project-template/`.
+3. Copia el contenido de `student-project-template/` a una carpeta nueva con el nombre de tu proyecto (ej.: `mi-proyecto-web`).
+4. Crea un repositorio vacío en GitHub (mismo nombre).
+5. Inicializa y sube:
 
 ```bash
-git clone <URL-del-repositorio>
+cd mi-proyecto-web
+git init
+git add .
+git commit -m "chore: scaffold desde student-project-template"
+git branch -M main
+git remote add origin https://github.com/<tu-usuario>/mi-proyecto-web.git
+git push -u origin main
 ```
 
-Además, VS Code realiza un **pull** automático al abrir un repositorio clonado para sincronizar cualquier cambio remoto.
+#### Principiante — GitHub Desktop (GUI Windows/macOS)
+
+1. Instala GitHub Desktop e inicia sesión.
+2. File → Clone repository → URL: `https://github.com/ruvebal/web-atelier-udit` → elige ruta local.
+3. En Finder/Explorer, copia `student-project-template/` a una ubicación nueva llamada `mi-proyecto-web`.
+4. GitHub Desktop: File → Add local repository → selecciona `mi-proyecto-web`.
+5. "Publish repository" para crearlo en tu cuenta y hacer push.
 
 ---
 
-### **4. Crear un archivo `index.html` en el repositorio clonado**
+#### Avanzado — VS Code (Clone) y opciones CLI
 
-1. Crea un archivo nuevo llamado `index.html` en el repositorio.
-2. Escribe la estructura HTML básica utilizando **GitHub Copilot**:
-   - Escribe `!` y presiona **Tab** para generar el boilerplate HTML.
-   - Personaliza el archivo, por ejemplo:
-     ```html
-     <!DOCTYPE html>
-     <html lang="es">
-     	<head>
-     		<meta charset="UTF-8" />
-     		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     		<title>Mi Sitio Web</title>
-     	</head>
-     	<body>
-     		<h1>Bienvenido a Mi Sitio Web</h1>
-     	</body>
-     </html>
-     ```
+- VS Code (intermedio): Source Control → "Clone Repository" → pega `https://github.com/ruvebal/web-atelier-udit` → luego copia `student-project-template/` a su propia carpeta de repo.
+- CLI (Node):
+
+```bash
+# Usar tiged para traer solo el subdirectorio
+npx tiged ruvebal/web-atelier-udit/student-project-template mi-proyecto-web
+```
+
+- CLI (sin Node):
+
+```bash
+svn export https://github.com/ruvebal/web-atelier-udit/trunk/student-project-template mi-proyecto-web
+```
+
+Después, `git init`, commit y push a tu nuevo repositorio.
+
+---
+
+### **4. Explorar la estructura del directorio clonado**
+
+Tras generar desde la plantilla, deberías ver esta estructura:
+
+```plaintext
+student-project-template/
+├── index.html                 # Página inicial semántica
+├── assets/
+│   ├── css/
+│   │   └── style.css          # Estilos responsivos y accesibles
+│   └── js/
+│       └── main.js            # Interacciones básicas
+├── images/                    # Imágenes locales (o usar ImageKit)
+├── css/style.css              # Compatibilidad: importa assets/css/style.css
+├── project.yaml               # Metadatos del proyecto (completar Semana 4)
+├── project-brief.md           # Concepto de proyecto (Semana 2)
+└── .github/workflows/critical.yml  # CI opcional
+```
+
+Siguientes pasos:
+
+- Abre `index.html` y ajusta título y descripción del proyecto.
+- Abre `project.yaml` y completa handle, URLs y títulos (ES/EN).
+- Abre `project-brief.md` y completa el brief de la Semana 2.
+- Ejecuta `npm install` y luego `npm run dev` si quieres servidor en vivo (opcional, avanzado).
 
 ---
 
@@ -280,6 +313,54 @@ Además, VS Code realiza un **pull** automático al abrir un repositorio clonado
    - En GitHub, ve a **Settings** > **Pages**.
    - Selecciona la rama y guarda los cambios.
    - Tu sitio estará en vivo en: `https://tu-usuario.github.io/tu-repositorio/`.
+
+### **7. Alojar y optimizar imágenes con ImageKit.io**
+
+Las imágenes grandes no deben vivir en tu repositorio Git. Usa un CDN para optimizar su entrega.
+
+1. Crea una cuenta y una librería en ImageKit.io.
+2. Anota tu URL Endpoint (ej.): `https://ik.imagekit.io/tu_id`
+3. Sube imágenes a carpetas (ej.: `portfolio/hero.jpg`).
+4. Usa transformaciones automáticas en tu HTML para entregar tamaños optimizados:
+
+```html
+<!-- 800px de ancho, calidad 80 -->
+<img
+	src="https://ik.imagekit.io/tu_id/portfolio/hero.jpg?tr=w-800,q-80"
+	alt="Imagen principal del proyecto"
+	width="800"
+	height="auto" />
+```
+
+Ejemplo responsivo con `srcset`:
+
+```html
+<img
+	src="https://ik.imagekit.io/tu_id/portfolio/hero.jpg?tr=w-800,q-80"
+	srcset="
+		https://ik.imagekit.io/tu_id/portfolio/hero.jpg?tr=w-400,q-80   400w,
+		https://ik.imagekit.io/tu_id/portfolio/hero.jpg?tr=w-800,q-80   800w,
+		https://ik.imagekit.io/tu_id/portfolio/hero.jpg?tr=w-1200,q-80 1200w
+	"
+	sizes="(max-width: 600px) 100vw, 800px"
+	alt="Imagen principal responsiva" />
+```
+
+Imagen de fondo en CSS:
+
+```css
+.hero {
+	background-image: url('https://ik.imagekit.io/tu_id/portfolio/texture.png?tr=w-1600,q-70');
+	background-size: cover;
+	background-position: center;
+}
+```
+
+Notas de accesibilidad:
+
+- Proporciona siempre `alt` significativo (o `alt=""` solo si es decorativa).
+- Prefiere formatos modernos (AVIF/WEBP) cuando estén disponibles: `?tr=f-webp`.
+- Deja `/images` local solo para assets pequeños; usa CDN para fotos/arte.
 
 ---
 
