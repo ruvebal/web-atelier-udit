@@ -1,14 +1,14 @@
 /* ATELIER UDIT – minimal prose + layout */
 :root {
 	--max: 72ch;
-	--muted: #6b7280;
-	--accent: #111827;
-	--primary: #667eea;
-	--primary-hover: #5a6fd8;
-	--bg-light: #f7fafc;
-	--border-light: #e2e8f0;
-	--text-secondary: #4a5568;
-	--text-primary: #2d3748;
+	--muted: #64748b; /* slate-500 */
+	--accent: #0f172a; /* slate-900 (deeper) */
+	--primary: #4f46e5; /* indigo-600 (deeper) */
+	--primary-hover: #4338ca; /* indigo-700 */
+	--bg-light: #f1f5f9; /* slate-100 */
+	--border-light: #e2e8f0; /* slate-200 */
+	--text-secondary: #334155; /* slate-700 */
+	--text-primary: #0f172a; /* slate-900 */
 }
 
 * {
@@ -70,19 +70,41 @@ body {
 	margin: 0.75rem 0;
 }
 .prose a {
-	color: #2563eb;
+	color: var(--primary);
+	text-decoration: underline transparent;
+	text-underline-offset: 2px;
 }
 .prose code {
-	background: #f3f4f6;
-	padding: 0.1rem 0.3rem;
+	background: #eef2ff; /* indigo-50 */
+	color: #1e293b; /* slate-800 */
+	padding: 0.1rem 0.35rem;
 	border-radius: 0.25rem;
+	border: 1px solid #c7d2fe; /* indigo-200 */
 }
 .prose pre {
-	background: #0b1020;
+	background: #0a0f1f; /* deeper navy */
 	color: #e5e7eb;
 	padding: 1rem;
 	border-radius: 0.5rem;
+	border: 1px solid #1f2937; /* slate-800 */
 	overflow: auto;
+}
+.prose pre code {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	background: transparent;
+	border: 0;
+}
+.prose pre::-webkit-scrollbar {
+	height: 10px;
+}
+.prose pre::-webkit-scrollbar-thumb {
+	background: #334155; /* slate-700 */
+	border-radius: 8px;
+}
+.prose pre::-webkit-scrollbar-track {
+	background: #0a0f1f;
 }
 .prose ul,
 .prose ol {
@@ -393,4 +415,20 @@ body {
 	.sidebar-info {
 		grid-template-columns: 1fr;
 	}
+}
+
+/* Improve overall readability and color depth for headings */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+	color: var(--text-primary);
+}
+
+/* Blockquotes contrast */
+.prose blockquote {
+	border-left: 4px solid var(--primary);
+	background: #f8fafc;
+	padding: 0.5rem 1rem;
+	color: var(--text-secondary);
 }
