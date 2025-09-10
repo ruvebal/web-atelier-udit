@@ -75,3 +75,9 @@ Commit-driven web pedagogy & research at **UDIT, University of Design, Innovatio
 - **Code:** MIT — see `LICENSE-CODE`
 - **Content:** CC BY-NC 4.0 — see `LICENSE-CONTENT`
   _Unless otherwise indicated._
+
+---
+
+## AI Assistance Disclosure
+
+This project was iterated with the assistance of AI tools including ChatGPT (GPT‑4 and GPT‑5), GitHub Copilot/Codex, and Cursor/Claude. Hundreds of micro‑iterations followed a research–practice–research cycle. All AI outputs were reviewed, adapted, and integrated under the author’s pedagogy developed through teaching web development since Sept 2024. Responsibility for the final design, code, and pedagogy remains with the author.

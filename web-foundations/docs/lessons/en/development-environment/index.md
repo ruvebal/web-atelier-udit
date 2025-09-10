@@ -309,7 +309,9 @@ Next actions:
 
 3. Enable GitHub Pages:
    - On GitHub, go to **Settings** > **Pages**.
-   - Select the branch and save the changes.
+   - Under **Build and deployment → Source**, choose **Deploy from a branch**.
+   - Under **Branch**, select **main** and the folder **/ (root)**.
+   - Click **Save**.
    - Your site will be live at: `https://your-username.github.io/your-repository/`.
 
 ### **7. Host and optimize images with ImageKit.io**

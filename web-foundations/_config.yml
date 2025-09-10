@@ -1,13 +1,25 @@
 title: 'Web Foundations (Canonical Lessons)'
-url: 'https://ruvebal.github.io'
+url: 'https://ruvebal.github.io/web-atelier-udit/'
 baseurl: '/web-atelier-udit'
 markdown: kramdown
 theme: null
 collections:
  lessons:
   output: true
-  permalink: /:lang/lessons/:slug/
+  permalink: /lessons//:lang/:slug/
+ bibliography:
+  output: true
+  permalink: /bibliography/:lang/
+ methodology:
+  output: true
+  permalink: /methodology/:lang/
 defaults:
  - scope: { path: '_lessons', type: 'lessons' }
    values:
     layout: lesson
+ - scope: { path: '_bibliography', type: 'bibliography' }
+   values:
+    layout: bibliography
+ - scope: { path: '_methodology', type: 'methodology' }
+   values:
+    layout: methodology

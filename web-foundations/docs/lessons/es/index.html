@@ -13,7 +13,7 @@ permalink: /lessons/es/
 	item.path[locale] %}
 	<li>
 		{% if p %}
-		<a href="{{ p | absolute_url }}">{{ t }}</a>
+		<a href="{{ p | relative_url }}">{{ t }}</a>
 		{% else %} {{ t }} {% endif %}
 	</li>
 	{% endfor %}

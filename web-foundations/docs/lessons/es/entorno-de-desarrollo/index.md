@@ -311,7 +311,9 @@ Siguientes pasos:
 
 3. Activa GitHub Pages:
    - En GitHub, ve a **Settings** > **Pages**.
-   - Selecciona la rama y guarda los cambios.
+   - En **Build and deployment → Source**, elige **Deploy from a branch**.
+   - En **Branch**, selecciona **main** y la carpeta **/ (root)**.
+   - Haz clic en **Save**.
    - Tu sitio estará en vivo en: `https://tu-usuario.github.io/tu-repositorio/`.
 
 ### **7. Alojar y optimizar imágenes con ImageKit.io**

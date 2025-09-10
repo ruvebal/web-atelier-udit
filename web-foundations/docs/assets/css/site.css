@@ -21,7 +21,7 @@ body {
 	margin: 0;
 	font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial,
 		'Apple Color Emoji', 'Segoe UI Emoji';
-	color: #111827;
+	color: var(--text-primary);
 	background: #fff;
 }
 
@@ -55,6 +55,10 @@ body {
 .site-header nav a:hover {
 	text-decoration: underline;
 }
+.site-header nav a:focus-visible {
+	outline: 3px solid #93c5fd; /* indigo-300 */
+	outline-offset: 2px;
+}
 
 .prose h1 {
 	font-size: 2rem;
@@ -71,8 +75,20 @@ body {
 }
 .prose a {
 	color: var(--primary);
-	text-decoration: underline transparent;
+	text-decoration: underline;
+	text-decoration-color: currentColor;
 	text-underline-offset: 2px;
+}
+.prose a:hover {
+	color: var(--primary-hover);
+	text-decoration-thickness: 2px;
+}
+.prose a:visited {
+	color: #4338ca; /* indigo-700 for clear visited state */
+}
+.prose a:focus-visible {
+	outline: 3px solid #93c5fd; /* indigo-300 */
+	outline-offset: 2px;
 }
 .prose code {
 	background: #eef2ff; /* indigo-50 */
