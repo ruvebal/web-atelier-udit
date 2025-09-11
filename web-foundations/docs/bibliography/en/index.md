@@ -5,12 +5,26 @@ lang: en
 permalink: /bibliography/en/
 ---
 
-The course keeps a living bibliography on Zotero, updated continuously. See the latest version here:
+# Course Bibliography
 
-- Link: https://www.zotero.org/groups/5649080/ruvebal-web/library
+Here you will find the complete and up-to-date course bibliography, managed in Zotero.
 
-Notes:
+**Access the live bibliography here:**
+[Zotero Web Atelier (UDIT) Library](https://www.zotero.org/groups/5649080/ruvebal-web/library)
 
-- Always credit original authors.
+---
+
+## Key bibliography themes
+
+- Web accessibility (WCAG)
+- Responsive design (Container Queries, Subgrid)
+- Ethical and critical web design
+- Agile methodologies in education
+- Front-end tools and technologies
+- History and theory of web design
+
+## Notes
+
+- Always cite original authors.
 - Respect licenses and usage rights.
 - This page serves as a local index linking to the live bibliography.
