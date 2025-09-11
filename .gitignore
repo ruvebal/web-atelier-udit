@@ -2,4 +2,4 @@
 .env
 .env*
 _site/
-*.lock 
+*.lock
