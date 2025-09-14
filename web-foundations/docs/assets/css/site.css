@@ -29,6 +29,8 @@
 	--link: var(--primary);
 	--link-visited: #4338ca; /* indigo-700 – distinct visited state */
 	--focus-outline: #93c5fd; /* indigo-300 – visible focus */
+	--link-inverse: #e2b127; /* inverse of --link for accents */
+	--link-on-dark: #93c5fd; /* light link color on dark code blocks */
 
 	/* Contrasting foregrounds for colored surfaces */
 	--on-primary: #ffffff; /* text/icon color on primary surfaces */
@@ -136,6 +138,13 @@ body {
 	border: 1px solid var(--code-block-border);
 	overflow: auto;
 }
+
+.prose pre a {
+	color: var(--link-on-dark);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
 .prose pre code {
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 	font-size: 0.9375rem;
