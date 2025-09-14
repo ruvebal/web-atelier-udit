@@ -30,6 +30,7 @@
 	--link-visited: #4338ca; /* indigo-700 – distinct visited state */
 	--focus-outline: #93c5fd; /* indigo-300 – visible focus */
 	--link-inverse: #e2b127; /* inverse of --link for accents */
+	--link-visited-inverse: #e2b127; /* inverse of --link-visited for accents */
 	--link-on-dark: #93c5fd; /* light link color on dark code blocks */
 
 	/* Contrasting foregrounds for colored surfaces */
@@ -117,7 +118,7 @@ body {
 	text-decoration-thickness: 2px;
 }
 .prose a:visited {
-	color: var(--link-visited);
+	color: var(--link-visited-inverse);
 	
 }
 	outline: 3px solid var(--focus-outline);
