@@ -51,6 +51,19 @@
     es: complete
     en: complete
   week: 3
+- slug: js-intro
+  title:
+    es: Introducción a JavaScript
+    en: Introduction to JavaScript
+  path:
+    es: /lessons/es/js-intro/
+    en: /lessons/en/js-intro/
+  file:
+    es: lessons/es/js-intro/index.md
+    en: lessons/en/js-intro/index.md
+  status:
+    es: complete
+    en: stub
 - slug: readings
   title:
     es: Lecturas
@@ -90,6 +103,19 @@
   status:
     es: complete
     en: stub
+- slug: web-analysis
+  title:
+    es: Guía para el Análisis Web
+    en: Web Analysis Guide
+  path:
+    es: /lessons/es/analisis-web/
+    en: /lessons/en/web-analysis/
+  file:
+    es: lessons/es/analisis-web/index.md
+    en: lessons/en/web-analysis/index.md
+  status:
+    es: complete
+    en: stub
 - slug: web-basics-diagnosis
   title:
     es: "Fundamentos web: Checklist de diagnóstico"
@@ -101,33 +127,5 @@
     es: lessons/es/web-basics-diagnosis/index.md
     en: lessons/en/web-basics-diagnosis/index.md
   status:
-   es: complete
-   en: stub
-
-- slug: web-analysis
-  title:
-   es: 'Guía para el Análisis Web'
-   en: 'Web Analysis Guide'
-  path:
-   es: /lessons/es/analisis-web/
-   en: /lessons/en/web-analysis/
-  file:
-   es: lessons/es/analisis-web/index.md
-   en: lessons/en/web-analysis/index.md
-  status:
-   es: complete
-   en: stub
-
-- slug: js-intro
-  title:
-   es: 'Introducción a JavaScript'
-   en: 'Introduction to JavaScript'
-  path:
-   es: /lessons/es/js-intro/
-   en: /lessons/en/js-intro/
-  file:
-   es: lessons/es/js-intro/index.md
-   en: lessons/en/js-intro/index.md
-  status:
-   es: complete
-   en: stub
+    es: complete
+    en: stub
