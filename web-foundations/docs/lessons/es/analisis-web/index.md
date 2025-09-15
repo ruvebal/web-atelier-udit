@@ -10,6 +10,17 @@ date: 2025-09-08
 permalink: /lessons/es/analisis-web/
 ---
 
+## 📋 Tabla de Contenidos
+
+{: .no_toc }
+
+<!-- prettier-ignore-start -->
+
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
 ## [Informe condensado de análisis web](#an%C3%A1lisis-de-p%C3%A1ginas-web-m%C3%A9todos-herramientas-y-criterios-en-proceso)
 
 ### 1. Enfoques teóricos

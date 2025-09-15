@@ -105,3 +105,17 @@
   status:
    es: complete
    en: stub
+
+- slug: js-intro
+  title:
+   es: 'Introducción a JavaScript'
+   en: 'Introduction to JavaScript'
+  path:
+   es: /lessons/es/js-intro/
+   en: /lessons/en/js-intro/
+  file:
+   es: lessons/es/js-intro/index.md
+   en: lessons/en/js-intro/index.md
+  status:
+   es: complete
+   en: stub

@@ -1,7 +1,7 @@
 /* ATELIER UDIT – minimal prose + layout */
 :root {
 	/* Layout scale */
-	--max: 72ch; /* Optimal readable measure for prose */
+	--max: clamp(66ch, 2.5vw + 78ch, 104ch); /* Harmonic readable measure for prose (wider) */
 
 	--background: hsla(213, 100%, 18%, 0.9999); /* #00295E */
 	--foreground: hsla(60, 60%, 49%, 0.9999); /* #C9C932 */
