@@ -1,4 +1,4 @@
-# WEB ATELIER (UDIT) · Professor Course Template
+# WEB ATELIER (UDIT) · Professor's Repository
 
 _Critical Coding for a Better Living._
 

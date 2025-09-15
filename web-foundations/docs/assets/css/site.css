@@ -754,3 +754,180 @@ img.footer-logo {
 		position: static;
 	}
 }
+
+/* ========================================
+   Accessibility & Readability Enhancements
+   ======================================== */
+
+/* Better scroll targets for in-page anchors (TOC, footnotes) */
+:where(.prose) h1,
+:where(.prose) h2,
+:where(.prose) h3,
+:where(.prose) h4 {
+	scroll-margin-top: 5rem;
+}
+
+/* Improve paragraph readability and prevent overflow in narrow viewports */
+:where(.prose) p {
+	max-width: 75ch;
+	hyphens: auto;
+	overflow-wrap: anywhere;
+}
+
+/* Tighter vertical rhythm for lists */
+:where(.prose) ul,
+:where(.prose) ol {
+	margin-block: 0.75rem 1rem;
+}
+:where(.prose) li {
+	margin-block: 0.25rem;
+}
+
+/* Footnotes (kramdown) clarity and touch targets */
+:where(.prose) .footnotes {
+	font-size: clamp(0.875rem, 0.35vw + 0.75rem, 0.95rem);
+	border-top: 1px solid var(--border-light);
+	margin-top: 2rem;
+	padding-top: 1rem;
+	color: var(--text-secondary);
+}
+:where(.prose) .footnotes ol {
+	padding-left: 1.25rem;
+}
+:where(.prose) .footnotes li {
+	margin: 0.5rem 0;
+}
+:where(.prose) sup a {
+	text-decoration: none;
+	border-bottom: 1px dotted var(--border-light);
+	padding: 0 0.1em;
+	color: var(--link);
+}
+:where(.prose) a.reversefootnote {
+	text-decoration: none;
+	color: var(--muted);
+	margin-left: 0.4em;
+	border: 0;
+}
+:where(.prose) a.reversefootnote:hover {
+	color: var(--primary-hover);
+}
+
+/* Optional heading anchors (GitHub-like) – requires anchor links in HTML if used */
+:where(.prose) h2[id],
+:where(.prose) h3[id] {
+	position: relative;
+}
+:where(.prose) h2[id]:hover a.anchor,
+:where(.prose) h2[id]:focus-within a.anchor,
+:where(.prose) h3[id]:hover a.anchor,
+:where(.prose) h3[id]:focus-within a.anchor {
+	opacity: 1;
+}
+:where(.prose) a.anchor {
+	position: absolute;
+	left: -1.25em;
+	top: 0.15em;
+	opacity: 0;
+	text-decoration: none;
+	color: var(--muted);
+	transition: opacity 0.2s ease;
+}
+:where(.prose) a.anchor::before {
+	content: '#';
+}
+
+/* Code refinements */
+:where(.prose) pre {
+	overscroll-behavior: contain;
+}
+:where(.prose) pre code .hl {
+	background: rgba(255, 255, 255, 0.06);
+	display: block;
+	margin: 0 -1rem;
+	padding: 0 1rem;
+}
+
+/* Tables: header contrast and captions */
+:where(.prose) table thead th {
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	border-bottom: 1px solid var(--border-light);
+}
+:where(.prose) table caption {
+	caption-side: bottom;
+	padding: 0.5rem 0;
+	color: var(--muted);
+	font-size: 0.95em;
+}
+
+/* Links, focus, and selection */
+:where(.prose) a {
+	text-decoration-thickness: 2px;
+	text-underline-offset: 2px;
+	text-decoration-skip-ink: auto;
+}
+:where(a, button, input, select, textarea):focus-visible {
+	outline: 3px solid var(--focus-outline);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+::selection {
+	background: color-mix(in oklab, var(--primary), white 75%);
+	color: var(--text-primary);
+}
+
+/* Skip link (add <a href="#main" class="skip-link">Saltar al contenido</a> in layout if desired) */
+.skip-link {
+	position: absolute;
+	left: -9999px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+.skip-link:focus {
+	position: fixed;
+	left: 1rem;
+	top: 1rem;
+	width: auto;
+	height: auto;
+	padding: 0.5rem 0.75rem;
+	background: var(--primary);
+	color: var(--on-primary);
+	border-radius: 6px;
+	z-index: 1000;
+}
+
+/* Reduced motion and print styles */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+	}
+}
+@media print {
+	body {
+		background: #fff;
+		color: #111;
+	}
+	.site-header,
+	.site-footer,
+	nav,
+	.hero-section {
+		display: none !important;
+	}
+	.container {
+		max-width: none;
+		padding: 0;
+	}
+	a {
+		color: #000;
+		text-decoration: underline;
+	}
+	pre {
+		white-space: pre-wrap;
+		border: 1px solid #ddd;
+	}
+}

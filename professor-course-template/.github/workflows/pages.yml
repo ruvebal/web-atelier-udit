@@ -1,101 +1,122 @@
 name: Build & Deploy (Pages by Term)
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - '20[0-9][0-9]-*/**'
-      - '_data/students-*.yml'
-      - '_includes/**'
-      - '_layouts/**'
-      - '_config.yml'
-  workflow_dispatch:
+ push:
+  branches: [main]
+  paths:
+   - '20[0-9][0-9]-*/**'
+   - '_data/students/**'
+   - '_includes/**'
+   - '_layouts/**'
+   - '_config.yml'
+ workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+ contents: read
+ pages: write
+ id-token: write
 
 concurrency:
-  group: 'pages'
-  cancel-in-progress: true
+ group: 'pages'
+ cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+ build:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v4
+     with:
+      fetch-depth: 0
 
-      - id: detect
-        name: Detect changed term
-        run: |
-          CHANGED=$(git diff --name-only HEAD~1 HEAD || true)
-          TERM=""
-          for f in $CHANGED; do
-            case "$f" in
-              20[0-9][0-9]-*/*) TERM="${f%%/*}"; break;;
-              _data/students-*.yml) TERM="${f##*_data/students-}"; TERM="${TERM%.yml}"; break;;
-            esac
-          done
-          if [ -z "$TERM" ]; then TERM="$(ls -d 20[0-9][0-9]-* | head -n1 || true)"; fi
-          echo "term_dir=$TERM" >> $GITHUB_OUTPUT
-          echo "term_key=$TERM" >> $GITHUB_OUTPUT
-          echo "Detected term: $TERM"
+   - uses: ruby/setup-ruby@v1
+     with:
+      ruby-version: '3.2'
+      bundler-cache: true
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2'
-          bundler-cache: true
+   - id: detect
+     name: Detect changed term
+     run: |
+      CHANGED=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" || true)
+      TERM=""
+      for f in $CHANGED; do
+        case "$f" in
+          20[0-9][0-9]-*/*) TERM="${f%%/*}"; break;;
+          _data/students/*) TERM="${f##*_data/students/}"; TERM="${TERM%.yml}"; break;;
+        esac
+      done
+      if [ -z "$TERM" ]; then TERM="$(ls -d 20[0-9][0-9]-* 2>/dev/null | sort -Vr | head -n1 || true)"; fi
+      echo "term_dir=$TERM" >> $GITHUB_OUTPUT
+      echo "term_key=$TERM" >> $GITHUB_OUTPUT
+      echo "Detected term: $TERM"
 
-      - name: Install Jekyll deps
-        run: |
-          if [ -f Gemfile ]; then bundle install --path vendor/bundle; fi
+   - id: baseurl
+     name: Read baseurl from _config.yml
+     run: |
+      BASEURL=$(ruby -ryaml -e "cfg=YAML.load_file('_config.yml') || {}; puts (cfg['baseurl'] || '')")
+      echo "baseurl=$BASEURL" >> $GITHUB_OUTPUT
+      echo "Baseurl: $BASEURL"
 
-      - name: Jekyll build
-        run: bundle exec jekyll build --trace
-        env:
-          JEKYLL_ENV: production
+   - name: Install Jekyll deps
+     run: |
+      if [ -f Gemfile ]; then
+        bundle install --path vendor/bundle
+      else
+        gem install jekyll
+      fi
 
-      - name: Setup Node (checks)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+   - name: Jekyll build
+     run: |
+      if [ -f Gemfile ]; then
+        bundle exec jekyll build --trace
+      else
+        jekyll build --trace
+      fi
+     env:
+      JEKYLL_ENV: production
 
-      - name: Install check tools
-        run: npm i -D linkinator pa11y-ci http-server
+   - name: Setup Node (checks)
+     uses: actions/setup-node@v4
+     with:
+      node-version: '20'
 
-      - name: Serve _site
-        run: npx http-server _site -p 8080 & echo $! > /tmp/http.pid; sleep 2
+   - name: Install check tools
+     run: npm i -D linkinator pa11y-ci http-server
 
-      - name: Link check (ES/EN for term)
-        run: |
-          TERM="${{ steps.detect.outputs.term_dir }}"
-          if [ -n "$TERM" ]; then
-            echo "Checking links for term: $TERM"
-            npx linkinator "http://127.0.0.1:8080/$TERM/es/" --recurse --timeout 10000
-            npx linkinator "http://127.0.0.1:8080/$TERM/en/" --recurse --timeout 10000
-          fi
+   - name: Serve _site
+     run: npx http-server _site -p 8080 & echo $! > /tmp/http.pid; sleep 2
 
-      - name: Accessibility spot-check
-        run: |
-          echo "Running pa11y-ci against sitemap..."
-          npx pa11y-ci --sitemap http://127.0.0.1:8080/sitemap.xml || true
+   - name: Link check (ES/EN for term)
+     run: |
+      TERM="${{ steps.detect.outputs.term_dir }}"
+      BASEURL="${{ steps.baseurl.outputs.baseurl }}"
+      ROOT="http://127.0.0.1:8080${BASEURL%/}"
+      if [ -n "$TERM" ] && [ -d "_site/$TERM" ]; then
+        [ -d "_site/$TERM/en" ] && npx -y linkinator "$ROOT/$TERM/en/" --recurse --timeout 10000
+        [ -d "_site/$TERM/es" ] && npx -y linkinator "$ROOT/$TERM/es/" --recurse --timeout 10000
+      else
+        echo "Term directory _site/$TERM not found; skipping link checks."
+      fi
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
+   - name: Accessibility spot-check
+     run: |
+      echo "Running pa11y-ci against sitemap..."
+      npx -y pa11y-ci --sitemap "http://127.0.0.1:8080${{ steps.baseurl.outputs.baseurl }}/sitemap.xml" || true
 
-      - name: Stop server
-        if: always()
-        run: kill $(cat /tmp/http.pid) || true
+   - name: Upload Pages artifact
+     uses: actions/upload-pages-artifact@v3
+     with:
+      path: _site
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+   - name: Stop server
+     if: always()
+     run: kill $(cat /tmp/http.pid) || true
+
+ deploy:
+  needs: build
+  runs-on: ubuntu-latest
+  environment:
+   name: github-pages
+   url: ${{ steps.deployment.outputs.page_url }}
+  steps:
+   - id: deployment
+     uses: actions/deploy-pages@v4

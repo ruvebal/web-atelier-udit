@@ -1,0 +1,3 @@
+- { num: '01', slug: 'development-environment', title: 'Development Environment' }
+- { num: 'R1', slug: 'readings', title: 'Readings' }
+- { num: 'B1', slug: 'bibliography', title: 'Bibliography' }

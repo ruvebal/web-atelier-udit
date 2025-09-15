@@ -1,0 +1,3 @@
+- { num: '01', slug: 'entorno-de-desarrollo', title: 'Entorno de desarrollo' }
+- { num: 'R1', slug: 'lecturas', title: 'Lecturas' }
+- { num: 'B1', slug: 'bibliografia', title: 'Bibliografía' }

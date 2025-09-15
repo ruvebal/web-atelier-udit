@@ -7,13 +7,13 @@ term: 2025-fall
 
 # {{ page.title }}
 
-**Universidad:** {{ site.data.course.es.university }}  
+**Universidad:** {{ site.data.courses[page.term].es.university }}  
 **Profesor:** Rubén Vega Balbás, PhD  
 **Metodología:** _Critical Coding for a Better Living_
 
 ## Bienvenida
 
-Este es el sitio del curso de **{{ site.data.course.es.course_name }}** para el semestre {{ site.data.course.es.term }}. Aquí encontrarás:
+Este es el sitio del curso de **{{ site.data.courses[page.term].es.course_name }}** para el semestre {{ site.data.courses[page.term].es.term }}. Aquí encontrarás:
 
 - Enlaces a las lecciones canónicas
 - El showroom de proyectos estudiantiles
@@ -21,15 +21,15 @@ Este es el sitio del curso de **{{ site.data.course.es.course_name }}** para el 
 
 ## Lecciones
 
-Las lecciones canónicas se encuentran en [Web Foundations]({{ site.data.course.es.canonical_lessons_base }}).
+Las lecciones canónicas se encuentran en [Web Foundations]({{ site.data.courses[page.term].es.canonical_lessons_base }}).
 
 ### Semana 1: Configuración
 
-- [Entorno de Desarrollo]({{ site.data.course.es.canonical_lessons_base }}/lessons/es/development-environment.html)
+- [Entorno de Desarrollo]({{ site.data.courses[page.term].es.canonical_lessons_base }}/lessons/es/development-environment.html)
 
 ### Semana 3: Diseño Visual
 
-- [Tipografía y Color]({{ site.data.course.es.canonical_lessons_base }}/lessons/es/typography-color.html)
+- [Tipografía y Color]({{ site.data.courses[page.term].es.canonical_lessons_base }}/lessons/es/typography-color.html)
 
 ## Proyectos Estudiantiles
 
@@ -45,6 +45,6 @@ Las lecciones canónicas se encuentran en [Web Foundations]({{ site.data.course.
 
 ## Recursos
 
-- [Metodología ATELIER]({{ site.data.course.es.canonical_lessons_base }}/methodology/es/)
-- [Plantillas y Ejemplos]({{ site.data.course.es.canonical_lessons_base }}/templates/)
+- [Metodología ATELIER]({{ site.data.courses[page.term].es.canonical_lessons_base }}/methodology/es/)
+- [Plantillas y Ejemplos]({{ site.data.courses[page.term].es.canonical_lessons_base }}/templates/)
 - [GitHub Classroom](https://classroom.github.com/) (enlace específico por confirmar)
