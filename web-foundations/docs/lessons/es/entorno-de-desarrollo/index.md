@@ -32,7 +32,8 @@ permalink: /lessons/es/entorno-de-desarrollo/
    - [Explorar la estructura del directorio clonado](#4-explorar-la-estructura-del-directorio-clonado)
    - [Desarrollo local con Live Server](#5-desarrollo-local-con-live-server)
    - [Desarrollo Live con GitHub Pages](#6-desarrollo-en-vivo-con-github-pages)
-   - [Alojar y optimizar imágenes con ImageKit.io](#7-alojar-y-optimizar-imágenes-con-imagekitio)
+   - [Crear cuenta y configurar ImageKit.io](#7-crear-cuenta-y-configurar-imagekitio)
+   - [Alojar y optimizar imágenes con ImageKit.io](#8-alojar-y-optimizar-imágenes-con-imagekitio)
 4. [Flujo diario de trabajo](#flujo-diario-de-trabajo)
 5. [Glosario de conceptos](#glosario-de-conceptos)
    - [Términos del sistema](#términos-del-sistema)
@@ -316,7 +317,50 @@ Siguientes pasos:
    - Haz clic en **Save**.
    - Tu sitio estará en vivo en: `https://tu-usuario.github.io/tu-repositorio/`.
 
-### **7. Alojar y optimizar imágenes con ImageKit.io**
+### **7. Crear cuenta y configurar ImageKit.io**
+
+- Crea una cuenta gratuita en `https://imagekit.io/`.
+- En el panel, anota:
+  - Public Key, Private Key (no la compartas), URL Endpoint (p. ej., `https://ik.imagekit.io/<tu_id>/`).
+- Crea una carpeta `images/` en tu repo y sube algunas imágenes de prueba a ImageKit.
+- Añade tu dominio de desarrollo (p. ej., `http://127.0.0.1:5500`) en ImageKit → URL Endpoints → Allowed Origins.
+
+#### ¿Por qué usar ImageKit (o un CDN de imágenes)?
+
+- Optimiza y sirve imágenes a diferentes tamaños/formats (WebP/AVIF) según dispositivo.
+- Transforma por URL (ancho, calidad, recortes) sin re-exportar archivos.
+- Entrega rápida desde CDN global.
+
+#### API Básica (media)
+
+- Una API (Interfaz de Programación) permite pedir/gestionar recursos (como imágenes) de forma estructurada.
+- En ImageKit, puedes:
+  - Usar su **API de URL** (solo cliente) para transformar imágenes con parámetros.
+  - Usar su **REST API** (servidor) para subir/listar/borrar. Para este curso, usa solo URL API en cliente.
+
+Ejemplo de URL con transformaciones:
+
+```html
+<img
+	src="https://ik.imagekit.io/mi_cuenta/foto.jpg?tr=w-800,q-60"
+	srcset="
+		https://ik.imagekit.io/mi_cuenta/foto.jpg?tr=w-400,q-60   400w,
+		https://ik.imagekit.io/mi_cuenta/foto.jpg?tr=w-800,q-60   800w,
+		https://ik.imagekit.io/mi_cuenta/foto.jpg?tr=w-1200,q-60 1200w
+	"
+	sizes="(max-width: 600px) 100vw, 600px"
+	alt="Retrato natural con iluminación suave" />
+```
+
+Claves de accesibilidad:
+
+- Escribe `alt` descriptivo y específico del contenido (no: "imagen1").
+- Evita texto incrustado en la imagen; si existe, repítelo en el `alt`.
+- Asegura suficiente contraste si hay texto superpuesto.
+
+---
+
+### **8. Alojar y optimizar imágenes con ImageKit.io**
 
 Las imágenes grandes no deben vivir en tu repositorio Git. Usa un CDN para optimizar su entrega.
 
@@ -444,6 +488,9 @@ Notas de accesibilidad:
 2. **Commit**: Una captura del estado actual de tu proyecto.
 3. **Push**: Subir cambios al repositorio remoto.
 4. **Branch**: Una versión del proyecto para experimentar o desarrollar características.
+5. **Binarios en Git**: Imágenes/videos/archivos no-texto no muestran diferencias línea a línea y hacen el repo pesado.
+   - Evita subir originales pesados; usa un CDN como ImageKit y enlaza por URL.
+   - En proyectos grandes, considera **Git LFS** para binarios, pero no es necesario en este curso.
 
 ---
 
