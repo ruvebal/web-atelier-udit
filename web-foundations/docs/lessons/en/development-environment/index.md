@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Development Environment'
-title_en: 'Development Environment'
+title_en: 'Guide to Setting Up a Web Development Environment for Students'
 slug: development-environment
 date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'
@@ -9,36 +9,23 @@ lang: en
 permalink: /lessons/en/development-environment/
 ---
 
-> **Session Objective (2h)**
->
+## 📋 Table of Contents
+
+{: .no_toc }
+
+<!-- prettier-ignore-start -->
+
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
+## Objectives
+
 > 1. Have VS Code + Git working.
 > 2. Create **a personal repository** on GitHub.
 > 3. Publish a **Hello, Web** on GitHub Pages.
 >    **ATELIER Note:** at the end, each student will make **one mandatory commit** with a clear message and a brief `README.md`. This commit will serve as evidence of learning from the session.
-
----
-
-# **Guide to Setting Up a Web Development Environment for Students**
-
-## **Table of Contents**
-
-1. [Why set up a development environment](#why-set-up-a-development-environment)
-2. [Development environments: Local vs Live](#development-environments-local-vs-live)
-3. [Steps to set up the development environment](#steps-to-set-up-the-development-environment)
-   - [Install Visual Studio Code](#1-install-visual-studio-code)
-   - [Install Git](#2-install-git)
-   - [Start from Student Project Template (beginner first, advanced below)](#3-start-from-student-project-template-beginner-first-advanced-below)
-   - [Explore the cloned directory structure](#4-explore-the-cloned-directory-structure)
-   - [Local development with Live Server](#5-local-development-with-live-server)
-   - [Live development with GitHub Pages](#6-live-development-with-github-pages)
-   - [Host and optimize images with ImageKit.io](#7-host-and-optimize-images-with-imagekitio)
-4. [Daily workflow](#daily-workflow)
-5. [Glossary of concepts](#glossary-of-concepts)
-   - [System terms](#system-terms)
-   - [Network terms](#network-terms)
-   - [Git and repository terms](#git-and-repository-terms)
-6. [Appendix: Installing Homebrew on macOS](#appendix-installing-homebrew-on-macos)
-7. [Final references](#final-references)
 
 ---
 

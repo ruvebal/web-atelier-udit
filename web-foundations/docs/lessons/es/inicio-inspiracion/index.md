@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: 'Inicio & Inspiración'
+title: 'Inspiración & Inicio'
 title_en: 'Inspiration & Kickoff'
 slug: inicio-inspiracion
 date: 2025-09-10
@@ -13,15 +13,15 @@ permalink: /lessons/es/inicio-inspiracion/
 >
 > 1. Iniciar tu diario de inspiración y definir la dirección del proyecto.
 > 2. Redactar la primera versión del brief (audiencia, tema, alcance).
-> 3. Practicar accesibilidad por defecto y citar fuentes (ética de critical coding).
+> 3. Practicar accesibilidad por defecto y citar fuentes (ethos de critical coding).
 
 ---
 
 ## Prerrequisito
 
-Completar la lección anterior: Entorno de Desarrollo. Tu repo debe estar publicado en GitHub Pages y contener el scaffold de la plantilla estudiantil.
+Completa la lección anterior: Entorno de Desarrollo. Tu repo debe estar publicado en GitHub Pages y contener el scaffold de la plantilla de estudiante.
 
-- Plantilla del estudiante: https://github.com/ruvebal/web-atelier-udit/tree/main/student-project-template
+- Referencia de la plantilla del estudiante: https://github.com/ruvebal/web-atelier-udit/tree/main/student-project-template
 - Archivos que editarás hoy:
   - `project-brief.md` (definición de proyecto)
   - `project-inspiration.md` (registro de inspiración)
@@ -32,16 +32,16 @@ Completar la lección anterior: Entorno de Desarrollo. Tu repo debe estar public
 
 Al final de la sesión tendrás:
 
-- Un diario de inspiración con fuentes y créditos de imágenes
+- Un diario de inspiración documentado con fuentes y créditos de imágenes
 - Un brief inicial (problema, audiencia, valores, criterios de éxito)
 - Una pequeña galería o lista accesible en `index.html` con enlaces a inspiraciones
-- Un commit evaluable que evidencie el proceso (proceso > perfección)
+- Un commit calificado que evidencie el progreso (proceso sobre perfección)
 
 ---
 
 ## Paso 1 — Lee el brief y fija una dirección
 
-Abre `project-brief.md` y completa con frases breves y concretas:
+Abre `project-brief.md` y completa estas secciones con frases breves y concretas:
 
 - ¿Qué vas a construir? (1–2 frases)
 - ¿Para quién? (audiencia principal, al menos una necesidad de accesibilidad)
@@ -68,11 +68,11 @@ Buenas prácticas con imágenes:
 
 ---
 
-## Paso 3 — Accesibilidad por defecto (práctica ya)
+## Paso 3 — Accesibilidad por defecto (práctica ahora)
 
 Aplica esto en tus páginas actuales:
 
-- Asegura `<html lang="es">` y jerarquía de encabezados lógica (un solo `<h1>`)
+- Asegura `<html lang="en">` y una jerarquía de encabezados lógica (un `<h1>`)
 - Proporciona `alt` significativo o `alt=""` si la imagen es decorativa
 - Mantén contraste ≥ 4.5:1 en texto; evita texto embebido en imágenes
 - Asegura foco visible y navegable por teclado (enlaces, skip link)
@@ -87,7 +87,7 @@ En `index.html`, añade una sección “Inspiración”:
 - Una lista de 3–5 enlaces y por qué importan (1 línea)
 - Opcional: mini galería (imágenes optimizadas con `alt` y créditos)
 
-Sencillo y honesto; es un rastro público de tu pensamiento, no un diseño final.
+Manténlo simple; esto es un rastro público de tu pensamiento, no un diseño final.
 
 ---
 
@@ -109,12 +109,12 @@ Rúbrica rápida (0–2):
 
 ---
 
-## Lista de verificación (copia en tus notas/PR)
+## Lista de verificación (copia en tu PR/issue/notas)
 
 - [ ] `project-brief.md` v1 completado
 - [ ] `project-inspiration.md` con 5–8 fuentes y notas
 - [ ] `index.html` incluye sección de inspiración
-- [ ] Todas las imágenes con `alt` y créditos; colores con contraste
+- [ ] Todas las imágenes tienen `alt` y créditos; los colores cumplen el contraste
 - [ ] Commit subido; Pages actualizado
 
 ---
