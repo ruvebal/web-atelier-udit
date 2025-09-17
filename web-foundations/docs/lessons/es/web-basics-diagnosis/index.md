@@ -73,13 +73,13 @@ permalink: /lessons/es/web-basics-diagnosis/
 
 ### 🔹 Entorno de desarrollo
 
-| Concepto                               | Referencia canónica                                                                                                             |    Estado    |
-| :------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------ | :----------: |
-| Tener instalado **Visual Studio Code** | [VS Code docs](https://code.visualstudio.com/docs)                                                                              | 🟢 / 🟡 / 🔴 |
-| Prettier funcionando al guardar        | [Prettier: Editor integration](https://prettier.io/docs/en/editors.html)                                                        | 🟢 / 🟡 / 🔴 |
-| Linter activo (HTMLHint/ESLint)        | [ESLint](https://eslint.org/docs/latest/use/getting-started) · [HTMLHint](https://htmlhint.com/docs/user-guide/getting-started) | 🟢 / 🟡 / 🔴 |
-| Clonar repo en VS Code                 | [GitHub Docs: Clone repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)      | 🟢 / 🟡 / 🔴 |
-| Hacer un commit de prueba              | [Git basics – Git SCM](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository)                           | 🟢 / 🟡 / 🔴 |
+| Concepto                               | Referencia canónica                                                                                                        |    Estado    |
+| :------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- | :----------: |
+| Tener instalado **Visual Studio Code** | [VS Code docs](https://code.visualstudio.com/docs)                                                                         | 🟢 / 🟡 / 🔴 |
+| Prettier funcionando al guardar        | [Prettier: Editor integration](https://prettier.io/docs/en/editors.html)                                                   | 🟢 / 🟡 / 🔴 |
+| Linter activo (HTMLHint/ESLint)        | [ESLint](https://eslint.org/docs/latest/use/getting-started) · [HTMLHint](https://github.com/htmlhint/HTMLHint#readme)     | 🟢 / 🟡 / 🔴 |
+| Clonar repo en VS Code                 | [GitHub Docs: Clone repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) | 🟢 / 🟡 / 🔴 |
+| Hacer un commit de prueba              | [Git basics – Git SCM](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository)                      | 🟢 / 🟡 / 🔴 |
 
 ---
 
@@ -87,16 +87,16 @@ permalink: /lessons/es/web-basics-diagnosis/
 
 (Revisa también: [FreeCodeCamp: How the Web Works](https://www.freecodecamp.org/news/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c/))
 
-| Concepto                                                                        | Referencia canónica                                                                                                                                      |    Estado    |
-| :------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: |
-| Historia y evolución de la Web (Tim Berners-Lee, orígenes, estándares abiertos) | [MDN: The web and web standards](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards)                  | 🟢 / 🟡 / 🔴 |
-| Estándares web y organismos (W3C, WHATWG, IETF)                                 | [W3C Standards](https://www.w3.org/standards/) · [WHATWG HTML Living Standard](https://html.spec.whatwg.org/)                                            | 🟢 / 🟡 / 🔴 |
-| Cómo funciona la Web (HTTP, DNS, hosting, navegadores)                          | [MDN: How the Internet works](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work)                  | 🟢 / 🟡 / 🔴 |
-| Web 1.0 → Web 2.0 → Web 3.0                                                     | [MDN: Evolution of the Web](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_the_internet#the_evolution_of_the_web) | 🟢 / 🟡 / 🔴 |
-| Accesibilidad web (WCAG, WAI-ARIA)                                              | [W3C WAI: Accessibility standards](https://www.w3.org/WAI/standards-guidelines/) · [WebAIM Principles](https://webaim.org/intro/)                        | 🟢 / 🟡 / 🔴 |
-| Diseño responsivo y adaptable                                                   | [MDN: Responsive design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)                                                | 🟢 / 🟡 / 🔴 |
-| SEO (Search Engine Optimization) básico                                         | [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)                                                     | 🟢 / 🟡 / 🔴 |
-| Impacto visual y jerarquía en diseño web                                        | [Interaction Design Foundation: Web Design Basics](https://www.interaction-design.org/literature/topics/web-design)                                      | 🟢 / 🟡 / 🔴 |
+| Concepto                                                                        | Referencia canónica                                                                                                                                     |    Estado    |
+| :------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------: |
+| Historia y evolución de la Web (Tim Berners-Lee, orígenes, estándares abiertos) | [MDN: The web and web standards](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards)                 | 🟢 / 🟡 / 🔴 |
+| Estándares web y organismos (W3C, WHATWG, IETF)                                 | [W3C Standards](https://www.w3.org/standards/) · [WHATWG HTML Living Standard](https://html.spec.whatwg.org/)                                           | 🟢 / 🟡 / 🔴 |
+| Cómo funciona la Web (HTTP, DNS, hosting, navegadores)                          | [MDN: How the Internet works](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work)                 | 🟢 / 🟡 / 🔴 |
+| Web 1.0 → Web 2.0 → Web 3.0                                                     | [MDN: Evolución de la Web](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_the_Internet#The_evolution_of_the_web) | 🟢 / 🟡 / 🔴 |
+| Accesibilidad web (WCAG, WAI-ARIA)                                              | [W3C WAI: Accessibility standards](https://www.w3.org/WAI/standards-guidelines/) · [WebAIM Principles](https://webaim.org/intro/)                       | 🟢 / 🟡 / 🔴 |
+| Diseño responsivo y adaptable                                                   | [MDN: Responsive design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)                                               | 🟢 / 🟡 / 🔴 |
+| SEO (Search Engine Optimization) básico                                         | [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)                                                    | 🟢 / 🟡 / 🔴 |
+| Impacto visual y jerarquía en diseño web                                        | [Interaction Design Foundation: Web Design Basics](https://www.interaction-design.org/literature/topics/web-design)                                     | 🟢 / 🟡 / 🔴 |
 
 ---
 

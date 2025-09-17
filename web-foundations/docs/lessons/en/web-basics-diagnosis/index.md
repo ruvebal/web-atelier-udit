@@ -72,13 +72,13 @@ permalink: /lessons/en/web-basics-diagnosis/
 
 ### 🔹 Development environment
 
-| Concept                               | Canonical reference                                                                                                             |    Status    |
-| :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------ | :----------: |
-| Have **Visual Studio Code** installed | [VS Code docs](https://code.visualstudio.com/docs)                                                                              | 🟢 / 🟡 / 🔴 |
-| Prettier working on save              | [Prettier: Editor integration](https://prettier.io/docs/en/editors.html)                                                        | 🟢 / 🟡 / 🔴 |
-| Linter active (HTMLHint/ESLint)       | [ESLint](https://eslint.org/docs/latest/use/getting-started) · [HTMLHint](https://htmlhint.com/docs/user-guide/getting-started) | 🟢 / 🟡 / 🔴 |
-| Clone repo in VS Code                 | [GitHub Docs: Clone repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)      | 🟢 / 🟡 / 🔴 |
-| Make a test commit                    | [Git basics – Git SCM](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository)                           | 🟢 / 🟡 / 🔴 |
+| Concept                               | Canonical reference                                                                                                        |    Status    |
+| :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------- | :----------: |
+| Have **Visual Studio Code** installed | [VS Code docs](https://code.visualstudio.com/docs)                                                                         | 🟢 / 🟡 / 🔴 |
+| Prettier working on save              | [Prettier: Editor integration](https://prettier.io/docs/en/editors.html)                                                   | 🟢 / 🟡 / 🔴 |
+| Linter active (HTMLHint/ESLint)       | [ESLint](https://eslint.org/docs/latest/use/getting-started) · [HTMLHint](https://github.com/htmlhint/HTMLHint#readme)     | 🟢 / 🟡 / 🔴 |
+| Clone repo in VS Code                 | [GitHub Docs: Clone repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) | 🟢 / 🟡 / 🔴 |
+| Make a test commit                    | [Git basics – Git SCM](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository)                      | 🟢 / 🟡 / 🔴 |
 
 ---
 
@@ -91,7 +91,7 @@ permalink: /lessons/en/web-basics-diagnosis/
 | History and evolution of the Web (Tim Berners-Lee, origins, open standards) | [MDN: The web and web standards](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards)                  | 🟢 / 🟡 / 🔴 |
 | Web standards and bodies (W3C, WHATWG, IETF)                                | [W3C Standards](https://www.w3.org/standards/) · [WHATWG HTML Living Standard](https://html.spec.whatwg.org/)                                            | 🟢 / 🟡 / 🔴 |
 | How the Web works (HTTP, DNS, hosting, browsers)                            | [MDN: How the Internet works](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work)                  | 🟢 / 🟡 / 🔴 |
-| Web 1.0 → Web 2.0 → Web 3.0                                                 | [MDN: Evolution of the Web](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_the_internet#the_evolution_of_the_web) | 🟢 / 🟡 / 🔴 |
+| Web 1.0 → Web 2.0 → Web 3.0                                                 | [MDN: Evolution of the Web](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_the_Internet#The_evolution_of_the_web) | 🟢 / 🟡 / 🔴 |
 | Web accessibility (WCAG, WAI-ARIA)                                          | [W3C WAI: Accessibility standards](https://www.w3.org/WAI/standards-guidelines/) · [WebAIM Principles](https://webaim.org/intro/)                        | 🟢 / 🟡 / 🔴 |
 | Responsive and adaptive design                                              | [MDN: Responsive design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)                                                | 🟢 / 🟡 / 🔴 |
 | Basic SEO (Search Engine Optimization)                                      | [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)                                                     | 🟢 / 🟡 / 🔴 |
