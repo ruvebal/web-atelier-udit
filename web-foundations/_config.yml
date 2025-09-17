@@ -2,6 +2,7 @@ title: 'Web Foundations (Canonical Lessons)'
 url: 'https://ruvebal.github.io/web-atelier-udit/'
 baseurl: '/web-atelier-udit'
 markdown: kramdown
+kramdown: { toc_levels: 2..3, footnote_backlink: '↩︎' }
 theme: null
 collections:
  lessons:

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: 'es' }}">
+<html lang="{{ page.lang | default: site.lang | default: 'es' }}">
 	<head>
 		{% include head.html %} {% comment %} Optional structured data & hreflang {% endcomment %} {% include
 		head-hreflang.html %} {% include head-jsonld.html %}
 	</head>
 	<body>
+		<a href="#main" class="skip-link">Saltar al contenido</a>
 		{% include header.html %}
-		<main class="container prose">{{ content }}</main>
+		<main id="main" class="container prose">{{ content }}</main>
 		{% include footer.html %}
 	</body>
 </html>

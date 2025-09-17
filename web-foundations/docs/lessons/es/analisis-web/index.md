@@ -6,7 +6,6 @@ slug: web-analysis
 date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'
 lang: es
-date: 2025-09-08
 permalink: /lessons/es/analisis-web/
 ---
 
