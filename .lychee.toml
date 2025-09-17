@@ -1,0 +1,19 @@
+exclude_path = [
+  "**/node_modules/**",
+  "professor-course-template/**",
+  "student-project-template/**",
+  "web-foundations/_site/lessons/en/readings/**"
+]
+
+exclude = [
+  "file://*",
+  "https://travis-ci.*/*",
+  "https://img.shields.io/*",
+  "https://www.gnu.org/*",
+  "http://nodeca.github.com/*"
+]
+
+max_concurrency = 8
+retry_wait_time = 2
+timeout = 30
+
