@@ -129,3 +129,16 @@
   status:
    es: complete
    en: complete
+- slug: first-steps
+  title:
+   es: 'Desarrollo Web con HTML – Organización y Buenas Prácticas'
+   en: 'Web Development with HTML – Organization and Best Practices'
+  path:
+   es: /lessons/es/primeros-pasos/
+   en: /lessons/en/first-steps/
+  file:
+   es: lessons/es/primeros-pasos/index.md
+   en: lessons/en/first-steps/index.md
+  status:
+   es: complete
+   en: complete
