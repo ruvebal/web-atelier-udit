@@ -22,8 +22,21 @@
    es: lessons/es/entorno-de-desarrollo/index.md
    en: lessons/en/development-environment/index.md
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
+- slug: first-steps
+  title:
+    es: Desarrollo Web con HTML – Organización y Buenas Prácticas
+    en: Web Development with HTML – Organization and Best Practices
+  path:
+    es: /lessons/es/primeros-pasos/
+    en: /lessons/en/first-steps/
+  file:
+    es: lessons/es/primeros-pasos/index.md
+    en: lessons/en/first-steps/index.md
+  status:
+    es: complete
+    en: complete
 - slug: inspiration-kickoff
   title:
    es: Inicio & Inspiración
@@ -127,18 +140,5 @@
    es: lessons/es/web-design-tools/index.md
    en: lessons/en/web-design-tools/index.md
   status:
-   es: complete
-   en: complete
-- slug: first-steps
-  title:
-   es: 'Desarrollo Web con HTML – Organización y Buenas Prácticas'
-   en: 'Web Development with HTML – Organization and Best Practices'
-  path:
-   es: /lessons/es/primeros-pasos/
-   en: /lessons/en/first-steps/
-  file:
-   es: lessons/es/primeros-pasos/index.md
-   en: lessons/en/first-steps/index.md
-  status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
