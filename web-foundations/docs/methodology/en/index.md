@@ -1,4 +1,26 @@
-# Practice-Oriented Web Design Education Through Incremental Projects
+---
+layout: lesson
+title: 'Practice-Oriented Web Design Education Through Incremental Projects'
+title_es: 'Formación en Diseño Web orientada a la Práctica a través de Proyhectos Incrementales'
+slug: methodology
+date: 2025-09-10
+author: 'Rubén Vega Balbás, PhD'
+lang: en
+permalink: /methodology/en/
+---
+
+## 📋 Table of Contents
+
+{: .no_toc }
+
+<!-- prettier-ignore-start -->
+
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
+
 
 > AI Assistance Disclosure: Parts of this methodology and related materials were iterated with AI tools (ChatGPT GPT‑4/GPT‑5, Copilot/Codex, Cursor/Claude). Iterations followed a research–practice–research cycle and were reviewed by the author. The pedagogy is grounded primarily in classroom experience teaching web development since Sept 2024.
 
