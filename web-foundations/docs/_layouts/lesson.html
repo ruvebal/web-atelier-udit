@@ -4,8 +4,16 @@ layout: default
 
 <article class="lesson prose">
 	<header>
+		{% if page.lang == 'es' %}
 		<p class="muted">WEB ATELIER (UDIT) · Aprender haciendo, con teoría, práctica y reflexión compartida</p>
+		{% else %}
+		<p class="muted">WEB ATELIER (UDIT) · Learning by doing, with theory, practice and shared reflection</p>
+		{% endif %}
 		<h1>{{ page.title }}</h1>
+		<p class="canonical-url">
+			<span class="sr-only">URL:</span>
+			<a href="{{ site.url }}{{ page.url }}" aria-label="Permanent link to this lesson">{{ site.url }}{{ page.url }}</a>
+		</p>
 		{% if page.author or page.date %}
 		<p class="muted">
 			{% if page.author %}By {{ page.author }}{% endif %} {% if page.date %} · {{ page.date | date: "%Y-%m-%d" }}{% endif

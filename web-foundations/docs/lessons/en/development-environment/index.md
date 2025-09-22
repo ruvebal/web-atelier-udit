@@ -630,11 +630,12 @@ Remember that this course is framed by the motto **Critical Coding for a Better 
 
 ---
 
-# Close of Lesson 01
+# Lesson Wrap-Up: Development Environment
 
-- You have set up your **development environment**.
-- You have created your **first personal repo**.
-- You have deployed a **Hello, Web** on GitHub Pages.
-- You have made your **first gradable commit**.
+- You have prepared your **complete development environment**.
+- You have created your **first personal repository** on GitHub.
+- You have deployed your **first web page** on GitHub Pages.
+- You have made your **first evaluable commit** with standard message.
+- You have established the **workflow foundations** for the rest of the course.
 
 **ATELIER Note:** This commit becomes the foundation of your portfolio; every week you will add another piece until you culminate in a complete project.

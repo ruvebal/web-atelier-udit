@@ -15,10 +15,9 @@ permalink: /lessons/es/entorno-de-desarrollo/
 <!-- prettier-ignore-start -->
 
 - TOC
-{:toc}
+  {:toc}
 
-<!-- prettier-ignore-end -->
----
+## <!-- prettier-ignore-end -->
 
 > **Objetivos de la sesión (2h)**
 >
@@ -612,14 +611,15 @@ Recuerda que este curso se enmarca en el lema **Critical Coding for a Better Liv
 
 ---
 
-# Cierre de la Lección 01
+# Cierre de la Lección: Entorno de Desarrollo
 
-- Has preparado tu **entorno de desarrollo**.
-- Has creado tu **primer repo personal**.
-- Has desplegado un **Hello, Web** en GitHub Pages.
-- Has realizado tu **primer commit evaluable**.
+- Has preparado tu **entorno de desarrollo** completo.
+- Has creado tu **primer repositorio personal** en GitHub.
+- Has desplegado tu **primera página web** en GitHub Pages.
+- Has realizado tu **primer commit evaluable** con mensaje estándar.
+- Has establecido las **bases del flujo de trabajo** para el resto del curso.
 
-**ATELIER Note:** Este commit se convierte en la base de tu portafolio; cada semana irás añadiendo una pieza más hasta culminar en un proyecto completo.
+**ATELIER Note:** Este commit se convierte en la base de tu proyecto/portfolio; cada semana irás añadiendo una pieza más hasta culminar en un proyecto completo.
 
 ```
 
