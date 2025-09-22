@@ -1,157 +1,157 @@
 - slug: bibliography
   title:
-   es: Bibliografía
-   en: Bibliography
+    es: Bibliografía
+    en: Bibliography
   path:
-   es: /bibliography/es/
-   en: /bibliography/en/
+    es: /bibliography/es/
+    en: /bibliography/en/
   file:
-   es: bibliography/es/index.md
-   en: bibliography/en/index.md
+    es: bibliography/es/index.md
+    en: bibliography/en/index.md
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
 - slug: development-environment
   title:
-   es: Guía para Configurar un Entorno de Desarrollo Web
-   en: Development Environment
+    es: Guía para Configurar un Entorno de Desarrollo Web
+    en: Development Environment
   path:
-   es: /lessons/es/entorno-de-desarrollo/
-   en: /lessons/en/development-environment/
+    es: /lessons/es/entorno-de-desarrollo/
+    en: /lessons/en/development-environment/
   file:
-   es: lessons/es/entorno-de-desarrollo/index.md
-   en: lessons/en/development-environment/index.md
+    es: lessons/es/entorno-de-desarrollo/index.md
+    en: lessons/en/development-environment/index.md
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
 - slug: first-steps
   title:
-   es: Desarrollo Web con HTML – Organización y Buenas Prácticas
-   en: Web Development with HTML – Organization and Best Practices
+    es: Desarrollo Web con HTML – Organización y Buenas Prácticas
+    en: Web Development with HTML – Organization and Best Practices
   path:
-   es: /lessons/es/first-steps/
-   en: /lessons/en/first-steps/
+    es: /lessons/es/first-steps.html
+    en: /lessons/en/first-steps.html
   file:
-   es: lessons/es/primeros-pasos/index.md
-   en: lessons/en/first-steps/index.md
+    es: lessons/es/primeros-pasos/index.md
+    en: lessons/en/first-steps/index.md
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
 - slug: html-css-basics
   title:
-   es: Práctica HTML semántico + Fundamentos de CSS
-   en: Practice Semantic HTML + CSS Fundamentals
+    es: Práctica HTML semántico + Fundamentos de CSS
+    en: Practice Semantic HTML + CSS Fundamentals
   path:
-   es: /lessons/es/html-css-basics/
-   en: /lessons/en/html-css-basics/
+    es: /lessons/es/html-css-basics/
+    en: /lessons/en/html-css-basics/
   file:
-   es: lessons/es/html-css-basics/index.md
-   en: lessons/en/html-css-basics/index.md
+    es: lessons/es/html-css-basics/index.md
+    en: lessons/en/html-css-basics/index.md
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
 - slug: inspiration-kickoff
   title:
-   es: Inicio & Inspiración
-   en: Inspiration & Kickoff
+    es: Inicio & Inspiración
+    en: Inspiration & Kickoff
   path:
-   es: /lessons/es/inicio-inspiracion/
-   en: /lessons/en/inspiration-kickoff/
+    es: /lessons/es/inicio-inspiracion/
+    en: /lessons/en/inspiration-kickoff/
   file:
-   es: lessons/es/inicio-inspiracion/index.md
-   en: lessons/en/inspiration-kickoff/index.md
+    es: lessons/es/inicio-inspiracion/index.md
+    en: lessons/en/inspiration-kickoff/index.md
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
 - slug: intrinsic-web-design
   title:
-   es: 'Diseño Web Intrínseco: Container Queries y Subgrid'
-   en: 'Intrinsic Web Design: Container Queries & Subgrid'
+    es: "Diseño Web Intrínseco: Container Queries y Subgrid"
+    en: "Intrinsic Web Design: Container Queries & Subgrid"
   path:
-   es: /lessons/es/intrinsic-web-design/
-   en: /lessons/en/intrinsic-web-design/
+    es: /lessons/es/intrinsic-web-design/
+    en: /lessons/en/intrinsic-web-design/
   file:
-   es: lessons/es/intrinsic-web-design/index.md
-   en: lessons/en/intrinsic-web-design/index.md
+    es: lessons/es/intrinsic-web-design/index.md
+    en: lessons/en/intrinsic-web-design/index.md
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
   week: 3
 - slug: js-intro
   title:
-   es: Introducción a JavaScript
-   en: Introduction to JavaScript
+    es: Introducción a JavaScript
+    en: Introduction to JavaScript
   path:
-   es: /lessons/es/js-intro/
-   en: /lessons/en/js-intro/
+    es: /lessons/es/js-intro/
+    en: /lessons/en/js-intro/
   file:
-   es: lessons/es/js-intro/index.md
-   en: lessons/en/js-intro/index.md
+    es: lessons/es/js-intro/index.md
+    en: lessons/en/js-intro/index.md
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
 - slug: readings
   title:
-   es: Lecturas
-   en: Readings
+    es: Lecturas
+    en: Readings
   path:
-   es: /lessons/es/readings/
-   en: /lessons/en/readings/
+    es: /lessons/es/readings/
+    en: /lessons/en/readings/
   file:
-   es: lessons/es/readings/index.md
-   en: lessons/en/readings/index.html
+    es: lessons/es/readings/index.md
+    en: lessons/en/readings/index.html
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
 - slug: typography-color
   title:
-   es: Tipografía y Color
-   en: Typography & Color
+    es: Tipografía y Color
+    en: Typography & Color
   path:
-   es: /lessons/es/tipografia-color/
-   en: /lessons/en/typography-color/
+    es: /lessons/es/tipografia-color/
+    en: /lessons/en/typography-color/
   file:
-   es: lessons/es/tipografia-color/index.md
-   en: lessons/en/typography-color/index.md
+    es: lessons/es/tipografia-color/index.md
+    en: lessons/en/typography-color/index.md
   status:
-   es: complete
-   en: stub
+    es: complete
+    en: stub
 - slug: web-analysis
   title:
-   es: Guía para el Análisis Web
-   en: Web Analysis Guide
+    es: Guía para el Análisis Web
+    en: Web Analysis Guide
   path:
-   es: /lessons/es/analisis-web/
-   en: /lessons/en/web-analysis/
+    es: /lessons/es/analisis-web/
+    en: /lessons/en/web-analysis/
   file:
-   es: lessons/es/analisis-web/index.md
-   en: lessons/en/web-analysis/index.md
+    es: lessons/es/analisis-web/index.md
+    en: lessons/en/web-analysis/index.md
   status:
-   es: complete
-   en: stub
+    es: complete
+    en: stub
 - slug: web-basics-diagnosis
   title:
-   es: 'Fundamentos web: Checklist de diagnóstico'
-   en: 'Web Basics Diagnosis: Checklist'
+    es: "Fundamentos web: Checklist de diagnóstico"
+    en: "Web Basics Diagnosis: Checklist"
   path:
-   es: /lessons/es/web-basics-diagnosis/
-   en: /lessons/en/web-basics-diagnosis/
+    es: /lessons/es/web-basics-diagnosis/
+    en: /lessons/en/web-basics-diagnosis/
   file:
-   es: lessons/es/web-basics-diagnosis/index.md
-   en: lessons/en/web-basics-diagnosis/index.md
+    es: lessons/es/web-basics-diagnosis/index.md
+    en: lessons/en/web-basics-diagnosis/index.md
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
 - slug: web-design-tools
   title:
-   es: Herramientas de Diseño Web Clásicas y Modernas (2025)
-   en: Classic and Modern Web Design Tools Overview (2025)
+    es: Herramientas de Diseño Web Clásicas y Modernas (2025)
+    en: Classic and Modern Web Design Tools Overview (2025)
   path:
-   es: /lessons/es/web-design-tools/
-   en: /lessons/en/web-design-tools/
+    es: /lessons/es/web-design-tools/
+    en: /lessons/en/web-design-tools/
   file:
-   es: lessons/es/web-design-tools/index.md
-   en: lessons/en/web-design-tools/index.md
+    es: lessons/es/web-design-tools/index.md
+    en: lessons/en/web-design-tools/index.md
   status:
-   es: complete
-   en: complete
+    es: complete
+    en: complete
