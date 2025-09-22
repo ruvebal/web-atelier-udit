@@ -196,6 +196,15 @@ JavaScript no se compila de antemano como **C++** o **_Java_**, sino que se **in
 
 Es un lenguaje **_event-driven_**: responde a **interacciones del usuario** (_clics_, desplazamientos, entradas de teclado). Esto lo hace ideal para construir **aplicaciones reactivas** y **_responsive_**.
 
+- **MDN: DOM events** — Índice completo de eventos:  
+  [https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Events](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Events)
+
+- **MDN: Introduction to events** — Básicos de `events` y `event listeners`  
+  [https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Events](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Events)
+
+- **MDN: addEventListener** — Opciones y buenas prácticas  
+  [https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener](https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener)
+
 ---
 
 ### 3. Orientado a prototipos
@@ -335,6 +344,51 @@ btn.addEventListener('click', () => {
 - **JS**: reacciona en el momento, **sin recargar página**.
 
 **Reflexión ATELIER:** _Eventos = improvisación en escena: el usuario "interrumpe" y el programa debe adaptarse al instante._
+
+### Eventos Comunes del Navegador y UX
+
+| Evento                                                               | Descripción / Caso de Uso                                       |
+| -------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `click`                                                              | Usuario hace clic en un botón/enlace/elemento                   |
+| `dblclick`                                                           | Doble clic                                                      |
+| `mousedown`, `mouseup`                                               | Presionar / soltar botones del ratón (o puntero)                |
+| `mousemove` / `mouseover` / `mouseout` / `mouseenter` / `mouseleave` | Hover del cursor / seguimiento del movimiento del puntero       |
+| `keydown`, `keyup`, `keypress`                                       | Entrada de teclado (formularios, atajos)                        |
+| `input` / `change`                                                   | Usuario cambia un campo de formulario (texto, checkbox, select) |
+| `submit`                                                             | Envío de formulario                                             |
+| `focus` / `blur`                                                     | Elemento gana o pierde el foco (accesibilidad)                  |
+| `resize`                                                             | Ventana del navegador o contenedor se redimensiona              |
+| `scroll`                                                             | Desplazamiento de la página o un contenedor                     |
+| `load` / `DOMContentLoaded`                                          | Página y recursos cargan; DOM analizado                         |
+| `error`                                                              | Recurso falla al cargar / error en tiempo de ejecución          |
+| `contextmenu`                                                        | Clic derecho / menú contextual invocado                         |
+| `touchstart`, `touchmove`, `touchend`                                | Interacciones táctiles en dispositivos táctiles                 |
+| `pointerdown`, `pointerup`, `pointermove`                            | Eventos de puntero unificados (ratón, táctil, stylus)           |
+| `dragstart`, `drag`, `drop`, `dragend`                               | Interacciones de arrastrar y soltar                             |
+| `wheel`                                                              | Desplazamiento con rueda del ratón                              |
+| `online` / `offline`                                                 | Cambios en la conectividad de red                               |
+| `visibilitychange`                                                   | Página/pestaña se oculta o se hace visible                      |
+| `beforeunload`, `unload`                                             | Usuario abandona o cierra la página                             |
+
+---
+
+### Consideraciones de UX y Rendimiento
+
+- **Eventos de alta frecuencia** (`mousemove`, `scroll`, `pointermove`) deben ser limitados o debounced.
+- Usa **listeners pasivos** para `scroll` y `touchmove` para mejorar el rendimiento.
+- Prefiere **listeners con alcance** (en elementos específicos) sobre `document`/`window` para reducir la sobrecarga.
+- La accesibilidad importa: no dependas solo de eventos del ratón. Incluye siempre teclado (`keydown`) y gestión del foco.
+- Existen diferencias entre navegadores, especialmente con eventos táctiles y de puntero; prueba en múltiples dispositivos.
+
+---
+
+### Reflexión
+
+- ¿Qué eventos se sintieron más naturales de usar?
+- ¿Cómo conectan los eventos las _intenciones de UX_ (clic, escribir, desplazar) con el comportamiento del código?
+- ¿Qué riesgos existen si vinculas demasiados eventos sin optimización?
+
+---
 
 ## 🚀 Node.js y el ecosistema JS
 
