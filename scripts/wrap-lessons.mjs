@@ -114,8 +114,8 @@ for (const file of canonicalFiles) {
 	if (!entry.title.es) entry.title.es = String(fm.title || '');
 	if (!entry.title.en && enTitle) entry.title.en = String(enTitle);
 	// Paths (public URLs, independent of source tree)
-	entry.path.es = `${PUBLIC_PREFIX}/es/${slug}.html`;
-	entry.path.en = `${PUBLIC_PREFIX}/en/${slug}.html`;
+	entry.path.es = `${PUBLIC_PREFIX}/es/${slug}/`;
+	entry.path.en = `${PUBLIC_PREFIX}/en/${slug}/`;
 }
 
 // Save lessons index (sorted by slug)
@@ -125,5 +125,5 @@ if (!fs.existsSync(DATA) || fs.readFileSync(DATA, 'utf8') !== serialized) {
 	fse.outputFileSync(DATA, serialized, 'utf8');
 	updates++;
 }
-
 console.log(`Wrapped ${canonicalFiles.length} lesson(s). ${updates} file(s) updated.`);
+console.log(`Lessons index written to: ${DATA}`);

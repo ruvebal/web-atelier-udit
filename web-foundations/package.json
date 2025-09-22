@@ -9,7 +9,8 @@
 		"build": "bundle exec jekyll build --source docs --destination _site",
 		"wrap:i18n": "node scripts/wrap-frontmatter-i18n.mjs",
 		"validate:lessons": "yaml-lint docs/_data/lessons.yml",
-		"validate:yaml": "find docs/_data -name '*.yml' -exec yaml-lint {} \\;"
+		"validate:yaml": "find docs/_data -name '*.yml' -exec yaml-lint {} \\;",
+		"wrap:lessons": "node ../scripts/wrap-lessons.mjs"
 	},
 	"devDependencies": {
 		"yaml-lint": "^1.7.0",
