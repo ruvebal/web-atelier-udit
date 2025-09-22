@@ -253,7 +253,7 @@ img.footer-logo {
 	outline-offset: 2px;
 }
 .prose code {
-	padding: 0.1rem 0.35rem;
+	padding: 0.1rem;
 	border-radius: 0.25rem;
 	border: 1px solid var(--code-inline-border);
 }

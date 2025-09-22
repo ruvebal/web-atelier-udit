@@ -619,6 +619,4 @@ Recuerda que este curso se enmarca en el lema **Critical Coding for a Better Liv
 
 **ATELIER Note:** Este commit se convierte en la base de tu proyecto/portfolio; cada semana irás añadiendo una pieza más hasta culminar en un proyecto completo.
 
-```
-
-```
+---
