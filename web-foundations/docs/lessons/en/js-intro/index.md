@@ -195,6 +195,16 @@ JavaScript is not compiled beforehand like **C++** or **_Java_**, but **interpre
 ### 2. Event‑driven
 
 It is an **_event-driven_** language: it responds to **user interactions** (_clicks_, scrolls, keyboard input). This makes it ideal for building **reactive** and **_responsive_** applications.
+Events connect **user actions** and **system changes** to your code.
+
+- **MDN: DOM events** — Complete index of events  
+  [https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events)
+
+- **MDN: Introduction to events** — Basics of events and event listeners  
+  [https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events)
+
+- **MDN: addEventListener** — Options and best practices  
+  [https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
 
 ---
 
@@ -336,6 +346,51 @@ btn.addEventListener('click', () => {
 
 **ATELIER Reflection:** _Events = improvisation on stage: the user "interrupts" and the program must adapt instantly._
 
+### Common Browser & UX Events
+
+| Event                                                                | Description / Use Case                             |
+| -------------------------------------------------------------------- | -------------------------------------------------- |
+| `click`                                                              | User clicks a button/link/element                  |
+| `dblclick`                                                           | Double click                                       |
+| `mousedown`, `mouseup`                                               | Pressing / releasing mouse (or pointer) buttons    |
+| `mousemove` / `mouseover` / `mouseout` / `mouseenter` / `mouseleave` | Cursor hover / tracking pointer movement           |
+| `keydown`, `keyup`, `keypress`                                       | Keyboard input (forms, shortcuts)                  |
+| `input` / `change`                                                   | User changes a form field (text, checkbox, select) |
+| `submit`                                                             | Form submission                                    |
+| `focus` / `blur`                                                     | Element gains or loses focus (accessibility)       |
+| `resize`                                                             | Browser window or container is resized             |
+| `scroll`                                                             | Scrolling the page or a container                  |
+| `load` / `DOMContentLoaded`                                          | Page and resources load; DOM parsed                |
+| `error`                                                              | Resource fails to load / runtime error             |
+| `contextmenu`                                                        | Right-click / context menu invoked                 |
+| `touchstart`, `touchmove`, `touchend`                                | Finger interactions on touch devices               |
+| `pointerdown`, `pointerup`, `pointermove`                            | Unified pointer events (mouse, touch, stylus)      |
+| `dragstart`, `drag`, `drop`, `dragend`                               | Drag & drop interactions                           |
+| `wheel`                                                              | Mouse wheel scroll                                 |
+| `online` / `offline`                                                 | Network connectivity changes                       |
+| `visibilitychange`                                                   | Page/tab becomes hidden or visible                 |
+| `beforeunload`, `unload`                                             | User leaves or closes page                         |
+
+---
+
+### UX & Performance Considerations
+
+- **High-frequency events** (`mousemove`, `scroll`, `pointermove`) should be throttled or debounced.
+- Use **passive listeners** for `scroll` and `touchmove` to improve performance.
+- Prefer **scoped listeners** (on specific elements) over `document`/`window` to reduce overhead.
+- Accessibility matters: don’t rely only on mouse events. Always include keyboard (`keydown`) and focus management.
+- Browser differences exist, especially with touch and pointer events; test on multiple devices.
+
+---
+
+### Reflection
+
+- Which events felt most natural to use?
+- How do events connect _UX intentions_ (click, type, scroll) with code behavior?
+- What risks exist if you bind too many events without optimization?
+
+---
+
 ## 🚀 Node.js and the JS ecosystem
 
 **Before:** JS only in browsers.
@@ -348,9 +403,11 @@ It allows building **_APIs_**, real‑time _apps_, microservices.
 
 **Comparison with** **_Laravel_**:
 
-- **_Laravel_** structures the _backend_ with **_MVC_**.
+- **_Laravel_** structures the _backend_ with **_MVC_** [https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller).
 - **_Node.js_**/**_Express_** allow _backend_ in JS, **sharing language** with the _frontend_.
 - In a modern **_stack_**: **_Laravel_** and JS coexist, or full JS is used (**_MERN_**, **_MEAN_**).
+
+> Quick taste and `package.json` basics: see "Taste Node.js locally" in the [Development Environment lesson § Taste node](/lessons/en/development-environment/#taste-node).
 
 ---
 
@@ -382,8 +439,18 @@ console.table(user);
 - From **_Console_** with `$0` (active node):
 
 ```js
-$0.classList.add('highlighted');
-$0.style.outline = '3px solid hotpink';
+// $0 is a special Chrome DevTools variable that references the currently selected DOM element
+// When you inspect an element in the Elements tab, it becomes $0
+// You can then manipulate it directly from the Console:
+
+$0.classList.add('highlighted'); // Add a CSS class to the selected element
+$0.style.outline = '3px solid hotpink'; // Apply inline styles directly
+
+// Other useful $0 operations:
+// $0.textContent = 'New text';     // Change the text content
+// $0.innerHTML = '<em>HTML</em>';  // Change the HTML content
+// $0.remove();                     // Remove the element from the page
+// $0.parentElement;                // Access the parent element
 ```
 
 - Simulate `:hover` and states to verify styles.
@@ -395,20 +462,45 @@ Mini–challenge:
 
 ### 3) **_Sources_**: debug `assets/js/main.js`
 
+> Debugging is like slow-motion replay in sports — you can see each move, who passed the ball, and where it went wrong.
+
+> Work inprogress…
+
 - Open `assets/js/main.js` in the **_Sources_** tab.
-- Place a breakpoint in a function and reload (⌘R / Ctrl+R).
-- Use "Step over / into / out", **Watch** for variables, and check **Call Stack**.
-- You can also force a pause with `debugger;` in your code. (Review)
+- Place a breakpoint in a function and reload (⌘R / Ctrl+R):
+  - Think of a breakpoint as a pause button you insert into your code.
+  - The browser stops exactly on that line so you can see what's happening inside your program.
+  - Click on the line number in the Sources tab to set/remove a breakpoint (red dot appears).
+  - When code execution reaches that line, it pauses and shows current variable values.
+- Use the stepping controls when paused at a breakpoint:
 
-Practice example:
+  - **Step Over** (F10) → Execute the current line completely. If it calls a function, run the entire function but don't go inside it step-by-step.
+  - **Step Into** (F11) → If the current line calls a function, jump inside that function to debug it line by line.
+  - **Step Out** (Shift+F11) → Finish running the current function and return to wherever it was called from.
 
-```js
-function add(a, b) {
-	const sum = a + b; // ← breakpoint here
-	return sum;
-}
-console.log('Result:', add(2, 3));
-```
+- **Watch** variables in real-time:
+
+  - The Watch panel lets you add variable names you want to monitor.
+  - As your code runs, their values update automatically.
+  - Example: add `a`, `b`, and `sum` to Watch → see how they change as you step through.
+
+- Check the **Call Stack** (who called what):
+
+  - Shows the chain of function calls that led to the current line.
+  - Example: `main.js:15` → `add()` → `console.log()`.
+  - It's like a breadcrumb trail showing how your program got to this point.
+
+- Force pause with `debugger;` statement:
+  - Instead of clicking to set breakpoints, you can write `debugger;` directly in your code.
+  - When the browser executes that line, it automatically pauses (like hitting a breakpoint).
+  ```js
+  function add(a, b) {
+  	debugger; // Execution will pause here automatically
+  	const sum = a + b;
+  	return sum;
+  }
+  ```
+  - Remember to remove `debugger;` statements before deploying to production!
 
 ### 4) **_Network_**: requests, cache and _throttling_
 

@@ -352,6 +352,8 @@ Permite construir **_APIs_**, _apps_ en tiempo real, _microservicios_.
 - **_Node.js_**/**_Express_** permiten _backend_ en JS, **compartiendo lenguaje** con _frontend_.
 - En un **_stack_** moderno: **_Laravel_** y JS conviven, o se usa JS _full_ (**_MERN_**, **_MEAN_**).
 
+> Prueba rápida y `package.json` básico: ver "Probar Node.js localmente" en la [lección de Entorno de Desarrollo § Probar Node](/lessons/es/entorno-de-desarrollo/#probar-nodejs-localmente-opcional).
+
 ---
 
 ## 🔧 Prácticas con Chrome DevTools
@@ -382,8 +384,18 @@ console.table(user);
 - Desde **_Console_** con `$0` (nodo activo):
 
 ```js
-$0.classList.add('resaltado');
-$0.style.outline = '3px solid hotpink';
+// $0 es una variable especial de Chrome DevTools que referencia el elemento DOM actualmente seleccionado
+// Cuando inspeccionas un elemento en la pestaña Elements, ese elemento pasa a ser $0
+// Desde la Consola puedes manipularlo directamente:
+
+$0.classList.add('resaltado'); // Añade una clase CSS al elemento seleccionado
+$0.style.outline = '3px solid hotpink'; // Aplica estilos inline directamente
+
+// Otras operaciones útiles con $0:
+// $0.textContent = 'Texto nuevo';     // Cambiar el texto
+// $0.innerHTML = '<em>HTML</em>';     // Cambiar el HTML
+// $0.remove();                        // Eliminar el elemento de la página
+// $0.parentElement;                   // Acceder al elemento padre
 ```
 
 - Simula `:hover` y estados para verificar estilos.
@@ -395,16 +407,38 @@ Mini–reto:
 
 ### 3) **_Sources_**: depurar `assets/js/main.js`
 
+> La depuración es como la repetición a cámara lenta en un partido: ves cada jugada, quién pasó el balón y dónde falló.
+
 - Abre `assets/js/main.js` en la pestaña **_Sources_**.
-- Coloca un breakpoint en una función y recarga (⌘R / Ctrl+R).
-- Usa “Step over / into / out”, **Watch** para variables, y revisa **Call Stack**.
-- También puedes forzar una pausa con `debugger;` en tu código. (Revisar)
+- Pon un breakpoint (clic en número de línea) y recarga (⌘R / Ctrl+R).
+- Usa los controles de paso cuando pauses en un breakpoint:
+
+  - **Step Over** (F10) → ejecuta la línea actual por completo. Si llama a una función, la ejecuta entera sin entrar paso a paso.
+  - **Step Into** (F11) → si la línea llama a una función, entra dentro para depurarla línea a línea.
+  - **Step Out** (Shift+F11) → termina de ejecutar la función actual y vuelve al punto desde donde se llamó.
+
+- **Watch** variables en tiempo real:
+
+  - En el panel Watch añade nombres de variables a monitorizar.
+  - Sus valores se actualizan automáticamente al avanzar.
+  - Ej.: añade `a`, `b` y `sum` → observa cómo cambian al ejecutar.
+
+- Revisa la **Call Stack** (quién llamó a qué):
+
+  - Muestra la cadena de llamadas que llevó a la línea actual.
+  - Ej.: `main.js:15` → `add()` → `console.log()`.
+  - Es como un rastro que explica cómo llegó el programa hasta aquí.
+
+- Pausa forzada con `debugger;`:
+  - En lugar de hacer clic para poner breakpoints, puedes escribir `debugger;` en tu código.
+  - Cuando el navegador ejecuta esa línea, se detiene automáticamente (como un breakpoint).
 
 Ejemplo para practicar:
 
 ```js
 function add(a, b) {
-	const sum = a + b; // ← breakpoint aquí
+	debugger; // La ejecución se detendrá aquí automáticamente
+	const sum = a + b; // ← pon también un breakpoint aquí
 	return sum;
 }
 console.log('Resultado:', add(2, 3));

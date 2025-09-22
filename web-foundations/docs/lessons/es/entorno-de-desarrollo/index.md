@@ -1,7 +1,6 @@
 ---
 layout: lesson
-title: 'Entorno de Desarrollo'
-title_en: 'Development environment'
+title: 'Guía para Configurar un Entorno de Desarrollo Web'
 slug: entorno-de-desarrollo
 date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'
@@ -9,37 +8,28 @@ lang: es
 permalink: /lessons/es/entorno-de-desarrollo/
 ---
 
-> **Objetivo de la sesión (2h)**
->
-> 1. Tener VS Code + Git operativos.
-> 2. Crear **un repositorio personal** en GitHub.
-> 3. Publicar un **Hello, Web** en GitHub Pages.
->    **ATELIER Note:** al final, cada estudiante hará **un commit obligatorio** con un mensaje claro y un `README.md` breve. Este commit será la evidencia de aprendizaje de la sesión.
+## 📋 Tabla de Contenidos
 
+{: .no_toc }
+
+<!-- prettier-ignore-start -->
+
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
 ---
 
-# **Guía para Configurar un Entorno de Desarrollo Web para Estudiantes**
-
-## **Índice**
-
-1. [Por qué configurar un entorno de desarrollo](#por-qué-configurar-un-entorno-de-desarrollo)
-2. [Entornos de desarrollo: Local vs. Live](#entornos-de-desarrollo-local-vs-en-vivo)
-3. [Pasos para configurar el entorno de desarrollo](#pasos-para-configurar-el-entorno-de-desarrollo)
-   - [Instalar Visual Studio Code](#1-instalar-visual-studio-code)
-   - [Instalar Git](#2-instalar-git)
-   - [Iniciar desde la Plantilla de Proyecto del Estudiante (fácil primero, avanzado abajo)](#3-iniciar-desde-la-plantilla-de-proyecto-del-estudiante-fácil-primero-avanzado-abajo)
-   - [Explorar la estructura del directorio clonado](#4-explorar-la-estructura-del-directorio-clonado)
-   - [Desarrollo local con Live Server](#5-desarrollo-local-con-live-server)
-   - [Desarrollo Live con GitHub Pages](#6-desarrollo-en-vivo-con-github-pages)
-   - [Crear cuenta y configurar ImageKit.io](#7-crear-cuenta-y-configurar-imagekitio)
-   - [Alojar y optimizar imágenes con ImageKit.io](#8-alojar-y-optimizar-imágenes-con-imagekitio)
-4. [Flujo diario de trabajo](#flujo-diario-de-trabajo)
-5. [Glosario de conceptos](#glosario-de-conceptos)
-   - [Términos del sistema](#términos-del-sistema)
-   - [Términos de red](#términos-de-red)
-   - [Términos de Git y repositorios](#términos-de-git-y-repositorios)
-6. [Apéndice: Instalando Homebrew en macOS](#apéndice-instalando-homebrew-en-macos)
-7. [Referencias finales](#referencias-finales)
+> **Objetivos de la sesión (2h)**
+>
+> 1. **Configurar herramientas básicas**: Tener VS Code + Git operativos con extensiones esenciales.
+> 2. **Crear repositorio personal**: Establecer un repositorio en GitHub con estructura profesional.
+> 3. **Publicar sitio web**: Desplegar un "Hello, Web" funcional en GitHub Pages.
+> 4. **Optimizar imágenes**: Configurar ImageKit.io para servir imágenes optimizadas via CDN.
+> 5. **Probar Node.js** (opcional): Ejecutar scripts npm en el template estudiantil.
+> 6. **Establecer flujo diario**: Dominar el ciclo pull → edit → commit → push.
+>
+> **ATELIER Note:** cada estudiante realizará **commits incrementales** con mensajes descriptivos y mantendrá un `README.md` actualizado. Los commits serán evidencia del progreso y aprendizaje de la sesión.
 
 ---
 
@@ -406,6 +396,49 @@ Notas de accesibilidad:
 - Proporciona siempre `alt` significativo (o `alt=""` solo si es decorativa).
 - Prefiere formatos modernos (AVIF/WEBP) cuando estén disponibles: `?tr=f-webp`.
 - Deja `/images` local solo para assets pequeños; usa CDN para fotos/arte.
+
+### **9. Probar Node.js localmente (opcional)** {: #probar-nodejs-localmente-opcional }
+
+> Configuración rápida para usar scripts de `npm` en la plantilla del estudiante.
+
+1. Instalar Node.js + npm
+
+   - macOS:
+     ```bash
+     brew install node
+     node -v && npm -v
+     ```
+   - Windows:
+     - Descarga LTS desde `https://nodejs.org/` e instala, o:
+     ```powershell
+     winget install OpenJS.NodeJS.LTS
+     node -v && npm -v
+     ```
+
+2. Ejecutar la plantilla con Node
+
+   ```bash
+   cd mi-proyecto-web
+   npm install
+   npm run dev
+   # abre http://localhost:3000
+   ```
+
+3. Validar todo (opcional)
+
+   ```bash
+   npm run validate:all
+   ```
+
+#### `package.json` en un vistazo
+
+- **scripts**: comandos rápidos con `npm run <nombre>`
+  - `dev`: inicia un servidor local (puerto 3000)
+  - `validate:html`, `validate:css`, `validate:js`, `validate:project`, `validate:all`
+  - `lighthouse`: audita rendimiento local
+- **devDependencies**: herramientas solo para desarrollo; se instalan con `npm install`.
+- **private**: evita publicar accidentalmente en npm.
+- **metadatos**: `name`, `version`, `repository`, `author`, `license`.
 
 ---
 

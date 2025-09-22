@@ -22,10 +22,14 @@ permalink: /lessons/en/development-environment/
 
 ## Objectives
 
-> 1. Have VS Code + Git working.
-> 2. Create **a personal repository** on GitHub.
-> 3. Publish a **Hello, Web** on GitHub Pages.
->    **ATELIER Note:** at the end, each student will make **one mandatory commit** with a clear message and a brief `README.md`. This commit will serve as evidence of learning from the session.
+> 1. **Set up basic tools**: Have VS Code + Git operational with essential extensions.
+> 2. **Create personal repository**: Establish a repository on GitHub with professional structure.
+> 3. **Publish website**: Deploy a functional "Hello, Web" on GitHub Pages.
+> 4. **Optimize images**: Configure ImageKit.io to serve optimized images via CDN.
+> 5. **Test Node.js** (optional): Run npm scripts in the student template.
+> 6. **Establish daily workflow**: Master the pull → edit → commit → push cycle.
+
+> **ATELIER Note:** at the end, each student will make **one mandatory commit** with a clear message and a brief `README.md`. This commit will serve as evidence of learning from the session.
 
 ---
 
@@ -349,6 +353,49 @@ Accessibility notes:
 - Prefer modern formats (AVIF/WEBP) when available: `?tr=f-webp`.
 - Keep local `/images` only for tiny assets; use CDN for photos/artwork.
 
+### **8. Taste Node.js locally (optional)** {: #taste-node }
+
+> One‑time setup to use `npm` scripts in the student template.
+
+1. Install Node.js + npm
+
+   - macOS:
+     ```bash
+     brew install node
+     node -v && npm -v
+     ```
+   - Windows:
+     - Download LTS from `https://nodejs.org/` and install, or:
+     ```powershell
+     winget install OpenJS.NodeJS.LTS
+     node -v && npm -v
+     ```
+
+2. Run the template with Node
+
+   ```bash
+   cd my-web-project
+   npm install
+   npm run dev
+   # open http://localhost:3000
+   ```
+
+3. Validate everything (optional)
+
+   ```bash
+   npm run validate:all
+   ```
+
+#### `package.json` at a glance
+
+- **scripts**: quick commands you run with `npm run <name>`
+  - `dev`: starts a local server (port 3000)
+  - `validate:html`, `validate:css`, `validate:js`, `validate:project`, `validate:all`
+  - `lighthouse`: audits performance locally
+- **devDependencies**: tools needed only during development; installed by `npm install`.
+- **private**: prevents accidental publishing to npm.
+- **metadata**: `name`, `version`, `repository`, `author`, `license`.
+
 ---
 
 ## **Daily workflow**
@@ -455,6 +502,71 @@ Homebrew is a package manager for macOS that simplifies installing software like
    ```bash
    brew --version
    ```
+
+Here’s the **raw Markdown addendum** (ready to paste into your lesson file). I’ll open it in canvas so you can copy or download easily.
+
+---
+
+## **Appendix:: Using WSL2 on Windows (Optional, Advanced Setup)**
+
+> **ATELIER Note:** Some students may want a **Linux-like environment** directly on Windows to avoid Git Bash path issues and get closer to professional workflows.
+> This is optional but highly recommended if you plan to continue in **front-end or full-stack development**.
+
+### Why WSL2?
+
+- **Consistency:** Same shell and tools as macOS/Linux users.
+- **Compatibility:** No more `C:\Path\Of\Hell` — you work in `/home/username/project`.
+- **Integration:** VS Code connects seamlessly to WSL2 using the _Remote - WSL_ extension.
+- **Future-proof:** Easier to install Node.js, npm, Python, Docker, etc. the way professionals do.
+
+### Install WSL2
+
+1. Open **PowerShell** as Administrator.
+2. Run the command:
+
+   ```powershell
+   wsl --install -d Ubuntu
+   ```
+
+   This installs WSL2 with Ubuntu as the default distribution.
+
+3. Restart your computer if prompted.
+4. After reboot, open _Ubuntu_ from the Start Menu and set up your Linux username and password.
+
+### Connect WSL2 with VS Code
+
+1. Install **Visual Studio Code** (if not already).
+2. From the Extensions panel, install:
+
+   - `Remote - WSL` (ms-vscode-remote.remote-wsl).
+
+3. In VS Code, open the Command Palette (`Ctrl+Shift+P`) and run:
+
+   - `Remote-WSL: New Window` → opens a Linux environment.
+
+4. Navigate to your project folder inside WSL (usually under `/home/username/...`).
+
+   - Clone your repo inside WSL:
+
+     ```bash
+     git clone https://github.com/your-username/your-repo.git
+     cd your-repo
+     ```
+
+### Daily Workflow with WSL2 + VS Code
+
+- Open VS Code in **Remote WSL mode**.
+- Use the integrated terminal — now it’s a _real Bash shell_.
+- Run Git, Node, npm, Python, etc. exactly as on Linux/macOS.
+- Launch Live Server inside VS Code (still works fine).
+- Commit and push from WSL — Git is fully integrated.
+
+### When to Use Git Bash vs WSL2?
+
+- **Git Bash**: Default, lighter, enough for ATELIER beginners.
+- **WSL2**: For students who want the _professional developer experience_ and will continue beyond basics.
+
+> **Sugerencia:** If you’re planning a career in software engineering or DevOps, set up WSL2 early. If you’re mainly focusing on design with light coding, Git Bash is fine.
 
 ---
 
