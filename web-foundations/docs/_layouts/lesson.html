@@ -12,7 +12,7 @@ layout: default
 		<h1>{{ page.title }}</h1>
 		<p class="canonical-url">
 			<span class="sr-only">URL:</span>
-			<a href="{{ site.url }}{{ page.url }}" aria-label="Permanent link to this lesson">{{ site.url }}{{ page.url }}</a>
+			<a href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" aria-label="Permanent link to this lesson">{{ site.url }}{{ site.baseurl }}{{ page.url }}</a>
 		</p>
 		{% if page.author or page.date %}
 		<p class="muted">
