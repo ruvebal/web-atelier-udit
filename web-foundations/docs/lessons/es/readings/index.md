@@ -5,9 +5,9 @@ lang: es
 permalink: /lessons/es/readings/
 ---
 
-Lecturas seleccionadas para el curso. Consulta la colección viva (versión HTML) aquí:
+Lecturas seleccionadas para el curso.
 
-- Enlace: /lessons/es/readings/index.html
+- Enlace: [/web-atelier-udit/lessons/en/readings/index.html](/web-atelier-udit/lessons/en/readings/index.html)
 
 Temas destacados:
 
@@ -15,4 +15,4 @@ Temas destacados:
 - Accesibilidad y ética
 - Responsive moderno (Container Queries & Subgrid)
 
-Nota: las citas se mantienen en su idioma original. Esta página funciona como índice localizado.
+Nota: las citas se mantienen en su idioma original. Esta página funciona como índice.
