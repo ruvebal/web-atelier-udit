@@ -27,4 +27,4 @@ Aquí encontrarás la bibliografía completa y actualizada del curso, gestionada
 
 - Cita siempre a las autorías originales.
 - Respeta licencias y derechos de uso.
-- Esta página sirve como índice local para enlazar a la bibliografía viva.
+- Esta página sirve como índice local para enlazar a la bibliografía en `www.zotero.org`.
