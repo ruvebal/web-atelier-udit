@@ -9,12 +9,10 @@ lang: es
 permalink: /lessons/es/web-design-tools/
 ---
 
-## 📋 Tabla de Contenidos
-
-{: .no_toc }
-
 <!-- prettier-ignore-start -->
 
+## 📋 Tabla de Contenidos
+{: .no_toc }
 - TOC
 {:toc}
 

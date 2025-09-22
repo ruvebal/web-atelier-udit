@@ -9,18 +9,16 @@ lang: es
 permalink: /lessons/es/primeros-pasos/
 ---
 
-## 📋 Tabla de Contenidos
-
-{: .no_toc }
-
 <!-- prettier-ignore-start -->
 
+## 📋 Tabla de Contenidos
+{: .no_toc }
 - TOC
 {:toc}
 
 <!-- prettier-ignore-end -->
 
-## 🎯 **Objetivos de la sesión**
+## Objetivos
 
 - Comprender la estructura básica de un proyecto web moderno.
 - Identificar la función de cada carpeta y archivo en el template inicial.

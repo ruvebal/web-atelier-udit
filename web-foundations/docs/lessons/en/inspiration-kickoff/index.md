@@ -9,11 +9,18 @@ lang: en
 permalink: /lessons/en/inspiration-kickoff/
 ---
 
-> Session Objective (2h)
->
-> 1. Start your inspiration journal and define your project direction.
-> 2. Draft the first version of your project brief (audience, theme, scope).
-> 3. Practice accessibility-by-default and cite sources (critical coding ethos).
+<!-- prettier-ignore-start -->
+## 📋 Table of Contents
+{: .no_toc }
+- TOC
+{:toc}
+<!-- prettier-ignore-end -->
+
+## Objectives
+
+- Start your inspiration journal and define your project direction.
+- Draft the first version of your project brief (audience, theme, scope).
+- Practice accessibility-by-default and cite sources (critical coding ethos).
 
 ---
 

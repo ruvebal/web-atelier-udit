@@ -10,6 +10,16 @@ permalink: /lessons/en/intrinsic-web-design/
 week: 3
 ---
 
+<!-- prettier-ignore-start -->
+
+## 📋 Table of Contents
+{: .no_toc }
+
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
 > **Session Objective (2h)**
 >
 > 1. Understand when to use Container Queries and Subgrid.

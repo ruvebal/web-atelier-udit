@@ -8,12 +8,10 @@ lang: es
 permalink: /lessons/es/entorno-de-desarrollo/
 ---
 
-## 📋 Tabla de Contenidos
-
-{: .no_toc }
-
 <!-- prettier-ignore-start -->
 
+## 📋 Tabla de Contenidos
+{: .no_toc }
 - TOC
 {:toc}
 

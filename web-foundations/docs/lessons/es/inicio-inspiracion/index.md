@@ -9,11 +9,20 @@ lang: es
 permalink: /lessons/es/inicio-inspiracion/
 ---
 
-> Objetivo de la sesión (2h)
->
-> 1. Iniciar tu diario de inspiración y definir la dirección del proyecto.
-> 2. Redactar la primera versión del brief (audiencia, tema, alcance).
-> 3. Practicar accesibilidad por defecto y citar fuentes (ethos de critical coding).
+<!-- prettier-ignore-start -->
+
+## 📋 Tabla de Contenidos
+{: .no_toc }
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
+## Objetivo de la sesión (2h)
+
+- 1. Iniciar tu diario de inspiración y definir la dirección del proyecto.
+- 2. Redactar la primera versión del brief (audiencia, tema, alcance).
+- 3. Practicar accesibilidad por defecto y citar fuentes (ethos de critical coding).
 
 ---
 

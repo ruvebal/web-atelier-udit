@@ -10,11 +10,20 @@ permalink: /lessons/es/intrinsic-web-design/
 week: 3
 ---
 
-> **Objetivo de la sesión (2h)**
->
-> 1. Comprender cuándo usar Container Queries y Subgrid.
-> 2. Construir una galería responsive real (mobile-first, progresiva).
-> 3. Hacer un commit con el resultado y una reflexión crítica.
+<!-- prettier-ignore-start -->
+
+## 📋 Tabla de Contenidos
+{: .no_toc }
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
+# Objetivo de la sesión
+
+- Comprender cuándo usar Container Queries y Subgrid.
+- Construir una galería responsive real (mobile-first, progresiva).
+- Hacer un commit con el resultado y una reflexión crítica.
 
 ---
 
@@ -24,7 +33,6 @@ week: 3
 
 - **Container Queries** = "¿Qué hago según el tamaño del cajón en el que estoy?"
 - **Subgrid** = "¿Cómo me alineo siguiendo las líneas del cajón de arriba?"
-
 
 ### Introducción: Evolución del Diseño Responsivo
 
@@ -80,21 +88,21 @@ Permiten aplicar estilos CSS a un componente según el tamaño de su contenedor 
 
 ```css
 .card-list {
-  container-type: inline-size;
+	container-type: inline-size;
 }
 
 @container (min-width: 450px) {
-  .card {
-    flex-direction: row;
-  }
+	.card {
+		flex-direction: row;
+	}
 }
 ```
 
 ### Ventajas
 
-* Adaptabilidad modular.
-* Evita duplicación de media queries globales.
-* Permite componentes verdaderamente reutilizables.
+- Adaptabilidad modular.
+- Evita duplicación de media queries globales.
+- Permite componentes verdaderamente reutilizables.
 
 ---
 
@@ -148,15 +156,15 @@ En resumen, Subgrid es especialmente útil en diseños complejos y componibles: 
 
 ```css
 .card {
-  display: grid;
-  grid-template-rows: subgrid;
+	display: grid;
+	grid-template-rows: subgrid;
 }
 ```
 
 ### Ventajas
 
-* Alineación perfecta entre elementos anidados.
-* Soluciona problemas clásicos de layout inconsistentes.
+- Alineación perfecta entre elementos anidados.
+- Soluciona problemas clásicos de layout inconsistentes.
 
 ---
 
@@ -170,14 +178,14 @@ Diseñar una galería de tarjetas que se adapte automáticamente a su contenedor
 
 ```html
 <section class="gallery-container">
-  <div class="gallery-grid">
-    <article class="card">
-      <h2 class="card-title">Título 1</h2>
-      <p class="card-content">Contenido breve...</p>
-      <footer class="card-footer">Leer más</footer>
-    </article>
-    <!-- Más tarjetas -->
-  </div>
+	<div class="gallery-grid">
+		<article class="card">
+			<h2 class="card-title">Título 1</h2>
+			<p class="card-content">Contenido breve...</p>
+			<footer class="card-footer">Leer más</footer>
+		</article>
+		<!-- Más tarjetas -->
+	</div>
 </section>
 ```
 
@@ -185,24 +193,24 @@ Diseñar una galería de tarjetas que se adapte automáticamente a su contenedor
 
 ```css
 .gallery-container {
-  container-type: inline-size;
-  padding: 1rem;
+	container-type: inline-size;
+	padding: 1rem;
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-rows: auto;
-  gap: 16px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-auto-rows: auto;
+	gap: 16px;
 }
 
 .card {
-  display: grid;
-  grid-template-rows: subgrid;
-  padding: 1rem;
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+	display: grid;
+	grid-template-rows: subgrid;
+	padding: 1rem;
+	background: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 }
 ```
 
@@ -210,24 +218,24 @@ Diseñar una galería de tarjetas que se adapte automáticamente a su contenedor
 
 ```css
 @container (max-width: 399px) {
-  .gallery-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .card {
-    text-align: center;
-  }
+	.gallery-grid {
+		grid-template-columns: 1fr !important;
+	}
+	.card {
+		text-align: center;
+	}
 }
 
 @container (min-width: 400px) and (max-width: 799px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+	.gallery-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @container (min-width: 800px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+	.gallery-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 ```
 
@@ -249,9 +257,9 @@ Usar un servicio como ImageKit.io para cargar imágenes dinámicamente. Desde Ja
 
 ### Actividades
 
-* Probar el comportamiento en distintos tamaños.
-* Documentar decisiones en el código.
-* Realizar commit con mensaje:
+- Probar el comportamiento en distintos tamaños.
+- Documentar decisiones en el código.
+- Realizar commit con mensaje:
 
 ```bash
 git commit -m "Add responsive gallery with container queries and subgrid"
@@ -261,10 +269,10 @@ git commit -m "Add responsive gallery with container queries and subgrid"
 
 ## Recursos
 
-* [MDN Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
-* [MDN Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid)
-* [LogRocket: Container + Subgrid](https://blog.logrocket.com/using-css-subgrids-container-queries/)
-* [freeCodeCamp: Media vs Container Queries](https://www.freecodecamp.org/news/media-queries-vs-container-queries/)
-* [Atelier Method – OakInnovation](https://www.oakinnovation.com/blog/free-business-theory-advice/the-atelier-method)
+- [MDN Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+- [MDN Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid)
+- [LogRocket: Container + Subgrid](https://blog.logrocket.com/using-css-subgrids-container-queries/)
+- [freeCodeCamp: Media vs Container Queries](https://www.freecodecamp.org/news/media-queries-vs-container-queries/)
+- [Atelier Method – OakInnovation](https://www.oakinnovation.com/blog/free-business-theory-advice/the-atelier-method)
 
 ---

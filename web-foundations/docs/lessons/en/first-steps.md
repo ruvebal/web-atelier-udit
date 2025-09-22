@@ -9,20 +9,17 @@ lang: en
 permalink: /lessons/en/first-steps/
 source: docs/lessons/_lesson-header-template.md
 ---
+
 > **TODO (translate):** This is an English stub for “Web Development with HTML – Organization and Best Practices”.
 
-
+<!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
-
 {: .no_toc }
-
-<!-- prettier-ignore-start -->
 
 - TOC
 {:toc}
 
 <!-- prettier-ignore-end -->
-
 
 Aquí va el contenido de la lección en **Markdown**…

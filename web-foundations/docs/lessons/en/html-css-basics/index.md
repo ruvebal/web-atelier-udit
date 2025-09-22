@@ -9,11 +9,10 @@ lang: en
 permalink: /lessons/en/html-css-basics/
 ---
 
-## 📋 Table of Contents
-
-{: .no_toc }
-
 <!-- prettier-ignore-start -->
+
+## 📋 Table of Contents
+{: .no_toc }
 
 - TOC
 {:toc}
