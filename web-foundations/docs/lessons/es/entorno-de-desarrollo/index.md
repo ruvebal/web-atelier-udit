@@ -15,19 +15,19 @@ permalink: /lessons/es/entorno-de-desarrollo/
 <!-- prettier-ignore-start -->
 
 - TOC
-  {:toc}
+{:toc}
 
-## <!-- prettier-ignore-end -->
+<!-- prettier-ignore-end -->
 
-> **Objetivos de la sesión (2h)**
->
-> 1. **Configurar herramientas básicas**: Tener VS Code + Git operativos con extensiones esenciales.
-> 2. **Crear repositorio personal**: Establecer un repositorio en GitHub con estructura profesional.
-> 3. **Publicar sitio web**: Desplegar un "Hello, Web" funcional en GitHub Pages.
-> 4. **Optimizar imágenes**: Configurar ImageKit.io para servir imágenes optimizadas via CDN.
-> 5. **Probar Node.js** (opcional): Ejecutar scripts npm en el template estudiantil.
-> 6. **Establecer flujo diario**: Dominar el ciclo pull → edit → commit → push.
->
+## Objetivos
+
+- **Configurar herramientas básicas**: Tener VS Code + Git operativos con extensiones esenciales.
+- **Crear repositorio personal**: Establecer un repositorio en GitHub con estructura profesional.
+- **Publicar sitio web**: Desplegar un "Hello, Web" funcional en GitHub Pages.
+- **Optimizar imágenes**: Configurar ImageKit.io para servir imágenes optimizadas via CDN.
+- **Probar Node.js** (opcional): Ejecutar scripts npm en el template estudiantil.
+- **Establecer flujo diario**: Dominar el ciclo pull → edit → commit → push.
+
 > **ATELIER Note:** cada estudiante realizará **commits incrementales** con mensajes descriptivos y mantendrá un `README.md` actualizado. Los commits serán evidencia del progreso y aprendizaje de la sesión.
 
 ---
