@@ -155,3 +155,17 @@
   status:
    es: complete
    en: complete
+
+- slug: web-analysis-practice
+  title:
+   es: 'Práctica: Informe de Análisis de Sitios Web Sobresalientes (SOW)'
+   en: 'Practice: Report on Outstanding Websites Analysis (SOW)'
+  path:
+   es: /lessons/es/analisis-web/practica/
+   en: /lessons/en/web-analysis/practice/
+  file:
+   es: lessons/es/analisis-web/practica/index.md
+   en: lessons/en/web-analysis/practice/index.md
+  status:
+   es: complete
+   en: complete
