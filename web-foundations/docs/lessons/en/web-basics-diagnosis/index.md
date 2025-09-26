@@ -86,16 +86,16 @@ permalink: /lessons/en/web-basics-diagnosis/
 
 (Also see: [FreeCodeCamp: How the Web Works](https://www.freecodecamp.org/news/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c/))
 
-| Concept                                                                     | Canonical reference                                                                                                                                      |    Status    |
-| :-------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: |
-| History and evolution of the Web (Tim Berners-Lee, origins, open standards) | [MDN: The web and web standards](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards)                  | 🟢 / 🟡 / 🔴 |
-| Web standards and bodies (W3C, WHATWG, IETF)                                | [W3C Standards](https://www.w3.org/standards/) · [WHATWG HTML Living Standard](https://html.spec.whatwg.org/)                                            | 🟢 / 🟡 / 🔴 |
-| How the Web works (HTTP, DNS, hosting, browsers)                            | [MDN: How the Internet works](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work)                  | 🟢 / 🟡 / 🔴 |
-| Web 1.0 → Web 2.0 → Web 3.0                                                 | [MDN: Evolution of the Web](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_the_Internet#The_evolution_of_the_web) | 🟢 / 🟡 / 🔴 |
-| Web accessibility (WCAG, WAI-ARIA)                                          | [W3C WAI: Accessibility standards](https://www.w3.org/WAI/standards-guidelines/) · [WebAIM Principles](https://webaim.org/intro/)                        | 🟢 / 🟡 / 🔴 |
-| Responsive and adaptive design                                              | [MDN: Responsive design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)                                                | 🟢 / 🟡 / 🔴 |
-| Basic SEO (Search Engine Optimization)                                      | [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)                                                     | 🟢 / 🟡 / 🔴 |
-| Visual impact and hierarchy in web design                                   | [Interaction Design Foundation: Web Design Basics](https://www.interaction-design.org/literature/topics/web-design)                                      | 🟢 / 🟡 / 🔴 |
+| Concept                                                                     | Canonical reference                                                                                                                     |    Status    |
+| :-------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :----------: |
+| History and evolution of the Web (Tim Berners-Lee, origins, open standards) | [MDN: The web and web standards](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards) | 🟢 / 🟡 / 🔴 |
+| Web standards and bodies (W3C, WHATWG, IETF)                                | [W3C Standards](https://www.w3.org/standards/) · [WHATWG HTML Living Standard](https://html.spec.whatwg.org/)                           | 🟢 / 🟡 / 🔴 |
+| How the Web works (HTTP, DNS, hosting, browsers)                            | [MDN: How the Internet works](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work) | 🟢 / 🟡 / 🔴 |
+| Web 1.0 → Web 2.0 → Web 3.0                                                 | [MDN: Evolution of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Evolution_of_HTTP)                                    | 🟢 / 🟡 / 🔴 |
+| Web accessibility (WCAG, WAI-ARIA)                                          | [W3C WAI: Accessibility standards](https://www.w3.org/WAI/standards-guidelines/) · [WebAIM Principles](https://webaim.org/intro/)       | 🟢 / 🟡 / 🔴 |
+| Responsive and adaptive design                                              | [MDN: Responsive design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)                               | 🟢 / 🟡 / 🔴 |
+| Basic SEO (Search Engine Optimization)                                      | [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)                                    | 🟢 / 🟡 / 🔴 |
+| Visual impact and hierarchy in web design                                   | [Interaction Design Foundation: Web Design Basics](https://www.interaction-design.org/literature/topics/web-design)                     | 🟢 / 🟡 / 🔴 |
 
 ---
 

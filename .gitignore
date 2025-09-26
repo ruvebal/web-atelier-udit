@@ -3,3 +3,8 @@
 .env*
 _site/
 *.lock 
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+Gemfile.lock

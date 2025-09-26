@@ -1,0 +1,27 @@
+---
+layout: default
+title: Link Errors (EN)
+lang: en
+permalink: /references/en/errors.html
+---
+
+<h1>Link Errors (EN)</h1>
+
+{% assign files = site.data | where_exp: "k,v", "k contains '-errors'" %} {% if files and files.size > 0 %} {% for f in
+files %} {% assign name = f[0] %} {% assign data = f[1] %}
+<h2>{{ name }}</h2>
+{% assign errs = data.errors %} {% if errs %}
+<ul>
+	{% for e in errs %}
+	<li>
+		<a href="{{ e.url }}" target="_blank" rel="external noopener">{{ e.url }}</a>
+		<small>status: {{ e.status }} • source: {{ e.source }} • {{ e.datetime }}</small>
+		{% if e.error %}
+		<div><code>{{ e.error }}</code></div>
+		{% endif %}
+	</li>
+	{% endfor %}
+</ul>
+{% endif %} {% endfor %} {% else %}
+<p>No error files found.</p>
+{% endif %}

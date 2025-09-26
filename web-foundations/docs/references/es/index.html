@@ -1,0 +1,38 @@
+---
+layout: default
+title: Referencias Externas (ES)
+lang: es
+permalink: /references/es/
+---
+
+<h1>Referencias Externas (ES)</h1>
+
+{% assign refs = site.data.references.references %} {% if refs and refs.size > 0 %}
+<p>
+	Base de datos de referencias escaneadas generado por
+	<code>href-tester</code>
+	.
+</p>
+
+<ul>
+	{% for item in refs %}
+	<li>
+		<a href="{{ item.url }}" rel="external noopener" target="_blank">{{ item.doc.page.title | default: item.url }}</a>
+		<small>({{ item.status }}) • {{ item.doc.domain }}</small>
+		<div>
+			<strong>Fuentes:</strong>
+			<ul>
+				{% for s in item.sourcesMeta %}
+				<li>
+					<em>{{ s.title }}</em>
+					<a href="{{ s.href | relative_url }}" aria-label="Abrir fuente">🔗</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+{% else %}
+<p>No hay referencias.</p>
+{% endif %}

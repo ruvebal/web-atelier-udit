@@ -2,18 +2,58 @@ title: 'Web Foundations (Canonical Lessons)'
 url: 'https://ruvebal.github.io/web-atelier-udit/'
 baseurl: '/web-atelier-udit'
 markdown: kramdown
-kramdown: { toc_levels: 2..3, footnote_backlink: '↩︎' }
+kramdown:
+ input: GFM
+ hard_wrap: false
+ parse_block_html: true
+ parse_span_html: true
+ show_warnings: false
+
+ # Proper British curly quotes
+ smart_quotes: [lsquo, rsquo, ldquo, rdquo]
+
+ # Prefer real Unicode characters for punctuation & symbols
+ entity_output: as_char
+
+ # Typographic goodies
+ typographic_symbols:
+  hellip: '…'
+  ndash: '–'
+  mdash: '—'
+  laquo: '«'
+  raquo: '»'
+
+ # Footnotes (beautiful endnotes section)
+ footnote_nr: 1
+ footnote_backlink: '↩'
+ footnote_backlink_inline: true
+ footnote_backlink_class: 'footnote-back'
+ footnote_prefix: ''
+
+ # IDs and ToC
+ auto_ids: true
+ toc_levels: 2..4
+
+ # Math if needed (remove if not)
+ math_engine: katex
+ math_engine_opts:
+  output: html
 theme: null
+
+highlighter: rouge
 collections:
  lessons:
   output: true
-  permalink: /lessons//:lang/:slug/
+  permalink: /lessons/:lang/:slug/
  bibliography:
   output: true
   permalink: /bibliography/:lang/
  methodology:
   output: true
   permalink: /methodology/:lang/
+ references:
+  output: true
+  permalink: /references/:lang/
 defaults:
  - scope: { path: '_lessons', type: 'lessons' }
    values:

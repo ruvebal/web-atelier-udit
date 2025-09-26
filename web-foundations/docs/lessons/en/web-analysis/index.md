@@ -33,7 +33,7 @@ permalink: /lessons/en/web-analysis/
 
 **References**
 
-- _Truth and Method_. Gadamer. [https://www.cambridge.org/core/books/truth-and-method/](https://www.cambridge.org/core/books/truth-and-method/)
+- _Truth and Method_. Gadamer. [https://web.mit.edu/kaclark/www/gadamer_truth_and_method.pdf](https://www.cambridge.org/core/books/truth-and-method/)
 - _10 Usability Heuristics_. Nielsen Norman Group. [https://www.nngroup.com/articles/ten-usability-heuristics/](https://www.nngroup.com/articles/ten-usability-heuristics/)
 
 ---
@@ -44,7 +44,7 @@ permalink: /lessons/en/web-analysis/
 
 - **W3C Validator**: semantics, syntax.
 - **Google Lighthouse**: performance, accessibility, SEO.
-- **WAVE / axe**: **WCAG**, contrast, `alt`, roles.
+- **WAVE / axe**: **WCAG** compliance, color contrast, `alt` text, ARIA roles.
 - **PageSpeed / GTmetrix**: speed, **Core Web Vitals**.
 - **Search Console / Semrush**: on-page SEO, indexing.
 - **Others**: Link Checker, HTMLHint, Mobile Friendly.
@@ -130,8 +130,8 @@ _Webby Judging Criteria_. Webby Awards. [https://www.webbyawards.com/judging/](h
 - **Design research**: design as epistemic space, conceptual reflection.
 
 **References**  
-What is Web Art?. Webpunk.dev. [https://webpunk.dev/que-es-el-arte-web/](https://webpunk.dev/que-es-el-arte-web/)  
-Critical theory and design. UAM-X. [https://tesiuami.izt.uam.mx/](https://tesiuami.izt.uam.mx/) (example)
+What is Web Art?. Webpunk.dev. [https://www.webpunk.dev/](https://www.webpunk.dev/)  
+Critical design and critical theory: the challenge of designing for provocation [https://dl.acm.org/doi/abs/10.1145/2317956.2318001](https://dl.acm.org/doi/abs/10.1145/2317956.2318001) (example)
 
 ---
 

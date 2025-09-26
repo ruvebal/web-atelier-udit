@@ -1,0 +1,118 @@
+---
+layout: default
+title: Reference Graph (EN)
+lang: en
+permalink: /references/en/graph.html
+---
+
+<h1>Reference Graph (EN)</h1>
+
+<div id="graph-ui" class="prose">
+	<p class="muted">Click a document node to see its details. Drag to explore. Scroll to zoom.</p>
+	<div
+		id="details"
+		style="
+			margin: 0.5rem 0 1rem;
+			padding: 0.5rem;
+			border: 1px solid var(--border-light);
+			border-radius: 6px;
+			background: var(--bg);
+		"></div>
+</div>
+<div id="cy" style="width: 100%; height: 70vh; border: 1px solid var(--border-light); border-radius: 8px"></div>
+
+<script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+<script>
+	var dataUrl = "{{ '/_data/graph.json' | relative_url }}";
+	fetch(dataUrl)
+		.then(function (r) {
+			return r.json();
+		})
+		.then(function (graph) {
+			const cy = cytoscape({
+				container: document.getElementById('cy'),
+				elements: graph.elements,
+				style: [
+					{
+						selector: 'node[type="doc"]',
+						style: {
+							'background-color': '#1d4ed8',
+							label: 'data(label)',
+							color: '#fff',
+							'font-size': 10,
+							'text-wrap': 'wrap',
+							'text-max-width': 180,
+						},
+					},
+					{
+						selector: 'node[type="tag"]',
+						style: {
+							'background-color': '#10b981',
+							label: 'data(label)',
+							shape: 'round-rectangle',
+							'font-size': 9,
+							color: '#0f172a',
+						},
+					},
+					{
+						selector: 'node[type="entity"]',
+						style: {
+							'background-color': '#64748b',
+							label: 'data(label)',
+							shape: 'diamond',
+							'font-size': 9,
+							color: '#0f172a',
+						},
+					},
+					{
+						selector: 'edge[label="links"]',
+						style: { width: 1, 'line-color': '#cbd5e1', 'target-arrow-color': '#cbd5e1', 'target-arrow-shape': 'triangle' },
+					},
+					{
+						selector: 'edge[label="hasTag"]',
+						style: { width: 1, 'line-color': '#10b981', 'target-arrow-color': '#10b981', 'target-arrow-shape': 'triangle' },
+					},
+					{
+						selector: 'edge[label="mentions"]',
+						style: { width: 1, 'line-color': '#94a3b8', 'target-arrow-color': '#94a3b8', 'target-arrow-shape': 'triangle' },
+					},
+				],
+				layout: { name: 'cose', animate: true },
+			});
+			cy.zoomingEnabled(true);
+			cy.userZoomingEnabled(true);
+			cy
+				.style()
+				.selector('core')
+				.style({ 'active-bg-color': '#e5e7eb', 'selection-box-color': '#cbd5e1', 'outside-texture-bg-color': '#e0e0e0' })
+				.update();
+
+			const details = document.getElementById('details');
+			function formatSources(sources) {
+				if (!sources || !sources.length) return '<em>No sources</em>';
+				return sources
+					.map(function (s) {
+						return `<li><em>${
+							s.title || s.path
+						}</em> <a href="${'{{ ' / ' | relative_url }}' + (s.href || s.path)}" target="_blank" rel="noopener">🔗</a></li>`;
+					})
+					.join('');
+			}
+
+			cy.on('tap', 'node[type="doc"]', function (evt) {
+				const d = evt.target.data();
+				const label = d.label || d.url;
+				const domain = d.domain || '';
+				const status = d.status ? ' (' + d.status + ')' : '';
+				const sources = Array.isArray(d.sourcesMeta)
+					? d.sourcesMeta
+					: Array.isArray(d.sources)
+					? d.sources.map(function (p) {
+							return { title: p, href: p, path: p };
+					  })
+					: [];
+				details.innerHTML = `<div><strong>${label}</strong><br/><span class="muted">${domain}${status}</span></div>
+      <div style="margin-top:0.5rem"><strong>Sources:</strong><ul>${formatSources(sources)}</ul></div>`;
+			});
+		});
+</script>
