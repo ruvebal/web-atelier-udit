@@ -168,7 +168,8 @@ html {
 }
 body {
 	margin: 0;
-	font-family: 'Baskerville', 'Libre Baskerville', 'EB Garamond', 'Iowan Old Style', 'Hoefler Text', Georgia, serif;
+	font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial,
+		'Apple Color Emoji', 'Segoe UI Emoji';
 	font-size: var(--font-body-size);
 	line-height: var(--font-body-line);
 	color: var(--text-primary);
