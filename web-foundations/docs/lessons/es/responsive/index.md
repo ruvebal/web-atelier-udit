@@ -227,11 +227,41 @@ En nuestros ejemplos prácticos, nos enfocaremos en imágenes simples y SVG. Ase
 | **2**   | Grid + Container Queries     | Intermedio | Técnicas modernas      |
 | **3**   | SPA + Scroll-snap + Imágenes | Avanzado   | Proyecto completo      |
 
+### 📂 Estructura de Archivos para Todos los Ejercicios
+
+Para cada ejercicio, crea la siguiente estructura de archivos:
+
+```
+responsive/
+├── ejercicio-1.html              # HTML para Ejercicio 1
+├── ejercicio-2.html              # HTML para Ejercicio 2
+└── ejercicio-3.html              # HTML para Ejercicio 3
+
+# CSS en la carpeta raíz (ya existe)
+/assets/css/
+├── index.css                     # CSS del tema del estudiante
+├── ejercicio-1.css               # CSS específico para Ejercicio 1
+├── ejercicio-2.css               # CSS específico para Ejercicio 2
+└── ejercicio-3.css               # CSS específico para Ejercicio 3
+```
+
+**💡 Consejos para estudiantes:**
+
+- Crea la carpeta `responsive/` para los HTMLs
+- Añade los archivos CSS específicos en `/assets/css/` (carpeta ya existente)
+- Cada HTML tiene **dos enlaces CSS**:
+  - `../assets/css/index.css` - Tema general del estudiante (ya existe)
+  - `../assets/css/ejercicio-n.css` - CSS específico del ejercicio
+- Puedes abrir cada archivo HTML en el navegador para ver el resultado
+- El CSS específico sobrescribe los estilos del tema general cuando sea necesario
+
 ### Ejemplo práctico 1: Portafolio Responsivo Básico con Media Queries y Flexbox
 
 Para entender los fundamentos del diseño responsive, vamos a crear un portafolio que utiliza las técnicas tradicionales pero efectivas. Utilizaremos **media queries** para adaptar el layout según el tamaño del viewport y **Flexbox** para crear layouts flexibles. Este será nuestro punto de partida que evolucionaremos en el Ejemplo 2.
 
 **HTML:** Estructura de portafolio básica:
+
+**📁 Archivo a crear:** `responsive/ejercicio-1.html`
 
 ```html
 <!DOCTYPE html>
@@ -240,7 +270,8 @@ Para entender los fundamentos del diseño responsive, vamos a crear un portafoli
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Mi Portafolio - Responsive Básico</title>
-		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="../assets/css/index.css" />
+		<link rel="stylesheet" href="../assets/css/ejercicio-1.css" />
 	</head>
 	<body>
 		<header class="site-header">
@@ -323,6 +354,10 @@ Para entender los fundamentos del diseño responsive, vamos a crear un portafoli
 ```
 
 **CSS:** Implementamos Media Queries y Flexbox (versión básica):
+
+**📁 Archivo a crear:** `/assets/css/ejercicio-1.css`
+
+> **🎨 Jerarquía CSS:** Este archivo se carga después de `index.css`, por lo que puede sobrescribir los estilos del tema general del estudiante cuando sea necesario.
 
 ```css
 /* ===== PORTAFOLIO RESPONSIVE BÁSICO ===== */
@@ -616,6 +651,18 @@ img {
 }
 ```
 
+> **💡 Recordatorio:**
+>
+> - Guarda el código HTML en `responsive/ejercicio-1.html`
+> - Añade el código CSS en `/assets/css/ejercicio-1.css` (carpeta ya existe)
+> - El HTML incluye dos enlaces CSS: tema general y específico del ejercicio
+
+**🚀 Cómo probar tu ejercicio:**
+
+1. Abre `responsive/ejercicio-1.html` en tu navegador
+2. Redimensiona la ventana para ver el comportamiento responsive
+3. Usa las herramientas de desarrollador (F12) para simular dispositivos móviles
+
 **¿Cómo funciona este ejemplo?**
 
 1. **Media Queries**: Usamos `@media (max-width: 768px)` y `@media (max-width: 480px)` para cambiar el layout según el tamaño del viewport.
@@ -672,6 +719,8 @@ Ahora vamos a **evolucionar** el portafolio del Ejemplo 1 aplicando las técnica
 
 **HTML:**
 
+**📁 Archivo a crear:** `responsive/ejercicio-2.html`
+
 ```html
 <!DOCTYPE html>
 <html lang="es">
@@ -679,7 +728,8 @@ Ahora vamos a **evolucionar** el portafolio del Ejemplo 1 aplicando las técnica
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Portafolio Responsive</title>
-		<link rel="stylesheet" href="portfolio.css" />
+		<link rel="stylesheet" href="../assets/css/index.css" />
+		<link rel="stylesheet" href="../assets/css/ejercicio-2.css" />
 	</head>
 	<body>
 		<header class="portfolio-header">
@@ -790,6 +840,10 @@ Ahora vamos a **evolucionar** el portafolio del Ejemplo 1 aplicando las técnica
 ```
 
 **CSS:**
+
+**📁 Archivo a crear:** `/assets/css/ejercicio-2.css`
+
+> **🎨 Jerarquía CSS:** Este archivo se carga después de `index.css`, por lo que puede sobrescribir los estilos del tema general del estudiante cuando sea necesario.
 
 ```css
 /* ===== PORTAFOLIO RESPONSIVE CON TÉCNICAS MODERNAS ===== */
@@ -1052,6 +1106,19 @@ img {
 }
 ```
 
+> **💡 Recordatorio:**
+>
+> - Guarda el código HTML en `responsive/ejercicio-2.html`
+> - Añade el código CSS en `/assets/css/ejercicio-2.css` (carpeta ya existe)
+> - El HTML incluye dos enlaces CSS: tema general y específico del ejercicio
+
+**🚀 Cómo probar tu ejercicio:**
+
+1. Abre `responsive/ejercicio-2.html` en tu navegador
+2. Redimensiona la ventana para ver el comportamiento responsive
+3. Compara con el Ejercicio 1 para ver las mejoras
+4. Usa las herramientas de desarrollador (F12) para simular dispositivos móviles
+
 **¿Qué demuestra este ejemplo?**
 
 1. **Evolución del Ejemplo 1**: Mantiene la misma estructura HTML pero con técnicas CSS avanzadas
@@ -1112,6 +1179,8 @@ Vamos a crear el **proyecto final completo**: un portafolio tipo SPA con scroll 
 
 **HTML completo del Portafolio SPA:**
 
+**📁 Archivo a crear:** `responsive/ejercicio-3.html`
+
 ```html
 <!DOCTYPE html>
 <html lang="es">
@@ -1119,7 +1188,8 @@ Vamos a crear el **proyecto final completo**: un portafolio tipo SPA con scroll 
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Portafolio Intrínseco - [Tu Nombre]</title>
-		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="../assets/css/index.css" />
+		<link rel="stylesheet" href="../assets/css/ejercicio-3.css" />
 	</head>
 	<body>
 		<!-- Navegación SPA fija -->
@@ -1302,6 +1372,10 @@ Vamos a crear el **proyecto final completo**: un portafolio tipo SPA con scroll 
 ```
 
 **CSS completo del Portafolio SPA:**
+
+**📁 Archivo a crear:** `/assets/css/ejercicio-3.css`
+
+> **🎨 Jerarquía CSS:** Este archivo se carga después de `index.css`, por lo que puede sobrescribir los estilos del tema general del estudiante cuando sea necesario.
 
 ```css
 /* ===== PORTAFOLIO SPA CON SCROLL-SNAP ===== */
@@ -1942,6 +2016,20 @@ img {
 }
 ```
 
+> **💡 Recordatorio:**
+>
+> - Guarda el código HTML en `responsive/ejercicio-3.html`
+> - Añade el código CSS en `/assets/css/ejercicio-3.css` (carpeta ya existe)
+> - El HTML incluye dos enlaces CSS: tema general y específico del ejercicio
+
+**🚀 Cómo probar tu ejercicio:**
+
+1. Abre `responsive/ejercicio-3.html` en tu navegador
+2. Prueba el scroll-snap desplazándote por las secciones
+3. Redimensiona la ventana para ver el comportamiento responsive
+4. Compara con los ejercicios anteriores para ver la evolución
+5. Usa las herramientas de desarrollador (F12) para simular dispositivos móviles
+
 **JavaScript para lazy loading (opcional):**
 
 ```javascript
@@ -2010,6 +2098,31 @@ Para consolidar el aprendizaje, reflexiona sobre estas cuestiones:
 - **Perspectiva intrínseca**: Imagina un componente de navegación que debe funcionar tanto en el header principal como en un sidebar estrecho. ¿Cómo diseñarías este componente para que sea **consciente de su contexto** y se adapte automáticamente?
 
 El futuro del diseño web está en crear **sistemas elásticos** donde cada componente es consciente de su contexto y se adapta intrínsecamente, combinando lo mejor del responsive tradicional con la fluidez moderna.
+
+## 📁 Resumen de Archivos Creados
+
+Al final de esta lección, deberías tener la siguiente estructura de archivos:
+
+```
+/responsive/
+├── ejercicio-1.html              # Portafolio básico con Media Queries + Flexbox
+├── ejercicio-2.html              # Portafolio moderno con Grid + Container Queries
+└── ejercicio-3.html              # Portafolio SPA con Scroll-snap + Imágenes responsive
+
+/assets/css/
+├── index.css                     # CSS del tema del estudiante (ya existe)
+├── ejercicio-1.css               # CSS específico para Ejercicio 1
+├── ejercicio-2.css               # CSS específico para Ejercicio 2
+└── ejercicio-3.css               # CSS específico para Ejercicio 3
+```
+
+**🎯 Próximos pasos:**
+
+1. **Abre cada ejercicio** en tu navegador para ver los resultados
+2. **Compara los ejercicios** para entender la evolución de técnicas
+3. **Experimenta** modificando los valores CSS y observa los cambios
+4. **Prueba en diferentes dispositivos** o usando las herramientas de desarrollador
+5. **Personaliza** los ejercicios con tu propio contenido e imágenes
 
 ---
 

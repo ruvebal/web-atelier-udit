@@ -227,11 +227,39 @@ In our practical examples, we'll focus on simple images and SVG. Always make sur
 | **2**   | Grid + Container Queries   | Intermediate | Modern techniques       |
 | **3**   | SPA + Scroll-snap + Images | Advanced     | Complete project        |
 
+### 📂 File Structure for All Exercises
+
+For each exercise, create the following file structure:
+
+```
+responsive/
+├── exercise-1.html              # HTML for Exercise 1
+├── exercise-2.html              # HTML for Exercise 2
+└── exercise-3.html              # HTML for Exercise 3
+
+# CSS in root folder (already exists)
+/assets/css/
+├── index.css                     # Student theme CSS
+├── exercise-1.css               # Specific CSS for Exercise 1
+├── exercise-2.css               # Specific CSS for Exercise 2
+└── exercise-3.css               # Specific CSS for Exercise 3
+```
+
+**💡 Tips for students:**
+
+- Create the `responsive/` folder for HTML files
+- Add specific CSS files to `/assets/css/` (folder already exists)
+- Each HTML has **two CSS links**: one to the general theme (`index.css`) and one to the specific exercise
+- You can open each HTML file in your browser to see the result
+- The specific CSS overrides the general theme styles when necessary
+
 ### Practical example 1: Basic Responsive Portfolio with Media Queries and Flexbox
 
 To understand the fundamentals of responsive design, we'll create a portfolio that uses traditional but effective techniques. We'll use **media queries** to adapt the layout according to viewport size and **Flexbox** to create flexible layouts. This will be our starting point that we'll evolve in Example 2.
 
 **HTML:** Basic portfolio structure:
+
+**📁 File to create:** `responsive/exercise-1.html`
 
 ```html
 <!DOCTYPE html>
@@ -240,7 +268,8 @@ To understand the fundamentals of responsive design, we'll create a portfolio th
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>My Portfolio - Basic Responsive</title>
-		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="../assets/css/index.css" />
+		<link rel="stylesheet" href="../assets/css/exercise-1.css" />
 	</head>
 	<body>
 		<header class="site-header">
@@ -323,6 +352,10 @@ To understand the fundamentals of responsive design, we'll create a portfolio th
 ```
 
 **CSS:** We implement Media Queries and Flexbox (basic version):
+
+**📁 File to create:** `/assets/css/exercise-1.css`
+
+> **🎨 CSS Hierarchy:** This file loads after `index.css`, so it can override the student's general theme styles when necessary.
 
 ```css
 /* ===== BASIC RESPONSIVE PORTFOLIO ===== */
@@ -616,6 +649,18 @@ img {
 }
 ```
 
+> **💡 Reminder:**
+>
+> - Save the HTML code in `responsive/exercise-1.html`
+> - Add the CSS code to `/assets/css/exercise-1.css` (folder already exists)
+> - The HTML includes two CSS links: general theme and exercise-specific
+
+**🚀 How to test your exercise:**
+
+1. Open `responsive/exercise-1.html` in your browser
+2. Resize the window to see the responsive behavior
+3. Use developer tools (F12) to simulate mobile devices
+
 **How does this example work?**
 
 1. **Media Queries**: We use `@media (max-width: 768px)` and `@media (max-width: 480px)` to change the layout according to viewport size.
@@ -665,3 +710,1246 @@ This basic portfolio will be the base for Example 2, where:
 	/* Styles for tablet and mobile */
 }
 ```
+
+### Practical example 2: Intrinsic Portfolio with Modern Techniques
+
+Now we'll **evolve** the portfolio from Example 1 by applying more advanced fluid and intrinsic design techniques. We'll maintain the same base structure but replace basic techniques with CSS Grid, Container Queries, and fluid typography.
+
+**HTML:**
+
+**📁 File to create:** `responsive/exercise-2.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Responsive Portfolio</title>
+		<link rel="stylesheet" href="../assets/css/index.css" />
+		<link rel="stylesheet" href="../assets/css/exercise-2.css" />
+	</head>
+	<body>
+		<header class="portfolio-header">
+			<div class="container">
+				<h1 class="portfolio-title">My Portfolio</h1>
+				<nav class="portfolio-nav">
+					<a href="#home">Home</a>
+					<a href="#about">About Me</a>
+					<a href="#work">Work</a>
+					<a href="#contact">Contact</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="portfolio-main">
+			<div class="container">
+				<!-- Projects Section -->
+				<section class="projects-section">
+					<h2>My Projects</h2>
+					<div class="projects-grid">
+						<article class="project-card">
+							<img src="https://picsum.photos/400/300?random=1" alt="Project 1" />
+							<div class="project-content">
+								<h3>Web Project</h3>
+								<p>Description of the first project developed with modern responsive techniques.</p>
+								<div class="project-tags">
+									<span class="tag">HTML</span>
+									<span class="tag">CSS</span>
+									<span class="tag">JavaScript</span>
+								</div>
+							</div>
+						</article>
+
+						<article class="project-card">
+							<img src="https://picsum.photos/400/300?random=2" alt="Project 2" />
+							<div class="project-content">
+								<h3>Mobile App</h3>
+								<p>An application that adapts using CSS Grid and Container Queries.</p>
+								<div class="project-tags">
+									<span class="tag">React</span>
+									<span class="tag">Grid</span>
+									<span class="tag">API</span>
+								</div>
+							</div>
+						</article>
+
+						<article class="project-card">
+							<img src="https://picsum.photos/400/300?random=3" alt="Project 3" />
+							<div class="project-content">
+								<h3>Dashboard</h3>
+								<p>Control panel with intrinsic layout using CSS Grid and Subgrid.</p>
+								<div class="project-tags">
+									<span class="tag">Vue.js</span>
+									<span class="tag">CSS</span>
+									<span class="tag">Node.js</span>
+								</div>
+							</div>
+						</article>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<footer class="portfolio-footer">
+			<div class="container">
+				<p>&copy; 2025 My Portfolio. Designed with modern responsive techniques.</p>
+			</div>
+		</footer>
+	</body>
+</html>
+```
+
+**CSS:**
+
+**📁 File to create:** `/assets/css/exercise-2.css`
+
+> **🎨 CSS Hierarchy:** This file loads after `index.css`, so it can override the student's general theme styles when necessary.
+
+```css
+/* ===== RESPONSIVE PORTFOLIO WITH MODERN TECHNIQUES ===== */
+
+:root {
+	--primary-color: #3b82f6;
+	--secondary-color: #64748b;
+	--accent-color: #f59e0b;
+	--text-color: #1e293b;
+	--card-bg: #ffffff;
+	--bg-color: #f8fafc;
+	--white: #ffffff;
+	--border-color: #e2e8f0;
+
+	/* Fluid spacing */
+	--spacing-xs: clamp(0.5rem, 1vw, 0.75rem);
+	--spacing-sm: clamp(1rem, 2vw, 1.5rem);
+	--spacing-md: clamp(1.5rem, 3vw, 2.5rem);
+	--spacing-lg: clamp(2rem, 4vw, 3.5rem);
+	--spacing-xl: clamp(3rem, 6vw, 5rem);
+
+	/* Fluid typography */
+	--text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+	--text-sm: clamp(0.875rem, 2vw, 1rem);
+	--text-base: clamp(1rem, 2.5vw, 1.125rem);
+	--text-lg: clamp(1.125rem, 3vw, 1.25rem);
+	--text-xl: clamp(1.25rem, 4vw, 1.5rem);
+	--text-2xl: clamp(1.5rem, 5vw, 2rem);
+	--text-3xl: clamp(2rem, 6vw, 3rem);
+	--text-4xl: clamp(2.5rem, 8vw, 4rem);
+
+	/* Shadows */
+	--shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+	/* Border radius */
+	--border-radius: clamp(0.5rem, 1vw, 0.75rem);
+	--border-radius-lg: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+/* ===== ENHANCED CONTAINER SYSTEM ===== */
+.container {
+	container-type: inline-size;
+	container-name: portfolio-container;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--spacing-md);
+}
+
+/* ===== ENHANCED HEADER ===== */
+.portfolio-header {
+	background: var(--primary-color);
+	color: var(--white);
+	padding: var(--spacing-lg) 0;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	box-shadow: var(--shadow);
+}
+
+.portfolio-header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--spacing-md);
+}
+
+.portfolio-title {
+	font-size: var(--text-4xl);
+	font-weight: 700;
+}
+
+/* ===== ENHANCED NAVIGATION ===== */
+.portfolio-nav {
+	display: flex;
+	gap: var(--spacing-lg);
+	flex-wrap: wrap;
+}
+
+.portfolio-nav a {
+	color: var(--white);
+	text-decoration: none;
+	padding: var(--spacing-xs) var(--spacing-sm);
+	border-radius: var(--border-radius);
+	transition: background-color 0.2s;
+	font-weight: 500;
+}
+
+.portfolio-nav a:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== CSS GRID SYSTEM WITH AUTO-FIT ===== */
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: var(--spacing-lg);
+	margin: var(--spacing-xl) 0;
+}
+
+/* ===== SUBGRID IMPLEMENTATION ===== */
+.project-card {
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-column: span 1;
+	/* Fallback for browsers without subgrid support */
+	@supports not (grid-template-columns: subgrid) {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+/* Apply subgrid only when supported */
+@supports (grid-template-columns: subgrid) {
+	.projects-grid {
+		grid-template-rows: auto auto 1fr auto; /* Title, image, description, tags */
+	}
+
+	.project-card {
+		display: grid;
+		grid-template-columns: subgrid;
+		grid-template-rows: subgrid;
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	.project-card h3 {
+		grid-row: 1;
+	}
+
+	.project-card img {
+		grid-row: 2;
+	}
+
+	.project-card p {
+		grid-row: 3;
+	}
+
+	.project-card .project-tags {
+		grid-row: 4;
+		align-self: end;
+	}
+}
+
+/* ===== CONTAINER QUERIES ===== */
+/* When the container is narrow, change the card layout */
+@container portfolio-container (max-width: 600px) {
+	.project-card {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: var(--spacing-md);
+	}
+
+	.project-card img {
+		width: 120px;
+		height: 90px;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+
+	.project-content {
+		flex: 1;
+	}
+}
+
+/* ===== ENHANCED PROJECT CARD ===== */
+.project-card {
+	background: var(--card-bg);
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+	overflow: hidden;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-lg);
+}
+
+.project-card img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	transition: transform 0.2s;
+}
+
+.project-card:hover img {
+	transform: scale(1.05);
+}
+
+.project-content {
+	padding: var(--spacing-lg);
+}
+
+.project-content h3 {
+	font-size: var(--text-xl);
+	font-weight: 600;
+	margin-bottom: var(--spacing-sm);
+	color: var(--text-color);
+}
+
+.project-content p {
+	color: var(--secondary-color);
+	margin-bottom: var(--spacing-md);
+	line-height: 1.6;
+}
+
+/* ===== ENHANCED TAG SYSTEM ===== */
+.project-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-xs);
+}
+
+.tag {
+	background: var(--primary-color);
+	color: var(--white);
+	padding: var(--spacing-xs) var(--spacing-sm);
+	border-radius: 9999px;
+	font-size: var(--text-xs);
+	font-weight: 500;
+}
+
+/* ===== ENHANCED TYPOGRAPHY ===== */
+h1,
+h2,
+h3 {
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+h2 {
+	font-size: var(--text-3xl);
+	text-align: center;
+	margin: var(--spacing-xl) 0;
+	color: var(--text-color);
+}
+
+/* ===== ENHANCED FOOTER ===== */
+.portfolio-footer {
+	background: var(--secondary-color);
+	color: white;
+	text-align: center;
+	padding: var(--spacing-lg) 0;
+	margin-top: var(--spacing-xl);
+}
+
+/* ===== RESPONSIVE IMAGES ===== */
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* ===== UTILITIES ===== */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+```
+
+> **💡 Reminder:**
+>
+> - Save the HTML code in `responsive/exercise-2.html`
+> - Add the CSS code to `/assets/css/exercise-2.css` (folder already exists)
+> - The HTML includes two CSS links: general theme and exercise-specific
+
+**🚀 How to test your exercise:**
+
+1. Open `responsive/exercise-2.html` in your browser
+2. Resize the window to see the responsive behavior
+3. Compare with Exercise 1 to see the improvements
+4. Use developer tools (F12) to simulate mobile devices
+
+**What does this example demonstrate?**
+
+1. **Evolution from Example 1**: Maintains the same HTML structure but with advanced CSS techniques
+2. **Grid Auto-fit**: `repeat(auto-fit, minmax(300px, 1fr))` replaces Example 1's Flexbox
+3. **Subgrid**: Cards inherit the parent grid's row structure for perfect alignment
+4. **Container Queries**: Changes card layout when the container is narrow (not the viewport)
+5. **Fluid Typography**: `clamp()` for smooth title scaling without abrupt jumps
+6. **Relative Units**: `rem`, `%`, `fr`, `vw` for intrinsic fluidity
+7. **Modern Effects**: Hover effects, smooth transitions, shadows
+8. **Intrinsic Design**: Components adapt according to their context, not global breakpoints
+
+**Improvements over Example 1:**
+
+- **Flexbox → CSS Grid**: More powerful and flexible layout
+- **Media Queries → Container Queries**: Adaptation based on container, not viewport
+- **Fixed Sizes → Fluid Typography**: Smooth scaling with `clamp()`
+- **Fixed Breakpoints → Intrinsic Fluidity**: Automatic adaptation without break points
+- **Less Code**: Grid Auto-fit reduces the need for media queries
+
+**Advantages of this advanced approach:**
+
+- **Better Performance**: Less CSS code and more efficient layouts
+- **More Maintainable**: Container queries are more semantic
+- **Future-Proof**: Uses modern CSS specifications
+- **Intrinsic Design**: Components are context-aware
+- **Smoother Experience**: No abrupt jumps between breakpoints
+
+### Practical example 3: SPA Portfolio with Scroll-snap and Responsive Images
+
+We'll create the **final complete project**: an SPA-style portfolio with scroll by screen-frames, advanced responsive images, and all the modern techniques learned. This will be our integrated project that demonstrates complete mastery of intrinsic web design.
+
+**HTML:**
+
+**📁 File to create:** `responsive/exercise-3.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Intrinsic Portfolio - [Your Name]</title>
+		<link rel="stylesheet" href="../assets/css/index.css" />
+		<link rel="stylesheet" href="../assets/css/exercise-3.css" />
+	</head>
+	<body>
+		<!-- Fixed SPA Navigation -->
+		<nav class="main-nav">
+			<div class="nav-container">
+				<a href="#home" class="nav-link active">Home</a>
+				<a href="#about" class="nav-link">About</a>
+				<a href="#work" class="nav-link">Work</a>
+				<a href="#contact" class="nav-link">Contact</a>
+			</div>
+		</nav>
+
+		<!-- Scroll Container with Snap -->
+		<div class="scroll-container">
+			<!-- Home Section -->
+			<section id="home" class="section home-section">
+				<div class="hero-background">
+					<picture>
+						<source media="(max-width: 768px)" srcset="https://picsum.photos/768/1024?random=hero-mobile" />
+						<source media="(max-width: 1200px)" srcset="https://picsum.photos/1200/800?random=hero-tablet" />
+						<img src="https://picsum.photos/1920/1080?random=hero-desktop" alt="Hero Background" class="hero-bg-image" />
+					</picture>
+				</div>
+				<div class="container">
+					<div class="hero-content">
+						<h1 class="hero-title">Hello, I'm [Your Name]</h1>
+						<p class="hero-subtitle">Frontend Developer specialized in intrinsic and responsive design</p>
+						<a href="#work" class="cta-button">View my work</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- About Section -->
+			<section id="about" class="section about-section">
+				<div class="container">
+					<h2 class="section-title">About Me</h2>
+					<div class="about-content">
+						<div class="about-image">
+							<picture>
+								<source media="(max-width: 480px)" srcset="https://picsum.photos/200/200?random=profile-mobile" />
+								<img src="https://picsum.photos/300/300?random=profile" alt="Profile Picture" class="profile-image" />
+							</picture>
+						</div>
+						<div class="about-text">
+							<p>
+								I'm a passionate frontend developer with expertise in modern CSS techniques, responsive design, and user
+								experience. I love creating fluid, intrinsic designs that adapt beautifully to any device.
+							</p>
+							<p>
+								My skills include HTML5, CSS3, JavaScript, React, Vue.js, and modern CSS features like Grid, Flexbox, Container
+								Queries, and CSS Layers.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Work Section -->
+			<section id="work" class="section work-section">
+				<div class="container">
+					<h2 class="section-title">My Projects</h2>
+					<div class="projects-grid">
+						<article class="project-card">
+							<div class="project-image-container">
+								<picture>
+									<source media="(max-width: 480px)" srcset="https://picsum.photos/300/200?random=project1-mobile" />
+									<img src="https://picsum.photos/400/300?random=project1" alt="Project 1" class="project-image" />
+								</picture>
+								<div class="project-overlay">
+									<a href="#" class="project-link">View Project</a>
+								</div>
+							</div>
+							<div class="project-info">
+								<h3>Intrinsic Web App</h3>
+								<p>Modern web application using CSS Grid, Container Queries, and fluid typography for perfect adaptation.</p>
+								<div class="project-tags">
+									<span class="tag">CSS Grid</span>
+									<span class="tag">Container Queries</span>
+									<span class="tag">Subgrid</span>
+								</div>
+							</div>
+						</article>
+
+						<article class="project-card">
+							<div class="project-image-container">
+								<picture>
+									<source media="(max-width: 480px)" srcset="https://picsum.photos/300/200?random=project2-mobile" />
+									<img src="https://picsum.photos/400/300?random=project2" alt="Project 2" class="project-image" />
+								</picture>
+								<div class="project-overlay">
+									<a href="#" class="project-link">View Project</a>
+								</div>
+							</div>
+							<div class="project-info">
+								<h3>Responsive Dashboard</h3>
+								<p>Data visualization dashboard with scroll-snap sections and advanced responsive images.</p>
+								<div class="project-tags">
+									<span class="tag">Scroll-snap</span>
+									<span class="tag">Responsive Images</span>
+									<span class="tag">CSS Layers</span>
+								</div>
+							</div>
+						</article>
+
+						<article class="project-card">
+							<div class="project-image-container">
+								<picture>
+									<source media="(max-width: 480px)" srcset="https://picsum.photos/300/200?random=project3-mobile" />
+									<img src="https://picsum.photos/400/300?random=project3" alt="Project 3" class="project-image" />
+								</picture>
+								<div class="project-overlay">
+									<a href="#" class="project-link">View Project</a>
+								</div>
+							</div>
+							<div class="project-info">
+								<h3>Fluid Design System</h3>
+								<p>Complete design system with fluid typography, spacing, and intrinsic layouts.</p>
+								<div class="project-tags">
+									<span class="tag">Design System</span>
+									<span class="tag">Fluid Typography</span>
+									<span class="tag">CSS Custom Properties</span>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Section -->
+			<section id="contact" class="section contact-section">
+				<div class="container">
+					<h2 class="section-title">Get In Touch</h2>
+					<div class="contact-content">
+						<p>Ready to work together? Let's create something amazing!</p>
+						<a href="mailto:your.email@example.com" class="cta-button">Send me an email</a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</body>
+</html>
+```
+
+**CSS:**
+
+**📁 File to create:** `/assets/css/exercise-3.css`
+
+> **🎨 CSS Hierarchy:** This file loads after `index.css`, so it can override the student's general theme styles when necessary.
+
+```css
+/* ===== SPA PORTFOLIO WITH SCROLL-SNAP ===== */
+
+:root {
+	/* Colors */
+	--primary: #3b82f6;
+	--secondary: #64748b;
+	--accent: #f59e0b;
+	--text: #1e293b;
+	--bg: #f8fafc;
+	--white: #ffffff;
+	--border: #e2e8f0;
+
+	/* Fluid spacing */
+	--space-xs: clamp(0.5rem, 1vw, 0.75rem);
+	--space-sm: clamp(1rem, 2vw, 1.5rem);
+	--space-md: clamp(1.5rem, 3vw, 2.5rem);
+	--space-lg: clamp(2rem, 4vw, 3.5rem);
+	--space-xl: clamp(3rem, 6vw, 5rem);
+
+	/* Fluid typography */
+	--text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+	--text-sm: clamp(0.875rem, 2vw, 1rem);
+	--text-base: clamp(1rem, 2.5vw, 1.125rem);
+	--text-lg: clamp(1.125rem, 3vw, 1.25rem);
+	--text-xl: clamp(1.25rem, 4vw, 1.5rem);
+	--text-2xl: clamp(1.5rem, 5vw, 2rem);
+	--text-3xl: clamp(2rem, 6vw, 3rem);
+	--text-4xl: clamp(2.5rem, 8vw, 4rem);
+
+	/* Fluid line heights */
+	--leading-tight: clamp(1.1, 1.2, 1.25);
+	--leading-normal: clamp(1.4, 1.5, 1.6);
+	--leading-relaxed: clamp(1.5, 1.6, 1.75);
+
+	/* Shadows */
+	--shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+	/* Borders */
+	--radius: clamp(0.5rem, 1vw, 0.75rem);
+	--radius-lg: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+/* Reset and base */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: system-ui, -apple-system, sans-serif;
+	line-height: var(--leading-normal);
+	color: var(--text);
+	background: var(--bg);
+}
+
+/* ===== SCROLL SNAPPING ===== */
+.scroll-container {
+	scroll-snap-type: y mandatory;
+	height: 100vh;
+	overflow-y: scroll;
+}
+
+.section {
+	min-height: 100dvh;
+	scroll-snap-align: start;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.container {
+	container-type: inline-size;
+	container-name: section-container;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--space-md);
+	width: 100%;
+}
+
+/* ===== SPA NAVIGATION ===== */
+.main-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(10px);
+	z-index: 1000;
+	padding: var(--space-sm) 0;
+	box-shadow: var(--shadow);
+}
+
+.nav-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--space-md);
+	display: flex;
+	justify-content: center;
+	gap: var(--space-lg);
+}
+
+.nav-link {
+	text-decoration: none;
+	color: var(--text);
+	font-weight: 500;
+	font-size: var(--text-sm);
+	padding: var(--space-xs) var(--space-sm);
+	border-radius: var(--radius);
+	transition: all 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+	background: var(--primary);
+	color: var(--white);
+}
+
+/* ===== SECTION STYLES ===== */
+.home-section {
+	background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+	color: var(--white);
+	text-align: center;
+}
+
+.about-section {
+	background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.work-section {
+	background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+	color: var(--white);
+}
+
+.contact-section {
+	background: linear-gradient(135deg, var(--accent) 0%, #d97706 100%);
+	color: var(--white);
+}
+
+/* ===== HERO WITH BACKGROUND IMAGE ===== */
+.hero-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.hero-bg-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.hero-content {
+	text-align: center;
+	color: var(--white);
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.4);
+	padding: var(--space-xl);
+	border-radius: var(--radius);
+	backdrop-filter: blur(10px);
+}
+
+.hero-title {
+	font-size: var(--text-4xl);
+	font-weight: 700;
+	line-height: var(--leading-tight);
+	margin-bottom: var(--space-md);
+}
+
+.hero-subtitle {
+	font-size: var(--text-xl);
+	line-height: var(--leading-relaxed);
+	margin-bottom: var(--space-lg);
+	opacity: 0.9;
+}
+
+.section-title {
+	font-size: var(--text-3xl);
+	font-weight: 600;
+	text-align: center;
+	margin-bottom: var(--space-xl);
+}
+
+/* ===== ADVANCED GRID SYSTEM ===== */
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: var(--space-lg);
+}
+
+/* ===== SUBGRID FOR PERFECT ALIGNMENT ===== */
+.project-card {
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-column: span 1;
+	/* Fallback for browsers without subgrid support */
+	@supports not (grid-template-columns: subgrid) {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+/* Apply subgrid only when supported */
+@supports (grid-template-columns: subgrid) {
+	.projects-grid {
+		grid-template-rows: auto auto 1fr auto auto; /* Image, overlay, title, description, tags */
+	}
+
+	.project-card {
+		display: grid;
+		grid-template-columns: subgrid;
+		grid-template-rows: subgrid;
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	.project-image-container {
+		grid-row: 1;
+	}
+
+	.project-overlay {
+		grid-row: 2;
+	}
+
+	.project-info h3 {
+		grid-row: 3;
+	}
+
+	.project-info p {
+		grid-row: 4;
+	}
+
+	.project-tags {
+		grid-row: 5;
+		align-self: end;
+	}
+}
+
+/* ===== CONTAINER QUERIES ===== */
+@container section-container (max-width: 600px) {
+	.project-card {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: var(--space-md);
+	}
+
+	.project-card img {
+		width: 120px;
+		height: 90px;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+
+	.project-info {
+		flex: 1;
+	}
+}
+
+/* ===== PROJECT CARD IMAGES ===== */
+.project-card {
+	background: var(--white);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	box-shadow: var(--shadow);
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-lg);
+}
+
+.project-image-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.project-image {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+	transform: scale(1.05);
+}
+
+/* ===== IMAGE OVERLAY EFFECTS ===== */
+.project-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+	opacity: 1;
+}
+
+.project-link {
+	color: white;
+	text-decoration: none;
+	padding: var(--space-sm) var(--space-lg);
+	border: 2px solid white;
+	border-radius: var(--radius);
+	font-weight: 600;
+	transition: all 0.3s ease;
+}
+
+.project-link:hover {
+	background: white;
+	color: var(--text);
+}
+
+/* ===== PROJECT INFO STYLES ===== */
+.project-info {
+	padding: var(--space-md);
+}
+
+.project-info h3 {
+	font-size: var(--text-lg);
+	font-weight: 600;
+	margin-bottom: var(--space-xs);
+	color: var(--text);
+}
+
+.project-info p {
+	font-size: var(--text-sm);
+	color: var(--secondary);
+	margin-bottom: var(--space-sm);
+	line-height: var(--leading-normal);
+}
+
+/* ===== ENHANCED TAG SYSTEM ===== */
+.project-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-xs);
+}
+
+.tag {
+	background: var(--primary);
+	color: var(--white);
+	padding: var(--space-xs) var(--space-sm);
+	border-radius: 9999px;
+	font-size: var(--text-xs);
+	font-weight: 500;
+}
+
+/* ===== BUTTON COMPONENTS ===== */
+.cta-button,
+.submit-button {
+	background: var(--accent);
+	color: var(--white);
+	padding: var(--space-sm) var(--space-lg);
+	border: none;
+	border-radius: var(--radius);
+	font-size: var(--text-base);
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.cta-button:hover,
+.submit-button:hover {
+	background: #d97706;
+	transform: translateY(-2px);
+}
+
+/* ===== HERO WITH RESPONSIVE BACKGROUND ===== */
+.hero-section {
+	position: relative;
+	min-height: 100dvh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.hero-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.hero-bg-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+/* ===== PROFILE IMAGE RESPONSIVE ===== */
+.about-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-xl);
+	align-items: center;
+}
+
+.about-image {
+	text-align: center;
+}
+
+.profile-image {
+	width: 100%;
+	max-width: 300px;
+	height: auto;
+	border-radius: 50%;
+	box-shadow: var(--shadow-lg);
+	transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+	transform: scale(1.05);
+}
+
+/* ===== RESPONSIVE IMAGES WITH ASPECT RATIO ===== */
+.aspect-ratio-container {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	overflow: hidden;
+}
+
+.aspect-ratio-container img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* ===== HIGH DPI IMAGES ===== */
+.high-dpi-image {
+	width: 100%;
+	height: auto;
+	/* For high density screens */
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
+}
+
+/* ===== RESPONSIVE SVG ===== */
+.responsive-svg {
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+}
+
+.responsive-svg svg {
+	width: 100%;
+	height: auto;
+}
+
+/* ===== LAZY LOADING UTILITIES ===== */
+.lazy-image {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.lazy-image.loaded {
+	opacity: 1;
+}
+
+/* ===== IMAGE PLACEHOLDER UTILITIES ===== */
+.image-placeholder {
+	background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(
+			-45deg,
+			#f0f0f0 25%,
+			transparent 25%
+		), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+	background-size: 20px 20px;
+	background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.image-loading {
+	background: var(--bg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--secondary);
+}
+
+/* ===== CONTAINER QUERIES FOR IMAGES ===== */
+@container section-container (max-width: 600px) {
+	.about-content {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+
+	.project-image-container {
+		height: 150px;
+	}
+
+	.project-image {
+		height: 150px;
+	}
+
+	.hero-content {
+		padding: var(--space-lg);
+	}
+}
+
+/* ===== MEDIA QUERIES FOR SPECIFIC IMAGE BEHAVIORS ===== */
+@media (max-width: 768px) {
+	.hero-bg-image {
+		object-position: center top;
+	}
+
+	.project-image {
+		height: 180px;
+	}
+
+	.profile-image {
+		max-width: 250px;
+	}
+}
+
+@media (max-width: 480px) {
+	.hero-content {
+		padding: var(--space-md);
+	}
+
+	.project-image {
+		height: 160px;
+	}
+
+	.profile-image {
+		max-width: 200px;
+	}
+}
+```
+
+> **💡 Reminder:**
+>
+> - Save the HTML code in `responsive/exercise-3.html`
+> - Add the CSS code to `/assets/css/exercise-3.css` (folder already exists)
+> - The HTML includes two CSS links: general theme and exercise-specific
+
+**🚀 How to test your exercise:**
+
+1. Open `responsive/exercise-3.html` in your browser
+2. Test scroll-snap by scrolling through the sections
+3. Resize the window to see the responsive behavior
+4. Compare with previous exercises to see the evolution
+5. Use developer tools (F12) to simulate mobile devices
+
+**JavaScript for lazy loading (optional):**
+
+```javascript
+// Lazy loading for images
+const lazyImages = document.querySelectorAll('.lazy-image');
+
+const imageObserver = new IntersectionObserver((entries, observer) => {
+	entries.forEach((entry) => {
+		if (entry.isIntersecting) {
+			const img = entry.target;
+			img.src = img.dataset.src;
+			img.classList.add('loaded');
+			observer.unobserve(img);
+		}
+	});
+});
+
+lazyImages.forEach((img) => imageObserver.observe(img));
+
+// Preload critical images
+const preloadImage = (src) => {
+	const img = new Image();
+	img.src = src;
+};
+
+// Preload hero image
+preloadImage('https://picsum.photos/1920/1080?random=hero-large');
+```
+
+**What does this example demonstrate?**
+
+1. **Picture Element**: Different images according to screen size
+2. **Object-fit**: Precise control of cropping and positioning
+3. **Aspect Ratio**: Maintain consistent proportions
+4. **Subgrid**: Perfect alignment of elements in project cards
+5. **Lazy Loading**: Deferred loading for better performance
+6. **Hover Effects**: Visual interactions with images
+7. **Container Queries**: Adaptation based on container, not viewport
+8. **High DPI**: Optimization for high-density screens
+
+**Applied techniques:**
+
+- **`<picture>`**: Multiple sources according to media queries
+- **`object-fit: cover`**: Intelligent cropping maintaining proportions
+- **`grid-template-columns: subgrid`**: Grid structure inheritance for perfect alignment
+- **`aspect-ratio`**: Consistent proportions without JavaScript
+- **`backdrop-filter`**: Modern blur effects
+- **Container Queries**: Intrinsic adaptation of images
+- **Lazy Loading**: Optimized loading for performance
+
+## Conclusion: Towards Intrinsic Design
+
+Throughout this lesson we have explored the evolution of web design from traditional responsive to more **intrinsic and elastic** approaches. The three practical exercises demonstrate this progression:
+
+- **Exercise 1** taught us the fundamentals with Media Queries and Flexbox
+- **Exercise 2** introduced modern techniques with Grid and Container Queries
+- **Exercise 3** integrated everything into a complete SPA portfolio
+
+### Reflection Questions
+
+To consolidate learning, reflect on these questions:
+
+- **Why** is it important to offer a unified experience across different devices? (Hint: think about user satisfaction, SEO, audience reach, etc.)
+- Analyze a known website and describe **which parts** of its design seem fluid and which respond to breakpoints. Do you notice jumps? Could you improve something with learned techniques?
+- Consider a complex UI element (e.g., a large data table). What combination of techniques would you use to make it usable on mobile without losing functionality on desktop?
+- **Intrinsic perspective**: Imagine a navigation component that must work both in the main header and in a narrow sidebar. How would you design this component to be **context-aware** and adapt automatically?
+
+The future of web design lies in creating **elastic systems** where each component is aware of its context and adapts intrinsically, combining the best of traditional responsive with modern fluidity.
+
+## 📁 Summary of Created Files
+
+At the end of this lesson, you should have the following file structure:
+
+```
+responsive/
+├── exercise-1.html              # Basic portfolio with Media Queries + Flexbox
+├── exercise-2.html              # Modern portfolio with Grid + Container Queries
+└── exercise-3.html              # SPA portfolio with Scroll-snap + Responsive images
+
+/assets/css/
+├── index.css                     # Student theme CSS (already exists)
+├── exercise-1.css               # Specific CSS for Exercise 1
+├── exercise-2.css               # Specific CSS for Exercise 2
+└── exercise-3.css               # Specific CSS for Exercise 3
+```
+
+**🎯 Next steps:**
+
+1. **Open each exercise** in your browser to see the results
+2. **Compare the exercises** to understand the evolution of techniques
+3. **Experiment** by modifying CSS values and observing changes
+4. **Test on different devices** or using developer tools
+5. **Customize** the exercises with your own content and images
+
+---
+
+## References
+
+[^1]: [https://www.harlointeractive.com/blog/post/goodbye-responsive-hello-intrinsic](https://www.harlointeractive.com/blog/post/goodbye-responsive-hello-intrinsic)
+[^2]: [The importance of responsive web design in the mobile era | Pibeca Solutions](https://www.pibeca.com/2023/11/27/la-importancia-del-diseno-web-responsive-en-la-era-movil/#:~:text=El%20dise%C3%B1o%20web%20responsive%20se,audiencia%20cada%20vez%20m%C3%A1s%20m%C3%B3vil)
