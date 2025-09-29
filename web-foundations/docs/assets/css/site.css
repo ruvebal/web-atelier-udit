@@ -176,8 +176,12 @@ body {
 	background: var(--background);
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
-	font-variant-ligatures: common-ligatures discretionary-ligatures;
 	font-variant-numeric: oldstyle-nums proportional-nums;
+}
+
+h1 {
+	text-box-trim: both;
+	text-box-align: center;
 }
 
 /* Footer logo fits container */

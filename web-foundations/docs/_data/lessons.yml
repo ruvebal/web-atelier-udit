@@ -169,3 +169,17 @@
   status:
    es: complete
    en: complete
+
+- slug: responsive
+  title:
+   es: 'Diseño Web: Responsive, Fluido e Intrínseco'
+   en: 'Web Design: Responsive, Fluid and Intrinsic'
+  path:
+   es: /lessons/es/responsive/
+   en: /lessons/en/responsive/
+  file:
+   es: lessons/es/responsive/index.md
+   en: lessons/en/responsive/index.md
+  status:
+   es: complete
+   en: complete
