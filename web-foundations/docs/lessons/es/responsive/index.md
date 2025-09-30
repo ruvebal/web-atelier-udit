@@ -232,7 +232,7 @@ En nuestros ejemplos prácticos, nos enfocaremos en imágenes simples y SVG. Ase
 Para cada ejercicio, crea la siguiente estructura de archivos:
 
 ```
-responsive/
+/responsive/
 ├── ejercicio-1.html              # HTML para Ejercicio 1
 ├── ejercicio-2.html              # HTML para Ejercicio 2
 └── ejercicio-3.html              # HTML para Ejercicio 3
@@ -247,7 +247,7 @@ responsive/
 
 **💡 Consejos para estudiantes:**
 
-- Crea la carpeta `responsive/` para los HTMLs
+- Crea la carpeta `/responsive/` para los HTMLs
 - Añade los archivos CSS específicos en `/assets/css/` (carpeta ya existente)
 - Cada HTML tiene **dos enlaces CSS**:
   - `../assets/css/index.css` - Tema general del estudiante (ya existe)
@@ -261,7 +261,7 @@ Para entender los fundamentos del diseño responsive, vamos a crear un portafoli
 
 **HTML:** Estructura de portafolio básica:
 
-**📁 Archivo a crear:** `responsive/ejercicio-1.html`
+**📁 Archivo a crear:** `/responsive/ejercicio-1.html`
 
 ```html
 <!DOCTYPE html>
@@ -653,13 +653,13 @@ img {
 
 > **💡 Recordatorio:**
 >
-> - Guarda el código HTML en `responsive/ejercicio-1.html`
+> - Guarda el código HTML en `/responsive/ejercicio-1.html`
 > - Añade el código CSS en `/assets/css/ejercicio-1.css` (carpeta ya existe)
 > - El HTML incluye dos enlaces CSS: tema general y específico del ejercicio
 
 **🚀 Cómo probar tu ejercicio:**
 
-1. Abre `responsive/ejercicio-1.html` en tu navegador
+1. Abre `/responsive/ejercicio-1.html` en tu navegador
 2. Redimensiona la ventana para ver el comportamiento responsive
 3. Usa las herramientas de desarrollador (F12) para simular dispositivos móviles
 
@@ -719,7 +719,7 @@ Ahora vamos a **evolucionar** el portafolio del Ejemplo 1 aplicando las técnica
 
 **HTML:**
 
-**📁 Archivo a crear:** `responsive/ejercicio-2.html`
+**📁 Archivo a crear:** `/responsive/ejercicio-2.html`
 
 ```html
 <!DOCTYPE html>
@@ -1108,13 +1108,13 @@ img {
 
 > **💡 Recordatorio:**
 >
-> - Guarda el código HTML en `responsive/ejercicio-2.html`
+> - Guarda el código HTML en `/responsive/ejercicio-2.html`
 > - Añade el código CSS en `/assets/css/ejercicio-2.css` (carpeta ya existe)
 > - El HTML incluye dos enlaces CSS: tema general y específico del ejercicio
 
 **🚀 Cómo probar tu ejercicio:**
 
-1. Abre `responsive/ejercicio-2.html` en tu navegador
+1. Abre `/responsive/ejercicio-2.html` en tu navegador
 2. Redimensiona la ventana para ver el comportamiento responsive
 3. Compara con el Ejercicio 1 para ver las mejoras
 4. Usa las herramientas de desarrollador (F12) para simular dispositivos móviles
@@ -1179,7 +1179,7 @@ Vamos a crear el **proyecto final completo**: un portafolio tipo SPA con scroll 
 
 **HTML completo del Portafolio SPA:**
 
-**📁 Archivo a crear:** `responsive/ejercicio-3.html`
+**📁 Archivo a crear:** `/responsive/ejercicio-3.html`
 
 ```html
 <!DOCTYPE html>
@@ -2018,13 +2018,13 @@ img {
 
 > **💡 Recordatorio:**
 >
-> - Guarda el código HTML en `responsive/ejercicio-3.html`
+> - Guarda el código HTML en `/responsive/ejercicio-3.html`
 > - Añade el código CSS en `/assets/css/ejercicio-3.css` (carpeta ya existe)
 > - El HTML incluye dos enlaces CSS: tema general y específico del ejercicio
 
 **🚀 Cómo probar tu ejercicio:**
 
-1. Abre `responsive/ejercicio-3.html` en tu navegador
+1. Abre `/responsive/ejercicio-3.html` en tu navegador
 2. Prueba el scroll-snap desplazándote por las secciones
 3. Redimensiona la ventana para ver el comportamiento responsive
 4. Compara con los ejercicios anteriores para ver la evolución
