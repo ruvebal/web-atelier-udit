@@ -360,13 +360,7 @@ Para entender los fundamentos del diseño responsive, vamos a crear un portafoli
 > **🎨 Jerarquía CSS:** Este archivo se carga después de `index.css`, por lo que puede sobrescribir los estilos del tema general del estudiante cuando sea necesario.
 
 ```css
-/* ===== PORTAFOLIO RESPONSIVE BÁSICO (MOBILE-FIRST) ===== */
-/*
- * ESTRATEGIA MOBILE-FIRST:
- * 1. Estilos base ahora son móviles (pantallas pequeñas)
- * 2. Media queries usan min-width en lugar de max-width
- * 3. Progressive enhancement - agregamos estilos para pantallas más grandes
- */
+/* ===== PORTAFOLIO RESPONSIVE BÁSICO ===== */
 
 /* Variables CSS básicas */
 :root {
@@ -406,7 +400,7 @@ body {
 	padding: 0 var(--spacing-sm);
 }
 
-/* ===== HEADER RESPONSIVO (Mobile-First: estilos base para móvil) ===== */
+/* ===== HEADER RESPONSIVO ===== */
 .site-header {
 	background: var(--primary-color);
 	color: white;
@@ -415,21 +409,21 @@ body {
 
 .site-header .container {
 	display: flex;
-	flex-direction: column; /* Móvil: navegación vertical */
-	text-align: center;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
 	gap: var(--spacing-sm);
 }
 
 .site-title {
-	font-size: 1.25rem; /* Móvil: título más pequeño */
+	font-size: 1.5rem;
 	font-weight: 700;
 }
 
 .main-nav ul {
 	display: flex;
-	flex-direction: column; /* Móvil: enlaces apilados verticalmente */
 	list-style: none;
-	gap: var(--spacing-sm);
+	gap: var(--spacing-md);
 }
 
 .main-nav a {
@@ -447,7 +441,7 @@ body {
 /* ===== SECCIONES ===== */
 .hero-section {
 	text-align: center;
-	padding: var(--spacing-lg) 0; /* Móvil: padding reducido */
+	padding: var(--spacing-xl) 0;
 	background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
 	color: white;
 	margin: var(--spacing-lg) 0;
@@ -455,7 +449,7 @@ body {
 }
 
 .hero-section h2 {
-	font-size: 1.25rem; /* Móvil: texto más pequeño */
+	font-size: 2rem;
 	margin-bottom: var(--spacing-sm);
 }
 
@@ -471,21 +465,22 @@ body {
 
 .projects-section h2 {
 	text-align: center;
-	font-size: 1.5rem; /* Móvil: tamaño moderado */
+	font-size: 1.75rem;
 	margin-bottom: var(--spacing-lg);
 }
 
 /* ===== GRID DE PROYECTOS CON FLEXBOX ===== */
 .projects-grid {
 	display: flex;
-	flex-direction: column; /* Móvil: una sola columna */
+	flex-wrap: wrap;
 	gap: var(--spacing-lg);
-	align-items: center;
+	justify-content: center;
 }
 
 .project-card {
-	width: 100%; /* Móvil: ancho completo */
-	max-width: 100%;
+	flex: 1;
+	min-width: 300px;
+	max-width: 400px;
 	background: var(--white);
 	border-radius: var(--border-radius);
 	overflow: hidden;
@@ -550,23 +545,10 @@ body {
 	background: #d97706;
 }
 
-/* ===== MEDIA QUERIES (Mobile-First: Progressive Enhancement) ===== */
-/*
- * ESTRATEGIA MOBILE-FIRST:
- * - Estilos base son para móvil (ya definidos arriba)
- * - min-width agrega estilos para pantallas más grandes
- * - Progressive enhancement - mejoramos la experiencia conforme crece la pantalla
- */
-
-/* Tablet: 2-3 columnas - 481px+ */
-@media (min-width: 481px) {
-	.site-title {
-		font-size: 1.5rem;
-	}
-
+/* ===== MEDIA QUERIES ===== */
+/* Tablet: 2 columnas */
+@media (max-width: 768px) {
 	.projects-grid {
-		flex-direction: row; /* Tablet: múltiples columnas */
-		flex-wrap: wrap;
 		justify-content: center;
 	}
 
@@ -579,45 +561,40 @@ body {
 	.hero-section h2 {
 		font-size: 1.5rem;
 	}
-
-	.projects-section h2 {
-		font-size: 1.75rem;
-	}
 }
 
-/* Desktop: Layout horizontal completo - 769px+ */
-@media (min-width: 769px) {
+/* Móvil: 1 columna */
+@media (max-width: 480px) {
 	.site-header .container {
-		flex-direction: row; /* Desktop: navegación horizontal */
-		justify-content: space-between;
-		align-items: center;
-		text-align: left;
+		flex-direction: column;
+		text-align: center;
 	}
 
 	.main-nav ul {
-		flex-direction: row; /* Desktop: enlaces en línea */
-		gap: var(--spacing-md);
+		flex-direction: column;
+		gap: var(--spacing-sm);
 	}
 
 	.site-title {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
+	}
+
+	.projects-grid {
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.project-card {
-		min-width: 300px;
-		max-width: 400px; /* Desktop: tarjetas más anchas */
+		width: 100%;
+		max-width: 100%;
 	}
 
 	.hero-section {
-		padding: var(--spacing-xl) 0; /* Desktop: más espacio */
+		padding: var(--spacing-lg) 0;
 	}
 
 	.hero-section h2 {
-		font-size: 2rem; /* Desktop: títulos más grandes */
-	}
-
-	.hero-section p {
-		font-size: 1.125rem;
+		font-size: 1.25rem;
 	}
 }
 
@@ -688,21 +665,24 @@ img {
 
 **¿Cómo funciona este ejemplo?**
 
-1. **Mobile-First**: Los estilos base están diseñados para móviles (pantallas pequeñas). La navegación es vertical, las tarjetas ocupan el ancho completo, y el texto es de tamaño moderado.
+1. **Media Queries**: Usamos `@media (max-width: 768px)` y `@media (max-width: 480px)` para cambiar el layout según el tamaño del viewport.
 
-2. **Media Queries Progresivas**: Usamos `@media (min-width: 481px)` y `@media (min-width: 769px)` para **agregar** estilos conforme la pantalla crece, en lugar de **quitar** estilos con `max-width`.
+2. **Flexbox**: El grid de proyectos usa `display: flex` con `flex-wrap` para crear un layout flexible que se adapta automáticamente.
 
-3. **Flexbox Adaptativo**: La cuadrícula de proyectos usa `display: flex` que se adapta desde columna única (móvil) hasta múltiples columnas (tablet/desktop).
+3. **Breakpoints Estratégicos**:
 
-4. **Progressive Enhancement**: Comenzamos con la experiencia móvil básica y mejoramos para pantallas más grandes, agregando características según el espacio disponible.
+   - **Desktop** (>768px): 3 columnas de proyectos con flexbox
+   - **Tablet** (≤768px): 2 columnas de proyectos
+   - **Móvil** (≤480px): 1 columna de proyectos y navegación vertical
 
-**Ventajas del enfoque Mobile-First:**
+4. **Estructura Base**: Este ejemplo establece la base que evolucionaremos en el Ejemplo 2 con técnicas más avanzadas.
 
-- ✅ **Mejor Performance**: Los dispositivos móviles cargan menos CSS
-- ✅ **Progressive Enhancement**: Mejoramos la experiencia para pantallas más grandes
-- ✅ **Accesibilidad**: Prioriza la experiencia en dispositivos con menos recursos
-- ✅ **Best Practice Moderna**: Alineado con estándares actuales de la industria
-- ✅ **Mobile-First Indexing**: Google prioriza la versión móvil para SEO
+**Ventajas de este enfoque básico:**
+
+- **Simplicidad**: Fácil de entender y mantener
+- **Compatibilidad**: Funciona en todos los navegadores
+- **Control**: Breakpoints claros y predecibles
+- **Base Sólida**: Estructura que se puede mejorar progresivamente
 
 **Evolución hacia el Ejemplo 2:**
 
@@ -722,14 +702,12 @@ Este portafolio básico será la base para el Ejemplo 2, donde:
 **Consejos para Media Queries:**
 
 ```css
-/* 🎯 RECOMENDADO: Mobile First */
-/* Empieza con móvil y agrega estilos para pantallas más grandes */
+/* Mobile First: Empieza con móvil y agrega estilos para pantallas más grandes */
 @media (min-width: 768px) {
 	/* Estilos para tablet y desktop */
 }
 
-/* Desktop First (enfoque tradicional, menos eficiente) */
-/* Empieza con desktop y agrega estilos para pantallas más pequeñas */
+/* Desktop First: Empieza con desktop y agrega estilos para pantallas más pequeñas */
 @media (max-width: 768px) {
 	/* Estilos para tablet y móvil */
 }
@@ -1989,33 +1967,10 @@ img {
 	opacity: 1;
 }
 
-/* ===== MEDIA QUERIES PARA IMÁGENES (Mobile-First: Progressive Enhancement) ===== */
-/*
- * ESTRATEGIA MOBILE-FIRST:
- * - Estilos base son para móvil (ya definidos arriba)
- * - min-width agrega estilos para pantallas más grandes
- * - Progressive enhancement - mejoramos la experiencia conforme crece la pantalla
- */
-
-/* Tablet: 481px+ */
-@media (min-width: 481px) {
-	.hero-content {
-		padding: var(--space-md);
-	}
-
-	.project-image {
-		height: 160px;
-	}
-
-	.profile-image {
-		max-width: 200px;
-	}
-}
-
-/* Desktop pequeño: 769px+ */
-@media (min-width: 769px) {
+/* ===== MEDIA QUERIES ESPECÍFICAS PARA IMÁGENES ===== */
+@media (max-width: 768px) {
 	.hero-bg-image {
-		object-position: center;
+		object-position: center top;
 	}
 
 	.project-image {
@@ -2025,22 +1980,12 @@ img {
 	.profile-image {
 		max-width: 250px;
 	}
+}
 
+@media (max-width: 480px) {
 	.hero-content {
-		padding: var(--space-lg);
+		padding: var(--spacing-md);
 	}
-}
-
-/* Desktop grande: 1024px+ */
-@media (min-width: 1024px) {
-	.project-image {
-		height: 200px;
-	}
-
-	.profile-image {
-		max-width: 300px;
-	}
-}
 
 	.project-image {
 		height: 160px;
