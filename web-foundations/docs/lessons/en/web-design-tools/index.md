@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: 'Classic and Modern Web Design Tools Overview (2025)'
+title: 'Classic and Modern Web Design Tools (2025)'
 title_es: ''
 slug: web-design-tools
 date: 2025-09-08
@@ -13,7 +13,6 @@ permalink: /lessons/en/web-design-tools/
 
 ## 📋 Table of Contents
 {: .no_toc }
-
 - TOC
 {:toc}
 
@@ -21,403 +20,683 @@ permalink: /lessons/en/web-design-tools/
 
 ## 🎯 Objectives
 
-In this overview, we’ll compare some of the most widely used front-end **CSS frameworks**, **JavaScript frameworks**, and **templating tools** in modern web design. For each, we highlight key characteristics, underlying technologies, learning curve, complexity, and notable features. We also discuss how to create a semantic HTML report to present a comparison of these tools, and explain how GitHub and Git workflows facilitate experimenting with these resources. This guide is meant to help you create your own `resources.html` page inside your repo.
+In this lesson, we'll explore **CSS frameworks**, **JavaScript frameworks**, and **templating tools** used in modern web design. For each tool, we'll highlight key characteristics, underlying technologies, learning curve, **runtime requirements** (Node.js vs. standalone), and practical use cases.
+
+By the end of this lesson, each student will create a **reference resource HTML** (`/resources/index.html`) that will serve as a personal guide and portfolio artifact.
 
 ---
 
-## Classic Stylesheets and CSS Frameworks
+## 📂 Project Structure
 
-### [Bootstrap](https://getbootstrap.com/)
-
-- **Key features**: Responsive grid system, prebuilt components, utilities.
-- **Tech**: SCSS, JavaScript (vanilla, optional with Popper).
-- **Learning curve**: Beginner → Intermediate.
-- **Setup**: CDN or npm install.
-- **Use cases**: Quick prototyping, legacy systems, education.
-- **ATELIER note**: Fork an official starter template and analyze semantic quality of components vs. utility-based CSS.
-
-### [TailwindCSS](https://tailwindcss.com/)
-
-- **Key features**: Utility-first, design system building, JIT compiler.
-- **Tech**: PostCSS, JavaScript bundlers.
-- **Learning curve**: Intermediate.
-- **Setup**: npm (preferred), CDN for demos.
-- **Use cases**: Custom design systems, professional-grade projects.
-- **ATELIER note**: Compare the cognitive load of memorizing utility classes vs. semantic clarity in HTML.
-
-### [Foundation](https://get.foundation/)
-
-- **Key features**: Responsive grid, accessibility emphasis, email templates.
-- **Tech**: Sass, JavaScript plugins.
-- **Learning curve**: Intermediate.
-- **Setup**: CDN, npm, or CLI tool.
-- **Use cases**: Accessibility-focused layouts, responsive email design.
-
----
-
-## UI Kits and Component Libraries
-
-### [Material UI](https://mui.com/)
-
-- **Key features**: React components implementing Google’s Material Design.
-- **Tech**: React, TypeScript.
-- **Learning curve**: Intermediate → Advanced.
-- **Setup**: npm, React integration.
-- **Use cases**: Enterprise dashboards, educational portals.
-
-### [Shadcn UI](https://ui.shadcn.com/)
-
-- **Key features**: Copy-paste React components built with Tailwind.
-- **Tech**: React, TailwindCSS, Radix primitives.
-- **Learning curve**: Intermediate.
-- **Setup**: pnpm/npm, manual component copying.
-- **Use cases**: Portfolios, modern SaaS landing pages.
-
-### [Ark UI](https://ark-ui.com/)
-
-- **Key features**: Headless, accessible UI primitives, framework-agnostic.
-- **Tech**: TypeScript, modern frameworks.
-- **Learning curve**: Intermediate.
-- **Setup**: npm package.
-- **Use cases**: Building consistent design systems with flexibility.
-
----
-
-## Static Site Generators and Templates
-
-### [Jekyll](https://jekyllrb.com/)
-
-- **Key features**: Static site generator, Markdown + Liquid templates.
-- **Tech**: Ruby, YAML data, GitHub Pages native support.
-- **Learning curve**: Beginner → Intermediate.
-- **Setup**: GitHub Pages, local Ruby install.
-- **Use cases**: Blogs, portfolios, student projects.
-- **ATELIER note**: Connects directly to Git workflows; students should fork and deploy to Pages.
-
-### [Eleventy (11ty)](https://www.11ty.dev/)
-
-- **Key features**: Flexible static site generator, multiple template languages.
-- **Tech**: Node.js.
-- **Learning curve**: Intermediate.
-- **Setup**: npm.
-- **Use cases**: Lightweight alternative to Jekyll, JAMstack projects.
-
----
-
-## Animation and Visual Libraries
-
-### [GSAP](https://greensock.com/gsap/)
-
-- **Key features**: Performance-focused animations, timelines, scroll triggers.
-- **Tech**: JavaScript.
-- **Learning curve**: Intermediate → Advanced.
-- **Setup**: CDN or npm.
-- **Use cases**: Interactive storytelling, marketing sites.
-
-### [Framer Motion](https://www.framer.com/motion/)
-
-- **Key features**: Animation library for React.
-- **Tech**: React, TypeScript.
-- **Learning curve**: Intermediate.
-- **Setup**: npm.
-- **Use cases**: Interactive portfolios, SaaS landing pages.
-
-### [Anime.js](https://animejs.com/)
-
-- **Key features**: Lightweight animation engine.
-- **Tech**: Vanilla JavaScript.
-- **Learning curve**: Beginner → Intermediate.
-- **Setup**: CDN or npm.
-- **Use cases**: Illustrations, lightweight visual effects.
-
----
-
-## Templates and Open UI Kits
-
-### [HTML5 UP](https://html5up.net/)
-
-- **Key features**: Free responsive HTML/CSS templates.
-- **Tech**: HTML5, CSS3.
-- **Learning curve**: Beginner.
-- **Setup**: Direct download, GitHub fork.
-- **Use cases**: Student projects, quick deployments.
-
-### [Cruip](https://cruip.com/)
-
-- **Key features**: Premium + free templates, React/Tailwind based.
-- **Tech**: React, TailwindCSS.
-- **Learning curve**: Intermediate.
-- **Setup**: Direct download, npm for React versions.
-- **Use cases**: Startup landing pages.
-
-### [Flowbite](https://flowbite.com/)
-
-- **Key features**: TailwindCSS component library.
-- **Tech**: TailwindCSS, JavaScript.
-- **Learning curve**: Intermediate.
-- **Setup**: npm or CDN.
-- **Use cases**: Rapid prototyping with Tailwind.
-
----
-
-## Data and Media Resources
-
-### [Hygraph](https://hygraph.com/)
-
-- **Key features**: Headless CMS with GraphQL.
-- **Tech**: Node.js, GraphQL.
-- **Learning curve**: Intermediate.
-- **Setup**: SaaS CMS.
-- **Use cases**: Managing structured content.
-
-### [ImageKit.io](https://imagekit.io/)
-
-- **Key features**: Image CDN, optimization, transformations.
-- **Tech**: Global CDN, API.
-- **Learning curve**: Beginner.
-- **Setup**: Account + API key.
-- **Use cases**: Delivering optimized media.
-
-### In-project YAML data
-
-- **Key features**: Simple static data for templates (Jekyll/Eleventy).
-- **Tech**: YAML, Markdown.
-- **Learning curve**: Beginner.
-- **Use cases**: Student projects with simple datasets.
-
----
-
-## Pedagogical Critical Notes (ATELIER)
-
-- **Forking & Cloning**: Every tool listed has GitHub repos or starter templates; fork them, clone locally, and document experiments in your repo.
-- **Semantic HTML**: Build your `resources.html` using semantic structures: `<section>`, `<article>`, `<header>`, `<footer>`. Each tool should be an `<article>` with attributes.
-- **Comparative Table**: Represent attributes (learning curve, setup, complexity) in a `<table>`.
-- **Critical Reflection**: In your repo’s README, write short reflections: _Did Tailwind make HTML less semantic? Did Bootstrap accelerate prototyping but constrain creativity?_
-- **Portfolio Value**: Your `resources.html` is not only a technical report, but also a **design literacy artifact** to showcase in your portfolio.
-
----
-
-## 🧩 Practice: Research and Comparative HTML Report on Web Design Tools
-
-## 🎯 Goal
-
-After today’s presentation, each student will:
-
-- Explore **classic and modern web design frameworks, templates, and tools**.
-- Build a **comparative HTML report (`resources.html`)** in their repo.
-- Reflect on **personal choices** (what tools/templates attract you most and why).
-- Share their work by committing and pushing the file **before the session ends**.
-
----
-
-### 📂 Repository Structure
-
-Work inside your **student project repo**:
+For this lesson, create the following file structure:
 
 ```
-student-project-template/
-├── assets/
-│   └── site.css         # Your custom stylesheet
-└── resources.html       # The file you will create today
+student-project/
+├── resources/
+│   └── index.html              # Your tool reference resource
+└── assets/
+    └── css/
+        ├── index.css           # Main CSS (reset, variables, base layout)
+        └── resources.css       # Specific CSS for the resources page
 ```
 
----
+**💡 Instructions for students:**
 
-## 📋 Tasks
-
-### 1) Research
-
-- Visit the resources presented (Bootstrap, TailwindCSS, Jekyll, GSAP, HTML5 UP, etc.).
-- Explore at least **5 tools/templates** from **different categories**.
-- Take **screenshots** (local preview or official demos).
-- Copy **official links** to the projects.
-
-#### 2) Build `resources.html`
-
-Use **semantic HTML5**:
-
-- `<header>` with your name and course.
-- `<main>` with `<section>` for each category (frameworks, animations, templates…).
-- `<article>` for each tool you researched.
-- `<figure>` + `<img>` for screenshots.
-- `<iframe>` for live demos (when allowed by the site).
-- `<p>` for your **personal notes** (critical comments, ATELIER style).
-
-**Example snippet:**
-
-```html
-<article>
-	<h3><a href="https://tailwindcss.com/">TailwindCSS</a></h3>
-	<figure>
-		<img src="assets/img/tailwind-demo.png" alt="Tailwind demo screenshot" width="640" height="360" />
-		<figcaption>My screenshot of Tailwind demo</figcaption>
-	</figure>
-	<p>
-		<strong>Notes:</strong>
-		Utility classes make me faster, but HTML feels less semantic. Trade-off: speed vs. readability.
-	</p>
-	<iframe src="https://tailwindcss.com/" width="600" height="400" loading="lazy"></iframe>
-</article>
-```
-
-#### 3) Styling (`assets/site.css`)
-
-- Add simple styles for **typography**, **spacing**, and **gallery of screenshots**.
-- Keep it readable; e.g., max-width on content, line-height, and a light color palette.
-
-#### 4) Reflection (ATELIER)
-
-At the end of the page, add a `<section>` **Personal Notes**:
-
-- Which tool or template inspires you most, and **why**?
-- Trade-offs observed (**speed vs. clarity**, **creativity vs. convention**, **weight vs. features**).
-- How would you use this tool in your **portfolio project**?
-
-#### 5) Git Workflow
-
-Stage, commit, and push before session end:
-
-```bash
-git add resources.html assets/site.css
-git commit -m "Add resources.html with notes and comparisons"
-git push
-```
-
-If you work in branches or PRs, make sure your **PR is opened/updated** before leaving.
+- Create the `resources/` folder for your reference page
+- Add CSS files to `/assets/css/` (existing folder)
+- Your HTML includes **two CSS links**: one to the main CSS (`index.css`) and another to the specific one (`resources.css`)
+- You can open `resources/index.html` in your browser to see the result
 
 ---
 
-### ✅ Deliverable Checklist
+## 🔧 Classification by Runtime Requirements
 
-- `resources.html` with **≥ 5 tools/templates** compared (from different categories).
-- **Screenshots** and/or **iframes** included.
-- **Personal notes** written in your own words.
-- Pushed to your repo **before the end of class**.
+### 📦 **Tools that REQUIRE Node.js**
+
+#### Frameworks and Build Tools
+- **TailwindCSS** - Requires Node.js for compilation and processing
+- **Vite** - Modern build tool that needs Node.js
+- **Webpack** - Bundler that requires Node.js
+- **Parcel** - Build tool that needs Node.js
+- **Snowpack** - Build tool for fast development
+
+#### Modern JavaScript Frameworks
+- **React** - Requires Node.js for development and build
+- **Vue.js** - Needs Node.js for CLI and build tools
+- **Angular** - Requires Node.js for Angular CLI
+- **Svelte** - Needs Node.js for compilation
+- **Next.js** - React framework that requires Node.js
+- **Nuxt.js** - Vue framework that requires Node.js
+
+#### Static Site Generators
+- **Gatsby** - React generator that requires Node.js
+- **Eleventy (11ty)** - Generator that needs Node.js
+- **Astro** - Modern framework that requires Node.js
+
+#### Component Libraries
+- **Material UI** - Requires Node.js for installation
+- **Ant Design** - Needs Node.js
+- **Chakra UI** - Requires Node.js
+- **Shadcn UI** - Needs Node.js and pnpm/npm
+
+### 🌐 **Tools that DON'T REQUIRE Node.js**
+
+#### Standalone CSS Frameworks
+- **Bootstrap** - Works with CDN or direct download
+- **Foundation** - Available via CDN
+- **Bulma** - Pure CSS, works with CDN
+- **Pure.css** - Pure CSS, no dependencies
+- **Milligram** - Minimalist CSS, no Node.js
+
+#### Vanilla JavaScript Libraries
+- **GSAP** - Works with CDN or direct download
+- **Anime.js** - Vanilla JavaScript, CDN available
+- **Three.js** - 3D library, works with CDN
+- **Chart.js** - Charts, works without Node.js
+- **AOS (Animate On Scroll)** - Vanilla JavaScript
+
+#### Templates and Kits
+- **HTML5 UP** - Pure HTML/CSS templates
+- **Start Bootstrap** - Bootstrap standalone templates
+- **Templated** - Free HTML/CSS templates
+- **FreeHTML5** - Templates without dependencies
+
+#### Generators Without Node.js
+- **Jekyll** - Requires Ruby (not Node.js)
+- **Hugo** - Go binary, doesn't need Node.js
+- **Zola** - Rust generator, doesn't require Node.js
 
 ---
 
-### 🧭 ATELIER Methodology Applied
+## 📚 Tools by Category
 
-- **Observe:** Explore demos, templates, and frameworks.
-- **Intervene:** Build your HTML comparison with screenshots and links.
-- **Reflect:** Write notes on usefulness, limits, and design philosophy.
-- **Share:** Commit and push so peers and professor can review.
+### Stylesheets and CSS Frameworks
+
+#### [Bootstrap](https://getbootstrap.com/) 🌐 **No Node.js**
+- **Key features**: Responsive grid system, prebuilt components, utilities
+- **Technology**: CSS/SCSS, vanilla JavaScript
+- **Runtime**: CDN or direct download
+- **Learning curve**: Beginner → Intermediate
+- **Use cases**: Quick prototyping, legacy systems, education
+- **ATELIER note**: Fork an official template and analyze semantic quality vs. utilities
+
+#### [TailwindCSS](https://tailwindcss.com/) 📦 **Requires Node.js**
+- **Key features**: Utility-first, design system building, JIT compiler
+- **Technology**: PostCSS, JavaScript bundlers
+- **Runtime**: Node.js (npm/pnpm) for development and build
+- **Learning curve**: Intermediate
+- **Use cases**: Custom design systems, professional projects
+- **ATELIER note**: Compare cognitive load of memorizing classes vs. semantic clarity
+
+#### [Foundation](https://get.foundation/) 🌐 **No Node.js**
+- **Key features**: Responsive grid, accessibility emphasis
+- **Technology**: Sass (optional), vanilla JavaScript
+- **Runtime**: CDN or direct download
+- **Learning curve**: Intermediate
+- **Use cases**: Accessibility-focused layouts
+
+#### [Bulma](https://bulma.io/) 🌐 **No Node.js**
+- **Key features**: Pure CSS, no JavaScript, Flexbox-based
+- **Technology**: Pure CSS, Sass (optional)
+- **Runtime**: CDN or direct download
+- **Learning curve**: Beginner
+- **Use cases**: Quick prototyping without dependencies
+
+### UI Kits and Component Libraries
+
+#### [Material UI](https://mui.com/) 📦 **Requires Node.js**
+- **Key features**: React components implementing Material Design
+- **Technology**: React, TypeScript
+- **Runtime**: Node.js for installation and development
+- **Learning curve**: Intermediate → Advanced
+- **Use cases**: Enterprise dashboards, educational portals
+
+#### [Shadcn UI](https://ui.shadcn.com/) 📦 **Requires Node.js**
+- **Key features**: Copy-paste React components built with Tailwind
+- **Technology**: React, TailwindCSS, Radix primitives
+- **Runtime**: Node.js + pnpm/npm
+- **Learning curve**: Intermediate
+- **Use cases**: Portfolios, modern SaaS landing pages
+
+#### [Ark UI](https://ark-ui.com/) 📦 **Requires Node.js**
+- **Key features**: Headless, accessible UI primitives, framework-agnostic
+- **Technology**: TypeScript, modern frameworks
+- **Runtime**: Node.js for installation
+- **Learning curve**: Intermediate
+- **Use cases**: Building consistent design systems with flexibility
+
+### Static Site Generators
+
+#### [Jekyll](https://jekyllrb.com/) 🟥 **Requires Ruby (No Node.js)**
+- **Key features**: Static site generator, Markdown + Liquid templates
+- **Technology**: Ruby, YAML data, native GitHub Pages support
+- **Runtime**: Ruby (not Node.js)
+- **Learning curve**: Beginner → Intermediate
+- **Use cases**: Blogs, portfolios, student projects
+- **ATELIER note**: Connects directly to Git workflows
+
+#### [Eleventy (11ty)](https://www.11ty.dev/) 📦 **Requires Node.js**
+- **Key features**: Flexible static site generator, multiple template languages
+- **Technology**: Node.js
+- **Runtime**: Node.js (npm)
+- **Learning curve**: Intermediate
+- **Use cases**: Lightweight alternative to Jekyll, JAMstack projects
+
+#### [Hugo](https://gohugo.io/) 🟢 **No Node.js**
+- **Key features**: Ultra-fast generator, single binary
+- **Technology**: Go (compiled to binary)
+- **Runtime**: Standalone binary (no Node.js or Ruby)
+- **Learning curve**: Beginner → Intermediate
+- **Use cases**: Large sites, blogs, documentation
+
+#### [Astro](https://astro.build/) 📦 **Requires Node.js**
+- **Key features**: Modern framework, islands architecture, multi-framework
+- **Technology**: Node.js, Vite
+- **Runtime**: Node.js for development and build
+- **Learning curve**: Intermediate
+- **Use cases**: Static sites with selective interactivity
+
+### Animation and Visual Libraries
+
+#### [GSAP](https://greensock.com/gsap/) 🌐 **No Node.js**
+- **Key features**: Performance-focused animations, timelines, scroll triggers
+- **Technology**: Vanilla JavaScript
+- **Runtime**: CDN or direct download
+- **Learning curve**: Intermediate → Advanced
+- **Use cases**: Interactive storytelling, marketing sites
+
+#### [Framer Motion](https://www.framer.com/motion/) 📦 **Requires Node.js**
+- **Key features**: Animation library for React
+- **Technology**: React, TypeScript
+- **Runtime**: Node.js (npm)
+- **Learning curve**: Intermediate
+- **Use cases**: Interactive portfolios, SaaS landing pages
+
+#### [Anime.js](https://animejs.com/) 🌐 **No Node.js**
+- **Key features**: Lightweight animation engine
+- **Technology**: Vanilla JavaScript
+- **Runtime**: CDN or direct download
+- **Learning curve**: Beginner → Intermediate
+- **Use cases**: Illustrations, lightweight visual effects
+
+#### [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/) 🌐 **No Node.js**
+- **Key features**: Scroll-triggered animations
+- **Technology**: Vanilla JavaScript, CSS
+- **Runtime**: CDN or direct download
+- **Learning curve**: Beginner
+- **Use cases**: Landing pages, presentations
+
+### Templates and Open UI Kits
+
+#### [HTML5 UP](https://html5up.net/) 🌐 **No Node.js**
+- **Key features**: Free responsive HTML/CSS templates
+- **Technology**: HTML5, CSS3
+- **Runtime**: Direct download, GitHub fork
+- **Learning curve**: Beginner
+- **Use cases**: Student projects, quick deployments
+
+#### [Cruip](https://cruip.com/) 📦 **Requires Node.js (React versions)**
+- **Key features**: Premium + free templates, based on React/Tailwind
+- **Technology**: React, TailwindCSS (React versions)
+- **Runtime**: Direct download (HTML) or Node.js (React)
+- **Learning curve**: Intermediate
+- **Use cases**: Startup landing pages
+
+#### [Flowbite](https://flowbite.com/) 📦 **Requires Node.js**
+- **Key features**: TailwindCSS component library
+- **Technology**: TailwindCSS, JavaScript
+- **Runtime**: Node.js (npm) or CDN
+- **Learning curve**: Intermediate
+- **Use cases**: Rapid prototyping with Tailwind
+
+### Data and Media Resources
+
+#### [Hygraph](https://hygraph.com/) 🌐 **SaaS (No local installation)**
+- **Key features**: Headless CMS with GraphQL
+- **Technology**: GraphQL API
+- **Runtime**: SaaS (no local installation required)
+- **Learning curve**: Intermediate
+- **Use cases**: Managing structured content
+
+#### [ImageKit.io](https://imagekit.io/) 🌐 **SaaS (No local installation)**
+- **Key features**: Image CDN, optimization, transformations
+- **Technology**: Global CDN, API
+- **Runtime**: SaaS (no local installation required)
+- **Learning curve**: Beginner
+- **Use cases**: Delivering optimized media
+
+#### [Netlify CMS](https://www.netlifycms.org/) 🌐 **No Node.js**
+- **Key features**: Git-based CMS, web interface
+- **Technology**: Vanilla JavaScript, Git API
+- **Runtime**: Works with any static site generator
+- **Learning curve**: Beginner → Intermediate
+- **Use cases**: CMS for static sites
 
 ---
 
-### 🧪 Optional Quality Tips
+## 🧩 Practice: Create Reference Resource HTML
 
-- Validate HTML (W3C) and run Lighthouse for **accessibility** and **performance**.
-- Keep images under reasonable sizes; name files clearly (`tool-name-01.png`).
-- Use explicit URLs as text for clarity (e.g., `https://getbootstrap.com`).
+### 📁 Files to Create
 
----
-
-### 🧱 Starter Outline for `resources.html`
-
-Copy this skeleton and fill it in:
-
+**HTML:** `resources/index.html`
 ```html
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Web Design Resources — Your Name</title>
-		<link rel="stylesheet" href="assets/site.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web Design Resources — [Your Name]</title>
+		<link rel="stylesheet" href="../assets/css/index.css" />
+		<link rel="stylesheet" href="../assets/css/resources.css" />
 	</head>
 	<body>
-		<header>
-			<h1>Web Design Resources</h1>
-			<p>Student: Your Name · Course: Advanced Web Design</p>
-			<nav>
-				<a href="#frameworks">Frameworks</a>
-				·
-				<a href="#animations">Animations</a>
-				·
-				<a href="#templates">Templates</a>
-				·
-				<a href="#notes">Personal Notes</a>
-			</nav>
-		</header>
-
-		<main>
-			<section id="frameworks">
-				<h2>CSS Frameworks</h2>
-
-				<article>
-					<h3><a href="https://getbootstrap.com/">Bootstrap</a></h3>
-					<figure>
-						<img src="assets/img/bootstrap-demo.png" alt="Bootstrap demo" width="640" height="360" />
-						<figcaption>My screenshot of Bootstrap components</figcaption>
-					</figure>
-					<p>
-						<strong>Notes:</strong>
-						Quick prototyping with prebuilt components. Consider customizing theme to avoid “generic” look.
-					</p>
-					<iframe src="https://getbootstrap.com/" width="600" height="400" loading="lazy"></iframe>
-				</article>
-
-				<article>
-					<h3><a href="https://tailwindcss.com/">TailwindCSS</a></h3>
-					<figure>
-						<img src="assets/img/tailwind-demo.png" alt="Tailwind demo" width="640" height="360" />
-						<figcaption>Utility-first classes — my experiment</figcaption>
-					</figure>
-					<p>
-						<strong>Notes:</strong>
-						Fast to iterate; watch class bloat. Extract components for readability.
-					</p>
-					<iframe src="https://tailwindcss.com/" width="600" height="400" loading="lazy"></iframe>
-				</article>
-			</section>
-
-			<section id="animations">
-				<h2>Animation Libraries</h2>
-
-				<article>
-					<h3><a href="https://greensock.com/gsap/">GSAP</a></h3>
-					<figure>
-						<img src="assets/img/gsap-demo.png" alt="GSAP demo" width="640" height="360" />
-						<figcaption>Timeline and scroll experiments</figcaption>
-					</figure>
-					<p>
-						<strong>Notes:</strong>
-						Powerful for storytelling; mind performance and reduced motion preferences.
-					</p>
-					<iframe src="https://greensock.com/gsap/" width="600" height="400" loading="lazy"></iframe>
-				</article>
-			</section>
-
-			<section id="templates">
-				<h2>Templates & UI Kits</h2>
-
-				<article>
-					<h3><a href="https://html5up.net/">HTML5 UP</a></h3>
-					<figure>
-						<img src="assets/img/html5up-demo.png" alt="HTML5 UP demo" width="640" height="360" />
-						<figcaption>Template I’m considering to adapt</figcaption>
-					</figure>
-					<p>
-						<strong>Notes:</strong>
-						Good starting point; verify accessibility and semantics.
-					</p>
-					<iframe src="https://html5up.net/" width="600" height="400" loading="lazy"></iframe>
-				</article>
-			</section>
-
-			<section id="notes">
-				<h2>Personal Notes</h2>
-				<p>
-					Which tools fit my portfolio and why? What trade-offs did I find? What’s my plan to integrate one in my project
-					next week?
-				</p>
-			</section>
-		</main>
-
-		<footer>
-			<p>© 2025 — Web Atelier · All external links belong to their respective owners.</p>
-		</footer>
+		<!-- Your content here -->
 	</body>
 </html>
 ```
+
+**Main CSS:** `assets/css/index.css`
+```css
+/* ===== MAIN CSS - RESET AND VARIABLES ===== */
+
+/* Basic reset */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* CSS Variables */
+:root {
+	--primary-color: #2563eb;
+	--secondary-color: #64748b;
+	--accent-color: #f59e0b;
+	--text-color: #1e293b;
+	--bg-color: #f8fafc;
+	--white: #ffffff;
+	--border-color: #e2e8f0;
+
+	/* Spacing */
+	--spacing-xs: 0.5rem;
+	--spacing-sm: 1rem;
+	--spacing-md: 1.5rem;
+	--spacing-lg: 2rem;
+	--spacing-xl: 3rem;
+
+	/* Typography */
+	--font-family: system-ui, -apple-system, sans-serif;
+	--font-size-sm: 0.875rem;
+	--font-size-base: 1rem;
+	--font-size-lg: 1.125rem;
+	--font-size-xl: 1.25rem;
+	--font-size-2xl: 1.5rem;
+	--font-size-3xl: 1.875rem;
+
+	/* Borders and shadows */
+	--border-radius: 0.5rem;
+	--border-radius-lg: 0.75rem;
+	--shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Base styles */
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--font-family);
+	font-size: var(--font-size-base);
+	line-height: 1.6;
+	color: var(--text-color);
+	background-color: var(--bg-color);
+}
+
+/* Main container */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--spacing-md);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	line-height: 1.2;
+	margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+	font-size: var(--font-size-3xl);
+}
+h2 {
+	font-size: var(--font-size-2xl);
+}
+h3 {
+	font-size: var(--font-size-xl);
+}
+
+p {
+	margin-bottom: var(--spacing-sm);
+}
+
+/* Links */
+a {
+	color: var(--primary-color);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: var(--accent-color);
+}
+
+/* Buttons */
+.btn {
+	display: inline-block;
+	padding: var(--spacing-xs) var(--spacing-md);
+	background-color: var(--primary-color);
+	color: var(--white);
+	border-radius: var(--border-radius);
+	text-decoration: none;
+	font-weight: 500;
+	transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+	background-color: var(--accent-color);
+	color: var(--white);
+}
+
+/* Utilities */
+.text-center {
+	text-align: center;
+}
+.text-left {
+	text-align: left;
+}
+.text-right {
+	text-align: right;
+}
+
+.mb-sm {
+	margin-bottom: var(--spacing-sm);
+}
+.mb-md {
+	margin-bottom: var(--spacing-md);
+}
+.mb-lg {
+	margin-bottom: var(--spacing-lg);
+}
+
+.mt-sm {
+	margin-top: var(--spacing-sm);
+}
+.mt-md {
+	margin-top: var(--spacing-md);
+}
+.mt-lg {
+	margin-top: var(--spacing-lg);
+}
+```
+
+**Specific CSS:** `assets/css/resources.css`
+```css
+/* ===== SPECIFIC CSS FOR RESOURCES PAGE ===== */
+
+/* Resources page header */
+.resources-header {
+	background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+	color: var(--white);
+	padding: var(--spacing-xl) 0;
+	text-align: center;
+}
+
+.resources-header h1 {
+	color: var(--white);
+	margin-bottom: var(--spacing-sm);
+}
+
+.resources-header p {
+	opacity: 0.9;
+	margin-bottom: var(--spacing-md);
+}
+
+/* Resources navigation */
+.resources-nav {
+	background-color: var(--white);
+	padding: var(--spacing-md) 0;
+	box-shadow: var(--shadow);
+	margin-bottom: var(--spacing-xl);
+}
+
+.resources-nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: var(--spacing-lg);
+}
+
+.resources-nav a {
+	padding: var(--spacing-xs) var(--spacing-sm);
+	border-radius: var(--border-radius);
+	transition: background-color 0.2s ease;
+}
+
+.resources-nav a:hover {
+	background-color: var(--bg-color);
+}
+
+/* Tool sections */
+.tools-section {
+	margin-bottom: var(--spacing-xl);
+}
+
+.tools-section h2 {
+	border-bottom: 2px solid var(--primary-color);
+	padding-bottom: var(--spacing-xs);
+	margin-bottom: var(--spacing-lg);
+}
+
+/* Tool grid */
+.tools-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: var(--spacing-lg);
+}
+
+/* Tool cards */
+.tool-card {
+	background: var(--white);
+	border-radius: var(--border-radius-lg);
+	padding: var(--spacing-lg);
+	box-shadow: var(--shadow);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-lg);
+}
+
+.tool-card h3 {
+	margin-bottom: var(--spacing-sm);
+}
+
+.tool-card h3 a {
+	color: var(--text-color);
+}
+
+.tool-card h3 a:hover {
+	color: var(--primary-color);
+}
+
+/* Runtime badges */
+.runtime-badge {
+	display: inline-block;
+	padding: 0.25rem 0.5rem;
+	border-radius: 9999px;
+	font-size: var(--font-size-sm);
+	font-weight: 500;
+	margin-bottom: var(--spacing-sm);
+}
+
+.runtime-badge.nodejs {
+	background-color: #68d391;
+	color: #1a202c;
+}
+
+.runtime-badge.standalone {
+	background-color: #4299e1;
+	color: var(--white);
+}
+
+.runtime-badge.saas {
+	background-color: #ed8936;
+	color: var(--white);
+}
+
+/* Tool information */
+.tool-info {
+	margin-bottom: var(--spacing-md);
+}
+
+.tool-info p {
+	margin-bottom: var(--spacing-xs);
+	font-size: var(--font-size-sm);
+}
+
+.tool-info strong {
+	color: var(--text-color);
+}
+
+/* Personal notes */
+.personal-notes {
+	background-color: var(--bg-color);
+	border-left: 4px solid var(--accent-color);
+	padding: var(--spacing-md);
+	border-radius: 0 var(--border-radius) var(--border-radius) 0;
+	margin-top: var(--spacing-md);
+}
+
+.personal-notes h4 {
+	color: var(--accent-color);
+	margin-bottom: var(--spacing-xs);
+}
+
+/* Resources footer */
+.resources-footer {
+	background-color: var(--secondary-color);
+	color: var(--white);
+	text-align: center;
+	padding: var(--spacing-xl) 0;
+	margin-top: var(--spacing-xl);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.resources-nav ul {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.tools-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.tool-card {
+		padding: var(--spacing-md);
+	}
+}
+```
+
+### 📋 Tasks
+
+#### 1) Research and Classification
+
+- Research at least **8 tools** from different categories
+- Classify each tool according to runtime requirements:
+  - 📦 **Requires Node.js** (build tools, modern frameworks)
+  - 🌐 **No Node.js** (pure CSS, vanilla JS, CDN)
+  - 🟥 **Requires Ruby** (Jekyll)
+  - 🟢 **Standalone binary** (Hugo)
+  - ☁️ **SaaS** (cloud services)
+
+#### 2) Create `resources/index.html`
+
+Use **semantic HTML5** with the provided structure and include:
+
+- Header with your information
+- Navigation by sections
+- Tool grid with runtime badges
+- Personal notes for each tool
+- Critical reflection section
+
+#### 3) Critical Reflection (ATELIER)
+
+In your reflection section, consider:
+
+- **Which tools fit your workflow?**
+- **Trade-offs observed:**
+  - Speed vs. Flexibility
+  - Dependencies vs. Simplicity
+  - Node.js vs. Standalone
+  - Creativity vs. Convention
+- **How would you use these tools in your portfolio?**
+
+---
+
+## ✅ Deliverable Checklist
+
+- [ ] `resources/index.html` created with semantic structure
+- [ ] At least **8 tools** from different categories researched
+- [ ] Each tool classified by runtime requirements
+- [ ] Visual badges for dependencies (Node.js, standalone, etc.)
+- [ ] Personal notes for each tool
+- [ ] Critical reflection section
+- [ ] CSS files created (`index.css` and `resources.css`)
+- [ ] Commit and push to repository
+
+---
+
+## 🧭 ATELIER Methodology Applied
+
+- **Observe:** Explore different tools and their technical requirements
+- **Intervene:** Create your HTML reference resource with clear classifications
+- **Reflect:** Analyze trade-offs and personal preferences
+- **Share:** Document and share your research with the team
+
+---
+
+## 🧪 Quality Tips
+
+- Validate HTML (W3C) and run Lighthouse for accessibility
+- Keep images at reasonable sizes
+- Use explicit URLs for clarity
+- Clearly document runtime requirements for each tool
+- Consider the impact of Node.js on your workflow
+
+---
+
+## 📊 Quick Comparison Table
+
+| Tool        | Runtime       | Learning Curve | Main Use Case           |
+| ----------- | ------------- | -------------- | ----------------------- |
+| Bootstrap   | 🌐 Standalone | Beginner       | Quick prototyping       |
+| TailwindCSS | 📦 Node.js    | Intermediate   | Custom systems          |
+| Jekyll      | 🟥 Ruby       | Beginner       | Blogs/Portfolios        |
+| Hugo        | 🟢 Binary     | Intermediate   | Large sites             |
+| GSAP        | 🌐 Standalone | Intermediate   | Advanced animations     |
+| React       | 📦 Node.js    | Advanced       | SPA applications        |
+| HTML5 UP    | 🌐 Standalone | Beginner       | Quick templates         |
+
+This lesson prepares you to make informed decisions about which tools to use based on your needs, available resources, and development preferences.
