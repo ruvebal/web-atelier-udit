@@ -54,6 +54,7 @@ student-project/
 ### 📦 **Tools that REQUIRE Node.js**
 
 #### Frameworks and Build Tools
+
 - **TailwindCSS** - Requires Node.js for compilation and processing
 - **Vite** - Modern build tool that needs Node.js
 - **Webpack** - Bundler that requires Node.js
@@ -61,6 +62,7 @@ student-project/
 - **Snowpack** - Build tool for fast development
 
 #### Modern JavaScript Frameworks
+
 - **React** - Requires Node.js for development and build
 - **Vue.js** - Needs Node.js for CLI and build tools
 - **Angular** - Requires Node.js for Angular CLI
@@ -69,11 +71,13 @@ student-project/
 - **Nuxt.js** - Vue framework that requires Node.js
 
 #### Static Site Generators
+
 - **Gatsby** - React generator that requires Node.js
 - **Eleventy (11ty)** - Generator that needs Node.js
 - **Astro** - Modern framework that requires Node.js
 
 #### Component Libraries
+
 - **Material UI** - Requires Node.js for installation
 - **Ant Design** - Needs Node.js
 - **Chakra UI** - Requires Node.js
@@ -82,6 +86,7 @@ student-project/
 ### 🌐 **Tools that DON'T REQUIRE Node.js**
 
 #### Standalone CSS Frameworks
+
 - **Bootstrap** - Works with CDN or direct download
 - **Foundation** - Available via CDN
 - **Bulma** - Pure CSS, works with CDN
@@ -89,6 +94,7 @@ student-project/
 - **Milligram** - Minimalist CSS, no Node.js
 
 #### Vanilla JavaScript Libraries
+
 - **GSAP** - Works with CDN or direct download
 - **Anime.js** - Vanilla JavaScript, CDN available
 - **Three.js** - 3D library, works with CDN
@@ -96,12 +102,14 @@ student-project/
 - **AOS (Animate On Scroll)** - Vanilla JavaScript
 
 #### Templates and Kits
+
 - **HTML5 UP** - Pure HTML/CSS templates
 - **Start Bootstrap** - Bootstrap standalone templates
 - **Templated** - Free HTML/CSS templates
 - **FreeHTML5** - Templates without dependencies
 
 #### Generators Without Node.js
+
 - **Jekyll** - Requires Ruby (not Node.js)
 - **Hugo** - Go binary, doesn't need Node.js
 - **Zola** - Rust generator, doesn't require Node.js
@@ -113,6 +121,7 @@ student-project/
 ### Stylesheets and CSS Frameworks
 
 #### [Bootstrap](https://getbootstrap.com/) 🌐 **No Node.js**
+
 - **Key features**: Responsive grid system, prebuilt components, utilities
 - **Technology**: CSS/SCSS, vanilla JavaScript
 - **Runtime**: CDN or direct download
@@ -121,6 +130,7 @@ student-project/
 - **ATELIER note**: Fork an official template and analyze semantic quality vs. utilities
 
 #### [TailwindCSS](https://tailwindcss.com/) 📦 **Requires Node.js**
+
 - **Key features**: Utility-first, design system building, JIT compiler
 - **Technology**: PostCSS, JavaScript bundlers
 - **Runtime**: Node.js (npm/pnpm) for development and build
@@ -129,6 +139,7 @@ student-project/
 - **ATELIER note**: Compare cognitive load of memorizing classes vs. semantic clarity
 
 #### [Foundation](https://get.foundation/) 🌐 **No Node.js**
+
 - **Key features**: Responsive grid, accessibility emphasis
 - **Technology**: Sass (optional), vanilla JavaScript
 - **Runtime**: CDN or direct download
@@ -136,6 +147,7 @@ student-project/
 - **Use cases**: Accessibility-focused layouts
 
 #### [Bulma](https://bulma.io/) 🌐 **No Node.js**
+
 - **Key features**: Pure CSS, no JavaScript, Flexbox-based
 - **Technology**: Pure CSS, Sass (optional)
 - **Runtime**: CDN or direct download
@@ -145,6 +157,7 @@ student-project/
 ### UI Kits and Component Libraries
 
 #### [Material UI](https://mui.com/) 📦 **Requires Node.js**
+
 - **Key features**: React components implementing Material Design
 - **Technology**: React, TypeScript
 - **Runtime**: Node.js for installation and development
@@ -152,6 +165,7 @@ student-project/
 - **Use cases**: Enterprise dashboards, educational portals
 
 #### [Shadcn UI](https://ui.shadcn.com/) 📦 **Requires Node.js**
+
 - **Key features**: Copy-paste React components built with Tailwind
 - **Technology**: React, TailwindCSS, Radix primitives
 - **Runtime**: Node.js + pnpm/npm
@@ -159,6 +173,7 @@ student-project/
 - **Use cases**: Portfolios, modern SaaS landing pages
 
 #### [Ark UI](https://ark-ui.com/) 📦 **Requires Node.js**
+
 - **Key features**: Headless, accessible UI primitives, framework-agnostic
 - **Technology**: TypeScript, modern frameworks
 - **Runtime**: Node.js for installation
@@ -168,6 +183,7 @@ student-project/
 ### Static Site Generators
 
 #### [Jekyll](https://jekyllrb.com/) 🟥 **Requires Ruby (No Node.js)**
+
 - **Key features**: Static site generator, Markdown + Liquid templates
 - **Technology**: Ruby, YAML data, native GitHub Pages support
 - **Runtime**: Ruby (not Node.js)
@@ -176,6 +192,7 @@ student-project/
 - **ATELIER note**: Connects directly to Git workflows
 
 #### [Eleventy (11ty)](https://www.11ty.dev/) 📦 **Requires Node.js**
+
 - **Key features**: Flexible static site generator, multiple template languages
 - **Technology**: Node.js
 - **Runtime**: Node.js (npm)
@@ -183,6 +200,7 @@ student-project/
 - **Use cases**: Lightweight alternative to Jekyll, JAMstack projects
 
 #### [Hugo](https://gohugo.io/) 🟢 **No Node.js**
+
 - **Key features**: Ultra-fast generator, single binary
 - **Technology**: Go (compiled to binary)
 - **Runtime**: Standalone binary (no Node.js or Ruby)
@@ -190,6 +208,7 @@ student-project/
 - **Use cases**: Large sites, blogs, documentation
 
 #### [Astro](https://astro.build/) 📦 **Requires Node.js**
+
 - **Key features**: Modern framework, islands architecture, multi-framework
 - **Technology**: Node.js, Vite
 - **Runtime**: Node.js for development and build
@@ -199,6 +218,7 @@ student-project/
 ### Animation and Visual Libraries
 
 #### [GSAP](https://greensock.com/gsap/) 🌐 **No Node.js**
+
 - **Key features**: Performance-focused animations, timelines, scroll triggers
 - **Technology**: Vanilla JavaScript
 - **Runtime**: CDN or direct download
@@ -206,6 +226,7 @@ student-project/
 - **Use cases**: Interactive storytelling, marketing sites
 
 #### [Framer Motion](https://www.framer.com/motion/) 📦 **Requires Node.js**
+
 - **Key features**: Animation library for React
 - **Technology**: React, TypeScript
 - **Runtime**: Node.js (npm)
@@ -213,6 +234,7 @@ student-project/
 - **Use cases**: Interactive portfolios, SaaS landing pages
 
 #### [Anime.js](https://animejs.com/) 🌐 **No Node.js**
+
 - **Key features**: Lightweight animation engine
 - **Technology**: Vanilla JavaScript
 - **Runtime**: CDN or direct download
@@ -220,6 +242,7 @@ student-project/
 - **Use cases**: Illustrations, lightweight visual effects
 
 #### [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/) 🌐 **No Node.js**
+
 - **Key features**: Scroll-triggered animations
 - **Technology**: Vanilla JavaScript, CSS
 - **Runtime**: CDN or direct download
@@ -229,6 +252,7 @@ student-project/
 ### Templates and Open UI Kits
 
 #### [HTML5 UP](https://html5up.net/) 🌐 **No Node.js**
+
 - **Key features**: Free responsive HTML/CSS templates
 - **Technology**: HTML5, CSS3
 - **Runtime**: Direct download, GitHub fork
@@ -236,6 +260,7 @@ student-project/
 - **Use cases**: Student projects, quick deployments
 
 #### [Cruip](https://cruip.com/) 📦 **Requires Node.js (React versions)**
+
 - **Key features**: Premium + free templates, based on React/Tailwind
 - **Technology**: React, TailwindCSS (React versions)
 - **Runtime**: Direct download (HTML) or Node.js (React)
@@ -243,6 +268,7 @@ student-project/
 - **Use cases**: Startup landing pages
 
 #### [Flowbite](https://flowbite.com/) 📦 **Requires Node.js**
+
 - **Key features**: TailwindCSS component library
 - **Technology**: TailwindCSS, JavaScript
 - **Runtime**: Node.js (npm) or CDN
@@ -252,6 +278,7 @@ student-project/
 ### Data and Media Resources
 
 #### [Hygraph](https://hygraph.com/) 🌐 **SaaS (No local installation)**
+
 - **Key features**: Headless CMS with GraphQL
 - **Technology**: GraphQL API
 - **Runtime**: SaaS (no local installation required)
@@ -259,13 +286,15 @@ student-project/
 - **Use cases**: Managing structured content
 
 #### [ImageKit.io](https://imagekit.io/) 🌐 **SaaS (No local installation)**
+
 - **Key features**: Image CDN, optimization, transformations
 - **Technology**: Global CDN, API
 - **Runtime**: SaaS (no local installation required)
 - **Learning curve**: Beginner
 - **Use cases**: Delivering optimized media
 
-#### [Netlify CMS](https://www.netlifycms.org/) 🌐 **No Node.js**
+#### [Netlify CMS](https://www.netlify.com/) 🌐 **No Node.js**
+
 - **Key features**: Git-based CMS, web interface
 - **Technology**: Vanilla JavaScript, Git API
 - **Runtime**: Works with any static site generator
@@ -279,6 +308,7 @@ student-project/
 ### 📁 Files to Create
 
 **HTML:** `resources/index.html`
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -296,6 +326,7 @@ student-project/
 ```
 
 **Main CSS:** `assets/css/index.css`
+
 ```css
 /* ===== MAIN CSS - RESET AND VARIABLES ===== */
 
@@ -449,6 +480,7 @@ a:hover {
 ```
 
 **Specific CSS:** `assets/css/resources.css`
+
 ```css
 /* ===== SPECIFIC CSS FOR RESOURCES PAGE ===== */
 
@@ -689,14 +721,14 @@ In your reflection section, consider:
 
 ## 📊 Quick Comparison Table
 
-| Tool        | Runtime       | Learning Curve | Main Use Case           |
-| ----------- | ------------- | -------------- | ----------------------- |
-| Bootstrap   | 🌐 Standalone | Beginner       | Quick prototyping       |
-| TailwindCSS | 📦 Node.js    | Intermediate   | Custom systems          |
-| Jekyll      | 🟥 Ruby       | Beginner       | Blogs/Portfolios        |
-| Hugo        | 🟢 Binary     | Intermediate   | Large sites             |
-| GSAP        | 🌐 Standalone | Intermediate   | Advanced animations     |
-| React       | 📦 Node.js    | Advanced       | SPA applications        |
-| HTML5 UP    | 🌐 Standalone | Beginner       | Quick templates         |
+| Tool        | Runtime       | Learning Curve | Main Use Case       |
+| ----------- | ------------- | -------------- | ------------------- |
+| Bootstrap   | 🌐 Standalone | Beginner       | Quick prototyping   |
+| TailwindCSS | 📦 Node.js    | Intermediate   | Custom systems      |
+| Jekyll      | 🟥 Ruby       | Beginner       | Blogs/Portfolios    |
+| Hugo        | 🟢 Binary     | Intermediate   | Large sites         |
+| GSAP        | 🌐 Standalone | Intermediate   | Advanced animations |
+| React       | 📦 Node.js    | Advanced       | SPA applications    |
+| HTML5 UP    | 🌐 Standalone | Beginner       | Quick templates     |
 
 This lesson prepares you to make informed decisions about which tools to use based on your needs, available resources, and development preferences.

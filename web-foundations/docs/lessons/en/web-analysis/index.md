@@ -33,7 +33,7 @@ permalink: /lessons/en/web-analysis/
 
 **References**
 
-- _Truth and Method_. Gadamer. [https://web.mit.edu/kaclark/www/gadamer_truth_and_method.pdf](https://www.cambridge.org/core/books/truth-and-method/)
+- _Truth and Method_. Gadamer. [https://web.mit.edu/kaclark/www/gadamer_truth_and_method.pdf](https://web.mit.edu/kaclark/www/gadamer_truth_and_method.pdf)
 - _10 Usability Heuristics_. Nielsen Norman Group. [https://www.nngroup.com/articles/ten-usability-heuristics/](https://www.nngroup.com/articles/ten-usability-heuristics/)
 
 ---
@@ -131,7 +131,7 @@ _Webby Judging Criteria_. Webby Awards. [https://www.webbyawards.com/judging/](h
 
 **References**  
 What is Web Art?. Webpunk.dev. [https://www.webpunk.dev/](https://www.webpunk.dev/)  
-Critical design and critical theory: the challenge of designing for provocation [https://dl.acm.org/doi/abs/10.1145/2317956.2318001](https://dl.acm.org/doi/abs/10.1145/2317956.2318001) (example)
+Critical design and critical theory: the challenge of designing for provocation [https://dl.acm.org/doi/10.1145/2317956.2318001](https://dl.acm.org/doi/10.1145/2317956.2318001) (example)
 
 ---
 

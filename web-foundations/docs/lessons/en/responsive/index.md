@@ -205,6 +205,105 @@ So far we've talked about fluid designs mainly in terms of continuous scaling of
 
 - **Container Queries:** A more recent functionality (though still with limited browser support) are _container queries_. Unlike media queries that are based on viewport size, container queries allow a component to adapt according to the size of its **parent container**. This is revolutionary for reusable component design: a card widget could have a different layout if it's in a narrow sidebar versus if it's in the main content, regardless of screen size. As support improves, we'll see even more modular and truly "intrinsic" design patterns.
 
+### Style Queries: The Next Evolution of Contextual Design 🆕
+
+**Style Queries** represent the natural evolution of Container Queries. While Container Queries allow components to adapt based on the **size** of their container, Style Queries allow them to adapt based on the **style properties** of their container. This opens up completely new possibilities for contextual design.
+
+**What are Style Queries?**
+
+Style Queries allow CSS components to respond to the style properties of their container, not just their size. This is revolutionary because it enables more contextual and semantic adaptation based on visual context.
+
+**Basic example:**
+
+```css
+/* Dark theme container */
+.theme-dark {
+	--color-primary: #3b82f6;
+	--color-surface: #1e293b;
+}
+
+/* Component that adapts to container theme */
+@container style(--color-surface: #1e293b) {
+	.card {
+		background: var(--color-surface);
+		color: white;
+		border: 1px solid #374151;
+	}
+}
+
+@container style(--color-surface: #f8fafc) {
+	.card {
+		background: var(--color-surface);
+		color: #1e293b;
+		border: 1px solid #e2e8f0;
+	}
+}
+```
+
+**Advantages of Style Queries:**
+
+- **Semantic context**: Components adapt to style context, not just size
+- **Advanced componentization**: Better encapsulation of styles and behavior
+- **Thematic flexibility**: Enables more sophisticated design systems with multiple themes
+- **Maintainability**: Reduces need for multiple utility classes and JavaScript
+
+**Support status (2025):**
+
+- **Chrome 111+**: Experimental support with flag `--enable-blink-features=CSSContainerStyleQueries`
+- **Firefox**: In development
+- **Safari**: In development
+
+**Practical example - Component system:**
+
+```html
+<!-- Component that adapts to container theme -->
+<div class="theme-dark">
+	<div class="card">
+		<h3>Card title</h3>
+		<p>Content that automatically adapts to theme.</p>
+	</div>
+</div>
+
+<div class="theme-light">
+	<div class="card">
+		<h3>Another card</h3>
+		<p>Same component, different style context.</p>
+	</div>
+</div>
+```
+
+```css
+/* Style Queries allow .card to adapt automatically */
+@container style(background-color: #1e293b) {
+	.card {
+		background: rgba(255, 255, 255, 0.1);
+		color: white;
+	}
+}
+
+@container style(background-color: #f8fafc) {
+	.card {
+		background: white;
+		color: #1e293b;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	}
+}
+```
+
+**When to use Style Queries:**
+
+- **Complex design systems** with multiple themes
+- **Reusable components** that must adapt to visual context
+- **Applications with dynamic themes** (dark/light mode)
+- **Component libraries** that need maximum flexibility
+
+**Current alternatives while waiting for full support:**
+
+- CSS Custom Properties with JavaScript for theme detection
+- CSS-in-JS with context providers
+- Conditional utility classes
+- CSS Cascade Layers for style organization
+
 ### Responsive images and other graphic elements
 
 Images are one of the most challenging elements in responsive design, as they need to adapt both in size and content:
@@ -253,6 +352,11 @@ responsive/
 - You can open each HTML file in your browser to see the result
 - The specific CSS overrides the general theme styles when necessary
 
+**⚠️ Important reminders:**
+
+- **Git and binaries**: Don't include images, videos, or large binary files in Git. Use [ImageKit.io CDN API](https://imagekit.io/) for automatic image optimization
+- **CSS links**: The `../assets/css/` links work locally, but GitHub Pages deploys in a subdirectory (`/name-of-repository/`), so absolute links break in remote deployment. Consider using absolute paths from the site root for GitHub Pages compatibility
+
 ### Practical example 1: Basic Responsive Portfolio with Media Queries and Flexbox
 
 To understand the fundamentals of responsive design, we'll create a portfolio that uses traditional but effective techniques. We'll use **media queries** to adapt the layout according to viewport size and **Flexbox** to create flexible layouts. This will be our starting point that we'll evolve in Example 2.
@@ -268,6 +372,7 @@ To understand the fundamentals of responsive design, we'll create a portfolio th
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>My Portfolio - Basic Responsive</title>
+		<!-- Relative links: work locally, break on GitHub Pages -->
 		<link rel="stylesheet" href="../assets/css/index.css" />
 		<link rel="stylesheet" href="../assets/css/exercise-1.css" />
 	</head>
@@ -366,13 +471,11 @@ To understand the fundamentals of responsive design, we'll create a portfolio th
  * 3. Progressive enhancement - we add styles for larger screens
  */
 
-/* Basic CSS variables */
+/* Basic CSS variables for Exercise 1 */
 :root {
 	--primary-color: #2563eb;
 	--secondary-color: #64748b;
 	--accent-color: #f59e0b;
-	--text-color: #1e293b;
-	--bg-color: #f8fafc;
 	--white: #ffffff;
 	--border-color: #e2e8f0;
 	--spacing-sm: 1rem;
@@ -383,18 +486,9 @@ To understand the fundamentals of responsive design, we'll create a portfolio th
 	--shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Basic reset */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 body {
 	font-family: system-ui, -apple-system, sans-serif;
 	line-height: 1.6;
-	color: var(--text-color);
-	background-color: var(--bg-color);
 }
 
 /* ===== BASIC CONTAINER ===== */
@@ -549,12 +643,6 @@ body {
 }
 
 /* ===== MEDIA QUERIES (Mobile-First: Progressive Enhancement) ===== */
-/*
- * MOBILE-FIRST STRATEGY:
- * - Base styles are for mobile (already defined above)
- * - min-width adds styles for larger screens
- * - Progressive enhancement - we improve the experience as the screen grows
- */
 
 /* Tablet: 2-3 columns - 481px+ */
 @media (min-width: 481px) {
@@ -748,6 +836,7 @@ Now we'll **evolve** the portfolio from Example 1 by applying more advanced flui
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Responsive Portfolio</title>
+		<!-- Relative links: work locally, break on GitHub Pages -->
 		<link rel="stylesheet" href="../assets/css/index.css" />
 		<link rel="stylesheet" href="../assets/css/exercise-2.css" />
 	</head>
@@ -835,9 +924,6 @@ Now we'll **evolve** the portfolio from Example 1 by applying more advanced flui
 	--primary-color: #3b82f6;
 	--secondary-color: #64748b;
 	--accent-color: #f59e0b;
-	--text-color: #1e293b;
-	--card-bg: #ffffff;
-	--bg-color: #f8fafc;
 	--white: #ffffff;
 	--border-color: #e2e8f0;
 
@@ -1151,6 +1237,7 @@ We'll create the **final complete project**: an SPA-style portfolio with scroll 
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Intrinsic Portfolio - [Your Name]</title>
+		<!-- Relative links: work locally, break on GitHub Pages -->
 		<link rel="stylesheet" href="../assets/css/index.css" />
 		<link rel="stylesheet" href="../assets/css/exercise-3.css" />
 	</head>
@@ -1168,7 +1255,7 @@ We'll create the **final complete project**: an SPA-style portfolio with scroll 
 		<!-- Scroll Container with Snap -->
 		<div class="scroll-container">
 			<!-- Home Section -->
-			<section id="home" class="section home-section">
+			<section id="home" class="section home-section theme-light">
 				<div class="hero-background">
 					<picture>
 						<source media="(max-width: 768px)" srcset="https://picsum.photos/768/1024?random=hero-mobile" />
@@ -1186,7 +1273,7 @@ We'll create the **final complete project**: an SPA-style portfolio with scroll 
 			</section>
 
 			<!-- About Section -->
-			<section id="about" class="section about-section">
+			<section id="about" class="section about-section theme-dark">
 				<div class="container">
 					<h2 class="section-title">About Me</h2>
 					<div class="about-content">
@@ -1211,7 +1298,7 @@ We'll create the **final complete project**: an SPA-style portfolio with scroll 
 			</section>
 
 			<!-- Work Section -->
-			<section id="work" class="section work-section">
+			<section id="work" class="section work-section theme-light">
 				<div class="container">
 					<h2 class="section-title">My Projects</h2>
 					<div class="projects-grid">
@@ -1282,7 +1369,7 @@ We'll create the **final complete project**: an SPA-style portfolio with scroll 
 			</section>
 
 			<!-- Contact Section -->
-			<section id="contact" class="section contact-section">
+			<section id="contact" class="section contact-section theme-dark">
 				<div class="container">
 					<h2 class="section-title">Get In Touch</h2>
 					<div class="contact-content">
@@ -1306,14 +1393,9 @@ We'll create the **final complete project**: an SPA-style portfolio with scroll 
 /* ===== SPA PORTFOLIO WITH SCROLL-SNAP ===== */
 
 :root {
-	/* Colors */
-	--primary: #3b82f6;
-	--secondary: #64748b;
-	--accent: #f59e0b;
-	--text: #1e293b;
-	--bg: #f8fafc;
+	/* Base colors */
 	--white: #ffffff;
-	--border: #e2e8f0;
+	--accent: #f59e0b;
 
 	/* Fluid spacing */
 	--space-xs: clamp(0.5rem, 1vw, 0.75rem);
@@ -1346,6 +1428,27 @@ We'll create the **final complete project**: an SPA-style portfolio with scroll 
 	--radius-lg: clamp(0.75rem, 1.5vw, 1rem);
 }
 
+/* ===== THEME DEFINITIONS FOR STYLE QUERIES ===== */
+.theme-light {
+	--color-surface: #f8fafc;
+	--color-text: #1e293b;
+	--color-primary: #3b82f6;
+	--color-secondary: #64748b;
+	--color-accent: #f59e0b;
+	--color-border: #e2e8f0;
+	--color-shadow: rgba(0, 0, 0, 0.1);
+}
+
+.theme-dark {
+	--color-surface: #1e293b;
+	--color-text: #f8fafc;
+	--color-primary: #60a5fa;
+	--color-secondary: #94a3b8;
+	--color-accent: #fbbf24;
+	--color-border: #374151;
+	--color-shadow: rgba(0, 0, 0, 0.3);
+}
+
 /* Reset and base */
 * {
 	margin: 0;
@@ -1360,8 +1463,8 @@ html {
 body {
 	font-family: system-ui, -apple-system, sans-serif;
 	line-height: var(--leading-normal);
-	color: var(--text);
-	background: var(--bg);
+	color: var(--color-text);
+	background: var(--color-surface);
 }
 
 /* ===== SCROLL SNAPPING ===== */
@@ -1372,6 +1475,7 @@ body {
 }
 
 .section {
+	/* Use 100dvh (dynamic viewport height), 100svh (small viewport height), or 100lvh (large viewport height) to ensure each section fills the full visible screen height, including on mobile devices where browser UI can change the viewport size. 100svh is especially useful for handling mobile browser toolbars that appear/disappear, providing a more accurate visible area. 100lvh can be useful to ensure maximum height when the browser UI is fully expanded. */
 	min-height: 100dvh;
 	scroll-snap-align: start;
 	display: flex;
@@ -1412,7 +1516,7 @@ body {
 
 .nav-link {
 	text-decoration: none;
-	color: var(--text);
+	color: var(--color-text);
 	font-weight: 500;
 	font-size: var(--text-sm);
 	padding: var(--space-xs) var(--space-sm);
@@ -1422,13 +1526,84 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-	background: var(--primary);
+	background: var(--color-primary);
 	color: var(--white);
+}
+
+/* ===== STYLE QUERIES: CONTEXTUAL COMPONENT ADAPTATION ===== */
+/*
+ * 🆕 EXPERIMENTAL TECHNIQUE: Style Queries
+ * Allows components to adapt based on their container's style properties
+ * Instead of just size (Container Queries)
+ */
+
+/* Light theme container - components adapt automatically */
+@container style(--color-surface: #f8fafc) {
+	.section-title {
+		color: var(--color-text);
+		text-shadow: none;
+	}
+
+	.project-card {
+		background: var(--color-surface);
+		color: var(--color-text);
+		border: 1px solid var(--color-border);
+		box-shadow: 0 4px 6px var(--color-shadow);
+	}
+
+	.project-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 15px var(--color-shadow);
+	}
+
+	.cta-button {
+		background: var(--color-primary);
+		color: white;
+		border: 2px solid var(--color-primary);
+	}
+
+	.cta-button:hover {
+		background: transparent;
+		color: var(--color-primary);
+	}
+}
+
+/* Dark theme container - components adapt automatically */
+@container style(--color-surface: #1e293b) {
+	.section-title {
+		color: var(--color-text);
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+	}
+
+	.project-card {
+		background: rgba(255, 255, 255, 0.1);
+		color: var(--color-text);
+		border: 1px solid var(--color-border);
+		backdrop-filter: blur(10px);
+		box-shadow: 0 4px 6px var(--color-shadow);
+	}
+
+	.project-card:hover {
+		background: rgba(255, 255, 255, 0.15);
+		transform: translateY(-4px);
+		box-shadow: 0 8px 15px var(--color-shadow);
+	}
+
+	.cta-button {
+		background: var(--color-primary);
+		color: var(--color-text);
+		border: 2px solid var(--color-primary);
+	}
+
+	.cta-button:hover {
+		background: transparent;
+		color: var(--color-primary);
+	}
 }
 
 /* ===== SECTION STYLES ===== */
 .home-section {
-	background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+	background: linear-gradient(135deg, var(--color-primary) 0%, #1e40af 100%);
 	color: var(--white);
 	text-align: center;
 }
@@ -1503,17 +1678,6 @@ body {
 }
 
 /* ===== SUBGRID FOR PERFECT ALIGNMENT ===== */
-.project-card {
-	display: grid;
-	grid-template-columns: subgrid;
-	grid-column: span 1;
-	/* Fallback for browsers without subgrid support */
-	@supports not (grid-template-columns: subgrid) {
-		display: flex;
-		flex-direction: column;
-	}
-}
-
 /* Apply subgrid only when supported */
 @supports (grid-template-columns: subgrid) {
 	.projects-grid {
@@ -1527,6 +1691,16 @@ body {
 		grid-column: span 1;
 		grid-row: span 1;
 	}
+}
+
+/* Fallback for browsers without subgrid support */
+@supports not (grid-template-columns: subgrid) {
+	.project-card {
+		display: flex;
+		flex-direction: column;
+		grid-column: span 1;
+	}
+}
 
 	.project-image-container {
 		grid-row: 1;
@@ -1632,7 +1806,7 @@ body {
 
 .project-link:hover {
 	background: white;
-	color: var(--text);
+	color: var(--color-text);
 }
 
 /* ===== PROJECT INFO STYLES ===== */
@@ -1644,12 +1818,12 @@ body {
 	font-size: var(--text-lg);
 	font-weight: 600;
 	margin-bottom: var(--space-xs);
-	color: var(--text);
+	color: var(--color-text);
 }
 
 .project-info p {
 	font-size: var(--text-sm);
-	color: var(--secondary);
+	color: var(--color-secondary);
 	margin-bottom: var(--space-sm);
 	line-height: var(--leading-normal);
 }
@@ -1662,7 +1836,7 @@ body {
 }
 
 .tag {
-	background: var(--primary);
+	background: var(--color-primary);
 	color: var(--white);
 	padding: var(--space-xs) var(--space-sm);
 	border-radius: 9999px;
@@ -1804,11 +1978,11 @@ body {
 }
 
 .image-loading {
-	background: var(--bg);
+	background: var(--color-surface);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--secondary);
+	color: var(--color-secondary);
 }
 
 /* ===== CONTAINER QUERIES FOR IMAGES ===== */
@@ -1956,7 +2130,17 @@ preloadImage('https://picsum.photos/1920/1080?random=hero-large');
 - **`aspect-ratio`**: Consistent proportions without JavaScript
 - **`backdrop-filter`**: Modern blur effects
 - **Container Queries**: Intrinsic adaptation of images
+- **Style Queries**: 🆕 Contextual adaptation based on container style properties
 - **Lazy Loading**: Optimized loading for performance
+
+**🆕 Style Queries in action:**
+
+This exercise demonstrates **Style Queries** with a theme system where components automatically adapt based on their container's style context:
+
+- **Light theme** (`theme-light`): Components with solid backgrounds and subtle shadows
+- **Dark theme** (`theme-dark`): Components with translucent backgrounds and blur effects
+- **Automatic adaptation**: Same components change appearance based on container theme
+- **No JavaScript**: Everything handled by CSS with `@container style()`
 
 ## Conclusion: Towards Intrinsic Design
 
@@ -2045,7 +2229,7 @@ responsive/
 [^37]: [What are fluid, adaptive and responsive web designs?](https://blog.ida.cl/diseno/diferencias-diseno-web-fluido-adaptativo-responsivo/#:~:text=En%20este%20tipo%20de%20dise%C3%B1o,textos%20son%20dif%C3%ADciles%20de%20leer)
 [^38]: [clamp() - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp#:~:text=Note%20that%20using%20,the%20use%20of%20media%20queries)
 [^40]: [alistapart.com](https://alistapart.com/article/responsive-web-design/)
-[^41]: [alistapart.com](https://alistapart.com/article/fluid-grids/)
+[^41]: [alistapart.com](https://alistapart.com/article/fluidgrids/)
 [^42]: [What are fluid, adaptive and responsive web designs?](https://blog.ida.cl/diseno/diferencias-diseno-web-fluido-adaptativo-responsivo/)
 [^43]: [Responsive web design: Fluid typography with CSS clamp • Silo Creativo](https://www.silocreativo.com/diseno-web-responsive-tipografia-fluida-con-css-clamp/)
 [^44]: [Design and fluid typography with CSS: How to apply it to your web with clamp](https://utopigstudio.com/es/blog/diseno/tipografia-fluida-css-clamp)

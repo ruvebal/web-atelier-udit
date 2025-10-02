@@ -131,7 +131,7 @@ _Webby Judging Criteria_. _Webby Awards_. [https://www.webbyawards.com/judging/]
 
 **Referencias**  
 ¿Qué es el Arte Web?. Webpunk.dev. [https://www.webpunk.dev/](https://www.webpunk.dev/)  
-Critical design and critical theory: the challenge of designing for provocation [https://dl.acm.org/doi/abs/10.1145/2317956.2318001](https://dl.acm.org/doi/abs/10.1145/2317956.2318001) (ejemplo)
+Critical design and critical theory: the challenge of designing for provocation [https://dl.acm.org/doi/10.1145/2317956.2318001](https://dl.acm.org/doi/10.1145/2317956.2318001) (ejemplo)
 
 ---
 

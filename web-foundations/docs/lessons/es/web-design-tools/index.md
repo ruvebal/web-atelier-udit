@@ -54,6 +54,7 @@ student-project/
 ### 📦 **Herramientas que REQUIEREN Node.js**
 
 #### Frameworks y Build Tools
+
 - **TailwindCSS** - Requiere Node.js para compilación y procesamiento
 - **Vite** - Build tool moderno que necesita Node.js
 - **Webpack** - Bundler que requiere Node.js
@@ -61,6 +62,7 @@ student-project/
 - **Snowpack** - Build tool para desarrollo rápido
 
 #### Frameworks JavaScript Modernos
+
 - **React** - Requiere Node.js para desarrollo y build
 - **Vue.js** - Necesita Node.js para CLI y build tools
 - **Angular** - Requiere Node.js para Angular CLI
@@ -69,11 +71,13 @@ student-project/
 - **Nuxt.js** - Framework Vue que requiere Node.js
 
 #### Generadores de Sitios Estáticos
+
 - **Gatsby** - Generador React que requiere Node.js
 - **Eleventy (11ty)** - Generador que necesita Node.js
 - **Astro** - Framework moderno que requiere Node.js
 
 #### Librerías de Componentes
+
 - **Material UI** - Requiere Node.js para instalación
 - **Ant Design** - Necesita Node.js
 - **Chakra UI** - Requiere Node.js
@@ -82,6 +86,7 @@ student-project/
 ### 🌐 **Herramientas que NO REQUIEREN Node.js**
 
 #### Frameworks CSS Standalone
+
 - **Bootstrap** - Funciona con CDN o descarga directa
 - **Foundation** - Disponible vía CDN
 - **Bulma** - CSS puro, funciona con CDN
@@ -89,6 +94,7 @@ student-project/
 - **Milligram** - CSS minimalista, sin Node.js
 
 #### Librerías JavaScript Vanilla
+
 - **GSAP** - Funciona con CDN o descarga directa
 - **Anime.js** - JavaScript vanilla, CDN disponible
 - **Three.js** - Librería 3D, funciona con CDN
@@ -96,12 +102,14 @@ student-project/
 - **AOS (Animate On Scroll)** - JavaScript vanilla
 
 #### Plantillas y Kits
+
 - **HTML5 UP** - Plantillas HTML/CSS puras
 - **Start Bootstrap** - Plantillas Bootstrap standalone
 - **Templated** - Plantillas HTML/CSS gratuitas
 - **FreeHTML5** - Plantillas sin dependencias
 
 #### Generadores Sin Node.js
+
 - **Jekyll** - Requiere Ruby (no Node.js)
 - **Hugo** - Binario Go, no necesita Node.js
 - **Zola** - Generador Rust, no requiere Node.js
@@ -113,6 +121,7 @@ student-project/
 ### Hojas de Estilo y Frameworks CSS
 
 #### [Bootstrap](https://getbootstrap.com/) 🌐 **Sin Node.js**
+
 - **Características clave**: Sistema de cuadrícula responsivo, componentes predefinidos, utilidades
 - **Tecnología**: CSS/SCSS, JavaScript vanilla
 - **Runtime**: CDN o descarga directa
@@ -121,6 +130,7 @@ student-project/
 - **Nota ATELIER**: Haz fork de una plantilla oficial y analiza la calidad semántica vs. utilidades
 
 #### [TailwindCSS](https://tailwindcss.com/) 📦 **Requiere Node.js**
+
 - **Características clave**: Utility-first, construcción de sistemas de diseño, compilador JIT
 - **Tecnología**: PostCSS, bundlers de JavaScript
 - **Runtime**: Node.js (npm/pnpm) para desarrollo y build
@@ -129,6 +139,7 @@ student-project/
 - **Nota ATELIER**: Compara la carga cognitiva de memorizar clases vs. claridad semántica
 
 #### [Foundation](https://get.foundation/) 🌐 **Sin Node.js**
+
 - **Características clave**: Cuadrícula responsiva, énfasis en accesibilidad
 - **Tecnología**: Sass (opcional), JavaScript vanilla
 - **Runtime**: CDN o descarga directa
@@ -136,6 +147,7 @@ student-project/
 - **Casos de uso**: Layouts enfocados en accesibilidad
 
 #### [Bulma](https://bulma.io/) 🌐 **Sin Node.js**
+
 - **Características clave**: CSS puro, sin JavaScript, Flexbox-based
 - **Tecnología**: CSS puro, Sass (opcional)
 - **Runtime**: CDN o descarga directa
@@ -145,6 +157,7 @@ student-project/
 ### Kits de UI y Librerías de Componentes
 
 #### [Material UI](https://mui.com/) 📦 **Requiere Node.js**
+
 - **Características clave**: Componentes React que implementan Material Design
 - **Tecnología**: React, TypeScript
 - **Runtime**: Node.js para instalación y desarrollo
@@ -152,6 +165,7 @@ student-project/
 - **Casos de uso**: Dashboards empresariales, portales educativos
 
 #### [Shadcn UI](https://ui.shadcn.com/) 📦 **Requiere Node.js**
+
 - **Características clave**: Componentes React copy-paste construidos con Tailwind
 - **Tecnología**: React, TailwindCSS, primitivos Radix
 - **Runtime**: Node.js + pnpm/npm
@@ -159,6 +173,7 @@ student-project/
 - **Casos de uso**: Portafolios, páginas SaaS modernas
 
 #### [Ark UI](https://ark-ui.com/) 📦 **Requiere Node.js**
+
 - **Características clave**: Primitivos UI headless, accesibles, framework-agnostic
 - **Tecnología**: TypeScript, frameworks modernos
 - **Runtime**: Node.js para instalación
@@ -168,6 +183,7 @@ student-project/
 ### Generadores de Sitios Estáticos
 
 #### [Jekyll](https://jekyllrb.com/) 🟥 **Requiere Ruby (No Node.js)**
+
 - **Características clave**: Generador de sitios estáticos, plantillas Markdown + Liquid
 - **Tecnología**: Ruby, datos YAML, soporte nativo GitHub Pages
 - **Runtime**: Ruby (no Node.js)
@@ -176,6 +192,7 @@ student-project/
 - **Nota ATELIER**: Se conecta directamente a workflows de Git
 
 #### [Eleventy (11ty)](https://www.11ty.dev/) 📦 **Requiere Node.js**
+
 - **Características clave**: Generador de sitios estáticos flexible, múltiples lenguajes de plantillas
 - **Tecnología**: Node.js
 - **Runtime**: Node.js (npm)
@@ -183,6 +200,7 @@ student-project/
 - **Casos de uso**: Alternativa ligera a Jekyll, proyectos JAMstack
 
 #### [Hugo](https://gohugo.io/) 🟢 **Sin Node.js**
+
 - **Características clave**: Generador ultra-rápido, binario único
 - **Tecnología**: Go (compilado a binario)
 - **Runtime**: Binario standalone (no Node.js ni Ruby)
@@ -190,6 +208,7 @@ student-project/
 - **Casos de uso**: Sitios grandes, blogs, documentación
 
 #### [Astro](https://astro.build/) 📦 **Requiere Node.js**
+
 - **Características clave**: Framework moderno, islands architecture, multi-framework
 - **Tecnología**: Node.js, Vite
 - **Runtime**: Node.js para desarrollo y build
@@ -199,6 +218,7 @@ student-project/
 ### Librerías de Animación y Visuales
 
 #### [GSAP](https://greensock.com/gsap/) 🌐 **Sin Node.js**
+
 - **Características clave**: Animaciones enfocadas en rendimiento, timelines, scroll triggers
 - **Tecnología**: JavaScript vanilla
 - **Runtime**: CDN o descarga directa
@@ -206,6 +226,7 @@ student-project/
 - **Casos de uso**: Storytelling interactivo, sitios de marketing
 
 #### [Framer Motion](https://www.framer.com/motion/) 📦 **Requiere Node.js**
+
 - **Características clave**: Librería de animación para React
 - **Tecnología**: React, TypeScript
 - **Runtime**: Node.js (npm)
@@ -213,6 +234,7 @@ student-project/
 - **Casos de uso**: Portafolios interactivos, páginas SaaS
 
 #### [Anime.js](https://animejs.com/) 🌐 **Sin Node.js**
+
 - **Características clave**: Motor de animación ligero
 - **Tecnología**: JavaScript vanilla
 - **Runtime**: CDN o descarga directa
@@ -220,6 +242,7 @@ student-project/
 - **Casos de uso**: Ilustraciones, efectos visuales ligeros
 
 #### [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/) 🌐 **Sin Node.js**
+
 - **Características clave**: Animaciones al hacer scroll
 - **Tecnología**: JavaScript vanilla, CSS
 - **Runtime**: CDN o descarga directa
@@ -229,6 +252,7 @@ student-project/
 ### Plantillas y Kits de UI Abiertos
 
 #### [HTML5 UP](https://html5up.net/) 🌐 **Sin Node.js**
+
 - **Características clave**: Plantillas HTML/CSS responsivas gratuitas
 - **Tecnología**: HTML5, CSS3
 - **Runtime**: Descarga directa, fork de GitHub
@@ -236,6 +260,7 @@ student-project/
 - **Casos de uso**: Proyectos estudiantiles, despliegues rápidos
 
 #### [Cruip](https://cruip.com/) 📦 **Requiere Node.js (versiones React)**
+
 - **Características clave**: Plantillas premium + gratuitas, basadas en React/Tailwind
 - **Tecnología**: React, TailwindCSS (versiones React)
 - **Runtime**: Descarga directa (HTML) o Node.js (React)
@@ -243,6 +268,7 @@ student-project/
 - **Casos de uso**: Páginas de inicio de startups
 
 #### [Flowbite](https://flowbite.com/) 📦 **Requiere Node.js**
+
 - **Características clave**: Librería de componentes TailwindCSS
 - **Tecnología**: TailwindCSS, JavaScript
 - **Runtime**: Node.js (npm) o CDN
@@ -252,6 +278,7 @@ student-project/
 ### Recursos de Datos y Medios
 
 #### [Hygraph](https://hygraph.com/) 🌐 **SaaS (Sin instalación local)**
+
 - **Características clave**: CMS headless con GraphQL
 - **Tecnología**: GraphQL API
 - **Runtime**: SaaS (no requiere instalación local)
@@ -259,13 +286,15 @@ student-project/
 - **Casos de uso**: Gestión de contenido estructurado
 
 #### [ImageKit.io](https://imagekit.io/) 🌐 **SaaS (Sin instalación local)**
+
 - **Características clave**: CDN de imágenes, optimización, transformaciones
 - **Tecnología**: CDN global, API
 - **Runtime**: SaaS (no requiere instalación local)
 - **Curva de aprendizaje**: Principiante
 - **Casos de uso**: Entrega de medios optimizados
 
-#### [Netlify CMS](https://www.netlifycms.org/) 🌐 **Sin Node.js**
+#### [Netlify CMS](https://www.netlify.com/) 🌐 **Sin Node.js**
+
 - **Características clave**: CMS Git-based, interfaz web
 - **Tecnología**: JavaScript vanilla, API Git
 - **Runtime**: Funciona con cualquier generador de sitios estáticos
@@ -279,6 +308,7 @@ student-project/
 ### 📁 Archivos a Crear
 
 **HTML:** `resources/index.html`
+
 ```html
 <!DOCTYPE html>
 <html lang="es">
@@ -296,6 +326,7 @@ student-project/
 ```
 
 **CSS Principal:** `assets/css/index.css`
+
 ```css
 /* ===== CSS PRINCIPAL - RESET Y VARIABLES ===== */
 
@@ -317,14 +348,14 @@ student-project/
 	--bg-color: #f8fafc;
 	--white: #ffffff;
 	--border-color: #e2e8f0;
-	
+
 	/* Espaciado */
 	--spacing-xs: 0.5rem;
 	--spacing-sm: 1rem;
 	--spacing-md: 1.5rem;
 	--spacing-lg: 2rem;
 	--spacing-xl: 3rem;
-	
+
 	/* Tipografía */
 	--font-family: system-ui, -apple-system, sans-serif;
 	--font-size-sm: 0.875rem;
@@ -333,7 +364,7 @@ student-project/
 	--font-size-xl: 1.25rem;
 	--font-size-2xl: 1.5rem;
 	--font-size-3xl: 1.875rem;
-	
+
 	/* Bordes y sombras */
 	--border-radius: 0.5rem;
 	--border-radius-lg: 0.75rem;
@@ -363,15 +394,26 @@ body {
 }
 
 /* Tipografía */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-weight: 600;
 	line-height: 1.2;
 	margin-bottom: var(--spacing-sm);
 }
 
-h1 { font-size: var(--font-size-3xl); }
-h2 { font-size: var(--font-size-2xl); }
-h3 { font-size: var(--font-size-xl); }
+h1 {
+	font-size: var(--font-size-3xl);
+}
+h2 {
+	font-size: var(--font-size-2xl);
+}
+h3 {
+	font-size: var(--font-size-xl);
+}
 
 p {
 	margin-bottom: var(--spacing-sm);
@@ -406,20 +448,39 @@ a:hover {
 }
 
 /* Utilidades */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
+.text-center {
+	text-align: center;
+}
+.text-left {
+	text-align: left;
+}
+.text-right {
+	text-align: right;
+}
 
-.mb-sm { margin-bottom: var(--spacing-sm); }
-.mb-md { margin-bottom: var(--spacing-md); }
-.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-sm {
+	margin-bottom: var(--spacing-sm);
+}
+.mb-md {
+	margin-bottom: var(--spacing-md);
+}
+.mb-lg {
+	margin-bottom: var(--spacing-lg);
+}
 
-.mt-sm { margin-top: var(--spacing-sm); }
-.mt-md { margin-top: var(--spacing-md); }
-.mt-lg { margin-top: var(--spacing-lg); }
+.mt-sm {
+	margin-top: var(--spacing-sm);
+}
+.mt-md {
+	margin-top: var(--spacing-md);
+}
+.mt-lg {
+	margin-top: var(--spacing-lg);
+}
 ```
 
 **CSS Específico:** `assets/css/resources.css`
+
 ```css
 /* ===== CSS ESPECÍFICO PARA PÁGINA DE RECURSOS ===== */
 
@@ -579,11 +640,11 @@ a:hover {
 		flex-direction: column;
 		align-items: center;
 	}
-	
+
 	.tools-grid {
 		grid-template-columns: 1fr;
 	}
-	
+
 	.tool-card {
 		padding: var(--spacing-md);
 	}
@@ -660,14 +721,14 @@ En tu sección de reflexión, considera:
 
 ## 📊 Tabla de Comparación Rápida
 
-| Herramienta | Runtime | Curva de Aprendizaje | Caso de Uso Principal |
-|-------------|---------|---------------------|----------------------|
-| Bootstrap | 🌐 Standalone | Principiante | Prototipado rápido |
-| TailwindCSS | 📦 Node.js | Intermedio | Sistemas personalizados |
-| Jekyll | 🟥 Ruby | Principiante | Blogs/Portafolios |
-| Hugo | 🟢 Binario | Intermedio | Sitios grandes |
-| GSAP | 🌐 Standalone | Intermedio | Animaciones avanzadas |
-| React | 📦 Node.js | Avanzado | Aplicaciones SPA |
-| HTML5 UP | 🌐 Standalone | Principiante | Plantillas rápidas |
+| Herramienta | Runtime       | Curva de Aprendizaje | Caso de Uso Principal   |
+| ----------- | ------------- | -------------------- | ----------------------- |
+| Bootstrap   | 🌐 Standalone | Principiante         | Prototipado rápido      |
+| TailwindCSS | 📦 Node.js    | Intermedio           | Sistemas personalizados |
+| Jekyll      | 🟥 Ruby       | Principiante         | Blogs/Portafolios       |
+| Hugo        | 🟢 Binario    | Intermedio           | Sitios grandes          |
+| GSAP        | 🌐 Standalone | Intermedio           | Animaciones avanzadas   |
+| React       | 📦 Node.js    | Avanzado             | Aplicaciones SPA        |
+| HTML5 UP    | 🌐 Standalone | Principiante         | Plantillas rápidas      |
 
 Esta lección te prepara para tomar decisiones informadas sobre qué herramientas usar según tus necesidades, recursos disponibles y preferencias de desarrollo.
