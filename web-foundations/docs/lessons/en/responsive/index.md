@@ -1058,25 +1058,51 @@ Now we'll **evolve** the portfolio from Example 1 by applying more advanced flui
 	}
 }
 
-/* ===== CONTAINER QUERIES ===== */
-/* When the container is narrow, change the card layout */
-@container portfolio-container (max-width: 600px) {
+/* ===== CONTAINER QUERIES (MOBILE-FIRST APPROACH) ===== */
+/*
+ * CONTAINER QUERIES CAN BE MOBILE-FIRST TOO!
+ * Base styles are for narrow containers (mobile-like)
+ * min-width adds styles for wider containers
+ */
+
+/* Base: Narrow containers (mobile-like) - horizontal card layout */
+.project-card {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: var(--spacing-md);
+}
+
+.project-card img {
+	width: 120px;
+	height: 90px;
+	object-fit: cover;
+	flex-shrink: 0;
+}
+
+.project-content {
+	flex: 1;
+}
+
+/* Progressive enhancement: Wider containers - vertical card layout */
+@container portfolio-container (min-width: 600px) {
 	.project-card {
 		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		gap: var(--spacing-md);
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0;
 	}
 
 	.project-card img {
-		width: 120px;
-		height: 90px;
+		width: 100%;
+		height: 200px;
 		object-fit: cover;
 		flex-shrink: 0;
 	}
 
 	.project-content {
 		flex: 1;
+		padding: var(--spacing-lg);
 	}
 }
 

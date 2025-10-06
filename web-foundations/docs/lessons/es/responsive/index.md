@@ -1088,25 +1088,51 @@ body {
 	}
 }
 
-/* ===== CONTAINER QUERIES ===== */
-/* Cuando el contenedor es estrecho, cambia el layout de las tarjetas */
-@container portfolio-container (max-width: 600px) {
+/* ===== CONTAINER QUERIES (ENFOQUE MOBILE-FIRST) ===== */
+/*
+ * ¡LOS CONTAINER QUERIES TAMBIÉN PUEDEN SER MOBILE-FIRST!
+ * Los estilos base son para contenedores estrechos (como móvil)
+ * min-width agrega estilos para contenedores más anchos
+ */
+
+/* Base: Contenedores estrechos (como móvil) - layout horizontal de tarjetas */
+.project-card {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: var(--spacing-md);
+}
+
+.project-card img {
+	width: 120px;
+	height: 90px;
+	object-fit: cover;
+	flex-shrink: 0;
+}
+
+.project-content {
+	flex: 1;
+}
+
+/* Mejora progresiva: Contenedores anchos - layout vertical de tarjetas */
+@container portfolio-container (min-width: 600px) {
 	.project-card {
 		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		gap: var(--spacing-md);
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0;
 	}
 
 	.project-card img {
-		width: 120px;
-		height: 90px;
+		width: 100%;
+		height: 200px;
 		object-fit: cover;
 		flex-shrink: 0;
 	}
 
 	.project-content {
 		flex: 1;
+		padding: var(--spacing-lg);
 	}
 }
 
