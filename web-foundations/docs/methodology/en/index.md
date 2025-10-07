@@ -20,9 +20,25 @@ permalink: /methodology/en/
 
 <!-- prettier-ignore-end -->
 
-
-
 > AI Assistance Disclosure: Parts of this methodology and related materials were iterated with AI tools (ChatGPT GPT‑4/GPT‑5, Copilot/Codex, Cursor/Claude). Iterations followed a research–practice–research cycle and were reviewed by the author. The pedagogy is grounded primarily in classroom experience teaching web development since Sept 2024.
+
+## 🎭 Critical Coding Approach
+
+Our atelier (workshop) learning model is based on _critical coding_ — understanding web technologies not only as tools, but as cultural and creative media.  
+Each session moves through a cycle:
+
+1. **Exploration** → hands-on coding, guided experiments.
+2. **Reflection** → understanding what happens behind the code.
+3. **Conceptualization** → connecting practical work to design theory and ethics.
+4. **Production** → building individual or collective projects.
+5. **Exhibition** → publishing, sharing, and discussing the outcomes.
+
+In this context, **web design** becomes a critical medium to think about rhythm, hierarchy, accessibility, and authorship in digital interfaces.
+
+> To code critically is to make with awareness
+> — of the tools, the users, and the social space where our work lives.
+
+---
 
 ## Introduction and Rationale
 

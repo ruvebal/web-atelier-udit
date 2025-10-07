@@ -183,3 +183,101 @@
   status:
    es: complete
    en: complete
+
+ - slug: tailwind
+  title:
+   es: 'Ruta de Aprendizaje de Tailwind CSS — Hoja de Ruta Completa'
+   en: 'Tailwind CSS Learning Path — Complete Roadmap'
+  path:
+   es: /lessons/es/tailwind/
+   en: /lessons/en/tailwind/
+  file:
+   es: lessons/es/tailwind/index.md
+   en: lessons/en/tailwind/index.md
+  status:
+   es: complete
+   en: complete
+
+ - slug: tailwind-setup-fundamentals
+  title:
+   es: 'Tailwind CSS: Configuración y Fundamentos — Desarrollo PWA-Ready'
+   en: 'Tailwind CSS: Setup & Fundamentals — PWA-Ready Development'
+  path:
+   es: /lessons/es/tailwind/setup-and-fundamentals/
+   en: /lessons/en/tailwind/setup-and-fundamentals/
+  file:
+   es: lessons/es/tailwind/setup-and-fundamentals/index.md
+   en: lessons/en/tailwind/setup-and-fundamentals/index.md
+  status:
+   es: complete
+   en: complete
+
+ - slug: tailwind-routing-layout
+  title:
+   es: 'Tailwind CSS: Ruteo SPA y Layout Compartido — Construyendo Experiencias Interactivas'
+   en: 'Tailwind CSS: SPA Routing & Shared Layout — Building Interactive Experiences'
+  path:
+   es: /lessons/es/tailwind/routing-and-shared-layout/
+   en: /lessons/en/tailwind/routing-and-shared-layout/
+  file:
+   es: lessons/es/tailwind/routing-and-shared-layout/index.md
+   en: lessons/en/tailwind/routing-and-shared-layout/index.md
+  status:
+   es: complete
+   en: complete
+
+ - slug: tailwind-components-design-system
+  title:
+   es: 'Tailwind CSS: Componentes y Sistema de Diseño — Construyendo Patrones Reutilizables'
+   en: 'Tailwind CSS: Components & Design System — Building Reusable Patterns'
+  path:
+   es: /lessons/es/tailwind/components-design-system/
+   en: /lessons/en/tailwind/components-design-system/
+  file:
+   es: lessons/es/tailwind/components-design-system/index.md
+   en: lessons/en/tailwind/components-design-system/index.md
+  status:
+   es: complete
+   en: complete
+
+ - slug: tailwind-state-interactivity
+  title:
+   es: 'Tailwind CSS: Estado e Interactividad — Construyendo Experiencias de Usuario Dinámicas'
+   en: 'Tailwind CSS: State & Interactivity — Building Dynamic User Experiences'
+  path:
+   es: /lessons/es/tailwind/state-interactivity/
+   en: /lessons/en/tailwind/state-interactivity/
+  file:
+   es: lessons/es/tailwind/state-interactivity/index.md
+   en: lessons/en/tailwind/state-interactivity/index.md
+  status:
+   es: complete
+   en: complete
+
+ - slug: tailwind-accessibility-performance
+  title:
+   es: 'Tailwind CSS: Accesibilidad y Rendimiento — Diseño Inclusivo y Optimizado'
+   en: 'Tailwind CSS: Accessibility & Performance — Inclusive & Optimized Design'
+  path:
+   es: /lessons/es/tailwind/accessibility-performance/
+   en: /lessons/en/tailwind/accessibility-performance/
+  file:
+   es: lessons/es/tailwind/accessibility-performance/index.md
+   en: lessons/en/tailwind/accessibility-performance/index.md
+  status:
+   es: complete
+   en: complete
+
+ - slug: tailwind-build-deploy
+  title:
+   es: 'Tailwind CSS: Build y Deploy — PWA Lista para Producción'
+   en: 'Tailwind CSS: Build & Deploy — Production-Ready PWA'
+  path:
+   es: /lessons/es/tailwind/build-deploy/
+   en: /lessons/en/tailwind/build-deploy/
+  file:
+   es: lessons/es/tailwind/build-deploy/index.md
+   en: lessons/en/tailwind/build-deploy/index.md
+  status:
+   es: complete
+   en: complete

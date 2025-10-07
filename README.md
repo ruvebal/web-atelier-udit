@@ -26,6 +26,8 @@ Commit-driven web pedagogy & research at **UDIT, University of Design, Innovatio
 
 ## What is ATELIER?
 
+> …somewhere between critical pedagogy, freestyle consciousness, and code as beat.
+
 **EN:** A method and toolkit for web design/front-end teaching where each class is like a sprint and each sprint ends in a commit.
 **ES:** Un método y kit docente para diseño web/front-end donde cada clase es como un sprint y cada sprint termina en un commit.
 
@@ -81,3 +83,13 @@ Commit-driven web pedagogy & research at **UDIT, University of Design, Innovatio
 ## AI Assistance Disclosure
 
 This project was iterated with the assistance of AI tools including ChatGPT (GPT‑4 and GPT‑5), GitHub Copilot/Codex, and Cursor/Claude. Hundreds of micro‑iterations followed a research–practice–research cycle. All AI outputs were reviewed, adapted, and integrated under the author’s pedagogy developed through teaching web development since Sept 2024. Responsibility for the final design, code, and pedagogy remains with the author.
+
+### Atelier Design Prompts (Pedagogical Structure)
+
+**Purpose**: Generate new lessons, assignments, or didactic guides critically using AI.
+
+**Prompt**: New Atelier Lesson
+
+> “Create a Markdown lesson following my atelier methodology [web-foundations/docs/methodology]: hands-on exploration → reflection → conceptual framing → production → exhibition.
+> The lesson should be for [topic] (e.g., responsive design, semantic HTML, client-side routing) and use the same layout and tone as [web-foundations/docs/methodology].
+> Include: YAML front matter for Jekyll, table of contents, learning objectives, methodology, roadmap, deliverables, and references.”
