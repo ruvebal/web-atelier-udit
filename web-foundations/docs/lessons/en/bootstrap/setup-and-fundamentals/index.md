@@ -554,7 +554,11 @@ Create custom utilities that extend Bootstrap's system:
 
 ```scss
 // custom-utilities.scss
-// Custom gradient backgrounds
+/* custom-utilities.css */
+/* You should link this file AFTER Bootstrap's CSS in your HTML:
+   <link rel="stylesheet" href="bootstrap.min.css">
+   <link rel="stylesheet" href="custom-utilities.css">
+*/
 .bg-gradient-primary {
 	background: linear-gradient(135deg, var(--bs-primary) 0%, darken($primary, 15%) 100%);
 }

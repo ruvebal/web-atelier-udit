@@ -552,7 +552,11 @@ Practica diseño responsivo usando clases utilitarias:
 Crea utilidades personalizadas que extiendan el sistema de Bootstrap:
 
 ```scss
-// utilidades-personalizadas.scss
+/* utilidades-personalizadas.css */
+/* Debes enlazar este archivo DESPUÉS de los CSS de Bootstrap en tu HTML:
+   <link rel="stylesheet" href="bootstrap.min.css">
+   <link rel="stylesheet" href="utilidades-personalizadas.css">
+*/
 // Fondos con gradiente personalizados
 .bg-gradient-primary {
 	background: linear-gradient(135deg, var(--bs-primary) 0%, darken($primary, 15%) 100%);
