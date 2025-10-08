@@ -43,7 +43,7 @@ This comprehensive learning path takes you from zero to production-ready PWA usi
 
 ## Session Overview
 
-### [S1 - Setup & Fundamentals →](/lessons/en/tailwind/setup-and-fundamentals/)
+### [S1 - Setup & Fundamentals →]({{ '/lessons/en/tailwind/setup-and-fundamentals/' | relative_url }})
 
 **PWA-Ready Development**
 
@@ -52,7 +52,7 @@ This comprehensive learning path takes you from zero to production-ready PWA usi
 - Mobile-first responsive design
 - Production build concepts
 
-### [S2 - SPA Routing & Layout →](/lessons/en/tailwind/routing-and-shared-layout/)
+### [S2 - SPA Routing & Layout →]({{ '/lessons/en/tailwind/routing-and-shared-layout/' | relative_url }})
 
 **Building Interactive Experiences**
 
@@ -61,7 +61,7 @@ This comprehensive learning path takes you from zero to production-ready PWA usi
 - Accessibility in dynamic interfaces
 - Progressive enhancement principles
 
-### [S3 - Components & Design System →](/lessons/en/tailwind/components-design-system/)
+### [S3 - Components & Design System →]({{ '/lessons/en/tailwind/components-design-system/' | relative_url }})
 
 **Reusable Patterns**
 
@@ -70,7 +70,7 @@ This comprehensive learning path takes you from zero to production-ready PWA usi
 - Reusable UI patterns
 - Design system implementation
 
-### [S4 - State & Interactivity →](/lessons/en/tailwind/state-interactivity/)
+### [S4 - State & Interactivity →]({{ '/lessons/en/tailwind/state-interactivity/' | relative_url }})
 
 **Dynamic User Experiences**
 
@@ -79,7 +79,7 @@ This comprehensive learning path takes you from zero to production-ready PWA usi
 - User feedback systems
 - Accessibility in interactive components
 
-### [S5 - Accessibility & Performance →](/lessons/en/tailwind/accessibility-performance/)
+### [S5 - Accessibility & Performance →]({{ '/lessons/en/tailwind/accessibility-performance/' | relative_url }})
 
 **Inclusive & Optimized Design**
 
@@ -88,7 +88,7 @@ This comprehensive learning path takes you from zero to production-ready PWA usi
 - Core Web Vitals measurement
 - Inclusive design principles
 
-### [S6 - Build & Deploy →](/lessons/en/tailwind/build-deploy/)
+### [S6 - Build & Deploy →]({{ '/lessons/en/tailwind/build-deploy/' | relative_url }})
 
 **Production-Ready PWA**
 
@@ -192,4 +192,4 @@ Throughout this learning path, consider:
 
 ---
 
-> **Ready to start?** Begin with [S1 - Setup & Fundamentals →](/lessons/en/tailwind/setup-and-fundamentals/)
+> **Ready to start?** Begin with [S1 - Setup & Fundamentals →]({{ '/lessons/en/tailwind/setup-and-fundamentals/' | relative_url }})

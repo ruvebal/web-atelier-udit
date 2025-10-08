@@ -288,3 +288,108 @@
    es: complete
    en: complete
   category: tailwind
+
+- slug: bootstrap
+  title:
+   es: 'Bootstrap CSS Learning Path — Complete Roadmap'
+   en: 'Bootstrap CSS Learning Path — Complete Roadmap'
+  path:
+   es: /lessons/es/bootstrap/
+   en: /lessons/en/bootstrap/
+  file:
+   es: lessons/es/bootstrap/index.md
+   en: lessons/en/bootstrap/index.md
+  status:
+   es: complete
+   en: complete
+  category: bootstrap
+
+- slug: bootstrap-setup-fundamentals
+  title:
+   es: 'Bootstrap CSS: Setup & Fundamentals — PWA-Ready Development'
+   en: 'Bootstrap CSS: Setup & Fundamentals — PWA-Ready Development'
+  path:
+   es: /lessons/es/bootstrap/setup-and-fundamentals/
+   en: /lessons/en/bootstrap/setup-and-fundamentals/
+  file:
+   es: lessons/es/bootstrap/setup-and-fundamentals/index.md
+   en: lessons/en/bootstrap/setup-and-fundamentals/index.md
+  status:
+   es: complete
+   en: complete
+  category: bootstrap
+
+- slug: bootstrap-layout-grid-containers
+  title:
+   es: 'Bootstrap CSS: Layout Grid & Containers — Responsive Layout Architecture'
+   en: 'Bootstrap CSS: Layout Grid & Containers — Responsive Layout Architecture'
+  path:
+   es: /lessons/es/bootstrap/layout-grid-containers/
+   en: /lessons/en/bootstrap/layout-grid-containers/
+  file:
+   es: lessons/es/bootstrap/layout-grid-containers/index.md
+   en: lessons/en/bootstrap/layout-grid-containers/index.md
+  status:
+   es: complete
+   en: complete
+  category: bootstrap
+
+- slug: bootstrap-components-navbar-cards
+  title:
+   es: 'Bootstrap CSS: Components & UI Patterns — Reusable Component Library'
+   en: 'Bootstrap CSS: Components & UI Patterns — Reusable Component Library'
+  path:
+   es: /lessons/es/bootstrap/components-navbar-cards/
+   en: /lessons/en/bootstrap/components-navbar-cards/
+  file:
+   es: lessons/es/bootstrap/components-navbar-cards/index.md
+   en: lessons/en/bootstrap/components-navbar-cards/index.md
+  status:
+   es: complete
+   en: complete
+  category: bootstrap
+
+- slug: bootstrap-css-customization-sass
+  title:
+   es: 'Bootstrap CSS: CSS Customization & Sass — Design System Theming'
+   en: 'Bootstrap CSS: CSS Customization & Sass — Design System Theming'
+  path:
+   es: /lessons/es/bootstrap/css-customization-sass/
+   en: /lessons/en/bootstrap/css-customization-sass/
+  file:
+   es: lessons/es/bootstrap/css-customization-sass/index.md
+   en: lessons/en/bootstrap/css-customization-sass/index.md
+  status:
+   es: complete
+   en: complete
+  category: bootstrap
+
+- slug: bootstrap-interactivity-js-components
+  title:
+   es: 'Bootstrap CSS: Interactivity & JavaScript — Dynamic User Experiences'
+   en: 'Bootstrap CSS: Interactivity & JavaScript — Dynamic User Experiences'
+  path:
+   es: /lessons/es/bootstrap/interactivity-js-components/
+   en: /lessons/en/bootstrap/interactivity-js-components/
+  file:
+   es: lessons/es/bootstrap/interactivity-js-components/index.md
+   en: lessons/en/bootstrap/interactivity-js-components/index.md
+  status:
+   es: complete
+   en: complete
+  category: bootstrap
+
+- slug: bootstrap-final-project-deployment
+  title:
+   es: 'Bootstrap CSS: Construcción y Despliegue — Portafolio Listo para Producción'
+   en: 'Bootstrap CSS: Build & Deploy — Production-Ready Portfolio'
+  path:
+   es: /lessons/es/bootstrap/final-project-deployment/
+   en: /lessons/en/bootstrap/final-project-deployment/
+  file:
+   es: lessons/es/bootstrap/final-project-deployment/index.md
+   en: lessons/en/bootstrap/final-project-deployment/index.md
+  status:
+   es: complete
+   en: complete
+  category: bootstrap

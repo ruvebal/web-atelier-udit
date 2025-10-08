@@ -1847,7 +1847,7 @@ body {
 }
 
 /* ===== CONTAINER QUERIES ===== */
-@container section-container (max-width: 600px) {
+@container section-container (min-width: 600px) {
 	.project-card {
 		display: flex;
 		flex-direction: row;
@@ -2120,7 +2120,7 @@ img {
 }
 
 /* ===== CONTAINER QUERIES PARA IMÁGENES ===== */
-@container section-container (max-width: 600px) {
+@container section-container (min-width: 600px) {
 	.about-content {
 		grid-template-columns: 1fr;
 		text-align: center;

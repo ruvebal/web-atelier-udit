@@ -43,7 +43,7 @@ Esta ruta de aprendizaje comprehensiva te lleva desde cero hasta PWA lista para 
 
 ## Resumen de Sesiones
 
-### [S1 - Configuración y Fundamentos →](/lessons/es/tailwind/setup-and-fundamentals/)
+### [S1 - Configuración y Fundamentos →]({{ '/lessons/es/tailwind/setup-and-fundamentals/' | relative_url }})
 
 **Desarrollo PWA-Ready**
 
@@ -52,7 +52,7 @@ Esta ruta de aprendizaje comprehensiva te lleva desde cero hasta PWA lista para 
 - Diseño responsive mobile-first
 - Conceptos de build de producción
 
-### [S2 - Ruteo SPA y Layout →](/lessons/es/tailwind/routing-and-shared-layout/)
+### [S2 - Ruteo SPA y Layout →]({{ '/lessons/es/tailwind/routing-and-shared-layout/' | relative_url }})
 
 **Construyendo Experiencias Interactivas**
 
@@ -61,7 +61,7 @@ Esta ruta de aprendizaje comprehensiva te lleva desde cero hasta PWA lista para 
 - Accesibilidad en interfaces dinámicas
 - Principios de mejora progresiva
 
-### [S3 - Componentes y Sistema de Diseño →](/lessons/es/tailwind/components-design-system/)
+### [S3 - Componentes y Sistema de Diseño →]({{ '/lessons/es/tailwind/components-design-system/' | relative_url }})
 
 **Patrones Reutilizables**
 
@@ -70,7 +70,7 @@ Esta ruta de aprendizaje comprehensiva te lleva desde cero hasta PWA lista para 
 - Patrones de UI reutilizables
 - Implementación de sistema de diseño
 
-### [S4 - Estado e Interactividad →](/lessons/es/tailwind/state-interactivity/)
+### [S4 - Estado e Interactividad →]({{ '/lessons/es/tailwind/state-interactivity/' | relative_url }})
 
 **Experiencias de Usuario Dinámicas**
 
@@ -79,7 +79,7 @@ Esta ruta de aprendizaje comprehensiva te lleva desde cero hasta PWA lista para 
 - Sistemas de feedback de usuario
 - Accesibilidad en componentes interactivos
 
-### [S5 - Accesibilidad y Rendimiento →](/lessons/es/tailwind/accessibility-performance/)
+### [S5 - Accesibilidad y Rendimiento →]({{ '/lessons/es/tailwind/accessibility-performance/' | relative_url }})
 
 **Diseño Inclusivo y Optimizado**
 
@@ -88,7 +88,7 @@ Esta ruta de aprendizaje comprehensiva te lleva desde cero hasta PWA lista para 
 - Medición de Core Web Vitals
 - Principios de diseño inclusivo
 
-### [S6 - Build y Deploy →](/lessons/es/tailwind/build-deploy/)
+### [S6 - Build y Deploy →]({{ '/lessons/es/tailwind/build-deploy/' | relative_url }})
 
 **PWA Lista para Producción**
 
@@ -190,4 +190,4 @@ A lo largo de esta ruta de aprendizaje, considera:
 
 ---
 
-> **¿Listo para comenzar?** Empieza con [S1 - Configuración y Fundamentos →](/lessons/es/tailwind/setup-and-fundamentals/)
+> **¿Listo para comenzar?** Empieza con [S1 - Configuración y Fundamentos →]({{ '/lessons/es/tailwind/setup-and-fundamentals/' | relative_url }})
