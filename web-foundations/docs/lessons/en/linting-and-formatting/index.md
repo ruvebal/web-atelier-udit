@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'The Purpose of Formatting and Linting in Development'
-title_esn: ''
+title_es: ''
 slug: linting-and-formatting
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'
@@ -94,7 +94,7 @@ By combining formatting and linting tools, developers can ensure their code is b
 
 ---
 
-# **2. Step-by-Step Guide for Students to Install and Configure Tools**
+# **Step-by-Step Guide for Students to Install and Configure Tools**
 
 Instructions for configuring tools using both **Visual Studio Code (VS Code)** extensions and **npx CLI commands**. This way, students can choose their preferred method based on their comfort level.
 

@@ -94,7 +94,7 @@ Al combinar herramientas de formateo y linting, los desarrolladores pueden asegu
 
 ---
 
-# **2. Guía Paso a Paso para Estudiantes: Instalación y Configuración de Herramientas**
+# **Guía Paso a Paso para Estudiantes: Instalación y Configuración de Herramientas**
 
 Instrucciones para configurar herramientas usando tanto **extensiones de Visual Studio Code (VS Code)** como **comandos npx CLI**. De esta manera, los estudiantes pueden elegir su método preferido según su nivel de comodidad.
 
