@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: 'Metadatos e identidad visual en la documentación web'
+title: 'Metadatos e identidad visual en la documentación Web'
 title_en: 'Metadata and Visual Identity in Web Documentation'
 slug: metadata-visual-identity-web
 date: 2025-09-10

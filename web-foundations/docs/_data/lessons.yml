@@ -393,3 +393,31 @@
    es: complete
    en: complete
   category: bootstrap
+
+- slug: metadata-visual-identity-web
+  title:
+   es: 'Metadatos e identidad visual en la documentación web'
+   en: 'Metadata and Visual Identity in Web Documentation'
+  path:
+   es: /lessons/es/metadata-visual-identity-web/
+   en: /lessons/en/metadata-visual-identity-web/
+  file:
+   es: lessons/es/metadata-visual-identity-web/index.md
+   en: lessons/en/metadata-visual-identity-web/index.md
+  status:
+   es: complete
+   en: complete
+
+- slug: linting-and-formatting
+  title:
+   es: 'El Propósito del Formateo y Linting en el Desarrollo'
+   en: 'The Purpose of Formatting and Linting in Development'
+  path:
+   es: /lessons/es/linting-and-formatting/
+   en: /lessons/en/linting-and-formatting/
+  file:
+   es: lessons/es/linting-and-formatting/index.md
+   en: lessons/en/linting-and-formatting/index.md
+  status:
+   es: complete
+   en: complete

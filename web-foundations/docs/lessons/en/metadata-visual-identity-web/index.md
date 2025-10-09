@@ -1,73 +1,137 @@
-# 📖 Documentación Esencial en un Repositorio Web
+---
+layout: lesson
+title: 'Metadata and Visual Identity in Web Documentation'
+title_es: 'Metadatos e identidad visual en la documentación Web'
+slug: metadata-visual-identity-web
+date: 2025-09-10
+author: 'Rubén Vega Balbás, PhD'
+lang: en
+permalink: /lessons/en/metadata-visual-identity-web/
+---
 
-📂 **README, Favicon, Licencia, .gitignore y Manifest: Documentación y Metadatos en Repositorios Web**
+<!-- prettier-ignore-start -->
 
-## 📑 **Tabla de Contenidos**
+## 📋 Table of Contents
+{: .no_toc }
+- TOC
+{:toc}
 
-1. [README.md](#-1-readmemd)
-2. [Favicon: Identidad Visual](#-2-favicon-identidad-visual-del-proyecto)
-3. [LICENSE: Términos de Uso](#-3-license-definiendo-los-términos-de-uso-del-código)
-4. [Archivo .gitignore](#-4-archivo-gitignore)
-5. [Manifest.json: Configuración para Web Apps](#-5-manifestjson-configuración-para-web-apps)
-6. [Elementos Adicionales para Documentación](#-6-elementos-adicionales-para-documentación)
-7. [Conclusión y Aplicación Práctica](#-conclusión-y-aplicación-práctica)
+<!-- prettier-ignore-end -->
 
 ---
 
-## **🎯 Objetivo:**
+## **Objective:**
 
-Comprender la importancia de la documentación y los metadatos en un proyecto web, aprendiendo a incorporar correctamente un archivo `README.md`, un `favicon`, un `LICENSE` y un `manifest.json` en un repositorio.
+> "In code, as in art, visibility is not always in what is seen, but in what the system interprets."
 
----
+**Metadata, README, Favicon, License, .gitignore and Manifest: Documentation and Metadata in Web Repositories**
 
-# 📝 1. README.md
-
-## **¿Qué es un README.md?**
-
-Un `README.md` es un archivo escrito en **Markdown** que actúa como la documentación principal de un proyecto. Generalmente se coloca en la raíz del repositorio y proporciona información esencial a usuarios y colaboradores.
-
-📌 **Estructura básica de un README.md:**
-
-1. **Descripción del Proyecto**: Breve introducción sobre qué es y qué hace el proyecto.
-2. **Instrucciones de Instalación**: Guía paso a paso para configurar y ejecutar el proyecto (prerrequisitos y dependencias).
-3. **Modo de Uso**: Explicaciones y ejemplos de uso del proyecto, incluyendo comandos o flujos de trabajo.
-4. **Guía de Contribución**: Normas para contribuir al código, estándares de codificación y procesos de pull request.
-5. **Licencia**: Información sobre los derechos de uso, modificación y distribución del código.
-6. **Contacto**: Datos de contacto de los mantenedores del proyecto.
-7. **Recursos Adicionales**: Enlaces a documentación relevante, sitios web o tutoriales relacionados.
-
-🔗 **Enlace de referencia:**
-
-- Documentación Markdown: [https://commonmark.org/](https://commonmark.org/)
-
-🛠 **Herramienta recomendada para editar Markdown:**
-
-- **Dillinger** (editor en la nube, compatible con almacenamiento offline): [https://dillinger.io/](https://dillinger.io/)
-
-📌 **Importante:**
-
-- Incluye en el _Readme_ la URL de tu sitio publicado mediante _GitHub Pages_
+Understand the importance of documentation and metadata in a web project, learning to complete the `<head>` in your `html` files and to properly incorporate a `README.md` file, a `favicon`, a `LICENSE` and a `manifest.json` in a repository.
 
 ---
 
-# 🎨 2. Favicon: Identidad Visual del Proyecto
+## What are metadata and why do they matter?
 
-## **¿Qué es un favicon?**
+**Metadata** describes content without being a visible part of it.  
+On the web, metadata is mainly defined in the `<head>` of each HTML page.
 
-Es un pequeño icono asociado a un sitio web. Se muestra en:
+- They help **search engines** (SEO) classify the site.
+- They improve **accessibility**, indicating language or authorship.
+- They facilitate **institutional coherence** and integration with social networks (Open Graph, Twitter Cards).
+- They reinforce the **digital identity** of a project.
 
-- La barra de direcciones del navegador.
-- Las pestañas del navegador.
-- La lista de marcadores.
-- Aplicaciones específicas que usan iconos personalizados.
+### Basic metadata example
 
-📌 **Dónde se integra un favicon:**
+```html
+<head>
+	<meta charset="utf-8" />
+	<title>My Website</title>
+	<meta name="description" content="Brief description of the website." />
+	<meta name="keywords" content="design, web, educational" />
+	<meta name="author" content="Author name" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+```
 
-1. En el `<head>` del archivo HTML:
+**Explanation:**
+
+- `<title>` appears in the browser tab and in search results.
+- `<meta name="description">` generates the summary in search engines (≈150–160 characters).
+- `<meta name="author">` defines authorship, useful in academic or collaborative contexts.
+- `<link rel="icon">` adds the favicon, a visual symbol of your identity.
+
+👉 _Expand with social network tags (Open Graph, Twitter Card):_
+
+```html
+<meta property="og:title" content="My website" />
+<meta property="og:description" content="Brief description for sharing." />
+<meta property="og:image" content="https://mywebsite.com/preview-image.jpg" />
+<meta property="og:url" content="https://mywebsite.com" />
+```
+
+**Reference:** [MDN Web Docs — Meta tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
+
+> 💭 **Critical questions (Atelier):**
+>
+> - What information do you decide to show and what to hide?
+> - What identity do your metadata project: technical, institutional, artistic?
+> - Who benefits from this data, you or the platforms?
+
+---
+
+## README.md
+
+### **What is a README.md?**
+
+A `README.md` is a file written in **Markdown** that acts as the main documentation of a project. It is usually placed in the root of the repository and provides essential information to users and contributors.
+
+📌 **Basic structure of a README.md:**
+
+1. **Project Description**: Brief introduction about what the project is and what it does.
+2. **Installation Instructions**: Step-by-step guide to set up and run the project (prerequisites and dependencies).
+3. **Usage**: Explanations and examples of project use, including commands or workflows.
+4. **Contribution Guide**: Standards for contributing to the code, coding standards and pull request processes.
+5. **License**: Information about usage rights, modification and distribution of the code.
+6. **Contact**: Contact details of project maintainers.
+7. **Additional Resources**: Links to relevant documentation, websites or related tutorials.
+
+**Reference link:**
+
+- Markdown Documentation: [https://commonmark.org/](https://commonmark.org/)
+
+**Recommended tool for editing Markdown:**
+
+- **Dillinger** (cloud editor, compatible with offline storage): [https://dillinger.io/](https://dillinger.io/)
+- **Zettlr** Zettlr is Free and Open Source Software [https://www.zettlr.com/download](https://www.zettlr.com/download)
+
+**Important:**
+
+- Include in the _Readme_ the URL of your site published via _GitHub Pages_
+
+---
+
+## Favicon: Visual Identity of the Project
+
+The **visual identity** of a website reflects the personality of the project: logo, colors, typography, favicon, visual coherence.  
+Everything communicates, even the technical details of the HTML header.
+
+### **What is a favicon?**
+
+It is a small icon associated with a website. It is displayed in:
+
+- The browser's address bar.
+- Browser tabs.
+- The bookmarks list.
+- Specific applications that use custom icons.
+
+**Where to integrate a favicon:**
+
+1. In the `<head>` of the HTML file:
    ```html
    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+   <meta name="theme-color" content="#222222" />
    ```
-2. En el archivo `manifest.json` (para Progressive Web Apps - PWAs):
+2. In the `manifest.json` file (for Progressive Web Apps - PWAs):
    ```json
    {
    	"icons": [
@@ -80,144 +144,161 @@ Es un pequeño icono asociado a un sitio web. Se muestra en:
    }
    ```
 
-🔗 **Referencias Oficiales:**
+**Practical steps:**
 
-- Especificación HTML: [https://html.spec.whatwg.org/multipage/links.html#rel-icon](https://html.spec.whatwg.org/multipage/links.html#rel-icon)
+1. Design a simple **favicon** (16×16 px or 32×32 px).  
+   It can be a reduced logo or an abstract shape that represents your brand.
+2. Create with a favicon generator tool a package containing `favicon.ico` or `favicon.png` and place them in `/assets/images/` or `/assets/icons/`.
+3. Index them in your `<head>` and in your `manifest`
+4. Define a main color with `theme-color` for mobile devices.
+5. Review how it looks in tabs, favorites and previews.
 
-🛠 **Herramientas para generar favicons:**
+**Reference:** [MDN — The head metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
+
+> 💭 **Critical questions (Atelier):**
+>
+> - What values does the color palette you've chosen communicate?
+> - Does your favicon or logo dialogue with your identity as an author or designer?
+> - What happens when branding is imposed by a platform or client?
+
+**Official References:**
+
+- HTML Specification: [https://html.spec.whatwg.org/multipage/links.html#rel-icon](https://html.spec.whatwg.org/multipage/links.html#rel-icon)
+
+**Tools for generating favicons:**
 
 - [https://realfavicongenerator.net/](https://realfavicongenerator.net/)
 - [https://thenounproject.com/icons/](https://thenounproject.com/icons/)
 
 ---
 
-# 📜 3. LICENSE: Definiendo los Términos de Uso del Código
+## LICENSE: Defining the Terms of Use of the Code
 
-## **¿Qué es un archivo LICENSE?**
+### **What is a LICENSE file?**
 
-Es un archivo de texto en la raíz del proyecto que especifica los términos legales para el uso del código.
+It is a text file in the root of the project that specifies the legal terms for using the code.
 
-📌 **Elementos clave de una licencia:**
+📌
 
-- **Atribución**: Se debe dar crédito al autor original.
-- **Derechos y Permisos**: Qué se puede hacer con el código (usar, modificar, redistribuir, etc.).
+- **Attribution**: Credit must be given to the original author.
+- **Rights and Permissions**: What can be done with the code (use, modify, redistribute, etc.).
 
-🔗 **Especificación HTML sobre licencias:**
+**HTML specification on licenses:**
 [https://html.spec.whatwg.org/multipage/links.html#link-type-license](https://html.spec.whatwg.org/multipage/links.html#link-type-license)
 
-📌 **Tipos de Licencias de Código Abierto Populares:**
+**Popular Open Source License Types:**
 
-#### **Licencia MIT:**
+#### **MIT License:**
 
-- Una licencia permisiva que permite la reutilización con **pocas restricciones**. Puedes **usar, copiar, modificar, fusionar, publicar y distribuir** el software, siempre que la licencia original esté incluida en todas las copias o partes sustanciales del software.
-- **Caso de uso**: Ideal para proyectos donde se desea **máxima libertad para los usuarios**.
+- A permissive license that allows reuse with **few restrictions**. You can **use, copy, modify, merge, publish and distribute** the software, as long as the original license is included in all copies or substantial portions of the software.
+- **Use case**: Ideal for projects where **maximum freedom for users** is desired.
 
-#### **Licencia Apache 2.0:**
+#### **Apache 2.0 License:**
 
-- Similar a la Licencia MIT, pero incluye una **concesión explícita de derechos de patente** de los contribuyentes a los usuarios. También establece requisitos para que las **modificaciones sean documentadas**.
-- **Caso de uso**: Adecuada para proyectos que pueden involucrar **reclamaciones de patentes** o donde se desea garantizar que las **contribuciones sigan siendo abiertas**.
+- Similar to the MIT License, but includes an **explicit grant of patent rights** from contributors to users. It also establishes requirements for **modifications to be documented**.
+- **Use case**: Suitable for projects that may involve **patent claims** or where you want to ensure that **contributions remain open**.
 
-#### **Licencia GNU General Public License (GPL):**
+#### **GNU General Public License (GPL):**
 
-- Una licencia de **copyleft** que exige que **todas las versiones modificadas del proyecto** también sean de código abierto y estén licenciadas bajo la GPL. Esto garantiza que los **trabajos derivados sigan siendo libres y abiertos**.
-- **Caso de uso**: Ideal para proyectos que buscan **mantener el código libre y abierto para todos los usuarios**.
+- A **copyleft** license that requires that **all modified versions of the project** also be open source and licensed under the GPL. This ensures that **derivative works remain free and open**.
+- **Use case**: Ideal for projects that seek to **keep code free and open for all users**.
 
-#### **Licencia BSD:**
+#### **BSD License:**
 
-- Una licencia permisiva **similar a la Licencia MIT**, pero con cláusulas adicionales sobre **publicidad y reconocimiento del autor original**.
-- **Caso de uso**: Comúnmente utilizada en proyectos que buscan **maximizar la libertad** de los usuarios, **pero requiriendo atribución**.
+- A permissive license **similar to the MIT License**, but with additional clauses about **advertising and recognition of the original author**.
+- **Use case**: Commonly used in projects that seek to **maximize freedom** for users, **but requiring attribution**.
 
-#### **Licencias Creative Commons:**
+#### **Creative Commons Licenses:**
 
-- Se utilizan principalmente para **trabajos creativos en lugar de software**. Ofrecen **diferentes niveles de permisos** sobre el uso, modificación y compartición de contenido.
-- **Caso de uso**: Excelentes para documentación, **recursos de diseño** y otro contenido que **no sea código**.
+- Used mainly for **creative works instead of software**. They offer **different levels of permissions** on the use, modification and sharing of content.
+- **Use case**: Excellent for documentation, **design resources** and other content **other than code**.
 
-🛠 **Generador de Licencias:**
+**License Generator:**
 
 - [https://choosealicense.com/](https://choosealicense.com/)
 
-## **Modos de inclusión de la licencia en un sitio web**
+### **Ways to include the license on a website**
 
-Además del archivo `LICENSE` en la raíz del repositorio, es recomendable incluir referencias a la licencia en:
+In addition to the `LICENSE` file in the root of the repository, it is recommended to include references to the license in:
 
-1. **El `<head>` de cada documento HTML:**
+1. **The `<head>` of each HTML document:**
    ```html
    <link rel="license" href="LICENSE.txt" />
    ```
-2. **Imágenes y contenido multimedia** usando `figure` y `figcaption`:
+2. **Images and multimedia content** using `figure` and `figcaption`:
    ```html
    <figure>
-   	<img src="imagen.jpg" alt="Descripción de la imagen" />
+   	<img src="image.jpg" alt="Image description" />
    	<figcaption>
-   		Imagen licenciada bajo
+   		Image licensed under
    		<a rel="license" href="LICENSE.txt">MIT License</a>
    		.
    	</figcaption>
    </figure>
    ```
-3. **Archivos CSS y JavaScript:** Agregar comentarios en la parte superior del archivo.
+3. **CSS and JavaScript files:** Add comments at the top of the file.
 
    ```css
    /*
-   * Archivo de estilos
-   * Licencia: MIT License
-   * Ver LICENSE.txt para más detalles.
+   * Stylesheet file
+   * License: MIT License
+   * See LICENSE.txt for more details.
    */
    ```
 
    ```javascript
    //
-   // Archivo de scripts
-   // Licencia: MIT License
-   // Ver LICENSE.txt para más detalles.
+   // Script file
+   // License: MIT License
+   // See LICENSE.txt for more details.
    ```
 
-📌 **Ejercicio práctico:**
+📌 **Practical exercise:**
 
-1. **Crea un archivo `index.html` e incluye la referencia a la licencia en el `<head>`.**
-2. **Añade una imagen dentro de `figure` con `figcaption` referenciando la licencia.**
-3. **Crea un archivo `styles.css` e incluye el comentario con la licencia.**
-4. **Crea un archivo `script.js` e incluye el comentario con la licencia.**
-5. **Sube estos archivos a un repositorio en GitHub y verifica que la información sea clara y accesible.**
+1. **Create an `index.html` file and include the license reference in the `<head>`.**
+2. **Add an image inside `figure` with `figcaption` referencing the license.**
+3. **Create a `styles.css` file and include the comment with the license.**
+4. **Create a `script.js` file and include the comment with the license.**
+5. **Upload these files to a repository on GitHub and verify that the information is clear and accessible.**
 
 ---
 
-# 📂 4. Archivo .gitignore
+## .gitignore File
 
-📌 **¿Qué es un `.gitignore`?**
-Un archivo que excluye ciertos archivos del control de versiones en Git.
+📌 **What is a `.gitignore`?**
+A file that excludes certain files from version control in Git.
 
-📌 **Ejemplo de `.gitignore` para proyectos web:**
+📌 **Example of `.gitignore` for web projects:**
 
 ```
-# Archivos del sistema (Ejemplo: MacOS)
+# System files (Example: MacOS)
 .DS_Store
 
-# Dependencias
+# Dependencies
 node_modules/
 package-lock.json
 
-# Archivos compilados
+# Compiled files
 /dist/
 /build/
 
-# Variables de entorno
+# Environment variables
 .env
 ```
 
 ---
 
-# 📜 4. Manifest.json: Configuración para Web Apps
+## Manifest.json: Configuration for Web Apps
 
-## **¿Qué es el archivo manifest.json?**
+### **What is the manifest.json file?**
 
-Define metadatos esenciales para **Progressive Web Apps (PWAs)**, permitiendo configurar cómo se comporta la app cuando es instalada en dispositivos.
+Defines essential metadata for **Progressive Web Apps (PWAs)**, allowing configuration of how the app behaves when installed on devices.
 
-📌 **Ejemplo básico de manifest.json:**
+📌 **Basic example of manifest.json:**
 
 ```json
 {
-	"name": "Mi App",
+	"name": "My App",
 	"short_name": "App",
 	"start_url": "/index.html",
 	"display": "standalone",
@@ -233,56 +314,56 @@ Define metadatos esenciales para **Progressive Web Apps (PWAs)**, permitiendo co
 }
 ```
 
-🔗 **Referencias Oficiales:**
+**Official References:**
 
 - W3C Web App Manifest: [https://www.w3.org/TR/appmanifest/](https://www.w3.org/TR/appmanifest/)
 - Mozilla MDN Docs: [https://developer.mozilla.org/en-US/docs/Web/Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest)
-- Especificación HTML: [https://html.spec.whatwg.org/multipage/links.html#link-type-manifest](https://html.spec.whatwg.org/multipage/links.html#link-type-manifest)
+- HTML Specification: [https://html.spec.whatwg.org/multipage/links.html#link-type-manifest](https://html.spec.whatwg.org/multipage/links.html#link-type-manifest)
 
 ---
 
-# 📖 6. Elementos Adicionales para Documentación
+## Additional Elements for Documentation
 
-## 📂 `CONTRIBUTING.md`
+### `CONTRIBUTING.md`
 
-Define las reglas para contribuir al proyecto.
-📌 **Ejemplo:**
-
-```
-1. Realiza un fork del repositorio.
-2. Crea una rama: `git checkout -b feature-nueva`
-3. Sigue la guía de estilo en `.editorconfig`
-4. Envía un Pull Request.
-```
-
-## 📜 `SECURITY.md`
-
-Define cómo reportar vulnerabilidades de seguridad.
-📌 **Ejemplo:**
+Defines the rules for contributing to the project.
+📌 **Example:**
 
 ```
-# Política de Seguridad
-Si encuentras una vulnerabilidad, repórtala a security@proyecto.com.
+1. Fork the repository.
+2. Create a branch: `git checkout -b new-feature`
+3. Follow the style guide in `.editorconfig`
+4. Submit a Pull Request.
 ```
 
-## 📖 Carpeta `docs/`
+### `SECURITY.md`
 
-Almacena documentación extendida.
-📌 **Ejemplo:**
+Defines how to report security vulnerabilities.
+📌 **Example:**
+
+```
+# Security Policy
+If you find a vulnerability, report it to security@project.com.
+```
+
+### `docs/` Folder
+
+Stores extended documentation.
+**Example:**
 
 ```
 docs/
-├── arquitectura.md
+├── architecture.md
 ├── endpoints.md
-├── estructura_proyecto.md
+├── project_structure.md
 ```
 
-## 🤖 `robots.txt` y `sitemap.xml`
+### `robots.txt` and `sitemap.xml`
 
-- **`robots.txt`**: Indica qué partes del sitio pueden ser indexadas.
-- **`sitemap.xml`**: Ayuda a los motores de búsqueda a indexar el sitio.
+- **`robots.txt`**: Indicates which parts of the site can be indexed.
+- **`sitemap.xml`**: Helps search engines index the site.
 
-📌 **Ejemplo de `robots.txt`:**
+**Example of `robots.txt`:**
 
 ```
 User-agent: *
@@ -290,7 +371,7 @@ Disallow: /admin/
 Allow: /
 ```
 
-📌 **Ejemplo de `sitemap.xml`:**
+**Example of `sitemap.xml`:**
 
 ```xml
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -303,19 +384,56 @@ Allow: /
 
 ---
 
-# 🎯 **Conclusión y Aplicación Práctica**
+## **Conclusion and Practical Application**
 
-📌 **Ejercicio para los estudiantes:**
+1. **Review your current `<head>`:**  
+   Check if your site includes `<meta charset>`, `<title>`, `<meta name="description">`, `<meta name="author">`, and `<link rel="icon">`.
 
-1. Nos ubicamos en nuestro repositorio de GitHub.
-2. Añadir un archivo `README.md` con los elementos clave mencionados.
-3. Generar un `favicon` y vincularlo en el `<head>` de su HTML.
-4. Elegir una licencia apropiada y agregar un archivo `LICENSE` en la raíz.
-5. Crear un archivo `manifest.json` básico y vincularlo en su HTML.
+2. **Add or improve essential metadata:**  
+   Include at least:
 
-🔍 **Reflexión final:** ¿Por qué es importante documentar y configurar correctamente estos archivos? ¿Cómo impacta en la accesibilidad y usabilidad del proyecto?
+   ```html
+   <meta charset="utf-8" />
+   <title>Site title</title>
+   <meta name="description" content="Short and clear description." />
+   <meta name="author" content="Your name" />
+   ```
 
-- **Mejora la accesibilidad**: Un buen README y metadatos bien definidos facilitan la navegación y comprensión del proyecto.
-- **Facilita la colaboración**: Documentar contribuye a que más personas puedan entender y mejorar el código.
-- **Asegura compatibilidad**: Un manifest bien configurado permite que la app funcione correctamente en múltiples dispositivos y navegadores.
-- **Protege los derechos de autor**: Una licencia clara evita malentendidos legales y define el uso permitido del código.
+3. **Create a favicon:**  
+   Use an online generator or graphic software.  
+   Example: [Favicon.io](https://favicon.io).
+
+4. **Test Open Graph (for sharing on networks):**  
+   Use [Open Graph Preview](https://www.opengraph.xyz/) to check how your site would look when shared on social networks.
+
+5. **Document your digital identity:**  
+   Add a section in your README or documentation explaining your visual choices (colors, logo, metadata).
+
+> 💭 **Critical questions (Atelier):**
+>
+> - How does your visual choice relate to design ethics and representation?
+> - What are the implications of sharing your identity on a public web?
+
+---
+
+## Canonical References
+
+- [MDN Web Docs — Meta tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
+- [MDN — Favicons and manifest.json](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
+- [Google Developers — Metadata & SEO](https://developers.google.com/search/docs/appearance/structured-data/intro)
+- [W3C — HTML Living Standard](https://html.spec.whatwg.org/)
+- [Open Graph Protocol](https://ogp.me/)
+
+---
+
+> **Atelier Methodology — Learning from critical practice**  
+> In the Atelier, every line of code is an act of design.  
+> Reflect on how your metadata and digital aesthetics become an identity footprint.  
+> The goal is not just to be visible, but **to be aware** of how and why what is shown is shown.
+
+**Why is it important to properly document and configure these files? How does it impact the accessibility and usability of the project?**
+
+- **Improves accessibility**: A good README and well-defined metadata facilitate navigation and understanding of the project.
+- **Facilitates collaboration**: Documenting helps more people understand and improve the code.
+- **Ensures compatibility**: A well-configured manifest allows the app to work properly on multiple devices and browsers.
+- **Protects copyright**: A clear license avoids legal misunderstandings and defines the permitted use of the code.
