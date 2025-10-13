@@ -259,6 +259,50 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 ```
 
+## Inicializa Git y conecta con GitHub (HTTPS)
+
+Versiona tu proyecto y publícalo en GitHub usando HTTPS (sin SSH).
+
+1. Inicializa el repo y crea un `.gitignore` básico
+
+```bash
+git init
+printf "node_modules/\n.vite/\ndist/\n.env\n.DS_Store\n" >> .gitignore
+```
+
+2. Configura tu identidad de Git (una vez por máquina)
+
+```bash
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu.email@ejemplo.com"
+```
+
+3. Primer commit
+
+```bash
+git add -A
+git commit -m "chore: inicializa proyecto con Tailwind + Vite"
+```
+
+4. Crea un repo vacío en GitHub (interfaz web) y copia la URL HTTPS, por ejemplo:
+
+```text
+https://github.com/<tu-usuario>/<tu-repo>.git
+```
+
+5. Añade el remoto y haz push (usa un Personal Access Token cuando te lo pida)
+
+```bash
+git remote add origin https://github.com/<tu-usuario>/<tu-repo>.git
+git branch -M main
+git push -u origin main
+```
+
+Notas
+
+- Si tienes 2FA, GitHub pedirá un Personal Access Token (classic) en lugar de contraseña: Settings → Developer settings → Personal access tokens → Generate new token (classic). Scope: repo.
+- Para actualizar más adelante: `git add -A && git commit -m "feat: ..." && git push`.
+
 ## Referencias
 
 - [MDN - Fundamentos de gestión de paquetes](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_tools/Package_management)
@@ -270,4 +314,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ---
 
-> **Siguiente:** [S2 - Ruteo SPA y Layout →](/lessons/es/tailwind/routing-and-shared-layout/)
+> **Siguiente:** [S2 - Ruteo SPA y Layout →]({{ '/lessons/es/tailwind/routing-and-shared-layout/' | relative_url }})

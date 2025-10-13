@@ -422,4 +422,4 @@ export const views = {
 
 ---
 
-> **Next:** [S3 - Components & Design System →](/lessons/en/tailwind/components-design-system/)
+> **Next:** [S3 - Components & Design System →]({{ '/lessons/en/tailwind/components-design-system/' | relative_url }})

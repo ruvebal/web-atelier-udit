@@ -378,4 +378,4 @@ export function createCard({ title, description, image, tags = [], href }) {
 
 ---
 
-> **Siguiente:** [S4 - Estado e Interactividad →](/lessons/es/tailwind/estado-interactividad/)
+> **Siguiente:** [S4 - Estado e Interactividad →]({{ '/lessons/es/tailwind/state-interactivity/' | relative_url }})

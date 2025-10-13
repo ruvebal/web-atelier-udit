@@ -498,4 +498,4 @@ class AccessibleFormValidator {
 
 ---
 
-> **Siguiente:** [S5 - Accesibilidad y Rendimiento →](/lessons/es/tailwind/accesibilidad-rendimiento/)
+> **Siguiente:** [S5 - Accesibilidad y Rendimiento →]({{ '/lessons/es/tailwind/accessibility-performance/' | relative_url }})

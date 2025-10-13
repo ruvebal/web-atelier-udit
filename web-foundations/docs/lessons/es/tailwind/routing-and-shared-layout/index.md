@@ -419,6 +419,7 @@ export const views = {
 - [MDN - Client-side rendering (CSR)](https://developer.mozilla.org/en-US/docs/Glossary/CSR)
 - [CleanCommit - Comparación SPA vs MPA](https://cleancommit.io/blog/spa-vs-mpa-which-is-the-king/)
 - [StackOverflow - Ruteo SPA en JS vanilla](https://stackoverflow.com/questions/54231533/how-to-create-a-vanilla-js-routing-for-spa)
+
 ---
 
-> **Siguiente:** [S3 - Componentes y Sistema de Diseño →](/lessons/es/tailwind/componentes-sistema-diseno/)
+> **Siguiente:** [S3 - Componentes y Sistema de Diseño →]({{ '/lessons/es/tailwind/components-design-system/' | relative_url }})

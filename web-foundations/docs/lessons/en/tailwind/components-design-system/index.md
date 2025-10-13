@@ -376,4 +376,4 @@ export function createCard({ title, description, image, tags = [], href }) {
 
 ---
 
-> **Next:** [S4 - State & Interactivity →](/lessons/en/tailwind/state-interactivity/)
+> **Next:** [S4 - State & Interactivity →]({{ '/lessons/en/tailwind/state-interactivity/' | relative_url }})

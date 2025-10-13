@@ -527,4 +527,4 @@ export default PerformanceOptimizer;
 
 ---
 
-> **Siguiente:** [S6 - Build y Deploy →](/lessons/es/tailwind/build-deploy/)
+> **Siguiente:** [S6 - Build y Deploy →]({{ '/lessons/es/tailwind/build-deploy/' | relative_url }})
