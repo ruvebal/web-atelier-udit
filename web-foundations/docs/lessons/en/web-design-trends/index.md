@@ -22,6 +22,8 @@ permalink: /lessons/en/modern-web-design-trends/
 
 ## **Introduction: The Web as a Living Canvas**
 
+> What we choose to design and more importantly, what we choose not to design, and even more importantly, who we exclude from the design process—these are all political acts. —Mike Monteiro, Ruined by Design (2029)
+
 The **web** is not a **static medium**—it's an **interactive**, **adaptive**, and **ever-evolving canvas** for communication. Unlike **print**, web interfaces respond to user actions and adapt to different contexts, making them uniquely engaging. Modern **web design trends**—such as **parallax scrolling**, **glassmorphism**, **dark mode**, **bold typography**, **minimalist** and **maximalist** styles, **narrative-driven scrolling**, and **3D graphics**—are more than passing fads. They are **techniques** that harness the web's capabilities to enhance both **message** and **usability**. Today, **web design** is as much about crafting **experiences** as it is about **visual appeal**: it's the **orchestration** of content and interaction.
 
 ### **Learning Paths**
@@ -71,16 +73,24 @@ Build a custom **parallax storytelling section** with multiple **full-screen pan
 
 ## **Glassmorphism: Frosted-Glass Aesthetics and Visual Depth**
 
+Neumorphism and Glassmorphism are modern design trends that combine elements of 3D with soft shadows and translucent layers, giving interfaces a subtle, embossed look.
+
+**Origins and Definitions**
+
+- The First Neumorphism ever, Alexander Plyuto
+- [Dribbble Shot: Skeuomorph Mobile Banking](https://dribbble.com/shots/7994421-Skeuomorph-Mobile-Banking)
+- [Foundation NFT](https://foundation.app/mint/eth/0x3B3ee1931Dc30C1957379FAc9aba94D1C48a5405/26542)
+
 ### **Theory & Characteristics**
 
-> Glassmorphism is a UI trend that mimics the look of frosted or translucent glass.
->
-> - **Key features:**
->   - Blurry, semi-transparent backgrounds (often with a backdrop blur)
->   - Overlapping layers
->   - Subtle borders or highlights that make UI elements appear to float
->
-> A typical glassmorphic element is a semi-transparent card or popup, with the background softly blurred and colors diffused. This style often pairs with vibrant backgrounds, making the glass effect more visible. Borders or inner shadows enhance the "pane of glass" illusion.
+Glassmorphism is a UI trend that mimics the look of frosted or translucent glass.
+
+- **Key features:**
+- Blurry, semi-transparent backgrounds (often with a backdrop blur)
+- Overlapping layers
+- Subtle borders or highlights that make UI elements appear to float
+
+A typical glassmorphic element is a semi-transparent card or popup, with the background softly blurred and colors diffused. This style often pairs with vibrant backgrounds, making the glass effect more visible. Borders or inner shadows enhance the "pane of glass" illusion.
 
 ### **Origins and Popularization**
 
@@ -136,64 +146,73 @@ _Students can inspect such generators to see how each property contributes to th
 
 #### **For Intermediate Students**
 
-> **Exercise:**  
-> Add a glassmorphic element to a project (e.g., a frosted glass card, callout box, or navigation menu overlay).
->
-> - Use a semi-transparent background (RGBA white, black, or any color).
-> - Apply `backdrop-filter: blur(...)`.
-> - Ensure the parent element allows backdrop filtering (note: `overflow: hidden` on ancestors may block the effect).
-> - Experiment with different blur radii and opacity levels.
->
-> **Sample CSS:**
->
-> ```css
-> .glass {
-> 	background: rgba(255, 255, 255, 0.2); /* or try a subtle gradient */
-> 	backdrop-filter: blur(10px);
-> 	-webkit-backdrop-filter: blur(10px); /* Safari */
-> 	border-radius: 10px;
-> 	border: 1px solid rgba(255, 255, 255, 0.3);
-> }
-> ```
->
-> Place text inside the `.glass` box over a colorful background and observe the effect. Adjust for readability (e.g., add a text shadow or increase blur).  
-> This exercise teaches layering and filter effects in CSS, and the importance of contrast.
+**Exercise:**  
+Add a glassmorphic element to a project (e.g., a frosted glass card, callout box, or navigation menu overlay).
+
+- Use a semi-transparent background (RGBA white, black, or any color).
+- Apply `backdrop-filter: blur(...)`.
+- Ensure the parent element allows backdrop filtering (note: `overflow: hidden` on ancestors may block the effect).
+- Experiment with different blur radii and opacity levels.
+  > **Sample CSS:**
+
+```css
+.glass {
+	background: rgba(255, 255, 255, 0.2); /* or try a subtle gradient */
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px); /* Safari */
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+```
+
+Place text inside the `.glass` box over a colorful background and observe the effect. Adjust for readability (e.g., add a text shadow or increase blur).  
+This exercise teaches layering and filter effects in CSS, and the importance of contrast.
 
 ---
 
 #### **For Advanced Students**
 
-> **Challenge:**
->
-> - Implement a theme switch or dynamic environmental lighting (e.g., dark mode and light mode, with glass adapting accordingly).
-> - Integrate a subtle WebGL background (e.g., animated gradient or particle system) behind a glassmorphic UI.
-> - Design an entire interface in glassmorphic style (navigation bars, modals, cards all translucent) and critically evaluate the result.
-> - Profile performance with many `backdrop-filter`s; use CSS techniques to limit the area of effect.
-> - Combine glassmorphism with animations (e.g., a glass panel sliding in) and optimize for smoothness (e.g., `will-change: backdrop-filter`).
+**Challenge:**
 
-> **Reflection:**
->
-> - Does abundant blur slow things down or confuse hierarchy?
-> - How can you mitigate these issues (e.g., vary blur/opacity based on element importance)?
+- Implement a theme switch or dynamic environmental lighting (e.g., dark mode and light mode, with glass adapting accordingly).
+
+- Integrate a subtle WebGL background (e.g., animated gradient or particle system) behind a glassmorphic UI.
+
+- Design an entire interface in glassmorphic style (navigation bars, modals, cards all translucent) and critically evaluate the result.
+
+- Profile performance with many `backdrop-filter`s; use CSS techniques to limit the area of effect.
+
+- Combine glassmorphism with animations (e.g., a glass panel sliding in) and optimize for smoothness (e.g., `will-change: backdrop-filter`).
+
+**Reflection:**
+
+- Does abundant blur slow things down or confuse hierarchy?
+
+- How can you mitigate these issues (e.g., vary blur/opacity based on element importance)?
 
 ---
 
-> **Key Takeaway:**  
-> Glassmorphism adds visual depth and modern flair by reintroducing translucency and blur into the minimalist toolkit.
->
-> - It's a trend enabled by advances in browser and device technology.
-> - The frosted glass look can make interfaces feel more tactile and layered, subtly reminding users of physical materials while remaining clean and digital.
-> - **Balance aesthetics with function:** Ensure text is legible and interactions remain clear.
-> - Glassmorphism's popularity reflects a pendulum swing in design—from flat, strict "material" looks back toward richer, more decorative styles (but without early-2010s skeuomorphism).
->
-> **Ask yourself:**
->
-> - Does this translucent layer help communicate my content better?
-> - Does it draw focus or make the interface more engaging without obscuring information?
->
-> If yes, it can be a great addition. If used everywhere without purpose, it can dilute usability.
->
-> **Stay critical:** Sometimes the most modern-looking solution isn't the most effective. Glass or no glass, the content beneath must shine through.
+**Key Takeaway:**
+
+Glassmorphism adds visual depth and modern flair by reintroducing translucency and blur into the minimalist toolkit.
+
+- It's a trend enabled by advances in browser and device technology.
+
+- The frosted glass look can make interfaces feel more tactile and layered, subtly reminding users of physical materials while remaining clean and digital.
+
+- **Balance aesthetics with function:** Ensure text is legible and interactions remain clear.
+
+- Glassmorphism's popularity reflects a pendulum swing in design—from flat, strict "material" looks back toward richer, more decorative styles (but without early-2010s skeuomorphism).
+
+**Ask yourself:**
+
+- Does this translucent layer help communicate my content better?
+
+- Does it draw focus or make the interface more engaging without obscuring information?
+
+If yes, it can be a great addition. If used everywhere without purpose, it can dilute usability.
+
+**Stay critical:** Sometimes the most modern-looking solution isn't the most effective. Glass or no glass, the content beneath must shine through.
 
 ---
 

@@ -18,12 +18,13 @@ Think of web design as storytelling: trends are tools to make your story clearer
 
 1. [Parallax Scrolling: Adding Depth Like a Movie](#module-1-parallax-scrolling)
 2. [Glassmorphism: Frosted Glass Effects for Modern UIs](#module-2-glassmorphism)
-3. [Typography Trends: Fonts That Speak Louder](#module-3-typography-trends)
-4. [Dark Mode Design: Comfortable Interfaces for All](#module-4-dark-mode-design)
-5. [Minimalism vs. Maximalism: Less or More?](#module-5-minimalism-vs-maximalism)
-6. [Scroll-Based Narratives: Stories That Unfold](#module-6-scroll-based-narratives)
-7. [3D on the Web: From Flat to Immersive](#module-7-3d-on-the-web)
-8. [Conclusion and Final Project](#conclusion)
+3. [Neumorphism: Soft 3D Shadows for Embossed Interfaces](#module-3-neumorphism)
+4. [Typography Trends: Fonts That Speak Louder](#module-4-typography-trends)
+5. [Dark Mode Design: Comfortable Interfaces for All](#module-5-dark-mode-design)
+6. [Minimalism vs. Maximalism: Less or More?](#module-6-minimalism-vs-maximalism)
+7. [Scroll-Based Narratives: Stories That Unfold](#module-7-scroll-based-narratives)
+8. [3D on the Web: From Flat to Immersive](#module-8-3d-on-the-web)
+9. [Conclusion and Final Project](#conclusion)
 
 > **Quick Tip:** Read one module at a time. After each, do the activity and reflect. This keeps things clear and fun!
 
@@ -101,7 +102,53 @@ Glassmorphism creates a "frosted glass" look: semi-transparent elements with blu
 
 ---
 
-## Module 3: Typography Trends – Fonts That Speak Louder
+## Module 3: Neumorphism – Soft 3D Shadows for Embossed Interfaces
+
+### What Is It?
+
+Neumorphism (a blend of "new" and "skeuomorphism") combines 3D elements with soft shadows and subtle highlights to create an "embossed" or "pressed" look. It uses light shadows for raised elements and dark shadows for inset ones, often on a matching background for a seamless feel. Combined with glassmorphism, it adds translucent layers for extra depth.
+
+**Analogy:** Imagine buttons that look like they're gently pressed into soft clay—raised edges catch light, inset areas feel recessed, giving a tactile, almost physical quality to flat screens.
+
+### Origins and Definitions
+
+- Coined by designer Alexander Plyuto, neumorphism draws from skeuomorphism (realistic designs mimicking physical objects) but softens it for modern, minimalist interfaces.
+- First notable example: Plyuto's "Skeuomorph Mobile Banking" concept on Dribbble ([Dribbble Shot](https://dribbble.com/shots/7994421-Skeuomorph-Mobile-Banking)).
+- It gained traction in 2020 as a "next step" after flat design, often paired with glassmorphism for layered, futuristic UIs.
+
+### Why Use It?
+
+- Creates a soft, approachable feel—elements seem touchable and integrated.
+- Enhances user experience in apps (e.g., toggles that "press in" like real buttons).
+- Popular in fintech and creative tools for a premium, innovative vibe.
+- Caveat: Can reduce accessibility (low contrast); ensure sufficient color differences for readability.
+
+### Quick Activity: Create a Neumorphic Button
+
+1. In CodePen, add HTML: `<button class="neumorphic-btn">Press Me</button>`.
+2. Add CSS (light mode example):
+   ```css
+   .neumorphic-btn {
+   	background: #e0e0e0; /* Matches background */
+   	border: none;
+   	border-radius: 20px;
+   	padding: 15px 30px;
+   	box-shadow: 8px 8px 15px #bebebe, -8px -8px 15px #ffffff; /* Raised effect */
+   	transition: 0.3s;
+   }
+   .neumorphic-btn:active {
+   	box-shadow: inset 8px 8px 15px #bebebe, inset -8px -8px 15px #ffffff; /* Inset when pressed */
+   }
+   ```
+3. Test click/tap—feels like pressing a soft button! Adjust shadows for stronger effect.
+
+**Time:** 5 minutes. **Reflection:** How does the "embossed" look make the button feel more interactive? Compare to flat buttons.
+
+> **Key Insight:** Neumorphism shines in light themes—combine with glassmorphism for hybrid effects like translucent raised cards.
+
+---
+
+## Module 4: Typography Trends – Fonts That Speak Louder
 
 ### What Is It?
 

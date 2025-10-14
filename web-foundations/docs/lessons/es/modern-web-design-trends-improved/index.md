@@ -18,12 +18,13 @@ Piensa en el diseño web como narración: las tendencias son herramientas para h
 
 1. [Parallax Scrolling: Agregando Profundidad Como una Película](#módulo-1-parallax-scrolling)
 2. [Glassmorphism: Efectos de Vidrio Esmerilado para UIs Modernas](#módulo-2-glassmorphism)
-3. [Tendencias en Tipografía: Fuentes Que Hablan Más Alto](#módulo-3-tendencias-en-tipografía)
-4. [Diseño en Modo Oscuro: Interfaces Cómodas para Todos](#módulo-4-diseño-en-modo-oscuro)
-5. [Minimalismo vs. Maximalismo: ¿Menos o Más?](#módulo-5-minimalismo-vs-maximalismo)
-6. [Narrativas Basadas en Scroll: Historias Que Se Despliegan](#módulo-6-narrativas-basadas-en-scroll)
-7. [3D en la Web: De Plano a Inmersivo](#módulo-7-3d-en-la-web)
-8. [Conclusión y Proyecto Final](#conclusión)
+3. [Neumorphism: Sombras Suaves 3D para Interfaces en Relieve](#módulo-3-neumorphism)
+4. [Tendencias en Tipografía: Fuentes Que Hablan Más Alto](#módulo-4-tendencias-en-tipografía)
+5. [Diseño en Modo Oscuro: Interfaces Cómodas para Todos](#módulo-5-diseño-en-modo-oscuro)
+6. [Minimalismo vs. Maximalismo: ¿Menos o Más?](#módulo-6-minimalismo-vs-maximalismo)
+7. [Narrativas Basadas en Scroll: Historias Que Se Despliegan](#módulo-7-narrativas-basadas-en-scroll)
+8. [3D en la Web: De Plano a Inmersivo](#módulo-8-3d-en-la-web)
+9. [Conclusión y Proyecto Final](#conclusión)
 
 > **Consejo Rápido:** Lee un módulo a la vez. Después de cada uno, haz la actividad y reflexiona. ¡Esto mantiene las cosas claras y divertidas!
 
@@ -101,7 +102,53 @@ El glassmorphism crea un look de "vidrio esmerilado": elementos semi-transparent
 
 ---
 
-## Módulo 3: Tendencias en Tipografía – Fuentes Que Hablan Más Alto
+## Módulo 3: Neumorphism – Sombras Suaves 3D para Interfaces en Relieve
+
+### ¿Qué Es?
+
+El neumorphism (una fusión de "nuevo" y "skeuomorfismo") combina elementos 3D con sombras suaves y luces sutiles para crear un look "en relieve" o "presionado". Usa sombras claras para elementos elevados y sombras oscuras para inset, a menudo en un fondo coincidente para un feel integrado. Combinado con glassmorphism, agrega capas translúcidas para mayor profundidad.
+
+**Analogía:** Imagina botones que parecen presionados suavemente en arcilla blanda—los bordes elevados captan la luz, las áreas inset se sienten hundidas, dando una calidad táctil, casi física a las pantallas planas.
+
+### Orígenes y Definiciones
+
+- Acuñado por el diseñador Alexander Plyuto, el neumorphism se inspira en el skeuomorfismo (diseños realistas que imitan objetos físicos) pero lo suaviza para interfaces modernas y minimalistas.
+- Primer ejemplo notable: El concepto "Skeuomorph Mobile Banking" de Plyuto en Dribbble ([Shot en Dribbble](https://dribbble.com/shots/7994421-Skeuomorph-Mobile-Banking)).
+- Ganó tracción en 2020 como un "siguiente paso" después del diseño plano, a menudo emparejado con glassmorphism para UIs futuristas en capas.
+
+### ¿Por Qué Usarlo?
+
+- Crea un feel suave y accesible—los elementos parecen tocables e integrados.
+- Mejora la experiencia de usuario en apps (ej. toggles que "se presionan" como botones reales).
+- Popular en fintech y herramientas creativas para un vibe premium e innovador.
+- Advertencia: Puede reducir la accesibilidad (bajo contraste); asegura diferencias de color suficientes para legibilidad.
+
+### Actividad Rápida: Crea un Botón Neumórfico
+
+1. En CodePen, agrega HTML: `<button class="neumorphic-btn">Presióname</button>`.
+2. Agrega CSS (ejemplo para modo claro):
+   ```css
+   .neumorphic-btn {
+   	background: #e0e0e0; /* Coincide con el fondo */
+   	border: none;
+   	border-radius: 20px;
+   	padding: 15px 30px;
+   	box-shadow: 8px 8px 15px #bebebe, -8px -8px 15px #ffffff; /* Efecto elevado */
+   	transition: 0.3s;
+   }
+   .neumorphic-btn:active {
+   	box-shadow: inset 8px 8px 15px #bebebe, inset -8px -8px 15px #ffffff; /* Inset al presionar */
+   }
+   ```
+3. Prueba clic/tap—¡se siente como presionar un botón suave! Ajusta las sombras para un efecto más fuerte.
+
+**Tiempo:** 5 minutos. **Reflexión:** ¿Cómo hace el look "en relieve" que el botón se sienta más interactivo? Compáralo con botones planos.
+
+> **Insight Clave:** El neumorphism brilla en temas claros—combínalo con glassmorphism para efectos híbridos como tarjetas elevadas translúcidas.
+
+---
+
+## Módulo 4: Tendencias en Tipografía – Fuentes Que Hablan Más Alto
 
 ### ¿Qué Es?
 
@@ -136,7 +183,7 @@ Las tendencias en tipografía se centran en fuentes que se adaptan y expresan pe
 
 ---
 
-## Módulo 4: Diseño en Modo Oscuro – Interfaces Cómodas para Todos
+## Módulo 5: Diseño en Modo Oscuro – Interfaces Cómodas para Todos
 
 ### ¿Qué Es?
 
@@ -174,7 +221,7 @@ El modo oscuro usa fondos oscuros con texto claro—ideal para luz baja o ahorro
 
 ---
 
-## Módulo 5: Minimalismo vs. Maximalismo – ¿Menos o Más?
+## Módulo 6: Minimalismo vs. Maximalismo – ¿Menos o Más?
 
 ### ¿Qué Es?
 
@@ -199,7 +246,7 @@ Minimalismo: Diseños simples y limpios con mucho espacio. Maximalismo: Diseños
 
 ---
 
-## Módulo 6: Narrativas Basadas en Scroll – Historias Que Se Despliegan
+## Módulo 7: Narrativas Basadas en Scroll – Historias Que Se Despliegan
 
 ### ¿Qué Es?
 
@@ -226,7 +273,7 @@ Scrollytelling: Historias que se revelan al desplazar, con animaciones o medios.
 
 ---
 
-## Módulo 7: 3D en la Web – De Plano a Inmersivo
+## Módulo 8: 3D en la Web – De Plano a Inmersivo
 
 ### ¿Qué Es?
 
