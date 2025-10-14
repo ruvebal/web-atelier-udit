@@ -421,3 +421,17 @@
   status:
    es: complete
    en: complete
+
+- slug: modern-web-design-trends-improved
+  title:
+   es: 'Tendencias de Diseño Web Moderno: Guía Práctica para Estudiantes'
+   en: 'Modern Web Design Trends: Practical Guide for Students'
+  path:
+   es: /lessons/es/modern-web-design-trends-improved/
+   en: /lessons/en/modern-web-design-trends-improved/
+  file:
+   es: lessons/es/modern-web-design-trends-improved/index.md
+   en: lessons/en/modern-web-design-trends-improved/index.md
+  status:
+   es: complete
+   en: complete
