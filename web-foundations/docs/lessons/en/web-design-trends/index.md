@@ -676,3 +676,4 @@ For example:
 - **CX Fusion Blog** (cxfusion.io): Engagement statistics for scrollytelling projects like "Snow Fall."
 - **Onextrapixel** (onextrapixel.com): Overview of WebGL's impact on modern web design and performance.
 - **Treehouse Blog** (blog.teamtreehouse.com): Guides on CSS 3D transforms and creating depth illusions.
+---
