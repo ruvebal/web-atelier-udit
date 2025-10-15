@@ -62,6 +62,21 @@ Bootstrap provides two main container types:
 - **No maximum width** constraints
 - **Edge-to-edge** content layout
 
+#### `.container-{breakpoint}` (fluid until breakpoint)
+
+- Behaves like `.container-fluid` below the breakpoint, then becomes fixed-width at and above it
+- Variants: `.container-sm` (≥576px), `.container-md` (≥768px), `.container-lg` (≥992px), `.container-xl` (≥1200px), `.container-xxl` (≥1400px)
+
+Example:
+
+```html
+<div class="container-md">
+	<div class="row">
+		<div class="col">Fluid under 768px, fixed from md up</div>
+	</div>
+</div>
+```
+
 ### Responsive Breakpoints
 
 Bootstrap uses a set of responsive breakpoints that correspond to common device sizes:
@@ -108,6 +123,58 @@ Bootstrap provides various column classes for different responsive behaviors:
 </div>
 ```
 
+### Gutters (spacing between columns)
+
+- Use `g-*` to set both axes, `gx-*` for horizontal only, `gy-*` for vertical only (`0..5`)
+
+```html
+<div class="container">
+	<div class="row g-3">
+		<div class="col"><div class="border p-3">A</div></div>
+		<div class="col"><div class="border p-3">B</div></div>
+		<div class="col"><div class="border p-3">C</div></div>
+	</div>
+</div>
+```
+
+### Auto column counts with `row-cols-*`
+
+Let the grid decide how many columns per row at each breakpoint.
+
+```html
+<div class="container">
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+		<div class="col"><div class="border p-3">1</div></div>
+		<div class="col"><div class="border p-3">2</div></div>
+		<div class="col"><div class="border p-3">3</div></div>
+		<div class="col"><div class="border p-3">4</div></div>
+	</div>
+</div>
+```
+
+## Quick Test Scaffold (CDN)
+
+Use this minimal HTML to test any example quickly (no build tools needed):
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Bootstrap Grid Test</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous" />
+	</head>
+	<body class="p-3">
+		<!-- Paste exercise markup here -->
+	</body>
+</html>
+```
+
 ## Hands-on Practice
 
 ### Exercise 1: Basic Grid Layout
@@ -116,21 +183,15 @@ Create a responsive layout using Bootstrap's grid system:
 
 ```html
 <div class="container">
-	<div class="row">
-		<div class="col-md-8">
+	<div class="row g-3">
+		<main class="col-12 col-md-8">
 			<h2>Main Content Area</h2>
-			<p>
-				This is the main content that takes up 2/3 of the width on medium screens and above, and full width on smaller
-				screens.
-			</p>
-		</div>
-		<div class="col-md-4">
+			<p>2/3 width from md (≥768px), full width below.</p>
+		</main>
+		<aside class="col-12 col-md-4">
 			<h3>Sidebar</h3>
-			<p>
-				This sidebar takes up 1/3 of the width on medium screens and above, and stacks below the main content on smaller
-				screens.
-			</p>
-		</div>
+			<p>1/3 width from md, stacks below on small screens.</p>
+		</aside>
 	</div>
 </div>
 ```
@@ -149,10 +210,10 @@ Build a more complex layout with multiple sections:
 	</header>
 
 	<!-- Main Content -->
-	<main class="row py-4">
+	<main class="row py-4 g-4">
 		<!-- Hero Section -->
-		<section class="col-lg-8 mb-4">
-			<div class="bg-light p-4 rounded">
+		<section class="col-lg-8">
+			<div class="bg-light p-4 rounded h-100">
 				<h2>Welcome to My Portfolio</h2>
 				<p>This is a hero section that showcases my work and introduces visitors to my projects.</p>
 			</div>
@@ -160,7 +221,7 @@ Build a more complex layout with multiple sections:
 
 		<!-- Sidebar -->
 		<aside class="col-lg-4">
-			<div class="bg-secondary text-white p-3 rounded">
+			<div class="bg-secondary text-white p-3 rounded h-100">
 				<h3>About Me</h3>
 				<p>Brief information about myself and my skills.</p>
 			</div>
@@ -172,35 +233,37 @@ Build a more complex layout with multiple sections:
 		<div class="col-12 mb-3">
 			<h2>My Projects</h2>
 		</div>
-		<div class="col-sm-6 col-lg-3 mb-3">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">Project 1</h5>
-					<p class="card-text">Description of project 1.</p>
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+			<div class="col">
+				<div class="card h-100">
+					<div class="card-body">
+						<h5 class="card-title">Project 1</h5>
+						<p class="card-text">Description of project 1.</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-6 col-lg-3 mb-3">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">Project 2</h5>
-					<p class="card-text">Description of project 2.</p>
+			<div class="col">
+				<div class="card h-100">
+					<div class="card-body">
+						<h5 class="card-title">Project 2</h5>
+						<p class="card-text">Description of project 2.</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-6 col-lg-3 mb-3">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">Project 3</h5>
-					<p class="card-text">Description of project 3.</p>
+			<div class="col">
+				<div class="card h-100">
+					<div class="card-body">
+						<h5 class="card-title">Project 3</h5>
+						<p class="card-text">Description of project 3.</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-6 col-lg-3 mb-3">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">Project 4</h5>
-					<p class="card-text">Description of project 4.</p>
+			<div class="col">
+				<div class="card h-100">
+					<div class="card-body">
+						<h5 class="card-title">Project 4</h5>
+						<p class="card-text">Description of project 4.</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -257,6 +320,26 @@ Practice more advanced grid techniques:
 
 - `.d-none`, `.d-sm-block` - Show/hide elements at different breakpoints
 - `.order-first`, `.order-last` - Change column order
+
+## Common Pitfalls (read before practicing)
+
+- Always place `.col-*` inside a `.row`. Don’t put columns directly under `.container`.
+- Wrap rows inside a `.container` / `.container-*` / `.container-fluid` to get proper horizontal padding.
+- Prefer `g-*` / `gx-*` / `gy-*` for gutters instead of ad-hoc padding on columns.
+- Don’t mix Bootstrap grid and CSS Grid in the same row unless you’re very intentional.
+
+## Accessibility & Semantics
+
+- Prefer `<header>`, `<main>`, `<aside>`, `<footer>` for region semantics.
+- Keep a consistent heading hierarchy (`h1` → `h2` → `h3`).
+- Use `.img-fluid` for images and provide meaningful `alt` text.
+- Ensure card titles are proper headings for screen readers when cards are primary content.
+
+## Bootstrap Grid vs CSS Grid (When to use which?)
+
+- Bootstrap grid (flexbox) excels at quick, conventional 12‑column responsive pages, spanning, and alignment.
+- CSS Grid excels at two‑dimensional control (rows and columns), asymmetric/magazine layouts, and complex tracks.
+- Rule of thumb: Bootstrap grid for standard responsive screens; CSS Grid for editorial/asymmetric compositions.
 
 ## Critical Reflection Prompts
 
