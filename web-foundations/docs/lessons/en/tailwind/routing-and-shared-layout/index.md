@@ -79,22 +79,22 @@ This session implements **hash-based routing** for smooth navigation without ful
    	<body>
    		<!-- Skip link for accessibility -->
    		<a
-   			href="#main"
+   			href="#app"
    			class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-500 text-white px-4 py-2 rounded">
    			Skip to main content
    		</a>
 
-   		<!-- Shared navigation -->
+   		<!-- Shared navigation (semantic list) -->
    		<nav class="bg-gray-900 text-white sticky top-0 z-50" role="navigation" aria-label="Main navigation">
    			<div class="container mx-auto px-4">
    				<div class="flex justify-between items-center py-4">
    					<a href="#/" class="text-xl font-bold hover:text-blue-400 transition-colors" aria-label="Home">Portfolio</a>
-   					<div class="space-x-6">
-   						<a href="#/" class="hover:text-blue-400 transition-colors" aria-current="page">Home</a>
-   						<a href="#/about" class="hover:text-blue-400 transition-colors">About</a>
-   						<a href="#/projects" class="hover:text-blue-400 transition-colors">Projects</a>
-   						<a href="#/contact" class="hover:text-blue-400 transition-colors">Contact</a>
-   					</div>
+   					<ul class="flex gap-6">
+   						<li><a href="#/" class="hover:text-blue-400 transition-colors" aria-current="page">Home</a></li>
+   						<li><a href="#/about" class="hover:text-blue-400 transition-colors">About</a></li>
+   						<li><a href="#/projects" class="hover:text-blue-400 transition-colors">Projects</a></li>
+   						<li><a href="#/contact" class="hover:text-blue-400 transition-colors">Contact</a></li>
+   					</ul>
    				</div>
    			</div>
    		</nav>
@@ -150,13 +150,15 @@ This session implements **hash-based routing** for smooth navigation without ful
    	}
 
    	updateActiveNav(currentHash) {
-   		// Remove aria-current from all nav links
-   		document.querySelectorAll('nav a').forEach((link) => {
+   		// Only consider SPA router links that start with "#/".
+   		// This avoids touching in-page anchors like "#app" (skip links, section links).
+   		document.querySelectorAll('nav a[href^="#/"]').forEach((link) => {
    			link.removeAttribute('aria-current');
    		});
 
-   		// Add aria-current to matching nav link
-   		const activeLink = document.querySelector(`nav a[href="${currentHash}"]`);
+   		// currentHash is like "/", "/about", ...
+   		// Build the full selector as `#${currentHash}` to match nav hrefs (e.g. href="#/about").
+   		const activeLink = document.querySelector(`nav a[href="#${currentHash}"]`);
    		if (activeLink) {
    			activeLink.setAttribute('aria-current', 'page');
    		}
@@ -225,22 +227,31 @@ This session implements **hash-based routing** for smooth navigation without ful
    // src/main.js
    import SimpleRouter from './router.js';
    import { views } from './views.js';
+   import './style.css'
+
 
    // Initialize router
    const router = new SimpleRouter(views);
 
-   // Optional: Add smooth scrolling for anchor links
-   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-   	anchor.addEventListener('click', function (e) {
+   // Optional: Smooth scroll for in-page anchors (hash links) WITHOUT breaking SPA routing
+   // We:
+   // 1) Use event delegation (single listener) to capture clicks on anchor tags.
+   // 2) Only handle hashes that point to in-page sections (e.g. #app, #footer).
+   // 3) Explicitly ignore router links that start with "#/" so hash-based routing continues to work.
+   document.addEventListener('click', (e) => {
+   	const link = e.target.closest('a[href^="#"]');
+   	if (!link) return; // Not a hash link
+   	const href = link.getAttribute('href');
+
+   	// Ignore SPA router links like "#/about" — let the router handle navigation
+   	if (href.startsWith('#/')) return;
+
+   	// Smooth-scroll to in-page target (e.g. #app)
+   	const target = document.querySelector(href);
+   	if (target) {
    		e.preventDefault();
-   		const target = document.querySelector(this.getAttribute('href'));
-   		if (target) {
-   			target.scrollIntoView({
-   				behavior: 'smooth',
-   				block: 'start',
-   			});
-   		}
-   	});
+   		target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+   	}
    });
    ```
 
