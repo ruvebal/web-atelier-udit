@@ -79,22 +79,22 @@ Esta sesión implementa **ruteo por hash** para navegación fluida sin recargas 
    	<body>
    		<!-- Skip link para accesibilidad -->
    		<a
-   			href="#main"
+   			href="#app"
    			class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-500 text-white px-4 py-2 rounded">
    			Saltar al contenido principal
    		</a>
 
-   		<!-- Navegación compartida -->
+   		<!-- Navegación compartida (lista semántica) -->
    		<nav class="bg-gray-900 text-white sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
    			<div class="container mx-auto px-4">
    				<div class="flex justify-between items-center py-4">
    					<a href="#/" class="text-xl font-bold hover:text-blue-400 transition-colors" aria-label="Inicio">Portafolio</a>
-   					<div class="space-x-6">
-   						<a href="#/" class="hover:text-blue-400 transition-colors" aria-current="page">Inicio</a>
-   						<a href="#/sobre" class="hover:text-blue-400 transition-colors">Sobre</a>
-   						<a href="#/proyectos" class="hover:text-blue-400 transition-colors">Proyectos</a>
-   						<a href="#/contacto" class="hover:text-blue-400 transition-colors">Contacto</a>
-   					</div>
+   					<ul class="flex gap-6">
+   						<li><a href="#/" class="hover:text-blue-400 transition-colors" aria-current="page">Inicio</a></li>
+   						<li><a href="#/sobre" class="hover:text-blue-400 transition-colors">Sobre</a></li>
+   						<li><a href="#/proyectos" class="hover:text-blue-400 transition-colors">Proyectos</a></li>
+   						<li><a href="#/contacto" class="hover:text-blue-400 transition-colors">Contacto</a></li>
+   					</ul>
    				</div>
    			</div>
    		</nav>
@@ -150,13 +150,15 @@ Esta sesión implementa **ruteo por hash** para navegación fluida sin recargas 
    	}
 
    	updateActiveNav(currentHash) {
-   		// Remover aria-current de todos los enlaces de navegación
-   		document.querySelectorAll('nav a').forEach((link) => {
+   		// Solo considerar enlaces del router SPA que empiezan por "#/".
+   		// Evita tocar anclas internas como "#app" (skip links, enlaces de sección).
+   		document.querySelectorAll('nav a[href^="#/"]').forEach((link) => {
    			link.removeAttribute('aria-current');
    		});
 
-   		// Añadir aria-current al enlace activo
-   		const activeLink = document.querySelector(`nav a[href="${currentHash}"]`);
+   		// currentHash es como "/", "/sobre", ...
+   		// Construimos el selector completo como `#${currentHash}` para coincidir con hrefs (ej. href="#/sobre").
+   		const activeLink = document.querySelector(`nav a[href="#${currentHash}"]`);
    		if (activeLink) {
    			activeLink.setAttribute('aria-current', 'page');
    		}
@@ -229,18 +231,20 @@ Esta sesión implementa **ruteo por hash** para navegación fluida sin recargas 
    // Inicializar router
    const router = new SimpleRouter(views);
 
-   // Opcional: Añadir scroll suave para enlaces ancla
-   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-   	anchor.addEventListener('click', function (e) {
+   // Opcional: Scroll suave para anclas internas SIN romper el ruteo SPA
+   // 1) Delegación de eventos: un solo listener captura clicks en anchors.
+   // 2) Solo manejamos hashes que apuntan a secciones internas (ej. #app).
+   // 3) Ignoramos enlaces del router que empiezan por "#/" para que el router gestione la navegación.
+   document.addEventListener('click', (e) => {
+   	const link = e.target.closest('a[href^="#"]');
+   	if (!link) return; // No es un enlace con hash
+   	const href = link.getAttribute('href');
+   	if (href.startsWith('#/')) return; // enlace del router: lo gestiona el router
+   	const target = document.querySelector(href);
+   	if (target) {
    		e.preventDefault();
-   		const target = document.querySelector(this.getAttribute('href'));
-   		if (target) {
-   			target.scrollIntoView({
-   				behavior: 'smooth',
-   				block: 'start',
-   			});
-   		}
-   	});
+   		target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+   	}
    });
    ```
 
