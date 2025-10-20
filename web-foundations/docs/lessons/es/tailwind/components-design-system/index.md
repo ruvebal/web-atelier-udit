@@ -235,8 +235,10 @@ En S2, creaste un sistema de ruteo modular con archivos de vista separados. Ahor
         </div>
       </section>
     `,
-};
-```
+   };
+   ```
+
+````
 
 **Cómo probar:**
 
@@ -255,19 +257,19 @@ Los botones anteriores son **solo visuales**. Para hacerlos funcionales, necesit
 **Opción 1: Event listener inline (rápido para prototipado)**
 
 ```html
-<button 
+<button
   class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
   onclick="alert('¡Botón clickeado!')">
   Botón Primario
 </button>
-```
+````
 
 **Opción 2: Event listener en el código (recomendado)**
 
 ```javascript
 // src/views/componentes.js
 export default {
-  template: `
+	template: `
     <section class="py-16 bg-gray-50 min-h-screen">
       <div class="container mx-auto px-4">
         <!-- ... contenido ... -->
@@ -279,17 +281,17 @@ export default {
       </div>
     </section>
   `,
-  
-  // Función que se ejecuta después de renderizar la vista
-  init() {
-    const btn = document.getElementById('primary-btn');
-    if (btn) {
-      btn.addEventListener('click', () => {
-        console.log('¡Botón clickeado!');
-        alert('Acción ejecutada');
-      });
-    }
-  }
+
+	// Función que se ejecuta después de renderizar la vista
+	init() {
+		const btn = document.getElementById('primary-btn');
+		if (btn) {
+			btn.addEventListener('click', () => {
+				console.log('¡Botón clickeado!');
+				alert('Acción ejecutada');
+			});
+		}
+	},
 };
 ```
 
@@ -300,23 +302,24 @@ Ver la lección **[JavaScript Modules](/lessons/es/js-modules/)** para entender 
 ```javascript
 // src/components/Button.js
 export function PrimaryButton(text, onClick) {
-  const button = document.createElement('button');
-  button.className = 'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
-  button.textContent = text;
-  
-  // Añadir event listener
-  if (onClick) {
-    button.addEventListener('click', onClick);
-  }
-  
-  return button;
+	const button = document.createElement('button');
+	button.className =
+		'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
+	button.textContent = text;
+
+	// Añadir event listener
+	if (onClick) {
+		button.addEventListener('click', onClick);
+	}
+
+	return button;
 }
 
 // src/views/componentes.js
 import { PrimaryButton } from '../components/Button.js';
 
 export default {
-  template: `
+	template: `
     <section class="py-16 bg-gray-50 min-h-screen">
       <div class="container mx-auto px-4">
         <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Sistema de Componentes</h1>
@@ -324,23 +327,23 @@ export default {
       </div>
     </section>
   `,
-  
-  init() {
-    const container = document.getElementById('buttons-container');
-    
-    // Crear botón funcional
-    const btn1 = PrimaryButton('Guardar Cambios', () => {
-      console.log('Guardando...');
-      alert('¡Cambios guardados!');
-    });
-    
-    const btn2 = PrimaryButton('Cancelar', () => {
-      console.log('Cancelado');
-    });
-    
-    container.appendChild(btn1);
-    container.appendChild(btn2);
-  }
+
+	init() {
+		const container = document.getElementById('buttons-container');
+
+		// Crear botón funcional
+		const btn1 = PrimaryButton('Guardar Cambios', () => {
+			console.log('Guardando...');
+			alert('¡Cambios guardados!');
+		});
+
+		const btn2 = PrimaryButton('Cancelar', () => {
+			console.log('Cancelado');
+		});
+
+		container.appendChild(btn1);
+		container.appendChild(btn2);
+	},
 };
 ```
 
@@ -352,20 +355,14 @@ export default {
 
 ```html
 <!-- Añade clase active: con bg más oscuro -->
-<button class="... bg-primary-500 hover:bg-primary-600 active:bg-primary-700">
-  Botón con estado active
-</button>
+<button class="... bg-primary-500 hover:bg-primary-600 active:bg-primary-700">Botón con estado active</button>
 ```
 
 **Estado Disabled (botón deshabilitado):**
 
 ```html
 <!-- Añade atributo disabled + clases de estilo -->
-<button 
-  disabled
-  class="... disabled:opacity-50 disabled:cursor-not-allowed">
-  Botón Deshabilitado
-</button>
+<button disabled class="... disabled:opacity-50 disabled:cursor-not-allowed">Botón Deshabilitado</button>
 ```
 
 **Deshabilitar dinámicamente con JavaScript:**
@@ -378,8 +375,8 @@ btn.classList.add('opacity-50', 'cursor-not-allowed');
 
 // Simular proceso (ej: envío de formulario)
 setTimeout(() => {
-  btn.disabled = false;
-  btn.classList.remove('opacity-50', 'cursor-not-allowed');
+	btn.disabled = false;
+	btn.classList.remove('opacity-50', 'cursor-not-allowed');
 }, 2000);
 ```
 
@@ -390,65 +387,65 @@ setTimeout(() => {
 ```javascript
 // src/components/Button.js
 export function LoadingButton(text, asyncAction) {
-  const button = document.createElement('button');
-  button.className = 'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
-  
-  const originalText = text;
-  button.textContent = text;
-  
-  button.addEventListener('click', async () => {
-    // Deshabilitar y mostrar estado de carga
-    button.disabled = true;
-    button.innerHTML = `
+	const button = document.createElement('button');
+	button.className =
+		'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
+
+	const originalText = text;
+	button.textContent = text;
+
+	button.addEventListener('click', async () => {
+		// Deshabilitar y mostrar estado de carga
+		button.disabled = true;
+		button.innerHTML = `
       <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
       </svg>
       Cargando...
     `;
-    
-    try {
-      // Ejecutar acción asíncrona
-      await asyncAction();
-      
-      // Mostrar éxito
-      button.innerHTML = `
+
+		try {
+			// Ejecutar acción asíncrona
+			await asyncAction();
+
+			// Mostrar éxito
+			button.innerHTML = `
         <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
         </svg>
         ¡Éxito!
       `;
-      
-      // Restaurar después de 2 segundos
-      setTimeout(() => {
-        button.disabled = false;
-        button.textContent = originalText;
-      }, 2000);
-      
-    } catch (error) {
-      // Mostrar error
-      button.innerHTML = `
+
+			// Restaurar después de 2 segundos
+			setTimeout(() => {
+				button.disabled = false;
+				button.textContent = originalText;
+			}, 2000);
+		} catch (error) {
+			// Mostrar error
+			button.innerHTML = `
         <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
         </svg>
         Error
       `;
-      
-      setTimeout(() => {
-        button.disabled = false;
-        button.textContent = originalText;
-      }, 2000);
-    }
-  });
-  
-  return button;
+
+			setTimeout(() => {
+				button.disabled = false;
+				button.textContent = originalText;
+			}, 2000);
+		}
+	});
+
+	return button;
 }
 
 // Uso:
 const saveBtn = LoadingButton('Guardar Cambios', async () => {
-  // Simular llamada API
-  await new Promise(resolve => setTimeout(resolve, 1500));
-  console.log('Datos guardados');
+	// Simular llamada API
+	await new Promise((resolve) => setTimeout(resolve, 1500));
+	console.log('Datos guardados');
 });
 
 document.getElementById('container').appendChild(saveBtn);

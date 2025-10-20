@@ -158,7 +158,7 @@ In S2, you created a modular routing system with separate view files. Now we'll 
    4. Press Tab to verify focus states
    5. Inspect with DevTools to see applied classes
 
-   ---
+   ***
 
    #### 💡 Making Buttons Interactive
 
@@ -167,10 +167,10 @@ In S2, you created a modular routing system with separate view files. Now we'll 
    **Option 1: Inline event listener (quick for prototyping)**
 
    ```html
-   <button 
-     class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
-     onclick="alert('Button clicked!')">
-     Primary Button
+   <button
+   	class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
+   	onclick="alert('Button clicked!')">
+   	Primary Button
    </button>
    ```
 
@@ -179,7 +179,7 @@ In S2, you created a modular routing system with separate view files. Now we'll 
    ```javascript
    // src/views/components.js
    export default {
-     template: `
+   	template: `
        <section class="py-16 bg-gray-50 min-h-screen">
          <div class="container mx-auto px-4">
            <!-- ... content ... -->
@@ -191,17 +191,17 @@ In S2, you created a modular routing system with separate view files. Now we'll 
          </div>
        </section>
      `,
-     
-     // Function that executes after rendering the view
-     init() {
-       const btn = document.getElementById('primary-btn');
-       if (btn) {
-         btn.addEventListener('click', () => {
-           console.log('Button clicked!');
-           alert('Action executed');
-         });
-       }
-     }
+
+   	// Function that executes after rendering the view
+   	init() {
+   		const btn = document.getElementById('primary-btn');
+   		if (btn) {
+   			btn.addEventListener('click', () => {
+   				console.log('Button clicked!');
+   				alert('Action executed');
+   			});
+   		}
+   	},
    };
    ```
 
@@ -212,23 +212,24 @@ In S2, you created a modular routing system with separate view files. Now we'll 
    ```javascript
    // src/components/Button.js
    export function PrimaryButton(text, onClick) {
-     const button = document.createElement('button');
-     button.className = 'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
-     button.textContent = text;
-     
-     // Add event listener
-     if (onClick) {
-       button.addEventListener('click', onClick);
-     }
-     
-     return button;
+   	const button = document.createElement('button');
+   	button.className =
+   		'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
+   	button.textContent = text;
+
+   	// Add event listener
+   	if (onClick) {
+   		button.addEventListener('click', onClick);
+   	}
+
+   	return button;
    }
 
    // src/views/components.js
    import { PrimaryButton } from '../components/Button.js';
 
    export default {
-     template: `
+   	template: `
        <section class="py-16 bg-gray-50 min-h-screen">
          <div class="container mx-auto px-4">
            <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Component System</h1>
@@ -236,27 +237,27 @@ In S2, you created a modular routing system with separate view files. Now we'll 
          </div>
        </section>
      `,
-     
-     init() {
-       const container = document.getElementById('buttons-container');
-       
-       // Create functional button
-       const btn1 = PrimaryButton('Save Changes', () => {
-         console.log('Saving...');
-         alert('Changes saved!');
-       });
-       
-       const btn2 = PrimaryButton('Cancel', () => {
-         console.log('Cancelled');
-       });
-       
-       container.appendChild(btn1);
-       container.appendChild(btn2);
-     }
+
+   	init() {
+   		const container = document.getElementById('buttons-container');
+
+   		// Create functional button
+   		const btn1 = PrimaryButton('Save Changes', () => {
+   			console.log('Saving...');
+   			alert('Changes saved!');
+   		});
+
+   		const btn2 = PrimaryButton('Cancel', () => {
+   			console.log('Cancelled');
+   		});
+
+   		container.appendChild(btn1);
+   		container.appendChild(btn2);
+   	},
    };
    ```
 
-   ---
+   ***
 
    #### 🎨 Active and Disabled States
 
@@ -264,20 +265,14 @@ In S2, you created a modular routing system with separate view files. Now we'll 
 
    ```html
    <!-- Add active: class with darker bg -->
-   <button class="... bg-primary-500 hover:bg-primary-600 active:bg-primary-700">
-     Button with active state
-   </button>
+   <button class="... bg-primary-500 hover:bg-primary-600 active:bg-primary-700">Button with active state</button>
    ```
 
    **Disabled state (disabled button):**
 
    ```html
    <!-- Add disabled attribute + styling classes -->
-   <button 
-     disabled
-     class="... disabled:opacity-50 disabled:cursor-not-allowed">
-     Disabled Button
-   </button>
+   <button disabled class="... disabled:opacity-50 disabled:cursor-not-allowed">Disabled Button</button>
    ```
 
    **Disable dynamically with JavaScript:**
@@ -290,83 +285,83 @@ In S2, you created a modular routing system with separate view files. Now we'll 
 
    // Simulate process (e.g., form submission)
    setTimeout(() => {
-     btn.disabled = false;
-     btn.classList.remove('opacity-50', 'cursor-not-allowed');
+   	btn.disabled = false;
+   	btn.classList.remove('opacity-50', 'cursor-not-allowed');
    }, 2000);
    ```
 
-   ---
+   ***
 
    #### 🔄 Complete Example: Button with Loading State
 
    ```javascript
    // src/components/Button.js
    export function LoadingButton(text, asyncAction) {
-     const button = document.createElement('button');
-     button.className = 'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
-     
-     const originalText = text;
-     button.textContent = text;
-     
-     button.addEventListener('click', async () => {
-       // Disable and show loading state
-       button.disabled = true;
-       button.innerHTML = `
+   	const button = document.createElement('button');
+   	button.className =
+   		'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
+
+   	const originalText = text;
+   	button.textContent = text;
+
+   	button.addEventListener('click', async () => {
+   		// Disable and show loading state
+   		button.disabled = true;
+   		button.innerHTML = `
          <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
          </svg>
          Loading...
        `;
-       
-       try {
-         // Execute async action
-         await asyncAction();
-         
-         // Show success
-         button.innerHTML = `
+
+   		try {
+   			// Execute async action
+   			await asyncAction();
+
+   			// Show success
+   			button.innerHTML = `
            <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
            </svg>
            Success!
          `;
-         
-         // Restore after 2 seconds
-         setTimeout(() => {
-           button.disabled = false;
-           button.textContent = originalText;
-         }, 2000);
-         
-       } catch (error) {
-         // Show error
-         button.innerHTML = `
+
+   			// Restore after 2 seconds
+   			setTimeout(() => {
+   				button.disabled = false;
+   				button.textContent = originalText;
+   			}, 2000);
+   		} catch (error) {
+   			// Show error
+   			button.innerHTML = `
            <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
            </svg>
            Error
          `;
-         
-         setTimeout(() => {
-           button.disabled = false;
-           button.textContent = originalText;
-         }, 2000);
-       }
-     });
-     
-     return button;
+
+   			setTimeout(() => {
+   				button.disabled = false;
+   				button.textContent = originalText;
+   			}, 2000);
+   		}
+   	});
+
+   	return button;
    }
 
    // Usage:
    const saveBtn = LoadingButton('Save Changes', async () => {
-     // Simulate API call
-     await new Promise(resolve => setTimeout(resolve, 1500));
-     console.log('Data saved');
+   	// Simulate API call
+   	await new Promise((resolve) => setTimeout(resolve, 1500));
+   	console.log('Data saved');
    });
 
    document.getElementById('container').appendChild(saveBtn);
    ```
 
-   ---
+   ***
 
    #### 📚 Quick Reference: State Classes
 
@@ -385,7 +380,7 @@ In S2, you created a modular routing system with separate view files. Now we'll 
    .disabled:opacity-50      /* Semi-transparent if disabled */
    ```
 
-   ---
+   ***
 
    **💡 Pro Tip:** For large applications, always use **modular components** (Option 3) to keep your code organized and reusable. Review the [JavaScript Modules](/lessons/en/js-modules/) lesson to master this professional approach.
 
