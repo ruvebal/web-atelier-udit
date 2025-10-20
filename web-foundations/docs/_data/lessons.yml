@@ -90,6 +90,19 @@
   status:
    es: complete
    en: complete
+- slug: js-modules
+  title:
+   es: 'Módulos JavaScript: Del Caos a la Modularidad'
+   en: 'JavaScript Modules: From Chaos to Modularity'
+  path:
+   es: /lessons/es/js-modules/
+   en: /lessons/en/js-modules/
+  file:
+   es: lessons/es/js-modules/index.md
+   en: lessons/en/js-modules/index.md
+  status:
+   es: complete
+   en: complete
 - slug: readings
   title:
    es: Lecturas
