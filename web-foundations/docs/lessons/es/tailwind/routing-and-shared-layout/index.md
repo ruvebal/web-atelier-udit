@@ -85,7 +85,7 @@ Esta sesión implementa **ruteo por hash** para navegación fluida sin recargas 
    		</a>
 
    		<!-- Navegación compartida (lista semántica) -->
-   		<nav class="bg-gray-900 text-white sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
+   		<nav class="fixed top-0 left-0 w-full bg-gray-900 text-white z-50" role="navigation" aria-label="Main navigation">
    			<div class="container mx-auto px-4">
    				<div class="flex justify-between items-center py-4">
    					<a href="#/" class="text-xl font-bold hover:text-blue-400 transition-colors" aria-label="Inicio">Portafolio</a>
@@ -100,12 +100,12 @@ Esta sesión implementa **ruteo por hash** para navegación fluida sin recargas 
    		</nav>
 
    		<!-- Área de contenido principal -->
-   		<main id="app" class="min-h-screen" role="main">
-   			<!-- Las vistas se renderizarán aquí -->
+   		<main id="app" class="fixed inset-0 min-h-screen flex items-center justify-center" role="main">
+   			<!-- Views will be rendered here -->
    		</main>
 
    		<!-- Footer compartido -->
-   		<footer class="bg-gray-800 text-white py-8" role="contentinfo">
+   		<footer class="fixed bottom-0 left-0 w-full z-50 bg-gray-800 text-white py-8" role="contentinfo">
    			<div class="container mx-auto px-4 text-center">
    				<p>&copy; 2025 Portafolio SPA. Construido con Tailwind & JavaScript vanilla.</p>
    			</div>
