@@ -52,7 +52,7 @@ Esta lección sigue la **metodología del atelier** (exploración → reflexión
 Los **sistemas de diseño** son más que bibliotecas de componentes — codifican valores organizacionales, estándares de accesibilidad y patrones de experiencia de usuario. En Tailwind, expresamos sistemas de diseño mediante:
 
 - **Tokens de diseño:** Colores, espaciado y escalas tipográficas consistentes
-- **Patrones de componentes:** Combinaciones reutilizables de utilidades
+- **Patrones de componentes:** Agrupaciones de utilidades que podemos reutilizar en diferentes partes del proyecto
 - **Nombres semánticos:** Composiciones de clases que revelan intención
 - **Mejora progresiva:** Fallbacks y enfoques accessibility-first
 
@@ -62,9 +62,36 @@ Nuestro enfoque crea **componentes PWA-ready** que funcionan en dispositivos y t
 
 Esta sesión transforma combinaciones de utilidades en sistemas de componentes reutilizables y mantenibles que codifican decisiones de diseño y requisitos de accesibilidad.
 
+### 🔗 Construyendo sobre el Ruteo S2
+
+En S2, creaste un sistema de ruteo modular con archivos de vista separados. Ahora mejoraremos esas vistas con un sistema de diseño apropiado. Ya deberías tener:
+
+- `src/views/componentes.js` del Ejercicio 2.2
+- La capacidad de crear nuevas rutas para diferentes muestras de componentes
+- Una base para construir tu portafolio de trabajo de diseño
+
+**Si aún no has completado los ejercicios de S2**, crea el archivo `src/views/componentes.js` ahora (ver Ejercicio 2.2 de S2).
+
 ### Implementación paso a paso
 
+**💡 Importante:** Todos los componentes que crees en esta sesión se implementarán y probarán en las vistas que ya creaste en S2. Específicamente, trabajarás principalmente en `src/views/componentes.js` (creado en S2 Ejercicio 2.2).
+
 1. **Define tokens de diseño en configuración Tailwind:**
+
+   **¿Cómo interactúan los tokens de diseño de Tailwind con style.css?**
+
+   - **tailwind.config.js** define los _tokens de diseño_ (colores, espaciados, tipografías) que usamos de forma consistente en todas las clases utilitarias de Tailwind (ej: `bg-primary-500`, `text-content-muted`). Así conseguimos sistemas cohesionados y fáciles de mantener: cambiando un valor aquí, todos los componentes actualizan su apariencia.
+
+   - **style.css** se utiliza para:
+     - Añadir estilos globales que no cubre Tailwind (ej: styles para `:root`, normalización, dark mode manual, adaptaciones para componentes externos, animaciones personalizadas).
+     - Sobrescribir estilos específicos que requieren CSS convencional o selectores complicados.
+     - Declarar variables CSS personalizadas si necesitas tokens a nivel de runtime (con acceso desde JS u otros frameworks).
+
+   **Resumen:**
+
+   - Modificamos el _diseño_ y la _paleta_ en el tailwind.config.js.
+   - Usamos style.css para ajustes globales, excepciones o personalizaciones no cubiertas por utilidades.
+   - La mayoría de los componentes y vistas solo deberían usar _clases de Tailwind_, apoyándose en los tokens definidos para asegurar consistencia y escalabilidad.
 
    ```javascript
    // tailwind.config.js
@@ -72,24 +99,97 @@ Esta sesión transforma combinaciones de utilidades en sistemas de componentes r
    export default {
    	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
    	theme: {
+   		// Override default font sizes instead of creating new utilities
+   		fontSize: {
+   			xs: ['0.75rem', { lineHeight: '1.2' }],
+   			sm: ['0.875rem', { lineHeight: '1.35' }],
+   			base: ['1rem', { lineHeight: '1.7' }],
+   			lg: ['1.125rem', { lineHeight: '1.6' }],
+   			xl: ['1.375rem', { lineHeight: '1.35', letterSpacing: '-0.005em' }],
+   			'2xl': ['1.75rem', { lineHeight: '1.25', letterSpacing: '-0.01em' }],
+   			'3xl': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+   			'4xl': ['2.5rem', { lineHeight: '1.15', letterSpacing: '-0.015em' }],
+   			'5xl': ['3.25rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+   			'6xl': ['4rem', { lineHeight: '1.05', letterSpacing: '-0.025em' }],
+   			'7xl': ['4.5rem', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
+   		},
    		extend: {
+   			// Design tokens (aka "theme extensions").
+   			// Using these keys in your markup (e.g., bg-primary-500, text-content-muted)
+   			// decouples UI styling from raw hex values. If you tweak a token here,
+   			// all components using that token update consistently.
    			colors: {
+   				// Brand colors: use for primary actions and navigation backgrounds
    				primary: {
    					50: '#eff6ff',
    					500: '#3b82f6',
    					900: '#1e3a8a',
    				},
+   				// Surfaces: use for page backgrounds and contrasting sections
    				surface: {
-   					light: '#f8fafc',
-   					dark: '#1e293b',
+   					light: '#f8fafc', // light page background
+   					dark: '#1e293b', // dark footer/sections background
+   				},
+   				// Content colors: use for text. Prefer these over gray-XXX
+   				content: {
+   					DEFAULT: '#0f172a', // strong/default text
+   					muted: '#64748b', // subdued/secondary text
+   					inverted: '#ffffff', // text on dark/brand backgrounds
    				},
    			},
+   			// Spacing tokens to augment Tailwind scale
    			spacing: {
    				18: '4.5rem',
    				88: '22rem',
    			},
+   			// Large radius for prominent CTAs/cards
    			borderRadius: {
    				'4xl': '2rem',
+   			},
+   			// Custom typography: map semantic font families
+   			fontFamily: {
+   				display: [
+   					'ui-sans-serif',
+   					'system-ui',
+   					'Segoe UI',
+   					'Inter',
+   					'Roboto',
+   					'Helvetica Neue',
+   					'Arial',
+   					'Noto Sans',
+   					'Apple Color Emoji',
+   					'Segoe UI Emoji',
+   					'Segoe UI Symbol',
+   					'Noto Color Emoji',
+   				],
+   				body: [
+   					'ui-sans-serif',
+   					'system-ui',
+   					'Inter',
+   					'Roboto',
+   					'Helvetica Neue',
+   					'Arial',
+   					'Noto Sans',
+   					'Apple Color Emoji',
+   					'Segoe UI Emoji',
+   					'Segoe UI Symbol',
+   					'Noto Color Emoji',
+   				],
+   			},
+   			// Subtle elevation for cards/CTAs
+   			boxShadow: {
+   				elevated: '0 12px 30px -12px rgba(59, 130, 246, 0.35)', // uses primary color tint
+   			},
+   			// Container defaults (so class "container" is centered with padding)
+   			container: {
+   				center: true,
+   				padding: {
+   					DEFAULT: '1rem',
+   					sm: '1rem',
+   					md: '2rem',
+   					lg: '2rem',
+   					xl: '2.5rem',
+   				},
    			},
    		},
    	},
@@ -99,99 +199,1020 @@ Esta sesión transforma combinaciones de utilidades en sistemas de componentes r
 
 2. **Crea componente reutilizable Button:**
 
-   ```html
-   <!-- Variantes de botón usando composición de utilidades -->
-   <button
-   	class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-   	Botón Primario
-   </button>
+   **Dónde:** Actualiza `src/views/componentes.js` (creado en S2)
 
-   <button
-   	class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-   	Botón Secundario
-   </button>
+   Añade estos botones a tu vista de componentes para probarlos:
+
+   ```javascript
+   // src/views/componentes.js
+   export default {
+   	template: `
+       <section class="py-16 bg-gray-50 min-h-screen">
+         <div class="container mx-auto px-4">
+           <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Sistema de Componentes</h1>
+           
+           <!-- Sistema de Botones -->
+           <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+             <h2 class="text-2xl font-bold text-gray-900 mb-4">Botones</h2>
+             <div class="flex flex-wrap gap-4">
+               <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                 Botón Primario
+               </button>
+               
+               <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                 Botón Secundario
+               </button>
+               
+               <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
+                 Botón Ghost
+               </button>
+             </div>
+           </div>
+           
+           <!-- Aquí añadirás más componentes en los siguientes pasos -->
+           
+           <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+         </div>
+       </section>
+     `,
+   };
    ```
+
+   **Cómo probar:**
+
+   1. Guarda el archivo
+   2. Navega a `#/componentes` en tu navegador
+   3. Prueba hover sobre cada botón
+   4. Presiona Tab para verificar estados de focus
+   5. Inspecciona con DevTools para ver clases aplicadas
 
 3. **Construye patrón de componente Card:**
 
-   ```html
-   <!-- Patrón de tarjeta con espaciado y tipografía consistentes -->
-   <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-   	<div class="aspect-w-16 aspect-h-9 bg-gray-200">
-   		<img src="https://picsum.photos/400/225?random=1" alt="Imagen del proyecto" class="w-full h-48 object-cover" />
-   	</div>
-   	<div class="p-6">
-   		<h3 class="text-lg font-semibold text-gray-900 mb-2">Título del Proyecto</h3>
-   		<p class="text-gray-600 text-sm mb-4 line-clamp-3">
-   			Descripción del proyecto que demuestra el patrón de tarjeta con espaciado y jerarquía tipográfica consistentes.
-   		</p>
-   		<div class="flex flex-wrap gap-2">
-   			<span
-   				class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
-   				React
-   			</span>
-   			<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-   				API
-   			</span>
-   		</div>
-   	</div>
-   </article>
+   **Dónde:** Continúa en `src/views/componentes.js`
+
+   Añade una nueva sección de tarjetas después de los botones:
+
+   ```javascript
+   // src/views/componentes.js - Añade dentro del template, después de botones
+
+   <!-- Sistema de Tarjetas -->
+   <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+     <h2 class="text-2xl font-bold text-gray-900 mb-4">Tarjetas</h2>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+       <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+         <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+           <img src="https://picsum.photos/400/225?random=1" alt="Imagen del proyecto" class="w-full h-48 object-cover" />
+         </div>
+         <div class="p-6">
+           <h3 class="text-lg font-semibold text-gray-900 mb-2">Título del Proyecto</h3>
+           <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+             Descripción del proyecto que demuestra el patrón de tarjeta con espaciado y jerarquía tipográfica consistentes.
+           </p>
+           <div class="flex flex-wrap gap-2">
+             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+               React
+             </span>
+             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+               API
+             </span>
+           </div>
+         </div>
+       </article>
+
+       <!-- Duplica este patrón 2-3 veces para ver el grid -->
+
+     </div>
+   </div>
    ```
 
-4. **Crea grid de proyectos responsive:**
+   **Cómo probar:**
 
-   ```html
-   <!-- Sección de proyectos usando utilidades de grid -->
-   <section class="py-16 bg-gray-50">
-   	<div class="container mx-auto px-4">
-   		<header class="text-center mb-12">
-   			<h2 class="text-3xl font-bold text-gray-900 mb-4">Proyectos Destacados</h2>
-   			<p class="text-lg text-gray-600 max-w-2xl mx-auto">
-   				Una muestra de trabajo demostrando diseño responsive y tecnologías web modernas.
-   			</p>
-   		</header>
+   1. Navega a `#/componentes`
+   2. Verifica que las tarjetas se muestren en grid
+   3. Reduce el ancho del navegador para ver responsive behavior
+   4. Hover sobre tarjetas para ver efecto de sombra
+   5. Cambia los números en picsum.photos para diferentes imágenes
 
-   		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-   			<!-- Componentes de tarjeta repetidos -->
-   		</div>
-   	</div>
-   </section>
+4. **Crea vista de proyectos con grid responsive:**
+
+   **Dónde:** Crea o actualiza `src/views/proyectos.js`
+
+   Esta vista aplicará tus componentes de tarjeta en un contexto real:
+
+   ```javascript
+   // src/views/proyectos.js
+   export default {
+   	template: `
+       <section class="py-16 bg-gray-50 min-h-screen">
+         <div class="container mx-auto px-4">
+           <header class="text-center mb-12">
+             <h1 class="text-4xl font-bold text-gray-900 mb-4">Proyectos Destacados</h1>
+             <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+               Una muestra de trabajo demostrando diseño responsive y tecnologías web modernas.
+             </p>
+           </header>
+   
+           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+             <!-- Proyecto 1 -->
+             <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+               <div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-blue-400 to-purple-500">
+                 <div class="flex items-center justify-center text-white text-2xl font-bold">
+                   Proyecto 1
+                 </div>
+               </div>
+               <div class="p-6">
+                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Portfolio Personal</h3>
+                 <p class="text-gray-600 text-sm mb-4">
+                   Sitio web responsive construido con Tailwind CSS y vanilla JavaScript.
+                 </p>
+                 <div class="flex flex-wrap gap-2">
+                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                     Tailwind
+                   </span>
+                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                     JavaScript
+                   </span>
+                 </div>
+               </div>
+             </article>
+             
+             <!-- Proyecto 2 -->
+             <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+               <div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-green-400 to-teal-500">
+                 <div class="flex items-center justify-center text-white text-2xl font-bold">
+                   Proyecto 2
+                 </div>
+               </div>
+               <div class="p-6">
+                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Dashboard Analítico</h3>
+                 <p class="text-gray-600 text-sm mb-4">
+                   Interfaz de análisis de datos con componentes reutilizables.
+                 </p>
+                 <div class="flex flex-wrap gap-2">
+                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                     React
+                   </span>
+                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                     API
+                   </span>
+                 </div>
+               </div>
+             </article>
+             
+             <!-- Proyecto 3 -->
+             <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+               <div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-pink-400 to-red-500">
+                 <div class="flex items-center justify-center text-white text-2xl font-bold">
+                   Proyecto 3
+                 </div>
+               </div>
+               <div class="p-6">
+                 <h3 class="text-lg font-semibold text-gray-900 mb-2">E-commerce</h3>
+                 <p class="text-gray-600 text-sm mb-4">
+                   Tienda online con carrito de compras y checkout integrado.
+                 </p>
+                 <div class="flex flex-wrap gap-2">
+                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                     Vue
+                   </span>
+                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                     Stripe
+                   </span>
+                 </div>
+               </div>
+             </article>
+           </div>
+           
+           <a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+         </div>
+       </section>
+     `,
+   };
    ```
+
+   **Cómo probar:**
+
+   1. Navega a `#/proyectos` en tu navegador
+   2. Verifica grid responsive: 1 columna (móvil), 2 (tablet), 3 (desktop)
+   3. Usa DevTools responsive mode para probar breakpoints
+   4. Hover sobre tarjetas para ver transiciones
+   5. Verifica que todos los espaciados sean consistentes
 
 5. **Implementa patrón de componente Section:**
 
-   ```html
-   <!-- Wrapper de sección con padding consistente -->
-   <section class="py-16">
-   	<div class="container mx-auto px-4">
-   		<div class="max-w-4xl mx-auto">
-   			<header class="text-center mb-12">
-   				<h2 class="text-3xl font-bold text-gray-900 mb-4">Título de Sección</h2>
-   				<p class="text-lg text-gray-600">
-   					Patrón de sección consistente con espaciado y jerarquía tipográfica apropiados.
-   				</p>
-   			</header>
+   **Dónde:** Actualiza `src/views/sobre.js` (About page)
 
-   			<div class="prose prose-lg max-w-none">
-   				<!-- Contenido con estilizado consistente -->
-   			</div>
-   		</div>
-   	</div>
-   </section>
+   Aplica el patrón de sección consistente a tu página About:
+
+   ```javascript
+   // src/views/sobre.js
+   export default {
+   	template: `
+       <section class="py-16 min-h-screen">
+         <div class="container mx-auto px-4">
+           <div class="max-w-4xl mx-auto">
+             <!-- Header de sección -->
+             <header class="text-center mb-12">
+               <h1 class="text-4xl font-bold text-gray-900 mb-4">Sobre Mí</h1>
+               <p class="text-lg text-gray-600">
+                 Desarrollador web apasionado por crear experiencias digitales accesibles y performantes.
+               </p>
+             </header>
+   
+             <!-- Contenido principal con patrón consistente -->
+             <div class="prose prose-lg max-w-none">
+               <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Mi Historia</h2>
+                 <p class="text-gray-700 mb-4">
+                   Comencé mi camino en el desarrollo web en 2024, enfocándome en tecnologías modernas
+                   como Tailwind CSS, JavaScript vanilla, y arquitecturas SPA.
+                 </p>
+                 <p class="text-gray-700">
+                   Mi objetivo es crear interfaces que no solo se vean bien, sino que funcionen 
+                   perfectamente para todos los usuarios, independientemente de sus capacidades.
+                 </p>
+               </div>
+   
+               <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Habilidades</h2>
+                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                   <div class="text-center p-4 bg-primary-50 rounded-lg">
+                     <div class="text-3xl mb-2">🎨</div>
+                     <div class="font-medium text-gray-900">Tailwind CSS</div>
+                   </div>
+                   <div class="text-center p-4 bg-yellow-50 rounded-lg">
+                     <div class="text-3xl mb-2">⚡</div>
+                     <div class="font-medium text-gray-900">JavaScript</div>
+                   </div>
+                   <div class="text-center p-4 bg-green-50 rounded-lg">
+                     <div class="text-3xl mb-2">♿</div>
+                     <div class="font-medium text-gray-900">Accesibilidad</div>
+                   </div>
+                   <div class="text-center p-4 bg-blue-50 rounded-lg">
+                     <div class="text-3xl mb-2">📱</div>
+                     <div class="font-medium text-gray-900">Responsive Design</div>
+                   </div>
+                   <div class="text-center p-4 bg-purple-50 rounded-lg">
+                     <div class="text-3xl mb-2">🚀</div>
+                     <div class="font-medium text-gray-900">Performance</div>
+                   </div>
+                   <div class="text-center p-4 bg-pink-50 rounded-lg">
+                     <div class="text-3xl mb-2">🎯</div>
+                     <div class="font-medium text-gray-900">UX Design</div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             
+             <div class="text-center mt-12">
+               <a href="#/proyectos" class="inline-block bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-8 rounded-md transition-colors">
+                 Ver Mis Proyectos
+               </a>
+             </div>
+             
+             <a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+           </div>
+         </div>
+       </section>
+     `,
+   };
    ```
 
-6. **Prueba reutilización de componentes:**
+   **Cómo probar:**
 
-   - Copia patrones de tarjeta en diferentes secciones
-   - Verifica comportamiento responsive en todos los tamaños de pantalla
-   - Prueba estados hover y focus para accesibilidad
-   - Comprueba contraste de colores y marcado semántico
+   1. Navega a `#/sobre`
+   2. Verifica espaciado consistente (py-16, mb-12, mb-8, etc.)
+   3. Comprueba jerarquía tipográfica (h1 > h2 > p)
+   4. Prueba responsive en móvil (grid de habilidades: 2 cols → 3 cols)
+   5. Verifica que max-width contenga el contenido apropiadamente
 
-7. **Haz commit de tu sistema de componentes:**
+6. **Verifica que el router cargue las vistas actualizadas:**
+
+   **Asegúrate de que `src/views/index.js` incluya todas las vistas:**
+
+   ```javascript
+   // src/views/index.js
+   import home from './home.js';
+   import sobre from './sobre.js'; // Actualizada en paso 5
+   import proyectos from './proyectos.js'; // Actualizada en paso 4
+   import contacto from './contacto.js';
+   import tipografia from './tipografia.js';
+   import componentes from './componentes.js'; // Actualizada en pasos 2-3
+   import notFound from './404.js';
+
+   export const views = {
+   	'/': home,
+   	'/sobre': sobre,
+   	'/proyectos': proyectos,
+   	'/contacto': contacto,
+   	'/tipografia': tipografia,
+   	'/componentes': componentes,
+   	404: notFound,
+   };
+   ```
+
+7. **Prueba reutilización de componentes en todas las vistas:**
+
+   **Lista de verificación de testing:**
+
+   - [ ] `#/componentes` - Todos los patrones de componentes se visualizan
+   - [ ] `#/proyectos` - Grid responsive funciona en móvil/tablet/desktop
+   - [ ] `#/sobre` - Espaciado consistente y jerarquía tipográfica
+   - [ ] Hover sobre tarjetas en ambas vistas muestra transición de sombra
+   - [ ] Tab a través de botones muestra estados de focus claros
+   - [ ] DevTools confirma que clases de Tailwind se aplican correctamente
+   - [ ] Sin errores en consola del navegador
+   - [ ] Contraste de colores cumple WCAG AA (verifica con DevTools)
+
+8. **Haz commit de tu sistema de componentes:**
    ```bash
-   git add .
-   git commit -m "feat: S3 - Tokens de diseño + componentes reutilizables (botones, tarjetas, secciones)"
+   git add src/views/componentes.js src/views/proyectos.js src/views/sobre.js src/views/index.js
+   git commit -m "feat: S3 - Tokens de diseño + componentes reutilizables implementados en vistas
    ```
+
+- Actualizado componentes.js con sistema de botones y tarjetas
+- Actualizado proyectos.js con grid responsive de proyectos
+- Actualizado sobre.js con patrones de sección consistentes
+- Todos los componentes usando design tokens"
+
+  ```
+
+  ```
+
+## 🎓 Progresión Arquitectónica: De Monolítico a Modular
+
+### ¿Por Qué Empezamos con Todo en Una Vista?
+
+En los pasos anteriores, pusimos todos los componentes en `src/views/componentes.js`. Esto es **pedagógicamente intencional**:
+
+**Ventajas del enfoque inicial (todo en una vista):**
+
+- ✅ **Más simple de entender** al principio
+- ✅ **Menos archivos** = menos complejidad cognitiva
+- ✅ **Ver todo junto** ayuda a entender patrones
+- ✅ **Fácil de probar** en una sola ruta
+
+**Pero para estudiantes avanzados y proyectos reales...**
+
+### Nivel Avanzado: Componentes en Archivos Separados
+
+Para proyectos escalables y equipos grandes, cada componente debería estar en su propio archivo.
+
+**Ventajas del enfoque modular:**
+
+- ✅ **Reutilización real** - importa solo lo que necesitas
+- ✅ **Testing aislado** - prueba cada componente independientemente
+- ✅ **Colaboración** - diferentes devs en diferentes componentes
+- ✅ **Mantenibilidad** - cambios localizados
+- ✅ **Tree-shaking** - bundlers eliminan código no usado
+- ✅ **Profesional** - así se hace en la industria
+
+### 📁 Refactorización: Estructura Modular de Componentes
+
+Vamos a refactorizar para que quede así:
+
+```
+src/
+├── components/
+│   ├── Button.js           # Componente Button reutilizable
+│   ├── Card.js             # Componente Card reutilizable
+│   ├── Section.js          # Wrapper Section reutilizable
+│   └── SkillCard.js        # Componente SkillCard específico
+├── views/
+│   ├── componentes.js      # Importa y muestra componentes
+│   ├── proyectos.js        # Usa Card component
+│   ├── sobre.js            # Usa Section y SkillCard
+│   └── index.js
+├── router.js
+└── main.js
+```
+
+## 🎯 Ejercicios Prácticos: Refactorización Modular (Nivel Avanzado)
+
+### Ejercicio 3.3: Extraer Componentes a Archivos Separados
+
+#### Paso 1: Crea el componente Button reutilizable
+
+```javascript
+// src/components/Button.js
+/**
+ * Button Component
+ * Reusable button with variants: primary, secondary, ghost
+ * @param {string} variant - Button style variant
+ * @param {string} size - Button size (sm, md, lg)
+ * @param {string} text - Button text content
+ * @param {Function} onClick - Optional click handler
+ * @returns {string} HTML template string
+ */
+export function Button({ variant = 'primary', size = 'md', text = 'Button', onClick = null } = {}) {
+	const baseClasses =
+		'inline-flex items-center justify-center font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
+
+	const variants = {
+		primary: 'border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500',
+		secondary: 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-primary-500',
+		ghost: 'text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:ring-gray-500',
+	};
+
+	const sizes = {
+		sm: 'px-3 py-1.5 text-sm',
+		md: 'px-4 py-2 text-sm',
+		lg: 'px-6 py-3 text-base',
+	};
+
+	return `
+    <button 
+      class="${baseClasses} ${variants[variant]} ${sizes[size]}"
+      ${onClick ? `onclick="${onClick}"` : ''}>
+      ${text}
+    </button>
+  `;
+}
+
+// Export con valores por defecto para fácil uso
+export const PrimaryButton = (text, size = 'md') => Button({ variant: 'primary', text, size });
+export const SecondaryButton = (text, size = 'md') => Button({ variant: 'secondary', text, size });
+export const GhostButton = (text, size = 'md') => Button({ variant: 'ghost', text, size });
+```
+
+#### Paso 2: Crea el componente Card reutilizable
+
+```javascript
+// src/components/Card.js
+/**
+ * Card Component
+ * Reusable card with optional image, title, description, and tags
+ * @param {string} image - Image URL or gradient
+ * @param {string} title - Card title
+ * @param {string} description - Card description
+ * @param {Array<string>} tags - Array of tag names
+ * @param {string} tagColors - Tailwind color classes for tags
+ * @returns {string} HTML template string
+ */
+export function Card({ image = null, title = 'Card Title', description = '', tags = [], tagColors = {} } = {}) {
+	const imageSrc = image?.startsWith('http')
+		? `<img src="${image}" alt="${title}" class="w-full h-48 object-cover" />`
+		: `<div class="flex items-center justify-center ${image || 'bg-gray-200'} text-white text-2xl font-bold h-48">
+         ${title}
+       </div>`;
+
+	const tagsHtml =
+		tags.length > 0
+			? `
+      <div class="flex flex-wrap gap-2 mt-4">
+        ${tags
+									.map(
+										(tag, i) => `
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+											tagColors[tag] || 'bg-gray-100 text-gray-800'
+										}">
+            ${tag}
+          </span>
+        `
+									)
+									.join('')}
+      </div>
+    `
+			: '';
+
+	return `
+    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+      <div class="aspect-w-16 aspect-h-9">
+        ${imageSrc}
+      </div>
+      <div class="p-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">${title}</h3>
+        <p class="text-gray-600 text-sm">${description}</p>
+        ${tagsHtml}
+      </div>
+    </article>
+  `;
+}
+```
+
+#### Paso 3: Crea el componente Section wrapper
+
+```javascript
+// src/components/Section.js
+/**
+ * Section Component
+ * Consistent section wrapper with header and content
+ * @param {string} title - Section title
+ * @param {string} subtitle - Section subtitle (optional)
+ * @param {string} content - Section HTML content
+ * @param {string} bgColor - Background color class
+ * @returns {string} HTML template string
+ */
+export function Section({ title, subtitle = '', content = '', bgColor = 'bg-white' } = {}) {
+	return `
+    <div class="${bgColor} rounded-lg shadow-md p-8 mb-8">
+      ${
+							title
+								? `
+        <header class="mb-6">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">${title}</h2>
+          ${subtitle ? `<p class="text-gray-600">${subtitle}</p>` : ''}
+        </header>
+      `
+								: ''
+						}
+      <div class="content">
+        ${content}
+      </div>
+    </div>
+  `;
+}
+```
+
+#### Paso 4: Refactoriza la vista de componentes para usar imports
+
+```javascript
+// src/views/componentes.js
+import { Button, PrimaryButton, SecondaryButton, GhostButton } from '../components/Button.js';
+import { Card } from '../components/Card.js';
+import { Section } from '../components/Section.js';
+
+export default {
+	template: `
+    <section class="py-16 bg-gray-50 min-h-screen">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Sistema de Componentes Modular</h1>
+        
+        ${Section({
+									title: 'Sistema de Botones',
+									content: `
+            <div class="flex flex-wrap gap-4">
+              ${PrimaryButton('Botón Primario')}
+              ${SecondaryButton('Botón Secundario')}
+              ${GhostButton('Botón Ghost')}
+            </div>
+            
+            <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Tamaños</h3>
+            <div class="flex flex-wrap items-center gap-4">
+              ${Button({ text: 'Pequeño', size: 'sm' })}
+              ${Button({ text: 'Mediano', size: 'md' })}
+              ${Button({ text: 'Grande', size: 'lg' })}
+            </div>
+          `,
+								})}
+        
+        ${Section({
+									title: 'Sistema de Tarjetas',
+									content: `
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              ${Card({
+															image: 'https://picsum.photos/400/225?random=1',
+															title: 'Proyecto 1',
+															description: 'Tarjeta con imagen real desde API.',
+															tags: ['React', 'API'],
+															tagColors: {
+																React: 'bg-primary-100 text-primary-800',
+																API: 'bg-green-100 text-green-800',
+															},
+														})}
+              
+              ${Card({
+															image: 'bg-gradient-to-r from-blue-400 to-purple-500',
+															title: 'Proyecto 2',
+															description: 'Tarjeta con gradiente CSS.',
+															tags: ['Vue', 'Tailwind'],
+															tagColors: {
+																Vue: 'bg-green-100 text-green-800',
+																Tailwind: 'bg-blue-100 text-blue-800',
+															},
+														})}
+              
+              ${Card({
+															title: 'Proyecto 3',
+															description: 'Tarjeta sin imagen.',
+															tags: ['TypeScript'],
+															tagColors: {
+																TypeScript: 'bg-blue-100 text-blue-800',
+															},
+														})}
+            </div>
+          `,
+								})}
+        
+        <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+      </div>
+    </section>
+  `,
+};
+```
+
+#### Paso 5: Usa componentes en otras vistas
+
+```javascript
+// src/views/proyectos.js
+import { Card } from '../components/Card.js';
+
+export default {
+	template: `
+    <section class="py-16 bg-gray-50 min-h-screen">
+      <div class="container mx-auto px-4">
+        <header class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Proyectos Destacados</h1>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Componentes Card reutilizados desde src/components/Card.js
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          ${Card({
+											image: 'bg-gradient-to-r from-blue-400 to-purple-500',
+											title: 'Portfolio Personal',
+											description: 'Sitio web responsive construido con Tailwind CSS.',
+											tags: ['Tailwind', 'JavaScript'],
+											tagColors: {
+												Tailwind: 'bg-primary-100 text-primary-800',
+												JavaScript: 'bg-yellow-100 text-yellow-800',
+											},
+										})}
+          
+          ${Card({
+											image: 'bg-gradient-to-r from-green-400 to-teal-500',
+											title: 'Dashboard Analítico',
+											description: 'Interfaz de análisis de datos con componentes reutilizables.',
+											tags: ['React', 'API'],
+											tagColors: {
+												React: 'bg-blue-100 text-blue-800',
+												API: 'bg-purple-100 text-purple-800',
+											},
+										})}
+          
+          ${Card({
+											image: 'bg-gradient-to-r from-pink-400 to-red-500',
+											title: 'E-commerce',
+											description: 'Tienda online con carrito de compras.',
+											tags: ['Vue', 'Stripe'],
+											tagColors: {
+												Vue: 'bg-green-100 text-green-800',
+												Stripe: 'bg-indigo-100 text-indigo-800',
+											},
+										})}
+        </div>
+        
+        <a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+      </div>
+    </section>
+  `,
+};
+```
+
+### 🎨 Ventajas de Este Enfoque Modular
+
+**1. Reutilización Real:**
+
+```javascript
+// Usa el mismo componente en múltiples vistas
+import { Card } from '../components/Card.js';
+// proyectos.js, componentes.js, blog.js todos usan Card
+```
+
+**2. Testing Aislado:**
+
+```javascript
+// Prueba solo el componente Button
+import { Button } from '../components/Button.js';
+// Test unitario sin dependencias de vistas
+```
+
+**3. Mantenimiento Localizado:**
+
+```javascript
+// Cambiar Button.js actualiza TODAS las vistas que lo usan
+// Un cambio, múltiples beneficios
+```
+
+**4. Documentación Clara:**
+
+```javascript
+// JSDoc en cada componente explica uso
+/**
+ * @param {string} variant - Button style variant
+ * @param {string} size - Button size (sm, md, lg)
+ */
+```
+
+### 🔄 Comparación de Enfoques
+
+| Aspecto                 | Monolítico (S3 básico) | Modular (S3 avanzado)  |
+| ----------------------- | ---------------------- | ---------------------- |
+| **Complejidad inicial** | ⭐ Baja                | ⭐⭐⭐ Alta            |
+| **Reutilización**       | ❌ Copy-paste          | ✅ Import              |
+| **Mantenibilidad**      | ⭐⭐ Media             | ⭐⭐⭐⭐⭐ Excelente   |
+| **Testing**             | ⭐ Difícil             | ⭐⭐⭐⭐⭐ Fácil       |
+| **Colaboración**        | ⭐⭐ Conflictos        | ⭐⭐⭐⭐⭐ Paralela    |
+| **Escalabilidad**       | ⭐⭐ Limitada          | ⭐⭐⭐⭐⭐ Ilimitada   |
+| **Bundle size**         | ⭐⭐⭐ Todo incluido   | ⭐⭐⭐⭐⭐ Tree-shaken |
+
+### 💡 Cuándo Usar Cada Enfoque
+
+**Usa enfoque monolítico (todo en una vista) cuando:**
+
+- 🎓 Estás aprendiendo y quieres simplicidad
+- 🚀 Prototipado rápido
+- 👤 Proyecto personal pequeño
+- 📝 Los componentes son únicos a esa vista
+
+**Usa enfoque modular (archivos separados) cuando:**
+
+- 👥 Trabajas en equipo
+- 📈 El proyecto crecerá
+- 🔄 Necesitas reutilizar componentes
+- ✅ Quieres testing robusto
+- 💼 Es un proyecto profesional
+
+### 🏆 Desafío para Estudiantes Avanzados
+
+**Refactoriza tu proyecto completo:**
+
+1. ✅ Crea carpeta `src/components/`
+2. ✅ Extrae Button, Card, Section a archivos separados
+3. ✅ Añade JSDoc a cada componente
+4. ✅ Actualiza todas las vistas para importar componentes
+5. ✅ Crea un `src/components/index.js` para barrel exports:
+
+```javascript
+// src/components/index.js
+export { Button, PrimaryButton, SecondaryButton, GhostButton } from './Button.js';
+export { Card } from './Card.js';
+export { Section } from './Section.js';
+
+// Ahora importa todo desde un lugar:
+// import { Button, Card, Section } from '../components/index.js';
+```
+
+6. ✅ Commit con mensaje descriptivo:
+
+```bash
+git add src/components/ src/views/
+git commit -m "refactor: Extract components to separate files for reusability
+
+- Create src/components/ directory structure
+- Extract Button, Card, Section components
+- Add JSDoc documentation to all components
+- Update views to import from components
+- Add barrel export in components/index.js
+
+BREAKING CHANGE: Views now depend on component imports"
+```
+
+## 🎯 Ejercicios Prácticos: Mejorando Tus Rutas de Componentes
+
+Ahora que entiendes los tokens de diseño y patrones de componentes, mejora las rutas que creaste en S2.
+
+### Ejercicio 3.1: Actualiza Tu Playground de Componentes
+
+Actualiza tu `src/views/componentes.js` para usar tokens de diseño:
+
+```javascript
+// src/views/componentes.js
+export default {
+	template: `
+    <section class="py-16 bg-surface-light min-h-screen">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Muestra de Sistema de Diseño</h1>
+        
+        <!-- Sistema de Botones con Tokens de Diseño -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Botones</h2>
+          <div class="flex flex-wrap gap-4">
+            <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+              Acción Primaria
+            </button>
+            <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+              Acción Secundaria
+            </button>
+            <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
+              Botón Ghost
+            </button>
+          </div>
+          
+          <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Tamaños de Botón</h3>
+          <div class="flex flex-wrap items-center gap-4">
+            <button class="px-3 py-1.5 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+              Pequeño
+            </button>
+            <button class="px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+              Mediano
+            </button>
+            <button class="px-6 py-3 text-base font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+              Grande
+            </button>
+          </div>
+        </div>
+
+        <!-- Biblioteca de Patrones de Tarjetas -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Patrones de Tarjetas</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Tarjeta con Imagen -->
+            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                <img src="https://picsum.photos/400/225?random=1" alt="Vista previa del proyecto" class="w-full h-48 object-cover" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Tarjeta con Imagen</h3>
+                <p class="text-gray-600 text-sm mb-4">Tarjeta con cabecera de imagen y contenido de texto debajo.</p>
+                <div class="flex gap-2">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">Diseño</span>
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Destacado</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Tarjeta con Icono -->
+            <article class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
+              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Tarjeta con Icono</h3>
+              <p class="text-gray-600 text-sm">Tarjeta con icono centrado y contenido.</p>
+            </article>
+
+            <!-- Tarjeta de Estadísticas -->
+            <article class="bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg shadow-md p-6 text-white hover:shadow-lg transition-shadow">
+              <h3 class="text-sm font-medium text-primary-100 mb-1">Total Proyectos</h3>
+              <p class="text-3xl font-bold mb-1">42</p>
+              <p class="text-sm text-primary-100">↑ 12% desde el mes pasado</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Componentes de Formulario -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Componentes de Formulario</h2>
+          <div class="max-w-md space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+              <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Ingresa tu nombre" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="tu@ejemplo.com" />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+              <textarea id="message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Tu mensaje..."></textarea>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+      </div>
+    </section>
+  `,
+};
+```
+
+### Ejercicio 3.2: Crea una Ruta de Referencia de Tokens de Diseño
+
+Crea una nueva ruta para documentar tu sistema de diseño:
+
+```javascript
+// src/views/tokens-diseno.js
+export default {
+	template: `
+    <section class="py-16 min-h-screen">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Referencia de Tokens de Diseño</h1>
+        
+        <!-- Paleta de Colores -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Colores</h2>
+          
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Colores Primarios</h3>
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+            <div class="space-y-2">
+              <div class="h-20 bg-primary-50 rounded border border-gray-200"></div>
+              <p class="text-sm font-mono text-gray-600">primary-50</p>
+            </div>
+            <div class="space-y-2">
+              <div class="h-20 bg-primary-500 rounded"></div>
+              <p class="text-sm font-mono text-gray-600">primary-500</p>
+            </div>
+            <div class="space-y-2">
+              <div class="h-20 bg-primary-900 rounded"></div>
+              <p class="text-sm font-mono text-gray-600">primary-900</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Colores de Superficie</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <div class="h-20 bg-surface-light rounded border border-gray-200"></div>
+              <p class="text-sm font-mono text-gray-600">surface-light</p>
+            </div>
+            <div class="space-y-2">
+              <div class="h-20 bg-surface-dark rounded"></div>
+              <p class="text-sm font-mono text-gray-600 text-white">surface-dark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Escala Tipográfica -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Escala Tipográfica</h2>
+          <div class="space-y-4">
+            <div class="border-b border-gray-200 pb-4">
+              <p class="text-5xl font-bold text-gray-900 mb-2">Display</p>
+              <p class="text-sm text-gray-600 font-mono">text-5xl font-bold</p>
+            </div>
+            <div class="border-b border-gray-200 pb-4">
+              <p class="text-4xl font-bold text-gray-900 mb-2">Encabezado 1</p>
+              <p class="text-sm text-gray-600 font-mono">text-4xl font-bold</p>
+            </div>
+            <div class="border-b border-gray-200 pb-4">
+              <p class="text-3xl font-bold text-gray-900 mb-2">Encabezado 2</p>
+              <p class="text-sm text-gray-600 font-mono">text-3xl font-bold</p>
+            </div>
+            <div class="border-b border-gray-200 pb-4">
+              <p class="text-base text-gray-900 mb-2">Texto de Cuerpo - El veloz murciélago hindú comía feliz cardillo y kiwi</p>
+              <p class="text-sm text-gray-600 font-mono">text-base</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sistema de Espaciado -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Espaciado</h2>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-20 text-sm font-mono text-gray-600">spacing-4</div>
+              <div class="h-4 bg-primary-500 rounded" style="width: 1rem;"></div>
+              <span class="text-sm text-gray-600">1rem / 16px</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-20 text-sm font-mono text-gray-600">spacing-8</div>
+              <div class="h-4 bg-primary-500 rounded" style="width: 2rem;"></div>
+              <span class="text-sm text-gray-600">2rem / 32px</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-20 text-sm font-mono text-gray-600">spacing-18</div>
+              <div class="h-4 bg-primary-500 rounded" style="width: 4.5rem;"></div>
+              <span class="text-sm text-gray-600">4.5rem / 72px (personalizado)</span>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#/componentes" class="inline-block text-primary-500 hover:text-primary-600 font-medium">Ver Componentes →</a>
+      </div>
+    </section>
+  `,
+};
+```
+
+Registra la nueva ruta:
+
+```javascript
+// src/views/index.js
+import home from './home.js';
+import sobre from './sobre.js';
+import proyectos from './proyectos.js';
+import contacto from './contacto.js';
+import tipografia from './tipografia.js';
+import componentes from './componentes.js';
+import tokensDiseno from './tokens-diseno.js'; // Añade esto
+import notFound from './404.js';
+
+export const views = {
+	'/': home,
+	'/sobre': sobre,
+	'/proyectos': proyectos,
+	'/contacto': contacto,
+	'/tipografia': tipografia,
+	'/componentes': componentes,
+	'/tokens-diseno': tokensDiseno, // Añade esto
+	404: notFound,
+};
+```
+
+Añade a la navegación:
+
+```html
+<!-- index.html -->
+<li><a href="#/componentes" class="hover:text-blue-400 transition-colors">Componentes</a></li>
+<li><a href="#/tokens-diseno" class="hover:text-blue-400 transition-colors">Tokens de Diseño</a></li>
+```
+
+**Haz commit de tu sistema de componentes mejorado:**
+
+```bash
+git add .
+git commit -m "feat: S3 - Componentes mejorados con tokens de diseño y documentación"
+```
+
+### 🎨 Mejores Prácticas de Sistemas de Diseño
+
+- **Documenta todo:** Tu ruta de tokens de diseño se convierte en documentación viva
+- **Consistencia primero:** Cada nuevo componente debe usar tokens, no valores arbitrarios
+- **Verificaciones de accesibilidad:** Prueba contraste de colores, estados de foco y navegación por teclado
+- **Mobile-first:** Construye componentes responsive desde la pantalla más pequeña hacia arriba
 
 ## 🎓 Explicaciones Pedagógicas
 

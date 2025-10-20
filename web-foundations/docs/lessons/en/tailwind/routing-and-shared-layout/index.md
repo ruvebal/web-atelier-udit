@@ -86,7 +86,7 @@ This session implements **hash-based routing** for smooth navigation without ful
 
    		<!-- Shared navigation (semantic list) -->
    		<nav class="bg-gray-900 text-white sticky top-0 z-50" role="navigation" aria-label="Main navigation">
-   			<div class="container mx-auto px-4">
+   			<div class="mx-auto px-4">
    				<div class="flex justify-between items-center py-4">
    					<a href="#/" class="text-xl font-bold hover:text-blue-400 transition-colors" aria-label="Home">Portfolio</a>
    					<ul class="flex gap-6">
@@ -168,56 +168,121 @@ This session implements **hash-based routing** for smooth navigation without ful
    export default SimpleRouter;
    ```
 
-3. **Create view templates:**
+3. **Create views directory structure:**
+
+   First, create separate view files for better organization and maintainability:
 
    ```javascript
-   // src/views.js
+   // src/views/home.js
+   export default {
+   	template: `
+      <section class="py-16">
+        <div class="container mx-auto px-4 text-center">
+          <h1 class="text-5xl font-bold text-gray-900 mb-6">Welcome Home</h1>
+          <p class="text-xl text-gray-600 mb-8">This is the home page of our SPA.</p>
+          <a href="#/about" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+            Learn About Us
+          </a>
+        </div>
+      </section>
+    `,
+   };
+   ```
+
+   ```javascript
+   // src/views/about.js
+   export default {
+   	template: `
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <h1 class="text-4xl font-bold text-gray-900 mb-6">About Us</h1>
+          <div class="max-w-3xl mx-auto">
+            <p class="text-lg text-gray-700 mb-4">
+              We build modern web applications with Tailwind CSS and vanilla JavaScript.
+              Our focus is on accessibility, performance, and user experience.
+            </p>
+            <p class="text-lg text-gray-700 mb-6">
+              This SPA demonstrates routing, responsive design, and progressive enhancement.
+            </p>
+            <a href="#/" class="text-blue-500 hover:text-blue-600 font-medium">← Back to Home</a>
+          </div>
+        </div>
+      </section>
+    `,
+   };
+   ```
+
+   ```javascript
+   // src/views/projects.js
+   export default {
+   	template: `
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <h1 class="text-4xl font-bold text-gray-900 mb-6">Our Projects</h1>
+          <div class="max-w-3xl mx-auto">
+            <p class="text-lg text-gray-700 mb-6">
+              Coming soon: A showcase of projects built with modern web technologies.
+            </p>
+            <a href="#/" class="text-blue-500 hover:text-blue-600 font-medium">← Back to Home</a>
+          </div>
+        </div>
+      </section>
+    `,
+   };
+   ```
+
+   ```javascript
+   // src/views/contact.js
+   export default {
+   	template: `
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <h1 class="text-4xl font-bold text-gray-900 mb-6">Contact</h1>
+          <div class="max-w-3xl mx-auto">
+            <p class="text-lg text-gray-700 mb-6">
+              Get in touch with us through our social channels.
+            </p>
+            <a href="#/" class="text-blue-500 hover:text-blue-600 font-medium">← Back to Home</a>
+          </div>
+        </div>
+      </section>
+    `,
+   };
+   ```
+
+   ```javascript
+   // src/views/404.js
+   export default {
+   	template: `
+      <section class="py-16">
+        <div class="container mx-auto px-4 text-center">
+          <h1 class="text-4xl font-bold text-gray-900 mb-6">Page Not Found</h1>
+          <p class="text-xl text-gray-600 mb-8">The page you're looking for doesn't exist.</p>
+          <a href="#/" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+            Go Home
+          </a>
+        </div>
+      </section>
+    `,
+   };
+   ```
+
+   Now create an index file to collect all views:
+
+   ```javascript
+   // src/views/index.js
+   import home from './home.js';
+   import about from './about.js';
+   import projects from './projects.js';
+   import contact from './contact.js';
+   import notFound from './404.js';
+
    export const views = {
-   	'/': {
-   		template: `
-         <section class="py-16">
-           <div class="container mx-auto px-4 text-center">
-             <h1 class="text-5xl font-bold text-gray-900 mb-6">Welcome Home</h1>
-             <p class="text-xl text-gray-600 mb-8">This is the home page of our SPA.</p>
-             <a href="#/about" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-colors">
-               Learn About Us
-             </a>
-           </div>
-         </section>
-       `,
-   	},
-   	'/about': {
-   		template: `
-         <section class="py-16">
-           <div class="container mx-auto px-4">
-             <h1 class="text-4xl font-bold text-gray-900 mb-6">About Us</h1>
-             <div class="max-w-3xl mx-auto">
-               <p class="text-lg text-gray-700 mb-4">
-                 We build modern web applications with Tailwind CSS and vanilla JavaScript.
-                 Our focus is on accessibility, performance, and user experience.
-               </p>
-               <p class="text-lg text-gray-700 mb-6">
-                 This SPA demonstrates routing, responsive design, and progressive enhancement.
-               </p>
-               <a href="#/" class="text-blue-500 hover:text-blue-600 font-medium">← Back to Home</a>
-             </div>
-           </div>
-         </section>
-       `,
-   	},
-   	404: {
-   		template: `
-         <section class="py-16">
-           <div class="container mx-auto px-4 text-center">
-             <h1 class="text-4xl font-bold text-gray-900 mb-6">Page Not Found</h1>
-             <p class="text-xl text-gray-600 mb-8">The page you're looking for doesn't exist.</p>
-             <a href="#/" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-colors">
-               Go Home
-             </a>
-           </div>
-         </section>
-       `,
-   	},
+   	'/': home,
+   	'/about': about,
+   	'/projects': projects,
+   	'/contact': contact,
+   	404: notFound,
    };
    ```
 
@@ -226,9 +291,8 @@ This session implements **hash-based routing** for smooth navigation without ful
    ```javascript
    // src/main.js
    import SimpleRouter from './router.js';
-   import { views } from './views.js';
-   import './style.css'
-
+   import { views } from './views/index.js';
+   import './style.css';
 
    // Initialize router
    const router = new SimpleRouter(views);
@@ -267,6 +331,165 @@ This session implements **hash-based routing** for smooth navigation without ful
    git add .
    git commit -m "feat: S2 - SPA hash router + shared layout, accessible navigation"
    ```
+
+## 🎯 Practice Exercises: Building Routes for Web Design Practice
+
+Now that you have a modular routing system, each new Tailwind exercise can have its own route! This approach keeps your code organized and lets you build a portfolio of design experiments.
+
+### Exercise 2.1: Create a Typography Showcase Route
+
+Create a route to practice typography and color:
+
+```javascript
+// src/views/typography.js
+export default {
+	template: `
+    <section class="py-16 bg-gradient-to-br from-purple-50 to-blue-50 min-h-screen">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h1 class="text-5xl font-bold text-gray-900 mb-4">Typography & Color</h1>
+        <p class="text-xl text-gray-600 mb-8">Exploring Tailwind's typographic scale and color system</p>
+        
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Heading Hierarchy</h2>
+          <h3 class="text-2xl font-semibold text-gray-800 mb-2">Subheading Example</h3>
+          <h4 class="text-xl font-medium text-gray-700 mb-2">Section Title</h4>
+          <p class="text-base text-gray-600 leading-relaxed mb-4">
+            This is body text demonstrating proper line height and spacing. 
+            Notice how Tailwind's default typography creates readable, accessible content.
+          </p>
+          <p class="text-sm text-gray-500">Small text for metadata or captions.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-blue-500 text-white p-4 rounded text-center font-semibold">Blue</div>
+          <div class="bg-green-500 text-white p-4 rounded text-center font-semibold">Green</div>
+          <div class="bg-purple-500 text-white p-4 rounded text-center font-semibold">Purple</div>
+          <div class="bg-red-500 text-white p-4 rounded text-center font-semibold">Red</div>
+        </div>
+        
+        <a href="#/" class="inline-block mt-8 text-blue-600 hover:text-blue-700 font-medium">← Back to Home</a>
+      </div>
+    </section>
+  `,
+};
+```
+
+Then register it:
+
+```javascript
+// src/views/index.js
+import home from './home.js';
+import about from './about.js';
+import projects from './projects.js';
+import contact from './contact.js';
+import typography from './typography.js'; // Add this
+import notFound from './404.js';
+
+export const views = {
+	'/': home,
+	'/about': about,
+	'/projects': projects,
+	'/contact': contact,
+	'/typography': typography, // Add this
+	404: notFound,
+};
+```
+
+Add to navigation:
+
+```html
+<!-- index.html - Add to nav list -->
+<li><a href="#/typography" class="hover:text-blue-400 transition-colors">Typography</a></li>
+```
+
+### Exercise 2.2: Create a Components Playground Route
+
+This route will be your testing ground for reusable components:
+
+```javascript
+// src/views/components.js
+export default {
+	template: `
+    <section class="py-16 bg-gray-50 min-h-screen">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Component Playground</h1>
+        
+        <!-- Button variants -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Buttons</h2>
+          <div class="flex flex-wrap gap-4">
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors">
+              Primary
+            </button>
+            <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">
+              Secondary
+            </button>
+            <button class="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 font-bold py-2 px-4 rounded transition-colors">
+              Outline
+            </button>
+          </div>
+        </div>
+
+        <!-- Card grid -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Cards</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <article class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div class="h-32 bg-gradient-to-r from-blue-400 to-purple-500"></div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 mb-2">Card Title</h3>
+                <p class="text-gray-600 text-sm">Card description goes here.</p>
+              </div>
+            </article>
+            
+            <article class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div class="h-32 bg-gradient-to-r from-green-400 to-teal-500"></div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 mb-2">Card Title</h3>
+                <p class="text-gray-600 text-sm">Card description goes here.</p>
+              </div>
+            </article>
+            
+            <article class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div class="h-32 bg-gradient-to-r from-pink-400 to-red-500"></div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 mb-2">Card Title</h3>
+                <p class="text-gray-600 text-sm">Card description goes here.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        
+        <a href="#/" class="inline-block text-blue-600 hover:text-blue-700 font-medium">← Back to Home</a>
+      </div>
+    </section>
+  `,
+};
+```
+
+**Commit your practice work:**
+
+```bash
+git add .
+git commit -m "feat: Add typography and components practice routes"
+```
+
+### 🎨 Why This Approach Works
+
+- **Isolated experimentation:** Each design concept has its own route
+- **Portfolio building:** Your SPA becomes a showcase of your work
+- **Progressive complexity:** Start simple, add features incrementally
+- **Real routing practice:** You're learning professional code organization
+- **Future-ready:** In S3, we'll refactor these into reusable components
+
+### 💡 Challenge Exercise
+
+Create your own route for responsive layout practice:
+
+1. Create `src/views/layouts.js`
+2. Build a page showcasing different grid and flexbox patterns
+3. Add it to `src/views/index.js` and navigation
+4. Test responsive behavior at different screen sizes
 
 ## 🎓 Pedagogical Explanations
 
@@ -328,7 +551,7 @@ Following our **atelier methodology**, reflect on these questions:
 
 ## 🏗️ Minimal Repo Scaffold
 
-Here's a complete starting point for your SPA router:
+Here's a complete starting point for your SPA router with modular views:
 
 ```
 spa-portfolio/
@@ -336,9 +559,23 @@ spa-portfolio/
 ├── src/
 │   ├── main.js
 │   ├── router.js
-│   └── views.js
+│   ├── style.css
+│   └── views/
+│       ├── index.js
+│       ├── home.js
+│       ├── about.js
+│       ├── projects.js
+│       ├── contact.js
+│       └── 404.js
 └── package.json
 ```
+
+**Why separate view files?**
+
+- **Maintainability:** Each view is self-contained and easy to locate
+- **Scalability:** Adding new routes doesn't bloat a single file
+- **Team collaboration:** Multiple developers can work on different views simultaneously
+- **Pedagogy:** Teaches proper code organization from the start
 
 **src/router.js:**
 
@@ -388,40 +625,62 @@ class SimpleRouter {
 export default SimpleRouter;
 ```
 
-**src/views.js:**
+**src/views/home.js:**
 
 ```javascript
+export default {
+	template: `
+    <section class="py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl font-bold text-gray-900 mb-6">Welcome Home</h1>
+        <p class="text-xl text-gray-600 mb-8">Navigate using the menu above!</p>
+      </div>
+    </section>
+  `,
+};
+```
+
+**src/views/about.js:**
+
+```javascript
+export default {
+	template: `
+    <section class="py-16">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h1 class="text-4xl font-bold text-gray-900 mb-6">About This SPA</h1>
+        <p class="text-lg text-gray-700">Built with vanilla JavaScript and Tailwind CSS for maximum control and learning.</p>
+      </div>
+    </section>
+  `,
+};
+```
+
+**src/views/404.js:**
+
+```javascript
+export default {
+	template: `
+    <section class="py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold text-gray-900 mb-6">Page Not Found</h1>
+        <a href="#/" class="text-blue-500 hover:text-blue-600">Go Home</a>
+      </div>
+    </section>
+  `,
+};
+```
+
+**src/views/index.js:**
+
+```javascript
+import home from './home.js';
+import about from './about.js';
+import notFound from './404.js';
+
 export const views = {
-	'/': {
-		template: `
-      <section class="py-16">
-        <div class="container mx-auto px-4 text-center">
-          <h1 class="text-5xl font-bold text-gray-900 mb-6">Welcome Home</h1>
-          <p class="text-xl text-gray-600 mb-8">Navigate using the menu above!</p>
-        </div>
-      </section>
-    `,
-	},
-	'/about': {
-		template: `
-      <section class="py-16">
-        <div class="container mx-auto px-4 max-w-3xl">
-          <h1 class="text-4xl font-bold text-gray-900 mb-6">About This SPA</h1>
-          <p class="text-lg text-gray-700">Built with vanilla JavaScript and Tailwind CSS for maximum control and learning.</p>
-        </div>
-      </section>
-    `,
-	},
-	404: {
-		template: `
-      <section class="py-16">
-        <div class="container mx-auto px-4 text-center">
-          <h1 class="text-4xl font-bold text-gray-900 mb-6">Page Not Found</h1>
-          <a href="#/" class="text-blue-500 hover:text-blue-600">Go Home</a>
-        </div>
-      </section>
-    `,
-	},
+	'/': home,
+	'/about': about,
+	404: notFound,
 };
 ```
 

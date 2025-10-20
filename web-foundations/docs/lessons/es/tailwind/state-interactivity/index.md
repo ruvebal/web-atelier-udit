@@ -62,6 +62,17 @@ Nuestro enfoque crea **interactividad PWA-ready** con mejora progresiva y diseñ
 
 Esta sesión añade comportamiento dinámico a componentes, enfocándose en formularios, estados de navegación y sistemas de feedback de usuario.
 
+### 🔗 Construyendo sobre el Sistema de Ruteo S2-S3
+
+En S2, creaste un sistema de ruteo modular, y en S3, lo mejoraste con un sistema de diseño. Ahora añadiremos **rutas interactivas** que demuestran gestión de estado y validación de formularios. Ya deberías tener:
+
+- Estructura modular de vistas en `src/views/`
+- Router manejando navegación por hash
+- Tokens de diseño para estilizado consistente
+- Patrones de componentes de S3
+
+**Esta sesión se enfoca en añadir interactividad** a tus rutas existentes y crear nuevas demostraciones interactivas.
+
 ### Implementación paso a paso
 
 1. **Crea formulario de contacto accesible:**
@@ -323,6 +334,448 @@ Esta sesión añade comportamiento dinámico a componentes, enfocándose en form
    git add .
    git commit -m "feat: S4 - Validación de formulario + navegación interactiva (estados accesibles)"
    ```
+
+## 🎯 Ejercicios Prácticos: Construyendo Rutas Interactivas
+
+Ahora creemos rutas dedicadas para practicar gestión de estado e interactividad, continuando nuestro enfoque de ruteo modular.
+
+### Ejercicio 4.1: Crea Ruta de Muestra Interactiva
+
+Construye una ruta demostrando varios estados interactivos:
+
+```javascript
+// src/views/interactivo.js
+export default {
+	template: `
+    <section class="py-16 bg-gray-50 min-h-screen">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Muestra de Estados Interactivos</h1>
+        
+        <!-- Demo de Estados de Botones -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Estados de Botones</h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Estados Hover y Focus</h3>
+              <button class="bg-primary-500 hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 text-white font-medium py-2 px-4 rounded-md transition-colors">
+                Pasa el Mouse y Haz Click
+              </button>
+            </div>
+            
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Estado de Carga</h3>
+              <button id="loading-btn" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-md transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                Click para Cargar
+              </button>
+            </div>
+            
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Estado Deshabilitado</h3>
+              <button disabled class="bg-gray-400 text-white font-medium py-2 px-4 rounded-md cursor-not-allowed opacity-50">
+                Botón Deshabilitado
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estados de Toggle y Checkbox -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Estados de Toggle y Selección</h2>
+          
+          <div class="space-y-4">
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input type="checkbox" class="w-5 h-5 text-primary-500 rounded focus:ring-2 focus:ring-primary-500" />
+              <span class="text-gray-700">Habilitar notificaciones</span>
+            </label>
+            
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input type="checkbox" checked class="w-5 h-5 text-primary-500 rounded focus:ring-2 focus:ring-primary-500" />
+              <span class="text-gray-700">Recibir actualizaciones</span>
+            </label>
+            
+            <div class="flex items-center space-x-4">
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="radio" name="theme" value="light" class="w-4 h-4 text-primary-500 focus:ring-2 focus:ring-primary-500" checked />
+                <span class="text-gray-700">Modo Claro</span>
+              </label>
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="radio" name="theme" value="dark" class="w-4 h-4 text-primary-500 focus:ring-2 focus:ring-primary-500" />
+                <span class="text-gray-700">Modo Oscuro</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estado Dropdown/Acordeón -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Estado de Acordeón</h2>
+          
+          <div class="space-y-2">
+            <div class="border border-gray-200 rounded-lg">
+              <button class="accordion-trigger w-full text-left px-4 py-3 font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-lg transition-colors">
+                ¿Qué es Tailwind CSS?
+              </button>
+              <div class="accordion-content hidden px-4 pb-3 text-gray-600">
+                Tailwind CSS es un framework CSS utility-first para construir interfaces de usuario personalizadas rápidamente.
+              </div>
+            </div>
+            
+            <div class="border border-gray-200 rounded-lg">
+              <button class="accordion-trigger w-full text-left px-4 py-3 font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-lg transition-colors">
+                ¿Cómo funciona la gestión de estado?
+              </button>
+              <div class="accordion-content hidden px-4 pb-3 text-gray-600">
+                La gestión de estado rastrea la condición actual de elementos UI y los actualiza basándose en interacciones de usuario.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo de Notificación Toast -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Estados de Notificación</h2>
+          <button id="show-toast" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-md transition-colors">
+            Mostrar Notificación
+          </button>
+          <div id="toast-container" class="fixed bottom-4 right-4 space-y-2 z-50"></div>
+        </div>
+        
+        <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+      </div>
+    </section>
+  `,
+	script() {
+		// Botón de carga
+		const loadingBtn = document.getElementById('loading-btn');
+		if (loadingBtn) {
+			loadingBtn.addEventListener('click', () => {
+				loadingBtn.textContent = 'Cargando...';
+				loadingBtn.disabled = true;
+				setTimeout(() => {
+					loadingBtn.textContent = '¡Éxito!';
+					loadingBtn.classList.add('bg-green-500');
+					setTimeout(() => {
+						loadingBtn.textContent = 'Click para Cargar';
+						loadingBtn.disabled = false;
+						loadingBtn.classList.remove('bg-green-500');
+					}, 1500);
+				}, 2000);
+			});
+		}
+
+		// Funcionalidad de acordeón
+		document.querySelectorAll('.accordion-trigger').forEach((trigger) => {
+			trigger.addEventListener('click', () => {
+				const content = trigger.nextElementSibling;
+				content.classList.toggle('hidden');
+			});
+		});
+
+		// Notificación toast
+		const showToastBtn = document.getElementById('show-toast');
+		const toastContainer = document.getElementById('toast-container');
+		if (showToastBtn && toastContainer) {
+			showToastBtn.addEventListener('click', () => {
+				const toast = document.createElement('div');
+				toast.className =
+					'bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg transform transition-transform duration-300';
+				toast.textContent = '¡Acción completada exitosamente!';
+				toastContainer.appendChild(toast);
+
+				setTimeout(() => {
+					toast.style.transform = 'translateX(400px)';
+					setTimeout(() => toast.remove(), 300);
+				}, 3000);
+			});
+		}
+	},
+};
+```
+
+### Ejercicio 4.2: Crea Ruta de Formulario de Contacto
+
+Construye un formulario de contacto completo con validación:
+
+```javascript
+// src/views/formulario-contacto.js
+export default {
+	template: `
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen">
+      <div class="container mx-auto px-4 max-w-2xl">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4 text-center">Contáctanos</h1>
+        <p class="text-lg text-gray-600 mb-8 text-center">Completa el formulario abajo y te responderemos pronto.</p>
+        
+        <form id="contact-form" class="bg-white rounded-lg shadow-lg p-8" novalidate>
+          <!-- Campo Nombre -->
+          <div class="mb-6">
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+              Nombre Completo <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              placeholder="Juan Pérez"
+              aria-describedby="name-error"
+            />
+            <div id="name-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+          </div>
+
+          <!-- Campo Email -->
+          <div class="mb-6">
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+              Dirección de Email <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              placeholder="juan@ejemplo.com"
+              aria-describedby="email-error"
+            />
+            <div id="email-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+          </div>
+
+          <!-- Campo Asunto -->
+          <div class="mb-6">
+            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
+              Asunto <span class="text-red-500">*</span>
+            </label>
+            <select
+              id="subject"
+              name="subject"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              aria-describedby="subject-error"
+            >
+              <option value="">Selecciona un asunto</option>
+              <option value="general">Consulta General</option>
+              <option value="support">Soporte Técnico</option>
+              <option value="feedback">Retroalimentación</option>
+              <option value="other">Otro</option>
+            </select>
+            <div id="subject-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+          </div>
+
+          <!-- Campo Mensaje -->
+          <div class="mb-6">
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+              Mensaje <span class="text-red-500">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none transition-colors"
+              placeholder="Cuéntanos cómo podemos ayudarte..."
+              aria-describedby="message-error"
+            ></textarea>
+            <div id="message-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+          </div>
+
+          <!-- Checkbox de Privacidad -->
+          <div class="mb-6">
+            <label class="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="privacy"
+                name="privacy"
+                required
+                class="mt-1 w-4 h-4 text-primary-500 rounded focus:ring-2 focus:ring-primary-500"
+                aria-describedby="privacy-error"
+              />
+              <span class="text-sm text-gray-700">
+                Acepto la política de privacidad y términos de servicio <span class="text-red-500">*</span>
+              </span>
+            </label>
+            <div id="privacy-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+          </div>
+
+          <!-- Botón Enviar -->
+          <button
+            type="submit"
+            class="w-full bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          >
+            Enviar Mensaje
+          </button>
+
+          <!-- Mensaje de Éxito -->
+          <div id="success-message" class="mt-4 p-4 bg-green-50 border border-green-200 rounded-md text-green-700 hidden" role="status">
+            ✓ ¡Mensaje enviado exitosamente! Te responderemos pronto.
+          </div>
+        </form>
+        
+        <a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+      </div>
+    </section>
+  `,
+	script() {
+		const form = document.getElementById('contact-form');
+		if (!form) return;
+
+		const fields = form.querySelectorAll('input, textarea, select');
+		const successMessage = document.getElementById('success-message');
+
+		// Funciones de validación
+		const validateField = (field) => {
+			const value = field.value.trim();
+			const errorElement = document.getElementById(`${field.name}-error`);
+
+			// Limpiar error previo
+			field.classList.remove('border-red-500');
+			errorElement?.classList.add('hidden');
+			field.removeAttribute('aria-invalid');
+
+			// Validación de requerido
+			if (field.hasAttribute('required') && !value) {
+				showError(field, errorElement, 'Este campo es requerido');
+				return false;
+			}
+
+			// Validación de email
+			if (field.type === 'email' && value) {
+				const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				if (!emailRegex.test(value)) {
+					showError(field, errorElement, 'Por favor ingresa un email válido');
+					return false;
+				}
+			}
+
+			// Validación de checkbox
+			if (field.type === 'checkbox' && field.hasAttribute('required') && !field.checked) {
+				showError(field, errorElement, 'Debes aceptar para continuar');
+				return false;
+			}
+
+			return true;
+		};
+
+		const showError = (field, errorElement, message) => {
+			field.classList.add('border-red-500');
+			field.setAttribute('aria-invalid', 'true');
+			if (errorElement) {
+				errorElement.textContent = message;
+				errorElement.classList.remove('hidden');
+			}
+		};
+
+		// Validación en tiempo real
+		fields.forEach((field) => {
+			field.addEventListener('blur', () => validateField(field));
+			field.addEventListener('input', () => {
+				const errorElement = document.getElementById(`${field.name}-error`);
+				field.classList.remove('border-red-500');
+				errorElement?.classList.add('hidden');
+			});
+		});
+
+		// Envío de formulario
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+
+			let isValid = true;
+			fields.forEach((field) => {
+				if (!validateField(field)) {
+					isValid = false;
+				}
+			});
+
+			if (isValid) {
+				const submitBtn = form.querySelector('button[type="submit"]');
+				submitBtn.textContent = 'Enviando...';
+				submitBtn.disabled = true;
+
+				// Simular llamada API
+				setTimeout(() => {
+					successMessage.classList.remove('hidden');
+					form.reset();
+					submitBtn.textContent = 'Enviar Mensaje';
+					submitBtn.disabled = false;
+
+					// Ocultar mensaje de éxito después de 5 segundos
+					setTimeout(() => {
+						successMessage.classList.add('hidden');
+					}, 5000);
+				}, 1500);
+			} else {
+				// Enfocar primer campo inválido
+				const firstInvalid = form.querySelector('[aria-invalid="true"]');
+				firstInvalid?.focus();
+			}
+		});
+	},
+};
+```
+
+### Ejercicio 4.3: Registra Nuevas Rutas
+
+Añade tus nuevas rutas interactivas al router:
+
+```javascript
+// src/views/index.js
+import home from './home.js';
+import sobre from './sobre.js';
+import proyectos from './proyectos.js';
+import contacto from './contacto.js';
+import tipografia from './tipografia.js';
+import componentes from './componentes.js';
+import tokensDiseno from './tokens-diseno.js';
+import interactivo from './interactivo.js'; // Añade esto
+import formularioContacto from './formulario-contacto.js'; // Añade esto
+import notFound from './404.js';
+
+export const views = {
+	'/': home,
+	'/sobre': sobre,
+	'/proyectos': proyectos,
+	'/contacto': contacto,
+	'/tipografia': tipografia,
+	'/componentes': componentes,
+	'/tokens-diseno': tokensDiseno,
+	'/interactivo': interactivo, // Añade esto
+	'/formulario-contacto': formularioContacto, // Añade esto
+	404: notFound,
+};
+```
+
+Actualiza la navegación:
+
+```html
+<!-- index.html -->
+<li><a href="#/interactivo" class="hover:text-blue-400 transition-colors">Interactivo</a></li>
+<li><a href="#/formulario-contacto" class="hover:text-blue-400 transition-colors">Formulario</a></li>
+```
+
+**Haz commit de tus rutas interactivas:**
+
+```bash
+git add .
+git commit -m "feat: S4 - Añadir rutas de muestra interactiva y formulario de contacto"
+```
+
+### 🎨 Por Qué Funciona Este Enfoque
+
+- **Testing aislado:** Cada patrón interactivo en su propia demostración
+- **Práctica del mundo real:** El formulario de contacto es un requerimiento común de clientes
+- **Complejidad progresiva:** Desde estados simples de botones hasta validación compleja de formularios
+- **Patrones reutilizables:** Copia patrones de interacción a otras rutas
+- **Construcción de portafolio:** Demuestra habilidades de UX y accesibilidad
+
+### 💡 Ejercicio Desafío
+
+Crea una ruta `src/views/carrito.js` que implemente:
+
+1. Agregar/eliminar items con gestión de estado
+2. Cálculo de total en tiempo real
+3. Botones de incremento/decremento de cantidad
+4. Manejo de estado vacío
+
+¡Esto demuestra patrones de interacción de e-commerce!
 
 ## 🎓 Explicaciones Pedagógicas
 

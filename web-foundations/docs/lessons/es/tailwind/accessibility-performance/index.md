@@ -186,6 +186,102 @@ Esta sesión se enfoca en auditoría para cumplimiento de accesibilidad y optimi
     git commit -m "feat: S5 - Auditoría de accesibilidad + optimizaciones de rendimiento (WCAG AA, mejoras Lighthouse)"
     ```
 
+## 🎯 Ejercicio Práctico: Ruta de Demostración de Accesibilidad
+
+Crea una ruta completa mostrando características de accesibilidad y demostrando cumplimiento WCAG:
+
+### Ejercicio 5.1: Crea Ruta de Muestra de Accesibilidad
+
+```javascript
+// src/views/accesibilidad.js
+// Ver versión en inglés (src/views/accessibility.js) para código completo
+// Incluye demostraciones de:
+// - Skip links y navegación por teclado
+// - Estructura semántica HTML5
+// - Contraste de color (WCAG AA: 4.5:1)
+// - Estados de foco visibles
+// - Etiquetas ARIA y regiones live
+// - Patrón de navegación por pestañas con flechas
+// - Contenido solo para lectores de pantalla (.sr-only)
+export default {
+	template: `
+    <section class="py-16 min-h-screen">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Muestra de Características de Accesibilidad</h1>
+        <p class="text-lg text-gray-600 mb-12">
+          Demostrando componentes conformes con WCAG 2.1 AA y patrones de diseño inclusivo.
+        </p>
+
+        <!-- Demo de Skip Link -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Enlaces de Salto (Skip Links)</h2>
+          <p class="text-gray-700 mb-4">
+            Prueba presionando <kbd class="px-2 py-1 bg-gray-200 rounded">Tab</kbd> para revelar el enlace de salto en la parte superior.
+            Los skip links ayudan a usuarios de teclado a navegar directamente al contenido principal.
+          </p>
+        </div>
+
+        <!-- Más secciones similares a la versión en inglés... -->
+        
+        <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+      </div>
+    </section>
+  `,
+	script() {
+		// Funcionalidad similar a la versión en inglés
+		// Ver src/views/accessibility.js para implementación completa
+	},
+};
+```
+
+### Ejercicio 5.2: Registra la Ruta
+
+```javascript
+// src/views/index.js
+import accesibilidad from './accesibilidad.js'; // Añade esto
+
+export const views = {
+	// ... otras rutas
+	'/accesibilidad': accesibilidad, // Añade esto
+	404: notFound,
+};
+```
+
+**Nota:** Para el código completo de `src/views/accesibilidad.js`, adapta el ejemplo de `src/views/accessibility.js` traduciendo los textos al español.
+
+```html
+<!-- index.html -->
+<li><a href="#/accesibilidad" class="hover:text-blue-400 transition-colors">Accesibilidad</a></li>
+```
+
+**Commit tu muestra de accesibilidad:**
+
+```bash
+git add .
+git commit -m "feat: S5 - Añadir ruta de muestra de características de accesibilidad (demo cumplimiento WCAG AA)"
+```
+
+### 🎨 Por Qué Importa Esta Ruta
+
+- **Documentación viva:** Demuestra características de accesibilidad en acción
+- **Campo de pruebas:** Prueba características con teclado y lectores de pantalla
+- **Educación al cliente:** Muestra a stakeholders por qué importa la accesibilidad
+- **Pieza de portafolio:** Prueba comprensión de diseño inclusivo
+- **Guía de referencia:** Copia patrones a otras rutas
+
+### 💡 Lista de Verificación de Testing de Accesibilidad
+
+Usa tu ruta `/accesibilidad` para verificar:
+
+1. ✅ Navega con Tab por todos los elementos interactivos
+2. ✅ Prueba con lector de pantalla (VoiceOver, NVDA, JAWS)
+3. ✅ Verifica contraste de color con DevTools
+4. ✅ Navega usando solo teclado
+5. ✅ Prueba con zoom del navegador al 200%
+6. ✅ Verifica que etiquetas ARIA sean significativas
+7. ✅ Comprueba jerarquía de encabezados
+8. ✅ Ejecuta auditoría de accesibilidad en Lighthouse
+
 ## 🎓 Explicaciones Pedagógicas
 
 ### Metodología de Auditoría de Accesibilidad

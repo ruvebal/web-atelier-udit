@@ -186,6 +186,318 @@ This session focuses on auditing for accessibility compliance and optimizing for
     git commit -m "feat: S5 - Accessibility audit + performance optimizations (WCAG AA, Lighthouse improvements)"
     ```
 
+## 🎯 Practice Exercise: Accessibility Demo Route
+
+Create a comprehensive route showcasing accessibility features and demonstrating WCAG compliance:
+
+### Exercise 5.1: Create Accessibility Showcase Route
+
+```javascript
+// src/views/accessibility.js
+export default {
+	template: `
+    <section class="py-16 min-h-screen">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Accessibility Features Showcase</h1>
+        <p class="text-lg text-gray-600 mb-12">
+          Demonstrating WCAG 2.1 AA compliant components and inclusive design patterns.
+        </p>
+
+        <!-- Skip Link Demo -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Skip Links</h2>
+          <p class="text-gray-700 mb-4">
+            Try pressing <kbd class="px-2 py-1 bg-gray-200 rounded">Tab</kbd> to reveal the skip link at the top of this page.
+            Skip links help keyboard users navigate directly to main content.
+          </p>
+          <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-500 text-white px-4 py-2 rounded-md z-50">
+            Skip to main content
+          </a>
+        </div>
+
+        <!-- Semantic HTML Demo -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Semantic Structure</h2>
+          <p class="text-gray-700 mb-4">
+            Proper HTML5 landmarks help screen readers understand page structure.
+          </p>
+          <div class="space-y-2 font-mono text-sm bg-gray-50 p-4 rounded">
+            <div><code class="text-blue-600">&lt;header&gt;</code> - Site header</div>
+            <div><code class="text-blue-600">&lt;nav&gt;</code> - Navigation menus</div>
+            <div><code class="text-blue-600">&lt;main&gt;</code> - Primary content</div>
+            <div><code class="text-blue-600">&lt;article&gt;</code> - Self-contained content</div>
+            <div><code class="text-blue-600">&lt;aside&gt;</code> - Complementary content</div>
+            <div><code class="text-blue-600">&lt;footer&gt;</code> - Site footer</div>
+          </div>
+        </div>
+
+        <!-- Color Contrast Demo -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Color Contrast (WCAG AA: 4.5:1)</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Good contrast -->
+            <div class="border-2 border-green-500 rounded-lg p-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-semibold text-gray-900">✓ Good Contrast</span>
+                <span class="text-sm text-green-600">7.8:1</span>
+              </div>
+              <p class="text-gray-900 bg-white p-3 rounded">
+                This text has sufficient contrast for readability.
+              </p>
+            </div>
+            
+            <!-- Bad contrast (for demonstration) -->
+            <div class="border-2 border-red-500 rounded-lg p-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-semibold text-gray-900">✗ Poor Contrast</span>
+                <span class="text-sm text-red-600">2.3:1</span>
+              </div>
+              <p class="text-gray-400 bg-white p-3 rounded">
+                This text fails WCAG AA standards (for demo only).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Focus States Demo -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Visible Focus States</h2>
+          <p class="text-gray-700 mb-4">
+            Try tabbing through these interactive elements to see clear focus indicators.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <button class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-4 focus:ring-primary-300 transition-all">
+              Primary Button
+            </button>
+            <button class="border-2 border-primary-500 text-primary-500 hover:bg-primary-50 font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-4 focus:ring-primary-300 transition-all">
+              Secondary Button
+            </button>
+            <a href="#" class="text-primary-500 hover:text-primary-600 underline focus:outline-none focus:ring-4 focus:ring-primary-300 rounded transition-all">
+              Text Link
+            </a>
+          </div>
+        </div>
+
+        <!-- ARIA Labels Demo -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">ARIA Labels & Live Regions</h2>
+          <div class="space-y-4">
+            <div>
+              <label for="search-demo" class="block text-sm font-medium text-gray-700 mb-2">
+                Search (with aria-label)
+              </label>
+              <div class="relative">
+                <input
+                  type="search"
+                  id="search-demo"
+                  class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500"
+                  placeholder="Search..."
+                  aria-label="Search the website"
+                />
+                <svg class="absolute left-3 top-2.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+            </div>
+
+            <div>
+              <button id="notification-btn" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-md focus:ring-4 focus:ring-primary-300 transition-all">
+                Trigger Live Region Announcement
+              </button>
+              <div id="live-region" class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-md hidden" role="status" aria-live="polite">
+                <p class="text-blue-900"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Keyboard Navigation Demo -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Keyboard Navigation Patterns</h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-lg font-semibold mb-2">Tab List Pattern (Arrow Keys)</h3>
+              <div class="border border-gray-200 rounded-lg overflow-hidden" role="tablist" aria-label="Sample tabs">
+                <div class="flex border-b border-gray-200">
+                  <button class="tab-button flex-1 px-4 py-2 font-medium text-primary-600 bg-primary-50 border-b-2 border-primary-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500" role="tab" aria-selected="true" aria-controls="tab1-panel" id="tab1">
+                    Tab 1
+                  </button>
+                  <button class="tab-button flex-1 px-4 py-2 font-medium text-gray-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500" role="tab" aria-selected="false" aria-controls="tab2-panel" id="tab2" tabindex="-1">
+                    Tab 2
+                  </button>
+                  <button class="tab-button flex-1 px-4 py-2 font-medium text-gray-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500" role="tab" aria-selected="false" aria-controls="tab3-panel" id="tab3" tabindex="-1">
+                    Tab 3
+                  </button>
+                </div>
+                <div id="tab1-panel" role="tabpanel" aria-labelledby="tab1" class="p-4">
+                  Content for Tab 1. Use arrow keys to navigate between tabs.
+                </div>
+                <div id="tab2-panel" role="tabpanel" aria-labelledby="tab2" class="p-4 hidden">
+                  Content for Tab 2.
+                </div>
+                <div id="tab3-panel" role="tabpanel" aria-labelledby="tab3" class="p-4 hidden">
+                  Content for Tab 3.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Screen Reader Only Content -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Screen Reader Only Content</h2>
+          <p class="text-gray-700 mb-4">
+            The <code class="px-2 py-1 bg-gray-100 rounded">.sr-only</code> class hides content visually but keeps it accessible to screen readers.
+          </p>
+          <div class="bg-gray-50 p-4 rounded">
+            <button class="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md focus:ring-4 focus:ring-red-300 transition-all">
+              <svg class="inline w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+              <span class="sr-only">Delete item</span>
+            </button>
+            <p class="text-sm text-gray-600 mt-2">
+              This button shows only an icon visually, but screen readers will announce "Delete item"
+            </p>
+          </div>
+        </div>
+        
+        <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
+      </div>
+    </section>
+  `,
+	script() {
+		// Live region demo
+		const notificationBtn = document.getElementById('notification-btn');
+		const liveRegion = document.getElementById('live-region');
+		if (notificationBtn && liveRegion) {
+			notificationBtn.addEventListener('click', () => {
+				const message = liveRegion.querySelector('p');
+				message.textContent = 'Notification triggered! This announcement is read by screen readers.';
+				liveRegion.classList.remove('hidden');
+
+				setTimeout(() => {
+					liveRegion.classList.add('hidden');
+				}, 5000);
+			});
+		}
+
+		// Tab pattern keyboard navigation
+		const tabs = document.querySelectorAll('[role="tab"]');
+		const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+
+		tabs.forEach((tab, index) => {
+			tab.addEventListener('click', () => activateTab(index));
+			tab.addEventListener('keydown', (e) => {
+				let newIndex = index;
+
+				if (e.key === 'ArrowRight') {
+					e.preventDefault();
+					newIndex = index + 1 >= tabs.length ? 0 : index + 1;
+				} else if (e.key === 'ArrowLeft') {
+					e.preventDefault();
+					newIndex = index - 1 < 0 ? tabs.length - 1 : index - 1;
+				} else if (e.key === 'Home') {
+					e.preventDefault();
+					newIndex = 0;
+				} else if (e.key === 'End') {
+					e.preventDefault();
+					newIndex = tabs.length - 1;
+				} else {
+					return;
+				}
+
+				activateTab(newIndex);
+				tabs[newIndex].focus();
+			});
+		});
+
+		function activateTab(index) {
+			tabs.forEach((t, i) => {
+				const isSelected = i === index;
+				t.setAttribute('aria-selected', isSelected);
+				t.setAttribute('tabindex', isSelected ? '0' : '-1');
+				t.classList.toggle('text-primary-600', isSelected);
+				t.classList.toggle('bg-primary-50', isSelected);
+				t.classList.toggle('border-b-2', isSelected);
+				t.classList.toggle('border-primary-600', isSelected);
+				t.classList.toggle('text-gray-600', !isSelected);
+
+				tabPanels[i].classList.toggle('hidden', !isSelected);
+			});
+		}
+	},
+};
+```
+
+### Exercise 5.2: Register the Route
+
+Add your accessibility showcase to the router:
+
+```javascript
+// src/views/index.js
+import home from './home.js';
+import about from './about.js';
+import projects from './projects.js';
+import contact from './contact.js';
+import typography from './typography.js';
+import components from './components.js';
+import designTokens from './design-tokens.js';
+import interactive from './interactive.js';
+import contactForm from './contact-form.js';
+import accessibility from './accessibility.js'; // Add this
+import notFound from './404.js';
+
+export const views = {
+	'/': home,
+	'/about': about,
+	'/projects': projects,
+	'/contact': contact,
+	'/typography': typography,
+	'/components': components,
+	'/design-tokens': designTokens,
+	'/interactive': interactive,
+	'/contact-form': contactForm,
+	'/accessibility': accessibility, // Add this
+	404: notFound,
+};
+```
+
+Add to navigation:
+
+```html
+<!-- index.html -->
+<li><a href="#/accessibility" class="hover:text-blue-400 transition-colors">Accessibility</a></li>
+```
+
+**Commit your accessibility showcase:**
+
+```bash
+git add .
+git commit -m "feat: S5 - Add accessibility features showcase route (WCAG AA compliance demo)"
+```
+
+### 🎨 Why This Route Matters
+
+- **Living documentation:** Demonstrates accessibility features in action
+- **Testing ground:** Try features with keyboard and screen readers
+- **Client education:** Show stakeholders why accessibility matters
+- **Portfolio piece:** Proves understanding of inclusive design
+- **Reference guide:** Copy patterns to other routes
+
+### 💡 Accessibility Testing Checklist
+
+Use your `/accessibility` route to verify:
+
+1. ✅ Tab through all interactive elements
+2. ✅ Test with screen reader (VoiceOver, NVDA, JAWS)
+3. ✅ Check color contrast with DevTools
+4. ✅ Navigate using only keyboard
+5. ✅ Test with browser zoom at 200%
+6. ✅ Verify ARIA labels are meaningful
+7. ✅ Check heading hierarchy
+8. ✅ Run Lighthouse accessibility audit
+
 ## 🎓 Pedagogical Explanations
 
 ### Accessibility Auditing Methodology

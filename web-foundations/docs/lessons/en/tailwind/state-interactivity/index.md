@@ -62,6 +62,17 @@ Our approach creates **PWA-ready interactivity** with progressive enhancement an
 
 This session adds dynamic behavior to components, focusing on forms, navigation states, and user feedback systems.
 
+### 🔗 Building on S2-S3 Routing System
+
+In S2, you created a modular routing system, and in S3, you enhanced it with a design system. Now we'll add **interactive routes** that demonstrate state management and form validation. You should already have:
+
+- Modular view structure in `src/views/`
+- Router handling hash-based navigation
+- Design tokens for consistent styling
+- Component patterns from S3
+
+**This session focuses on adding interactivity** to your existing routes and creating new interactive demonstrations.
+
 ### Step-by-Step Implementation
 
 1. **Create accessible contact form:**
@@ -321,6 +332,448 @@ This session adds dynamic behavior to components, focusing on forms, navigation 
    git add .
    git commit -m "feat: S4 - Form validation + interactive navigation (accessible states)"
    ```
+
+## 🎯 Practice Exercises: Building Interactive Routes
+
+Now let's create dedicated routes to practice state management and interactivity, continuing our modular routing approach.
+
+### Exercise 4.1: Create Interactive Showcase Route
+
+Build a route demonstrating various interactive states:
+
+```javascript
+// src/views/interactive.js
+export default {
+	template: `
+    <section class="py-16 bg-gray-50 min-h-screen">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Interactive States Showcase</h1>
+        
+        <!-- Button States Demo -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Button States</h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Hover & Focus States</h3>
+              <button class="bg-primary-500 hover:bg-primary-600 active:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 text-white font-medium py-2 px-4 rounded-md transition-colors">
+                Hover & Click Me
+              </button>
+            </div>
+            
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Loading State</h3>
+              <button id="loading-btn" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-md transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                Click to Load
+              </button>
+            </div>
+            
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Disabled State</h3>
+              <button disabled class="bg-gray-400 text-white font-medium py-2 px-4 rounded-md cursor-not-allowed opacity-50">
+                Disabled Button
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toggle & Checkbox States -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Toggle & Selection States</h2>
+          
+          <div class="space-y-4">
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input type="checkbox" class="w-5 h-5 text-primary-500 rounded focus:ring-2 focus:ring-primary-500" />
+              <span class="text-gray-700">Enable notifications</span>
+            </label>
+            
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input type="checkbox" checked class="w-5 h-5 text-primary-500 rounded focus:ring-2 focus:ring-primary-500" />
+              <span class="text-gray-700">Receive updates</span>
+            </label>
+            
+            <div class="flex items-center space-x-4">
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="radio" name="theme" value="light" class="w-4 h-4 text-primary-500 focus:ring-2 focus:ring-primary-500" checked />
+                <span class="text-gray-700">Light Mode</span>
+              </label>
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="radio" name="theme" value="dark" class="w-4 h-4 text-primary-500 focus:ring-2 focus:ring-primary-500" />
+                <span class="text-gray-700">Dark Mode</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown/Accordion State -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Accordion State</h2>
+          
+          <div class="space-y-2">
+            <div class="border border-gray-200 rounded-lg">
+              <button class="accordion-trigger w-full text-left px-4 py-3 font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-lg transition-colors">
+                What is Tailwind CSS?
+              </button>
+              <div class="accordion-content hidden px-4 pb-3 text-gray-600">
+                Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces.
+              </div>
+            </div>
+            
+            <div class="border border-gray-200 rounded-lg">
+              <button class="accordion-trigger w-full text-left px-4 py-3 font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-lg transition-colors">
+                How does state management work?
+              </button>
+              <div class="accordion-content hidden px-4 pb-3 text-gray-600">
+                State management tracks the current condition of UI elements and updates them based on user interactions.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toast Notification Demo -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Notification States</h2>
+          <button id="show-toast" class="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-md transition-colors">
+            Show Notification
+          </button>
+          <div id="toast-container" class="fixed bottom-4 right-4 space-y-2 z-50"></div>
+        </div>
+        
+        <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
+      </div>
+    </section>
+  `,
+	script() {
+		// Loading button
+		const loadingBtn = document.getElementById('loading-btn');
+		if (loadingBtn) {
+			loadingBtn.addEventListener('click', () => {
+				loadingBtn.textContent = 'Loading...';
+				loadingBtn.disabled = true;
+				setTimeout(() => {
+					loadingBtn.textContent = 'Success!';
+					loadingBtn.classList.add('bg-green-500');
+					setTimeout(() => {
+						loadingBtn.textContent = 'Click to Load';
+						loadingBtn.disabled = false;
+						loadingBtn.classList.remove('bg-green-500');
+					}, 1500);
+				}, 2000);
+			});
+		}
+
+		// Accordion functionality
+		document.querySelectorAll('.accordion-trigger').forEach((trigger) => {
+			trigger.addEventListener('click', () => {
+				const content = trigger.nextElementSibling;
+				content.classList.toggle('hidden');
+			});
+		});
+
+		// Toast notification
+		const showToastBtn = document.getElementById('show-toast');
+		const toastContainer = document.getElementById('toast-container');
+		if (showToastBtn && toastContainer) {
+			showToastBtn.addEventListener('click', () => {
+				const toast = document.createElement('div');
+				toast.className =
+					'bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg transform transition-transform duration-300';
+				toast.textContent = 'Action completed successfully!';
+				toastContainer.appendChild(toast);
+
+				setTimeout(() => {
+					toast.style.transform = 'translateX(400px)';
+					setTimeout(() => toast.remove(), 300);
+				}, 3000);
+			});
+		}
+	},
+};
+```
+
+### Exercise 4.2: Create Contact Form Route
+
+Build a complete contact form with validation:
+
+```javascript
+// src/views/contact-form.js
+export default {
+	template: `
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen">
+      <div class="container mx-auto px-4 max-w-2xl">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4 text-center">Contact Us</h1>
+        <p class="text-lg text-gray-600 mb-8 text-center">Fill out the form below and we'll get back to you soon.</p>
+        
+        <form id="contact-form" class="bg-white rounded-lg shadow-lg p-8" novalidate>
+          <!-- Name Field -->
+          <div class="mb-6">
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+              Full Name <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              placeholder="John Doe"
+              aria-describedby="name-error"
+            />
+            <div id="name-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+          </div>
+
+          <!-- Email Field -->
+          <div class="mb-6">
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+              Email Address <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              placeholder="john@example.com"
+              aria-describedby="email-error"
+            />
+            <div id="email-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+          </div>
+
+          <!-- Subject Field -->
+          <div class="mb-6">
+            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
+              Subject <span class="text-red-500">*</span>
+            </label>
+            <select
+              id="subject"
+              name="subject"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+              aria-describedby="subject-error"
+            >
+              <option value="">Select a subject</option>
+              <option value="general">General Inquiry</option>
+              <option value="support">Technical Support</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Other</option>
+            </select>
+            <div id="subject-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+          </div>
+
+          <!-- Message Field -->
+          <div class="mb-6">
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+              Message <span class="text-red-500">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none transition-colors"
+              placeholder="Tell us how we can help..."
+              aria-describedby="message-error"
+            ></textarea>
+            <div id="message-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+          </div>
+
+          <!-- Privacy Checkbox -->
+          <div class="mb-6">
+            <label class="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="privacy"
+                name="privacy"
+                required
+                class="mt-1 w-4 h-4 text-primary-500 rounded focus:ring-2 focus:ring-primary-500"
+                aria-describedby="privacy-error"
+              />
+              <span class="text-sm text-gray-700">
+                I agree to the privacy policy and terms of service <span class="text-red-500">*</span>
+              </span>
+            </label>
+            <div id="privacy-error" class="mt-1 text-sm text-red-600 hidden" role="alert"></div>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          >
+            Send Message
+          </button>
+
+          <!-- Success Message -->
+          <div id="success-message" class="mt-4 p-4 bg-green-50 border border-green-200 rounded-md text-green-700 hidden" role="status">
+            ✓ Message sent successfully! We'll get back to you soon.
+          </div>
+        </form>
+        
+        <a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
+      </div>
+    </section>
+  `,
+	script() {
+		const form = document.getElementById('contact-form');
+		if (!form) return;
+
+		const fields = form.querySelectorAll('input, textarea, select');
+		const successMessage = document.getElementById('success-message');
+
+		// Validation functions
+		const validateField = (field) => {
+			const value = field.value.trim();
+			const errorElement = document.getElementById(`${field.name}-error`);
+
+			// Clear previous error
+			field.classList.remove('border-red-500');
+			errorElement?.classList.add('hidden');
+			field.removeAttribute('aria-invalid');
+
+			// Required validation
+			if (field.hasAttribute('required') && !value) {
+				showError(field, errorElement, 'This field is required');
+				return false;
+			}
+
+			// Email validation
+			if (field.type === 'email' && value) {
+				const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				if (!emailRegex.test(value)) {
+					showError(field, errorElement, 'Please enter a valid email address');
+					return false;
+				}
+			}
+
+			// Checkbox validation
+			if (field.type === 'checkbox' && field.hasAttribute('required') && !field.checked) {
+				showError(field, errorElement, 'You must agree to continue');
+				return false;
+			}
+
+			return true;
+		};
+
+		const showError = (field, errorElement, message) => {
+			field.classList.add('border-red-500');
+			field.setAttribute('aria-invalid', 'true');
+			if (errorElement) {
+				errorElement.textContent = message;
+				errorElement.classList.remove('hidden');
+			}
+		};
+
+		// Real-time validation
+		fields.forEach((field) => {
+			field.addEventListener('blur', () => validateField(field));
+			field.addEventListener('input', () => {
+				const errorElement = document.getElementById(`${field.name}-error`);
+				field.classList.remove('border-red-500');
+				errorElement?.classList.add('hidden');
+			});
+		});
+
+		// Form submission
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+
+			let isValid = true;
+			fields.forEach((field) => {
+				if (!validateField(field)) {
+					isValid = false;
+				}
+			});
+
+			if (isValid) {
+				const submitBtn = form.querySelector('button[type="submit"]');
+				submitBtn.textContent = 'Sending...';
+				submitBtn.disabled = true;
+
+				// Simulate API call
+				setTimeout(() => {
+					successMessage.classList.remove('hidden');
+					form.reset();
+					submitBtn.textContent = 'Send Message';
+					submitBtn.disabled = false;
+
+					// Hide success message after 5 seconds
+					setTimeout(() => {
+						successMessage.classList.add('hidden');
+					}, 5000);
+				}, 1500);
+			} else {
+				// Focus first invalid field
+				const firstInvalid = form.querySelector('[aria-invalid="true"]');
+				firstInvalid?.focus();
+			}
+		});
+	},
+};
+```
+
+### Exercise 4.3: Register New Routes
+
+Add your new interactive routes to the router:
+
+```javascript
+// src/views/index.js
+import home from './home.js';
+import about from './about.js';
+import projects from './projects.js';
+import contact from './contact.js';
+import typography from './typography.js';
+import components from './components.js';
+import designTokens from './design-tokens.js';
+import interactive from './interactive.js'; // Add this
+import contactForm from './contact-form.js'; // Add this
+import notFound from './404.js';
+
+export const views = {
+	'/': home,
+	'/about': about,
+	'/projects': projects,
+	'/contact': contact,
+	'/typography': typography,
+	'/components': components,
+	'/design-tokens': designTokens,
+	'/interactive': interactive, // Add this
+	'/contact-form': contactForm, // Add this
+	404: notFound,
+};
+```
+
+Update navigation:
+
+```html
+<!-- index.html -->
+<li><a href="#/interactive" class="hover:text-blue-400 transition-colors">Interactive</a></li>
+<li><a href="#/contact-form" class="hover:text-blue-400 transition-colors">Contact Form</a></li>
+```
+
+**Commit your interactive routes:**
+
+```bash
+git add .
+git commit -m "feat: S4 - Add interactive showcase and contact form routes"
+```
+
+### 🎨 Why This Approach Works
+
+- **Isolated testing:** Each interactive pattern in its own demonstration
+- **Real-world practice:** Contact form is a common client requirement
+- **Progressive complexity:** From simple button states to complex form validation
+- **Reusable patterns:** Copy interaction patterns to other routes
+- **Portfolio building:** Demonstrates UX and accessibility skills
+
+### 💡 Challenge Exercise
+
+Create a route `src/views/cart.js` that implements:
+
+1. Add/remove items with state management
+2. Real-time total calculation
+3. Quantity increment/decrement buttons
+4. Empty state handling
+
+This demonstrates e-commerce interaction patterns!
 
 ## 🎓 Pedagogical Explanations
 
