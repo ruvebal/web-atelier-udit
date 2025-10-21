@@ -111,10 +111,12 @@ Before we code a single transition, let's pause and **think critically** about w
 **Syntax**:
 
     ```css
+
 .element {
-	transition: property duration timing-function delay;
+transition: property duration timing-function delay;
 }
-```
+
+````
 
 **Example**:
 
@@ -134,7 +136,7 @@ Before we code a single transition, let's pause and **think critically** about w
 	transform: translateY(0);
 	transition-duration: 0.1s; /* Faster on click */
 }
-```
+````
 
 **🔑 Key Insight**: Transitions are **reactive** - they need a trigger (hover, class change, JS state update).
 
@@ -149,23 +151,25 @@ Before we code a single transition, let's pause and **think critically** about w
 **Syntax**:
 
     ```css
+
 @keyframes animation-name {
-    	from {
-		/* or 0% */
-	}
-	25% {
-	}
-	50% {
-	}
-	to {
-		/* or 100% */
-	}
+from {
+/_ or 0% _/
+}
+25% {
+}
+50% {
+}
+to {
+/_ or 100% _/
+}
 }
 
 .element {
-	animation: animation-name duration timing-function delay iteration-count direction fill-mode;
+animation: animation-name duration timing-function delay iteration-count direction fill-mode;
 }
-```
+
+````
 
 **Example - Fade-in on page load**:
 
@@ -195,7 +199,7 @@ Before we code a single transition, let's pause and **think critically** about w
 .section:nth-child(3) {
 	animation-delay: 0.3s;
 }
-```
+````
 
 **🔑 Key Insight**: Keyframes are **proactive** - they run automatically when applied.
 
@@ -210,17 +214,19 @@ Before we code a single transition, let's pause and **think critically** about w
 **Core Functions**:
 
     ```css
-transform: translateX(100px); /* Move horizontally */
-transform: translateY(-50px); /* Move vertically */
-transform: translate(50px, -20px); /* Both at once */
-transform: scale(1.2); /* Grow 20% */
-transform: scaleX(0.8); /* Squish horizontally */
-transform: rotate(45deg); /* Rotate clockwise */
-transform: skewX(10deg); /* Tilt */
 
-/* Combine multiple transforms */
+transform: translateX(100px); /_ Move horizontally _/
+transform: translateY(-50px); /_ Move vertically _/
+transform: translate(50px, -20px); /_ Both at once _/
+transform: scale(1.2); /_ Grow 20% _/
+transform: scaleX(0.8); /_ Squish horizontally _/
+transform: rotate(45deg); /_ Rotate clockwise _/
+transform: skewX(10deg); /_ Tilt _/
+
+/_ Combine multiple transforms _/
 transform: translateX(50px) rotate(15deg) scale(1.1);
-```
+
+````
 
 **Example - Card lift effect**:
 
@@ -233,7 +239,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 	transform: translateY(-8px) scale(1.02);
 	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
-```
+````
 
 **🔑 Key Insight**: Always use `transform` and `opacity` for animations - they're **compositor-only** (no repaints).
 
@@ -246,16 +252,18 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 **Solution**: Tell browser in advance what will animate.
 
     ```css
+
 .button {
-	will-change: transform, opacity;
-	/* Browser creates GPU layer immediately */
+will-change: transform, opacity;
+/_ Browser creates GPU layer immediately _/
 }
 
-/* ⚠️ Don't overuse! */
+/_ ⚠️ Don't overuse! _/
 .everything {
-	will-change: auto; /* Default - only optimize what animates */
+will-change: auto; /_ Default - only optimize what animates _/
 }
-```
+
+````
 
 **Best Practice**:
 
@@ -265,7 +273,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 .card:focus-within {
 	will-change: transform;
 }
-```
+````
 
 **Forbidden**:
 
@@ -286,14 +294,14 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 
 ```css
 /* Full animation for users who can tolerate it */
-    @keyframes spin {
-    	from {
-    		transform: rotate(0deg);
-    	}
-    	to {
-    		transform: rotate(360deg);
-    	}
-    }
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
 
 .loader {
 	animation: spin 1s linear infinite;
@@ -355,118 +363,121 @@ Test your animations with:
 Create `src/styles/animations.css` in your project:
 
     ```css
-/* ============================================
-   ANIMATION SYSTEM - Pure CSS
-   Design Tokens + Reusable Animations
-   Framework-agnostic, works everywhere
-   ============================================ */
 
-/* --- Timing Tokens --- */
+/_ ============================================
+ANIMATION SYSTEM - Pure CSS
+Design Tokens + Reusable Animations
+Framework-agnostic, works everywhere
+============================================ _/
+
+/_ --- Timing Tokens --- _/
 :root {
-	--duration-instant: 100ms;
-	--duration-fast: 200ms;
-	--duration-normal: 300ms;
-	--duration-slow: 500ms;
-	--duration-slower: 800ms;
+--duration-instant: 100ms;
+--duration-fast: 200ms;
+--duration-normal: 300ms;
+--duration-slow: 500ms;
+--duration-slower: 800ms;
 
-	--ease-in: cubic-bezier(0.4, 0, 1, 1);
-	--ease-out: cubic-bezier(0, 0, 0.2, 1);
-	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-	--ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	--ease-elastic: cubic-bezier(0.68, -0.35, 0.265, 1.35);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-elastic: cubic-bezier(0.68, -0.35, 0.265, 1.35);
 
-	/* Color tokens (framework-agnostic) */
-	--color-primary: #3b82f6;
-	--color-gray-100: #f3f4f6;
-	--color-gray-700: #374151;
-	--color-gray-900: #111827;
+    /* Color tokens (framework-agnostic) */
+    --color-primary: #3b82f6;
+    --color-gray-100: #f3f4f6;
+    --color-gray-700: #374151;
+    --color-gray-900: #111827;
+
 }
 
-/* --- Base Reset --- */
-/* 
-   The following media query targets users who have enabled "Reduce Motion" in their operating system or browser preferences.
-   When (prefers-reduced-motion: reduce) is true, all CSS animations and transitions are effectively disabled for better accessibility.
-*/
+/_ --- Base Reset --- _/
+/_
+The following media query targets users who have enabled "Reduce Motion" in their operating system or browser preferences.
+When (prefers-reduced-motion: reduce) is true, all CSS animations and transitions are effectively disabled for better accessibility.
+_/
 @media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-	}
+_,
+_::before,
+\*::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
 }
 
-/* --- Utility Classes --- */
+/_ --- Utility Classes --- _/
 .fade-in {
-	animation: fadeIn var(--duration-normal) var(--ease-out);
+animation: fadeIn var(--duration-normal) var(--ease-out);
 }
 
 .slide-in-up {
-	animation: slideInUp var(--duration-slow) var(--ease-out);
+animation: slideInUp var(--duration-slow) var(--ease-out);
 }
 
 .scale-in {
-	animation: scaleIn var(--duration-fast) var(--ease-bounce);
+animation: scaleIn var(--duration-fast) var(--ease-bounce);
 }
 
-/* --- Keyframe Library --- */
+/_ --- Keyframe Library --- _/
 @keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
 }
 
 @keyframes slideInUp {
-	from {
-		opacity: 0;
-		transform: translateY(30px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
 }
 
 @keyframes scaleIn {
-	from {
-		opacity: 0;
-		transform: scale(0.8);
-	}
-	to {
-		opacity: 1;
-		transform: scale(1);
-	}
+from {
+opacity: 0;
+transform: scale(0.8);
+}
+to {
+opacity: 1;
+transform: scale(1);
+}
 }
 
 @keyframes rotate {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
 }
 
 @keyframes pulse {
-    	0%,
-    	100% {
-		opacity: 1;
-    	}
-    	50% {
-		opacity: 0.5;
-	}
+0%,
+100% {
+opacity: 1;
 }
-```
+50% {
+opacity: 0.5;
+}
+}
+
+````
 
 **Import in your `src/main.css`**:
 
 ```css
 @import './styles/animations.css';
-```
+````
 
 ---
 
@@ -489,116 +500,119 @@ Create `src/styles/animations.css` in your project:
 **CSS**:
 
     ```css
-/* styles/button.css */
 
-/* Base button styles */
+/_ styles/button.css _/
+
+/_ Base button styles _/
 .btn {
-	/* Layout */
-	display: inline-flex;
-	align-items: center;
-	justify-center: center;
-	padding: 0.75rem 1.5rem;
+/_ Layout _/
+display: inline-flex;
+align-items: center;
+justify-center: center;
+padding: 0.75rem 1.5rem;
 
-	/* Typography */
-	font-size: 1rem;
-	font-weight: 500;
-	line-height: 1;
-	text-decoration: none;
+    /* Typography */
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
 
-	/* Visual */
-	border: none;
-	border-radius: 0.375rem;
-	cursor: pointer;
+    /* Visual */
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
 
-	/* Animation setup */
-	position: relative;
-	overflow: hidden;
-	transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+    /* Animation setup */
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+
 }
 
-/* Button variants */
+/_ Button variants _/
 .btn-primary {
-	background: var(--color-primary);
-	color: white;
+background: var(--color-primary);
+color: white;
 }
 
 .btn-secondary {
-	background: white;
-	color: var(--color-gray-700);
-	border: 1px solid var(--color-gray-700);
+background: white;
+color: var(--color-gray-700);
+border: 1px solid var(--color-gray-700);
 }
 
-/* Hover lift */
+/_ Hover lift _/
 .btn:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Active press */
+/_ Active press _/
 .btn:active {
-	transform: translateY(0);
-	transition-duration: var(--duration-instant);
+transform: translateY(0);
+transition-duration: var(--duration-instant);
 }
 
-/* Focus ring animation */
+/_ Focus ring animation _/
 .btn:focus-visible {
-	outline: 2px solid currentColor;
-	outline-offset: 2px;
-	animation: pulseRing 0.6s ease-out;
+outline: 2px solid currentColor;
+outline-offset: 2px;
+animation: pulseRing 0.6s ease-out;
 }
 
 @keyframes pulseRing {
-	0% {
-		outline-offset: 2px;
-		outline-color: currentColor;
-	}
-	100% {
-		outline-offset: 6px;
-		outline-color: transparent;
-	}
+0% {
+outline-offset: 2px;
+outline-color: currentColor;
+}
+100% {
+outline-offset: 6px;
+outline-color: transparent;
+}
 }
 
-/* Ripple effect (advanced) */
+/_ Ripple effect (advanced) _/
 .btn::after {
-	content: '';
-	position: absolute;
-	inset: 0;
-	background: rgba(255, 255, 255, 0.3);
-	border-radius: inherit;
-	transform: scale(0);
-	opacity: 0;
+content: '';
+position: absolute;
+inset: 0;
+background: rgba(255, 255, 255, 0.3);
+border-radius: inherit;
+transform: scale(0);
+opacity: 0;
 }
 
 .btn:active::after {
-	animation: ripple 0.6s ease-out;
+animation: ripple 0.6s ease-out;
 }
 
 @keyframes ripple {
-	0% {
-		transform: scale(0);
-		opacity: 1;
-	}
-	100% {
-		transform: scale(1);
-		opacity: 0;
-	}
+0% {
+transform: scale(0);
+opacity: 1;
+}
+100% {
+transform: scale(1);
+opacity: 0;
+}
 }
 
-/* ============================================
-   ACCESSIBILITY: Respect Motion Preferences
-   ============================================ */
+/_ ============================================
+ACCESSIBILITY: Respect Motion Preferences
+============================================ _/
 @media (prefers-reduced-motion: reduce) {
-	.btn {
-		transition-duration: 0.01ms;
-	}
-	.btn::after {
-		animation: none;
-	}
-	.btn:focus-visible {
-		animation: none;
-	}
+.btn {
+transition-duration: 0.01ms;
 }
-```
+.btn::after {
+animation: none;
+}
+.btn:focus-visible {
+animation: none;
+}
+}
+
+````
 
 **How to test**:
 
@@ -621,7 +635,7 @@ git commit -m "feat: Add micro-interactions to buttons
 - Respects prefers-reduced-motion
 
 Improves perceived responsiveness and delight."
-```
+````
 
 ---
 
@@ -643,12 +657,12 @@ Improves perceived responsiveness and delight."
 		<h2>About Me</h2>
 		<p>First section fades in immediately...</p>
 	</section>
-	
+
 	<section class="content-section">
 		<h2>My Work</h2>
 		<p>Second section fades in 0.1s later...</p>
 	</section>
-	
+
 	<section class="content-section">
 		<h2>Contact</h2>
 		<p>Third section fades in 0.2s later...</p>
@@ -659,53 +673,55 @@ Improves perceived responsiveness and delight."
 **CSS**:
 
     ```css
-/* Fade-in animation for all sections */
+
+/_ Fade-in animation for all sections _/
 .content-section {
-	animation: fadeInUp var(--duration-slow) var(--ease-out) backwards;
+animation: fadeInUp var(--duration-slow) var(--ease-out) backwards;
 }
 
-/* Stagger delays */
+/_ Stagger delays _/
 .content-section:nth-child(1) {
-	animation-delay: 0.1s;
+animation-delay: 0.1s;
 }
 .content-section:nth-child(2) {
-    	animation-delay: 0.2s;
-    }
+animation-delay: 0.2s;
+}
 .content-section:nth-child(3) {
-	animation-delay: 0.3s;
+animation-delay: 0.3s;
 }
 .content-section:nth-child(4) {
-    	animation-delay: 0.4s;
-    }
+animation-delay: 0.4s;
+}
 .content-section:nth-child(5) {
-	animation-delay: 0.5s;
+animation-delay: 0.5s;
 }
 
 @keyframes fadeInUp {
-    	from {
-    		opacity: 0;
-		transform: translateY(30px);
-    	}
-    	to {
-    		opacity: 1;
-		transform: translateY(0);
-	}
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
 }
 
-/* Reduced motion: instant appearance */
+/_ Reduced motion: instant appearance _/
 @media (prefers-reduced-motion: reduce) {
-	.content-section {
-		animation: none;
-	}
+.content-section {
+animation: none;
 }
-```
+}
+
+````
 
 ---
 
 ### ⚠️ Optional JavaScript Enhancement - Scroll-Triggered Animations (Advanced)
 
 > **Requires**: Intersection Observer API (browser support: 95%+ globally)
-> 
+>
 > **When to use**: Only if you need animations triggered by scrolling into view (not on page load)
 
 **JavaScript** (optional enhancement):
@@ -734,7 +750,7 @@ function observeAnimations() {
 document.addEventListener('DOMContentLoaded', () => {
 	observeAnimations();
 });
-```
+````
 
 **HTML** (with `data-animate` attribute):
 
@@ -748,17 +764,19 @@ document.addEventListener('DOMContentLoaded', () => {
 **CSS** (for JavaScript-triggered animations):
 
     ```css
-/* Initially hidden */
+
+/_ Initially hidden _/
 [data-animate] {
-	opacity: 0;
-	transform: translateY(30px);
+opacity: 0;
+transform: translateY(30px);
 }
 
-/* Animate when .animate-in class is added by JavaScript */
+/_ Animate when .animate-in class is added by JavaScript _/
 [data-animate].animate-in {
-	animation: fadeInUp 0.6s ease-out forwards;
+animation: fadeInUp 0.6s ease-out forwards;
 }
-```
+
+````
 
 > **Note**: The pure CSS approach (without JavaScript) is recommended for most cases. Use JavaScript only when you specifically need scroll-triggered animations.
 
@@ -783,7 +801,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	<div class="skeleton skeleton-text"></div>
 	<div class="skeleton skeleton-text"></div>
 </article>
-```
+````
 
 **CSS**:
 
@@ -835,13 +853,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	.skeleton {
 		animation: pulse 1.5s ease-in-out infinite;
 	}
-	
+
 	@keyframes pulse {
 		0%,
 		100% {
 			opacity: 1;
-    	}
-    	50% {
+		}
+		50% {
 			opacity: 0.6;
 		}
 	}
@@ -869,7 +887,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	height: 40px;
 	border: 4px solid rgba(0, 0, 0, 0.1);
 	border-left-color: var(--color-primary, #3b82f6);
-    		border-radius: 50%;
+	border-radius: 50%;
 	animation: spin 1s linear infinite;
 }
 
@@ -900,7 +918,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	@keyframes pulse {
 		0%,
-    	100% {
+		100% {
 			opacity: 1;
 		}
 		50% {
@@ -940,11 +958,7 @@ If users see your loader often:
 
 ```html
 <svg class="logo-animated" width="200" height="200" viewBox="0 0 200 200">
-	<path class="logo-path" 
-		d="M 50 100 Q 100 50 150 100 T 250 100" 
-		fill="none" 
-		stroke="currentColor" 
-		stroke-width="3"/>
+	<path class="logo-path" d="M 50 100 Q 100 50 150 100 T 250 100" fill="none" stroke="currentColor" stroke-width="3" />
 </svg>
 ```
 
@@ -972,7 +986,8 @@ If users see your loader often:
 }
 ```
 
-**How it works**: 
+**How it works**:
+
 - `stroke-dasharray` creates dashed stroke
 - `stroke-dashoffset` hides the stroke initially
 - Animation brings `stroke-dashoffset` to 0, "drawing" the path
@@ -985,7 +1000,7 @@ If users see your loader often:
 
 ```html
 <svg class="icon-morph" width="48" height="48" viewBox="0 0 24 24">
-	<circle class="circle-to-square" cx="12" cy="12" r="8" fill="currentColor"/>
+	<circle class="circle-to-square" cx="12" cy="12" r="8" fill="currentColor" />
 </svg>
 ```
 
@@ -998,7 +1013,8 @@ If users see your loader often:
 }
 
 @keyframes morph-shape {
-	0%, 100% {
+	0%,
+	100% {
 		d: path('M12,4 a8,8 0 1,0 0,16 a8,8 0 1,0 0,-16'); /* Circle */
 	}
 	50% {
@@ -1018,10 +1034,10 @@ If users see your loader often:
 	<svg class="bg-pattern" width="100%" height="100%">
 		<defs>
 			<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-				<circle cx="20" cy="20" r="2" fill="rgba(59, 130, 246, 0.1)"/>
+				<circle cx="20" cy="20" r="2" fill="rgba(59, 130, 246, 0.1)" />
 			</pattern>
 		</defs>
-		<rect width="100%" height="100%" fill="url(#grid)"/>
+		<rect width="100%" height="100%" fill="url(#grid)" />
 	</svg>
 	<h1>Content over animated background</h1>
 </div>
@@ -1200,9 +1216,8 @@ If users see your loader often:
 ## 🎯 Advanced Practice: Scroll-Driven Animations (Modern CSS)
 
 > **✅ Pure CSS - New in 2024!**
-> 
-> **Browser support**: Chrome 115+, Safari 17+ (as of 2025) - check [caniuse.com](https://caniuse.com/css-scroll-timeline)
-> **When to use**: Progressive enhancement for modern browsers
+>
+> **Browser support**: Chrome 115+, Safari 17+ (as of 2025) - check [caniuse.com](https://caniuse.com/css-scroll-timeline) > **When to use**: Progressive enhancement for modern browsers
 
 **Goal**: Animate based on scroll position WITHOUT JavaScript!
 
@@ -1268,7 +1283,7 @@ if (!CSS.supports('animation-timeline: scroll()')) {
 		const scrolled = window.scrollY;
 		const total = document.body.scrollHeight - window.innerHeight;
 		const progress = scrolled / total;
-		
+
 		document.querySelector('.reading-progress').style.transform = `scaleX(${progress})`;
 	});
 }
@@ -1279,7 +1294,7 @@ if (!CSS.supports('animation-timeline: scroll()')) {
 ## 🏆 Expert Challenge: View Transitions API
 
 > **⚠️ JavaScript Required - Cutting-Edge Browser API**
-> 
+>
 > **Browser support**: Chrome 111+, Edge 111+ (as of 2025)
 > **When to use**: Advanced SPA page transitions (not achievable with CSS alone)
 
@@ -1470,7 +1485,7 @@ Reflection in DESIGN-DECISIONS.md:
 
 ### For Code-Focused Students:
 
-**Challenge 3: Web Animations API (WAAPI)** ⚠️ *JavaScript Required*
+**Challenge 3: Web Animations API (WAAPI)** ⚠️ _JavaScript Required_
 
 > **When to use**: Complex animations requiring programmatic control (play/pause/reverse)
 
@@ -1502,7 +1517,7 @@ animation.reverse();
 - **Deliverable**: Interactive demo + performance comparison (CSS vs WAAPI)
 - **Compare**: CPU usage, frame rate, bundle size
 
-**Challenge 4: Intersection Observer Animations** ⚠️ *JavaScript Required*
+**Challenge 4: Intersection Observer Animations** ⚠️ _JavaScript Required_
 
 > **Pure CSS alternative**: Use `animation-delay` on page load (see Exercise 2)
 > **Use JavaScript only if**: You need scroll-triggered animations (not load animations)
@@ -1512,7 +1527,7 @@ animation.reverse();
 
 ### For Advanced Students:
 
-**Challenge 5: Physics-Based Animations** ⚠️ *JavaScript + Library Required*
+**Challenge 5: Physics-Based Animations** ⚠️ _JavaScript + Library Required_
 
 > **Libraries**: Popmotion, Framer Motion, React Spring
 > **Bundle size**: ~10-30KB (consider performance trade-offs)
@@ -1521,7 +1536,7 @@ animation.reverse();
 - **Deliverable**: Natural-feeling drag-and-drop interface
 - **Reflect**: Was the bundle size worth it? Could CSS have achieved similar results?
 
-**Challenge 6: SVG Path Animations** ✅ *Pure CSS*
+**Challenge 6: SVG Path Animations** ✅ _Pure CSS_
 
 > **Recommended**: This is achievable with pure CSS! (see Exercise 4)
 
