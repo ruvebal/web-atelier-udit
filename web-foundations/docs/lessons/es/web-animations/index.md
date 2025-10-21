@@ -708,8 +708,8 @@ Mejora capacidad de respuesta percibida y deleite."
 **JavaScript** (mejora opcional):
 
 ```javascript
-// src/utils/animations.js
-export function observeAnimations() {
+// utils/scroll-animations.js
+function observeAnimations() {
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
@@ -727,15 +727,13 @@ export function observeAnimations() {
 	});
 }
 
-// src/main.js
-import { observeAnimations } from './utils/animations.js';
-
+// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
 	observeAnimations();
 });
 ```
 
-**HTML**:
+**HTML** (con atributo `data-animate`):
 
 ```html
 <section class="content-section" data-animate>
@@ -744,15 +742,50 @@ document.addEventListener('DOMContentLoaded', () => {
 </section>
 ```
 
+**CSS** (para animaciones activadas por JavaScript):
+
+```css
+/* Inicialmente oculto */
+[data-animate] {
+	opacity: 0;
+	transform: translateY(30px);
+}
+
+/* Animar cuando se añade la clase .animate-in por JavaScript */
+[data-animate].animate-in {
+	animation: fadeInUp 0.6s ease-out forwards;
+}
+```
+
+> **Nota**: El enfoque de CSS puro (sin JavaScript) es recomendado para la mayoría de casos. Usa JavaScript solo cuando necesites específicamente animaciones activadas por scroll.
+
 ---
 
 ## 🎨 Ejercicio 3: Estados de Carga (Pantallas Skeleton y Spinners)
 
+> **✅ CSS Puro - No Requiere JavaScript**
+
 **Objetivo**: Mostrar progreso sin frustrar usuarios.
 
-**Pantalla Skeleton** (preferida para contenido):
+---
+
+### Opción A: Pantalla Skeleton (Preferida para Contenido)
+
+**HTML**:
+
+```html
+<article class="skeleton-card">
+	<div class="skeleton skeleton-image"></div>
+	<div class="skeleton skeleton-title"></div>
+	<div class="skeleton skeleton-text"></div>
+	<div class="skeleton skeleton-text"></div>
+</article>
+```
+
+**CSS**:
 
 ```css
+/* Animación shimmer base para skeleton */
 .skeleton {
 	background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
 	background-size: 200% 100%;
@@ -769,36 +802,70 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 }
 
-/* Card skeleton */
+/* Variantes de skeleton */
+.skeleton-image {
+	width: 100%;
+	height: 200px;
+}
+
+.skeleton-title {
+	width: 70%;
+	height: 24px;
+	margin: 1rem 0 0.5rem;
+}
+
+.skeleton-text {
+	width: 100%;
+	height: 14px;
+	margin-bottom: 0.5rem;
+}
+
+/* Card skeleton completa */
 .skeleton-card {
-	.skeleton-image {
-		width: 100%;
-		height: 200px;
-		@extend .skeleton;
+	padding: 1rem;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+}
+
+/* Respeta preferencias de movimiento */
+@media (prefers-reduced-motion: reduce) {
+	.skeleton {
+		animation: pulse 1.5s ease-in-out infinite;
 	}
-	.skeleton-title {
-		width: 70%;
-		height: 24px;
-		margin: 1rem 0 0.5rem;
-		@extend .skeleton;
-	}
-	.skeleton-text {
-		width: 100%;
-		height: 14px;
-		margin-bottom: 0.5rem;
-		@extend .skeleton;
+	
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.6;
+		}
 	}
 }
 ```
 
-**Spinner** (usar con moderación):
+---
+
+### Opción B: Spinner (Usar con Moderación)
+
+> **Usar solo para esperas cortas (<3 segundos). Prefiere pantallas skeleton para carga de contenido.**
+
+**HTML**:
+
+```html
+<div class="spinner" role="status" aria-label="Cargando contenido"></div>
+<p class="sr-only">Cargando contenido, por favor espera...</p>
+```
+
+**CSS**:
 
 ```css
 .spinner {
 	width: 40px;
 	height: 40px;
 	border: 4px solid rgba(0, 0, 0, 0.1);
-	border-left-color: #3b82f6;
+	border-left-color: var(--color-primary, #3b82f6);
 	border-radius: 50%;
 	animation: spin 1s linear infinite;
 }
@@ -809,21 +876,23 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 }
 
-/* Etiqueta accesible */
-.spinner[aria-label]::before {
-	content: attr(aria-label);
+/* Texto solo para lectores de pantalla */
+.sr-only {
 	position: absolute;
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
 	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
+	border: 0;
 }
 
-/* Respetar preferencia de movimiento */
+/* Respeta preferencias de movimiento */
 @media (prefers-reduced-motion: reduce) {
 	.spinner {
 		animation: pulse 1.5s ease-in-out infinite;
-		border-left-color: #3b82f6;
 	}
 
 	@keyframes pulse {
@@ -854,7 +923,138 @@ Si los usuarios ven tu loader a menudo:
 
 ---
 
+## 🎨 Ejercicio 4: Animaciones SVG (Íconos y Logos)
+
+> **✅ CSS Puro + SVG - No Requiere JavaScript**
+
+**Objetivo**: Animar gráficos SVG usando CSS puro para animaciones profesionales y escalables.
+
+---
+
+### Efecto de Dibujo de Path SVG
+
+**HTML** (SVG inline):
+
+```html
+<svg class="logo-animated" width="200" height="200" viewBox="0 0 200 200">
+	<path class="logo-path" 
+		d="M 50 100 Q 100 50 150 100 T 250 100" 
+		fill="none" 
+		stroke="currentColor" 
+		stroke-width="3"/>
+</svg>
+```
+
+**CSS**:
+
+```css
+.logo-path {
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 1000;
+	animation: draw 2s ease-out forwards;
+}
+
+@keyframes draw {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+/* Respeta preferencias de movimiento */
+@media (prefers-reduced-motion: reduce) {
+	.logo-path {
+		animation: none;
+		stroke-dashoffset: 0;
+	}
+}
+```
+
+**Cómo funciona**: 
+- `stroke-dasharray` crea trazo discontinuo
+- `stroke-dashoffset` oculta el trazo inicialmente
+- La animación lleva `stroke-dashoffset` a 0, "dibujando" el path
+
+---
+
+### Metamorfosis de Íconos SVG
+
+**HTML**:
+
+```html
+<svg class="icon-morph" width="48" height="48" viewBox="0 0 24 24">
+	<circle class="circle-to-square" cx="12" cy="12" r="8" fill="currentColor"/>
+</svg>
+```
+
+**CSS**:
+
+```css
+.circle-to-square {
+	animation: morph-shape 3s ease-in-out infinite;
+	transform-origin: center;
+}
+
+@keyframes morph-shape {
+	0%, 100% {
+		d: path('M12,4 a8,8 0 1,0 0,16 a8,8 0 1,0 0,-16'); /* Círculo */
+	}
+	50% {
+		d: path('M4,4 h16 v16 h-16 z'); /* Cuadrado */
+	}
+}
+```
+
+---
+
+### Patrón de Fondo SVG Animado
+
+**HTML**:
+
+```html
+<div class="hero-section">
+	<svg class="bg-pattern" width="100%" height="100%">
+		<defs>
+			<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+				<circle cx="20" cy="20" r="2" fill="rgba(59, 130, 246, 0.1)"/>
+			</pattern>
+		</defs>
+		<rect width="100%" height="100%" fill="url(#grid)"/>
+	</svg>
+	<h1>Contenido sobre fondo animado</h1>
+</div>
+```
+
+**CSS**:
+
+```css
+.bg-pattern {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	animation: pattern-slide 20s linear infinite;
+}
+
+@keyframes pattern-slide {
+	to {
+		transform: translate(40px, 40px);
+	}
+}
+
+/* Hero con posicionamiento relativo */
+.hero-section {
+	position: relative;
+	min-height: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+```
+
+---
+
 ## 🎯 Práctica Avanzada: Formas Metamorfoseantes (CSS clip-path)
+
+> **✅ CSS Puro - No Requiere JavaScript**
 
 **Objetivo**: Animar entre diferentes formas tipo SVG.
 
