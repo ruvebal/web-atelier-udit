@@ -1196,7 +1196,24 @@ Si los usuarios ven tu loader a menudo:
 
 ## 🎯 Práctica Avanzada: Animaciones Impulsadas por Scroll (CSS Moderno)
 
-**Nuevo en 2023**: ¡Animar basado en posición de scroll SIN JavaScript!
+> **✅ CSS Puro - ¡Nuevo en 2024!**
+> 
+> **Soporte de navegador**: Chrome 115+, Safari 17+ (a 2025) - verifica [caniuse.com](https://caniuse.com/css-scroll-timeline)
+> **Cuándo usar**: Mejora progresiva para navegadores modernos
+
+**Objetivo**: ¡Animar basado en posición de scroll SIN JavaScript!
+
+**HTML**:
+
+```html
+<div class="hero">
+	<h1>Haz scroll para ver efecto parallax</h1>
+</div>
+
+<div class="reading-progress"></div>
+```
+
+**CSS**:
 
 ```css
 /* Fondo parallax */
@@ -1211,11 +1228,12 @@ Si los usuarios ven tu loader a menudo:
 	}
 }
 
-/* Barra de progreso */
+/* Barra de progreso de lectura */
 .reading-progress {
 	position: fixed;
 	top: 0;
 	left: 0;
+	right: 0;
 	height: 4px;
 	background: linear-gradient(to right, #667eea, #764ba2);
 	transform-origin: left;
@@ -1233,16 +1251,21 @@ Si los usuarios ven tu loader a menudo:
 }
 ```
 
-**Soporte de navegador** (a 2025): Chrome 115+, Safari 17+ (verifica caniuse.com)
+---
 
-**Fallback** para navegadores antiguos:
+### ⚠️ Fallback JavaScript para Navegadores Antiguos (Opcional)
+
+> **Usar solo si necesitas soportar navegadores sin soporte para `animation-timeline`**
 
 ```javascript
-// src/utils/scroll-animations.js
+// utils/scroll-fallback.js
 if (!CSS.supports('animation-timeline: scroll()')) {
-	// Polyfill o fallback JavaScript
+	// Fallback JavaScript para navegadores antiguos
 	window.addEventListener('scroll', () => {
-		const progress = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+		const scrolled = window.scrollY;
+		const total = document.body.scrollHeight - window.innerHeight;
+		const progress = scrolled / total;
+		
 		document.querySelector('.reading-progress').style.transform = `scaleX(${progress})`;
 	});
 }
@@ -1252,15 +1275,23 @@ if (!CSS.supports('animation-timeline: scroll()')) {
 
 ## 🏆 Desafío Experto: View Transitions API
 
+> **⚠️ JavaScript Requerido - API de Navegador de Vanguardia**
+> 
+> **Soporte de navegador**: Chrome 111+, Edge 111+ (a 2025)
+> **Cuándo usar**: Transiciones avanzadas de páginas SPA (no alcanzable solo con CSS)
+
 **El Futuro**: ¡Transiciones suaves entre páginas en SPAs y MPAs!
 
 ```javascript
-// Navegadores modernos (Chrome 111+)
+// Verificar soporte del navegador
 if (document.startViewTransition) {
 	document.startViewTransition(() => {
 		// Actualizar DOM (ej: navegar a nueva vista)
 		renderNewView();
 	});
+} else {
+	// Fallback: navegación instantánea
+	renderNewView();
 }
 ```
 
@@ -1436,12 +1467,17 @@ Reflexión en DESIGN-DECISIONS.md:
 
 ### Para Estudiantes Enfocados en Código:
 
-**Desafío 3: Web Animations API (WAAPI)**
+**Desafío 3: Web Animations API (WAAPI)** ⚠️ *JavaScript Requerido*
+
+> **Cuándo usar**: Animaciones complejas que requieren control programático (play/pause/reverse)
 
 - Reescribe una animación CSS usando JavaScript:
 
 ```javascript
-element.animate(
+// utils/waapi-example.js
+const element = document.querySelector('.animated-element');
+
+const animation = element.animate(
 	[
 		{ transform: 'scale(1)', opacity: 1 },
 		{ transform: 'scale(1.2)', opacity: 0.8 },
@@ -1453,26 +1489,42 @@ element.animate(
 		iterations: Infinity,
 	}
 );
+
+// Controlar animaciones programáticamente
+animation.pause();
+animation.play();
+animation.reverse();
 ```
 
-- **Entregable**: Demo interactivo + comparación de rendimiento
+- **Entregable**: Demo interactivo + comparación de rendimiento (CSS vs WAAPI)
+- **Comparar**: Uso de CPU, tasa de frames, tamaño del bundle
 
-**Desafío 4: Animaciones Intersection Observer**
+**Desafío 4: Animaciones Intersection Observer** ⚠️ *JavaScript Requerido*
+
+> **Alternativa CSS pura**: Usa `animation-delay` al cargar página (ver Ejercicio 2)
+> **Usa JavaScript solo si**: Necesitas animaciones activadas por scroll (no animaciones de carga)
 
 - Animar secciones solo cuando visibles en viewport
 - **Entregable**: Función utilidad `animateOnScroll()` reutilizable
 
 ### Para Estudiantes Avanzados:
 
-**Desafío 5: Animaciones Basadas en Física**
+**Desafío 5: Animaciones Basadas en Física** ⚠️ *JavaScript + Biblioteca Requerida*
 
-- Implementar física de resorte usando bibliotecas (Popmotion, Framer Motion)
+> **Bibliotecas**: Popmotion, Framer Motion, React Spring
+> **Tamaño del bundle**: ~10-30KB (considera trade-offs de rendimiento)
+
+- Implementar física de resorte para movimiento natural
 - **Entregable**: Interfaz drag-and-drop de sensación natural
+- **Reflexiona**: ¿Valió la pena el tamaño del bundle? ¿CSS podría haber logrado resultados similares?
 
-**Desafío 6: Animaciones de Path SVG**
+**Desafío 6: Animaciones de Path SVG** ✅ *CSS Puro*
 
-- Animar `<path>` de SVG stroke-dasharray para efecto de dibujo
-- **Entregable**: Logo o icono animado
+> **Recomendado**: ¡Esto es alcanzable con CSS puro! (ver Ejercicio 4)
+
+- Animar `<path>` de SVG usando `stroke-dasharray` y `stroke-dashoffset`
+- **Entregable**: Logo o icono animado que se dibuja al cargar la página
+- **Bonus**: Añadir fallback para `prefers-reduced-motion`
 
 ---
 
@@ -1557,8 +1609,10 @@ _"La animación no es decoración. Es comunicación. Muévete con propósito. De
 
 **Próximos Pasos:**
 
-- Revisa [Módulos JavaScript](/lessons/es/js-modules/) para organizar código de animación
-- Explora [Tailwind Estado e Interactividad](/lessons/es/tailwind/state-interactivity/) para integración con framework
-- Estudia [Accesibilidad y Rendimiento](/lessons/es/tailwind/accessibility-performance/) para optimización
+- Revisa [Módulos JavaScript](/lessons/es/js-modules/) para organizar código de animación modularmente
+- Estudia las guías de accesibilidad (WCAG 2.1) para movimiento y animación
+- Explora herramientas de optimización de rendimiento (Chrome DevTools, Lighthouse)
+- Practica técnicas de animación SVG para logos e íconos
+- Aprende más sobre `scroll()` timeline de CSS para animaciones impulsadas por scroll
 
 **¡Hagamos de la web un ecosistema virtual hermoso Y útil! 🌐✨**
