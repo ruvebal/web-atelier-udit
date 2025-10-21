@@ -110,7 +110,7 @@ Before we code a single transition, let's pause and **think critically** about w
 
 **Syntax**:
 
-```css
+    ```css
 .element {
 	transition: property duration timing-function delay;
 }
@@ -148,9 +148,9 @@ Before we code a single transition, let's pause and **think critically** about w
 
 **Syntax**:
 
-```css
+    ```css
 @keyframes animation-name {
-	from {
+    	from {
 		/* or 0% */
 	}
 	25% {
@@ -209,7 +209,7 @@ Before we code a single transition, let's pause and **think critically** about w
 
 **Core Functions**:
 
-```css
+    ```css
 transform: translateX(100px); /* Move horizontally */
 transform: translateY(-50px); /* Move vertically */
 transform: translate(50px, -20px); /* Both at once */
@@ -245,7 +245,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 
 **Solution**: Tell browser in advance what will animate.
 
-```css
+    ```css
 .button {
 	will-change: transform, opacity;
 	/* Browser creates GPU layer immediately */
@@ -286,14 +286,14 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 
 ```css
 /* Full animation for users who can tolerate it */
-@keyframes spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
-}
+    @keyframes spin {
+    	from {
+    		transform: rotate(0deg);
+    	}
+    	to {
+    		transform: rotate(360deg);
+    	}
+    }
 
 .loader {
 	animation: spin 1s linear infinite;
@@ -354,7 +354,7 @@ Test your animations with:
 
 Create `src/styles/animations.css` in your project:
 
-```css
+    ```css
 /* ============================================
    ANIMATION SYSTEM - Pure CSS
    Design Tokens + Reusable Animations
@@ -452,11 +452,11 @@ Create `src/styles/animations.css` in your project:
 }
 
 @keyframes pulse {
-	0%,
-	100% {
+    	0%,
+    	100% {
 		opacity: 1;
-	}
-	50% {
+    	}
+    	50% {
 		opacity: 0.5;
 	}
 }
@@ -488,7 +488,7 @@ Create `src/styles/animations.css` in your project:
 
 **CSS**:
 
-```css
+    ```css
 /* styles/button.css */
 
 /* Base button styles */
@@ -658,7 +658,7 @@ Improves perceived responsiveness and delight."
 
 **CSS**:
 
-```css
+    ```css
 /* Fade-in animation for all sections */
 .content-section {
 	animation: fadeInUp var(--duration-slow) var(--ease-out) backwards;
@@ -669,25 +669,25 @@ Improves perceived responsiveness and delight."
 	animation-delay: 0.1s;
 }
 .content-section:nth-child(2) {
-	animation-delay: 0.2s;
-}
+    	animation-delay: 0.2s;
+    }
 .content-section:nth-child(3) {
 	animation-delay: 0.3s;
 }
 .content-section:nth-child(4) {
-	animation-delay: 0.4s;
-}
+    	animation-delay: 0.4s;
+    }
 .content-section:nth-child(5) {
 	animation-delay: 0.5s;
 }
 
 @keyframes fadeInUp {
-	from {
-		opacity: 0;
+    	from {
+    		opacity: 0;
 		transform: translateY(30px);
-	}
-	to {
-		opacity: 1;
+    	}
+    	to {
+    		opacity: 1;
 		transform: translateY(0);
 	}
 }
@@ -747,7 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 **CSS** (for JavaScript-triggered animations):
 
-```css
+    ```css
 /* Initially hidden */
 [data-animate] {
 	opacity: 0;
@@ -840,8 +840,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		0%,
 		100% {
 			opacity: 1;
-		}
-		50% {
+    	}
+    	50% {
 			opacity: 0.6;
 		}
 	}
@@ -852,15 +852,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### Option B: Spinner (Use Sparingly)
 
-**Spinner** (use sparingly):
+> **Use only for short waits (<3 seconds). Prefer skeleton screens for content loading.**
+
+**HTML**:
+
+```html
+<div class="spinner" role="status" aria-label="Loading content"></div>
+<p class="sr-only">Loading content, please wait...</p>
+```
+
+**CSS**:
 
 ```css
 .spinner {
 	width: 40px;
 	height: 40px;
 	border: 4px solid rgba(0, 0, 0, 0.1);
-	border-left-color: #3b82f6;
-	border-radius: 50%;
+	border-left-color: var(--color-primary, #3b82f6);
+    		border-radius: 50%;
 	animation: spin 1s linear infinite;
 }
 
@@ -870,26 +879,28 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 }
 
-/* Accessible label */
-.spinner[aria-label]::before {
-	content: attr(aria-label);
+/* Screen reader only text */
+.sr-only {
 	position: absolute;
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
 	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
+	border: 0;
 }
 
 /* Respect motion preference */
 @media (prefers-reduced-motion: reduce) {
 	.spinner {
 		animation: pulse 1.5s ease-in-out infinite;
-		border-left-color: #3b82f6;
 	}
 
 	@keyframes pulse {
 		0%,
-		100% {
+    	100% {
 			opacity: 1;
 		}
 		50% {
@@ -915,7 +926,138 @@ If users see your loader often:
 
 ---
 
+## 🎨 Exercise 4: SVG Animations (Icons & Logos)
+
+> **✅ Pure CSS + SVG - No JavaScript Required**
+
+**Goal**: Animate SVG graphics using pure CSS for professional, scalable animations.
+
+---
+
+### SVG Path Drawing Effect
+
+**HTML** (inline SVG):
+
+```html
+<svg class="logo-animated" width="200" height="200" viewBox="0 0 200 200">
+	<path class="logo-path" 
+		d="M 50 100 Q 100 50 150 100 T 250 100" 
+		fill="none" 
+		stroke="currentColor" 
+		stroke-width="3"/>
+</svg>
+```
+
+**CSS**:
+
+```css
+.logo-path {
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 1000;
+	animation: draw 2s ease-out forwards;
+}
+
+@keyframes draw {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+/* Respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+	.logo-path {
+		animation: none;
+		stroke-dashoffset: 0;
+	}
+}
+```
+
+**How it works**: 
+- `stroke-dasharray` creates dashed stroke
+- `stroke-dashoffset` hides the stroke initially
+- Animation brings `stroke-dashoffset` to 0, "drawing" the path
+
+---
+
+### SVG Icon Morphing
+
+**HTML**:
+
+```html
+<svg class="icon-morph" width="48" height="48" viewBox="0 0 24 24">
+	<circle class="circle-to-square" cx="12" cy="12" r="8" fill="currentColor"/>
+</svg>
+```
+
+**CSS**:
+
+```css
+.circle-to-square {
+	animation: morph-shape 3s ease-in-out infinite;
+	transform-origin: center;
+}
+
+@keyframes morph-shape {
+	0%, 100% {
+		d: path('M12,4 a8,8 0 1,0 0,16 a8,8 0 1,0 0,-16'); /* Circle */
+	}
+	50% {
+		d: path('M4,4 h16 v16 h-16 z'); /* Square */
+	}
+}
+```
+
+---
+
+### Animated SVG Background Pattern
+
+**HTML**:
+
+```html
+<div class="hero-section">
+	<svg class="bg-pattern" width="100%" height="100%">
+		<defs>
+			<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+				<circle cx="20" cy="20" r="2" fill="rgba(59, 130, 246, 0.1)"/>
+			</pattern>
+		</defs>
+		<rect width="100%" height="100%" fill="url(#grid)"/>
+	</svg>
+	<h1>Content over animated background</h1>
+</div>
+```
+
+**CSS**:
+
+```css
+.bg-pattern {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	animation: pattern-slide 20s linear infinite;
+}
+
+@keyframes pattern-slide {
+	to {
+		transform: translate(40px, 40px);
+	}
+}
+
+/* Hero with relative positioning */
+.hero-section {
+	position: relative;
+	min-height: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+```
+
+---
+
 ## 🎯 Advanced Practice: Morphing Shapes (CSS clip-path)
+
+> **✅ Pure CSS - No JavaScript Required**
 
 **Goal**: Animate between different SVG-like shapes.
 
@@ -1057,7 +1199,24 @@ If users see your loader often:
 
 ## 🎯 Advanced Practice: Scroll-Driven Animations (Modern CSS)
 
-**New in 2023**: Animate based on scroll position WITHOUT JavaScript!
+> **✅ Pure CSS - New in 2024!**
+> 
+> **Browser support**: Chrome 115+, Safari 17+ (as of 2025) - check [caniuse.com](https://caniuse.com/css-scroll-timeline)
+> **When to use**: Progressive enhancement for modern browsers
+
+**Goal**: Animate based on scroll position WITHOUT JavaScript!
+
+**HTML**:
+
+```html
+<div class="hero">
+	<h1>Scroll to see parallax effect</h1>
+</div>
+
+<div class="reading-progress"></div>
+```
+
+**CSS**:
 
 ```css
 /* Parallax background */
@@ -1072,11 +1231,12 @@ If users see your loader often:
 	}
 }
 
-/* Progress bar */
+/* Reading progress bar */
 .reading-progress {
 	position: fixed;
 	top: 0;
 	left: 0;
+	right: 0;
 	height: 4px;
 	background: linear-gradient(to right, #667eea, #764ba2);
 	transform-origin: left;
@@ -1094,16 +1254,21 @@ If users see your loader often:
 }
 ```
 
-**Browser support** (as of 2025): Chrome 115+, Safari 17+ (check caniuse.com)
+---
 
-**Fallback** for older browsers:
+### ⚠️ JavaScript Fallback for Older Browsers (Optional)
+
+> **Use only if you need to support browsers without `animation-timeline` support**
 
 ```javascript
-// src/utils/scroll-animations.js
+// utils/scroll-fallback.js
 if (!CSS.supports('animation-timeline: scroll()')) {
-	// Polyfill or JavaScript fallback
+	// JavaScript fallback for older browsers
 	window.addEventListener('scroll', () => {
-		const progress = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+		const scrolled = window.scrollY;
+		const total = document.body.scrollHeight - window.innerHeight;
+		const progress = scrolled / total;
+		
 		document.querySelector('.reading-progress').style.transform = `scaleX(${progress})`;
 	});
 }
@@ -1113,15 +1278,23 @@ if (!CSS.supports('animation-timeline: scroll()')) {
 
 ## 🏆 Expert Challenge: View Transitions API
 
+> **⚠️ JavaScript Required - Cutting-Edge Browser API**
+> 
+> **Browser support**: Chrome 111+, Edge 111+ (as of 2025)
+> **When to use**: Advanced SPA page transitions (not achievable with CSS alone)
+
 **The Future**: Smooth transitions between pages in SPAs and MPAs!
 
 ```javascript
-// Modern browsers (Chrome 111+)
+// Check for browser support
 if (document.startViewTransition) {
 	document.startViewTransition(() => {
 		// Update DOM (e.g., navigate to new view)
 		renderNewView();
 	});
+} else {
+	// Fallback: instant navigation
+	renderNewView();
 }
 ```
 
@@ -1297,12 +1470,17 @@ Reflection in DESIGN-DECISIONS.md:
 
 ### For Code-Focused Students:
 
-**Challenge 3: Web Animations API (WAAPI)**
+**Challenge 3: Web Animations API (WAAPI)** ⚠️ *JavaScript Required*
+
+> **When to use**: Complex animations requiring programmatic control (play/pause/reverse)
 
 - Rewrite a CSS animation using JavaScript:
 
 ```javascript
-element.animate(
+// utils/waapi-example.js
+const element = document.querySelector('.animated-element');
+
+const animation = element.animate(
 	[
 		{ transform: 'scale(1)', opacity: 1 },
 		{ transform: 'scale(1.2)', opacity: 0.8 },
@@ -1314,26 +1492,42 @@ element.animate(
 		iterations: Infinity,
 	}
 );
+
+// Control animations programmatically
+animation.pause();
+animation.play();
+animation.reverse();
 ```
 
-- **Deliverable**: Interactive demo + performance comparison
+- **Deliverable**: Interactive demo + performance comparison (CSS vs WAAPI)
+- **Compare**: CPU usage, frame rate, bundle size
 
-**Challenge 4: Intersection Observer Animations**
+**Challenge 4: Intersection Observer Animations** ⚠️ *JavaScript Required*
+
+> **Pure CSS alternative**: Use `animation-delay` on page load (see Exercise 2)
+> **Use JavaScript only if**: You need scroll-triggered animations (not load animations)
 
 - Animate sections only when visible in viewport
 - **Deliverable**: Reusable `animateOnScroll()` utility function
 
 ### For Advanced Students:
 
-**Challenge 5: Physics-Based Animations**
+**Challenge 5: Physics-Based Animations** ⚠️ *JavaScript + Library Required*
 
-- Implement spring physics using libraries (Popmotion, Framer Motion)
+> **Libraries**: Popmotion, Framer Motion, React Spring
+> **Bundle size**: ~10-30KB (consider performance trade-offs)
+
+- Implement spring physics for natural movement
 - **Deliverable**: Natural-feeling drag-and-drop interface
+- **Reflect**: Was the bundle size worth it? Could CSS have achieved similar results?
 
-**Challenge 6: SVG Path Animations**
+**Challenge 6: SVG Path Animations** ✅ *Pure CSS*
 
-- Animate SVG `<path>` stroke-dasharray for drawing effect
-- **Deliverable**: Animated logo or icon
+> **Recommended**: This is achievable with pure CSS! (see Exercise 4)
+
+- Animate SVG `<path>` using `stroke-dasharray` and `stroke-dashoffset`
+- **Deliverable**: Animated logo or icon that draws on page load
+- **Bonus**: Add `prefers-reduced-motion` fallback
 
 ---
 
@@ -1418,8 +1612,10 @@ _"Animation is not decoration. It is communication. Move with purpose. Delight w
 
 **Next Steps:**
 
-- Review [JavaScript Modules](/lessons/en/js-modules/) to organize animation code
-- Explore [Tailwind State & Interactivity](/lessons/en/tailwind/state-interactivity/) for framework integration
-- Study [Accessibility & Performance](/lessons/en/tailwind/accessibility-performance/) for optimization
+- Review [JavaScript Modules](/lessons/en/js-modules/) to organize animation code modularly
+- Study accessibility guidelines (WCAG 2.1) for motion and animation
+- Explore performance optimization tools (Chrome DevTools, Lighthouse)
+- Practice SVG animation techniques for logos and icons
+- Learn more about CSS `scroll()` timeline for scroll-driven animations
 
 **Let's make the web a beautiful AND usable virtual ecosystem! 🌐✨**
