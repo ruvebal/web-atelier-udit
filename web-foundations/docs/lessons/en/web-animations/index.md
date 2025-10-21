@@ -347,7 +347,7 @@ Test your animations with:
 ## 🏗️ Atelier Workshop: Building Animation Systems
 
 > **✅ Pure CSS - No Framework Required**
-> 
+>
 > All examples use standard CSS. No Tailwind, Bootstrap, or JavaScript dependencies (unless explicitly marked).
 
 ### Setup: Animation Utilities Starter
@@ -368,13 +368,13 @@ Create `src/styles/animations.css` in your project:
 	--duration-normal: 300ms;
 	--duration-slow: 500ms;
 	--duration-slower: 800ms;
-	
+
 	--ease-in: cubic-bezier(0.4, 0, 1, 1);
 	--ease-out: cubic-bezier(0, 0, 0.2, 1);
 	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 	--ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 	--ease-elastic: cubic-bezier(0.68, -0.35, 0.265, 1.35);
-	
+
 	/* Color tokens (framework-agnostic) */
 	--color-primary: #3b82f6;
 	--color-gray-100: #f3f4f6;
@@ -498,18 +498,18 @@ Create `src/styles/animations.css` in your project:
 	align-items: center;
 	justify-center: center;
 	padding: 0.75rem 1.5rem;
-	
+
 	/* Typography */
 	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1;
 	text-decoration: none;
-	
+
 	/* Visual */
 	border: none;
 	border-radius: 0.375rem;
 	cursor: pointer;
-	
+
 	/* Animation setup */
 	position: relative;
 	overflow: hidden;
@@ -628,7 +628,7 @@ Improves perceived responsiveness and delight."
 ## 🎨 Exercise 2: Page Load Animations (Staggered Fade-In)
 
 > **✅ Pure CSS - No JavaScript Required**
-> 
+>
 > (Optional JavaScript enhancement for scroll-triggered animations shown below)
 
 **Goal**: Content gracefully appears on page load using only CSS.
@@ -636,6 +636,27 @@ Improves perceived responsiveness and delight."
 **Where**: Any HTML page + `styles/animations.css`
 
 **HTML**:
+
+```html
+<main>
+	<section class="content-section">
+		<h2>About Me</h2>
+		<p>First section fades in immediately...</p>
+	</section>
+	
+	<section class="content-section">
+		<h2>My Work</h2>
+		<p>Second section fades in 0.1s later...</p>
+	</section>
+	
+	<section class="content-section">
+		<h2>Contact</h2>
+		<p>Third section fades in 0.2s later...</p>
+	</section>
+</main>
+```
+
+**CSS**:
 
 ```css
 /* Fade-in animation for all sections */
@@ -679,11 +700,19 @@ Improves perceived responsiveness and delight."
 }
 ```
 
-**JavaScript enhancement** (optional):
+---
+
+### ⚠️ Optional JavaScript Enhancement - Scroll-Triggered Animations (Advanced)
+
+> **Requires**: Intersection Observer API (browser support: 95%+ globally)
+> 
+> **When to use**: Only if you need animations triggered by scrolling into view (not on page load)
+
+**JavaScript** (optional enhancement):
 
 ```javascript
-// src/utils/animations.js
-export function observeAnimations() {
+// utils/scroll-animations.js
+function observeAnimations() {
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
@@ -701,15 +730,13 @@ export function observeAnimations() {
 	});
 }
 
-// src/main.js
-import { observeAnimations } from './utils/animations.js';
-
+// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
 	observeAnimations();
 });
 ```
 
-**HTML**:
+**HTML** (with `data-animate` attribute):
 
 ```html
 <section class="content-section" data-animate>
@@ -718,15 +745,50 @@ document.addEventListener('DOMContentLoaded', () => {
 </section>
 ```
 
+**CSS** (for JavaScript-triggered animations):
+
+```css
+/* Initially hidden */
+[data-animate] {
+	opacity: 0;
+	transform: translateY(30px);
+}
+
+/* Animate when .animate-in class is added by JavaScript */
+[data-animate].animate-in {
+	animation: fadeInUp 0.6s ease-out forwards;
+}
+```
+
+> **Note**: The pure CSS approach (without JavaScript) is recommended for most cases. Use JavaScript only when you specifically need scroll-triggered animations.
+
 ---
 
 ## 🎨 Exercise 3: Loading States (Skeleton Screens & Spinners)
 
+> **✅ Pure CSS - No JavaScript Required**
+
 **Goal**: Show progress without frustrating users.
 
-**Skeleton Screen** (preferred for content):
+---
+
+### Option A: Skeleton Screen (Preferred for Content)
+
+**HTML**:
+
+```html
+<article class="skeleton-card">
+	<div class="skeleton skeleton-image"></div>
+	<div class="skeleton skeleton-title"></div>
+	<div class="skeleton skeleton-text"></div>
+	<div class="skeleton skeleton-text"></div>
+</article>
+```
+
+**CSS**:
 
 ```css
+/* Base skeleton shimmer animation */
 .skeleton {
 	background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
 	background-size: 200% 100%;
@@ -743,27 +805,52 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 }
 
-/* Skeleton card */
+/* Skeleton variants */
+.skeleton-image {
+	width: 100%;
+	height: 200px;
+}
+
+.skeleton-title {
+	width: 70%;
+	height: 24px;
+	margin: 1rem 0 0.5rem;
+}
+
+.skeleton-text {
+	width: 100%;
+	height: 14px;
+	margin-bottom: 0.5rem;
+}
+
+/* Complete skeleton card */
 .skeleton-card {
-	.skeleton-image {
-		width: 100%;
-		height: 200px;
-		@extend .skeleton;
+	padding: 1rem;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+}
+
+/* Respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+	.skeleton {
+		animation: pulse 1.5s ease-in-out infinite;
 	}
-	.skeleton-title {
-		width: 70%;
-		height: 24px;
-		margin: 1rem 0 0.5rem;
-		@extend .skeleton;
-	}
-	.skeleton-text {
-		width: 100%;
-		height: 14px;
-		margin-bottom: 0.5rem;
-		@extend .skeleton;
+	
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.6;
+		}
 	}
 }
 ```
+
+---
+
+### Option B: Spinner (Use Sparingly)
 
 **Spinner** (use sparingly):
 
