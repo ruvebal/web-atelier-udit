@@ -32,7 +32,7 @@ permalink: /lessons/es/web-animations/
 
 ## 🎭 Perspectiva Crítica: La Animación como Lenguaje
 
-> "La animación no trata de hacer que las cosas se muevan. Trata de hacer que las cosas se *sientan* vivas." — Diseñador UX Anónimo
+> "La animación no trata de hacer que las cosas se muevan. Trata de hacer que las cosas se _sientan_ vivas." — Diseñador UX Anónimo
 
 Antes de codificar una sola transición, pausemos y **pensemos críticamente** sobre por qué animamos:
 
@@ -109,6 +109,7 @@ Antes de codificar una sola transición, pausemos y **pensemos críticamente** s
 **Cuándo**: Estados activados por usuario (hover, focus, active) o cambios de clase.
 
 **Sintaxis**:
+
 ```css
 .element {
 	transition: property duration timing-function delay;
@@ -116,6 +117,7 @@ Antes de codificar una sola transición, pausemos y **pensemos críticamente** s
 ```
 
 **Ejemplo**:
+
 ```css
 .button {
 	background: #3b82f6;
@@ -145,12 +147,19 @@ Antes de codificar una sola transición, pausemos y **pensemos críticamente** s
 **Cuándo**: Animaciones complejas, efectos en bucle, independientes de interacción de usuario.
 
 **Sintaxis**:
+
 ```css
 @keyframes animation-name {
-	from { /* o 0% */ }
-	25% { }
-	50% { }
-	to { /* o 100% */ }
+	from {
+		/* o 0% */
+	}
+	25% {
+	}
+	50% {
+	}
+	to {
+		/* o 100% */
+	}
 }
 
 .element {
@@ -159,6 +168,7 @@ Antes de codificar una sola transición, pausemos y **pensemos críticamente** s
 ```
 
 **Ejemplo - Fade-in al cargar página**:
+
 ```css
 @keyframes fadeInUp {
 	from {
@@ -176,9 +186,15 @@ Antes de codificar una sola transición, pausemos y **pensemos críticamente** s
 }
 
 /* Escalonar con delays */
-.section:nth-child(1) { animation-delay: 0.1s; }
-.section:nth-child(2) { animation-delay: 0.2s; }
-.section:nth-child(3) { animation-delay: 0.3s; }
+.section:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.section:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.section:nth-child(3) {
+	animation-delay: 0.3s;
+}
 ```
 
 **🔑 Perspectiva Clave**: Los keyframes son **proactivos** - se ejecutan automáticamente al aplicarse.
@@ -192,29 +208,30 @@ Antes de codificar una sola transición, pausemos y **pensemos críticamente** s
 **Por qué**: Acelerado por GPU = rendimiento suave a 60fps.
 
 **Funciones Principales**:
+
 ```css
-transform: translateX(100px);        /* Mover horizontalmente */
-transform: translateY(-50px);        /* Mover verticalmente */
-transform: translate(50px, -20px);   /* Ambos a la vez */
-transform: scale(1.2);               /* Crecer 20% */
-transform: scaleX(0.8);              /* Comprimir horizontalmente */
-transform: rotate(45deg);            /* Rotar en sentido horario */
-transform: skewX(10deg);             /* Inclinar */
+transform: translateX(100px); /* Mover horizontalmente */
+transform: translateY(-50px); /* Mover verticalmente */
+transform: translate(50px, -20px); /* Ambos a la vez */
+transform: scale(1.2); /* Crecer 20% */
+transform: scaleX(0.8); /* Comprimir horizontalmente */
+transform: rotate(45deg); /* Rotar en sentido horario */
+transform: skewX(10deg); /* Inclinar */
 
 /* Combinar múltiples transforms */
 transform: translateX(50px) rotate(15deg) scale(1.1);
 ```
 
 **Ejemplo - Efecto de elevación de tarjeta**:
+
 ```css
 .card {
-	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), /* Rebote */
-	            box-shadow 0.3s ease;
+	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), /* Rebote */ box-shadow 0.3s ease;
 }
 
 .card:hover {
 	transform: translateY(-8px) scale(1.02);
-	box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 ```
 
@@ -241,6 +258,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 ```
 
 **Mejor Práctica**:
+
 ```css
 /* Añadir will-change solo cuando sea necesario */
 .card:hover,
@@ -250,6 +268,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 ```
 
 **Prohibido**:
+
 ```css
 /* ❌ MALO - desperdicia memoria en cada elemento */
 * {
@@ -268,8 +287,12 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 ```css
 /* Animación completa para usuarios que la toleran */
 @keyframes spin {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .loader {
@@ -283,7 +306,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 		/* Proporcionar alternativa estática */
 		opacity: 0.6;
 	}
-	
+
 	* {
 		animation-duration: 0.01ms !important;
 		transition-duration: 0.01ms !important;
@@ -292,6 +315,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 ```
 
 **Enfoque de Mejora Progresiva**:
+
 ```css
 /* Comenzar sin movimiento (predeterminado seguro) */
 .element {
@@ -311,6 +335,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 **El movimiento no es inclusivo por defecto.**
 
 Prueba tus animaciones con:
+
 1. **Configuración del sistema**: Habilita "Reducir Movimiento" en accesibilidad del SO
 2. **DevTools**: Chrome/Firefox tienen emulación de movimiento
 3. **Usuarios reales**: Pregunta a alguien con sensibilidad vestibular
@@ -338,7 +363,7 @@ Crea `src/styles/animations.css` en tu proyecto:
 	--duration-normal: 300ms;
 	--duration-slow: 500ms;
 	--duration-slower: 800ms;
-	
+
 	--ease-in: cubic-bezier(0.4, 0, 1, 1);
 	--ease-out: cubic-bezier(0, 0, 0.2, 1);
 	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -372,8 +397,12 @@ Crea `src/styles/animations.css` en tu proyecto:
 
 /* --- Biblioteca de Keyframes --- */
 @keyframes fadeIn {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes slideInUp {
@@ -399,17 +428,27 @@ Crea `src/styles/animations.css` en tu proyecto:
 }
 
 @keyframes rotate {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 @keyframes pulse {
-	0%, 100% { opacity: 1; }
-	50% { opacity: 0.5; }
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
 }
 ```
 
 **Importa en tu `src/main.css`**:
+
 ```css
 @import './styles/animations.css';
 ```
@@ -418,30 +457,64 @@ Crea `src/styles/animations.css` en tu proyecto:
 
 ## 🎨 Ejercicio 1: Micro-Interacciones (Estados de Botón)
 
-**Objetivo**: Añadir retroalimentación deliciosa a botones.
+> **✅ CSS Puro - No Requiere JavaScript | Sin Dependencias de Frameworks**
 
-**Dónde**: `src/views/componentes.js` (de lección S3)
+**Objetivo**: Añadir retroalimentación deliciosa a botones usando solo CSS.
 
-**Código**:
+**Dónde**: `styles/button.css` (o cualquier página HTML + archivo CSS)
+
+---
+
+### Paso 1: HTML Base
+
+```html
+<button class="btn btn-primary">Botón Primario</button>
+<button class="btn btn-secondary">Botón Secundario</button>
+<button class="btn btn-primary" disabled>Botón Deshabilitado</button>
+```
+
+---
+
+### Paso 2: Estilos Base y Variantes
 
 ```css
-/* src/styles/components/button.css */
+/* styles/button.css */
+
+/* --- Estilos Base del Botón --- */
 .btn {
 	position: relative;
 	overflow: hidden;
-	transition: 
-		transform var(--duration-fast) var(--ease-out),
-		box-shadow var(--duration-fast) var(--ease-out);
+	padding: 0.75rem 1.5rem;
+	border: none;
+	border-radius: 6px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: transform var(--duration-fast) var(--ease-out), 
+				box-shadow var(--duration-fast) var(--ease-out);
 }
 
+/* --- Variantes de Color --- */
+.btn-primary {
+	background-color: var(--color-primary);
+	color: white;
+}
+
+.btn-secondary {
+	background-color: var(--color-secondary);
+	color: white;
+}
+
+/* --- Animaciones de Interacción --- */
+
 /* Elevación al hover */
-.btn:hover {
+.btn:hover:not(:disabled) {
 	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Presión activa */
-.btn:active {
+.btn:active:not(:disabled) {
 	transform: translateY(0);
 	transition-duration: var(--duration-instant);
 }
@@ -469,13 +542,13 @@ Crea `src/styles/animations.css` en tu proyecto:
 	content: '';
 	position: absolute;
 	inset: 0;
-	background: rgba(255,255,255,0.3);
+	background: rgba(255, 255, 255, 0.3);
 	border-radius: inherit;
 	transform: scale(0);
 	opacity: 0;
 }
 
-.btn:active::after {
+.btn:active:not(:disabled)::after {
 	animation: ripple 0.6s ease-out;
 }
 
@@ -489,9 +562,45 @@ Crea `src/styles/animations.css` en tu proyecto:
 		opacity: 0;
 	}
 }
+
+/* Estado deshabilitado */
+.btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+```
+
+---
+
+### Paso 3: Accesibilidad (Obligatorio)
+
+```css
+/* Respeta las preferencias de movimiento del usuario */
+@media (prefers-reduced-motion: reduce) {
+	.btn {
+		transition-duration: 0.01ms !important;
+		animation: none !important;
+	}
+	
+	.btn::after {
+		animation: none !important;
+	}
+	
+	/* Mantén retroalimentación visual sin movimiento */
+	.btn:hover:not(:disabled) {
+		transform: none;
+		box-shadow: 0 0 0 2px currentColor;
+	}
+	
+	.btn:active:not(:disabled) {
+		transform: none;
+		opacity: 0.9;
+	}
+}
 ```
 
 **Cómo probar**:
+
 1. Aplicar clase `.btn` a botones
 2. Hover → debería elevarse con sombra
 3. Clic → debería comprimirse luego ripple
@@ -499,6 +608,7 @@ Crea `src/styles/animations.css` en tu proyecto:
 5. Habilitar "Reducir Movimiento" → debería seguir siendo responsivo sin movimiento distractor
 
 **Commit**:
+
 ```bash
 git add src/styles/components/button.css
 git commit -m "feat: Añadir micro-interacciones a botones
@@ -516,11 +626,34 @@ Mejora capacidad de respuesta percibida y deleite."
 
 ## 🎨 Ejercicio 2: Animaciones de Carga de Página (Fade-In Escalonado)
 
-**Objetivo**: El contenido aparece con gracia al cargar la página.
+> **✅ CSS Puro - No Requiere JavaScript**
 
-**Dónde**: Cualquier vista en `src/views/`
+**Objetivo**: El contenido aparece con gracia al cargar la página usando solo CSS.
 
-**Código**:
+**Dónde**: Cualquier página HTML + `styles/animations.css`
+
+**HTML**:
+
+```html
+<main>
+	<section class="content-section">
+		<h2>Sobre Mí</h2>
+		<p>Primera sección aparece inmediatamente...</p>
+	</section>
+	
+	<section class="content-section">
+		<h2>Mi Trabajo</h2>
+		<p>Segunda sección aparece 0.1s después...</p>
+	</section>
+	
+	<section class="content-section">
+		<h2>Contacto</h2>
+		<p>Tercera sección aparece 0.2s después...</p>
+	</section>
+</main>
+```
+
+**CSS**:
 
 ```css
 /* Animación fade-in para todas las secciones */
@@ -529,11 +662,21 @@ Mejora capacidad de respuesta percibida y deleite."
 }
 
 /* Delays escalonados */
-.content-section:nth-child(1) { animation-delay: 0.1s; }
-.content-section:nth-child(2) { animation-delay: 0.2s; }
-.content-section:nth-child(3) { animation-delay: 0.3s; }
-.content-section:nth-child(4) { animation-delay: 0.4s; }
-.content-section:nth-child(5) { animation-delay: 0.5s; }
+.content-section:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.content-section:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.content-section:nth-child(3) {
+	animation-delay: 0.3s;
+}
+.content-section:nth-child(4) {
+	animation-delay: 0.4s;
+}
+.content-section:nth-child(5) {
+	animation-delay: 0.5s;
+}
 
 @keyframes fadeInUp {
 	from {
@@ -554,7 +697,15 @@ Mejora capacidad de respuesta percibida y deleite."
 }
 ```
 
-**Mejora JavaScript** (opcional):
+---
+
+### ⚠️ Mejora Opcional con JavaScript - Animaciones Activadas por Scroll (Avanzado)
+
+> **Requiere**: Intersection Observer API (soporte navegador: 95%+ globalmente)
+> 
+> **Cuándo usar**: Solo si necesitas animaciones activadas al hacer scroll hacia la vista (no al cargar la página)
+
+**JavaScript** (mejora opcional):
 
 ```javascript
 // src/utils/animations.js
@@ -585,6 +736,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 
 **HTML**:
+
 ```html
 <section class="content-section" data-animate>
 	<h2>Sobre Mí</h2>
@@ -602,20 +754,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ```css
 .skeleton {
-	background: linear-gradient(
-		90deg,
-		#f0f0f0 25%,
-		#e0e0e0 50%,
-		#f0f0f0 75%
-	);
+	background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
 	background-size: 200% 100%;
 	animation: shimmer 1.5s ease-in-out infinite;
 	border-radius: 4px;
 }
 
 @keyframes shimmer {
-	0% { background-position: 200% 0; }
-	100% { background-position: -200% 0; }
+	0% {
+		background-position: 200% 0;
+	}
+	100% {
+		background-position: -200% 0;
+	}
 }
 
 /* Card skeleton */
@@ -646,14 +797,16 @@ document.addEventListener('DOMContentLoaded', () => {
 .spinner {
 	width: 40px;
 	height: 40px;
-	border: 4px solid rgba(0,0,0,0.1);
+	border: 4px solid rgba(0, 0, 0, 0.1);
 	border-left-color: #3b82f6;
 	border-radius: 50%;
 	animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-	to { transform: rotate(360deg); }
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 /* Etiqueta accesible */
@@ -672,10 +825,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		animation: pulse 1.5s ease-in-out infinite;
 		border-left-color: #3b82f6;
 	}
-	
+
 	@keyframes pulse {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.5; }
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.5;
+		}
 	}
 }
 ```
@@ -685,6 +843,7 @@ document.addEventListener('DOMContentLoaded', () => {
 **Las animaciones de carga son una señal de fallo.**
 
 Si los usuarios ven tu loader a menudo:
+
 - Tu app es demasiado lenta (optimiza backend/assets)
 - No estás usando mejora progresiva
 - Estás priorizando "verse ocupado" sobre "ser rápido"
@@ -724,6 +883,7 @@ Si los usuarios ven tu loader a menudo:
 ```
 
 **Casos de uso**:
+
 - Transformaciones de menú de navegación
 - Efectos de revelación de tarjetas
 - Visualizaciones de datos interactivas
@@ -741,19 +901,26 @@ Si los usuarios ven tu loader a menudo:
 	overflow: hidden;
 	border-right: 2px solid;
 	white-space: nowrap;
-	animation: 
-		typing 3.5s steps(40, end),
-		blink-caret 0.75s step-end infinite;
+	animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-	from { width: 0; }
-	to { width: 100%; }
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
 }
 
 @keyframes blink-caret {
-	from, to { border-color: transparent; }
-	50% { border-color: currentColor; }
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: currentColor;
+	}
 }
 ```
 
@@ -786,11 +953,19 @@ Si los usuarios ven tu loader a menudo:
 }
 
 @keyframes glitch-anim {
-	0% { clip: rect(13px, 9999px, 94px, 0); }
-	5% { clip: rect(92px, 9999px, 61px, 0); }
-	10% { clip: rect(69px, 9999px, 40px, 0); }
+	0% {
+		clip: rect(13px, 9999px, 94px, 0);
+	}
+	5% {
+		clip: rect(92px, 9999px, 61px, 0);
+	}
+	10% {
+		clip: rect(69px, 9999px, 40px, 0);
+	}
 	/* ... más pasos */
-	100% { clip: rect(76px, 9999px, 19px, 0); }
+	100% {
+		clip: rect(76px, 9999px, 19px, 0);
+	}
 }
 ```
 
@@ -798,13 +973,7 @@ Si los usuarios ven tu loader a menudo:
 
 ```css
 .gradient-text {
-	background: linear-gradient(
-		45deg,
-		#12c2e9,
-		#c471ed,
-		#f64f59,
-		#12c2e9
-	);
+	background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59, #12c2e9);
 	background-size: 300% 300%;
 	background-clip: text;
 	-webkit-background-clip: text;
@@ -813,8 +982,13 @@ Si los usuarios ven tu loader a menudo:
 }
 
 @keyframes gradientShift {
-	0%, 100% { background-position: 0% 50%; }
-	50% { background-position: 100% 50%; }
+	0%,
+	100% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
 }
 ```
 
@@ -832,7 +1006,9 @@ Si los usuarios ven tu loader a menudo:
 }
 
 @keyframes parallax {
-	to { transform: translateY(50vh); }
+	to {
+		transform: translateY(50vh);
+	}
 }
 
 /* Barra de progreso */
@@ -848,8 +1024,12 @@ Si los usuarios ven tu loader a menudo:
 }
 
 @keyframes progressBar {
-	from { transform: scaleX(0); }
-	to { transform: scaleX(1); }
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
 }
 ```
 
@@ -885,6 +1065,7 @@ if (document.startViewTransition) {
 ```
 
 **CSS**:
+
 ```css
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -919,6 +1100,7 @@ Antes de hacer commit de animaciones a tu proyecto:
 - [ ] **Establecer presupuestos de animación** (máx 3-4 animaciones simultáneas)
 
 **Pruebas de rendimiento**:
+
 ```bash
 # Chrome DevTools > Performance
 # Grabar → Interactuar → Verificar:
@@ -944,6 +1126,7 @@ La animación es una herramienta, no un requisito. Considera **diseño estático
 **"Muévete rápido y rompe cosas" es una mentira.**
 
 En tu diario de proyecto, reflexiona:
+
 - ¿Qué animaciones eliminaste después de probar?
 - ¿Qué alternativas estáticas funcionaron mejor?
 - ¿Cómo experimentaron tu movimiento usuarios con discapacidades?
@@ -982,16 +1165,19 @@ En tu diario de proyecto, reflexiona:
 **Requisitos**:
 
 1. **Añade 3 tipos de animaciones a tu proyecto**:
+
    - Micro-interacción (hover botón/link)
    - Animación de carga de página (fade-in escalonado)
    - Estado de carga (skeleton o spinner)
 
 2. **Rendimiento**:
+
    - Solo `transform` y `opacity`
    - Probar en móvil (sin jank)
    - Documentar métricas de rendimiento
 
 3. **Accesibilidad**:
+
    - Implementar `prefers-reduced-motion`
    - Probar con movimiento deshabilitado
    - Asegurar estados de foco claros
@@ -1003,6 +1189,7 @@ En tu diario de proyecto, reflexiona:
      - ¿Cómo mejoran la UX?
 
 **Commit**:
+
 ```bash
 git add src/styles/animations.css src/views/ DESIGN-DECISIONS.md
 git commit -m "feat: Añadir sistema de animación a portafolio
@@ -1035,6 +1222,7 @@ Reflexión en DESIGN-DECISIONS.md:
 ### Para Estudiantes Enfocados en Diseño:
 
 **Desafío 1: Emoción Mediante Movimiento**
+
 - Crea 3 estilos de botón que transmitan emociones diferentes:
   - Juguetón (rebote, wiggle)
   - Serio (sutil, preciso)
@@ -1042,37 +1230,47 @@ Reflexión en DESIGN-DECISIONS.md:
 - **Entregable**: Codepen + justificación de diseño de 1 página
 
 **Desafío 2: Sistema de Animación de Marca**
+
 - Define tokens de diseño de movimiento para una marca (Airbnb, Nike, tu proyecto)
 - **Entregable**: Variables CSS para duraciones, easings, patrones
 
 ### Para Estudiantes Enfocados en Código:
 
 **Desafío 3: Web Animations API (WAAPI)**
+
 - Reescribe una animación CSS usando JavaScript:
+
 ```javascript
-element.animate([
-	{ transform: 'scale(1)', opacity: 1 },
-	{ transform: 'scale(1.2)', opacity: 0.8 },
-	{ transform: 'scale(1)', opacity: 1 }
-], {
-	duration: 600,
-	easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-	iterations: Infinity
-});
+element.animate(
+	[
+		{ transform: 'scale(1)', opacity: 1 },
+		{ transform: 'scale(1.2)', opacity: 0.8 },
+		{ transform: 'scale(1)', opacity: 1 },
+	],
+	{
+		duration: 600,
+		easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+		iterations: Infinity,
+	}
+);
 ```
+
 - **Entregable**: Demo interactivo + comparación de rendimiento
 
 **Desafío 4: Animaciones Intersection Observer**
+
 - Animar secciones solo cuando visibles en viewport
 - **Entregable**: Función utilidad `animateOnScroll()` reutilizable
 
 ### Para Estudiantes Avanzados:
 
 **Desafío 5: Animaciones Basadas en Física**
+
 - Implementar física de resorte usando bibliotecas (Popmotion, Framer Motion)
 - **Entregable**: Interfaz drag-and-drop de sensación natural
 
 **Desafío 6: Animaciones de Path SVG**
+
 - Animar `<path>` de SVG stroke-dasharray para efecto de dibujo
 - **Entregable**: Logo o icono animado
 
@@ -1151,16 +1349,16 @@ Portafolio: Ahora tiene movimiento delicioso y accesible ✨"
 ---
 
 **🎨 Filosofía Atelier:**
-*"La animación no es decoración. Es comunicación. Muévete con propósito. Deleita con moderación. Siempre pregunta: ¿este movimiento sirve a mis usuarios, o solo a mi ego?"*
+_"La animación no es decoración. Es comunicación. Muévete con propósito. Deleita con moderación. Siempre pregunta: ¿este movimiento sirve a mis usuarios, o solo a mi ego?"_
 
 — Prof. Rubén Vega Balbás, PhD
 
 ---
 
 **Próximos Pasos:**
+
 - Revisa [Módulos JavaScript](/lessons/es/js-modules/) para organizar código de animación
 - Explora [Tailwind Estado e Interactividad](/lessons/es/tailwind/state-interactivity/) para integración con framework
 - Estudia [Accesibilidad y Rendimiento](/lessons/es/tailwind/accessibility-performance/) para optimización
 
 **¡Hagamos de la web un ecosistema virtual hermoso Y útil! 🌐✨**
-
