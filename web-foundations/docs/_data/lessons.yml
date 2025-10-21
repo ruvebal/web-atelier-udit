@@ -103,6 +103,19 @@
   status:
    es: complete
    en: complete
+- slug: web-animations
+  title:
+   es: 'Animaciones Web: Del Movimiento al Significado'
+   en: 'Web Animations: From Motion to Meaning'
+  path:
+   es: /lessons/es/web-animations/
+   en: /lessons/en/web-animations/
+  file:
+   es: lessons/es/web-animations/index.md
+   en: lessons/en/web-animations/index.md
+  status:
+   es: complete
+   en: complete
 - slug: readings
   title:
    es: Lecturas
