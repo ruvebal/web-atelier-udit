@@ -252,7 +252,7 @@ In fact, CommonJS is still very much alive and actively used in the JavaScript e
 
 ---
 
-##comp Theory: Understanding ES6 Module Syntax
+## Theory: Understanding ES6 Module Syntax
 
 ### Named Exports
 
