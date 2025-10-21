@@ -32,7 +32,7 @@ permalink: /lessons/en/web-animations/
 
 ## 🎭 Critical Perspective: Animation as Language
 
-> "Animation is not about making things move. It's about making things *feel* alive." — Anonymous UX Designer
+> "Animation is not about making things move. It's about making things _feel_ alive." — Anonymous UX Designer
 
 Before we code a single transition, let's pause and **think critically** about why we animate:
 
@@ -109,6 +109,7 @@ Before we code a single transition, let's pause and **think critically** about w
 **When**: User-triggered states (hover, focus, active) or class changes.
 
 **Syntax**:
+
 ```css
 .element {
 	transition: property duration timing-function delay;
@@ -116,6 +117,7 @@ Before we code a single transition, let's pause and **think critically** about w
 ```
 
 **Example**:
+
 ```css
 .button {
 	background: #3b82f6;
@@ -145,12 +147,19 @@ Before we code a single transition, let's pause and **think critically** about w
 **When**: Complex animations, looping effects, independent from user interaction.
 
 **Syntax**:
+
 ```css
 @keyframes animation-name {
-	from { /* or 0% */ }
-	25% { }
-	50% { }
-	to { /* or 100% */ }
+	from {
+		/* or 0% */
+	}
+	25% {
+	}
+	50% {
+	}
+	to {
+		/* or 100% */
+	}
 }
 
 .element {
@@ -159,6 +168,7 @@ Before we code a single transition, let's pause and **think critically** about w
 ```
 
 **Example - Fade-in on page load**:
+
 ```css
 @keyframes fadeInUp {
 	from {
@@ -176,9 +186,15 @@ Before we code a single transition, let's pause and **think critically** about w
 }
 
 /* Stagger with delays */
-.section:nth-child(1) { animation-delay: 0.1s; }
-.section:nth-child(2) { animation-delay: 0.2s; }
-.section:nth-child(3) { animation-delay: 0.3s; }
+.section:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.section:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.section:nth-child(3) {
+	animation-delay: 0.3s;
+}
 ```
 
 **🔑 Key Insight**: Keyframes are **proactive** - they run automatically when applied.
@@ -192,29 +208,30 @@ Before we code a single transition, let's pause and **think critically** about w
 **Why**: GPU-accelerated = smooth 60fps performance.
 
 **Core Functions**:
+
 ```css
-transform: translateX(100px);        /* Move horizontally */
-transform: translateY(-50px);        /* Move vertically */
-transform: translate(50px, -20px);   /* Both at once */
-transform: scale(1.2);               /* Grow 20% */
-transform: scaleX(0.8);              /* Squish horizontally */
-transform: rotate(45deg);            /* Rotate clockwise */
-transform: skewX(10deg);             /* Tilt */
+transform: translateX(100px); /* Move horizontally */
+transform: translateY(-50px); /* Move vertically */
+transform: translate(50px, -20px); /* Both at once */
+transform: scale(1.2); /* Grow 20% */
+transform: scaleX(0.8); /* Squish horizontally */
+transform: rotate(45deg); /* Rotate clockwise */
+transform: skewX(10deg); /* Tilt */
 
 /* Combine multiple transforms */
 transform: translateX(50px) rotate(15deg) scale(1.1);
 ```
 
 **Example - Card lift effect**:
+
 ```css
 .card {
-	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), /* Bounce */
-	            box-shadow 0.3s ease;
+	transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), /* Bounce */ box-shadow 0.3s ease;
 }
 
 .card:hover {
 	transform: translateY(-8px) scale(1.02);
-	box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 ```
 
@@ -241,6 +258,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 ```
 
 **Best Practice**:
+
 ```css
 /* Add will-change only when needed */
 .card:hover,
@@ -250,6 +268,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 ```
 
 **Forbidden**:
+
 ```css
 /* ❌ BAD - wastes memory on every element */
 * {
@@ -268,8 +287,12 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 ```css
 /* Full animation for users who can tolerate it */
 @keyframes spin {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .loader {
@@ -283,7 +306,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 		/* Provide static alternative */
 		opacity: 0.6;
 	}
-	
+
 	* {
 		animation-duration: 0.01ms !important;
 		transition-duration: 0.01ms !important;
@@ -292,6 +315,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 ```
 
 **Progressive Enhancement Approach**:
+
 ```css
 /* Start with no motion (safe default) */
 .element {
@@ -311,6 +335,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 **Motion is not inclusive by default.**
 
 Test your animations with:
+
 1. **System settings**: Enable "Reduce Motion" in OS accessibility
 2. **DevTools**: Chrome/Firefox have motion emulation
 3. **Real users**: Ask someone with vestibular sensitivity
@@ -321,14 +346,19 @@ Test your animations with:
 
 ## 🏗️ Atelier Workshop: Building Animation Systems
 
+> **✅ Pure CSS - No Framework Required**
+> 
+> All examples use standard CSS. No Tailwind, Bootstrap, or JavaScript dependencies (unless explicitly marked).
+
 ### Setup: Animation Utilities Starter
 
 Create `src/styles/animations.css` in your project:
 
 ```css
 /* ============================================
-   ANIMATION SYSTEM
+   ANIMATION SYSTEM - Pure CSS
    Design Tokens + Reusable Animations
+   Framework-agnostic, works everywhere
    ============================================ */
 
 /* --- Timing Tokens --- */
@@ -344,9 +374,19 @@ Create `src/styles/animations.css` in your project:
 	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 	--ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 	--ease-elastic: cubic-bezier(0.68, -0.35, 0.265, 1.35);
+	
+	/* Color tokens (framework-agnostic) */
+	--color-primary: #3b82f6;
+	--color-gray-100: #f3f4f6;
+	--color-gray-700: #374151;
+	--color-gray-900: #111827;
 }
 
 /* --- Base Reset --- */
+/* 
+   The following media query targets users who have enabled "Reduce Motion" in their operating system or browser preferences.
+   When (prefers-reduced-motion: reduce) is true, all CSS animations and transitions are effectively disabled for better accessibility.
+*/
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
@@ -372,8 +412,12 @@ Create `src/styles/animations.css` in your project:
 
 /* --- Keyframe Library --- */
 @keyframes fadeIn {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes slideInUp {
@@ -399,17 +443,27 @@ Create `src/styles/animations.css` in your project:
 }
 
 @keyframes rotate {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 @keyframes pulse {
-	0%, 100% { opacity: 1; }
-	50% { opacity: 0.5; }
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
 }
 ```
 
 **Import in your `src/main.css`**:
+
 ```css
 @import './styles/animations.css';
 ```
@@ -418,26 +472,66 @@ Create `src/styles/animations.css` in your project:
 
 ## 🎨 Exercise 1: Micro-Interactions (Button States)
 
-**Goal**: Add delightful feedback to buttons.
+> **✅ Pure CSS - No JavaScript | No Framework Dependencies**
 
-**Where**: `src/views/components.js` (from S3 lesson)
+**Goal**: Add delightful feedback to buttons using only CSS.
 
-**Code**:
+**Where**: Create `styles/button.css` in your project (works with any setup)
+
+**HTML** (framework-agnostic):
+
+```html
+<button class="btn btn-primary">Click Me</button>
+<button class="btn btn-secondary">Learn More</button>
+<a href="#" class="btn btn-primary">Link Button</a>
+```
+
+**CSS**:
 
 ```css
-/* src/styles/components/button.css */
+/* styles/button.css */
+
+/* Base button styles */
 .btn {
+	/* Layout */
+	display: inline-flex;
+	align-items: center;
+	justify-center: center;
+	padding: 0.75rem 1.5rem;
+	
+	/* Typography */
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1;
+	text-decoration: none;
+	
+	/* Visual */
+	border: none;
+	border-radius: 0.375rem;
+	cursor: pointer;
+	
+	/* Animation setup */
 	position: relative;
 	overflow: hidden;
-	transition: 
-		transform var(--duration-fast) var(--ease-out),
-		box-shadow var(--duration-fast) var(--ease-out);
+	transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+
+/* Button variants */
+.btn-primary {
+	background: var(--color-primary);
+	color: white;
+}
+
+.btn-secondary {
+	background: white;
+	color: var(--color-gray-700);
+	border: 1px solid var(--color-gray-700);
 }
 
 /* Hover lift */
 .btn:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Active press */
@@ -469,7 +563,7 @@ Create `src/styles/animations.css` in your project:
 	content: '';
 	position: absolute;
 	inset: 0;
-	background: rgba(255,255,255,0.3);
+	background: rgba(255, 255, 255, 0.3);
 	border-radius: inherit;
 	transform: scale(0);
 	opacity: 0;
@@ -489,16 +583,33 @@ Create `src/styles/animations.css` in your project:
 		opacity: 0;
 	}
 }
+
+/* ============================================
+   ACCESSIBILITY: Respect Motion Preferences
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+	.btn {
+		transition-duration: 0.01ms;
+	}
+	.btn::after {
+		animation: none;
+	}
+	.btn:focus-visible {
+		animation: none;
+	}
+}
 ```
 
 **How to test**:
-1. Apply `.btn` class to buttons
+
+1. Add HTML buttons to any page
 2. Hover → should lift with shadow
 3. Click → should compress then ripple
 4. Tab + Space → should show pulsing focus ring
-5. Enable "Reduce Motion" → should still feel responsive but no distracting motion
+5. Enable "Reduce Motion" in OS → animations become instant but still responsive
 
 **Commit**:
+
 ```bash
 git add src/styles/components/button.css
 git commit -m "feat: Add micro-interactions to buttons
@@ -516,11 +627,15 @@ Improves perceived responsiveness and delight."
 
 ## 🎨 Exercise 2: Page Load Animations (Staggered Fade-In)
 
-**Goal**: Content gracefully appears on page load.
+> **✅ Pure CSS - No JavaScript Required**
+> 
+> (Optional JavaScript enhancement for scroll-triggered animations shown below)
 
-**Where**: Any view in `src/views/`
+**Goal**: Content gracefully appears on page load using only CSS.
 
-**Code**:
+**Where**: Any HTML page + `styles/animations.css`
+
+**HTML**:
 
 ```css
 /* Fade-in animation for all sections */
@@ -529,11 +644,21 @@ Improves perceived responsiveness and delight."
 }
 
 /* Stagger delays */
-.content-section:nth-child(1) { animation-delay: 0.1s; }
-.content-section:nth-child(2) { animation-delay: 0.2s; }
-.content-section:nth-child(3) { animation-delay: 0.3s; }
-.content-section:nth-child(4) { animation-delay: 0.4s; }
-.content-section:nth-child(5) { animation-delay: 0.5s; }
+.content-section:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.content-section:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.content-section:nth-child(3) {
+	animation-delay: 0.3s;
+}
+.content-section:nth-child(4) {
+	animation-delay: 0.4s;
+}
+.content-section:nth-child(5) {
+	animation-delay: 0.5s;
+}
 
 @keyframes fadeInUp {
 	from {
@@ -585,6 +710,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 
 **HTML**:
+
 ```html
 <section class="content-section" data-animate>
 	<h2>About Me</h2>
@@ -602,20 +728,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ```css
 .skeleton {
-	background: linear-gradient(
-		90deg,
-		#f0f0f0 25%,
-		#e0e0e0 50%,
-		#f0f0f0 75%
-	);
+	background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
 	background-size: 200% 100%;
 	animation: shimmer 1.5s ease-in-out infinite;
 	border-radius: 4px;
 }
 
 @keyframes shimmer {
-	0% { background-position: 200% 0; }
-	100% { background-position: -200% 0; }
+	0% {
+		background-position: 200% 0;
+	}
+	100% {
+		background-position: -200% 0;
+	}
 }
 
 /* Skeleton card */
@@ -646,14 +771,16 @@ document.addEventListener('DOMContentLoaded', () => {
 .spinner {
 	width: 40px;
 	height: 40px;
-	border: 4px solid rgba(0,0,0,0.1);
+	border: 4px solid rgba(0, 0, 0, 0.1);
 	border-left-color: #3b82f6;
 	border-radius: 50%;
 	animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-	to { transform: rotate(360deg); }
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 /* Accessible label */
@@ -672,10 +799,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		animation: pulse 1.5s ease-in-out infinite;
 		border-left-color: #3b82f6;
 	}
-	
+
 	@keyframes pulse {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.5; }
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.5;
+		}
 	}
 }
 ```
@@ -685,6 +817,7 @@ document.addEventListener('DOMContentLoaded', () => {
 **Loading animations are a failure signal.**
 
 If users see your loader often:
+
 - Your app is too slow (optimize backend/assets)
 - You're not using progressive enhancement
 - You're prioritizing "looking busy" over "being fast"
@@ -724,6 +857,7 @@ If users see your loader often:
 ```
 
 **Use cases**:
+
 - Navigation menu transformations
 - Card reveal effects
 - Interactive data visualizations
@@ -741,19 +875,26 @@ If users see your loader often:
 	overflow: hidden;
 	border-right: 2px solid;
 	white-space: nowrap;
-	animation: 
-		typing 3.5s steps(40, end),
-		blink-caret 0.75s step-end infinite;
+	animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-	from { width: 0; }
-	to { width: 100%; }
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
 }
 
 @keyframes blink-caret {
-	from, to { border-color: transparent; }
-	50% { border-color: currentColor; }
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: currentColor;
+	}
 }
 ```
 
@@ -786,11 +927,19 @@ If users see your loader often:
 }
 
 @keyframes glitch-anim {
-	0% { clip: rect(13px, 9999px, 94px, 0); }
-	5% { clip: rect(92px, 9999px, 61px, 0); }
-	10% { clip: rect(69px, 9999px, 40px, 0); }
+	0% {
+		clip: rect(13px, 9999px, 94px, 0);
+	}
+	5% {
+		clip: rect(92px, 9999px, 61px, 0);
+	}
+	10% {
+		clip: rect(69px, 9999px, 40px, 0);
+	}
 	/* ... more steps */
-	100% { clip: rect(76px, 9999px, 19px, 0); }
+	100% {
+		clip: rect(76px, 9999px, 19px, 0);
+	}
 }
 ```
 
@@ -798,13 +947,7 @@ If users see your loader often:
 
 ```css
 .gradient-text {
-	background: linear-gradient(
-		45deg,
-		#12c2e9,
-		#c471ed,
-		#f64f59,
-		#12c2e9
-	);
+	background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59, #12c2e9);
 	background-size: 300% 300%;
 	background-clip: text;
 	-webkit-background-clip: text;
@@ -813,8 +956,13 @@ If users see your loader often:
 }
 
 @keyframes gradientShift {
-	0%, 100% { background-position: 0% 50%; }
-	50% { background-position: 100% 50%; }
+	0%,
+	100% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
 }
 ```
 
@@ -832,7 +980,9 @@ If users see your loader often:
 }
 
 @keyframes parallax {
-	to { transform: translateY(50vh); }
+	to {
+		transform: translateY(50vh);
+	}
 }
 
 /* Progress bar */
@@ -848,8 +998,12 @@ If users see your loader often:
 }
 
 @keyframes progressBar {
-	from { transform: scaleX(0); }
-	to { transform: scaleX(1); }
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
 }
 ```
 
@@ -885,6 +1039,7 @@ if (document.startViewTransition) {
 ```
 
 **CSS**:
+
 ```css
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -919,6 +1074,7 @@ Before committing animations to your project:
 - [ ] **Set animation budgets** (max 3-4 simultaneous animations)
 
 **Performance testing**:
+
 ```bash
 # Chrome DevTools > Performance
 # Record → Interact → Check for:
@@ -944,6 +1100,7 @@ Animation is a tool, not a requirement. Consider **static design** when:
 **"Move fast and break things" is a lie.**
 
 In your project journal, reflect:
+
 - Which animations did you remove after testing?
 - What static alternatives worked better?
 - How did users with disabilities experience your motion?
@@ -982,16 +1139,19 @@ In your project journal, reflect:
 **Requirements**:
 
 1. **Add 3 types of animations to your project**:
+
    - Micro-interaction (button/link hover)
    - Page load animation (staggered fade-in)
    - Loading state (skeleton or spinner)
 
 2. **Performance**:
+
    - Only `transform` and `opacity`
    - Test on mobile (no jank)
    - Document performance metrics
 
 3. **Accessibility**:
+
    - Implement `prefers-reduced-motion`
    - Test with motion disabled
    - Ensure focus states are clear
@@ -1003,6 +1163,7 @@ In your project journal, reflect:
      - How do they improve UX?
 
 **Commit**:
+
 ```bash
 git add src/styles/animations.css src/views/ DESIGN-DECISIONS.md
 git commit -m "feat: Add animation system to portfolio
@@ -1035,6 +1196,7 @@ Reflection in DESIGN-DECISIONS.md:
 ### For Design-Focused Students:
 
 **Challenge 1: Emotion Through Motion**
+
 - Create 3 button styles that convey different emotions:
   - Playful (bounce, wiggle)
   - Serious (subtle, precise)
@@ -1042,37 +1204,47 @@ Reflection in DESIGN-DECISIONS.md:
 - **Deliverable**: Codepen + 1-page design rationale
 
 **Challenge 2: Brand Animation System**
+
 - Define motion design tokens for a brand (Airbnb, Nike, your project)
 - **Deliverable**: CSS variables for durations, easings, patterns
 
 ### For Code-Focused Students:
 
 **Challenge 3: Web Animations API (WAAPI)**
+
 - Rewrite a CSS animation using JavaScript:
+
 ```javascript
-element.animate([
-	{ transform: 'scale(1)', opacity: 1 },
-	{ transform: 'scale(1.2)', opacity: 0.8 },
-	{ transform: 'scale(1)', opacity: 1 }
-], {
-	duration: 600,
-	easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-	iterations: Infinity
-});
+element.animate(
+	[
+		{ transform: 'scale(1)', opacity: 1 },
+		{ transform: 'scale(1.2)', opacity: 0.8 },
+		{ transform: 'scale(1)', opacity: 1 },
+	],
+	{
+		duration: 600,
+		easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+		iterations: Infinity,
+	}
+);
 ```
+
 - **Deliverable**: Interactive demo + performance comparison
 
 **Challenge 4: Intersection Observer Animations**
+
 - Animate sections only when visible in viewport
 - **Deliverable**: Reusable `animateOnScroll()` utility function
 
 ### For Advanced Students:
 
 **Challenge 5: Physics-Based Animations**
+
 - Implement spring physics using libraries (Popmotion, Framer Motion)
 - **Deliverable**: Natural-feeling drag-and-drop interface
 
 **Challenge 6: SVG Path Animations**
+
 - Animate SVG `<path>` stroke-dasharray for drawing effect
 - **Deliverable**: Animated logo or icon
 
@@ -1151,13 +1323,14 @@ Portfolio: Now has delightful, accessible motion ✨"
 ---
 
 **🎨 Atelier Philosophy:**
-*"Animation is not decoration. It is communication. Move with purpose. Delight with restraint. Always ask: does this motion serve my users, or only my ego?"*
+_"Animation is not decoration. It is communication. Move with purpose. Delight with restraint. Always ask: does this motion serve my users, or only my ego?"_
 
 — Prof. Rubén Vega Balbás, PhD
 
 ---
 
 **Next Steps:**
+
 - Review [JavaScript Modules](/lessons/en/js-modules/) to organize animation code
 - Explore [Tailwind State & Interactivity](/lessons/en/tailwind/state-interactivity/) for framework integration
 - Study [Accessibility & Performance](/lessons/en/tailwind/accessibility-performance/) for optimization
