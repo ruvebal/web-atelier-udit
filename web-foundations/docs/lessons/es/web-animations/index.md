@@ -19,6 +19,72 @@ permalink: /lessons/es/web-animations/
 
 <!-- prettier-ignore-end -->
 
+## ⚡ Inicio Rápido (10 minutos)
+
+- Crea `styles/animations.css` y pega el snippet de abajo.
+- Añade el HTML exactamente como se muestra en cualquier página.
+- Activa “Reducir movimiento” en el sistema operativo para verificar accesibilidad.
+
+```css
+/* Sistema mínimo de animación para el taller */
+:root {
+	--duration-fast: 200ms;
+	--duration: 300ms;
+	--ease-out: cubic-bezier(0, 0, 0.2, 1);
+	--color-primary: #3b82f6;
+}
+
+/* Respetar preferencias de movimiento */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Micro-interacción de botón */
+.btn {
+	padding: 0.75rem 1.5rem;
+	border: 0;
+	border-radius: 6px;
+	background: var(--color-primary);
+	color: #fff;
+	font-weight: 600;
+	transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.15); }
+.btn:active { transform: translateY(0); transition-duration: 100ms; }
+
+/* Fade-in escalonado */
+.content-section { animation: fadeInUp var(--duration) var(--ease-out) backwards; }
+.content-section:nth-child(1) { animation-delay: .1s; }
+.content-section:nth-child(2) { animation-delay: .2s; }
+.content-section:nth-child(3) { animation-delay: .3s; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+```
+
+```html
+<button class="btn">Acción principal</button>
+
+<section class="content-section">
+	<h2>Sección A</h2>
+	<p>Aparece inmediatamente.</p>
+</section>
+<section class="content-section">
+	<h2>Sección B</h2>
+	<p>Aparece tras 0.1s.</p>
+</section>
+<section class="content-section">
+	<h2>Sección C</h2>
+	<p>Aparece tras 0.2s.</p>
+</section>
+```
+
+> Nota para docentes: Demostración primero. Pregunta: ¿Qué animamos y por qué? ¿Qué pasa con movimiento reducido?
+
+---
+
 ## 🎯 Objetivos de Aprendizaje
 
 - **Entender la animación como comunicación** - Movimiento con propósito, no decoración
@@ -568,59 +634,20 @@ Crea `src/styles/animations.css` en tu proyecto:
 	opacity: 0.5;
 	cursor: not-allowed;
 }
-```
 
----
-
-### Paso 3: Accesibilidad (Obligatorio)
-
-```css
-/* Respeta las preferencias de movimiento del usuario */
+/* Accesibilidad: movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
-	.btn {
-		transition-duration: 0.01ms !important;
-		animation: none !important;
-	}
-	
-	.btn::after {
-		animation: none !important;
-	}
-	
-	/* Mantén retroalimentación visual sin movimiento */
-	.btn:hover:not(:disabled) {
-		transform: none;
-		box-shadow: 0 0 0 2px currentColor;
-	}
-	
-	.btn:active:not(:disabled) {
-		transform: none;
-		opacity: 0.9;
-	}
+	.btn { transition-duration: 0.01ms !important; }
+	.btn::after, .btn:focus-visible { animation: none !important; }
 }
 ```
 
-**Cómo probar**:
+### Notas para Docentes
 
-1. Aplicar clase `.btn` a botones
-2. Hover → debería elevarse con sombra
-3. Clic → debería comprimirse luego ripple
-4. Tab + Espacio → debería mostrar anillo de foco pulsante
-5. Habilitar "Reducir Movimiento" → debería seguir siendo responsivo sin movimiento distractor
-
-**Commit**:
-
-```bash
-git add src/styles/components/button.css
-git commit -m "feat: Añadir micro-interacciones a botones
-
-- Hover: efecto de elevación con sombra
-- Activo: retroalimentación de presión
-- Foco: animación de anillo pulsante
-- Efecto ripple al hacer clic
-- Respeta prefers-reduced-motion
-
-Mejora capacidad de respuesta percibida y deleite."
-```
+- Demostrar hover/active/focus con teclado y ratón.
+- Preguntar: ¿Qué propiedades animan? ¿Por qué `transform` y no `top`?
+- Activar “Reducir movimiento” y verificar ausencia de movimiento distrayente.
+- Extensión: revisar contraste de color y visibilidad de foco.
 
 ---
 
@@ -640,12 +667,10 @@ Mejora capacidad de respuesta percibida y deleite."
 		<h2>Sobre Mí</h2>
 		<p>Primera sección aparece inmediatamente...</p>
 	</section>
-	
 	<section class="content-section">
 		<h2>Mi Trabajo</h2>
 		<p>Segunda sección aparece 0.1s después...</p>
 	</section>
-	
 	<section class="content-section">
 		<h2>Contacto</h2>
 		<p>Tercera sección aparece 0.2s después...</p>
@@ -657,45 +682,27 @@ Mejora capacidad de respuesta percibida y deleite."
 
 ```css
 /* Animación fade-in para todas las secciones */
-.content-section {
-	animation: fadeInUp var(--duration-slow) var(--ease-out) backwards;
-}
+.content-section { animation: fadeInUp var(--duration-slow) var(--ease-out) backwards; }
 
 /* Delays escalonados */
-.content-section:nth-child(1) {
-	animation-delay: 0.1s;
-}
-.content-section:nth-child(2) {
-	animation-delay: 0.2s;
-}
-.content-section:nth-child(3) {
-	animation-delay: 0.3s;
-}
-.content-section:nth-child(4) {
-	animation-delay: 0.4s;
-}
-.content-section:nth-child(5) {
-	animation-delay: 0.5s;
-}
+.content-section:nth-child(1) { animation-delay: 0.1s; }
+.content-section:nth-child(2) { animation-delay: 0.2s; }
+.content-section:nth-child(3) { animation-delay: 0.3s; }
+.content-section:nth-child(4) { animation-delay: 0.4s; }
+.content-section:nth-child(5) { animation-delay: 0.5s; }
 
-@keyframes fadeInUp {
-	from {
-		opacity: 0;
-		transform: translateY(30px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Movimiento reducido: aparición instantánea */
-@media (prefers-reduced-motion: reduce) {
-	.content-section {
-		animation: none;
-	}
-}
+@media (prefers-reduced-motion: reduce) { .content-section { animation: none; } }
 ```
+
+### Notas para Docentes
+
+- Mantener simple: solo delays; evitar coreografías exageradas.
+- Explicar `backwards` para evitar parpadeos iniciales.
+- Comparar con/ sin `prefers-reduced-motion` activado.
+- Extensión: JavaScript (Intersection Observer) solo si se requiere activar por scroll.
 
 ---
 
