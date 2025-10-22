@@ -288,9 +288,15 @@ Antes de codificar una sola transición, pausemos y **pensemos críticamente** s
 }
 
 /* Escalonar con delays */
-.content-section:nth-child(1) { animation-delay: 0.1s; }
-.content-section:nth-child(2) { animation-delay: 0.2s; }
-.content-section:nth-child(3) { animation-delay: 0.3s; }
+.content-section:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.content-section:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.content-section:nth-child(3) {
+	animation-delay: 0.3s;
+}
 ```
 
 **🔑 Perspectiva Clave**: Los keyframes son **proactivos** - se ejecutan automáticamente al aplicarse.
@@ -1148,7 +1154,9 @@ Si los usuarios ven tu loader a menudo:
 	transition: clip-path 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.shape:hover { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+.shape:hover {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
 ```
 
 **Casos de uso**:
@@ -1179,8 +1187,23 @@ Si los usuarios ven tu loader a menudo:
 	animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
-@keyframes typing { from { width: 0; } to { width: 100%; } }
-@keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: currentColor; } }
+@keyframes typing {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+@keyframes blink-caret {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: currentColor;
+	}
+}
 ```
 
 ### Efecto Glitch
@@ -1192,11 +1215,41 @@ Si los usuarios ven tu loader a menudo:
 ```
 
 ```css
-.glitch { position: relative; animation: glitch 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both infinite; }
-.glitch::before, .glitch::after { content: attr(data-text); position: absolute; inset: 0; }
-.glitch::before { left: 2px; text-shadow: -2px 0 #ff00de; clip: rect(24px, 550px, 90px, 0); animation: glitch-anim 2s infinite linear alternate-reverse; }
-.glitch::after { left: -2px; text-shadow: -2px 0 #00fff9, 2px 2px #ff00de; animation: glitch-anim 2s infinite linear alternate-reverse; }
-@keyframes glitch-anim { 0% { clip: rect(13px, 9999px, 94px, 0); } 5% { clip: rect(92px, 9999px, 61px, 0); } 10% { clip: rect(69px, 9999px, 40px, 0); } 100% { clip: rect(76px, 9999px, 19px, 0); } }
+.glitch {
+	position: relative;
+	animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+.glitch::before,
+.glitch::after {
+	content: attr(data-text);
+	position: absolute;
+	inset: 0;
+}
+.glitch::before {
+	left: 2px;
+	text-shadow: -2px 0 #ff00de;
+	clip: rect(24px, 550px, 90px, 0);
+	animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+.glitch::after {
+	left: -2px;
+	text-shadow: -2px 0 #00fff9, 2px 2px #ff00de;
+	animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+@keyframes glitch-anim {
+	0% {
+		clip: rect(13px, 9999px, 94px, 0);
+	}
+	5% {
+		clip: rect(92px, 9999px, 61px, 0);
+	}
+	10% {
+		clip: rect(69px, 9999px, 40px, 0);
+	}
+	100% {
+		clip: rect(76px, 9999px, 19px, 0);
+	}
+}
 ```
 
 ### Texto con Gradiente Animado
@@ -1217,7 +1270,15 @@ Si los usuarios ven tu loader a menudo:
 	animation: gradientShift 3s ease infinite;
 }
 
-@keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes gradientShift {
+	0%,
+	100% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+}
 ```
 
 ---
