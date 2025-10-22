@@ -36,7 +36,9 @@ permalink: /lessons/en/web-animations/
 
 /* Respect motion preferences */
 @media (prefers-reduced-motion: reduce) {
-	*, *::before, *::after {
+	*,
+	*::before,
+	*::after {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
@@ -53,15 +55,38 @@ permalink: /lessons/en/web-animations/
 	font-weight: 600;
 	transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
 }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.15); }
-.btn:active { transform: translateY(0); transition-duration: 100ms; }
+.btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.btn:active {
+	transform: translateY(0);
+	transition-duration: 100ms;
+}
 
 /* Staggered fade-in */
-.content-section { animation: fadeInUp var(--duration) var(--ease-out) backwards; }
-.content-section:nth-child(1) { animation-delay: .1s; }
-.content-section:nth-child(2) { animation-delay: .2s; }
-.content-section:nth-child(3) { animation-delay: .3s; }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.content-section {
+	animation: fadeInUp var(--duration) var(--ease-out) backwards;
+}
+.content-section:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.content-section:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.content-section:nth-child(3) {
+	animation-delay: 0.3s;
+}
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 ```
 
 ```html
@@ -170,6 +195,19 @@ Before we code a single transition, let's pause and **think critically** about w
 
 ### Pillar 1: Transitions (State → State)
 
+**What is a "state"?**  
+A "state" is simply how an element appears or behaves at a certain moment—such as default, hovered, focused, or active. Transitions help you animate the visual change when an element moves from one state to another (for example, from its normal style to a hovered style).
+
+**Create your own sandbox:**  
+For all code examples and hands-on practice with animation in this lesson, create a file at `/animations/index.htm` in your project. Use it as your sandbox for experiments!
+
+**Example HTML (copy this into `/animations/index.htm`):**
+```html
+<button class="button">Hover me!</button>
+```
+
+Now try adding the CSS below to your sandbox to experiment with transitions.
+
 **What**: Smooth interpolation between two property values.
 
 **When**: User-triggered states (hover, focus, active) or class changes.
@@ -215,24 +253,22 @@ Before we code a single transition, let's pause and **think critically** about w
 **Syntax**:
 
 ```css
-
 @keyframes animation-name {
-from {
-/* or 0% */
-}
-25% {
-}
-50% {
-}
-to {
-/* or 100% */
-}
+	from {
+		/* or 0% */
+	}
+	25% {
+	}
+	50% {
+	}
+	to {
+		/* or 100% */
+	}
 }
 
 .element {
-animation: animation-name duration timing-function delay iteration-count direction fill-mode;
+	animation: animation-name duration timing-function delay iteration-count direction fill-mode;
 }
-
 ```
 
 **Example - Fade-in on page load**:
@@ -278,7 +314,6 @@ animation: animation-name duration timing-function delay iteration-count directi
 **Core Functions**:
 
 ```css
-
 transform: translateX(100px); /* Move horizontally */
 transform: translateY(-50px); /* Move vertically */
 transform: translate(50px, -20px); /* Both at once */
@@ -289,7 +324,6 @@ transform: skewX(10deg); /* Tilt */
 
 /* Combine multiple transforms */
 transform: translateX(50px) rotate(15deg) scale(1.1);
-
 ```
 
 **Example - Card lift effect**:
@@ -316,17 +350,15 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 **Solution**: Tell browser in advance what will animate.
 
 ```css
-
 .button {
-will-change: transform, opacity;
-/* Browser creates GPU layer immediately */
+	will-change: transform, opacity;
+	/* Browser creates GPU layer immediately */
 }
 
 /* ⚠️ Don't overuse! */
 .everything {
-will-change: auto; /* Default - only optimize what animates */
+	will-change: auto; /* Default - only optimize what animates */
 }
-
 ```
 
 **Best Practice**:
@@ -427,7 +459,6 @@ Test your animations with:
 Create `src/styles/animations.css` in your project:
 
 ```css
-
 /* ============================================
 ANIMATION SYSTEM - Pure CSS
 Design Tokens + Reusable Animations
@@ -436,24 +467,23 @@ Framework-agnostic, works everywhere
 
 /* --- Timing Tokens --- */
 :root {
---duration-instant: 100ms;
---duration-fast: 200ms;
---duration-normal: 300ms;
---duration-slow: 500ms;
---duration-slower: 800ms;
+	--duration-instant: 100ms;
+	--duration-fast: 200ms;
+	--duration-normal: 300ms;
+	--duration-slow: 500ms;
+	--duration-slower: 800ms;
 
-    --ease-in: cubic-bezier(0.4, 0, 1, 1);
-    --ease-out: cubic-bezier(0, 0, 0.2, 1);
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --ease-elastic: cubic-bezier(0.68, -0.35, 0.265, 1.35);
+	--ease-in: cubic-bezier(0.4, 0, 1, 1);
+	--ease-out: cubic-bezier(0, 0, 0.2, 1);
+	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+	--ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	--ease-elastic: cubic-bezier(0.68, -0.35, 0.265, 1.35);
 
-    /* Color tokens (framework-agnostic) */
-    --color-primary: #3b82f6;
-    --color-gray-100: #f3f4f6;
-    --color-gray-700: #374151;
-    --color-gray-900: #111827;
-
+	/* Color tokens (framework-agnostic) */
+	--color-primary: #3b82f6;
+	--color-gray-100: #f3f4f6;
+	--color-gray-700: #374151;
+	--color-gray-900: #111827;
 }
 
 /* --- Base Reset --- */
@@ -462,79 +492,78 @@ The following media query targets users who have enabled "Reduce Motion" in thei
 When (prefers-reduced-motion: reduce) is true, all CSS animations and transitions are effectively disabled for better accessibility.
 */
 @media (prefers-reduced-motion: reduce) {
-_,
-_::before,
-\*::after {
-animation-duration: 0.01ms !important;
-animation-iteration-count: 1 !important;
-transition-duration: 0.01ms !important;
-}
+	_,
+	_::before,
+	\*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
 }
 
 /* --- Utility Classes --- */
 .fade-in {
-animation: fadeIn var(--duration-normal) var(--ease-out);
+	animation: fadeIn var(--duration-normal) var(--ease-out);
 }
 
 .slide-in-up {
-animation: slideInUp var(--duration-slow) var(--ease-out);
+	animation: slideInUp var(--duration-slow) var(--ease-out);
 }
 
 .scale-in {
-animation: scaleIn var(--duration-fast) var(--ease-bounce);
+	animation: scaleIn var(--duration-fast) var(--ease-bounce);
 }
 
 /* --- Keyframe Library --- */
 @keyframes fadeIn {
-from {
-opacity: 0;
-}
-to {
-opacity: 1;
-}
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes slideInUp {
-from {
-opacity: 0;
-transform: translateY(30px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 @keyframes scaleIn {
-from {
-opacity: 0;
-transform: scale(0.8);
-}
-to {
-opacity: 1;
-transform: scale(1);
-}
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
 
 @keyframes rotate {
-from {
-transform: rotate(0deg);
-}
-to {
-transform: rotate(360deg);
-}
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 @keyframes pulse {
-0%,
-100% {
-opacity: 1;
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
 }
-50% {
-opacity: 0.5;
-}
-}
-
 ```
 
 **Import in your `src/main.css`**:
@@ -578,34 +607,84 @@ opacity: 0.5;
 	font-size: 1rem;
 	font-weight: 600;
 	cursor: pointer;
-	transition: transform var(--duration-fast) var(--ease-out), 
-				box-shadow var(--duration-fast) var(--ease-out);
+	transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
 }
 
 /* Variants */
-.btn-primary { background-color: var(--color-primary); color: white; }
-.btn-secondary { background-color: var(--color-gray-100); color: var(--color-gray-900); }
+.btn-primary {
+	background-color: var(--color-primary);
+	color: white;
+}
+.btn-secondary {
+	background-color: var(--color-gray-100);
+	color: var(--color-gray-900);
+}
 
 /* Interactions */
-.btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
-.btn:active:not(:disabled) { transform: translateY(0); transition-duration: var(--duration-instant); }
+.btn:hover:not(:disabled) {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.btn:active:not(:disabled) {
+	transform: translateY(0);
+	transition-duration: var(--duration-instant);
+}
 
 /* Focus ring animation */
-.btn:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; animation: pulseRing .6s ease-out; }
-@keyframes pulseRing { 0% { outline-offset: 2px; } 100% { outline-offset: 6px; outline-color: transparent; } }
+.btn:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+	animation: pulseRing 0.6s ease-out;
+}
+@keyframes pulseRing {
+	0% {
+		outline-offset: 2px;
+	}
+	100% {
+		outline-offset: 6px;
+		outline-color: transparent;
+	}
+}
 
 /* Ripple effect (optional) */
-.btn::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,.3); border-radius: inherit; transform: scale(0); opacity: 0; }
-.btn:active:not(:disabled)::after { animation: ripple .6s ease-out; }
-@keyframes ripple { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+.btn::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: inherit;
+	transform: scale(0);
+	opacity: 0;
+}
+.btn:active:not(:disabled)::after {
+	animation: ripple 0.6s ease-out;
+}
+@keyframes ripple {
+	0% {
+		transform: scale(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 0;
+	}
+}
 
 /* Disabled */
-.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
 
 /* Accessibility: reduced motion */
 @media (prefers-reduced-motion: reduce) {
-	.btn { transition-duration: 0.01ms !important; }
-	.btn::after, .btn:focus-visible { animation: none !important; }
+	.btn {
+		transition-duration: 0.01ms !important;
+	}
+	.btn::after,
+	.btn:focus-visible {
+		animation: none !important;
+	}
 }
 ```
 
@@ -649,19 +728,44 @@ opacity: 0.5;
 
 ```css
 /* Fade-in animation for all sections */
-.content-section { animation: fadeInUp var(--duration-slow) var(--ease-out) backwards; }
+.content-section {
+	animation: fadeInUp var(--duration-slow) var(--ease-out) backwards;
+}
 
 /* Stagger delays */
-.content-section:nth-child(1) { animation-delay: 0.1s; }
-.content-section:nth-child(2) { animation-delay: 0.2s; }
-.content-section:nth-child(3) { animation-delay: 0.3s; }
-.content-section:nth-child(4) { animation-delay: 0.4s; }
-.content-section:nth-child(5) { animation-delay: 0.5s; }
+.content-section:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.content-section:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.content-section:nth-child(3) {
+	animation-delay: 0.3s;
+}
+.content-section:nth-child(4) {
+	animation-delay: 0.4s;
+}
+.content-section:nth-child(5) {
+	animation-delay: 0.5s;
+}
 
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 
 /* Reduced motion: instant appearance */
-@media (prefers-reduced-motion: reduce) { .content-section { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+	.content-section {
+		animation: none;
+	}
+}
 ```
 
 ### Teacher Notes
@@ -719,18 +823,16 @@ document.addEventListener('DOMContentLoaded', () => {
 **CSS** (for JavaScript-triggered animations):
 
 ```css
-
 /* Initially hidden */
 [data-animate] {
-opacity: 0;
-transform: translateY(30px);
+	opacity: 0;
+	transform: translateY(30px);
 }
 
 /* Animate when .animate-in class is added by JavaScript */
 [data-animate].animate-in {
-animation: fadeInUp 0.6s ease-out forwards;
+	animation: fadeInUp 0.6s ease-out forwards;
 }
-
 ```
 
 > **Note**: The pure CSS approach (without JavaScript) is recommended for most cases. Use JavaScript only when you specifically need scroll-triggered animations.
@@ -770,54 +872,22 @@ animation: fadeInUp 0.6s ease-out forwards;
 }
 
 @keyframes shimmer {
-	0% {
-		background-position: 200% 0;
-	}
-	100% {
-		background-position: -200% 0;
-	}
+	0% { background-position: 200% 0; }
+	100% { background-position: -200% 0; }
 }
 
 /* Skeleton variants */
-.skeleton-image {
-	width: 100%;
-	height: 200px;
-}
-
-.skeleton-title {
-	width: 70%;
-	height: 24px;
-	margin: 1rem 0 0.5rem;
-}
-
-.skeleton-text {
-	width: 100%;
-	height: 14px;
-	margin-bottom: 0.5rem;
-}
+.skeleton-image { width: 100%; height: 200px; }
+.skeleton-title { width: 70%; height: 24px; margin: 1rem 0 0.5rem; }
+.skeleton-text { width: 100%; height: 14px; margin-bottom: 0.5rem; }
 
 /* Complete skeleton card */
-.skeleton-card {
-	padding: 1rem;
-	border: 1px solid #e5e7eb;
-	border-radius: 8px;
-}
+.skeleton-card { padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; }
 
 /* Respect motion preferences */
 @media (prefers-reduced-motion: reduce) {
-	.skeleton {
-		animation: pulse 1.5s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%,
-		100% {
-			opacity: 1;
-		}
-		50% {
-			opacity: 0.6;
-		}
-	}
+	.skeleton { animation: pulse 1.5s ease-in-out infinite; }
+	@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .6; } }
 }
 ```
 
@@ -837,65 +907,22 @@ animation: fadeInUp 0.6s ease-out forwards;
 **CSS**:
 
 ```css
-.spinner {
-	width: 40px;
-	height: 40px;
-	border: 4px solid rgba(0, 0, 0, 0.1);
-	border-left-color: var(--color-primary, #3b82f6);
-	border-radius: 50%;
-	animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-	to {
-		transform: rotate(360deg);
-	}
-}
+.spinner { width: 40px; height: 40px; border: 4px solid rgba(0,0,0,.1); border-left-color: var(--color-primary, #3b82f6); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* Screen reader only text */
-.sr-only {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	white-space: nowrap;
-	border: 0;
-}
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
 /* Respect motion preference */
-@media (prefers-reduced-motion: reduce) {
-	.spinner {
-		animation: pulse 1.5s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%,
-		100% {
-			opacity: 1;
-		}
-		50% {
-			opacity: 0.5;
-		}
-	}
-}
+@media (prefers-reduced-motion: reduce) { .spinner { animation: pulse 1.5s ease-in-out infinite; } @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .5; } } }
 ```
 
-### 🤔 Atelier Critical Prompt #3
+### Teacher Notes
 
-**Loading animations are a failure signal.**
-
-If users see your loader often:
-
-- Your app is too slow (optimize backend/assets)
-- You're not using progressive enhancement
-- You're prioritizing "looking busy" over "being fast"
-
-**Better**: Instant UI with optimistic updates, then sync in background.
-
-**Document in your project**: How did you minimize loading states?
+- Prefer skeletons for content; spinners only for brief actions (<3s).
+- Ask: How can we avoid loaders? (optimistic UI, prefetching, streaming)
+- Ensure color contrast and SR-only text is present for accessibility.
+- Verify reduced motion still provides clear feedback without rotation.
 
 ---
 
@@ -920,25 +947,11 @@ If users see your loader often:
 **CSS**:
 
 ```css
-.logo-path {
-	stroke-dasharray: 1000;
-	stroke-dashoffset: 1000;
-	animation: draw 2s ease-out forwards;
-}
-
-@keyframes draw {
-	to {
-		stroke-dashoffset: 0;
-	}
-}
+.logo-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 2s ease-out forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
 
 /* Respect motion preferences */
-@media (prefers-reduced-motion: reduce) {
-	.logo-path {
-		animation: none;
-		stroke-dashoffset: 0;
-	}
-}
+@media (prefers-reduced-motion: reduce) { .logo-path { animation: none; stroke-dashoffset: 0; } }
 ```
 
 **How it works**:
