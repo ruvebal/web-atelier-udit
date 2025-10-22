@@ -36,7 +36,9 @@ permalink: /lessons/es/web-animations/
 
 /* Respetar preferencias de movimiento */
 @media (prefers-reduced-motion: reduce) {
-	*, *::before, *::after {
+	*,
+	*::before,
+	*::after {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
@@ -53,15 +55,38 @@ permalink: /lessons/es/web-animations/
 	font-weight: 600;
 	transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
 }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.15); }
-.btn:active { transform: translateY(0); transition-duration: 100ms; }
+.btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.btn:active {
+	transform: translateY(0);
+	transition-duration: 100ms;
+}
 
 /* Fade-in escalonado */
-.content-section { animation: fadeInUp var(--duration) var(--ease-out) backwards; }
-.content-section:nth-child(1) { animation-delay: .1s; }
-.content-section:nth-child(2) { animation-delay: .2s; }
-.content-section:nth-child(3) { animation-delay: .3s; }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.content-section {
+	animation: fadeInUp var(--duration) var(--ease-out) backwards;
+}
+.content-section:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.content-section:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.content-section:nth-child(3) {
+	animation-delay: 0.3s;
+}
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 ```
 
 ```html
@@ -235,6 +260,17 @@ Antes de codificar una sola transición, pausemos y **pensemos críticamente** s
 
 **Ejemplo - Fade-in al cargar página**:
 
+```html
+<section class="content-section">
+	<h2>Bienvenida</h2>
+	<p>Este bloque aparece suavemente al cargar.</p>
+</section>
+<section class="content-section">
+	<h2>Características</h2>
+	<p>Escalona con pequeños retrasos.</p>
+</section>
+```
+
 ```css
 @keyframes fadeInUp {
 	from {
@@ -252,15 +288,9 @@ Antes de codificar una sola transición, pausemos y **pensemos críticamente** s
 }
 
 /* Escalonar con delays */
-.section:nth-child(1) {
-	animation-delay: 0.1s;
-}
-.section:nth-child(2) {
-	animation-delay: 0.2s;
-}
-.section:nth-child(3) {
-	animation-delay: 0.3s;
-}
+.content-section:nth-child(1) { animation-delay: 0.1s; }
+.content-section:nth-child(2) { animation-delay: 0.2s; }
+.content-section:nth-child(3) { animation-delay: 0.3s; }
 ```
 
 **🔑 Perspectiva Clave**: Los keyframes son **proactivos** - se ejecutan automáticamente al aplicarse.
@@ -556,8 +586,7 @@ Crea `src/styles/animations.css` en tu proyecto:
 	font-size: 1rem;
 	font-weight: 600;
 	cursor: pointer;
-	transition: transform var(--duration-fast) var(--ease-out), 
-				box-shadow var(--duration-fast) var(--ease-out);
+	transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
 }
 
 /* --- Variantes de Color --- */
@@ -637,8 +666,13 @@ Crea `src/styles/animations.css` en tu proyecto:
 
 /* Accesibilidad: movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
-	.btn { transition-duration: 0.01ms !important; }
-	.btn::after, .btn:focus-visible { animation: none !important; }
+	.btn {
+		transition-duration: 0.01ms !important;
+	}
+	.btn::after,
+	.btn:focus-visible {
+		animation: none !important;
+	}
 }
 ```
 
@@ -682,19 +716,44 @@ Crea `src/styles/animations.css` en tu proyecto:
 
 ```css
 /* Animación fade-in para todas las secciones */
-.content-section { animation: fadeInUp var(--duration-slow) var(--ease-out) backwards; }
+.content-section {
+	animation: fadeInUp var(--duration-slow) var(--ease-out) backwards;
+}
 
 /* Delays escalonados */
-.content-section:nth-child(1) { animation-delay: 0.1s; }
-.content-section:nth-child(2) { animation-delay: 0.2s; }
-.content-section:nth-child(3) { animation-delay: 0.3s; }
-.content-section:nth-child(4) { animation-delay: 0.4s; }
-.content-section:nth-child(5) { animation-delay: 0.5s; }
+.content-section:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.content-section:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.content-section:nth-child(3) {
+	animation-delay: 0.3s;
+}
+.content-section:nth-child(4) {
+	animation-delay: 0.4s;
+}
+.content-section:nth-child(5) {
+	animation-delay: 0.5s;
+}
 
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 
 /* Movimiento reducido: aparición instantánea */
-@media (prefers-reduced-motion: reduce) { .content-section { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+	.content-section {
+		animation: none;
+	}
+}
 ```
 
 ### Notas para Docentes
@@ -709,7 +768,7 @@ Crea `src/styles/animations.css` en tu proyecto:
 ### ⚠️ Mejora Opcional con JavaScript - Animaciones Activadas por Scroll (Avanzado)
 
 > **Requiere**: Intersection Observer API (soporte navegador: 95%+ globalmente)
-> 
+>
 > **Cuándo usar**: Solo si necesitas animaciones activadas al hacer scroll hacia la vista (no al cargar la página)
 
 **JavaScript** (mejora opcional):
@@ -839,7 +898,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	.skeleton {
 		animation: pulse 1.5s ease-in-out infinite;
 	}
-	
+
 	@keyframes pulse {
 		0%,
 		100% {
@@ -944,11 +1003,7 @@ Si los usuarios ven tu loader a menudo:
 
 ```html
 <svg class="logo-animated" width="200" height="200" viewBox="0 0 200 200">
-	<path class="logo-path" 
-		d="M 50 100 Q 100 50 150 100 T 250 100" 
-		fill="none" 
-		stroke="currentColor" 
-		stroke-width="3"/>
+	<path class="logo-path" d="M 50 100 Q 100 50 150 100 T 250 100" fill="none" stroke="currentColor" stroke-width="3" />
 </svg>
 ```
 
@@ -976,7 +1031,8 @@ Si los usuarios ven tu loader a menudo:
 }
 ```
 
-**Cómo funciona**: 
+**Cómo funciona**:
+
 - `stroke-dasharray` crea trazo discontinuo
 - `stroke-dashoffset` oculta el trazo inicialmente
 - La animación lleva `stroke-dashoffset` a 0, "dibujando" el path
@@ -989,7 +1045,7 @@ Si los usuarios ven tu loader a menudo:
 
 ```html
 <svg class="icon-morph" width="48" height="48" viewBox="0 0 24 24">
-	<circle class="circle-to-square" cx="12" cy="12" r="8" fill="currentColor"/>
+	<circle class="circle-to-square" cx="12" cy="12" r="8" fill="currentColor" />
 </svg>
 ```
 
@@ -1002,7 +1058,8 @@ Si los usuarios ven tu loader a menudo:
 }
 
 @keyframes morph-shape {
-	0%, 100% {
+	0%,
+	100% {
 		d: path('M12,4 a8,8 0 1,0 0,16 a8,8 0 1,0 0,-16'); /* Círculo */
 	}
 	50% {
@@ -1022,10 +1079,10 @@ Si los usuarios ven tu loader a menudo:
 	<svg class="bg-pattern" width="100%" height="100%">
 		<defs>
 			<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-				<circle cx="20" cy="20" r="2" fill="rgba(59, 130, 246, 0.1)"/>
+				<circle cx="20" cy="20" r="2" fill="rgba(59, 130, 246, 0.1)" />
 			</pattern>
 		</defs>
-		<rect width="100%" height="100%" fill="url(#grid)"/>
+		<rect width="100%" height="100%" fill="url(#grid)" />
 	</svg>
 	<h1>Contenido sobre fondo animado</h1>
 </div>
@@ -1065,6 +1122,13 @@ Si los usuarios ven tu loader a menudo:
 
 **Objetivo**: Animar entre diferentes formas tipo SVG.
 
+**HTML**:
+
+```html
+<button class="morph-button">Pasar el cursor para metamorfosis</button>
+<div class="shape"></div>
+```
+
 ```css
 .morph-button {
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -1084,9 +1148,7 @@ Si los usuarios ven tu loader a menudo:
 	transition: clip-path 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.shape:hover {
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
+.shape:hover { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
 ```
 
 **Casos de uso**:
@@ -1102,6 +1164,12 @@ Si los usuarios ven tu loader a menudo:
 
 ### Efecto Máquina de Escribir
 
+**HTML**:
+
+```html
+<h2 class="typewriter">Diseña con movimiento, no con distracción.</h2>
+```
+
 ```css
 .typewriter {
 	font-family: monospace;
@@ -1111,72 +1179,33 @@ Si los usuarios ven tu loader a menudo:
 	animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
-@keyframes typing {
-	from {
-		width: 0;
-	}
-	to {
-		width: 100%;
-	}
-}
-
-@keyframes blink-caret {
-	from,
-	to {
-		border-color: transparent;
-	}
-	50% {
-		border-color: currentColor;
-	}
-}
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: currentColor; } }
 ```
 
 ### Efecto Glitch
 
+**HTML**:
+
+```html
+<h2 class="glitch" data-text="GLITCH">GLITCH</h2>
+```
+
 ```css
-.glitch {
-	position: relative;
-	animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-}
-
-.glitch::before,
-.glitch::after {
-	content: attr(data-text);
-	position: absolute;
-	inset: 0;
-}
-
-.glitch::before {
-	left: 2px;
-	text-shadow: -2px 0 #ff00de;
-	clip: rect(24px, 550px, 90px, 0);
-	animation: glitch-anim 2s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-	left: -2px;
-	text-shadow: -2px 0 #00fff9, 2px 2px #ff00de;
-	animation: glitch-anim 2s infinite linear alternate-reverse;
-}
-
-@keyframes glitch-anim {
-	0% {
-		clip: rect(13px, 9999px, 94px, 0);
-	}
-	5% {
-		clip: rect(92px, 9999px, 61px, 0);
-	}
-	10% {
-		clip: rect(69px, 9999px, 40px, 0);
-	}
-	/* ... más pasos */
-	100% {
-		clip: rect(76px, 9999px, 19px, 0);
-	}
-}
+.glitch { position: relative; animation: glitch 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both infinite; }
+.glitch::before, .glitch::after { content: attr(data-text); position: absolute; inset: 0; }
+.glitch::before { left: 2px; text-shadow: -2px 0 #ff00de; clip: rect(24px, 550px, 90px, 0); animation: glitch-anim 2s infinite linear alternate-reverse; }
+.glitch::after { left: -2px; text-shadow: -2px 0 #00fff9, 2px 2px #ff00de; animation: glitch-anim 2s infinite linear alternate-reverse; }
+@keyframes glitch-anim { 0% { clip: rect(13px, 9999px, 94px, 0); } 5% { clip: rect(92px, 9999px, 61px, 0); } 10% { clip: rect(69px, 9999px, 40px, 0); } 100% { clip: rect(76px, 9999px, 19px, 0); } }
 ```
 
 ### Texto con Gradiente Animado
+
+**HTML**:
+
+```html
+<h2 class="gradient-text">Gradiente animado</h2>
+```
 
 ```css
 .gradient-text {
@@ -1188,15 +1217,7 @@ Si los usuarios ven tu loader a menudo:
 	animation: gradientShift 3s ease infinite;
 }
 
-@keyframes gradientShift {
-	0%,
-	100% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-}
+@keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 ```
 
 ---
@@ -1204,9 +1225,8 @@ Si los usuarios ven tu loader a menudo:
 ## 🎯 Práctica Avanzada: Animaciones Impulsadas por Scroll (CSS Moderno)
 
 > **✅ CSS Puro - ¡Nuevo en 2024!**
-> 
-> **Soporte de navegador**: Chrome 115+, Safari 17+ (a 2025) - verifica [caniuse.com](https://caniuse.com/css-scroll-timeline)
-> **Cuándo usar**: Mejora progresiva para navegadores modernos
+>
+> **Soporte de navegador**: Chrome 115+, Safari 17+ (a 2025) - verifica [caniuse.com](https://caniuse.com/css-scroll-timeline) > **Cuándo usar**: Mejora progresiva para navegadores modernos
 
 **Objetivo**: ¡Animar basado en posición de scroll SIN JavaScript!
 
@@ -1272,7 +1292,7 @@ if (!CSS.supports('animation-timeline: scroll()')) {
 		const scrolled = window.scrollY;
 		const total = document.body.scrollHeight - window.innerHeight;
 		const progress = scrolled / total;
-		
+
 		document.querySelector('.reading-progress').style.transform = `scaleX(${progress})`;
 	});
 }
@@ -1283,7 +1303,7 @@ if (!CSS.supports('animation-timeline: scroll()')) {
 ## 🏆 Desafío Experto: View Transitions API
 
 > **⚠️ JavaScript Requerido - API de Navegador de Vanguardia**
-> 
+>
 > **Soporte de navegador**: Chrome 111+, Edge 111+ (a 2025)
 > **Cuándo usar**: Transiciones avanzadas de páginas SPA (no alcanzable solo con CSS)
 
@@ -1474,7 +1494,7 @@ Reflexión en DESIGN-DECISIONS.md:
 
 ### Para Estudiantes Enfocados en Código:
 
-**Desafío 3: Web Animations API (WAAPI)** ⚠️ *JavaScript Requerido*
+**Desafío 3: Web Animations API (WAAPI)** ⚠️ _JavaScript Requerido_
 
 > **Cuándo usar**: Animaciones complejas que requieren control programático (play/pause/reverse)
 
@@ -1506,7 +1526,7 @@ animation.reverse();
 - **Entregable**: Demo interactivo + comparación de rendimiento (CSS vs WAAPI)
 - **Comparar**: Uso de CPU, tasa de frames, tamaño del bundle
 
-**Desafío 4: Animaciones Intersection Observer** ⚠️ *JavaScript Requerido*
+**Desafío 4: Animaciones Intersection Observer** ⚠️ _JavaScript Requerido_
 
 > **Alternativa CSS pura**: Usa `animation-delay` al cargar página (ver Ejercicio 2)
 > **Usa JavaScript solo si**: Necesitas animaciones activadas por scroll (no animaciones de carga)
@@ -1516,7 +1536,7 @@ animation.reverse();
 
 ### Para Estudiantes Avanzados:
 
-**Desafío 5: Animaciones Basadas en Física** ⚠️ *JavaScript + Biblioteca Requerida*
+**Desafío 5: Animaciones Basadas en Física** ⚠️ _JavaScript + Biblioteca Requerida_
 
 > **Bibliotecas**: Popmotion, Framer Motion, React Spring
 > **Tamaño del bundle**: ~10-30KB (considera trade-offs de rendimiento)
@@ -1525,7 +1545,7 @@ animation.reverse();
 - **Entregable**: Interfaz drag-and-drop de sensación natural
 - **Reflexiona**: ¿Valió la pena el tamaño del bundle? ¿CSS podría haber logrado resultados similares?
 
-**Desafío 6: Animaciones de Path SVG** ✅ *CSS Puro*
+**Desafío 6: Animaciones de Path SVG** ✅ _CSS Puro_
 
 > **Recomendado**: ¡Esto es alcanzable con CSS puro! (ver Ejercicio 4)
 
