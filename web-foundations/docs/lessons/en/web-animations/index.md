@@ -19,6 +19,72 @@ permalink: /lessons/en/web-animations/
 
 <!-- prettier-ignore-end -->
 
+## ⚡ Quick Start (10 minutes)
+
+- Create `styles/animations.css` and paste the snippet below.
+- Add the HTML exactly as shown to any page.
+- Toggle 'Reduce Motion' in OS to verify accessibility.
+
+```css
+/* Minimal animation system for the workshop */
+:root {
+	--duration-fast: 200ms;
+	--duration: 300ms;
+	--ease-out: cubic-bezier(0, 0, 0.2, 1);
+	--color-primary: #3b82f6;
+}
+
+/* Respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Button micro-interaction */
+.btn {
+	padding: 0.75rem 1.5rem;
+	border: 0;
+	border-radius: 6px;
+	background: var(--color-primary);
+	color: #fff;
+	font-weight: 600;
+	transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.15); }
+.btn:active { transform: translateY(0); transition-duration: 100ms; }
+
+/* Staggered fade-in */
+.content-section { animation: fadeInUp var(--duration) var(--ease-out) backwards; }
+.content-section:nth-child(1) { animation-delay: .1s; }
+.content-section:nth-child(2) { animation-delay: .2s; }
+.content-section:nth-child(3) { animation-delay: .3s; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+```
+
+```html
+<button class="btn">Primary Action</button>
+
+<section class="content-section">
+	<h2>Section A</h2>
+	<p>Appears immediately.</p>
+</section>
+<section class="content-section">
+	<h2>Section B</h2>
+	<p>Appears after 0.1s.</p>
+</section>
+<section class="content-section">
+	<h2>Section C</h2>
+	<p>Appears after 0.2s.</p>
+</section>
+```
+
+> Teacher note: Demo first. Ask: What did we animate? Why? What if motion is reduced?
+
+---
+
 ## 🎯 Learning Objectives
 
 - **Understand animation as communication** - Motion with purpose, not decoration
@@ -110,13 +176,11 @@ Before we code a single transition, let's pause and **think critically** about w
 
 **Syntax**:
 
-    ```css
-
+```css
 .element {
-transition: property duration timing-function delay;
+	transition: property duration timing-function delay;
 }
-
-````
+```
 
 **Example**:
 
@@ -136,7 +200,7 @@ transition: property duration timing-function delay;
 	transform: translateY(0);
 	transition-duration: 0.1s; /* Faster on click */
 }
-````
+```
 
 **🔑 Key Insight**: Transitions are **reactive** - they need a trigger (hover, class change, JS state update).
 
@@ -150,18 +214,18 @@ transition: property duration timing-function delay;
 
 **Syntax**:
 
-    ```css
+```css
 
 @keyframes animation-name {
 from {
-/_ or 0% _/
+/* or 0% */
 }
 25% {
 }
 50% {
 }
 to {
-/_ or 100% _/
+/* or 100% */
 }
 }
 
@@ -169,7 +233,7 @@ to {
 animation: animation-name duration timing-function delay iteration-count direction fill-mode;
 }
 
-````
+```
 
 **Example - Fade-in on page load**:
 
@@ -190,16 +254,16 @@ animation: animation-name duration timing-function delay iteration-count directi
 }
 
 /* Stagger with delays */
-.section:nth-child(1) {
+.content-section:nth-child(1) {
 	animation-delay: 0.1s;
 }
-.section:nth-child(2) {
+.content-section:nth-child(2) {
 	animation-delay: 0.2s;
 }
-.section:nth-child(3) {
+.content-section:nth-child(3) {
 	animation-delay: 0.3s;
 }
-````
+```
 
 **🔑 Key Insight**: Keyframes are **proactive** - they run automatically when applied.
 
@@ -213,20 +277,20 @@ animation: animation-name duration timing-function delay iteration-count directi
 
 **Core Functions**:
 
-    ```css
+```css
 
-transform: translateX(100px); /_ Move horizontally _/
-transform: translateY(-50px); /_ Move vertically _/
-transform: translate(50px, -20px); /_ Both at once _/
-transform: scale(1.2); /_ Grow 20% _/
-transform: scaleX(0.8); /_ Squish horizontally _/
-transform: rotate(45deg); /_ Rotate clockwise _/
-transform: skewX(10deg); /_ Tilt _/
+transform: translateX(100px); /* Move horizontally */
+transform: translateY(-50px); /* Move vertically */
+transform: translate(50px, -20px); /* Both at once */
+transform: scale(1.2); /* Grow 20% */
+transform: scaleX(0.8); /* Squish horizontally */
+transform: rotate(45deg); /* Rotate clockwise */
+transform: skewX(10deg); /* Tilt */
 
-/_ Combine multiple transforms _/
+/* Combine multiple transforms */
 transform: translateX(50px) rotate(15deg) scale(1.1);
 
-````
+```
 
 **Example - Card lift effect**:
 
@@ -239,7 +303,7 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 	transform: translateY(-8px) scale(1.02);
 	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
-````
+```
 
 **🔑 Key Insight**: Always use `transform` and `opacity` for animations - they're **compositor-only** (no repaints).
 
@@ -251,19 +315,19 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 
 **Solution**: Tell browser in advance what will animate.
 
-    ```css
+```css
 
 .button {
 will-change: transform, opacity;
-/_ Browser creates GPU layer immediately _/
+/* Browser creates GPU layer immediately */
 }
 
-/_ ⚠️ Don't overuse! _/
+/* ⚠️ Don't overuse! */
 .everything {
-will-change: auto; /_ Default - only optimize what animates _/
+will-change: auto; /* Default - only optimize what animates */
 }
 
-````
+```
 
 **Best Practice**:
 
@@ -273,7 +337,7 @@ will-change: auto; /_ Default - only optimize what animates _/
 .card:focus-within {
 	will-change: transform;
 }
-````
+```
 
 **Forbidden**:
 
@@ -362,15 +426,15 @@ Test your animations with:
 
 Create `src/styles/animations.css` in your project:
 
-    ```css
+```css
 
-/_ ============================================
+/* ============================================
 ANIMATION SYSTEM - Pure CSS
 Design Tokens + Reusable Animations
 Framework-agnostic, works everywhere
-============================================ _/
+============================================ */
 
-/_ --- Timing Tokens --- _/
+/* --- Timing Tokens --- */
 :root {
 --duration-instant: 100ms;
 --duration-fast: 200ms;
@@ -392,11 +456,11 @@ Framework-agnostic, works everywhere
 
 }
 
-/_ --- Base Reset --- _/
-/_
+/* --- Base Reset --- */
+/*
 The following media query targets users who have enabled "Reduce Motion" in their operating system or browser preferences.
 When (prefers-reduced-motion: reduce) is true, all CSS animations and transitions are effectively disabled for better accessibility.
-_/
+*/
 @media (prefers-reduced-motion: reduce) {
 _,
 _::before,
@@ -407,7 +471,7 @@ transition-duration: 0.01ms !important;
 }
 }
 
-/_ --- Utility Classes --- _/
+/* --- Utility Classes --- */
 .fade-in {
 animation: fadeIn var(--duration-normal) var(--ease-out);
 }
@@ -420,7 +484,7 @@ animation: slideInUp var(--duration-slow) var(--ease-out);
 animation: scaleIn var(--duration-fast) var(--ease-bounce);
 }
 
-/_ --- Keyframe Library --- _/
+/* --- Keyframe Library --- */
 @keyframes fadeIn {
 from {
 opacity: 0;
@@ -471,179 +535,92 @@ opacity: 0.5;
 }
 }
 
-````
+```
 
 **Import in your `src/main.css`**:
 
 ```css
 @import './styles/animations.css';
-````
+```
 
 ---
 
 ## 🎨 Exercise 1: Micro-Interactions (Button States)
 
-> **✅ Pure CSS - No JavaScript | No Framework Dependencies**
+> **✅ Pure CSS - No JavaScript Required**
 
-**Goal**: Add delightful feedback to buttons using only CSS.
+**Goal**: Add delightful feedback to buttons.
 
-**Where**: Create `styles/button.css` in your project (works with any setup)
+**Where**: `styles/button.css` (or any HTML page + CSS file)
 
-**HTML** (framework-agnostic):
+---
+
+### Step 1: HTML
 
 ```html
-<button class="btn btn-primary">Click Me</button>
-<button class="btn btn-secondary">Learn More</button>
-<a href="#" class="btn btn-primary">Link Button</a>
+<button class="btn btn-primary">Primary Button</button>
+<button class="btn btn-secondary">Secondary Button</button>
+<button class="btn btn-primary" disabled>Disabled Button</button>
 ```
 
-**CSS**:
+### Step 2: CSS (Base + Variants)
 
-    ```css
+```css
+/* styles/button.css */
 
-/_ styles/button.css _/
-
-/_ Base button styles _/
+/* Base button styles */
 .btn {
-/_ Layout _/
-display: inline-flex;
-align-items: center;
-justify-center: center;
-padding: 0.75rem 1.5rem;
-
-    /* Typography */
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1;
-    text-decoration: none;
-
-    /* Visual */
-    border: none;
-    border-radius: 0.375rem;
-    cursor: pointer;
-
-    /* Animation setup */
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
-
+	position: relative;
+	overflow: hidden;
+	padding: 0.75rem 1.5rem;
+	border: none;
+	border-radius: 6px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: transform var(--duration-fast) var(--ease-out), 
+				box-shadow var(--duration-fast) var(--ease-out);
 }
 
-/_ Button variants _/
-.btn-primary {
-background: var(--color-primary);
-color: white;
-}
+/* Variants */
+.btn-primary { background-color: var(--color-primary); color: white; }
+.btn-secondary { background-color: var(--color-gray-100); color: var(--color-gray-900); }
 
-.btn-secondary {
-background: white;
-color: var(--color-gray-700);
-border: 1px solid var(--color-gray-700);
-}
+/* Interactions */
+.btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+.btn:active:not(:disabled) { transform: translateY(0); transition-duration: var(--duration-instant); }
 
-/_ Hover lift _/
-.btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+/* Focus ring animation */
+.btn:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; animation: pulseRing .6s ease-out; }
+@keyframes pulseRing { 0% { outline-offset: 2px; } 100% { outline-offset: 6px; outline-color: transparent; } }
 
-/_ Active press _/
-.btn:active {
-transform: translateY(0);
-transition-duration: var(--duration-instant);
-}
+/* Ripple effect (optional) */
+.btn::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,.3); border-radius: inherit; transform: scale(0); opacity: 0; }
+.btn:active:not(:disabled)::after { animation: ripple .6s ease-out; }
+@keyframes ripple { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
 
-/_ Focus ring animation _/
-.btn:focus-visible {
-outline: 2px solid currentColor;
-outline-offset: 2px;
-animation: pulseRing 0.6s ease-out;
-}
+/* Disabled */
+.btn:disabled { opacity: .5; cursor: not-allowed; }
 
-@keyframes pulseRing {
-0% {
-outline-offset: 2px;
-outline-color: currentColor;
-}
-100% {
-outline-offset: 6px;
-outline-color: transparent;
-}
-}
-
-/_ Ripple effect (advanced) _/
-.btn::after {
-content: '';
-position: absolute;
-inset: 0;
-background: rgba(255, 255, 255, 0.3);
-border-radius: inherit;
-transform: scale(0);
-opacity: 0;
-}
-
-.btn:active::after {
-animation: ripple 0.6s ease-out;
-}
-
-@keyframes ripple {
-0% {
-transform: scale(0);
-opacity: 1;
-}
-100% {
-transform: scale(1);
-opacity: 0;
-}
-}
-
-/_ ============================================
-ACCESSIBILITY: Respect Motion Preferences
-============================================ _/
+/* Accessibility: reduced motion */
 @media (prefers-reduced-motion: reduce) {
-.btn {
-transition-duration: 0.01ms;
+	.btn { transition-duration: 0.01ms !important; }
+	.btn::after, .btn:focus-visible { animation: none !important; }
 }
-.btn::after {
-animation: none;
-}
-.btn:focus-visible {
-animation: none;
-}
-}
+```
 
-````
+### Teacher Notes
 
-**How to test**:
-
-1. Add HTML buttons to any page
-2. Hover → should lift with shadow
-3. Click → should compress then ripple
-4. Tab + Space → should show pulsing focus ring
-5. Enable "Reduce Motion" in OS → animations become instant but still responsive
-
-**Commit**:
-
-```bash
-git add src/styles/components/button.css
-git commit -m "feat: Add micro-interactions to buttons
-
-- Hover: lift effect with shadow
-- Active: press feedback
-- Focus: pulsing ring animation
-- Ripple effect on click
-- Respects prefers-reduced-motion
-
-Improves perceived responsiveness and delight."
-````
+- Demonstrate hover/active/focus with keyboard and mouse.
+- Ask: Which properties animate? Why `transform` and not `top`?
+- Toggle OS “Reduce Motion” and verify no distracting motion.
+- Optional: Discuss color-contrast and focus visibility.
 
 ---
 
 ## 🎨 Exercise 2: Page Load Animations (Staggered Fade-In)
 
 > **✅ Pure CSS - No JavaScript Required**
->
-> (Optional JavaScript enhancement for scroll-triggered animations shown below)
 
 **Goal**: Content gracefully appears on page load using only CSS.
 
@@ -657,12 +634,10 @@ Improves perceived responsiveness and delight."
 		<h2>About Me</h2>
 		<p>First section fades in immediately...</p>
 	</section>
-
 	<section class="content-section">
 		<h2>My Work</h2>
 		<p>Second section fades in 0.1s later...</p>
 	</section>
-
 	<section class="content-section">
 		<h2>Contact</h2>
 		<p>Third section fades in 0.2s later...</p>
@@ -672,49 +647,29 @@ Improves perceived responsiveness and delight."
 
 **CSS**:
 
-    ```css
+```css
+/* Fade-in animation for all sections */
+.content-section { animation: fadeInUp var(--duration-slow) var(--ease-out) backwards; }
 
-/_ Fade-in animation for all sections _/
-.content-section {
-animation: fadeInUp var(--duration-slow) var(--ease-out) backwards;
-}
+/* Stagger delays */
+.content-section:nth-child(1) { animation-delay: 0.1s; }
+.content-section:nth-child(2) { animation-delay: 0.2s; }
+.content-section:nth-child(3) { animation-delay: 0.3s; }
+.content-section:nth-child(4) { animation-delay: 0.4s; }
+.content-section:nth-child(5) { animation-delay: 0.5s; }
 
-/_ Stagger delays _/
-.content-section:nth-child(1) {
-animation-delay: 0.1s;
-}
-.content-section:nth-child(2) {
-animation-delay: 0.2s;
-}
-.content-section:nth-child(3) {
-animation-delay: 0.3s;
-}
-.content-section:nth-child(4) {
-animation-delay: 0.4s;
-}
-.content-section:nth-child(5) {
-animation-delay: 0.5s;
-}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-@keyframes fadeInUp {
-from {
-opacity: 0;
-transform: translateY(30px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
+/* Reduced motion: instant appearance */
+@media (prefers-reduced-motion: reduce) { .content-section { animation: none; } }
+```
 
-/_ Reduced motion: instant appearance _/
-@media (prefers-reduced-motion: reduce) {
-.content-section {
-animation: none;
-}
-}
+### Teacher Notes
 
-````
+- Keep it simple: delay only; do not over-animate.
+- Explain `backwards` fill mode prevents initial flicker.
+- Compare with/without `prefers-reduced-motion` enabled.
+- Extension: Optional JS (Intersection Observer) only if scroll-triggered is required.
 
 ---
 
@@ -750,7 +705,7 @@ function observeAnimations() {
 document.addEventListener('DOMContentLoaded', () => {
 	observeAnimations();
 });
-````
+```
 
 **HTML** (with `data-animate` attribute):
 
@@ -763,20 +718,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 **CSS** (for JavaScript-triggered animations):
 
-    ```css
+```css
 
-/_ Initially hidden _/
+/* Initially hidden */
 [data-animate] {
 opacity: 0;
 transform: translateY(30px);
 }
 
-/_ Animate when .animate-in class is added by JavaScript _/
+/* Animate when .animate-in class is added by JavaScript */
 [data-animate].animate-in {
 animation: fadeInUp 0.6s ease-out forwards;
 }
 
-````
+```
 
 > **Note**: The pure CSS approach (without JavaScript) is recommended for most cases. Use JavaScript only when you specifically need scroll-triggered animations.
 
@@ -801,7 +756,7 @@ animation: fadeInUp 0.6s ease-out forwards;
 	<div class="skeleton skeleton-text"></div>
 	<div class="skeleton skeleton-text"></div>
 </article>
-````
+```
 
 **CSS**:
 
