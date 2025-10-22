@@ -202,6 +202,7 @@ A "state" is simply how an element appears or behaves at a certain moment—such
 For all code examples and hands-on practice with animation in this lesson, create a file at `/animations/index.htm` in your project. Use it as your sandbox for experiments!
 
 **Example HTML (copy this into `/animations/index.htm`):**
+
 ```html
 <button class="button">Hover me!</button>
 ```
@@ -273,6 +274,17 @@ Now try adding the CSS below to your sandbox to experiment with transitions.
 
 **Example - Fade-in on page load**:
 
+```html
+<section class="content-section">
+	<h2>Welcome</h2>
+	<p>This block fades in and moves up on load.</p>
+</section>
+<section class="content-section">
+	<h2>Features</h2>
+	<p>Stagger with increasing delays.</p>
+</section>
+```
+
 ```css
 @keyframes fadeInUp {
 	from {
@@ -327,6 +339,13 @@ transform: translateX(50px) rotate(15deg) scale(1.1);
 ```
 
 **Example - Card lift effect**:
+
+```html
+<article class="card">
+	<h3>Card Title</h3>
+	<p>Hover me to see lift and shadow.</p>
+</article>
+```
 
 ```css
 .card {
@@ -872,22 +891,51 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 @keyframes shimmer {
-	0% { background-position: 200% 0; }
-	100% { background-position: -200% 0; }
+	0% {
+		background-position: 200% 0;
+	}
+	100% {
+		background-position: -200% 0;
+	}
 }
 
 /* Skeleton variants */
-.skeleton-image { width: 100%; height: 200px; }
-.skeleton-title { width: 70%; height: 24px; margin: 1rem 0 0.5rem; }
-.skeleton-text { width: 100%; height: 14px; margin-bottom: 0.5rem; }
+.skeleton-image {
+	width: 100%;
+	height: 200px;
+}
+.skeleton-title {
+	width: 70%;
+	height: 24px;
+	margin: 1rem 0 0.5rem;
+}
+.skeleton-text {
+	width: 100%;
+	height: 14px;
+	margin-bottom: 0.5rem;
+}
 
 /* Complete skeleton card */
-.skeleton-card { padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; }
+.skeleton-card {
+	padding: 1rem;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+}
 
 /* Respect motion preferences */
 @media (prefers-reduced-motion: reduce) {
-	.skeleton { animation: pulse 1.5s ease-in-out infinite; }
-	@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .6; } }
+	.skeleton {
+		animation: pulse 1.5s ease-in-out infinite;
+	}
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.6;
+		}
+	}
 }
 ```
 
@@ -907,14 +955,48 @@ document.addEventListener('DOMContentLoaded', () => {
 **CSS**:
 
 ```css
-.spinner { width: 40px; height: 40px; border: 4px solid rgba(0,0,0,.1); border-left-color: var(--color-primary, #3b82f6); border-radius: 50%; animation: spin 1s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px solid rgba(0, 0, 0, 0.1);
+	border-left-color: var(--color-primary, #3b82f6);
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
 
 /* Screen reader only text */
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
 
 /* Respect motion preference */
-@media (prefers-reduced-motion: reduce) { .spinner { animation: pulse 1.5s ease-in-out infinite; } @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .5; } } }
+@media (prefers-reduced-motion: reduce) {
+	.spinner {
+		animation: pulse 1.5s ease-in-out infinite;
+	}
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.5;
+		}
+	}
+}
 ```
 
 ### Teacher Notes
@@ -947,11 +1029,24 @@ document.addEventListener('DOMContentLoaded', () => {
 **CSS**:
 
 ```css
-.logo-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 2s ease-out forwards; }
-@keyframes draw { to { stroke-dashoffset: 0; } }
+.logo-path {
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 1000;
+	animation: draw 2s ease-out forwards;
+}
+@keyframes draw {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
 
 /* Respect motion preferences */
-@media (prefers-reduced-motion: reduce) { .logo-path { animation: none; stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+	.logo-path {
+		animation: none;
+		stroke-dashoffset: 0;
+	}
+}
 ```
 
 **How it works**:
@@ -1041,9 +1136,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## 🎯 Advanced Practice: Morphing Shapes (CSS clip-path)
 
-> **✅ Pure CSS - No JavaScript Required**
+**HTML**:
 
-**Goal**: Animate between different SVG-like shapes.
+```html
+<button class="morph-button">Hover to morph</button>
+<div class="shape"></div>
+```
 
 ```css
 .morph-button {
@@ -1069,18 +1167,13 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 ```
 
-**Use cases**:
-
-- Navigation menu transformations
-- Card reveal effects
-- Interactive data visualizations
-- Art-directed content sections
-
----
-
-## 🎯 Advanced Practice: Text Animations (Typewriter, Glitch, Gradient)
-
 ### Typewriter Effect
+
+**HTML**:
+
+```html
+<h2 class="typewriter">Design with motion, not distraction.</h2>
+```
 
 ```css
 .typewriter {
@@ -1099,7 +1192,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		width: 100%;
 	}
 }
-
 @keyframes blink-caret {
 	from,
 	to {
@@ -1113,32 +1205,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### Glitch Effect
 
+**HTML**:
+
+```html
+<h2 class="glitch" data-text="GLITCH">GLITCH</h2>
+```
+
 ```css
 .glitch {
 	position: relative;
 	animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
 }
-
 .glitch::before,
 .glitch::after {
 	content: attr(data-text);
 	position: absolute;
 	inset: 0;
 }
-
 .glitch::before {
 	left: 2px;
 	text-shadow: -2px 0 #ff00de;
 	clip: rect(24px, 550px, 90px, 0);
 	animation: glitch-anim 2s infinite linear alternate-reverse;
 }
-
 .glitch::after {
 	left: -2px;
 	text-shadow: -2px 0 #00fff9, 2px 2px #ff00de;
 	animation: glitch-anim 2s infinite linear alternate-reverse;
 }
-
 @keyframes glitch-anim {
 	0% {
 		clip: rect(13px, 9999px, 94px, 0);
@@ -1149,7 +1243,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	10% {
 		clip: rect(69px, 9999px, 40px, 0);
 	}
-	/* ... more steps */
 	100% {
 		clip: rect(76px, 9999px, 19px, 0);
 	}
@@ -1157,6 +1250,12 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 
 ### Animated Gradient Text
+
+**HTML**:
+
+```html
+<h2 class="gradient-text">Animated Gradient</h2>
+```
 
 ```css
 .gradient-text {
