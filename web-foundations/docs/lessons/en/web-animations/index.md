@@ -1700,4 +1700,4 @@ _"Animation is not decoration. It is communication. Move with purpose. Delight w
 - Practice SVG animation techniques for logos and icons
 - Learn more about CSS `scroll()` timeline for scroll-driven animations
 
-**Let's make the web a beautiful AND usable virtual ecosystem! 🌐✨**
+**Let's make the web a beautiful AND usable virtual ecosystem!**
