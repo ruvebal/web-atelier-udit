@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Web Animations Lesson – Examples & Exercises</title>
+	<link rel="stylesheet" href="./animations.css" />
+	<style>
+		body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 2rem; }
+		section.demo { margin: 2rem 0; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; }
+		h2, h3 { margin: 0.25rem 0 1rem; }
+		.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: start; }
+		.card { padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; }
+	</style>
+</head>
+<body>
+	<h1>Web Animations – Examples & Exercises</h1>
+
+	<section class="demo" id="ex1">
+		<h2>Exercise 1: Button Micro-Interactions</h2>
+		<div class="grid">
+			<button class="btn btn-primary">Primary Button</button>
+			<button class="btn btn-secondary">Secondary Button</button>
+			<button class="btn btn-primary" disabled>Disabled Button</button>
+		</div>
+	</section>
+
+	<section class="demo" id="ex2">
+		<h2>Exercise 2: Page Load (Staggered Fade-In)</h2>
+		<section class="content-section">
+			<h3>About Me</h3>
+			<p>First section fades in immediately...</p>
+		</section>
+		<section class="content-section">
+			<h3>My Work</h3>
+			<p>Second section fades in 0.1s later...</p>
+		</section>
+		<section class="content-section">
+			<h3>Contact</h3>
+			<p>Third section fades in 0.2s later...</p>
+		</section>
+	</section>
+
+	<section class="demo" id="transform-card">
+		<h2>Transform Example: Card Lift</h2>
+		<article class="card">
+			<h3>Card Title</h3>
+			<p>Hover me to see lift and shadow.</p>
+		</article>
+	</section>
+
+	<section class="demo" id="ex3">
+		<h2>Exercise 3: Loading States</h2>
+		<div class="grid">
+			<article class="skeleton-card">
+				<div class="skeleton skeleton-image"></div>
+				<div class="skeleton skeleton-title"></div>
+				<div class="skeleton skeleton-text"></div>
+				<div class="skeleton skeleton-text"></div>
+			</article>
+			<div>
+				<div class="spinner" role="status" aria-label="Loading content"></div>
+				<p class="sr-only">Loading content, please wait...</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="demo" id="ex4">
+		<h2>Exercise 4: SVG Animations</h2>
+		<h3>Path Drawing</h3>
+		<svg class="logo-animated" width="200" height="200" viewBox="0 0 200 200">
+			<path class="logo-path" d="M 50 100 Q 100 50 150 100 T 250 100" fill="none" stroke="currentColor" stroke-width="3" />
+		</svg>
+		<h3>Icon Morphing (Demo)</h3>
+		<svg class="icon-morph" width="48" height="48" viewBox="0 0 24 24">
+			<circle class="circle-to-square" cx="12" cy="12" r="8" fill="currentColor" />
+		</svg>
+		<h3>Animated Background Pattern</h3>
+		<div class="hero-section" style="height: 200px;">
+			<svg class="bg-pattern" width="100%" height="100%">
+				<defs>
+					<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+						<circle cx="20" cy="20" r="2" fill="rgba(59, 130, 246, 0.1)" />
+					</pattern>
+				</defs>
+				<rect width="100%" height="100%" fill="url(#grid)" />
+			</svg>
+			<h3>Content over animated background</h3>
+		</div>
+	</section>
+
+	<section class="demo" id="clip-path">
+		<h2>Advanced: clip-path Morphing</h2>
+		<button class="morph-button">Hover to morph</button>
+		<div class="shape" style="margin-top: 1rem;"></div>
+	</section>
+
+	<section class="demo" id="text-animations">
+		<h2>Advanced: Text Animations</h2>
+		<h3>Typewriter</h3>
+		<h3 class="typewriter">Design with motion, not distraction.</h3>
+		<h3>Glitch</h3>
+		<h3 class="glitch" data-text="GLITCH">GLITCH</h3>
+		<h3>Gradient</h3>
+		<h3 class="gradient-text">Animated Gradient</h3>
+	</section>
+
+	<section class="demo" id="scroll-driven">
+		<h2>Advanced: Scroll-Driven Animations (CSS)</h2>
+		<div class="hero" style="height: 30vh; background: #f8fafc; display: grid; place-items: center;">
+			<h3>Scroll to see parallax effect</h3>
+		</div>
+		<div class="reading-progress"></div>
+	</section>
+
+</body>
+</html>
