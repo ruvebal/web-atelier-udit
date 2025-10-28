@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 8: 3D on the Web Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #a0a0a0;
+        }
+
+        /* Demo grid */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .demo-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .demo-card h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .demo-card p {
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* 3D Flip Card */
+        .flip-container {
+            perspective: 1000px;
+            height: 300px;
+            cursor: pointer;
+            margin: 2rem 0;
+        }
+
+        .flip-card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .flip-container:hover .flip-card {
+            transform: rotateY(180deg);
+        }
+
+        .flip-front,
+        .flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .flip-front {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .flip-back {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        /* 3D Cube */
+        .cube-container {
+            perspective: 1000px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 20s infinite linear;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            opacity: 0.9;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .cube-front  { background: rgba(102, 126, 234, 0.7); transform: translateZ(100px); }
+        .cube-back   { background: rgba(118, 75, 162, 0.7); transform: rotateY(180deg) translateZ(100px); }
+        .cube-right  { background: rgba(240, 147, 251, 0.7); transform: rotateY(90deg) translateZ(100px); }
+        .cube-left   { background: rgba(245, 87, 108, 0.7); transform: rotateY(-90deg) translateZ(100px); }
+        .cube-top    { background: rgba(79, 172, 254, 0.7); transform: rotateX(90deg) translateZ(100px); }
+        .cube-bottom { background: rgba(0, 242, 254, 0.7); transform: rotateX(-90deg) translateZ(100px); }
+
+        @keyframes rotateCube {
+            from { transform: rotateX(0deg) rotateY(0deg); }
+            to { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        /* 3D Button */
+        .button-3d {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 
+                0 5px 15px rgba(102, 126, 234, 0.4),
+                0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-3d::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            border-radius: 12px;
+            transform: translateZ(-10px);
+            z-index: -1;
+        }
+
+        .button-3d:hover {
+            transform: translateY(-5px) translateZ(10px);
+            box-shadow: 
+                0 10px 25px rgba(102, 126, 234, 0.6),
+                0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .button-3d:active {
+            transform: translateY(-2px);
+        }
+
+        /* Card with depth */
+        .depth-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 16px;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            margin: 2rem 0;
+        }
+
+        .depth-card:hover {
+            transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+        }
+
+        .depth-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            transform: translateZ(30px);
+        }
+
+        .depth-card p {
+            transform: translateZ(20px);
+        }
+
+        /* Perspective text */
+        .perspective-text {
+            perspective: 500px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .perspective-text h3 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #667eea;
+            transform: rotateX(30deg);
+            transform-origin: center bottom;
+            text-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Isometric grid */
+        .isometric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .iso-box {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            transform: rotateX(45deg) rotateZ(45deg);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .iso-box:hover {
+            transform: rotateX(45deg) rotateZ(45deg) scale(1.1);
+        }
+
+        /* Code box */
+        .code-box {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .code-box code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #a0aec0;
+        }
+
+        /* Info sections */
+        .info-section {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-section h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .pros, .cons {
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .pros {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .cons {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .pros h4 {
+            color: #10b981;
+            margin-bottom: 0.5rem;
+        }
+
+        .cons h4 {
+            color: #ef4444;
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection {
+            background: rgba(245, 158, 11, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .reflection strong {
+            color: #fbbf24;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+
+            .cube {
+                width: 150px;
+                height: 150px;
+            }
+
+            .cube-face {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎲 Module 8: 3D on the Web</h1>
+            <p>From Flat to Immersive</p>
+        </div>
+
+        <div class="demo-grid">
+            <!-- Flip Card Demo -->
+            <div class="demo-card">
+                <h2>1. 3D Flip Card</h2>
+                <p>Hover over the card to see it flip. Perfect for revealing information or creating interactive product showcases.</p>
+                
+                <div class="flip-container">
+                    <div class="flip-card">
+                        <div class="flip-front">
+                            <div>
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
+                                <div>Front Side</div>
+                                <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">(Hover to flip)</div>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div>
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
+                                <div>Back Side Revealed!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-box">
+                    <code>
+.flip-container {<br>
+&nbsp;&nbsp;perspective: 1000px;<br>
+}<br>
+<br>
+.flip-card {<br>
+&nbsp;&nbsp;transform-style: preserve-3d;<br>
+&nbsp;&nbsp;transition: transform 0.6s;<br>
+}<br>
+<br>
+.flip-container:hover .flip-card {<br>
+&nbsp;&nbsp;transform: rotateY(180deg);<br>
+}
+                    </code>
+                </div>
+            </div>
+
+            <!-- Rotating Cube Demo -->
+            <div class="demo-card">
+                <h2>2. Rotating 3D Cube</h2>
+                <p>A cube rotating in 3D space demonstrates true depth. Each face can display different content.</p>
+                
+                <div class="cube-container">
+                    <div class="cube">
+                        <div class="cube-face cube-front">Front</div>
+                        <div class="cube-face cube-back">Back</div>
+                        <div class="cube-face cube-right">Right</div>
+                        <div class="cube-face cube-left">Left</div>
+                        <div class="cube-face cube-top">Top</div>
+                        <div class="cube-face cube-bottom">Bottom</div>
+                    </div>
+                </div>
+
+                <div class="code-box">
+                    <code>
+.cube {<br>
+&nbsp;&nbsp;transform-style: preserve-3d;<br>
+&nbsp;&nbsp;animation: rotateCube 20s infinite;<br>
+}<br>
+<br>
+.cube-front {<br>
+&nbsp;&nbsp;transform: translateZ(100px);<br>
+}<br>
+<br>
+@keyframes rotateCube {<br>
+&nbsp;&nbsp;to { transform: rotateX(360deg) rotateY(360deg); }<br>
+}
+                    </code>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Button Example -->
+        <div class="info-section">
+            <h3>3. 3D Interactive Button</h3>
+            <p style="margin-bottom: 2rem;">Buttons with depth feel more "pressable" and provide better visual feedback:</p>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                <button class="button-3d" onclick="alert('Button pressed! Notice the 3D effect.')">
+                    Click Me - I'm 3D!
+                </button>
+            </div>
+
+            <p style="font-size: 0.95rem; color: #888; text-align: center;">Try hovering and clicking to see the depth effect</p>
+        </div>
+
+        <!-- Perspective Text -->
+        <div class="perspective-text">
+            <h3>Perspective Text</h3>
+            <p style="color: #888; margin-top: 1rem;">Text with 3D transformation creates dramatic effects</p>
+        </div>
+
+        <!-- Depth Cards -->
+        <div class="demo-grid">
+            <div class="demo-card">
+                <h2>4. Cards with Depth</h2>
+                <p>Hover over this card to see it lift and tilt slightly in 3D space:</p>
+                
+                <div class="depth-card">
+                    <h3>Interactive Card</h3>
+                    <p>Elements can have different Z-positions, creating true 3D layering. This makes interfaces feel more tactile and engaging.</p>
+                </div>
+            </div>
+
+            <div class="demo-card">
+                <h2>5. Isometric Grid</h2>
+                <p>Isometric views create a 3D aesthetic without true perspective:</p>
+                
+                <div class="isometric-grid">
+                    <div class="iso-box">1</div>
+                    <div class="iso-box">2</div>
+                    <div class="iso-box">3</div>
+                    <div class="iso-box">4</div>
+                </div>
+
+                <p style="font-size: 0.9rem; color: #888;">Hover over boxes to see the effect</p>
+            </div>
+        </div>
+
+        <!-- Information Section -->
+        <div class="info-section">
+            <h3>What Is 3D on the Web?</h3>
+            <p>3D effects add depth to websites using CSS transforms or WebGL. From simple card flips to complex 3D scenes, these techniques make interfaces more immersive and interactive.</p>
+
+            <p><strong>Analogy:</strong> Flat design is like a photograph; 3D design is like a sculpture—you can "walk around" and explore it from different angles.</p>
+
+            <h3 style="margin-top: 2rem;">Key CSS Properties</h3>
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li><code>perspective</code>: Defines how far the 3D object is from the user</li>
+                <li><code>transform-style: preserve-3d</code>: Enables 3D space for children</li>
+                <li><code>transform</code>: Rotates, translates, or scales in 3D</li>
+                <li><code>backface-visibility</code>: Controls whether back of element is visible</li>
+            </ul>
+        </div>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>✅ Benefits</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>• Highly engaging and memorable</li>
+                    <li>• Creates sense of depth and realism</li>
+                    <li>• Great for product showcases</li>
+                    <li>• Improves spatial understanding</li>
+                    <li>• Fun for portfolios and creative sites</li>
+                    <li>• Can guide user attention effectively</li>
+                </ul>
+            </div>
+
+            <div class="cons">
+                <h4>⚠️ Considerations</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>• Can slow down performance</li>
+                    <li>• Requires careful UX design</li>
+                    <li>• May cause motion sickness</li>
+                    <li>• Not accessible for all users</li>
+                    <li>• More complex to implement</li>
+                    <li>• Needs fallbacks for older browsers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>When to Use 3D Effects</h3>
+            <ul style="margin-left: 2rem; line-height: 2; margin-top: 1rem;">
+                <li><strong>Product visualization:</strong> E-commerce sites showing products from multiple angles</li>
+                <li><strong>Portfolios:</strong> Creative professionals showcasing their work</li>
+                <li><strong>Interactive experiences:</strong> Games, educational tools, data visualization</li>
+                <li><strong>Brand differentiation:</strong> Standing out with unique, memorable interfaces</li>
+                <li><strong>Micro-interactions:</strong> Subtle 3D effects on buttons and cards</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;">CSS vs. WebGL</h3>
+            <p><strong>CSS 3D:</strong> Great for simple effects (cards, buttons, UI elements). Works well across devices. Easy to implement.</p>
+            <p><strong>WebGL/Three.js:</strong> Needed for complex 3D scenes (games, models, advanced visualization). More powerful but requires more expertise and resources.</p>
+        </div>
+
+        <div class="reflection">
+            <strong>Atelier Reflection:</strong> Does 3D add value to the demos on this page, or does it distract? Consider your own project—where might 3D enhance the user experience vs. where it would be unnecessary complexity? Balance is key!
+        </div>
+
+        <div class="info-section">
+            <h3>Best Practices</h3>
+            <ul style="margin-left: 2rem; line-height: 2; margin-top: 1rem;">
+                <li><strong>Performance:</strong> Test on real devices; 3D can be resource-intensive</li>
+                <li><strong>Accessibility:</strong> Provide alternatives; respect <code>prefers-reduced-motion</code></li>
+                <li><strong>Purpose:</strong> Use 3D to enhance understanding, not just for decoration</li>
+                <li><strong>Subtlety:</strong> Often less is more—subtle depth beats over-the-top effects</li>
+                <li><strong>Progressive enhancement:</strong> Ensure basic functionality without 3D</li>
+                <li><strong>Mobile:</strong> 3D effects can drain battery; use sparingly on mobile</li>
+            </ul>
+        </div>
+
+        <div class="reflection">
+            <strong>Critical Design Question:</strong> Following the methodology's emphasis on purposeful design—is your 3D effect serving a functional purpose, or is it purely aesthetic? Does it enhance user understanding and experience, or does it create barriers? Always consider accessibility, performance, and user needs before adding complexity.
+        </div>
+
+        <div class="info-section" style="text-align: center;">
+            <h3>Tools & Resources</h3>
+            <p style="margin: 1rem 0;"><strong>CSS 3D:</strong> No libraries needed! Just CSS transforms</p>
+            <p style="margin: 1rem 0;"><strong>WebGL:</strong> <a href="https://threejs.org/" target="_blank" style="color: #667eea;">Three.js</a> - Popular 3D library</p>
+            <p style="margin: 1rem 0;"><strong>Learning:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transforms/Using_CSS_transforms" target="_blank" style="color: #667eea;">MDN CSS Transforms Guide</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Respect user's motion preferences
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (prefersReducedMotion) {
+            // Disable animations for users who prefer reduced motion
+            const cube = document.querySelector('.cube');
+            if (cube) {
+                cube.style.animation = 'none';
+                cube.style.transform = 'rotateX(30deg) rotateY(30deg)';
+            }
+            console.log('Animations reduced for user preference');
+        }
+    </script>
+</body>
+</html>
+

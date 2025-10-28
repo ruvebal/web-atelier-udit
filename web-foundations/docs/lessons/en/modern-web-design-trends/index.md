@@ -1,12 +1,11 @@
 ---
-layout: lesson
-title: 'Modern Web Design Trends: Theory and Practice'
-title_es: 'Tendencias de diseño web moderno: teoría y práctica'
-slug: modern-web-design-trends
-date: 2025-09-10
-author: 'Rubén Vega Balbás, PhD'
-lang: en
-permalink: /lessons/en/modern-web-design-trends/
+title: 'Modern Web Design Trends: Practical Guide for Students'
+title_en: 'Modern Web Design Trends: Practical Guide for Students'
+description: 'A hands-on exploration of key web design trends like parallax, glassmorphism, typography, dark mode, minimalism vs. maximalism, scrollytelling, and 3D effects. Simplified for beginners with active exercises and critical reflections.'
+date: 2025-10-14
+author: 'Atelier Team'
+lang: 'en'
+locale: 'en'
 ---
 
 <!-- prettier-ignore-start -->
@@ -18,160 +17,319 @@ permalink: /lessons/en/modern-web-design-trends/
 
 <!-- prettier-ignore-end -->
 
+# Modern Web Design Trends: Practical Guide for Students
+
+Welcome to this hands-on guide on modern web design trends! We'll explore trends that make websites more engaging and communicative. Each trend is broken into short, simple modules. You'll learn the "why" and "how" through analogies, quick activities, and reflections.
+
+Think of web design as storytelling: trends are tools to make your story clearer, more fun, or more immersive. We'll focus on **active learning**—try things as you go! Use free tools like CodePen for experiments.
+
+
+> **Quick Tip:** Read one module at a time. After each, do the activity and reflect. This keeps things clear and fun!
+
 ---
 
-## Introduction – The Web as a Living Canvas
+## Module 1: Parallax Scrolling – Adding Depth Like a Movie
 
-The web is a dynamic canvas for communication – interactive, adaptive, and alive. Unlike a static print layout, a web interface can respond to a swipe or a click, day or night, adapting its form to engage its audience. Modern web design trends like immersive parallax scrolling, frosted-glass "glassmorphic" panels, dark mode themes, bold typography, minimalist and maximalist aesthetics, scroll-telling narratives, and even 3D graphics are not just stylistic fads – they are design techniques that leverage the unique capabilities of the web medium. Used thoughtfully, these trends amplify a website's message and usability in ways traditional graphic design cannot. Web design today is as much about experience as appearance: it's the choreography of content and interaction.
+### What Is It?
 
-### Learning Paths
+Parallax scrolling makes backgrounds move slower than foreground content as you scroll. It's like looking out a car window: trees (background) move slower than the road (foreground). This adds **depth** and makes sites feel dynamic.
 
-In this guide, each trend is explained with its theoretical background, examples, and practical considerations. For each topic, we offer two parallel paths of practice: one for students with intermediate web skills (to implement or experiment with the basics of the trend), and one for advanced students (to push the technique further or consider more complex applications). The material is designed for a roughly two-hour session – about one hour to discuss concepts and see examples, and another hour for hands-on exploration. Regardless of level, all students are encouraged to think critically about why and when to use each trend. The goal is not to follow design hype blindly, but to understand how each technique can serve a narrative or improve user experience. Design is communication; by the end of this guide, you should be able to articulate what story or purpose each modern trend can fulfill in your own projects.
+**Analogy:** Imagine a comic book where background panels shift slightly as you turn pages— it creates a sense of movement without overwhelming the story.
 
-## Parallax Scrolling – Depth and Storytelling on Scroll
+### Why Use It?
 
-### Theory & Origins
+- Makes sites more engaging (users scroll longer).
+- Helps tell a story visually (e.g., a portfolio showing "journey" through layers).
+- But: Can cause motion sickness or slow down sites—use sparingly!
 
-Parallax scrolling is a web effect where background and foreground content scroll at different speeds, creating an illusion of depth and motion. The term comes from the Greek _parallaxis_ ("alteration"), referring to how nearer objects appear to move faster than distant ones ([Awwwards]()). This concept has roots in classic animation and video games, but it burst onto the web design scene famously in 2011 when designer Ian Coyle created the Nike "Better World" campaign page – often cited as the first mainstream parallax website ([Awwwards]()). That Nike page's success (with layered images and text moving at varying speeds) sparked a wave of sites using parallax for a cinematic feel and storytelling impact. By layering content in z-space and animating it on scroll, designers found they could guide a visitor through a narrative or process in a more engaging way than a static page.
+### Quick Activity: Try Basic Parallax
 
-### Impact and Use Cases
+1. Go to [CodePen](https://codepen.io) and create a new pen.
+2. Add HTML: `<div class="bg">Background</div><div class="fg">Foreground Text</div>`.
+3. Add CSS:
+   ```css
+   .bg {
+   	background: url('image.jpg');
+   	height: 200px;
+   	background-attachment: fixed;
+   }
+   .fg {
+   	padding: 20px;
+   }
+   ```
+4. Scroll and see the effect. Tweak the `background-attachment` to `scroll` for comparison.
 
-When used well, parallax effects can "serve the user experience" – especially for storytelling or long-form landing pages ([Awwwards]()). The technique is perfect for guiding users through a sequence: for example, a product story that unfolds as you scroll, or an interactive report with sections that animate into view. Because the user's own scrolling controls the pace, it can make the experience feel more personal and immersive. Some award-winning commercial sites and interactive editorials have used subtle parallax to draw attention to key visuals and create a sense of progression. Even tech giants incorporate it in refined ways; for instance, Apple's recent product pages often use horizontal or vertical parallax scrolling to reveal product features with a slick faux-3D effect ([Fast Company]()).
+**Time:** 5 minutes. **Reflection (Atelier Prompt):** Does this make your page feel more "alive"? Why or why not?
 
-### Challenges and Critiques
+> **Key Insight:** Parallax is simple but powerful—test on mobile to ensure it doesn't distract.
 
-Parallax scrolling is a visually striking tool, but designers learned quickly that it must be used sparingly and smartly. Early parallax sites sometimes went overboard with dizzying motion and heavy animations, hurting usability. Research by UX experts found that while parallax can make a design feel "fun" and grab attention, it often adds load time and can introduce usability issues ([Fast Company]()). If captions fly by too quickly or content is only accessible through animations, users may miss important information ([Fast Company]()). Nielsen Norman Group researchers noted that many users have been conditioned to tune out moving effects like they do banner ads – a phenomenon called "banner blindness" – meaning excessive motion might backfire ([Fast Company]()). Moreover, parallax can trigger motion sickness or difficulty for some users (e.g., those with vestibular disorders), so accessibility guidelines advise offering a way to reduce or disable unnecessary motion. In short, a parallax effect should serve a purpose – highlighting a story point or drawing the eye to something important – rather than just decorating the page. As one design author quipped, parallax is "an outdated attention-goosing technique" when used without restraint ([Fast Company]()), but in the right context (e.g., a guided narrative or an interactive infographic) it can create moments of delight and emphasis.
+---
 
-### Practical Implementation
+## Module 2: Glassmorphism – Frosted Glass Effects for Modern UIs
 
-Technically, simple parallax effects can be achieved with just HTML/CSS – for example, using `background-attachment: fixed` on a background image so it scrolls slower than overlaying text, or layering multiple backgrounds with CSS transforms. More complex parallax (where multiple elements move at different rates or in different directions) typically involves a bit of JavaScript to listen to scroll events and adjust element positions, or the use of libraries. Libraries like ScrollMagic, GSAP ScrollTrigger, or even lightweight Vanilla JS plugins make it easier to trigger animations at certain scroll positions. Modern CSS can also create a parallax illusion via 3D transforms: by adjusting the `translateZ` (depth) of elements in a perspective container, one can simulate multiplane scroll effects ([Team Treehouse]()). In fact, the popular parallax.js library achieves a deep-space feel by moving layered images at different speeds along the X/Y axes, creating a sense of depth without true 3D ([Team Treehouse]()).
+### What Is It?
 
-#### For Intermediate Students
+Glassmorphism creates a "frosted glass" look: semi-transparent elements with blur, like a foggy window. You see through it but with softness.
 
-A good exercise is to add a basic parallax section to a simple webpage. For instance, you could take a long landing page and designate a hero image to have fixed background positioning (so the content scrolls over it) or use CSS `transform: translateY()` in a small script to shift an image slower than the scroll. There are many tutorials for "pure CSS parallax backgrounds" – try implementing one and observe how it affects the feel of the page. Focus on keeping the effect subtle and smooth (avoid janky, jumpy motion). Test on both desktop and mobile (note that on some mobile browsers, fixed backgrounds are disabled for performance). Reflect on whether the added effect guides the user's attention as intended.
+**Analogy:** Picture a shower door with condensation—shapes are visible but blurred, adding a modern, layered feel.
 
-#### For Advanced Students
+### Why Use It?
 
-Try building a custom parallax scrolling storytelling section. For example, create a sequence of full-screen panels introducing a concept or product. Use the Intersection Observer API or a scroll library to trigger class changes or GSAP animations as each section enters the viewport. You might have an image slide in or scale up at a different speed relative to text. Aim to incorporate 2–3 layers of depth. As you build, consider performance and accessibility: use `requestAnimationFrame` for smooth updates, and provide fallback content or a toggle to disable animations for users who prefer reduced motion. This level of implementation will deepen your understanding of how scroll position can drive animations. It will also challenge you to think about narrative flow – what does each step of the scroll reveal, and why? By coding your own parallax effects (instead of relying purely on canned plugins), you'll gain fine control and a critical eye for when the technique truly enhances the communication.
+- Adds depth and premium feel (e.g., cards that "float").
+- Popular in apps like iOS—feels tactile without being heavy.
+- Caveat: Can reduce readability; ensure text contrasts well.
 
-### Key Takeaway
+### Quick Activity: Build a Glass Card
 
-Parallax scrolling exemplifies how the web can add a layer of storytelling through interaction. When planning to use it, always ask: "Does this motion help tell my story or improve understanding?" If yes – for example, revealing a product detail as the user scrolls down to learn about it – then parallax can be a powerful ally. If not, consider a simpler approach. A well-placed parallax effect (for instance, a background image that subtly moves slower to create depth) can make a page feel more engaging and memorable. But restraint is key: as with any vivid spice, a little can delight, while too much can overwhelm the senses.
+1. In CodePen, add HTML: `<div class="glass-card">Content Here</div>`.
+2. Add CSS:
+   ```css
+   .glass-card {
+   	background: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+   	backdrop-filter: blur(10px);
+   	border: 1px solid rgba(255, 255, 255, 0.3);
+   	padding: 20px;
+   	border-radius: 10px;
+   }
+   ```
+3. Add a colorful background and test. Adjust blur for effect.
 
-## Glassmorphism – Frosted-Glass Aesthetics and Visual Depth
+**Time:** 5 minutes. **Reflection:** How does blur change the "feel" of the element? Is it more inviting?
 
-### Theory & Characteristics
+> **Key Insight:** Use `backdrop-filter` for the blur—it's supported in modern browsers.
 
-Glassmorphism is a contemporary UI design trend that emulates the look of frosted or translucent glass. Visually, it's characterized by blurry, translucent backgrounds (often with a backdrop blur effect), layered overlapping objects, and subtle borders or highlights that make UI components appear to float above a background. A classic glassmorphic element might be a semi-transparent card or popup window: you can see the vague shapes or colors of content behind it, as if looking through frosted glass, with a soft blur applied. The style often pairs with vibrant background colors or images – the blurred glass picks up these colors, creating a pleasing diffusion of hues. A slight inner shadow or border on the translucent element helps enhance the "pane of glass" feeling.
+---
 
-### Origins and Popularization
+## Module 3: Neumorphism – Soft 3D Shadows for Embossed Interfaces
 
-The term "glassmorphism" was coined in 2020 by designer Michał Malewicz ([Hype4 Academy]()), who observed the growing use of frosted-glass effects in interfaces and wanted to give it a name. (The name is a nod to earlier trends like skeuomorphism and neumorphism – here focusing on glass-like surfaces.) However, the visual concept has deeper roots: Apple's iOS 7 (2013) introduced frosted translucent panels in mobile UI, and Windows Aero (2007) and Fluent Design (2017) also used "blur behind" acrylic materials in OS design. What Malewicz did was define and frame the trend for the design community, which led to a hashtag movement (#glassmorphism) and widespread experimentation after 2020 ([Hype4 Academy]()). The style gained huge momentum when Apple incorporated extensive translucent layering in macOS Big Sur (2020) – Apple's design system called it "Liquid Glass", and it showed off just how polished and immersive this effect could be across an entire interface ([Everyday UX]()). Seeing Apple (and also Microsoft with its Fluent Acrylic) commit to this look gave designers confidence that glassmorphism was more than a passing gimmick ([Everyday UX]()). By 2025, it's seemingly everywhere – from finance apps to creative portfolio sites – adding a sense of depth, sophistication, and dimensionality that flat design lacked ([Everyday UX]()).
+### What Is It?
 
-#### Why Designers Use It
+Neumorphism (a blend of "new" and "skeuomorphism") combines 3D elements with soft shadows and subtle highlights to create an "embossed" or "pressed" look. It uses light shadows for raised elements and dark shadows for inset ones, often on a matching background for a seamless feel. Combined with glassmorphism, it adds translucent layers for extra depth.
 
-After years of flat and material design, glassmorphism brought back depth and texture in a modern way. It allows interfaces to feel layered and rich without heavy drop-shadows or skeuomorphic details. The translucent panels can help emphasize hierarchy (a blurred background card naturally stands out from a sharp background) and can look "premium" – many associate the frosted glass effect with a high-tech, modern aesthetic ([Everyday UX]()). Users often describe it as "clean" and "slick" because it's both decorative and functional, giving a sense of context (you know there's something behind the glass) while focusing attention on the foreground content.
+**Analogy:** Imagine buttons that look like they're gently pressed into soft clay—raised edges catch light, inset areas feel recessed, giving a tactile, almost physical quality to flat screens.
 
-### Design Considerations
+### Origins and Definitions
 
-#### Contrast and Readability
+- Coined by designer Alexander Plyuto, neumorphism draws from skeuomorphism (realistic designs mimicking physical objects) but softens it for modern, minimalist interfaces.
+- First notable example: Plyuto's "Skeuomorph Mobile Banking" concept on Dribbble ([Dribbble Shot](https://dribbble.com/shots/7994421-Skeuomorph-Mobile-Banking)).
+- It gained traction in 2020 as a "next step" after flat design, often paired with glassmorphism for layered, futuristic UIs.
 
-A common mistake is sacrificing legibility on translucent surfaces. Text on a glassmorphic card must remain readable against whatever background shows through. This often means adding an extra overlay (e.g., a semi-transparent dark layer) or using strong enough blur and an opaque border to ensure text stands out. For example, Apple's guidelines dynamically adjust the blur and contrast of "glass" panels based on background brightness, and they often use vibrant colors + white text or darkening the backdrop to keep sufficient contrast ([Everyday UX]()). As a rule, test your design on busy backgrounds – can you still read everything? If not, increase the opacity of the panel or the blur radius.
+### Why Use It?
 
-#### Performance
+- Creates a soft, approachable feel—elements seem touchable and integrated.
+- Enhances user experience in apps (e.g., toggles that "press in" like real buttons).
+- Popular in fintech and creative tools for a premium, innovative vibe.
+- Caveat: Can reduce accessibility (low contrast); ensure sufficient color differences for readability.
 
-Blur effects can be graphics-intensive, especially if large portions of the screen are constantly updating. In the early 2010s, this effect was avoided on the web due to performance, but today's CSS `backdrop-filter: blur()` (supported in modern browsers) offloads to the GPU and is surprisingly efficient ([Everyday UX]()). Still, be cautious on mobile devices or slow GPUs – too many layered blurs can chug. Use the effect selectively (e.g., a few cards, not every element).
+### Quick Activity: Create a Neumorphic Button
 
-#### Aesthetics and Layering
+1. In CodePen, add HTML: `<button class="neumorphic-btn">Press Me</button>`.
+2. Add CSS (light mode example):
+   ```css
+   .neumorphic-btn {
+   	background: #e0e0e0; /* Matches background */
+   	border: none;
+   	border-radius: 20px;
+   	padding: 15px 30px;
+   	box-shadow: 8px 8px 15px #bebebe, -8px -8px 15px #ffffff; /* Raised effect */
+   	transition: 0.3s;
+   }
+   .neumorphic-btn:active {
+   	box-shadow: inset 8px 8px 15px #bebebe, inset -8px -8px 15px #ffffff; /* Inset when pressed */
+   }
+   ```
+3. Test click/tap—feels like pressing a soft button! Adjust shadows for stronger effect.
 
-Glassmorphism works best in a layered design with colorful or image backgrounds. If your background is just plain white or gray, a translucent panel won't be noticeable. Thus, many designs using this trend have vibrant gradient backgrounds, scenic images, or abstract shapes behind the glass to make the frosted effect visible. Also consider using multiple layers of glass – maybe a foreground card over a semi-transparent navbar – to create an immersive depth (but ensure it doesn't get confusing).
+**Time:** 5 minutes. **Reflection:** How does the "embossed" look make the button feel more interactive? Compare to flat buttons.
 
-#### Accessibility
+> **Key Insight:** Neumorphism shines in light themes—combine with glassmorphism for hybrid effects like translucent raised cards.
 
-Always remember that transparency can pose issues for users with visual impairments. Ensure that your color contrast with the frosted backdrop meets at least minimum contrast ratios (WCAG recommends 4.5:1 for text; Apple even suggests higher for comfort ([UX Planet]())). Additionally, be mindful of motion or distraction: if content behind the glass moves (e.g., a video background), the constantly changing blur could be distracting – you might tone it down or pause background animations when an overlay opens.
+---
 
-### Examples
+## Module 4: Typography Trends – Fonts That Speak Louder
 
-Many award-winning sites and modern UIs showcase glassmorphism. For instance, neobank and fintech app UIs often use translucent cards to display account information over a colorful dashboard background – it gives a sense of depth and tech sleekness, signaling "modern finance". Some creative agency websites use glassmorphic overlays for menus or project cards, which hover above animated backgrounds. Even operating systems: by 2025, Apple's macOS and iOS use "real-time" liquid glass with motion parallax and dynamic transparency, pushing the trend further ([Everyday UX]()). Microsoft's Fluent Design in Windows 11 uses "Acrylic" material with subtle noise and blur ([Everyday UX]()). These big examples validate the trend, but also illustrate best practices (they often reduce transparency for readability and increase it for decorative larger panels).
+### What Is It?
 
-From an educational perspective, a canonical reference implementation is the Glassmorphism CSS generator by Hype4 (by Malewicz himself), which demonstrates the exact CSS needed: a translucent background color (e.g., rgba(255,255,255,0.15)), a backdrop-filter: blur(20px) (with -webkit-backdrop-filter for Safari), a light border (to outline the shape), and sometimes inner highlights ([Hype4 Academy]()). This combination creates that "glass" look. Students can inspect such generators or tutorials to see how each property contributes (color for transparency, blur for frosting, border for edges, shadow for depth).
+Typography trends focus on fonts that adapt and express personality: fluid scaling, variable fonts (fonts that change weight/style), and bold choices.
 
-#### For Intermediate Students
+**Analogy:** Fonts are like voices— a bold, playful font is like an excited storyteller; a clean serif is like a calm teacher.
 
-Adding a glassmorphic element to a project is a straightforward yet illuminating exercise. If you have a personal portfolio or a project page, try creating a frosted glass card. For example, design a callout box or a navigation menu that overlays on an existing page. Give it a semi-transparent background (using an RGBA white or black, or any color) and apply backdrop-filter: blur(…). You'll need to ensure the parent element allows backdrop filtering (e.g., it can't work if an ancestor has certain properties like overflow:hidden without special handling). Experiment with different blur radii and opacity levels – see how more blur makes content behind more indistinct, increasing legibility. You might start with a template like:
+### Why Use It?
 
-```css
-.glass-card {
-	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-radius: 12px;
-	padding: 1rem;
-}
-```
+- Makes text more readable and responsive (e.g., `clamp()` for sizes that grow with screen).
+- Variable fonts save load time (one file for many styles).
+- But: Too many fonts slow sites—stick to 2-3.
 
-Test it on various backgrounds and adjust for contrast. Reflect on how this simple addition changes the visual hierarchy of your page.
+### Quick Activity: Fluid Typography
 
-#### For Advanced Students
+1. In CodePen, add HTML: `<h1>Responsive Title</h1><p>Body text</p>`.
+2. Add CSS:
+   ```css
+   h1 {
+   	font-size: clamp(2rem, 5vw, 3rem);
+   } /* Grows with screen */
+   p {
+   	font-family: 'Roboto', sans-serif;
+   	line-height: 1.5;
+   }
+   ```
+3. Resize your browser—see how the title adapts!
 
-For a deeper dive, build a multi-layered glassmorphic interface component. For example, create a modal or dropdown menu that uses glassmorphism with dynamic blur based on the background (using JavaScript to sample colors and adjust opacity). Incorporate animation: perhaps the glass element fades in with a scale effect, or the blur intensity changes on hover. You could even combine it with other trends, like adding subtle parallax to the background. As you implement, prioritize accessibility: add a media query for users who prefer reduced motion, and ensure text remains legible at all times (perhaps by adding a solid background fallback for low-contrast scenarios). This exercise will teach you about responsive design, performance optimization (e.g., limiting blur to GPU-accelerated elements), and the balance between aesthetics and usability. By customizing your own glassmorphic elements, you'll understand why this trend endures – it's not just pretty; it can make interfaces feel more intuitive and modern when done right.
+**Time:** 5 minutes. **Reflection:** How does fluid sizing make text feel more "alive"? Test on mobile.
 
-### Key Takeaway
+> **Key Insight:** Use Google Fonts for easy access—always check contrast for accessibility.
 
-Glassmorphism is a powerful tool for adding visual depth and a premium feel to web interfaces, but it must be implemented thoughtfully to avoid sacrificing usability. Always prioritize readability, performance, and accessibility. Ask yourself: "Does this glass effect enhance the user's understanding or just look cool?" If it serves the content (e.g., by creating hierarchy without overwhelming the design), then it's a win. Like parallax, restraint is crucial – use it to highlight important elements, not to decorate everything. With practice, you'll master when to apply this frosted-glass magic to make your designs stand out.
+---
 
-## Dark Mode Themes – Adapting to User Preferences
+## Module 5: Dark Mode Design – Comfortable Interfaces for All
 
-### Theory & Characteristics
+### What Is It?
 
-Dark mode themes invert the traditional light color scheme, using dark backgrounds (often black or near-black) with light text and UI elements. This reduces eye strain in low-light conditions, saves battery life on OLED screens, and can create a sleek, modern aesthetic. The trend gained massive popularity with the rise of mobile apps and OS-level toggles (e.g., iOS and Android's system dark mode), but it's now a staple in web design as well.
+Dark mode uses dark backgrounds with light text—great for low light or saving battery.
 
-### Origins and Popularization
+**Analogy:** Like switching from a bright room to a cozy lamp—easier on the eyes at night.
 
-Dark modes have roots in early computing (e.g., terminal interfaces) and were popularized by apps like Twitter and YouTube in the 2010s. By 2020, most major platforms offered dark modes, driven by user demand for reduced blue light and better accessibility. On the web, it's implemented via CSS media queries like `prefers-color-scheme: dark` and JavaScript toggles.
+### Why Use It?
 
-#### Why Designers Use It
+- Reduces eye strain and saves battery on OLED screens.
+- User preference—many apps offer it.
+- Caveat: Can be harder to read in bright light; design for both modes.
 
-Dark modes improve user experience by adapting to preferences, reducing eye fatigue, and aligning with modern device capabilities. They can also make interfaces feel more "premium" or futuristic.
+### Quick Activity: Simple Dark Toggle
 
-### Design Considerations
+1. In CodePen, add HTML: `<button onclick="toggleDark()">Toggle Dark</button><body>Content</body>`.
+2. Add CSS:
+   ```css
+   body {
+   	background: white;
+   	color: black;
+   	transition: 0.3s;
+   }
+   .dark {
+   	background: #121212;
+   	color: white;
+   }
+   ```
+3. Add JS: `function toggleDark() { document.body.classList.toggle('dark'); }`.
+4. Click the button and see the switch!
 
-#### Color Schemes
+**Time:** 5 minutes. **Reflection:** When would you use dark mode? How does it affect mood?
 
-Choose colors that work in both light and dark modes. Use high-contrast text (e.g., white on black) and avoid pure black for backgrounds to prevent harshness.
+> **Key Insight:** Use `@media (prefers-color-scheme: dark)` for auto-detection.
 
-#### Implementation
+---
 
-Use CSS custom properties for easy theming:
+## Module 6: Minimalism vs. Maximalism – Less or More?
 
-```css
-:root {
-	--bg-color: #fff;
-	--text-color: #000;
-}
+### What Is It?
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--bg-color: #121212;
-		--text-color: #e0e0e0;
-	}
-}
+Minimalism: Simple, clean designs with lots of space. Maximalism: Bold, busy designs with colors and details.
 
-body {
-	background-color: var(--bg-color);
-	color: var(--text-color);
-}
-```
+**Analogy:** Minimalism is a quiet library; maximalism is a vibrant festival—both tell stories, just differently.
 
-#### Accessibility
+### Why Use It?
 
-Ensure sufficient contrast ratios and provide manual toggles for users who can't rely on system preferences.
+- Minimalism: Focuses attention, feels professional.
+- Maximalism: Stands out, shows personality.
+- Balance: Use minimal for clarity, maximal for impact.
+
+### Quick Activity: Compare Styles
+
+1. In CodePen, create two sections: One minimal (white space, one color), one maximal (many colors, patterns).
+2. Add content and compare— which feels more engaging for a portfolio?
+
+**Time:** 10 minutes. **Reflection:** Which style fits your project? Why?
+
+> **Key Insight:** Trends swing—minimalism was big in the 2010s; maximalism is rising for uniqueness.
+
+---
+
+## Module 7: Scroll-Based Narratives – Stories That Unfold
+
+### What Is It?
+
+Scrollytelling: Stories that reveal as you scroll, with animations or media.
+
+**Analogy:** Like a choose-your-own-adventure book where pages "animate" as you turn them.
+
+### Why Use It?
+
+- Keeps users engaged (longer scroll times).
+- Great for explaining complex topics (e.g., data stories).
+- Caveat: Can be heavy—optimize for performance.
+
+### Quick Activity: Basic Scroll Trigger
+
+1. In CodePen, add HTML: `<div class="section">Section 1</div><div class="section">Section 2</div>`.
+2. Use a library like ScrollReveal (add via CDN).
+3. JS: `ScrollReveal().reveal('.section');`.
+4. Scroll and see elements appear!
+
+**Time:** 5 minutes. **Reflection:** How does scrolling change the story flow?
+
+> **Key Insight:** Use tools like GSAP for advanced effects—start simple.
+
+---
+
+## Module 8: 3D on the Web – From Flat to Immersive
+
+### What Is It?
+
+Adds 3D depth: CSS for simple effects, WebGL for complex scenes (e.g., rotating objects).
+
+**Analogy:** Flat design is a photo; 3D is a sculpture—you can "walk around" it.
+
+### Why Use It?
+
+- Makes sites immersive (e.g., product previews).
+- Fun for portfolios.
+- Caveat: Can slow sites—use fallbacks.
+
+### Quick Activity: CSS 3D Flip
+
+1. In CodePen, add HTML: `<div class="flip-card" onclick="flip()">Click to Flip</div>`.
+2. CSS:
+   ```css
+   .flip-card {
+   	perspective: 1000px;
+   }
+   .flip-card:hover {
+   	transform: rotateY(180deg);
+   }
+   ```
+3. Add back side and test hover!
+
+**Time:** 5 minutes. **Reflection:** Does 3D add value or distract?
+
+> **Key Insight:** CSS for basics; Three.js for advanced—test performance.
+
+---
+
+## Interactive Demos
+
+💡 **Explore the live demos!** We've created 8 comprehensive, interactive demos for each module. Each demo includes:
+- Functional code you can inspect and learn from
+- Detailed explanations and best practices
+- Critical design reflections following the Atelier methodology
+- Self-contained HTML files you can download and modify
+
+👉 [**View all demos →**](demo/)
+
+---
+
+## Conclusion and Final Project
+
+You've explored 8 trends! Web design is about communication: trends help you "speak" visually.
+
+**Final Project:** Pick 2-3 trends and apply them to a simple site (e.g., a one-page portfolio). Share on CodePen and reflect: What worked? What would you change?
+
+**Atelier Reflection:** How do these trends align with critical design? (E.g., "Does this enhance user understanding?")
+
+**Key Takeaway:** Trends are tools—use them thoughtfully. Experiment, reflect, and iterate!
 
 ## References
 
-- **Awwwards**: [Awwwards](https://www.awwwards.com/)
-- **Fast Company**: [Fast Company](https://www.fastcompany.com/)
-- **Team Treehouse**: [Team Treehouse](https://blog.teamtreehouse.com/)
-- **Hype4 Academy**: [Hype4 Academy](https://hype4.academy/)
-- **Everyday UX**: [Everyday UX](https://everydayux.net/)
-- **UX Planet**: [UX Planet](https://uxplanet.org/)
+- [Awwwards](https://www.awwwards.com/) – Trend examples.
+- [Nielsen Norman Group](https://nngroup.com/) – UX research on dark mode and parallax.
+- [MDN Web Docs](https://developer.mozilla.org/) – CSS tutorials.
+- [CodePen](https://codepen.io/) – Experiment freely!

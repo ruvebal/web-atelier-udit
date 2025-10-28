@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 6: Minimalism vs. Maximalism Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            opacity: 0.9;
+        }
+
+        /* Split screen container */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        /* MINIMALISM SIDE */
+        .minimal-side {
+            background: #ffffff;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .minimal-content {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .minimal-side h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #000;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        .minimal-side p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .minimal-side .tagline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #999;
+            margin-bottom: 3rem;
+        }
+
+        .minimal-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .minimal-features li {
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .minimal-features li:first-child {
+            border-top: none;
+        }
+
+        .minimal-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .minimal-btn:hover {
+            background: #333;
+        }
+
+        /* MAXIMALISM SIDE */
+        .maximal-side {
+            background: 
+                linear-gradient(45deg, #ff6b6b20 0%, #4ecdc420 25%, #ffe66d20 50%, #a8e6cf20 75%, #ffd3b620 100%),
+                repeating-linear-gradient(45deg, transparent, transparent 10px, #ffffff10 10px, #ffffff10 20px),
+                #1a1a1a;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative elements for maximalism */
+        .maximal-side::before,
+        .maximal-side::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .maximal-side::before {
+            background: radial-gradient(circle, #ff6b6b, transparent);
+            top: -100px;
+            right: -100px;
+        }
+
+        .maximal-side::after {
+            background: radial-gradient(circle, #4ecdc4, transparent);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .maximal-content {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .maximal-side h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 0 #ff6b6b, 4px 4px 0 #4ecdc4;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .maximal-side .tagline {
+            font-size: 1.2rem;
+            color: #ffe66d;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .maximal-side p {
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-left: 4px solid #ff6b6b;
+            border-radius: 4px;
+        }
+
+        .maximal-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .maximal-feature {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: rotate(-1deg);
+            transition: transform 0.3s ease;
+        }
+
+        .maximal-feature:nth-child(even) {
+            transform: rotate(1deg);
+        }
+
+        .maximal-feature:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .maximal-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #ffe66d 100%);
+            color: #000;
+            border: 3px solid #fff;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .maximal-btn:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        /* Analysis section */
+        .analysis {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .analysis-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .analysis h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .comparison-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .comparison-card h4 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .comparison-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .comparison-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        .reflection {
+            background: #fef3c7;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .reflection strong {
+            color: #92400e;
+        }
+
+        .when-to-use {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .use-case {
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .use-case.minimal-case {
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+        }
+
+        .use-case.maximal-case {
+            background: linear-gradient(135deg, #ff6b6b10, #4ecdc410);
+            border: 2px solid #ff6b6b;
+        }
+
+        .use-case h3 {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 968px) {
+            .split-container {
+                grid-template-columns: 1fr;
+            }
+
+            .minimal-side,
+            .maximal-side {
+                min-height: 50vh;
+            }
+
+            .maximal-features {
+                grid-template-columns: 1fr;
+            }
+
+            .when-to-use {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>⚖️ Module 6: Minimalism vs. Maximalism</h1>
+        <p>Less or More? Compare and Contrast</p>
+    </div>
+
+    <div class="split-container">
+        <!-- MINIMALISM SIDE -->
+        <div class="minimal-side">
+            <div class="minimal-content">
+                <div class="tagline">Less is More</div>
+                <h2>Minimalism</h2>
+                <p>Clean, simple designs with lots of white space. Every element serves a purpose. Nothing unnecessary. Focus on what matters.</p>
+                
+                <ul class="minimal-features">
+                    <li>Clarity and focus</li>
+                    <li>Easy to scan</li>
+                    <li>Professional appearance</li>
+                    <li>Fast loading times</li>
+                    <li>Timeless aesthetic</li>
+                </ul>
+
+                <button class="minimal-btn">Learn More</button>
+            </div>
+        </div>
+
+        <!-- MAXIMALISM SIDE -->
+        <div class="maximal-side">
+            <div class="maximal-content">
+                <div class="tagline">More is More!</div>
+                <h2>Maximalism</h2>
+                <p>Bold, busy designs with colors, patterns, and details. Express personality and creativity. Stand out from the crowd!</p>
+                
+                <div class="maximal-features">
+                    <div class="maximal-feature">🎨 Creative Expression</div>
+                    <div class="maximal-feature">💥 Eye-Catching</div>
+                    <div class="maximal-feature">🎭 Personality</div>
+                    <div class="maximal-feature">🌈 Memorable</div>
+                </div>
+
+                <button class="maximal-btn">Explore Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="analysis">
+        <div class="analysis-content">
+            <h2>Understanding the Philosophies</h2>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>🤍 Minimalism</h3>
+                    <p><strong>Philosophy:</strong> Remove everything that's not essential. Let content breathe with generous white space.</p>
+                    
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Limited color palette (often monochromatic)</li>
+                        <li>Generous white/negative space</li>
+                        <li>Clean typography (usually sans-serif)</li>
+                        <li>Grid-based layouts</li>
+                        <li>Hidden or minimal navigation</li>
+                        <li>Focus on content hierarchy</li>
+                    </ul>
+
+                    <h4>Famous Examples:</h4>
+                    <ul>
+                        <li>Apple.com</li>
+                        <li>Google's homepage</li>
+                        <li>Muji</li>
+                        <li>Everlane</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card">
+                    <h3>🎨 Maximalism</h3>
+                    <p><strong>Philosophy:</strong> More is more! Use bold colors, patterns, textures, and decorative elements to create rich visual experiences.</p>
+                    
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Vibrant, contrasting color schemes</li>
+                        <li>Layered elements and textures</li>
+                        <li>Mixed typography styles</li>
+                        <li>Decorative illustrations</li>
+                        <li>Asymmetric layouts</li>
+                        <li>Rich visual details</li>
+                    </ul>
+
+                    <h4>Famous Examples:</h4>
+                    <ul>
+                        <li>Gucci's website</li>
+                        <li>Spotify's brand campaigns</li>
+                        <li>MTV's designs</li>
+                        <li>Awwwards-winning sites</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="reflection">
+                <strong>Atelier Reflection:</strong> Which style feels more engaging to you on this page? Why? Consider your own project—would minimalism help focus attention on your content, or would maximalism better express your creative vision? There's no right answer—it depends on your message and audience.
+            </div>
+
+            <h2 style="margin-top: 4rem; margin-bottom: 2rem; text-align: center;">When to Use Each Approach</h2>
+
+            <div class="when-to-use">
+                <div class="use-case minimal-case">
+                    <h3>Use Minimalism When:</h3>
+                    <ul>
+                        <li><strong>Content is king:</strong> You want users focused on information (blogs, news sites)</li>
+                        <li><strong>Professional tone:</strong> Corporate, financial, legal services</li>
+                        <li><strong>Fast loading matters:</strong> Mobile-first, performance-critical apps</li>
+                        <li><strong>Timeless appeal:</strong> You want a design that won't feel dated</li>
+                        <li><strong>User clarity:</strong> Complex workflows need simple interfaces</li>
+                        <li><strong>Brand is established:</strong> Confidence to be understated</li>
+                    </ul>
+                </div>
+
+                <div class="use-case maximal-case">
+                    <h3>Use Maximalism When:</h3>
+                    <ul>
+                        <li><strong>Standing out:</strong> Crowded markets need bold differentiation</li>
+                        <li><strong>Creative industries:</strong> Art, music, fashion, entertainment</li>
+                        <li><strong>Younger audiences:</strong> Gen Z responds well to vibrant, expressive design</li>
+                        <li><strong>Brand personality:</strong> You want to be memorable and unique</li>
+                        <li><strong>Storytelling:</strong> Rich narratives benefit from visual depth</li>
+                        <li><strong>Emotional connection:</strong> Create immersive, feeling-rich experiences</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="comparison-grid" style="margin-top: 3rem;">
+                <div class="comparison-card">
+                    <h3>Pros of Minimalism</h3>
+                    <ul style="color: #10b981;">
+                        <li>Easy to navigate</li>
+                        <li>Fast loading times</li>
+                        <li>Mobile-friendly by nature</li>
+                        <li>Professional and trustworthy</li>
+                        <li>Lower maintenance</li>
+                        <li>Better accessibility</li>
+                    </ul>
+                    
+                    <h4>Cons of Minimalism</h4>
+                    <ul style="color: #ef4444;">
+                        <li>Can feel cold or sterile</li>
+                        <li>May lack personality</li>
+                        <li>Harder to stand out</li>
+                        <li>Requires excellent content</li>
+                        <li>Can be boring if done poorly</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card">
+                    <h3>Pros of Maximalism</h3>
+                    <ul style="color: #10b981;">
+                        <li>Highly memorable</li>
+                        <li>Expresses personality</li>
+                        <li>Visually engaging</li>
+                        <li>Tells rich stories</li>
+                        <li>Creates emotional impact</li>
+                        <li>Unique and distinctive</li>
+                    </ul>
+                    
+                    <h4>Cons of Maximalism</h4>
+                    <ul style="color: #ef4444;">
+                        <li>Can overwhelm users</li>
+                        <li>Slower loading times</li>
+                        <li>Harder to maintain</li>
+                        <li>May hurt accessibility</li>
+                        <li>Can date quickly</li>
+                        <li>Requires skilled execution</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="reflection">
+                <strong>Critical Design Question:</strong> Is your choice serving the user's needs or just following trends? Minimalism dominated the 2010s; maximalism is rising now. But the methodology emphasizes purposeful design—choose based on your specific project goals, audience, and message. Sometimes the best approach is a thoughtful blend of both!
+            </div>
+
+            <h2 style="margin-top: 4rem; margin-bottom: 2rem; text-align: center;">The Middle Ground: Balanced Design</h2>
+
+            <div class="comparison-card">
+                <h3>Finding Balance</h3>
+                <p>You don't have to choose extremes! Many successful designs blend both approaches:</p>
+                <ul>
+                    <li><strong>Minimal structure, maximal accents:</strong> Clean layout with bold color highlights</li>
+                    <li><strong>White space with personality:</strong> Generous spacing but distinctive typography</li>
+                    <li><strong>Simple UI, rich content:</strong> Minimal interface, detailed illustrations</li>
+                    <li><strong>Seasonal variation:</strong> Minimal by default, maximal for campaigns</li>
+                </ul>
+                
+                <p style="margin-top: 1rem;"><strong>Examples:</strong> Airbnb, Stripe, Notion—they use minimalism for usability but inject personality through color, illustration, and animation.</p>
+            </div>
+
+            <div class="reflection">
+                <strong>Atelier Activity:</strong> Sketch two quick versions of the same project—one minimal, one maximal. Which communicates your message better? Show both to a friend and get feedback. This comparative process is how you discover what truly serves your design goals!
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

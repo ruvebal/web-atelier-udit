@@ -1,15 +1,15 @@
 ---
 layout: lesson
-title: 'Tailwind CSS: SPA Routing & Shared Layout — Building Interactive Experiences'
-title_en: 'Tailwind CSS: SPA Routing & Shared Layout — Building Interactive Experiences'
-slug: tailwind-routing-layout
+title: 'Tailwind CSS: SPA Routing with String Templates — Modular Views & Navigation'
+title_en: 'Tailwind CSS: SPA Routing with String Templates — Modular Views & Navigation'
+slug: tailwind-routing-string-templates
 date: 2025-09-10
 updated: 2025-10-07
 author: 'Rubén Vega Balbás, PhD'
 lang: en
-permalink: /lessons/en/tailwind/routing-and-shared-layout/
-description: 'Complete guide to implementing SPA routing and shared layouts with Tailwind CSS, including pedagogy, accessibility, and practical scaffolding.'
-tags: [tailwindcss, spa, routing, accessibility, pedagogy]
+permalink: /lessons/en/tailwind/routing-and-shared-layout/string-templates/
+description: 'Complete guide to implementing SPA routing with JavaScript string templates, modular views architecture, and accessible navigation patterns with Tailwind CSS.'
+tags: [tailwindcss, spa, routing, string-templates, accessibility, pedagogy]
 ---
 
 <!-- prettier-ignore-start -->
@@ -76,38 +76,48 @@ This session implements **hash-based routing** for smooth navigation without ful
    		<title>Portfolio SPA</title>
    		<script type="module" src="/src/main.js"></script>
    	</head>
-   	<body>
+   	<body class="bg-surface-light text-content">
+   		<!-- Using theme tokens: light surface + default text -->
    		<!-- Skip link for accessibility -->
    		<a
    			href="#app"
-   			class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-500 text-white px-4 py-2 rounded">
+   			class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-500 text-content-inverted px-4 py-2 rounded">
+   			<!-- Use brand and inverted text -->
    			Skip to main content
    		</a>
 
    		<!-- Shared navigation (semantic list) -->
-   		<nav class="bg-gray-900 text-white sticky top-0 z-50" role="navigation" aria-label="Main navigation">
+   		<nav
+   			class="fixed top-0 left-0 w-full bg-primary-900 text-content-inverted z-50 shadow-elevated"
+   			role="navigation"
+   			aria-label="Main navigation">
+   			<!-- Brand header with elevated shadow -->
    			<div class="mx-auto px-4">
    				<div class="flex justify-between items-center py-4">
-   					<a href="#/" class="text-xl font-bold hover:text-blue-400 transition-colors" aria-label="Home">Portfolio</a>
+   					<a href="#/" class="text-4xl font-bold hover:text-primary-50 transition-colors" aria-label="Home">Portfolio</a>
+   					<!-- Using default utility size (text-4xl) overridden in config -->
    					<ul class="flex gap-6">
-   						<li><a href="#/" class="hover:text-blue-400 transition-colors" aria-current="page">Home</a></li>
-   						<li><a href="#/about" class="hover:text-blue-400 transition-colors">About</a></li>
-   						<li><a href="#/projects" class="hover:text-blue-400 transition-colors">Projects</a></li>
-   						<li><a href="#/contact" class="hover:text-blue-400 transition-colors">Contact</a></li>
+   						<li><a href="#/" class="hover:text-primary-50 transition-colors" aria-current="page">Home</a></li>
+   						<li><a href="#/about" class="hover:text-primary-50 transition-colors">About</a></li>
+   						<li><a href="#/projects" class="hover:text-primary-50 transition-colors">Projects</a></li>
+   						<li><a href="#/contact" class="hover:text-primary-50 transition-colors">Contact</a></li>
    					</ul>
    				</div>
    			</div>
    		</nav>
 
    		<!-- Main content area -->
-   		<main id="app" class="min-h-screen" role="main">
+   		<main id="app" class="min-h-screen pt-20 pb-24 flex items-center justify-center" role="main">
+   			<!-- Views use tokens too -->
    			<!-- Views will be rendered here -->
    		</main>
 
    		<!-- Shared footer -->
-   		<footer class="bg-gray-800 text-white py-8" role="contentinfo">
+   		<footer class="fixed bottom-0 left-0 w-full z-50 bg-surface-dark text-content-inverted py-8" role="contentinfo">
+   			<!-- Dark surface + inverted text -->
    			<div class="container mx-auto px-4 text-center">
-   				<p>&copy; 2025 Portfolio SPA. Built with Tailwind & Vanilla JS.</p>
+   				<p class="text-lg">&copy; 2025 Portfolio SPA. Built with Tailwind & Vanilla JS.</p>
+   				<!-- Using default utility size (text-lg) overridden in config -->
    			</div>
    		</footer>
    	</body>
@@ -116,57 +126,64 @@ This session implements **hash-based routing** for smooth navigation without ful
 
 2. **Implement hash-based router:**
 
-   ```javascript
-   // src/router.js
-   class SimpleRouter {
-   	constructor(routes) {
-   		this.routes = routes;
-   		this.currentView = null;
+   Teaching note — Class vs Function (concise):
 
-   		// Listen for hash changes
-   		window.addEventListener('hashchange', () => this.handleRoute());
-   		window.addEventListener('load', () => this.handleRoute());
-   	}
+   - Both a class and a factory function work here.
+   - Class = encapsulated state + multiple instances; Factory = simple + composable.
+   - We use a class for clarity now; refactor to a factory later if preferred.
 
-   	handleRoute() {
-   		const hash = window.location.hash.slice(1) || '/';
-   		const route = this.routes[hash] || this.routes['404'];
+```javascript
+// src/router.js
+// Hint: could also be a factory; class encapsulates state + setup.
+class SimpleRouter {
+	constructor(routes) {
+		this.routes = routes;
+		this.currentView = null;
 
-   		if (route !== this.currentView) {
-   			this.renderView(route);
-   			this.updateActiveNav(hash);
-   			this.currentView = route;
-   		}
-   	}
+		// Listen for hash changes
+		window.addEventListener('hashchange', () => this.handleRoute());
+		window.addEventListener('load', () => this.handleRoute());
+	}
 
-   	renderView(route) {
-   		const app = document.getElementById('app');
-   		app.innerHTML = route.template;
+	handleRoute() {
+		const hash = window.location.hash.slice(1) || '/';
+		const route = this.routes[hash] || this.routes['404'];
 
-   		// Execute any view-specific JavaScript
-   		if (route.script) {
-   			route.script();
-   		}
-   	}
+		if (route !== this.currentView) {
+			this.renderView(route);
+			this.updateActiveNav(hash);
+			this.currentView = route;
+		}
+	}
 
-   	updateActiveNav(currentHash) {
-   		// Only consider SPA router links that start with "#/".
-   		// This avoids touching in-page anchors like "#app" (skip links, section links).
-   		document.querySelectorAll('nav a[href^="#/"]').forEach((link) => {
-   			link.removeAttribute('aria-current');
-   		});
+	renderView(route) {
+		const app = document.getElementById('app');
+		app.innerHTML = route.template;
 
-   		// currentHash is like "/", "/about", ...
-   		// Build the full selector as `#${currentHash}` to match nav hrefs (e.g. href="#/about").
-   		const activeLink = document.querySelector(`nav a[href="#${currentHash}"]`);
-   		if (activeLink) {
-   			activeLink.setAttribute('aria-current', 'page');
-   		}
-   	}
-   }
+		// Execute any view-specific JavaScript
+		if (route.script) {
+			route.script();
+		}
+	}
 
-   export default SimpleRouter;
-   ```
+	updateActiveNav(currentHash) {
+		// Only consider SPA router links that start with "#/".
+		// This avoids touching in-page anchors like "#app" (skip links, section links).
+		document.querySelectorAll('nav a[href^="#/"]').forEach((link) => {
+			link.removeAttribute('aria-current');
+		});
+
+		// currentHash is like "/", "/about", ...
+		// Build the full selector as `#${currentHash}` to match nav hrefs (e.g. href="#/about").
+		const activeLink = document.querySelector(`nav a[href="#${currentHash}"]`);
+		if (activeLink) {
+			activeLink.setAttribute('aria-current', 'page');
+		}
+	}
+}
+
+export default SimpleRouter;
+```
 
 3. **Create views directory structure:**
 
@@ -175,6 +192,9 @@ This session implements **hash-based routing** for smooth navigation without ful
    ```javascript
    // src/views/home.js
    export default {
+   	// Note: This uses a JavaScript template string (backticks) to build HTML.
+   	// For a deeper understanding of DOM rendering options, security, and history,
+   	// see the lesson: {{ '/lessons/en/js-dom-manipulation/' | relative_url }}
    	template: `
       <section class="py-16">
         <div class="container mx-auto px-4 text-center">
@@ -319,14 +339,51 @@ This session implements **hash-based routing** for smooth navigation without ful
    });
    ```
 
-5. **Test the SPA:**
+5. **Add style.css for accessibility:**
+
+   ```css
+   /* src/style.css */
+   /* Custom CSS only for skip link focus styles (Tailwind doesn't cover this well) */
+   /* 
+   Accessibility reasons: 
+   These custom CSS classes support the "Skip to main content" link, an essential accessibility feature. 
+   - `.sr-only` visually hides the link so it remains available to screen readers, helping keyboard and assistive technology users bypass repetitive navigation.
+   - `.focus\:not-sr-only:focus` makes the link visible when focused (usually by Tab key), letting keyboard users activate it easily.
+   
+   Tailwind's utility classes do not fully cover this pattern, so we use custom CSS to ensure strong accessibility for all users.
+   */
+
+   .sr-only {
+   	position: absolute;
+   	width: 1px;
+   	height: 1px;
+   	padding: 0;
+   	margin: -1px;
+   	overflow: hidden;
+   	clip: rect(0, 0, 0, 0);
+   	white-space: nowrap;
+   	border-width: 0;
+   }
+   .focus\:not-sr-only:focus {
+   	position: static;
+   	width: auto;
+   	height: auto;
+   	padding: inherit;
+   	margin: inherit;
+   	overflow: visible;
+   	clip: auto;
+   	white-space: normal;
+   }
+   ```
+
+6. **Test the SPA:**
 
    - Navigate between routes using nav links
    - Verify URL hash updates without page reload
    - Test keyboard navigation and focus states
    - Check responsive layout on different screen sizes
 
-6. **Commit your work:**
+7. **Commit your work:**
    ```bash
    git add .
    git commit -m "feat: S2 - SPA hash router + shared layout, accessible navigation"

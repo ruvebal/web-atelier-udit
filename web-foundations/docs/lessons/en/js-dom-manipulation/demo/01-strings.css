@@ -1,0 +1,39 @@
+:root {
+	--bg: #0b1020;
+	--fg: #f1f5f9;
+	--card: #111827;
+	--muted: #94a3b8;
+	--accent: #3b82f6;
+}
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background: var(--bg);
+	color: var(--fg);
+	font-family: system-ui, sans-serif;
+}
+.container {
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 1rem;
+}
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 1rem;
+}
+.card {
+	background: var(--card);
+	border: 1px solid #1f2937;
+	border-radius: 0.75rem;
+	padding: 1rem;
+}
+.price {
+	color: var(--accent);
+	font-weight: 700;
+}
+.desc {
+	color: var(--muted);
+	font-size: 0.95rem;
+}

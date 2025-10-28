@@ -310,7 +310,6 @@ Agrega profundidad 3D: CSS para efectos simples, WebGL para escenas complejas (e
 ## Demos Interactivos
 
 💡 **¡Explora las demos en vivo!** Hemos creado 8 demos interactivos y completos para cada módulo. Cada demo incluye:
-
 - Código funcional que puedes inspeccionar
 - Explicaciones detalladas
 - Mejores prácticas

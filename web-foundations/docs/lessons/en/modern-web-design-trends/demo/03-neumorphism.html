@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Neumorphism Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #e0e0e0;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .demo-section {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 2rem;
+            background: #e0e0e0;
+            border-radius: 20px;
+            box-shadow: 
+                20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+        }
+
+        .demo-section h2 {
+            color: #555;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .controls {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+        }
+
+        /* Neumorphic button - raised */
+        .neu-button {
+            background: #e0e0e0;
+            border: none;
+            border-radius: 20px;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            box-shadow: 
+                8px 8px 15px #bebebe,
+                -8px -8px 15px #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .neu-button:hover {
+            box-shadow: 
+                10px 10px 20px #bebebe,
+                -10px -10px 20px #ffffff;
+        }
+
+        .neu-button:active {
+            box-shadow: 
+                inset 8px 8px 15px #bebebe,
+                inset -8px -8px 15px #ffffff;
+        }
+
+        /* Neumorphic toggle/switch */
+        .neu-toggle {
+            width: 60px;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 30px;
+            padding: 3px;
+            cursor: pointer;
+            box-shadow: 
+                inset 4px 4px 8px #bebebe,
+                inset -4px -4px 8px #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .neu-toggle-handle {
+            width: 24px;
+            height: 24px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            box-shadow: 
+                4px 4px 8px #bebebe,
+                -4px -4px 8px #ffffff;
+            transition: transform 0.3s ease;
+        }
+
+        .neu-toggle.active .neu-toggle-handle {
+            transform: translateX(30px);
+        }
+
+        /* Neumorphic input */
+        .neu-input {
+            background: #e0e0e0;
+            border: none;
+            border-radius: 15px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            color: #555;
+            box-shadow: 
+                inset 6px 6px 12px #bebebe,
+                inset -6px -6px 12px #ffffff;
+            outline: none;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .neu-input::placeholder {
+            color: #999;
+        }
+
+        .neu-input:focus {
+            box-shadow: 
+                inset 8px 8px 15px #bebebe,
+                inset -8px -8px 15px #ffffff;
+        }
+
+        /* Neumorphic card */
+        .neu-card {
+            background: #e0e0e0;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 400px;
+            box-shadow: 
+                12px 12px 24px #bebebe,
+                -12px -12px 24px #ffffff;
+        }
+
+        .neu-card h3 {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .neu-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Info section with white background for readability */
+        .info-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-section h2 {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .info-section p {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .code-box {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .code-box code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-item {
+            text-align: center;
+        }
+
+        .comparison-item h4 {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .neu-demo-box {
+            background: #e0e0e0;
+            height: 150px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .neu-demo-box.raised {
+            box-shadow: 
+                10px 10px 20px #bebebe,
+                -10px -10px 20px #ffffff;
+        }
+
+        .neu-demo-box.flat {
+            box-shadow: 
+                5px 5px 10px #bebebe,
+                -5px -5px 10px #ffffff;
+        }
+
+        .neu-demo-box.inset {
+            box-shadow: 
+                inset 10px 10px 20px #bebebe,
+                inset -10px -10px 20px #ffffff;
+        }
+
+        .reflection {
+            background: #fef3c7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .reflection strong {
+            color: #92400e;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .pros, .cons {
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .pros {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+        }
+
+        .cons {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+        }
+
+        .pros h3, .cons h3 {
+            margin-bottom: 1rem;
+        }
+
+        .pros h3 {
+            color: #065f46;
+        }
+
+        .cons h3 {
+            color: #991b1b;
+        }
+
+        .history {
+            background: #e0f2fe;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid #0284c7;
+        }
+
+        .history h3 {
+            color: #075985;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 Module 3: Neumorphism</h1>
+        <p>Soft 3D Shadows for Embossed Interfaces</p>
+    </div>
+
+    <div class="demo-section">
+        <h2>Interactive Demo - Try These!</h2>
+        
+        <div class="controls">
+            <button class="neu-button" onclick="showAlert('Pressed!')">
+                Press Me
+            </button>
+            
+            <button class="neu-button" onclick="showAlert('Clicked!')">
+                Click Me
+            </button>
+            
+            <div class="neu-toggle" onclick="toggleSwitch(this)">
+                <div class="neu-toggle-handle"></div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <input type="text" class="neu-input" placeholder="Type something..." />
+        </div>
+
+        <div class="neu-card">
+            <h3>Neumorphic Card</h3>
+            <p>This card appears to be gently pressed into or raised from the background, creating a tactile, almost physical quality on a flat screen.</p>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>What Is Neumorphism?</h2>
+        <p>Neumorphism (a blend of "new" and "skeuomorphism") combines 3D elements with soft shadows and subtle highlights to create an "embossed" or "pressed" look. It uses light shadows for raised elements and dark shadows for inset ones, often on a matching background for a seamless feel.</p>
+
+        <p><strong>Analogy:</strong> Imagine buttons that look like they're gently pressed into soft clay—raised edges catch light, inset areas feel recessed, giving a tactile, almost physical quality to flat screens.</p>
+
+        <div class="history">
+            <h3>📜 Origins and History</h3>
+            <p><strong>Coined by:</strong> Designer Alexander Plyuto in 2020</p>
+            <p><strong>First notable example:</strong> <a href="https://dribbble.com/shots/7994421-Skeuomorph-Mobile-Banking" target="_blank" rel="noopener">Skeuomorph Mobile Banking concept</a> on Dribbble</p>
+            <p><strong>Design lineage:</strong> Draws from skeuomorphism (realistic designs mimicking physical objects) but softens it for modern, minimalist interfaces</p>
+            <p><strong>Current status:</strong> Gained traction in 2020 as a "next step" after flat design, often paired with glassmorphism for layered, futuristic UIs</p>
+        </div>
+
+        <h2>The CSS Behind It</h2>
+        <p>Neumorphism relies on carefully crafted box-shadows with both light and dark shadows:</p>
+
+        <div class="code-box">
+            <code>
+/* Raised/Embossed Effect */<br>
+.neumorphic-btn {<br>
+&nbsp;&nbsp;background: #e0e0e0;<br>
+&nbsp;&nbsp;border-radius: 20px;<br>
+&nbsp;&nbsp;padding: 15px 30px;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;/* Two shadows: dark (bottom-right) + light (top-left) */<br>
+&nbsp;&nbsp;box-shadow: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;8px 8px 15px #bebebe,&nbsp;&nbsp;/* Dark shadow */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-8px -8px 15px #ffffff; /* Light shadow */<br>
+}<br>
+<br>
+/* Pressed/Inset Effect (when active) */<br>
+.neumorphic-btn:active {<br>
+&nbsp;&nbsp;/* Inset shadows reverse the effect */<br>
+&nbsp;&nbsp;box-shadow: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;inset 8px 8px 15px #bebebe,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inset -8px -8px 15px #ffffff;<br>
+}
+            </code>
+        </div>
+
+        <h2>Shadow Variations</h2>
+        <div class="comparison">
+            <div class="comparison-item">
+                <h4>Raised</h4>
+                <div class="neu-demo-box raised">Elevated</div>
+                <p>Appears to come forward</p>
+            </div>
+            <div class="comparison-item">
+                <h4>Flat</h4>
+                <div class="neu-demo-box flat">Level</div>
+                <p>Subtle depth</p>
+            </div>
+            <div class="comparison-item">
+                <h4>Inset</h4>
+                <div class="neu-demo-box inset">Pressed</div>
+                <p>Appears pushed in</p>
+            </div>
+        </div>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h3>✅ Why Use It?</h3>
+                <ul>
+                    <li>Creates soft, approachable feel</li>
+                    <li>Elements seem touchable and physical</li>
+                    <li>Great for interactive elements (buttons, toggles)</li>
+                    <li>Popular in fintech and creative tools</li>
+                    <li>Premium, innovative aesthetic</li>
+                </ul>
+            </div>
+
+            <div class="cons">
+                <h3>⚠️ Watch Out For:</h3>
+                <ul>
+                    <li>Low contrast can hurt accessibility</li>
+                    <li>Requires careful color choice</li>
+                    <li>Works best in light themes</li>
+                    <li>Can be hard to see for users with visual impairments</li>
+                    <li>Needs consistent light source direction</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reflection">
+            <strong>Atelier Reflection:</strong> How does the "embossed" look make interactive elements feel different? Do the buttons and toggles above feel more inviting to press? Compare your experience with traditional flat buttons. Does the added depth genuinely improve usability, or is it primarily aesthetic?
+        </div>
+
+        <h2>Accessibility Considerations</h2>
+        <p>Neumorphism's main challenge is accessibility. The subtle shadows and low contrast can make elements difficult to distinguish for users with:</p>
+        <ul>
+            <li><strong>Visual impairments:</strong> Low contrast makes text and borders harder to see</li>
+            <li><strong>Color blindness:</strong> Subtle variations in tone may not be distinguishable</li>
+            <li><strong>Bright environments:</strong> Shadows become even harder to see in daylight</li>
+        </ul>
+
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Contrast:</strong> Ensure interactive elements are clearly distinguishable (WCAG AAA: 7:1 for text)</li>
+            <li><strong>Focus states:</strong> Add clear focus indicators for keyboard navigation</li>
+            <li><strong>Color choice:</strong> Use mid-tone backgrounds (not too light or dark)</li>
+            <li><strong>Size:</strong> Make interactive elements large enough to see the shadow effect</li>
+            <li><strong>Consistency:</strong> Keep light source direction consistent throughout the design</li>
+            <li><strong>Selective use:</strong> Apply to key interactive elements, not everything</li>
+        </ul>
+
+        <h2>Neumorphism + Glassmorphism</h2>
+        <p>A modern trend is combining neumorphism with glassmorphism to create hybrid effects: translucent raised cards with soft shadows. This can add extra depth while maintaining the tactile quality of neumorphism.</p>
+
+        <div class="reflection">
+            <strong>Critical Design Question:</strong> Given the accessibility challenges, when is neumorphism the right choice? Does the aesthetic benefit outweigh the potential barriers it creates? Consider the methodology's emphasis on inclusive design—how might you adapt neumorphism to be more accessible while maintaining its distinctive character?
+        </div>
+    </div>
+
+    <script>
+        function showAlert(message) {
+            alert(message);
+        }
+
+        function toggleSwitch(element) {
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+

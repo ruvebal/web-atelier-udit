@@ -103,6 +103,19 @@
   status:
    es: complete
    en: complete
+- slug: js-dom-manipulation
+  title:
+   es: 'Manipulación del DOM en el Navegador: Cadenas, API del DOM, Plantillas y DOM Virtual'
+   en: 'DOM Manipulation in the Browser: Strings, DOM API, Templates, and the Virtual DOM'
+  path:
+   es: /lessons/es/js-dom-manipulation/
+   en: /lessons/en/js-dom-manipulation/
+  file:
+   es: lessons/es/js-dom-manipulation/index.md
+   en: lessons/en/js-dom-manipulation/index.md
+  status:
+   es: complete
+   en: complete
 - slug: web-animations
   title:
    es: 'Animaciones Web: Del Movimiento al Significado'
@@ -448,30 +461,16 @@
    es: complete
    en: complete
 
-- slug: web-design-trends
-  title:
-   es: 'Tendencias de Diseño Web Moderno'
-   en: 'Modern Web Design Trends'
-  path:
-   es: /lessons/es/web-design-trends/
-   en: /lessons/en/modern-web-design-trends/
-  file:
-   es: lessons/es/web-design-trends/index.md
-   en: lessons/en/web-design-trends/index.md
-  status:
-   es: complete
-   en: complete
-
-- slug: modern-web-design-trends-improved
+- slug: modern-web-design-trends
   title:
    es: 'Tendencias de Diseño Web Moderno: Guía Práctica para Estudiantes'
    en: 'Modern Web Design Trends: Practical Guide for Students'
   path:
-   es: /lessons/es/modern-web-design-trends-improved/
-   en: /lessons/en/modern-web-design-trends-improved/
+   es: /lessons/es/modern-web-design-trends/
+   en: /lessons/en/modern-web-design-trends/
   file:
-   es: lessons/es/modern-web-design-trends-improved/index.md
-   en: lessons/en/modern-web-design-trends-improved/index.md
+   es: lessons/es/modern-web-design-trends/index.md
+   en: lessons/en/modern-web-design-trends/index.md
   status:
    es: complete
    en: complete

@@ -8,23 +8,20 @@ lang: 'en'
 locale: 'en'
 ---
 
+<!-- prettier-ignore-start -->
+
+## 📋 Table of Contents
+{: .no_toc }
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
 # Modern Web Design Trends: Practical Guide for Students
 
 Welcome to this hands-on guide on modern web design trends! We'll explore trends that make websites more engaging and communicative. Each trend is broken into short, simple modules. You'll learn the "why" and "how" through analogies, quick activities, and reflections.
 
 Think of web design as storytelling: trends are tools to make your story clearer, more fun, or more immersive. We'll focus on **active learning**—try things as you go! Use free tools like CodePen for experiments.
-
-## Table of Contents
-
-1. [Parallax Scrolling: Adding Depth Like a Movie](#module-1-parallax-scrolling)
-2. [Glassmorphism: Frosted Glass Effects for Modern UIs](#module-2-glassmorphism)
-3. [Neumorphism: Soft 3D Shadows for Embossed Interfaces](#module-3-neumorphism)
-4. [Typography Trends: Fonts That Speak Louder](#module-4-typography-trends)
-5. [Dark Mode Design: Comfortable Interfaces for All](#module-5-dark-mode-design)
-6. [Minimalism vs. Maximalism: Less or More?](#module-6-minimalism-vs-maximalism)
-7. [Scroll-Based Narratives: Stories That Unfold](#module-7-scroll-based-narratives)
-8. [3D on the Web: From Flat to Immersive](#module-8-3d-on-the-web)
-9. [Conclusion and Final Project](#conclusion)
 
 > **Quick Tip:** Read one module at a time. After each, do the activity and reflect. This keeps things clear and fun!
 
@@ -183,7 +180,7 @@ Typography trends focus on fonts that adapt and express personality: fluid scali
 
 ---
 
-## Module 4: Dark Mode Design – Comfortable Interfaces for All
+## Module 5: Dark Mode Design – Comfortable Interfaces for All
 
 ### What Is It?
 
@@ -221,7 +218,7 @@ Dark mode uses dark backgrounds with light text—great for low light or saving 
 
 ---
 
-## Module 5: Minimalism vs. Maximalism – Less or More?
+## Module 6: Minimalism vs. Maximalism – Less or More?
 
 ### What Is It?
 
@@ -246,7 +243,7 @@ Minimalism: Simple, clean designs with lots of space. Maximalism: Bold, busy des
 
 ---
 
-## Module 6: Scroll-Based Narratives – Stories That Unfold
+## Module 7: Scroll-Based Narratives – Stories That Unfold
 
 ### What Is It?
 
@@ -273,7 +270,7 @@ Scrollytelling: Stories that reveal as you scroll, with animations or media.
 
 ---
 
-## Module 7: 3D on the Web – From Flat to Immersive
+## Module 8: 3D on the Web – From Flat to Immersive
 
 ### What Is It?
 
@@ -307,9 +304,22 @@ Adds 3D depth: CSS for simple effects, WebGL for complex scenes (e.g., rotating 
 
 ---
 
+## Interactive Demos
+
+💡 **Explore the live demos!** We've created 8 comprehensive, interactive demos for each module. Each demo includes:
+
+- Functional code you can inspect and learn from
+- Detailed explanations and best practices
+- Critical design reflections following the Atelier methodology
+- Self-contained HTML files you can download and modify
+
+👉 [**View all demos →**](demo/)
+
+---
+
 ## Conclusion and Final Project
 
-You've explored 7 trends! Web design is about communication: trends help you "speak" visually.
+You've explored 8 trends! Web design is about communication: trends help you "speak" visually.
 
 **Final Project:** Pick 2-3 trends and apply them to a simple site (e.g., a one-page portfolio). Share on CodePen and reflect: What worked? What would you change?
 

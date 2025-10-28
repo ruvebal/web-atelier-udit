@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Web Design Trends - Demo Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .demo-card h2 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .demo-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            color: #555;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            margin-top: 3rem;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Modern Web Design Trends</h1>
+            <p>Interactive demos for all 8 modules. Click any card to explore hands-on examples!</p>
+        </div>
+
+        <div class="demo-grid">
+            <a href="01-parallax-scrolling.html" class="demo-card">
+                <div class="demo-number">1</div>
+                <h2>Parallax Scrolling</h2>
+                <p>Adding depth like a movie. Learn how backgrounds move slower than foreground content to create immersive depth effects.</p>
+                <div class="demo-tags">
+                    <span class="tag">CSS</span>
+                    <span class="tag">background-attachment</span>
+                    <span class="tag">Depth</span>
+                </div>
+            </a>
+
+            <a href="02-glassmorphism.html" class="demo-card">
+                <div class="demo-number">2</div>
+                <h2>Glassmorphism</h2>
+                <p>Frosted glass effects for modern UIs. Explore semi-transparent elements with beautiful blur effects.</p>
+                <div class="demo-tags">
+                    <span class="tag">CSS</span>
+                    <span class="tag">backdrop-filter</span>
+                    <span class="tag">Modern</span>
+                </div>
+            </a>
+
+            <a href="03-neumorphism.html" class="demo-card">
+                <div class="demo-number">3</div>
+                <h2>Neumorphism</h2>
+                <p>Soft 3D shadows for embossed interfaces. Create tactile, pressed-in button effects.</p>
+                <div class="demo-tags">
+                    <span class="tag">CSS</span>
+                    <span class="tag">box-shadow</span>
+                    <span class="tag">Interactive</span>
+                </div>
+            </a>
+
+            <a href="04-fluid-typography.html" class="demo-card">
+                <div class="demo-number">4</div>
+                <h2>Fluid Typography</h2>
+                <p>Fonts that scale beautifully. See how text adapts smoothly across all screen sizes with clamp().</p>
+                <div class="demo-tags">
+                    <span class="tag">CSS</span>
+                    <span class="tag">clamp()</span>
+                    <span class="tag">Responsive</span>
+                </div>
+            </a>
+
+            <a href="05-dark-mode.html" class="demo-card">
+                <div class="demo-number">5</div>
+                <h2>Dark Mode Design</h2>
+                <p>Comfortable interfaces for all. Toggle between light and dark themes with smooth transitions.</p>
+                <div class="demo-tags">
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Accessibility</span>
+                </div>
+            </a>
+
+            <a href="06-minimalism-maximalism.html" class="demo-card">
+                <div class="demo-number">6</div>
+                <h2>Minimalism vs. Maximalism</h2>
+                <p>Less or more? Compare clean, simple designs with bold, expressive ones side by side.</p>
+                <div class="demo-tags">
+                    <span class="tag">Design Philosophy</span>
+                    <span class="tag">Comparison</span>
+                </div>
+            </a>
+
+            <a href="07-scrollytelling.html" class="demo-card">
+                <div class="demo-number">7</div>
+                <h2>Scrollytelling</h2>
+                <p>Stories that unfold. Experience interactive narratives that reveal content as you scroll.</p>
+                <div class="demo-tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Intersection Observer</span>
+                    <span class="tag">Animation</span>
+                </div>
+            </a>
+
+            <a href="08-3d-web.html" class="demo-card">
+                <div class="demo-number">8</div>
+                <h2>3D on the Web</h2>
+                <p>From flat to immersive. Explore flip cards, rotating cubes, and 3D depth effects.</p>
+                <div class="demo-tags">
+                    <span class="tag">CSS 3D</span>
+                    <span class="tag">transform</span>
+                    <span class="tag">Immersive</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p><strong>🎓 For Students:</strong> Each demo includes working code examples, best practices, and critical design reflections following the Atelier methodology.</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">These demos are self-contained and can be opened directly in your browser. Experiment, modify, and learn!</p>
+            <p style="margin-top: 1.5rem;"><a href="../index.md">← Back to Lesson</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
