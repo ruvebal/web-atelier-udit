@@ -1,12 +1,12 @@
 ---
 layout: lesson
-title: 'Tailwind CSS: SPA Routing with HTML <template> — Clean, Safe Rendering'
+title: 'Tailwind CSS: SPA Routing with HTML &lt;template&gt; — Clean, Safe Rendering'
 slug: tailwind-routing-html-template
 date: 2025-10-27
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /lessons/en/tailwind/routing-and-shared-layout/html-template/
-description: 'An alternative to string templates: render SPA views from native HTML <template> elements, using #app as the container.'
+description: 'An alternative to string templates: render SPA views from native HTML &lt;template&gt; elements, using #app as the container.'
 tags: [tailwindcss, spa, routing, dom, template]
 ---
 

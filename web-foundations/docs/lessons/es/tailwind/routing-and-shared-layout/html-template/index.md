@@ -1,12 +1,12 @@
 ---
 layout: lesson
-title: 'Tailwind CSS: Ruteo SPA con HTML <template> — Renderizado Limpio y Seguro'
+title: 'Tailwind CSS: Ruteo SPA con HTML &lt;template&gt; — Renderizado Limpio y Seguro'
 slug: tailwind-routing-html-template
 date: 2025-10-27
 author: 'Rubén Vega Balbás, PhD'
 lang: es
 permalink: /lessons/es/tailwind/routing-and-shared-layout/html-template/
-description: 'Una alternativa a plantillas de cadenas: renderizar vistas SPA desde elementos nativos HTML <template>, usando #app como contenedor.'
+description: 'Una alternativa a plantillas de cadenas: renderizar vistas SPA desde elementos nativos HTML &lt;template&gt;, usando #app como contenedor.'
 tags: [tailwindcss, spa, routing, dom, template]
 ---
 
