@@ -10,23 +10,22 @@ locale: 'es'
 
 # Tendencias de Diseño Web Moderno: Guía Práctica para Estudiantes
 
+<!-- prettier-ignore-start -->
+
+## 📋 Table of Contents
+{: .no_toc }
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
 ¡Bienvenido a esta guía práctica sobre tendencias modernas en diseño web! Exploraremos tendencias que hacen que los sitios web sean más atractivos y comunicativos. Cada tendencia se divide en módulos cortos y simples. Aprenderás el "por qué" y el "cómo" a través de analogías, actividades rápidas y reflexiones.
 
 Piensa en el diseño web como narración: las tendencias son herramientas para hacer tu historia más clara, divertida o inmersiva. Nos enfocaremos en **aprendizaje activo**—¡prueba cosas mientras avanzas! Usa herramientas gratuitas como CodePen para experimentos.
 
-## Tabla de Contenidos
-
-1. [Parallax Scrolling: Agregando Profundidad Como una Película](#módulo-1-parallax-scrolling)
-2. [Glassmorphism: Efectos de Vidrio Esmerilado para UIs Modernas](#módulo-2-glassmorphism)
-3. [Neumorphism: Sombras Suaves 3D para Interfaces en Relieve](#módulo-3-neumorphism)
-4. [Tendencias en Tipografía: Fuentes Que Hablan Más Alto](#módulo-4-tendencias-en-tipografía)
-5. [Diseño en Modo Oscuro: Interfaces Cómodas para Todos](#módulo-5-diseño-en-modo-oscuro)
-6. [Minimalismo vs. Maximalismo: ¿Menos o Más?](#módulo-6-minimalismo-vs-maximalismo)
-7. [Narrativas Basadas en Scroll: Historias Que Se Despliegan](#módulo-7-narrativas-basadas-en-scroll)
-8. [3D en la Web: De Plano a Inmersivo](#módulo-8-3d-en-la-web)
-9. [Conclusión y Proyecto Final](#conclusión)
-
 > **Consejo Rápido:** Lee un módulo a la vez. Después de cada uno, haz la actividad y reflexiona. ¡Esto mantiene las cosas claras y divertidas!
+
+> **Divulgación de Asistencia de IA:** Esta lección se basa en experiencia de aula desde septiembre de 2024, con iteraciones de IA siguiendo ciclos de investigación–práctica–investigación.
 
 ---
 
@@ -65,6 +64,8 @@ El parallax scrolling hace que los fondos se muevan más lento que el contenido 
 
 > **Insight Clave:** El parallax es simple pero poderoso—prueba en móvil para asegurar que no distraiga.
 
+🎯 **[Ver Demo Interactivo: Parallax Scrolling →](demo/01-parallax-scrolling.html)**
+
 ---
 
 ## Módulo 2: Glassmorphism – Efectos de Vidrio Esmerilado para UIs Modernas
@@ -99,6 +100,8 @@ El glassmorphism crea un look de "vidrio esmerilado": elementos semi-transparent
 **Tiempo:** 5 minutos. **Reflexión:** ¿Cómo cambia el blur el "feel" del elemento? ¿Es más acogedor?
 
 > **Insight Clave:** Usa `backdrop-filter` para el blur—es compatible en navegadores modernos.
+
+🎯 **[Ver Demo Interactivo: Glassmorphism →](demo/02-glassmorphism.html)**
 
 ---
 
@@ -146,6 +149,8 @@ El neumorphism (una fusión de "nuevo" y "skeuomorfismo") combina elementos 3D c
 
 > **Insight Clave:** El neumorphism brilla en temas claros—combínalo con glassmorphism para efectos híbridos como tarjetas elevadas translúcidas.
 
+🎯 **[Ver Demo Interactivo: Neumorphism →](demo/03-neumorphism.html)**
+
 ---
 
 ## Módulo 4: Tendencias en Tipografía – Fuentes Que Hablan Más Alto
@@ -181,6 +186,8 @@ Las tendencias en tipografía se centran en fuentes que se adaptan y expresan pe
 
 > **Insight Clave:** Usa Google Fonts para acceso fácil—siempre verifica el contraste para accesibilidad.
 
+🎯 **[Ver Demo Interactivo: Fluid Typography →](demo/04-fluid-typography.html)**
+
 ---
 
 ## Módulo 5: Diseño en Modo Oscuro – Interfaces Cómodas para Todos
@@ -197,27 +204,123 @@ El modo oscuro usa fondos oscuros con texto claro—ideal para luz baja o ahorro
 - Preferencia del usuario—muchas apps lo ofrecen.
 - Advertencia: Puede ser más difícil de leer en luz brillante; diseña para ambos modos.
 
-### Actividad Rápida: Toggle de Modo Oscuro Simple
+### Dos Enfoques para el Modo Oscuro
 
-1. En CodePen, agrega HTML: `<button onclick="toggleDark()">Cambiar a Oscuro</button><body>Contenido</body>`.
+Hay **dos caminos principales** para implementar modo oscuro. ¡Cada uno tiene sus pros y contras!
+
+---
+
+#### **Camino A: CSS Puro (Automático, Basado en el SO)**
+
+Este método usa CSS para detectar la preferencia del SO del usuario. **¡No necesita JavaScript!**
+
+**✅ Pros:** Simple, respeta la preferencia del sistema del usuario, sin código que mantener.  
+**❌ Contras:** No se puede cambiar manualmente, no es persistente (siempre sigue la configuración del SO).
+
+**Actividad Rápida: Modo Oscuro Automático con CSS**
+
+1. En CodePen, agrega HTML: `<body><h1>Hola Mundo</h1><p>¡Esto respeta tu preferencia del SO!</p></body>`.
+2. Agrega CSS:
+
+   ```css
+   /* Modo claro (por defecto) */
+   body {
+   	background: white;
+   	color: black;
+   	transition: background 0.3s, color 0.3s;
+   }
+
+   /* Modo oscuro (automático cuando el SO está en oscuro) */
+   @media (prefers-color-scheme: dark) {
+   	body {
+   		background: #121212;
+   		color: white;
+   	}
+   }
+   ```
+
+3. Prueba: ¡Cambia tu SO a modo oscuro (Preferencias del Sistema/Configuración) y ve cómo cambia automáticamente!
+
+**Tiempo:** 3 minutos. **Reflexión:** ¿Se siente conveniente la detección automática? ¿Qué pasa si los usuarios quieren anularlo?
+
+---
+
+#### **Camino B: Toggle con JavaScript (Manual, Persistente)**
+
+Este método permite a los usuarios **cambiar manualmente** el modo oscuro con un botón. ¡Puedes guardar su elección en `localStorage` para hacerlo persistente!
+
+**✅ Pros:** Control del usuario, puede ser persistente entre visitas, funciona independientemente del SO.  
+**❌ Contras:** Requiere JavaScript, más código que mantener.
+
+**Actividad Rápida: Toggle Manual de Modo Oscuro**
+
+1. En CodePen, agrega HTML: `<button onclick="toggleDark()">Cambiar Modo Oscuro</button><body><h1>Hola Mundo</h1></body>`.
 2. Agrega CSS:
    ```css
    body {
    	background: white;
    	color: black;
-   	transition: 0.3s;
+   	transition: background 0.3s, color 0.3s;
    }
-   .dark {
+   body.dark {
    	background: #121212;
    	color: white;
    }
    ```
-3. Agrega JS: `function toggleDark() { document.body.classList.toggle('dark'); }`.
-4. Haz clic en el botón y ve el cambio.
+3. Agrega JavaScript:
 
-**Tiempo:** 5 minutos. **Reflexión:** ¿Cuándo usarías el modo oscuro? ¿Cómo afecta el mood?
+   ```javascript
+   function toggleDark() {
+   	document.body.classList.toggle('dark');
+   	// Guardar preferencia (opcional, para persistencia)
+   	const isDark = document.body.classList.contains('dark');
+   	localStorage.setItem('darkMode', isDark);
+   }
 
-> **Insight Clave:** Usa `@media (prefers-color-scheme: dark)` para detección automática.
+   // Cargar preferencia guardada al cargar la página (opcional)
+   if (localStorage.getItem('darkMode') === 'true') {
+   	document.body.classList.add('dark');
+   }
+   ```
+
+4. Haz clic en el botón y ve el cambio. Recarga la página—¡recuerda tu elección!
+
+**Tiempo:** 7 minutos. **Reflexión:** ¿Cómo cambia el control manual la experiencia del usuario? ¿Qué enfoque se siente mejor para diferentes casos de uso?
+
+---
+
+### Combinando Ambos: Lo Mejor de Ambos Mundos
+
+**Consejo pro:** ¡Puedes combinar ambos! Comienza con detección automática CSS, luego deja que JavaScript la anule:
+
+```css
+/* Respetar preferencia del SO por defecto */
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #121212;
+		color: white;
+	}
+}
+/* Pero permitir anulación manual */
+body.light-override {
+	background: white;
+	color: black;
+}
+body.dark-override {
+	background: #121212;
+	color: white;
+}
+```
+
+**Ejemplos de Casos de Uso:**
+
+- **CSS Puro:** Blogs, sitios de documentación (simple, respeta la preferencia global del usuario).
+- **Toggle JavaScript:** Apps, dashboards (los usuarios quieren control, necesitan persistencia).
+- **Combinado:** E-commerce, redes sociales (respetar SO pero permitir anulación).
+
+> **Insight Clave:** CSS puro es elegante pero inflexible. JavaScript agrega control pero requiere más trabajo. ¡Elige según las necesidades de tus usuarios!
+
+🎯 **[Ver Demo Interactivo: Dark Mode →](demo/05-dark-mode.html)**
 
 ---
 
@@ -243,6 +346,8 @@ Minimalismo: Diseños simples y limpios con mucho espacio. Maximalismo: Diseños
 **Tiempo:** 10 minutos. **Reflexión:** ¿Qué estilo encaja con tu proyecto? ¿Por qué?
 
 > **Insight Clave:** Las tendencias cambian—el minimalismo fue grande en los 2010s; el maximalismo está surgiendo por unicidad.
+
+🎯 **[Ver Demo Interactivo: Minimalism vs. Maximalism →](demo/06-minimalism-maximalism.html)**
 
 ---
 
@@ -270,6 +375,8 @@ Scrollytelling: Historias que se revelan al desplazar, con animaciones o medios.
 **Tiempo:** 5 minutos. **Reflexión:** ¿Cómo cambia el scroll el flujo de la historia?
 
 > **Insight Clave:** Usa herramientas como GSAP para efectos avanzados—empieza simple.
+
+🎯 **[Ver Demo Interactivo: Scrollytelling →](demo/07-scrollytelling.html)**
 
 ---
 
@@ -305,11 +412,14 @@ Agrega profundidad 3D: CSS para efectos simples, WebGL para escenas complejas (e
 
 > **Insight Clave:** CSS para básicos; Three.js para avanzado—prueba rendimiento.
 
+🎯 **[Ver Demo Interactivo: 3D on the Web →](demo/08-3d-web.html)**
+
 ---
 
 ## Demos Interactivos
 
 💡 **¡Explora las demos en vivo!** Hemos creado 8 demos interactivos y completos para cada módulo. Cada demo incluye:
+
 - Código funcional que puedes inspeccionar
 - Explicaciones detalladas
 - Mejores prácticas

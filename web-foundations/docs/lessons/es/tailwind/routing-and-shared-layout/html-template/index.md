@@ -343,7 +343,7 @@ Las clases de utilidad de Tailwind no cubren completamente este patrón, por lo 
 
 ## Archivos del Demo
 
-La lección cita los archivos exactos del demo arriba. También están disponibles en esta carpeta:
+La lección menciona los archivos exactos del demo arriba. También están disponibles en esta carpeta:
 
 - `demo/index.html`
 - `demo/src/main.js`

@@ -23,8 +23,9 @@ Welcome to this hands-on guide on modern web design trends! We'll explore trends
 
 Think of web design as storytelling: trends are tools to make your story clearer, more fun, or more immersive. We'll focus on **active learning**—try things as you go! Use free tools like CodePen for experiments.
 
-
 > **Quick Tip:** Read one module at a time. After each, do the activity and reflect. This keeps things clear and fun!
+
+> **AI Assistance Disclosure:** This lesson draws from classroom experience since September 2024, with AI iterations following research–practice–research cycles.
 
 ---
 
@@ -63,6 +64,8 @@ Parallax scrolling makes backgrounds move slower than foreground content as you 
 
 > **Key Insight:** Parallax is simple but powerful—test on mobile to ensure it doesn't distract.
 
+🎯 **[View Interactive Demo: Parallax Scrolling →](demo/01-parallax-scrolling.html)**
+
 ---
 
 ## Module 2: Glassmorphism – Frosted Glass Effects for Modern UIs
@@ -97,6 +100,8 @@ Glassmorphism creates a "frosted glass" look: semi-transparent elements with blu
 **Time:** 5 minutes. **Reflection:** How does blur change the "feel" of the element? Is it more inviting?
 
 > **Key Insight:** Use `backdrop-filter` for the blur—it's supported in modern browsers.
+
+🎯 **[View Interactive Demo: Glassmorphism →](demo/02-glassmorphism.html)**
 
 ---
 
@@ -144,6 +149,8 @@ Neumorphism (a blend of "new" and "skeuomorphism") combines 3D elements with sof
 
 > **Key Insight:** Neumorphism shines in light themes—combine with glassmorphism for hybrid effects like translucent raised cards.
 
+🎯 **[View Interactive Demo: Neumorphism →](demo/03-neumorphism.html)**
+
 ---
 
 ## Module 4: Typography Trends – Fonts That Speak Louder
@@ -179,6 +186,8 @@ Typography trends focus on fonts that adapt and express personality: fluid scali
 
 > **Key Insight:** Use Google Fonts for easy access—always check contrast for accessibility.
 
+🎯 **[View Interactive Demo: Fluid Typography →](demo/04-fluid-typography.html)**
+
 ---
 
 ## Module 5: Dark Mode Design – Comfortable Interfaces for All
@@ -195,27 +204,123 @@ Dark mode uses dark backgrounds with light text—great for low light or saving 
 - User preference—many apps offer it.
 - Caveat: Can be harder to read in bright light; design for both modes.
 
-### Quick Activity: Simple Dark Toggle
+### Two Approaches to Dark Mode
 
-1. In CodePen, add HTML: `<button onclick="toggleDark()">Toggle Dark</button><body>Content</body>`.
+There are **two main paths** for implementing dark mode. Each has its pros and cons!
+
+---
+
+#### **Path A: Pure CSS (Automatic, OS-Based)**
+
+This method uses CSS to detect the user's OS preference. **No JavaScript needed!**
+
+**✅ Pros:** Simple, respects user's system preference, no code to maintain.  
+**❌ Cons:** Cannot be toggled manually, not persistent (always follows OS settings).
+
+**Quick Activity: Auto Dark Mode with CSS**
+
+1. In CodePen, add HTML: `<body><h1>Hello World</h1><p>This respects your OS preference!</p></body>`.
+2. Add CSS:
+
+   ```css
+   /* Light mode (default) */
+   body {
+   	background: white;
+   	color: black;
+   	transition: background 0.3s, color 0.3s;
+   }
+
+   /* Dark mode (automatic when OS is set to dark) */
+   @media (prefers-color-scheme: dark) {
+   	body {
+   		background: #121212;
+   		color: white;
+   	}
+   }
+   ```
+
+3. Test: Change your OS to dark mode (System Preferences/Settings) and see it switch automatically!
+
+**Time:** 3 minutes. **Reflection:** Does automatic detection feel convenient? What if users want to override it?
+
+---
+
+#### **Path B: JavaScript Toggle (Manual, Persistent)**
+
+This method lets users **manually toggle** dark mode with a button. You can save their choice in `localStorage` to make it persistent!
+
+**✅ Pros:** User control, can be persistent across visits, works independently of OS.  
+**❌ Cons:** Requires JavaScript, more code to maintain.
+
+**Quick Activity: Manual Dark Mode Toggle**
+
+1. In CodePen, add HTML: `<button onclick="toggleDark()">Toggle Dark Mode</button><body><h1>Hello World</h1></body>`.
 2. Add CSS:
    ```css
    body {
    	background: white;
    	color: black;
-   	transition: 0.3s;
+   	transition: background 0.3s, color 0.3s;
    }
-   .dark {
+   body.dark {
    	background: #121212;
    	color: white;
    }
    ```
-3. Add JS: `function toggleDark() { document.body.classList.toggle('dark'); }`.
-4. Click the button and see the switch!
+3. Add JavaScript:
 
-**Time:** 5 minutes. **Reflection:** When would you use dark mode? How does it affect mood?
+   ```javascript
+   function toggleDark() {
+   	document.body.classList.toggle('dark');
+   	// Save preference (optional, for persistence)
+   	const isDark = document.body.classList.contains('dark');
+   	localStorage.setItem('darkMode', isDark);
+   }
 
-> **Key Insight:** Use `@media (prefers-color-scheme: dark)` for auto-detection.
+   // Load saved preference on page load (optional)
+   if (localStorage.getItem('darkMode') === 'true') {
+   	document.body.classList.add('dark');
+   }
+   ```
+
+4. Click the button and see the switch! Reload the page—it remembers your choice.
+
+**Time:** 7 minutes. **Reflection:** How does manual control change the user experience? Which approach feels better for different use cases?
+
+---
+
+### Combining Both: The Best of Both Worlds
+
+**Pro tip:** You can combine both! Start with CSS auto-detection, then let JavaScript override it:
+
+```css
+/* Respect OS preference by default */
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #121212;
+		color: white;
+	}
+}
+/* But allow manual override */
+body.light-override {
+	background: white;
+	color: black;
+}
+body.dark-override {
+	background: #121212;
+	color: white;
+}
+```
+
+**Use Case Examples:**
+
+- **Pure CSS:** Blogs, documentation sites (simple, respects user's global preference).
+- **JavaScript Toggle:** Apps, dashboards (users want control, need persistence).
+- **Combined:** E-commerce, social media (respect OS but allow override).
+
+> **Key Insight:** Pure CSS is elegant but inflexible. JavaScript adds control but requires more work. Choose based on your users' needs!
+
+🎯 **[View Interactive Demo: Dark Mode →](demo/05-dark-mode.html)**
 
 ---
 
@@ -241,6 +346,8 @@ Minimalism: Simple, clean designs with lots of space. Maximalism: Bold, busy des
 **Time:** 10 minutes. **Reflection:** Which style fits your project? Why?
 
 > **Key Insight:** Trends swing—minimalism was big in the 2010s; maximalism is rising for uniqueness.
+
+🎯 **[View Interactive Demo: Minimalism vs. Maximalism →](demo/06-minimalism-maximalism.html)**
 
 ---
 
@@ -268,6 +375,8 @@ Scrollytelling: Stories that reveal as you scroll, with animations or media.
 **Time:** 5 minutes. **Reflection:** How does scrolling change the story flow?
 
 > **Key Insight:** Use tools like GSAP for advanced effects—start simple.
+
+🎯 **[View Interactive Demo: Scrollytelling →](demo/07-scrollytelling.html)**
 
 ---
 
@@ -303,11 +412,14 @@ Adds 3D depth: CSS for simple effects, WebGL for complex scenes (e.g., rotating 
 
 > **Key Insight:** CSS for basics; Three.js for advanced—test performance.
 
+🎯 **[View Interactive Demo: 3D on the Web →](demo/08-3d-web.html)**
+
 ---
 
 ## Interactive Demos
 
 💡 **Explore the live demos!** We've created 8 comprehensive, interactive demos for each module. Each demo includes:
+
 - Functional code you can inspect and learn from
 - Detailed explanations and best practices
 - Critical design reflections following the Atelier methodology
