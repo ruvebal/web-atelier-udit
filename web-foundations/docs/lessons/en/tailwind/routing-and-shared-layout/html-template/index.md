@@ -19,7 +19,7 @@ tags: [tailwindcss, spa, routing, dom, template]
 
 <!-- prettier-ignore-end -->
 
-# HTML <template>-based Views (Alternative to String Templates)
+# HTML `<template>`-based Views (Alternative to String Templates)
 
 > **Backup Your Original Approach!**
 
@@ -122,7 +122,7 @@ The HTML `<template>` element was **added to the web platform as a living standa
 
 		<!-- Main content area -->
 		<main id="app" class="min-h-screen pt-20 pb-24 flex items-center justify-center" role="main">
-			<!-- View templates are external in /views/*.html and lazy-loaded by the router. -->
+			<!-- View templates are external in ./src/views/*.html and lazy-loaded by the router. -->
 		</main>
 
 		<!-- Shared footer -->
@@ -265,11 +265,11 @@ async function ensureTemplateAvailable(templateId, templateUrl) {
 ```javascript
 // demo/src/views/index.js
 export const views = {
-	'/': { templateId: 'view-home', templateUrl: '/views/home.html' },
-	'/about': { templateId: 'view-about', templateUrl: '/views/about.html' },
-	'/projects': { templateId: 'view-projects', templateUrl: '/views/projects.html' },
-	'/contact': { templateId: 'view-contact', templateUrl: '/views/contact.html' },
-	404: { templateId: 'view-404', templateUrl: '/views/404.html' },
+	'/': { templateId: 'view-home', templateUrl: './src/views/home.html' },
+	'/about': { templateId: 'view-about', templateUrl: './src/views/about.html' },
+	'/projects': { templateId: 'view-projects', templateUrl: './src/views/projects.html' },
+	'/contact': { templateId: 'view-contact', templateUrl: './src/views/contact.html' },
+	404: { templateId: 'view-404', templateUrl: './src/views/404.html' },
 };
 ```
 
@@ -290,13 +290,13 @@ export const views = {
 
 **This structure is clean, accessible, and easy to extend:**
 
-- All HTML for each view goes in its own `/views` file.
+- All HTML for each view goes in its own `./src/views` file.
 - No risky `innerHTML` necessary! Safe template cloning is used.
 - You get instant-feeling navigation, with each view loaded only as needed.
 
 If you need to add a new page to your SPA, just:
 
-- Add a new `<template>` HTML file to `/views`
+- Add a new `<template>` HTML file to `./src/views`
 - Update `views/index.js` with a new route
 
 That's it!

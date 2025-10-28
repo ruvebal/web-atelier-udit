@@ -19,7 +19,7 @@ tags: [tailwindcss, spa, routing, dom, template]
 
 <!-- prettier-ignore-end -->
 
-# Vistas basadas en HTML <template> (Alternativa a Plantillas de Cadenas)
+# Vistas basadas en HTML `<template>` (Alternativa a Plantillas de Cadenas)
 
 Esta lección refleja la lección de ruteo anterior pero renderiza cada vista clonando contenido de elementos nativos HTML `<template>`. Seguimos usando un solo contenedor `#app`, mantenemos Tailwind para estilos, y preservamos los mismos patrones de navegación y accesibilidad.
 
@@ -120,7 +120,7 @@ De esta manera, tu SPA original basado en plantillas de cadenas queda preservado
 
 		<!-- Área de contenido principal -->
 		<main id="app" class="min-h-screen pt-20 pb-24 flex items-center justify-center" role="main">
-			<!-- Las plantillas de vistas son externas en /views/*.html y son cargadas de forma lazy por el router. -->
+			<!-- Las plantillas de vistas son externas en ./src/views/*.html y son cargadas de forma lazy por el router. -->
 		</main>
 
 		<!-- Pie de página compartido -->
@@ -263,11 +263,11 @@ async function ensureTemplateAvailable(templateId, templateUrl) {
 ```javascript
 // demo/src/views/index.js
 export const views = {
-	'/': { templateId: 'view-home', templateUrl: '/views/home.html' },
-	'/about': { templateId: 'view-about', templateUrl: '/views/about.html' },
-	'/projects': { templateId: 'view-projects', templateUrl: '/views/projects.html' },
-	'/contact': { templateId: 'view-contact', templateUrl: '/views/contact.html' },
-	404: { templateId: 'view-404', templateUrl: '/views/404.html' },
+	'/': { templateId: 'view-home', templateUrl: './src/views/home.html' },
+	'/about': { templateId: 'view-about', templateUrl: './src/views/about.html' },
+	'/projects': { templateId: 'view-projects', templateUrl: './src/views/projects.html' },
+	'/contact': { templateId: 'view-contact', templateUrl: './src/views/contact.html' },
+	404: { templateId: 'view-404', templateUrl: './src/views/404.html' },
 };
 ```
 
@@ -288,13 +288,13 @@ export const views = {
 
 **Esta estructura es limpia, accesible y fácil de extender:**
 
-- Todo el HTML para cada vista va en su propio archivo `/views`.
+- Todo el HTML para cada vista va en su propio archivo `./src/views`.
 - ¡No se necesita `innerHTML` arriesgado! Se usa clonación de plantilla segura.
 - Obtienes navegación con sensación instantánea, con cada vista cargada solo cuando sea necesario.
 
 Si necesitas añadir una nueva página a tu SPA, solo:
 
-- Añade un nuevo archivo `<template>` HTML a `/views`
+- Añade un nuevo archivo `<template>` HTML a `./src/views`
 - Actualiza `views/index.js` con una nueva ruta
 
 ¡Eso es todo!

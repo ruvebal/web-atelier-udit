@@ -46,12 +46,12 @@ defaults:
     path: 'lessons/es'
    values:
     lang: 'es'
-    layout: 'default'
+    layout: 'lesson'
  - scope:
     path: 'lessons/en'
    values:
     lang: 'en'
-    layout: 'default'
+    layout: 'lesson'
 # --- SEO / sitemap hints ---
 # Ensure canonical URLs are constructed correctly in templates:
 # Use {{ "/path" | relative_url }} and {{ "/path" | absolute_url }} in layouts/includes.
