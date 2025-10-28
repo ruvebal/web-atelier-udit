@@ -54,8 +54,6 @@ This way, your original string-template SPA is preserved. If you ever need to re
 
 ---
 
-
-
 This lesson mirrors the previous routing lesson but renders each view by cloning content from native HTML `<template>` elements. We still use a single `#app` container, keep Tailwind for styles, and preserve the same navigation and accessibility patterns.
 
 Why `<template>`?
@@ -64,7 +62,6 @@ Why `<template>`?
 - Clone safely and efficiently (no `innerHTML` hazards)
 - Works great with `DocumentFragment` to batch DOM updates
 - Aligns with the JS DOM lesson: {{ '/lessons/en/js-dom-manipulation/' | relative_url }}
-
 
 ## When Was the HTML `<template>` Element Introduced?
 
@@ -81,9 +78,6 @@ The HTML `<template>` element was **added to the web platform as a living standa
 
 > **In summary:**  
 > The `<template>` element is a robust, well-supported feature for managing dynamic, modular markup in SPAs. Its introduction solved many of the pain points associated with string templates and unlocked a more "HTML-native" way of building component-based UIs in vanilla JavaScript.
-
-
-
 
 ---
 
@@ -409,3 +403,9 @@ This demo uses Tailwind CSS utility classes. To see the styles, add the Tailwind
 ```
 
 **Note:** For a production app, use a proper Tailwind build setup (Vite + PostCSS) instead of the CDN for smaller bundles and customization.
+
+---
+
+> **Previous:** [S2 - SPA Routing with String Templates ←]({{ '/lessons/en/tailwind/routing-and-shared-layout/string-templates/' | relative_url }})
+>
+> **Next:** [S3 - Components & Design System →]({{ '/lessons/en/tailwind/components-design-system/' | relative_url }})

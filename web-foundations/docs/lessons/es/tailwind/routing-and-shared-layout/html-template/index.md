@@ -401,3 +401,9 @@ Este demo usa clases de utilidad de Tailwind CSS. Para ver los estilos, añade e
 ```
 
 **Nota:** Para una aplicación de producción, usa una configuración de compilación apropiada de Tailwind (Vite + PostCSS) en lugar del CDN para bundles más pequeños y personalización.
+
+---
+
+> **Anterior:** [S2 - Ruteo SPA con String Templates ←]({{ '/lessons/es/tailwind/routing-and-shared-layout/string-templates/' | relative_url }})
+>
+> **Siguiente:** [S3 - Componentes y Sistema de Diseño →]({{ '/lessons/es/tailwind/components-design-system/' | relative_url }})

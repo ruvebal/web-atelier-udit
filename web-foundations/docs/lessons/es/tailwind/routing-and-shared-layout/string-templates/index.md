@@ -751,4 +751,4 @@ export const views = {
 
 ---
 
-> **Siguiente:** [S3 - Componentes y Sistema de Diseño →]({{ '/lessons/es/tailwind/components-design-system/' | relative_url }})
+> **Siguiente:** [S2b - Ruteo SPA con HTML `<template>` →]({{ '/lessons/es/tailwind/routing-and-shared-layout/html-template/' | relative_url }})

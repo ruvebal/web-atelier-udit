@@ -1,7 +1,7 @@
 ---
 layout: lesson
-title: 'Tailwind CSS: SPA Routing with String Templates — Modular Views & Navigation'
-title_en: 'Tailwind CSS: SPA Routing with String Templates — Modular Views & Navigation'
+title: 'Tailwind CSS: SPA Routing with String Templates'
+title_en: 'Tailwind CSS: SPA Routing with String Templates'
 slug: tailwind-routing-string-templates
 date: 2025-09-10
 updated: 2025-10-07
@@ -749,4 +749,4 @@ export const views = {
 
 ---
 
-> **Next:** [S3 - Components & Design System →]({{ '/lessons/en/tailwind/components-design-system/' | relative_url }})
+> **Next:** [S2b - SPA Routing with HTML `<template>` →]({{ '/lessons/en/tailwind/routing-and-shared-layout/html-template/' | relative_url }})
