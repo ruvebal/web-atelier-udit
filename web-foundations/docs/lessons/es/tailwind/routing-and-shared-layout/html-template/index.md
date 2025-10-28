@@ -30,6 +30,22 @@ Esta lección refleja la lección de ruteo anterior pero renderiza cada vista cl
 - Funciona muy bien con `DocumentFragment` para actualizar el DOM por lotes
 - Se alinea con la lección de JS DOM: {{ '/lessons/es/js-dom-manipulation/' | relative_url }}
 
+## ¿Cuándo se introdujo el elemento HTML `<template>`?
+
+El elemento HTML `<template>` fue **añadido a la plataforma web como estándar en 2014** y está soportado en todos los navegadores modernos (Chrome, Firefox, Safari, Edge y Opera). Su propósito es proporcionar un **fragmento declarativo e inerte de DOM** que no se renderiza al cargar la página, pero que puede ser clonado e insertado en el documento mediante JavaScript.
+
+- **Especificación inicial:** El elemento `<template>` fue definido por primera vez como parte del [estándar W3C HTML5 en 2014](https://www.w3.org/TR/html5/single-page.html#the-template-element), con [amplio soporte en navegadores desde 2015](https://caniuse.com/template).
+- **Compatibilidad:** Todos los navegadores evergreen (Chrome 26+, Firefox 22+, Safari 7+, Edge, Opera 15+) soportan `<template>`. Es seguro usarlo en cualquier proyecto web moderno.
+
+### ¿Por qué `<template>` es revolucionario para las vistas SPA?
+
+- **DOM seguro:** A diferencia del uso de `innerHTML` con cadenas, clonar plantillas evita riesgos de parseo e inyección.
+- **Separación clara:** Permite mantener la estructura de la interfaz en HTML puro en vez de cadenas en JavaScript.
+- **Rendimiento:** Permite clonación rápida (con nodos anidados, event listeners, etc.) sin volver a parsear HTML.
+
+> **En resumen:**  
+> El elemento `<template>` es una característica robusta y bien soportada para gestionar marcado dinámico y modular en SPAs. Su introducción resolvió muchos de los problemas asociados a las plantillas con cadenas y abrió el camino a una forma más "nativa en HTML" de construir UIs basadas en componentes usando JavaScript puro.
+
 > **¡Haz una copia de seguridad de tu enfoque original!**
 
 Antes de cambiar tu código SPA para usar `<template>`, es recomendable hacer una copia de seguridad de la versión anterior basada en plantillas de cadenas en Git. Aquí tienes un flujo de trabajo seguro utilizando ramas:

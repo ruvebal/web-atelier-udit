@@ -253,16 +253,31 @@
    en: complete
   category: tailwind
 
-- slug: tailwind-routing-layout
+- slug: tailwind-routing-string-templates
   title:
-   es: 'Tailwind CSS: Ruteo SPA y Layout Compartido — Construyendo Experiencias Interactivas'
-   en: 'Tailwind CSS: SPA Routing & Shared Layout — Building Interactive Experiences'
+   es: 'Tailwind CSS: Ruteo SPA con String Templates — Vistas Modulares y Navegación'
+   en: 'Tailwind CSS: SPA Routing with String Templates — Modular Views & Navigation'
   path:
-   es: /lessons/es/tailwind/routing-and-shared-layout/
-   en: /lessons/en/tailwind/routing-and-shared-layout/
+   es: /lessons/es/tailwind/routing-and-shared-layout/string-templates/
+   en: /lessons/en/tailwind/routing-and-shared-layout/string-templates/
   file:
-   es: lessons/es/tailwind/routing-and-shared-layout/index.md
-   en: lessons/en/tailwind/routing-and-shared-layout/index.md
+   es: lessons/es/tailwind/routing-and-shared-layout/string-templates/index.md
+   en: lessons/en/tailwind/routing-and-shared-layout/string-templates/index.md
+  status:
+   es: complete
+   en: complete
+  category: tailwind
+
+- slug: tailwind-routing-html-template
+  title:
+   es: 'Tailwind CSS: Ruteo SPA con HTML <template> — Renderizado Limpio y Seguro'
+   en: 'Tailwind CSS: SPA Routing with HTML <template> — Clean, Safe Rendering'
+  path:
+   es: /lessons/es/tailwind/routing-and-shared-layout/html-template/
+   en: /lessons/en/tailwind/routing-and-shared-layout/html-template/
+  file:
+   es: lessons/es/tailwind/routing-and-shared-layout/html-template/index.md
+   en: lessons/en/tailwind/routing-and-shared-layout/html-template/index.md
   status:
    es: complete
    en: complete

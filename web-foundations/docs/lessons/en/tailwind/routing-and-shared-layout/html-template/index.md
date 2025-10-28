@@ -65,6 +65,26 @@ Why `<template>`?
 - Works great with `DocumentFragment` to batch DOM updates
 - Aligns with the JS DOM lesson: {{ '/lessons/en/js-dom-manipulation/' | relative_url }}
 
+
+## When Was the HTML `<template>` Element Introduced?
+
+The HTML `<template>` element was **added to the web platform as a living standard in 2014** and is supported in all modern browsers (Chrome, Firefox, Safari, Edge, and Opera). Its intent is to provide a **declarative, inert chunk of DOM** that is not rendered on page load but can be cloned and inserted into the document by JavaScript.
+
+- **Initial specification:** The `<template>` element was first defined as part of the [W3C HTML5 standard in 2014](https://www.w3.org/TR/html5/single-page.html#the-template-element), with [broad browser support arriving by 2015](https://caniuse.com/template).
+- **Browser support:** All evergreen browsers (Chrome 26+, Firefox 22+, Safari 7+, Edge, Opera 15+) support `<template>`. It is safe to use for any modern web project.
+
+### Why is `<template>` a game-changer for SPA views?
+
+- **Safe DOM:** Unlike string-based `innerHTML`, template cloning avoids parsing and injection risks.
+- **Clean separation:** Lets you keep your UI structure in pure HTML instead of JavaScript strings.
+- **Performance:** Allows rapid cloning (with nested nodes, event listeners, etc.) without re-parsing HTML.
+
+> **In summary:**  
+> The `<template>` element is a robust, well-supported feature for managing dynamic, modular markup in SPAs. Its introduction solved many of the pain points associated with string templates and unlocked a more "HTML-native" way of building component-based UIs in vanilla JavaScript.
+
+
+
+
 ---
 
 ## 1) index.html — Shared Layout, Templates, and App Container
