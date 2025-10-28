@@ -35,6 +35,12 @@ This lesson follows the **atelier methodology** (exploration → reflection → 
 - **Production:** Building maintainable, scalable component libraries.
 - **Exhibition:** Demonstrating cohesive design systems in action.
 
+## 💻 Interactive Demo
+
+> **[View Live Demo →](demo/)**
+>
+> Explore a complete design system with buttons, cards, forms, and design tokens using the `<template>` approach. All code is self-contained and ready to run!
+
 ## Prerequisites
 
 <div class="prerequisites">

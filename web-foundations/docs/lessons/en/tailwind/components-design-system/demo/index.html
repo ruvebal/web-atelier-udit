@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Components & Design System Demo</title>
+		<link rel="stylesheet" href="./src/style.css" />
+	</head>
+	<body class="bg-gray-50">
+		<!-- Navigation -->
+		<nav class="bg-white shadow-sm border-b border-gray-200">
+			<div class="container mx-auto px-4">
+				<div class="flex items-center justify-between h-16">
+					<h1 class="text-xl font-bold text-gray-900">Design System Demo</h1>
+					<ul class="flex space-x-6" role="navigation" aria-label="Main navigation">
+						<li><a href="#/" class="nav-link">Home</a></li>
+						<li><a href="#/buttons" class="nav-link">Buttons</a></li>
+						<li><a href="#/cards" class="nav-link">Cards</a></li>
+						<li><a href="#/forms" class="nav-link">Forms</a></li>
+						<li><a href="#/tokens" class="nav-link">Tokens</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Main App Container -->
+		<main id="app" class="container mx-auto px-4 py-8" role="main"></main>
+
+		<!-- HTML Templates for each view -->
+
+		<!-- Home Template -->
+		<template id="home-template">
+			<div class="max-w-4xl mx-auto">
+				<h1 class="text-4xl font-bold text-gray-900 mb-6">Components & Design System</h1>
+				<div class="bg-white rounded-lg shadow-md p-8 mb-8">
+					<h2 class="text-2xl font-semibold mb-4">Welcome to the Design System Demo</h2>
+					<p class="text-gray-600 mb-4">
+						This demo showcases a complete design system built with Tailwind CSS using the
+						<code class="bg-gray-100 px-2 py-1 rounded">&lt;template&gt;</code>
+						approach.
+					</p>
+					<p class="text-gray-600 mb-4">Explore different component categories using the navigation above:</p>
+					<ul class="space-y-2 text-gray-700">
+						<li class="flex items-start">
+							<span class="text-primary-500 mr-2">→</span>
+							<span>
+								<strong>Buttons:</strong>
+								Primary, secondary, and disabled states
+							</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-primary-500 mr-2">→</span>
+							<span>
+								<strong>Cards:</strong>
+								Reusable card patterns with variants
+							</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-primary-500 mr-2">→</span>
+							<span>
+								<strong>Forms:</strong>
+								Accessible input components
+							</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-primary-500 mr-2">→</span>
+							<span>
+								<strong>Tokens:</strong>
+								Design tokens and theme system
+							</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="grid md:grid-cols-2 gap-6">
+					<div class="bg-primary-50 rounded-lg p-6 border-l-4 border-primary-500">
+						<h3 class="text-lg font-semibold text-primary-900 mb-2">🎨 Design Tokens</h3>
+						<p class="text-primary-700">Consistent colors, spacing, and typography scales defined in tailwind.config.js</p>
+					</div>
+					<div class="bg-green-50 rounded-lg p-6 border-l-4 border-green-500">
+						<h3 class="text-lg font-semibold text-green-900 mb-2">♿ Accessibility First</h3>
+						<p class="text-green-700">All components follow WCAG guidelines with proper ARIA attributes</p>
+					</div>
+				</div>
+			</div>
+		</template>
+
+		<!-- Buttons Template -->
+		<template id="buttons-template">
+			<div class="max-w-4xl mx-auto">
+				<h1 class="text-3xl font-bold text-gray-900 mb-8">Button Components</h1>
+
+				<section class="bg-white rounded-lg shadow-md p-8 mb-8">
+					<h2 class="text-2xl font-semibold mb-6">Primary Buttons</h2>
+					<div class="flex flex-wrap gap-4 mb-6">
+						<button class="btn-primary">Primary Button</button>
+						<button class="btn-primary" disabled>Disabled</button>
+						<button class="btn-primary btn-loading">
+							<span class="loading-spinner"></span>
+							Loading...
+						</button>
+					</div>
+					<div class="bg-gray-50 p-4 rounded-md">
+						<p class="text-sm text-gray-600 mb-2"><strong>Classes:</strong></p>
+						<code class="text-xs bg-gray-100 px-2 py-1 rounded">
+							.btn-primary: px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 disabled:opacity-50
+						</code>
+					</div>
+				</section>
+
+				<section class="bg-white rounded-lg shadow-md p-8 mb-8">
+					<h2 class="text-2xl font-semibold mb-6">Secondary Buttons</h2>
+					<div class="flex flex-wrap gap-4 mb-6">
+						<button class="btn-secondary">Secondary Button</button>
+						<button class="btn-secondary" disabled>Disabled</button>
+					</div>
+					<div class="bg-gray-50 p-4 rounded-md">
+						<p class="text-sm text-gray-600 mb-2"><strong>Classes:</strong></p>
+						<code class="text-xs bg-gray-100 px-2 py-1 rounded">
+							.btn-secondary: px-6 py-3 border-2 border-primary-500 text-primary-600 rounded-lg hover:bg-primary-50
+						</code>
+					</div>
+				</section>
+
+				<section class="bg-white rounded-lg shadow-md p-8">
+					<h2 class="text-2xl font-semibold mb-6">Button Sizes</h2>
+					<div class="flex flex-wrap items-center gap-4">
+						<button class="btn-primary text-sm px-4 py-2">Small</button>
+						<button class="btn-primary">Medium (Default)</button>
+						<button class="btn-primary text-lg px-8 py-4">Large</button>
+					</div>
+				</section>
+			</div>
+		</template>
+
+		<!-- Cards Template -->
+		<template id="cards-template">
+			<div class="max-w-4xl mx-auto">
+				<h1 class="text-3xl font-bold text-gray-900 mb-8">Card Components</h1>
+
+				<div class="grid md:grid-cols-2 gap-6 mb-8">
+					<article class="card">
+						<div class="card-header">
+							<h3 class="card-title">Basic Card</h3>
+						</div>
+						<div class="card-body">
+							<p class="text-gray-600">This is a basic card component with header, body, and footer sections.</p>
+						</div>
+						<div class="card-footer">
+							<button class="btn-primary btn-sm">Learn More</button>
+						</div>
+					</article>
+
+					<article class="card card-hover">
+						<div class="card-header">
+							<h3 class="card-title">Hoverable Card</h3>
+						</div>
+						<div class="card-body">
+							<p class="text-gray-600">This card has hover effects for better interactivity.</p>
+						</div>
+						<div class="card-footer">
+							<button class="btn-secondary btn-sm">View Details</button>
+						</div>
+					</article>
+				</div>
+
+				<section class="bg-white rounded-lg shadow-md p-8">
+					<h2 class="text-2xl font-semibold mb-6">Project Card Example</h2>
+					<article class="card card-hover">
+						<img
+							src="https://via.placeholder.com/600x300"
+							alt="Project preview"
+							class="w-full h-48 object-cover rounded-t-lg" />
+						<div class="card-header">
+							<h3 class="card-title">Portfolio Website</h3>
+							<span class="badge badge-primary">Featured</span>
+						</div>
+						<div class="card-body">
+							<p class="text-gray-600 mb-4">A modern portfolio website built with Tailwind CSS and vanilla JavaScript.</p>
+							<div class="flex flex-wrap gap-2">
+								<span class="badge badge-secondary">HTML</span>
+								<span class="badge badge-secondary">CSS</span>
+								<span class="badge badge-secondary">JavaScript</span>
+							</div>
+						</div>
+						<div class="card-footer">
+							<button class="btn-primary btn-sm">View Project</button>
+							<button class="btn-secondary btn-sm">Source Code</button>
+						</div>
+					</article>
+				</section>
+			</div>
+		</template>
+
+		<!-- Forms Template -->
+		<template id="forms-template">
+			<div class="max-w-2xl mx-auto">
+				<h1 class="text-3xl font-bold text-gray-900 mb-8">Form Components</h1>
+
+				<form class="bg-white rounded-lg shadow-md p-8 space-y-6">
+					<div class="form-group">
+						<label for="name" class="form-label">
+							Full Name
+							<span class="text-red-500" aria-label="required">*</span>
+						</label>
+						<input type="text" id="name" name="name" class="form-input" required placeholder="Enter your full name" />
+						<p class="form-help">This will be displayed on your profile</p>
+					</div>
+
+					<div class="form-group">
+						<label for="email" class="form-label">
+							Email Address
+							<span class="text-red-500" aria-label="required">*</span>
+						</label>
+						<input type="email" id="email" name="email" class="form-input" required placeholder="you@example.com" />
+					</div>
+
+					<div class="form-group">
+						<label for="message" class="form-label">Message</label>
+						<textarea
+							id="message"
+							name="message"
+							rows="4"
+							class="form-input"
+							placeholder="Tell us about your project..."></textarea>
+					</div>
+
+					<div class="form-group">
+						<label class="flex items-center space-x-2 cursor-pointer">
+							<input type="checkbox" class="form-checkbox" />
+							<span class="text-sm text-gray-700">I agree to the terms and conditions</span>
+						</label>
+					</div>
+
+					<div class="flex gap-4">
+						<button type="submit" class="btn-primary">Submit Form</button>
+						<button type="reset" class="btn-secondary">Reset</button>
+					</div>
+				</form>
+
+				<section class="bg-white rounded-lg shadow-md p-8 mt-8">
+					<h2 class="text-2xl font-semibold mb-6">Form States</h2>
+					<div class="space-y-4">
+						<div class="form-group">
+							<label class="form-label">Valid Input</label>
+							<input type="text" class="form-input border-green-500" value="Valid value" />
+							<p class="text-sm text-green-600 mt-1">✓ Looks good!</p>
+						</div>
+						<div class="form-group">
+							<label class="form-label">Invalid Input</label>
+							<input type="text" class="form-input border-red-500" value="Invalid" />
+							<p class="text-sm text-red-600 mt-1">✗ This field is required</p>
+						</div>
+						<div class="form-group">
+							<label class="form-label">Disabled Input</label>
+							<input type="text" class="form-input" disabled value="Disabled field" />
+						</div>
+					</div>
+				</section>
+			</div>
+		</template>
+
+		<!-- Tokens Template -->
+		<template id="tokens-template">
+			<div class="max-w-4xl mx-auto">
+				<h1 class="text-3xl font-bold text-gray-900 mb-8">Design Tokens</h1>
+
+				<section class="bg-white rounded-lg shadow-md p-8 mb-8">
+					<h2 class="text-2xl font-semibold mb-6">Color Palette</h2>
+					<div class="space-y-4">
+						<div>
+							<h3 class="text-lg font-medium mb-3">Primary Colors</h3>
+							<div class="grid grid-cols-3 gap-4">
+								<div class="text-center">
+									<div class="h-20 bg-primary-50 rounded-lg mb-2 border border-gray-200"></div>
+									<p class="text-sm font-mono">primary-50</p>
+								</div>
+								<div class="text-center">
+									<div class="h-20 bg-primary-500 rounded-lg mb-2"></div>
+									<p class="text-sm font-mono">primary-500</p>
+								</div>
+								<div class="text-center">
+									<div class="h-20 bg-primary-900 rounded-lg mb-2"></div>
+									<p class="text-sm font-mono text-white">primary-900</p>
+								</div>
+							</div>
+						</div>
+						<div>
+							<h3 class="text-lg font-medium mb-3">Surface Colors</h3>
+							<div class="grid grid-cols-2 gap-4">
+								<div class="text-center">
+									<div class="h-20 bg-surface-light rounded-lg mb-2 border border-gray-200"></div>
+									<p class="text-sm font-mono">surface-light</p>
+								</div>
+								<div class="text-center">
+									<div class="h-20 bg-surface-dark rounded-lg mb-2"></div>
+									<p class="text-sm font-mono text-white">surface-dark</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="bg-white rounded-lg shadow-md p-8 mb-8">
+					<h2 class="text-2xl font-semibold mb-6">Typography Scale</h2>
+					<div class="space-y-4">
+						<div>
+							<p class="text-xs text-gray-500 mb-1">text-xs</p>
+							<p class="text-xs">The quick brown fox jumps over the lazy dog</p>
+						</div>
+						<div>
+							<p class="text-xs text-gray-500 mb-1">text-sm</p>
+							<p class="text-sm">The quick brown fox jumps over the lazy dog</p>
+						</div>
+						<div>
+							<p class="text-xs text-gray-500 mb-1">text-base</p>
+							<p class="text-base">The quick brown fox jumps over the lazy dog</p>
+						</div>
+						<div>
+							<p class="text-xs text-gray-500 mb-1">text-lg</p>
+							<p class="text-lg">The quick brown fox jumps over the lazy dog</p>
+						</div>
+						<div>
+							<p class="text-xs text-gray-500 mb-1">text-xl</p>
+							<p class="text-xl">The quick brown fox jumps over the lazy dog</p>
+						</div>
+						<div>
+							<p class="text-xs text-gray-500 mb-1">text-2xl</p>
+							<p class="text-2xl">The quick brown fox jumps over the lazy dog</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="bg-white rounded-lg shadow-md p-8">
+					<h2 class="text-2xl font-semibold mb-6">Spacing Scale</h2>
+					<div class="space-y-3">
+						<div class="flex items-center">
+							<div class="w-32 text-sm font-mono">space-2 (8px)</div>
+							<div class="h-8 bg-primary-500 rounded" style="width: 8px"></div>
+						</div>
+						<div class="flex items-center">
+							<div class="w-32 text-sm font-mono">space-4 (16px)</div>
+							<div class="h-8 bg-primary-500 rounded" style="width: 16px"></div>
+						</div>
+						<div class="flex items-center">
+							<div class="w-32 text-sm font-mono">space-6 (24px)</div>
+							<div class="h-8 bg-primary-500 rounded" style="width: 24px"></div>
+						</div>
+						<div class="flex items-center">
+							<div class="w-32 text-sm font-mono">space-8 (32px)</div>
+							<div class="h-8 bg-primary-500 rounded" style="width: 32px"></div>
+						</div>
+						<div class="flex items-center">
+							<div class="w-32 text-sm font-mono">space-18 (72px)</div>
+							<div class="h-8 bg-primary-500 rounded" style="width: 72px"></div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</template>
+
+		<!-- 404 Template -->
+		<template id="404-template">
+			<div class="max-w-2xl mx-auto text-center py-16">
+				<h1 class="text-6xl font-bold text-gray-300 mb-4">404</h1>
+				<h2 class="text-3xl font-semibold text-gray-700 mb-4">Page Not Found</h2>
+				<p class="text-gray-600 mb-8">The page you're looking for doesn't exist.</p>
+				<a href="#/" class="btn-primary">Go Home</a>
+			</div>
+		</template>
+
+		<script type="module" src="./src/main.js"></script>
+	</body>
+</html>

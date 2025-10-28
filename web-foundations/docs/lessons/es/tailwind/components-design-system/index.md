@@ -35,6 +35,12 @@ Esta lección sigue la **metodología del atelier** (exploración → reflexión
 - **Producción:** Construcción de bibliotecas de componentes mantenibles y escalables.
 - **Exhibición:** Demostración de sistemas de diseño cohesionados en acción.
 
+## 💻 Demo Interactivo
+
+> **[Ver Demo en Vivo →](demo/)**
+>
+> Explora un sistema de diseño completo con botones, tarjetas, formularios y tokens de diseño usando el enfoque de `<template>`. ¡Todo el código es autocontenido y listo para ejecutar!
+
 ## Prerrequisitos
 
 <div class="prerequisites">
