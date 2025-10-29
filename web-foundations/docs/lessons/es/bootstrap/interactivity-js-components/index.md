@@ -17,27 +17,43 @@ tags: [bootstrapcss, javascript, interactividad, mejora-progresiva]
 
 Esta sesión introduce **los componentes JavaScript de Bootstrap** y características de interactividad. Los estudiantes aprenderán cómo añadir comportamiento dinámico a sus sitios web usando los componentes JavaScript pre-construidos de Bootstrap, atributos de datos, y principios de mejora progresiva.
 
-## Objetivos de Aprendizaje
+## 🎯 Objetivos de Aprendizaje
 
 - Entender la arquitectura de componentes JavaScript de Bootstrap
 - Aprender a usar atributos de datos para configuración de componentes
 - Dominar componentes interactivos como modales, carruseles y dropdowns
 - Aplicar principios de mejora progresiva
+- Controlar componentes programáticamente mediante API JavaScript
 
-## Conceptos Core
+## 🚀 Demos Interactivas
+
+Explora estas demos interactivas para aprender haciendo:
+
+1. **[Sistema de Atributos de Datos](./demo/01-data-attributes.html)** - Aprende cómo Bootstrap usa `data-*` atributos
+2. **[Diálogos Modales](./demo/02-modals.html)** - Ventanas de diálogo superpuestas con todos los tamaños y opciones
+3. **[Carruseles](./demo/03-carousel.html)** - Slideshows rotativos con indicadores y subtítulos
+4. **[Dropdowns & Tooltips](./demo/04-dropdowns-tooltips.html)** - Menús y consejos contextuales
+5. **[Portafolio Interactivo](./demo/05-interactive-portfolio.html)** - Ejemplo completo integrando todos los componentes
+6. **[API JavaScript & Eventos](./demo/06-component-lifecycle.html)** - Control programático y manejo de eventos
+
+## 📚 Conceptos Core
 
 ### Arquitectura JavaScript de Bootstrap
 
 **El JavaScript de Bootstrap** está construido alrededor de una **arquitectura basada en componentes** donde:
 
-- **Los componentes se inicializan** usando atributos de datos
+- **Los componentes se inicializan** usando atributos de datos o JavaScript API
 - **No se requiere JavaScript personalizado** para funcionalidad básica
 - **La mejora progresiva** asegura degradación graceful
 - **La accesibilidad está integrada** con atributos ARIA apropiados
 
+> **💡 Aprende más:** Explora la [Demo de Atributos de Datos](./demo/01-data-attributes.html) para ver cómo funcionan en la práctica.
+
 ### Sistema de Atributos de Datos
 
-Bootstrap usa **atributos de datos** para configurar y controlar componentes:
+Bootstrap usa **atributos de datos** `data-*` para configurar y controlar componentes sin escribir JavaScript:
+
+> **🎨 Demo Interactiva:** [Explora el Sistema de Atributos de Datos](./demo/01-data-attributes.html)
 
 ```html
 <!-- Botón básico -->
@@ -68,11 +84,13 @@ Bootstrap sigue **principios de mejora progresiva**:
 2. **Mejora CSS** - Mejoras visuales con CSS
 3. **Mejora JavaScript** - Características interactivas con JS
 
-## Componentes Interactivos Esenciales
+## 🎭 Componentes Interactivos Esenciales
 
 ### Diálogos Modales
 
 **Los modales** crean diálogos que se superponen al contenido principal:
+
+> **🎨 Demo Interactiva:** [Explora Diálogos Modales](./demo/02-modals.html) - Diferentes tamaños, scroll, y posicionamiento
 
 ```html
 <!-- Botón para activar modal -->
@@ -110,6 +128,8 @@ Bootstrap sigue **principios de mejora progresiva**:
 ### Carrusel/Slideshow
 
 **Los carruseles** crean displays de contenido rotativo:
+
+> **🎨 Demo Interactiva:** [Explora Carruseles](./demo/03-carousel.html) - Con indicadores, subtítulos, y efectos fade
 
 ```html
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -162,6 +182,8 @@ Bootstrap sigue **principios de mejora progresiva**:
 
 **Los dropdowns** crean menús colapsables:
 
+> **🎨 Demo Interactiva:** [Explora Dropdowns & Tooltips](./demo/04-dropdowns-tooltips.html) - Direcciones, contenido avanzado, y tooltips
+
 ```html
 <div class="dropdown">
 	<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -199,140 +221,111 @@ Bootstrap sigue **principios de mejora progresiva**:
 </script>
 ```
 
-## Práctica Práctica
+## 💻 Práctica Práctica
 
 ### Ejercicio 1: Portafolio Interactivo con Modales
 
-Crea una página de portafolio con detalles interactivos de proyectos usando modales:
+> **🎨 Demo Completa:** [Ver Portafolio Interactivo](./demo/05-interactive-portfolio.html)
+>
+> Esta demo muestra cómo combinar todos los componentes JavaScript de Bootstrap en una aplicación real. Incluye:
+>
+> - Navegación responsiva con dropdowns
+> - Tarjetas de proyecto con modales de detalles
+> - Carrusel de testimonios
+> - Tooltips en habilidades
+> - Sistema de notificaciones con toasts
+>
+> **📝 Tarea:** Examina el código fuente y personaliza el portafolio con tu propia información.
 
-```html
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Portafolio Interactivo Bootstrap</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-	</head>
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<div class="container">
-				<a class="navbar-brand" href="#">Portafolio</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
-						<li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+**Características que debes implementar:**
 
-		<section id="proyectos" class="py-5">
-			<div class="container">
-				<h2 class="text-center mb-5">Mis Proyectos</h2>
-				<div class="row">
-					<div class="col-lg-4 mb-4">
-						<div class="card h-100">
-							<img src="https://picsum.photos/400/250?random=1" class="card-img-top" alt="Sitio E-commerce" />
-							<div class="card-body">
-								<h5 class="card-title">Plataforma E-commerce</h5>
-								<p class="card-text">Un sitio de e-commerce responsivo construido con tecnologías web modernas.</p>
-								<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#proyecto1Modal">Ver Detalles</button>
-							</div>
-						</div>
-					</div>
+1. **Navegación Sticky** con collapse en móviles
+2. **Cards de Proyecto** con hover effects
+3. **Modales de Detalle** con información completa
+4. **Badges de Tecnología** con tooltips
+5. **Formulario de Contacto** en modal
 
-					<div class="col-lg-4 mb-4">
-						<div class="card h-100">
-							<img src="https://picsum.photos/400/250?random=2" class="card-img-top" alt="CMS de Portafolio" />
-							<div class="card-body">
-								<h5 class="card-title">Sistema de Gestión de Contenido</h5>
-								<p class="card-text">CMS personalizado para profesionales creativos.</p>
-								<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#proyecto2Modal">Ver Detalles</button>
-							</div>
-						</div>
-					</div>
+## 🔧 API JavaScript y Control Programático
 
-					<div class="col-lg-4 mb-4">
-						<div class="card h-100">
-							<img src="https://picsum.photos/400/250?random=3" class="card-img-top" alt="App Móvil" />
-							<div class="card-body">
-								<h5 class="card-title">App de Gestión de Tareas</h5>
-								<p class="card-text">App web progresiva para productividad y gestión de tareas.</p>
-								<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#proyecto3Modal">Ver Detalles</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+Además de los atributos de datos, Bootstrap proporciona una API JavaScript completa para control programático:
 
-		<!-- Modales de Detalles de Proyecto -->
-		<!-- Modal de Proyecto 1 -->
-		<div class="modal fade" id="proyecto1Modal" tabindex="-1" aria-labelledby="proyecto1ModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="proyecto1ModalLabel">Plataforma E-commerce</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-					</div>
-					<div class="modal-body">
-						<img src="https://picsum.photos/800/400?random=1" class="img-fluid mb-3" alt="Plataforma E-commerce" />
-						<p>
-							Esta plataforma de e-commerce fue construida usando tecnologías web modernas incluyendo React, Node.js, y
-							MongoDB. Cuenta con un diseño responsivo que funciona perfectamente en todos los dispositivos.
-						</p>
-						<h6>Características Clave:</h6>
-						<ul>
-							<li>Catálogo de productos responsivo con filtrado y búsqueda</li>
-							<li>Autenticación de usuario y gestión de cuentas</li>
-							<li>Carrito de compras y proceso de checkout</li>
-							<li>Integración de pagos con Stripe</li>
-							<li>Dashboard de admin para gestión de inventario</li>
-						</ul>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-						<a href="#" class="btn btn-primary">Ver Demo en Vivo</a>
-					</div>
-				</div>
-			</div>
-		</div>
+> **🎨 Demo Avanzada:** [Explora API JavaScript & Eventos](./demo/06-component-lifecycle.html)
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-	</body>
-</html>
+### Inicialización Manual
+
+```javascript
+// Crear instancia de componente
+const myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+	backdrop: 'static',
+	keyboard: false,
+});
+
+// Controlar el componente
+myModal.show();
+myModal.hide();
+myModal.toggle();
 ```
 
-## Preguntas Críticas de Reflexión
+### Eventos de Componentes
+
+```javascript
+const modalEl = document.getElementById('myModal');
+
+// Escuchar eventos
+modalEl.addEventListener('show.bs.modal', function (event) {
+	console.log('Modal está por mostrarse');
+	// Tu código aquí
+});
+
+modalEl.addEventListener('shown.bs.modal', function (event) {
+	console.log('Modal está completamente visible');
+	// Enfocar un campo, iniciar animación, etc.
+});
+```
+
+### Métodos Disponibles
+
+Todos los componentes comparten métodos comunes:
+
+| Método          | Descripción                             |
+| --------------- | --------------------------------------- |
+| `show()`        | Muestra el componente                   |
+| `hide()`        | Oculta el componente                    |
+| `toggle()`      | Alterna entre mostrar/ocultar           |
+| `dispose()`     | Destruye el componente y limpia memoria |
+| `getInstance()` | Obtiene la instancia del componente     |
+
+## 🤔 Preguntas Críticas de Reflexión
 
 ### Exploración
 
 - ¿Cómo cambió añadir interactividad JavaScript tu percepción de las capacidades de Bootstrap?
 - ¿Qué te sorprendió más sobre el sistema de atributos de datos para configuración de componentes?
+- ¿Cuándo preferirías usar atributos de datos vs. API JavaScript?
 
 ### Reflexión
 
 - ¿Cómo encarna el enfoque de Bootstrap a componentes JavaScript principios de mejora progresiva?
 - ¿De qué maneras afecta la interactividad sin código la experiencia del desarrollador comparado con JavaScript personalizado?
+- ¿Qué ventajas ofrece el manejo de eventos del ciclo de vida de componentes?
 
 ### Conceptualización
 
 - ¿Cómo se relacionan los componentes interactivos con principios de diseño de experiencia de usuario?
 - ¿Cuáles son las implicaciones de accesibilidad de diálogos modales y contenido superpuesto?
+- ¿Cómo influye el timing de eventos en la arquitectura de aplicaciones?
 
 ### Producción
 
 - ¿Cómo podrían escalar los componentes JavaScript de Bootstrap para aplicaciones complejas a nivel empresarial?
 - ¿Cuáles son las implicaciones de rendimiento de incluir el bundle JavaScript de Bootstrap?
+- ¿Cuándo necesitarías combinar Bootstrap con frameworks como React o Vue?
 
 ### Exhibición
 
 - ¿Cómo demostrarás las características interactivas de tu portafolio mejorado con Bootstrap?
 - ¿Qué enfoques alternativos a interactividad web podrían lograr experiencias de usuario similares?
+- ¿Cómo documentarías el uso de componentes JavaScript en tu proyecto?
 
 ## Referencias y Lecturas Adicionales
 

@@ -1,0 +1,94 @@
+# ============================================
+# ARCHIVO CNAME PARA DOMINIO PERSONALIZADO
+# ============================================
+#
+# Este archivo le dice a GitHub Pages qué dominio personalizado usar.
+#
+# INSTRUCCIONES DE USO:
+#
+# 1. COMPRA UN DOMINIO
+#    - Compra un dominio en un registrador (Namecheap, GoDaddy, etc.)
+#    - Ejemplo: www.miportafolio.com
+#
+# 2. CONFIGURA LOS DNS
+#    - En tu registrador de dominios, ve a configuración DNS
+#    - Añade estos registros:
+#
+#    Para dominio apex (miportafolio.com):
+#    ----------------------------------------
+#    Type: A
+#    Host: @
+#    Value: 185.199.108.153
+#    
+#    Type: A
+#    Host: @
+#    Value: 185.199.109.153
+#    
+#    Type: A
+#    Host: @
+#    Value: 185.199.110.153
+#    
+#    Type: A
+#    Host: @
+#    Value: 185.199.111.153
+#
+#    Para subdominio www (www.miportafolio.com):
+#    -------------------------------------------
+#    Type: CNAME
+#    Host: www
+#    Value: tu-usuario.github.io
+#
+# 3. ACTUALIZA ESTE ARCHIVO
+#    - Reemplaza el dominio de ejemplo con tu dominio real
+#    - NO incluyas http:// o https://
+#    - NO incluyas / al final
+#    - Ejemplo correcto: www.miportafolio.com
+#
+# 4. HABILITA HTTPS EN GITHUB
+#    - Ve a Settings > Pages en tu repositorio
+#    - Marca "Enforce HTTPS"
+#    - Espera unos minutos para que se genere el certificado SSL
+#
+# ============================================
+# REEMPLAZA ESTA LÍNEA CON TU DOMINIO:
+# ============================================
+
+www.ejemplo-portafolio.com
+
+# ============================================
+# EJEMPLOS VÁLIDOS:
+# ============================================
+# www.mariagarcia.com
+# portfolio.mariagarcia.com
+# mariagarcia.dev
+# mariagarcia.com
+#
+# ============================================
+# ERRORES COMUNES:
+# ============================================
+# ❌ https://www.miportafolio.com (no incluir protocolo)
+# ❌ www.miportafolio.com/ (no incluir barra final)
+# ❌ www.miportafolio.com:443 (no incluir puerto)
+# ✅ www.miportafolio.com (correcto)
+#
+# ============================================
+# VERIFICACIÓN:
+# ============================================
+# Después de configurar:
+# 1. Espera 24-48 horas (propagación DNS)
+# 2. Visita tu dominio personalizado
+# 3. Verifica que cargue con HTTPS (candado verde)
+#
+# Herramientas útiles:
+# - DNS Checker: https://dnschecker.org
+# - GitHub Pages: https://docs.github.com/pages
+#
+# ============================================
+# ELIMINACIÓN:
+# ============================================
+# Si NO quieres usar dominio personalizado:
+# - Elimina este archivo
+# - Tu sitio estará en: tu-usuario.github.io/repositorio
+#
+# ============================================
+

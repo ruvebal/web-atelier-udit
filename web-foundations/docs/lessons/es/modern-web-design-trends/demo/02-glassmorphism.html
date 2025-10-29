@@ -1,350 +1,917 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 2: Glassmorphism Demo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Module 2: Glassmorphism Demo</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            background-attachment: fixed;
-            padding: 2rem;
-        }
+			body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				line-height: 1.6;
+				min-height: 100vh;
+				padding: 2rem;
+				position: relative;
+				overflow-x: hidden;
+			}
 
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
+			/* Complex Textured Background */
+			.background {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #ffd89b 100%);
+			}
 
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
+			/* Animated decorative shapes */
+			.shape {
+				position: absolute;
+				border-radius: 50%;
+				filter: blur(40px);
+				opacity: 0.5;
+				animation: float 20s ease-in-out infinite;
+			}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
+			.shape1 {
+				width: 300px;
+				height: 300px;
+				background: radial-gradient(circle, #4facfe 0%, #00f2fe 100%);
+				top: 10%;
+				left: 10%;
+				animation-delay: 0s;
+			}
 
-        /* Glass card effect */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            color: white;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+			.shape2 {
+				width: 400px;
+				height: 400px;
+				background: radial-gradient(circle, #43e97b 0%, #38f9d7 100%);
+				top: 60%;
+				right: 10%;
+				animation-delay: 5s;
+			}
 
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.3);
-        }
+			.shape3 {
+				width: 250px;
+				height: 250px;
+				background: radial-gradient(circle, #fa709a 0%, #fee140 100%);
+				bottom: 20%;
+				left: 50%;
+				animation-delay: 10s;
+			}
 
-        .glass-card h2 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+			.shape4 {
+				width: 350px;
+				height: 350px;
+				background: radial-gradient(circle, #a8edea 0%, #fed6e3 100%);
+				top: 30%;
+				right: 30%;
+				animation-delay: 15s;
+			}
 
-        .glass-card p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
+			@keyframes float {
+				0%,
+				100% {
+					transform: translate(0, 0) scale(1);
+				}
+				25% {
+					transform: translate(30px, -30px) scale(1.1);
+				}
+				50% {
+					transform: translate(-20px, 20px) scale(0.9);
+				}
+				75% {
+					transform: translate(20px, 30px) scale(1.05);
+				}
+			}
 
-        /* Variation: Darker glass */
-        .glass-card-dark {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            color: white;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-        }
+			/* Geometric pattern overlay */
+			.pattern-overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				background-image: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+				opacity: 0.3;
+			}
 
-        /* Variation: More blur */
-        .glass-card-extra-blur {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 16px;
-            padding: 2rem;
-            color: white;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-        }
+			.header {
+				text-align: center;
+				color: white;
+				margin-bottom: 3rem;
+				text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+			}
 
-        /* Info section */
-        .info-section {
-            max-width: 900px;
-            margin: 3rem auto;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-        }
+			.header h1 {
+				font-size: 3rem;
+				margin-bottom: 0.5rem;
+				font-weight: 800;
+			}
 
-        .info-section h2 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
+			.header p {
+				font-size: 1.2rem;
+				opacity: 0.95;
+			}
 
-        .info-section p {
-            color: #333;
-            margin-bottom: 1rem;
-        }
+			.container {
+				max-width: 1400px;
+				margin: 0 auto;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+				gap: 2rem;
+				margin-bottom: 3rem;
+			}
 
-        .code-box {
-            background: #2d3748;
-            color: #a0aec0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            overflow-x: auto;
-        }
+			/* Glass card effect - MAIN TECHNIQUE */
+			.glass-card {
+				background: rgba(255, 255, 255, 0.15);
+				backdrop-filter: blur(12px) saturate(150%);
+				-webkit-backdrop-filter: blur(12px) saturate(150%);
+				border: 1px solid rgba(255, 255, 255, 0.4);
+				border-radius: 20px;
+				padding: 2rem;
+				color: white;
+				box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+				transition: all 0.3s ease;
+				position: relative;
+				overflow: hidden;
+			}
 
-        .code-box code {
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-        }
+			.glass-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+				transition: left 0.5s;
+			}
 
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
+			.glass-card:hover {
+				transform: translateY(-8px);
+				box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+				border-color: rgba(255, 255, 255, 0.6);
+			}
 
-        .comparison-item {
-            text-align: center;
-        }
+			.glass-card:hover::before {
+				left: 100%;
+			}
 
-        .comparison-item h4 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
+			.glass-card h2 {
+				margin-bottom: 1rem;
+				font-size: 1.8rem;
+				font-weight: 700;
+			}
 
-        .blur-demo {
-            height: 150px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
+			.glass-card p {
+				margin-bottom: 1rem;
+				line-height: 1.8;
+				text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+			}
 
-        .blur-demo.blur-5 {
-            backdrop-filter: blur(5px);
-        }
+			/* Variation: Darker glass for better readability */
+			.glass-card-dark {
+				background: rgba(0, 0, 0, 0.4);
+				backdrop-filter: blur(16px) saturate(180%);
+				-webkit-backdrop-filter: blur(16px) saturate(180%);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+			}
 
-        .blur-demo.blur-10 {
-            backdrop-filter: blur(10px);
-        }
+			/* Variation: Extra light glass */
+			.glass-card-light {
+				background: rgba(255, 255, 255, 0.25);
+				backdrop-filter: blur(20px) brightness(110%);
+				-webkit-backdrop-filter: blur(20px) brightness(110%);
+				border: 2px solid rgba(255, 255, 255, 0.5);
+			}
 
-        .blur-demo.blur-20 {
-            backdrop-filter: blur(20px);
-        }
+			/* Interactive glass button */
+			.glass-button {
+				background: rgba(255, 255, 255, 0.2);
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				border: 1px solid rgba(255, 255, 255, 0.3);
+				border-radius: 12px;
+				padding: 1rem 2rem;
+				color: white;
+				font-weight: 600;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				display: inline-block;
+				margin-top: 1rem;
+				text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+			}
 
-        .reflection {
-            background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            border-left: 4px solid #f59e0b;
-        }
+			.glass-button:hover {
+				background: rgba(255, 255, 255, 0.3);
+				transform: translateY(-2px);
+				box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+			}
 
-        .reflection strong {
-            color: #92400e;
-        }
+			/* Info section with glass */
+			.info-section {
+				max-width: 1000px;
+				margin: 3rem auto;
+				background: rgba(255, 255, 255, 0.92);
+				backdrop-filter: blur(20px);
+				border-radius: 24px;
+				padding: 3rem;
+				box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+				border: 1px solid rgba(255, 255, 255, 0.8);
+			}
 
-        .pros-cons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
+			.info-section h2 {
+				color: #667eea;
+				margin-bottom: 1rem;
+				font-size: 2rem;
+			}
 
-        .pros, .cons {
-            padding: 1.5rem;
-            border-radius: 12px;
-        }
+			.info-section p {
+				color: #333;
+				margin-bottom: 1rem;
+			}
 
-        .pros {
-            background: #d1fae5;
-            border-left: 4px solid #10b981;
-        }
+			.code-box {
+				background: #1a202c;
+				color: #a0aec0;
+				padding: 2rem;
+				border-radius: 12px;
+				margin: 1.5rem 0;
+				overflow-x: auto;
+				border: 1px solid #2d3748;
+			}
 
-        .cons {
-            background: #fee2e2;
-            border-left: 4px solid #ef4444;
-        }
+			.code-box code {
+				font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+				font-size: 0.95rem;
+				line-height: 1.8;
+			}
 
-        .pros h3, .cons h3 {
-            margin-bottom: 1rem;
-        }
+			/* Blur comparison section with background */
+			.blur-comparison-section {
+				position: relative;
+				padding: 3rem 2rem;
+				margin: 3rem -2rem;
+				border-radius: 24px;
+				overflow: hidden;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #43e97b 100%);
+			}
 
-        .pros h3 {
-            color: #065f46;
-        }
+			.blur-comparison-section::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-image: url('data:image/svg+xml,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.2"><path d="M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0l28-28v2L54 40h-2zm4 0l24-24v2L58 40h-2zm4 0l20-20v2L62 40h-2zm4 0l16-16v2L66 40h-2zm4 0l12-12v2L70 40h-2zm4 0l8-8v2l-6 6h-2zm4 0l4-4v2l-2 2h-2z"/></g></g></svg>');
+				opacity: 0.3;
+				z-index: 0;
+			}
 
-        .cons h3 {
-            color: #991b1b;
-        }
+			.blur-comparison-section::after {
+				content: '🎨';
+				position: absolute;
+				font-size: 15rem;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				opacity: 0.15;
+				z-index: 0;
+			}
 
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
+			.blur-comparison-section h2,
+			.blur-comparison-section p {
+				position: relative;
+				z-index: 1;
+				color: white;
+				text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+			}
 
-            .container {
-                grid-template-columns: 1fr;
-            }
+			/* Blur comparison grid - IMPROVED DESIGN */
+			.comparison-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+				gap: 1.5rem;
+				margin: 2.5rem 0;
+				position: relative;
+				z-index: 1;
+			}
 
-            body {
-                padding: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>✨ Module 2: Glassmorphism</h1>
-        <p>Frosted Glass Effects for Modern UIs</p>
-    </div>
+			.comparison-item {
+				text-align: center;
+				position: relative;
+			}
 
-    <div class="container">
-        <div class="glass-card">
-            <h2>💎 Standard Glass</h2>
-            <p>This card uses a light background with 10px blur. It creates a frosted glass effect that's readable while maintaining visual interest.</p>
-            <p><strong>Best for:</strong> Primary content cards, hero sections, navigation menus</p>
-        </div>
+			.comparison-item h4 {
+				color: #667eea;
+				margin-bottom: 1rem;
+				font-size: 1.2rem;
+				font-weight: 700;
+				background: rgba(255, 255, 255, 0.95);
+				padding: 0.5rem 1rem;
+				border-radius: 8px;
+				display: inline-block;
+				box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+			}
 
-        <div class="glass-card-dark">
-            <h2>🌙 Dark Glass</h2>
-            <p>This variation uses a darker background with more blur (15px). Perfect for text-heavy content that needs better contrast.</p>
-            <p><strong>Best for:</strong> Modals, overlay menus, dark themes</p>
-        </div>
+			.blur-demo {
+				height: 200px;
+				background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+				border: 2px solid rgba(255, 255, 255, 0.4);
+				border-radius: 20px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: 800;
+				font-size: 1.5rem;
+				text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+				transition: all 0.4s ease;
+				position: relative;
+				overflow: hidden;
+				cursor: pointer;
+			}
 
-        <div class="glass-card-extra-blur">
-            <h2>🔮 Extra Blur</h2>
-            <p>Maximum blur (20px) with minimal transparency creates an even softer, dreamier effect. Very trendy but use carefully!</p>
-            <p><strong>Best for:</strong> Decorative elements, subtle backgrounds</p>
-        </div>
-    </div>
+			.blur-demo::before {
+				content: attr(data-blur);
+				position: absolute;
+				bottom: 1rem;
+				font-size: 0.9rem;
+				opacity: 0.8;
+				background: rgba(0, 0, 0, 0.5);
+				padding: 0.3rem 0.8rem;
+				border-radius: 20px;
+			}
 
-    <div class="info-section">
-        <h2>What Is Glassmorphism?</h2>
-        <p>Glassmorphism creates a "frosted glass" look using semi-transparent elements with a blur effect. You see through it but with softness, like looking through a foggy window or shower door with condensation.</p>
+			.blur-demo:hover {
+				transform: translateY(-8px);
+				border-color: rgba(255, 255, 255, 0.8);
+				box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
+			}
 
-        <h2>The CSS Behind It</h2>
-        <p>The magic happens with the <code>backdrop-filter</code> property:</p>
+			.blur-demo.blur-0 {
+				backdrop-filter: blur(0px);
+				background: rgba(255, 255, 255, 0.3);
+			}
 
-        <div class="code-box">
-            <code>
-.glass-card {<br>
-&nbsp;&nbsp;/* Semi-transparent background */<br>
-&nbsp;&nbsp;background: rgba(255, 255, 255, 0.2);<br>
-&nbsp;&nbsp;<br>
-&nbsp;&nbsp;/* The glassmorphism magic! */<br>
-&nbsp;&nbsp;backdrop-filter: blur(10px);<br>
-&nbsp;&nbsp;-webkit-backdrop-filter: blur(10px);<br>
-&nbsp;&nbsp;<br>
-&nbsp;&nbsp;/* Subtle border adds definition */<br>
-&nbsp;&nbsp;border: 1px solid rgba(255, 255, 255, 0.3);<br>
-&nbsp;&nbsp;<br>
-&nbsp;&nbsp;/* Rounded corners for modern feel */<br>
-&nbsp;&nbsp;border-radius: 16px;<br>
-&nbsp;&nbsp;<br>
-&nbsp;&nbsp;/* Depth and shadow */<br>
-&nbsp;&nbsp;box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);<br>
-}
-            </code>
-        </div>
+			.blur-demo.blur-5 {
+				backdrop-filter: blur(5px) saturate(120%);
+				-webkit-backdrop-filter: blur(5px) saturate(120%);
+			}
 
-        <h2>Blur Amount Comparison</h2>
-        <div class="comparison-grid">
-            <div class="comparison-item">
-                <h4>5px Blur</h4>
-                <div class="blur-demo blur-5">Subtle</div>
-            </div>
-            <div class="comparison-item">
-                <h4>10px Blur</h4>
-                <div class="blur-demo blur-10">Balanced</div>
-            </div>
-            <div class="comparison-item">
-                <h4>20px Blur</h4>
-                <div class="blur-demo blur-20">Heavy</div>
-            </div>
-        </div>
+			.blur-demo.blur-10 {
+				backdrop-filter: blur(10px) saturate(140%);
+				-webkit-backdrop-filter: blur(10px) saturate(140%);
+			}
 
-        <div class="pros-cons">
-            <div class="pros">
-                <h3>✅ Why Use It?</h3>
-                <ul>
-                    <li>Adds depth and premium feel</li>
-                    <li>Creates visual hierarchy</li>
-                    <li>Modern and trendy aesthetic</li>
-                    <li>Works great with colorful backgrounds</li>
-                    <li>Popular in iOS and modern apps</li>
-                </ul>
-            </div>
+			.blur-demo.blur-20 {
+				backdrop-filter: blur(20px) saturate(160%);
+				-webkit-backdrop-filter: blur(20px) saturate(160%);
+			}
 
-            <div class="cons">
-                <h3>⚠️ Watch Out For:</h3>
-                <ul>
-                    <li>Can reduce readability if overdone</li>
-                    <li>Requires good color contrast</li>
-                    <li>Performance impact with many elements</li>
-                    <li>Not supported in older browsers</li>
-                    <li>Can be distracting if overused</li>
-                </ul>
-            </div>
-        </div>
+			.blur-demo.blur-40 {
+				backdrop-filter: blur(40px) saturate(180%);
+				-webkit-backdrop-filter: blur(40px) saturate(180%);
+			}
 
-        <div class="reflection">
-            <strong>Atelier Reflection:</strong> How does the blur change the "feel" of elements on this page? Is it more inviting or harder to read? Consider the trade-off between aesthetic appeal and accessibility. Would users with visual impairments be able to read this content comfortably? How might you adjust for different user needs?
-        </div>
+			/* Use case examples - IMPROVED CONTRAST */
+			.use-case-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+				margin: 3rem 0;
+			}
 
-        <h2>Browser Support</h2>
-        <p>The <code>backdrop-filter</code> property is supported in all modern browsers (Chrome, Firefox, Safari, Edge). However, it's good practice to include the <code>-webkit-</code> prefix for older Safari versions and provide a fallback for browsers that don't support it.</p>
+			.use-case {
+				background: rgba(0, 0, 0, 0.6);
+				backdrop-filter: blur(16px) saturate(180%);
+				-webkit-backdrop-filter: blur(16px) saturate(180%);
+				border: 2px solid rgba(255, 255, 255, 0.4);
+				border-radius: 16px;
+				padding: 2rem;
+				color: white;
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+				transition: all 0.3s ease;
+			}
 
-        <h2>Best Practices</h2>
-        <ul>
-            <li><strong>Contrast:</strong> Ensure text has sufficient contrast (WCAG AA: 4.5:1 for normal text)</li>
-            <li><strong>Performance:</strong> Limit the number of glass elements on a page</li>
-            <li><strong>Background:</strong> Works best on colorful or image backgrounds</li>
-            <li><strong>Consistency:</strong> Use similar blur values throughout your design</li>
-            <li><strong>Accessibility:</strong> Always test with screen readers and keyboard navigation</li>
-        </ul>
+			.use-case:hover {
+				transform: translateY(-5px);
+				border-color: rgba(255, 255, 255, 0.6);
+				box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+			}
 
-        <div class="reflection">
-            <strong>Critical Design Question:</strong> Glassmorphism is trendy and beautiful, but does it serve a functional purpose in your design? Or is it purely decorative? Consider the methodology principle: does this enhance user understanding and experience, or does it create barriers?
-        </div>
-    </div>
-</body>
+			.use-case h3 {
+				margin-bottom: 1rem;
+				font-size: 1.4rem;
+				font-weight: 700;
+				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+			}
+
+			.use-case ul {
+				list-style: none;
+				padding-left: 0;
+			}
+
+			.use-case li {
+				padding: 0.6rem 0;
+				padding-left: 2rem;
+				position: relative;
+				font-size: 1rem;
+				text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+			}
+
+			.use-case li:before {
+				content: '✓';
+				position: absolute;
+				left: 0;
+				color: #4ade80;
+				font-weight: bold;
+				font-size: 1.2rem;
+				text-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+			}
+
+			.reflection {
+				background: linear-gradient(135deg, rgba(254, 243, 199, 0.95) 0%, rgba(252, 211, 77, 0.95) 100%);
+				backdrop-filter: blur(10px);
+				padding: 2rem;
+				border-radius: 16px;
+				margin: 2rem 0;
+				border-left: 5px solid #f59e0b;
+				box-shadow: 0 4px 16px rgba(245, 158, 11, 0.2);
+			}
+
+			.reflection strong {
+				color: #92400e;
+				display: block;
+				margin-bottom: 0.5rem;
+				font-size: 1.1rem;
+			}
+
+			.pros-cons {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin: 2rem 0;
+			}
+
+			.pros,
+			.cons {
+				padding: 2rem;
+				border-radius: 16px;
+			}
+
+			.pros {
+				background: rgba(209, 250, 229, 0.95);
+				backdrop-filter: blur(10px);
+				border-left: 5px solid #10b981;
+			}
+
+			.cons {
+				background: rgba(254, 226, 226, 0.95);
+				backdrop-filter: blur(10px);
+				border-left: 5px solid #ef4444;
+			}
+
+			.pros h3,
+			.cons h3 {
+				margin-bottom: 1rem;
+				font-size: 1.5rem;
+			}
+
+			.pros h3 {
+				color: #065f46;
+			}
+
+			.cons h3 {
+				color: #991b1b;
+			}
+
+			@media (max-width: 768px) {
+				.header h1 {
+					font-size: 2rem;
+				}
+
+				.container {
+					grid-template-columns: 1fr;
+				}
+
+				body {
+					padding: 1rem;
+				}
+
+				.info-section {
+					padding: 2rem 1.5rem;
+				}
+
+				.shape {
+					width: 200px !important;
+					height: 200px !important;
+				}
+			}
+
+			/* Animated glassmorphic navbar example */
+			.glass-nav {
+				background: rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(16px) saturate(180%);
+				border: 1px solid rgba(255, 255, 255, 0.3);
+				border-radius: 50px;
+				padding: 1rem 2rem;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				max-width: 600px;
+				margin: 2rem auto;
+				box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+			}
+
+			.glass-nav-item {
+				color: white;
+				text-decoration: none;
+				padding: 0.5rem 1.5rem;
+				border-radius: 25px;
+				transition: all 0.3s ease;
+				font-weight: 600;
+			}
+
+			.glass-nav-item:hover {
+				background: rgba(255, 255, 255, 0.2);
+				backdrop-filter: blur(10px);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Complex textured background -->
+		<div class="background">
+			<div class="shape shape1"></div>
+			<div class="shape shape2"></div>
+			<div class="shape shape3"></div>
+			<div class="shape shape4"></div>
+		</div>
+		<div class="pattern-overlay"></div>
+
+		<div class="header">
+			<h1>✨ Módulo 2: Glassmorphism</h1>
+			<p>Efectos de Vidrio Esmerilado para UIs Modernas</p>
+		</div>
+
+		<!-- Glass Navigation Example -->
+		<nav class="glass-nav">
+			<a href="#" class="glass-nav-item">Inicio</a>
+			<a href="#" class="glass-nav-item">Acerca</a>
+			<a href="#" class="glass-nav-item">Proyectos</a>
+			<a href="#" class="glass-nav-item">Contacto</a>
+		</nav>
+
+		<div class="container">
+			<div class="glass-card">
+				<h2>💎 Vidrio Estándar</h2>
+				<p>
+					Esta tarjeta usa un fondo ligero con 12px de blur y saturación aumentada. El fondo texturizado permite ver
+					claramente el efecto de "vidrio esmerilado".
+				</p>
+				<p>
+					<strong>Mejor para:</strong>
+					Tarjetas de contenido principal, secciones hero, menús de navegación
+				</p>
+				<button class="glass-button">Explorar más</button>
+			</div>
+
+			<div class="glass-card glass-card-dark">
+				<h2>🌙 Vidrio Oscuro</h2>
+				<p>
+					Esta variación usa un fondo más oscuro con más blur (16px) para mejor contraste. Perfecto para contenido con mucho
+					texto que necesita legibilidad.
+				</p>
+				<p>
+					<strong>Mejor para:</strong>
+					Modales, menús overlay, temas oscuros
+				</p>
+				<button class="glass-button">Ver ejemplo</button>
+			</div>
+
+			<div class="glass-card glass-card-light">
+				<h2>☀️ Vidrio Súper Claro</h2>
+				<p>
+					Máximo blur (20px) con brightness aumentado crea un efecto más etéreo y soñador. El fondo texturizado se ve suave
+					pero visible.
+				</p>
+				<p>
+					<strong>Mejor para:</strong>
+					Elementos decorativos, fondos sutiles, overlays
+				</p>
+				<button class="glass-button">Descubrir</button>
+			</div>
+		</div>
+
+		<div class="info-section">
+			<h2>¿Qué Es Glassmorphism?</h2>
+			<p>
+				El glassmorphism crea un aspecto de "vidrio esmerilado" usando elementos semi-transparentes con efecto blur. Es como
+				mirar a través de una ventana empañada o una puerta de ducha con condensación—ves las formas pero con suavidad.
+			</p>
+			<p>
+				<strong>La clave del éxito:</strong>
+				El glassmorphism necesita un fondo visualmente interesante para funcionar bien. Sin textura o color detrás, el
+				efecto de blur no tiene nada que mostrar. ¡Por eso este demo usa formas animadas y patrones!
+			</p>
+
+			<h2>El CSS Detrás del Efecto</h2>
+			<p>
+				La magia ocurre con la propiedad
+				<code>backdrop-filter</code>
+				:
+			</p>
+
+			<div class="code-box">
+				<code>
+					.glass-card {
+					<br />
+					&nbsp;&nbsp;/* Fondo semi-transparente - permite ver a través */
+					<br />
+					&nbsp;&nbsp;background: rgba(255, 255, 255, 0.15);
+					<br />
+					<br />
+					&nbsp;&nbsp;/* ¡LA MAGIA DEL GLASSMORPHISM! */
+					<br />
+					&nbsp;&nbsp;backdrop-filter: blur(12px) saturate(150%);
+					<br />
+					&nbsp;&nbsp;-webkit-backdrop-filter: blur(12px) saturate(150%);
+					<br />
+					<br />
+					&nbsp;&nbsp;/* Borde sutil añade definición */
+					<br />
+					&nbsp;&nbsp;border: 1px solid rgba(255, 255, 255, 0.4);
+					<br />
+					<br />
+					&nbsp;&nbsp;/* Esquinas redondeadas modernas */
+					<br />
+					&nbsp;&nbsp;border-radius: 20px;
+					<br />
+					<br />
+					&nbsp;&nbsp;/* Profundidad con sombra interna y externa */
+					<br />
+					&nbsp;&nbsp;box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37),
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inset 0 1px 0 0 rgba(255, 255,
+					255, 0.5);
+					<br />
+					}
+				</code>
+			</div>
+
+			<div class="blur-comparison-section">
+				<h2>Comparación de Cantidad de Blur</h2>
+				<p>
+					El blur es el ingrediente principal del glassmorphism.
+					<strong>Pasa el mouse sobre cada cuadro</strong>
+					para ver la diferencia y cómo el fondo texturizado se desenfoca a diferentes niveles. Nota cómo el patrón, el emoji
+					🎨 y el gradiente se ven más o menos nítidos según el nivel de blur:
+				</p>
+
+				<div class="comparison-grid">
+					<div class="comparison-item">
+						<h4>Sin Blur</h4>
+						<div class="blur-demo blur-0" data-blur="0px">Transparente</div>
+					</div>
+					<div class="comparison-item">
+						<h4>Blur Sutil</h4>
+						<div class="blur-demo blur-5" data-blur="5px">Ligero</div>
+					</div>
+					<div class="comparison-item">
+						<h4>Blur Equilibrado ⭐</h4>
+						<div class="blur-demo blur-10" data-blur="10px">Ideal</div>
+					</div>
+					<div class="comparison-item">
+						<h4>Blur Fuerte</h4>
+						<div class="blur-demo blur-20" data-blur="20px">Intenso</div>
+					</div>
+					<div class="comparison-item">
+						<h4>Blur Extremo</h4>
+						<div class="blur-demo blur-40" data-blur="40px">Máximo</div>
+					</div>
+				</div>
+			</div>
+
+			<h2>🎯 Casos de Uso Comunes</h2>
+			<div class="use-case-grid">
+				<div class="use-case">
+					<h3>🎨 Navegación</h3>
+					<ul>
+						<li>Headers fijos</li>
+						<li>Menús desplegables</li>
+						<li>Sidebars</li>
+						<li>Bottom bars móvil</li>
+					</ul>
+				</div>
+
+				<div class="use-case">
+					<h3>📱 UI Móvil</h3>
+					<ul>
+						<li>Control center (iOS style)</li>
+						<li>Notificaciones</li>
+						<li>Sheets y modales</li>
+						<li>Keyboards personalizados</li>
+					</ul>
+				</div>
+
+				<div class="use-case">
+					<h3>💼 Tarjetas</h3>
+					<ul>
+						<li>Product cards</li>
+						<li>Profile cards</li>
+						<li>Dashboard widgets</li>
+						<li>Pricing tables</li>
+					</ul>
+				</div>
+
+				<div class="use-case">
+					<h3>🎭 Overlays</h3>
+					<ul>
+						<li>Modales de login</li>
+						<li>Video players</li>
+						<li>Image galleries</li>
+						<li>Toast notifications</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="pros-cons">
+				<div class="pros">
+					<h3>✅ Ventajas</h3>
+					<ul>
+						<li>
+							<strong>Profundidad visual:</strong>
+							Crea sensación de capas y profundidad
+						</li>
+						<li>
+							<strong>Estética premium:</strong>
+							Se ve moderno y sofisticado
+						</li>
+						<li>
+							<strong>Jerarquía clara:</strong>
+							Ayuda a separar contenido visualmente
+						</li>
+						<li>
+							<strong>Funciona con cualquier fondo:</strong>
+							Si el fondo es interesante
+						</li>
+						<li>
+							<strong>Tendencia actual:</strong>
+							Popular en iOS y apps modernas
+						</li>
+						<li>
+							<strong>Sutil pero efectivo:</strong>
+							No abruma la UI
+						</li>
+					</ul>
+				</div>
+
+				<div class="cons">
+					<h3>⚠️ Precauciones</h3>
+					<ul>
+						<li>
+							<strong>Contraste reducido:</strong>
+							Puede dificultar la lectura si no se ajusta bien
+						</li>
+						<li>
+							<strong>Rendimiento:</strong>
+							El blur puede afectar performance en dispositivos antiguos
+						</li>
+						<li>
+							<strong>Soporte de navegador:</strong>
+							Requiere navegadores modernos
+						</li>
+						<li>
+							<strong>Necesita fondo complejo:</strong>
+							No funciona bien con fondos planos
+						</li>
+						<li>
+							<strong>Fácil de abusar:</strong>
+							Demasiado glassmorphism puede confundir
+						</li>
+						<li>
+							<strong>Accesibilidad:</strong>
+							Usuarios con baja visión pueden tener problemas
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="reflection">
+				<strong>Reflexión del Atelier:</strong>
+				¿Notas cómo el fondo texturizado y animado hace que el glassmorphism realmente destaque? Sin un fondo interesante,
+				el efecto se perdería. Pregúntate: ¿El blur mejora la experiencia del usuario o solo se ve bonito? ¿Puedes leer el
+				texto cómodamente? ¿Cómo afectaría esto a usuarios con problemas de visión? El equilibrio entre estética y
+				funcionalidad es clave.
+			</div>
+
+			<h2>🎨 Por Qué el Fondo Texturizado Es Crucial</h2>
+			<p>
+				En este demo, notarás que usamos:
+				<br />
+				<strong>1. Gradiente complejo</strong>
+				- Múltiples colores que cambian en diferentes direcciones
+				<br />
+				<strong>2. Formas animadas</strong>
+				- Círculos de colores que se mueven suavemente detrás del contenido
+				<br />
+				<strong>3. Patrón geométrico</strong>
+				- Una textura sutil en SVG que añade detalle
+				<br />
+			</p>
+			<p>
+				Sin estos elementos, el
+				<code>backdrop-filter: blur()</code>
+				no tendría nada interesante que desenfocar, y el efecto sería invisible o aburrido.
+				<strong>El glassmorphism necesita contexto visual para brillar.</strong>
+			</p>
+
+			<h2>💻 Soporte de Navegadores</h2>
+			<p>
+				La propiedad
+				<code>backdrop-filter</code>
+				está soportada en todos los navegadores modernos:
+				<br />
+				✅ Chrome/Edge 76+ ✅ Firefox 103+ ✅ Safari 9+ ✅ Opera 63+
+			</p>
+			<p>
+				Siempre incluye el prefijo
+				<code>-webkit-backdrop-filter</code>
+				para compatibilidad con Safari más antiguo, y considera un fallback para navegadores sin soporte.
+			</p>
+
+			<h2>📋 Mejores Prácticas</h2>
+			<ul>
+				<li>
+					<strong>Contraste WCAG:</strong>
+					Asegura al menos 4.5:1 para texto normal, 3:1 para texto grande (usa herramientas como Contrast Checker)
+				</li>
+				<li>
+					<strong>Fondo texturizado:</strong>
+					Usa gradientes complejos, imágenes, o patrones—nunca colores planos
+				</li>
+				<li>
+					<strong>Blur moderado:</strong>
+					Entre 10-20px es ideal; menos es invisible, más reduce legibilidad
+				</li>
+				<li>
+					<strong>Performance:</strong>
+					Limita el número de elementos glass en una página (máximo 5-7 elementos grandes)
+				</li>
+				<li>
+					<strong>Bordes sutiles:</strong>
+					Un border de 1-2px con rgba(255,255,255,0.3) ayuda a definir los límites
+				</li>
+				<li>
+					<strong>Sombras dobles:</strong>
+					Combina box-shadow externa e inset para más profundidad
+				</li>
+				<li>
+					<strong>Testing:</strong>
+					Prueba en diferentes dispositivos y con usuarios reales para verificar legibilidad
+				</li>
+			</ul>
+
+			<div class="reflection">
+				<strong>Pregunta Crítica de Diseño:</strong>
+				El glassmorphism es hermoso y trendy, pero ¿sirve un propósito funcional en tu diseño? ¿O es puramente decorativo?
+				En la metodología crítica del diseño, cada decisión debe justificarse: ¿Este efecto ayuda al usuario a entender
+				mejor la jerarquía? ¿Mejora la navegación? ¿O solo añade complejidad visual? Reflexiona antes de implementar.
+			</div>
+		</div>
+
+		<script>
+			// Log info for learning
+			console.log('✨ Glassmorphism Demo Loaded');
+			console.log('💡 Tip: Inspect the .glass-card element to see the CSS magic!');
+			console.log('🎨 Notice how the textured background makes the blur effect visible');
+
+			// Optional: Toggle background animation
+			let animationPaused = false;
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'p' || e.key === 'P') {
+					animationPaused = !animationPaused;
+					const shapes = document.querySelectorAll('.shape');
+					shapes.forEach((shape) => {
+						shape.style.animationPlayState = animationPaused ? 'paused' : 'running';
+					});
+					console.log(`Animation ${animationPaused ? 'PAUSED' : 'PLAYING'} (Press 'P' to toggle)`);
+				}
+			});
+
+			console.log("Press 'P' to pause/play background animation");
+		</script>
+	</body>
 </html>
-

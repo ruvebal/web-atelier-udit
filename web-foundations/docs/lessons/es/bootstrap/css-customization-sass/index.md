@@ -52,9 +52,32 @@ Bootstrap 5 usa **propiedades CSS personalizadas** para temas en tiempo de ejecu
 }
 ```
 
+### ¿Qué es Sass y Por Qué Usarlo?
+
+**Sass (Syntactically Awesome Style Sheets)** es un **preprocesador CSS** que extiende CSS con características poderosas:
+
+- **Variables**: Define valores reutilizables (`$primary: #ff6b35;`)
+- **Anidamiento**: Escribe CSS más organizado y legible
+- **Mixins**: Crea bloques de estilos reutilizables
+- **Funciones**: Manipula colores, tamaños, y más
+- **Importaciones**: Organiza tu CSS en módulos
+
+#### ¿Necesitas una Herramienta de Construcción?
+
+**SÍ**, para usar Sass necesitas una herramienta que **compile** archivos `.scss` a `.css`:
+
+| Herramienta     | Mejor Para         | Configuración | Velocidad    |
+| --------------- | ------------------ | ------------- | ------------ |
+| **Vite** 🚀     | Proyectos modernos | Muy fácil     | Súper rápido |
+| **Webpack** 📦  | Proyectos grandes  | Compleja      | Rápido       |
+| **Parcel** ⚡   | Configuración cero | Automática    | Rápido       |
+| **Sass CLI** 🔧 | Proyectos simples  | Manual        | Normal       |
+
+**Recomendación**: Usa **Vite** para la mayoría de proyectos. Es rápido, fácil de configurar, y tiene soporte excelente para Sass.
+
 ### Variables Sass para Personalización en Tiempo de Construcción
 
-Para temas más comprehensivos, Bootstrap proporciona **variables Sass** que se compilan en CSS:
+Para temas comprehensivos, Bootstrap proporciona **variables Sass** que se compilan en CSS:
 
 ```scss
 // Variables de tema personalizadas
@@ -76,9 +99,21 @@ $border-radius: 0.375rem;
 $border-radius-lg: 0.5rem;
 ```
 
+**Ventaja clave**: Las variables Sass se aplican **antes** de que Bootstrap compile, afectando **todo el sistema** de forma consistente.
+
 ## Métodos de Personalización
 
+### Comparación de Métodos
+
+| Método             | Herramientas Requeridas | Dificultad      | Alcance  | Mejor Para                                  |
+| ------------------ | ----------------------- | --------------- | -------- | ------------------------------------------- |
+| **CSS Overrides**  | Ninguna                 | ⭐ Fácil        | Limitado | Proyectos pequeños, cambios rápidos         |
+| **CSS Variables**  | Ninguna                 | ⭐⭐ Medio      | Medio    | Temas dinámicos, cambios en tiempo real     |
+| **Sass Variables** | Vite/Webpack/etc.       | ⭐⭐⭐ Avanzado | Completo | Proyectos profesionales, sistemas de diseño |
+
 ### Método 1: Anulaciones CSS (Personalización Rápida)
+
+**✅ No requiere herramientas de construcción** - Perfecto para principiantes
 
 El enfoque más simple es **anular los estilos predeterminados de Bootstrap** con CSS personalizado:
 
@@ -122,26 +157,100 @@ El enfoque más simple es **anular los estilos predeterminados de Bootstrap** co
 }
 ```
 
+**👉 Ver Demo**: [01-css-overrides.html](demo/01-css-overrides.html)
+
+**Ventajas:**
+
+- Sin configuración de herramientas
+- Cambios inmediatos
+- Fácil de entender
+
+**Desventajas:**
+
+- Requiere `!important` frecuentemente
+- No afecta todo el sistema
+- CSS más grande
+
 ### Método 2: Personalización de Variables Sass (Enfoque Profesional)
+
+**⚠️ REQUIERE herramienta de construcción** (Vite, Webpack, etc.)
 
 Para temas comprehensivos, personaliza Bootstrap en la fuente usando Sass:
 
 ```scss
-// 1. Importar funciones y variables de Bootstrap
+// 1. PRIMERO: Importar funciones de Bootstrap
 @import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
 
-// 2. Anular variables predeterminadas ANTES de importar Bootstrap
+// 2. PERSONALIZAR variables ANTES de importar Bootstrap
 $primary: #ff6b35;
 $secondary: #f7931e;
 $font-family-base: 'Inter', sans-serif;
 $border-radius: 0.5rem;
 
-// 3. Importar componentes de Bootstrap (después de anular variables)
+// Personalizar espaciado
+$spacer: 1rem;
+$spacers: (
+	0: 0,
+	1: $spacer * 0.25,
+	2: $spacer * 0.5,
+	3: $spacer,
+	4: $spacer * 1.5,
+	5: $spacer * 3,
+);
+
+// 3. Importar variables y mixins
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+// 4. FINALMENTE: Importar Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+// 5. Tus estilos personalizados
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 0.5rem 1.5625rem rgba($primary, 0.2);
+}
+```
+
+**👉 Ver Demo**: [02-sass-customization/](demo/02-sass-customization/)
+
+**Orden Importante:**
+
+1. **Primero**: Funciones de Bootstrap
+2. **Segundo**: Tus variables personalizadas
+3. **Tercero**: Variables y mixins de Bootstrap
+4. **Cuarto**: Bootstrap completo
+5. **Quinto**: Tus estilos adicionales
+
+**Ventajas:**
+
+- Cambios sistemáticos y consistentes
+- CSS final más pequeño (elimina código no usado)
+- No necesitas `!important`
+- Control total del sistema
+
+**Desventajas:**
+
+- Necesitas configurar herramienta de construcción
+- Curva de aprendizaje de Sass
+- Tiempo de compilación
+
+#### Configuración Rápida con Vite
+
+```bash
+# 1. Instalar dependencias
+npm install bootstrap sass vite
+
+# 2. Crear archivo de configuración (opcional)
+# vite.config.js ya está listo por defecto
+
+# 3. Ejecutar servidor de desarrollo
+npm run dev
 ```
 
 ### Método 3: Propiedades CSS Personalizadas (Temas en Tiempo de Ejecución)
+
+**✅ No requiere herramientas de construcción** - Cambios dinámicos
 
 Usa las propiedades CSS integradas de Bootstrap para temas dinámicos:
 
@@ -152,11 +261,45 @@ Usa las propiedades CSS integradas de Bootstrap para temas dinámicos:
 	--bs-secondary: #f7931e;
 	--bs-font-sans-serif: 'Inter', sans-serif;
 }
+
+/* Temas alternos */
+[data-theme='dark'] {
+	--bs-primary: #ff8c61;
+	--bs-body-bg: #1a1a1a;
+	--bs-body-color: #ffffff;
+}
 ```
 
-## Práctica Práctica
+**Ventajas:**
+
+- Temas dinámicos (cambio en tiempo real)
+- Sin compilación
+- JavaScript puede modificarlos
+
+**Desventajas:**
+
+- Alcance limitado (no todas las variables)
+- Soporte de navegador (aunque ya es excelente)
+
+## Práctica
+
+### 🎨 Template Personalizable Completo
+
+Antes de comenzar con los ejercicios, explora nuestro **template personalizable** que incluye:
+
+- Sistema completo de colores
+- Escalas de tamaños de texto
+- Sistema de espaciado
+- Componentes estilizados
+- Guía de personalización incluida
+
+**👉 Abrir Template**: [03-template-customizable.html](demo/03-template-customizable.html)
+
+Este template te permite experimentar con todas las variables CSS personalizables en un solo lugar.
 
 ### Ejercicio 1: Tema Básico con Anulaciones CSS
+
+**📁 Ver demo completo:** [01-css-overrides.html](demo/01-css-overrides.html)
 
 Crea un tema personalizado usando anulaciones CSS:
 
@@ -269,6 +412,129 @@ Crea un tema personalizado usando anulaciones CSS:
 }
 ```
 
+### Ejercicio 2: Personalización Profesional con Sass
+
+**📁 Ver proyecto completo:** [02-sass-customization/](demo/02-sass-customization/)
+
+Este ejercicio requiere configurar un entorno con Vite:
+
+**Paso 1: Configuración Inicial**
+
+```bash
+# Crear carpeta del proyecto
+mkdir mi-tema-bootstrap
+cd mi-tema-bootstrap
+
+# Inicializar proyecto
+npm init -y
+
+# Instalar dependencias
+npm install bootstrap sass vite
+```
+
+**Paso 2: Crear Estructura de Archivos**
+
+```
+mi-tema-bootstrap/
+├── index.html
+├── _custom.scss
+├── package.json
+└── vite.config.js (opcional)
+```
+
+**Paso 3: Personalizar Bootstrap en `_custom.scss`**
+
+Usa el archivo de ejemplo en [demo/02-sass-customization/\_custom.scss](demo/02-sass-customization/_custom.scss) como base.
+
+**Paso 4: Importar en tu HTML**
+
+```html
+<script type="module">
+	import './_custom.scss';
+</script>
+```
+
+**Paso 5: Ejecutar**
+
+```bash
+npm run dev
+```
+
+### Ejercicio 3: Sistema de Diseño Personalizado
+
+Usando el [template personalizable](demo/03-template-customizable.html), crea un sistema de diseño completo:
+
+**Tareas:**
+
+1. Modifica la paleta de colores para tu marca
+2. Ajusta la escala de tamaños de texto
+3. Personaliza el sistema de espaciado
+4. Crea componentes personalizados
+5. Documenta tu sistema de diseño
+
+**Entregables:**
+
+- Archivo HTML con tu sistema personalizado
+- Documentación de variables utilizadas
+- 3 ejemplos de componentes usando tu sistema
+
+## Recursos Interactivos
+
+### 🎮 Demos Incluidos
+
+1. **[01-css-overrides.html](demo/01-css-overrides.html)**
+
+   - Personalización básica con CSS
+   - Sin herramientas de construcción
+   - Ideal para principiantes
+
+2. **[02-sass-customization/](demo/02-sass-customization/)**
+
+   - Proyecto completo con Vite
+   - Personalización profesional con Sass
+   - Incluye package.json y configuración
+
+3. **[03-template-customizable.html](demo/03-template-customizable.html)**
+   - Template interactivo completo
+   - Sistema de colores y tamaños
+   - Guía de personalización incluida
+
+### 🛠️ Herramientas Recomendadas
+
+Para trabajar con Sass, elige una de estas herramientas:
+
+#### Opción 1: Vite (Recomendado)
+
+```bash
+npm install -D vite sass
+npm run dev
+```
+
+- ✅ Configuración automática
+- ✅ Muy rápido
+- ✅ Hot Module Replacement
+
+#### Opción 2: Webpack
+
+```bash
+npm install -D webpack webpack-cli sass-loader sass css-loader style-loader
+```
+
+- ✅ Muy configurable
+- ✅ Gran ecosistema
+- ⚠️ Configuración más compleja
+
+#### Opción 3: Sass CLI
+
+```bash
+npm install -g sass
+sass _custom.scss output.css --watch
+```
+
+- ✅ Simple y directo
+- ⚠️ Sin hot reload
+- ⚠️ Manual
+
 ## Preguntas Críticas de Reflexión
 
 ### Exploración
@@ -303,6 +569,7 @@ Crea un tema personalizado usando anulaciones CSS:
 - [Temas de Bootstrap](https://getbootstrap.com/docs/5.3/customize/overview/)
 - [Variables Sass de Bootstrap](https://getbootstrap.com/docs/5.3/customize/sass/)
 - [Propiedades CSS Personalizadas](https://developer.mozilla.org/es/docs/Web/CSS/Using_CSS_custom_properties)
+- [Lista Completa de Variables Sass de Bootstrap](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss)
 
 ### Sistemas de Diseño y Temas
 
@@ -313,8 +580,16 @@ Crea un tema personalizado usando anulaciones CSS:
 ### Sass y Herramientas de Construcción
 
 - [Documentación de Sass](https://sass-lang.com/documentation)
+- [Guía de Sass (Español)](https://sass-lang.com/guide)
+- [Vite - Preprocesadores CSS](https://vitejs.dev/guide/features.html#css-pre-processors)
 - [Webpack con Sass](https://webpack.js.org/loaders/sass-loader/)
-- [Vite con Sass](https://vitejs.dev/guide/features.html#css-pre-processors)
+- [Parcel - Sass](https://parceljs.org/languages/sass/)
+
+### Tutoriales y Guías
+
+- [Bootstrap Theming Guide](https://getbootstrap.com/docs/5.3/customize/overview/)
+- [Compiling Bootstrap with npm](https://getbootstrap.com/docs/5.3/getting-started/download/#npm)
+- [Vite Quick Start](https://vitejs.dev/guide/)
 
 ### Teoría de Color y Accesibilidad
 

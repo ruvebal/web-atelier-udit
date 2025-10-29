@@ -26,27 +26,43 @@ tags: [bootstrapcss, javascript, interactivity, progressive-enhancement]
 
 This session introduces **Bootstrap's JavaScript components** and interactivity features. Students will learn how to add dynamic behavior to their websites using Bootstrap's pre-built JavaScript components, data attributes, and progressive enhancement principles.
 
-## Learning Objectives
+## 🎯 Learning Objectives
 
 - Understand Bootstrap's JavaScript component architecture
 - Learn to use data attributes for component configuration
 - Master interactive components like modals, carousels, and dropdowns
 - Apply progressive enhancement principles
+- Control components programmatically through JavaScript API
 
-## Core Concepts
+## 🚀 Interactive Demos
+
+Explore these interactive demos to learn by doing:
+
+1. **[Data Attributes System](./demo/01-data-attributes.html)** - Learn how Bootstrap uses `data-*` attributes
+2. **[Modal Dialogs](./demo/02-modals.html)** - Overlay dialog windows with all sizes and options
+3. **[Carousels](./demo/03-carousel.html)** - Rotating slideshows with indicators and captions
+4. **[Dropdowns & Tooltips](./demo/04-dropdowns-tooltips.html)** - Menus and contextual hints
+5. **[Interactive Portfolio](./demo/05-interactive-portfolio.html)** - Complete example integrating all components
+6. **[JavaScript API & Events](./demo/06-component-lifecycle.html)** - Programmatic control and event handling
+
+## 📚 Core Concepts
 
 ### Bootstrap's JavaScript Architecture
 
 **Bootstrap's JavaScript** is built around a **component-based architecture** where:
 
-- **Components are initialized** using data attributes
+- **Components are initialized** using data attributes or JavaScript API
 - **No custom JavaScript** is required for basic functionality
 - **Progressive enhancement** ensures graceful degradation
 - **Accessibility is built-in** with proper ARIA attributes
 
+> **💡 Learn more:** Explore the [Data Attributes Demo](./demo/01-data-attributes.html) to see how they work in practice.
+
 ### Data Attributes System
 
-Bootstrap uses **data attributes** to configure and control components:
+Bootstrap uses **data attributes** `data-*` to configure and control components without writing JavaScript:
+
+> **🎨 Interactive Demo:** [Explore Data Attributes System](./demo/01-data-attributes.html)
 
 ```html
 <!-- Basic button -->
@@ -77,11 +93,13 @@ Bootstrap follows **progressive enhancement** principles:
 2. **CSS enhancement** - Visual improvements with CSS
 3. **JavaScript enhancement** - Interactive features with JS
 
-## Essential Interactive Components
+## 🎭 Essential Interactive Components
 
 ### Modal Dialogs
 
 **Modals** create dialog boxes that overlay the main content:
+
+> **🎨 Interactive Demo:** [Explore Modal Dialogs](./demo/02-modals.html) - Different sizes, scroll, and positioning
 
 ```html
 <!-- Button to trigger modal -->
@@ -119,6 +137,8 @@ Bootstrap follows **progressive enhancement** principles:
 ### Carousel/Slideshow
 
 **Carousels** create rotating content displays:
+
+> **🎨 Interactive Demo:** [Explore Carousels](./demo/03-carousel.html) - With indicators, captions, and fade effects
 
 ```html
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -171,6 +191,8 @@ Bootstrap follows **progressive enhancement** principles:
 
 **Dropdowns** create collapsible menus:
 
+> **🎨 Interactive Demo:** [Explore Dropdowns & Tooltips](./demo/04-dropdowns-tooltips.html) - Directions, advanced content, and tooltips
+
 ```html
 <div class="dropdown">
 	<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -203,336 +225,111 @@ Bootstrap follows **progressive enhancement** principles:
 </script>
 ```
 
-## Hands-on Practice
+## 💻 Hands-on Practice
 
 ### Exercise 1: Interactive Portfolio with Modals
 
-Create a portfolio page with interactive project details using modals:
+> **🎨 Complete Demo:** [View Interactive Portfolio](./demo/05-interactive-portfolio.html)
+>
+> This demo shows how to combine all Bootstrap JavaScript components in a real application. It includes:
+>
+> - Responsive navigation with dropdowns
+> - Project cards with detail modals
+> - Testimonials carousel
+> - Skill tooltips
+> - Toast notification system
+>
+> **📝 Task:** Examine the source code and customize the portfolio with your own information.
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Interactive Bootstrap Portfolio</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-	</head>
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<div class="container">
-				<a class="navbar-brand" href="#">Portfolio</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-						<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+**Features you should implement:**
 
-		<section id="projects" class="py-5">
-			<div class="container">
-				<h2 class="text-center mb-5">My Projects</h2>
-				<div class="row">
-					<div class="col-lg-4 mb-4">
-						<div class="card h-100">
-							<img src="https://picsum.photos/400/250?random=1" class="card-img-top" alt="E-commerce Site" />
-							<div class="card-body">
-								<h5 class="card-title">E-commerce Platform</h5>
-								<p class="card-text">A responsive e-commerce site built with modern web technologies.</p>
-								<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project1Modal">View Details</button>
-							</div>
-						</div>
-					</div>
+1. **Sticky Navigation** with mobile collapse
+2. **Project Cards** with hover effects
+3. **Detail Modals** with complete information
+4. **Technology Badges** with tooltips
+5. **Contact Form** in a modal
 
-					<div class="col-lg-4 mb-4">
-						<div class="card h-100">
-							<img src="https://picsum.photos/400/250?random=2" class="card-img-top" alt="Portfolio CMS" />
-							<div class="card-body">
-								<h5 class="card-title">Content Management System</h5>
-								<p class="card-text">A custom CMS for creative professionals to manage their portfolios.</p>
-								<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project2Modal">View Details</button>
-							</div>
-						</div>
-					</div>
+## 🔧 JavaScript API and Programmatic Control
 
-					<div class="col-lg-4 mb-4">
-						<div class="card h-100">
-							<img src="https://picsum.photos/400/250?random=3" class="card-img-top" alt="Mobile App" />
-							<div class="card-body">
-								<h5 class="card-title">Task Management App</h5>
-								<p class="card-text">A progressive web app for productivity and task management.</p>
-								<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project3Modal">View Details</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+Beyond data attributes, Bootstrap provides a complete JavaScript API for programmatic control:
 
-		<!-- Project Detail Modals -->
-		<!-- Project 1 Modal -->
-		<div class="modal fade" id="project1Modal" tabindex="-1" aria-labelledby="project1ModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="project1ModalLabel">E-commerce Platform</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<img src="https://picsum.photos/800/400?random=1" class="img-fluid mb-3" alt="E-commerce Platform" />
-						<p>
-							This e-commerce platform was built using modern web technologies including React, Node.js, and MongoDB. It
-							features a responsive design that works seamlessly across all devices.
-						</p>
-						<h6>Key Features:</h6>
-						<ul>
-							<li>Responsive product catalog with filtering and search</li>
-							<li>User authentication and account management</li>
-							<li>Shopping cart and checkout process</li>
-							<li>Payment integration with Stripe</li>
-							<li>Admin dashboard for inventory management</li>
-						</ul>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<a href="#" class="btn btn-primary">View Live Demo</a>
-					</div>
-				</div>
-			</div>
-		</div>
+> **🎨 Advanced Demo:** [Explore JavaScript API & Events](./demo/06-component-lifecycle.html)
 
-		<!-- Project 2 Modal -->
-		<div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2ModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="project2ModalLabel">Content Management System</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<img src="https://picsum.photos/800/400?random=2" class="img-fluid mb-3" alt="Content Management System" />
-						<p>
-							A custom CMS designed specifically for creative professionals to manage their online portfolios. Built with
-							accessibility and user experience in mind.
-						</p>
-						<h6>Key Features:</h6>
-						<ul>
-							<li>Drag-and-drop content editor</li>
-							<li>Responsive design templates</li>
-							<li>SEO optimization tools</li>
-							<li>Image optimization and lazy loading</li>
-							<li>Analytics integration</li>
-						</ul>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<a href="#" class="btn btn-primary">View Live Demo</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Project 3 Modal -->
-		<div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3ModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="project3ModalLabel">Task Management App</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<img src="https://picsum.photos/800/400?random=3" class="img-fluid mb-3" alt="Task Management App" />
-						<p>
-							A progressive web app that helps users manage their tasks and boost productivity. Works offline and can be
-							installed on mobile devices.
-						</p>
-						<h6>Key Features:</h6>
-						<ul>
-							<li>Offline-first architecture</li>
-							<li>Push notifications for reminders</li>
-							<li>Collaborative task sharing</li>
-							<li>Data synchronization across devices</li>
-							<li>Progressive Web App (PWA) capabilities</li>
-						</ul>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<a href="#" class="btn btn-primary">View Live Demo</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-	</body>
-</html>
-```
-
-### Exercise 2: Carousel and Tooltip Integration
-
-Add a carousel and tooltips to enhance user experience:
-
-```html
-<div class="container my-5">
-	<!-- Image Carousel -->
-	<div id="projectCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="0" class="active"></button>
-			<button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="1"></button>
-			<button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="2"></button>
-		</div>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="https://picsum.photos/800/400?random=1" class="d-block w-100" alt="Project screenshot 1" />
-			</div>
-			<div class="carousel-item">
-				<img src="https://picsum.photos/800/400?random=2" class="d-block w-100" alt="Project screenshot 2" />
-			</div>
-			<div class="carousel-item">
-				<img src="https://picsum.photos/800/400?random=3" class="d-block w-100" alt="Project screenshot 3" />
-			</div>
-		</div>
-		<button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon"></span>
-		</button>
-		<button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
-			<span class="carousel-control-next-icon"></span>
-		</button>
-	</div>
-
-	<!-- Tooltip Examples -->
-	<div class="row">
-		<div class="col-md-6">
-			<h3>Technologies Used</h3>
-			<div class="d-flex flex-wrap gap-2">
-				<span
-					class="badge bg-primary"
-					data-bs-toggle="tooltip"
-					title="React - A JavaScript library for building user interfaces">
-					React
-				</span>
-				<span
-					class="badge bg-secondary"
-					data-bs-toggle="tooltip"
-					title="Node.js - JavaScript runtime for server-side development">
-					Node.js
-				</span>
-				<span class="badge bg-success" data-bs-toggle="tooltip" title="MongoDB - NoSQL database for modern applications">
-					MongoDB
-				</span>
-				<span class="badge bg-info" data-bs-toggle="tooltip" title="Bootstrap - CSS framework for responsive design">
-					Bootstrap
-				</span>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<h3>Project Stats</h3>
-			<ul class="list-group">
-				<li class="list-group-item d-flex justify-content-between">
-					Lines of Code
-					<span
-						class="badge bg-primary rounded-pill"
-						data-bs-toggle="tooltip"
-						title="Approximately 15,000 lines across all files">
-						15K
-					</span>
-				</li>
-				<li class="list-group-item d-flex justify-content-between">
-					Development Time
-					<span class="badge bg-success rounded-pill" data-bs-toggle="tooltip" title="3 months of active development">
-						3 months
-					</span>
-				</li>
-				<li class="list-group-item d-flex justify-content-between">
-					Technologies
-					<span class="badge bg-info rounded-pill" data-bs-toggle="tooltip" title="React, Node.js, MongoDB, Bootstrap">
-						4
-					</span>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
-
-<script>
-	// Initialize tooltips
-	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-		return new bootstrap.Tooltip(tooltipTriggerEl);
-	});
-</script>
-```
-
-## JavaScript Component Lifecycle
-
-### Initialization Methods
-
-Bootstrap components can be initialized in several ways:
-
-1. **Automatic initialization** (data attributes)
-2. **Manual JavaScript initialization**
-3. **jQuery initialization** (legacy support)
+### Manual Initialization
 
 ```javascript
-// Manual initialization
-var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+// Create component instance
+const myModal = new bootstrap.Modal(document.getElementById('myModal'), {
 	backdrop: 'static',
 	keyboard: false,
 });
 
-// Programmatic control
-myModal.show(); // Show modal
-myModal.hide(); // Hide modal
+// Control the component
+myModal.show();
+myModal.hide();
+myModal.toggle();
 ```
 
-### Event Handling
-
-Bootstrap components emit events for custom behavior:
+### Component Events
 
 ```javascript
-var myModalEl = document.getElementById('myModal');
-myModalEl.addEventListener('show.bs.modal', function (event) {
-	// Custom logic before modal shows
+const modalEl = document.getElementById('myModal');
+
+// Listen to events
+modalEl.addEventListener('show.bs.modal', function (event) {
 	console.log('Modal is about to show');
+	// Your code here
 });
 
-myModalEl.addEventListener('shown.bs.modal', function (event) {
-	// Custom logic after modal is shown
-	console.log('Modal is now visible');
+modalEl.addEventListener('shown.bs.modal', function (event) {
+	console.log('Modal is fully visible');
+	// Focus a field, start animation, etc.
 });
 ```
 
-## Critical Reflection Prompts
+### Available Methods
+
+All components share common methods:
+
+| Method          | Description                              |
+| --------------- | ---------------------------------------- |
+| `show()`        | Shows the component                      |
+| `hide()`        | Hides the component                      |
+| `toggle()`      | Toggles between show/hide                |
+| `dispose()`     | Destroys the component and cleans memory |
+| `getInstance()` | Gets the component instance              |
+
+## 🤔 Critical Reflection Prompts
 
 ### Exploration
 
 - How did adding JavaScript interactivity change your perception of Bootstrap's capabilities?
 - What surprised you most about the data attribute system for component configuration?
+- When would you prefer to use data attributes vs. JavaScript API?
 
 ### Reflection
 
 - How does Bootstrap's approach to JavaScript components embody progressive enhancement principles?
 - In what ways does no-code interactivity affect the developer experience compared to custom JavaScript?
+- What advantages does component lifecycle event handling provide?
 
 ### Conceptualization
 
 - How do interactive components relate to user experience design principles?
 - What are the accessibility implications of modal dialogs and overlay content?
+- How does event timing influence application architecture?
 
 ### Production
 
 - How might Bootstrap's JavaScript components scale for complex, enterprise-level applications?
 - What are the performance implications of including Bootstrap's JavaScript bundle?
+- When would you need to combine Bootstrap with frameworks like React or Vue?
 
 ### Exhibition
 
 - How will you demonstrate the interactive features of your Bootstrap-enhanced portfolio?
 - What alternative approaches to web interactivity could achieve similar user experiences?
+- How would you document JavaScript component usage in your project?
 
 ## References & Further Reading
 

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo 3: Carousel/Slideshow - Bootstrap JS</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			body {
+				padding: 2rem 0;
+				background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+				min-height: 100vh;
+			}
+			.demo-container {
+				background: white;
+				border-radius: 15px;
+				padding: 3rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.demo-section {
+				margin-bottom: 3rem;
+				padding-bottom: 2rem;
+				border-bottom: 2px solid #e9ecef;
+			}
+			.demo-section:last-child {
+				border-bottom: none;
+			}
+			.code-highlight {
+				background: #f8f9fa;
+				border-left: 4px solid #00f2fe;
+				padding: 1rem;
+				margin: 1rem 0;
+				border-radius: 5px;
+				font-size: 0.85rem;
+			}
+			.carousel-caption {
+				background: rgba(0, 0, 0, 0.7);
+				padding: 1rem;
+				border-radius: 10px;
+			}
+			.feature-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 1rem;
+			}
+			.feature-item {
+				background: #f0f9ff;
+				border-left: 4px solid #4facfe;
+				padding: 1rem;
+				border-radius: 5px;
+			}
+			.carousel-item img {
+				height: 400px;
+				object-fit: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="demo-container">
+				<div class="text-center mb-5">
+					<h1 class="display-4 fw-bold" style="color: #4facfe">Carousels & Slideshows</h1>
+					<p class="lead text-muted">Rotating content displays with navigation controls</p>
+				</div>
+
+				<!-- Section 1: Basic Carousel -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-primary">1</span>
+						Basic Carousel
+					</h2>
+					<p>The simplest carousel with automatically sliding images.</p>
+
+					<div id="basicCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="https://picsum.photos/800/400?random=1" class="d-block w-100" alt="Slide 1" />
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/400?random=2" class="d-block w-100" alt="Slide 2" />
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/400?random=3" class="d-block w-100" alt="Slide 3" />
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#basicCarousel" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#basicCarousel" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+
+					<div class="code-highlight">
+						<strong>Carousel Structure:</strong>
+						<pre><code>&lt;div class="carousel slide" data-bs-ride="carousel"&gt;
+  &lt;div class="carousel-inner"&gt;
+    &lt;div class="carousel-item active"&gt;...&lt;/div&gt;
+    &lt;div class="carousel-item"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="carousel-control-prev"&gt;...&lt;/button&gt;
+  &lt;button class="carousel-control-next"&gt;...&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+					</div>
+
+					<div class="alert alert-info">
+						<strong>💡 Key Concept:</strong>
+						The
+						<code>data-bs-ride="carousel"</code>
+						attribute starts auto-play. The first
+						<code>.carousel-item</code>
+						must have the
+						<code>.active</code>
+						class.
+					</div>
+				</div>
+
+				<!-- Section 2: Carousel with Indicators -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-success">2</span>
+						With Indicators
+					</h2>
+					<p>Add indicator dots to show the current slide and allow direct navigation.</p>
+
+					<div id="indicatorCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+						<div class="carousel-indicators">
+							<button
+								type="button"
+								data-bs-target="#indicatorCarousel"
+								data-bs-slide-to="0"
+								class="active"
+								aria-current="true"></button>
+							<button type="button" data-bs-target="#indicatorCarousel" data-bs-slide-to="1"></button>
+							<button type="button" data-bs-target="#indicatorCarousel" data-bs-slide-to="2"></button>
+							<button type="button" data-bs-target="#indicatorCarousel" data-bs-slide-to="3"></button>
+						</div>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="https://picsum.photos/800/400?random=4" class="d-block w-100" alt="Slide 1" />
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/400?random=5" class="d-block w-100" alt="Slide 2" />
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/400?random=6" class="d-block w-100" alt="Slide 3" />
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/400?random=7" class="d-block w-100" alt="Slide 4" />
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#indicatorCarousel" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#indicatorCarousel" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+
+					<div class="code-highlight">
+						<strong>Indicators:</strong>
+						<pre><code>&lt;div class="carousel-indicators"&gt;
+  &lt;button data-bs-slide-to="0" class="active"&gt;&lt;/button&gt;
+  &lt;button data-bs-slide-to="1"&gt;&lt;/button&gt;
+  &lt;button data-bs-slide-to="2"&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+					</div>
+				</div>
+
+				<!-- Section 3: Carousel with Captions -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-warning">3</span>
+						With Captions
+					</h2>
+					<p>
+						Add overlay text to your slides with
+						<code>.carousel-caption</code>
+						.
+					</p>
+
+					<div id="captionCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+						<div class="carousel-indicators">
+							<button
+								type="button"
+								data-bs-target="#captionCarousel"
+								data-bs-slide-to="0"
+								class="active"
+								aria-current="true"></button>
+							<button type="button" data-bs-target="#captionCarousel" data-bs-slide-to="1"></button>
+							<button type="button" data-bs-target="#captionCarousel" data-bs-slide-to="2"></button>
+						</div>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="https://picsum.photos/800/400?random=8" class="d-block w-100" alt="Mountain Landscape" />
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Mountain Landscapes</h5>
+									<p>Discover breathtaking views of majestic peaks and serene valleys.</p>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/400?random=9" class="d-block w-100" alt="City Life" />
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Urban Living</h5>
+									<p>Explore the vibrant energy of modern cities and architecture.</p>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/400?random=10" class="d-block w-100" alt="Beach Scenes" />
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Coastal Retreats</h5>
+									<p>Relax with the soothing sound of waves and sandy shores.</p>
+								</div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#captionCarousel" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#captionCarousel" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+
+					<div class="alert alert-warning">
+						<strong>⚠️ Responsiveness:</strong>
+						Captions use
+						<code>.d-none .d-md-block</code>
+						to hide on small screens where text might be unreadable.
+					</div>
+				</div>
+
+				<!-- Section 4: Crossfade Effect -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-danger">4</span>
+						Crossfade Effect
+					</h2>
+					<p>
+						Change the default slide effect to a fade transition by adding
+						<code>.carousel-fade</code>
+						.
+					</p>
+
+					<div id="fadeCarousel" class="carousel slide carousel-fade mb-3" data-bs-ride="carousel">
+						<div class="carousel-indicators">
+							<button
+								type="button"
+								data-bs-target="#fadeCarousel"
+								data-bs-slide-to="0"
+								class="active"
+								aria-current="true"></button>
+							<button type="button" data-bs-target="#fadeCarousel" data-bs-slide-to="1"></button>
+							<button type="button" data-bs-target="#fadeCarousel" data-bs-slide-to="2"></button>
+						</div>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="https://picsum.photos/800/400?random=11" class="d-block w-100" alt="Image 1" />
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Smooth Fade Effect</h5>
+									<p>Notice how images fade into each other rather than sliding.</p>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/400?random=12" class="d-block w-100" alt="Image 2" />
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Elegant Transition</h5>
+									<p>Perfect for sophisticated galleries and portfolios.</p>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/400?random=13" class="d-block w-100" alt="Image 3" />
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Professional Experience</h5>
+									<p>Create a more refined atmosphere for your content.</p>
+								</div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#fadeCarousel" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#fadeCarousel" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+				</div>
+
+				<!-- Section 5: Practical Example - Testimonials -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-info">5</span>
+						Practical Example: Customer Testimonials
+					</h2>
+					<p>Carousels aren't just for images. Use them to showcase testimonials, reviews, or any content.</p>
+
+					<div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+						<div class="carousel-indicators">
+							<button
+								type="button"
+								data-bs-target="#testimonialCarousel"
+								data-bs-slide-to="0"
+								class="active"
+								aria-current="true"></button>
+							<button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+							<button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+						</div>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="text-center py-5">
+									<div class="mb-4">
+										<img
+											src="https://i.pravatar.cc/150?img=1"
+											alt="Customer"
+											class="rounded-circle"
+											style="width: 100px; height: 100px; object-fit: cover" />
+									</div>
+									<blockquote class="blockquote">
+										<p class="mb-3 fs-5 fst-italic">"This product completely transformed the way we work. Highly recommend!"</p>
+										<footer class="blockquote-footer">
+											<strong>Maria Gonzalez</strong>
+											, CEO at TechCorp
+										</footer>
+									</blockquote>
+									<div class="mt-3">
+										<span class="text-warning">★★★★★</span>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<div class="text-center py-5">
+									<div class="mb-4">
+										<img
+											src="https://i.pravatar.cc/150?img=3"
+											alt="Customer"
+											class="rounded-circle"
+											style="width: 100px; height: 100px; object-fit: cover" />
+									</div>
+									<blockquote class="blockquote">
+										<p class="mb-3 fs-5 fst-italic">
+											"Exceptional customer service and an incredible product. Five stars well deserved."
+										</p>
+										<footer class="blockquote-footer">
+											<strong>Carlos Rodriguez</strong>
+											, Founder at StartupXYZ
+										</footer>
+									</blockquote>
+									<div class="mt-3">
+										<span class="text-warning">★★★★★</span>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<div class="text-center py-5">
+									<div class="mb-4">
+										<img
+											src="https://i.pravatar.cc/150?img=5"
+											alt="Customer"
+											class="rounded-circle"
+											style="width: 100px; height: 100px; object-fit: cover" />
+									</div>
+									<blockquote class="blockquote">
+										<p class="mb-3 fs-5 fst-italic">"Easy to use, powerful, and exactly what we needed. Couldn't be happier!"</p>
+										<footer class="blockquote-footer">
+											<strong>Ana Martinez</strong>
+											, Design Director
+										</footer>
+									</blockquote>
+									<div class="mt-3">
+										<span class="text-warning">★★★★★</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+				</div>
+
+				<!-- Features Grid -->
+				<div class="feature-grid mb-4">
+					<div class="feature-item">
+						<h6 class="fw-bold">🎯 Auto-play</h6>
+						<p class="small mb-0">
+							<code>data-bs-ride="carousel"</code>
+						</p>
+					</div>
+					<div class="feature-item">
+						<h6 class="fw-bold">⏱️ Interval</h6>
+						<p class="small mb-0">
+							<code>data-bs-interval="5000"</code>
+						</p>
+					</div>
+					<div class="feature-item">
+						<h6 class="fw-bold">🔄 Infinite Loop</h6>
+						<p class="small mb-0">Automatic by default</p>
+					</div>
+					<div class="feature-item">
+						<h6 class="fw-bold">⌨️ Keyboard Navigation</h6>
+						<p class="small mb-0">Left/right arrows</p>
+					</div>
+					<div class="feature-item">
+						<h6 class="fw-bold">👆 Touch/Swipe</h6>
+						<p class="small mb-0">On mobile devices</p>
+					</div>
+					<div class="feature-item">
+						<h6 class="fw-bold">♿ Accessibility</h6>
+						<p class="small mb-0">ARIA included</p>
+					</div>
+				</div>
+
+				<!-- Takeaways -->
+				<div class="alert alert-success">
+					<h4 class="alert-heading">🎯 Key Takeaways About Carousels</h4>
+					<ul class="mb-0">
+						<li>
+							<strong>Versatile:</strong>
+							Works with images, text, cards, and any HTML content
+						</li>
+						<li>
+							<strong>Configurable:</strong>
+							Control over intervals, auto-play, transition effects
+						</li>
+						<li>
+							<strong>Accessible:</strong>
+							Includes keyboard navigation and ARIA attributes
+						</li>
+						<li>
+							<strong>Responsive:</strong>
+							Automatically adapts to screen size
+						</li>
+						<li>
+							<strong>No JavaScript:</strong>
+							Works entirely with data attributes
+						</li>
+					</ul>
+				</div>
+
+				<div class="text-center mt-4">
+					<a href="./02-modals.html" class="btn btn-outline-primary">← Previous</a>
+					<a href="../index.html" class="btn btn-outline-secondary">Lesson</a>
+					<a href="./04-dropdowns-tooltips.html" class="btn btn-primary">Next: Dropdowns & Tooltips →</a>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,263 @@
+# ============================================
+# GITIGNORE PARA PORTAFOLIO WEB ESTÁTICO
+# ============================================
+# Este archivo indica a Git qué archivos/carpetas NO debe versionar
+# Es importante para mantener el repositorio limpio y seguro
+# ============================================
+
+# ============================================
+# SISTEMA OPERATIVO
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# EDITORES E IDEs
+# ============================================
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Cursor
+.cursor/
+
+# JetBrains (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# ============================================
+# NODE.JS / NPM
+# ============================================
+
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos de lock opcionales
+# Descomenta si no quieres versionar estos archivos
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Caché de npm
+.npm
+.eslintcache
+
+# ============================================
+# ARCHIVOS DE BUILD Y DISTRIBUCIÓN
+# ============================================
+
+# Carpetas de build comunes
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# Si usas procesadores CSS
+*.css.map
+*.scss.map
+
+# Archivos temporales de Sass
+.sass-cache/
+
+# ============================================
+# ARCHIVOS SENSIBLES
+# ============================================
+
+# IMPORTANTE: NUNCA versionar estos archivos
+# Contienen información sensible
+
+# Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de configuración con credenciales
+config.local.js
+secrets.json
+
+# Claves API (si tienes archivos con claves)
+*-key.json
+*.pem
+*.key
+
+# ============================================
+# ARCHIVOS DE BACKUP Y TEMPORALES
+# ============================================
+
+# Backups
+*.backup
+*.bak
+*.tmp
+*.temp
+*~
+
+# Archivos de registro (logs)
+*.log
+logs/
+*.log.*
+
+# ============================================
+# MULTIMEDIA ORIGINAL (OPCIONAL)
+# ============================================
+
+# Si trabajas con imágenes originales grandes y solo
+# versionas las optimizadas, descomenta estas líneas:
+
+# Originales de imágenes
+# assets/images/original/
+# assets/images/raw/
+
+# Archivos PSD, AI, XD (diseños originales)
+# *.psd
+# *.ai
+# *.xd
+# *.sketch
+# *.fig
+
+# Videos pesados (mejor alojar en YouTube/Vimeo)
+# *.mp4
+# *.mov
+# *.avi
+
+# ============================================
+# TESTING
+# ============================================
+
+# Cobertura de tests
+coverage/
+.nyc_output/
+*.lcov
+
+# Resultados de tests
+test-results/
+playwright-report/
+
+# ============================================
+# DOCUMENTACIÓN LOCAL
+# ============================================
+
+# Documentación generada (como JSDoc)
+docs/_build/
+.docusaurus/
+
+# ============================================
+# ESPECÍFICO DE GITHUB PAGES
+# ============================================
+
+# Jekyll (si no lo usas)
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# ============================================
+# MISCELÁNEOS
+# ============================================
+
+# Archivos comprimidos
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Certificados SSL locales
+*.cert
+*.crt
+
+# Archivos de base de datos locales
+*.sqlite
+*.db
+
+# ============================================
+# ARCHIVOS A INCLUIR (IMPORTANTE)
+# ============================================
+
+# Asegúrate de NO ignorar estos archivos importantes:
+# ✅ index.html
+# ✅ assets/ (carpeta con CSS, JS, imágenes)
+# ✅ README.md
+# ✅ LICENSE
+# ✅ CNAME (si usas dominio personalizado)
+# ✅ .nojekyll (para desactivar Jekyll)
+# ✅ favicon.ico y otros favicons
+
+# ============================================
+# NOTAS DE USO
+# ============================================
+#
+# PARA AÑADIR EXCEPCIONES:
+# Si necesitas incluir un archivo que está ignorado, usa !
+# Por ejemplo:
+# !dist/critical.css
+#
+# PARA IGNORAR CARPETAS COMPLETAS:
+# Usa / al final:
+# carpeta/
+#
+# PARA IGNORAR ARCHIVOS EN CUALQUIER LUGAR:
+# Usa **/
+# **/temp.txt
+#
+# PARA VER QUÉ ARCHIVOS ESTÁN SIENDO IGNORADOS:
+# git status --ignored
+#
+# PARA LIMPIAR ARCHIVOS YA TRACKEADOS:
+# Si añadiste algo a .gitignore que ya estaba en git:
+# git rm --cached archivo-a-ignorar
+# git commit -m "Remove tracked file now in .gitignore"
+#
+# ============================================
+

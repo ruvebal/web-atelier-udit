@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo 6: JavaScript API & Events - Bootstrap JS</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			body {
+				padding: 2rem 0;
+				background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+				min-height: 100vh;
+			}
+			.demo-container {
+				background: white;
+				border-radius: 15px;
+				padding: 3rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.demo-section {
+				margin-bottom: 3rem;
+				padding-bottom: 2rem;
+				border-bottom: 2px solid #e9ecef;
+			}
+			.demo-section:last-child {
+				border-bottom: none;
+			}
+			.code-highlight {
+				background: #f8f9fa;
+				border-left: 4px solid #30cfd0;
+				padding: 1rem;
+				margin: 1rem 0;
+				border-radius: 5px;
+				font-size: 0.85rem;
+			}
+			.event-log {
+				background: #1e1e1e;
+				color: #00ff00;
+				padding: 1rem;
+				border-radius: 5px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.85rem;
+				max-height: 200px;
+				overflow-y: auto;
+			}
+			.event-log-item {
+				margin-bottom: 0.25rem;
+			}
+			.btn-control {
+				min-width: 120px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="demo-container">
+				<div class="text-center mb-5">
+					<h1 class="display-4 fw-bold" style="color: #330867">JavaScript API & Events</h1>
+					<p class="lead text-muted">Programmatic control of components and event handling</p>
+				</div>
+
+				<!-- Section 1: Modal API -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-primary">1</span>
+						Programmatic Modal Control
+					</h2>
+					<p>Control modals with JavaScript methods instead of data attributes.</p>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="d-grid gap-2 mb-3">
+								<button class="btn btn-primary btn-control" onclick="showModal()">Show Modal</button>
+								<button class="btn btn-secondary btn-control" onclick="hideModal()">Hide Modal</button>
+								<button class="btn btn-warning btn-control" onclick="toggleModal()">Toggle Modal</button>
+								<button class="btn btn-danger btn-control" onclick="disposeModal()">Dispose Modal</button>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="code-highlight">
+								<strong>Modal API:</strong>
+								<pre><code>const modal = new bootstrap.Modal('#myModal');
+modal.show();    // Show
+modal.hide();    // Hide
+modal.toggle();  // Toggle
+modal.dispose(); // Dispose</code></pre>
+							</div>
+						</div>
+					</div>
+
+					<div class="event-log" id="modalLog">
+						<div class="text-muted">Modal event log...</div>
+					</div>
+				</div>
+
+				<!-- Section 2: Modal Events -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-success">2</span>
+						Modal Events
+					</h2>
+					<p>Modals emit events that you can listen to for executing custom code.</p>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="table-responsive">
+								<table class="table table-sm table-bordered">
+									<thead>
+										<tr>
+											<th>Event</th>
+											<th>When it Fires</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><code>show.bs.modal</code></td>
+											<td>Before showing</td>
+										</tr>
+										<tr>
+											<td><code>shown.bs.modal</code></td>
+											<td>After showing</td>
+										</tr>
+										<tr>
+											<td><code>hide.bs.modal</code></td>
+											<td>Before hiding</td>
+										</tr>
+										<tr>
+											<td><code>hidden.bs.modal</code></td>
+											<td>After hiding</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="code-highlight">
+								<strong>Listen to Events:</strong>
+								<pre><code>const el = document.getElementById('myModal');
+el.addEventListener('shown.bs.modal', function(e) {
+  console.log('Modal shown!');
+  // Your code here
+});</code></pre>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Section 3: Carousel Control -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-warning">3</span>
+						Programmatic Carousel Control
+					</h2>
+					<p>Control carousel programmatically and respond to events.</p>
+
+					<div id="demoCarousel" class="carousel slide mb-3">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="https://picsum.photos/800/300?random=1" class="d-block w-100" alt="Slide 1" />
+								<div class="carousel-caption bg-dark bg-opacity-50 rounded p-2">
+									<h5>Slide 1</h5>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/300?random=2" class="d-block w-100" alt="Slide 2" />
+								<div class="carousel-caption bg-dark bg-opacity-50 rounded p-2">
+									<h5>Slide 2</h5>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img src="https://picsum.photos/800/300?random=3" class="d-block w-100" alt="Slide 3" />
+								<div class="carousel-caption bg-dark bg-opacity-50 rounded p-2">
+									<h5>Slide 3</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="d-flex flex-wrap gap-2 mb-3">
+								<button class="btn btn-sm btn-primary" onclick="carouselControl('prev')">← Previous</button>
+								<button class="btn btn-sm btn-primary" onclick="carouselControl('next')">Next →</button>
+								<button class="btn btn-sm btn-success" onclick="carouselControl('pause')">⏸ Pause</button>
+								<button class="btn btn-sm btn-success" onclick="carouselControl('cycle')">▶ Resume</button>
+								<button class="btn btn-sm btn-info" onclick="carouselControl(0)">Go to 1</button>
+								<button class="btn btn-sm btn-info" onclick="carouselControl(1)">Go to 2</button>
+								<button class="btn btn-sm btn-info" onclick="carouselControl(2)">Go to 3</button>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="code-highlight">
+								<strong>Carousel API:</strong>
+								<pre><code>const carousel = new bootstrap.Carousel('#carousel');
+carousel.next();    // Next slide
+carousel.prev();    // Previous slide
+carousel.pause();   // Pause auto-play
+carousel.cycle();   // Resume
+carousel.to(2);     // Go to slide index 2</code></pre>
+							</div>
+						</div>
+					</div>
+
+					<div class="event-log" id="carouselLog">
+						<div class="text-muted">Carousel event log...</div>
+					</div>
+				</div>
+
+				<!-- Section 4: Toast Notifications -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-danger">4</span>
+						Toast Notifications
+					</h2>
+					<p>Toasts are lightweight notifications that require JavaScript initialization.</p>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="d-grid gap-2">
+								<button class="btn btn-success" onclick="showToast('success', '✓ Operation successful!')">Success Toast</button>
+								<button class="btn btn-warning" onclick="showToast('warning', '⚠ Important warning')">Warning Toast</button>
+								<button class="btn btn-danger" onclick="showToast('danger', '✗ An error occurred')">Error Toast</button>
+								<button class="btn btn-info" onclick="showToast('info', 'ℹ Helpful information')">Info Toast</button>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="code-highlight">
+								<strong>Create Toast:</strong>
+								<pre><code>const toast = new bootstrap.Toast('#myToast', {
+  animation: true,
+  autohide: true,
+  delay: 3000
+});
+toast.show();</code></pre>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Section 5: Offcanvas Control -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-info">5</span>
+						Offcanvas Control
+					</h2>
+					<p>Offcanvas are sliding panels that can be controlled programmatically.</p>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="d-grid gap-2 mb-3">
+								<button class="btn btn-primary" onclick="offcanvasControl('show')">Show Offcanvas</button>
+								<button class="btn btn-secondary" onclick="offcanvasControl('hide')">Hide Offcanvas</button>
+								<button class="btn btn-warning" onclick="offcanvasControl('toggle')">Toggle Offcanvas</button>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="code-highlight">
+								<strong>Offcanvas API:</strong>
+								<pre><code>const offcanvas = new bootstrap.Offcanvas('#myOffcanvas');
+offcanvas.show();
+offcanvas.hide();
+offcanvas.toggle();</code></pre>
+							</div>
+						</div>
+					</div>
+
+					<div class="event-log" id="offcanvasLog">
+						<div class="text-muted">Offcanvas event log...</div>
+					</div>
+				</div>
+
+				<!-- Takeaways -->
+				<div class="alert alert-success">
+					<h4 class="alert-heading">🎯 Key Takeaways About JavaScript API</h4>
+					<ul class="mb-0">
+						<li>
+							<strong>Instantiation:</strong>
+							Create instances with
+							<code>new bootstrap.ComponentName(element, options)</code>
+						</li>
+						<li>
+							<strong>Methods:</strong>
+							Each component has methods like
+							<code>show()</code>
+							,
+							<code>hide()</code>
+							, etc.
+						</li>
+						<li>
+							<strong>Events:</strong>
+							All components emit events before/after actions
+						</li>
+						<li>
+							<strong>Dispose:</strong>
+							Clean up components with
+							<code>dispose()</code>
+							when no longer needed
+						</li>
+						<li>
+							<strong>Options:</strong>
+							Configure behavior by passing options object to constructor
+						</li>
+					</ul>
+				</div>
+
+				<div class="text-center mt-4">
+					<a href="./05-interactive-portfolio.html" class="btn btn-outline-primary">← Previous</a>
+					<a href="../index.html" class="btn btn-primary">Back to Lesson</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal for demos -->
+		<div class="modal fade" id="myModal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Programmatically Controlled Modal</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<p>This modal is completely controlled through JavaScript API.</p>
+						<p class="mb-0">Watch the event log to see which events fire.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" onclick="hideModal()">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Offcanvas -->
+		<div class="offcanvas offcanvas-end" tabindex="-1" id="myOffcanvas">
+			<div class="offcanvas-header">
+				<h5 class="offcanvas-title">Controlled Offcanvas</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+			</div>
+			<div class="offcanvas-body">
+				<p>This offcanvas is controlled programmatically with JavaScript.</p>
+				<p>You can add any content here: navigation, forms, widgets, etc.</p>
+				<button class="btn btn-primary w-100" onclick="offcanvasControl('hide')">Close</button>
+			</div>
+		</div>
+
+		<!-- Toast container -->
+		<div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer"></div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			// Modal API
+			let modalInstance = null;
+			const modalElement = document.getElementById('myModal');
+			const modalLog = document.getElementById('modalLog');
+
+			function logModalEvent(message) {
+				const timestamp = new Date().toLocaleTimeString();
+				modalLog.innerHTML += `<div class="event-log-item">[${timestamp}] ${message}</div>`;
+				modalLog.scrollTop = modalLog.scrollHeight;
+			}
+
+			function showModal() {
+				if (!modalInstance) {
+					modalInstance = new bootstrap.Modal(modalElement);
+				}
+				modalInstance.show();
+			}
+
+			function hideModal() {
+				if (modalInstance) {
+					modalInstance.hide();
+				}
+			}
+
+			function toggleModal() {
+				if (!modalInstance) {
+					modalInstance = new bootstrap.Modal(modalElement);
+				}
+				modalInstance.toggle();
+			}
+
+			function disposeModal() {
+				if (modalInstance) {
+					modalInstance.dispose();
+					modalInstance = null;
+					logModalEvent('Modal disposed');
+				}
+			}
+
+			// Modal events
+			modalElement.addEventListener('show.bs.modal', () => logModalEvent('show.bs.modal - Modal starting to show...'));
+			modalElement.addEventListener('shown.bs.modal', () => logModalEvent('shown.bs.modal - Modal fully visible'));
+			modalElement.addEventListener('hide.bs.modal', () => logModalEvent('hide.bs.modal - Modal starting to hide...'));
+			modalElement.addEventListener('hidden.bs.modal', () => logModalEvent('hidden.bs.modal - Modal fully hidden'));
+
+			// Carousel API
+			const carouselElement = document.getElementById('demoCarousel');
+			const carousel = new bootstrap.Carousel(carouselElement, {
+				interval: false, // Manual control
+			});
+			const carouselLog = document.getElementById('carouselLog');
+
+			function logCarouselEvent(message) {
+				const timestamp = new Date().toLocaleTimeString();
+				carouselLog.innerHTML += `<div class="event-log-item">[${timestamp}] ${message}</div>`;
+				carouselLog.scrollTop = carouselLog.scrollHeight;
+			}
+
+			function carouselControl(action) {
+				if (typeof action === 'number') {
+					carousel.to(action);
+					logCarouselEvent(`Navigating to slide ${action}`);
+				} else {
+					carousel[action]();
+					logCarouselEvent(`Action: ${action}()`);
+				}
+			}
+
+			// Carousel events
+			carouselElement.addEventListener('slide.bs.carousel', (e) =>
+				logCarouselEvent(`slide.bs.carousel - Sliding from ${e.from} to ${e.to}`)
+			);
+			carouselElement.addEventListener('slid.bs.carousel', (e) =>
+				logCarouselEvent(`slid.bs.carousel - Now on slide ${e.to}`)
+			);
+
+			// Toast API
+			let toastCount = 0;
+
+			function showToast(type, message) {
+				toastCount++;
+				const toastHtml = `
+          <div class="toast align-items-center text-bg-${type} border-0" role="alert" id="toast${toastCount}">
+            <div class="d-flex">
+              <div class="toast-body">${message}</div>
+              <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+          </div>
+        `;
+				const container = document.getElementById('toastContainer');
+				container.insertAdjacentHTML('beforeend', toastHtml);
+
+				const toastElement = document.getElementById(`toast${toastCount}`);
+				const toast = new bootstrap.Toast(toastElement, {
+					autohide: true,
+					delay: 3000,
+				});
+
+				toast.show();
+
+				// Remove from DOM after hidden
+				toastElement.addEventListener('hidden.bs.toast', () => {
+					toastElement.remove();
+				});
+			}
+
+			// Offcanvas API
+			const offcanvasElement = document.getElementById('myOffcanvas');
+			let offcanvasInstance = null;
+			const offcanvasLog = document.getElementById('offcanvasLog');
+
+			function logOffcanvasEvent(message) {
+				const timestamp = new Date().toLocaleTimeString();
+				offcanvasLog.innerHTML += `<div class="event-log-item">[${timestamp}] ${message}</div>`;
+				offcanvasLog.scrollTop = offcanvasLog.scrollHeight;
+			}
+
+			function offcanvasControl(action) {
+				if (!offcanvasInstance) {
+					offcanvasInstance = new bootstrap.Offcanvas(offcanvasElement);
+				}
+				offcanvasInstance[action]();
+			}
+
+			// Offcanvas events
+			offcanvasElement.addEventListener('show.bs.offcanvas', () =>
+				logOffcanvasEvent('show.bs.offcanvas - Showing offcanvas')
+			);
+			offcanvasElement.addEventListener('shown.bs.offcanvas', () =>
+				logOffcanvasEvent('shown.bs.offcanvas - Offcanvas fully visible')
+			);
+			offcanvasElement.addEventListener('hide.bs.offcanvas', () =>
+				logOffcanvasEvent('hide.bs.offcanvas - Hiding offcanvas')
+			);
+			offcanvasElement.addEventListener('hidden.bs.offcanvas', () =>
+				logOffcanvasEvent('hidden.bs.offcanvas - Offcanvas fully hidden')
+			);
+		</script>
+	</body>
+</html>

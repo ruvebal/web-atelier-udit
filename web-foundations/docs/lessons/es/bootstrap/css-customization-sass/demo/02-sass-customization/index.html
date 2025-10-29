@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo 2: Personalización con Sass</title>
+		<!-- 
+      NOTA: Este enlace es solo para demostración.
+      En un proyecto real, compilarías _custom.scss a CSS usando:
+      - Vite
+      - Webpack
+      - Parcel
+      - O el compilador Sass directamente
+    -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			/* Estos estilos simulan el resultado compilado de _custom.scss */
+			:root {
+				--bs-primary: #ff6b35;
+				--bs-secondary: #f7931e;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Navbar con gradiente -->
+		<nav
+			class="navbar navbar-expand-lg navbar-dark"
+			style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%)">
+			<div class="container">
+				<a class="navbar-brand fw-bold" href="#">Mi Marca Sass</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Contenido Principal -->
+		<div class="container mt-5">
+			<div class="row mb-4">
+				<div class="col">
+					<div class="alert alert-info">
+						<strong>💡 Método 2: Personalización con Sass</strong>
+						<br />
+						Este enfoque personaliza Bootstrap en su fuente usando variables Sass.
+						<strong>REQUIERE</strong>
+						una herramienta de construcción como Vite o Webpack.
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 mb-4">
+					<div class="card">
+						<div class="card-body">
+							<h3 class="card-title">Ventajas</h3>
+							<ul>
+								<li>✅ Cambios consistentes en todo el sistema</li>
+								<li>✅ Archivo CSS final más pequeño</li>
+								<li>✅ Control total sobre variables</li>
+								<li>
+									✅ Sin necesidad de
+									<code>!important</code>
+								</li>
+								<li>✅ Enfoque profesional y escalable</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 mb-4">
+					<div class="card">
+						<div class="card-body">
+							<h3 class="card-title">Desventajas</h3>
+							<ul>
+								<li>⚠️ Requiere herramienta de construcción</li>
+								<li>⚠️ Configuración inicial más compleja</li>
+								<li>⚠️ Necesitas conocer Sass</li>
+								<li>⚠️ Tiempo de compilación</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mb-5">
+				<div class="col">
+					<div class="card bg-light">
+						<div class="card-body">
+							<h4>¿Qué herramienta de construcción necesito?</h4>
+							<div class="row mt-3">
+								<div class="col-md-4 mb-3">
+									<h5>🚀 Vite (Recomendado)</h5>
+									<p>
+										<strong>Mejor para:</strong>
+										Proyectos modernos
+									</p>
+									<p><strong>Ventajas:</strong></p>
+									<ul>
+										<li>Súper rápido</li>
+										<li>Configuración simple</li>
+										<li>Hot Module Replacement</li>
+									</ul>
+									<code>npm install -D sass</code>
+								</div>
+
+								<div class="col-md-4 mb-3">
+									<h5>📦 Webpack</h5>
+									<p>
+										<strong>Mejor para:</strong>
+										Proyectos grandes y complejos
+									</p>
+									<p><strong>Ventajas:</strong></p>
+									<ul>
+										<li>Muy configurable</li>
+										<li>Gran ecosistema</li>
+										<li>Optimización avanzada</li>
+									</ul>
+									<code>npm install -D sass-loader sass</code>
+								</div>
+
+								<div class="col-md-4 mb-3">
+									<h5>⚡ Parcel</h5>
+									<p>
+										<strong>Mejor para:</strong>
+										Configuración cero
+									</p>
+									<p><strong>Ventajas:</strong></p>
+									<ul>
+										<li>Sin configuración</li>
+										<li>Automático</li>
+										<li>Rápido</li>
+									</ul>
+									<code>npm install -D sass</code>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col text-center">
+					<button class="btn btn-primary btn-lg">Botón Sass</button>
+					<button class="btn btn-secondary btn-lg ms-2">Botón Secundario</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

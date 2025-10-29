@@ -1,0 +1,47 @@
+# ============================================
+# ARCHIVO .nojekyll
+# ============================================
+#
+# Este archivo vacío le dice a GitHub Pages que NO procese
+# el sitio con Jekyll (el generador de sitios estáticos por defecto).
+#
+# ¿POR QUÉ ES NECESARIO?
+# ---------------------
+# Por defecto, GitHub Pages usa Jekyll para procesar archivos.
+# Jekyll ignora carpetas que empiezan con _ (underscore).
+# Si tienes carpetas como _assets/ o archivos como _config.js,
+# Jekyll no los publicará.
+#
+# Al incluir este archivo vacío, le dices a GitHub Pages:
+# "Publica todos mis archivos tal cual, sin procesarlos con Jekyll"
+#
+# ¿CUÁNDO USARLO?
+# --------------
+# ✅ Úsalo si tu proyecto es HTML/CSS/JS puro (como este portafolio)
+# ✅ Úsalo si usas frameworks como React, Vue, Angular
+# ✅ Úsalo si tienes carpetas/archivos que empiezan con _
+# ❌ No lo uses si realmente quieres usar Jekyll
+#
+# INSTRUCCIONES:
+# -------------
+# 1. Este archivo debe estar en la raíz de tu repositorio
+# 2. Debe estar VACÍO (o solo con comentarios)
+# 3. Haz commit y push de este archivo
+#
+# Comando para crearlo desde terminal:
+# touch .nojekyll
+# git add .nojekyll
+# git commit -m "Add .nojekyll to disable Jekyll processing"
+# git push
+#
+# VERIFICACIÓN:
+# ------------
+# Después de hacer push, verifica que tus archivos
+# se publiquen correctamente visitando tu sitio.
+#
+# REFERENCIAS:
+# -----------
+# https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages#static-site-generators
+#
+# ============================================
+

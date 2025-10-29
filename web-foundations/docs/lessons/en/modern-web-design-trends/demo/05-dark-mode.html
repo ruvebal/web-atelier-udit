@@ -1,571 +1,682 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 5: Dark Mode Demo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Light mode colors */
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --text-primary: #212529;
-            --text-secondary: #6c757d;
-            --accent: #667eea;
-            --border: #e9ecef;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        [data-theme="dark"] {
-            /* Dark mode colors */
-            --bg-primary: #1a1a1a;
-            --bg-secondary: #2d2d2d;
-            --text-primary: #e9ecef;
-            --text-secondary: #adb5bd;
-            --accent: #8b9eff;
-            --border: #404040;
-            --shadow: rgba(0, 0, 0, 0.5);
-        }
-
-        body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            min-height: 100vh;
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header with toggle */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 10px var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .header h1 {
-            color: var(--accent);
-            font-size: clamp(1.5rem, 3vw, 2rem);
-        }
-
-        /* Toggle switch */
-        .theme-toggle {
-            position: relative;
-            width: 60px;
-            height: 30px;
-            background: var(--border);
-            border-radius: 30px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            border: 2px solid var(--border);
-        }
-
-        .theme-toggle::before {
-            content: '☀️';
-            position: absolute;
-            width: 26px;
-            height: 26px;
-            background: var(--accent);
-            border-radius: 50%;
-            top: 0;
-            left: 0;
-            transition: transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-        }
-
-        [data-theme="dark"] .theme-toggle::before {
-            content: '🌙';
-            transform: translateX(30px);
-        }
-
-        /* Content sections */
-        .content-section {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 10px var(--shadow);
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .content-section h2 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-        }
-
-        .content-section h3 {
-            color: var(--text-primary);
-            margin-bottom: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .content-section p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        /* Feature grid */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .feature-card {
-            background: var(--bg-primary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--shadow);
-        }
-
-        .feature-card h4 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-card p {
-            font-size: 0.95rem;
-        }
-
-        /* Code box */
-        .code-box {
-            background: #2d3748;
-            color: #a0aec0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            overflow-x: auto;
-        }
-
-        .code-box code {
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-        }
-
-        /* Comparison section */
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .comparison-item {
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 2px solid var(--border);
-        }
-
-        .comparison-item h4 {
-            margin-bottom: 1rem;
-        }
-
-        .comparison-item.benefits {
-            background: rgba(16, 185, 129, 0.1);
-            border-color: #10b981;
-        }
-
-        .comparison-item.considerations {
-            background: rgba(239, 68, 68, 0.1);
-            border-color: #ef4444;
-        }
-
-        /* Stats display */
-        .stats {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 2rem 0;
-            padding: 2rem;
-            background: var(--bg-primary);
-            border-radius: 12px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Reflection box */
-        .reflection {
-            background: rgba(245, 158, 11, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            border-left: 4px solid #f59e0b;
-        }
-
-        .reflection strong {
-            color: var(--accent);
-        }
-
-        /* Button */
-        .btn {
-            background: var(--accent);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px var(--shadow);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px var(--shadow);
-        }
-
-        /* Auto-detect message */
-        .auto-message {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-            border: 1px solid var(--accent);
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-
-            .header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .comparison {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="auto-message" id="autoMessage" style="display: none;">
-            💡 Dark mode automatically detected from your system preferences!
-        </div>
-
-        <div class="header">
-            <h1>🌓 Module 5: Dark Mode Design</h1>
-            <div class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"></div>
-        </div>
-
-        <div class="content-section">
-            <h2>What Is Dark Mode?</h2>
-            <p>Dark mode uses dark backgrounds with light text—great for low light environments or saving battery. It's like switching from a bright room to a cozy lamp—easier on the eyes at night.</p>
-
-            <h3>How It Works</h3>
-            <p>This demo uses CSS custom properties (variables) that change when a <code>data-theme="dark"</code> attribute is applied to the HTML element. The colors smoothly transition thanks to CSS transitions.</p>
-
-            <div class="code-box">
-                <code>
-/* Define color variables for both themes */<br>
-:root {<br>
-&nbsp;&nbsp;--bg-primary: #ffffff;<br>
-&nbsp;&nbsp;--text-primary: #212529;<br>
-&nbsp;&nbsp;--accent: #667eea;<br>
-}<br>
-<br>
-[data-theme="dark"] {<br>
-&nbsp;&nbsp;--bg-primary: #1a1a1a;<br>
-&nbsp;&nbsp;--text-primary: #e9ecef;<br>
-&nbsp;&nbsp;--accent: #8b9eff;<br>
-}<br>
-<br>
-/* Use variables in your styles */<br>
-body {<br>
-&nbsp;&nbsp;background: var(--bg-primary);<br>
-&nbsp;&nbsp;color: var(--text-primary);<br>
-&nbsp;&nbsp;transition: all 0.3s ease;<br>
-}
-                </code>
-            </div>
-
-            <h3>Why Use Dark Mode?</h3>
-
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4>👁️ Reduced Eye Strain</h4>
-                    <p>Easier on eyes in low-light conditions, especially at night or in dark rooms.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h4>🔋 Battery Saving</h4>
-                    <p>OLED screens use less power when displaying dark colors, extending battery life.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h4>😎 User Preference</h4>
-                    <p>Many users prefer dark interfaces. Offering a choice shows you respect preferences.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h4>🎨 Modern Aesthetic</h4>
-                    <p>Dark mode is trendy and can make designs feel more premium and sophisticated.</p>
-                </div>
-            </div>
-
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-value">82%</span>
-                    <span class="stat-label">Users prefer dark mode at night</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">63%</span>
-                    <span class="stat-label">Battery saved on OLED displays</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">95%</span>
-                    <span class="stat-label">Of apps now offer dark mode</span>
-                </div>
-            </div>
-
-            <h3>Implementation Methods</h3>
-
-            <div class="comparison">
-                <div class="comparison-item benefits">
-                    <h4>✅ Manual Toggle (This Demo)</h4>
-                    <ul>
-                        <li>User explicitly chooses</li>
-                        <li>Preference saved in localStorage</li>
-                        <li>Works across all browsers</li>
-                        <li>Simple to implement</li>
-                    </ul>
-                </div>
-
-                <div class="comparison-item benefits">
-                    <h4>✅ Auto-Detect System Preference</h4>
-                    <ul>
-                        <li>Respects OS settings</li>
-                        <li>No UI needed</li>
-                        <li>Better UX for most users</li>
-                        <li>Can be combined with manual toggle</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>Auto-Detection with CSS</h3>
-            <p>Modern browsers can detect the user's system preference using the <code>prefers-color-scheme</code> media query:</p>
-
-            <div class="code-box">
-                <code>
-/* Automatically apply dark mode based on system preference */<br>
-@media (prefers-color-scheme: dark) {<br>
-&nbsp;&nbsp;:root {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;--bg-primary: #1a1a1a;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;--text-primary: #e9ecef;<br>
-&nbsp;&nbsp;}<br>
-}<br>
-<br>
-/* JavaScript to detect preference */<br>
-const prefersDark = window.matchMedia(<br>
-&nbsp;&nbsp;'(prefers-color-scheme: dark)'<br>
-).matches;<br>
-<br>
-if (prefersDark) {<br>
-&nbsp;&nbsp;document.documentElement.setAttribute(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'data-theme', 'dark'<br>
-&nbsp;&nbsp;);<br>
-}
-                </code>
-            </div>
-
-            <h3>Design Considerations</h3>
-
-            <div class="comparison">
-                <div class="comparison-item benefits">
-                    <h4>✅ Best Practices</h4>
-                    <ul>
-                        <li>Use true blacks sparingly (#000 can be harsh)</li>
-                        <li>Prefer dark grays (#1a1a1a, #2d2d2d)</li>
-                        <li>Maintain color contrast ratios (WCAG)</li>
-                        <li>Reduce saturation in dark mode</li>
-                        <li>Test on actual devices</li>
-                        <li>Smooth transitions between modes</li>
-                    </ul>
-                </div>
-
-                <div class="comparison-item considerations">
-                    <h4>⚠️ Watch Out For</h4>
-                    <ul>
-                        <li>Can be harder to read in bright light</li>
-                        <li>Images may need adjustment</li>
-                        <li>Colors appear different on dark backgrounds</li>
-                        <li>Some users have light sensitivity</li>
-                        <li>Must design for both modes</li>
-                        <li>Double the design work</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="reflection">
-                <strong>Atelier Reflection:</strong> When would you use dark mode? How does it affect mood and readability on this page? Toggle between modes multiple times—which do you prefer and why? Consider different times of day and lighting conditions. Does the transition feel smooth and pleasant, or jarring?
-            </div>
-
-            <h3>Color Contrast in Dark Mode</h3>
-            <p>Dark mode isn't just inverting colors! You need to carefully adjust contrast:</p>
-
-            <ul>
-                <li><strong>Text:</strong> Use lighter grays instead of pure white (#e9ecef vs #ffffff)</li>
-                <li><strong>Backgrounds:</strong> Avoid pure black; use dark grays (#1a1a1a)</li>
-                <li><strong>Accents:</strong> Often need to be lightened in dark mode</li>
-                <li><strong>Shadows:</strong> More subtle or omitted entirely</li>
-                <li><strong>Borders:</strong> Usually lighter/more subtle</li>
-            </ul>
-
-            <h3>Complete Implementation Example</h3>
-
-            <div class="code-box">
-                <code>
-// Save preference to localStorage<br>
-function toggleTheme() {<br>
-&nbsp;&nbsp;const html = document.documentElement;<br>
-&nbsp;&nbsp;const current = html.getAttribute('data-theme');<br>
-&nbsp;&nbsp;const next = current === 'dark' ? 'light' : 'dark';<br>
-&nbsp;&nbsp;<br>
-&nbsp;&nbsp;html.setAttribute('data-theme', next);<br>
-&nbsp;&nbsp;localStorage.setItem('theme', next);<br>
-}<br>
-<br>
-// Load saved preference on page load<br>
-function loadTheme() {<br>
-&nbsp;&nbsp;const saved = localStorage.getItem('theme');<br>
-&nbsp;&nbsp;const prefersDark = window.matchMedia(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'(prefers-color-scheme: dark)'<br>
-&nbsp;&nbsp;).matches;<br>
-&nbsp;&nbsp;<br>
-&nbsp;&nbsp;const theme = saved || (prefersDark ? 'dark' : 'light');<br>
-&nbsp;&nbsp;document.documentElement.setAttribute('data-theme', theme);<br>
-}<br>
-<br>
-// Run on page load<br>
-loadTheme();
-                </code>
-            </div>
-
-            <div class="reflection">
-                <strong>Critical Design Question:</strong> Is dark mode truly enhancing accessibility for all users? While it helps many, some users with astigmatism or dyslexia find dark mode harder to read. Are you providing an easy way to switch? The methodology emphasizes inclusive design—have you considered all user needs, not just the majority preference?
-            </div>
-
-            <h3>Try It Yourself!</h3>
-            <p style="text-align: center; margin-top: 2rem;">
-                <button class="btn" onclick="toggleTheme()">
-                    Toggle Dark Mode
-                </button>
-            </p>
-        </div>
-    </div>
-
-    <script>
-        // Theme management
-        function toggleTheme() {
-            const html = document.documentElement;
-            const current = html.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            
-            console.log(`Theme switched to: ${next}`);
-        }
-
-        function loadTheme() {
-            const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            let theme;
-            let autoDetected = false;
-            
-            if (saved) {
-                theme = saved;
-            } else {
-                theme = prefersDark ? 'dark' : 'light';
-                autoDetected = true;
-            }
-            
-            document.documentElement.setAttribute('data-theme', theme);
-            
-            // Show auto-detect message if preference was detected
-            if (autoDetected && prefersDark) {
-                const message = document.getElementById('autoMessage');
-                message.style.display = 'block';
-                setTimeout(() => {
-                    message.style.opacity = '0';
-                    message.style.transition = 'opacity 0.5s ease';
-                    setTimeout(() => message.style.display = 'none', 500);
-                }, 5000);
-            }
-            
-            console.log(`Initial theme: ${theme} (${autoDetected ? 'auto-detected' : 'from localStorage'})`);
-        }
-
-        // Listen for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            const saved = localStorage.getItem('theme');
-            // Only auto-switch if user hasn't manually set a preference
-            if (!saved) {
-                const theme = e.matches ? 'dark' : 'light';
-                document.documentElement.setAttribute('data-theme', theme);
-                console.log(`System theme changed to: ${theme}`);
-            }
-        });
-
-        // Run on page load
-        loadTheme();
-    </script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Module 5: Dark Mode Demo</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				/* Light mode colors */
+				--bg-primary: #ffffff;
+				--bg-secondary: #f8f9fa;
+				--text-primary: #212529;
+				--text-secondary: #6c757d;
+				--accent: #667eea;
+				--border: #e9ecef;
+				--shadow: rgba(0, 0, 0, 0.1);
+			}
+
+			[data-theme='dark'] {
+				/* Dark mode colors */
+				--bg-primary: #1a1a1a;
+				--bg-secondary: #2d2d2d;
+				--text-primary: #e9ecef;
+				--text-secondary: #adb5bd;
+				--accent: #8b9eff;
+				--border: #404040;
+				--shadow: rgba(0, 0, 0, 0.5);
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				background-color: var(--bg-primary);
+				color: var(--text-primary);
+				line-height: 1.6;
+				transition: background-color 0.3s ease, color 0.3s ease;
+				min-height: 100vh;
+				padding: 2rem;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			/* Header with toggle */
+			.header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 1.5rem 2rem;
+				background: var(--bg-secondary);
+				border-radius: 12px;
+				margin-bottom: 2rem;
+				box-shadow: 0 2px 10px var(--shadow);
+				transition: all 0.3s ease;
+			}
+
+			.header h1 {
+				color: var(--accent);
+				font-size: clamp(1.5rem, 3vw, 2rem);
+			}
+
+			/* Toggle switch */
+			.theme-toggle {
+				position: relative;
+				width: 60px;
+				height: 30px;
+				background: var(--border);
+				border-radius: 30px;
+				cursor: pointer;
+				transition: background 0.3s ease;
+				border: 2px solid var(--border);
+			}
+
+			.theme-toggle::before {
+				content: '☀️';
+				position: absolute;
+				width: 26px;
+				height: 26px;
+				background: var(--accent);
+				border-radius: 50%;
+				top: 0;
+				left: 0;
+				transition: transform 0.3s ease;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 0.8rem;
+			}
+
+			[data-theme='dark'] .theme-toggle::before {
+				content: '🌙';
+				transform: translateX(30px);
+			}
+
+			/* Content sections */
+			.content-section {
+				background: var(--bg-secondary);
+				border-radius: 12px;
+				padding: 2rem;
+				margin-bottom: 2rem;
+				box-shadow: 0 2px 10px var(--shadow);
+				border: 1px solid var(--border);
+				transition: all 0.3s ease;
+			}
+
+			.content-section h2 {
+				color: var(--accent);
+				margin-bottom: 1rem;
+				font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+			}
+
+			.content-section h3 {
+				color: var(--text-primary);
+				margin-bottom: 0.8rem;
+				margin-top: 1.5rem;
+			}
+
+			.content-section p {
+				color: var(--text-secondary);
+				margin-bottom: 1rem;
+				line-height: 1.8;
+			}
+
+			/* Feature grid */
+			.feature-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1.5rem;
+				margin: 2rem 0;
+			}
+
+			.feature-card {
+				background: var(--bg-primary);
+				padding: 1.5rem;
+				border-radius: 8px;
+				border: 1px solid var(--border);
+				transition: all 0.3s ease;
+			}
+
+			.feature-card:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 5px 15px var(--shadow);
+			}
+
+			.feature-card h4 {
+				color: var(--accent);
+				margin-bottom: 0.5rem;
+			}
+
+			.feature-card p {
+				font-size: 0.95rem;
+			}
+
+			/* Code box */
+			.code-box {
+				background: #2d3748;
+				color: #a0aec0;
+				padding: 1.5rem;
+				border-radius: 8px;
+				margin: 1.5rem 0;
+				overflow-x: auto;
+			}
+
+			.code-box code {
+				font-family: 'Courier New', monospace;
+				font-size: 0.9rem;
+			}
+
+			/* Comparison section */
+			.comparison {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2rem;
+				margin: 2rem 0;
+			}
+
+			.comparison-item {
+				padding: 1.5rem;
+				border-radius: 12px;
+				border: 2px solid var(--border);
+			}
+
+			.comparison-item h4 {
+				margin-bottom: 1rem;
+			}
+
+			.comparison-item.benefits {
+				background: rgba(16, 185, 129, 0.1);
+				border-color: #10b981;
+			}
+
+			.comparison-item.considerations {
+				background: rgba(239, 68, 68, 0.1);
+				border-color: #ef4444;
+			}
+
+			/* Stats display */
+			.stats {
+				display: flex;
+				gap: 2rem;
+				flex-wrap: wrap;
+				justify-content: center;
+				margin: 2rem 0;
+				padding: 2rem;
+				background: var(--bg-primary);
+				border-radius: 12px;
+			}
+
+			.stat-item {
+				text-align: center;
+			}
+
+			.stat-value {
+				font-size: 2.5rem;
+				font-weight: bold;
+				color: var(--accent);
+				display: block;
+			}
+
+			.stat-label {
+				color: var(--text-secondary);
+				font-size: 0.9rem;
+			}
+
+			/* Reflection box */
+			.reflection {
+				background: rgba(245, 158, 11, 0.1);
+				padding: 1.5rem;
+				border-radius: 8px;
+				margin: 2rem 0;
+				border-left: 4px solid #f59e0b;
+			}
+
+			.reflection strong {
+				color: var(--accent);
+			}
+
+			/* Button */
+			.btn {
+				background: var(--accent);
+				color: white;
+				padding: 0.75rem 1.5rem;
+				border: none;
+				border-radius: 8px;
+				cursor: pointer;
+				font-size: 1rem;
+				transition: all 0.3s ease;
+				box-shadow: 0 2px 5px var(--shadow);
+			}
+
+			.btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 10px var(--shadow);
+			}
+
+			/* Auto-detect message */
+			.auto-message {
+				text-align: center;
+				padding: 1rem;
+				background: rgba(102, 126, 234, 0.1);
+				border-radius: 8px;
+				margin-bottom: 2rem;
+				color: var(--text-primary);
+				border: 1px solid var(--accent);
+			}
+
+			@media (max-width: 768px) {
+				body {
+					padding: 1rem;
+				}
+
+				.header {
+					flex-direction: column;
+					gap: 1rem;
+					text-align: center;
+				}
+
+				.comparison {
+					grid-template-columns: 1fr;
+				}
+
+				.stats {
+					flex-direction: column;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="auto-message" id="autoMessage" style="display: none">
+				💡 Dark mode automatically detected from your system preferences!
+			</div>
+
+			<div class="header">
+				<h1>🌓 Module 5: Dark Mode Design</h1>
+				<div class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"></div>
+			</div>
+
+			<div class="content-section">
+				<h2>What Is Dark Mode?</h2>
+				<p>
+					Dark mode uses dark backgrounds with light text—great for low light environments or saving battery. It's like
+					switching from a bright room to a cozy lamp—easier on the eyes at night.
+				</p>
+
+				<h3>How It Works</h3>
+				<p>
+					This demo uses CSS custom properties (variables) that change when a
+					<code>data-theme="dark"</code>
+					attribute is applied to the HTML element. The colors smoothly transition thanks to CSS transitions.
+				</p>
+
+				<div class="code-box">
+					<code>
+						/* Define color variables for both themes */
+						<br />
+						:root {
+						<br />
+						&nbsp;&nbsp;--bg-primary: #ffffff;
+						<br />
+						&nbsp;&nbsp;--text-primary: #212529;
+						<br />
+						&nbsp;&nbsp;--accent: #667eea;
+						<br />
+						}
+						<br />
+						<br />
+						[data-theme="dark"] {
+						<br />
+						&nbsp;&nbsp;--bg-primary: #1a1a1a;
+						<br />
+						&nbsp;&nbsp;--text-primary: #e9ecef;
+						<br />
+						&nbsp;&nbsp;--accent: #8b9eff;
+						<br />
+						}
+						<br />
+						<br />
+						/* Use variables in your styles */
+						<br />
+						body {
+						<br />
+						&nbsp;&nbsp;background: var(--bg-primary);
+						<br />
+						&nbsp;&nbsp;color: var(--text-primary);
+						<br />
+						&nbsp;&nbsp;transition: all 0.3s ease;
+						<br />
+						}
+					</code>
+				</div>
+
+				<h3>Why Use Dark Mode?</h3>
+
+				<div class="feature-grid">
+					<div class="feature-card">
+						<h4>👁️ Reduced Eye Strain</h4>
+						<p>Easier on eyes in low-light conditions, especially at night or in dark rooms.</p>
+					</div>
+
+					<div class="feature-card">
+						<h4>🔋 Battery Saving</h4>
+						<p>OLED screens use less power when displaying dark colors, extending battery life.</p>
+					</div>
+
+					<div class="feature-card">
+						<h4>😎 User Preference</h4>
+						<p>Many users prefer dark interfaces. Offering a choice shows you respect preferences.</p>
+					</div>
+
+					<div class="feature-card">
+						<h4>🎨 Modern Aesthetic</h4>
+						<p>Dark mode is trendy and can make designs feel more premium and sophisticated.</p>
+					</div>
+				</div>
+
+				<div class="stats">
+					<div class="stat-item">
+						<span class="stat-value">82%</span>
+						<span class="stat-label">Users prefer dark mode at night</span>
+					</div>
+					<div class="stat-item">
+						<span class="stat-value">63%</span>
+						<span class="stat-label">Battery saved on OLED displays</span>
+					</div>
+					<div class="stat-item">
+						<span class="stat-value">95%</span>
+						<span class="stat-label">Of apps now offer dark mode</span>
+					</div>
+				</div>
+
+				<h3>Implementation Methods</h3>
+
+				<div class="comparison">
+					<div class="comparison-item benefits">
+						<h4>✅ Manual Toggle (This Demo)</h4>
+						<ul>
+							<li>User explicitly chooses</li>
+							<li>Preference saved in localStorage</li>
+							<li>Works across all browsers</li>
+							<li>Simple to implement</li>
+						</ul>
+					</div>
+
+					<div class="comparison-item benefits">
+						<h4>✅ Auto-Detect System Preference</h4>
+						<ul>
+							<li>Respects OS settings</li>
+							<li>No UI needed</li>
+							<li>Better UX for most users</li>
+							<li>Can be combined with manual toggle</li>
+						</ul>
+					</div>
+				</div>
+
+				<h3>Auto-Detection with CSS</h3>
+				<p>
+					Modern browsers can detect the user's system preference using the
+					<code>prefers-color-scheme</code>
+					media query:
+				</p>
+
+				<div class="code-box">
+					<code>
+						/* Automatically apply dark mode based on system preference */
+						<br />
+						@media (prefers-color-scheme: dark) {
+						<br />
+						&nbsp;&nbsp;:root {
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;--bg-primary: #1a1a1a;
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;--text-primary: #e9ecef;
+						<br />
+						&nbsp;&nbsp;}
+						<br />
+						}
+						<br />
+						<br />
+						/* JavaScript to detect preference */
+						<br />
+						const prefersDark = window.matchMedia(
+						<br />
+						&nbsp;&nbsp;'(prefers-color-scheme: dark)'
+						<br />
+						).matches;
+						<br />
+						<br />
+						if (prefersDark) {
+						<br />
+						&nbsp;&nbsp;document.documentElement.setAttribute(
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;'data-theme', 'dark'
+						<br />
+						&nbsp;&nbsp;);
+						<br />
+						}
+					</code>
+				</div>
+
+				<h3>Design Considerations</h3>
+
+				<div class="comparison">
+					<div class="comparison-item benefits">
+						<h4>✅ Best Practices</h4>
+						<ul>
+							<li>Use true blacks sparingly (#000 can be harsh)</li>
+							<li>Prefer dark grays (#1a1a1a, #2d2d2d)</li>
+							<li>Maintain color contrast ratios (WCAG)</li>
+							<li>Reduce saturation in dark mode</li>
+							<li>Test on actual devices</li>
+							<li>Smooth transitions between modes</li>
+						</ul>
+					</div>
+
+					<div class="comparison-item considerations">
+						<h4>⚠️ Watch Out For</h4>
+						<ul>
+							<li>Can be harder to read in bright light</li>
+							<li>Images may need adjustment</li>
+							<li>Colors appear different on dark backgrounds</li>
+							<li>Some users have light sensitivity</li>
+							<li>Must design for both modes</li>
+							<li>Double the design work</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="reflection">
+					<strong>Atelier Reflection:</strong>
+					When would you use dark mode? How does it affect mood and readability on this page? Toggle between modes multiple
+					times—which do you prefer and why? Consider different times of day and lighting conditions. Does the transition
+					feel smooth and pleasant, or jarring?
+				</div>
+
+				<h3>Color Contrast in Dark Mode</h3>
+				<p>Dark mode isn't just inverting colors! You need to carefully adjust contrast:</p>
+
+				<ul>
+					<li>
+						<strong>Text:</strong>
+						Use lighter grays instead of pure white (#e9ecef vs #ffffff)
+					</li>
+					<li>
+						<strong>Backgrounds:</strong>
+						Avoid pure black; use dark grays (#1a1a1a)
+					</li>
+					<li>
+						<strong>Accents:</strong>
+						Often need to be lightened in dark mode
+					</li>
+					<li>
+						<strong>Shadows:</strong>
+						More subtle or omitted entirely
+					</li>
+					<li>
+						<strong>Borders:</strong>
+						Usually lighter/more subtle
+					</li>
+				</ul>
+
+				<h3>Complete Implementation Example</h3>
+
+				<div class="code-box">
+					<code>
+						// Save preference to localStorage
+						<br />
+						function toggleTheme() {
+						<br />
+						&nbsp;&nbsp;const html = document.documentElement;
+						<br />
+						&nbsp;&nbsp;const current = html.getAttribute('data-theme');
+						<br />
+						&nbsp;&nbsp;const next = current === 'dark' ? 'light' : 'dark';
+						<br />
+						&nbsp;&nbsp;
+						<br />
+						&nbsp;&nbsp;html.setAttribute('data-theme', next);
+						<br />
+						&nbsp;&nbsp;localStorage.setItem('theme', next);
+						<br />
+						}
+						<br />
+						<br />
+						// Load saved preference on page load
+						<br />
+						function loadTheme() {
+						<br />
+						&nbsp;&nbsp;const saved = localStorage.getItem('theme');
+						<br />
+						&nbsp;&nbsp;const prefersDark = window.matchMedia(
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;'(prefers-color-scheme: dark)'
+						<br />
+						&nbsp;&nbsp;).matches;
+						<br />
+						&nbsp;&nbsp;
+						<br />
+						&nbsp;&nbsp;const theme = saved || (prefersDark ? 'dark' : 'light');
+						<br />
+						&nbsp;&nbsp;document.documentElement.setAttribute('data-theme', theme);
+						<br />
+						}
+						<br />
+						<br />
+						// Run on page load
+						<br />
+						loadTheme();
+					</code>
+				</div>
+
+				<div class="reflection">
+					<strong>Critical Design Question:</strong>
+					Is dark mode truly enhancing accessibility for all users? While it helps many, some users with astigmatism or
+					dyslexia find dark mode harder to read. Are you providing an easy way to switch? The methodology emphasizes
+					inclusive design—have you considered all user needs, not just the majority preference?
+				</div>
+
+				<h3>Try It Yourself!</h3>
+				<p style="text-align: center; margin-top: 2rem">
+					<button class="btn" onclick="toggleTheme()">Toggle Dark Mode</button>
+				</p>
+
+				<div
+					style="
+						text-align: center;
+						margin-top: 3rem;
+						padding: 2rem;
+						background: rgba(102, 126, 234, 0.1);
+						border-radius: 12px;
+						border: 2px dashed var(--accent);
+					">
+					<h3 style="color: var(--accent); margin-bottom: 1rem">🎨 Want to see Path C?</h3>
+					<p style="margin-bottom: 1.5rem">
+						Check out the
+						<strong>Checkbox + CSS approach</strong>
+						(pure CSS method) in a separate demo:
+					</p>
+					<a
+						href="./5C-dark-mode-checkbox.html"
+						style="
+							display: inline-block;
+							background: var(--accent);
+							color: white;
+							padding: 0.75rem 1.5rem;
+							border-radius: 8px;
+							text-decoration: none;
+							font-weight: bold;
+							transition: transform 0.2s ease;
+						">
+						View Path C Demo →
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			// Theme management
+			function toggleTheme() {
+				const html = document.documentElement;
+				const current = html.getAttribute('data-theme');
+				const next = current === 'dark' ? 'light' : 'dark';
+
+				html.setAttribute('data-theme', next);
+				localStorage.setItem('theme', next);
+
+				console.log(`Theme switched to: ${next}`);
+			}
+
+			function loadTheme() {
+				const saved = localStorage.getItem('theme');
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+				let theme;
+				let autoDetected = false;
+
+				if (saved) {
+					theme = saved;
+				} else {
+					theme = prefersDark ? 'dark' : 'light';
+					autoDetected = true;
+				}
+
+				document.documentElement.setAttribute('data-theme', theme);
+
+				// Show auto-detect message if preference was detected
+				if (autoDetected && prefersDark) {
+					const message = document.getElementById('autoMessage');
+					message.style.display = 'block';
+					setTimeout(() => {
+						message.style.opacity = '0';
+						message.style.transition = 'opacity 0.5s ease';
+						setTimeout(() => (message.style.display = 'none'), 500);
+					}, 5000);
+				}
+
+				console.log(`Initial theme: ${theme} (${autoDetected ? 'auto-detected' : 'from localStorage'})`);
+			}
+
+			// Listen for system theme changes
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+				const saved = localStorage.getItem('theme');
+				// Only auto-switch if user hasn't manually set a preference
+				if (!saved) {
+					const theme = e.matches ? 'dark' : 'light';
+					document.documentElement.setAttribute('data-theme', theme);
+					console.log(`System theme changed to: ${theme}`);
+				}
+			});
+
+			// Run on page load
+			loadTheme();
+		</script>
+	</body>
 </html>
-

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- ============================================
+		     BASIC CONFIGURATION
+		     ============================================ -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- ============================================
+		     BASIC SEO
+		     These meta tags are CRITICAL for appearing in Google
+		     ============================================ -->
+		<title>Jane Smith - Front-End Web Developer | Bootstrap Portfolio</title>
+		<meta
+			name="description"
+			content="Portfolio of Jane Smith, web developer specialized in responsive design, Bootstrap, and modern user experiences. Projects, skills and contact." />
+		<meta
+			name="keywords"
+			content="web developer, bootstrap, responsive design, front-end, portfolio, HTML, CSS, JavaScript" />
+		<meta name="author" content="Jane Smith" />
+
+		<!-- ============================================
+		     OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
+		     Controls how your site looks when shared
+		     ============================================ -->
+		<meta property="og:title" content="Jane Smith - Front-End Web Developer" />
+		<meta
+			property="og:description"
+			content="Explore my portfolio of responsive, modern web projects built with Bootstrap and standard web technologies." />
+		<meta property="og:image" content="https://janesmith.github.io/assets/images/og-preview.jpg" />
+		<meta property="og:url" content="https://janesmith.github.io" />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="en_US" />
+
+		<!-- ============================================
+		     TWITTER CARD
+		     Optimization for sharing on X/Twitter
+		     ============================================ -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Jane Smith - Web Developer Portfolio" />
+		<meta
+			name="twitter:description"
+			content="Professional portfolio showcasing modern web projects and technical skills" />
+		<meta name="twitter:image" content="https://janesmith.github.io/assets/images/twitter-card.jpg" />
+		<meta name="twitter:creator" content="@janesmith_dev" />
+
+		<!-- ============================================
+		     FAVICONS
+		     Iconos que aparecen en pestañas y marcadores
+		     ============================================ -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+		<!-- ============================================
+		     OPTIMIZACIÓN DE RENDIMIENTO
+		     Preconectar y precargar recursos críticos
+		     ============================================ -->
+		<!-- Preconectar a CDN de Bootstrap antes de que lo necesitemos -->
+		<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+		<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+		<!-- Precargar fuentes críticas (si usas fuentes personalizadas) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<!-- ============================================
+		     BOOTSTRAP CSS (Versión MINIFICADA para producción)
+		     ============================================ -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+			crossorigin="anonymous" />
+
+		<!-- Bootstrap Icons -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
+
+		<!-- CSS Personalizado -->
+		<link href="./assets/css/custom.css" rel="stylesheet" />
+
+		<!-- ============================================
+		     TEMA DE COLOR (para navegadores móviles)
+		     ============================================ -->
+		<meta name="theme-color" content="#0d6efd" />
+	</head>
+
+	<body>
+		<!-- ============================================
+		     BARRA DE NAVEGACIÓN
+		     Con schema.org markup para SEO
+		     ============================================ -->
+		<nav
+			class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
+			itemscope
+			itemtype="https://schema.org/SiteNavigationElement">
+			<div class="container">
+				<!-- Logo/Marca -->
+				<a class="navbar-brand fw-bold" href="/" itemprop="url">
+					<i class="bi bi-code-slash"></i>
+					<span itemprop="name">María García</span>
+				</a>
+
+				<!-- Botón hamburguesa para móviles -->
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- Enlaces de navegación -->
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="#inicio">Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#sobre-mi">Sobre Mí</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#habilidades">Habilidades</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#proyectos">Proyectos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#contacto">Contacto</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- ============================================
+		     CONTENIDO PRINCIPAL
+		     Usa <main> para indicar el contenido principal a motores de búsqueda
+		     ============================================ -->
+		<main>
+			<!-- ============================================
+			     SECCIÓN HERO
+			     Primera impresión - debe cargar rápido
+			     ============================================ -->
+			<section id="inicio" class="hero-section min-vh-100 d-flex align-items-center bg-light">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6 mb-4 mb-lg-0">
+							<!-- Encabezado principal - SOLO UN H1 por página para SEO -->
+							<h1 class="display-3 fw-bold mb-3">
+								Hola, soy
+								<span class="text-primary">María García</span>
+							</h1>
+							<p class="lead mb-4">
+								Desarrolladora Web Front-End especializada en crear experiencias digitales responsivas, accesibles y centradas
+								en el usuario.
+							</p>
+							<div class="d-flex flex-wrap gap-3">
+								<a href="#proyectos" class="btn btn-primary btn-lg">
+									<i class="bi bi-briefcase me-2"></i>
+									Ver Proyectos
+								</a>
+								<a href="#contacto" class="btn btn-outline-primary btn-lg">
+									<i class="bi bi-envelope me-2"></i>
+									Contactar
+								</a>
+							</div>
+
+							<!-- Enlaces sociales -->
+							<div class="social-links mt-4">
+								<a href="https://github.com/mariagarcia" class="btn btn-outline-dark me-2" aria-label="GitHub">
+									<i class="bi bi-github"></i>
+								</a>
+								<a href="https://linkedin.com/in/mariagarcia" class="btn btn-outline-primary me-2" aria-label="LinkedIn">
+									<i class="bi bi-linkedin"></i>
+								</a>
+								<a href="https://codepen.io/mariagarcia" class="btn btn-outline-success me-2" aria-label="CodePen">
+									<i class="bi bi-code-square"></i>
+								</a>
+							</div>
+						</div>
+
+						<div class="col-lg-6 text-center">
+							<!-- Imagen optimizada con loading lazy para mejor rendimiento -->
+							<img
+								src="./assets/images/profile-photo.jpg"
+								alt="María García - Desarrolladora Web Front-End"
+								class="img-fluid rounded-circle shadow-lg profile-photo"
+								loading="lazy"
+								width="400"
+								height="400" />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ============================================
+			     SECCIÓN SOBRE MÍ
+			     Información personal y trayectoria
+			     ============================================ -->
+			<section id="sobre-mi" class="py-5 bg-white" itemscope itemtype="https://schema.org/Person">
+				<div class="container">
+					<h2 class="text-center mb-5">Sobre Mí</h2>
+					<div class="row justify-content-center">
+						<div class="col-lg-8">
+							<p class="lead text-center mb-4" itemprop="description">
+								Soy una desarrolladora web apasionada por crear experiencias digitales que combinen funcionalidad, estética y
+								accesibilidad. Con formación en diseño y desarrollo web, transformo ideas en realidad digital.
+							</p>
+
+							<!-- Tarjetas de información -->
+							<div class="row g-4 mt-4">
+								<div class="col-md-6">
+									<div class="card h-100 border-0 shadow-sm">
+										<div class="card-body text-center">
+											<i class="bi bi-mortarboard-fill text-primary fs-1 mb-3"></i>
+											<h5 class="card-title">Educación</h5>
+											<p class="card-text">
+												Grado en Diseño Digital e Interactivo
+												<br />
+												Universidad de las Artes
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="card h-100 border-0 shadow-sm">
+										<div class="card-body text-center">
+											<i class="bi bi-briefcase-fill text-primary fs-1 mb-3"></i>
+											<h5 class="card-title">Experiencia</h5>
+											<p class="card-text">
+												2+ años trabajando en proyectos web
+												<br />
+												Freelance y colaboraciones
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ============================================
+			     SECCIÓN HABILIDADES
+			     Muestra competencias técnicas con barras de progreso
+			     ============================================ -->
+			<section id="habilidades" class="py-5 bg-light">
+				<div class="container">
+					<h2 class="text-center mb-5">Habilidades Técnicas</h2>
+
+					<div class="row">
+						<!-- Columna 1: Frontend -->
+						<div class="col-lg-6 mb-4">
+							<h4 class="mb-4">
+								<i class="bi bi-laptop text-primary"></i>
+								Front-End
+							</h4>
+
+							<!-- HTML -->
+							<div class="mb-4">
+								<div class="d-flex justify-content-between mb-2">
+									<span class="fw-semibold">HTML5</span>
+									<span class="text-muted">90%</span>
+								</div>
+								<div
+									class="progress"
+									role="progressbar"
+									aria-label="HTML5 skill"
+									aria-valuenow="90"
+									aria-valuemin="0"
+									aria-valuemax="100">
+									<div class="progress-bar bg-primary" style="width: 90%"></div>
+								</div>
+							</div>
+
+							<!-- CSS -->
+							<div class="mb-4">
+								<div class="d-flex justify-content-between mb-2">
+									<span class="fw-semibold">CSS3 & Sass</span>
+									<span class="text-muted">85%</span>
+								</div>
+								<div
+									class="progress"
+									role="progressbar"
+									aria-label="CSS3 skill"
+									aria-valuenow="85"
+									aria-valuemin="0"
+									aria-valuemax="100">
+									<div class="progress-bar bg-primary" style="width: 85%"></div>
+								</div>
+							</div>
+
+							<!-- JavaScript -->
+							<div class="mb-4">
+								<div class="d-flex justify-content-between mb-2">
+									<span class="fw-semibold">JavaScript ES6+</span>
+									<span class="text-muted">80%</span>
+								</div>
+								<div
+									class="progress"
+									role="progressbar"
+									aria-label="JavaScript skill"
+									aria-valuenow="80"
+									aria-valuemin="0"
+									aria-valuemax="100">
+									<div class="progress-bar bg-primary" style="width: 80%"></div>
+								</div>
+							</div>
+
+							<!-- Bootstrap -->
+							<div class="mb-4">
+								<div class="d-flex justify-content-between mb-2">
+									<span class="fw-semibold">Bootstrap 5</span>
+									<span class="text-muted">90%</span>
+								</div>
+								<div
+									class="progress"
+									role="progressbar"
+									aria-label="Bootstrap skill"
+									aria-valuenow="90"
+									aria-valuemin="0"
+									aria-valuemax="100">
+									<div class="progress-bar bg-primary" style="width: 90%"></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Columna 2: Herramientas y Metodologías -->
+						<div class="col-lg-6 mb-4">
+							<h4 class="mb-4">
+								<i class="bi bi-tools text-primary"></i>
+								Herramientas & Metodologías
+							</h4>
+
+							<!-- Git -->
+							<div class="mb-4">
+								<div class="d-flex justify-content-between mb-2">
+									<span class="fw-semibold">Git & GitHub</span>
+									<span class="text-muted">85%</span>
+								</div>
+								<div
+									class="progress"
+									role="progressbar"
+									aria-label="Git skill"
+									aria-valuenow="85"
+									aria-valuemin="0"
+									aria-valuemax="100">
+									<div class="progress-bar bg-success" style="width: 85%"></div>
+								</div>
+							</div>
+
+							<!-- Responsive Design -->
+							<div class="mb-4">
+								<div class="d-flex justify-content-between mb-2">
+									<span class="fw-semibold">Diseño Responsivo</span>
+									<span class="text-muted">90%</span>
+								</div>
+								<div
+									class="progress"
+									role="progressbar"
+									aria-label="Responsive Design skill"
+									aria-valuenow="90"
+									aria-valuemin="0"
+									aria-valuemax="100">
+									<div class="progress-bar bg-success" style="width: 90%"></div>
+								</div>
+							</div>
+
+							<!-- Accesibilidad -->
+							<div class="mb-4">
+								<div class="d-flex justify-content-between mb-2">
+									<span class="fw-semibold">Accesibilidad Web (WCAG)</span>
+									<span class="text-muted">75%</span>
+								</div>
+								<div
+									class="progress"
+									role="progressbar"
+									aria-label="Accessibility skill"
+									aria-valuenow="75"
+									aria-valuemin="0"
+									aria-valuemax="100">
+									<div class="progress-bar bg-success" style="width: 75%"></div>
+								</div>
+							</div>
+
+							<!-- SEO -->
+							<div class="mb-4">
+								<div class="d-flex justify-content-between mb-2">
+									<span class="fw-semibold">SEO Básico</span>
+									<span class="text-muted">70%</span>
+								</div>
+								<div
+									class="progress"
+									role="progressbar"
+									aria-label="SEO skill"
+									aria-valuenow="70"
+									aria-valuemin="0"
+									aria-valuemax="100">
+									<div class="progress-bar bg-success" style="width: 70%"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ============================================
+			     SECCIÓN PROYECTOS
+			     Portfolio de trabajos con schema.org markup
+			     ============================================ -->
+			<section id="proyectos" class="py-5 bg-white">
+				<div class="container">
+					<h2 class="text-center mb-5">Proyectos Destacados</h2>
+
+					<div class="row g-4">
+						<!-- Proyecto 1: E-commerce -->
+						<div class="col-lg-4 col-md-6">
+							<article class="card h-100 shadow-sm project-card" itemscope itemtype="https://schema.org/CreativeWork">
+								<!-- Imagen del proyecto -->
+								<img
+									src="./assets/images/project-ecommerce.jpg"
+									class="card-img-top"
+									alt="Tienda E-commerce Responsiva"
+									itemprop="image"
+									loading="lazy" />
+
+								<div class="card-body">
+									<h5 class="card-title" itemprop="name">Tienda E-commerce Responsiva</h5>
+									<p class="card-text" itemprop="description">
+										Plataforma de comercio electrónico moderna con carrito de compras, filtros de productos y diseño totalmente
+										responsivo.
+									</p>
+
+									<!-- Stack tecnológico -->
+									<div class="tech-stack mb-3">
+										<span class="badge bg-primary me-1">HTML5</span>
+										<span class="badge bg-info me-1">Bootstrap 5</span>
+										<span class="badge bg-warning text-dark me-1">JavaScript</span>
+									</div>
+
+									<!-- Características clave -->
+									<ul class="list-unstyled small text-muted">
+										<li>
+											<i class="bi bi-check-circle-fill text-success"></i>
+											Diseño mobile-first
+										</li>
+										<li>
+											<i class="bi bi-check-circle-fill text-success"></i>
+											Carrito interactivo
+										</li>
+										<li>
+											<i class="bi bi-check-circle-fill text-success"></i>
+											Filtros de productos
+										</li>
+									</ul>
+								</div>
+
+								<div class="card-footer bg-transparent border-top-0">
+									<div class="d-flex gap-2">
+										<a
+											href="https://mariagarcia.github.io/ecommerce-demo"
+											class="btn btn-primary btn-sm flex-grow-1"
+											itemprop="url">
+											<i class="bi bi-box-arrow-up-right"></i>
+											Ver Demo
+										</a>
+										<a href="https://github.com/mariagarcia/ecommerce-demo" class="btn btn-outline-secondary btn-sm">
+											<i class="bi bi-github"></i>
+											Código
+										</a>
+									</div>
+								</div>
+							</article>
+						</div>
+
+						<!-- Proyecto 2: Dashboard -->
+						<div class="col-lg-4 col-md-6">
+							<article class="card h-100 shadow-sm project-card" itemscope itemtype="https://schema.org/CreativeWork">
+								<img
+									src="./assets/images/project-dashboard.jpg"
+									class="card-img-top"
+									alt="Panel de Control Administrativo"
+									itemprop="image"
+									loading="lazy" />
+
+								<div class="card-body">
+									<h5 class="card-title" itemprop="name">Panel de Control Administrativo</h5>
+									<p class="card-text" itemprop="description">
+										Dashboard interactivo con gráficos, tablas dinámicas y gestión de datos. Interfaz intuitiva para
+										administradores.
+									</p>
+
+									<div class="tech-stack mb-3">
+										<span class="badge bg-primary me-1">Bootstrap 5</span>
+										<span class="badge bg-info me-1">Chart.js</span>
+										<span class="badge bg-success me-1">JavaScript</span>
+									</div>
+
+									<ul class="list-unstyled small text-muted">
+										<li>
+											<i class="bi bi-check-circle-fill text-success"></i>
+											Gráficos interactivos
+										</li>
+										<li>
+											<i class="bi bi-check-circle-fill text-success"></i>
+											Tablas responsive
+										</li>
+										<li>
+											<i class="bi bi-check-circle-fill text-success"></i>
+											Tema oscuro/claro
+										</li>
+									</ul>
+								</div>
+
+								<div class="card-footer bg-transparent border-top-0">
+									<div class="d-flex gap-2">
+										<a
+											href="https://mariagarcia.github.io/admin-dashboard"
+											class="btn btn-primary btn-sm flex-grow-1"
+											itemprop="url">
+											<i class="bi bi-box-arrow-up-right"></i>
+											Ver Demo
+										</a>
+										<a href="https://github.com/mariagarcia/admin-dashboard" class="btn btn-outline-secondary btn-sm">
+											<i class="bi bi-github"></i>
+											Código
+										</a>
+									</div>
+								</div>
+							</article>
+						</div>
+
+						<!-- Proyecto 3: Landing Page -->
+						<div class="col-lg-4 col-md-6">
+							<article class="card h-100 shadow-sm project-card" itemscope itemtype="https://schema.org/CreativeWork">
+								<img
+									src="./assets/images/project-landing.jpg"
+									class="card-img-top"
+									alt="Landing Page para Startup"
+									itemprop="image"
+									loading="lazy" />
+
+								<div class="card-body">
+									<h5 class="card-title" itemprop="name">Landing Page para Startup Tech</h5>
+									<p class="card-text" itemprop="description">
+										Página de aterrizaje moderna con animaciones, secciones de testimonios y formulario de contacto funcional.
+									</p>
+
+									<div class="tech-stack mb-3">
+										<span class="badge bg-primary me-1">HTML5</span>
+										<span class="badge bg-info me-1">CSS3</span>
+										<span class="badge bg-warning text-dark me-1">Bootstrap</span>
+									</div>
+
+									<ul class="list-unstyled small text-muted">
+										<li>
+											<i class="bi bi-check-circle-fill text-success"></i>
+											Animaciones suaves
+										</li>
+										<li>
+											<i class="bi bi-check-circle-fill text-success"></i>
+											SEO optimizado
+										</li>
+										<li>
+											<i class="bi bi-check-circle-fill text-success"></i>
+											Formularios validados
+										</li>
+									</ul>
+								</div>
+
+								<div class="card-footer bg-transparent border-top-0">
+									<div class="d-flex gap-2">
+										<a
+											href="https://mariagarcia.github.io/startup-landing"
+											class="btn btn-primary btn-sm flex-grow-1"
+											itemprop="url">
+											<i class="bi bi-box-arrow-up-right"></i>
+											Ver Demo
+										</a>
+										<a href="https://github.com/mariagarcia/startup-landing" class="btn btn-outline-secondary btn-sm">
+											<i class="bi bi-github"></i>
+											Código
+										</a>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+
+					<!-- CTA para ver más proyectos -->
+					<div class="text-center mt-5">
+						<a href="https://github.com/mariagarcia" class="btn btn-outline-primary btn-lg">
+							<i class="bi bi-github me-2"></i>
+							Ver Más en GitHub
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- ============================================
+			     SECCIÓN CONTACTO
+			     Formulario de contacto con validación Bootstrap
+			     ============================================ -->
+			<section id="contacto" class="py-5 bg-light">
+				<div class="container">
+					<h2 class="text-center mb-4">Contacto</h2>
+					<p class="text-center text-muted mb-5">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+
+					<div class="row justify-content-center">
+						<div class="col-lg-8">
+							<!-- Tarjetas de información de contacto -->
+							<div class="row g-3 mb-5">
+								<div class="col-md-4">
+									<div class="card text-center border-0 shadow-sm h-100">
+										<div class="card-body">
+											<i class="bi bi-envelope-fill text-primary fs-2 mb-3"></i>
+											<h6 class="card-title">Email</h6>
+											<a href="mailto:maria@example.com" class="text-decoration-none">maria@example.com</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="card text-center border-0 shadow-sm h-100">
+										<div class="card-body">
+											<i class="bi bi-telephone-fill text-primary fs-2 mb-3"></i>
+											<h6 class="card-title">Teléfono</h6>
+											<a href="tel:+34600123456" class="text-decoration-none">+34 600 123 456</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="card text-center border-0 shadow-sm h-100">
+										<div class="card-body">
+											<i class="bi bi-geo-alt-fill text-primary fs-2 mb-3"></i>
+											<h6 class="card-title">Ubicación</h6>
+											<p class="mb-0 text-muted">Madrid, España</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Formulario de contacto -->
+							<div class="card shadow-sm">
+								<div class="card-body p-4">
+									<form id="contactForm" class="needs-validation" novalidate>
+										<div class="row g-3">
+											<!-- Nombre -->
+											<div class="col-md-6">
+												<label for="nombre" class="form-label">Nombre *</label>
+												<input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Tu nombre" />
+												<div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+											</div>
+
+											<!-- Email -->
+											<div class="col-md-6">
+												<label for="email" class="form-label">Email *</label>
+												<input type="email" class="form-control" id="email" name="email" required placeholder="tu@email.com" />
+												<div class="invalid-feedback">Por favor ingresa un email válido.</div>
+											</div>
+
+											<!-- Asunto -->
+											<div class="col-12">
+												<label for="asunto" class="form-label">Asunto *</label>
+												<input
+													type="text"
+													class="form-control"
+													id="asunto"
+													name="asunto"
+													required
+													placeholder="Asunto del mensaje" />
+												<div class="invalid-feedback">Por favor ingresa un asunto.</div>
+											</div>
+
+											<!-- Mensaje -->
+											<div class="col-12">
+												<label for="mensaje" class="form-label">Mensaje *</label>
+												<textarea
+													class="form-control"
+													id="mensaje"
+													name="mensaje"
+													rows="5"
+													required
+													placeholder="Cuéntame sobre tu proyecto..."></textarea>
+												<div class="invalid-feedback">Por favor escribe un mensaje.</div>
+											</div>
+
+											<!-- Botón de envío -->
+											<div class="col-12">
+												<button type="submit" class="btn btn-primary btn-lg w-100">
+													<i class="bi bi-send-fill me-2"></i>
+													Enviar Mensaje
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- ============================================
+		     PIE DE PÁGINA
+		     Con datos estructurados de organización
+		     ============================================ -->
+		<footer class="bg-dark text-white py-4" itemscope itemtype="https://schema.org/Person">
+			<div class="container">
+				<div class="row">
+					<!-- Columna 1: Info -->
+					<div class="col-lg-4 mb-3 mb-lg-0">
+						<h5 class="mb-3" itemprop="name">María García</h5>
+						<p class="text-white-50" itemprop="jobTitle">Desarrolladora Web Front-End</p>
+						<p class="text-white-50 small">
+							Creando experiencias web responsivas y accesibles con pasión por el código limpio y el diseño centrado en el
+							usuario.
+						</p>
+					</div>
+
+					<!-- Columna 2: Enlaces rápidos -->
+					<div class="col-lg-4 mb-3 mb-lg-0">
+						<h5 class="mb-3">Enlaces Rápidos</h5>
+						<ul class="list-unstyled">
+							<li>
+								<a href="#inicio" class="text-white-50 text-decoration-none">Inicio</a>
+							</li>
+							<li>
+								<a href="#sobre-mi" class="text-white-50 text-decoration-none">Sobre Mí</a>
+							</li>
+							<li>
+								<a href="#proyectos" class="text-white-50 text-decoration-none">Proyectos</a>
+							</li>
+							<li>
+								<a href="#contacto" class="text-white-50 text-decoration-none">Contacto</a>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Columna 3: Redes sociales -->
+					<div class="col-lg-4">
+						<h5 class="mb-3">Sígueme</h5>
+						<div class="d-flex gap-3">
+							<a href="https://github.com/mariagarcia" class="text-white" aria-label="GitHub" itemprop="sameAs">
+								<i class="bi bi-github fs-4"></i>
+							</a>
+							<a href="https://linkedin.com/in/mariagarcia" class="text-white" aria-label="LinkedIn" itemprop="sameAs">
+								<i class="bi bi-linkedin fs-4"></i>
+							</a>
+							<a href="https://twitter.com/mariagarcia_dev" class="text-white" aria-label="Twitter" itemprop="sameAs">
+								<i class="bi bi-twitter fs-4"></i>
+							</a>
+							<a href="mailto:maria@example.com" class="text-white" aria-label="Email" itemprop="email">
+								<i class="bi bi-envelope fs-4"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<hr class="my-4 bg-white opacity-25" />
+
+				<!-- Copyright -->
+				<div class="text-center text-white-50 small">
+					<p class="mb-0">
+						&copy; 2024 María García. Construido con
+						<i class="bi bi-heart-fill text-danger"></i>
+						y Bootstrap 5.
+					</p>
+					<p class="mb-0 mt-2">
+						<a href="#" class="text-white-50 text-decoration-none me-3">Política de Privacidad</a>
+						<a href="#" class="text-white-50 text-decoration-none">Términos de Uso</a>
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Botón de scroll to top -->
+		<button
+			id="scrollToTop"
+			class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle"
+			style="display: none; z-index: 1000">
+			<i class="bi bi-arrow-up"></i>
+		</button>
+
+		<!-- ============================================
+		     DATOS ESTRUCTURADOS JSON-LD
+		     Ayuda a Google entender quién eres y qué haces
+		     ============================================ -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "María García",
+				"jobTitle": "Desarrolladora Web Front-End",
+				"url": "https://mariagarcia.github.io",
+				"sameAs": [
+					"https://github.com/mariagarcia",
+					"https://linkedin.com/in/mariagarcia",
+					"https://twitter.com/mariagarcia_dev"
+				],
+				"knowsAbout": [
+					"Desarrollo Web",
+					"HTML5",
+					"CSS3",
+					"JavaScript",
+					"Bootstrap",
+					"Diseño Responsivo",
+					"Accesibilidad Web",
+					"SEO"
+				],
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Madrid",
+					"addressCountry": "España"
+				},
+				"email": "maria@example.com",
+				"telephone": "+34600123456"
+			}
+		</script>
+
+		<!-- ============================================
+		     SCRIPTS DE JAVASCRIPT
+		     Al final del body para no bloquear renderizado
+		     ============================================ -->
+		<!-- Bootstrap Bundle JS (incluye Popper.js) -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+			crossorigin="anonymous"></script>
+
+		<!-- JavaScript personalizado -->
+		<script src="./assets/js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+{
+	"name": "bootstrap-sass-customization-demo",
+	"version": "1.0.0",
+	"description": "Demo de personalización de Bootstrap con Sass usando Vite",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"bootstrap": "^5.3.0",
+		"sass": "^1.69.0",
+		"vite": "^5.0.0"
+	}
+}

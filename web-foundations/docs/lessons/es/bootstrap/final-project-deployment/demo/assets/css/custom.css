@@ -1,0 +1,589 @@
+/* ============================================
+   PORTAFOLIO BOOTSTRAP - ESTILOS PERSONALIZADOS
+   ============================================
+   
+   Este archivo contiene estilos personalizados que complementan
+   Bootstrap. Está organizado siguiendo estas mejores prácticas:
+   
+   1. Variables CSS para mantener consistencia
+   2. Estilos globales primero
+   3. Componentes específicos después
+   4. Media queries al final
+   
+   IMPORTANTE: Siempre carga este archivo DESPUÉS de Bootstrap
+   para que tus estilos sobreescriban los de Bootstrap cuando sea necesario.
+   ============================================ */
+
+/* ============================================
+   VARIABLES CSS PERSONALIZADAS
+   Las variables CSS (custom properties) permiten reutilizar valores
+   y cambiar temas fácilmente. Son como variables de Sass pero nativas.
+   ============================================ */
+:root {
+	/* Colores primarios */
+	--primary-color: #0d6efd;
+	--secondary-color: #6c757d;
+	--success-color: #198754;
+	--danger-color: #dc3545;
+
+	/* Colores de fondo */
+	--bg-light: #f8f9fa;
+	--bg-dark: #212529;
+
+	/* Tipografía */
+	--font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	--font-size-base: 1rem;
+	--line-height-base: 1.5;
+
+	/* Espaciado */
+	--spacing-xs: 0.5rem;
+	--spacing-sm: 1rem;
+	--spacing-md: 2rem;
+	--spacing-lg: 3rem;
+	--spacing-xl: 4rem;
+
+	/* Sombras */
+	--shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+	--shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+	--shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+	/* Transiciones */
+	--transition-fast: 0.15s ease-in-out;
+	--transition-base: 0.3s ease-in-out;
+	--transition-slow: 0.5s ease-in-out;
+
+	/* Border radius */
+	--radius-sm: 0.25rem;
+	--radius-md: 0.5rem;
+	--radius-lg: 1rem;
+}
+
+/* ============================================
+   ESTILOS GLOBALES
+   Mejoras a los estilos base del navegador
+   ============================================ */
+
+/* Scroll suave al hacer clic en enlaces de anclaje */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Mejora el box-sizing para cálculos más predecibles */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--font-primary);
+	/* Espacio adicional en el top para la navbar fija */
+	padding-top: 56px;
+}
+
+/* Mejora la legibilidad del texto */
+p {
+	line-height: var(--line-height-base);
+}
+
+/* ============================================
+   NAVEGACIÓN
+   Estilos personalizados para la barra de navegación
+   ============================================ */
+
+/* Navbar con sombra sutil para darle profundidad */
+.navbar {
+	box-shadow: var(--shadow-md);
+	/* Transición suave al hacer scroll */
+	transition: all var(--transition-base);
+}
+
+/* Enlaces de navegación con efecto hover */
+.navbar-nav .nav-link {
+	position: relative;
+	font-weight: 500;
+	/* Padding horizontal para espaciado */
+	padding: 0.5rem 1rem;
+	/* Transición suave */
+	transition: color var(--transition-fast);
+}
+
+/* Efecto de subrayado animado en hover */
+.navbar-nav .nav-link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background-color: white;
+	/* Transición desde el centro */
+	transform: translateX(-50%);
+	transition: width var(--transition-base);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus::after {
+	width: 80%;
+}
+
+/* ============================================
+   SECCIÓN HERO
+   Primera sección que ve el usuario
+   ============================================ */
+
+.hero-section {
+	/* Altura mínima para llenar la ventana */
+	min-height: 100vh;
+	/* Padding top extra para compensar navbar fija */
+	padding-top: 56px;
+}
+
+/* Foto de perfil con efectos */
+.profile-photo {
+	/* Máximo ancho para no ser demasiado grande */
+	max-width: 400px;
+	/* Transición suave en hover */
+	transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* Efecto de zoom sutil al pasar el mouse */
+.profile-photo:hover {
+	/* Escala ligeramente la imagen */
+	transform: scale(1.05);
+	/* Aumenta la sombra para efecto de elevación */
+	box-shadow: 0 1rem 3rem rgba(13, 110, 253, 0.3) !important;
+}
+
+/* Botones sociales con hover */
+.social-links .btn {
+	width: 45px;
+	height: 45px;
+	/* Centrar icono */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	/* Transición suave */
+	transition: all var(--transition-fast);
+}
+
+.social-links .btn:hover {
+	/* Elevar en hover */
+	transform: translateY(-3px);
+	/* Sombra más pronunciada */
+	box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   TARJETAS (CARDS)
+   Usadas en proyectos y otras secciones
+   ============================================ */
+
+/* Tarjeta de proyecto con efectos */
+.project-card {
+	/* Transición suave para todos los cambios */
+	transition: transform var(--transition-base), box-shadow var(--transition-base);
+	/* Border más suave */
+	border: none;
+	overflow: hidden;
+}
+
+/* Efecto de elevación en hover */
+.project-card:hover {
+	/* Elevar la tarjeta */
+	transform: translateY(-10px);
+	/* Sombra más grande */
+	box-shadow: var(--shadow-lg) !important;
+}
+
+/* Imagen de la tarjeta con zoom al hover */
+.project-card img {
+	/* Transición suave */
+	transition: transform var(--transition-slow);
+}
+
+.project-card:hover img {
+	/* Zoom de 110% */
+	transform: scale(1.1);
+}
+
+/* Stack tecnológico con badges */
+.tech-stack {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.tech-stack .badge {
+	font-size: 0.75rem;
+	padding: 0.35rem 0.65rem;
+	font-weight: 500;
+}
+
+/* ============================================
+   SECCIÓN DE HABILIDADES
+   Barras de progreso personalizadas
+   ============================================ */
+
+/* Barra de progreso con animación */
+.progress {
+	height: 10px;
+	border-radius: var(--radius-lg);
+	background-color: #e9ecef;
+	overflow: hidden;
+}
+
+.progress-bar {
+	/* Transición suave al cargar */
+	transition: width 1s ease-in-out;
+	border-radius: var(--radius-lg);
+	/* Gradiente sutil para más interés visual */
+	background: linear-gradient(90deg, var(--primary-color) 0%, #0a58ca 100%);
+}
+
+/* Animación de carga (se activa con JavaScript) */
+.progress-bar.animate {
+	animation: progressAnimation 1.5s ease-out;
+}
+
+@keyframes progressAnimation {
+	from {
+		width: 0;
+	}
+}
+
+/* ============================================
+   FORMULARIOS
+   Mejoras a los formularios de Bootstrap
+   ============================================ */
+
+/* Inputs con focus mejorado */
+.form-control:focus {
+	/* Border más grueso */
+	border-width: 2px;
+	/* Sombra más visible */
+	box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+/* Label con mejor tipografía */
+.form-label {
+	font-weight: 500;
+	margin-bottom: var(--spacing-xs);
+	color: var(--bs-gray-800);
+}
+
+/* ============================================
+   BOTONES
+   Estilos adicionales para botones
+   ============================================ */
+
+/* Todos los botones con transición */
+.btn {
+	transition: all var(--transition-fast);
+	font-weight: 500;
+	/* Padding más cómodo */
+	padding: 0.5rem 1.5rem;
+}
+
+/* Efecto de elevación en hover para botones primarios */
+.btn-primary:hover,
+.btn-success:hover,
+.btn-info:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+}
+
+/* Botones outline con efecto de relleno */
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   SCROLL TO TOP BUTTON
+   Botón flotante para volver arriba
+   ============================================ */
+
+#scrollToTop {
+	/* Ancho y alto fijos */
+	width: 50px;
+	height: 50px;
+	/* Centrar icono */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* Sombra pronunciada */
+	box-shadow: var(--shadow-lg);
+	/* Transición suave */
+	transition: all var(--transition-base);
+	/* Z-index alto para estar sobre todo */
+	z-index: 1000;
+}
+
+#scrollToTop:hover {
+	/* Elevar más en hover */
+	transform: translateY(-5px);
+	/* Sombra más grande */
+	box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   FOOTER
+   Estilos del pie de página
+   ============================================ */
+
+footer {
+	/* Color de fondo oscuro */
+	background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1d20 100%);
+}
+
+footer a {
+	transition: color var(--transition-fast);
+}
+
+footer a:hover {
+	color: var(--primary-color) !important;
+}
+
+/* ============================================
+   UTILIDADES PERSONALIZADAS
+   Clases auxiliares reutilizables
+   ============================================ */
+
+/* Gradiente de fondo primario */
+.bg-gradient-primary {
+	background: linear-gradient(135deg, var(--primary-color) 0%, #0a58ca 100%);
+	color: white;
+}
+
+/* Texto con gradiente */
+.text-gradient {
+	background: linear-gradient(135deg, var(--primary-color) 0%, #0a58ca 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Sombra de texto sutil */
+.text-shadow {
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   ANIMACIONES PERSONALIZADAS
+   Animaciones para dar vida a la página
+   ============================================ */
+
+/* Fade in animación (activar con JavaScript) */
+.fade-in {
+	animation: fadeIn var(--transition-slow);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Animación de slide desde la izquierda */
+.slide-in-left {
+	animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Animación de slide desde la derecha */
+.slide-in-right {
+	animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+	from {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* ============================================
+   MEDIA QUERIES
+   Adaptaciones para diferentes tamaños de pantalla
+   ============================================ */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 991px) {
+	/* Hero con menos padding vertical en tablets */
+	.hero-section {
+		padding-top: var(--spacing-lg);
+		padding-bottom: var(--spacing-lg);
+	}
+
+	/* Títulos más pequeños en tablets */
+	.display-3 {
+		font-size: 3rem;
+	}
+
+	/* Foto de perfil más pequeña */
+	.profile-photo {
+		max-width: 300px;
+	}
+}
+
+/* Móviles */
+@media (max-width: 767px) {
+	/* Padding del body para navbar más pequeña */
+	body {
+		padding-top: 56px;
+	}
+
+	/* Hero con altura flexible en móvil */
+	.hero-section {
+		min-height: auto;
+		padding: var(--spacing-md) 0;
+	}
+
+	/* Títulos aún más pequeños en móvil */
+	.display-3 {
+		font-size: 2.5rem;
+	}
+
+	.lead {
+		font-size: 1rem;
+	}
+
+	/* Foto de perfil más pequeña en móvil */
+	.profile-photo {
+		max-width: 250px;
+		margin-bottom: var(--spacing-md);
+	}
+
+	/* Botones en columna en móvil */
+	.hero-section .d-flex {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.hero-section .btn {
+		width: 100%;
+	}
+
+	/* Tarjetas de proyecto sin margen entre ellas */
+	.project-card {
+		margin-bottom: var(--spacing-sm);
+	}
+
+	/* Footer con texto más pequeño */
+	footer {
+		font-size: 0.875rem;
+	}
+
+	/* Scroll to top más pequeño en móvil */
+	#scrollToTop {
+		width: 45px;
+		height: 45px;
+		margin: var(--spacing-sm);
+	}
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 575px) {
+	/* Secciones con padding reducido */
+	section {
+		padding: var(--spacing-md) 0;
+	}
+
+	/* Títulos h2 más pequeños */
+	h2 {
+		font-size: 1.75rem;
+	}
+
+	/* Badges más pequeños */
+	.tech-stack .badge {
+		font-size: 0.7rem;
+		padding: 0.25rem 0.5rem;
+	}
+}
+
+/* ============================================
+   MEJORAS DE RENDIMIENTO
+   ============================================ */
+
+/* Reducir movimiento para usuarios que lo prefieren (accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Modo oscuro (experimental - requiere JavaScript para toggle) */
+@media (prefers-color-scheme: dark) {
+	/* Opcional: estilos para modo oscuro automático */
+	/* Puedes descomentar esto si quieres soporte automático de modo oscuro */
+	/*
+  :root {
+    --bg-light: #1a1d20;
+    --bg-dark: #0d0f10;
+  }
+  
+  body {
+    background-color: var(--bg-dark);
+    color: #f8f9fa;
+  }
+  
+  .bg-light {
+    background-color: var(--bg-light) !important;
+  }
+  */
+}
+
+/* ============================================
+   PRINT STYLES
+   Estilos para cuando se imprime la página
+   ============================================ */
+@media print {
+	/* Ocultar elementos no necesarios al imprimir */
+	.navbar,
+	#scrollToTop,
+	.social-links {
+		display: none;
+	}
+
+	/* Fondo blanco para ahorrar tinta */
+	body {
+		background: white;
+		color: black;
+	}
+
+	/* Evitar saltos de página dentro de tarjetas */
+	.card {
+		page-break-inside: avoid;
+	}
+
+	/* Links con URL visible al imprimir */
+	a[href]:after {
+		content: ' (' attr(href) ')';
+	}
+}

@@ -1,438 +1,885 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 4: Fluid Typography Demo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Módulo 4: Demo Completo de Tipografía Web Moderna</title>
+		<!-- Google Font with Variable Font support -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@400..900&family=Space+Mono:wght@400;700&display=swap"
+			rel="stylesheet" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
 
-        body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-attachment: fixed;
-            padding: 2rem;
-            min-height: 100vh;
-        }
+			body {
+				font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				background-attachment: fixed;
+				padding: 2rem 1rem;
+				min-height: 100vh;
+			}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+			.container {
+				max-width: 1400px;
+				margin: 0 auto;
+			}
 
-        /* Hero section with fluid typography */
-        .hero {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
+			/* Section styles */
+			.section {
+				background: white;
+				border-radius: 20px;
+				padding: 3rem 2rem;
+				margin-bottom: 2rem;
+				box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+			}
 
-        .hero h1 {
-            /* Fluid typography using clamp() */
-            font-size: clamp(2rem, 5vw + 1rem, 4rem);
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            line-height: 1.2;
-        }
+			.section-title {
+				font-size: clamp(1.8rem, 3vw + 0.5rem, 2.8rem);
+				color: #667eea;
+				margin-bottom: 0.5rem;
+				font-weight: 800;
+			}
 
-        .hero .subtitle {
-            font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
-            color: #555;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
+			.section-subtitle {
+				font-size: clamp(1rem, 1.5vw + 0.3rem, 1.3rem);
+				color: #666;
+				margin-bottom: 2rem;
+				font-weight: 300;
+			}
 
-        .hero p {
-            font-size: clamp(0.9rem, 1vw + 0.5rem, 1.1rem);
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+			/* 🔤 SECTION 1: VARIABLE FONTS */
+			.variable-font-showcase {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin: 2rem 0;
+			}
 
-        /* Content sections */
-        .content-section {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
+			.variable-demo-card {
+				background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+				padding: 2rem;
+				border-radius: 12px;
+				transition: all 0.3s ease;
+				cursor: pointer;
+				border: 2px solid transparent;
+			}
 
-        .content-section h2 {
-            font-size: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
+			.variable-demo-card:hover {
+				border-color: #667eea;
+				transform: translateY(-4px);
+				box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+			}
 
-        .content-section h3 {
-            font-size: clamp(1.2rem, 2vw + 0.3rem, 1.8rem);
-            color: #764ba2;
-            margin-bottom: 0.8rem;
-            margin-top: 1.5rem;
-        }
+			.variable-demo-card h3 {
+				font-size: clamp(1.8rem, 3vw, 3rem);
+				font-weight: 200;
+				transition: font-weight 0.3s ease;
+				color: #333;
+				margin-bottom: 0.5rem;
+			}
 
-        .content-section p {
-            font-size: clamp(0.95rem, 1vw + 0.4rem, 1.1rem);
-            color: #333;
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
+			.variable-demo-card:hover h3 {
+				font-weight: 900;
+			}
 
-        /* Demo boxes showing different scales */
-        .demo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
+			.weight-label {
+				font-size: 0.85rem;
+				color: #666;
+				font-family: 'Space Mono', monospace;
+			}
 
-        .demo-box {
-            background: #f8f9fa;
-            padding: 2rem 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-            text-align: center;
-        }
+			.interactive-slider {
+				margin: 2rem 0;
+				padding: 2rem;
+				background: #f8f9fa;
+				border-radius: 12px;
+			}
 
-        .demo-box h4 {
-            color: #555;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+			.slider-demo {
+				font-size: clamp(2rem, 4vw, 4rem);
+				text-align: center;
+				margin: 2rem 0;
+				transition: font-weight 0.1s ease;
+				color: #333;
+			}
 
-        .demo-box .text-demo {
-            color: #333;
-            font-weight: 600;
-        }
+			input[type='range'] {
+				width: 100%;
+				margin: 1rem 0;
+				height: 8px;
+				border-radius: 5px;
+				background: linear-gradient(to right, #667eea, #764ba2);
+				outline: none;
+			}
 
-        .static {
-            font-size: 16px;
-        }
+			/* 📐 SECTION 2: FLUID TYPOGRAPHY */
+			.comparison-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1.5rem;
+				margin: 2rem 0;
+			}
 
-        .viewport-based {
-            font-size: 5vw;
-        }
+			.comparison-box {
+				background: #f8f9fa;
+				padding: 2rem 1.5rem;
+				border-radius: 12px;
+				text-align: center;
+				position: relative;
+			}
 
-        .clamped {
-            font-size: clamp(1rem, 3vw, 2rem);
-        }
+			.comparison-box h4 {
+				font-size: 0.85rem;
+				color: #555;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				margin-bottom: 1.5rem;
+			}
 
-        /* Code examples */
-        .code-box {
-            background: #2d3748;
-            color: #a0aec0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            overflow-x: auto;
-        }
+			.comparison-box .text-sample {
+				font-weight: 600;
+				color: #333;
+				margin-bottom: 1rem;
+			}
 
-        .code-box code {
-            font-family: 'Courier New', monospace;
-            font-size: clamp(0.8rem, 1vw + 0.3rem, 0.95rem);
-        }
+			.comparison-box .method-label {
+				font-size: 0.75rem;
+				color: #999;
+				font-family: 'Space Mono', monospace;
+				margin-top: 1rem;
+			}
 
-        /* Variable font demonstration */
-        @supports (font-variation-settings: normal) {
-            .variable-font-demo {
-                font-family: 'Inter', system-ui, sans-serif;
-            }
-        }
+			.fixed-size {
+				font-size: 24px;
+				border-left: 4px solid #ef4444;
+			}
+			.viewport-size {
+				font-size: 3vw;
+				border-left: 4px solid #f59e0b;
+			}
+			.fluid-size {
+				font-size: clamp(1.2rem, 3vw, 2.5rem);
+				border-left: 4px solid #10b981;
+			}
 
-        .weight-demo {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
+			/* 🎨 SECTION 3: TYPOGRAPHIC HERO */
+			.typographic-hero {
+				background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+				padding: 4rem 2rem;
+				border-radius: 20px;
+				text-align: center;
+				margin: 2rem 0;
+				position: relative;
+				overflow: hidden;
+			}
 
-        .weight-demo p {
-            margin: 0;
-        }
+			.typographic-hero::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(102,126,234,0.1)" stroke-width="2"/></svg>');
+				opacity: 0.3;
+			}
 
-        .weight-100 { font-weight: 100; }
-        .weight-300 { font-weight: 300; }
-        .weight-400 { font-weight: 400; }
-        .weight-600 { font-weight: 600; }
-        .weight-800 { font-weight: 800; }
+			.hero-text {
+				font-size: clamp(4rem, 15vw, 12rem);
+				font-weight: 900;
+				line-height: 0.9;
+				letter-spacing: -0.02em;
+				color: white;
+				text-transform: uppercase;
+				position: relative;
+				z-index: 1;
+				background: linear-gradient(135deg, #667eea, #764ba2);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
 
-        /* Comparison section */
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
+			.hero-subtitle {
+				font-size: clamp(1rem, 2vw, 1.5rem);
+				color: rgba(255, 255, 255, 0.7);
+				margin-top: 1rem;
+				position: relative;
+				z-index: 1;
+			}
 
-        .comparison-item {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 12px;
-        }
+			/* 💼 SECTION 4: BRANDING EXAMPLES */
+			.branding-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin: 2rem 0;
+			}
 
-        .comparison-item h4 {
-            color: #555;
-            margin-bottom: 1rem;
-        }
+			.brand-card {
+				padding: 2rem;
+				border-radius: 12px;
+				transition: all 0.3s ease;
+			}
 
-        .comparison-item.bad {
-            border-left: 4px solid #ef4444;
-        }
+			.brand-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+			}
 
-        .comparison-item.good {
-            border-left: 4px solid #10b981;
-        }
+			.brand-fintech {
+				background: linear-gradient(135deg, #f0f4ff 0%, #e0e8ff 100%);
+				font-family: 'Inter', sans-serif;
+			}
 
-        .reflection {
-            background: #fef3c7;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            border-left: 4px solid #f59e0b;
-        }
+			.brand-fintech h3 {
+				font-size: clamp(1.5rem, 2vw, 2rem);
+				font-weight: 300;
+				letter-spacing: 0.05em;
+				color: #1e40af;
+				margin-bottom: 0.5rem;
+			}
 
-        .reflection strong {
-            color: #92400e;
-        }
+			.brand-luxury {
+				background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+				font-family: 'Playfair Display', serif;
+			}
 
-        .info-box {
-            background: #e0f2fe;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #0284c7;
-        }
+			.brand-luxury h3 {
+				font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+				font-weight: 400;
+				letter-spacing: 0.15em;
+				color: #92400e;
+				margin-bottom: 0.5rem;
+			}
 
-        .info-box h4 {
-            color: #075985;
-            margin-bottom: 0.5rem;
-        }
+			.brand-tech {
+				background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+				font-family: 'Space Mono', monospace;
+				color: white;
+			}
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
+			.brand-tech h3 {
+				font-size: clamp(1.3rem, 2vw, 1.8rem);
+				font-weight: 700;
+				letter-spacing: 0.02em;
+				color: #10b981;
+				margin-bottom: 0.5rem;
+				text-transform: uppercase;
+			}
 
-            .comparison {
-                grid-template-columns: 1fr;
-            }
+			.brand-description {
+				font-size: clamp(0.85rem, 1vw, 0.95rem);
+				opacity: 0.7;
+				margin-top: 0.5rem;
+			}
 
-            .hero {
-                padding: 2rem 1.5rem;
-            }
-        }
+			/* ♿ SECTION 5: ACCESSIBILITY */
+			.accessibility-demo {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2rem;
+				margin: 2rem 0;
+			}
 
-        /* Window size indicator (for demonstration) */
-        .size-indicator {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-family: monospace;
-            z-index: 1000;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="hero">
-            <h1>Fluid Typography</h1>
-            <div class="subtitle">Fonts That Scale Beautifully Across All Devices</div>
-            <p>Resize your browser window and watch how the text adapts smoothly! This is the magic of fluid typography using modern CSS.</p>
-        </div>
+			.contrast-example {
+				padding: 2rem;
+				border-radius: 12px;
+				position: relative;
+			}
 
-        <div class="content-section">
-            <h2>What Is Fluid Typography?</h2>
-            <p>Fluid typography uses CSS techniques to make text sizes adapt smoothly to the viewport size. Instead of jumping between fixed sizes at breakpoints, text scales continuously as the screen size changes.</p>
+			.contrast-good {
+				background: white;
+				color: #1a1a1a;
+				border: 3px solid #10b981;
+			}
 
-            <p><strong>Analogy:</strong> Traditional responsive typography is like stepping up stairs (discrete jumps), while fluid typography is like climbing a ramp (smooth transition).</p>
+			.contrast-bad {
+				background: white;
+				color: #d1d5db;
+				border: 3px solid #ef4444;
+			}
 
-            <h3>The Evolution of Responsive Text</h3>
+			.contrast-ratio {
+				position: absolute;
+				top: 0.5rem;
+				right: 0.5rem;
+				background: rgba(0, 0, 0, 0.8);
+				color: white;
+				padding: 0.3rem 0.6rem;
+				border-radius: 4px;
+				font-size: 0.75rem;
+				font-family: 'Space Mono', monospace;
+			}
 
-            <div class="demo-grid">
-                <div class="demo-box">
-                    <h4>Static (px)</h4>
-                    <div class="text-demo static">Fixed Size</div>
-                    <p style="font-size: 0.85rem; margin-top: 1rem;">Same size on all screens</p>
-                </div>
+			.line-length-demo {
+				margin: 2rem 0;
+			}
 
-                <div class="demo-box">
-                    <h4>Viewport (vw)</h4>
-                    <div class="text-demo viewport-based">Scales</div>
-                    <p style="font-size: 0.85rem; margin-top: 1rem;">Can get too big or too small</p>
-                </div>
+			.line-too-long {
+				max-width: 100%;
+				background: #fef2f2;
+				padding: 1rem;
+				border-left: 4px solid #ef4444;
+				margin-bottom: 1rem;
+			}
 
-                <div class="demo-box">
-                    <h4>Fluid (clamp)</h4>
-                    <div class="text-demo clamped">Perfect</div>
-                    <p style="font-size: 0.85rem; margin-top: 1rem;">Scales within limits</p>
-                </div>
-            </div>
+			.line-optimal {
+				max-width: 75ch;
+				background: #f0fdf4;
+				padding: 1rem;
+				border-left: 4px solid #10b981;
+			}
 
-            <h3>The Magic: CSS clamp() Function</h3>
-            <p>The <code>clamp()</code> function is the modern way to create fluid typography. It takes three values:</p>
+			/* 🌐 SECTION 6: WEB CONSIDERATIONS */
+			.font-stack-demo {
+				background: #f8f9fa;
+				padding: 2rem;
+				border-radius: 12px;
+				margin: 2rem 0;
+			}
 
-            <div class="code-box">
-                <code>
-font-size: clamp(minimum, preferred, maximum);<br>
-<br>
-/* Example: */<br>
-h1 {<br>
-&nbsp;&nbsp;font-size: clamp(2rem, 5vw + 1rem, 4rem);<br>
-}<br>
-<br>
-/* Breakdown: */<br>
-/* - minimum: 2rem (32px) - won't go smaller */<br>
-/* - preferred: 5vw + 1rem - scales with viewport */<br>
-/* - maximum: 4rem (64px) - won't go larger */
-                </code>
-            </div>
+			.font-fallback-1 {
+				font-family: 'Inter', sans-serif;
+			}
 
-            <div class="info-box">
-                <h4>💡 How It Works</h4>
-                <p><strong>Minimum:</strong> The smallest size the text can be (mobile)</p>
-                <p><strong>Preferred:</strong> A viewport-relative value that scales (usually uses vw)</p>
-                <p><strong>Maximum:</strong> The largest size the text can be (desktop)</p>
-            </div>
+			.font-fallback-2 {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+			}
 
-            <h3>Comparison: Old vs. New Approach</h3>
+			.font-fallback-3 {
+				font-family: sans-serif;
+			}
 
-            <div class="comparison">
-                <div class="comparison-item bad">
-                    <h4>❌ Traditional Media Queries</h4>
-                    <div class="code-box" style="margin-bottom: 1rem;">
-                        <code style="font-size: 0.75rem;">
-h1 {<br>
-&nbsp;&nbsp;font-size: 24px;<br>
-}<br>
-<br>
-@media (min-width: 768px) {<br>
-&nbsp;&nbsp;h1 { font-size: 32px; }<br>
-}<br>
-<br>
-@media (min-width: 1024px) {<br>
-&nbsp;&nbsp;h1 { font-size: 48px; }<br>
-}
-                        </code>
-                    </div>
-                    <p style="font-size: 0.85rem;">✗ Jumps at breakpoints<br>
-                    ✗ Not truly responsive<br>
-                    ✗ More code to maintain</p>
-                </div>
+			.code-box {
+				background: #2d3748;
+				color: #a0aec0;
+				padding: 1.5rem;
+				border-radius: 8px;
+				margin: 1.5rem 0;
+				overflow-x: auto;
+				font-family: 'Space Mono', monospace;
+				font-size: clamp(0.75rem, 1vw, 0.9rem);
+				line-height: 1.6;
+			}
 
-                <div class="comparison-item good">
-                    <h4>✅ Modern Fluid Typography</h4>
-                    <div class="code-box" style="margin-bottom: 1rem;">
-                        <code style="font-size: 0.75rem;">
-h1 {<br>
-&nbsp;&nbsp;font-size: clamp(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1.5rem,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;3vw + 1rem,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;3rem<br>
-&nbsp;&nbsp;);<br>
-}
-                        </code>
-                    </div>
-                    <p style="font-size: 0.85rem;">✓ Smooth scaling<br>
-                    ✓ Truly responsive<br>
-                    ✓ Less code, easier to maintain</p>
-                </div>
-            </div>
+			.code-box code {
+				color: #e2e8f0;
+			}
 
-            <h3>Variable Fonts: The Future</h3>
-            <p>Variable fonts are a single font file that contains multiple variations (weights, widths, styles). Instead of loading separate files for regular, bold, italic, etc., one file gives you infinite variations.</p>
+			.info-badge {
+				display: inline-block;
+				background: #e0f2fe;
+				color: #0369a1;
+				padding: 0.3rem 0.8rem;
+				border-radius: 20px;
+				font-size: 0.85rem;
+				font-weight: 600;
+				margin: 0.5rem 0.5rem 0 0;
+			}
 
-            <div class="weight-demo variable-font-demo">
-                <p class="weight-100">Font Weight 100 - Thin</p>
-                <p class="weight-300">Font Weight 300 - Light</p>
-                <p class="weight-400">Font Weight 400 - Regular</p>
-                <p class="weight-600">Font Weight 600 - Semibold</p>
-                <p class="weight-800">Font Weight 800 - Extra Bold</p>
-            </div>
+			.success-badge {
+				background: #dcfce7;
+				color: #166534;
+			}
 
-            <div class="info-box">
-                <h4>📦 Benefits of Variable Fonts</h4>
-                <ul>
-                    <li><strong>Performance:</strong> One file instead of multiple font files</li>
-                    <li><strong>Flexibility:</strong> Access to any weight value (not just 400, 700)</li>
-                    <li><strong>Smooth transitions:</strong> Animate between font weights</li>
-                    <li><strong>Reduced load time:</strong> Fewer HTTP requests</li>
-                </ul>
-            </div>
+			.warning-badge {
+				background: #fef3c7;
+				color: #92400e;
+			}
 
-            <h3>Best Practices</h3>
-            <ul>
-                <li><strong>Limit fonts:</strong> Use 2-3 font families maximum per site</li>
-                <li><strong>System fonts first:</strong> Consider system font stacks for performance</li>
-                <li><strong>Line height:</strong> Increase line-height for smaller screens</li>
-                <li><strong>Contrast:</strong> Always check WCAG contrast ratios (4.5:1 for body text)</li>
-                <li><strong>Test on devices:</strong> Real devices show true rendering</li>
-            </ul>
+			/* Window size indicator */
+			.size-indicator {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				background: rgba(0, 0, 0, 0.9);
+				color: white;
+				padding: 1rem 1.5rem;
+				border-radius: 12px;
+				font-family: 'Space Mono', monospace;
+				font-size: 0.85rem;
+				z-index: 1000;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+			}
 
-            <div class="code-box">
-                <code>
-/* Complete fluid type scale */<br>
-:root {<br>
-&nbsp;&nbsp;--font-size-sm: clamp(0.8rem, 0.5vw + 0.7rem, 0.9rem);<br>
-&nbsp;&nbsp;--font-size-base: clamp(1rem, 1vw + 0.8rem, 1.125rem);<br>
-&nbsp;&nbsp;--font-size-lg: clamp(1.25rem, 2vw + 1rem, 1.5rem);<br>
-&nbsp;&nbsp;--font-size-xl: clamp(1.5rem, 3vw + 1rem, 2.5rem);<br>
-&nbsp;&nbsp;--font-size-2xl: clamp(2rem, 5vw + 1rem, 4rem);<br>
-}<br>
-<br>
-body { font-size: var(--font-size-base); }<br>
-h1 { font-size: var(--font-size-2xl); }<br>
-h2 { font-size: var(--font-size-xl); }<br>
-h3 { font-size: var(--font-size-lg); }
-                </code>
-            </div>
+			.size-indicator div {
+				margin: 0.3rem 0;
+			}
 
-            <div class="reflection">
-                <strong>Atelier Reflection:</strong> How does fluid sizing make text feel more "alive" as you resize the browser? Does it improve readability across different screen sizes? Test this demo on your phone—does the text feel appropriately sized, or would you adjust the clamp values?
-            </div>
+			/* Responsive */
+			@media (max-width: 768px) {
+				body {
+					padding: 1rem 0.5rem;
+				}
 
-            <h3>Tools & Resources</h3>
-            <ul>
-                <li><strong>Fluid Type Scale Calculator:</strong> <a href="https://www.fluid-type-scale.com/" target="_blank">fluid-type-scale.com</a></li>
-                <li><strong>Google Fonts:</strong> <a href="https://fonts.google.com/" target="_blank">fonts.google.com</a> (many support variable fonts)</li>
-                <li><strong>Modern CSS:</strong> <a href="https://moderncss.dev/generating-font-size-css-rules-and-creating-a-fluid-type-scale/" target="_blank">Fluid Type Scale Generator</a></li>
-            </ul>
+				.section {
+					padding: 2rem 1.5rem;
+				}
 
-            <div class="reflection">
-                <strong>Critical Design Question:</strong> While fluid typography is elegant and modern, does it truly serve your users better than traditional breakpoints? Consider that some users may have accessibility settings that override font sizes—are you respecting those preferences? The methodology emphasizes user needs over technical elegance.
-            </div>
-        </div>
-    </div>
+				.accessibility-demo {
+					grid-template-columns: 1fr;
+				}
 
-    <!-- Window size indicator for demonstration -->
-    <div class="size-indicator">
-        <div id="viewport-width">Width: <span></span>px</div>
-    </div>
+				.size-indicator {
+					font-size: 0.75rem;
+					padding: 0.8rem 1rem;
+				}
+			}
 
-    <script>
-        // Update viewport width indicator
-        function updateViewportWidth() {
-            const width = window.innerWidth;
-            document.querySelector('#viewport-width span').textContent = width;
-        }
+			/* Animations */
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
 
-        updateViewportWidth();
-        window.addEventListener('resize', updateViewportWidth);
-    </script>
-</body>
+			.section {
+				animation: fadeInUp 0.6s ease-out;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- HERO INTRO -->
+			<div class="section" style="text-align: center">
+				<h1 style="font-size: clamp(2.5rem, 6vw, 5rem); color: #667eea; margin-bottom: 1rem; font-weight: 900">
+					Tipografía Web Moderna
+				</h1>
+				<p style="font-size: clamp(1rem, 2vw, 1.5rem); color: #666; max-width: 800px; margin: 0 auto">
+					Explora las 6 tendencias clave en tipografía web: fuentes variables, escalado fluido, display audaz, branding,
+					accesibilidad y consideraciones técnicas.
+				</p>
+				<p style="margin-top: 1rem; color: #999; font-size: 0.95rem">
+					🖱️
+					<strong>Redimensiona tu ventana</strong>
+					para ver la tipografía fluida en acción
+				</p>
+			</div>
+
+			<!-- 🔤 SECTION 1: VARIABLE FONTS -->
+			<div class="section">
+				<h2 class="section-title">🔤 1. Fuentes Variables</h2>
+				<p class="section-subtitle">Un solo archivo, infinitas variaciones de peso, ancho e inclinación</p>
+
+				<p style="margin-bottom: 2rem">
+					Las fuentes variables son el avance técnico más importante en tipografía web. Pasa el cursor sobre cada tarjeta
+					para ver la transición suave de peso:
+				</p>
+
+				<div class="variable-font-showcase">
+					<div class="variable-demo-card">
+						<h3>Hover</h3>
+						<p class="weight-label">font-weight: 200 → 900</p>
+						<p class="brand-description">Transición suave sin cargar múltiples archivos</p>
+					</div>
+					<div class="variable-demo-card">
+						<h3>Efecto</h3>
+						<p class="weight-label">Animación CSS fluida</p>
+						<p class="brand-description">Perfecto para interactividad</p>
+					</div>
+					<div class="variable-demo-card">
+						<h3>Moderna</h3>
+						<p class="weight-label">Rendimiento optimizado</p>
+						<p class="brand-description">Reduce solicitudes HTTP</p>
+					</div>
+				</div>
+
+				<div class="interactive-slider">
+					<h3 style="text-align: center; margin-bottom: 1rem; color: #667eea">⚡ Demo Interactivo: Ajusta el Peso</h3>
+					<div class="slider-demo" id="weightDemo">TIPOGRAFÍA</div>
+					<input type="range" id="weightSlider" min="100" max="900" value="400" step="50" />
+					<p style="text-align: center; font-family: 'Space Mono', monospace; color: #666">
+						font-weight:
+						<span id="weightValue">400</span>
+					</p>
+				</div>
+
+				<div class="code-box">
+					<code>
+						/* Fuente variable con transición */ h1 { font-family: 'Inter', sans-serif; font-weight: 200; transition:
+						font-weight 0.3s ease; } h1:hover { font-weight: 900; /* Transición suave */ } /* Control de múltiples ejes */
+						.custom { font-variation-settings: 'wght' 650, /* Peso */ 'wdth' 90, /* Ancho */ 'slnt' -5; /* Inclinación */ }
+					</code>
+				</div>
+
+				<div>
+					<span class="info-badge success-badge">✓ 1 archivo vs 5+</span>
+					<span class="info-badge success-badge">✓ Animaciones fluidas</span>
+					<span class="info-badge success-badge">✓ Diseño responsivo</span>
+				</div>
+			</div>
+
+			<!-- 📐 SECTION 2: FLUID TYPOGRAPHY -->
+			<div class="section">
+				<h2 class="section-title">📐 2. Escalas de Tipo Fluido</h2>
+				<p class="section-subtitle">Texto que escala suavemente entre mínimo y máximo sin saltos</p>
+
+				<p style="margin-bottom: 2rem">
+					Compara tres enfoques para texto responsivo. Redimensiona tu ventana para ver las diferencias:
+				</p>
+
+				<div class="comparison-grid">
+					<div class="comparison-box fixed-size">
+						<h4>❌ Tamaño Fijo</h4>
+						<div class="text-sample">Texto</div>
+						<p class="method-label">font-size: 24px;</p>
+						<p class="brand-description">Mismo tamaño en todas las pantallas</p>
+					</div>
+
+					<div class="comparison-box viewport-size">
+						<h4>⚠️ Unidades Viewport</h4>
+						<div class="text-sample">Texto</div>
+						<p class="method-label">font-size: 3vw;</p>
+						<p class="brand-description">Escala pero sin límites</p>
+					</div>
+
+					<div class="comparison-box fluid-size">
+						<h4>✅ Fluido (clamp)</h4>
+						<div class="text-sample">Texto</div>
+						<p class="method-label">clamp(1.2rem, 3vw, 2.5rem)</p>
+						<p class="brand-description">Escala inteligentemente</p>
+					</div>
+				</div>
+
+				<div class="code-box">
+					<code>
+						/* La función clamp() toma 3 valores */ .hero h1 { font-size: clamp(2rem, 5vw + 1rem, 4rem); /* ↑ ↑ ↑ mínimo
+						preferido máximo (32px) (escala) (64px) */ } /* Beneficios: */ /* ✓ Sin media queries para tipografía */ /* ✓
+						Escalado suave y continuo */ /* ✓ Límites seguros para legibilidad */
+					</code>
+				</div>
+			</div>
+
+			<!-- 🎨 SECTION 3: DISPLAY TEXT -->
+			<div class="section">
+				<h2 class="section-title">🎨 3. Texto Display Audaz</h2>
+				<p class="section-subtitle">Tipografía oversized como elemento principal de diseño</p>
+
+				<div class="typographic-hero">
+					<div class="hero-text">BOLD</div>
+					<p class="hero-subtitle">Tipografía como Hero Visual</p>
+				</div>
+
+				<div class="code-box">
+					<code>
+						.typographic-hero { font-size: clamp(4rem, 15vw, 12rem); font-weight: 900; line-height: 0.9; letter-spacing:
+						-0.02em; text-transform: uppercase; } /* Tendencias 2024-2025: */ /* • Sans-serif neo-grotescos (claridad) */ /* •
+						Serifs elegantes (sofisticación) */ /* • Monospace retro (tech/nostalgia) */
+					</code>
+				</div>
+
+				<div>
+					<span class="info-badge">Crea impacto inmediato</span>
+					<span class="info-badge">Reemplaza imágenes hero</span>
+					<span class="info-badge">Minimalismo elegante</span>
+				</div>
+			</div>
+
+			<!-- 💼 SECTION 4: BRANDING -->
+			<div class="section">
+				<h2 class="section-title">💼 4. Tipografía y Branding</h2>
+				<p class="section-subtitle">Las fuentes transmiten personalidad y emoción</p>
+
+				<p style="margin-bottom: 2rem">Cada contexto de marca requiere elecciones tipográficas específicas:</p>
+
+				<div class="branding-grid">
+					<div class="brand-card brand-fintech">
+						<h3>FINTECH</h3>
+						<p class="brand-description">Sans-serif elegante + espaciado generoso = Moderno, confiable</p>
+					</div>
+
+					<div class="brand-card brand-luxury">
+						<h3>LUXURY</h3>
+						<p class="brand-description">Serif delicada con tracking amplio = Sofisticación, exclusivo</p>
+					</div>
+
+					<div class="brand-card brand-tech">
+						<h3>TECH/GAMING</h3>
+						<p class="brand-description">Monospace o geométrica audaz = Edgy, técnico</p>
+					</div>
+				</div>
+
+				<div class="code-box">
+					<code>
+						/* Fintech: Inter (sans-serif elegante) */ .fintech { font-family: 'Inter', sans-serif; font-weight: 300;
+						letter-spacing: 0.05em; } /* Luxury: Playfair Display (serif elegante) */ .luxury { font-family: 'Playfair
+						Display', serif; font-weight: 400; letter-spacing: 0.15em; } /* Tech: Space Mono (monospace) */ .tech {
+						font-family: 'Space Mono', monospace; font-weight: 700; text-transform: uppercase; }
+					</code>
+				</div>
+
+				<div>
+					<span class="info-badge">Typewolf.com - Inspiración</span>
+					<span class="info-badge">Google Fonts - Gratis</span>
+					<span class="info-badge">Adobe Fonts - Premium</span>
+				</div>
+			</div>
+
+			<!-- ♿ SECTION 5: ACCESSIBILITY -->
+			<div class="section">
+				<h2 class="section-title">♿ 5. Accesibilidad en Tipografía</h2>
+				<p class="section-subtitle">Diseño inclusivo no es opcional—es fundamental</p>
+
+				<h3 style="margin: 2rem 0 1rem; color: #764ba2">Contraste de Color</h3>
+				<div class="accessibility-demo">
+					<div class="contrast-example contrast-good">
+						<div class="contrast-ratio">✓ 7.5:1</div>
+						<h3>Contraste Excelente</h3>
+						<p>
+							Este texto negro sobre blanco tiene un ratio de 21:1, superando ampliamente el mínimo WCAG de 4.5:1 para texto
+							normal.
+						</p>
+					</div>
+
+					<div class="contrast-example contrast-bad">
+						<div class="contrast-ratio">✗ 1.8:1</div>
+						<h3>Contraste Insuficiente</h3>
+						<p>
+							Este texto gris claro es difícil de leer y no cumple con los estándares de accesibilidad. Evita esto en
+							producción.
+						</p>
+					</div>
+				</div>
+
+				<h3 style="margin: 2rem 0 1rem; color: #764ba2">Longitud de Línea</h3>
+				<div class="line-length-demo">
+					<div class="line-too-long">
+						<strong>❌ Línea Demasiado Larga:</strong>
+						Las líneas extremadamente largas dificultan la lectura porque el ojo tiene que recorrer mucha distancia
+						horizontal, lo que cansa y hace que el lector pierda el lugar al pasar a la siguiente línea. La regla es 60-80
+						caracteres por línea.
+					</div>
+
+					<div class="line-optimal">
+						<strong>✅ Longitud Óptima:</strong>
+						Las líneas de aproximadamente 60-80 caracteres son ideales para la lectura. El ojo puede escanear cómodamente y
+						pasar a la siguiente línea sin esfuerzo. Usa max-width para controlar esto.
+					</div>
+				</div>
+
+				<div class="code-box">
+					<code>
+						/* Checklist de Accesibilidad */ /* 1. Contraste suficiente */ body { color: #1a1a1a; /* 4.5:1 mínimo */
+						background: white; } /* 2. Tamaño base adecuado */ body { font-size: 1rem; /* 16px base, usar rem */ } /* 3.
+						Longitud de línea */ p { max-width: 75ch; /* 60-80 caracteres */ line-height: 1.6; /* 1.5-1.8 para cuerpo */ } /*
+						4. Respetar preferencias del usuario */ /* No uses px fijos - usa rem para que */ /* los usuarios puedan ajustar
+						el tamaño */
+					</code>
+				</div>
+
+				<div>
+					<span class="info-badge warning-badge">Texto normal: 4.5:1</span>
+					<span class="info-badge warning-badge">Texto grande: 3:1</span>
+					<span class="info-badge success-badge">Base: 16px mínimo</span>
+					<span class="info-badge success-badge">Línea: 60-80 chars</span>
+				</div>
+			</div>
+
+			<!-- 🌐 SECTION 6: WEB CONSIDERATIONS -->
+			<div class="section">
+				<h2 class="section-title">🌐 6. Consideraciones de la Web</h2>
+				<p class="section-subtitle">Font stacks, loading strategy y unidades relativas</p>
+
+				<h3 style="margin: 2rem 0 1rem; color: #764ba2">Font Stacks Robustas</h3>
+				<p style="margin-bottom: 1rem">Si la fuente personalizada no carga, las fuentes del sistema toman el relevo:</p>
+
+				<div class="font-stack-demo">
+					<p class="font-fallback-1" style="margin-bottom: 1rem; font-size: 1.2rem">
+						<strong>1º Intento:</strong>
+						'Inter' (Google Font)
+					</p>
+					<p class="font-fallback-2" style="margin-bottom: 1rem; font-size: 1.2rem">
+						<strong>2º Fallback:</strong>
+						-apple-system, Segoe UI (Sistema)
+					</p>
+					<p class="font-fallback-3" style="font-size: 1.2rem">
+						<strong>3º Fallback:</strong>
+						sans-serif (Genérica)
+					</p>
+				</div>
+
+				<div class="code-box">
+					<code>
+						/* Font Stack Completa */ body { font-family: 'Inter', /* Fuente personalizada */ -apple-system, /* macOS San
+						Francisco */ BlinkMacSystemFont, /* macOS Chrome */ 'Segoe UI', /* Windows */ Roboto, /* Android */ sans-serif; /*
+						Genérica */ } /* Control de Font Loading */ @font-face { font-family: 'MyFont'; src: url('font.woff2')
+						format('woff2'); font-display: swap; /* Muestra fallback inmediatamente */ } /* Opciones de font-display: */ /* •
+						swap: Texto visible al instante ✓ */ /* • block: Espera fuente (riesgo FOIT) */ /* • fallback: Compromiso entre
+						ambos */ /* • optional: Browser decide según conexión */
+					</code>
+				</div>
+
+				<h3 style="margin: 2rem 0 1rem; color: #764ba2">Unidades Relativas vs Fijas</h3>
+				<div class="comparison-grid" style="grid-template-columns: 1fr 1fr">
+					<div style="background: #fef2f2; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #ef4444">
+						<h4 style="color: #991b1b; margin-bottom: 1rem">❌ Unidades Fijas</h4>
+						<div class="code-box" style="margin: 0; font-size: 0.75rem">
+							<code>p { font-size: 16px; } /* No respeta zoom del usuario */</code>
+						</div>
+					</div>
+
+					<div style="background: #f0fdf4; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #10b981">
+						<h4 style="color: #166534; margin-bottom: 1rem">✅ Unidades Relativas</h4>
+						<div class="code-box" style="margin: 0; font-size: 0.75rem">
+							<code>p { font-size: 1rem; } /* Respeta preferencias del usuario */</code>
+						</div>
+					</div>
+				</div>
+
+				<div style="margin-top: 2rem">
+					<span class="info-badge">rem - Relativo a root</span>
+					<span class="info-badge">em - Relativo al padre</span>
+					<span class="info-badge success-badge">Usa relativas para accesibilidad</span>
+				</div>
+			</div>
+
+			<!-- RESOURCES -->
+			<div class="section">
+				<h2 class="section-title">🛠️ Herramientas y Recursos</h2>
+
+				<div
+					style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem">
+					<div>
+						<h3 style="color: #667eea; margin-bottom: 1rem">Fuentes Web</h3>
+						<ul style="line-height: 2">
+							<li>
+								<strong>Google Fonts</strong>
+								- fonts.google.com
+							</li>
+							<li>
+								<strong>Adobe Fonts</strong>
+								- fonts.adobe.com
+							</li>
+							<li>
+								<strong>Variable Fonts</strong>
+								- v-fonts.com
+							</li>
+						</ul>
+					</div>
+
+					<div>
+						<h3 style="color: #764ba2; margin-bottom: 1rem">Herramientas</h3>
+						<ul style="line-height: 2">
+							<li>
+								<strong>Typewolf</strong>
+								- Inspiración
+							</li>
+							<li>
+								<strong>Type Scale</strong>
+								- Generador
+							</li>
+							<li>
+								<strong>Fluid Type Calc</strong>
+								- clamp()
+							</li>
+						</ul>
+					</div>
+
+					<div>
+						<h3 style="color: #10b981; margin-bottom: 1rem">Testing</h3>
+						<ul style="line-height: 2">
+							<li>
+								<strong>WebAIM</strong>
+								- Contraste
+							</li>
+							<li>
+								<strong>Lighthouse</strong>
+								- Auditoría
+							</li>
+							<li>
+								<strong>Who Can Use</strong>
+								- Simulador
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- SUMMARY -->
+			<div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white">
+				<h2 style="color: white; font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 2rem">
+					📋 Resumen: 10 Principios Clave
+				</h2>
+				<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem">
+					<div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px">✅ Usa fuentes variables</div>
+					<div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px">✅ Implementa clamp()</div>
+					<div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px">✅ Jerarquía clara</div>
+					<div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px">
+						✅ Prioriza accesibilidad
+					</div>
+					<div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px">✅ Refleja personalidad</div>
+					<div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px">✅ Limita a 2-3 familias</div>
+					<div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px">✅ Usa rem/em</div>
+					<div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px">
+						✅ Font-display estratégico
+					</div>
+					<div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px">
+						✅ Prueba en dispositivos
+					</div>
+					<div style="background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 8px">✅ Audita regularmente</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Window size indicator -->
+		<div class="size-indicator">
+			<div><strong>Viewport:</strong></div>
+			<div>
+				Ancho:
+				<span id="viewport-width"></span>
+				px
+			</div>
+			<div>
+				Categoría:
+				<span id="viewport-category"></span>
+			</div>
+		</div>
+
+		<script>
+			// Variable font weight slider
+			const weightSlider = document.getElementById('weightSlider');
+			const weightDemo = document.getElementById('weightDemo');
+			const weightValue = document.getElementById('weightValue');
+
+			weightSlider.addEventListener('input', (e) => {
+				const weight = e.target.value;
+				weightDemo.style.fontWeight = weight;
+				weightValue.textContent = weight;
+			});
+
+			// Viewport size indicator
+			function updateViewportInfo() {
+				const width = window.innerWidth;
+				document.getElementById('viewport-width').textContent = width;
+
+				let category = '';
+				if (width < 640) category = '📱 Mobile';
+				else if (width < 768) category = '📱 Large Mobile';
+				else if (width < 1024) category = '📱 Tablet';
+				else if (width < 1280) category = '💻 Laptop';
+				else category = '🖥️ Desktop';
+
+				document.getElementById('viewport-category').textContent = category;
+			}
+
+			updateViewportInfo();
+			window.addEventListener('resize', updateViewportInfo);
+
+			// Log font metrics for debugging
+			console.log('Tipografía Web Moderna - Demo Cargado');
+			console.log('Fuentes activas:', document.fonts);
+		</script>
+	</body>
 </html>
-

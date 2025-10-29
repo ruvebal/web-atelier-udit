@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Template Personalizable: Colores y Tamaños Bootstrap</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			/*
+      ====================================
+      🎨 TEMPLATE PERSONALIZABLE
+      ====================================
+      Personaliza estos valores para crear tu tema único
+      */
+
+			:root {
+				/* === COLORES PRINCIPALES === */
+				--color-primario: #0066cc;
+				--color-primario-hover: #0052a3;
+				--color-secundario: #6c757d;
+				--color-secundario-hover: #545b62;
+				--color-exito: #28a745;
+				--color-peligro: #dc3545;
+				--color-advertencia: #ffc107;
+				--color-info: #17a2b8;
+
+				/* === COLORES DE FONDO === */
+				--bg-claro: #f8f9fa;
+				--bg-oscuro: #343a40;
+				--bg-blanco: #ffffff;
+
+				/* === COLORES DE TEXTO === */
+				--texto-principal: #212529;
+				--texto-secundario: #6c757d;
+				--texto-claro: #ffffff;
+
+				/* === TIPOGRAFÍA === */
+				--fuente-principal: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+				--fuente-monoespaciada: 'Courier New', monospace;
+
+				/* Tamaños de fuente */
+				--texto-xs: 0.75rem; /* 12px */
+				--texto-sm: 0.875rem; /* 14px */
+				--texto-base: 1rem; /* 16px */
+				--texto-lg: 1.125rem; /* 18px */
+				--texto-xl: 1.25rem; /* 20px */
+				--texto-2xl: 1.5rem; /* 24px */
+				--texto-3xl: 1.875rem; /* 30px */
+				--texto-4xl: 2.25rem; /* 36px */
+
+				/* Pesos de fuente */
+				--peso-ligero: 300;
+				--peso-normal: 400;
+				--peso-medio: 500;
+				--peso-negrita: 600;
+				--peso-extra-negrita: 700;
+
+				/* === ESPACIADO === */
+				--espacio-xs: 0.25rem; /* 4px */
+				--espacio-sm: 0.5rem; /* 8px */
+				--espacio-md: 1rem; /* 16px */
+				--espacio-lg: 1.5rem; /* 24px */
+				--espacio-xl: 2rem; /* 32px */
+				--espacio-2xl: 3rem; /* 48px */
+				--espacio-3xl: 4rem; /* 64px */
+
+				/* === BORDES Y RADIOS === */
+				--borde-ancho: 1px;
+				--borde-color: #dee2e6;
+
+				--radio-sm: 0.25rem; /* 4px */
+				--radio-md: 0.375rem; /* 6px */
+				--radio-lg: 0.5rem; /* 8px */
+				--radio-xl: 1rem; /* 16px */
+				--radio-completo: 9999px; /* Completamente redondeado */
+
+				/* === SOMBRAS === */
+				--sombra-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+				--sombra-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+				--sombra-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+				--sombra-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+				/* === TRANSICIONES === */
+				--transicion-rapida: 150ms;
+				--transicion-base: 300ms;
+				--transicion-lenta: 500ms;
+
+				/* === TAMAÑOS DE COMPONENTES === */
+				--btn-padding-y: 0.5rem;
+				--btn-padding-x: 1rem;
+				--btn-padding-lg-y: 0.75rem;
+				--btn-padding-lg-x: 1.5rem;
+
+				--card-padding: 1.5rem;
+				--card-radio: var(--radio-lg);
+			}
+
+			/* ====================================
+         APLICAR VARIABLES PERSONALIZADAS
+         ==================================== */
+
+			body {
+				font-family: var(--fuente-principal);
+				color: var(--texto-principal);
+				background-color: var(--bg-claro);
+			}
+
+			/* Botones */
+			.btn-primary {
+				background-color: var(--color-primario);
+				border-color: var(--color-primario);
+				color: var(--texto-claro);
+				padding: var(--btn-padding-y) var(--btn-padding-x);
+				font-weight: var(--peso-medio);
+				border-radius: var(--radio-md);
+				transition: all var(--transicion-base) ease;
+			}
+
+			.btn-primary:hover {
+				background-color: var(--color-primario-hover);
+				border-color: var(--color-primario-hover);
+				transform: translateY(-2px);
+				box-shadow: var(--sombra-lg);
+			}
+
+			.btn-secondary {
+				background-color: var(--color-secundario);
+				border-color: var(--color-secundario);
+				color: var(--texto-claro);
+			}
+
+			.btn-secondary:hover {
+				background-color: var(--color-secundario-hover);
+				border-color: var(--color-secundario-hover);
+			}
+
+			/* Navbar */
+			.navbar-custom {
+				background-color: var(--color-primario);
+				box-shadow: var(--sombra-md);
+			}
+
+			.navbar-custom .navbar-brand {
+				color: var(--texto-claro);
+				font-weight: var(--peso-negrita);
+				font-size: var(--texto-xl);
+			}
+
+			.navbar-custom .nav-link {
+				color: rgba(255, 255, 255, 0.9);
+				font-weight: var(--peso-normal);
+				padding: var(--espacio-sm) var(--espacio-md);
+				transition: color var(--transicion-base);
+			}
+
+			.navbar-custom .nav-link:hover {
+				color: var(--texto-claro);
+			}
+
+			/* Tarjetas */
+			.card {
+				border: none;
+				border-radius: var(--card-radio);
+				box-shadow: var(--sombra-md);
+				transition: transform var(--transicion-base) ease, box-shadow var(--transicion-base) ease;
+			}
+
+			.card:hover {
+				transform: translateY(-5px);
+				box-shadow: var(--sombra-xl);
+			}
+
+			.card-body {
+				padding: var(--card-padding);
+			}
+
+			.card-title {
+				color: var(--color-primario);
+				font-weight: var(--peso-negrita);
+			}
+
+			/* Sección de colores */
+			.color-swatch {
+				height: 100px;
+				border-radius: var(--radio-lg);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: var(--peso-negrita);
+				margin-bottom: var(--espacio-md);
+				box-shadow: var(--sombra-md);
+			}
+
+			/* Sección de espaciado */
+			.spacing-demo {
+				background-color: var(--color-primario);
+				color: white;
+				display: inline-block;
+				border-radius: var(--radio-sm);
+			}
+
+			/* Utilidades de texto */
+			.text-xs {
+				font-size: var(--texto-xs);
+			}
+			.text-sm {
+				font-size: var(--texto-sm);
+			}
+			.text-base {
+				font-size: var(--texto-base);
+			}
+			.text-lg {
+				font-size: var(--texto-lg);
+			}
+			.text-xl {
+				font-size: var(--texto-xl);
+			}
+			.text-2xl {
+				font-size: var(--texto-2xl);
+			}
+			.text-3xl {
+				font-size: var(--texto-3xl);
+			}
+			.text-4xl {
+				font-size: var(--texto-4xl);
+			}
+
+			/* Editor de código */
+			.code-editor {
+				background-color: #1e1e1e;
+				color: #d4d4d4;
+				padding: var(--espacio-lg);
+				border-radius: var(--radio-lg);
+				font-family: var(--fuente-monoespaciada);
+				font-size: var(--texto-sm);
+				overflow-x: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-custom">
+			<div class="container">
+				<a class="navbar-brand" href="#">🎨 Mi Template</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Colores</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Tamaños</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Componentes</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Hero -->
+		<div class="container mt-5">
+			<div class="text-center mb-5">
+				<h1 class="display-4 fw-bold mb-3">Template Personalizable Bootstrap</h1>
+				<p class="lead text-secondary">
+					Modifica las variables CSS en el archivo para personalizar colores, tamaños, y estilos
+				</p>
+			</div>
+
+			<!-- Paleta de Colores -->
+			<section class="mb-5">
+				<h2 class="mb-4">🎨 Paleta de Colores</h2>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="color-swatch" style="background-color: var(--color-primario)">Primario</div>
+						<code>--color-primario</code>
+					</div>
+					<div class="col-md-3">
+						<div class="color-swatch" style="background-color: var(--color-secundario)">Secundario</div>
+						<code>--color-secundario</code>
+					</div>
+					<div class="col-md-3">
+						<div class="color-swatch" style="background-color: var(--color-exito)">Éxito</div>
+						<code>--color-exito</code>
+					</div>
+					<div class="col-md-3">
+						<div class="color-swatch" style="background-color: var(--color-peligro)">Peligro</div>
+						<code>--color-peligro</code>
+					</div>
+				</div>
+			</section>
+
+			<!-- Escalas de Tamaño -->
+			<section class="mb-5">
+				<h2 class="mb-4">📏 Escalas de Tamaño de Texto</h2>
+				<div class="card">
+					<div class="card-body">
+						<p class="text-xs mb-2">Extra Pequeño (XS) - 12px</p>
+						<p class="text-sm mb-2">Pequeño (SM) - 14px</p>
+						<p class="text-base mb-2">Base - 16px</p>
+						<p class="text-lg mb-2">Grande (LG) - 18px</p>
+						<p class="text-xl mb-2">Extra Grande (XL) - 20px</p>
+						<p class="text-2xl mb-2">2XL - 24px</p>
+						<p class="text-3xl mb-2">3XL - 30px</p>
+						<p class="text-4xl mb-0">4XL - 36px</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Espaciado -->
+			<section class="mb-5">
+				<h2 class="mb-4">📐 Sistema de Espaciado</h2>
+				<div class="card">
+					<div class="card-body">
+						<div class="mb-3">
+							<span class="spacing-demo" style="padding: var(--espacio-xs)">XS (4px)</span>
+							<code class="ms-2">--espacio-xs</code>
+						</div>
+						<div class="mb-3">
+							<span class="spacing-demo" style="padding: var(--espacio-sm)">SM (8px)</span>
+							<code class="ms-2">--espacio-sm</code>
+						</div>
+						<div class="mb-3">
+							<span class="spacing-demo" style="padding: var(--espacio-md)">MD (16px)</span>
+							<code class="ms-2">--espacio-md</code>
+						</div>
+						<div class="mb-3">
+							<span class="spacing-demo" style="padding: var(--espacio-lg)">LG (24px)</span>
+							<code class="ms-2">--espacio-lg</code>
+						</div>
+						<div class="mb-3">
+							<span class="spacing-demo" style="padding: var(--espacio-xl)">XL (32px)</span>
+							<code class="ms-2">--espacio-xl</code>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Componentes -->
+			<section class="mb-5">
+				<h2 class="mb-4">🧩 Componentes</h2>
+				<div class="row">
+					<div class="col-md-4 mb-4">
+						<div class="card">
+							<div class="card-body">
+								<h3 class="card-title">Tarjeta 1</h3>
+								<p class="card-text">Esta es una tarjeta de ejemplo con estilos personalizados.</p>
+								<button class="btn btn-primary">Acción</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 mb-4">
+						<div class="card">
+							<div class="card-body">
+								<h3 class="card-title">Tarjeta 2</h3>
+								<p class="card-text">Hover sobre las tarjetas para ver los efectos de transición.</p>
+								<button class="btn btn-secondary">Ver más</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 mb-4">
+						<div class="card">
+							<div class="card-body">
+								<h3 class="card-title">Tarjeta 3</h3>
+								<p class="card-text">Todos los valores son personalizables con variables CSS.</p>
+								<button class="btn btn-primary">Explorar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Botones -->
+			<section class="mb-5">
+				<h2 class="mb-4">🔘 Botones</h2>
+				<div class="card">
+					<div class="card-body">
+						<button class="btn btn-primary me-2 mb-2">Primario</button>
+						<button class="btn btn-secondary me-2 mb-2">Secundario</button>
+						<button class="btn btn-success me-2 mb-2">Éxito</button>
+						<button class="btn btn-danger me-2 mb-2">Peligro</button>
+						<button class="btn btn-warning me-2 mb-2">Advertencia</button>
+						<button class="btn btn-info me-2 mb-2">Info</button>
+					</div>
+				</div>
+			</section>
+
+			<!-- Guía de Personalización -->
+			<section class="mb-5">
+				<h2 class="mb-4">📝 Cómo Personalizar</h2>
+				<div class="card">
+					<div class="card-body">
+						<h5>1. Abre este archivo HTML en tu editor</h5>
+						<p>
+							Busca la sección de
+							<code>:root</code>
+							en el bloque
+							<code>&lt;style&gt;</code>
+						</p>
+
+						<h5 class="mt-4">2. Modifica las variables CSS</h5>
+						<div class="code-editor">
+							:root {
+							<br />
+							&nbsp;&nbsp;/* Cambia estos valores */
+							<br />
+							&nbsp;&nbsp;--color-primario: #0066cc; /* Tu color aquí */
+							<br />
+							&nbsp;&nbsp;--texto-base: 1rem; /* Tu tamaño aquí */
+							<br />
+							&nbsp;&nbsp;--radio-lg: 0.5rem; /* Tu radio aquí */
+							<br />
+							}
+						</div>
+
+						<h5 class="mt-4">3. Guarda y recarga</h5>
+						<p>Guarda el archivo y recarga la página en tu navegador para ver los cambios.</p>
+
+						<h5 class="mt-4">4. Variables Disponibles</h5>
+						<ul>
+							<li>
+								<strong>Colores:</strong>
+								--color-primario, --color-secundario, --color-exito, etc.
+							</li>
+							<li>
+								<strong>Texto:</strong>
+								--texto-xs hasta --texto-4xl
+							</li>
+							<li>
+								<strong>Espaciado:</strong>
+								--espacio-xs hasta --espacio-3xl
+							</li>
+							<li>
+								<strong>Radios:</strong>
+								--radio-sm hasta --radio-xl
+							</li>
+							<li>
+								<strong>Sombras:</strong>
+								--sombra-sm hasta --sombra-xl
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

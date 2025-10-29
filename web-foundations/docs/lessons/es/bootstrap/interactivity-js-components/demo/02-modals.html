@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo 2: Diálogos Modales - Bootstrap JS</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			body {
+				padding: 2rem 0;
+				background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+				min-height: 100vh;
+			}
+			.demo-container {
+				background: white;
+				border-radius: 15px;
+				padding: 3rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+			}
+			.demo-section {
+				margin-bottom: 3rem;
+				padding-bottom: 2rem;
+				border-bottom: 2px solid #e9ecef;
+			}
+			.demo-section:last-child {
+				border-bottom: none;
+			}
+			.code-highlight {
+				background: #f8f9fa;
+				border-left: 4px solid #f5576c;
+				padding: 1rem;
+				margin: 1rem 0;
+				border-radius: 5px;
+				font-size: 0.9rem;
+			}
+			.feature-card {
+				border-left: 4px solid #f5576c;
+				background: #fff5f7;
+			}
+			.modal-demo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="demo-container">
+				<div class="text-center mb-5">
+					<h1 class="display-4 fw-bold" style="color: #f5576c">Diálogos Modales</h1>
+					<p class="lead text-muted">Ventanas de diálogo superpuestas para contenido importante e interacciones</p>
+				</div>
+
+				<!-- Section 1: Basic Modal -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-primary">1</span>
+						Modal Básico
+					</h2>
+					<p>El modal más simple con header, body y footer.</p>
+
+					<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#basicModal">
+						Abrir Modal Básico
+					</button>
+
+					<div class="code-highlight mt-3">
+						<strong>Estructura del Modal:</strong>
+						<pre><code>&lt;div class="modal fade" id="basicModal"&gt;
+  &lt;div class="modal-dialog"&gt;
+    &lt;div class="modal-content"&gt;
+      &lt;div class="modal-header"&gt;...&lt;/div&gt;
+      &lt;div class="modal-body"&gt;...&lt;/div&gt;
+      &lt;div class="modal-footer"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+					</div>
+
+					<div class="alert alert-info mt-3">
+						<strong>💡 Concepto Clave:</strong>
+						Los modales requieren tres capas anidadas:
+						<code>.modal</code>
+						→
+						<code>.modal-dialog</code>
+						→
+						<code>.modal-content</code>
+					</div>
+				</div>
+
+				<!-- Section 2: Modal Sizes -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-success">2</span>
+						Tamaños de Modal
+					</h2>
+					<p>
+						Bootstrap ofrece cuatro tamaños de modal usando clases en
+						<code>.modal-dialog</code>
+						.
+					</p>
+
+					<div class="modal-demo-grid">
+						<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#smallModal">
+							Modal Pequeño
+						</button>
+						<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#defaultModal">
+							Modal Por Defecto
+						</button>
+						<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#largeModal">
+							Modal Grande
+						</button>
+						<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#xlModal">
+							Modal Extra Grande
+						</button>
+					</div>
+
+					<div class="row mt-3 g-3">
+						<div class="col-md-6">
+							<div class="card feature-card">
+								<div class="card-body">
+									<h6 class="card-title">Pequeño</h6>
+									<code>.modal-sm</code>
+									<p class="small mb-0 mt-2">300px máximo</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card feature-card">
+								<div class="card-body">
+									<h6 class="card-title">Por Defecto</h6>
+									<code>(sin clase)</code>
+									<p class="small mb-0 mt-2">500px máximo</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card feature-card">
+								<div class="card-body">
+									<h6 class="card-title">Grande</h6>
+									<code>.modal-lg</code>
+									<p class="small mb-0 mt-2">800px máximo</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card feature-card">
+								<div class="card-body">
+									<h6 class="card-title">Extra Grande</h6>
+									<code>.modal-xl</code>
+									<p class="small mb-0 mt-2">1140px máximo</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Section 3: Scrolling Modals -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-warning">3</span>
+						Modales con Scroll
+					</h2>
+					<p>Cuando el contenido es largo, los modales pueden desplazarse de dos maneras.</p>
+
+					<div class="row g-3">
+						<div class="col-md-6">
+							<button type="button" class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#scrollModal">
+								Scroll de Página Completa
+							</button>
+							<p class="small text-muted mt-2">
+								Por defecto, la página completa se desplaza cuando el contenido del modal es largo.
+							</p>
+						</div>
+						<div class="col-md-6">
+							<button
+								type="button"
+								class="btn btn-outline-warning w-100"
+								data-bs-toggle="modal"
+								data-bs-target="#scrollBodyModal">
+								Scroll Dentro del Modal
+							</button>
+							<p class="small text-muted mt-2">
+								Añade
+								<code>.modal-dialog-scrollable</code>
+								para desplazar solo el body del modal.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Section 4: Centered & Fullscreen -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-danger">4</span>
+						Posicionamiento y Pantalla Completa
+					</h2>
+
+					<div class="row g-3">
+						<div class="col-md-4">
+							<button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#centeredModal">
+								Modal Centrado
+							</button>
+							<p class="small text-muted mt-2">
+								Centrado verticalmente con
+								<code>.modal-dialog-centered</code>
+							</p>
+						</div>
+						<div class="col-md-4">
+							<button
+								type="button"
+								class="btn btn-outline-danger w-100"
+								data-bs-toggle="modal"
+								data-bs-target="#fullscreenModal">
+								Pantalla Completa
+							</button>
+							<p class="small text-muted mt-2">
+								Cubre toda la pantalla con
+								<code>.modal-fullscreen</code>
+							</p>
+						</div>
+						<div class="col-md-4">
+							<button
+								type="button"
+								class="btn btn-outline-danger w-100"
+								data-bs-toggle="modal"
+								data-bs-target="#responsiveFullscreen">
+								Fullscreen Responsive
+							</button>
+							<p class="small text-muted mt-2">Pantalla completa solo en móviles</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Section 5: Practical Example -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-info">5</span>
+						Ejemplo Práctico: Galería de Imágenes
+					</h2>
+					<p>Usa modales para crear una galería de imágenes con información detallada.</p>
+
+					<div class="row g-3">
+						<div class="col-md-4">
+							<div class="card">
+								<img src="https://picsum.photos/400/300?random=1" class="card-img-top" alt="Imagen 1" />
+								<div class="card-body">
+									<button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#gallery1">Ver Detalles</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card">
+								<img src="https://picsum.photos/400/300?random=2" class="card-img-top" alt="Imagen 2" />
+								<div class="card-body">
+									<button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#gallery2">Ver Detalles</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card">
+								<img src="https://picsum.photos/400/300?random=3" class="card-img-top" alt="Imagen 3" />
+								<div class="card-body">
+									<button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#gallery3">Ver Detalles</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Takeaways -->
+				<div class="alert alert-success">
+					<h4 class="alert-heading">🎯 Puntos Clave sobre Modales</h4>
+					<ul class="mb-0">
+						<li>
+							<strong>Backdrop automático:</strong>
+							Overlay oscuro detrás del modal
+						</li>
+						<li>
+							<strong>Gestión de foco:</strong>
+							El foco se mueve al modal cuando se abre
+						</li>
+						<li>
+							<strong>Escape para cerrar:</strong>
+							Presiona Escape para cerrar el modal
+						</li>
+						<li>
+							<strong>Accesibilidad:</strong>
+							Incluye atributos ARIA automáticamente
+						</li>
+						<li>
+							<strong>Responsive:</strong>
+							Los tamaños se adaptan a diferentes pantallas
+						</li>
+					</ul>
+				</div>
+
+				<div class="text-center mt-4">
+					<a href="./01-data-attributes.html" class="btn btn-outline-primary">← Anterior</a>
+					<a href="../index.html" class="btn btn-outline-secondary">Lección</a>
+					<a href="./03-carousel.html" class="btn btn-primary">Siguiente: Carrusel →</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal Definitions -->
+
+		<!-- Basic Modal -->
+		<div class="modal fade" id="basicModal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal Básico</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+					</div>
+					<div class="modal-body">
+						<p>Este es un modal básico de Bootstrap con todos los componentes estándar.</p>
+						<p class="mb-0">
+							Incluye un header con botón de cerrar, un body para el contenido principal, y un footer para acciones.
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary">Guardar Cambios</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Small Modal -->
+		<div class="modal fade" id="smallModal" tabindex="-1">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal Pequeño</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">Contenido compacto para acciones rápidas.</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal">OK</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Default Modal -->
+		<div class="modal fade" id="defaultModal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal Por Defecto</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">Este es el tamaño por defecto del modal, ideal para la mayoría de casos de uso.</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Large Modal -->
+		<div class="modal fade" id="largeModal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal Grande</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<p>Un modal más grande para contenido extenso o layouts complejos.</p>
+						<p>Perfecto para formularios detallados, tablas de datos, o contenido que necesita más espacio.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- XL Modal -->
+		<div class="modal fade" id="xlModal" tabindex="-1">
+			<div class="modal-dialog modal-xl">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal Extra Grande</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<p>El modal más grande disponible, ideal para:</p>
+						<ul>
+							<li>Visualización de imágenes de alta resolución</li>
+							<li>Formularios complejos con múltiples secciones</li>
+							<li>Dashboards o paneles de control dentro de un modal</li>
+							<li>Contenido multimedia extenso</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scrolling Modal (Page Scroll) -->
+		<div class="modal fade" id="scrollModal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal con Scroll de Página</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<p>Este modal tiene mucho contenido...</p>
+						<p>Cuando el contenido excede la altura de la ventana, la página completa se desplaza.</p>
+						<p>Esto es el comportamiento por defecto.</p>
+						<p style="height: 100vh">Contenido muy largo...</p>
+						<p>¡Llegaste al final!</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scrolling Modal (Body Scroll) -->
+		<div class="modal fade" id="scrollBodyModal" tabindex="-1">
+			<div class="modal-dialog modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal con Scroll Interno</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<p>
+							Este modal usa
+							<code>.modal-dialog-scrollable</code>
+						</p>
+						<p>Solo el body del modal se desplaza, mientras que el header y footer permanecen fijos.</p>
+						<p style="height: 100vh">Contenido muy largo...</p>
+						<p>¡Llegaste al final del contenido!</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Centered Modal -->
+		<div class="modal fade" id="centeredModal" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal Centrado</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						Este modal está centrado verticalmente en la ventana usando
+						<code>.modal-dialog-centered</code>
+						.
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Fullscreen Modal -->
+		<div class="modal fade" id="fullscreenModal" tabindex="-1">
+			<div class="modal-dialog modal-fullscreen">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal de Pantalla Completa</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<p>Este modal cubre toda la ventana del navegador.</p>
+						<p>Útil para experiencias inmersivas o contenido que necesita el espacio completo de la pantalla.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Responsive Fullscreen Modal -->
+		<div class="modal fade" id="responsiveFullscreen" tabindex="-1">
+			<div class="modal-dialog modal-fullscreen-md-down">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Fullscreen Responsive</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<p>
+							Este modal es de pantalla completa solo en dispositivos
+							<strong>menores a MD (768px)</strong>
+							.
+						</p>
+						<p>En pantallas más grandes, aparece como un modal normal.</p>
+						<p>
+							Clases disponibles:
+							<code>.modal-fullscreen-sm-down</code>
+							,
+							<code>.modal-fullscreen-md-down</code>
+							,
+							<code>.modal-fullscreen-lg-down</code>
+							, etc.
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Gallery Modals -->
+		<div class="modal fade" id="gallery1" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Paisaje de Montaña</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<img src="https://picsum.photos/800/600?random=1" class="img-fluid mb-3" alt="Paisaje" />
+						<h6>Descripción</h6>
+						<p>Una vista impresionante de montañas majestuosas al atardecer.</p>
+						<h6>Detalles Técnicos</h6>
+						<ul>
+							<li>
+								<strong>Cámara:</strong>
+								Canon EOS 5D Mark IV
+							</li>
+							<li>
+								<strong>Lente:</strong>
+								24-70mm f/2.8
+							</li>
+							<li>
+								<strong>ISO:</strong>
+								100
+							</li>
+							<li>
+								<strong>Apertura:</strong>
+								f/8
+							</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary">Descargar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="gallery2" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Arquitectura Urbana</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<img src="https://picsum.photos/800/600?random=2" class="img-fluid mb-3" alt="Arquitectura" />
+						<h6>Descripción</h6>
+						<p>Diseño arquitectónico moderno con líneas limpias y formas geométricas.</p>
+						<h6>Detalles Técnicos</h6>
+						<ul>
+							<li>
+								<strong>Cámara:</strong>
+								Sony A7R III
+							</li>
+							<li>
+								<strong>Lente:</strong>
+								16-35mm f/4
+							</li>
+							<li>
+								<strong>ISO:</strong>
+								200
+							</li>
+							<li>
+								<strong>Apertura:</strong>
+								f/11
+							</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary">Descargar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="gallery3" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Costa al Atardecer</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<img src="https://picsum.photos/800/600?random=3" class="img-fluid mb-3" alt="Costa" />
+						<h6>Descripción</h6>
+						<p>Hermosas olas rompiendo contra la costa durante el atardecer dorado.</p>
+						<h6>Detalles Técnicos</h6>
+						<ul>
+							<li>
+								<strong>Cámara:</strong>
+								Nikon D850
+							</li>
+							<li>
+								<strong>Lente:</strong>
+								70-200mm f/2.8
+							</li>
+							<li>
+								<strong>ISO:</strong>
+								400
+							</li>
+							<li>
+								<strong>Apertura:</strong>
+								f/5.6
+							</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary">Descargar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

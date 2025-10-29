@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo 5: Portafolio Interactivo - Bootstrap JS</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			body {
+				font-family: system-ui, -apple-system, sans-serif;
+			}
+			.hero-section {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 6rem 0 4rem;
+				margin-bottom: 3rem;
+			}
+			.project-card {
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				height: 100%;
+			}
+			.project-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+			}
+			.skill-badge {
+				transition: transform 0.2s ease;
+				cursor: pointer;
+			}
+			.skill-badge:hover {
+				transform: scale(1.1);
+			}
+			.timeline-item {
+				position: relative;
+				padding-left: 3rem;
+				padding-bottom: 2rem;
+			}
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 2px;
+				height: 100%;
+				background: #667eea;
+			}
+			.timeline-item::after {
+				content: '';
+				position: absolute;
+				left: -8px;
+				top: 0;
+				width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				background: #667eea;
+				border: 3px solid white;
+				box-shadow: 0 0 0 2px #667eea;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+			<div class="container">
+				<a class="navbar-brand fw-bold" href="#">Mi Portafolio</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="#proyectos">Proyectos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#habilidades">Habilidades</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#experiencia">Experiencia</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Más</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#testimonios">Testimonios</a></li>
+								<li><a class="dropdown-item" href="#contacto">Contacto</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#bioModal">Bio Completa</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section class="hero-section text-center">
+			<div class="container">
+				<img
+					src="https://i.pravatar.cc/150?img=8"
+					alt="Foto de Perfil"
+					class="rounded-circle mb-4"
+					style="width: 150px; height: 150px; border: 5px solid white" />
+				<h1 class="display-3 fw-bold mb-3">María González</h1>
+				<p class="lead mb-4">Desarrolladora Full Stack | Diseñadora UX | Apasionada por crear experiencias digitales</p>
+				<div>
+					<button
+						class="btn btn-light btn-lg me-2"
+						data-bs-toggle="tooltip"
+						data-bs-placement="bottom"
+						title="Ver mis proyectos destacados">
+						Ver Proyectos
+					</button>
+					<button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#contactModal">
+						Contáctame
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section id="proyectos" class="py-5 bg-light">
+			<div class="container">
+				<h2 class="text-center mb-5 display-5 fw-bold">Proyectos Destacados</h2>
+				<div class="row g-4">
+					<!-- Project 1 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="card project-card">
+							<img src="https://picsum.photos/400/250?random=1" class="card-img-top" alt="E-commerce" />
+							<div class="card-body">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h5 class="card-title">Plataforma E-commerce</h5>
+									<span class="badge bg-primary">2024</span>
+								</div>
+								<p class="card-text">Sitio de comercio electrónico full-stack con React y Node.js.</p>
+								<div class="d-flex gap-2 flex-wrap mb-3">
+									<span class="badge bg-secondary">React</span>
+									<span class="badge bg-secondary">Node.js</span>
+									<span class="badge bg-secondary">MongoDB</span>
+								</div>
+								<button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#project1Modal">
+									Ver Detalles
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 2 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="card project-card">
+							<img src="https://picsum.photos/400/250?random=2" class="card-img-top" alt="CMS" />
+							<div class="card-body">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h5 class="card-title">Sistema CMS</h5>
+									<span class="badge bg-success">2023</span>
+								</div>
+								<p class="card-text">CMS personalizado para gestión de contenido de portfolios creativos.</p>
+								<div class="d-flex gap-2 flex-wrap mb-3">
+									<span class="badge bg-secondary">Vue.js</span>
+									<span class="badge bg-secondary">Laravel</span>
+									<span class="badge bg-secondary">MySQL</span>
+								</div>
+								<button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#project2Modal">
+									Ver Detalles
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 3 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="card project-card">
+							<img src="https://picsum.photos/400/250?random=3" class="card-img-top" alt="PWA" />
+							<div class="card-body">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h5 class="card-title">App de Tareas (PWA)</h5>
+									<span class="badge bg-warning">2024</span>
+								</div>
+								<p class="card-text">App web progresiva para gestión de tareas con funcionalidad offline.</p>
+								<div class="d-flex gap-2 flex-wrap mb-3">
+									<span class="badge bg-secondary">PWA</span>
+									<span class="badge bg-secondary">IndexedDB</span>
+									<span class="badge bg-secondary">Service Workers</span>
+								</div>
+								<button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#project3Modal">
+									Ver Detalles
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Skills Section -->
+		<section id="habilidades" class="py-5">
+			<div class="container">
+				<h2 class="text-center mb-5 display-5 fw-bold">Habilidades & Tecnologías</h2>
+				<div class="row">
+					<div class="col-md-4 mb-4">
+						<h4 class="mb-3">Frontend</h4>
+						<div class="d-flex flex-wrap gap-2">
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="5 años de experiencia">
+								HTML/CSS
+							</span>
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="4 años de experiencia">
+								JavaScript
+							</span>
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="3 años de experiencia">
+								React
+							</span>
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="2 años de experiencia">
+								Vue.js
+							</span>
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="4 años de experiencia">
+								Bootstrap
+							</span>
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="2 años de experiencia">
+								Tailwind
+							</span>
+						</div>
+					</div>
+					<div class="col-md-4 mb-4">
+						<h4 class="mb-3">Backend</h4>
+						<div class="d-flex flex-wrap gap-2">
+							<span class="badge bg-success skill-badge p-2" data-bs-toggle="tooltip" title="4 años de experiencia">
+								Node.js
+							</span>
+							<span class="badge bg-success skill-badge p-2" data-bs-toggle="tooltip" title="3 años de experiencia">
+								Python
+							</span>
+							<span class="badge bg-success skill-badge p-2" data-bs-toggle="tooltip" title="2 años de experiencia">
+								PHP/Laravel
+							</span>
+							<span class="badge bg-success skill-badge p-2" data-bs-toggle="tooltip" title="4 años de experiencia">
+								MongoDB
+							</span>
+							<span class="badge bg-success skill-badge p-2" data-bs-toggle="tooltip" title="3 años de experiencia">
+								PostgreSQL
+							</span>
+						</div>
+					</div>
+					<div class="col-md-4 mb-4">
+						<h4 class="mb-3">Herramientas</h4>
+						<div class="d-flex flex-wrap gap-2">
+							<span class="badge bg-info skill-badge p-2" data-bs-toggle="tooltip" title="Experto">Git/GitHub</span>
+							<span class="badge bg-info skill-badge p-2" data-bs-toggle="tooltip" title="Experto">Docker</span>
+							<span class="badge bg-info skill-badge p-2" data-bs-toggle="tooltip" title="Avanzado">CI/CD</span>
+							<span class="badge bg-info skill-badge p-2" data-bs-toggle="tooltip" title="Experto">Figma</span>
+							<span class="badge bg-info skill-badge p-2" data-bs-toggle="tooltip" title="Avanzado">AWS</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Experience Timeline -->
+		<section id="experiencia" class="py-5 bg-light">
+			<div class="container">
+				<h2 class="text-center mb-5 display-5 fw-bold">Experiencia</h2>
+				<div class="row">
+					<div class="col-lg-8 mx-auto">
+						<div class="timeline-item">
+							<h5 class="fw-bold">Desarrolladora Senior Full Stack</h5>
+							<p class="text-muted mb-2">TechCorp Inc. | 2022 - Presente</p>
+							<p>
+								Liderando el desarrollo de aplicaciones web escalables. Implementé arquitectura de microservicios y reduje
+								tiempos de carga en 40%.
+							</p>
+						</div>
+						<div class="timeline-item">
+							<h5 class="fw-bold">Desarrolladora Full Stack</h5>
+							<p class="text-muted mb-2">StartupXYZ | 2020 - 2022</p>
+							<p>Desarrollé features principales del producto, trabajé en equipo ágil, y mentoré a desarrolladores junior.</p>
+						</div>
+						<div class="timeline-item">
+							<h5 class="fw-bold">Desarrolladora Frontend</h5>
+							<p class="text-muted mb-2">DigitalAgency | 2018 - 2020</p>
+							<p>Creé interfaces responsivas para clientes de diversas industrias. Mejoré prácticas de accesibilidad.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonials Carousel -->
+		<section id="testimonios" class="py-5">
+			<div class="container">
+				<h2 class="text-center mb-5 display-5 fw-bold">Lo que dicen los clientes</h2>
+				<div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="0" class="active"></button>
+						<button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="1"></button>
+						<button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="2"></button>
+					</div>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="text-center py-5">
+								<img src="https://i.pravatar.cc/100?img=1" alt="Cliente" class="rounded-circle mb-3" />
+								<blockquote class="blockquote">
+									<p class="fs-5 fst-italic">
+										"María transformó completamente nuestra presencia digital. Profesional excepcional."
+									</p>
+									<footer class="blockquote-footer mt-3">Carlos Pérez, CEO TechStart</footer>
+								</blockquote>
+								<div class="mt-2"><span class="text-warning">★★★★★</span></div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="text-center py-5">
+								<img src="https://i.pravatar.cc/100?img=3" alt="Cliente" class="rounded-circle mb-3" />
+								<blockquote class="blockquote">
+									<p class="fs-5 fst-italic">
+										"Trabajo impecable, comunicación clara y entrega a tiempo. Volveremos a trabajar juntos."
+									</p>
+									<footer class="blockquote-footer mt-3">Laura Martínez, Directora CreativeHub</footer>
+								</blockquote>
+								<div class="mt-2"><span class="text-warning">★★★★★</span></div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="text-center py-5">
+								<img src="https://i.pravatar.cc/100?img=5" alt="Cliente" class="rounded-circle mb-3" />
+								<blockquote class="blockquote">
+									<p class="fs-5 fst-italic">
+										"Una desarrolladora con visión de diseño. Creó exactamente lo que necesitábamos."
+									</p>
+									<footer class="blockquote-footer mt-3">Roberto Silva, Fundador DesignCo</footer>
+								</blockquote>
+								<div class="mt-2"><span class="text-warning">★★★★★</span></div>
+							</div>
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Anterior</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Siguiente</span>
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="bg-dark text-white py-4">
+			<div class="container text-center">
+				<p class="mb-2">© 2024 María González. Todos los derechos reservados.</p>
+				<div class="d-flex justify-content-center gap-3">
+					<a href="#" class="text-white" data-bs-toggle="tooltip" title="GitHub">GitHub</a>
+					<a href="#" class="text-white" data-bs-toggle="tooltip" title="LinkedIn">LinkedIn</a>
+					<a href="#" class="text-white" data-bs-toggle="tooltip" title="Twitter">Twitter</a>
+				</div>
+				<div class="mt-3">
+					<a href="./01-data-attributes.html" class="btn btn-sm btn-outline-light">← Volver a Demos</a>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Modals -->
+
+		<!-- Contact Modal -->
+		<div class="modal fade" id="contactModal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Contáctame</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+								<label for="name" class="form-label">Nombre</label>
+								<input type="text" class="form-control" id="name" required />
+							</div>
+							<div class="mb-3">
+								<label for="email" class="form-label">Email</label>
+								<input type="email" class="form-control" id="email" required />
+							</div>
+							<div class="mb-3">
+								<label for="message" class="form-label">Mensaje</label>
+								<textarea class="form-control" id="message" rows="4" required></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-primary">Enviar Mensaje</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bio Modal -->
+		<div class="modal fade" id="bioModal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Bio Completa</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<p>
+							Soy una desarrolladora full-stack apasionada con más de 6 años de experiencia creando experiencias web
+							excepcionales. Mi enfoque combina excelencia técnica con sensibilidad de diseño.
+						</p>
+						<h6>Mi Historia</h6>
+						<p>
+							Comencé mi viaje en el desarrollo web en 2018 y desde entonces he trabajado con startups y empresas consolidadas,
+							ayudándoles a dar vida a sus visiones digitales.
+						</p>
+						<h6>Filosofía</h6>
+						<p>
+							Creo en código limpio, diseño centrado en el usuario, y aprendizaje continuo. Cada proyecto es una oportunidad
+							para crear algo significativo.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Project Modals -->
+		<div class="modal fade" id="project1Modal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Plataforma E-commerce</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<img src="https://picsum.photos/800/400?random=1" class="img-fluid mb-3 rounded" alt="E-commerce" />
+						<h6>Descripción del Proyecto</h6>
+						<p>
+							Plataforma completa de e-commerce construida con tecnologías modernas. Incluye catálogo de productos,
+							autenticación de usuarios, carrito de compras y procesamiento de pagos.
+						</p>
+						<h6>Características Principales</h6>
+						<ul>
+							<li>Catálogo de productos con búsqueda y filtrado en tiempo real</li>
+							<li>Sistema de autenticación seguro con JWT</li>
+							<li>Integración con pasarela de pago (Stripe)</li>
+							<li>Panel de administración para gestión de inventario</li>
+							<li>Diseño responsivo para todos los dispositivos</li>
+						</ul>
+						<h6>Tecnologías Utilizadas</h6>
+						<p>
+							<strong>Frontend:</strong>
+							React, Redux, Bootstrap
+							<br />
+							<strong>Backend:</strong>
+							Node.js, Express, MongoDB
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<a href="#" class="btn btn-primary">Ver Proyecto en Vivo</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="project2Modal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Sistema CMS</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<img src="https://picsum.photos/800/400?random=2" class="img-fluid mb-3 rounded" alt="CMS" />
+						<h6>Descripción del Proyecto</h6>
+						<p>
+							CMS personalizado diseñado específicamente para profesionales creativos que necesitan gestionar sus portfolios en
+							línea.
+						</p>
+						<h6>Características Principales</h6>
+						<ul>
+							<li>Editor drag-and-drop intuitivo</li>
+							<li>Plantillas de diseño responsive</li>
+							<li>Optimización SEO incorporada</li>
+							<li>Optimización automática de imágenes</li>
+							<li>Integración con analytics</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<a href="#" class="btn btn-primary">Ver Proyecto en Vivo</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="project3Modal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">App de Tareas (PWA)</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<img src="https://picsum.photos/800/400?random=3" class="img-fluid mb-3 rounded" alt="PWA" />
+						<h6>Descripción del Proyecto</h6>
+						<p>
+							Progressive Web App para gestión de tareas con funcionalidad offline completa y capacidad de instalación en
+							dispositivos móviles.
+						</p>
+						<h6>Características Principales</h6>
+						<ul>
+							<li>Arquitectura offline-first con Service Workers</li>
+							<li>Notificaciones push para recordatorios</li>
+							<li>Compartir tareas con colaboradores</li>
+							<li>Sincronización de datos entre dispositivos</li>
+							<li>Instalable como app nativa (PWA)</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+						<a href="#" class="btn btn-primary">Ver Proyecto en Vivo</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			// Initialize all tooltips
+			var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+			tooltipTriggerList.map(function (tooltipTriggerEl) {
+				return new bootstrap.Tooltip(tooltipTriggerEl);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,159 @@
+# ============================================
+# GitHub Actions - Despliegue Automático a GitHub Pages
+# ============================================
+#
+# Este archivo de workflow automatiza el despliegue de tu portafolio
+# a GitHub Pages cada vez que hagas push a la rama main.
+#
+# CÓMO USAR:
+# 1. Crea este archivo en tu repositorio en .github/workflows/deploy.yml
+# 2. Habilita GitHub Pages en Settings > Pages
+# 3. Selecciona "GitHub Actions" como fuente de despliegue
+# 4. Haz push a main - ¡tu sitio se desplegará automáticamente!
+#
+# ============================================
+
+# Nombre del workflow (aparece en la interfaz de GitHub)
+name: Deploy Portfolio to GitHub Pages
+
+# Eventos que disparan el workflow
+on:
+ # Se ejecuta en cada push a la rama main
+ push:
+  branches: [main]
+
+ # Permite ejecutar manualmente desde la pestaña Actions
+ workflow_dispatch:
+
+# Permisos necesarios para el workflow
+permissions:
+ contents: read # Leer el contenido del repositorio
+ pages: write # Escribir en GitHub Pages
+ id-token: write # Necesario para deployment
+
+# Configuración de concurrencia
+# Solo permite un despliegue a la vez, cancela los en progreso si hay uno nuevo
+concurrency:
+ group: 'pages'
+ cancel-in-progress: false
+
+# Jobs: unidades de trabajo que se ejecutan
+jobs:
+ # ============================================
+ # JOB 1: BUILD
+ # Prepara los archivos para despliegue
+ # ============================================
+ build:
+  # Sistema operativo donde se ejecuta (Ubuntu es el más común)
+  runs-on: ubuntu-latest
+
+  steps:
+   # PASO 1: Descargar el código del repositorio
+   - name: Checkout código
+     uses: actions/checkout@v4
+     with:
+      # Descargar todo el historial (útil si usas git para assets)
+      fetch-depth: 0
+
+   # PASO 2: Configurar Node.js (si usas npm/pnpm para build)
+   # Descomenta si necesitas procesar CSS/JS con npm
+   # - name: Setup Node.js
+   #   uses: actions/setup-node@v4
+   #   with:
+   #     node-version: '20'
+   #     cache: 'npm' # O 'pnpm' si usas pnpm
+
+   # PASO 3: Instalar dependencias (si usas npm)
+   # Descomenta si tienes un package.json
+   # - name: Instalar dependencias
+   #   run: npm ci
+
+   # PASO 4: Build del proyecto (si necesitas procesar archivos)
+   # Descomenta si tienes un script de build en package.json
+   # - name: Build proyecto
+   #   run: npm run build
+
+   # PASO 5: Optimizar imágenes (opcional)
+   # Puedes usar herramientas como imagemin-cli
+   # - name: Optimizar imágenes
+   #   run: |
+   #     npm install -g imagemin-cli
+   #     imagemin assets/images/* --out-dir=dist/assets/images
+
+   # PASO 6: Configurar GitHub Pages
+   - name: Setup Pages
+     uses: actions/configure-pages@v4
+
+   # PASO 7: Subir artefacto (archivos a desplegar)
+   - name: Upload artifact
+     uses: actions/upload-pages-artifact@v3
+     with:
+      # Ruta a los archivos a desplegar
+      # Si usas build, cambiar a './dist' o lo que corresponda
+      path: './'
+
+ # ============================================
+ # JOB 2: DEPLOY
+ # Despliega los archivos a GitHub Pages
+ # ============================================
+ deploy:
+  # Configuración del entorno
+  environment:
+   name: github-pages
+   # URL donde estará disponible el sitio
+   url: ${{ steps.deployment.outputs.page_url }}
+
+  # Este job corre en Ubuntu
+  runs-on: ubuntu-latest
+
+  # Espera a que el job 'build' termine exitosamente
+  needs: build
+
+  steps:
+   # PASO 1: Desplegar a GitHub Pages
+   - name: Deploy to GitHub Pages
+     id: deployment
+     uses: actions/deploy-pages@v4
+# ============================================
+# NOTAS ADICIONALES
+# ============================================
+#
+# VARIABLES DE ENTORNO:
+# Si necesitas usar secretos o variables, añádelos en:
+# Settings > Secrets and variables > Actions
+#
+# Ejemplo de uso:
+# env:
+#   API_KEY: ${{ secrets.API_KEY }}
+#
+# NOTIFICACIONES:
+# Puedes añadir notificaciones cuando el despliegue termine:
+#
+# - name: Notificar éxito
+#   if: success()
+#   run: echo "✅ Despliegue exitoso!"
+#
+# - name: Notificar fallo
+#   if: failure()
+#   run: echo "❌ Despliegue falló"
+#
+# CACHÉ:
+# Para hacer builds más rápidos, usa caché:
+#
+# - name: Cache dependencies
+#   uses: actions/cache@v3
+#   with:
+#     path: ~/.npm
+#     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+#
+# TESTING ANTES DE DESPLEGAR:
+# Puedes añadir tests antes de desplegar:
+#
+# - name: Run tests
+#   run: npm test
+#
+# - name: Lint código
+#   run: npm run lint
+#
+# ============================================
+

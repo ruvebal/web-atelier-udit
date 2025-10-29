@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo 4: Dropdowns & Tooltips - Bootstrap JS</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			body {
+				padding: 2rem 0;
+				background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+				min-height: 100vh;
+			}
+			.demo-container {
+				background: white;
+				border-radius: 15px;
+				padding: 3rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.demo-section {
+				margin-bottom: 3rem;
+				padding-bottom: 2rem;
+				border-bottom: 2px solid #e9ecef;
+			}
+			.demo-section:last-child {
+				border-bottom: none;
+			}
+			.code-highlight {
+				background: #f8f9fa;
+				border-left: 4px solid #fa709a;
+				padding: 1rem;
+				margin: 1rem 0;
+				border-radius: 5px;
+				font-size: 0.85rem;
+			}
+			.demo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="demo-container">
+				<div class="text-center mb-5">
+					<h1 class="display-4 fw-bold" style="color: #fa709a">Dropdowns & Tooltips</h1>
+					<p class="lead text-muted">Dropdown menus and contextual hints for better UX</p>
+				</div>
+
+				<!-- Section 1: Basic Dropdowns -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-primary">1</span>
+						Basic Dropdowns
+					</h2>
+					<p>Simple dropdown menus that open on click.</p>
+
+					<div class="demo-grid">
+						<div class="dropdown">
+							<button
+								class="btn btn-primary dropdown-toggle w-100"
+								type="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false">
+								Primary Dropdown
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li><a class="dropdown-item" href="#">Something else</a></li>
+							</ul>
+						</div>
+
+						<div class="dropdown">
+							<button
+								class="btn btn-success dropdown-toggle w-100"
+								type="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false">
+								Success Dropdown
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item active" href="#">Active Item</a></li>
+								<li><a class="dropdown-item" href="#">Regular Item</a></li>
+								<li><a class="dropdown-item disabled" href="#">Disabled Item</a></li>
+							</ul>
+						</div>
+
+						<div class="dropdown">
+							<button
+								class="btn btn-danger dropdown-toggle w-100"
+								type="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false">
+								Danger Dropdown
+							</button>
+							<ul class="dropdown-menu">
+								<li><h6 class="dropdown-header">Header</h6></li>
+								<li><a class="dropdown-item" href="#">Item 1</a></li>
+								<li><a class="dropdown-item" href="#">Item 2</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li><a class="dropdown-item" href="#">Separated Item</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="code-highlight mt-3">
+						<strong>Dropdown Structure:</strong>
+						<pre><code>&lt;div class="dropdown"&gt;
+  &lt;button data-bs-toggle="dropdown"&gt;Dropdown&lt;/button&gt;
+  &lt;ul class="dropdown-menu"&gt;
+    &lt;li&gt;&lt;a class="dropdown-item"&gt;Item&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+					</div>
+				</div>
+
+				<!-- Section 2: Dropdown Directions -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-success">2</span>
+						Dropdown Directions
+					</h2>
+					<p>Control the direction in which the menu opens.</p>
+
+					<div class="demo-grid">
+						<div class="dropdown">
+							<button class="btn btn-outline-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+								Dropdown (down)
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Item 1</a></li>
+								<li><a class="dropdown-item" href="#">Item 2</a></li>
+							</ul>
+						</div>
+
+						<div class="dropup">
+							<button class="btn btn-outline-success dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+								Dropup (up)
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Item 1</a></li>
+								<li><a class="dropdown-item" href="#">Item 2</a></li>
+							</ul>
+						</div>
+
+						<div class="dropend">
+							<button class="btn btn-outline-warning dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+								Dropend (right)
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Item 1</a></li>
+								<li><a class="dropdown-item" href="#">Item 2</a></li>
+							</ul>
+						</div>
+
+						<div class="dropstart">
+							<button class="btn btn-outline-danger dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+								Dropstart (left)
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Item 1</a></li>
+								<li><a class="dropdown-item" href="#">Item 2</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="alert alert-info mt-3">
+						<strong>💡 Tip:</strong>
+						Use
+						<code>.dropdown</code>
+						,
+						<code>.dropup</code>
+						,
+						<code>.dropend</code>
+						, or
+						<code>.dropstart</code>
+						on the container to control direction.
+					</div>
+				</div>
+
+				<!-- Section 3: Advanced Dropdown Content -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-warning">3</span>
+						Advanced Content
+					</h2>
+					<p>Dropdowns can contain more than just links: forms, text, and more.</p>
+
+					<div class="row g-3">
+						<div class="col-md-4">
+							<div class="dropdown">
+								<button class="btn btn-primary w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown">
+									Login Form
+								</button>
+								<div class="dropdown-menu p-4" style="min-width: 300px">
+									<form>
+										<div class="mb-3">
+											<label for="email" class="form-label">Email</label>
+											<input type="email" class="form-control" id="email" placeholder="email@example.com" />
+										</div>
+										<div class="mb-3">
+											<label for="password" class="form-label">Password</label>
+											<input type="password" class="form-control" id="password" />
+										</div>
+										<div class="mb-3">
+											<div class="form-check">
+												<input type="checkbox" class="form-check-input" id="remember" />
+												<label class="form-check-label" for="remember">Remember me</label>
+											</div>
+										</div>
+										<button type="submit" class="btn btn-primary w-100">Sign in</button>
+									</form>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="dropdown">
+								<button class="btn btn-success w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown">
+									User Profile
+								</button>
+								<div class="dropdown-menu p-3" style="min-width: 300px">
+									<div class="d-flex align-items-center mb-3">
+										<img
+											src="https://i.pravatar.cc/80?img=1"
+											alt="Avatar"
+											class="rounded-circle me-3"
+											style="width: 60px; height: 60px" />
+										<div>
+											<h6 class="mb-0">Maria Gonzalez</h6>
+											<small class="text-muted">maria@example.com</small>
+										</div>
+									</div>
+									<hr class="my-2" />
+									<a class="dropdown-item" href="#">View Profile</a>
+									<a class="dropdown-item" href="#">Settings</a>
+									<hr class="my-2" />
+									<a class="dropdown-item text-danger" href="#">Sign Out</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="dropdown">
+								<button class="btn btn-info w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown">
+									Text & Information
+								</button>
+								<div class="dropdown-menu p-3" style="min-width: 300px">
+									<h6 class="dropdown-header px-0">About this Feature</h6>
+									<p class="px-3 mb-2">Dropdowns can contain any HTML content, including paragraphs, images, and forms.</p>
+									<div class="px-3">
+										<small class="text-muted">Last updated: October 2024</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Section 4: Tooltips -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-danger">4</span>
+						Basic Tooltips
+					</h2>
+					<p>Tooltips display contextual information on hover or focus.</p>
+
+					<div class="text-center mb-4">
+						<button
+							type="button"
+							class="btn btn-primary m-2"
+							data-bs-toggle="tooltip"
+							data-bs-placement="top"
+							title="Tooltip on top">
+							Tooltip Top
+						</button>
+
+						<button
+							type="button"
+							class="btn btn-success m-2"
+							data-bs-toggle="tooltip"
+							data-bs-placement="right"
+							title="Tooltip on the right">
+							Tooltip Right
+						</button>
+
+						<button
+							type="button"
+							class="btn btn-warning m-2"
+							data-bs-toggle="tooltip"
+							data-bs-placement="bottom"
+							title="Tooltip on bottom">
+							Tooltip Bottom
+						</button>
+
+						<button
+							type="button"
+							class="btn btn-danger m-2"
+							data-bs-toggle="tooltip"
+							data-bs-placement="left"
+							title="Tooltip on the left">
+							Tooltip Left
+						</button>
+					</div>
+
+					<div class="code-highlight">
+						<strong>Initialize Tooltips:</strong>
+						<pre><code>&lt;button data-bs-toggle="tooltip" 
+        data-bs-placement="top" 
+        title="Tooltip text"&gt;
+  Button
+&lt;/button&gt;
+
+&lt;script&gt;
+  // Tooltips require manual initialization
+  var tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  );
+  tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+&lt;/script&gt;</code></pre>
+					</div>
+
+					<div class="alert alert-danger">
+						<strong>⚠️ Important:</strong>
+						Tooltips require manual JavaScript initialization, unlike other Bootstrap components.
+					</div>
+				</div>
+
+				<!-- Section 5: Popovers -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-info">5</span>
+						Popovers
+					</h2>
+					<p>Popovers are like larger tooltips that can contain headers and more content.</p>
+
+					<div class="text-center">
+						<button
+							type="button"
+							class="btn btn-primary m-2"
+							data-bs-toggle="popover"
+							data-bs-placement="top"
+							data-bs-title="Popover Title"
+							data-bs-content="This is the popover content. It can be much longer than a tooltip.">
+							Popover Top
+						</button>
+
+						<button
+							type="button"
+							class="btn btn-success m-2"
+							data-bs-toggle="popover"
+							data-bs-placement="right"
+							data-bs-title="Information"
+							data-bs-content="Popovers are perfect for more extensive content that doesn't fit in a tooltip.">
+							Popover Right
+						</button>
+
+						<button
+							type="button"
+							class="btn btn-warning m-2"
+							data-bs-toggle="popover"
+							data-bs-placement="bottom"
+							data-bs-title="Did you know?"
+							data-bs-content="You can click outside the popover to close it, or add a close button.">
+							Popover Bottom
+						</button>
+
+						<button
+							type="button"
+							class="btn btn-danger m-2"
+							data-bs-toggle="popover"
+							data-bs-trigger="focus"
+							data-bs-placement="left"
+							data-bs-title="Dismissible Popover"
+							data-bs-content="This popover closes when you click anywhere else.">
+							Popover Left
+						</button>
+					</div>
+				</div>
+
+				<!-- Section 6: Practical Example -->
+				<div class="demo-section">
+					<h2 class="h3 mb-4">
+						<span class="badge bg-secondary">6</span>
+						Practical Example: Toolbar
+					</h2>
+					<p>Combine dropdowns and tooltips to create rich interfaces.</p>
+
+					<div class="card">
+						<div class="card-header bg-dark text-white">
+							<div class="d-flex justify-content-between align-items-center">
+								<h5 class="mb-0">Document Editor</h5>
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-light" data-bs-toggle="tooltip" title="Save">💾</button>
+									<button type="button" class="btn btn-sm btn-outline-light" data-bs-toggle="tooltip" title="Undo">↶</button>
+									<button type="button" class="btn btn-sm btn-outline-light" data-bs-toggle="tooltip" title="Redo">↷</button>
+								</div>
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="btn-toolbar mb-3" role="toolbar">
+								<div class="btn-group me-2">
+									<button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="tooltip" title="Bold">
+										<strong>B</strong>
+									</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="tooltip" title="Italic">
+										<em>I</em>
+									</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="tooltip" title="Underline">
+										<u>U</u>
+									</button>
+								</div>
+
+								<div class="btn-group me-2">
+									<button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">Font</button>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Arial</a></li>
+										<li><a class="dropdown-item" href="#">Times New Roman</a></li>
+										<li><a class="dropdown-item" href="#">Courier New</a></li>
+										<li><hr class="dropdown-divider" /></li>
+										<li><a class="dropdown-item" href="#">More fonts...</a></li>
+									</ul>
+								</div>
+
+								<div class="btn-group">
+									<button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">Color</button>
+									<div class="dropdown-menu p-3">
+										<div class="d-flex gap-2">
+											<button
+												type="button"
+												class="btn btn-sm"
+												style="width: 30px; height: 30px; background: #000"
+												data-bs-toggle="tooltip"
+												title="Black"></button>
+											<button
+												type="button"
+												class="btn btn-sm"
+												style="width: 30px; height: 30px; background: #f00"
+												data-bs-toggle="tooltip"
+												title="Red"></button>
+											<button
+												type="button"
+												class="btn btn-sm"
+												style="width: 30px; height: 30px; background: #0f0"
+												data-bs-toggle="tooltip"
+												title="Green"></button>
+											<button
+												type="button"
+												class="btn btn-sm"
+												style="width: 30px; height: 30px; background: #00f"
+												data-bs-toggle="tooltip"
+												title="Blue"></button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<textarea class="form-control" rows="8" placeholder="Start typing your document here..."></textarea>
+						</div>
+					</div>
+				</div>
+
+				<!-- Takeaways -->
+				<div class="alert alert-success">
+					<h4 class="alert-heading">🎯 Key Takeaways</h4>
+					<ul class="mb-0">
+						<li>
+							<strong>Dropdowns:</strong>
+							Work automatically with data attributes, no initialization needed
+						</li>
+						<li>
+							<strong>Tooltips:</strong>
+							Require manual initialization with JavaScript
+						</li>
+						<li>
+							<strong>Popovers:</strong>
+							Like tooltips but with more content (title + body)
+						</li>
+						<li>
+							<strong>Directions:</strong>
+							Control where they appear with placement attributes
+						</li>
+						<li>
+							<strong>Flexible content:</strong>
+							Dropdowns can contain any HTML
+						</li>
+					</ul>
+				</div>
+
+				<div class="text-center mt-4">
+					<a href="./03-carousel.html" class="btn btn-outline-primary">← Previous</a>
+					<a href="../index.html" class="btn btn-outline-secondary">Lesson</a>
+					<a href="./05-interactive-portfolio.html" class="btn btn-primary">Next: Interactive Portfolio →</a>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			// Initialize all tooltips
+			var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+			var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+				return new bootstrap.Tooltip(tooltipTriggerEl);
+			});
+
+			// Initialize all popovers
+			var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+			var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+				return new bootstrap.Popover(popoverTriggerEl);
+			});
+		</script>
+	</body>
+</html>

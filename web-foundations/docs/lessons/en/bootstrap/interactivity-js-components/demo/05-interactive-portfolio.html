@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo 5: Interactive Portfolio - Bootstrap JS</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			body {
+				font-family: system-ui, -apple-system, sans-serif;
+			}
+			.hero-section {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 6rem 0 4rem;
+				margin-bottom: 3rem;
+			}
+			.project-card {
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				height: 100%;
+			}
+			.project-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+			}
+			.skill-badge {
+				transition: transform 0.2s ease;
+				cursor: pointer;
+			}
+			.skill-badge:hover {
+				transform: scale(1.1);
+			}
+			.timeline-item {
+				position: relative;
+				padding-left: 3rem;
+				padding-bottom: 2rem;
+			}
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 2px;
+				height: 100%;
+				background: #667eea;
+			}
+			.timeline-item::after {
+				content: '';
+				position: absolute;
+				left: -8px;
+				top: 0;
+				width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				background: #667eea;
+				border: 3px solid white;
+				box-shadow: 0 0 0 2px #667eea;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+			<div class="container">
+				<a class="navbar-brand fw-bold" href="#">My Portfolio</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="#projects">Projects</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#skills">Skills</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#experience">Experience</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#testimonials">Testimonials</a></li>
+								<li><a class="dropdown-item" href="#contact">Contact</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#bioModal">Full Bio</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section class="hero-section text-center">
+			<div class="container">
+				<img
+					src="https://i.pravatar.cc/150?img=8"
+					alt="Profile Photo"
+					class="rounded-circle mb-4"
+					style="width: 150px; height: 150px; border: 5px solid white" />
+				<h1 class="display-3 fw-bold mb-3">Maria Gonzalez</h1>
+				<p class="lead mb-4">Full Stack Developer | UX Designer | Passionate about creating digital experiences</p>
+				<div>
+					<button
+						class="btn btn-light btn-lg me-2"
+						data-bs-toggle="tooltip"
+						data-bs-placement="bottom"
+						title="View my featured projects">
+						View Projects
+					</button>
+					<button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#contactModal">
+						Contact Me
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section id="projects" class="py-5 bg-light">
+			<div class="container">
+				<h2 class="text-center mb-5 display-5 fw-bold">Featured Projects</h2>
+				<div class="row g-4">
+					<!-- Project 1 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="card project-card">
+							<img src="https://picsum.photos/400/250?random=1" class="card-img-top" alt="E-commerce" />
+							<div class="card-body">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h5 class="card-title">E-commerce Platform</h5>
+									<span class="badge bg-primary">2024</span>
+								</div>
+								<p class="card-text">Full-stack e-commerce site with React and Node.js.</p>
+								<div class="d-flex gap-2 flex-wrap mb-3">
+									<span class="badge bg-secondary">React</span>
+									<span class="badge bg-secondary">Node.js</span>
+									<span class="badge bg-secondary">MongoDB</span>
+								</div>
+								<button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#project1Modal">
+									View Details
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 2 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="card project-card">
+							<img src="https://picsum.photos/400/250?random=2" class="card-img-top" alt="CMS" />
+							<div class="card-body">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h5 class="card-title">CMS System</h5>
+									<span class="badge bg-success">2023</span>
+								</div>
+								<p class="card-text">Custom CMS for managing creative portfolios.</p>
+								<div class="d-flex gap-2 flex-wrap mb-3">
+									<span class="badge bg-secondary">Vue.js</span>
+									<span class="badge bg-secondary">Laravel</span>
+									<span class="badge bg-secondary">MySQL</span>
+								</div>
+								<button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#project2Modal">
+									View Details
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 3 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="card project-card">
+							<img src="https://picsum.photos/400/250?random=3" class="card-img-top" alt="PWA" />
+							<div class="card-body">
+								<div class="d-flex justify-content-between align-items-start mb-2">
+									<h5 class="card-title">Task Management PWA</h5>
+									<span class="badge bg-warning">2024</span>
+								</div>
+								<p class="card-text">Progressive web app for task management with offline functionality.</p>
+								<div class="d-flex gap-2 flex-wrap mb-3">
+									<span class="badge bg-secondary">PWA</span>
+									<span class="badge bg-secondary">IndexedDB</span>
+									<span class="badge bg-secondary">Service Workers</span>
+								</div>
+								<button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#project3Modal">
+									View Details
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Skills Section -->
+		<section id="skills" class="py-5">
+			<div class="container">
+				<h2 class="text-center mb-5 display-5 fw-bold">Skills & Technologies</h2>
+				<div class="row">
+					<div class="col-md-4 mb-4">
+						<h4 class="mb-3">Frontend</h4>
+						<div class="d-flex flex-wrap gap-2">
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="5 years experience">
+								HTML/CSS
+							</span>
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="4 years experience">
+								JavaScript
+							</span>
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="3 years experience">React</span>
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="2 years experience">Vue.js</span>
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="4 years experience">
+								Bootstrap
+							</span>
+							<span class="badge bg-primary skill-badge p-2" data-bs-toggle="tooltip" title="2 years experience">
+								Tailwind
+							</span>
+						</div>
+					</div>
+					<div class="col-md-4 mb-4">
+						<h4 class="mb-3">Backend</h4>
+						<div class="d-flex flex-wrap gap-2">
+							<span class="badge bg-success skill-badge p-2" data-bs-toggle="tooltip" title="4 years experience">Node.js</span>
+							<span class="badge bg-success skill-badge p-2" data-bs-toggle="tooltip" title="3 years experience">Python</span>
+							<span class="badge bg-success skill-badge p-2" data-bs-toggle="tooltip" title="2 years experience">
+								PHP/Laravel
+							</span>
+							<span class="badge bg-success skill-badge p-2" data-bs-toggle="tooltip" title="4 years experience">MongoDB</span>
+							<span class="badge bg-success skill-badge p-2" data-bs-toggle="tooltip" title="3 years experience">
+								PostgreSQL
+							</span>
+						</div>
+					</div>
+					<div class="col-md-4 mb-4">
+						<h4 class="mb-3">Tools</h4>
+						<div class="d-flex flex-wrap gap-2">
+							<span class="badge bg-info skill-badge p-2" data-bs-toggle="tooltip" title="Expert">Git/GitHub</span>
+							<span class="badge bg-info skill-badge p-2" data-bs-toggle="tooltip" title="Expert">Docker</span>
+							<span class="badge bg-info skill-badge p-2" data-bs-toggle="tooltip" title="Advanced">CI/CD</span>
+							<span class="badge bg-info skill-badge p-2" data-bs-toggle="tooltip" title="Expert">Figma</span>
+							<span class="badge bg-info skill-badge p-2" data-bs-toggle="tooltip" title="Advanced">AWS</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Experience Timeline -->
+		<section id="experience" class="py-5 bg-light">
+			<div class="container">
+				<h2 class="text-center mb-5 display-5 fw-bold">Experience</h2>
+				<div class="row">
+					<div class="col-lg-8 mx-auto">
+						<div class="timeline-item">
+							<h5 class="fw-bold">Senior Full Stack Developer</h5>
+							<p class="text-muted mb-2">TechCorp Inc. | 2022 - Present</p>
+							<p>
+								Leading development of scalable web applications. Implemented microservices architecture and reduced load times
+								by 40%.
+							</p>
+						</div>
+						<div class="timeline-item">
+							<h5 class="fw-bold">Full Stack Developer</h5>
+							<p class="text-muted mb-2">StartupXYZ | 2020 - 2022</p>
+							<p>Developed core product features, worked in agile team, and mentored junior developers.</p>
+						</div>
+						<div class="timeline-item">
+							<h5 class="fw-bold">Frontend Developer</h5>
+							<p class="text-muted mb-2">DigitalAgency | 2018 - 2020</p>
+							<p>Created responsive interfaces for clients across industries. Improved accessibility practices.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonials Carousel -->
+		<section id="testimonials" class="py-5">
+			<div class="container">
+				<h2 class="text-center mb-5 display-5 fw-bold">What Clients Say</h2>
+				<div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="0" class="active"></button>
+						<button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="1"></button>
+						<button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="2"></button>
+					</div>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="text-center py-5">
+								<img src="https://i.pravatar.cc/100?img=1" alt="Client" class="rounded-circle mb-3" />
+								<blockquote class="blockquote">
+									<p class="fs-5 fst-italic">"Maria completely transformed our digital presence. Exceptional professional."</p>
+									<footer class="blockquote-footer mt-3">Carlos Perez, CEO TechStart</footer>
+								</blockquote>
+								<div class="mt-2"><span class="text-warning">★★★★★</span></div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="text-center py-5">
+								<img src="https://i.pravatar.cc/100?img=3" alt="Client" class="rounded-circle mb-3" />
+								<blockquote class="blockquote">
+									<p class="fs-5 fst-italic">
+										"Impeccable work, clear communication, and on-time delivery. We'll work together again."
+									</p>
+									<footer class="blockquote-footer mt-3">Laura Martinez, Director CreativeHub</footer>
+								</blockquote>
+								<div class="mt-2"><span class="text-warning">★★★★★</span></div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="text-center py-5">
+								<img src="https://i.pravatar.cc/100?img=5" alt="Client" class="rounded-circle mb-3" />
+								<blockquote class="blockquote">
+									<p class="fs-5 fst-italic">"A developer with design vision. Created exactly what we needed."</p>
+									<footer class="blockquote-footer mt-3">Roberto Silva, Founder DesignCo</footer>
+								</blockquote>
+								<div class="mt-2"><span class="text-warning">★★★★★</span></div>
+							</div>
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="bg-dark text-white py-4">
+			<div class="container text-center">
+				<p class="mb-2">© 2024 Maria Gonzalez. All rights reserved.</p>
+				<div class="d-flex justify-content-center gap-3">
+					<a href="#" class="text-white" data-bs-toggle="tooltip" title="GitHub">GitHub</a>
+					<a href="#" class="text-white" data-bs-toggle="tooltip" title="LinkedIn">LinkedIn</a>
+					<a href="#" class="text-white" data-bs-toggle="tooltip" title="Twitter">Twitter</a>
+				</div>
+				<div class="mt-3">
+					<a href="./01-data-attributes.html" class="btn btn-sm btn-outline-light">← Back to Demos</a>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Modals -->
+
+		<!-- Contact Modal -->
+		<div class="modal fade" id="contactModal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Contact Me</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+								<label for="name" class="form-label">Name</label>
+								<input type="text" class="form-control" id="name" required />
+							</div>
+							<div class="mb-3">
+								<label for="email" class="form-label">Email</label>
+								<input type="email" class="form-control" id="email" required />
+							</div>
+							<div class="mb-3">
+								<label for="message" class="form-label">Message</label>
+								<textarea class="form-control" id="message" rows="4" required></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Send Message</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bio Modal -->
+		<div class="modal fade" id="bioModal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Full Bio</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<p>
+							I'm a passionate full-stack developer with over 6 years of experience creating exceptional web experiences. My
+							approach combines technical excellence with design sensibility.
+						</p>
+						<h6>My Story</h6>
+						<p>
+							I started my journey in web development in 2018 and have since worked with both startups and established
+							companies, helping them bring their digital visions to life.
+						</p>
+						<h6>Philosophy</h6>
+						<p>
+							I believe in clean code, user-centered design, and continuous learning. Every project is an opportunity to create
+							something meaningful.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Project Modals -->
+		<div class="modal fade" id="project1Modal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">E-commerce Platform</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<img src="https://picsum.photos/800/400?random=1" class="img-fluid mb-3 rounded" alt="E-commerce" />
+						<h6>Project Description</h6>
+						<p>
+							Full-featured e-commerce platform built with modern technologies. Includes product catalog, user authentication,
+							shopping cart, and payment processing.
+						</p>
+						<h6>Key Features</h6>
+						<ul>
+							<li>Product catalog with real-time search and filtering</li>
+							<li>Secure authentication system with JWT</li>
+							<li>Payment gateway integration (Stripe)</li>
+							<li>Admin panel for inventory management</li>
+							<li>Responsive design for all devices</li>
+						</ul>
+						<h6>Technologies Used</h6>
+						<p>
+							<strong>Frontend:</strong>
+							React, Redux, Bootstrap
+							<br />
+							<strong>Backend:</strong>
+							Node.js, Express, MongoDB
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<a href="#" class="btn btn-primary">View Live Project</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="project2Modal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">CMS System</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<img src="https://picsum.photos/800/400?random=2" class="img-fluid mb-3 rounded" alt="CMS" />
+						<h6>Project Description</h6>
+						<p>Custom CMS designed specifically for creative professionals who need to manage their online portfolios.</p>
+						<h6>Key Features</h6>
+						<ul>
+							<li>Intuitive drag-and-drop editor</li>
+							<li>Responsive design templates</li>
+							<li>Built-in SEO optimization</li>
+							<li>Automatic image optimization</li>
+							<li>Analytics integration</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<a href="#" class="btn btn-primary">View Live Project</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="project3Modal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Task Management PWA</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<img src="https://picsum.photos/800/400?random=3" class="img-fluid mb-3 rounded" alt="PWA" />
+						<h6>Project Description</h6>
+						<p>
+							Progressive Web App for task management with complete offline functionality and installability on mobile devices.
+						</p>
+						<h6>Key Features</h6>
+						<ul>
+							<li>Offline-first architecture with Service Workers</li>
+							<li>Push notifications for reminders</li>
+							<li>Collaborative task sharing</li>
+							<li>Data synchronization across devices</li>
+							<li>Installable as native app (PWA)</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<a href="#" class="btn btn-primary">View Live Project</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			// Initialize all tooltips
+			var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+			tooltipTriggerList.map(function (tooltipTriggerEl) {
+				return new bootstrap.Tooltip(tooltipTriggerEl);
+			});
+		</script>
+	</body>
+</html>
