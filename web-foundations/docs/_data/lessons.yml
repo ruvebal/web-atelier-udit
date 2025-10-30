@@ -11,6 +11,15 @@
   status:
    es: complete
    en: complete
+- slug: atelier-prompts
+  title:
+   en: 'Atelier Prompt Collection — Modern Web Development'
+  path:
+   en: /lessons/en/atelier-prompts/
+  file:
+   en: lessons/en/atelier-prompts/index.md
+  status:
+   en: complete
 - slug: development-environment
   title:
    es: Guía para Configurar un Entorno de Desarrollo Web
@@ -238,6 +247,21 @@
    en: complete
   category: tailwind
 
+- slug: tailwind-roadmap
+  title:
+   es: 'Hoja de Ruta de Enseñanza de Tailwind CSS'
+   en: 'Tailwind CSS Teaching Roadmap'
+  path:
+   es: /lessons/es/tailwind/roadmap/
+   en: /lessons/en/tailwind/roadmap/
+  file:
+   es: lessons/es/tailwind/roadmap/index.md
+   en: lessons/en/tailwind/roadmap/index.md
+  status:
+   es: complete
+   en: complete
+  category: tailwind
+
 - slug: tailwind-setup-fundamentals
   title:
    es: 'Tailwind CSS: Configuración y Fundamentos — Desarrollo PWA-Ready'
@@ -266,6 +290,17 @@
   status:
    es: complete
    en: complete
+  category: tailwind
+
+- slug: tailwind-routing-shared-layout
+  title:
+   es: 'Tailwind CSS: Ruteo y Layout Compartido — Visión General'
+  path:
+   es: /lessons/es/tailwind/routing-and-shared-layout/
+  file:
+   es: lessons/es/tailwind/routing-and-shared-layout/index.md
+  status:
+   es: complete
   category: tailwind
 
 - slug: tailwind-routing-html-template
@@ -355,6 +390,17 @@
    en: lessons/en/bootstrap/index.md
   status:
    es: complete
+   en: complete
+  category: bootstrap
+
+- slug: bootstrap-roadmap
+  title:
+   en: 'Bootstrap CSS Teaching Roadmap'
+  path:
+   en: /lessons/en/bootstrap/roadmap/
+  file:
+   en: lessons/en/bootstrap/roadmap/index.md
+  status:
    en: complete
   category: bootstrap
 
@@ -486,6 +532,20 @@
   file:
    es: lessons/es/modern-web-design-trends/index.md
    en: lessons/en/modern-web-design-trends/index.md
+  status:
+   es: complete
+   en: complete
+
+- slug: web-design-trends
+  title:
+   es: 'Tendencias de diseño web moderno: teoría y práctica'
+   en: 'Modern Web Design Trends: Theory and Practice'
+  path:
+   es: /lessons/es/web-design-trends/
+   en: /lessons/en/web-design-trends/
+  file:
+   es: lessons/es/web-design-trends/index.md
+   en: lessons/en/web-design-trends/index.md
   status:
    es: complete
    en: complete
