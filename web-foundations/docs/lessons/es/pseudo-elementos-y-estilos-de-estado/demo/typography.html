@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo de Tipografía con Pseudo-Elementos</title>
+		<style>
+			body {
+				font-family: system-ui, -apple-system, sans-serif;
+				line-height: 1.6;
+				max-width: 65ch;
+				margin: 2rem auto;
+				padding: 0 1rem;
+			}
+
+			h1 {
+				position: relative;
+				margin: 2rem 0;
+			}
+
+			/* Emojis decorativos para encabezados */
+			h1::before {
+				content: '🔥 ';
+			}
+
+			h1::after {
+				content: ' ✨';
+			}
+
+			/* Efecto de capitular */
+			.drop-cap p:first-of-type::first-letter {
+				font-size: 3rem;
+				float: left;
+				line-height: 0.8;
+				padding: 0.1em 0.1em 0 0;
+				color: #2b6cb0;
+			}
+
+			/* Estilizado de primera línea */
+			.first-line p::first-line {
+				font-weight: bold;
+				color: #2d3748;
+			}
+
+			/* Estilizado de selección */
+			::selection {
+				background: #fbd38d;
+				color: #744210;
+			}
+
+			/* Secciones de demo */
+			section {
+				margin: 2rem 0;
+				padding: 1rem;
+				border: 1px solid #e2e8f0;
+				border-radius: 0.5rem;
+			}
+
+			.demo-label {
+				font-size: 0.875rem;
+				color: #718096;
+				margin-bottom: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Mejoras Tipográficas</h1>
+
+		<section class="drop-cap">
+			<div class="demo-label">Efecto de Capitular (::first-letter)</div>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
+				aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+			</p>
+		</section>
+
+		<section class="first-line">
+			<div class="demo-label">Primera Línea en Negrita (::first-line)</div>
+			<p>
+				Esta primera línea completa estará en negrita y más oscura. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Sed do eiusmod tempor incididunt ut labore.
+			</p>
+		</section>
+
+		<section>
+			<div class="demo-label">Selección Personalizada (::selection)</div>
+			<p>¡Intenta seleccionar este texto para ver los colores de selección personalizados!</p>
+		</section>
+	</body>
+</html>
+

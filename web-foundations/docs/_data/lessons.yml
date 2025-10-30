@@ -536,6 +536,23 @@
    es: complete
    en: complete
 
+- slug: pseudo-elements-and-state-styling
+  title:
+   es: 'Pseudo-Elementos y Estilos Basados en Estado: Enfoques Críticos para CSS Dinámico'
+   en: 'Pseudo-Elements and State-Based Styling: Critical Approaches to Dynamic CSS'
+  path:
+   es: /lessons/es/pseudo-elementos-y-estilos-de-estado/
+   en: /lessons/en/pseudo-elements-and-state-styling/
+  file:
+   es: lessons/es/pseudo-elementos-y-estilos-de-estado/index.md
+   en: lessons/en/pseudo-elements-and-state-styling/index.md
+  status:
+   es: complete
+   en: complete
+  description:
+   es: 'Domina las pseudo-clases y pseudo-elementos para crear interfaces dinámicas y accesibles'
+   en: 'Master pseudo-classes and pseudo-elements for dynamic, accessible interfaces'
+
 - slug: web-design-trends
   title:
    es: 'Tendencias de diseño web moderno: teoría y práctica'
