@@ -51,7 +51,7 @@ student-project/
 
 ## 🔧 Clasificación por Requisitos de Runtime
 
-### 📦 **Herramientas que REQUIEREN Node.js**
+### 📦 Herramientas que REQUIEREN Node.js
 
 #### Frameworks y Build Tools
 
@@ -83,7 +83,7 @@ student-project/
 - **Chakra UI** - Requiere Node.js
 - **Shadcn UI** - Necesita Node.js y pnpm/npm
 
-### 🌐 **Herramientas que NO REQUIEREN Node.js**
+### 🌐 Herramientas que NO REQUIEREN Node.js
 
 #### Frameworks CSS Standalone
 
@@ -120,7 +120,7 @@ student-project/
 
 ### Hojas de Estilo y Frameworks CSS
 
-#### [Bootstrap](https://getbootstrap.com/) 🌐 **Sin Node.js**
+#### [Bootstrap](https://getbootstrap.com/) 🌐 Sin Node.js
 
 - **Características clave**: Sistema de cuadrícula responsivo, componentes predefinidos, utilidades
 - **Tecnología**: CSS/SCSS, JavaScript vanilla
@@ -129,7 +129,7 @@ student-project/
 - **Casos de uso**: Prototipado rápido, sistemas heredados, educación
 - **Nota ATELIER**: Haz fork de una plantilla oficial y analiza la calidad semántica vs. utilidades
 
-#### [TailwindCSS](https://tailwindcss.com/) 📦 **Requiere Node.js**
+#### [TailwindCSS](https://tailwindcss.com/) 📦 Requiere Node.js
 
 - **Características clave**: Utility-first, construcción de sistemas de diseño, compilador JIT
 - **Tecnología**: PostCSS, bundlers de JavaScript
@@ -138,7 +138,7 @@ student-project/
 - **Casos de uso**: Sistemas de diseño personalizados, proyectos profesionales
 - **Nota ATELIER**: Compara la carga cognitiva de memorizar clases vs. claridad semántica
 
-#### [Foundation](https://get.foundation/) 🌐 **Sin Node.js**
+#### [Foundation](https://get.foundation/) 🌐 Sin Node.js
 
 - **Características clave**: Cuadrícula responsiva, énfasis en accesibilidad
 - **Tecnología**: Sass (opcional), JavaScript vanilla
@@ -146,7 +146,7 @@ student-project/
 - **Curva de aprendizaje**: Intermedio
 - **Casos de uso**: Layouts enfocados en accesibilidad
 
-#### [Bulma](https://bulma.io/) 🌐 **Sin Node.js**
+#### [Bulma](https://bulma.io/) 🌐 Sin Node.js
 
 - **Características clave**: CSS puro, sin JavaScript, Flexbox-based
 - **Tecnología**: CSS puro, Sass (opcional)
@@ -156,7 +156,7 @@ student-project/
 
 ### Kits de UI y Librerías de Componentes
 
-#### [Material UI](https://mui.com/) 📦 **Requiere Node.js**
+#### [Material UI](https://mui.com/) 📦 Requiere Node.js
 
 - **Características clave**: Componentes React que implementan Material Design
 - **Tecnología**: React, TypeScript
@@ -164,7 +164,7 @@ student-project/
 - **Curva de aprendizaje**: Intermedio → Avanzado
 - **Casos de uso**: Dashboards empresariales, portales educativos
 
-#### [Shadcn UI](https://ui.shadcn.com/) 📦 **Requiere Node.js**
+#### [Shadcn UI](https://ui.shadcn.com/) 📦 Requiere Node.js
 
 - **Características clave**: Componentes React copy-paste construidos con Tailwind
 - **Tecnología**: React, TailwindCSS, primitivos Radix
@@ -172,7 +172,7 @@ student-project/
 - **Curva de aprendizaje**: Intermedio
 - **Casos de uso**: Portafolios, páginas SaaS modernas
 
-#### [Ark UI](https://ark-ui.com/) 📦 **Requiere Node.js**
+#### [Ark UI](https://ark-ui.com/) 📦 Requiere Node.js
 
 - **Características clave**: Primitivos UI headless, accesibles, framework-agnostic
 - **Tecnología**: TypeScript, frameworks modernos
@@ -182,7 +182,7 @@ student-project/
 
 ### Generadores de Sitios Estáticos
 
-#### [Jekyll](https://jekyllrb.com/) 🟥 **Requiere Ruby (No Node.js)**
+#### [Jekyll](https://jekyllrb.com/) 🟥 Requiere Ruby (No Node.js)
 
 - **Características clave**: Generador de sitios estáticos, plantillas Markdown + Liquid
 - **Tecnología**: Ruby, datos YAML, soporte nativo GitHub Pages
@@ -191,7 +191,7 @@ student-project/
 - **Casos de uso**: Blogs, portafolios, proyectos estudiantiles
 - **Nota ATELIER**: Se conecta directamente a workflows de Git
 
-#### [Eleventy (11ty)](https://www.11ty.dev/) 📦 **Requiere Node.js**
+#### [Eleventy (11ty)](https://www.11ty.dev/) 📦 Requiere Node.js
 
 - **Características clave**: Generador de sitios estáticos flexible, múltiples lenguajes de plantillas
 - **Tecnología**: Node.js
@@ -199,7 +199,7 @@ student-project/
 - **Curva de aprendizaje**: Intermedio
 - **Casos de uso**: Alternativa ligera a Jekyll, proyectos JAMstack
 
-#### [Hugo](https://gohugo.io/) 🟢 **Sin Node.js**
+#### [Hugo](https://gohugo.io/) 🟢 Sin Node.js
 
 - **Características clave**: Generador ultra-rápido, binario único
 - **Tecnología**: Go (compilado a binario)
@@ -207,7 +207,7 @@ student-project/
 - **Curva de aprendizaje**: Principiante → Intermedio
 - **Casos de uso**: Sitios grandes, blogs, documentación
 
-#### [Astro](https://astro.build/) 📦 **Requiere Node.js**
+#### [Astro](https://astro.build/) 📦 Requiere Node.js
 
 - **Características clave**: Framework moderno, islands architecture, multi-framework
 - **Tecnología**: Node.js, Vite
@@ -217,7 +217,7 @@ student-project/
 
 ### Librerías de Animación y Visuales
 
-#### [GSAP](https://greensock.com/gsap/) 🌐 **Sin Node.js**
+#### [GSAP](https://greensock.com/gsap/) 🌐 Sin Node.js
 
 - **Características clave**: Animaciones enfocadas en rendimiento, timelines, scroll triggers
 - **Tecnología**: JavaScript vanilla
@@ -225,7 +225,7 @@ student-project/
 - **Curva de aprendizaje**: Intermedio → Avanzado
 - **Casos de uso**: Storytelling interactivo, sitios de marketing
 
-#### [Framer Motion](https://www.framer.com/motion/) 📦 **Requiere Node.js**
+#### [Framer Motion](https://www.framer.com/motion/) 📦 Requiere Node.js
 
 - **Características clave**: Librería de animación para React
 - **Tecnología**: React, TypeScript
@@ -233,7 +233,7 @@ student-project/
 - **Curva de aprendizaje**: Intermedio
 - **Casos de uso**: Portafolios interactivos, páginas SaaS
 
-#### [Anime.js](https://animejs.com/) 🌐 **Sin Node.js**
+#### [Anime.js](https://animejs.com/) 🌐 Sin Node.js
 
 - **Características clave**: Motor de animación ligero
 - **Tecnología**: JavaScript vanilla
@@ -241,7 +241,7 @@ student-project/
 - **Curva de aprendizaje**: Principiante → Intermedio
 - **Casos de uso**: Ilustraciones, efectos visuales ligeros
 
-#### [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/) 🌐 **Sin Node.js**
+#### [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/) 🌐 Sin Node.js
 
 - **Características clave**: Animaciones al hacer scroll
 - **Tecnología**: JavaScript vanilla, CSS
@@ -251,7 +251,7 @@ student-project/
 
 ### Plantillas y Kits de UI Abiertos
 
-#### [HTML5 UP](https://html5up.net/) 🌐 **Sin Node.js**
+#### [HTML5 UP](https://html5up.net/) 🌐 Sin Node.js
 
 - **Características clave**: Plantillas HTML/CSS responsivas gratuitas
 - **Tecnología**: HTML5, CSS3
@@ -259,7 +259,7 @@ student-project/
 - **Curva de aprendizaje**: Principiante
 - **Casos de uso**: Proyectos estudiantiles, despliegues rápidos
 
-#### [Cruip](https://cruip.com/) 📦 **Requiere Node.js (versiones React)**
+#### [Cruip](https://cruip.com/) 📦 Requiere Node.js (versiones React)
 
 - **Características clave**: Plantillas premium + gratuitas, basadas en React/Tailwind
 - **Tecnología**: React, TailwindCSS (versiones React)
@@ -267,7 +267,7 @@ student-project/
 - **Curva de aprendizaje**: Intermedio
 - **Casos de uso**: Páginas de inicio de startups
 
-#### [Flowbite](https://flowbite.com/) 📦 **Requiere Node.js**
+#### [Flowbite](https://flowbite.com/) 📦 Requiere Node.js
 
 - **Características clave**: Librería de componentes TailwindCSS
 - **Tecnología**: TailwindCSS, JavaScript
@@ -277,7 +277,7 @@ student-project/
 
 ### Recursos de Datos y Medios
 
-#### [Hygraph](https://hygraph.com/) 🌐 **SaaS (Sin instalación local)**
+#### [Hygraph](https://hygraph.com/) 🌐 SaaS (Sin instalación local)
 
 - **Características clave**: CMS headless con GraphQL
 - **Tecnología**: GraphQL API
@@ -285,7 +285,7 @@ student-project/
 - **Curva de aprendizaje**: Intermedio
 - **Casos de uso**: Gestión de contenido estructurado
 
-#### [ImageKit.io](https://imagekit.io/) 🌐 **SaaS (Sin instalación local)**
+#### [ImageKit.io](https://imagekit.io/) 🌐 SaaS (Sin instalación local)
 
 - **Características clave**: CDN de imágenes, optimización, transformaciones
 - **Tecnología**: CDN global, API
@@ -293,7 +293,7 @@ student-project/
 - **Curva de aprendizaje**: Principiante
 - **Casos de uso**: Entrega de medios optimizados
 
-#### [Netlify CMS](https://www.netlify.com/) 🌐 **Sin Node.js**
+#### [Netlify CMS](https://www.netlify.com/) 🌐 Sin Node.js
 
 - **Características clave**: CMS Git-based, interfaz web
 - **Tecnología**: JavaScript vanilla, API Git

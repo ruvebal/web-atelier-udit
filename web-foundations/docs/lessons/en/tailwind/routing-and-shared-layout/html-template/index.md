@@ -145,7 +145,7 @@ Let's break down how the demo's single-page app (SPA) file structure and routing
 
 ---
 
-#### 1. **main.js** — Application Entry Point
+#### 1. main.js — Application Entry Point
 
 - **Purpose:** Bootstraps your SPA. Instantiates the router and configures any global event listeners.
 
@@ -176,7 +176,7 @@ document.addEventListener('click', (e) => {
 
 ---
 
-#### 2. **router.js** — The SimpleRouter Class
+#### 2. router.js — The SimpleRouter Class
 
 - **Purpose:** Handles navigation, view switching, and active link highlighting.
 - **How it works:**
@@ -256,7 +256,7 @@ async function ensureTemplateAvailable(templateId, templateUrl) {
 
 ---
 
-#### 3. **views/index.js** — The Views Table
+#### 3. views/index.js — The Views Table
 
 - **Purpose:** Declaratively maps URL hash routes (like `"/"` or `"/about"`) to their template HTML files and optional JS functions to run after rendering.
 
@@ -277,7 +277,7 @@ export const views = {
 
 ---
 
-### **How It All Works Together**
+### How It All Works Together
 
 1. When your app loads, `main.js` sets up the router.
 2. The router listens for URL hash changes (e.g., `#/about`).

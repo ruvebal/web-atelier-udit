@@ -178,13 +178,13 @@ flowchart TD
 2. Puedes usar **Copilot** para completar la estructura semántica de la página.
 3. Guardar y visualizar con **Live Server** en VSC.
 
-## **3️⃣ Meta Tags para SEO**
+## 3️⃣ Meta Tags para SEO
 
-### **🔹 ¿Qué es SEO y por qué es importante?**
+### 🔹 ¿Qué es SEO y por qué es importante?
 
 SEO (**Search Engine Optimization**, Optimización para Motores de Búsqueda) es un conjunto de técnicas para mejorar la visibilidad de un sitio web en buscadores como Google. Los **meta tags** en HTML ayudan a los motores de búsqueda a comprender el contenido de una página y a indexarla correctamente.
 
-### **🔹 Meta Tags esenciales**
+### 🔹 Meta Tags esenciales
 
 Ejemplo de **meta tags básicos** para mejorar el SEO:
 
@@ -211,9 +211,9 @@ Ejemplo de **meta tags básicos** para mejorar el SEO:
 
 ---
 
-## **4️⃣ El `<body>` y la estructura semántica**
+## 4️⃣ El `<body>` y la estructura semántica
 
-### **🔹 ¿Qué es HTML semántico y por qué es importante?**
+### 🔹 ¿Qué es HTML semántico y por qué es importante?
 
 El **HTML semántico** utiliza etiquetas con significado, lo que hace que el código sea más accesible, fácil de entender y mejor para SEO.
 
@@ -222,7 +222,7 @@ El **HTML semántico** utiliza etiquetas con significado, lo que hace que el có
 > _"The Semantic Web is about making links meaningful, enabling software agents to locate and understand information more effectively."_  
 > **(La Web Semántica trata de hacer que los enlaces sean significativos, permitiendo que los agentes de software localicen y comprendan la información de manera más efectiva.)**
 
-### **🔹 Estructura semántica recomendada**
+### 🔹 Estructura semántica recomendada
 
 Ejemplo correcto de estructura HTML semántica:
 
@@ -265,9 +265,9 @@ Ejemplo correcto de estructura HTML semántica:
 
 ---
 
-## **5️⃣ Inserción de Recursos Multimedia**
+## 5️⃣ Inserción de Recursos Multimedia
 
-### **📌 IMPORTANTE ¿Por qué no almacenar archivos grandes o binarios en GitHub?**
+### 📌 IMPORTANTE ¿Por qué no almacenar archivos grandes o binarios en GitHub?
 
 **GitHub no está diseñado para almacenar archivos grandes o binarios.**  
 Razones principales:
@@ -276,7 +276,7 @@ Razones principales:
 - **Problemas de rendimiento**: Archivos grandes hacen que `git pull` y `git clone` sean más lentos.
 - **Alternativa recomendada**: Usar un **CDN o servicio de almacenamiento externo** (ejemplo: ImageKit.io, Cloudinary, Firebase Storage).
 
-### **📌 5.1 Cargar imágenes y videos desde local**
+### 📌 5.1 Cargar imágenes y videos desde local
 
 Ejemplo con imágenes dentro de `assets/images/`:
 
@@ -315,7 +315,7 @@ Ejemplo con audio en `assets/audios/`:
 
 ---
 
-### **📌 5.2 Insertar imágenes vía API (ejemplo: ImageKit.io)**
+### 📌 5.2 Insertar imágenes vía API (ejemplo: ImageKit.io)
 
 Para cargar imágenes optimizadas desde un servicio externo:
 
@@ -335,19 +335,19 @@ Para cargar imágenes optimizadas desde un servicio externo:
 
 ## 📌 6: Crear `css/index.css` con `@import` de `main.css` y un CSS Reset en primer lugar
 
-### 🎯 **Objetivos:**
+### 🎯 Objetivos:
 
 - Aprender a estructurar correctamente las hojas de estilo CSS separando configuraciones globales y específicas.
 - Asegurar una base uniforme en todos los navegadores con un **CSS Reset**.
 
-### 🛠 **Método:**
+### 🛠 Método:
 
 ✅ Crear un archivo `css/index.css` como punto de entrada de estilos.  
 ✅ Usar `@import` para enlazar **un CSS Reset** antes de `main.css`, asegurando coherencia cross-browser.  
 ✅ Usar `@import` para enlazar `main.css` y organizar los estilos.  
 ✅ Asegurar que `index.css` está correctamente vinculado en el `<head>` de `index.html`.
 
-### 📌 **¿Qué es un CSS Reset y por qué usarlo?**
+### 📌 ¿Qué es un CSS Reset y por qué usarlo?
 
 Cada navegador tiene estilos por defecto que pueden variar y causar inconsistencias en el diseño de una web.  
 Un **CSS Reset** elimina estos estilos predeterminados y proporciona una base limpia y neutral, asegurando que los elementos HTML se vean igual en **Chrome, Firefox, Edge, Safari y otros navegadores**.
@@ -355,14 +355,14 @@ Un **CSS Reset** elimina estos estilos predeterminados y proporciona una base li
 El más utilizado es el de **Eric Meyer**, disponible en:  
 `https://meyerweb.com/eric/tools/css/reset/`
 
-### 📌 **Código para `css/index.css`**
+### 📌 Código para `css/index.css`
 
 ```css
 @import url('http://meyerweb.com/eric/tools/css/reset/reset.css'); /* CSS Reset para compatibilidad entre navegadores */
 @import url('main.css'); /* Estilos principales */
 ```
 
-### 📌 **Código para `css/main.css`**
+### 📌 Código para `css/main.css`
 
 Ejemplo:
 
@@ -382,7 +382,7 @@ h3 {
 }
 ```
 
-### 📌 **Cómo vincular `index.css` en `index.html`**
+### 📌 Cómo vincular `index.css` en `index.html`
 
 ```html
 <head>
@@ -394,12 +394,12 @@ h3 {
 
 ## 📌 Paso 7: Crear un Paquete de Favicons con Recursos Online e Indexarlo en el `<head>`
 
-### 🎯 **Objetivos:**
+### 🎯 Objetivos:
 
 - Generar un conjunto de favicons optimizados y configurarlos correctamente en el sitio web.
 - Asegurar que los favicons sean legibles en tamaños pequeños y que mantengan su identidad visual.
 
-### 🛠 **Método:**
+### 🛠 Método:
 
 ✅ Usar un generador de favicons en línea como **Real Favicon Generator**:  
  `https://realfavicongenerator.net/`  
@@ -407,14 +407,14 @@ h3 {
 ✅ Incluir los favicons en la carpeta `assets/icons/`.  
 ✅ Insertar las etiquetas en el `<head>` de `index.html`.
 
-### 📌 **Consideraciones de Diseño para Favicons**
+### 📌 Consideraciones de Diseño para Favicons
 
 🔹 **Tamaño del texto**: Si el logo incluye texto, asegúrate de que sea legible a **16x16 píxeles**, que es el tamaño mínimo de un favicon. Es preferible **no incluir texto** o reducirlo a un símbolo reconocible.  
 🔹 **Detalles del icono**: Evitar elementos muy finos o detallados, ya que pueden perderse en tamaños pequeños.  
 🔹 **Contraste**: Usar colores contrastantes para que el ícono se distinga bien en fondos oscuros y claros.  
 🔹 **Pruebas**: Verificar cómo se ve el favicon en distintos dispositivos y navegadores antes de implementarlo.
 
-### 📌 **Código para Vincular Favicons en `index.html`**
+### 📌 Código para Vincular Favicons en `index.html`
 
 ```html
 <head>
@@ -430,7 +430,7 @@ h3 {
 
 ---
 
-## **Anexo: Uso de Copilot en VSC**
+## Anexo: Uso de Copilot en VSC
 
 📌 **Cómo instalar y configurar Copilot en Visual Studio Code:**
 

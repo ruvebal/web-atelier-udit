@@ -81,18 +81,18 @@ La **propiedad CSS clave** que crea el parallax es `background-attachment: fixed
 
 🎯 **[Ver Demo Interactivo: Parallax Scrolling →](demo/01-parallax-scrolling.html)**
 
-### **Implementación Práctica**
+### Implementación Práctica
 
 - **Parallax Simple:** Lograble con **HTML/CSS**, ej. usando `background-attachment: fixed` o **transformaciones CSS** para crear efectos en capas.
 - **Parallax Complejo:** A menudo requiere **JavaScript** para ajustar posiciones de elementos en el scroll, o bibliotecas como **ScrollMagic** o **GSAP ScrollTrigger** para animaciones más avanzadas.
 - **CSS Moderno:** Las **transformaciones 3D** (ej. `translateZ` en un contenedor de perspectiva) pueden simular **efectos multiplanos**.
 - **Bibliotecas Populares:** Herramientas como **parallax.js** mueven imágenes en capas a diferentes velocidades para crear **profundidad**.
 
-#### **Para Estudiantes Intermedios**
+#### Para Estudiantes Intermedios
 
 Prueba agregar una sección **parallax básica** a una página web. Por ejemplo, usa un **fondo de imagen fijo** para que el contenido se desplace sobre él, o usa un pequeño script con `transform: translateY()` para mover una imagen más lento que el scroll. Enfócate en efectos **sutiles**, **suaves** y prueba en **escritorio** y **móvil** (nota que algunos navegadores móviles deshabilitan fondos fijos por rendimiento). Reflexiona sobre si el efecto guía la **atención del usuario** como se pretende.
 
-#### **Para Estudiantes Avanzados**
+#### Para Estudiantes Avanzados
 
 Construye una sección **parallax narrativa personalizada** con múltiples **paneles de pantalla completa**. Usa la **API Intersection Observer** o una biblioteca de scroll para activar animaciones cuando cada sección entre en el viewport. Incorpora **2–3 capas de profundidad**, y considera **rendimiento** y **accesibilidad**: usa `requestAnimationFrame` para actualizaciones suaves, y proporciona un toggle para deshabilitar animaciones para usuarios que prefieren **movimiento reducido**. Esto profundizará tu comprensión de **animación basada en scroll** y **flujo narrativo**.
 
@@ -121,7 +121,7 @@ El glassmorphism crea un look de "vidrio esmerilado": elementos semi-transparent
 - Popular en apps como iOS—se siente táctil sin ser pesado.
 - Advertencia: Puede reducir legibilidad; asegura buen contraste.
 
-### 🎨 **La Clave: Fondos Texturizados**
+### 🎨 La Clave: Fondos Texturizados
 
 **El glassmorphism NECESITA un fondo visualmente interesante para funcionar.** Sin textura, color o movimiento detrás, el efecto de blur no tiene nada que mostrar y se vuelve invisible o aburrido.
 
@@ -184,7 +184,7 @@ El **ingrediente mágico** es `backdrop-filter` combinado con fondos semi-transp
 
 🎯 **[Ver Demo Interactivo: Glassmorphism →](demo/02-glassmorphism.html)**
 
-#### **Para Estudiantes Avanzados**
+#### Para Estudiantes Avanzados
 
 **Desafío:**
 
@@ -281,13 +281,13 @@ Los últimos años han visto un **renacimiento en la tipografía web**, impulsad
 
 **Analogía:** Las fuentes son como voces—una fuente audaz y juguetona es como un narrador emocionado; una serif limpia es como un profesor calmado. Pero ahora, esas voces pueden cambiar de tono (peso), volumen (tamaño fluido), y expresión (estilos variables) según el contexto.
 
-### 🔤 **1. Fuentes Variables: El Cambio Técnico Más Significativo**
+### 🔤 1. Fuentes Variables: El Cambio Técnico Más Significativo
 
-#### **¿Qué Son?**
+#### ¿Qué Son?
 
 Las **fuentes variables** son quizás el avance técnico más importante en tipografía web. Permiten que un **solo archivo de fuente** se comporte como **múltiples fuentes**, ajustando suavemente **peso**, **ancho**, **inclinación** y otros ejes de diseño.
 
-#### **Beneficios de Rendimiento y Diseño:**
+#### Beneficios de Rendimiento y Diseño:
 
 - **Rendimiento:** En lugar de cargar 5 archivos separados (Light, Regular, Bold, Black, etc.), una fuente variable cubre todos, reduciendo el tamaño de archivo y las solicitudes HTTP.
 - **Diseño responsivo:** Puedes hacer texto ligeramente más ancho y pesado en pantallas pequeñas para legibilidad.
@@ -314,19 +314,19 @@ h1:hover {
 }
 ```
 
-#### **Impacto:**
+#### Impacto:
 
 Las fuentes variables llevan la flexibilidad de las fuentes de impresión (donde un diseñador tiene toda una familia de pesos) a la web en un **solo activo**. Sitios modernos las usan para tipografía más rica sin penalización de velocidad.
 
 ---
 
-### 📐 **2. Escalas de Tipo Fluido y Responsivo**
+### 📐 2. Escalas de Tipo Fluido y Responsivo
 
-#### **El Problema:**
+#### El Problema:
 
 En la era de **múltiples tamaños de pantalla**, necesitamos texto que sea legible en móviles pero bien proporcionado en escritorios, **sin saltos abruptos**.
 
-#### **La Solución: Tipografía Fluida con `clamp()`**
+#### La Solución: Tipografía Fluida con `clamp()`
 
 La función `clamp()` permite que los tamaños de fuente escalen suavemente entre un mínimo y máximo basado en el ancho de la pantalla.
 
@@ -369,7 +369,7 @@ h1 {
 } /* Escala inteligentemente con límites seguros */
 ```
 
-#### **Beneficios:**
+#### Beneficios:
 
 - Elimina puntos de quiebre fijos para tipografía
 - Tu hermosa tipografía display no será microscópica en móviles ni cómica en monitores 4K
@@ -377,13 +377,13 @@ h1 {
 
 ---
 
-### 🎨 **3. Texto Display Grande, Audaz y Experimental**
+### 🎨 3. Texto Display Grande, Audaz y Experimental
 
-#### **La Tendencia Visual:**
+#### La Tendencia Visual:
 
 Muchos sitios web modernos usan **tipografía oversized** como elemento clave de diseño. Secciones hero pueden presentar una sola palabra o frase ocupando toda la pantalla, creando **drama** y **foco inmediato**.
 
-#### **Ejemplos de Uso:**
+#### Ejemplos de Uso:
 
 - **Hero tipográfico:** Una palabra grande en lugar de una imagen hero tradicional
 - **Tipografía cinética:** Letras que animan o morfean en interacción
@@ -401,7 +401,7 @@ Muchos sitios web modernos usan **tipografía oversized** como elemento clave de
 }
 ```
 
-#### **Tendencias 2024-2025:**
+#### Tendencias 2024-2025:
 
 - **Sans-serif neo-grotescos** (fuentes limpias, mid-century modern) por claridad
 - **Serifs elegantes** para sofisticación
@@ -410,9 +410,9 @@ Muchos sitios web modernos usan **tipografía oversized** como elemento clave de
 
 ---
 
-### 💼 **4. Tipografía y Branding / Emoción**
+### 💼 4. Tipografía y Branding / Emoción
 
-#### **Tipografía = Identidad de Marca**
+#### Tipografía = Identidad de Marca
 
 La elección de typeface y cómo se usa transmite **personalidad** y **emoción**:
 
@@ -425,7 +425,7 @@ La elección de typeface y cómo se usa transmite **personalidad** y **emoción*
 | **Editorial/Blog**          | Serif para headers + sans-serif legible para cuerpo | Contemporáneo, legible   |
 | **Marca Amigable/Infantil** | Sans-serif redondeada con pesos variables           | Accesible, cálido        |
 
-#### **Recursos:**
+#### Recursos:
 
 - **Typewolf:** Muestra emparejamientos de fuentes populares en sitios reales
 - **Google Fonts:** Acceso fácil a cientos de typefaces
@@ -433,13 +433,13 @@ La elección de typeface y cómo se usa transmite **personalidad** y **emoción*
 
 ---
 
-### ♿ **5. Accesibilidad en Tipografía: Una Prioridad Crítica**
+### ♿ 5. Accesibilidad en Tipografía: Una Prioridad Crítica
 
-#### **Mejor Práctica Esencial:**
+#### Mejor Práctica Esencial:
 
 Diseñar tipografía para **accesibilidad** no es opcional—es fundamental para una web inclusiva.
 
-#### **Checklist de Accesibilidad Tipográfica:**
+#### Checklist de Accesibilidad Tipográfica:
 
 1. **Contraste suficiente:**
 
@@ -475,9 +475,9 @@ Diseñar tipografía para **accesibilidad** no es opcional—es fundamental para
 
 ---
 
-### 🌐 **6. Consideraciones Únicas de la Web**
+### 🌐 6. Consideraciones Únicas de la Web
 
-#### **Diferencias con Diseño de Impresión:**
+#### Diferencias con Diseño de Impresión:
 
 A diferencia de impresión (donde el diseñador controla todo), la tipografía web debe adaptarse a:
 
@@ -485,7 +485,7 @@ A diferencia de impresión (donde el diseñador controla todo), la tipografía w
 - **Control del usuario:** Zoom, tamaño de fuente personalizado
 - **Fallos de carga:** Fuentes web que no cargan
 
-#### **Técnicas de Enhancement Progresivo:**
+#### Técnicas de Enhancement Progresivo:
 
 **1. Font Stacks Robustas:**
 
@@ -532,7 +532,7 @@ p {
 
 ---
 
-### 🎯 **Aprendizaje Práctico: Explora el Demo**
+### 🎯 Aprendizaje Práctico: Explora el Demo
 
 **📂 Abre el archivo demo:** [`demo/04-fluid-typography.html`](demo/04-fluid-typography.html)
 
@@ -579,23 +579,23 @@ El demo ilustra los conceptos clave de este módulo:
 
 ---
 
-### 🛠️ **Herramientas y Recursos**
+### 🛠️ Herramientas y Recursos
 
-#### **Fuentes Web:**
+#### Fuentes Web:
 
 - **[Google Fonts](https://fonts.google.com/)** – Cientos de fuentes gratuitas, fácil implementación
 - **[Adobe Fonts](https://fonts.adobe.com/)** – Fuentes profesionales para suscriptores Creative Cloud
 - **[Font Squirrel](https://www.fontsquirrel.com/)** – Fuentes gratuitas para uso comercial
 - **[Variable Fonts](https://v-fonts.com/)** – Catálogo de fuentes variables
 
-#### **Herramientas:**
+#### Herramientas:
 
 - **[Typewolf](https://www.typewolf.com/)** – Inspiración de emparejamientos de fuentes
 - **[Type Scale](https://type-scale.com/)** – Generador de escalas tipográficas
 - **[Modular Scale](https://www.modularscale.com/)** – Calculadora de proporciones
 - **[Fluid Type Scale Calculator](https://www.fluid-type-scale.com/)** – Genera valores `clamp()` personalizados
 
-#### **Testing:**
+#### Testing:
 
 - **[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)** – Verifica ratios de contraste
 - **Chrome DevTools Lighthouse** – Auditorías automáticas de accesibilidad
@@ -603,7 +603,7 @@ El demo ilustra los conceptos clave de este módulo:
 
 ---
 
-### 📋 **Resumen: Principios Clave de Tipografía Web Moderna**
+### 📋 Resumen: Principios Clave de Tipografía Web Moderna
 
 1. **✅ Usa fuentes variables** cuando sea posible para rendimiento y flexibilidad
 2. **✅ Implementa tipografía fluida** con `clamp()` para escalado responsivo sin saltos
@@ -640,7 +640,7 @@ Hay **dos caminos principales** para implementar modo oscuro. ¡Cada uno tiene s
 
 ---
 
-#### **Camino A: CSS Puro (Automático, Basado en el SO)**
+#### Camino A: CSS Puro (Automático, Basado en el SO)
 
 Este método usa CSS para detectar la preferencia del SO del usuario. **¡No necesita JavaScript!**
 
@@ -699,7 +699,7 @@ body {
 
 ---
 
-#### **Camino B: Toggle con JavaScript (Manual, Persistente)**
+#### Camino B: Toggle con JavaScript (Manual, Persistente)
 
 Este método permite a los usuarios **cambiar manualmente** el modo oscuro con un botón. ¡Puedes guardar su elección en `localStorage` para hacerlo persistente!
 
@@ -777,7 +777,7 @@ if (savedTheme) {
 
 ---
 
-#### **Camino C: Checkbox + CSS (Elegante, Sin JavaScript)**
+#### Camino C: Checkbox + CSS (Elegante, Sin JavaScript)
 
 Este método avanzado usa un **checkbox oculto** con el **combinador de hermanos general (`~`)** para controlar el tema. **¡Magia CSS pura!**
 

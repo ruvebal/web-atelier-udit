@@ -414,7 +414,7 @@ It allows building **_APIs_**, real‑time _apps_, microservices.
 
 **Objective:** master the browser tools to observe, intervene and debug code quickly and methodically.
 
-### 1) **_Console_**: run JS live
+### 1) _Console_: run JS live
 
 - Open DevTools: **Cmd ⌘ + ⌥ + I** (macOS) / **Ctrl + Shift + I** (Windows/Linux).
 - Try it:
@@ -431,7 +431,7 @@ const user = { id: 1, name: 'Ana', skills: ['HTML', 'CSS', 'JS'] };
 console.table(user);
 ```
 
-### 2) **_Elements_**: inspect and modify the **_DOM_**
+### 2) _Elements_: inspect and modify the _DOM_
 
 - Right‑click on a page element → "Inspect".
 - Edit the text live; add/remove classes in the **Styles** panel.
@@ -459,7 +459,7 @@ Mini–challenge:
 - Change the content of an `h1` without reloading.
 - Add a class and verify its effect in the styles.
 
-### 3) **_Sources_**: debug `assets/js/main.js`
+### 3) _Sources_: debug `assets/js/main.js`
 
 > Debugging is like slow-motion replay in sports — you can see each move, who passed the ball, and where it went wrong.
 
@@ -501,7 +501,7 @@ Mini–challenge:
   ```
   - Remember to remove `debugger;` statements before deploying to production!
 
-### 4) **_Network_**: requests, cache and _throttling_
+### 4) _Network_: requests, cache and _throttling_
 
 - Enable "Disable cache" with DevTools open.
 - Apply _throttling_ (e.g.: **Fast 3G**) to simulate slow networks.
@@ -512,7 +512,7 @@ Mini–challenge:
 
 - Identify the heaviest resource and justify an optimization (minify, defer, compress, change format, CDN).
 
-### 5) **Performance** and **Lighthouse** (quick)
+### 5) Performance and Lighthouse (quick)
 
 - In **Performance**: record 5–10 seconds navigating; detect _Long Tasks_ (>50ms) and _layout shifts_.
 - In **Lighthouse**: run a "Performance" and "Best Practices" report for a page; note 2 actionable improvements.

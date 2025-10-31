@@ -86,7 +86,7 @@ Preguntas críticas del Atelier (S1):
 - Producción: ¿Qué comunica con claridad tu mensaje de commit?
 - Exhibición: ¿Cómo demostrarás el comportamiento mobile‑first en vivo?
 
-## **S2 — SPA: Ruteo y Layout**
+## S2 — SPA: Ruteo y Layout
 
 - **SPA vs MPA:** Una **SPA** carga una única página HTML y usa JS para actualizar contenido y rutas[cleancommit.io](https://cleancommit.io/blog/spa-vs-mpa-which-is-the-king/#:~:text=There%20are%20two%20main%20architecture,as%20blogs%20or%20news%20websites)[developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Glossary/CSR#:~:text=Client,together%20in%20the%20same%20application). Ventajas UX (sin recarga completa) con costes de SEO/tiempo inicial. Las MPA obtienen un nuevo HTML por navegación. Normalmente las SPA usan CSR[developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Glossary/CSR#:~:text=Client,together%20in%20the%20same%20application)[developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Glossary/CSR#:~:text=Benefits%20of%20CSR%20include%3A).
 
@@ -114,7 +114,7 @@ Preguntas críticas del Atelier (S2):
 - Producción: ¿Es tu router pequeño, claro y documentado?
 - Exhibición: ¿Cómo demostrarás cambios de ruta y manejo del foco?
 
-## **S3 — Componentes y Sistema de Diseño**
+## S3 — Componentes y Sistema de Diseño
 
 - Tokens: extiende el tema de Tailwind (o usa variables CSS) para colores, espaciado y radios.
 - Componentes reutilizables: Botón, Tarjeta, Sección con utilidades (y opcional `@apply`).
@@ -129,7 +129,7 @@ Preguntas críticas del Atelier (S2):
 
 Preguntas (S3): ¿Qué utilidades expresan mejor tus tokens? ¿Qué hace a un componente reutilizable y accesible?
 
-## **S4 — Estado e Interactividad**
+## S4 — Estado e Interactividad
 
 - Añadir formulario con validación en cliente; errores accesibles.
 - Mejorar navegación: estados activos, `aria-current`, reduced motion.
@@ -144,7 +144,7 @@ Preguntas (S3): ¿Qué utilidades expresan mejor tus tokens? ¿Qué hace a un co
 
 Preguntas (S4): ¿Dónde aporta valor la interactividad y dónde es ruido? ¿Cómo respetas sensibilidad al movimiento?
 
-## **S5 — Accesibilidad y Rendimiento**
+## S5 — Accesibilidad y Rendimiento
 
 - Auditar landmarks, encabezados, contraste y orden de foco.
 - Optimizar imágenes y fuentes; prioriza system fonts cuando sea posible.
@@ -159,7 +159,7 @@ Preguntas (S4): ¿Dónde aporta valor la interactividad y dónde es ruido? ¿Có
 
 Preguntas (S5): ¿A quién excluyen tus decisiones actuales? ¿Qué es “suficiente” rendimiento para tu audiencia?
 
-## **S6 — Build y Deploy**
+## S6 — Build y Deploy
 
 - Build de producción con Vite; verifica `dist/`.
 - Deploy en GitHub Pages; configura `base` si usas subruta.

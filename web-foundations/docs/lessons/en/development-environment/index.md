@@ -32,7 +32,7 @@ permalink: /lessons/en/development-environment/
 
 ---
 
-## **Why set up a development environment**
+## Why set up a development environment
 
 Setting up a development environment allows students to:
 
@@ -44,29 +44,29 @@ Learning this workflow helps adopt professional practices and lays the groundwor
 
 ---
 
-## **Development environments: Local vs Live**
+## Development environments: Local vs Live
 
-### **1. Local development**
+### 1. Local development
 
 - **What it is**: Local development happens on your computer, where you write and test code using tools like **VS Code** and preview the project in your browser with **Live Server**.
 - **Purpose**: Lets you experiment and make quick changes without affecting the public version of your project.
 
-### **2. Live development**
+### 2. Live development
 
 - **What it is**: Live development involves uploading your code to a **remote repository** (for example, GitHub). GitHub Pages makes your site accessible online.
 - **Purpose**: Share and showcase your project, collaborate with others, and build a professional portfolio.
 
 ---
 
-## **Steps to set up the development environment**
+## Steps to set up the development environment
 
-### **1. Install Visual Studio Code**
+### 1. Install Visual Studio Code
 
 - **Purpose**: VS Code is a powerful code editor with built-in Git integration.
 - Download it here:
   **https://code.visualstudio.com/**
 
-#### **Install extensions**
+#### Install extensions
 
 - **Live Server**: To preview your HTML/CSS/JS projects in real time.
   Install it here:
@@ -77,11 +77,11 @@ Learning this workflow helps adopt professional practices and lays the groundwor
 
 ---
 
-### **2. Install Git**
+### 2. Install Git
 
 ---
 
-#### **Installation on Windows**
+#### Installation on Windows
 
 1. **Download the Git installer:**
    [https://git-scm.com/download/win](https://git-scm.com/download/win)
@@ -132,7 +132,7 @@ Learning this workflow helps adopt professional practices and lays the groundwor
 
 ---
 
-#### **Installation on macOS**
+#### Installation on macOS
 
 1. **Install Homebrew (if you don't have it):**
 
@@ -178,7 +178,7 @@ Learning this workflow helps adopt professional practices and lays the groundwor
 
 ---
 
-### **3. Start from Student Project Template (beginner first, advanced below)**
+### 3. Start from Student Project Template (beginner first, advanced below)
 
 Use the official student starter located here: `student-project-template` in the course monorepo. Reference:
 
@@ -232,7 +232,7 @@ Then `git init`, commit, and push to your new repository.
 
 ---
 
-### **4. Explore the cloned directory structure**
+### 4. Explore the cloned directory structure
 
 After scaffolding from the template, you should see this structure:
 
@@ -260,13 +260,13 @@ Next actions:
 
 ---
 
-### **5. Local development with Live Server**
+### 5. Local development with Live Server
 
 1. Open your project in VS Code.
 2. Right-click the `index.html` file and select **Open with Live Server**.
 3. Open the browser and navigate to `http://127.0.0.1:5500`.
 
-#### **Use Chrome DevTools**
+#### Use Chrome DevTools
 
 1. Press **F12** or **Cmd + Option + I** (Mac) / **Ctrl + Shift + I** (Windows) to open DevTools.
 2. Go to the **Network** tab.
@@ -278,7 +278,7 @@ Next actions:
 
 ---
 
-### **6. Live development with GitHub Pages**
+### 6. Live development with GitHub Pages
 
 1. Make a **commit** of the changes:
 
@@ -304,7 +304,7 @@ Next actions:
    - Click **Save**.
    - Your site will be live at: `https://your-username.github.io/your-repository/`.
 
-### **7. Host and optimize images with ImageKit.io**
+### 7. Host and optimize images with ImageKit.io
 
 Large images should not live in your Git repository. Use a CDN to optimize delivery.
 
@@ -352,7 +352,7 @@ Accessibility notes:
 - Prefer modern formats (AVIF/WEBP) when available: `?tr=f-webp`.
 - Keep local `/images` only for tiny assets; use CDN for photos/artwork.
 
-### **8. Taste Node.js locally (optional)** {: #taste-node }
+### 8. Taste Node.js locally (optional) {: #taste-node }
 
 > One‑time setup to use `npm` scripts in the student template.
 
@@ -397,9 +397,9 @@ Accessibility notes:
 
 ---
 
-## **Daily workflow**
+## Daily workflow
 
-### **Steps for daily development**
+### Steps for daily development
 
 1. **Update your local repository:**
 
@@ -448,9 +448,9 @@ Accessibility notes:
 
 ---
 
-## **Glossary of concepts**
+## Glossary of concepts
 
-### **System terms**
+### System terms
 
 1. **Terminal**: Command-line interface to interact with your computer.
    - **macOS**: Open Terminal by pressing **Cmd + Space**, typing "Terminal," and pressing **Enter**.
@@ -459,7 +459,7 @@ Accessibility notes:
 3. **Path**: Location of a file or folder on your computer (for example, `/Users/your-name/project`).
 4. **Directory**: A folder that contains files or other folders.
 
-### **Network terms**
+### Network terms
 
 1. **HTTP**: Protocol for transferring web pages and files.
 2. **HTTPS**: Secure version of HTTP with encryption.
@@ -467,7 +467,7 @@ Accessibility notes:
 4. **IP address**: Unique address for devices on a network.
 5. **DNS**: Translates domain names (for example, `github.com`) into IP addresses.
 
-### **Git and repository terms**
+### Git and repository terms
 
 1. **Repository**: Place to store your code and its history.
    - Local: On your computer.
@@ -478,13 +478,13 @@ Accessibility notes:
 
 ---
 
-## **Appendix: Installing Homebrew on macOS**
+## Appendix: Installing Homebrew on macOS
 
-### **What is Homebrew**
+### What is Homebrew
 
 Homebrew is a package manager for macOS that simplifies installing software like Git.
 
-### **Steps to install Homebrew**
+### Steps to install Homebrew
 
 1. Open Terminal: **Cmd + Space**, type "Terminal," and press **Enter**.
 2. Run the command:
@@ -506,7 +506,7 @@ Here’s the **raw Markdown addendum** (ready to paste into your lesson file). I
 
 ---
 
-## **Appendix:: Using WSL2 on Windows (Optional, Advanced Setup)**
+## Appendix:: Using WSL2 on Windows (Optional, Advanced Setup)
 
 > **ATELIER Note:** Some students may want a **Linux-like environment** directly on Windows to avoid Git Bash path issues and get closer to professional workflows.
 > This is optional but highly recommended if you plan to continue in **front-end or full-stack development**.
@@ -569,7 +569,7 @@ Here’s the **raw Markdown addendum** (ready to paste into your lesson file). I
 
 ---
 
-## **Final references**
+## Final references
 
 - **Visual Studio Code**:
   https://code.visualstudio.com/

@@ -19,7 +19,7 @@ permalink: /lessons/en/first-steps/
 
 <!-- prettier-ignore-end -->
 
-## 🎯 **Session Objectives**
+## 🎯 Session Objectives
 
 - Understand the basic structure of a modern web project.
 - Identify the function of each folder and file in the initial template.
@@ -178,13 +178,13 @@ flowchart TD
 2. You can use **Copilot** to complete the semantic structure of the page.
 3. Save and view with **Live Server** in VSC.
 
-## **3️⃣ Meta Tags for SEO**
+## 3️⃣ Meta Tags for SEO
 
-### **🔹 What is SEO and why is it important?**
+### 🔹 What is SEO and why is it important?
 
 SEO (**Search Engine Optimization**) is a set of techniques to improve the visibility of a website in search engines like _Google_. **Meta tags** in HTML help search engines understand the content of a page and index it correctly.
 
-### **🔹 Essential Meta Tags**
+### 🔹 Essential Meta Tags
 
 Example of **basic meta tags** to improve SEO:
 
@@ -211,9 +211,9 @@ Example of **basic meta tags** to improve SEO:
 
 ---
 
-## **4️⃣ The `<body>` and semantic structure**
+## 4️⃣ The `<body>` and semantic structure
 
-### **🔹 What is semantic HTML and why is it important?**
+### 🔹 What is semantic HTML and why is it important?
 
 **Semantic HTML** uses tags with meaning, making code more accessible, easier to understand, and better for SEO.
 
@@ -221,7 +221,7 @@ Example of **basic meta tags** to improve SEO:
 
 > _"The Semantic Web is about making links meaningful, enabling software agents to locate and understand information more effectively."_
 
-### **🔹 Recommended semantic structure**
+### 🔹 Recommended semantic structure
 
 Correct example of semantic HTML structure:
 
@@ -264,9 +264,9 @@ Correct example of semantic HTML structure:
 
 ---
 
-## **5️⃣ Multimedia Resource Insertion**
+## 5️⃣ Multimedia Resource Insertion
 
-### **📌 IMPORTANT Why not store large or binary files in _GitHub_?**
+### 📌 IMPORTANT Why not store large or binary files in _GitHub_?
 
 **_GitHub_ is not designed to store large or binary files.**  
 Main reasons:
@@ -275,7 +275,7 @@ Main reasons:
 - **Performance issues**: Large files make `git pull` and `git clone` slower.
 - **Recommended alternative**: Use a **CDN or external storage service** (example: _ImageKit.io_, _Cloudinary_, _Firebase Storage_).
 
-### **📌 5.1 Load images and videos from local**
+### 📌 5.1 Load images and videos from local
 
 Example with images inside `assets/images/`:
 
@@ -314,7 +314,7 @@ Example with audio in `assets/audios/`:
 
 ---
 
-### **📌 5.2 Insert images via API (example: _ImageKit.io_)**
+### 📌 5.2 Insert images via API (example: _ImageKit.io_)
 
 To load optimized images from an external service:
 
@@ -334,19 +334,19 @@ To load optimized images from an external service:
 
 ## 📌 6: Create `css/index.css` with `@import` of `main.css` and a CSS Reset first
 
-### 🎯 **Objectives:**
+### 🎯 Objectives:
 
 - Learn to properly structure CSS stylesheets by separating global and specific configurations.
 - Ensure a uniform base across all browsers with a **CSS Reset**.
 
-### 🛠 **Method:**
+### 🛠 Method:
 
 ✅ Create a `css/index.css` file as the style entry point.  
 ✅ Use `@import` to link **a CSS Reset** before `main.css`, ensuring cross-browser coherence.  
 ✅ Use `@import` to link `main.css` and organize styles.  
 ✅ Ensure that `index.css` is correctly linked in the `<head>` of `index.html`.
 
-### 📌 **What is a CSS Reset and why use it?**
+### 📌 What is a CSS Reset and why use it?
 
 Each browser has default styles that can vary and cause inconsistencies in web design.  
 A **CSS Reset** removes these default styles and provides a clean and neutral base, ensuring that HTML elements look the same in **Chrome, Firefox, Edge, Safari and other browsers**.
@@ -354,14 +354,14 @@ A **CSS Reset** removes these default styles and provides a clean and neutral ba
 The most used is **Eric Meyer's**, available at:  
 `https://meyerweb.com/eric/tools/css/reset/`
 
-### 📌 **Code for `css/index.css`**
+### 📌 Code for `css/index.css`
 
 ```css
 @import url('http://meyerweb.com/eric/tools/css/reset/reset.css'); /* CSS Reset for browser compatibility */
 @import url('main.css'); /* Main styles */
 ```
 
-### 📌 **Code for `css/main.css`**
+### 📌 Code for `css/main.css`
 
 Example:
 
@@ -381,7 +381,7 @@ h3 {
 }
 ```
 
-### 📌 **How to link `index.css` in `index.html`**
+### 📌 How to link `index.css` in `index.html`
 
 ```html
 <head>
@@ -393,12 +393,12 @@ h3 {
 
 ## 📌 Step 7: Create a Favicon Package with Online Resources and Index it in the `<head>`
 
-### 🎯 **Objectives:**
+### 🎯 Objectives:
 
 - Generate a set of optimized favicons and configure them correctly on the website.
 - Ensure that favicons are readable at small sizes and maintain their visual identity.
 
-### 🛠 **Method:**
+### 🛠 Method:
 
 ✅ Use an online favicon generator like **Real Favicon Generator**:  
  `https://realfavicongenerator.net/`  
@@ -406,14 +406,14 @@ h3 {
 ✅ Include the favicons in the `assets/icons/` folder.  
 ✅ Insert the tags in the `<head>` of `index.html`.
 
-### 📌 **Design Considerations for Favicons**
+### 📌 Design Considerations for Favicons
 
 🔹 **Text size**: If the logo includes text, make sure it's readable at **16x16 pixels**, which is the minimum size of a favicon. It's preferable **not to include text** or reduce it to a recognizable symbol.  
 🔹 **Icon details**: Avoid very thin or detailed elements, as they can be lost at small sizes.  
 🔹 **Contrast**: Use contrasting colors so the icon stands out well on dark and light backgrounds.  
 🔹 **Testing**: Check how the favicon looks on different devices and browsers before implementing it.
 
-### 📌 **Code to Link Favicons in `index.html`**
+### 📌 Code to Link Favicons in `index.html`
 
 ```html
 <head>
@@ -429,7 +429,7 @@ h3 {
 
 ---
 
-## **Appendix: Using Copilot in VSC**
+## Appendix: Using Copilot in VSC
 
 📌 **How to install and configure Copilot in Visual Studio Code:**
 

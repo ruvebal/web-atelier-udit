@@ -412,7 +412,7 @@ Permite construir **_APIs_**, _apps_ en tiempo real, _microservicios_.
 
 **Objetivo:** dominar las herramientas del navegador para observar, intervenir y depurar código con rapidez y método.
 
-### 1) **_Console_**: ejecutar JS en vivo
+### 1) _Console_: ejecutar JS en vivo
 
 - Abre DevTools: **Cmd ⌘ + ⌥ + I** (macOS) / **Ctrl + Shift + I** (Windows/Linux).
 - Pruébalo:
@@ -429,7 +429,7 @@ const user = { id: 1, name: 'Ana', skills: ['HTML', 'CSS', 'JS'] };
 console.table(user);
 ```
 
-### 2) **_Elements_**: inspeccionar y modificar **_DOM_**
+### 2) _Elements_: inspeccionar y modificar _DOM_
 
 - Clic derecho sobre un elemento de la página → “Inspect”.
 - Edita el texto en vivo; añade/quita clases en el panel **Styles**.
@@ -457,7 +457,7 @@ Mini–reto:
 - Cambia el contenido de un `h1` sin recargar.
 - Añade una clase y verifica su efecto en los estilos.
 
-### 3) **_Sources_**: depurar `assets/js/main.js`
+### 3) _Sources_: depurar `assets/js/main.js`
 
 > La depuración es como la repetición a cámara lenta en un partido: ves cada jugada, quién pasó el balón y dónde falló.
 
@@ -496,7 +496,7 @@ function add(a, b) {
 console.log('Resultado:', add(2, 3));
 ```
 
-### 4) **_Network_**: solicitudes, caché y _throttling_
+### 4) _Network_: solicitudes, caché y _throttling_
 
 - Activa “Disable cache” con DevTools abierto.
 - Aplica _throttling_ (ej.: **Fast 3G**) para simular redes lentas.
@@ -507,7 +507,7 @@ Mini–reto:
 
 - Identifica el recurso más pesado y justifica una optimización (minificar, diferir, comprimir, cambiar formato, CDN).
 
-### 5) **Performance** y **Lighthouse** (rápido)
+### 5) Performance y Lighthouse (rápido)
 
 - En **Performance**: Graba 5–10 segundos navegando; detecta _Long Tasks_ (>50ms) y _layout shifts_.
 - En **Lighthouse**: corre un informe “Performance” y “Best Practices” para una página; anota 2 mejoras accionables.

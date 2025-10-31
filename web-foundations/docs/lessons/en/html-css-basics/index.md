@@ -77,7 +77,7 @@ permalink: /lessons/en/html-css-basics/
 
 ## 📋 Activities
 
-### 1. **Explore and Observe (15 min)**
+### 1. Explore and Observe (15 min)
 
 1. Open `index.html` in VSCode.
 2. Analyze its structure. Are there `<header>`, `<main>`, `<footer>`?
@@ -86,7 +86,7 @@ permalink: /lessons/en/html-css-basics/
 
 ---
 
-### 2. **Intervene: Create Your Semantic Landing (30 min)**
+### 2. Intervene: Create Your Semantic Landing (30 min)
 
 - Minimum structure you should create in `index.html`:
 

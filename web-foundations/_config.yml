@@ -11,6 +11,8 @@ kramdown:
  parse_block_html: true
  parse_span_html: true
  show_warnings: false
+ auto_ids: true
+ auto_id_stripping: true
 
  # Proper British curly quotes
  smart_quotes: [lsquo, rsquo, ldquo, rdquo]
@@ -34,7 +36,6 @@ kramdown:
  footnote_prefix: ''
 
  # IDs and ToC
- auto_ids: true
  toc_levels: 2..4
 
  # Math if needed (remove if not)
@@ -52,6 +53,7 @@ include:
  - lessons
  - assets
  - _data
+ - _plugins
 
 # Exclude CI and dev artifacts
 exclude:

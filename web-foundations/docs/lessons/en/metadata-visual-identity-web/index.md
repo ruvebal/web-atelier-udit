@@ -20,7 +20,7 @@ permalink: /lessons/en/metadata-visual-identity-web/
 
 ---
 
-## **Objective:**
+## Objective:
 
 > "In code, as in art, visibility is not always in what is seen, but in what the system interprets."
 
@@ -81,7 +81,7 @@ On the web, metadata is mainly defined in the `<head>` of each HTML page.
 
 ## README.md
 
-### **What is a README.md?**
+### What is a README.md?
 
 A `README.md` is a file written in **Markdown** that acts as the main documentation of a project. It is usually placed in the root of the repository and provides essential information to users and contributors.
 
@@ -115,7 +115,7 @@ A `README.md` is a file written in **Markdown** that acts as the main documentat
 The **visual identity** of a website reflects the personality of the project: logo, colors, typography, favicon, visual coherence.  
 Everything communicates, even the technical details of the HTML header.
 
-### **What is a favicon?**
+### What is a favicon?
 
 It is a small icon associated with a website. It is displayed in:
 
@@ -174,7 +174,7 @@ It is a small icon associated with a website. It is displayed in:
 
 ## LICENSE: Defining the Terms of Use of the Code
 
-### **What is a LICENSE file?**
+### What is a LICENSE file?
 
 It is a text file in the root of the project that specifies the legal terms for using the code.
 
@@ -188,27 +188,27 @@ It is a text file in the root of the project that specifies the legal terms for 
 
 **Popular Open Source License Types:**
 
-#### **MIT License:**
+#### MIT License:
 
 - A permissive license that allows reuse with **few restrictions**. You can **use, copy, modify, merge, publish and distribute** the software, as long as the original license is included in all copies or substantial portions of the software.
 - **Use case**: Ideal for projects where **maximum freedom for users** is desired.
 
-#### **Apache 2.0 License:**
+#### Apache 2.0 License:
 
 - Similar to the MIT License, but includes an **explicit grant of patent rights** from contributors to users. It also establishes requirements for **modifications to be documented**.
 - **Use case**: Suitable for projects that may involve **patent claims** or where you want to ensure that **contributions remain open**.
 
-#### **GNU General Public License (GPL):**
+#### GNU General Public License (GPL):
 
 - A **copyleft** license that requires that **all modified versions of the project** also be open source and licensed under the GPL. This ensures that **derivative works remain free and open**.
 - **Use case**: Ideal for projects that seek to **keep code free and open for all users**.
 
-#### **BSD License:**
+#### BSD License:
 
 - A permissive license **similar to the MIT License**, but with additional clauses about **advertising and recognition of the original author**.
 - **Use case**: Commonly used in projects that seek to **maximize freedom** for users, **but requiring attribution**.
 
-#### **Creative Commons Licenses:**
+#### Creative Commons Licenses:
 
 - Used mainly for **creative works instead of software**. They offer **different levels of permissions** on the use, modification and sharing of content.
 - **Use case**: Excellent for documentation, **design resources** and other content **other than code**.
@@ -217,7 +217,7 @@ It is a text file in the root of the project that specifies the legal terms for 
 
 - [https://choosealicense.com/](https://choosealicense.com/)
 
-### **Ways to include the license on a website**
+### Ways to include the license on a website
 
 In addition to the `LICENSE` file in the root of the repository, it is recommended to include references to the license in:
 
@@ -290,7 +290,7 @@ package-lock.json
 
 ## Manifest.json: Configuration for Web Apps
 
-### **What is the manifest.json file?**
+### What is the manifest.json file?
 
 Defines essential metadata for **Progressive Web Apps (PWAs)**, allowing configuration of how the app behaves when installed on devices.
 
@@ -384,7 +384,7 @@ Allow: /
 
 ---
 
-## **Conclusion and Practical Application**
+## Conclusion and Practical Application
 
 1. **Review your current `<head>`:**  
    Check if your site includes `<meta charset>`, `<title>`, `<meta name="description">`, `<meta name="author">`, and `<link rel="icon">`.

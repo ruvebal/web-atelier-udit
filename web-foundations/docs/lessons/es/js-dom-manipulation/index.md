@@ -167,7 +167,7 @@ body {
 }
 ```
 
-### **Template literals**
+### Template literals
 
 Los template strings en JavaScript están envueltos en backticks (\`), por lo que puedes incrustar variables y expresiones dentro con `${...}`.
 

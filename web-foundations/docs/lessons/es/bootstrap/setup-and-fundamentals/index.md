@@ -141,7 +141,7 @@ Cada proyecto Bootstrap debería empezar con una estructura HTML5 apropiada:
 
 ### Categorías Core de Utilidades
 
-#### 1. **Utilidades de Espaciado** (Más Esenciales)
+#### 1. Utilidades de Espaciado (Más Esenciales)
 
 Bootstrap proporciona espaciado sistemático usando el patrón: `{propiedad}{dirección}-{tamaño}`
 
@@ -164,7 +164,7 @@ Bootstrap proporciona espaciado sistemático usando el patrón: `{propiedad}{dir
 - `4` = 1.5rem (24px)
 - `5` = 3rem (48px)
 
-#### 2. **Utilidades de Texto**
+#### 2. Utilidades de Texto
 
 ```html
 <div class="text-start text-center text-end">Alineación de texto</div>
@@ -173,7 +173,7 @@ Bootstrap proporciona espaciado sistemático usando el patrón: `{propiedad}{dir
 <div class="text-lowercase text-uppercase text-capitalize">Transformación de texto</div>
 ```
 
-#### 3. **Utilidades de Fondo y Borde**
+#### 3. Utilidades de Fondo y Borde
 
 ```html
 <div class="bg-primary bg-secondary bg-light bg-dark">Colores de fondo</div>
@@ -182,7 +182,7 @@ Bootstrap proporciona espaciado sistemático usando el patrón: `{propiedad}{dir
 <div class="rounded rounded-circle rounded-pill">Radio de borde</div>
 ```
 
-#### 4. **Utilidades Flexbox**
+#### 4. Utilidades Flexbox
 
 ```html
 <div class="d-flex d-inline-flex">Display flex</div>
@@ -192,7 +192,7 @@ Bootstrap proporciona espaciado sistemático usando el patrón: `{propiedad}{dir
 <div class="flex-fill flex-grow-1 flex-shrink-0">Propiedades flex</div>
 ```
 
-#### 5. **Utilidades de Display y Dimensionamiento**
+#### 5. Utilidades de Display y Dimensionamiento
 
 ```html
 <div class="d-none d-block d-md-flex">Display responsivo</div>
@@ -284,7 +284,7 @@ Las utilidades responsivas de Bootstrap usan **prefijos de punto de interrupció
 
 ### Mejores Prácticas de Clases Utilitarias
 
-#### 1. **Empieza Simple, Construye Complejo**
+#### 1. Empieza Simple, Construye Complejo
 
 ```html
 <!-- ❌ Demasiadas utilidades de una vez -->
@@ -298,7 +298,7 @@ Las utilidades responsivas de Bootstrap usan **prefijos de punto de interrupció
 </div>
 ```
 
-#### 2. **Usa HTML Semántico con Utilidades**
+#### 2. Usa HTML Semántico con Utilidades
 
 ```html
 <!-- ✅ Bueno: Estructura semántica + estilizado con utilidades -->
@@ -316,7 +316,7 @@ Las utilidades responsivas de Bootstrap usan **prefijos de punto de interrupció
 </section>
 ```
 
-#### 3. **Aprovecha Utilidades Responsivas**
+#### 3. Aprovecha Utilidades Responsivas
 
 ```html
 <!-- Diseño responsivo mobile-first -->

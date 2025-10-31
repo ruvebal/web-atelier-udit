@@ -572,21 +572,21 @@ Control + Option + Espacio
 
 ### Herramientas de Prueba Automatizadas
 
-#### 1. **Extensión WAVE para Navegador** (Overlay visual)
+#### 1. Extensión WAVE para Navegador (Overlay visual)
 
 - [Instalar WAVE](https://wave.webaim.org/extension/)
 - Ejecutar en tu página
 - Verificar errores, advertencias y características
 - Revisar uso de ARIA
 
-#### 2. **axe DevTools** (Pruebas en navegador)
+#### 2. axe DevTools (Pruebas en navegador)
 
 - [Instalar axe DevTools](https://www.deque.com/axe/devtools/)
 - Abrir DevTools → pestaña axe
 - Clic en "Scan ALL of my page"
 - Revisar y corregir problemas
 
-#### 3. **Auditoría de Accesibilidad Lighthouse**
+#### 3. Auditoría de Accesibilidad Lighthouse
 
 ```bash
 # En Chrome DevTools
@@ -598,7 +598,7 @@ F12 → pestaña Lighthouse → Accesibilidad → Generar reporte
 - ✅ Accesibilidad: 95-100 (excelente)
 - ⚠️ Menos de 90: Necesita mejora
 
-#### 4. **Verificador de Contraste de Color**
+#### 4. Verificador de Contraste de Color
 
 - [Verificador de Contraste WebAIM](https://webaim.org/resources/contrastchecker/)
 - Probar tus colores de foco contra fondos
@@ -701,7 +701,7 @@ Ahora que entiendes el pensamiento crítico detrás de los estilos basados en es
 
 📌 **Práctica:** Agregar emojis decorativos antes y después de elementos `<h1>`.
 
-#### 🔹 **`::first-letter` (Estilizando la Primera Letra de un Párrafo)**
+#### 🔹 `::first-letter` (Estilizando la Primera Letra de un Párrafo)
 
 Mejora la tipografía agrandando o cambiando el estilo de la primera letra.
 
@@ -714,7 +714,7 @@ p::first-letter {
 
 📌 **Práctica:** Aplicar un efecto de capitular a párrafos.
 
-#### 🔹 **`::first-line` (Estilizando la Primera Línea de Texto)**
+#### 🔹 `::first-line` (Estilizando la Primera Línea de Texto)
 
 Aplicar estilos solo a la primera línea de un párrafo.
 
@@ -726,7 +726,7 @@ p::first-line {
 
 📌 **Práctica:** Resaltar la primera línea de cada párrafo.
 
-#### 🔹 **`::selection` (Estilizando Texto Seleccionado)**
+#### 🔹 `::selection` (Estilizando Texto Seleccionado)
 
 Cambiar la apariencia del texto cuando es seleccionado por el usuario.
 
@@ -741,9 +741,9 @@ Cambiar la apariencia del texto cuando es seleccionado por el usuario.
 
 ---
 
-## **4. Técnicas Avanzadas con Pseudo-Clases y Pseudo-Elementos**
+## 4. Técnicas Avanzadas con Pseudo-Clases y Pseudo-Elementos
 
-### **4.1. Tooltips con `::after` y `:hover`**
+### 4.1. Tooltips con `::after` y `:hover`
 
 [Ver demo de tooltip](demo/tooltip.html)
 
@@ -779,32 +779,32 @@ Crear tooltips usando solo CSS.
 
 ---
 
-## **5. Práctica en Tu Repositorio de GitHub**
+## 5. Práctica en Tu Repositorio de GitHub
 
 [Ver demo de todos los ejercicios](demo/exercises.html)
 
-### 🏗 **Ejercicio 1: Barra de Navegación con Pseudo-Clases**
+### 🏗 Ejercicio 1: Barra de Navegación con Pseudo-Clases
 
 1. Crear un archivo `navigation.css` e importarlo en tu CSS principal.
 2. Aplicar `:hover`, `:focus`, y `:nth-child()` para resaltar elementos del menú.
 
-### 🏗 **Ejercicio 2: Tarjetas Responsive con Pseudo-Elementos**
+### 🏗 Ejercicio 2: Tarjetas Responsive con Pseudo-Elementos
 
 1. Crear un archivo `cards.css` e importarlo en tu CSS principal.
 2. Usar `::before` y `::after` para agregar detalles decorativos.
 
-### 🏗 **Ejercicio 3: Botón Dinámico con Efectos Animados**
+### 🏗 Ejercicio 3: Botón Dinámico con Efectos Animados
 
 1. Crear un archivo `buttons.css` e importarlo en tu proyecto.
 2. Usar `::before` para agregar un efecto de animación al botón.
 
 ---
 
-## **6. Conclusión**
+## 6. Conclusión
 
 Las pseudo-clases y pseudo-elementos permiten crear **diseños interactivos y atractivos usando solo CSS**.
 
-### **🔹 Puntos Clave:**
+### 🔹 Puntos Clave:
 
 ✅ Las pseudo-clases modifican elementos basándose en su estado (`:hover`, `:focus`, `:nth-child()`).
 ✅ Los pseudo-elementos permiten estilizar partes específicas (`::before`, `::after`, `::selection`).

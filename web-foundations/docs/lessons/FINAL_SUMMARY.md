@@ -2,7 +2,7 @@
 
 ## ✅ Work Completed
 
-### 📚 **Spanish Version (ES) - 100% Complete**
+### 📚 Spanish Version (ES) - 100% Complete
 
 #### Lesson (`es/bootstrap/final-project-deployment/index.md`)
 
@@ -38,7 +38,7 @@
 
 ---
 
-### 🌍 **English Version (EN) - Pedagogically Complete**
+### 🌍 English Version (EN) - Pedagogically Complete
 
 #### Lesson (`en/bootstrap/final-project-deployment/index.md`)
 

@@ -141,7 +141,7 @@ Every Bootstrap project should start with proper HTML5 structure:
 
 ### Core Utility Categories
 
-#### 1. **Spacing Utilities** (Most Essential)
+#### 1. Spacing Utilities (Most Essential)
 
 Bootstrap provides systematic spacing using the pattern: `{property}{direction}-{size}`
 
@@ -164,7 +164,7 @@ Bootstrap provides systematic spacing using the pattern: `{property}{direction}-
 - `4` = 1.5rem (24px)
 - `5` = 3rem (48px)
 
-#### 2. **Text Utilities**
+#### 2. Text Utilities
 
 ```html
 <div class="text-start text-center text-end">Text alignment</div>
@@ -173,7 +173,7 @@ Bootstrap provides systematic spacing using the pattern: `{property}{direction}-
 <div class="text-lowercase text-uppercase text-capitalize">Text transformation</div>
 ```
 
-#### 3. **Background & Border Utilities**
+#### 3. Background & Border Utilities
 
 ```html
 <div class="bg-primary bg-secondary bg-light bg-dark">Background colors</div>
@@ -182,7 +182,7 @@ Bootstrap provides systematic spacing using the pattern: `{property}{direction}-
 <div class="rounded rounded-circle rounded-pill">Border radius</div>
 ```
 
-#### 4. **Flexbox Utilities**
+#### 4. Flexbox Utilities
 
 ```html
 <div class="d-flex d-inline-flex">Display flex</div>
@@ -192,7 +192,7 @@ Bootstrap provides systematic spacing using the pattern: `{property}{direction}-
 <div class="flex-fill flex-grow-1 flex-shrink-0">Flex properties</div>
 ```
 
-#### 5. **Display & Sizing Utilities**
+#### 5. Display & Sizing Utilities
 
 ```html
 <div class="d-none d-block d-md-flex">Responsive display</div>
@@ -284,7 +284,7 @@ Bootstrap's responsive utilities use **breakpoint prefixes**:
 
 ### Utility Classes Best Practices
 
-#### 1. **Start Simple, Build Complex**
+#### 1. Start Simple, Build Complex
 
 ```html
 <!-- ❌ Too many utilities at once -->
@@ -298,7 +298,7 @@ Bootstrap's responsive utilities use **breakpoint prefixes**:
 </div>
 ```
 
-#### 2. **Use Semantic HTML with Utilities**
+#### 2. Use Semantic HTML with Utilities
 
 ```html
 <!-- ✅ Good: Semantic structure + utility styling -->
@@ -316,7 +316,7 @@ Bootstrap's responsive utilities use **breakpoint prefixes**:
 </section>
 ```
 
-#### 3. **Leverage Responsive Utilities**
+#### 3. Leverage Responsive Utilities
 
 ```html
 <!-- Mobile-first responsive design -->

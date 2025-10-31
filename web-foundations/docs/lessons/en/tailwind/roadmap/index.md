@@ -89,7 +89,7 @@ Atelier critical questions (S1):
 - Production: What does your commit message communicate clearly?
 - Exhibition: How will you demo mobile-first behavior live?
 
-## **S2 — SPA Routing & Layout**
+## S2 — SPA Routing & Layout
 
 - **SPA vs MPA:** Explain that a **Single-Page Application (SPA)** loads one HTML page and uses JavaScript to update content and routes on the client[cleancommit.io](https://cleancommit.io/blog/spa-vs-mpa-which-is-the-king/#:~:text=There%20are%20two%20main%20architecture,as%20blogs%20or%20news%20websites)[developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Glossary/CSR#:~:text=Client,together%20in%20the%20same%20application). This avoids full-page reloads and gives a smoother UX, at the cost of initial load time and SEO considerations. By contrast, a Multi-Page App (MPA) fetches a new HTML document from the server on each navigation[cleancommit.io](https://cleancommit.io/blog/spa-vs-mpa-which-is-the-king/#:~:text=There%20are%20two%20main%20architecture,as%20blogs%20or%20news%20websites). Note that SPAs typically use client-side rendering (CSR): the browser runs JS to generate the page content dynamically[developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Glossary/CSR#:~:text=Client,together%20in%20the%20same%20application)[developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Glossary/CSR#:~:text=Benefits%20of%20CSR%20include%3A). CSR enables fast, app-like interactions (clicking links or buttons only updates parts of the page) but requires that the browser has JavaScript enabled[developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Glossary/CSR#:~:text=Benefits%20of%20CSR%20include%3A).
 
@@ -117,7 +117,7 @@ Atelier critical questions (S2):
 - Production: Is your router code small, clear, and documented?
 - Exhibition: How will you demo route changes and focus handling?
 
-## **S3 — Components & Design System**
+## S3 — Components & Design System
 
 - Design tokens: extend Tailwind theme (or use CSS variables) for colors, spacing, radii.
 - Reusable components: Button, Card, Section using utility composition (and optional `@apply`).
@@ -138,7 +138,7 @@ Atelier critical questions (S3):
 - Production: Are components documented (props/variants) in README?
 - Exhibition: Can you demo component variants quickly?
 
-## **S4 — State & Interactivity**
+## S4 — State & Interactivity
 
 - Add a contact form with client-side validation; expose errors accessibly.
 - Enhance navigation: active states, `aria-current`, reduced motion.
@@ -159,7 +159,7 @@ Atelier critical questions (S4):
 - Production: Is interactivity testable and progressively enhanced?
 - Exhibition: What scenario will you demo to evidence usability?
 
-## **S5 — Accessibility & Performance**
+## S5 — Accessibility & Performance
 
 - Audit landmarks, headings, color contrast, focus order.
 - Optimize images and fonts; prefer system fonts where possible.
@@ -180,7 +180,7 @@ Atelier critical questions (S5):
 - Production: Are changes minimal yet impactful?
 - Exhibition: Show before/after audit metrics.
 
-## **S6 — Build & Deploy**
+## S6 — Build & Deploy
 
 - Production build with Vite; verify the `dist/` output.
 - Deploy to GitHub Pages; set `base` if needed for repo subpath.

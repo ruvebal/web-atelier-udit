@@ -923,7 +923,7 @@ console.log(getState('user'));
 
 ## 🏆 Mejores Prácticas: El Manifiesto Modular
 
-### 1. **Una Responsabilidad Por Módulo**
+### 1. Una Responsabilidad Por Módulo
 
 > "Un módulo debe hacer una cosa y hacerla bien." — Filosofía Unix aplicada a JavaScript
 
@@ -941,7 +941,7 @@ export function fetchAPI(url) { /* ... */ } // ¡Diferente responsabilidad!
 export function formatCurrency(num) { /* ... */ } // ¡Diferente responsabilidad!
 ```
 
-### 2. **Dependencias Explícitas**
+### 2. Dependencias Explícitas
 
 ```javascript
 // ✅ Bueno: Todas las dependencias visibles arriba
@@ -959,7 +959,7 @@ function myFeature() {
 }
 ```
 
-### 3. **Preferir Exportaciones Nombradas para Utilidades**
+### 3. Preferir Exportaciones Nombradas para Utilidades
 
 ```javascript
 // ✅ Bueno: Exportaciones nombradas para múltiples utilidades
@@ -972,7 +972,7 @@ export function chunk(arr, size) { /* ... */ }
 import { unique, flatten } from './utils/array.js';
 ```
 
-### 4. **Preferir Exportaciones Por Defecto para Módulos de Propósito Único**
+### 4. Preferir Exportaciones Por Defecto para Módulos de Propósito Único
 
 ```javascript
 // ✅ Bueno: Exportación por defecto para componente único
@@ -985,7 +985,7 @@ export default function Hero({ title, subtitle }) {
 import Hero from './components/Hero.js';
 ```
 
-### 5. **Usar Archivos Barrel para APIs Públicas**
+### 5. Usar Archivos Barrel para APIs Públicas
 
 ```javascript
 // ✅ Bueno: API pública limpia
@@ -1001,7 +1001,7 @@ import { Button, Card, Hero } from './components/index.js';
 import Button from './components/internal/ui/Button.js';
 ```
 
-### 6. **Evitar Dependencias Circulares**
+### 6. Evitar Dependencias Circulares
 
 ```javascript
 // ❌ Malo: Dependencia circular
@@ -1024,7 +1024,7 @@ import { sharedLogic } from './shared.js';
 import { sharedLogic } from './shared.js';
 ```
 
-### 7. **Documentar Tus Módulos con JSDoc**
+### 7. Documentar Tus Módulos con JSDoc
 
 ```javascript
 /**

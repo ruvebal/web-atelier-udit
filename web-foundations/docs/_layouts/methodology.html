@@ -68,10 +68,13 @@ layout: default
 				placeholder.appendChild(toc);
 			}
 			
-			// Hide the "Table of Contents" heading in the main content
+			// Hide the TOC heading in the main content (handles multiple languages)
 			const tocHeading = document.querySelector('h2.no_toc');
-			if (tocHeading && tocHeading.textContent.includes('Table of Contents')) {
-				tocHeading.style.display = 'none';
+			if (tocHeading) {
+				const text = tocHeading.textContent.toLowerCase();
+				if (text.includes('table of contents') || text.includes('tabla de contenidos') || text.includes('📋')) {
+					tocHeading.style.display = 'none';
+				}
 			}
 		})();
 	</script>

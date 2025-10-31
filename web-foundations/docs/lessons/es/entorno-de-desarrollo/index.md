@@ -30,7 +30,7 @@ permalink: /lessons/es/entorno-de-desarrollo/
 
 ---
 
-## **Por qué configurar un entorno de desarrollo**
+## Por qué configurar un entorno de desarrollo
 
 Configurar un entorno de desarrollo permite a los estudiantes:
 
@@ -42,29 +42,29 @@ Aprender este flujo de trabajo ayuda a adoptar prácticas profesionales y sentar
 
 ---
 
-## **Entornos de desarrollo: Local vs Live**
+## Entornos de desarrollo: Local vs Live
 
-### **1. Desarrollo local**
+### 1. Desarrollo local
 
 - **Qué es**: El desarrollo local se realiza en tu ordenador, donde escribes y pruebas código utilizando herramientas como **VS Code** y previsualizas el proyecto en tu navegador con **Live Server**.
 - **Propósito**: Permite experimentar y realizar cambios rápidos sin afectar la versión pública de tu proyecto.
 
-### **2. Desarrollo Live**
+### 2. Desarrollo Live
 
 - **Qué es**: El desarrollo Live implica subir tu código a un **repositorio remoto** (por ejemplo, GitHub). GitHub Pages hace que tu sitio sea accesible en línea.
 - **Propósito**: Compartir y mostrar tu proyecto, colaborar con otros y construir un portafolio profesional.
 
 ---
 
-## **Pasos para configurar el entorno de desarrollo**
+## Pasos para configurar el entorno de desarrollo
 
-### **1. Instalar Visual Studio Code**
+### 1. Instalar Visual Studio Code
 
 - **Propósito**: VS Code es un editor de código potente con integración incorporada con Git.
 - Descárgalo aquí:  
   **https://code.visualstudio.com/**
 
-#### **Instalar extensiones**
+#### Instalar extensiones
 
 - **Live Server**: Para previsualizar en tiempo real tus proyectos HTML/CSS/JS.  
   Instálalo aquí:  
@@ -75,11 +75,11 @@ Aprender este flujo de trabajo ayuda a adoptar prácticas profesionales y sentar
 
 ---
 
-### **2. Instalar Git**
+### 2. Instalar Git
 
 ---
 
-#### **Instalación en Windows**
+#### Instalación en Windows
 
 1. **Descarga el instalador de Git:**  
    [https://git-scm.com/download/win](https://git-scm.com/download/win)
@@ -130,7 +130,7 @@ Aprender este flujo de trabajo ayuda a adoptar prácticas profesionales y sentar
 
 ---
 
-#### **Instalación en macOS**
+#### Instalación en macOS
 
 1. **Instala Homebrew (si no lo tienes):**
 
@@ -176,7 +176,7 @@ Aprender este flujo de trabajo ayuda a adoptar prácticas profesionales y sentar
 
 ---
 
-### **3. Iniciar desde la Plantilla de Proyecto del Estudiante (fácil primero, avanzado abajo)**
+### 3. Iniciar desde la Plantilla de Proyecto del Estudiante (fácil primero, avanzado abajo)
 
 Usa la plantilla oficial del estudiante en el monorepo del curso: `student-project-template`. Referencia:
 
@@ -230,7 +230,7 @@ Después, `git init`, commit y push a tu nuevo repositorio.
 
 ---
 
-### **4. Explorar la estructura del directorio clonado**
+### 4. Explorar la estructura del directorio clonado
 
 Tras generar desde la plantilla, deberías ver esta estructura:
 
@@ -258,13 +258,13 @@ Siguientes pasos:
 
 ---
 
-### **5. Desarrollo local con Live Server**
+### 5. Desarrollo local con Live Server
 
 1. Abre tu proyecto en VS Code.
 2. Haz clic derecho en el archivo `index.html` y selecciona **Open with Live Server**.
 3. Abre el navegador y navega a `http://127.0.0.1:5500`.
 
-#### **Usar las DevTools de Chrome**
+#### Usar las DevTools de Chrome
 
 1. Pulsa **F12** o **Cmd + Option + I** (Mac) / **Ctrl + Shift + I** (Windows) para abrir las DevTools.
 2. Ve a la pestaña **Network**.
@@ -277,7 +277,7 @@ Siguientes pasos:
 
 ---
 
-### **6. Desarrollo Live con GitHub Pages**
+### 6. Desarrollo Live con GitHub Pages
 
 1. Haz un **commit** de los cambios:
 
@@ -303,7 +303,7 @@ Siguientes pasos:
    - Haz clic en **Save**.
    - Tu sitio estará en vivo en: `https://tu-usuario.github.io/tu-repositorio/`.
 
-### **7. Crear cuenta y configurar ImageKit.io**
+### 7. Crear cuenta y configurar ImageKit.io
 
 - Crea una cuenta gratuita en `https://imagekit.io/`.
 - En el panel, anota:
@@ -346,7 +346,7 @@ Claves de accesibilidad:
 
 ---
 
-### **8. Alojar y optimizar imágenes con ImageKit.io**
+### 8. Alojar y optimizar imágenes con ImageKit.io
 
 Las imágenes grandes no deben vivir en tu repositorio Git. Usa un CDN para optimizar su entrega.
 
@@ -394,7 +394,7 @@ Notas de accesibilidad:
 - Prefiere formatos modernos (AVIF/WEBP) cuando estén disponibles: `?tr=f-webp`.
 - Deja `/images` local solo para assets pequeños; usa CDN para fotos/arte.
 
-### **9. Probar Node.js localmente (opcional)** {: #probar-nodejs-localmente-opcional }
+### 9. Probar Node.js localmente (opcional) {: #probar-nodejs-localmente-opcional }
 
 > Configuración rápida para usar scripts de `npm` en la plantilla del estudiante.
 
@@ -439,9 +439,9 @@ Notas de accesibilidad:
 
 ---
 
-## **Flujo diario de trabajo**
+## Flujo diario de trabajo
 
-### **Pasos para el desarrollo diario**
+### Pasos para el desarrollo diario
 
 1. **Actualiza tu repositorio local**:
 
@@ -490,9 +490,9 @@ Notas de accesibilidad:
 
 ---
 
-## **Glosario de conceptos**
+## Glosario de conceptos
 
-### **Términos del sistema**
+### Términos del sistema
 
 1. **Terminal**: Interfaz de línea de comandos para interactuar con tu ordenador.
    - **macOS**: Abre el Terminal presionando **Cmd + Espacio**, escribe "Terminal" y pulsa **Enter**.
@@ -501,7 +501,7 @@ Notas de accesibilidad:
 3. **Ruta (Path)**: Ubicación de un archivo o carpeta en tu ordenador (por ejemplo, `/Usuarios/tu-nombre/proyecto`).
 4. **Directorio**: Una carpeta que contiene archivos u otras carpetas.
 
-### **Términos de red**
+### Términos de red
 
 1. **HTTP**: Protocolo para transferir páginas web y archivos.
 2. **HTTPS**: Versión segura de HTTP con cifrado.
@@ -509,7 +509,7 @@ Notas de accesibilidad:
 4. **Dirección IP**: Dirección única para dispositivos en una red.
 5. **DNS**: Traduce nombres de dominio (por ejemplo, `github.com`) en direcciones IP.
 
-### **Términos de Git y repositorios**
+### Términos de Git y repositorios
 
 1. **Repositorio**: Ubicación para almacenar tu código y su historial.
    - Local: En tu ordenador.
@@ -523,13 +523,13 @@ Notas de accesibilidad:
 
 ---
 
-## **Apéndice: Instalando Homebrew en macOS**
+## Apéndice: Instalando Homebrew en macOS
 
-### **Qué es Homebrew**
+### Qué es Homebrew
 
 Homebrew es un gestor de paquetes para macOS que simplifica la instalación de software como Git.
 
-### **Pasos para instalar Homebrew**
+### Pasos para instalar Homebrew
 
 1. Abre el Terminal: **Cmd + Espacio**, escribe "Terminal" y pulsa **Enter**.
 2. Ejecuta el comando:
@@ -549,7 +549,7 @@ Homebrew es un gestor de paquetes para macOS que simplifica la instalación de s
 
 ---
 
-## **Referencias finales**
+## Referencias finales
 
 - **Visual Studio Code**:  
   https://code.visualstudio.com/

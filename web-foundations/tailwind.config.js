@@ -8,6 +8,10 @@ module.exports = {
     './docs/**/*.html',
     './docs/lessons/**/*.{html,md}',
   ],
+  safelist: [
+    // Rouge syntax highlighting classes (generated at runtime by Jekyll)
+    { pattern: /^highlight/ },
+  ],
   theme: {
     extend: {
       colors: {
@@ -53,6 +57,18 @@ module.exports = {
               borderLeftColor: 'var(--primary)',
               color: 'var(--text-secondary)',
             },
+            h1: {
+              color: '#1e3a8a', // blue-900
+            },
+            h2: {
+              color: '#1d4ed8', // blue-700
+            },
+            h3: {
+              color: '#2563eb', // blue-600
+            },
+            h4: {
+              color: '#3b82f6', // blue-500
+            },
           },
         },
         invert: {
@@ -79,16 +95,16 @@ module.exports = {
               backgroundColor: '#171717',
             },
             h1: {
-              color: '#fafafa',
+              color: '#bfdbfe', // blue-200
             },
             h2: {
-              color: '#fafafa',
+              color: '#93c5fd', // blue-300
             },
             h3: {
-              color: '#fafafa',
+              color: '#60a5fa', // blue-400
             },
             h4: {
-              color: '#fafafa',
+              color: '#3b82f6', // blue-500
             },
             'figure figcaption': {
               color: '#a3a3a3',

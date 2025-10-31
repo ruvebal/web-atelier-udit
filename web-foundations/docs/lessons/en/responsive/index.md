@@ -67,7 +67,7 @@ In recent years, an increasingly **intrinsic and fluid** approach to adaptive we
 
 - _2023–2025:_ Adoption of **Container Queries** and **Style Queries** in browsers; rise of **intrinsic design**.
 
-### **Responsive**, **Fluid** and **Intrinsic** Design
+### Responsive, Fluid and Intrinsic Design
 
 It's common to confuse the terms, since they all refer to making the interface adapt. In this guide we'll distinguish them as follows:
 

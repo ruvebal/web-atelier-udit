@@ -67,7 +67,7 @@ En los últimos años ha surgido un enfoque cada vez más **intrínseco y fluido
 
 - _2023–2025:_ Adopción de **Container Queries** y **Style Queries** en navegadores; auge del **diseño intrínseco**.
 
-### Diseño **Responsive**, **Fluido** e **Intrínseco**
+### Diseño Responsive, Fluido e Intrínseco
 
 Es común confundir los términos, ya que todos se refieren a lograr que la interfaz se adapte. En esta guía los distinguiremos así:
 

@@ -572,21 +572,21 @@ Control + Option + Space
 
 ### Automated Testing Tools
 
-#### 1. **WAVE Browser Extension** (Visual overlay)
+#### 1. WAVE Browser Extension (Visual overlay)
 
 - [Install WAVE](https://wave.webaim.org/extension/)
 - Run on your page
 - Check for errors, warnings, and features
 - Review ARIA usage
 
-#### 2. **axe DevTools** (In-browser testing)
+#### 2. axe DevTools (In-browser testing)
 
 - [Install axe DevTools](https://www.deque.com/axe/devtools/)
 - Open DevTools → axe tab
 - Click "Scan ALL of my page"
 - Review and fix issues
 
-#### 3. **Lighthouse Accessibility Audit**
+#### 3. Lighthouse Accessibility Audit
 
 ```bash
 # In Chrome DevTools
@@ -598,7 +598,7 @@ F12 → Lighthouse tab → Accessibility → Generate report
 - ✅ Accessibility: 95-100 (excellent)
 - ⚠️ Below 90: Needs improvement
 
-#### 4. **Color Contrast Checker**
+#### 4. Color Contrast Checker
 
 - [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
 - Test your focus colors against backgrounds
@@ -701,7 +701,7 @@ Now that you understand the critical thinking behind state-based styling, let's 
 
 📌 **Practice:** Add decorative emojis before and after `<h1>` elements.
 
-#### 🔹 **`::first-letter` (Styling the First Letter of a Paragraph)**
+#### 🔹 `::first-letter` (Styling the First Letter of a Paragraph)
 
 Enhance typography by enlarging or changing the style of the first letter.
 
@@ -714,7 +714,7 @@ p::first-letter {
 
 📌 **Practice:** Apply a drop cap effect to paragraphs.
 
-#### 🔹 **`::first-line` (Styling the First Line of Text)**
+#### 🔹 `::first-line` (Styling the First Line of Text)
 
 Apply styles only to the first line of a paragraph.
 
@@ -726,7 +726,7 @@ p::first-line {
 
 📌 **Practice:** Highlight the first line of each paragraph.
 
-#### 🔹 **`::selection` (Styling Selected Text)**
+#### 🔹 `::selection` (Styling Selected Text)
 
 Change the appearance of text when selected by the user.
 
@@ -741,9 +741,9 @@ Change the appearance of text when selected by the user.
 
 ---
 
-## **4. Advanced Techniques with Pseudo-Classes and Pseudo-Elements**
+## 4. Advanced Techniques with Pseudo-Classes and Pseudo-Elements
 
-### **4.1. Tooltips with `::after` and `:hover`**
+### 4.1. Tooltips with `::after` and `:hover`
 
 [View tooltip demo](demo/tooltip.html)
 
@@ -779,32 +779,32 @@ Create tooltips using CSS only.
 
 ---
 
-## **5. Practice in Your GitHub Repository**
+## 5. Practice in Your GitHub Repository
 
 [View all exercises demo](demo/exercises.html)
 
-### 🏗 **Exercise 1: Navigation Bar with Pseudo-Classes**
+### 🏗 Exercise 1: Navigation Bar with Pseudo-Classes
 
 1. Create a `navigation.css` file and import it into your main CSS.
 2. Apply `:hover`, `:focus`, and `:nth-child()` to highlight menu items.
 
-### 🏗 **Exercise 2: Responsive Cards with Pseudo-Elements**
+### 🏗 Exercise 2: Responsive Cards with Pseudo-Elements
 
 1. Create a `cards.css` file and import it into your main CSS.
 2. Use `::before` and `::after` to add decorative details.
 
-### 🏗 **Exercise 3: Dynamic Button with Animated Effects**
+### 🏗 Exercise 3: Dynamic Button with Animated Effects
 
 1. Create a `buttons.css` file and import it into your project.
 2. Use `::before` to add an animation effect to the button.
 
 ---
 
-## **6. Conclusion**
+## 6. Conclusion
 
 Pseudo-classes and pseudo-elements enable creating **interactive and attractive designs using CSS only**.
 
-### **🔹 Key Points:**
+### 🔹 Key Points:
 
 ✅ Pseudo-classes modify elements based on their state (`:hover`, `:focus`, `:nth-child()`).
 ✅ Pseudo-elements allow styling specific parts (`::before`, `::after`, `::selection`).

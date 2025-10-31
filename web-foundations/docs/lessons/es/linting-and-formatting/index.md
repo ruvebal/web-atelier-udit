@@ -20,15 +20,15 @@ permalink: /lessons/es/linting-and-formatting/
 
 ---
 
-# **El Propósito del Formateo y Linting en el Desarrollo**
+# El Propósito del Formateo y Linting en el Desarrollo
 
 En el desarrollo web moderno, el **formateo** y el **linting** desempeñan roles complementarios para mantener código limpio, consistente y libre de errores. Estas prácticas son esenciales para mejorar la calidad del código, la colaboración y la mantenibilidad.
 
-#### **¿Qué es el Formateo?**
+#### ¿Qué es el Formateo?
 
 El formateo se refiere a organizar y estructurar el código de manera consistente y visualmente atractiva. Asegura que el código sea fácil de leer, escribir y entender, tanto para el desarrollador original como para otros que trabajen en el mismo proyecto.
 
-##### **Beneficios Clave del Formateo:**
+##### Beneficios Clave del Formateo:
 
 - **Legibilidad**:
   - El código correctamente formateado es más fácil de navegar, reduciendo la carga cognitiva en los desarrolladores.
@@ -37,7 +37,7 @@ El formateo se refiere a organizar y estructurar el código de manera consistent
 - **Automatización**:
   - Las herramientas de formateo automático ahorran tiempo eliminando la necesidad de formateo manual.
 
-##### **Ejemplos de Formateo:**
+##### Ejemplos de Formateo:
 
 - Asegurar indentación y espaciado consistentes.
 - Hacer cumplir un estándar para saltos de línea, llaves y comillas.
@@ -45,11 +45,11 @@ El formateo se refiere a organizar y estructurar el código de manera consistent
 
 ---
 
-#### **¿Qué es el Linting?**
+#### ¿Qué es el Linting?
 
 El linting implica analizar código para detectar errores potenciales, hacer cumplir estándares de codificación y fomentar mejores prácticas. Un linter revisa la base de código y resalta patrones problemáticos o violaciones, asegurando que se adhiera a pautas predefinidas.
 
-##### **Beneficios Clave del Linting:**
+##### Beneficios Clave del Linting:
 
 - **Prevención de Errores**:
   - Identifica errores comunes como etiquetas de cierre faltantes, variables no utilizadas o sintaxis inválida.
@@ -58,7 +58,7 @@ El linting implica analizar código para detectar errores potenciales, hacer cum
 - **Calidad del Código**:
   - Mejora la confiabilidad general y mantenibilidad del código.
 
-##### **Ejemplos de Linting:**
+##### Ejemplos de Linting:
 
 - Resaltar atributos o etiquetas HTML inválidas.
 - Detectar errores de sintaxis en JavaScript, como variables no declaradas.
@@ -66,7 +66,7 @@ El linting implica analizar código para detectar errores potenciales, hacer cum
 
 ---
 
-#### **Cómo el Formateo y Linting se Complementan**
+#### Cómo el Formateo y Linting se Complementan
 
 Mientras que el formateo asegura que el código se vea consistente y sea fácil de leer, el linting asegura que el código funcione correctamente y se adhiera a los estándares.
 
@@ -81,7 +81,7 @@ Mientras que el formateo asegura que el código se vea consistente y sea fácil 
 
 ---
 
-### **¿Por Qué Usar Formateo y Linting Juntos?**
+### ¿Por Qué Usar Formateo y Linting Juntos?
 
 Al combinar herramientas de formateo y linting, los desarrolladores pueden asegurar que su código sea tanto limpio como funcional:
 
@@ -94,17 +94,17 @@ Al combinar herramientas de formateo y linting, los desarrolladores pueden asegu
 
 ---
 
-# **Guía Paso a Paso para Estudiantes: Instalación y Configuración de Herramientas**
+# Guía Paso a Paso para Estudiantes: Instalación y Configuración de Herramientas
 
 Instrucciones para configurar herramientas usando tanto **extensiones de Visual Studio Code (VS Code)** como **comandos npx CLI**. De esta manera, los estudiantes pueden elegir su método preferido según su nivel de comodidad.
 
 ---
 
-### **Instalar Prettier**
+### Instalar Prettier
 
 **Prettier** es un formateador de código que asegura estilo consistente en toda tu base de código automáticamente.
 
-#### **Definición y Propósito de Prettier**
+#### Definición y Propósito de Prettier
 
 - **Definición**: Prettier es un formateador de código con opiniones que hace cumplir un estilo consistente analizando tu código y reimprimiéndolo con sus propias reglas, considerando la longitud máxima de línea y otras configuraciones.
 - **Propósito**:
@@ -112,7 +112,7 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
   - **Legibilidad**: Hace el código más fácil de leer y entender.
   - **Automatización**: Elimina el formateo manual, ahorrando tiempo y esfuerzo.
 
-#### **Opción 1: Configurar Prettier Usando VS Code**
+#### Opción 1: Configurar Prettier Usando VS Code
 
 1. Instalar la extensión **Prettier - Code formatter**:
 
@@ -132,7 +132,7 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
    - Abrir un archivo con formateo inconsistente.
    - Guardar el archivo y verificar que Prettier lo formatee automáticamente.
 
-#### **Opción 2: Configurar Prettier Usando npx CLI**
+#### Opción 2: Configurar Prettier Usando npx CLI
 
 1. Instalar Prettier:
 
@@ -168,11 +168,11 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
 
 ---
 
-### **Instalar HTMLHint**
+### Instalar HTMLHint
 
 **HTMLHint** es una herramienta de análisis de código estático específicamente para archivos HTML.
 
-#### **Definición y Propósito de HTMLHint**
+#### Definición y Propósito de HTMLHint
 
 - **Definición**: HTMLHint es un linter para HTML que identifica errores de sintaxis, hace cumplir estándares de codificación y ayuda a mejorar la calidad del código HTML.
 - **Propósito**:
@@ -180,7 +180,7 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
   - **Cumplimiento de Estándares**: Asegura que el HTML se adhiera a mejores prácticas y estándares de codificación.
   - **Accesibilidad**: Fomenta prácticas como usar atributos `alt` para imágenes.
 
-#### **Opción 1: Configurar HTMLHint Usando VS Code**
+#### Opción 1: Configurar HTMLHint Usando VS Code
 
 1. Instalar la extensión **HTMLHint**:
 
@@ -195,7 +195,7 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
 3. Probar HTMLHint:
    - Abrir un archivo HTML con problemas y verificar que la pestaña Problemas en VS Code muestre advertencias o errores.
 
-#### **Opción 2: Configurar HTMLHint Usando npx CLI**
+#### Opción 2: Configurar HTMLHint Usando npx CLI
 
 1. Instalar HTMLHint localmente:
 
@@ -227,11 +227,11 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
 
 ---
 
-### **Instalar Stylelint**
+### Instalar Stylelint
 
 **Stylelint** es un linter de CSS que hace cumplir estilo consistente y detecta errores en hojas de estilo.
 
-#### **Definición y Propósito de Stylelint**
+#### Definición y Propósito de Stylelint
 
 - **Definición**: Stylelint es un linter moderno de CSS que hace cumplir estilo consistente y detecta errores en tus hojas de estilo.
 - **Propósito**:
@@ -239,7 +239,7 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
   - **Estilo Consistente**: Asegura que el CSS se adhiera a un formato consistente.
   - **Mantenibilidad**: Promueve CSS limpio y estructurado.
 
-#### **Opción 1: Configurar Stylelint Usando VS Code**
+#### Opción 1: Configurar Stylelint Usando VS Code
 
 1. Instalar la extensión **Stylelint**:
 
@@ -249,7 +249,7 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
 
 2. Usar la configuración por defecto de la extensión o crear un archivo de configuración (ver Opción 2 abajo).
 
-#### **Opción 2: Configurar Stylelint Usando npx CLI**
+#### Opción 2: Configurar Stylelint Usando npx CLI
 
 1. Instalar Stylelint:
 
@@ -281,11 +281,11 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
 
 ---
 
-### **Instalar ESLint**
+### Instalar ESLint
 
 **ESLint** es un linter de JavaScript que hace cumplir convenciones de codificación y detecta errores.
 
-#### **Definición y Propósito de ESLint**
+#### Definición y Propósito de ESLint
 
 - **Definición**: ESLint es una herramienta de análisis estático para JavaScript que identifica patrones problemáticos y hace cumplir estándares de codificación.
 - **Propósito**:
@@ -293,7 +293,7 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
   - **Consistencia**: Asegura que el código JavaScript se adhiera a estándares.
   - **Personalización**: Proporciona configuración flexible para necesidades específicas del proyecto.
 
-#### **Opción 1: Configurar ESLint Usando VS Code**
+#### Opción 1: Configurar ESLint Usando VS Code
 
 1. Instalar la extensión **ESLint**:
 
@@ -303,7 +303,7 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
 
 2. Usar la configuración por defecto proporcionada por la extensión o configurar ESLint (ver Opción 2 abajo).
 
-#### **Opción 2: Configurar ESLint Usando npx CLI**
+#### Opción 2: Configurar ESLint Usando npx CLI
 
 1. Instalar ESLint:
 
@@ -351,7 +351,7 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
 
 ---
 
-### **Probar la Configuración**
+### Probar la Configuración
 
 - Crear archivos de muestra para HTML, CSS y JavaScript con errores intencionales.
 - Probar cada herramienta para asegurar que funcione como se espera:
@@ -362,7 +362,7 @@ Instrucciones para configurar herramientas usando tanto **extensiones de Visual 
 
 ---
 
-### **Solución de Problemas**
+### Solución de Problemas
 
 1. Asegurar que las extensiones estén instaladas en Visual Studio Code.
 2. Verificar que los archivos de configuración (`.prettierrc`, `.htmlhintrc`, `.stylelintrc.json`, `.eslintrc.json`) estén configurados correctamente.

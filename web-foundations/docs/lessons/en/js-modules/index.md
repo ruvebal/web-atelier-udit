@@ -931,7 +931,7 @@ console.log(getState('user'));
 
 ## 🏆 Best Practices: The Module Manifesto
 
-### 1. **One Concern Per Module**
+### 1. One Concern Per Module
 
 > "A module should do one thing and do it well." — Unix Philosophy applied to JavaScript
 
@@ -961,7 +961,7 @@ export function formatCurrency(num) {
 } // Different concern!
 ```
 
-### 2. **Explicit Dependencies**
+### 2. Explicit Dependencies
 
 ```javascript
 // ✅ Good: All dependencies visible at top
@@ -979,7 +979,7 @@ function myFeature() {
 }
 ```
 
-### 3. **Prefer Named Exports for Utilities**
+### 3. Prefer Named Exports for Utilities
 
 ```javascript
 // ✅ Good: Named exports for multiple utilities
@@ -998,7 +998,7 @@ export function chunk(arr, size) {
 import { unique, flatten } from './utils/array.js';
 ```
 
-### 4. **Prefer Default Exports for Single-Purpose Modules**
+### 4. Prefer Default Exports for Single-Purpose Modules
 
 ```javascript
 // ✅ Good: Default export for single component
@@ -1011,7 +1011,7 @@ export default function Hero({ title, subtitle }) {
 import Hero from './components/Hero.js';
 ```
 
-### 5. **Use Barrel Files for Public APIs**
+### 5. Use Barrel Files for Public APIs
 
 ```javascript
 // ✅ Good: Clean public API
@@ -1027,7 +1027,7 @@ import { Button, Card, Hero } from './components/index.js';
 import Button from './components/internal/ui/Button.js';
 ```
 
-### 6. **Avoid Circular Dependencies**
+### 6. Avoid Circular Dependencies
 
 ```javascript
 // ❌ Bad: Circular dependency
@@ -1056,7 +1056,7 @@ import { sharedLogic } from './shared.js';
 import { sharedLogic } from './shared.js';
 ```
 
-### 7. **Document Your Modules with JSDoc**
+### 7. Document Your Modules with JSDoc
 
 ```javascript
 /**

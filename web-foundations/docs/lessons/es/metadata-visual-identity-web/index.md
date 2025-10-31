@@ -20,7 +20,7 @@ permalink: /lessons/es/metadata-visual-identity-web/
 
 ---
 
-## **Objetivo:**
+## Objetivo:
 
 > “En el código, como en el arte, la visibilidad no siempre está en lo que se ve, sino en lo que el sistema interpreta.”
 
@@ -81,7 +81,7 @@ En la web, se definen principalmente en el `<head>` de cada página HTML.
 
 ## README.md
 
-### **¿Qué es un README.md?**
+### ¿Qué es un README.md?
 
 Un `README.md` es un archivo escrito en **Markdown** que actúa como la documentación principal de un proyecto. Generalmente se coloca en la raíz del repositorio y proporciona información esencial a usuarios y colaboradores.
 
@@ -115,7 +115,7 @@ Un `README.md` es un archivo escrito en **Markdown** que actúa como la document
 La **identidad visual** de un sitio web refleja la personalidad del proyecto: logotipo, colores, tipografía, favicon, coherencia visual.  
 Todo comunica, incluso los detalles técnicos del encabezado HTML.
 
-### **¿Qué es un favicon?**
+### ¿Qué es un favicon?
 
 Es un pequeño icono asociado a un sitio web. Se muestra en:
 
@@ -174,7 +174,7 @@ Es un pequeño icono asociado a un sitio web. Se muestra en:
 
 ## LICENSE: Definiendo los Términos de Uso del Código
 
-### **¿Qué es un archivo LICENSE?**
+### ¿Qué es un archivo LICENSE?
 
 Es un archivo de texto en la raíz del proyecto que especifica los términos legales para el uso del código.
 
@@ -188,27 +188,27 @@ Es un archivo de texto en la raíz del proyecto que especifica los términos leg
 
 **Tipos de Licencias de Código Abierto Populares:**
 
-#### **Licencia MIT:**
+#### Licencia MIT:
 
 - Una licencia permisiva que permite la reutilización con **pocas restricciones**. Puedes **usar, copiar, modificar, fusionar, publicar y distribuir** el software, siempre que la licencia original esté incluida en todas las copias o partes sustanciales del software.
 - **Caso de uso**: Ideal para proyectos donde se desea **máxima libertad para los usuarios**.
 
-#### **Licencia Apache 2.0:**
+#### Licencia Apache 2.0:
 
 - Similar a la Licencia MIT, pero incluye una **concesión explícita de derechos de patente** de los contribuyentes a los usuarios. También establece requisitos para que las **modificaciones sean documentadas**.
 - **Caso de uso**: Adecuada para proyectos que pueden involucrar **reclamaciones de patentes** o donde se desea garantizar que las **contribuciones sigan siendo abiertas**.
 
-#### **Licencia GNU General Public License (GPL):**
+#### Licencia GNU General Public License (GPL):
 
 - Una licencia de **copyleft** que exige que **todas las versiones modificadas del proyecto** también sean de código abierto y estén licenciadas bajo la GPL. Esto garantiza que los **trabajos derivados sigan siendo libres y abiertos**.
 - **Caso de uso**: Ideal para proyectos que buscan **mantener el código libre y abierto para todos los usuarios**.
 
-#### **Licencia BSD:**
+#### Licencia BSD:
 
 - Una licencia permisiva **similar a la Licencia MIT**, pero con cláusulas adicionales sobre **publicidad y reconocimiento del autor original**.
 - **Caso de uso**: Comúnmente utilizada en proyectos que buscan **maximizar la libertad** de los usuarios, **pero requiriendo atribución**.
 
-#### **Licencias Creative Commons:**
+#### Licencias Creative Commons:
 
 - Se utilizan principalmente para **trabajos creativos en lugar de software**. Ofrecen **diferentes niveles de permisos** sobre el uso, modificación y compartición de contenido.
 - **Caso de uso**: Excelentes para documentación, **recursos de diseño** y otro contenido que **no sea código**.
@@ -217,7 +217,7 @@ Es un archivo de texto en la raíz del proyecto que especifica los términos leg
 
 - [https://choosealicense.com/](https://choosealicense.com/)
 
-### **Modos de inclusión de la licencia en un sitio web**
+### Modos de inclusión de la licencia en un sitio web
 
 Además del archivo `LICENSE` en la raíz del repositorio, es recomendable incluir referencias a la licencia en:
 
@@ -290,7 +290,7 @@ package-lock.json
 
 ## Manifest.json: Configuración para Web Apps
 
-### **¿Qué es el archivo manifest.json?**
+### ¿Qué es el archivo manifest.json?
 
 Define metadatos esenciales para **Progressive Web Apps (PWAs)**, permitiendo configurar cómo se comporta la app cuando es instalada en dispositivos.
 
@@ -384,7 +384,7 @@ Allow: /
 
 ---
 
-## **Conclusión y Aplicación Práctica**
+## Conclusión y Aplicación Práctica
 
 1. **Revisa tu `<head>` actual:**  
    Verifica si tu sitio incluye `<meta charset>`, `<title>`, `<meta name="description">`, `<meta name="author">`, y `<link rel="icon">`.

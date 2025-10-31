@@ -51,7 +51,7 @@ student-project/
 
 ## 🔧 Classification by Runtime Requirements
 
-### 📦 **Tools that REQUIRE Node.js**
+### 📦 Tools that REQUIRE Node.js
 
 #### Frameworks and Build Tools
 
@@ -83,7 +83,7 @@ student-project/
 - **Chakra UI** - Requires Node.js
 - **Shadcn UI** - Needs Node.js and pnpm/npm
 
-### 🌐 **Tools that DON'T REQUIRE Node.js**
+### 🌐 Tools that DON'T REQUIRE Node.js
 
 #### Standalone CSS Frameworks
 
@@ -120,7 +120,7 @@ student-project/
 
 ### Stylesheets and CSS Frameworks
 
-#### [Bootstrap](https://getbootstrap.com/) 🌐 **No Node.js**
+#### [Bootstrap](https://getbootstrap.com/) 🌐 No Node.js
 
 - **Key features**: Responsive grid system, prebuilt components, utilities
 - **Technology**: CSS/SCSS, vanilla JavaScript
@@ -129,7 +129,7 @@ student-project/
 - **Use cases**: Quick prototyping, legacy systems, education
 - **ATELIER note**: Fork an official template and analyze semantic quality vs. utilities
 
-#### [TailwindCSS](https://tailwindcss.com/) 📦 **Requires Node.js**
+#### [TailwindCSS](https://tailwindcss.com/) 📦 Requires Node.js
 
 - **Key features**: Utility-first, design system building, JIT compiler
 - **Technology**: PostCSS, JavaScript bundlers
@@ -138,7 +138,7 @@ student-project/
 - **Use cases**: Custom design systems, professional projects
 - **ATELIER note**: Compare cognitive load of memorizing classes vs. semantic clarity
 
-#### [Foundation](https://get.foundation/) 🌐 **No Node.js**
+#### [Foundation](https://get.foundation/) 🌐 No Node.js
 
 - **Key features**: Responsive grid, accessibility emphasis
 - **Technology**: Sass (optional), vanilla JavaScript
@@ -146,7 +146,7 @@ student-project/
 - **Learning curve**: Intermediate
 - **Use cases**: Accessibility-focused layouts
 
-#### [Bulma](https://bulma.io/) 🌐 **No Node.js**
+#### [Bulma](https://bulma.io/) 🌐 No Node.js
 
 - **Key features**: Pure CSS, no JavaScript, Flexbox-based
 - **Technology**: Pure CSS, Sass (optional)
@@ -156,7 +156,7 @@ student-project/
 
 ### UI Kits and Component Libraries
 
-#### [Material UI](https://mui.com/) 📦 **Requires Node.js**
+#### [Material UI](https://mui.com/) 📦 Requires Node.js
 
 - **Key features**: React components implementing Material Design
 - **Technology**: React, TypeScript
@@ -164,7 +164,7 @@ student-project/
 - **Learning curve**: Intermediate → Advanced
 - **Use cases**: Enterprise dashboards, educational portals
 
-#### [Shadcn UI](https://ui.shadcn.com/) 📦 **Requires Node.js**
+#### [Shadcn UI](https://ui.shadcn.com/) 📦 Requires Node.js
 
 - **Key features**: Copy-paste React components built with Tailwind
 - **Technology**: React, TailwindCSS, Radix primitives
@@ -172,7 +172,7 @@ student-project/
 - **Learning curve**: Intermediate
 - **Use cases**: Portfolios, modern SaaS landing pages
 
-#### [Ark UI](https://ark-ui.com/) 📦 **Requires Node.js**
+#### [Ark UI](https://ark-ui.com/) 📦 Requires Node.js
 
 - **Key features**: Headless, accessible UI primitives, framework-agnostic
 - **Technology**: TypeScript, modern frameworks
@@ -182,7 +182,7 @@ student-project/
 
 ### Static Site Generators
 
-#### [Jekyll](https://jekyllrb.com/) 🟥 **Requires Ruby (No Node.js)**
+#### [Jekyll](https://jekyllrb.com/) 🟥 Requires Ruby (No Node.js)
 
 - **Key features**: Static site generator, Markdown + Liquid templates
 - **Technology**: Ruby, YAML data, native GitHub Pages support
@@ -191,7 +191,7 @@ student-project/
 - **Use cases**: Blogs, portfolios, student projects
 - **ATELIER note**: Connects directly to Git workflows
 
-#### [Eleventy (11ty)](https://www.11ty.dev/) 📦 **Requires Node.js**
+#### [Eleventy (11ty)](https://www.11ty.dev/) 📦 Requires Node.js
 
 - **Key features**: Flexible static site generator, multiple template languages
 - **Technology**: Node.js
@@ -199,7 +199,7 @@ student-project/
 - **Learning curve**: Intermediate
 - **Use cases**: Lightweight alternative to Jekyll, JAMstack projects
 
-#### [Hugo](https://gohugo.io/) 🟢 **No Node.js**
+#### [Hugo](https://gohugo.io/) 🟢 No Node.js
 
 - **Key features**: Ultra-fast generator, single binary
 - **Technology**: Go (compiled to binary)
@@ -207,7 +207,7 @@ student-project/
 - **Learning curve**: Beginner → Intermediate
 - **Use cases**: Large sites, blogs, documentation
 
-#### [Astro](https://astro.build/) 📦 **Requires Node.js**
+#### [Astro](https://astro.build/) 📦 Requires Node.js
 
 - **Key features**: Modern framework, islands architecture, multi-framework
 - **Technology**: Node.js, Vite
@@ -217,7 +217,7 @@ student-project/
 
 ### Animation and Visual Libraries
 
-#### [GSAP](https://greensock.com/gsap/) 🌐 **No Node.js**
+#### [GSAP](https://greensock.com/gsap/) 🌐 No Node.js
 
 - **Key features**: Performance-focused animations, timelines, scroll triggers
 - **Technology**: Vanilla JavaScript
@@ -225,7 +225,7 @@ student-project/
 - **Learning curve**: Intermediate → Advanced
 - **Use cases**: Interactive storytelling, marketing sites
 
-#### [Framer Motion](https://www.framer.com/motion/) 📦 **Requires Node.js**
+#### [Framer Motion](https://www.framer.com/motion/) 📦 Requires Node.js
 
 - **Key features**: Animation library for React
 - **Technology**: React, TypeScript
@@ -233,7 +233,7 @@ student-project/
 - **Learning curve**: Intermediate
 - **Use cases**: Interactive portfolios, SaaS landing pages
 
-#### [Anime.js](https://animejs.com/) 🌐 **No Node.js**
+#### [Anime.js](https://animejs.com/) 🌐 No Node.js
 
 - **Key features**: Lightweight animation engine
 - **Technology**: Vanilla JavaScript
@@ -241,7 +241,7 @@ student-project/
 - **Learning curve**: Beginner → Intermediate
 - **Use cases**: Illustrations, lightweight visual effects
 
-#### [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/) 🌐 **No Node.js**
+#### [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/) 🌐 No Node.js
 
 - **Key features**: Scroll-triggered animations
 - **Technology**: Vanilla JavaScript, CSS
@@ -251,7 +251,7 @@ student-project/
 
 ### Templates and Open UI Kits
 
-#### [HTML5 UP](https://html5up.net/) 🌐 **No Node.js**
+#### [HTML5 UP](https://html5up.net/) 🌐 No Node.js
 
 - **Key features**: Free responsive HTML/CSS templates
 - **Technology**: HTML5, CSS3
@@ -259,7 +259,7 @@ student-project/
 - **Learning curve**: Beginner
 - **Use cases**: Student projects, quick deployments
 
-#### [Cruip](https://cruip.com/) 📦 **Requires Node.js (React versions)**
+#### [Cruip](https://cruip.com/) 📦 Requires Node.js (React versions)
 
 - **Key features**: Premium + free templates, based on React/Tailwind
 - **Technology**: React, TailwindCSS (React versions)
@@ -267,7 +267,7 @@ student-project/
 - **Learning curve**: Intermediate
 - **Use cases**: Startup landing pages
 
-#### [Flowbite](https://flowbite.com/) 📦 **Requires Node.js**
+#### [Flowbite](https://flowbite.com/) 📦 Requires Node.js
 
 - **Key features**: TailwindCSS component library
 - **Technology**: TailwindCSS, JavaScript
@@ -277,7 +277,7 @@ student-project/
 
 ### Data and Media Resources
 
-#### [Hygraph](https://hygraph.com/) 🌐 **SaaS (No local installation)**
+#### [Hygraph](https://hygraph.com/) 🌐 SaaS (No local installation)
 
 - **Key features**: Headless CMS with GraphQL
 - **Technology**: GraphQL API
@@ -285,7 +285,7 @@ student-project/
 - **Learning curve**: Intermediate
 - **Use cases**: Managing structured content
 
-#### [ImageKit.io](https://imagekit.io/) 🌐 **SaaS (No local installation)**
+#### [ImageKit.io](https://imagekit.io/) 🌐 SaaS (No local installation)
 
 - **Key features**: Image CDN, optimization, transformations
 - **Technology**: Global CDN, API
@@ -293,7 +293,7 @@ student-project/
 - **Learning curve**: Beginner
 - **Use cases**: Delivering optimized media
 
-#### [Netlify CMS](https://www.netlify.com/) 🌐 **No Node.js**
+#### [Netlify CMS](https://www.netlify.com/) 🌐 No Node.js
 
 - **Key features**: Git-based CMS, web interface
 - **Technology**: Vanilla JavaScript, Git API

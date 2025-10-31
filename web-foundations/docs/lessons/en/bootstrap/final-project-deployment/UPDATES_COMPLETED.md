@@ -6,13 +6,13 @@ The English version of the Bootstrap Final Project Deployment lesson has been su
 
 ## 📝 Updates to `index.md`
 
-### 1. **Enhanced Session Overview**
+### 1. Enhanced Session Overview
 
 - ✅ Added "Why is this important?" explanation
 - ✅ Included session flow roadmap
 - ✅ Contextualized the learning objectives
 
-### 2. **Improved Core Concepts**
+### 2. Improved Core Concepts
 
 #### Production Optimization
 
@@ -32,34 +32,34 @@ The English version of the Bootstrap Final Project Deployment lesson has been su
 - ✅ Specific metrics (character counts, timings)
 - ✅ Recommended tools
 
-### 3. **Production Build Process**
+### 3. Production Build Process
 
 - ✅ Context before each step
 - ✅ "Why" before "how"
 - ✅ References to demo for practical examples
 
-### 4. **New Guided Exercise**
+### 4. New Guided Exercise
 
 - ✅ Estimated time: 20-30 minutes
 - ✅ Clear learning objectives
 - ✅ Detailed exploration steps
 - ✅ Critical reflection questions
 
-### 5. **Enhanced Deployment Checklist**
+### 5. Enhanced Deployment Checklist
 
 - ✅ Organized by categories
 - ✅ More comprehensive (from 7 to 35+ items)
 - ✅ Includes content, images, SEO, performance aspects
 - ✅ Printable format for recurring use
 
-### 6. **Step-by-Step Guide Added**
+### 6. Step-by-Step Guide Added
 
 - ✅ 4-week plan to complete portfolio
 - ✅ Git commands documented
 - ✅ Tips for students
 - ✅ Next steps after completion
 
-### 7. **Next Steps Section**
+### 7. Next Steps Section
 
 - ✅ How to share work
 - ✅ Add to resume

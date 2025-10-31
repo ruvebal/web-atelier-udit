@@ -143,7 +143,7 @@ Desglosemos cómo funciona la estructura de archivos de la aplicación de págin
 
 ---
 
-#### 1. **main.js** — Punto de Entrada de la Aplicación
+#### 1. main.js — Punto de Entrada de la Aplicación
 
 - **Propósito:** Inicializa tu SPA. Instancia el router y configura cualquier listener de eventos globales.
 
@@ -174,7 +174,7 @@ document.addEventListener('click', (e) => {
 
 ---
 
-#### 2. **router.js** — La Clase SimpleRouter
+#### 2. router.js — La Clase SimpleRouter
 
 - **Propósito:** Maneja navegación, cambio de vistas, y resaltado de enlaces activos.
 - **Cómo funciona:**
@@ -254,7 +254,7 @@ async function ensureTemplateAvailable(templateId, templateUrl) {
 
 ---
 
-#### 3. **views/index.js** — La Tabla de Vistas
+#### 3. views/index.js — La Tabla de Vistas
 
 - **Propósito:** Mapea declarativamente rutas de hash de URL (como `"/"` o `"/about"`) a sus archivos HTML de plantilla y funciones JS opcionales para ejecutar después de renderizar.
 
@@ -275,7 +275,7 @@ export const views = {
 
 ---
 
-### **Cómo Todo Funciona Junto**
+### Cómo Todo Funciona Junto
 
 1. Cuando tu aplicación carga, `main.js` configura el router.
 2. El router escucha cambios de hash en la URL (ej., `#/about`).

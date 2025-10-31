@@ -8,13 +8,13 @@ Este documento resume todas las mejoras realizadas a la lección de Bootstrap Fi
 
 ## 🎓 Mejoras Pedagógicas al `index.md`
 
-### 1. **Flujo de Sesión Clarificado**
+### 1. Flujo de Sesión Clarificado
 
 - ✅ Añadido roadmap visual del flujo de la sesión
 - ✅ Explicación del "por qué" es importante cada concepto
 - ✅ Contexto sobre cómo esta lección cierra el ciclo de desarrollo
 
-### 2. **Conceptos Core Expandidos**
+### 2. Conceptos Core Expandidos
 
 #### Optimización de Producción
 
@@ -34,34 +34,34 @@ Este documento resume todas las mejoras realizadas a la lección de Bootstrap Fi
 - ✅ Métricas específicas (caracteres, tiempos)
 - ✅ Herramientas recomendadas
 
-### 3. **Proceso de Construcción**
+### 3. Proceso de Construcción
 
 - ✅ Contexto antes de cada paso
 - ✅ Razón del "por qué" antes del "cómo"
 - ✅ Referencias al demo para ejemplos prácticos
 
-### 4. **Ejercicio Guiado Nuevo**
+### 4. Ejercicio Guiado Nuevo
 
 - ✅ Tiempo estimado: 20-30 minutos
 - ✅ Objetivos claros de aprendizaje
 - ✅ Pasos detallados de exploración
 - ✅ Preguntas de reflexión crítica
 
-### 5. **Checklist de Despliegue Mejorada**
+### 5. Checklist de Despliegue Mejorada
 
 - ✅ Organizada por categorías
 - ✅ Más completa (de 7 a 35+ items)
 - ✅ Incluye aspectos de contenido, imágenes, SEO, rendimiento
 - ✅ Formato imprimible para uso recurrente
 
-### 6. **Guía Paso a Paso Añadida**
+### 6. Guía Paso a Paso Añadida
 
 - ✅ Plan de 4 semanas para completar el portafolio
 - ✅ Comandos Git documentados
 - ✅ Consejos para estudiantes
 - ✅ Próximos pasos después de completar
 
-### 7. **Sección de Próximos Pasos**
+### 7. Sección de Próximos Pasos
 
 - ✅ Cómo compartir el trabajo
 - ✅ Añadir al CV

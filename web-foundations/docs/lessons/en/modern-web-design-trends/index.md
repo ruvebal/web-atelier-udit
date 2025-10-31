@@ -97,7 +97,7 @@ Glassmorphism creates a "frosted glass" look: semi-transparent elements with blu
 - Popular in apps like iOS—feels tactile without being heavy.
 - Caveat: Can reduce readability; ensure text contrasts well.
 
-### 🎨 **The Key: Textured Backgrounds**
+### 🎨 The Key: Textured Backgrounds
 
 **Glassmorphism NEEDS a visually interesting background to work.** Without texture, color, or movement behind it, the blur effect has nothing to show and becomes invisible or boring.
 
@@ -243,13 +243,13 @@ Recent years have seen a **renaissance in web typography**, driven by technologi
 
 **Analogy:** Fonts are like voices—a bold, playful font is like an excited storyteller; a clean serif is like a calm teacher. But now, those voices can change pitch (weight), volume (fluid size), and expression (variable styles) based on context.
 
-### 🔤 **1. Variable Fonts: The Most Significant Technical Change**
+### 🔤 1. Variable Fonts: The Most Significant Technical Change
 
-#### **What Are They?**
+#### What Are They?
 
 **Variable fonts** are perhaps the most important technical advance in web typography. They allow a **single font file** to behave like **multiple fonts**, smoothly adjusting **weight**, **width**, **slant**, and other design axes.
 
-#### **Performance and Design Benefits:**
+#### Performance and Design Benefits:
 
 - **Performance:** Instead of loading 5 separate files (Light, Regular, Bold, Black, etc.), one variable font covers all, reducing file size and HTTP requests.
 - **Responsive design:** You can make text slightly wider and heavier on small screens for readability.
@@ -276,19 +276,19 @@ h1:hover {
 }
 ```
 
-#### **Impact:**
+#### Impact:
 
 Variable fonts bring the flexibility of print fonts (where a designer has a whole family of weights to choose from) to the web in a **single asset**. Modern sites use them for richer typography without the speed penalty.
 
 ---
 
-### 📐 **2. Fluid and Responsive Type Scales**
+### 📐 2. Fluid and Responsive Type Scales
 
-#### **The Problem:**
+#### The Problem:
 
 In the era of **multiple screen sizes**, we need text that's readable on mobile but well-proportioned on desktop, **without abrupt jumps**.
 
-#### **The Solution: Fluid Typography with `clamp()`**
+#### The Solution: Fluid Typography with `clamp()`
 
 The `clamp()` function allows font sizes to scale smoothly between a minimum and maximum based on screen width.
 
@@ -331,7 +331,7 @@ h1 {
 } /* Scales smartly with safe limits */
 ```
 
-#### **Benefits:**
+#### Benefits:
 
 - Eliminates fixed breakpoints for typography
 - Your beautiful display typography won't be microscopic on mobile or comically large on 4K monitors
@@ -339,13 +339,13 @@ h1 {
 
 ---
 
-### 🎨 **3. Large, Bold, Experimental Display Text**
+### 🎨 3. Large, Bold, Experimental Display Text
 
-#### **The Visual Trend:**
+#### The Visual Trend:
 
 Many modern websites use **oversized typography** as a key design element. Hero sections might feature a single word or phrase taking up the entire screen, creating **drama** and **immediate focus**.
 
-#### **Usage Examples:**
+#### Usage Examples:
 
 - **Typographic hero:** One large word instead of a traditional hero image
 - **Kinetic typography:** Letters that animate or morph on interaction
@@ -363,7 +363,7 @@ Many modern websites use **oversized typography** as a key design element. Hero 
 }
 ```
 
-#### **2024-2025 Trends:**
+#### 2024-2025 Trends:
 
 - **Neo-grotesque sans-serifs** (clean, mid-century modern fonts) for clarity
 - **Elegant serifs** for sophistication
@@ -372,9 +372,9 @@ Many modern websites use **oversized typography** as a key design element. Hero 
 
 ---
 
-### 💼 **4. Typography and Branding / Emotion**
+### 💼 4. Typography and Branding / Emotion
 
-#### **Typography = Brand Identity**
+#### Typography = Brand Identity
 
 Typeface choice and how it's used conveys **personality** and **emotion**:
 
@@ -387,7 +387,7 @@ Typeface choice and how it's used conveys **personality** and **emotion**:
 | **Editorial/Blog**      | Serif for headers + legible sans for body | Contemporary, readable  |
 | **Friendly/Kids Brand** | Rounded sans-serif with variable weights  | Approachable, warm      |
 
-#### **Resources:**
+#### Resources:
 
 - **Typewolf:** Shows popular font pairings in real sites
 - **Google Fonts:** Easy access to hundreds of typefaces
@@ -395,13 +395,13 @@ Typeface choice and how it's used conveys **personality** and **emotion**:
 
 ---
 
-### ♿ **5. Accessibility in Typography: A Critical Priority**
+### ♿ 5. Accessibility in Typography: A Critical Priority
 
-#### **Essential Best Practice:**
+#### Essential Best Practice:
 
 Designing typography for **accessibility** isn't optional—it's fundamental for an inclusive web.
 
-#### **Typographic Accessibility Checklist:**
+#### Typographic Accessibility Checklist:
 
 1. **Sufficient contrast:**
 
@@ -437,9 +437,9 @@ Designing typography for **accessibility** isn't optional—it's fundamental for
 
 ---
 
-### 🌐 **6. Web-Specific Considerations**
+### 🌐 6. Web-Specific Considerations
 
-#### **Differences from Print Design:**
+#### Differences from Print Design:
 
 Unlike print (where the designer controls everything), web typography must adapt to:
 
@@ -447,7 +447,7 @@ Unlike print (where the designer controls everything), web typography must adapt
 - **User control:** Zoom, custom font size
 - **Loading failures:** Web fonts that don't load
 
-#### **Progressive Enhancement Techniques:**
+#### Progressive Enhancement Techniques:
 
 **1. Robust Font Stacks:**
 
@@ -494,7 +494,7 @@ p {
 
 ---
 
-### 🎯 **Hands-On Learning: Explore the Demo**
+### 🎯 Hands-On Learning: Explore the Demo
 
 **📂 Open the demo file:** [`demo/04-fluid-typography.html`](demo/04-fluid-typography.html)
 
@@ -541,23 +541,23 @@ The demo illustrates key concepts from this module:
 
 ---
 
-### 🛠️ **Tools and Resources**
+### 🛠️ Tools and Resources
 
-#### **Web Fonts:**
+#### Web Fonts:
 
 - **[Google Fonts](https://fonts.google.com/)** – Hundreds of free fonts, easy implementation
 - **[Adobe Fonts](https://fonts.adobe.com/)** – Professional fonts for Creative Cloud subscribers
 - **[Font Squirrel](https://www.fontsquirrel.com/)** – Free fonts for commercial use
 - **[Variable Fonts](https://v-fonts.com/)** – Variable fonts catalog
 
-#### **Tools:**
+#### Tools:
 
 - **[Typewolf](https://www.typewolf.com/)** – Font pairing inspiration
 - **[Type Scale](https://type-scale.com/)** – Typographic scale generator
 - **[Modular Scale](https://www.modularscale.com/)** – Proportion calculator
 - **[Fluid Type Scale Calculator](https://www.fluid-type-scale.com/)** – Generate custom `clamp()` values
 
-#### **Testing:**
+#### Testing:
 
 - **[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)** – Verify contrast ratios
 - **Chrome DevTools Lighthouse** – Automated accessibility audits
@@ -565,7 +565,7 @@ The demo illustrates key concepts from this module:
 
 ---
 
-### 📋 **Summary: Key Principles of Modern Web Typography**
+### 📋 Summary: Key Principles of Modern Web Typography
 
 1. **✅ Use variable fonts** when possible for performance and flexibility
 2. **✅ Implement fluid typography** with `clamp()` for responsive scaling without jumps
@@ -602,7 +602,7 @@ There are **two main paths** for implementing dark mode. Each has its pros and c
 
 ---
 
-#### **Path A: Pure CSS (Automatic, OS-Based)**
+#### Path A: Pure CSS (Automatic, OS-Based)
 
 This method uses CSS to detect the user's OS preference. **No JavaScript needed!**
 
@@ -661,7 +661,7 @@ body {
 
 ---
 
-#### **Path B: JavaScript Toggle (Manual, Persistent)**
+#### Path B: JavaScript Toggle (Manual, Persistent)
 
 This method lets users **manually toggle** dark mode with a button. You can save their choice in `localStorage` to make it persistent!
 
@@ -739,7 +739,7 @@ if (savedTheme) {
 
 ---
 
-#### **Path C: Checkbox + CSS (Elegant, JavaScript-Free)**
+#### Path C: Checkbox + CSS (Elegant, JavaScript-Free)
 
 This advanced method uses a **hidden checkbox** with the **general sibling combinator (`~`)** to control theme. **Pure CSS magic!**
 
