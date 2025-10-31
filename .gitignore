@@ -8,3 +8,5 @@ package-lock.json
 pnpm-lock.yaml
 yarn.lock
 Gemfile.lock
+web-foundations/docs/assets/css/tailwind-processed.css
+vendor/

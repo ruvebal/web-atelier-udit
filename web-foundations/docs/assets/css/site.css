@@ -160,6 +160,28 @@
 	--font-resource-icon-size: 2.5rem;
 }
 
+/* Dark mode CSS variables */
+html.dark,
+.dark {
+	/* Dark mode text colors */
+	--text-primary: #f5f5f5;
+	--text-secondary: #d4d4d4;
+	--muted: #a3a3a3;
+
+	/* Dark mode surfaces */
+	--bg: #0a0a0a;
+	--bg-light: #171717;
+	--border-light: #262626;
+
+	/* Dark mode code surfaces */
+	--code-inline-bg: #262626;
+	--code-inline-border: #404040;
+
+	/* Dark mode borders */
+	--border-hover: #404040;
+	--shadow-color: rgba(0, 0, 0, 0.5);
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -654,7 +676,7 @@ img.footer-logo {
 /* Blockquotes contrast */
 .prose blockquote {
 	border-left: 4px solid var(--primary);
-	background: #f8fafc;
+	background: var(--bg-light);
 	padding: 0.5rem 1rem;
 	color: var(--text-secondary);
 }

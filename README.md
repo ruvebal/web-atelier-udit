@@ -44,8 +44,8 @@ Commit-driven web pedagogy & research at **UDIT, University of Design, Innovatio
 ### Core Repositories / Repositorios Núcleo
 
 - **Web Foundations** 🎓
-  EN: Canonical lessons, pedagogy, and templates. Published at GitHub Pages.
-  ES: Lecciones canónicas, pedagogía y plantillas. Publicado en GitHub Pages.
+  EN: Canonical lessons, pedagogy, and templates. Published at GitHub Pages. Built with Jekyll + Tailwind CSS.
+  ES: Lecciones canónicas, pedagogía y plantillas. Publicado en GitHub Pages. Construido con Jekyll + Tailwind CSS.
   Path: `web-foundations/README.md` (EN) · `web-foundations/README-es.md` (ES)
   Live: `https://ruvebal.github.io/web-atelier-udit/`
 

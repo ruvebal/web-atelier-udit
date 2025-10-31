@@ -50,6 +50,18 @@ This repository leverages modern web and DevOps tools to create a seamless teach
   - **Peer Review Automation:** In Week 4, students submit their project metadata to be included in the course showcase. We use a Pull Request workflow – when a student opens a PR to add their entry to `students.yaml`, a GitHub Action automatically runs to check the submission and even builds a preview of the updated showcase.
   - **Showroom Generation:** Our course “showroom” (the index of all student projects) can be rebuilt by an Action. When `students.yaml` changes (new student added or project title updated), an Action triggers Jekyll to regenerate the index page. This means the instructor doesn’t have to manually regenerate any listing; just merging a PR will automatically update the live class gallery.
 
+## Styling with Tailwind CSS
+
+**Web Foundations** uses [Tailwind CSS](https://tailwindcss.com) for utility-first styling, processed through [PostCSS](https://postcss.org) with [Autoprefixer](https://github.com/postcss/autoprefixer) for vendor prefixing and [cssnano](https://cssnano.co) for production minification.
+
+- **Tailwind CSS:** Utility-first CSS framework for rapid, responsive UI development
+- **PostCSS:** CSS processing pipeline with plugin ecosystem
+- **@tailwindcss/typography:** Plugin for beautiful prose content formatting
+- **Autoprefixer:** Automatic vendor prefix management for browser compatibility
+- **cssnano:** Production CSS minification (development: ~62KB, production: ~48KB)
+
+The CSS build process runs before Jekyll: `npm run build` processes `docs/assets/css/tailwind.css` into `docs/assets/css/tailwind-processed.css` using the configured Tailwind utilities, typography plugin, and custom theme extensions. The processed file is then served by Jekyll through `_includes/head.html`.
+
 ## Content Format and Data: Markdown, YAML, Liquid, JSON-LD
 
 - **Markdown:** Used for authoring lessons, briefs, and documentation. It is easy to read, easy to write, and converts to HTML.
@@ -64,9 +76,13 @@ web-foundations/
 ├── docs/
 │   ├── lessons/       # Core lesson content (Markdown files)
 │   ├── methodology/   # Pedagogical guides
-│   └── templates/     # Templates for project briefs and YAML samples
+│   ├── templates/     # Templates for project briefs and YAML samples
+│   └── assets/css/    # Stylesheets (site.css, tailwind.css)
 ├── _config.yml        # Jekyll configuration
-├── Gemfile            # Dependencies for local Jekyll builds
+├── Gemfile            # Ruby dependencies for Jekyll
+├── package.json       # Node.js dependencies (PostCSS, Tailwind CSS)
+├── postcss.config.js  # PostCSS configuration
+├── tailwind.config.js # Tailwind CSS configuration
 └── README.md          # This document
 ```
 

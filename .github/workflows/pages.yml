@@ -34,6 +34,14 @@ jobs:
       ruby-version: '3.2'
       bundler-cache: true
 
+   - uses: actions/setup-node@v4
+     with:
+      node-version: '20'
+
+   - name: Install Node.js deps (web-foundations)
+     working-directory: web-foundations
+     run: pnpm install --frozen-lockfile
+
    - name: Install Jekyll deps (web-foundations)
      working-directory: web-foundations
      run: |
@@ -43,7 +51,7 @@ jobs:
    - name: Build site (from nested source web-foundations/docs)
      working-directory: web-foundations
      run: |
-      bundle exec jekyll build --source docs --destination _site --trace
+      npm run build
 
    - name: Prepare artifact (flatten path)
      run: |
