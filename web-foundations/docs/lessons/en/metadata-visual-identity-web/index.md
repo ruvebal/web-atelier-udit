@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Metadata and Visual Identity in Web Documentation'
-title_es: 'Metadatos e identidad visual en la documentación Web'
+title_alt: 'Metadatos e identidad visual en la documentación Web'
 slug: metadata-visual-identity-web
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

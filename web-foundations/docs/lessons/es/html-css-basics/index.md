@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Práctica: HTML semántico + Fundamentos de CSS'
-title_es: 'Práctica: HTML semántico + Fundamentos de CSS'
+title_alt: 'Práctica: HTML semántico + Fundamentos de CSS'
 slug: html-css-basics
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

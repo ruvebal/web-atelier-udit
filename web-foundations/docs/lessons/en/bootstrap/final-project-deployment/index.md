@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Bootstrap CSS: Build & Deploy — Production-Ready Portfolio'
-title_en: 'Bootstrap CSS: Build & Deploy — Production-Ready Portfolio'
+title_alt: 'Bootstrap CSS: Build & Deploy — Production-Ready Portfolio'
 slug: bootstrap-final-project-deployment
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

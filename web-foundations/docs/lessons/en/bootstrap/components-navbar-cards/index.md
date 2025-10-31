@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Bootstrap CSS: Components & UI Patterns — Reusable Component Library'
-title_en: 'Bootstrap CSS: Components & UI Patterns — Reusable Component Library'
+title_alt: 'Bootstrap CSS: Components & UI Patterns — Reusable Component Library'
 slug: bootstrap-components-navbar-cards
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

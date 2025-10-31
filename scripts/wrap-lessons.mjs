@@ -82,7 +82,7 @@ for (const file of canonicalFiles) {
 
 	// --- Write EN stub ---
 	const enPath = path.join(EN_DIR, `${slug}.md`);
-	const enTitle = fm.title_en || fm.title; // optional title_en in canonical
+        const enTitle = fm.title_alt || fm.title; // optional translated title in canonical
 	const enBodyHeader = `> **TODO (translate):** This is an English stub for “${fm.title}”.\n\n`;
 	const enFM = {
 		...fm,

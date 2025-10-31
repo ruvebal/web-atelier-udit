@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'El Propósito del Formateo y Linting en el Desarrollo'
-title_en: 'The Purpose of Formatting and Linting in Development'
+title_alt: 'The Purpose of Formatting and Linting in Development'
 slug: linting-and-formatting
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

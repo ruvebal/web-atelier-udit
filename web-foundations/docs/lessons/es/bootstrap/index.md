@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Ruta de Aprendizaje de Bootstrap CSS — Hoja de Ruta Completa'
-title_es: 'Ruta de Aprendizaje de Bootstrap CSS — Hoja de Ruta Completa'
+title_alt: 'Ruta de Aprendizaje de Bootstrap CSS — Hoja de Ruta Completa'
 slug: bootstrap
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

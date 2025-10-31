@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Tailwind CSS: Configuración y Fundamentos — Desarrollo PWA-Ready'
-title_en: 'Tailwind CSS: Setup & Fundamentals — PWA-Ready Development'
+title_alt: 'Tailwind CSS: Setup & Fundamentals — PWA-Ready Development'
 slug: tailwind-setup-fundamentals
 date: 2025-09-10
 updated: 2025-10-07

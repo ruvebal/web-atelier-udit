@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Modern Responsive Web Design with Bootstrap: 6-Session Guide'
-title_en: 'Modern Responsive Web Design with Bootstrap: 6-Session Guide'
+title_alt: 'Modern Responsive Web Design with Bootstrap: 6-Session Guide'
 slug: bootstrap-roadmap
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

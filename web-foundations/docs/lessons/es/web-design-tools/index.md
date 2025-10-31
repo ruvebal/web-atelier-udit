@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Herramientas de Diseño Web Clásicas y Modernas (2025)'
-title_es: 'Herramientas de Diseño Web Clásicas y Modernas (2025)'
+title_alt: 'Herramientas de Diseño Web Clásicas y Modernas (2025)'
 slug: web-design-tools
 date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'

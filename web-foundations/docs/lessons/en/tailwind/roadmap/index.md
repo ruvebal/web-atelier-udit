@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Tailwind CSS Teaching Roadmap'
-title_en: 'Tailwind CSS Teaching Roadmap'
+title_alt: 'Tailwind CSS Teaching Roadmap'
 slug: tailwind-roadmap
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Tailwind CSS: Ruteo SPA y Layout Compartido — Construyendo Experiencias Interactivas'
-title_en: 'Tailwind CSS: SPA Routing & Shared Layout — Building Interactive Experiences'
+title_alt: 'Tailwind CSS: SPA Routing & Shared Layout — Building Interactive Experiences'
 slug: tailwind-routing-layout
 date: 2025-09-10
 updated: 2025-10-07

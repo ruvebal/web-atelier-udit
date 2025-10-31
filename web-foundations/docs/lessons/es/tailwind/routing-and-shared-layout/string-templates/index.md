@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Tailwind CSS: Ruteo SPA con String Templates — Vistas Modulares y Navegación'
-title_en: 'Tailwind CSS: SPA Routing with String Templates — Modular Views & Navigation'
+title_alt: 'Tailwind CSS: SPA Routing with String Templates — Modular Views & Navigation'
 slug: tailwind-routing-string-templates
 date: 2025-09-10
 updated: 2025-10-07

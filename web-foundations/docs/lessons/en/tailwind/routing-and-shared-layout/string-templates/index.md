@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Tailwind CSS: SPA Routing with String Templates'
-title_en: 'Tailwind CSS: SPA Routing with String Templates'
+title_alt: 'Tailwind CSS: SPA Routing with String Templates'
 slug: tailwind-routing-string-templates
 date: 2025-09-10
 updated: 2025-10-07

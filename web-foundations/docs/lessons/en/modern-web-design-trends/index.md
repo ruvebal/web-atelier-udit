@@ -1,6 +1,6 @@
 ---
 title: 'Modern Web Design Trends: Practical Guide for Students'
-title_en: 'Modern Web Design Trends: Practical Guide for Students'
+title_alt: 'Modern Web Design Trends: Practical Guide for Students'
 description: 'A hands-on exploration of key web design trends like parallax, glassmorphism, typography, dark mode, minimalism vs. maximalism, scrollytelling, and 3D effects. Simplified for beginners with active exercises and critical reflections.'
 date: 2025-10-14
 author: 'Atelier Team'

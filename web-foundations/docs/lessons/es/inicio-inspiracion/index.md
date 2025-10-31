@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Inspiración & Inicio'
-title_en: 'Inspiration & Kickoff'
+title_alt: 'Inspiration & Kickoff'
 slug: inicio-inspiracion
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

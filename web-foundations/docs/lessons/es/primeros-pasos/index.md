@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Desarrollo Web con HTML – Organización y Buenas Prácticas'
-title_en: 'Web Development with HTML – Organization and Best Practices'
+title_alt: 'Web Development with HTML – Organization and Best Practices'
 slug: primeros-pasos
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

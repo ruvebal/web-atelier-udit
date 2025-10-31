@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Bootstrap CSS: Sistema de Rejilla y Contenedores — Arquitectura de Diseño Responsivo'
-title_es: 'Bootstrap CSS: Sistema de Rejilla y Contenedores — Arquitectura de Diseño Responsivo'
+title_alt: 'Bootstrap CSS: Sistema de Rejilla y Contenedores — Arquitectura de Diseño Responsivo'
 slug: bootstrap-layout-grid-containers
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

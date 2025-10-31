@@ -1,6 +1,6 @@
 ---
 title: 'Tendencias de Diseño Web Moderno: Guía Práctica para Estudiantes'
-title_en: 'Modern Web Design Trends: Practical Guide for Students'
+title_alt: 'Modern Web Design Trends: Practical Guide for Students'
 description: 'Una exploración práctica de tendencias clave en diseño web como parallax, glassmorphism, tipografía, modo oscuro, minimalismo vs. maximalismo, narrativas basadas en scroll y efectos 3D. Simplificada para principiantes con ejercicios activos y reflexiones críticas.'
 date: 2025-10-14
 author: 'Rubén Vega Balbás, PhD'

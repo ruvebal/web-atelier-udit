@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Intrinsic Web Design: Container Queries & Subgrid'
-title_es: 'Diseño Web Intrínseco: Container Queries y Subgrid'
+title_alt: 'Diseño Web Intrínseco: Container Queries y Subgrid'
 slug: intrinsic-web-design
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

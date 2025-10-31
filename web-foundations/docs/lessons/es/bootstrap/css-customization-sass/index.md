@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Bootstrap CSS: Personalización CSS y Sass — Sistema de Diseño y Temas'
-title_es: 'Bootstrap CSS: Personalización CSS y Sass — Sistema de Diseño y Temas'
+title_alt: 'Bootstrap CSS: Personalización CSS y Sass — Sistema de Diseño y Temas'
 slug: bootstrap-css-customization-sass
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'
