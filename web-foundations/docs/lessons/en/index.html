@@ -11,10 +11,10 @@ permalink: /lessons/en/
 <ul class="lessons-{{ locale }}">
 	{% for item in site.data.lessons %} {% assign t = item.title[locale] | default: item.title.en %} {% assign p =
 	item.path[locale] %}
+	{% if p %}
 	<li>
-		{% if p %}
 		<a href="{{ p | relative_url }}">{{ t }}</a>
-		{% else %} {{ t }} {% endif %}
 	</li>
+	{% endif %}
 	{% endfor %}
 </ul>

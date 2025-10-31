@@ -1,6 +1,8 @@
-title: 'Web Foundations (Canonical Lessons)'
-url: 'https://ruvebal.github.io/web-atelier-udit/'
+title: 'WEB ATELIER (UDIT) – Web Foundations'
+description: 'Canonical lessons, methodology, and templates for ATELIER UDIT.'
+url: 'https://ruvebal.github.io'
 baseurl: '/web-atelier-udit'
+repository: 'ruvebal/web-atelier-udit'
 source: docs
 markdown: kramdown
 kramdown:
@@ -42,6 +44,31 @@ kramdown:
 theme: null
 
 highlighter: rouge
+
+permalink: /:categories/:path/
+
+# Process any file with front matter, including nested lessons in es/ and en/
+include:
+ - lessons
+ - assets
+ - _data
+
+# Exclude CI and dev artifacts
+exclude:
+ - node_modules
+ - vendor
+ - Gemfile
+ - Gemfile.lock
+ - package.json
+ - package-lock.json
+ - scripts
+ - .github
+
+# Plugins available on GitHub Pages via 'github-pages' gem
+plugins:
+ - jekyll-seo-tag
+ - jekyll-sitemap
+
 collections:
  lessons:
   output: true
@@ -65,3 +92,13 @@ defaults:
  - scope: { path: '_methodology', type: 'methodology' }
    values:
     layout: methodology
+ - scope:
+    path: 'lessons/es'
+   values:
+    lang: 'es'
+    layout: 'lesson'
+ - scope:
+    path: 'lessons/en'
+   values:
+    lang: 'en'
+    layout: 'lesson'
