@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Tailwind CSS Learning Path — Complete Roadmap'
-title_en: 'Tailwind CSS Learning Path — Complete Roadmap'
+title_alt: 'Tailwind CSS Learning Path — Complete Roadmap'
 slug: tailwind
 date: 2025-09-10
 updated: 2025-10-07

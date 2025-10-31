@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Tailwind CSS: Componentes y Sistema de Diseño — Construyendo Patrones Reutilizables'
-title_en: 'Tailwind CSS: Components & Design System — Building Reusable Patterns'
+title_alt: 'Tailwind CSS: Components & Design System — Building Reusable Patterns'
 slug: tailwind-components-design-system
 date: 2025-09-10
 updated: 2025-10-07

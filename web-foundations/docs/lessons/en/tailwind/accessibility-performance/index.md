@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Tailwind CSS: Accessibility & Performance — Inclusive & Optimized Design'
-title_en: 'Tailwind CSS: Accessibility & Performance — Inclusive & Optimized Design'
+title_alt: 'Tailwind CSS: Accessibility & Performance — Inclusive & Optimized Design'
 slug: tailwind-accessibility-performance
 date: 2025-09-10
 updated: 2025-10-07

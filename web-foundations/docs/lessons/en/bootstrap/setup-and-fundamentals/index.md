@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Bootstrap CSS: Setup & Fundamentals — PWA-Ready Development'
-title_en: 'Bootstrap CSS: Setup & Fundamentals — PWA-Ready Development'
+title_alt: 'Bootstrap CSS: Setup & Fundamentals — PWA-Ready Development'
 slug: bootstrap-setup-fundamentals
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

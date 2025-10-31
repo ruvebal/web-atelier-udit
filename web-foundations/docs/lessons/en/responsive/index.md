@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Web Design: Responsive, Fluid and Intrinsic'
-title_en: ''
+title_alt: ''
 slug: responsive
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

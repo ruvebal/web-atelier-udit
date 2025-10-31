@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'JavaScript Modules: From Chaos to Modularity'
-title_es: 'Módulos JavaScript: Del Caos a la Modularidad'
+title_alt: 'Módulos JavaScript: Del Caos a la Modularidad'
 slug: js-modules
 date: 2025-10-20
 author: 'Rubén Vega Balbás, PhD'

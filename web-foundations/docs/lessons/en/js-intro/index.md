@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Introduction to JS'
-title_es: 'Introducción a JS'
+title_alt: 'Introducción a JS'
 slug: js-intro
 date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'

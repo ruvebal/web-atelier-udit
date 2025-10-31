@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Hoja de Ruta de Enseñanza de Tailwind CSS'
-title_en: 'Tailwind CSS Teaching Roadmap'
+title_alt: 'Tailwind CSS Teaching Roadmap'
 slug: tailwind-roadmap
 date: 2025-09-10
 updated: 2025-10-07

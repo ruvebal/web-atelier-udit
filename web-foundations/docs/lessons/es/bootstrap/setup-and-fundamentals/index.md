@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Bootstrap CSS: Configuración y Fundamentos — Desarrollo PWA-Ready'
-title_es: 'Bootstrap CSS: Configuración y Fundamentos — Desarrollo PWA-Ready'
+title_alt: 'Bootstrap CSS: Configuración y Fundamentos — Desarrollo PWA-Ready'
 slug: bootstrap-setup-fundamentals
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

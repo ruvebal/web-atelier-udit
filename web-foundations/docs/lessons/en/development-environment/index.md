@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Development Environment'
-title_en: 'Guide to Setting Up a Web Development Environment for Students'
+title_alt: 'Guide to Setting Up a Web Development Environment for Students'
 slug: development-environment
 date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'

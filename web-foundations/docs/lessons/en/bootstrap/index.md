@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Bootstrap CSS Learning Path — Complete Roadmap'
-title_en: 'Bootstrap CSS Learning Path — Complete Roadmap'
+title_alt: 'Bootstrap CSS Learning Path — Complete Roadmap'
 slug: bootstrap
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

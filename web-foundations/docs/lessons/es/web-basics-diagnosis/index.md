@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Conocimientos Básicos Ecosistema Web'
-title_en: 'Basic Web Ecosystem'
+title_alt: 'Basic Web Ecosystem'
 slug: web-basics-diagnosis
 date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'

@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Tailwind CSS: State & Interactivity — Building Dynamic User Experiences'
-title_en: 'Tailwind CSS: State & Interactivity — Building Dynamic User Experiences'
+title_alt: 'Tailwind CSS: State & Interactivity — Building Dynamic User Experiences'
 slug: tailwind-state-interactivity
 date: 2025-09-10
 updated: 2025-10-07

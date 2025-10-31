@@ -841,7 +841,7 @@ async function main() {
 				const abs = path.join(docsRoot, s);
 				const raw = await fs.readFile(abs, 'utf8');
 				const fm = matter(raw).data || {};
-				const title = fm.title || fm.title_en || fm.title_es || s;
+                                const title = fm.title || fm.title_alt || s;
 				const href = ('/' + s).replace(/index\.md$/, '');
 				meta.push({ title, href, path: s });
 			} catch {

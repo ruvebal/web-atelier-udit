@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Bootstrap CSS: Construcción y Despliegue — Portafolio Listo para Producción'
-title_es: 'Bootstrap CSS: Construcción y Despliegue — Portafolio Listo para Producción'
+title_alt: 'Bootstrap CSS: Construcción y Despliegue — Portafolio Listo para Producción'
 slug: bootstrap-final-project-deployment
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

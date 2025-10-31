@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Animaciones Web: Del Movimiento al Significado'
-title_en: 'Web Animations: From Motion to Meaning'
+title_alt: 'Web Animations: From Motion to Meaning'
 slug: web-animations
 date: 2025-10-21
 author: 'Rubén Vega Balbás, PhD'

@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: Typography & Color
-title_en: Typography & Color
+title_alt: Typography & Color
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 slug: typography-color

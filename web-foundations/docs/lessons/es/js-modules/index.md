@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Módulos JavaScript: Del Caos a la Modularidad'
-title_en: 'JavaScript Modules: From Chaos to Modularity'
+title_alt: 'JavaScript Modules: From Chaos to Modularity'
 slug: js-modules
 date: 2025-10-20
 author: 'Rubén Vega Balbás, PhD'
@@ -1162,4 +1162,3 @@ Progreso de aprendizaje: Principiante → Mentalidad de arquitectura profesional
 *"No enseñamos código—enseñamos a pensar. Los módulos no son sintaxis, son arquitectura. La arquitectura no es estructura, es cultura. La cultura es cómo trabajamos juntos a través del tiempo y el espacio. Bienvenido a la comunidad de maestros web vernáculos."*
 
 — Prof. Rubén Vega Balbás, PhD
-

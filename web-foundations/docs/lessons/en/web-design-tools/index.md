@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Classic and Modern Web Design Tools (2025)'
-title_es: ''
+title_alt: ''
 slug: web-design-tools
 date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'

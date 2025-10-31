@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Bootstrap CSS: Layout Grid & Containers — Responsive Layout Architecture'
-title_en: 'Bootstrap CSS: Layout Grid & Containers — Responsive Layout Architecture'
+title_alt: 'Bootstrap CSS: Layout Grid & Containers — Responsive Layout Architecture'
 slug: bootstrap-layout-grid-containers
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

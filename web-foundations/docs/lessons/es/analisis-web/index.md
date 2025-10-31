@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Guía para el Análisis Web'
-title_en: 'Web Analysis Guide'
+title_alt: 'Web Analysis Guide'
 slug: web-analysis
 date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'

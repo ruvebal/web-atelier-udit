@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Bootstrap CSS: Interactividad y Componentes JavaScript — Experiencias de Usuario Dinámicas'
-title_es: 'Bootstrap CSS: Interactividad y Componentes JavaScript — Experiencias de Usuario Dinámicas'
+title_alt: 'Bootstrap CSS: Interactividad y Componentes JavaScript — Experiencias de Usuario Dinámicas'
 slug: bootstrap-interactivity-js-components
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'

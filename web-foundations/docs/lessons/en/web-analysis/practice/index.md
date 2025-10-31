@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Practice: Report on Outstanding Websites Analysis (SOW)'
-title_es: 'Práctica: Informe de Análisis de Sitios Web Sobresalientes (SOW)'
+title_alt: 'Práctica: Informe de Análisis de Sitios Web Sobresalientes (SOW)'
 slug: web-analysis-practice
 date: 2025-09-08
 author: 'Rubén Vega Balbás, PhD'

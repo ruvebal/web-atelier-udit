@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Tailwind CSS: Build & Deploy — Production-Ready PWA'
-title_en: 'Tailwind CSS: Build & Deploy — Production-Ready PWA'
+title_alt: 'Tailwind CSS: Build & Deploy — Production-Ready PWA'
 slug: tailwind-build-deploy
 date: 2025-09-10
 updated: 2025-10-07

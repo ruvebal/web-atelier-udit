@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Manipulación del DOM en el Navegador: Cadenas, API del DOM, Plantillas y DOM Virtual'
-title_en: 'DOM Manipulation in the Browser: Strings, DOM API, Templates, and the Virtual DOM'
+title_alt: 'DOM Manipulation in the Browser: Strings, DOM API, Templates, and the Virtual DOM'
 slug: js-dom-manipulation
 date: 2025-10-27
 author: 'Rubén Vega Balbás, PhD'

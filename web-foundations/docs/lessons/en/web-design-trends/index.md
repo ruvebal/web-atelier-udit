@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Modern Web Design Trends: Theory and Practice'
-title_es: 'Tendencias de diseño web moderno: teoría y práctica'
+title_alt: 'Tendencias de diseño web moderno: teoría y práctica'
 slug: modern-web-design-trends
 date: 2025-09-10
 author: 'Rubén Vega Balbás, PhD'
