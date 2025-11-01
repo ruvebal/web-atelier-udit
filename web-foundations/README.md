@@ -14,7 +14,7 @@ _Critical Coding for a Better Living._
 ### Licensing
 
 - **Code:** MIT — see `LICENSE-CODE`
-- **Content:** CC BY-NC 4.0 — see `LICENSE-CONTENT`
+- **Content:** CC BY-NC-SA 4.0 — see `LICENSE-CONTENT`
   _Unless otherwise indicated._
 
 © 2025 Rubén Vega Balbás, PhD — WEB ATELIER (UDIT)

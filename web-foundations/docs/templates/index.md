@@ -143,6 +143,6 @@ Each template embodies core **WEB ATELIER** principles:
 ---
 
 **Authorship:** Rubén Vega Balbás, PhD (UDIT, University of Design, Innovation and Technology) · ORCID: <https://orcid.org/0000-0001-6862-9081> · <https://www.udit.es>
-**Licenses:** Code MIT · Content CC BY-NC 4.0
+**Licenses:** Code MIT · Content CC BY-NC-SA 4.0
 
 _Critical Coding for a Better Living._

@@ -6,7 +6,7 @@ _Critical Coding for a Better Living._
 Commit-driven web pedagogy & research at **UDIT, University of Design, Innovation and Technology (UDIT)** — [https://www.udit.es](https://www.udit.es).
 
 [![Code: MIT](https://img.shields.io/badge/code-MIT-informational.svg)](./LICENSE-CODE)
-[![Content: CC BY-NC 4.0](https://img.shields.io/badge/content-CC%20BY--NC%204.0-blue.svg)](./LICENSE-CONTENT)
+[![Content: CC BY-NC-SA 4.0](https://img.shields.io/badge/content-CC%20BY--NC%204.0-blue.svg)](./LICENSE-CONTENT)
 [![Pages](https://img.shields.io/badge/Pages-live-success.svg)](#)
 
 ---
@@ -75,7 +75,7 @@ Commit-driven web pedagogy & research at **UDIT, University of Design, Innovatio
 ## Licensing
 
 - **Code:** MIT — see `LICENSE-CODE`
-- **Content:** CC BY-NC 4.0 — see `LICENSE-CONTENT`
+- **Content:** CC BY-NC-SA 4.0 — see `LICENSE-CONTENT`
   _Unless otherwise indicated._
 
 ---

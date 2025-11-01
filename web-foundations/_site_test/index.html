@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es" id="html-root">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>WEB ATELIER (UDIT) - Canonical Lessons & Methodology ·</title>
+		<link rel="stylesheet" href="/assets/css/tailwind-processed.css" />
+		<link rel="stylesheet" href="/assets/css/site.css" />
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "ScholarlyArticle",
+				"headline": "WEB ATELIER (UDIT) - Canonical Lessons & Methodology",
+				"author": {
+					"@type": "Person",
+					"name": "Rubén Vega Balbás, PhD",
+					"affiliation": {
+						"@type": "CollegeOrUniversity",
+						"name": "UDIT, University of Design, Innovation and Technology",
+						"url": "https://www.udit.es"
+					},
+					"identifier": {
+						"@type": "PropertyValue",
+						"propertyID": "ORCID",
+						"value": "https://orcid.org/0000-0001-6862-9081"
+					},
+					"sameAs": ["https://github.com/ruvebal", "https://mastodon.social/@ruvebal", "http://www.ruvebal.art/"],
+					"url": "https://www.udit.es/professors/ruben-vega-balbas",
+					"contactPoint": {
+						"@type": "ContactPoint",
+						"contactType": "academic inquiries",
+						"email": "ruben.vega@udit.es"
+					}
+				},
+				"publisher": {
+					"@type": "Organization",
+					"name": "WEB ATELIER (UDIT)",
+					"url": "https://github.com/ruvebal/web-atelier-udit"
+				},
+				"datePublished": "2025-11-01",
+				"license": "https://creativecommons.org/licenses/by-nc/4.0/",
+				"keywords": ["web pedagogy", "front-end education", "project-based learning", "accessibility", "critical coding"]
+			}
+		</script>
+
+		<link rel="alternate" hreflang="es" href="/bibliography/es/" />
+		<link rel="alternate" hreflang="en" href="/bibliography/en/" />
+		<link rel="alternate" hreflang="x-default" href="/bibliography/es/" />
+
+		<link rel="canonical" href="/" />
+	</head>
+	<body
+		class="bg-white dark:bg-neutral-950 text-slate-900 dark:text-neutral-100 antialiased transition-colors duration-200">
+		<a href="#main" class="skip-link">Saltar al contenido</a>
+		<header
+			class="bg-white dark:bg-neutral-950 border-b border-slate-200 dark:border-neutral-800 sticky top-0 z-40 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95 shadow-sm dark:shadow-neutral-900/50">
+			<nav class="mx-auto px-4 py-4" aria-label="Main navigation">
+				<div class="flex items-center justify-between">
+					<a
+						href="/"
+						class="font-bold text-xl text-slate-900 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+						WEB ATELIER
+					</a>
+					<ul class="flex gap-6 text-sm">
+						<li>
+							<a
+								href="/lessons/es/"
+								class="text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+								Lecciones
+							</a>
+						</li>
+						<li>
+							<a
+								href="/lessons/en/"
+								class="text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+								Lessons
+							</a>
+						</li>
+						<li>
+							<a
+								href="mailto:ruben.vega@udit.es"
+								class="text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+								Email
+							</a>
+						</li>
+						<li>
+							<button
+								id="theme-toggle"
+								class="text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-neutral-100 transition-colors"
+								aria-label="Toggle theme">
+								<span class="dark:hidden">🌙</span>
+								<span class="hidden dark:inline">☀️</span>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<main id="main" class="min-h-screen prose-slate dark:prose-invert w-full max-w-none">
+			<div
+				class="hero-section bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-neutral-900 dark:to-neutral-800 py-16 px-4 mb-16">
+				<header class="max-w-4xl mx-auto text-center">
+					<h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-neutral-100 mb-4">
+						<span class="block">WEB ATELIER</span>
+						<span class="text-3xl md:text-4xl font-normal text-gray-700 dark:text-neutral-300">(UDIT)</span>
+					</h1>
+					<p class="text-xl md:text-2xl font-semibold text-gray-800 dark:text-neutral-200 mb-4">
+						Agile Teaching for Experiential Learning in Iterative Repos
+					</p>
+					<p class="text-lg md:text-xl italic text-gray-600 dark:text-neutral-400 mb-8">
+						Critical Coding for a Better Living
+					</p>
+					<div class="max-w-2xl mx-auto">
+						<p class="text-lg md:text-xl text-gray-700 dark:text-neutral-300 leading-relaxed">
+							Bienvenidos al portal de
+							<strong>ATELIER UDIT</strong>
+							, un marco pedagógico innovador para la enseñanza del diseño web que integra práctica continua, reflexión crítica
+							y desarrollo ético centrado en las personas.
+						</p>
+					</div>
+				</header>
+			</div>
+
+			<main class="content-main max-w-7xl mx-auto px-4">
+				<section class="lessons-section mb-16" aria-labelledby="lessons-heading">
+					<h2 id="lessons-heading" class="text-3xl font-bold text-gray-900 dark:text-neutral-100 mb-8 text-center">
+						Lecciones Canónicas / Canonical Lessons
+					</h2>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div
+							class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 hover:shadow-xl transition-shadow p-8">
+							<h3 class="text-2xl font-bold text-gray-900 dark:text-neutral-100 mb-4">
+								<span aria-hidden="true">🇪🇸</span>
+								Lecciones en Español
+							</h3>
+							<p class="text-gray-700 dark:text-neutral-300 mb-6 leading-relaxed">
+								Contenido pedagógico completo en español con enfoque en accesibilidad, diseño responsivo y desarrollo ético.
+							</p>
+							<a
+								href="/lessons/es/"
+								class="inline-block bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+								aria-describedby="spanish-lessons-desc">
+								Explorar Lecciones
+								<span class="sr-only">en español</span>
+							</a>
+							<div id="spanish-lessons-desc" class="sr-only">Accede a todas las lecciones del curso en idioma español</div>
+						</div>
+
+						<div
+							class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 hover:shadow-xl transition-shadow p-8">
+							<h3 class="text-2xl font-bold text-gray-900 dark:text-neutral-100 mb-4">
+								<span aria-hidden="true">🇬🇧</span>
+								Lessons in English
+							</h3>
+							<p class="text-gray-700 dark:text-neutral-300 mb-6 leading-relaxed">
+								Complete pedagogical content in English with focus on accessibility, responsive design, and ethical development.
+							</p>
+							<a
+								href="/lessons/en/"
+								class="inline-block bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+								aria-describedby="english-lessons-desc">
+								Explore Lessons
+								<span class="sr-only">in English</span>
+							</a>
+							<div id="english-lessons-desc" class="sr-only">Access all course lessons in English language</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="methodology-section mb-16" aria-labelledby="methodology-heading">
+					<h2 id="methodology-heading" class="text-3xl font-bold text-gray-900 dark:text-neutral-100 mb-8 text-center">
+						Metodología / Methodology
+					</h2>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+						<div
+							class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-6">
+							<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-3">
+								<span aria-hidden="true">🎯</span>
+								Basado en Proyectos
+							</h3>
+							<p class="text-gray-700 dark:text-neutral-300 leading-relaxed">
+								Cada estudiante desarrolla un proyecto web personal a lo largo del semestre, aplicando conceptos de forma
+								práctica e incremental.
+							</p>
+						</div>
+
+						<div
+							class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-6">
+							<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-3">
+								<span aria-hidden="true">📝</span>
+								Un Commit por Clase
+							</h3>
+							<p class="text-gray-700 dark:text-neutral-300 leading-relaxed">
+								Estructura ágil adaptada a la educación: cada sesión termina con un commit que documenta el progreso semanal.
+							</p>
+						</div>
+
+						<div
+							class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-6">
+							<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-3">
+								<span aria-hidden="true">🤔</span>
+								Codificación Crítica
+							</h3>
+							<p class="text-gray-700 dark:text-neutral-300 leading-relaxed">
+								Reflexión sobre el contexto social y ético de la tecnología, promoviendo diseño inclusivo y responsable.
+							</p>
+						</div>
+
+						<div
+							class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-6">
+							<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-3">
+								<span aria-hidden="true">♿</span>
+								Accesibilidad por Defecto
+							</h3>
+							<p class="text-gray-700 dark:text-neutral-300 leading-relaxed">
+								Integración de principios de accesibilidad web desde el primer día, siguiendo estándares WCAG 2.1.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="resources-section mb-16" aria-labelledby="resources-heading">
+					<h2 id="resources-heading" class="text-3xl font-bold text-gray-900 dark:text-neutral-100 mb-8 text-center">
+						Recursos Adicionales / Additional Resources
+					</h2>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div
+							class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-6">
+							<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-3">
+								<span aria-hidden="true">📚</span>
+								Plantillas y Ejemplos
+							</h3>
+							<p class="text-gray-700 dark:text-neutral-300 mb-4">
+								Plantillas de inicio, ejemplos de código y recursos para proyectos estudiantiles.
+							</p>
+							<a
+								href="/templates/"
+								class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline">
+								Ver Plantillas
+							</a>
+						</div>
+
+						<div
+							class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-6">
+							<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-3">
+								<span aria-hidden="true">📖</span>
+								Guías Metodológicas (ES) / Methodology (EN)
+							</h3>
+							<p class="text-gray-700 dark:text-neutral-300 mb-4">
+								Documentación detallada sobre el enfoque pedagógico y mejores prácticas.
+							</p>
+							<div class="space-y-2">
+								<a
+									href="/methodology/en/"
+									class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline">
+									Read Methodology
+								</a>
+								<a
+									href="/methodology/es/"
+									class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline">
+									Leer Guías
+								</a>
+							</div>
+						</div>
+
+						<div
+							class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-6">
+							<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-3">
+								<span aria-hidden="true">🔧</span>
+								Herramientas de Desarrollo
+							</h3>
+							<p class="text-gray-700 dark:text-neutral-300 mb-4">
+								Configuración de entorno, flujos de CI/CD y herramientas de validación.
+							</p>
+							<a
+								href="https://github.com/ruvebal/web-atelier-udit"
+								class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline"
+								target="_blank"
+								rel="noopener">
+								Ver en GitHub
+								<span aria-hidden="true">↗</span>
+							</a>
+						</div>
+
+						<div
+							class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-6">
+							<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-3">
+								<span aria-hidden="true">🔗</span>
+								Referencias y Grafo
+							</h3>
+							<p class="text-gray-700 dark:text-neutral-300 mb-4">
+								Explora la base de referencias escaneadas y el grafo de relaciones.
+							</p>
+							<div class="grid grid-cols-2 gap-2">
+								<a
+									href="/references/es/"
+									class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline text-sm">
+									Referencias (ES)
+								</a>
+								<a
+									href="/references/en/"
+									class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline text-sm">
+									References (EN)
+								</a>
+								<a
+									href="/references/es/graph.html"
+									class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline text-sm">
+									Grafo (ES)
+								</a>
+								<a
+									href="/references/en/graph.html"
+									class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline text-sm">
+									Graph (EN)
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+
+			<aside class="sidebar-info max-w-4xl mx-auto px-4 mb-16">
+				<div
+					class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-8 mb-6">
+					<h3 class="text-2xl font-bold text-gray-900 dark:text-neutral-100 mb-4">Sobre el Autor / About the Author</h3>
+					<div class="author-info">
+						<p class="text-gray-700 dark:text-neutral-300 mb-4">
+							<strong>Rubén Vega Balbás, PhD</strong>
+							<br />
+							UDIT - Universidad de Diseño, Innovación y Tecnología
+						</p>
+						<div class="flex gap-4">
+							<a
+								href="https://orcid.org/0000-0001-6862-9081"
+								target="_blank"
+								rel="noopener"
+								class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline">
+								ORCID
+								<span aria-hidden="true">↗</span>
+							</a>
+							<a
+								href="https://www.udit.es"
+								target="_blank"
+								rel="noopener"
+								class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline">
+								UDIT
+								<span aria-hidden="true">↗</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-8">
+					<h3 class="text-2xl font-bold text-gray-900 dark:text-neutral-100 mb-4">Licencias / Licensing</h3>
+					<div class="space-y-2">
+						<p class="text-gray-700 dark:text-neutral-300">
+							<strong>Código:</strong>
+							<a
+								href="/LICENSE-CODE"
+								class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline">
+								MIT License
+							</a>
+						</p>
+						<p class="text-gray-700 dark:text-neutral-300">
+							<strong>Contenido:</strong>
+							<a
+								href="/LICENSE-CONTENT"
+								class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline">
+								CC BY-NC-SA 4.0
+							</a>
+						</p>
+					</div>
+				</div>
+			</aside>
+		</main>
+		<footer class="bg-slate-50 dark:bg-neutral-900 border-t border-slate-200 dark:border-neutral-800 mt-16 pt-12 pb-8">
+			<div class="container mx-auto px-4 max-w-4xl">
+				<p class="font-semibold text-slate-900 dark:text-neutral-100 mb-2">
+					WEB ATELIER (UDIT) — Agile Teaching for Experiential Learning in Iterative Repositories.
+				</p>
+				<p class="italic text-slate-600 dark:text-neutral-400 mb-4">Critical Coding for a Better Living.</p>
+				<div class="flex gap-4 text-sm text-slate-600 dark:text-neutral-400 mb-4">
+					<a
+						href="https://github.com/ruvebal/web-atelier-udit/blob/main/web-foundations/LICENSE-CODE"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="hover:text-blue-600 dark:hover:text-blue-400 underline">
+						Code: MIT
+					</a>
+					<span>·</span>
+					<a
+						href="https://github.com/ruvebal/web-atelier-udit/blob/main/web-foundations/LICENSE-CONTENT"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="hover:text-blue-600 dark:hover:text-blue-400 underline">
+						Content: CC BY-NC-SA 4.0
+					</a>
+				</div>
+				<p class="text-sm text-slate-600 dark:text-neutral-400 mb-6">
+					© 2025 Rubén Vega Balbás, PhD — WEB ATELIER (UDIT)
+					<br />
+					ORCID:
+					<a href="https://orcid.org/0000-0001-6862-9081" class="text-blue-600 dark:text-blue-400 hover:underline">
+						https://orcid.org/0000-0001-6862-9081
+					</a>
+				</p>
+				<div class="border-t border-slate-200 dark:border-neutral-800 pt-6">
+					<p class="text-xs text-slate-500 dark:text-neutral-500 mb-2">
+						Profesor Adjunto, Departamento de Audiovisual y Creación Gráfica,
+						<br />
+						Area de Tecnología, Grado Fullstack
+					</p>
+					<p class="text-xs text-slate-500 dark:text-neutral-500 italic mb-4">
+						Adjunct Professor, Audiovisual and Graphic Creation Department,
+						<br />
+						Area of Technology, Fullstack Degree
+					</p>
+					<img
+						class="w-32 h-auto mb-6"
+						src="https://assets.griddo.udit.es/pro-udit/static/logo-udit-218a5df2b42af4ad4d649285a262f6e6.png"
+						alt="UDIT logo"
+						loading="lazy" />
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-slate-200 dark:border-neutral-800 pt-6">
+					<div>
+						<p class="text-xs font-semibold text-slate-900 dark:text-neutral-100 mb-2">Contact</p>
+						<p class="text-xs text-slate-600 dark:text-neutral-400 mb-1">Av. Alfonso XIII, 97</p>
+						<p class="text-xs text-slate-600 dark:text-neutral-400 mb-1">28016 Madrid</p>
+						<p class="text-xs text-slate-600 dark:text-neutral-400 mb-1">
+							España /
+							<em>Spain</em>
+						</p>
+						<a
+							href="https://www.udit.es"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-xs text-slate-900 dark:text-neutral-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400">
+							udit.es
+						</a>
+					</div>
+					<div>
+						<p class="text-xs font-semibold text-slate-900 dark:text-neutral-100 mb-2">Social</p>
+						<ul class="space-y-1">
+							<li>
+								<a
+									href="https://www.instagram.com/udit.es/"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="text-xs text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400">
+									Instagram
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://x.com/udit_es"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="text-xs text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400">
+									X
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://www.linkedin.com/school/udituniversidad/posts/?feedView=all"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="text-xs text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400">
+									LinkedIn
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://www.facebook.com/UDITuniversidad/"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="text-xs text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400">
+									Facebook
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://www.youtube.com/@UDIT_ES"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="text-xs text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400">
+									YouTube
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			// Theme toggle functionality
+			(function () {
+				const themeToggle = document.getElementById('theme-toggle');
+				const htmlRoot = document.documentElement;
+
+				// Get saved theme or default to light
+				const currentTheme = localStorage.getItem('theme') || 'light';
+				if (currentTheme === 'dark') {
+					htmlRoot.classList.add('dark');
+				}
+
+				// Toggle theme on button click
+				themeToggle?.addEventListener('click', () => {
+					const isDark = htmlRoot.classList.toggle('dark');
+					localStorage.setItem('theme', isDark ? 'dark' : 'light');
+				});
+			})();
+		</script>
+	</body>
+</html>

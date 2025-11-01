@@ -127,6 +127,6 @@ Por el final del curso, cada estudiante tiene un repositorio de _commits_ contan
 ---
 
 **Autoría:** Rubén Vega Balbás, PhD (UDIT, Universidad de Diseño, Innovación y Tecnología) · ORCID: <https://orcid.org/0000-0001-6862-9081> · <https://www.udit.es>
-**Licencias:** Código MIT · Contenido CC BY-NC 4.0
+**Licencias:** Código MIT · Contenido CC BY-NC-SA 4.0
 
 _Critical Coding for a Better Living._

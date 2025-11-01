@@ -231,4 +231,4 @@ The project is configured for automatic deployment:
 ---
 
 **Author:** Rubén Vega Balbás, PhD (UDIT)  
-**License:** MIT (Code) · CC BY-NC 4.0 (Content)
+**License:** MIT (Code) · CC BY-NC-SA 4.0 (Content)
