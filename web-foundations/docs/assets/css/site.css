@@ -263,6 +263,26 @@ img.footer-logo {
 	line-height: var(--font-h2-line);
 	margin: 1.25rem 0 0.5rem;
 }
+.prose h3 {
+	font-size: var(--font-h3-size);
+	line-height: var(--font-h3-line);
+	margin: 1.25rem 0 0.5rem;
+}
+.prose h4 {
+	font-size: var(--font-h4-size);
+	line-height: var(--font-h4-line);
+	margin: 1.25rem 0 0.5rem;
+}
+.prose h5 {
+	font-size: var(--font-h5-size);
+	line-height: var(--font-h5-line);
+	margin: 1.25rem 0 0.5rem;
+}
+.prose h6 {
+	font-size: var(--font-h6-size);
+	line-height: var(--font-h6-line);
+	margin: 1.25rem 0 0.5rem;
+}
 .prose p {
 	margin: 0.75rem 0;
 }
