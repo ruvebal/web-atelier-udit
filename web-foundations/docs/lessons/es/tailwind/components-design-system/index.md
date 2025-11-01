@@ -41,7 +41,7 @@ Esta lección sigue la **metodología del atelier** (exploración → reflexión
 >
 > Explora un sistema de diseño completo con botones, tarjetas, formularios y tokens de diseño usando el enfoque de `<template>`. ¡Todo el código es autocontenido y listo para ejecutar!
 
-## Prerrequisitos
+## Requisitos
 
 <div class="prerequisites">
   <h3>📚 Antes de comenzar</h3>

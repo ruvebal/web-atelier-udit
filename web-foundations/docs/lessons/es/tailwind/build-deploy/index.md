@@ -35,7 +35,7 @@ Esta lección sigue la **metodología del atelier** (exploración → reflexión
 - **Producción:** Creación de aplicaciones listas para producción con características PWA.
 - **Exhibición:** Demostración de aplicaciones web pulidas y desplegables.
 
-## Prerrequisitos
+## Requisitos
 
 <div class="prerequisites">
   <h3>📚 Antes de comenzar</h3>

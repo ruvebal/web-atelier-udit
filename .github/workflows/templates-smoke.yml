@@ -51,6 +51,12 @@ jobs:
      with:
       ruby-version: '3.2'
       bundler-cache: true
+   - uses: actions/setup-node@v4
+     with:
+      node-version: '20'
+   - uses: pnpm/action-setup@v4
+     with:
+      version: 8
    - name: Install deps (if Gemfile exists)
      working-directory: web-foundations
      run: |
@@ -62,8 +68,10 @@ jobs:
      working-directory: web-foundations
      run: |
       if [ -f Gemfile ] && [ -d docs ]; then
+        # Install Node.js deps for Tailwind CSS processing
+        pnpm install --frozen-lockfile
         # Build from docs/ subdirectory like the main pages workflow
-        bundle exec jekyll build --source docs --destination _site --trace || (echo "Jekyll build failed" && exit 1)
+        npm run build || (echo "Build failed" && exit 1)
         echo "✅ Web foundations build successful"
       else
         echo "No complete Jekyll site detected in web-foundations — skipping build test."

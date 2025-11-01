@@ -35,7 +35,7 @@ Esta lección sigue la **metodología del atelier** (exploración → reflexión
 - **Producción:** Construcción de interfaces performantes y accesibles que funcionan para todos.
 - **Exhibición:** Demostración de diseño inclusivo mediante mejoras medibles.
 
-## Prerrequisitos
+## Requisitos
 
 <div class="prerequisites">
   <h3>📚 Antes de comenzar</h3>

@@ -3,25 +3,26 @@
 	<head>
 		{% include head.html %}
 	</head>
-	<body class="bg-white dark:bg-neutral-950 text-slate-900 dark:text-neutral-100 antialiased transition-colors duration-200">
+	<body
+		class="bg-white dark:bg-neutral-950 text-slate-900 dark:text-neutral-100 antialiased transition-colors duration-200">
 		<a href="#main" class="skip-link">
 			{% if page.lang == 'es' or page.lang == 'es' %}Saltar al contenido{% else %}Skip to main content{% endif %}
 		</a>
 		{% include header.html %}
-		<main id="main" class="container prose prose-slate dark:prose-invert max-w-prose">{{ content }}</main>
+		<main id="main" class="min-h-screen prose-slate dark:prose-invert w-full max-w-none">{{ content }}</main>
 		{% include footer.html %}
 		<script>
 			// Theme toggle functionality
-			(function() {
+			(function () {
 				const themeToggle = document.getElementById('theme-toggle');
 				const htmlRoot = document.documentElement;
-				
+
 				// Get saved theme or default to light
 				const currentTheme = localStorage.getItem('theme') || 'light';
 				if (currentTheme === 'dark') {
 					htmlRoot.classList.add('dark');
 				}
-				
+
 				// Toggle theme on button click
 				themeToggle?.addEventListener('click', () => {
 					const isDark = htmlRoot.classList.toggle('dark');

@@ -26,7 +26,7 @@ permalink: /lessons/es/inicio-inspiracion/
 
 ---
 
-## Prerrequisito
+## Requisito
 
 Completa la lección anterior: Entorno de Desarrollo. Tu repo debe estar publicado en GitHub Pages y contener el scaffold de la plantilla de estudiante.
 

@@ -35,7 +35,7 @@ Esta lección sigue la **metodología del atelier** (exploración → reflexión
 - **Producción:** Construcción de componentes interactivos performantes y accesibles.
 - **Exhibición:** Demostración de interacciones de usuario fluidas y responsivas.
 
-## Prerrequisitos
+## Requisitos
 
 <div class="prerequisites">
   <h3>📚 Antes de comenzar</h3>

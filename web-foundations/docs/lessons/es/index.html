@@ -5,14 +5,38 @@ lang: es
 permalink: /lessons/es/
 ---
 
-<h1>Lecciones</h1>
+<div class="max-w-5xl mx-auto px-4 py-8">
+	<header class="mb-12 text-center">
+		<h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-neutral-100 mb-4">Lecciones</h1>
+		<p class="text-lg text-slate-600 dark:text-neutral-400 max-w-2xl mx-auto">
+			Contenido pedagógico completo con enfoque en accesibilidad, diseño responsivo y desarrollo ético
+		</p>
+	</header>
 
-{% assign locale = page.lang | default: "es" %}
-<ul class="lessons-{{ locale }}">
-	{% for item in site.data.lessons %} {% assign t = item.title[locale] | default: item.title.es %} {% assign p =
-	item.path[locale] %} {% if p %}
-	<li>
-		<a href="{{ p | relative_url }}">{{ t }}</a>
-	</li>
-	{% endif %} {% endfor %}
-</ul>
+	{% assign locale = page.lang | default: "es" %}
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+		{% for item in site.data.lessons %} {% assign t = item.title[locale] | default: item.title.es %} {% assign p =
+		item.path[locale] %} {% if p %}
+		<a
+			href="{{ p | relative_url }}"
+			class="group block bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg p-6 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md transition-all duration-200">
+			<h2
+				class="text-lg font-semibold text-slate-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
+				{{ t }}
+			</h2>
+			<span
+				class="inline-flex items-center text-sm text-slate-500 dark:text-neutral-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+				Leer lección
+				<svg
+					class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+				</svg>
+			</span>
+		</a>
+		{% endif %} {% endfor %}
+	</div>
+</div>

@@ -35,7 +35,7 @@ Esta lección sigue la **metodología del atelier** (exploración → reflexión
 - **Producción:** Construcción de proyectos individuales con conciencia crítica.
 - **Exhibición:** Publicación y discusión colectiva de resultados.
 
-## Prerrequisitos
+## Requisitos
 
 <div class="prerequisites">
   <h3>📚 Antes de comenzar</h3>

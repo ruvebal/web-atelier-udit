@@ -88,7 +88,7 @@ Un `README.md` es un archivo escrito en **Markdown** que actúa como la document
 📌 **Estructura básica de un README.md:**
 
 1. **Descripción del Proyecto**: Breve introducción sobre qué es y qué hace el proyecto.
-2. **Instrucciones de Instalación**: Guía paso a paso para configurar y ejecutar el proyecto (prerrequisitos y dependencias).
+2. **Instrucciones de Instalación**: Guía paso a paso para configurar y ejecutar el proyecto (Requisitos y dependencias).
 3. **Modo de Uso**: Explicaciones y ejemplos de uso del proyecto, incluyendo comandos o flujos de trabajo.
 4. **Guía de Contribución**: Normas para contribuir al código, estándares de codificación y procesos de pull request.
 5. **Licencia**: Información sobre los derechos de uso, modificación y distribución del código.

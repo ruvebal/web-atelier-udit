@@ -21,14 +21,13 @@ permalink: /references/en/graph.html
 </div>
 <div id="cy" style="width: 100%; height: 70vh; border: 1px solid var(--border-light); border-radius: 8px"></div>
 
-<script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+<script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js" crossorigin="anonymous"></script>
 <script>
-	var dataUrl = "{{ '/_data/graph.json' | relative_url }}";
+	const baseUrl = '{{ site.baseurl }}';
+	var dataUrl = "{{ '/assets/data/graph.json' | relative_url }}";
 	fetch(dataUrl)
-		.then(function (r) {
-			return r.json();
-		})
-		.then(function (graph) {
+		.then(r => r.json())
+		.then(graph => {
 			const cy = cytoscape({
 				container: document.getElementById('cy'),
 				elements: graph.elements,
@@ -91,11 +90,7 @@ permalink: /references/en/graph.html
 			function formatSources(sources) {
 				if (!sources || !sources.length) return '<em>No sources</em>';
 				return sources
-					.map(function (s) {
-						return `<li><em>${
-							s.title || s.path
-						}</em> <a href="${'{{ ' / ' | relative_url }}' + (s.href || s.path)}" target="_blank" rel="noopener">🔗</a></li>`;
-					})
+					.map(s => `<li><em>${s.title || s.path}</em> <a href="${baseUrl}${(s.href || s.path)}" target="_blank" rel="noopener">🔗</a></li>`)
 					.join('');
 			}
 
@@ -107,12 +102,11 @@ permalink: /references/en/graph.html
 				const sources = Array.isArray(d.sourcesMeta)
 					? d.sourcesMeta
 					: Array.isArray(d.sources)
-					? d.sources.map(function (p) {
-							return { title: p, href: p, path: p };
-					  })
+					? d.sources.map(p => ({ title: p, href: p, path: p }))
 					: [];
 				details.innerHTML = `<div><strong>${label}</strong><br/><span class="muted">${domain}${status}</span></div>
       <div style="margin-top:0.5rem"><strong>Sources:</strong><ul>${formatSources(sources)}</ul></div>`;
 			});
-		});
+		})
+		.catch(err => console.error('Error loading graph:', err));
 </script>

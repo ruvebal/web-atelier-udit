@@ -35,7 +35,7 @@ Esta lección sigue la **metodología de atelier** (exploración → reflexión 
 - **Producción:** Construir sistemas de ruteo accesibles y performantes.
 - **Exhibición:** Demostrar experiencias de navegación fluidas.
 
-## Prerrequisitos
+## Requisitos
 
 <div class="prerequisites">
   <h3>📚 Antes de Comenzar</h3>
