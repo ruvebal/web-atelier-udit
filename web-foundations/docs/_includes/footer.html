@@ -56,11 +56,28 @@
 					<em>Spain</em>
 				</p>
 				<a
-					href="https://www.udit.es"
+					href="mailto:ruben.vega@udit.es"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-xs text-slate-900 dark:text-neutral-100 font-semibold hover:text-blue-600 dark:hover:text-blue-400">
-					udit.es
+					<span class="obfuscated-email" data-user="ruben.vega" data-domain="udit.es"></span>
+					<script>
+						// Simple email obfuscation
+						document.addEventListener('DOMContentLoaded', function () {
+							document.querySelectorAll('.obfuscated-email').forEach(function (el) {
+								const user = el.getAttribute('data-user');
+								const domain = el.getAttribute('data-domain');
+								const mail = user + '@' + domain;
+								const a = document.createElement('a');
+								a.href = 'mailto:' + mail;
+								a.textContent = mail;
+								a.className = el.className;
+								a.rel = 'noopener noreferrer';
+								a.target = '_blank';
+								el.replaceWith(a);
+							});
+						});
+					</script>
 				</a>
 			</div>
 			<div>
