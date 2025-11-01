@@ -288,6 +288,7 @@ img.footer-logo {
 	border: 1px solid var(--code-inline-border);
 }
 .prose pre {
+	position: relative;
 	background: var(--code-block-bg);
 	color: var(--code-block-fg);
 	padding: 1rem;
@@ -318,6 +319,46 @@ img.footer-logo {
 .prose pre::-webkit-scrollbar-track {
 	background: var(--scroll-track);
 }
+
+/* Copy code button */
+.copy-code-btn {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	padding: 0.5rem;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0.25rem;
+	color: var(--code-block-fg);
+	cursor: pointer;
+	opacity: 0;
+	transition: opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.prose pre:hover .copy-code-btn,
+.prose pre:focus-within .copy-code-btn,
+.copy-code-btn.copied {
+	opacity: 1;
+}
+
+.copy-code-btn:hover {
+	background: rgba(255, 255, 255, 0.2);
+	border-color: rgba(255, 255, 255, 0.3);
+}
+
+.copy-code-btn:active {
+	background: rgba(255, 255, 255, 0.15);
+}
+
+.copy-code-btn:focus-visible {
+	outline: 2px solid var(--code-block-fg);
+	outline-offset: 2px;
+}
+
+.copy-code-btn svg {
+	display: block;
+}
+
 .prose ul,
 .prose ol {
 	padding-left: 1.25rem;
