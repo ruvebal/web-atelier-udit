@@ -56,7 +56,7 @@ jobs:
       node-version: '20'
    - uses: pnpm/action-setup@v4
      with:
-      version: 8
+      version: 9
    - name: Install deps (if Gemfile exists)
      working-directory: web-foundations
      run: |
