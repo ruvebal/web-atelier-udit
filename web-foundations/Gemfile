@@ -1,3 +1,7 @@
 source "https://rubygems.org"
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 3.9"
+gem "jekyll-seo-tag", group: :jekyll_plugins
+gem "jekyll-sitemap", group: :jekyll_plugins
 gem "webrick"
+gem "kramdown"
+gem "kramdown-parser-gfm"
