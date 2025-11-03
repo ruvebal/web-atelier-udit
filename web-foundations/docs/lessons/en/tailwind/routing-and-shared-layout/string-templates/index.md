@@ -343,12 +343,20 @@ export default SimpleRouter;
 
    ```css
    /* src/style.css */
-   /* Custom CSS only for skip link focus styles (Tailwind doesn't cover this well) */
    /* 
-   Accessibility reasons: 
-   These custom CSS classes support the "Skip to main content" link, an essential accessibility feature. 
-   - `.sr-only` visually hides the link so it remains available to screen readers, helping keyboard and assistive technology users bypass repetitive navigation.
-   - `.focus\:not-sr-only:focus` makes the link visible when focused (usually by Tab key), letting keyboard users activate it easily.
+   Custom CSS for skip link focus styles (not fully covered by Tailwind).
+   
+   If you are using Tailwind + PostCSS (as in a typical Vite setup), your style.css
+   should start like this:
+   
+       @tailwind base;
+       @tailwind components;
+       @tailwind utilities;
+   
+   Accessibility rationale:
+   These custom CSS classes support the "Skip to main content" link, an essential accessibility feature.
+   - `.sr-only` visually hides the link so it remains accessible to screen readers, helping keyboard and assistive tech users bypass repetitive navigation.
+   - `.focus\:not-sr-only:focus` makes the link visible when focused (usually with the Tab key), allowing keyboard users to easily activate it.
    
    Tailwind's utility classes do not fully cover this pattern, so we use custom CSS to ensure strong accessibility for all users.
    */

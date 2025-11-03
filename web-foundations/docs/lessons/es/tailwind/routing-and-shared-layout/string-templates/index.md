@@ -345,8 +345,16 @@ export default SimpleRouter;
 
    ```css
    /* src/style.css */
-   /* CSS personalizado solo para estilos de enfoque de enlace de salto (Tailwind no cubre esto bien) */
    /* 
+   CSS personalizado solo para estilos de enfoque de enlace de salto (Tailwind no cubre esto bien).
+   
+   Si tienes Tailwind + PostCSS instalado (como en una configuración típica de Vite), TU ARCHIVO style.css
+   debe comenzar así:
+   
+       @tailwind base;
+       @tailwind components;
+       @tailwind utilities;
+   
    Razones de accesibilidad: 
    Estas clases CSS personalizadas soportan el enlace "Saltar al contenido principal", una característica de accesibilidad esencial. 
    - `.sr-only` oculta visualmente el enlace para que permanezca disponible para lectores de pantalla, ayudando a usuarios de teclado y tecnología asistiva a evitar navegación repetitiva.

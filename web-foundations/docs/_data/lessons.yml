@@ -1,16 +1,3 @@
-- slug: bibliography
-  title:
-   es: Bibliografía
-   en: Bibliography
-  path:
-   es: /bibliography/es/
-   en: /bibliography/en/
-  file:
-   es: bibliography/es/index.md
-   en: bibliography/en/index.md
-  status:
-   es: complete
-   en: complete
 - slug: atelier-prompts
   title:
    en: 'Atelier Prompt Collection — Modern Web Development'
@@ -141,16 +128,12 @@
 - slug: readings
   title:
    es: Lecturas
-   en: Readings
   path:
    es: /lessons/es/readings/
-   en: /lessons/en/readings/
   file:
    es: lessons/es/readings/index.md
-   en: lessons/en/readings/index.html
   status:
    es: complete
-   en: complete
 - slug: typography-color
   title:
    es: Tipografía y Color
@@ -305,8 +288,8 @@
 
 - slug: tailwind-routing-html-template
   title:
-   es: 'Tailwind CSS: Ruteo SPA con HTML <template> — Renderizado Limpio y Seguro'
-   en: 'Tailwind CSS: SPA Routing with HTML <template> — Clean, Safe Rendering'
+   es: 'Tailwind CSS: Ruteo SPA con HTML Template — Renderizado Limpio y Seguro'
+   en: 'Tailwind CSS: SPA Routing with HTML Template — Clean, Safe Rendering'
   path:
    es: /lessons/es/tailwind/routing-and-shared-layout/html-template/
    en: /lessons/en/tailwind/routing-and-shared-layout/html-template/
