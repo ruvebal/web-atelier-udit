@@ -25,7 +25,7 @@ tags: [tailwindcss, componentes, sistema-diseno, tokens, pedagogía]
 
 > **Divulgación de asistencia IA:** Esta lección se basa en experiencia docente desde septiembre 2024, con iteraciones de IA siguiendo ciclos investigación–práctica–investigación.
 
-## 🎭 Enfoque de Codificación Crítica
+## Enfoque de Codificación Crítica
 
 Esta lección sigue la **metodología del atelier** (exploración → reflexión → conceptualización → producción → exhibición). Construimos no para automatizar, sino para **articular** — dar forma al pensamiento mediante ritmo, reflexión y resistencia.
 
@@ -35,16 +35,28 @@ Esta lección sigue la **metodología del atelier** (exploración → reflexión
 - **Producción:** Construcción de bibliotecas de componentes mantenibles y escalables.
 - **Exhibición:** Demostración de sistemas de diseño cohesionados en acción.
 
-## 💻 Demo Interactivo
+## Demo Interactivo
 
 > **[Ver Demo en Vivo →](demo/)**
 >
 > Explora un sistema de diseño completo con botones, tarjetas, formularios y tokens de diseño usando el enfoque de `<template>`. ¡Todo el código es autocontenido y listo para ejecutar!
 
+> **[Ver Demo Alternativo (sin componentes) →](demo-inline/)**
+>
+> Versión simple para principiantes: todo el UI se implementa directamente dentro de las vistas, sin crear componentes reutilizables ni helpers. Ideal para enfocarse en Tailwind y patrones visuales primero.
+
 ## Requisitos
 
+En S2, creaste un sistema de ruteo modular usando elementos HTML `<template>` (ver [Ruteo SPA con HTML Template](/web-atelier-udit/lessons/es/tailwind/routing-and-shared-layout/html-template/)). Ya deberías tener:
+
+- `src/views/componentes.html` del Ejercicio 2.2 (usando `<template>`)
+- La capacidad de crear nuevas rutas con archivos HTML `<template>` separados
+- Una base para construir tu portafolio de trabajo de diseño
+
+**Si aún no has completado los ejercicios de S2**, crea el archivo `src/views/componentes.html` ahora usando el enfoque de `<template>` (ver Ejercicio 2.2 de S2).
+
 <div class="prerequisites">
-  <h3>📚 Antes de comenzar</h3>
+  <h3>Antes de comenzar</h3>
   <ul>
     <li><strong>S1 y S2 completadas:</strong> Configuración Vite + Tailwind y base de ruteo SPA</li>
     <li><strong>Composición de utilidades:</strong> Experiencia combinando clases Tailwind para layouts</li>
@@ -68,187 +80,256 @@ Nuestro enfoque crea **componentes PWA-ready** que funcionan en dispositivos y t
 
 Esta sesión transforma combinaciones de utilidades en sistemas de componentes reutilizables y mantenibles que codifican decisiones de diseño y requisitos de accesibilidad.
 
-### 🔗 Construyendo sobre el Ruteo S2
+### Racional pedagógico: prototipado rápido con componentes ya hechos
 
-En S2, creaste un sistema de ruteo modular con archivos de vista separados. Ahora mejoraremos esas vistas con un sistema de diseño apropiado. Ya deberías tener:
+- Para principiantes y prototipado, priorizamos **componentes ya hechos de Tailwind** (copiar/pegar + adaptar tokens) antes que crear sistemas complejos.
+- Evitamos montar componentes con JavaScript y `<template>` por ahora: añade complejidad y reduce legibilidad sin un framework.
+- Si necesitas profundizar, las secciones avanzadas más abajo son opcionales. Para la base visual, empieza con piezas listas y tokens coherentes.
 
-- `src/views/componentes.js` del Ejercicio 2.2
-- La capacidad de crear nuevas rutas para diferentes muestras de componentes
-- Una base para construir tu portafolio de trabajo de diseño
+### Opción A — Inline en Vistas (sin componentes ni helpers)
 
-**Si aún no has completado los ejercicios de S2**, crea el archivo `src/views/componentes.js` ahora (ver Ejercicio 2.2 de S2).
+Si quieres evitar crear componentes `<template>` o helpers en JavaScript, puedes implementar todo directamente en tus vistas. Esto reduce archivos y complejidad inicial.
+
+1. Crea una vista con botones estáticos:
+
+```html
+<!-- src/views/buttons.html -->
+<template id="view-buttons">
+	<div class="max-w-4xl mx-auto">
+		<h1 class="text-3xl font-bold text-gray-900 mb-8">Botones (inline)</h1>
+
+		<section class="bg-white rounded-lg shadow-md p-8 mb-8">
+			<h2 class="text-2xl font-semibold mb-6">Primarios</h2>
+			<div class="flex flex-wrap gap-4">
+				<button
+					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+					Acción Primaria
+				</button>
+				<button
+					disabled
+					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+					Deshabilitado
+				</button>
+			</div>
+		</section>
+
+		<section class="bg-white rounded-lg shadow-md p-8 mb-8">
+			<h2 class="text-2xl font-semibold mb-6">Secundarios</h2>
+			<div class="flex flex-wrap gap-4">
+				<button
+					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+					Acción Secundaria
+				</button>
+				<button
+					disabled
+					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+					Deshabilitado
+				</button>
+			</div>
+		</section>
+
+		<section class="bg-white rounded-lg shadow-md p-8">
+			<h2 class="text-2xl font-semibold mb-6">Tamaños</h2>
+			<div class="flex flex-wrap items-center gap-4">
+				<button class="px-3 py-1.5 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+					Pequeño
+				</button>
+				<button class="px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+					Mediano
+				</button>
+				<button class="px-6 py-3 text-base font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+					Grande
+				</button>
+			</div>
+		</section>
+	</div>
+</template>
+```
+
+2. En tu registro de vistas, omite `onMount` y helpers:
+
+```javascript
+// src/views/index.js
+export const views = {
+	'/buttons': { templateId: 'view-buttons', templateUrl: './src/views/buttons.html' },
+	// otras rutas...
+};
+```
+
+3. Repite el patrón para tarjetas y formularios con markup inline. Consulta el demo alternativo enlazado arriba para un ejemplo completo.
+
+—
+
+### Opción B — Construyendo sobre el Ruteo S2 con `<template>`
+
+Si prefieres no crear componentes reutilizables todavía, usa la Opción A (inline en vistas) o abre el **Demo Alternativo**.
 
 ### Implementación paso a paso
 
-**💡 Importante:** Todos los componentes que crees en esta sesión se implementarán y probarán en las vistas que ya creaste en S2. Específicamente, trabajarás principalmente en `src/views/componentes.js` (creado en S2 Ejercicio 2.2).
+**💡 Importante:** Todos los componentes que crees en esta sesión se implementarán como **componentes modulares reutilizables** en archivos separados (`src/components/*.html`), y luego se usarán en las vistas `<template>` que ya creaste en S2. Específicamente, trabajarás principalmente en `src/views/componentes.html` y crearás componentes en `src/components/`.
 
-1. **Define tokens de diseño en configuración Tailwind:**
+1. **Define tokens de diseño (2 min):**
 
-   **¿Cómo interactúan los tokens de diseño de Tailwind con style.css?**
+   Para una guía clara y autocontenida sobre cómo definir tokens en `tailwind.config.js` y cuándo usar `style.css`, consulta la lección dedicada:
 
-   - **tailwind.config.js** define los _tokens de diseño_ (colores, espaciados, tipografías) que usamos de forma consistente en todas las clases utilitarias de Tailwind (ej: `bg-primary-500`, `text-content-muted`). Así conseguimos sistemas cohesionados y fáciles de mantener: cambiando un valor aquí, todos los componentes actualizan su apariencia.
+   - [Tailwind CSS: Tokens de diseño y style.css — Guía breve](/web-atelier-udit/lessons/es/tailwind/design-tokens/)
 
-   - **style.css** se utiliza para:
-     - Añadir estilos globales que no cubre Tailwind (ej: styles para `:root`, normalización, dark mode manual, adaptaciones para componentes externos, animaciones personalizadas).
-     - Sobrescribir estilos específicos que requieren CSS convencional o selectores complicados.
-     - Declarar variables CSS personalizadas si necesitas tokens a nivel de runtime (con acceso desde JS u otros frameworks).
+   Luego, vuelve aquí para aplicar esos tokens en componentes listos.
 
-   **Resumen:**
+2. **Crea componente reutilizable Button como `<template>` modular:**
 
-   - Modificamos el _diseño_ y la _paleta_ en el tailwind.config.js.
-   - Usamos style.css para ajustes globales, excepciones o personalizaciones no cubiertas por utilidades.
-   - La mayoría de los componentes y vistas solo deberían usar _clases de Tailwind_, apoyándose en los tokens definidos para asegurar consistencia y escalabilidad.
+   **Estructura de componentes modulares:**
+
+   Primero, crea la carpeta `src/components/` para organizar tus componentes reutilizables:
+
+   ```
+   src/
+   ├── components/
+   │   ├── button-primary.html
+   │   ├── button-secondary.html
+   │   └── button-ghost.html
+   ├── views/
+   │   ├── componentes.html
+   │   └── index.js
+   └── router.js
+   ```
+
+   **Crear componentes Button modulares:**
+
+   ```html
+   <!-- src/components/button-primary.html -->
+   <template id="button-primary">
+   	<button
+   		class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+   		<!-- 
+   			⚠️ Importante: El atributo `is="button-primary"` mostrado arriba NO funcionará por sí solo en HTML estándar y no convierte automáticamente tu botón en un componente reutilizable basado en <template>.
+   			
+   			En la web, el atributo `is=""` solo es válido para *custom built-in elements* (Web Components definidos con JavaScript y extendiendo tags nativos), y requiere registro explícito en JavaScript usando `customElements.define`. Los elementos <template> por sí mismos no pueden usarse con `is=""`.
+   			
+   			Forma correcta: debes cargar el `<template>` desde tu HTML y clonarlo por JavaScript para reutilizarlo:
+   			
+   			  // Cargar y usar un componente de botón en JS
+   			  const tpl = document.getElementById('button-primary');
+   			  const btn = tpl.content.cloneNode(true);
+   			  btn.querySelector('button').textContent = 'Enviar';
+   			  document.body.appendChild(btn);
+   
+   			Así puedes reutilizar el botón cambiando el contenido insertado en el clon, pero *no* mediante is="button-primary".
+   		-->
+   		<slot></slot>
+   	</button>
+   </template>
+   ```
+
+   ```html
+   <!-- src/components/button-secondary.html -->
+   <template id="button-secondary">
+   	<button
+   		class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+   		<slot></slot>
+   	</button>
+   </template>
+   ```
+
+   ```html
+   <!-- src/components/button-ghost.html -->
+   <template id="button-ghost">
+   	<button
+   		class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
+   		<slot></slot>
+   	</button>
+   </template>
+   ```
+
+   **Usar componentes en la vista:**
+
+   ```html
+   <!-- src/views/componentes.html -->
+   <template id="view-componentes">
+   	<section class="py-16 bg-gray-50">
+   		<div class="container mx-auto px-4">
+   			<h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Sistema de Componentes</h1>
+
+   			<!-- Sistema de Botones -->
+   			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+   				<h2 class="text-2xl font-bold text-gray-900 mb-4">Botones</h2>
+   				<div class="flex flex-wrap gap-4" id="buttons-container">
+   					<!-- Los botones se clonarán aquí dinámicamente -->
+   				</div>
+   			</div>
+
+   			<!-- Aquí añadirás más componentes en los siguientes pasos -->
+
+   			<a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+   		</div>
+   	</section>
+   </template>
+   ```
+
+   **Cargar y usar componentes con JavaScript:**
 
    ```javascript
-   // tailwind.config.js
-   /** @type {import('tailwindcss').Config} */
-   export default {
-   	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-   	theme: {
-   		// Override default font sizes instead of creating new utilities
-   		fontSize: {
-   			xs: ['0.75rem', { lineHeight: '1.2' }],
-   			sm: ['0.875rem', { lineHeight: '1.35' }],
-   			base: ['1rem', { lineHeight: '1.7' }],
-   			lg: ['1.125rem', { lineHeight: '1.6' }],
-   			xl: ['1.375rem', { lineHeight: '1.35', letterSpacing: '-0.005em' }],
-   			'2xl': ['1.75rem', { lineHeight: '1.25', letterSpacing: '-0.01em' }],
-   			'3xl': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
-   			'4xl': ['2.5rem', { lineHeight: '1.15', letterSpacing: '-0.015em' }],
-   			'5xl': ['3.25rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
-   			'6xl': ['4rem', { lineHeight: '1.05', letterSpacing: '-0.025em' }],
-   			'7xl': ['4.5rem', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
-   		},
-   		extend: {
-   			// Design tokens (aka "theme extensions").
-   			// Using these keys in your markup (e.g., bg-primary-500, text-content-muted)
-   			// decouples UI styling from raw hex values. If you tweak a token here,
-   			// all components using that token update consistently.
-   			colors: {
-   				// Brand colors: use for primary actions and navigation backgrounds
-   				primary: {
-   					50: '#eff6ff',
-   					500: '#3b82f6',
-   					900: '#1e3a8a',
-   				},
-   				// Surfaces: use for page backgrounds and contrasting sections
-   				surface: {
-   					light: '#f8fafc', // light page background
-   					dark: '#1e293b', // dark footer/sections background
-   				},
-   				// Content colors: use for text. Prefer these over gray-XXX
-   				content: {
-   					DEFAULT: '#0f172a', // strong/default text
-   					muted: '#64748b', // subdued/secondary text
-   					inverted: '#ffffff', // text on dark/brand backgrounds
-   				},
-   			},
-   			// Spacing tokens to augment Tailwind scale
-   			spacing: {
-   				18: '4.5rem',
-   				88: '22rem',
-   			},
-   			// Large radius for prominent CTAs/cards
-   			borderRadius: {
-   				'4xl': '2rem',
-   			},
-   			// Custom typography: map semantic font families
-   			fontFamily: {
-   				display: [
-   					'ui-sans-serif',
-   					'system-ui',
-   					'Segoe UI',
-   					'Inter',
-   					'Roboto',
-   					'Helvetica Neue',
-   					'Arial',
-   					'Noto Sans',
-   					'Apple Color Emoji',
-   					'Segoe UI Emoji',
-   					'Segoe UI Symbol',
-   					'Noto Color Emoji',
-   				],
-   				body: [
-   					'ui-sans-serif',
-   					'system-ui',
-   					'Inter',
-   					'Roboto',
-   					'Helvetica Neue',
-   					'Arial',
-   					'Noto Sans',
-   					'Apple Color Emoji',
-   					'Segoe UI Emoji',
-   					'Segoe UI Symbol',
-   					'Noto Color Emoji',
-   				],
-   			},
-   			// Subtle elevation for cards/CTAs
-   			boxShadow: {
-   				elevated: '0 12px 30px -12px rgba(59, 130, 246, 0.35)', // uses primary color tint
-   			},
-   			// Container defaults (so class "container" is centered with padding)
-   			container: {
-   				center: true,
-   				padding: {
-   					DEFAULT: '1rem',
-   					sm: '1rem',
-   					md: '2rem',
-   					lg: '2rem',
-   					xl: '2.5rem',
-   				},
-   			},
-   		},
+   // src/views/componentes.js (archivo de configuración para onMount)
+   export async function mountComponentes(app) {
+   	// Cargar componentes si no están ya en el DOM
+   	await ensureTemplateAvailable('button-primary', './src/components/button-primary.html');
+   	await ensureTemplateAvailable('button-secondary', './src/components/button-secondary.html');
+   	await ensureTemplateAvailable('button-ghost', './src/components/button-ghost.html');
+
+   	const container = app.querySelector('#buttons-container');
+
+   	// Clonar y usar componente primario
+   	const primaryBtn = document.getElementById('button-primary').content.cloneNode(true);
+   	primaryBtn.querySelector('button').textContent = 'Botón Primario';
+   	container.appendChild(primaryBtn);
+
+   	// Clonar y usar componente secundario
+   	const secondaryBtn = document.getElementById('button-secondary').content.cloneNode(true);
+   	secondaryBtn.querySelector('button').textContent = 'Botón Secundario';
+   	container.appendChild(secondaryBtn);
+
+   	// Clonar y usar componente ghost
+   	const ghostBtn = document.getElementById('button-ghost').content.cloneNode(true);
+   	ghostBtn.querySelector('button').textContent = 'Botón Ghost';
+   	container.appendChild(ghostBtn);
+   }
+
+   // Función helper para cargar templates (similar a la del router)
+   async function ensureTemplateAvailable(templateId, templateUrl) {
+   	if (document.getElementById(templateId)) return;
+
+   	const res = await fetch(templateUrl, { credentials: 'same-origin' });
+   	if (!res.ok) throw new Error(`Failed to load template: ${templateUrl}`);
+   	const html = await res.text();
+
+   	const doc = new DOMParser().parseFromString(html, 'text/html');
+   	const fetchedTemplate = doc.querySelector('template');
+   	if (!fetchedTemplate || !fetchedTemplate.id) {
+   		throw new Error(`No <template id="..."> found in ${templateUrl}`);
+   	}
+   	document.body.appendChild(fetchedTemplate);
+   }
+   ```
+
+   **Registrar vista con onMount:**
+
+   ```javascript
+   // src/views/index.js
+   import { mountComponentes } from './componentes.js';
+
+   export const views = {
+   	'/componentes': {
+   		templateId: 'view-componentes',
+   		templateUrl: './src/views/componentes.html',
+   		onMount: mountComponentes,
    	},
-   	plugins: [],
+   	// ... otras vistas
    };
    ```
-
-2. **Crea componente reutilizable Button:**
-
-   **Dónde:** Actualiza `src/views/componentes.js` (creado en S2)
-
-   Añade estos botones a tu vista de componentes para probarlos:
-
-   ```javascript
-   // src/views/componentes.js
-   export default {
-   	template: `
-       <section class="py-16 bg-gray-50">
-         <div class="container mx-auto px-4">
-           <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Sistema de Componentes</h1>
-           
-           <!-- Sistema de Botones -->
-           <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-             <h2 class="text-2xl font-bold text-gray-900 mb-4">Botones</h2>
-             <div class="flex flex-wrap gap-4">
-               <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-                 Botón Primario
-               </button>
-               
-               <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-                 Botón Secundario
-               </button>
-               
-              <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
-                Botón Ghost
-              </button>
-            </div>
-          </div>
-          
-          <!-- Aquí añadirás más componentes en los siguientes pasos -->
-          
-          <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
-        </div>
-      </section>
-    `,
-   };
-   ```
-
-````
 
 **Cómo probar:**
 
-1. Guarda el archivo
+1. Guarda todos los archivos
 2. Navega a `#/componentes` en tu navegador
 3. Prueba hover sobre cada botón
 4. Presiona Tab para verificar estados de focus
@@ -258,104 +339,149 @@ En S2, creaste un sistema de ruteo modular con archivos de vista separados. Ahor
 
 #### 💡 Hacer los Botones Interactivos
 
-Los botones anteriores son **solo visuales**. Para hacerlos funcionales, necesitas añadir JavaScript. Aquí tienes varias formas de hacerlo:
-
-**Opción 1: Event listener inline (rápido para prototipado)**
-
-```html
-<button
-  class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
-  onclick="alert('¡Botón clickeado!')">
-  Botón Primario
-</button>
-````
-
-**Opción 2: Event listener en el código (recomendado)**
+Los botones anteriores son **solo visuales**. Para hacerlos funcionales con el enfoque `<template>`, añade event listeners en la función `onMount`:
 
 ```javascript
 // src/views/componentes.js
-export default {
-	template: `
-    <section class="py-16 bg-gray-50 min-h-screen">
-      <div class="container mx-auto px-4">
-        <!-- ... contenido ... -->
-        <button 
-          id="primary-btn"
-          class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 transition-colors">
-          Botón Primario
-        </button>
-      </div>
-    </section>
-  `,
+export async function mountComponentes(app) {
+	// ... código de carga de componentes anterior ...
 
-	// Función que se ejecuta después de renderizar la vista
-	init() {
-		const btn = document.getElementById('primary-btn');
-		if (btn) {
-			btn.addEventListener('click', () => {
-				console.log('¡Botón clickeado!');
-				alert('Acción ejecutada');
-			});
-		}
-	},
-};
+	const container = app.querySelector('#buttons-container');
+
+	// Clonar componente primario y añadir interactividad
+	const primaryBtn = document.getElementById('button-primary').content.cloneNode(true);
+	const primaryBtnEl = primaryBtn.querySelector('button');
+	primaryBtnEl.textContent = 'Botón Primario';
+	primaryBtnEl.addEventListener('click', () => {
+		console.log('¡Botón clickeado!');
+		alert('Acción ejecutada');
+	});
+	container.appendChild(primaryBtn);
+
+	// Clonar componente secundario con handler
+	const secondaryBtn = document.getElementById('button-secondary').content.cloneNode(true);
+	const secondaryBtnEl = secondaryBtn.querySelector('button');
+	secondaryBtnEl.textContent = 'Botón Secundario';
+	secondaryBtnEl.addEventListener('click', () => {
+		console.log('Secundario clickeado');
+	});
+	container.appendChild(secondaryBtn);
+
+	// Clonar componente ghost con handler
+	const ghostBtn = document.getElementById('button-ghost').content.cloneNode(true);
+	const ghostBtnEl = ghostBtn.querySelector('button');
+	ghostBtnEl.textContent = 'Botón Ghost';
+	ghostBtnEl.addEventListener('click', () => {
+		console.log('Ghost clickeado');
+	});
+	container.appendChild(ghostBtn);
+}
 ```
 
-**Opción 3: Usar componente modular (profesional)** ⭐
+**También para la Opción A (inline, sin componentes):**
 
-Ver la lección **[JavaScript Modules](/lessons/es/js-modules/)** para entender este enfoque en profundidad:
+- **Rápido (onclick en HTML):** añade el handler directamente en la vista.
+
+```html
+<!-- src/views/buttons.html (inline) -->
+<button
+	class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
+	onclick="alert('Acción ejecutada')">
+	Acción Primaria
+</button>
+```
+
+- **Recomendado (delegación de eventos, sin onMount):** usa un único listener global y marca los botones con `data-action`.
 
 ```javascript
-// src/components/Button.js
-export function PrimaryButton(text, onClick) {
-	const button = document.createElement('button');
-	button.className =
-		'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
-	button.textContent = text;
+// src/inline-interactions.js (inclúyelo en tu index.html)
+document.addEventListener('click', (event) => {
+	const target = event.target.closest('[data-action="guardar"]');
+	if (!target) return;
+	console.log('Guardando...');
+	alert('¡Cambios guardados!');
+});
+```
 
-	// Añadir event listener
-	if (onClick) {
-		button.addEventListener('click', onClick);
+```html
+<!-- src/views/buttons.html (inline) -->
+<button
+	data-action="guardar"
+	class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+	Guardar Cambios
+</button>
+```
+
+**Crear función helper para componentes interactivos:**
+
+Para evitar repetir código, crea una función helper que simplifique el uso de componentes:
+
+```javascript
+// src/utils/component-helpers.js
+export async function useComponent(templateId, templateUrl, container, config = {}) {
+	await ensureTemplateAvailable(templateId, templateUrl);
+
+	const template = document.getElementById(templateId);
+	if (!template) throw new Error(`Template ${templateId} not found`);
+
+	const clone = template.content.cloneNode(true);
+	const element = clone.querySelector(template.querySelector('*').tagName.toLowerCase());
+
+	// Configurar texto si se proporciona
+	if (config.text) {
+		element.textContent = config.text;
 	}
 
-	return button;
+	// Añadir event listener si se proporciona
+	if (config.onClick) {
+		element.addEventListener('click', config.onClick);
+	}
+
+	// Añadir clases adicionales si se proporcionan
+	if (config.classes) {
+		element.classList.add(...config.classes.split(' '));
+	}
+
+	// Añadir atributos si se proporcionan
+	if (config.attributes) {
+		Object.entries(config.attributes).forEach(([key, value]) => {
+			element.setAttribute(key, value);
+		});
+	}
+
+	container.appendChild(clone);
+	return element;
 }
 
-// src/views/componentes.js
-import { PrimaryButton } from '../components/Button.js';
+// Uso mejorado en mountComponentes:
+import { useComponent } from '../utils/component-helpers.js';
 
-export default {
-	template: `
-    <section class="py-16 bg-gray-50 min-h-screen">
-      <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Sistema de Componentes</h1>
-        <div id="buttons-container"></div>
-      </div>
-    </section>
-  `,
+export async function mountComponentes(app) {
+	const container = app.querySelector('#buttons-container');
 
-	init() {
-		const container = document.getElementById('buttons-container');
-
-		// Crear botón funcional
-		const btn1 = PrimaryButton('Guardar Cambios', () => {
+	await useComponent('button-primary', './src/components/button-primary.html', container, {
+		text: 'Guardar Cambios',
+		onClick: () => {
 			console.log('Guardando...');
 			alert('¡Cambios guardados!');
-		});
+		},
+	});
 
-		const btn2 = PrimaryButton('Cancelar', () => {
-			console.log('Cancelado');
-		});
+	await useComponent('button-secondary', './src/components/button-secondary.html', container, {
+		text: 'Cancelar',
+		onClick: () => console.log('Cancelado'),
+	});
 
-		container.appendChild(btn1);
-		container.appendChild(btn2);
-	},
-};
+	await useComponent('button-ghost', './src/components/button-ghost.html', container, {
+		text: 'Más Opciones',
+		onClick: () => console.log('Ghost clickeado'),
+	});
+}
 ```
 
 ---
 
-#### 🎨 Estados Activos y Disabled
+#### Estados Activos y Disabled
 
 **Estado Active (cuando se hace clic):**
 
@@ -388,14 +514,46 @@ setTimeout(() => {
 
 ---
 
-#### 🔄 Ejemplo Completo: Botón con Estado de Carga
+#### Ejemplo Completo: Botón con Estado de Carga
+
+**Crear componente de botón con estados de carga:**
+
+```html
+<!-- src/components/button-loading.html -->
+<template id="button-loading">
+	<button
+		class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+		<slot></slot>
+	</button>
+</template>
+```
+
+**Función helper para botón con estados:**
 
 ```javascript
-// src/components/Button.js
-export function LoadingButton(text, asyncAction) {
-	const button = document.createElement('button');
-	button.className =
-		'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
+// src/utils/loading-button.js
+// Función helper para cargar templates (reutilizable)
+async function ensureTemplateAvailable(templateId, templateUrl) {
+	if (document.getElementById(templateId)) return;
+
+	const res = await fetch(templateUrl, { credentials: 'same-origin' });
+	if (!res.ok) throw new Error(`Failed to load template: ${templateUrl}`);
+	const html = await res.text();
+
+	const doc = new DOMParser().parseFromString(html, 'text/html');
+	const fetchedTemplate = doc.querySelector('template');
+	if (!fetchedTemplate || !fetchedTemplate.id) {
+		throw new Error(`No <template id="..."> found in ${templateUrl}`);
+	}
+	document.body.appendChild(fetchedTemplate);
+}
+
+export async function createLoadingButton(container, text, asyncAction) {
+	await ensureTemplateAvailable('button-loading', './src/components/button-loading.html');
+
+	const template = document.getElementById('button-loading');
+	const clone = template.content.cloneNode(true);
+	const button = clone.querySelector('button');
 
 	const originalText = text;
 	button.textContent = text;
@@ -444,17 +602,22 @@ export function LoadingButton(text, asyncAction) {
 		}
 	});
 
+	container.appendChild(clone);
 	return button;
 }
 
-// Uso:
-const saveBtn = LoadingButton('Guardar Cambios', async () => {
-	// Simular llamada API
-	await new Promise((resolve) => setTimeout(resolve, 1500));
-	console.log('Datos guardados');
-});
+// Uso en mountComponentes:
+import { createLoadingButton } from '../utils/loading-button.js';
 
-document.getElementById('container').appendChild(saveBtn);
+export async function mountComponentes(app) {
+	const container = app.querySelector('#buttons-container');
+
+	await createLoadingButton(container, 'Guardar Cambios', async () => {
+		// Simular llamada API
+		await new Promise((resolve) => setTimeout(resolve, 1500));
+		console.log('Datos guardados');
+	});
+}
 ```
 
 ---
@@ -478,46 +641,166 @@ group-hover:    /* Hover en elemento padre */
 
 ---
 
-**💡 Consejo Pro:** Para aplicaciones grandes, siempre usa **componentes modulares** (Opción 3) para mantener el código organizado y reutilizable. Revisa la lección [JavaScript Modules](/lessons/es/js-modules/) para dominar este enfoque profesional.
+**💡 Consejo Pro:** Para aplicaciones grandes, siempre usa **componentes modulares** (Opción 3) para mantener el código organizado y reutilizable. Revisa la lección [JavaScript Modules](/web-atelier-udit/lessons/es/js-modules/) para dominar este enfoque profesional.
 
-3. **Construye patrón de componente Card:**
+3. **Construye patrón de componente Card modular:**
 
-   **Dónde:** Continúa en `src/views/componentes.js`
+   **Crear componente Card reutilizable:**
 
-   Añade una nueva sección de tarjetas después de los botones:
+   ```html
+   <!-- src/components/card.html -->
+   <template id="card">
+   	<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+   		<div class="aspect-w-16 aspect-h-9 bg-gray-200">
+   			<slot name="image"></slot>
+   		</div>
+   		<div class="p-6">
+   			<h3 class="text-lg font-semibold text-gray-900 mb-2">
+   				<slot name="title">Título de Tarjeta</slot>
+   			</h3>
+   			<p class="text-gray-600 text-sm mb-4 line-clamp-3">
+   				<slot name="description">Descripción de la tarjeta</slot>
+   			</p>
+   			<div class="flex flex-wrap gap-2">
+   				<slot name="tags"></slot>
+   			</div>
+   		</div>
+   	</article>
+   </template>
+   ```
+
+   **Actualizar vista componentes.html:**
+
+   ```html
+   <!-- src/views/componentes.html -->
+   <template id="view-componentes">
+   	<section class="py-16 bg-gray-50">
+   		<div class="container mx-auto px-4">
+   			<h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Sistema de Componentes</h1>
+
+   			<!-- Sistema de Botones -->
+   			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+   				<h2 class="text-2xl font-bold text-gray-900 mb-4">Botones</h2>
+   				<div class="flex flex-wrap gap-4" id="buttons-container">
+   					<!-- Los botones se clonarán aquí dinámicamente -->
+   				</div>
+   			</div>
+
+   			<!-- Sistema de Tarjetas -->
+   			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+   				<h2 class="text-2xl font-bold text-gray-900 mb-4">Tarjetas</h2>
+   				<div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="cards-container">
+   					<!-- Las tarjetas se clonarán aquí dinámicamente -->
+   				</div>
+   			</div>
+
+   			<a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+   		</div>
+   	</section>
+   </template>
+   ```
+
+   **Crear helper para usar Card:**
 
    ```javascript
-   // src/views/componentes.js - Añade dentro del template, después de botones
+   // src/utils/card-helpers.js
+   async function ensureTemplateAvailable(templateId, templateUrl) {
+   	if (document.getElementById(templateId)) return;
 
-   <!-- Sistema de Tarjetas -->
-   <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-     <h2 class="text-2xl font-bold text-gray-900 mb-4">Tarjetas</h2>
-     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+   	const res = await fetch(templateUrl, { credentials: 'same-origin' });
+   	if (!res.ok) throw new Error(`Failed to load template: ${templateUrl}`);
+   	const html = await res.text();
 
-       <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-         <div class="aspect-w-16 aspect-h-9 bg-gray-200">
-           <img src="https://picsum.photos/400/225?random=1" alt="Imagen del proyecto" class="w-full h-48 object-cover" />
-         </div>
-         <div class="p-6">
-           <h3 class="text-lg font-semibold text-gray-900 mb-2">Título del Proyecto</h3>
-           <p class="text-gray-600 text-sm mb-4 line-clamp-3">
-             Descripción del proyecto que demuestra el patrón de tarjeta con espaciado y jerarquía tipográfica consistentes.
-           </p>
-           <div class="flex flex-wrap gap-2">
-             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
-               React
-             </span>
-             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-               API
-             </span>
-           </div>
-         </div>
-       </article>
+   	const doc = new DOMParser().parseFromString(html, 'text/html');
+   	const fetchedTemplate = doc.querySelector('template');
+   	if (!fetchedTemplate || !fetchedTemplate.id) {
+   		throw new Error(`No <template id="..."> found in ${templateUrl}`);
+   	}
+   	document.body.appendChild(fetchedTemplate);
+   }
 
-       <!-- Duplica este patrón 2-3 veces para ver el grid -->
+   export async function createCard(container, { image, title, description, tags = [] }) {
+   	await ensureTemplateAvailable('card', './src/components/card.html');
 
-     </div>
-   </div>
+   	const template = document.getElementById('card');
+   	const clone = template.content.cloneNode(true);
+   	const card = clone.querySelector('article');
+
+   	// Insertar imagen
+   	const imageSlot = card.querySelector('slot[name="image"]');
+   	if (imageSlot && image) {
+   		const img = document.createElement('img');
+   		img.src = image;
+   		img.alt = title || 'Imagen del proyecto';
+   		img.className = 'w-full h-48 object-cover';
+   		imageSlot.replaceWith(img);
+   	}
+
+   	// Insertar título
+   	const titleSlot = card.querySelector('slot[name="title"]');
+   	if (titleSlot && title) {
+   		titleSlot.textContent = title;
+   	}
+
+   	// Insertar descripción
+   	const descSlot = card.querySelector('slot[name="description"]');
+   	if (descSlot && description) {
+   		descSlot.textContent = description;
+   	}
+
+   	// Insertar tags
+   	const tagsSlot = card.querySelector('slot[name="tags"]');
+   	if (tagsSlot && tags.length > 0) {
+   		const tagsContainer = document.createElement('div');
+   		tagsContainer.className = 'flex flex-wrap gap-2';
+   		tags.forEach((tag) => {
+   			const tagSpan = document.createElement('span');
+   			tagSpan.className =
+   				'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800';
+   			tagSpan.textContent = tag;
+   			tagsContainer.appendChild(tagSpan);
+   		});
+   		tagsSlot.replaceWith(tagsContainer);
+   	}
+
+   	container.appendChild(clone);
+   	return card;
+   }
+   ```
+
+   **Usar Card en mountComponentes:**
+
+   ```javascript
+   // src/views/componentes.js
+   import { createCard } from '../utils/card-helpers.js';
+
+   export async function mountComponentes(app) {
+   	// ... código de botones anterior ...
+
+   	const cardsContainer = app.querySelector('#cards-container');
+
+   	await createCard(cardsContainer, {
+   		image: 'https://picsum.photos/400/225?random=1',
+   		title: 'Título del Proyecto',
+   		description:
+   			'Descripción del proyecto que demuestra el patrón de tarjeta con espaciado y jerarquía tipográfica consistentes.',
+   		tags: ['React', 'API'],
+   	});
+
+   	await createCard(cardsContainer, {
+   		image: 'https://picsum.photos/400/225?random=2',
+   		title: 'Otro Proyecto',
+   		description: 'Otra tarjeta de ejemplo con diferentes tags.',
+   		tags: ['Vue', 'Tailwind'],
+   	});
+
+   	await createCard(cardsContainer, {
+   		image: 'https://picsum.photos/400/225?random=3',
+   		title: 'Proyecto Final',
+   		description: 'Última tarjeta de ejemplo.',
+   		tags: ['JavaScript', 'CSS'],
+   	});
+   }
    ```
 
    **Cómo probar:**
@@ -528,189 +811,180 @@ group-hover:    /* Hover en elemento padre */
    4. Hover sobre tarjetas para ver efecto de sombra
    5. Cambia los números en picsum.photos para diferentes imágenes
 
-4. **Crea vista de proyectos con grid responsive:**
+4. **Crea vista de proyectos con grid responsive (sin string templates):**
 
-   **Dónde:** Crea o actualiza `src/views/proyectos.js`
+   **Dónde:** Añade un `<template id="view-proyectos">` a tu `index.html` (o `demo/index.html`) y registra la ruta en tu tabla de vistas. No uses `src/views/proyectos.js` ni plantillas de cadena.
 
-   Esta vista aplicará tus componentes de tarjeta en un contexto real:
+```html
+<!-- index.html -->
+<template id="view-proyectos">
+	<section class="py-16 bg-gray-50 min-h-screen">
+		<div class="container mx-auto px-4">
+			<header class="text-center mb-12">
+				<h1 class="text-4xl font-bold text-gray-900 mb-4">Proyectos Destacados</h1>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+					Una muestra de trabajo demostrando diseño responsive y tecnologías web modernas.
+				</p>
+			</header>
 
-   ```javascript
-   // src/views/proyectos.js
-   export default {
-   	template: `
-       <section class="py-16 bg-gray-50 min-h-screen">
-         <div class="container mx-auto px-4">
-           <header class="text-center mb-12">
-             <h1 class="text-4xl font-bold text-gray-900 mb-4">Proyectos Destacados</h1>
-             <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-               Una muestra de trabajo demostrando diseño responsive y tecnologías web modernas.
-             </p>
-           </header>
-   
-           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-             <!-- Proyecto 1 -->
-             <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-               <div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-blue-400 to-purple-500">
-                 <div class="flex items-center justify-center text-white text-2xl font-bold">
-                   Proyecto 1
-                 </div>
-               </div>
-               <div class="p-6">
-                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Portfolio Personal</h3>
-                 <p class="text-gray-600 text-sm mb-4">
-                   Sitio web responsive construido con Tailwind CSS y vanilla JavaScript.
-                 </p>
-                 <div class="flex flex-wrap gap-2">
-                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
-                     Tailwind
-                   </span>
-                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                     JavaScript
-                   </span>
-                 </div>
-               </div>
-             </article>
-             
-             <!-- Proyecto 2 -->
-             <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-               <div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-green-400 to-teal-500">
-                 <div class="flex items-center justify-center text-white text-2xl font-bold">
-                   Proyecto 2
-                 </div>
-               </div>
-               <div class="p-6">
-                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Dashboard Analítico</h3>
-                 <p class="text-gray-600 text-sm mb-4">
-                   Interfaz de análisis de datos con componentes reutilizables.
-                 </p>
-                 <div class="flex flex-wrap gap-2">
-                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                     React
-                   </span>
-                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
-                     API
-                   </span>
-                 </div>
-               </div>
-             </article>
-             
-             <!-- Proyecto 3 -->
-             <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-               <div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-pink-400 to-red-500">
-                 <div class="flex items-center justify-center text-white text-2xl font-bold">
-                   Proyecto 3
-                 </div>
-               </div>
-               <div class="p-6">
-                 <h3 class="text-lg font-semibold text-gray-900 mb-2">E-commerce</h3>
-                 <p class="text-gray-600 text-sm mb-4">
-                   Tienda online con carrito de compras y checkout integrado.
-                 </p>
-                 <div class="flex flex-wrap gap-2">
-                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                     Vue
-                   </span>
-                   <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                     Stripe
-                   </span>
-                 </div>
-               </div>
-             </article>
-           </div>
-           
-           <a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
-         </div>
-       </section>
-     `,
-   };
-   ```
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Tarjeta 1 -->
+				<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+					<div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-blue-400 to-purple-500"></div>
+					<div class="p-6">
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">Portfolio Personal</h3>
+						<p class="text-gray-600 text-sm mb-4">Sitio web responsive construido con Tailwind CSS y JavaScript.</p>
+						<div class="flex flex-wrap gap-2">
+							<span
+								class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+								Tailwind
+							</span>
+							<span
+								class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+								JavaScript
+							</span>
+						</div>
+					</div>
+				</article>
 
-   **Cómo probar:**
+				<!-- Tarjeta 2 -->
+				<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+					<div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-green-400 to-teal-500"></div>
+					<div class="p-6">
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">Dashboard Analítico</h3>
+						<p class="text-gray-600 text-sm mb-4">Interfaz de análisis de datos con componentes reutilizables.</p>
+						<div class="flex flex-wrap gap-2">
+							<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+								React
+							</span>
+							<span
+								class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+								API
+							</span>
+						</div>
+					</div>
+				</article>
 
-   1. Navega a `#/proyectos` en tu navegador
-   2. Verifica grid responsive: 1 columna (móvil), 2 (tablet), 3 (desktop)
-   3. Usa DevTools responsive mode para probar breakpoints
-   4. Hover sobre tarjetas para ver transiciones
-   5. Verifica que todos los espaciados sean consistentes
+				<!-- Tarjeta 3 -->
+				<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+					<div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-pink-400 to-red-500"></div>
+					<div class="p-6">
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">E-commerce</h3>
+						<p class="text-gray-600 text-sm mb-4">Tienda online con carrito de compras y checkout integrado.</p>
+						<div class="flex flex-wrap gap-2">
+							<span
+								class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+								Vue
+							</span>
+							<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+								Stripe
+							</span>
+						</div>
+					</div>
+				</article>
+			</div>
 
-5. **Implementa patrón de componente Section:**
+			<a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+		</div>
+	</section>
+</template>
+```
 
-   **Dónde:** Actualiza `src/views/sobre.js` (About page)
+Registra la ruta en tu tabla `views` (sin modularización):
 
-   Aplica el patrón de sección consistente a tu página About:
+```javascript
+// src/views/index.js (o donde definas tu mapa de rutas)
+export const views = {
+	'/': { templateId: 'view-home' },
+	'/proyectos': { templateId: 'view-proyectos' },
+	404: { templateId: 'view-home' },
+};
+```
 
-   ```javascript
-   // src/views/sobre.js
-   export default {
-   	template: `
-       <section class="py-16 min-h-screen">
-         <div class="container mx-auto px-4">
-           <div class="max-w-4xl mx-auto">
-             <!-- Header de sección -->
-             <header class="text-center mb-12">
-               <h1 class="text-4xl font-bold text-gray-900 mb-4">Sobre Mí</h1>
-               <p class="text-lg text-gray-600">
-                 Desarrollador web apasionado por crear experiencias digitales accesibles y performantes.
-               </p>
-             </header>
-   
-             <!-- Contenido principal con patrón consistente -->
-             <div class="prose prose-lg max-w-none">
-               <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Mi Historia</h2>
-                 <p class="text-gray-700 mb-4">
-                   Comencé mi camino en el desarrollo web en 2024, enfocándome en tecnologías modernas
-                   como Tailwind CSS, JavaScript vanilla, y arquitecturas SPA.
-                 </p>
-                 <p class="text-gray-700">
-                   Mi objetivo es crear interfaces que no solo se vean bien, sino que funcionen 
-                   perfectamente para todos los usuarios, independientemente de sus capacidades.
-                 </p>
-               </div>
-   
-               <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Habilidades</h2>
-                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                   <div class="text-center p-4 bg-primary-50 rounded-lg">
-                     <div class="text-3xl mb-2">🎨</div>
-                     <div class="font-medium text-gray-900">Tailwind CSS</div>
-                   </div>
-                   <div class="text-center p-4 bg-yellow-50 rounded-lg">
-                     <div class="text-3xl mb-2">⚡</div>
-                     <div class="font-medium text-gray-900">JavaScript</div>
-                   </div>
-                   <div class="text-center p-4 bg-green-50 rounded-lg">
-                     <div class="text-3xl mb-2">♿</div>
-                     <div class="font-medium text-gray-900">Accesibilidad</div>
-                   </div>
-                   <div class="text-center p-4 bg-blue-50 rounded-lg">
-                     <div class="text-3xl mb-2">📱</div>
-                     <div class="font-medium text-gray-900">Responsive Design</div>
-                   </div>
-                   <div class="text-center p-4 bg-purple-50 rounded-lg">
-                     <div class="text-3xl mb-2">🚀</div>
-                     <div class="font-medium text-gray-900">Performance</div>
-                   </div>
-                   <div class="text-center p-4 bg-pink-50 rounded-lg">
-                     <div class="text-3xl mb-2">🎯</div>
-                     <div class="font-medium text-gray-900">UX Design</div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-             
-             <div class="text-center mt-12">
-               <a href="#/proyectos" class="inline-block bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-8 rounded-md transition-colors">
-                 Ver Mis Proyectos
-               </a>
-             </div>
-             
-             <a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
-           </div>
-         </div>
-       </section>
-     `,
-   };
+**Cómo probar:**
+
+1. Navega a `#/proyectos` en tu navegador
+2. Verifica grid responsive: 1 columna (móvil), 2 (tablet), 3 (desktop)
+3. Usa DevTools responsive mode para probar breakpoints
+4. Hover sobre tarjetas para ver transiciones
+5. Verifica que todos los espaciados sean consistentes
+
+6. **Implementa patrón de componente Section (sin string templates):**
+
+   **Dónde:** Añade un `<template id="view-sobre">` a tu `index.html` (o `demo/index.html`) y registra la ruta. Mantén todo en HTML + Tailwind.
+
+   ```html
+   <!-- index.html -->
+   <template id="view-sobre">
+   	<section class="py-16 min-h-screen">
+   		<div class="container mx-auto px-4">
+   			<div class="max-w-4xl mx-auto">
+   				<!-- Header de sección -->
+   				<header class="text-center mb-12">
+   					<h1 class="text-4xl font-bold text-gray-900 mb-4">Sobre Mí</h1>
+   					<p class="text-lg text-gray-600">
+   						Desarrollador web apasionado por crear experiencias digitales accesibles y performantes.
+   					</p>
+   				</header>
+
+   				<!-- Contenido principal con patrón consistente -->
+   				<div class="prose prose-lg max-w-none">
+   					<div class="bg-white rounded-lg shadow-md p-8 mb-8">
+   						<h2 class="text-2xl font-bold text-gray-900 mb-4">Mi Historia</h2>
+   						<p class="text-gray-700 mb-4">
+   							Comencé mi camino en el desarrollo web en 2024, enfocándome en tecnologías modernas como Tailwind CSS,
+   							JavaScript vanilla, y arquitecturas SPA.
+   						</p>
+   						<p class="text-gray-700">
+   							Mi objetivo es crear interfaces que no solo se vean bien, sino que funcionen perfectamente para todos los
+   							usuarios, independientemente de sus capacidades.
+   						</p>
+   					</div>
+
+   					<div class="bg-white rounded-lg shadow-md p-8 mb-8">
+   						<h2 class="text-2xl font-bold text-gray-900 mb-4">Habilidades</h2>
+   						<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+   							<div class="text-center p-4 bg-primary-50 rounded-lg">
+   								<div class="text-3xl mb-2">🎨</div>
+   								<div class="font-medium text-gray-900">Tailwind CSS</div>
+   							</div>
+   							<div class="text-center p-4 bg-yellow-50 rounded-lg">
+   								<div class="text-3xl mb-2">⚡</div>
+   								<div class="font-medium text-gray-900">JavaScript</div>
+   							</div>
+   							<div class="text-center p-4 bg-green-50 rounded-lg">
+   								<div class="text-3xl mb-2">♿</div>
+   								<div class="font-medium text-gray-900">Accesibilidad</div>
+   							</div>
+   							<div class="text-center p-4 bg-blue-50 rounded-lg">
+   								<div class="text-3xl mb-2">📱</div>
+   								<div class="font-medium text-gray-900">Responsive Design</div>
+   							</div>
+   							<div class="text-center p-4 bg-purple-50 rounded-lg">
+   								<div class="text-3xl mb-2">🚀</div>
+   								<div class="font-medium text-gray-900">Performance</div>
+   							</div>
+   							<div class="text-center p-4 bg-pink-50 rounded-lg">
+   								<div class="text-3xl mb-2">🎯</div>
+   								<div class="font-medium text-gray-900">UX Design</div>
+   							</div>
+   						</div>
+   					</div>
+   				</div>
+
+   				<div class="text-center mt-12">
+   					<a
+   						href="#/proyectos"
+   						class="inline-block bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-8 rounded-md transition-colors">
+   						Ver Mis Proyectos
+   					</a>
+   				</div>
+
+   				<a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+   			</div>
+   		</div>
+   	</section>
+   </template>
    ```
 
    **Cómo probar:**
@@ -721,32 +995,21 @@ group-hover:    /* Hover en elemento padre */
    4. Prueba responsive en móvil (grid de habilidades: 2 cols → 3 cols)
    5. Verifica que max-width contenga el contenido apropiadamente
 
-6. **Verifica que el router cargue las vistas actualizadas:**
+7. **Verifica que el router cargue las vistas actualizadas (mapa simple):**
 
-   **Asegúrate de que `src/views/index.js` incluya todas las vistas:**
+   **Asegúrate de que tu mapa de rutas apunte a los `<template>` embebidos:**
 
    ```javascript
-   // src/views/index.js
-   import home from './home.js';
-   import sobre from './sobre.js'; // Actualizada en paso 5
-   import proyectos from './proyectos.js'; // Actualizada en paso 4
-   import contacto from './contacto.js';
-   import tipografia from './tipografia.js';
-   import componentes from './componentes.js'; // Actualizada en pasos 2-3
-   import notFound from './404.js';
-
+   // src/views/index.js (o donde definas tu mapa de rutas)
    export const views = {
-   	'/': home,
-   	'/sobre': sobre,
-   	'/proyectos': proyectos,
-   	'/contacto': contacto,
-   	'/tipografia': tipografia,
-   	'/componentes': componentes,
-   	404: notFound,
+   	'/': { templateId: 'view-home' },
+   	'/sobre': { templateId: 'view-sobre' },
+   	'/proyectos': { templateId: 'view-proyectos' },
+   	404: { templateId: 'view-home' },
    };
    ```
 
-7. **Prueba reutilización de componentes en todas las vistas:**
+8. **Prueba reutilización de componentes en todas las vistas:**
 
    **Lista de verificación de testing:**
 
@@ -759,7 +1022,7 @@ group-hover:    /* Hover en elemento padre */
    - [ ] Sin errores en consola del navegador
    - [ ] Contraste de colores cumple WCAG AA (verifica con DevTools)
 
-8. **Haz commit de tu sistema de componentes:**
+9. **Haz commit de tu sistema de componentes:**
    ```bash
    git add src/views/componentes.js src/views/proyectos.js src/views/sobre.js src/views/index.js
    git commit -m "feat: S3 - Tokens de diseño + componentes reutilizables implementados en vistas
@@ -774,7 +1037,7 @@ group-hover:    /* Hover en elemento padre */
 
   ```
 
-## 🎓 Progresión Arquitectónica: De Monolítico a Modular
+## Progresión Arquitectónica: De Monolítico a Modular
 
 ### ¿Por Qué Empezamos con Todo en Una Vista?
 
@@ -802,27 +1065,36 @@ Para proyectos escalables y equipos grandes, cada componente debería estar en s
 - ✅ **Tree-shaking** - bundlers eliminan código no usado
 - ✅ **Profesional** - así se hace en la industria
 
-### 📁 Refactorización: Estructura Modular de Componentes
+### Refactorización: Estructura Modular de Componentes con `<template>`
 
 Vamos a refactorizar para que quede así:
 
 ```
 src/
 ├── components/
-│   ├── Button.js           # Componente Button reutilizable
-│   ├── Card.js             # Componente Card reutilizable
-│   ├── Section.js          # Wrapper Section reutilizable
-│   └── SkillCard.js        # Componente SkillCard específico
+│   ├── button-primary.html    # Componente Button reutilizable
+│   ├── button-secondary.html
+│   ├── button-ghost.html
+│   ├── card.html              # Componente Card reutilizable
+│   ├── section.html           # Wrapper Section reutilizable
+│   └── skill-card.html        # Componente SkillCard específico
+├── utils/
+│   ├── component-helpers.js   # Helpers para usar componentes
+│   ├── card-helpers.js
+│   └── loading-button.js
 ├── views/
-│   ├── componentes.js      # Importa y muestra componentes
-│   ├── proyectos.js        # Usa Card component
-│   ├── sobre.js            # Usa Section y SkillCard
-│   └── index.js
+│   ├── componentes.html       # Vista que usa componentes
+│   ├── componentes.js         # onMount para componentes
+│   ├── proyectos.html         # Vista de proyectos
+│   ├── proyectos.js           # onMount que usa Card component
+│   ├── sobre.html             # Vista sobre
+│   ├── sobre.js               # onMount que usa Section y SkillCard
+│   └── index.js               # Registro de vistas
 ├── router.js
 └── main.js
 ```
 
-## 🎯 Ejercicios Prácticos: Refactorización Modular (Nivel Avanzado)
+## Ejercicios Prácticos: Refactorización Modular (Nivel Avanzado)
 
 ### Ejercicio 3.3: Extraer Componentes a Archivos Separados
 
@@ -961,138 +1233,121 @@ export function Section({ title, subtitle = '', content = '', bgColor = 'bg-whit
 
 #### Paso 4: Refactoriza la vista de componentes para usar imports
 
-```javascript
-// src/views/componentes.js
-import { Button, PrimaryButton, SecondaryButton, GhostButton } from '../components/Button.js';
-import { Card } from '../components/Card.js';
-import { Section } from '../components/Section.js';
+```html
+<!-- index.html -->
+<template id="view-componentes">
+	<section class="py-16 bg-gray-50 min-h-screen">
+		<div class="container mx-auto px-4">
+			<h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Sistema de Componentes</h1>
 
-export default {
-	template: `
-    <section class="py-16 bg-gray-50 min-h-screen">
-      <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Sistema de Componentes Modular</h1>
-        
-        ${Section({
-									title: 'Sistema de Botones',
-									content: `
-            <div class="flex flex-wrap gap-4">
-              ${PrimaryButton('Botón Primario')}
-              ${SecondaryButton('Botón Secundario')}
-              ${GhostButton('Botón Ghost')}
-            </div>
-            
-            <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Tamaños</h3>
-            <div class="flex flex-wrap items-center gap-4">
-              ${Button({ text: 'Pequeño', size: 'sm' })}
-              ${Button({ text: 'Mediano', size: 'md' })}
-              ${Button({ text: 'Grande', size: 'lg' })}
-            </div>
-          `,
-								})}
-        
-        ${Section({
-									title: 'Sistema de Tarjetas',
-									content: `
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              ${Card({
-															image: 'https://picsum.photos/400/225?random=1',
-															title: 'Proyecto 1',
-															description: 'Tarjeta con imagen real desde API.',
-															tags: ['React', 'API'],
-															tagColors: {
-																React: 'bg-primary-100 text-primary-800',
-																API: 'bg-green-100 text-green-800',
-															},
-														})}
-              
-              ${Card({
-															image: 'bg-gradient-to-r from-blue-400 to-purple-500',
-															title: 'Proyecto 2',
-															description: 'Tarjeta con gradiente CSS.',
-															tags: ['Vue', 'Tailwind'],
-															tagColors: {
-																Vue: 'bg-green-100 text-green-800',
-																Tailwind: 'bg-blue-100 text-blue-800',
-															},
-														})}
-              
-              ${Card({
-															title: 'Proyecto 3',
-															description: 'Tarjeta sin imagen.',
-															tags: ['TypeScript'],
-															tagColors: {
-																TypeScript: 'bg-blue-100 text-blue-800',
-															},
-														})}
-            </div>
-          `,
-								})}
-        
-        <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
-      </div>
-    </section>
-  `,
-};
+			<!-- Sistema de Botones (estático, sin JS) -->
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Botones</h2>
+				<div class="flex flex-wrap gap-4">
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+						Botón Primario
+					</button>
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+						Botón Secundario
+					</button>
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
+						Botón Ghost
+					</button>
+				</div>
+			</div>
+
+			<!-- Patrones de Tarjetas (estático) -->
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Patrones de Tarjetas</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+						<div class="aspect-w-16 aspect-h-9 bg-gray-200">
+							<img
+								src="https://picsum.photos/400/225?random=1"
+								alt="Vista previa del proyecto"
+								class="w-full h-48 object-cover" />
+						</div>
+						<div class="p-6">
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Tarjeta con Imagen</h3>
+							<p class="text-gray-600 text-sm mb-4">Tarjeta con cabecera de imagen y contenido de texto debajo.</p>
+						</div>
+					</article>
+					<article class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
+						<div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+							<svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+							</svg>
+						</div>
+						<h3 class="card-title text-lg font-semibold text-gray-900 mb-2">Tarjeta con Icono</h3>
+						<p class="text-gray-600 text-sm">Tarjeta con icono centrado y contenido.</p>
+					</article>
+					<article
+						class="bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg shadow-md p-6 text-white hover:shadow-lg transition-shadow">
+						<h3 class="text-sm font-medium text-primary-100 mb-1">Total Proyectos</h3>
+						<p class="text-3xl font-bold mb-1">42</p>
+						<p class="text-sm text-primary-100">↑ 12% desde el mes pasado</p>
+					</article>
+				</div>
+			</div>
+
+			<!-- Componentes de Formulario (estático) -->
+			<div class="bg-white rounded-lg shadow-md p-6">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Componentes de Formulario</h2>
+				<div class="max-w-md space-y-4">
+					<div>
+						<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+						<input
+							type="text"
+							id="name"
+							class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+							placeholder="Ingresa tu nombre" />
+					</div>
+					<div>
+						<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+						<input
+							type="email"
+							id="email"
+							class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+							placeholder="tu@ejemplo.com" />
+					</div>
+					<div>
+						<label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+						<textarea
+							id="message"
+							rows="3"
+							class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+							placeholder="Tu mensaje..."></textarea>
+					</div>
+				</div>
+			</div>
+
+			<a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+		</div>
+	</section>
+</template>
 ```
 
 #### Paso 5: Usa componentes en otras vistas
 
-```javascript
-// src/views/proyectos.js
-import { Card } from '../components/Card.js';
-
-export default {
-	template: `
-    <section class="py-16 bg-gray-50 min-h-screen">
-      <div class="container mx-auto px-4">
-        <header class="text-center mb-12">
-          <h1 class="text-4xl font-bold text-gray-900 mb-4">Proyectos Destacados</h1>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Componentes Card reutilizados desde src/components/Card.js
-          </p>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          ${Card({
-											image: 'bg-gradient-to-r from-blue-400 to-purple-500',
-											title: 'Portfolio Personal',
-											description: 'Sitio web responsive construido con Tailwind CSS.',
-											tags: ['Tailwind', 'JavaScript'],
-											tagColors: {
-												Tailwind: 'bg-primary-100 text-primary-800',
-												JavaScript: 'bg-yellow-100 text-yellow-800',
-											},
-										})}
-          
-          ${Card({
-											image: 'bg-gradient-to-r from-green-400 to-teal-500',
-											title: 'Dashboard Analítico',
-											description: 'Interfaz de análisis de datos con componentes reutilizables.',
-											tags: ['React', 'API'],
-											tagColors: {
-												React: 'bg-blue-100 text-blue-800',
-												API: 'bg-purple-100 text-purple-800',
-											},
-										})}
-          
-          ${Card({
-											image: 'bg-gradient-to-r from-pink-400 to-red-500',
-											title: 'E-commerce',
-											description: 'Tienda online con carrito de compras.',
-											tags: ['Vue', 'Stripe'],
-											tagColors: {
-												Vue: 'bg-green-100 text-green-800',
-												Stripe: 'bg-indigo-100 text-indigo-800',
-											},
-										})}
-        </div>
-        
-        <a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
-      </div>
-    </section>
-  `,
-};
+```html
+<!-- index.html -->
+<template id="view-proyectos">
+	<section class="py-16 bg-gray-50 min-h-screen">
+		<div class="container mx-auto px-4">
+			<header class="text-center mb-12">
+				<h1 class="text-4xl font-bold text-gray-900 mb-4">Proyectos Destacados</h1>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">Componentes Card mostrados en un contexto real.</p>
+			</header>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Cards aquí -->
+			</div>
+			<a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+		</div>
+	</section>
+</template>
 ```
 
 ### 🎨 Ventajas de Este Enfoque Modular
@@ -1202,203 +1457,216 @@ Ahora que entiendes los tokens de diseño y patrones de componentes, mejora las 
 
 Actualiza tu `src/views/componentes.js` para usar tokens de diseño:
 
-```javascript
-// src/views/componentes.js
-export default {
-	template: `
-    <section class="py-16 bg-surface-light min-h-screen">
-      <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Muestra de Sistema de Diseño</h1>
-        
-        <!-- Sistema de Botones con Tokens de Diseño -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Botones</h2>
-          <div class="flex flex-wrap gap-4">
-            <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-              Acción Primaria
-            </button>
-            <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-              Acción Secundaria
-            </button>
-            <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
-              Botón Ghost
-            </button>
-          </div>
-          
-          <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Tamaños de Botón</h3>
-          <div class="flex flex-wrap items-center gap-4">
-            <button class="px-3 py-1.5 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
-              Pequeño
-            </button>
-            <button class="px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
-              Mediano
-            </button>
-            <button class="px-6 py-3 text-base font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
-              Grande
-            </button>
-          </div>
-        </div>
+```html
+<!-- index.html -->
+<template id="view-componentes-playground">
+	<section class="py-16 bg-surface-light min-h-screen">
+		<div class="container mx-auto px-4">
+			<h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Muestra de Sistema de Diseño</h1>
 
-        <!-- Biblioteca de Patrones de Tarjetas -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Patrones de Tarjetas</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Tarjeta con Imagen -->
-            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div class="aspect-w-16 aspect-h-9 bg-gray-200">
-                <img src="https://picsum.photos/400/225?random=1" alt="Vista previa del proyecto" class="w-full h-48 object-cover" />
-              </div>
-              <div class="p-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">Tarjeta con Imagen</h3>
-                <p class="text-gray-600 text-sm mb-4">Tarjeta con cabecera de imagen y contenido de texto debajo.</p>
-                <div class="flex gap-2">
-                  <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">Diseño</span>
-                  <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Destacado</span>
-                </div>
-              </div>
-            </article>
+			<!-- Sistema de Botones con Tokens de Diseño -->
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Botones</h2>
+				<div class="flex flex-wrap gap-4">
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+						Acción Primaria
+					</button>
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+						Acción Secundaria
+					</button>
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
+						Botón Ghost
+					</button>
+				</div>
+				<h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Tamaños de Botón</h3>
+				<div class="flex flex-wrap items-center gap-4">
+					<button class="px-3 py-1.5 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+						Pequeño
+					</button>
+					<button class="px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+						Mediano
+					</button>
+					<button class="px-6 py-3 text-base font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+						Grande
+					</button>
+				</div>
+			</div>
 
-            <!-- Tarjeta con Icono -->
-            <article class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Tarjeta con Icono</h3>
-              <p class="text-gray-600 text-sm">Tarjeta con icono centrado y contenido.</p>
-            </article>
+			<!-- Biblioteca de Patrones de Tarjetas -->
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Patrones de Tarjetas</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<!-- Tarjeta con Imagen -->
+					<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+						<div class="aspect-w-16 aspect-h-9 bg-gray-200">
+							<img
+								src="https://picsum.photos/400/225?random=1"
+								alt="Vista previa del proyecto"
+								class="w-full h-48 object-cover" />
+						</div>
+						<div class="p-6">
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Tarjeta con Imagen</h3>
+							<p class="text-gray-600 text-sm mb-4">Tarjeta con cabecera de imagen y contenido de texto debajo.</p>
+							<div class="flex gap-2">
+								<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">Diseño</span>
+								<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Destacado</span>
+							</div>
+						</div>
+					</article>
 
-            <!-- Tarjeta de Estadísticas -->
-            <article class="bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg shadow-md p-6 text-white hover:shadow-lg transition-shadow">
-              <h3 class="text-sm font-medium text-primary-100 mb-1">Total Proyectos</h3>
-              <p class="text-3xl font-bold mb-1">42</p>
-              <p class="text-sm text-primary-100">↑ 12% desde el mes pasado</p>
-            </article>
-          </div>
-        </div>
+					<!-- Tarjeta con Icono -->
+					<article class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
+						<div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+							<svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+							</svg>
+						</div>
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">Tarjeta con Icono</h3>
+						<p class="text-gray-600 text-sm">Tarjeta con icono centrado y contenido.</p>
+					</article>
 
-        <!-- Componentes de Formulario -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Componentes de Formulario</h2>
-          <div class="max-w-md space-y-4">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
-              <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Ingresa tu nombre" />
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-              <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="tu@ejemplo.com" />
-            </div>
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
-              <textarea id="message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Tu mensaje..."></textarea>
-            </div>
-          </div>
-        </div>
-        
-        <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
-      </div>
-    </section>
-  `,
-};
+					<!-- Tarjeta de Estadísticas -->
+					<article
+						class="bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg shadow-md p-6 text-white hover:shadow-lg transition-shadow">
+						<h3 class="text-sm font-medium text-primary-100 mb-1">Total Proyectos</h3>
+						<p class="text-3xl font-bold mb-1">42</p>
+						<p class="text-sm text-primary-100">↑ 12% desde el mes pasado</p>
+					</article>
+				</div>
+			</div>
+
+			<!-- Componentes de Formulario -->
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Componentes de Formulario</h2>
+				<div class="max-w-md space-y-4">
+					<div>
+						<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+						<input
+							type="text"
+							id="name"
+							class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+							placeholder="Ingresa tu nombre" />
+					</div>
+					<div>
+						<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+						<input
+							type="email"
+							id="email"
+							class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+							placeholder="tu@ejemplo.com" />
+					</div>
+					<div>
+						<label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+						<textarea
+							id="message"
+							rows="3"
+							class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+							placeholder="Tu mensaje..."></textarea>
+					</div>
+				</div>
+			</div>
+
+			<a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Volver a Inicio</a>
+		</div>
+	</section>
+</template>
 ```
 
 ### Ejercicio 3.2: Crea una Ruta de Referencia de Tokens de Diseño
 
 Crea una nueva ruta para documentar tu sistema de diseño:
 
-```javascript
-// src/views/tokens-diseno.js
-export default {
-	template: `
-    <section class="py-16 min-h-screen">
-      <div class="container mx-auto px-4 max-w-6xl">
-        <h1 class="text-4xl font-bold text-gray-900 mb-8">Referencia de Tokens de Diseño</h1>
-        
-        <!-- Paleta de Colores -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Colores</h2>
-          
-          <h3 class="text-lg font-semibold text-gray-900 mb-3">Colores Primarios</h3>
-          <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-            <div class="space-y-2">
-              <div class="h-20 bg-primary-50 rounded border border-gray-200"></div>
-              <p class="text-sm font-mono text-gray-600">primary-50</p>
-            </div>
-            <div class="space-y-2">
-              <div class="h-20 bg-primary-500 rounded"></div>
-              <p class="text-sm font-mono text-gray-600">primary-500</p>
-            </div>
-            <div class="space-y-2">
-              <div class="h-20 bg-primary-900 rounded"></div>
-              <p class="text-sm font-mono text-gray-600">primary-900</p>
-            </div>
-          </div>
+```html
+<!-- index.html -->
+<template id="view-tokens-diseno">
+	<section class="py-16 min-h-screen">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h1 class="text-4xl font-bold text-gray-900 mb-8">Referencia de Tokens de Diseño</h1>
 
-          <h3 class="text-lg font-semibold text-gray-900 mb-3">Colores de Superficie</h3>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="space-y-2">
-              <div class="h-20 bg-surface-light rounded border border-gray-200"></div>
-              <p class="text-sm font-mono text-gray-600">surface-light</p>
-            </div>
-            <div class="space-y-2">
-              <div class="h-20 bg-surface-dark rounded"></div>
-              <p class="text-sm font-mono text-gray-600 text-white">surface-dark</p>
-            </div>
-          </div>
-        </div>
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Colores</h2>
+				<h3 class="text-lg font-semibold text-gray-900 mb-3">Colores Primarios</h3>
+				<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+					<div class="space-y-2">
+						<div class="h-20 bg-primary-50 rounded border border-gray-200"></div>
+						<p class="text-sm font-mono text-gray-600">primary-50</p>
+					</div>
+					<div class="space-y-2">
+						<div class="h-20 bg-primary-500 rounded"></div>
+						<p class="text-sm font-mono text-gray-600">primary-500</p>
+					</div>
+					<div class="space-y-2">
+						<div class="h-20 bg-primary-900 rounded"></div>
+						<p class="text-sm font-mono text-gray-600">primary-900</p>
+					</div>
+				</div>
+				<h3 class="text-lg font-semibold text-gray-900 mb-3">Colores de Superficie</h3>
+				<div class="grid grid-cols-2 gap-4">
+					<div class="space-y-2">
+						<div class="h-20 bg-surface-light rounded border border-gray-200"></div>
+						<p class="text-sm font-mono text-gray-600">surface-light</p>
+					</div>
+					<div class="space-y-2">
+						<div class="h-20 bg-surface-dark rounded"></div>
+						<p class="text-sm font-mono text-gray-600 text-white">surface-dark</p>
+					</div>
+				</div>
+			</div>
 
-        <!-- Escala Tipográfica -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Escala Tipográfica</h2>
-          <div class="space-y-4">
-            <div class="border-b border-gray-200 pb-4">
-              <p class="text-5xl font-bold text-gray-900 mb-2">Display</p>
-              <p class="text-sm text-gray-600 font-mono">text-5xl font-bold</p>
-            </div>
-            <div class="border-b border-gray-200 pb-4">
-              <p class="text-4xl font-bold text-gray-900 mb-2">Encabezado 1</p>
-              <p class="text-sm text-gray-600 font-mono">text-4xl font-bold</p>
-            </div>
-            <div class="border-b border-gray-200 pb-4">
-              <p class="text-3xl font-bold text-gray-900 mb-2">Encabezado 2</p>
-              <p class="text-sm text-gray-600 font-mono">text-3xl font-bold</p>
-            </div>
-            <div class="border-b border-gray-200 pb-4">
-              <p class="text-base text-gray-900 mb-2">Texto de Cuerpo - El veloz murciélago hindú comía feliz cardillo y kiwi</p>
-              <p class="text-sm text-gray-600 font-mono">text-base</p>
-            </div>
-          </div>
-        </div>
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Escala Tipográfica</h2>
+				<div class="space-y-4">
+					<div class="border-b border-gray-200 pb-4">
+						<p class="text-5xl font-bold text-gray-900 mb-2">Display</p>
+						<p class="text-sm text-gray-600 font-mono">text-5xl font-bold</p>
+					</div>
+					<div class="border-b border-gray-200 pb-4">
+						<p class="text-4xl font-bold text-gray-900 mb-2">Encabezado 1</p>
+						<p class="text-sm text-gray-600 font-mono">text-4xl font-bold</p>
+					</div>
+					<div class="border-b border-gray-200 pb-4">
+						<p class="text-3xl font-bold text-gray-900 mb-2">Encabezado 2</p>
+						<p class="text-sm text-gray-600 font-mono">text-3xl font-bold</p>
+					</div>
+					<div class="border-b border-gray-200 pb-4">
+						<p class="text-base text-gray-900 mb-2">
+							Texto de Cuerpo - El veloz murciélago hindú comía feliz cardillo y kiwi
+						</p>
+						<p class="text-sm text-gray-600 font-mono">text-base</p>
+					</div>
+				</div>
+			</div>
 
-        <!-- Sistema de Espaciado -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Espaciado</h2>
-          <div class="space-y-4">
-            <div class="flex items-center gap-4">
-              <div class="w-20 text-sm font-mono text-gray-600">spacing-4</div>
-              <div class="h-4 bg-primary-500 rounded" style="width: 1rem;"></div>
-              <span class="text-sm text-gray-600">1rem / 16px</span>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-20 text-sm font-mono text-gray-600">spacing-8</div>
-              <div class="h-4 bg-primary-500 rounded" style="width: 2rem;"></div>
-              <span class="text-sm text-gray-600">2rem / 32px</span>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-20 text-sm font-mono text-gray-600">spacing-18</div>
-              <div class="h-4 bg-primary-500 rounded" style="width: 4.5rem;"></div>
-              <span class="text-sm text-gray-600">4.5rem / 72px (personalizado)</span>
-            </div>
-          </div>
-        </div>
-        
-        <a href="#/componentes" class="inline-block text-primary-500 hover:text-primary-600 font-medium">Ver Componentes →</a>
-      </div>
-    </section>
-  `,
-};
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Sistema de Espaciado</h2>
+				<div class="space-y-4">
+					<div class="flex items-center gap-4">
+						<div class="w-20 text-sm font-mono text-gray-600">spacing-4</div>
+						<div class="h-4 bg-primary-500 rounded" style="width: 1rem;"></div>
+						<span class="text-sm text-gray-600">1rem / 16px</span>
+					</div>
+					<div class="flex items-center gap-4">
+						<div class="w-20 text-sm font-mono text-gray-600">spacing-8</div>
+						<div class="h-4 bg-primary-500 rounded" style="width: 2rem;"></div>
+						<span class="text-sm text-gray-600">2rem / 32px</span>
+					</div>
+					<div class="flex items-center gap-4">
+						<div class="w-20 text-sm font-mono text-gray-600">spacing-18</div>
+						<div class="h-4 bg-primary-500 rounded" style="width: 4.5rem;"></div>
+						<span class="text-sm text-gray-600">4.5rem / 72px (personalizado)</span>
+					</div>
+				</div>
+			</div>
+
+			<a href="#/componentes" class="inline-block text-primary-500 hover:text-primary-600 font-medium">
+				Ver Componentes →
+			</a>
+		</div>
+	</section>
+</template>
 ```
 
 Registra la nueva ruta:
@@ -1531,18 +1799,27 @@ Siguiendo nuestra **metodología del atelier**, reflexiona sobre estas preguntas
 
 ## 🏗️ Scaffold Mínimo de Repositorio
 
-Aquí tienes un punto de partida completo para tu sistema de componentes:
+Aquí tienes un punto de partida completo para tu sistema de componentes usando `<template>`:
 
 ```
 sistema-componentes-tailwind/
 ├── index.html
 ├── src/
 │   ├── main.js
+│   ├── router.js
 │   ├── style.css
-│   └── components/
-│       ├── button.js
-│       ├── card.js
-│       └── section.js
+│   ├── components/
+│   │   ├── button-primary.html
+│   │   ├── button-secondary.html
+│   │   ├── card.html
+│   │   └── section.html
+│   ├── utils/
+│   │   └── component-helpers.js
+│   └── views/
+│       ├── index.js
+│       ├── componentes.html
+│       ├── componentes.js
+│       └── home.html
 └── tailwind.config.js
 ```
 

@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Demo de Componentes y Sistema de Diseño</title>
-	<script src="https://cdn.tailwindcss.com"></script>
-	<script>
-		tailwind.config = {
-			theme: {
-				extend: {
-					colors: {
-						primary: {
-							50: '#eff6ff',
-							500: '#3b82f6',
-							900: '#1e3a8a',
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo de Componentes y Sistema de Diseño</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: {
+								50: '#eff6ff',
+								500: '#3b82f6',
+								900: '#1e3a8a',
+							},
+							surface: {
+								light: '#f8fafc',
+								dark: '#1e293b',
+							},
+							content: {
+								DEFAULT: '#0f172a',
+								muted: '#64748b',
+								inverted: '#ffffff',
+							},
 						},
-						surface: {
-							light: '#f8fafc',
-							dark: '#1e293b',
+						spacing: {
+							18: '4.5rem',
+							88: '22rem',
 						},
-						content: {
-							DEFAULT: '#0f172a',
-							muted: '#64748b',
-							inverted: '#ffffff',
+						borderRadius: {
+							'4xl': '2rem',
 						},
-					},
-					spacing: {
-						18: '4.5rem',
-						88: '22rem',
-					},
-					borderRadius: {
-						'4xl': '2rem',
 					},
 				},
-			},
-		};
-	</script>
-	<link rel="stylesheet" href="./src/style.css" />
+			};
+		</script>
+		<link rel="stylesheet" href="./src/style.css" />
 	</head>
 	<body class="bg-gray-50">
 		<!-- Navigation -->
@@ -58,352 +58,8 @@
 		<!-- Main App Container -->
 		<main id="app" class="container mx-auto px-4 py-8" role="main"></main>
 
-		<!-- HTML Templates for each view -->
-
-		<!-- Home Template -->
-		<template id="home-template">
-			<div class="max-w-4xl mx-auto">
-				<h1 class="text-4xl font-bold text-gray-900 mb-6">Componentes y Sistema de Diseño</h1>
-				<div class="bg-white rounded-lg shadow-md p-8 mb-8">
-					<h2 class="text-2xl font-semibold mb-4">Bienvenido al Demo del Sistema de Diseño</h2>
-					<p class="text-gray-600 mb-4">
-						Esta demo muestra un sistema de diseño completo construido con Tailwind CSS usando el enfoque de
-						<code class="bg-gray-100 px-2 py-1 rounded">&lt;template&gt;</code>
-						.
-					</p>
-					<p class="text-gray-600 mb-4">Explora diferentes categorías de componentes usando la navegación superior:</p>
-					<ul class="space-y-2 text-gray-700">
-						<li class="flex items-start">
-							<span class="text-primary-500 mr-2">→</span>
-							<span>
-								<strong>Botones:</strong>
-								Estados primario, secundario y deshabilitado
-							</span>
-						</li>
-						<li class="flex items-start">
-							<span class="text-primary-500 mr-2">→</span>
-							<span>
-								<strong>Tarjetas:</strong>
-								Patrones de tarjetas reutilizables con variantes
-							</span>
-						</li>
-						<li class="flex items-start">
-							<span class="text-primary-500 mr-2">→</span>
-							<span>
-								<strong>Formularios:</strong>
-								Componentes de entrada accesibles
-							</span>
-						</li>
-						<li class="flex items-start">
-							<span class="text-primary-500 mr-2">→</span>
-							<span>
-								<strong>Tokens:</strong>
-								Tokens de diseño y sistema de tema
-							</span>
-						</li>
-					</ul>
-				</div>
-
-				<div class="grid md:grid-cols-2 gap-6">
-					<div class="bg-primary-50 rounded-lg p-6 border-l-4 border-primary-500">
-						<h3 class="text-lg font-semibold text-primary-900 mb-2">🎨 Tokens de Diseño</h3>
-						<p class="text-primary-700">
-							Colores, espaciado y escalas tipográficas consistentes definidos en tailwind.config.js
-						</p>
-					</div>
-					<div class="bg-green-50 rounded-lg p-6 border-l-4 border-green-500">
-						<h3 class="text-lg font-semibold text-green-900 mb-2">♿ Accesibilidad Primero</h3>
-						<p class="text-green-700">Todos los componentes siguen las pautas WCAG con atributos ARIA apropiados</p>
-					</div>
-				</div>
-			</div>
-		</template>
-
-		<!-- Buttons Template -->
-		<template id="buttons-template">
-			<div class="max-w-4xl mx-auto">
-				<h1 class="text-3xl font-bold text-gray-900 mb-8">Componentes de Botones</h1>
-
-				<section class="bg-white rounded-lg shadow-md p-8 mb-8">
-					<h2 class="text-2xl font-semibold mb-6">Botones Primarios</h2>
-					<div class="flex flex-wrap gap-4 mb-6">
-						<button class="btn-primary">Botón Primario</button>
-						<button class="btn-primary" disabled>Deshabilitado</button>
-						<button class="btn-primary btn-loading">
-							<span class="loading-spinner"></span>
-							Cargando...
-						</button>
-					</div>
-					<div class="bg-gray-50 p-4 rounded-md">
-						<p class="text-sm text-gray-600 mb-2"><strong>Clases:</strong></p>
-						<code class="text-xs bg-gray-100 px-2 py-1 rounded">
-							.btn-primary: px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 disabled:opacity-50
-						</code>
-					</div>
-				</section>
-
-				<section class="bg-white rounded-lg shadow-md p-8 mb-8">
-					<h2 class="text-2xl font-semibold mb-6">Botones Secundarios</h2>
-					<div class="flex flex-wrap gap-4 mb-6">
-						<button class="btn-secondary">Botón Secundario</button>
-						<button class="btn-secondary" disabled>Deshabilitado</button>
-					</div>
-					<div class="bg-gray-50 p-4 rounded-md">
-						<p class="text-sm text-gray-600 mb-2"><strong>Clases:</strong></p>
-						<code class="text-xs bg-gray-100 px-2 py-1 rounded">
-							.btn-secondary: px-6 py-3 border-2 border-primary-500 text-primary-600 rounded-lg hover:bg-primary-50
-						</code>
-					</div>
-				</section>
-
-				<section class="bg-white rounded-lg shadow-md p-8">
-					<h2 class="text-2xl font-semibold mb-6">Tamaños de Botones</h2>
-					<div class="flex flex-wrap items-center gap-4">
-						<button class="btn-primary text-sm px-4 py-2">Pequeño</button>
-						<button class="btn-primary">Mediano (Por defecto)</button>
-						<button class="btn-primary text-lg px-8 py-4">Grande</button>
-					</div>
-				</section>
-			</div>
-		</template>
-
-		<!-- Cards Template -->
-		<template id="cards-template">
-			<div class="max-w-4xl mx-auto">
-				<h1 class="text-3xl font-bold text-gray-900 mb-8">Componentes de Tarjetas</h1>
-
-				<div class="grid md:grid-cols-2 gap-6 mb-8">
-					<article class="card">
-						<div class="card-header">
-							<h3 class="card-title">Tarjeta Básica</h3>
-						</div>
-						<div class="card-body">
-							<p class="text-gray-600">Esta es una tarjeta básica con secciones de encabezado, cuerpo y pie.</p>
-						</div>
-						<div class="card-footer">
-							<button class="btn-primary btn-sm">Más Información</button>
-						</div>
-					</article>
-
-					<article class="card card-hover">
-						<div class="card-header">
-							<h3 class="card-title">Tarjeta Interactiva</h3>
-						</div>
-						<div class="card-body">
-							<p class="text-gray-600">Esta tarjeta tiene efectos hover para mejor interactividad.</p>
-						</div>
-						<div class="card-footer">
-							<button class="btn-secondary btn-sm">Ver Detalles</button>
-						</div>
-					</article>
-				</div>
-
-				<section class="bg-white rounded-lg shadow-md p-8">
-					<h2 class="text-2xl font-semibold mb-6">Ejemplo de Tarjeta de Proyecto</h2>
-					<article class="card card-hover">
-						<img
-							src="https://via.placeholder.com/600x300"
-							alt="Vista previa del proyecto"
-							class="w-full h-48 object-cover rounded-t-lg" />
-						<div class="card-header">
-							<h3 class="card-title">Sitio Web Portfolio</h3>
-							<span class="badge badge-primary">Destacado</span>
-						</div>
-						<div class="card-body">
-							<p class="text-gray-600 mb-4">
-								Un sitio web portfolio moderno construido con Tailwind CSS y JavaScript vanilla.
-							</p>
-							<div class="flex flex-wrap gap-2">
-								<span class="badge badge-secondary">HTML</span>
-								<span class="badge badge-secondary">CSS</span>
-								<span class="badge badge-secondary">JavaScript</span>
-							</div>
-						</div>
-						<div class="card-footer">
-							<button class="btn-primary btn-sm">Ver Proyecto</button>
-							<button class="btn-secondary btn-sm">Código Fuente</button>
-						</div>
-					</article>
-				</section>
-			</div>
-		</template>
-
-		<!-- Forms Template -->
-		<template id="forms-template">
-			<div class="max-w-2xl mx-auto">
-				<h1 class="text-3xl font-bold text-gray-900 mb-8">Componentes de Formularios</h1>
-
-				<form class="bg-white rounded-lg shadow-md p-8 space-y-6">
-					<div class="form-group">
-						<label for="name" class="form-label">
-							Nombre Completo
-							<span class="text-red-500" aria-label="requerido">*</span>
-						</label>
-						<input type="text" id="name" name="name" class="form-input" required placeholder="Ingresa tu nombre completo" />
-						<p class="form-help">Esto se mostrará en tu perfil</p>
-					</div>
-
-					<div class="form-group">
-						<label for="email" class="form-label">
-							Correo Electrónico
-							<span class="text-red-500" aria-label="requerido">*</span>
-						</label>
-						<input type="email" id="email" name="email" class="form-input" required placeholder="tu@ejemplo.com" />
-					</div>
-
-					<div class="form-group">
-						<label for="message" class="form-label">Mensaje</label>
-						<textarea
-							id="message"
-							name="message"
-							rows="4"
-							class="form-input"
-							placeholder="Cuéntanos sobre tu proyecto..."></textarea>
-					</div>
-
-					<div class="form-group">
-						<label class="flex items-center space-x-2 cursor-pointer">
-							<input type="checkbox" class="form-checkbox" />
-							<span class="text-sm text-gray-700">Acepto los términos y condiciones</span>
-						</label>
-					</div>
-
-					<div class="flex gap-4">
-						<button type="submit" class="btn-primary">Enviar Formulario</button>
-						<button type="reset" class="btn-secondary">Restablecer</button>
-					</div>
-				</form>
-
-				<section class="bg-white rounded-lg shadow-md p-8 mt-8">
-					<h2 class="text-2xl font-semibold mb-6">Estados del Formulario</h2>
-					<div class="space-y-4">
-						<div class="form-group">
-							<label class="form-label">Entrada Válida</label>
-							<input type="text" class="form-input border-green-500" value="Valor válido" />
-							<p class="text-sm text-green-600 mt-1">✓ ¡Se ve bien!</p>
-						</div>
-						<div class="form-group">
-							<label class="form-label">Entrada Inválida</label>
-							<input type="text" class="form-input border-red-500" value="Inválido" />
-							<p class="text-sm text-red-600 mt-1">✗ Este campo es requerido</p>
-						</div>
-						<div class="form-group">
-							<label class="form-label">Entrada Deshabilitada</label>
-							<input type="text" class="form-input" disabled value="Campo deshabilitado" />
-						</div>
-					</div>
-				</section>
-			</div>
-		</template>
-
-		<!-- Tokens Template -->
-		<template id="tokens-template">
-			<div class="max-w-4xl mx-auto">
-				<h1 class="text-3xl font-bold text-gray-900 mb-8">Tokens de Diseño</h1>
-
-				<section class="bg-white rounded-lg shadow-md p-8 mb-8">
-					<h2 class="text-2xl font-semibold mb-6">Paleta de Colores</h2>
-					<div class="space-y-4">
-						<div>
-							<h3 class="text-lg font-medium mb-3">Colores Primarios</h3>
-							<div class="grid grid-cols-3 gap-4">
-								<div class="text-center">
-									<div class="h-20 bg-primary-50 rounded-lg mb-2 border border-gray-200"></div>
-									<p class="text-sm font-mono">primary-50</p>
-								</div>
-								<div class="text-center">
-									<div class="h-20 bg-primary-500 rounded-lg mb-2"></div>
-									<p class="text-sm font-mono">primary-500</p>
-								</div>
-								<div class="text-center">
-									<div class="h-20 bg-primary-900 rounded-lg mb-2"></div>
-									<p class="text-sm font-mono text-white">primary-900</p>
-								</div>
-							</div>
-						</div>
-						<div>
-							<h3 class="text-lg font-medium mb-3">Colores de Superficie</h3>
-							<div class="grid grid-cols-2 gap-4">
-								<div class="text-center">
-									<div class="h-20 bg-surface-light rounded-lg mb-2 border border-gray-200"></div>
-									<p class="text-sm font-mono">surface-light</p>
-								</div>
-								<div class="text-center">
-									<div class="h-20 bg-surface-dark rounded-lg mb-2"></div>
-									<p class="text-sm font-mono text-white">surface-dark</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<section class="bg-white rounded-lg shadow-md p-8 mb-8">
-					<h2 class="text-2xl font-semibold mb-6">Escala Tipográfica</h2>
-					<div class="space-y-4">
-						<div>
-							<p class="text-xs text-gray-500 mb-1">text-xs</p>
-							<p class="text-xs">The quick brown fox jumps over the lazy dog</p>
-						</div>
-						<div>
-							<p class="text-xs text-gray-500 mb-1">text-sm</p>
-							<p class="text-sm">The quick brown fox jumps over the lazy dog</p>
-						</div>
-						<div>
-							<p class="text-xs text-gray-500 mb-1">text-base</p>
-							<p class="text-base">The quick brown fox jumps over the lazy dog</p>
-						</div>
-						<div>
-							<p class="text-xs text-gray-500 mb-1">text-lg</p>
-							<p class="text-lg">The quick brown fox jumps over the lazy dog</p>
-						</div>
-						<div>
-							<p class="text-xs text-gray-500 mb-1">text-xl</p>
-							<p class="text-xl">The quick brown fox jumps over the lazy dog</p>
-						</div>
-						<div>
-							<p class="text-xs text-gray-500 mb-1">text-2xl</p>
-							<p class="text-2xl">The quick brown fox jumps over the lazy dog</p>
-						</div>
-					</div>
-				</section>
-
-				<section class="bg-white rounded-lg shadow-md p-8">
-					<h2 class="text-2xl font-semibold mb-6">Escala de Espaciado</h2>
-					<div class="space-y-3">
-						<div class="flex items-center">
-							<div class="w-32 text-sm font-mono">space-2 (8px)</div>
-							<div class="h-8 bg-primary-500 rounded" style="width: 8px"></div>
-						</div>
-						<div class="flex items-center">
-							<div class="w-32 text-sm font-mono">space-4 (16px)</div>
-							<div class="h-8 bg-primary-500 rounded" style="width: 16px"></div>
-						</div>
-						<div class="flex items-center">
-							<div class="w-32 text-sm font-mono">space-6 (24px)</div>
-							<div class="h-8 bg-primary-500 rounded" style="width: 24px"></div>
-						</div>
-						<div class="flex items-center">
-							<div class="w-32 text-sm font-mono">space-8 (32px)</div>
-							<div class="h-8 bg-primary-500 rounded" style="width: 32px"></div>
-						</div>
-						<div class="flex items-center">
-							<div class="w-32 text-sm font-mono">space-18 (72px)</div>
-							<div class="h-8 bg-primary-500 rounded" style="width: 72px"></div>
-						</div>
-					</div>
-				</section>
-			</div>
-		</template>
-
-		<!-- 404 Template -->
-		<template id="404-template">
-			<div class="max-w-2xl mx-auto text-center py-16">
-				<h1 class="text-6xl font-bold text-gray-300 mb-4">404</h1>
-				<h2 class="text-3xl font-semibold text-gray-700 mb-4">Página No Encontrada</h2>
-				<p class="text-gray-600 mb-8">La página que buscas no existe.</p>
-				<a href="#/" class="btn-primary">Ir al Inicio</a>
-			</div>
-		</template>
+		<!-- Templates are now loaded dynamically from separate files in src/views/ -->
+		<!-- See src/views/index.js for route configuration -->
 
 		<script type="module" src="./src/main.js"></script>
 	</body>

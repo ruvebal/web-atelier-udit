@@ -1,0 +1,58 @@
+<template id="view-home">
+	<div class="max-w-4xl mx-auto">
+		<h1 class="text-4xl font-bold text-gray-900 mb-6">Componentes y Sistema de Diseño</h1>
+		<div class="bg-white rounded-lg shadow-md p-8 mb-8">
+			<h2 class="text-2xl font-semibold mb-4">Bienvenido al Demo del Sistema de Diseño</h2>
+			<p class="text-gray-600 mb-4">
+				Esta demo muestra un sistema de diseño completo construido con Tailwind CSS usando el enfoque de
+				<code class="bg-gray-100 px-2 py-1 rounded">&lt;template&gt;</code>
+				.
+			</p>
+			<p class="text-gray-600 mb-4">Explora diferentes categorías de componentes usando la navegación superior:</p>
+			<ul class="space-y-2 text-gray-700">
+				<li class="flex items-start">
+					<span class="text-primary-500 mr-2">→</span>
+					<span>
+						<strong>Botones:</strong>
+						Estados primario, secundario y deshabilitado
+					</span>
+				</li>
+				<li class="flex items-start">
+					<span class="text-primary-500 mr-2">→</span>
+					<span>
+						<strong>Tarjetas:</strong>
+						Patrones de tarjetas reutilizables con variantes
+					</span>
+				</li>
+				<li class="flex items-start">
+					<span class="text-primary-500 mr-2">→</span>
+					<span>
+						<strong>Formularios:</strong>
+						Componentes de entrada accesibles
+					</span>
+				</li>
+				<li class="flex items-start">
+					<span class="text-primary-500 mr-2">→</span>
+					<span>
+						<strong>Tokens:</strong>
+						Tokens de diseño y sistema de tema
+					</span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="grid md:grid-cols-2 gap-6">
+			<div class="bg-primary-50 rounded-lg p-6 border-l-4 border-primary-500">
+				<h3 class="text-lg font-semibold text-primary-900 mb-2">🎨 Tokens de Diseño</h3>
+				<p class="text-primary-700">
+					Colores, espaciado y escalas tipográficas consistentes definidos en tailwind.config.js
+				</p>
+			</div>
+			<div class="bg-green-50 rounded-lg p-6 border-l-4 border-green-500">
+				<h3 class="text-lg font-semibold text-green-900 mb-2">♿ Accesibilidad Primero</h3>
+				<p class="text-green-700">Todos los componentes siguen las pautas WCAG con atributos ARIA apropiados</p>
+			</div>
+		</div>
+	</div>
+</template>
+

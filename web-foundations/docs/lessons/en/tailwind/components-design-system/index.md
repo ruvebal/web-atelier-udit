@@ -41,6 +41,10 @@ This lesson follows the **atelier methodology** (exploration → reflection → 
 >
 > Explore a complete design system with buttons, cards, forms, and design tokens using the `<template>` approach. All code is self-contained and ready to run!
 
+> **[View Alternative Demo (no components) →](demo-inline/)**
+>
+> Beginner-friendly version: implement the UI directly inside views without creating reusable components or helpers. Great to focus on Tailwind utilities and visual patterns first.
+
 ## Prerequisites
 
 <div class="prerequisites">
@@ -68,7 +72,87 @@ Our approach creates **PWA-ready components** that work across devices and assis
 
 This session transforms utility combinations into reusable, maintainable component systems that encode design decisions and accessibility requirements.
 
-### 🔗 Building on S2 Routing
+### Pedagogical rationale: quick prototyping with ready‑made components
+
+- For beginners and prototyping, we prioritize **ready‑made Tailwind components** (copy/paste + adjust tokens) over building complex systems.
+- We avoid mounting components with vanilla JS and `<template>` here: it adds complexity and reduces readability/maintainability without a framework.
+- Advanced sections below are optional. For the visual foundation, start with ready pieces and coherent tokens.
+
+### Option A — Inline in Views (no components/helpers)
+
+If you’d like to avoid creating `<template>` components or JavaScript helpers, you can implement everything directly in your views. This lowers file count and initial complexity.
+
+1. Create a view with inline buttons:
+
+```html
+<!-- src/views/buttons.html -->
+<template id="view-buttons">
+	<div class="max-w-4xl mx-auto">
+		<h1 class="text-3xl font-bold text-gray-900 mb-8">Buttons (inline)</h1>
+
+		<section class="bg-white rounded-lg shadow-md p-8 mb-8">
+			<h2 class="text-2xl font-semibold mb-6">Primary</h2>
+			<div class="flex flex-wrap gap-4">
+				<button
+					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+					Primary Action
+				</button>
+				<button
+					disabled
+					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+					Disabled
+				</button>
+			</div>
+		</section>
+
+		<section class="bg-white rounded-lg shadow-md p-8 mb-8">
+			<h2 class="text-2xl font-semibold mb-6">Secondary</h2>
+			<div class="flex flex-wrap gap-4">
+				<button
+					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+					Secondary Action
+				</button>
+				<button
+					disabled
+					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+					Disabled
+				</button>
+			</div>
+		</section>
+
+		<section class="bg-white rounded-lg shadow-md p-8">
+			<h2 class="text-2xl font-semibold mb-6">Sizes</h2>
+			<div class="flex flex-wrap items-center gap-4">
+				<button class="px-3 py-1.5 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+					Small
+				</button>
+				<button class="px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+					Medium
+				</button>
+				<button class="px-6 py-3 text-base font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+					Large
+				</button>
+			</div>
+		</section>
+	</div>
+</template>
+```
+
+2. In your view registry, skip `onMount` and helpers:
+
+```javascript
+// src/views/index.js
+export const views = {
+	'/buttons': { templateId: 'view-buttons', templateUrl: './src/views/buttons.html' },
+	// other routes...
+};
+```
+
+3. Repeat the pattern for cards and forms with inline markup. See the Alternative Demo linked above for a complete example.
+
+—
+
+### Option B — Building on S2 with `<template>`
 
 In S2, you created a modular routing system with separate view files. Now we'll enhance those views with a proper design system. You should already have:
 
@@ -78,42 +162,19 @@ In S2, you created a modular routing system with separate view files. Now we'll 
 
 **If you haven't completed S2 exercises yet**, create the `src/views/components.js` file now (see S2 Exercise 2.2).
 
+If you prefer not to create reusable components yet, use Option A (inline in views) or open the **Alternative Demo**.
+
 ### Step-by-Step Implementation
 
 **💡 Important:** All components you create in this session will be implemented and tested in the views you already created in S2. Specifically, you'll work primarily in `src/views/components.js` (created in S2 Exercise 2.2).
 
-1. **Define design tokens in Tailwind config:**
+1. **Define design tokens (2 min):**
 
-   ```javascript
-   // tailwind.config.js
-   /** @type {import('tailwindcss').Config} */
-   export default {
-   	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-   	theme: {
-   		extend: {
-   			colors: {
-   				primary: {
-   					50: '#eff6ff',
-   					500: '#3b82f6',
-   					900: '#1e3a8a',
-   				},
-   				surface: {
-   					light: '#f8fafc',
-   					dark: '#1e293b',
-   				},
-   			},
-   			spacing: {
-   				18: '4.5rem',
-   				88: '22rem',
-   			},
-   			borderRadius: {
-   				'4xl': '2rem',
-   			},
-   		},
-   	},
-   	plugins: [],
-   };
-   ```
+   For a clear, self‑contained guide on how to define tokens in `tailwind.config.js` and when to use `style.css`, see the dedicated lesson:
+
+   - [Tailwind CSS: Design Tokens & style.css — Quick Guide](/web-atelier-udit/lessons/en/tailwind/design-tokens/)
+
+   Then come back here to apply those tokens in ready‑made components.
 
 2. **Create reusable Button component:**
 
@@ -121,274 +182,279 @@ In S2, you created a modular routing system with separate view files. Now we'll 
 
    Add these buttons to your components view to test them:
 
-   ```javascript
-   // src/views/components.js
-   export default {
-   	template: `
-       <section class="py-16 bg-gray-50 min-h-screen">
-         <div class="container mx-auto px-4">
-           <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Component System</h1>
-           
-           <!-- Button System -->
-           <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-             <h2 class="text-2xl font-bold text-gray-900 mb-4">Buttons</h2>
-             <div class="flex flex-wrap gap-4">
-               <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-                 Primary Button
-               </button>
-               
-               <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-                 Secondary Button
-               </button>
-               
-               <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
-                 Ghost Button
-               </button>
-             </div>
-           </div>
-           
-           <!-- More components will be added in the next steps -->
-           
-           <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
-         </div>
-       </section>
-     `,
-   };
-   ```
+```html
+<!-- index.html -->
+<template id="view-components">
+	<section class="py-16 bg-gray-50 min-h-screen">
+		<div class="container mx-auto px-4">
+			<h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Component System</h1>
 
-   **How to test:**
+			<!-- Button System -->
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Buttons</h2>
+				<div class="flex flex-wrap gap-4">
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+						Primary Button
+					</button>
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+						Secondary Button
+					</button>
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
+						Ghost Button
+					</button>
+				</div>
+			</div>
 
-   1. Save the file
-   2. Navigate to `#/components` in your browser
-   3. Hover over each button
-   4. Press Tab to verify focus states
-   5. Inspect with DevTools to see applied classes
+			<!-- More components will be added in the next steps -->
 
-   ***
+			<a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
+		</div>
+	</section>
+</template>
+```
 
-   #### 💡 Making Buttons Interactive
+**How to test:**
 
-   The buttons above are **visual only**. To make them functional, you need to add JavaScript. Here are several ways to do it:
+1. Save the file
+2. Navigate to `#/components` in your browser
+3. Hover over each button
+4. Press Tab to verify focus states
+5. Inspect with DevTools to see applied classes
 
-   **Option 1: Inline event listener (quick for prototyping)**
+---
 
-   ```html
-   <button
-   	class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
-   	onclick="alert('Button clicked!')">
-   	Primary Button
-   </button>
-   ```
+#### 💡 Making Buttons Interactive
 
-   **Option 2: Event listener in code (recommended)**
+The buttons above are **visual only**. To make them functional, you need to add JavaScript. Here are several ways to do it:
 
-   ```javascript
-   // src/views/components.js
-   export default {
-   	template: `
-       <section class="py-16 bg-gray-50 min-h-screen">
-         <div class="container mx-auto px-4">
-           <!-- ... content ... -->
-           <button 
-             id="primary-btn"
-             class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 transition-colors">
-             Primary Button
-           </button>
-         </div>
-       </section>
-     `,
+**Option 1: Inline event listener (quick for prototyping)**
 
-   	// Function that executes after rendering the view
-   	init() {
-   		const btn = document.getElementById('primary-btn');
-   		if (btn) {
-   			btn.addEventListener('click', () => {
-   				console.log('Button clicked!');
-   				alert('Action executed');
-   			});
-   		}
-   	},
-   };
-   ```
+```html
+<button
+	class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
+	onclick="alert('Button clicked!')">
+	Primary Button
+</button>
+```
 
-   **Option 3: Use modular component (professional)** ⭐
+**Option 2: Event listener in code (recommended)**
 
-   See the **[JavaScript Modules](/lessons/en/js-modules/)** lesson to understand this approach in depth:
+```html
+<!-- index.html -->
+<template id="view-components">
+	<section class="py-16 bg-gray-50 min-h-screen">
+		<div class="container mx-auto px-4">
+			<!-- ... content ... -->
+			<button
+				id="primary-btn"
+				class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 transition-colors">
+				Primary Button
+			</button>
+		</div>
+	</section>
+</template>
+```
 
-   ```javascript
-   // src/components/Button.js
-   export function PrimaryButton(text, onClick) {
-   	const button = document.createElement('button');
-   	button.className =
-   		'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
-   	button.textContent = text;
+```javascript
+// Attach behavior after the template has been rendered into #app
+document.addEventListener('DOMContentLoaded', () => {
+	const btn = document.getElementById('primary-btn');
+	btn?.addEventListener('click', () => {
+		console.log('Button clicked!');
+		alert('Action executed');
+	});
+});
+```
 
-   	// Add event listener
-   	if (onClick) {
-   		button.addEventListener('click', onClick);
-   	}
+**Option 2b: Event delegation (recommended for inline Option A)**
 
-   	return button;
-   }
+```javascript
+// src/inline-interactions.js (include in your index.html)
+document.addEventListener('click', (event) => {
+	const target = event.target.closest('[data-action="save"]');
+	if (!target) return;
+	console.log('Saving...');
+	alert('Changes saved!');
+});
+```
 
-   // src/views/components.js
-   import { PrimaryButton } from '../components/Button.js';
+```html
+<!-- src/views/buttons.html (inline) -->
+<button
+	data-action="save"
+	class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+	Save Changes
+</button>
+```
 
-   export default {
-   	template: `
-       <section class="py-16 bg-gray-50 min-h-screen">
-         <div class="container mx-auto px-4">
-           <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Component System</h1>
-           <div id="buttons-container"></div>
-         </div>
-       </section>
-     `,
+**Option 3: Use modular component (professional)** ⭐
 
-   	init() {
-   		const container = document.getElementById('buttons-container');
+See the **[JavaScript Modules](/lessons/en/js-modules/)** lesson to understand this approach in depth:
 
-   		// Create functional button
-   		const btn1 = PrimaryButton('Save Changes', () => {
-   			console.log('Saving...');
-   			alert('Changes saved!');
-   		});
+```javascript
+// src/components/Button.js
+export function PrimaryButton(text, onClick) {
+	const button = document.createElement('button');
+	button.className =
+		'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
+	button.textContent = text;
 
-   		const btn2 = PrimaryButton('Cancel', () => {
-   			console.log('Cancelled');
-   		});
+	if (onClick) button.addEventListener('click', onClick);
+	return button;
+}
+```
 
-   		container.appendChild(btn1);
-   		container.appendChild(btn2);
-   	},
-   };
-   ```
+```html
+<!-- index.html -->
+<template id="view-components">
+	<section class="py-16 bg-gray-50 min-h-screen">
+		<div class="container mx-auto px-4">
+			<h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Component System</h1>
+			<div id="buttons-container"></div>
+		</div>
+	</section>
+</template>
+```
 
-   ***
+```javascript
+// Attach behavior after template is rendered into #app
+document.addEventListener('DOMContentLoaded', () => {
+	const container = document.getElementById('buttons-container');
+	if (!container) return;
+	container.appendChild(PrimaryButton('Save Changes', () => alert('Changes saved!')));
+	container.appendChild(PrimaryButton('Cancel', () => console.log('Cancelled')));
+});
+```
 
-   #### 🎨 Active and Disabled States
+---
 
-   **Active state (when clicked):**
+#### 🎨 Active and Disabled States
 
-   ```html
-   <!-- Add active: class with darker bg -->
-   <button class="... bg-primary-500 hover:bg-primary-600 active:bg-primary-700">Button with active state</button>
-   ```
+**Active state (when clicked):**
 
-   **Disabled state (disabled button):**
+```html
+<!-- Add active: class with darker bg -->
+<button class="... bg-primary-500 hover:bg-primary-600 active:bg-primary-700">Button with active state</button>
+```
 
-   ```html
-   <!-- Add disabled attribute + styling classes -->
-   <button disabled class="... disabled:opacity-50 disabled:cursor-not-allowed">Disabled Button</button>
-   ```
+**Disabled state (disabled button):**
 
-   **Disable dynamically with JavaScript:**
+```html
+<!-- Add disabled attribute + styling classes -->
+<button disabled class="... disabled:opacity-50 disabled:cursor-not-allowed">Disabled Button</button>
+```
 
-   ```javascript
-   // Disable button
-   const btn = document.getElementById('submit-btn');
-   btn.disabled = true;
-   btn.classList.add('opacity-50', 'cursor-not-allowed');
+**Disable dynamically with JavaScript:**
 
-   // Simulate process (e.g., form submission)
-   setTimeout(() => {
-   	btn.disabled = false;
-   	btn.classList.remove('opacity-50', 'cursor-not-allowed');
-   }, 2000);
-   ```
+```javascript
+// Disable button
+const btn = document.getElementById('submit-btn');
+btn.disabled = true;
+btn.classList.add('opacity-50', 'cursor-not-allowed');
 
-   ***
+// Simulate process (e.g., form submission)
+setTimeout(() => {
+	btn.disabled = false;
+	btn.classList.remove('opacity-50', 'cursor-not-allowed');
+}, 2000);
+```
 
-   #### 🔄 Complete Example: Button with Loading State
+---
 
-   ```javascript
-   // src/components/Button.js
-   export function LoadingButton(text, asyncAction) {
-   	const button = document.createElement('button');
-   	button.className =
-   		'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
+#### 🔄 Complete Example: Button with Loading State
 
-   	const originalText = text;
-   	button.textContent = text;
+```javascript
+// src/components/Button.js
+export function LoadingButton(text, asyncAction) {
+	const button = document.createElement('button');
+	button.className =
+		'inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-transparent bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors';
 
-   	button.addEventListener('click', async () => {
-   		// Disable and show loading state
-   		button.disabled = true;
-   		button.innerHTML = `
-         <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-           <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-         </svg>
-         Loading...
-       `;
+	const originalText = text;
+	button.textContent = text;
 
-   		try {
-   			// Execute async action
-   			await asyncAction();
+	button.addEventListener('click', async () => {
+		// Disable and show loading state
+		button.disabled = true;
+		button.innerHTML = `
+      <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      Loading...
+    `;
 
-   			// Show success
-   			button.innerHTML = `
-           <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-           </svg>
-           Success!
-         `;
+		try {
+			// Execute async action
+			await asyncAction();
 
-   			// Restore after 2 seconds
-   			setTimeout(() => {
-   				button.disabled = false;
-   				button.textContent = originalText;
-   			}, 2000);
-   		} catch (error) {
-   			// Show error
-   			button.innerHTML = `
-           <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-           </svg>
-           Error
-         `;
+			// Show success
+			button.innerHTML = `
+        <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+        </svg>
+        Success!
+      `;
 
-   			setTimeout(() => {
-   				button.disabled = false;
-   				button.textContent = originalText;
-   			}, 2000);
-   		}
-   	});
+			// Restore after 2 seconds
+			setTimeout(() => {
+				button.disabled = false;
+				button.textContent = originalText;
+			}, 2000);
+		} catch (error) {
+			// Show error
+			button.innerHTML = `
+        <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+        </svg>
+        Error
+      `;
 
-   	return button;
-   }
+			setTimeout(() => {
+				button.disabled = false;
+				button.textContent = originalText;
+			}, 2000);
+		}
+	});
 
-   // Usage:
-   const saveBtn = LoadingButton('Save Changes', async () => {
-   	// Simulate API call
-   	await new Promise((resolve) => setTimeout(resolve, 1500));
-   	console.log('Data saved');
-   });
+	return button;
+}
 
-   document.getElementById('container').appendChild(saveBtn);
-   ```
+// Usage:
+const saveBtn = LoadingButton('Save Changes', async () => {
+	// Simulate API call
+	await new Promise((resolve) => setTimeout(resolve, 1500));
+	console.log('Data saved');
+});
 
-   ***
+document.getElementById('container').appendChild(saveBtn);
+```
 
-   #### 📚 Quick Reference: State Classes
+---
 
-   ```css
-   /* Interactive states in Tailwind */
-   hover:          /* Mouse over */
-   focus:          /* Keyboard focus */
-   active:         /* While clicking */
-   disabled:       /* Button disabled */
-   group-hover:    /* Hover on parent element */
+#### 📚 Quick Reference: State Classes
 
-   /* Examples */
-   .hover:bg-blue-600        /* Blue background on hover */
-   .focus:ring-2             /* Ring on focus */
-   .active:scale-95          /* Shrink on click */
-   .disabled:opacity-50      /* Semi-transparent if disabled */
-   ```
+```css
+/* Interactive states in Tailwind */
+hover:          /* Mouse over */
+focus:          /* Keyboard focus */
+active:         /* While clicking */
+disabled:       /* Button disabled */
+group-hover:    /* Hover on parent element */
 
-   ***
+/* Examples */
+.hover:bg-blue-600        /* Blue background on hover */
+.focus:ring-2             /* Ring on focus */
+.active:scale-95          /* Shrink on click */
+.disabled:opacity-50      /* Semi-transparent if disabled */
+```
 
-   **💡 Pro Tip:** For large applications, always use **modular components** (Option 3) to keep your code organized and reusable. Review the [JavaScript Modules](/lessons/en/js-modules/) lesson to master this professional approach.
+---
+
+**💡 Pro Tip:** For large applications, always use **modular components** (Option 3) to keep your code organized and reusable. Review the [JavaScript Modules](/lessons/en/js-modules/) lesson to master this professional approach.
 
 3. **Build Card component pattern:**
 
@@ -696,139 +762,163 @@ export function Section({ title, subtitle = '', content = '', bgColor = 'bg-whit
 
 #### Step 4: Refactor the components view to use imports
 
-```javascript
-// src/views/components.js
-import { Button, PrimaryButton, SecondaryButton, GhostButton } from '../components/Button.js';
-import { Card } from '../components/Card.js';
-import { Section } from '../components/Section.js';
+```html
+<!-- index.html -->
+<template id="view-components">
+	<section class="py-16 bg-gray-50 min-h-screen">
+		<div class="container mx-auto px-4">
+			<h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Component System</h1>
 
-export default {
-	template: `
-    <section class="py-16 bg-gray-50 min-h-screen">
-      <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Modular Component System</h1>
-        
-        ${Section({
-									title: 'Button System',
-									content: `
-            <div class="flex flex-wrap gap-4">
-              ${PrimaryButton('Primary Button')}
-              ${SecondaryButton('Secondary Button')}
-              ${GhostButton('Ghost Button')}
-            </div>
-            
-            <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Sizes</h3>
-            <div class="flex flex-wrap items-center gap-4">
-              ${Button({ text: 'Small', size: 'sm' })}
-              ${Button({ text: 'Medium', size: 'md' })}
-              ${Button({ text: 'Large', size: 'lg' })}
-            </div>
-          `,
-								})}
-        
-        ${Section({
-									title: 'Card System',
-									content: `
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              ${Card({
-															image: 'https://picsum.photos/400/225?random=1',
-															title: 'Project 1',
-															description: 'Card with real image from API.',
-															tags: ['React', 'API'],
-															tagColors: {
-																React: 'bg-primary-100 text-primary-800',
-																API: 'bg-green-100 text-green-800',
-															},
-														})}
-              
-              ${Card({
-															image: 'bg-gradient-to-r from-blue-400 to-purple-500',
-															title: 'Project 2',
-															description: 'Card with CSS gradient.',
-															tags: ['Vue', 'Tailwind'],
-															tagColors: {
-																Vue: 'bg-green-100 text-green-800',
-																Tailwind: 'bg-blue-100 text-blue-800',
-															},
-														})}
-              
-              ${Card({
-															title: 'Project 3',
-															description: 'Card without image.',
-															tags: ['TypeScript'],
-															tagColors: {
-																TypeScript: 'bg-blue-100 text-blue-800',
-															},
-														})}
-            </div>
-          `,
-								})}
-        
-        <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
-      </div>
-    </section>
-  `,
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Button System</h2>
+				<div class="flex flex-wrap gap-4">
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+						Primary Button
+					</button>
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+						Secondary Button
+					</button>
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
+						Ghost Button
+					</button>
+				</div>
+			</div>
+
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Card System</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+						<div class="aspect-w-16 aspect-h-9 bg-gray-200">
+							<img src="https://picsum.photos/400/225?random=1" alt="Project preview" class="w-full h-48 object-cover" />
+						</div>
+						<div class="p-6">
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Image Card</h3>
+							<p class="text-gray-600 text-sm mb-4">Card with image header and text content below.</p>
+						</div>
+					</article>
+					<article class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
+						<div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+							<svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+							</svg>
+						</div>
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">Icon Card</h3>
+						<p class="text-gray-600 text-sm">Card with centered icon and content.</p>
+					</article>
+					<article
+						class="bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg shadow-md p-6 text-white hover:shadow-lg transition-shadow">
+						<h3 class="text-sm font-medium text-primary-100 mb-1">Total Projects</h3>
+						<p class="text-3xl font-bold mb-1">42</p>
+						<p class="text-sm text-primary-100">↑ 12% from last month</p>
+					</article>
+				</div>
+			</div>
+
+			<a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
+		</div>
+	</section>
+</template>
+```
+
+#### Step 5: Create a Projects view with responsive grid (no string templates)
+
+Instead of a `src/views/projects.js` string template, add an inline `<template>` to your `index.html` (or `demo/index.html`) and register the route. Keep everything in HTML + Tailwind for clarity.
+
+```html
+<!-- index.html -->
+<template id="view-projects">
+	<section class="py-16 bg-gray-50 min-h-screen">
+		<div class="container mx-auto px-4">
+			<header class="text-center mb-12">
+				<h1 class="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h1>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+					A showcase of work demonstrating responsive design and modern web technologies.
+				</p>
+			</header>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Card 1 -->
+				<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+					<div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-blue-400 to-purple-500"></div>
+					<div class="p-6">
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">Personal Portfolio</h3>
+						<p class="text-gray-600 text-sm mb-4">Responsive website built with Tailwind CSS and JavaScript.</p>
+						<div class="flex flex-wrap gap-2">
+							<span
+								class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+								Tailwind
+							</span>
+							<span
+								class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+								JavaScript
+							</span>
+						</div>
+					</div>
+				</article>
+
+				<!-- Card 2 -->
+				<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+					<div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-green-400 to-teal-500"></div>
+					<div class="p-6">
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">Analytics Dashboard</h3>
+						<p class="text-gray-600 text-sm mb-4">Data analysis interface with reusable patterns.</p>
+						<div class="flex flex-wrap gap-2">
+							<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+								React
+							</span>
+							<span
+								class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+								API
+							</span>
+						</div>
+					</div>
+				</article>
+
+				<!-- Card 3 -->
+				<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+					<div class="aspect-w-16 aspect-h-9 bg-gradient-to-r from-pink-400 to-red-500"></div>
+					<div class="p-6">
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">E-commerce</h3>
+						<p class="text-gray-600 text-sm mb-4">Online shop with cart and checkout.</p>
+						<div class="flex flex-wrap gap-2">
+							<span
+								class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+								Vue
+							</span>
+							<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+								Stripe
+							</span>
+						</div>
+					</div>
+				</article>
+			</div>
+
+			<a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
+		</div>
+	</section>
+</template>
+```
+
+Register the route in your `views` map (no modularization):
+
+```javascript
+// src/views/index.js (or wherever you define the route map)
+export const views = {
+	'/': { templateId: 'view-home' },
+	'/projects': { templateId: 'view-projects' },
+	404: { templateId: 'view-home' },
 };
 ```
 
-#### Step 5: Use components in other views
+How to test:
 
-```javascript
-// src/views/projects.js
-import { Card } from '../components/Card.js';
-
-export default {
-	template: `
-    <section class="py-16 bg-gray-50 min-h-screen">
-      <div class="container mx-auto px-4">
-        <header class="text-center mb-12">
-          <h1 class="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h1>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Card components reused from src/components/Card.js
-          </p>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          ${Card({
-											image: 'bg-gradient-to-r from-blue-400 to-purple-500',
-											title: 'Personal Portfolio',
-											description: 'Responsive website built with Tailwind CSS.',
-											tags: ['Tailwind', 'JavaScript'],
-											tagColors: {
-												Tailwind: 'bg-primary-100 text-primary-800',
-												JavaScript: 'bg-yellow-100 text-yellow-800',
-											},
-										})}
-          
-          ${Card({
-											image: 'bg-gradient-to-r from-green-400 to-teal-500',
-											title: 'Analytics Dashboard',
-											description: 'Data analysis interface with reusable components.',
-											tags: ['React', 'API'],
-											tagColors: {
-												React: 'bg-blue-100 text-blue-800',
-												API: 'bg-purple-100 text-purple-800',
-											},
-										})}
-          
-          ${Card({
-											image: 'bg-gradient-to-r from-pink-400 to-red-500',
-											title: 'E-commerce',
-											description: 'Online store with shopping cart.',
-											tags: ['Vue', 'Stripe'],
-											tagColors: {
-												Vue: 'bg-green-100 text-green-800',
-												Stripe: 'bg-indigo-100 text-indigo-800',
-											},
-										})}
-        </div>
-        
-        <a href="#/" class="inline-block mt-8 text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
-      </div>
-    </section>
-  `,
-};
-```
+1. Navigate to `#/projects`
+2. Verify responsive grid: 1 column (mobile), 2 (tablet), 3 (desktop)
+3. Try hover shadows and spacing consistency
+4. Use DevTools responsive mode to check breakpoints
 
 ### 🎨 Advantages of This Modular Approach
 
@@ -937,227 +1027,224 @@ Now that you understand design tokens and component patterns, enhance the routes
 
 Update your `src/views/components.js` to use design tokens:
 
-```javascript
-// src/views/components.js
-export default {
-	template: `
-    <section class="py-16 bg-surface-light min-h-screen">
-      <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Design System Showcase</h1>
-        
-        <!-- Button System with Design Tokens -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Button System</h2>
-          <div class="flex flex-wrap gap-4">
-            <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-              Primary Action
-            </button>
-            <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-              Secondary Action
-            </button>
-            <button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
-              Ghost Button
-            </button>
-          </div>
-          
-          <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Button Sizes</h3>
-          <div class="flex flex-wrap items-center gap-4">
-            <button class="px-3 py-1.5 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
-              Small
-            </button>
-            <button class="px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
-              Medium
-            </button>
-            <button class="px-6 py-3 text-base font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
-              Large
-            </button>
-          </div>
-        </div>
+```html
+<!-- index.html -->
+<template id="view-components-playground">
+	<section class="py-16 bg-surface-light min-h-screen">
+		<div class="container mx-auto px-4">
+			<h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Design System Showcase</h1>
 
-        <!-- Card Pattern Library -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Card Patterns</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Image Card -->
-            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div class="aspect-w-16 aspect-h-9 bg-gray-200">
-                <img src="https://picsum.photos/400/225?random=1" alt="Project preview" class="w-full h-48 object-cover" />
-              </div>
-              <div class="p-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">Image Card</h3>
-                <p class="text-gray-600 text-sm mb-4">Card with image header and text content below.</p>
-                <div class="flex gap-2">
-                  <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">Design</span>
-                  <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Featured</span>
-                </div>
-              </div>
-            </article>
+			<!-- Button System with Design Tokens -->
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Button System</h2>
+				<div class="flex flex-wrap gap-4">
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+						Primary Action
+					</button>
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+						Secondary Action
+					</button>
+					<button
+						class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors">
+						Ghost Button
+					</button>
+				</div>
+				<h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Button Sizes</h3>
+				<div class="flex flex-wrap items-center gap-4">
+					<button class="px-3 py-1.5 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+						Small
+					</button>
+					<button class="px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+						Medium
+					</button>
+					<button class="px-6 py-3 text-base font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
+						Large
+					</button>
+				</div>
+			</div>
 
-            <!-- Icon Card -->
-            <article class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Icon Card</h3>
-              <p class="text-gray-600 text-sm">Card with centered icon and content.</p>
-            </article>
+			<!-- Card Pattern Library -->
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Card Patterns</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<!-- Image Card -->
+					<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+						<div class="aspect-w-16 aspect-h-9 bg-gray-200">
+							<img src="https://picsum.photos/400/225?random=1" alt="Project preview" class="w-full h-48 object-cover" />
+						</div>
+						<div class="p-6">
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Image Card</h3>
+							<p class="text-gray-600 text-sm mb-4">Card with image header and text content below.</p>
+							<div class="flex gap-2">
+								<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">Design</span>
+								<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Featured</span>
+							</div>
+						</div>
+					</article>
 
-            <!-- Stats Card -->
-            <article class="bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg shadow-md p-6 text-white hover:shadow-lg transition-shadow">
-              <h3 class="text-sm font-medium text-primary-100 mb-1">Total Projects</h3>
-              <p class="text-3xl font-bold mb-1">42</p>
-              <p class="text-sm text-primary-100">↑ 12% from last month</p>
-            </article>
-          </div>
-        </div>
+					<!-- Icon Card -->
+					<article class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center">
+						<div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+							<svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+							</svg>
+						</div>
+						<h3 class="text-lg font-semibold text-gray-900 mb-2">Icon Card</h3>
+						<p class="text-gray-600 text-sm">Card with centered icon and content.</p>
+					</article>
 
-        <!-- Form Components -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Form Components</h2>
-          <div class="max-w-md space-y-4">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-              <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Enter your name" />
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-              <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="you@example.com" />
-            </div>
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-              <textarea id="message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Your message..."></textarea>
-            </div>
-          </div>
-        </div>
-        
-        <a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
-      </div>
-    </section>
-  `,
-};
+					<!-- Stats Card -->
+					<article
+						class="bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg shadow-md p-6 text-white hover:shadow-lg transition-shadow">
+						<h3 class="text-sm font-medium text-primary-100 mb-1">Total Projects</h3>
+						<p class="text-3xl font-bold mb-1">42</p>
+						<p class="text-sm text-primary-100">↑ 12% from last month</p>
+					</article>
+				</div>
+			</div>
+
+			<!-- Form Components -->
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Form Components</h2>
+				<div class="max-w-md space-y-4">
+					<div>
+						<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+						<input
+							type="text"
+							id="name"
+							class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+							placeholder="Enter your name" />
+					</div>
+					<div>
+						<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+						<input
+							type="email"
+							id="email"
+							class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+							placeholder="you@example.com" />
+					</div>
+					<div>
+						<label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+						<textarea
+							id="message"
+							rows="3"
+							class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+							placeholder="Your message..."></textarea>
+					</div>
+				</div>
+			</div>
+
+			<a href="#/" class="inline-block text-primary-500 hover:text-primary-600 font-medium">← Back to Home</a>
+		</div>
+	</section>
+</template>
 ```
 
 ### Exercise 3.2: Create a Design Tokens Reference Route
 
 Create a new route to document your design system:
 
-```javascript
-// src/views/design-tokens.js
-export default {
-	template: `
-    <section class="py-16 min-h-screen">
-      <div class="container mx-auto px-4 max-w-6xl">
-        <h1 class="text-4xl font-bold text-gray-900 mb-8">Design Tokens Reference</h1>
-        
-        <!-- Color Palette -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Color System</h2>
-          
-          <h3 class="text-lg font-semibold text-gray-900 mb-3">Primary Colors</h3>
-          <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-            <div class="space-y-2">
-              <div class="h-20 bg-primary-50 rounded border border-gray-200"></div>
-              <p class="text-sm font-mono text-gray-600">primary-50</p>
-            </div>
-            <div class="space-y-2">
-              <div class="h-20 bg-primary-500 rounded"></div>
-              <p class="text-sm font-mono text-gray-600">primary-500</p>
-            </div>
-            <div class="space-y-2">
-              <div class="h-20 bg-primary-900 rounded"></div>
-              <p class="text-sm font-mono text-gray-600">primary-900</p>
-            </div>
-          </div>
+```html
+<!-- index.html -->
+<template id="view-design-tokens">
+	<section class="py-16 min-h-screen">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h1 class="text-4xl font-bold text-gray-900 mb-8">Design Tokens Reference</h1>
 
-          <h3 class="text-lg font-semibold text-gray-900 mb-3">Surface Colors</h3>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="space-y-2">
-              <div class="h-20 bg-surface-light rounded border border-gray-200"></div>
-              <p class="text-sm font-mono text-gray-600">surface-light</p>
-            </div>
-            <div class="space-y-2">
-              <div class="h-20 bg-surface-dark rounded"></div>
-              <p class="text-sm font-mono text-gray-600 text-white">surface-dark</p>
-            </div>
-          </div>
-        </div>
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Color System</h2>
+				<h3 class="text-lg font-semibold text-gray-900 mb-3">Primary Colors</h3>
+				<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+					<div class="space-y-2">
+						<div class="h-20 bg-primary-50 rounded border border-gray-200"></div>
+						<p class="text-sm font-mono text-gray-600">primary-50</p>
+					</div>
+					<div class="space-y-2">
+						<div class="h-20 bg-primary-500 rounded"></div>
+						<p class="text-sm font-mono text-gray-600">primary-500</p>
+					</div>
+					<div class="space-y-2">
+						<div class="h-20 bg-primary-900 rounded"></div>
+						<p class="text-sm font-mono text-gray-600">primary-900</p>
+					</div>
+				</div>
+				<h3 class="text-lg font-semibold text-gray-900 mb-3">Surface Colors</h3>
+				<div class="grid grid-cols-2 gap-4">
+					<div class="space-y-2">
+						<div class="h-20 bg-surface-light rounded border border-gray-200"></div>
+						<p class="text-sm font-mono text-gray-600">surface-light</p>
+					</div>
+					<div class="space-y-2">
+						<div class="h-20 bg-surface-dark rounded"></div>
+						<p class="text-sm font-mono text-gray-600 text-white">surface-dark</p>
+					</div>
+				</div>
+			</div>
 
-        <!-- Typography Scale -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Typography Scale</h2>
-          <div class="space-y-4">
-            <div class="border-b border-gray-200 pb-4">
-              <p class="text-5xl font-bold text-gray-900 mb-2">Display</p>
-              <p class="text-sm text-gray-600 font-mono">text-5xl font-bold</p>
-            </div>
-            <div class="border-b border-gray-200 pb-4">
-              <p class="text-4xl font-bold text-gray-900 mb-2">Heading 1</p>
-              <p class="text-sm text-gray-600 font-mono">text-4xl font-bold</p>
-            </div>
-            <div class="border-b border-gray-200 pb-4">
-              <p class="text-3xl font-bold text-gray-900 mb-2">Heading 2</p>
-              <p class="text-sm text-gray-600 font-mono">text-3xl font-bold</p>
-            </div>
-            <div class="border-b border-gray-200 pb-4">
-              <p class="text-base text-gray-900 mb-2">Body Text - The quick brown fox jumps over the lazy dog</p>
-              <p class="text-sm text-gray-600 font-mono">text-base</p>
-            </div>
-          </div>
-        </div>
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Typography Scale</h2>
+				<div class="space-y-4">
+					<div class="border-b border-gray-200 pb-4">
+						<p class="text-5xl font-bold text-gray-900 mb-2">Display</p>
+						<p class="text-sm text-gray-600 font-mono">text-5xl font-bold</p>
+					</div>
+					<div class="border-b border-gray-200 pb-4">
+						<p class="text-4xl font-bold text-gray-900 mb-2">Heading 1</p>
+						<p class="text-sm text-gray-600 font-mono">text-4xl font-bold</p>
+					</div>
+					<div class="border-b border-gray-200 pb-4">
+						<p class="text-3xl font-bold text-gray-900 mb-2">Heading 2</p>
+						<p class="text-sm text-gray-600 font-mono">text-3xl font-bold</p>
+					</div>
+					<div class="border-b border-gray-200 pb-4">
+						<p class="text-base text-gray-900 mb-2">Body Text - The quick brown fox jumps over the lazy dog</p>
+						<p class="text-sm text-gray-600 font-mono">text-base</p>
+					</div>
+				</div>
+			</div>
 
-        <!-- Spacing System -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Spacing System</h2>
-          <div class="space-y-4">
-            <div class="flex items-center gap-4">
-              <div class="w-20 text-sm font-mono text-gray-600">spacing-4</div>
-              <div class="h-4 bg-primary-500 rounded" style="width: 1rem;"></div>
-              <span class="text-sm text-gray-600">1rem / 16px</span>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-20 text-sm font-mono text-gray-600">spacing-8</div>
-              <div class="h-4 bg-primary-500 rounded" style="width: 2rem;"></div>
-              <span class="text-sm text-gray-600">2rem / 32px</span>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-20 text-sm font-mono text-gray-600">spacing-18</div>
-              <div class="h-4 bg-primary-500 rounded" style="width: 4.5rem;"></div>
-              <span class="text-sm text-gray-600">4.5rem / 72px (custom)</span>
-            </div>
-          </div>
-        </div>
-        
-        <a href="#/components" class="inline-block text-primary-500 hover:text-primary-600 font-medium">View Components →</a>
-      </div>
-    </section>
-  `,
-};
+			<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Spacing System</h2>
+				<div class="space-y-4">
+					<div class="flex items-center gap-4">
+						<div class="w-20 text-sm font-mono text-gray-600">spacing-4</div>
+						<div class="h-4 bg-primary-500 rounded" style="width: 1rem;"></div>
+						<span class="text-sm text-gray-600">1rem / 16px</span>
+					</div>
+					<div class="flex items-center gap-4">
+						<div class="w-20 text-sm font-mono text-gray-600">spacing-8</div>
+						<div class="h-4 bg-primary-500 rounded" style="width: 2rem;"></div>
+						<span class="text-sm text-gray-600">2rem / 32px</span>
+					</div>
+					<div class="flex items-center gap-4">
+						<div class="w-20 text-sm font-mono text-gray-600">spacing-18</div>
+						<div class="h-4 bg-primary-500 rounded" style="width: 4.5rem;"></div>
+						<span class="text-sm text-gray-600">4.5rem / 72px (custom)</span>
+					</div>
+				</div>
+			</div>
+
+			<a href="#/components" class="inline-block text-primary-500 hover:text-primary-600 font-medium">View Components →</a>
+		</div>
+	</section>
+</template>
 ```
 
-Register the new route:
+Register the route with a simple template map (no imports):
 
 ```javascript
-// src/views/index.js
-import home from './home.js';
-import about from './about.js';
-import projects from './projects.js';
-import contact from './contact.js';
-import typography from './typography.js';
-import components from './components.js';
-import designTokens from './design-tokens.js'; // Add this
-import notFound from './404.js';
-
+// src/views/index.js (or wherever you define your route map)
 export const views = {
-	'/': home,
-	'/about': about,
-	'/projects': projects,
-	'/contact': contact,
-	'/typography': typography,
-	'/components': components,
-	'/design-tokens': designTokens, // Add this
-	404: notFound,
+	'/': { templateId: 'view-home' },
+	'/about': { templateId: 'view-about' },
+	'/projects': { templateId: 'view-projects' },
+	'/contact': { templateId: 'view-contact' },
+	'/typography': { templateId: 'view-typography' },
+	'/components': { templateId: 'view-components' },
+	'/design-tokens': { templateId: 'view-design-tokens' },
+	404: { templateId: 'view-home' },
 };
 ```
 

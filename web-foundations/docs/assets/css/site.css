@@ -791,6 +791,38 @@ img.footer-logo {
 }
 
 /* ========================================
+   Lesson Sidebar TOC (indent by heading level)
+   ======================================== */
+#toc-sidebar-placeholder ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+#toc-sidebar-placeholder li {
+	margin: 0.25rem 0;
+}
+/* Root list (H2s) */
+#toc-sidebar-placeholder > ul {
+	margin-left: 0;
+}
+/* H3 level */
+#toc-sidebar-placeholder ul ul {
+	margin-left: 1rem;
+	padding-left: 0.5rem;
+	border-left: 1px solid var(--border-light);
+}
+/* H4 level */
+#toc-sidebar-placeholder ul ul ul {
+	margin-left: 1.75rem;
+}
+#toc-sidebar-placeholder a {
+	text-decoration: none;
+}
+#toc-sidebar-placeholder a:hover {
+	text-decoration: underline;
+}
+
+/* ========================================
    Accessibility & Readability Enhancements
    ======================================== */
 

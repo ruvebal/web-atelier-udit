@@ -1,5 +1,124 @@
 ---
 layout: lesson
+title: 'Tailwind CSS: State & Interactivity — Modifiers that bring UI to life'
+title_alt: 'Tailwind CSS: State & Interactivity — Modifiers that bring UI to life'
+slug: state-interactivity
+date: 2025-11-03
+updated: 2025-11-03
+author: 'Rubén Vega Balbás, PhD'
+lang: en
+permalink: /lessons/en/tailwind/state-interactivity/
+description: 'Atelier on interactivity with Tailwind: hover, focus, active, disabled, group, peer, aria and dark mode. Quick prototyping applied to your portfolio.'
+tags: [tailwindcss, interactivity, states, modifiers, pedagogy]
+---
+
+<!-- prettier-ignore-start -->
+
+## 📋 Table of Contents
+{: .no_toc }
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
+# State & Interactivity — Modifiers that bring UI to life
+
+## Atelier Rationale: prototype first, refine later
+
+- Prioritize **quick prototyping**: copy functional patterns, adjust tokens.
+- We teach interactivity without a framework, avoiding unnecessary complexity.
+- Apply immediately in your portfolio `[portafolio-tailwind](https://github.com/ruvebal/portafolio-tailwind)` enriching `views/*`.
+
+## Interactive Demo
+
+> **[Open Demo →](demo/)**
+
+Sections include embedded iframes. Interact, inspect, and replicate.
+
+---
+
+## 1) Essential states: hover, focus, active, disabled
+
+- **hover:** visual feedback on pointer hover.
+- **focus / focus-visible:** keyboard-accessible; use `focus-visible:` to avoid mouse rings.
+- **active:** immediate feedback during press.
+- **disabled:** communicates waiting or temporary lock.
+
+<iframe src="demo/buttons-states.html" title="Buttons: states" style="width: 100%; height: 420px; border: 1px solid #e5e7eb; border-radius: 0.5rem;" loading="lazy"></iframe>
+
+---
+
+## 2) Forms that guide: focus-visible and focus-within
+
+- `focus-visible:` shows rings for keyboard only (better UX).
+- `focus-within:` highlights the container when any child is focused.
+
+<iframe src="demo/forms-focus.html" title="Forms & focus" style="width: 100%; height: 420px; border: 1px solid #e5e7eb; border-radius: 0.5rem;" loading="lazy"></iframe>
+
+---
+
+## 3) Parent ↔ Child: group and peer
+
+- `group-hover:` triggers overlays/actions inside cards.
+- `peer-checked:` show/hide content based on a sibling input state.
+
+<iframe src="demo/group-peer.html" title="group & peer" style="width: 100%; height: 520px; border: 1px solid #e5e7eb; border-radius: 0.5rem;" loading="lazy"></iframe>
+
+---
+
+## 4) Stacking modifiers: responsive, dark, aria-*, data-*
+
+- Combine variants: `dark:md:hover:` for contextual changes.
+- Use `aria-[expanded]` and `data-[state]` for semantic UI states.
+
+<iframe src="demo/stacked-modifiers.html" title="Stacked modifiers" style="width: 100%; height: 520px; border: 1px solid #e5e7eb; border-radius: 0.5rem;" loading="lazy"></iframe>
+
+---
+
+## 🛠️ Apply to your portfolio (`views/*`)
+
+Work in your repository `[portafolio-tailwind](https://github.com/ruvebal/portafolio-tailwind)`:
+
+1) **Navigation**
+
+- In `views/*`, add `hover:underline` and `focus-visible:ring-2 focus-visible:ring-primary-500` to links.
+- Mark the active link with `aria-current="page"` and style `[aria-current="page"]:text-primary-600`.
+
+2) **Project cards**
+
+- Wrap each card in `.group` and reveal overlays using `group-hover:opacity-100`.
+- Add `active:scale-95` to buttons for instant feedback.
+
+3) **Forms**
+
+- Use `focus-within:` on field containers.
+- Disable the submit button during async operations (`disabled:*` + `pointer-events-none`).
+
+4) **Accessibility**
+
+- Ensure clear `:focus-visible` on all interactive controls.
+- Wire up `aria-[expanded]` for menus/accordions and respond visually.
+
+### Checklist
+
+- [ ] Links with consistent `hover:` and `focus-visible:`
+- [ ] Card overlays with `group-hover:`
+- [ ] Buttons with `active:` and `disabled:` during loading
+- [ ] Forms with `focus-within:`
+- [ ] Accordions/menus styled via `aria-[expanded]`
+
+---
+
+## References
+
+- Tailwind — Handling Hover, Focus, and Other States: `[v3.tailwindcss.com/docs/hover-focus-and-other-states](https://v3.tailwindcss.com/docs/hover-focus-and-other-states)`
+
+---
+
+> **Next:** [Components & Design System →]({{ '/lessons/en/tailwind/components-design-system/' | relative_url }})
+
+---
+layout: lesson
 title: 'Tailwind CSS: State & Interactivity — Building Dynamic User Experiences'
 title_alt: 'Tailwind CSS: State & Interactivity — Building Dynamic User Experiences'
 slug: tailwind-state-interactivity

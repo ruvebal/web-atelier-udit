@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demos — group & peer</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="bg-white text-gray-900">
+		<main class="max-w-4xl mx-auto p-6 space-y-10">
+			<header>
+				<h1 class="text-2xl font-bold">Parent ↔ Child: group & peer</h1>
+				<p class="text-gray-600">Container hover and input-driven UI.</p>
+			</header>
+
+			<section>
+				<h2 class="font-semibold mb-3">group-hover on cards</h2>
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+					<article class="group relative overflow-hidden rounded-lg shadow border border-gray-200">
+						<img src="https://picsum.photos/600/360?random=21" alt="Project" class="w-full h-48 object-cover" />
+						<div class="p-4">
+							<h3 class="font-semibold">Project One</h3>
+							<p class="text-sm text-gray-600">Short project summary.</p>
+						</div>
+						<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+							<button class="px-4 py-2 rounded-md bg-white/90 text-gray-900 hover:bg-white">View details</button>
+						</div>
+					</article>
+					<article class="group relative overflow-hidden rounded-lg shadow border border-gray-200">
+						<img src="https://picsum.photos/600/360?random=22" alt="Project" class="w-full h-48 object-cover" />
+						<div class="p-4">
+							<h3 class="font-semibold">Project Two</h3>
+							<p class="text-sm text-gray-600">Short project summary.</p>
+						</div>
+						<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+							<button class="px-4 py-2 rounded-md bg-white/90 text-gray-900 hover:bg-white">View details</button>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section class="space-y-3">
+				<h2 class="font-semibold">peer-checked to show/hide</h2>
+				<label class="inline-flex items-center gap-2">
+					<input type="checkbox" class="peer h-4 w-4 rounded border-gray-300" />
+					<span>Show details</span>
+				</label>
+				<div class="hidden peer-checked:block p-4 rounded-md border border-gray-200 bg-gray-50">
+					Content visible only when the checkbox is checked.
+				</div>
+				<p class="text-xs text-gray-500">Note: the container must be a sibling of the input with class <code class="font-mono">peer</code>.</p>
+			</section>
+		</main>
+	</body>
+</html>
+

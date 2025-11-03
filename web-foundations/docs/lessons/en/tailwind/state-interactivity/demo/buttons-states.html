@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demos — Buttons: states</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = { theme: { extend: { colors: { primary: { 50: '#eff6ff', 500: '#3b82f6', 700: '#2563eb', 900: '#1e3a8a' } } } } };
+		</script>
+	</head>
+	<body class="bg-white text-gray-900">
+		<main class="max-w-3xl mx-auto p-6 space-y-8">
+			<header>
+				<h1 class="text-2xl font-bold">Buttons: hover, focus, active, disabled</h1>
+				<p class="text-gray-600">Try: hover with mouse, Tab for focus, click for active.</p>
+			</header>
+
+			<section class="space-y-4">
+				<div class="flex flex-wrap gap-3 items-center">
+					<button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 active:scale-95 transition">
+						Primary action
+					</button>
+					<button class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 active:scale-95 transition">
+						Secondary
+					</button>
+					<button disabled class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-gray-200 text-gray-500 cursor-not-allowed disabled:opacity-60 disabled:cursor-not-allowed">
+						Disabled
+					</button>
+				</div>
+				<p class="text-sm text-gray-600">Tip: Use <code class="font-mono">focus-visible:</code> to target keyboard focus only.</p>
+			</section>
+
+			<section class="space-y-3">
+				<h2 class="font-semibold">Focus visible</h2>
+				<button class="px-4 py-2 rounded-md bg-white border border-gray-300 text-gray-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-500/40">
+					Show ring only with keyboard (focus-visible)
+				</button>
+			</section>
+
+			<section class="space-y-3">
+				<h2 class="font-semibold">Disable while loading</h2>
+				<button id="loadBtn" class="px-4 py-2 rounded-md bg-primary-500 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:opacity-60 disabled:cursor-not-allowed transition">
+					Save changes
+				</button>
+				<script>
+					const btn = document.getElementById('loadBtn');
+					btn.addEventListener('click', async () => {
+						btn.disabled = true;
+						const original = btn.textContent;
+						btn.innerHTML = '<span class="animate-spin inline-block mr-2">⏳</span>Saving...';
+						await new Promise((r) => setTimeout(r, 1200));
+						btn.textContent = 'Done!';
+						setTimeout(() => {
+							btn.disabled = false;
+							btn.textContent = original;
+						}, 1400);
+					});
+				</script>
+			</section>
+		</main>
+	</body>
+</html>
+

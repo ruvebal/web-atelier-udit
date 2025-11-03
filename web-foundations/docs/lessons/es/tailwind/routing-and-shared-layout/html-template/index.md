@@ -79,7 +79,7 @@ De esta manera, tu SPA original basado en plantillas de cadenas queda preservado
 
 ---
 
-## 1) index.html — Layout Compartido, Plantillas y Contenedor de App
+## 1) index.html — Layout Compartido, Plantillas y Contenedor de App (progresivo)
 
 ```html
 <!-- demo/index.html -->
@@ -119,9 +119,32 @@ De esta manera, tu SPA original basado en plantillas de cadenas queda preservado
 		</nav>
 
 		<!-- Área de contenido principal -->
-		<main id="app" class="min-h-screen pt-20 pb-24 flex items-center justify-center" role="main">
-			<!-- Las plantillas de vistas son externas en ./src/views/*.html y son cargadas de forma lazy por el router. -->
-		</main>
+		<main id="app" class="min-h-screen pt-20 pb-24 flex items-center justify-center" role="main"></main>
+
+		<!-- Vistas (paso 1, pedagógico): plantillas EMBEBIDAS y clonadas por el router -->
+		<template id="view-home">
+			<section class="py-16">
+				<div class="container mx-auto px-4 text-center">
+					<h1 class="text-5xl font-bold text-gray-900 mb-6">Inicio</h1>
+					<p class="text-xl text-gray-600">
+						Esta vista se renderiza clonando un elemento HTML
+						<code>&lt;template&gt;</code>
+						.
+					</p>
+				</div>
+			</section>
+		</template>
+
+		<template id="view-about">
+			<section class="py-16">
+				<div class="container mx-auto px-4 max-w-3xl">
+					<h1 class="text-4xl font-bold text-gray-900 mb-6">Acerca de</h1>
+					<p class="text-lg text-gray-700">
+						Usa plantillas embebidas para empezar. Más adelante podrás dividirlas en archivos.
+					</p>
+				</div>
+			</section>
+		</template>
 
 		<!-- Pie de página compartido -->
 		<footer class="fixed bottom-0 left-0 w-full z-50 bg-gray-800 text-white py-8" role="contentinfo">
@@ -135,122 +158,51 @@ De esta manera, tu SPA original basado en plantillas de cadenas queda preservado
 
 ---
 
-## 2) Archivos Divididos — main.js, router.js, y views/index.js
+## 2) Usa TU Router Existente: cambia solo el render (clonado de `<template>`)
 
-### main.js, router.js, y views/index.js: Cómo Funciona Tu SPA Basada en HTML Template
-
-Desglosemos cómo funciona la estructura de archivos de la aplicación de página única (SPA) del demo y la lógica de ruteo, y qué código va dónde:
+Si ya tienes un router funcional de la lección anterior, NO lo reemplaces. Solo cambia la parte que inyecta la vista para que, en vez de usar cadenas (string templates) o `innerHTML`, clone el contenido de un `<template>`:
 
 ---
 
-#### 1. main.js — Punto de Entrada de la Aplicación
+### Cambia solo la función de renderizado
 
-- **Propósito:** Inicializa tu SPA. Instancia el router y configura cualquier listener de eventos globales.
-
-**demo/src/main.js**
+En tu router existente, localiza la parte que inserta contenido en `#app` (por ejemplo, si antes hacías `app.innerHTML = ...`). Sustitúyela por clonación de `<template>`:
 
 ```javascript
-// demo/src/main.js
-import { SimpleRouter } from './router.js';
-import { views } from './views/index.js';
+// Ejemplo de render con <template>
+function render(route) {
+	const app = document.getElementById('app');
+	if (!app) return;
+	app.innerHTML = '';
 
-new SimpleRouter(views);
-
-// Desplazamiento suave opcional para anclas en la página que no son enlaces del router
-document.addEventListener('click', (e) => {
-	const link = e.target.closest('a[href^="#"]');
-	if (!link) return;
-	const href = link.getAttribute('href');
-	if (href.startsWith('#/')) return; // enlace del router
-	const target = document.querySelector(href);
-	if (target) {
-		e.preventDefault();
-		target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	const tpl = document.getElementById(route.templateId);
+	if (!tpl) {
+		app.textContent = 'Vista no encontrada';
+		return;
 	}
-});
+
+	app.appendChild(tpl.content.cloneNode(true));
+	if (typeof route.onMount === 'function') route.onMount(app);
+}
 ```
 
-- **Conclusión:** Este archivo configura tu router para que los usuarios vean vistas basadas en el hash (ej. `#/about`) en la URL, y hace que la navegación se sienta fluida y como una aplicación.
+Y mantén tu tabla de rutas como algo simple (hash → `templateId`), por ejemplo:
+
+```javascript
+export const views = {
+	'/': { templateId: 'view-home' },
+	'/about': { templateId: 'view-about' },
+	404: { templateId: 'view-home' },
+};
+```
+
+> Sugerencia: si ya manejas resalte de navegación o `onMount`, no cambies esa lógica. Solo sustituye el render por clonación.
 
 ---
 
-#### 2. router.js — La Clase SimpleRouter
+## 3) Paso AVANZADO (opcional después): cargar plantillas desde archivos
 
-- **Propósito:** Maneja navegación, cambio de vistas, y resaltado de enlaces activos.
-- **Cómo funciona:**
-
-  1. **Ruteo Basado en Hash:** Escucha eventos `hashchange` y `load` en la ventana. Cuando el hash (como `#/about`) cambia, determina qué vista mostrar.
-  2. **Carga de Vistas:** Para cada ruta, carga una [plantilla HTML](https://developer.mozilla.org/es/docs/Web/HTML/Element/template) desde tu carpeta `views/` si es necesario, luego la clona y muestra en `<main id="app">`.
-  3. **onMount:** Si una ruta define una función `onMount(app)`, la llama después de renderizar, para que puedas ejecutar código JS para esa vista.
-  4. **Resaltado de Navegación:** Actualiza el enlace de navegación activo usando `aria-current="page"` para mejor accesibilidad.
-
-- **demo/src/router.js**
-
-```javascript
-// demo/src/router.js
-export class SimpleRouter {
-	constructor(routes) {
-		this.routes = routes; // { '/': { templateId, templateUrl, onMount? }, ... }
-		this.currentView = null;
-		window.addEventListener('hashchange', () => this.handleRoute());
-		window.addEventListener('load', () => this.handleRoute());
-	}
-
-	async handleRoute() {
-		const hash = window.location.hash.slice(1) || '/';
-		const route = this.routes[hash] || this.routes[404];
-		if (route !== this.currentView) {
-			await this.renderView(route);
-			this.updateActiveNav(hash);
-			this.currentView = route;
-		}
-	}
-
-	async renderView(route) {
-		const app = document.getElementById('app');
-		app.textContent = '';
-
-		await ensureTemplateAvailable(route.templateId, route.templateUrl);
-
-		const tpl = document.getElementById(route.templateId);
-		if (!tpl) {
-			app.textContent = 'Plantilla no encontrada';
-			return;
-		}
-
-		app.appendChild(tpl.content.cloneNode(true));
-		if (typeof route.onMount === 'function') route.onMount(app);
-	}
-
-	updateActiveNav(currentHash) {
-		document.querySelectorAll('nav a[href^="#/"]').forEach((link) => {
-			link.removeAttribute('aria-current');
-		});
-		const activeLink = document.querySelector(`nav a[href="#${currentHash}"]`);
-		if (activeLink) activeLink.setAttribute('aria-current', 'page');
-	}
-}
-
-const templateCache = new Set();
-
-async function ensureTemplateAvailable(templateId, templateUrl) {
-	if (document.getElementById(templateId)) return;
-	if (!templateUrl || templateCache.has(templateId)) return;
-
-	const res = await fetch(templateUrl, { credentials: 'same-origin' });
-	if (!res.ok) throw new Error(`Error al cargar plantilla: ${templateUrl}`);
-	const html = await res.text();
-	const doc = new DOMParser().parseFromString(html, 'text/html');
-	const fetchedTemplate = doc.querySelector('template');
-	if (!fetchedTemplate || !fetchedTemplate.id) {
-		throw new Error(`No se encontró <template id="..."> en ${templateUrl}`);
-	}
-	document.body.appendChild(fetchedTemplate);
-	templateCache.add(fetchedTemplate.id);
-}
-```
-
-- **Consejo Pedagógico:** Este patrón te permite añadir nuevas rutas/vistas simplemente creando nuevos archivos de plantilla y actualizando tu configuración `views/index.js`.
+Cuando el alumnado esté listo, pueden pasar de plantillas embebidas a **archivos separados** y cargarlos de forma perezosa (lazy) con `fetch`. Ese paso requiere una pequeña función `ensureTemplateAvailable(templateId, templateUrl)` y una tabla de vistas con `templateUrl`. Mantén esto como ampliación posterior para no elevar la complejidad al principio.
 
 ---
 

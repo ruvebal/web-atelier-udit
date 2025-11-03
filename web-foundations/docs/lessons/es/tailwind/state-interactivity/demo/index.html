@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Estado e Interactividad — Demos</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			// Minimal token alignment with lessons
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: { 50: '#eff6ff', 500: '#3b82f6', 900: '#1e3a8a' },
+						},
+					},
+				},
+			};
+		</script>
+	</head>
+	<body class="bg-gray-50 text-gray-900">
+		<main class="container mx-auto px-4 py-12">
+			<header class="mb-10 text-center">
+				<h1 class="text-3xl md:text-4xl font-bold">S4 — Estado e Interactividad</h1>
+				<p class="text-gray-600 mt-2">Demos autocontenidas para modifiers de Tailwind</p>
+			</header>
+
+			<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<a href="./buttons-states.html" class="block bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
+					<h2 class="text-lg font-semibold mb-2">Botones: hover, focus, active, disabled</h2>
+					<p class="text-sm text-gray-600">Estados esenciales para acciones</p>
+				</a>
+				<a href="./forms-focus.html" class="block bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
+					<h2 class="text-lg font-semibold mb-2">Formularios: focus-visible, focus-within</h2>
+					<p class="text-sm text-gray-600">Accesibilidad y señales de foco</p>
+				</a>
+				<a href="./group-peer.html" class="block bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
+					<h2 class="text-lg font-semibold mb-2">Padre ↔ Hijo: group y peer</h2>
+					<p class="text-sm text-gray-600">Hover compartido y controles con peer</p>
+				</a>
+				<a href="./stacked-modifiers.html" class="block bg-white rounded-lg shadow hover:shadow-md transition-shadow p-6">
+					<h2 class="text-lg font-semibold mb-2">Apilar modifiers: dark, md, aria-*</h2>
+					<p class="text-sm text-gray-600">Combinaciones poderosas en producción</p>
+				</a>
+			</section>
+		</main>
+	</body>
+</html>
+

@@ -1,0 +1,53 @@
+/**
+ * style.css — Minimal styles for inline demo (EN)
+ */
+
+/* Focus styles for keyboard navigation */
+*:focus-visible {
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+	box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px rgba(59, 130, 246, 0.5);
+}
+
+/* Navigation Links */
+.nav-link {
+	color: #4b5563;
+	transition-property: color;
+	transition-duration: 200ms;
+	font-weight: 500;
+}
+
+.nav-link:hover {
+	color: #2563eb;
+}
+
+.nav-link.active {
+	color: #2563eb;
+	border-bottom-width: 2px;
+	border-bottom-color: #2563eb;
+}
+
+/* Responsive container helper */
+.container {
+	max-width: 80rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+	.container {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.container {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+

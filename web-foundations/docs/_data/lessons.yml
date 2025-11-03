@@ -260,6 +260,21 @@
    en: complete
   category: tailwind
 
+- slug: tailwind-design-tokens
+  title:
+   es: 'Tailwind CSS: Tokens de diseño y style.css — Guía breve'
+   en: 'Tailwind CSS: Design Tokens & style.css — Quick Guide'
+  path:
+   es: /lessons/es/tailwind/design-tokens/
+   en: /lessons/en/tailwind/design-tokens/
+  file:
+   es: lessons/es/tailwind/design-tokens/index.md
+   en: lessons/en/tailwind/design-tokens/index.md
+  status:
+   es: complete
+   en: complete
+  category: tailwind
+
 - slug: tailwind-routing-string-templates
   title:
    es: 'Tailwind CSS: Ruteo SPA con String Templates — Vistas Modulares y Navegación'

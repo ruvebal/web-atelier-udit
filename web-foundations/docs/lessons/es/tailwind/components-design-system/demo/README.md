@@ -24,21 +24,39 @@ Esta demo muestra un sistema de diseño completo construido con Tailwind CSS usa
 
 ```
 demo/
-├── index.html          # HTML principal con todas las plantillas
+├── index.html          # HTML principal (layout compartido)
 ├── src/
 │   ├── main.js         # Punto de entrada de la aplicación
-│   ├── router.js       # Lógica de ruteo SPA
+│   ├── router.js       # Router con carga dinámica de templates
 │   ├── style.css       # Tailwind + estilos personalizados
-│   └── views/
-│       └── index.js    # Registro de vistas
+│   ├── components/      # Componentes modulares reutilizables
+│   │   ├── button-primary.html
+│   │   ├── button-secondary.html
+│   │   └── card.html
+│   ├── utils/          # Funciones helper para componentes
+│   │   ├── component-helpers.js
+│   │   └── card-helpers.js
+│   └── views/          # Vistas con templates separados
+│       ├── index.js    # Registro de vistas
+│       ├── home.html
+│       ├── buttons.html
+│       ├── buttons.js  # onMount para buttons
+│       ├── cards.html
+│       ├── cards.js   # onMount para cards
+│       ├── forms.html
+│       ├── forms.js
+│       ├── tokens.html
+│       └── 404.html
 └── README.md           # Este archivo
 ```
 
 ## Conceptos Clave
 
-- **Vistas basadas en plantillas**: Cada vista se define como un elemento HTML `<template>`
-- **Clonar y anexar**: El router clona el contenido de la plantilla en el contenedor `#app`
-- **Patrones de componentes**: Clases CSS reutilizables definidas en `style.css`
+- **Vistas basadas en plantillas**: Cada vista se define como un archivo HTML `<template>` separado
+- **Carga dinámica**: El router carga templates desde archivos cuando se necesitan
+- **Componentes modulares**: Componentes reutilizables en `src/components/` que se clonan dinámicamente
+- **onMount functions**: Funciones JavaScript que se ejecutan después de renderizar cada vista
+- **Helper functions**: Utilidades en `src/utils/` para simplificar el uso de componentes
 - **Tokens de diseño**: Configuración extendida de Tailwind (colores, espaciado, etc.)
 
 ## Lección Relacionada

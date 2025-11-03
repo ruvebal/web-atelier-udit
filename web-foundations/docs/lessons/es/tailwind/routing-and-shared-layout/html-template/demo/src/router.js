@@ -16,21 +16,20 @@ export class SimpleRouter {
 		}
 	}
 
-	async renderView(route) {
-		const app = document.getElementById('app');
-		app.textContent = '';
+    async renderView(route) {
+        const app = document.getElementById('app');
+        if (!app) return;
+        app.textContent = '';
 
-		await ensureTemplateAvailable(route.templateId, route.templateUrl);
+        const tpl = document.getElementById(route.templateId);
+        if (!tpl) {
+            app.textContent = 'Template not found';
+            return;
+        }
 
-		const tpl = document.getElementById(route.templateId);
-		if (!tpl) {
-			app.textContent = 'Template not found';
-			return;
-		}
-
-		app.appendChild(tpl.content.cloneNode(true));
-		if (typeof route.onMount === 'function') route.onMount(app);
-	}
+        app.appendChild(tpl.content.cloneNode(true));
+        if (typeof route.onMount === 'function') route.onMount(app);
+    }
 
 	updateActiveNav(currentHash) {
 		document.querySelectorAll('nav a[href^="#/"]').forEach((link) => {
@@ -41,21 +40,4 @@ export class SimpleRouter {
 	}
 }
 
-const templateCache = new Set();
-
-async function ensureTemplateAvailable(templateId, templateUrl) {
-	if (document.getElementById(templateId)) return;
-	if (!templateUrl || templateCache.has(templateId)) return;
-
-	const res = await fetch(templateUrl, { credentials: 'same-origin' });
-	if (!res.ok) throw new Error(`Failed to load template: ${templateUrl}`);
-	const html = await res.text();
-
-	const doc = new DOMParser().parseFromString(html, 'text/html');
-	const fetchedTemplate = doc.querySelector('template');
-	if (!fetchedTemplate || !fetchedTemplate.id) {
-		throw new Error(`No <template id="..."> found in ${templateUrl}`);
-	}
-	document.body.appendChild(fetchedTemplate);
-	templateCache.add(fetchedTemplate.id);
-}
+// Progressive version: no external template loading needed

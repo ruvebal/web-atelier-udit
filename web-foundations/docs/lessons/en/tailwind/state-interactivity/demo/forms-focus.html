@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demos — Forms & focus</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="bg-white text-gray-900">
+		<main class="max-w-3xl mx-auto p-6 space-y-8">
+			<header>
+				<h1 class="text-2xl font-bold">Forms: focus-visible, focus-within</h1>
+				<p class="text-gray-600">Use Tab to move through fields.</p>
+			</header>
+
+			<section class="space-y-4">
+				<div class="space-y-1">
+					<label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+					<input id="name" type="text" class="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ada Lovelace" />
+				</div>
+
+				<div class="space-y-1">
+					<label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+					<input id="email" type="email" class="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/30" placeholder="ada@example.com" />
+				</div>
+			</section>
+
+			<section class="space-y-3">
+				<h2 class="font-semibold">Container with focus-within</h2>
+				<div class="p-4 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-blue-500">
+					<label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+					<textarea id="message" rows="3" class="mt-1 w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+					<p class="mt-2 text-xs text-gray-500">Container highlights when any inner field has focus.</p>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>
+

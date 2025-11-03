@@ -1,92 +1,74 @@
 /**
- * router.js — Routes and template-based view rendering
- * Uses HTML <template> elements to safely render views
+ * router.js — Router with dynamic template loading
+ * Matches the approach from the lesson: loads templates from separate files
  */
 
-import { homeView, buttonsView, cardsView, formsView, tokensView, notFoundView } from './views/index.js';
-
-// Route definitions with template-based views
-const routes = {
-	'/': homeView,
-	'/buttons': buttonsView,
-	'/cards': cardsView,
-	'/forms': formsView,
-	'/tokens': tokensView,
-};
-
-/**
- * Renders a view into the #app container by cloning its template
- * @param {Function} viewFn - Function that returns the template ID or creates content
- */
-function renderView(viewFn) {
-	const app = document.getElementById('app');
-	if (!app) return;
-
-	// Clear current content
-	app.innerHTML = '';
-
-	// Get the template ID from the view function
-	const templateId = viewFn();
-
-	// Find and clone the template
-	const template = document.getElementById(templateId);
-	if (!template) {
-		console.error(`Template #${templateId} not found`);
-		const notFoundTemplate = document.getElementById(notFoundView());
-		if (notFoundTemplate) {
-			const clone = notFoundTemplate.content.cloneNode(true);
-			app.appendChild(clone);
-		}
-		return;
+export class SimpleRouter {
+	constructor(routes) {
+		this.routes = routes; // { '/': { templateId, templateUrl, onMount? }, ... }
+		this.currentView = null;
+		window.addEventListener('hashchange', () => this.handleRoute());
+		window.addEventListener('load', () => this.handleRoute());
 	}
 
-	// Clone and append the template content
-	const clone = template.content.cloneNode(true);
-	app.appendChild(clone);
-
-	// Update active navigation link
-	updateActiveNav();
-}
-
-/**
- * Updates the active state of navigation links
- */
-function updateActiveNav() {
-	const hash = window.location.hash.slice(1) || '/';
-	const links = document.querySelectorAll('.nav-link');
-	
-	links.forEach(link => {
-		const href = link.getAttribute('href').slice(1);
-		if (href === hash) {
-			link.classList.add('active');
-			link.setAttribute('aria-current', 'page');
-		} else {
-			link.classList.remove('active');
-			link.removeAttribute('aria-current');
+	async handleRoute() {
+		const hash = window.location.hash.slice(1) || '/';
+		const route = this.routes[hash] || this.routes[404];
+		if (route !== this.currentView) {
+			await this.renderView(route);
+			this.updateActiveNav(hash);
+			this.currentView = route;
 		}
-	});
+	}
+
+	async renderView(route) {
+		const app = document.getElementById('app');
+		if (!app) return;
+
+		app.textContent = '';
+
+		await ensureTemplateAvailable(route.templateId, route.templateUrl);
+
+		const tpl = document.getElementById(route.templateId);
+		if (!tpl) {
+			app.textContent = 'Template not found';
+			return;
+		}
+
+		app.appendChild(tpl.content.cloneNode(true));
+		if (typeof route.onMount === 'function') {
+			await route.onMount(app);
+		}
+	}
+
+	updateActiveNav(currentHash) {
+		document.querySelectorAll('nav a[href^="#/"]').forEach((link) => {
+			link.removeAttribute('aria-current');
+			link.classList.remove('active');
+		});
+		const activeLink = document.querySelector(`nav a[href="#${currentHash}"]`);
+		if (activeLink) {
+			activeLink.setAttribute('aria-current', 'page');
+			activeLink.classList.add('active');
+		}
+	}
 }
 
-/**
- * Handles route changes
- */
-function handleRoute() {
-	const hash = window.location.hash.slice(1) || '/';
-	const viewFn = routes[hash] || notFoundView;
-	renderView(viewFn);
+const templateCache = new Set();
+
+async function ensureTemplateAvailable(templateId, templateUrl) {
+	if (document.getElementById(templateId)) return;
+	if (!templateUrl || templateCache.has(templateId)) return;
+
+	const res = await fetch(templateUrl, { credentials: 'same-origin' });
+	if (!res.ok) throw new Error(`Failed to load template: ${templateUrl}`);
+	const html = await res.text();
+
+	const doc = new DOMParser().parseFromString(html, 'text/html');
+	const fetchedTemplate = doc.querySelector('template');
+	if (!fetchedTemplate || !fetchedTemplate.id) {
+		throw new Error(`No <template id="..."> found in ${templateUrl}`);
+	}
+	document.body.appendChild(fetchedTemplate);
+	templateCache.add(fetchedTemplate.id);
 }
-
-/**
- * Initializes the router
- */
-export function initRouter() {
-	// Handle initial load
-	handleRoute();
-
-	// Listen for hash changes
-	window.addEventListener('hashchange', handleRoute);
-
-	// Handle browser back/forward
-	window.addEventListener('popstate', handleRoute);
-}
-

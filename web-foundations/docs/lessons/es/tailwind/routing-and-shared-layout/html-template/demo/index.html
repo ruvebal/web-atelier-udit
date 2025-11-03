@@ -33,10 +33,70 @@
 			</div>
 		</nav>
 
-		<!-- Main content area -->
-		<main id="app" class="min-h-screen pt-20 pb-24 flex items-center justify-center" role="main">
-			<!-- View templates are external in /views/*.html and lazy-loaded by the router. -->
-		</main>
+        <!-- Main content area -->
+        <main id="app" class="min-h-screen pt-20 pb-24 flex items-center justify-center" role="main"></main>
+
+        <!-- Inline view templates (progressive approach) -->
+        <template id="view-home">
+            <section class="py-16">
+                <div class="container mx-auto px-4 text-center">
+                    <h1 class="text-5xl font-bold text-gray-900 mb-6">Welcome Home</h1>
+                    <p class="text-xl text-gray-600 mb-8">This is the home page of our SPA.</p>
+                    <a href="#/about" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                        Learn About Us
+                    </a>
+                </div>
+            </section>
+        </template>
+
+        <template id="view-about">
+            <section class="py-16">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-6">About Us</h1>
+                    <div class="max-w-3xl mx-auto">
+                        <p class="text-lg text-gray-700 mb-4">We build modern web applications with Tailwind CSS and vanilla JavaScript.</p>
+                        <p class="text-lg text-gray-700 mb-6">Our focus is on accessibility, performance, and user experience.</p>
+                        <a href="#/" class="text-blue-500 hover:text-blue-600 font-medium">← Back to Home</a>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="view-projects">
+            <section class="py-16">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-6">Our Projects</h1>
+                    <div class="max-w-3xl mx-auto">
+                        <p class="text-lg text-gray-700 mb-6">Coming soon: A showcase of projects built with modern web technologies.</p>
+                        <a href="#/" class="text-blue-500 hover:text-blue-600 font-medium">← Back to Home</a>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="view-contact">
+            <section class="py-16">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-6">Contact</h1>
+                    <div class="max-w-3xl mx-auto">
+                        <p class="text-lg text-gray-700 mb-6">Get in touch with us through our social channels.</p>
+                        <a href="#/" class="text-blue-500 hover:text-blue-600 font-medium">← Back to Home</a>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="view-404">
+            <section class="py-16">
+                <div class="container mx-auto px-4 text-center">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-6">Page Not Found</h1>
+                    <p class="text-xl text-gray-600 mb-8">The page you're looking for doesn't exist.</p>
+                    <a href="#/" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                        Go Home
+                    </a>
+                </div>
+            </section>
+        </template>
 
 		<!-- Shared footer -->
 		<footer class="fixed bottom-0 left-0 w-full z-50 bg-gray-800 text-white py-8" role="contentinfo">

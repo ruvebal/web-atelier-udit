@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demos — Modifiers apilados</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="bg-white text-gray-900">
+		<main class="max-w-4xl mx-auto p-6 space-y-10">
+			<header>
+				<h1 class="text-2xl font-bold">Apilar modifiers: responsive, dark, aria-*</h1>
+				<p class="text-gray-600">Combina variantes para comportamientos ricos.</p>
+			</header>
+
+			<section class="space-y-3">
+				<h2 class="font-semibold">dark:md:hover</h2>
+				<div class="flex items-center gap-3">
+					<button id="toggleDark" class="px-3 py-1.5 rounded-md border">Alternar modo oscuro</button>
+					<span class="text-sm text-gray-600">Reduce el ancho para ver <code class="font-mono">md:</code></span>
+				</div>
+				<div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+					<div class="p-6 rounded-lg bg-gray-100 dark:bg-gray-800 transition">
+						<button class="px-4 py-2 rounded-md bg-blue-500 text-white dark:md:hover:bg-fuchsia-600 transition">Botón responsive</button>
+						<p class="text-xs text-gray-600 dark:text-gray-300 mt-2">En dark + ≥ md + hover cambia a fucsia.</p>
+					</div>
+				</div>
+				<script>
+					const toggleDark = document.getElementById('toggleDark');
+					toggleDark.addEventListener('click', () => {
+						document.documentElement.classList.toggle('dark');
+					});
+				</script>
+			</section>
+
+			<section class="space-y-3">
+				<h2 class="font-semibold">aria-[expanded] y data-*</h2>
+				<button id="accBtn" aria-expanded="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border bg-white hover:bg-gray-50 [aria-expanded='true']:bg-gray-100">
+					<svg class="h-4 w-4 transition-transform [aria-expanded='true']:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+						<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+					</svg>
+					Detalles
+				</button>
+				<div id="accPanel" hidden class="mt-2 p-4 rounded-md border data-[state='open']:block" data-state="closed">
+					Contenido del acordeón. Se muestra cuando <code>aria-expanded</code> es true.
+				</div>
+				<script>
+					const accBtn = document.getElementById('accBtn');
+					const accPanel = document.getElementById('accPanel');
+					accBtn.addEventListener('click', () => {
+						const expanded = accBtn.getAttribute('aria-expanded') === 'true';
+						accBtn.setAttribute('aria-expanded', String(!expanded));
+						accPanel.toggleAttribute('hidden');
+						accPanel.dataset.state = expanded ? 'closed' : 'open';
+					});
+				</script>
+			</section>
+		</main>
+	</body>
+</html>
+

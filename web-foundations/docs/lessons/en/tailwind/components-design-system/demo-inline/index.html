@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Inline Demo — Design System (no components)</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: {
+								50: '#eff6ff',
+								500: '#3b82f6',
+								900: '#1e3a8a',
+							},
+							surface: {
+								light: '#f8fafc',
+								dark: '#1e293b',
+							},
+							content: {
+								DEFAULT: '#0f172a',
+								muted: '#64748b',
+								inverted: '#ffffff',
+							},
+						},
+						spacing: {
+							18: '4.5rem',
+							88: '22rem',
+						},
+						borderRadius: {
+							'4xl': '2rem',
+						},
+					},
+				},
+			};
+		</script>
+		<link rel="stylesheet" href="./src/style.css" />
+	</head>
+	<body class="bg-gray-50">
+		<!-- Navigation -->
+		<nav class="bg-white shadow-sm border-b border-gray-200">
+			<div class="container mx-auto px-4">
+				<div class="flex items-center justify-between h-16">
+					<h1 class="text-xl font-bold text-gray-900">Inline Demo (no components)</h1>
+					<ul class="flex space-x-6" role="navigation" aria-label="Primary navigation">
+						<li><a href="#/" class="nav-link">Home</a></li>
+						<li><a href="#/buttons" class="nav-link">Buttons</a></li>
+						<li><a href="#/cards" class="nav-link">Cards</a></li>
+						<li><a href="#/forms" class="nav-link">Forms</a></li>
+						<li><a href="#/tokens" class="nav-link">Tokens</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Main App Container -->
+		<main id="app" class="container mx-auto px-4 py-8" role="main"></main>
+
+		<!-- Templates are loaded from src/views/*.html -->
+		<script type="module" src="./src/main.js"></script>
+	</body>
+</html>
+
+
