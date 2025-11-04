@@ -275,6 +275,17 @@
    en: complete
   category: tailwind
 
+- slug: tailwind-components-inline
+  title:
+   es: 'Tailwind CSS: Componentes Inline en Vistas — Ruta A (sin componentización)'
+  path:
+   es: /lessons/es/tailwind/components-inline/
+  file:
+   es: lessons/es/tailwind/components-inline/index.md
+  status:
+   es: complete
+  category: tailwind
+
 - slug: tailwind-routing-string-templates
   title:
    es: 'Tailwind CSS: Ruteo SPA con String Templates — Vistas Modulares y Navegación'

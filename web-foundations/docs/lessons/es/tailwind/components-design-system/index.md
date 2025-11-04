@@ -39,11 +39,9 @@ Esta lección sigue la **metodología del atelier** (exploración → reflexión
 
 > **[Ver Demo en Vivo →](demo/)**
 >
-> Explora un sistema de diseño completo con botones, tarjetas, formularios y tokens de diseño usando el enfoque de `<template>`. ¡Todo el código es autocontenido y listo para ejecutar!
+> Explora un sistema de diseño completo con botones, tarjetas, formularios y tokens de diseño usando el enfoque de `<template>` y helpers modulares. ¡Todo el código es autocontenido y listo para ejecutar!
 
-> **[Ver Demo Alternativo (sin componentes) →](demo-inline/)**
->
-> Versión simple para principiantes: todo el UI se implementa directamente dentro de las vistas, sin crear componentes reutilizables ni helpers. Ideal para enfocarse en Tailwind y patrones visuales primero.
+> Nota: Los componentes del demo son visuales por defecto. Usa `onMount` para activar botones y agregar interacciones de vida real (guardar, navegación, analytics). Ver sección “Hacer los Botones Interactivos”.
 
 ## Requisitos
 
@@ -86,83 +84,9 @@ Esta sesión transforma combinaciones de utilidades en sistemas de componentes r
 - Evitamos montar componentes con JavaScript y `<template>` por ahora: añade complejidad y reduce legibilidad sin un framework.
 - Si necesitas profundizar, las secciones avanzadas más abajo son opcionales. Para la base visual, empieza con piezas listas y tokens coherentes.
 
-### Opción A — Inline en Vistas (sin componentes ni helpers)
+### Construyendo sobre el Ruteo S2 con `<template>`
 
-Si quieres evitar crear componentes `<template>` o helpers en JavaScript, puedes implementar todo directamente en tus vistas. Esto reduce archivos y complejidad inicial.
-
-1. Crea una vista con botones estáticos:
-
-```html
-<!-- src/views/buttons.html -->
-<template id="view-buttons">
-	<div class="max-w-4xl mx-auto">
-		<h1 class="text-3xl font-bold text-gray-900 mb-8">Botones (inline)</h1>
-
-		<section class="bg-white rounded-lg shadow-md p-8 mb-8">
-			<h2 class="text-2xl font-semibold mb-6">Primarios</h2>
-			<div class="flex flex-wrap gap-4">
-				<button
-					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-					Acción Primaria
-				</button>
-				<button
-					disabled
-					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-					Deshabilitado
-				</button>
-			</div>
-		</section>
-
-		<section class="bg-white rounded-lg shadow-md p-8 mb-8">
-			<h2 class="text-2xl font-semibold mb-6">Secundarios</h2>
-			<div class="flex flex-wrap gap-4">
-				<button
-					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-					Acción Secundaria
-				</button>
-				<button
-					disabled
-					class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-					Deshabilitado
-				</button>
-			</div>
-		</section>
-
-		<section class="bg-white rounded-lg shadow-md p-8">
-			<h2 class="text-2xl font-semibold mb-6">Tamaños</h2>
-			<div class="flex flex-wrap items-center gap-4">
-				<button class="px-3 py-1.5 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
-					Pequeño
-				</button>
-				<button class="px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
-					Mediano
-				</button>
-				<button class="px-6 py-3 text-base font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600">
-					Grande
-				</button>
-			</div>
-		</section>
-	</div>
-</template>
-```
-
-2. En tu registro de vistas, omite `onMount` y helpers:
-
-```javascript
-// src/views/index.js
-export const views = {
-	'/buttons': { templateId: 'view-buttons', templateUrl: './src/views/buttons.html' },
-	// otras rutas...
-};
-```
-
-3. Repite el patrón para tarjetas y formularios con markup inline. Consulta el demo alternativo enlazado arriba para un ejemplo completo.
-
-—
-
-### Opción B — Construyendo sobre el Ruteo S2 con `<template>`
-
-Si prefieres no crear componentes reutilizables todavía, usa la Opción A (inline en vistas) o abre el **Demo Alternativo**.
+Si prefieres no crear componentes reutilizables todavía, consulta la lección “Ruta A — Componentes inline en vistas (sin componentización)” y su demo correspondiente.
 
 ### Implementación paso a paso
 
@@ -378,38 +302,34 @@ export async function mountComponentes(app) {
 }
 ```
 
-**También para la Opción A (inline, sin componentes):**
-
-- **Rápido (onclick en HTML):** añade el handler directamente en la vista.
-
-```html
-<!-- src/views/buttons.html (inline) -->
-<button
-	class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
-	onclick="alert('Acción ejecutada')">
-	Acción Primaria
-</button>
-```
-
-- **Recomendado (delegación de eventos, sin onMount):** usa un único listener global y marca los botones con `data-action`.
+**Interacciones de vida real con `onMount`:**
 
 ```javascript
-// src/inline-interactions.js (inclúyelo en tu index.html)
-document.addEventListener('click', (event) => {
-	const target = event.target.closest('[data-action="guardar"]');
-	if (!target) return;
-	console.log('Guardando...');
-	alert('¡Cambios guardados!');
-});
-```
-
-```html
-<!-- src/views/buttons.html (inline) -->
-<button
-	data-action="guardar"
-	class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-	Guardar Cambios
-</button>
+// Dentro de onMount (p.ej., mountComponentes)
+// 1) Guardar cambios: loading, analytics y navegación
+const saveBtn = app.querySelector('#buttons-container button');
+if (saveBtn) {
+	saveBtn.addEventListener('click', async () => {
+		saveBtn.disabled = true;
+		saveBtn.setAttribute('aria-busy', 'true');
+		const original = saveBtn.textContent;
+		saveBtn.textContent = 'Guardando...';
+		try {
+			// Simular llamada API
+			await new Promise((r) => setTimeout(r, 1200));
+			// Analytics/eventos
+			console.log('analytics: boton_guardar');
+			// Navegación
+			location.hash = '#/proyectos';
+		} catch (e) {
+			alert('No se pudo guardar. Intenta de nuevo.');
+		} finally {
+			saveBtn.disabled = false;
+			saveBtn.removeAttribute('aria-busy');
+			saveBtn.textContent = original;
+		}
+	});
+}
 ```
 
 **Crear función helper para componentes interactivos:**

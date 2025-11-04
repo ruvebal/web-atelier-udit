@@ -25,6 +25,15 @@ permalink: /lessons/en/web-animations/
 - Add the HTML exactly as shown to any page.
 - Toggle 'Reduce Motion' in OS to verify accessibility.
 
+<iframe
+	src="./examples/button.html"
+	title="Button micro-interaction example"
+	style="width:100%;max-width:860px;height:220px;border:1px solid #e5e7eb;border-radius:6px;"
+	loading="lazy"
+></iframe>
+
+<p style="font-size:13px;color:#374151;margin-top:6px;">Demo: <a href="./demo">Open interactive demo</a></p>
+
 ```css
 /* Minimal animation system for the workshop */
 :root {
@@ -44,7 +53,6 @@ permalink: /lessons/en/web-animations/
 		transition-duration: 0.01ms !important;
 	}
 }
-
 /* Button micro-interaction */
 .btn {
 	padding: 0.75rem 1.5rem;
@@ -199,9 +207,9 @@ Before we code a single transition, let's pause and **think critically** about w
 A "state" is simply how an element appears or behaves at a certain moment—such as default, hovered, focused, or active. Transitions help you animate the visual change when an element moves from one state to another (for example, from its normal style to a hovered style).
 
 **Create your own sandbox:**  
-For all code examples and hands-on practice with animation in this lesson, create a file at `/animations/index.htm` in your project. Use it as your sandbox for experiments!
+For all code examples and hands-on practice with animation in this lesson, create a file at `/animations/index.html` in your project. Use it as your sandbox for experiments!
 
-**Example HTML (copy this into `/animations/index.htm`):**
+**Example HTML (copy this into `/animations/index.html`):**
 
 ```html
 <button class="button">Hover me!</button>
@@ -611,6 +619,9 @@ When (prefers-reduced-motion: reduce) is true, all CSS animations and transition
 <button class="btn btn-primary" disabled>Disabled Button</button>
 ```
 
+<iframe src="./examples/button.html" title="Button variants demo" style="width:100%;max-width:760px;height:180px;border:1px solid #e5e7eb;border-radius:6px;" loading="lazy"></iframe>
+	<p style="font-size:13px;color:#374151;margin-top:6px;">Open <a href="./examples/button.html">button example</a> in a new tab if the embed is blocked.</p>
+
 ### Step 2: CSS (Base + Variants)
 
 ```css
@@ -742,6 +753,8 @@ When (prefers-reduced-motion: reduce) is true, all CSS animations and transition
 	</section>
 </main>
 ```
+
+<iframe src="./examples/staggered.html" title="Staggered fade-in demo" style="width:100%;max-width:860px;height:340px;border:1px solid #e5e7eb;border-radius:6px;" loading="lazy"></iframe>
 
 **CSS**:
 
@@ -878,6 +891,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	<div class="skeleton skeleton-text"></div>
 </article>
 ```
+
+<iframe src="./examples/skeleton.html" title="Skeleton screen demo" style="width:100%;max-width:640px;height:320px;border:1px solid #e5e7eb;border-radius:6px;" loading="lazy"></iframe>
 
 **CSS**:
 
@@ -1025,6 +1040,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	<path class="logo-path" d="M 50 100 Q 100 50 150 100 T 250 100" fill="none" stroke="currentColor" stroke-width="3" />
 </svg>
 ```
+
+<iframe src="./examples/svg-draw.html" title="SVG path draw demo" style="width:100%;max-width:420px;height:220px;border:1px solid #e5e7eb;border-radius:6px;" loading="lazy"></iframe>
 
 **CSS**:
 
@@ -1297,6 +1314,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <div class="reading-progress"></div>
 ```
+
+<p style="font-size:13px;color:#374151;margin-top:6px;">Check live demo: <a href="./demo/">Scroll-driven animations demo</a></p>
+
+<p style="font-size:13px;color:#374151;margin-top:6px;">Related demo (parallax): <a href="/web-atelier-udit/lessons/en/modern-web-design-trends/demo/01-parallax-scrolling.html">01 — Parallax Scrolling (modern-web-design-trends)</a>. Note: the classic <code>background-attachment: fixed</code> parallax works on desktop but is unreliable on many mobile browsers — prefer transform-based or CSS <code>scroll()</code> timeline techniques and always provide a <code>prefers-reduced-motion</code> fallback for accessibility.</p>
 
 **CSS**:
 

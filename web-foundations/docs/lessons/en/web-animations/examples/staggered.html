@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Staggered Fade-In — Example</title>
+		<style>
+			:root {
+				--duration-slow: 500ms;
+				--ease-out: cubic-bezier(0, 0, 0.2, 1);
+			}
+			body {
+				font-family: system-ui, -apple-system, Arial, sans-serif;
+				margin: 0;
+				background: #fff;
+				color: #111827;
+			}
+			main {
+				padding: 24px;
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			.content-section {
+				background: #f8fafc;
+				border-radius: 8px;
+				padding: 18px;
+				margin-bottom: 16px;
+				animation: fadeInUp var(--duration-slow) var(--ease-out) backwards;
+			}
+			.content-section:nth-child(1) {
+				animation-delay: 0.1s;
+			}
+			.content-section:nth-child(2) {
+				animation-delay: 0.2s;
+			}
+			.content-section:nth-child(3) {
+				animation-delay: 0.3s;
+			}
+
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.content-section {
+					animation: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section class="content-section">
+				<h2>Section A</h2>
+				<p>Appears immediately.</p>
+			</section>
+			<section class="content-section">
+				<h2>Section B</h2>
+				<p>Appears after 0.1s.</p>
+			</section>
+			<section class="content-section">
+				<h2>Section C</h2>
+				<p>Appears after 0.2s.</p>
+			</section>
+			<p style="margin-top: 18px; color: #374151; font-size: 14px">
+				This example demonstrates a simple CSS-only staggered page-load animation. Toggle OS 'Reduce Motion' to test
+				accessibility fallback.
+			</p>
+		</main>
+	</body>
+</html>

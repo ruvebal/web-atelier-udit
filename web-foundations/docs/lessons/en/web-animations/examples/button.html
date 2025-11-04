@@ -1,0 +1,104 @@
+---
+layout: null
+permalink: /lessons/en/web-animations/examples/button.html
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Button Micro-interactions — Example</title>
+		<style>
+			:root {
+				--duration-fast: 200ms;
+				--duration: 300ms;
+				--ease-out: cubic-bezier(0, 0, 0.2, 1);
+				--color-primary: #3b82f6;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+					transition-duration: 0.01ms !important;
+				}
+			}
+
+			.container {
+				padding: 24px;
+				font-family: system-ui, -apple-system, Arial, sans-serif;
+				background: #f8fafc;
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.btn {
+				position: relative;
+				overflow: hidden;
+				padding: 0.75rem 1.5rem;
+				border: none;
+				border-radius: 6px;
+				font-size: 1rem;
+				font-weight: 600;
+				cursor: pointer;
+				transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+				background: var(--color-primary);
+				color: #fff;
+				margin: 0 8px;
+			}
+
+			.btn:hover:not(:disabled) {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			}
+
+			.btn:active:not(:disabled) {
+				transform: translateY(0);
+				transition-duration: 100ms;
+			}
+
+			.btn::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: rgba(255, 255, 255, 0.18);
+				border-radius: inherit;
+				transform: scale(0);
+				opacity: 0;
+			}
+			.btn:active:not(:disabled)::after {
+				animation: ripple 0.6s ease-out;
+			}
+			@keyframes ripple {
+				0% {
+					transform: scale(0);
+					opacity: 1;
+				}
+				100% {
+					transform: scale(1);
+					opacity: 0;
+				}
+			}
+
+			.controls {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="controls">
+				<button class="btn">Primary Button</button>
+				<button class="btn" disabled>Disabled</button>
+				<p style="color: #374151; margin-top: 12px; font-size: 14px">
+					Try hover, keyboard focus, and active (click) to see the micro-interaction.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

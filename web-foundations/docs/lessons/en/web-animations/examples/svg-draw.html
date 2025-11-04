@@ -1,0 +1,53 @@
+---
+layout: null
+permalink: /lessons/en/web-animations/examples/svg-draw.html
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>SVG Path Draw — Example</title>
+		<style>
+			body {
+				font-family: system-ui, -apple-system, Arial, sans-serif;
+				background: #fff;
+				color: #111827;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 100vh;
+				margin: 0;
+			}
+			svg {
+				width: 320px;
+				height: 160px;
+			}
+			.logo-path {
+				stroke: #111827;
+				stroke-width: 3;
+				fill: none;
+				stroke-dasharray: 1000;
+				stroke-dashoffset: 1000;
+				animation: draw 2s ease-out forwards;
+			}
+			@keyframes draw {
+				to {
+					stroke-dashoffset: 0;
+				}
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.logo-path {
+					animation: none;
+					stroke-dashoffset: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+			<path class="logo-path" d="M 20 80 Q 60 10 100 80 T 180 80" />
+		</svg>
+	</body>
+</html>

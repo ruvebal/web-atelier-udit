@@ -61,14 +61,17 @@ Esta ruta de aprendizaje comprehensiva te lleva desde cero hasta PWA lista para 
 - Accesibilidad en interfaces dinámicas
 - Principios de mejora progresiva
 
-### [S3 - Componentes y Sistema de Diseño →]({{ '/lessons/es/tailwind/components-design-system/' | relative_url }})
+### S3 — Componentes y Sistema de Diseño
 
-**Patrones Reutilizables**
+- **[S3A — Componentes en Vistas (Inline) →]({{ '/lessons/es/tailwind/components-inline/' | relative_url }})**
+  - Tokens de diseño aplicados directamente en vistas
+  - Patrones inline de botones, tarjetas y formularios
+  - Interactividad con `onclick` y delegación de eventos
 
-- Tokens de diseño y theming
-- Estrategias de composición de componentes
-- Patrones de UI reutilizables
-- Implementación de sistema de diseño
+- **[S3B — Componentización con `<template>` →]({{ '/lessons/es/tailwind/components-design-system/' | relative_url }})**
+  - Estrategias de composición y helpers modulares
+  - Patrones de UI reutilizables y mantenibles
+  - Implementación de un sistema de diseño
 
 ### [S4 - Estado e Interactividad →]({{ '/lessons/es/tailwind/state-interactivity/' | relative_url }})
 

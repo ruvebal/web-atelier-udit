@@ -108,6 +108,8 @@ permalink: /lessons/es/web-animations/
 
 > Nota para docentes: Demostración primero. Pregunta: ¿Qué animamos y por qué? ¿Qué pasa con movimiento reducido?
 
+<p style="font-size:13px;color:#374151;margin-top:6px;">Demostración: <a href="./demo">Abrir demo interactiva</a></p>
+
 ---
 
 ## 🎯 Objetivos de Aprendizaje
