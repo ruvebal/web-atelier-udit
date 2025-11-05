@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Tendencias de Diseño Web Moderno con Bootstrap 5.3 - Índice de Demos</title>
+	
+	<!-- Bootstrap 5.3 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Bootstrap Icons -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+	
+	<style>
+		.demo-card {
+			transition: all 0.3s ease;
+			border: 2px solid transparent;
+		}
+
+		.demo-card:hover {
+			transform: translateY(-8px);
+			border-color: var(--bs-primary);
+			box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+		}
+
+		.demo-icon {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+		}
+
+		.hero-section {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			min-height: 60vh;
+		}
+
+		.theme-toggle {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 1030;
+			width: 56px;
+			height: 56px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		}
+	</style>
+</head>
+<body>
+	<!-- Botón de Tema -->
+	<button class="theme-toggle btn btn-primary" onclick="toggleTheme()" aria-label="Alternar tema">
+		<i class="bi bi-moon-stars-fill fs-5" id="theme-icon"></i>
+	</button>
+
+	<!-- Sección Hero -->
+	<header class="hero-section text-white d-flex align-items-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto text-center">
+					<h1 class="display-2 fw-bold mb-4">Tendencias de Diseño Web Moderno</h1>
+					<p class="lead fs-3 mb-4">Demos Interactivos con Bootstrap 5.3</p>
+					<p class="fs-5 mb-4">
+						Explora 8 demos prácticos que muestran cómo implementar tendencias de diseño moderno usando el potente framework de Bootstrap.
+					</p>
+					<div class="d-flex gap-2 justify-content-center flex-wrap">
+						<span class="badge bg-light text-primary fs-6 px-3 py-2">Bootstrap 5.3</span>
+						<span class="badge bg-light text-primary fs-6 px-3 py-2">8 Demos Interactivos</span>
+						<span class="badge bg-light text-primary fs-6 px-3 py-2">Código Completo</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Introducción -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<div class="alert alert-success" role="alert">
+						<h4 class="alert-heading">
+							<i class="bi bi-check-circle-fill"></i> Qué Hace Especiales Estos Demos
+						</h4>
+						<p class="mb-2">Cada demo te muestra cómo:</p>
+						<ul class="mb-0">
+							<li>Usar <strong>componentes y utilidades de Bootstrap 5.3</strong> como base</li>
+							<li>Extender Bootstrap con <strong>CSS personalizado</strong> para efectos modernos</li>
+							<li>Combinar el diseño responsivo de Bootstrap con técnicas avanzadas</li>
+							<li>Seguir <strong>mejores prácticas de accesibilidad</strong></li>
+							<li>Ver código completo y funcional del que puedes aprender y adaptar</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Tarjetas de Demos -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row g-4">
+				<!-- Demo 1: Parallax -->
+				<div class="col-md-6 col-lg-4">
+					<a href="01-parallax-scrolling.html" class="text-decoration-none">
+						<div class="card demo-card h-100 shadow-sm">
+							<div class="card-body p-4 text-center">
+								<div class="demo-icon">🎬</div>
+								<h3 class="card-title h4 mb-3">Parallax Scrolling</h3>
+								<p class="card-text text-secondary mb-3">
+									Agrega profundidad con efectos parallax de 3 capas. Aprende fondos CSS fixed y parallax basado en JavaScript usando el grid de Bootstrap.
+								</p>
+								<div class="d-flex gap-2 flex-wrap justify-content-center">
+									<span class="badge bg-primary">Parallax</span>
+									<span class="badge bg-secondary">3 Técnicas</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Demo 2: Glassmorphism -->
+				<div class="col-md-6 col-lg-4">
+					<a href="02-glassmorphism.html" class="text-decoration-none">
+						<div class="card demo-card h-100 shadow-sm">
+							<div class="card-body p-4 text-center">
+								<div class="demo-icon">✨</div>
+								<h3 class="card-title h4 mb-3">Glassmorphism</h3>
+								<p class="card-text text-secondary mb-3">
+									Efectos de cristal esmerilado en tarjetas de Bootstrap. backdrop-filter combinado con el sistema de componentes de Bootstrap.
+								</p>
+								<div class="d-flex gap-2 flex-wrap justify-content-center">
+									<span class="badge bg-primary">Efecto Cristal</span>
+									<span class="badge bg-secondary">Desenfoque</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Demo 3: Neumorphism -->
+				<div class="col-md-6 col-lg-4">
+					<a href="03-neumorphism.html" class="text-decoration-none">
+						<div class="card demo-card h-100 shadow-sm">
+							<div class="card-body p-4 text-center">
+								<div class="demo-icon">🎚️</div>
+								<h3 class="card-title h4 mb-3">Neumorphism</h3>
+								<p class="card-text text-secondary mb-3">
+									Sombras 3D suaves en botones y formularios de Bootstrap. Las sombras duales crean efectos elevados y presionados.
+								</p>
+								<div class="d-flex gap-2 flex-wrap justify-content-center">
+									<span class="badge bg-primary">UI Suave</span>
+									<span class="badge bg-secondary">Sombras</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Demo 4: Tipografía Fluida -->
+				<div class="col-md-6 col-lg-4">
+					<a href="04-fluid-typography.html" class="text-decoration-none">
+						<div class="card demo-card h-100 shadow-sm">
+							<div class="card-body p-4 text-center">
+								<div class="demo-icon">🔤</div>
+								<h3 class="card-title h4 mb-3">Tipografía Fluida</h3>
+								<p class="card-text text-secondary mb-3">
+									Texto responsivo con CSS clamp(). Extiende el sistema tipográfico de Bootstrap con escalado suave por viewport.
+								</p>
+								<div class="d-flex gap-2 flex-wrap justify-content-center">
+									<span class="badge bg-primary">Responsivo</span>
+									<span class="badge bg-secondary">clamp()</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Demo 5: Modo Oscuro -->
+				<div class="col-md-6 col-lg-4">
+					<a href="05-dark-mode.html" class="text-decoration-none">
+						<div class="card demo-card h-100 shadow-sm">
+							<div class="card-body p-4 text-center">
+								<div class="demo-icon">🌓</div>
+								<h3 class="card-title h4 mb-3">Modo Oscuro</h3>
+								<p class="card-text text-secondary mb-3">
+									¡Modo oscuro integrado en Bootstrap 5.3! Un atributo cambia TODOS los componentes. Magia de data-bs-theme="dark".
+								</p>
+								<div class="d-flex gap-2 flex-wrap justify-content-center">
+									<span class="badge bg-primary">data-bs-theme</span>
+									<span class="badge bg-secondary">Nativo</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Demo 6: Minimalismo vs Maximalismo -->
+				<div class="col-md-6 col-lg-4">
+					<a href="06-minimalism-maximalism.html" class="text-decoration-none">
+						<div class="card demo-card h-100 shadow-sm">
+							<div class="card-body p-4 text-center">
+								<div class="demo-icon">⚖️</div>
+								<h3 class="card-title h4 mb-3">Minimalismo vs. Maximalismo</h3>
+								<p class="card-text text-secondary mb-3">
+									Dos estilos opuestos usando utilidades de Bootstrap. Ve cómo el espaciado, colores y layout crean sensaciones diferentes.
+								</p>
+								<div class="d-flex gap-2 flex-wrap justify-content-center">
+									<span class="badge bg-primary">Sistemas de Diseño</span>
+									<span class="badge bg-secondary">Utilidades</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Demo 7: Scrollytelling -->
+				<div class="col-md-6 col-lg-4">
+					<a href="07-scrollytelling.html" class="text-decoration-none">
+						<div class="card demo-card h-100 shadow-sm">
+							<div class="card-body p-4 text-center">
+								<div class="demo-icon">📜</div>
+								<h3 class="card-title h4 mb-3">Scrollytelling</h3>
+								<p class="card-text text-secondary mb-3">
+									Narrativas basadas en scroll usando tarjetas de Bootstrap e Intersection Observer. El contenido se revela al desplazar.
+								</p>
+								<div class="d-flex gap-2 flex-wrap justify-content-center">
+									<span class="badge bg-primary">Scroll</span>
+									<span class="badge bg-secondary">API Observer</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Demo 8: 3D Web -->
+				<div class="col-md-6 col-lg-4">
+					<a href="08-3d-web.html" class="text-decoration-none">
+						<div class="card demo-card h-100 shadow-sm">
+							<div class="card-body p-4 text-center">
+								<div class="demo-icon">🧊</div>
+								<h3 class="card-title h4 mb-3">Efectos 3D Web</h3>
+								<p class="card-text text-secondary mb-3">
+									Tarjetas giratorias y cubos rotantes usando el grid de Bootstrap y transformaciones CSS 3D. perspective + preserve-3d mágico.
+								</p>
+								<div class="d-flex gap-2 flex-wrap justify-content-center">
+									<span class="badge bg-primary">Transformaciones 3D</span>
+									<span class="badge bg-secondary">Flip Cards</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Cómo Empezar -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4 text-center">Cómo Usar Estos Demos</h2>
+
+					<div class="row g-4">
+						<div class="col-md-4">
+							<div class="card h-100 border-primary">
+								<div class="card-body text-center p-4">
+									<i class="bi bi-1-circle-fill text-primary fs-1 mb-3"></i>
+									<h3 class="h5 card-title">Explorar</h3>
+									<p class="card-text">
+										Haz clic en cualquier demo para verlo en acción. Redimensiona tu navegador para ver el comportamiento responsivo.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card h-100 border-primary">
+								<div class="card-body text-center p-4">
+									<i class="bi bi-2-circle-fill text-primary fs-1 mb-3"></i>
+									<h3 class="h5 card-title">Inspeccionar</h3>
+									<p class="card-text">
+										Abre DevTools (F12) para ver el código. Clic derecho → Ver código fuente para el archivo completo.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card h-100 border-primary">
+								<div class="card-body text-center p-4">
+									<i class="bi bi-3-circle-fill text-primary fs-1 mb-3"></i>
+									<h3 class="h5 card-title">Adaptar</h3>
+									<p class="card-text">
+										Copia las técnicas que te gusten y adáptalas a tus propios proyectos con Bootstrap.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="card mt-4 border-warning">
+						<div class="card-body p-4">
+							<h4 class="card-title h5">
+								<i class="bi bi-lightbulb-fill text-warning"></i> Consejo Pro
+							</h4>
+							<p class="card-text mb-0">
+								Cada demo es autocontenido con todo el código en un archivo HTML. Esto facilita el aprendizaje y la adaptación. 
+								Nota cómo Bootstrap proporciona la estructura (grid, componentes, utilidades) mientras que CSS personalizado agrega los efectos especiales.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto text-center">
+					<h3 class="h4 mb-3">Tendencias de Diseño Web Moderno con Bootstrap 5.3</h3>
+					<p class="mb-3">
+						Todos los demos construidos con Bootstrap vía CDN - ¡no se requieren herramientas de construcción!
+					</p>
+					<p class="small text-white-50 mb-0">
+						Atelier Web Foundations • Construido con ❤️ usando Bootstrap 5.3
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5.3 JS Bundle -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		// Función de alternar tema
+		function toggleTheme() {
+			const html = document.documentElement;
+			const currentTheme = html.getAttribute('data-bs-theme');
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+			html.setAttribute('data-bs-theme', newTheme);
+			localStorage.setItem('theme', newTheme);
+			updateThemeIcon(newTheme);
+		}
+
+		// Actualizar icono de tema
+		function updateThemeIcon(theme) {
+			const icon = document.getElementById('theme-icon');
+			if (theme === 'dark') {
+				icon.className = 'bi bi-sun-fill fs-5';
+			} else {
+				icon.className = 'bi bi-moon-stars-fill fs-5';
+			}
+		}
+
+		// Cargar tema guardado al cargar la página
+		window.addEventListener('DOMContentLoaded', () => {
+			const savedTheme = localStorage.getItem('theme');
+			
+			if (savedTheme) {
+				document.documentElement.setAttribute('data-bs-theme', savedTheme);
+				updateThemeIcon(savedTheme);
+			} else {
+				// Detectar preferencia del SO
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+				if (prefersDark.matches) {
+					document.documentElement.setAttribute('data-bs-theme', 'dark');
+					updateThemeIcon('dark');
+				}
+			}
+		});
+
+		console.log('🎨 Índice de Demos de Tendencias de Diseño Web Moderno');
+		console.log('🅱️ Todos los demos construidos con Bootstrap 5.3');
+		console.log('✨ ¡8 demos interactivos listos para explorar!');
+	</script>
+</body>
+</html>
+

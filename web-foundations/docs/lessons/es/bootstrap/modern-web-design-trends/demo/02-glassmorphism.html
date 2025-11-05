@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Módulo 2: Glassmorphism con Bootstrap</title>
+	
+	<!-- Bootstrap 5.3 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<style>
+		/* Fondo Texturizado Complejo - ¡Esencial para glassmorphism! */
+		body {
+			min-height: 100vh;
+			position: relative;
+			overflow-x: hidden;
+		}
+
+		.background {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -2;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #ffd89b 100%);
+		}
+
+		/* Formas decorativas animadas */
+		.shape {
+			position: absolute;
+			border-radius: 50%;
+			filter: blur(40px);
+			opacity: 0.5;
+			animation: float 20s ease-in-out infinite;
+		}
+
+		.shape1 {
+			width: 300px;
+			height: 300px;
+			background: radial-gradient(circle, #4facfe 0%, #00f2fe 100%);
+			top: 10%;
+			left: 10%;
+			animation-delay: 0s;
+		}
+
+		.shape2 {
+			width: 400px;
+			height: 400px;
+			background: radial-gradient(circle, #43e97b 0%, #38f9d7 100%);
+			top: 60%;
+			right: 10%;
+			animation-delay: 5s;
+		}
+
+		.shape3 {
+			width: 250px;
+			height: 250px;
+			background: radial-gradient(circle, #fa709a 0%, #fee140 100%);
+			bottom: 20%;
+			left: 50%;
+			animation-delay: 10s;
+		}
+
+		.shape4 {
+			width: 350px;
+			height: 350px;
+			background: radial-gradient(circle, #a8edea 0%, #fed6e3 100%);
+			top: 30%;
+			right: 30%;
+			animation-delay: 15s;
+		}
+
+		@keyframes float {
+			0%, 100% {
+				transform: translate(0, 0) scale(1);
+			}
+			25% {
+				transform: translate(30px, -30px) scale(1.1);
+			}
+			50% {
+				transform: translate(-20px, 20px) scale(0.9);
+			}
+			75% {
+				transform: translate(20px, 30px) scale(1.05);
+			}
+		}
+
+		/* Superposición de patrón geométrico */
+		.pattern-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background-image: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+			opacity: 0.3;
+		}
+
+		/* Efecto de card de vidrio usando card de Bootstrap + CSS personalizado */
+		.glass-card {
+			background: rgba(255, 255, 255, 0.15) !important;
+			backdrop-filter: blur(12px) saturate(150%);
+			-webkit-backdrop-filter: blur(12px) saturate(150%);
+			border: 1px solid rgba(255, 255, 255, 0.4) !important;
+			border-radius: var(--bs-border-radius-lg) !important;
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+			transition: all 0.3s ease;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.glass-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+			transition: left 0.5s;
+		}
+
+		.glass-card:hover {
+			transform: translateY(-8px);
+			box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+			border-color: rgba(255, 255, 255, 0.6) !important;
+		}
+
+		.glass-card:hover::before {
+			left: 100%;
+		}
+
+		/* Variación: Vidrio más oscuro para mejor legibilidad */
+		.glass-card-dark {
+			background: rgba(0, 0, 0, 0.4) !important;
+			backdrop-filter: blur(16px) saturate(180%);
+			-webkit-backdrop-filter: blur(16px) saturate(180%);
+			border: 1px solid rgba(255, 255, 255, 0.2) !important;
+		}
+
+		/* Variación: Vidrio extra claro */
+		.glass-card-light {
+			background: rgba(255, 255, 255, 0.25) !important;
+			backdrop-filter: blur(20px) brightness(110%);
+			-webkit-backdrop-filter: blur(20px) brightness(110%);
+			border: 2px solid rgba(255, 255, 255, 0.5) !important;
+		}
+
+		/* Botón de vidrio */
+		.glass-button {
+			background: rgba(255, 255, 255, 0.2) !important;
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.3) !important;
+			border-radius: var(--bs-border-radius) !important;
+			color: white !important;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
+
+		.glass-button:hover {
+			background: rgba(255, 255, 255, 0.3) !important;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+		}
+
+		/* Barra de navegación de vidrio */
+		.glass-nav {
+			background: rgba(255, 255, 255, 0.1) !important;
+			backdrop-filter: blur(16px) saturate(180%);
+			-webkit-backdrop-filter: blur(16px) saturate(180%);
+			border: 1px solid rgba(255, 255, 255, 0.3) !important;
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+		}
+
+		.glass-nav .nav-link {
+			color: white !important;
+			transition: all 0.3s ease;
+		}
+
+		.glass-nav .nav-link:hover {
+			background: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(10px);
+			border-radius: var(--bs-border-radius);
+		}
+
+		/* Cards de comparación de desenfoque */
+		.blur-demo {
+			height: 200px;
+			background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+			border: 2px solid rgba(255, 255, 255, 0.4);
+			border-radius: var(--bs-border-radius-lg);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-weight: 800;
+			font-size: 1.5rem;
+			text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+			transition: all 0.4s ease;
+			position: relative;
+			cursor: pointer;
+		}
+
+		.blur-demo::after {
+			content: attr(data-blur);
+			position: absolute;
+			bottom: 1rem;
+			font-size: 0.9rem;
+			opacity: 0.8;
+			background: rgba(0, 0, 0, 0.5);
+			padding: 0.3rem 0.8rem;
+			border-radius: 20px;
+		}
+
+		.blur-demo:hover {
+			transform: translateY(-8px);
+			border-color: rgba(255, 255, 255, 0.8);
+			box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
+		}
+
+		.blur-demo.blur-0 {
+			backdrop-filter: blur(0px);
+			background: rgba(255, 255, 255, 0.3);
+		}
+
+		.blur-demo.blur-5 {
+			backdrop-filter: blur(5px) saturate(120%);
+			-webkit-backdrop-filter: blur(5px) saturate(120%);
+		}
+
+		.blur-demo.blur-10 {
+			backdrop-filter: blur(10px) saturate(140%);
+			-webkit-backdrop-filter: blur(10px) saturate(140%);
+		}
+
+		.blur-demo.blur-20 {
+			backdrop-filter: blur(20px) saturate(160%);
+			-webkit-backdrop-filter: blur(20px) saturate(160%);
+		}
+
+		.blur-demo.blur-40 {
+			backdrop-filter: blur(40px) saturate(180%);
+			-webkit-backdrop-filter: blur(40px) saturate(180%);
+		}
+
+		/* Sección de información */
+		.info-section {
+			background: rgba(255, 255, 255, 0.92);
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border-radius: var(--bs-border-radius-lg);
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+			border: 1px solid rgba(255, 255, 255, 0.8);
+		}
+
+		/* Visualización de código */
+		.code-box {
+			background: var(--bs-dark);
+			color: var(--bs-light);
+			padding: 1.5rem;
+			border-radius: var(--bs-border-radius);
+			font-family: 'Courier New', monospace;
+			font-size: 0.9rem;
+			overflow-x: auto;
+		}
+
+		@media (max-width: 768px) {
+			.shape {
+				width: 200px !important;
+				height: 200px !important;
+			}
+
+			.blur-demo {
+				height: 150px;
+				font-size: 1.2rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Fondo Animado -->
+	<div class="background">
+		<div class="shape shape1"></div>
+		<div class="shape shape2"></div>
+		<div class="shape shape3"></div>
+		<div class="shape shape4"></div>
+	</div>
+	<div class="pattern-overlay"></div>
+
+	<!-- Ejemplo de Navegación de Vidrio -->
+	<nav class="navbar glass-nav sticky-top mb-4">
+		<div class="container-fluid">
+			<span class="navbar-brand mb-0 h1 text-white">Navegación de Vidrio</span>
+			<ul class="nav">
+				<li class="nav-item">
+					<a class="nav-link px-3" href="#home">Inicio</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link px-3" href="#about">Acerca</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link px-3" href="#projects">Proyectos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link px-3" href="#contact">Contacto</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Header -->
+	<header class="text-center text-white py-5 mb-4">
+		<div class="container">
+			<h1 class="display-3 fw-bold mb-3" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);">✨ Módulo 2: Glassmorphism</h1>
+			<p class="lead mb-3" style="text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);">Efectos de Cristal Esmerilado con Bootstrap 5.3</p>
+			<div>
+				<span class="badge bg-light text-primary">Bootstrap 5.3</span>
+				<span class="badge bg-light text-primary">Backdrop-filter</span>
+				<span class="badge bg-light text-primary">Componentes Card</span>
+			</div>
+		</div>
+	</header>
+
+	<!-- Variaciones de Card de Vidrio -->
+	<section class="container mb-5">
+		<div class="row g-4">
+			<div class="col-md-4">
+				<div class="card glass-card text-white h-100">
+					<div class="card-body p-4">
+						<h2 class="card-title h4 mb-3">💎 Vidrio Estándar</h2>
+						<p class="card-text">
+							Esta card de Bootstrap usa un fondo claro con desenfoque de 12px y saturación aumentada. El fondo texturizado
+							te permite ver claramente el efecto de "cristal esmerilado".
+						</p>
+						<p class="card-text mb-0">
+							<strong>Clases Bootstrap:</strong> <code class="bg-dark text-light px-2 py-1 rounded">card h-100</code>
+						</p>
+						<button class="btn glass-button mt-3">Explorar más</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card glass-card glass-card-dark text-white h-100">
+					<div class="card-body p-4">
+						<h2 class="card-title h4 mb-3">🌙 Vidrio Oscuro</h2>
+						<p class="card-text">
+							Esta variación usa un fondo más oscuro con más desenfoque (16px) para mejor contraste. Perfecto para contenido
+							con mucho texto que necesita legibilidad. Combinado con card-body de Bootstrap.
+						</p>
+						<p class="card-text mb-0">
+							<strong>Mejor para:</strong> Modales, menús superpuestos, temas oscuros
+						</p>
+						<button class="btn glass-button mt-3">Ver ejemplo</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card glass-card glass-card-light text-white h-100">
+					<div class="card-body p-4">
+						<h2 class="card-title h4 mb-3">☀️ Vidrio Claro</h2>
+						<p class="card-text">
+							Desenfoque máximo (20px) con brillo aumentado crea un efecto más etéreo y soñador. El fondo texturizado
+							aparece suave pero visible. Usa utilidades responsivas de Bootstrap.
+						</p>
+						<p class="card-text mb-0">
+							<strong>Mejor para:</strong> Elementos decorativos, fondos sutiles
+						</p>
+						<button class="btn glass-button mt-3">Descubrir</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección de Información -->
+	<section class="container mb-5">
+		<div class="info-section p-5">
+			<h2 class="text-primary mb-4">¿Qué es Glassmorphism?</h2>
+			<p class="lead">
+				El glassmorphism crea un aspecto de "cristal esmerilado" usando elementos semi-transparentes con efectos de desenfoque. Es como mirar
+				a través de una ventana empañada o una puerta de ducha con condensación—ves formas pero con suavidad.
+			</p>
+			<p>
+				<strong>La clave del éxito:</strong> El glassmorphism necesita un fondo visualmente interesante para funcionar bien. Sin textura
+				o color detrás, el efecto de desenfoque no tiene nada que mostrar. ¡Por eso esta demo usa formas animadas y patrones!
+			</p>
+
+			<h3 class="h4 text-primary mt-4 mb-3">Técnica Bootstrap + Glassmorphism</h3>
+			<p><strong>HTML con Bootstrap:</strong></p>
+			<div class="code-box mb-3">
+&lt;div class="card glass-card text-white h-100"&gt;<br>
+&nbsp;&nbsp;&lt;div class="card-body p-4"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2 class="card-title h4"&gt;Card de Vidrio&lt;/h2&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="card-text"&gt;Contenido...&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="btn glass-button"&gt;Botón&lt;/button&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/div&gt;
+			</div>
+
+			<p><strong>CSS Personalizado para Glassmorphism:</strong></p>
+			<div class="code-box mb-3">
+.glass-card {<br>
+&nbsp;&nbsp;/* Fondo semi-transparente */<br>
+&nbsp;&nbsp;background: rgba(255, 255, 255, 0.15) !important;<br>
+<br>
+&nbsp;&nbsp;/* ¡LA MAGIA DEL GLASSMORPHISM! */<br>
+&nbsp;&nbsp;backdrop-filter: blur(12px) saturate(150%);<br>
+&nbsp;&nbsp;-webkit-backdrop-filter: blur(12px) saturate(150%);<br>
+<br>
+&nbsp;&nbsp;/* Borde sutil */<br>
+&nbsp;&nbsp;border: 1px solid rgba(255, 255, 255, 0.4) !important;<br>
+<br>
+&nbsp;&nbsp;/* Variable de border radius de Bootstrap */<br>
+&nbsp;&nbsp;border-radius: var(--bs-border-radius-lg) !important;<br>
+}
+			</div>
+
+			<div class="row g-4 mt-3">
+				<div class="col-md-6">
+					<div class="card border-success h-100">
+						<div class="card-body">
+							<h4 class="card-title h5 text-success">✅ Utilidades Bootstrap Usadas</h4>
+							<ul class="mb-0">
+								<li><code>card</code>, <code>card-body</code> – Estructura de card</li>
+								<li><code>h-100</code> – Cards de altura completa</li>
+								<li><code>text-white</code> – Color de texto</li>
+								<li><code>p-4</code>, <code>mb-3</code> – Espaciado</li>
+								<li><code>row</code>, <code>col-md-4</code> – Layout de grid</li>
+								<li><code>--bs-border-radius-lg</code> – Variable CSS</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card border-info h-100">
+						<div class="card-body">
+							<h4 class="card-title h5 text-info">💡 Cómo Funciona</h4>
+							<ul class="mb-0">
+								<li>Bootstrap proporciona estructura de card y grid responsivo</li>
+								<li><code>backdrop-filter</code> desenfoca el fondo</li>
+								<li><code>rgba()</code> hace el fondo transparente</li>
+								<li>La combinación crea "cristal esmerilado"</li>
+								<li>El borde agrega definición</li>
+								<li>Las variables Bootstrap aseguran consistencia</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Comparación de Desenfoque -->
+	<section class="container mb-5">
+		<div class="text-center text-white mb-4">
+			<h2 class="display-5 fw-bold mb-3" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);">Comparación de Cantidad de Desenfoque</h2>
+			<p class="lead" style="text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);">
+				Pasa el cursor sobre cada caja para ver diferentes niveles de desenfoque
+			</p>
+		</div>
+
+		<div class="row g-4">
+			<div class="col-6 col-md-4 col-lg">
+				<div class="text-center mb-2">
+					<span class="badge bg-dark">Sin Desenfoque</span>
+				</div>
+				<div class="blur-demo blur-0" data-blur="0px">Transparente</div>
+			</div>
+			<div class="col-6 col-md-4 col-lg">
+				<div class="text-center mb-2">
+					<span class="badge bg-dark">Sutil</span>
+				</div>
+				<div class="blur-demo blur-5" data-blur="5px">Ligero</div>
+			</div>
+			<div class="col-6 col-md-4 col-lg">
+				<div class="text-center mb-2">
+					<span class="badge bg-warning text-dark">⭐ Ideal</span>
+				</div>
+				<div class="blur-demo blur-10" data-blur="10px">Equilibrado</div>
+			</div>
+			<div class="col-6 col-md-4 col-lg">
+				<div class="text-center mb-2">
+					<span class="badge bg-dark">Fuerte</span>
+				</div>
+				<div class="blur-demo blur-20" data-blur="20px">Intenso</div>
+			</div>
+			<div class="col-6 col-md-4 col-lg">
+				<div class="text-center mb-2">
+					<span class="badge bg-dark">Extremo</span>
+				</div>
+				<div class="blur-demo blur-40" data-blur="40px">Máximo</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Reflexión Atelier -->
+	<section class="container mb-5">
+		<div class="alert alert-warning border-warning" role="alert">
+			<h4 class="alert-heading">🧠 Reflexión Atelier</h4>
+			<p>
+				¿Notas cómo el fondo texturizado y animado hace que el glassmorphism realmente destaque? Sin un fondo
+				interesante, el efecto se perdería. Pregúntate: ¿El desenfoque mejora la experiencia del usuario o solo se ve bonito?
+				¿Puedes leer el texto cómodamente? ¿Cómo afectaría esto a usuarios con problemas de visión? El equilibrio entre estética
+				y funcionalidad es clave.
+			</p>
+			<hr>
+			<p class="mb-0">
+				<strong>Bootstrap nos ayuda:</strong> El componente card proporciona estructura, el grid maneja el layout responsivo, las utilidades
+				gestionan el espaciado y los colores. El CSS personalizado agrega la magia del glassmorphism. ¡Lo mejor de ambos mundos!
+			</p>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="text-center text-white py-4 mt-5">
+		<div class="container">
+			<p class="mb-2" style="text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);">
+				<strong>Tendencias de Diseño Web Moderno con Bootstrap</strong> - Módulo 2: Glassmorphism
+			</p>
+			<p class="small mb-0" style="text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);">
+				Construido con Bootstrap 5.3 • Presiona 'P' para pausar/reproducir animación de fondo
+			</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5.3 JS Bundle -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		// Registrar información para aprendizaje
+		console.log('✨ Demo Glassmorphism con Bootstrap 5.3 Cargado');
+		console.log('💡 Consejo: ¡Inspecciona .glass-card para ver la magia CSS!');
+		console.log('🎨 Nota cómo el fondo texturizado hace visible el desenfoque');
+		console.log('🅱️ Utilidades Bootstrap: card, h-100, text-white, row, col-md-4, etc.');
+
+		// Opcional: Alternar animación de fondo
+		let animationPaused = false;
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'p' || e.key === 'P') {
+				animationPaused = !animationPaused;
+				const shapes = document.querySelectorAll('.shape');
+				shapes.forEach((shape) => {
+					shape.style.animationPlayState = animationPaused ? 'paused' : 'running';
+				});
+				console.log(`Animación ${animationPaused ? 'PAUSADA' : 'REPRODUCIENDO'} (Presiona 'P' para alternar)`);
+			}
+		});
+
+		console.log("Presiona 'P' para pausar/reproducir animación de fondo");
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Módulo 5: Modo Oscuro con Bootstrap</title>
+	
+	<!-- Bootstrap 5.3 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Bootstrap Icons -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+	
+	<style>
+		:root {
+			--transition-speed: 0.3s;
+		}
+
+		body {
+			transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+		}
+
+		/* Botón de alternancia de tema */
+		.theme-toggle {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 1030;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.5rem;
+			cursor: pointer;
+			transition: all var(--transition-speed) ease;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		}
+
+		.theme-toggle:hover {
+			transform: scale(1.1) rotate(15deg);
+		}
+
+		/* Transiciones suaves para todos los componentes Bootstrap */
+		.card, .btn, .alert, .badge, .form-control, .form-select {
+			transition: all var(--transition-speed) ease;
+		}
+
+		/* Visualización de código */
+		.code-box {
+			font-family: 'Courier New', monospace;
+			font-size: 0.85rem;
+			padding: 1.5rem;
+			border-radius: var(--bs-border-radius);
+			overflow-x: auto;
+		}
+
+		/* Grid de demo */
+		.component-demo {
+			border: 2px solid var(--bs-border-color);
+			border-radius: var(--bs-border-radius-lg);
+			padding: 2rem;
+			margin-bottom: 1.5rem;
+			transition: border-color var(--transition-speed) ease;
+		}
+
+		/* Sección de comparación */
+		.comparison-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 1.5rem;
+		}
+
+		@media (max-width: 768px) {
+			.theme-toggle {
+				width: 50px;
+				height: 50px;
+				font-size: 1.2rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Botón de Alternancia de Tema -->
+	<button class="theme-toggle btn btn-primary" onclick="toggleTheme()" aria-label="Alternar tema">
+		<i class="bi bi-moon-stars-fill" id="theme-icon"></i>
+	</button>
+
+	<!-- Header -->
+	<header class="bg-primary text-white py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto text-center">
+					<h1 class="display-4 fw-bold mb-3">🌓 Módulo 5: Modo Oscuro</h1>
+					<p class="lead">Modo Oscuro Integrado con Bootstrap 5.3</p>
+					<p class="mb-0">
+						<span class="badge bg-light text-primary">Bootstrap 5.3</span>
+						<span class="badge bg-light text-primary">data-bs-theme</span>
+						<span class="badge bg-light text-primary">Sin CSS Extra</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Introducción -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<div class="alert alert-success" role="alert">
+						<h4 class="alert-heading">
+							<i class="bi bi-check-circle-fill"></i> Modo Oscuro Integrado de Bootstrap 5.3
+						</h4>
+						<p class="mb-0">
+							¡Bootstrap 5.3 introduce soporte nativo para modo oscuro! Simplemente establece <code>data-bs-theme="dark"</code> en el 
+							elemento <code>&lt;html&gt;</code>, y TODOS los componentes de Bootstrap se adaptan automáticamente. ¡No se requiere CSS extra!
+						</p>
+					</div>
+
+					<div class="card shadow-sm mb-4">
+						<div class="card-body p-4">
+							<h2 class="h4 card-title mb-3">Cómo Funciona</h2>
+							<p>Bootstrap 5.3 usa el atributo <code>data-bs-theme</code> para controlar el tema:</p>
+							
+							<div class="code-box bg-dark text-light mb-3">
+&lt;!-- Modo claro (por defecto) --&gt;<br>
+&lt;html lang="es" data-bs-theme="light"&gt;<br>
+<br>
+&lt;!-- Modo oscuro --&gt;<br>
+&lt;html lang="es" data-bs-theme="dark"&gt;<br>
+<br>
+&lt;!-- Auto (sigue preferencia del SO) --&gt;<br>
+&lt;html lang="es" data-bs-theme="auto"&gt;
+							</div>
+
+							<h3 class="h5 mt-4 mb-3">Alternador JavaScript</h3>
+							<div class="code-box bg-dark text-light">
+function toggleTheme() {<br>
+&nbsp;&nbsp;const html = document.documentElement;<br>
+&nbsp;&nbsp;const current = html.getAttribute('data-bs-theme');<br>
+&nbsp;&nbsp;const newTheme = current === 'dark' ? 'light' : 'dark';<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;html.setAttribute('data-bs-theme', newTheme);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// Guardar en localStorage<br>
+&nbsp;&nbsp;localStorage.setItem('theme', newTheme);<br>
+}
+							</div>
+						</div>
+					</div>
+
+					<div class="row g-4">
+						<div class="col-md-6">
+							<div class="card border-success h-100">
+								<div class="card-body">
+									<h4 class="h5 card-title text-success">✅ Ventajas</h4>
+									<ul class="mb-0">
+										<li><strong>Cero CSS extra</strong> - funciona de inmediato</li>
+										<li><strong>Todos los componentes se adaptan</strong> automáticamente</li>
+										<li><strong>Diseño consistente</strong> en todo tu sitio</li>
+										<li><strong>Fácil de implementar</strong> - un atributo</li>
+										<li><strong>Persistente</strong> - guardar con localStorage</li>
+										<li><strong>Respeta la elección del usuario</strong> - manual o auto</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card border-info h-100">
+								<div class="card-body">
+									<h4 class="h5 card-title text-info">💡 Mejores Prácticas</h4>
+									<ul class="mb-0">
+										<li>Proporcionar botón de alternancia manual</li>
+										<li>Guardar preferencia del usuario en localStorage</li>
+										<li>Puede detectar preferencia del SO con matchMedia</li>
+										<li>Probar todos los componentes en ambos modos</li>
+										<li>Asegurarse de que el CSS personalizado también se adapte</li>
+										<li>Usar variables CSS para colores personalizados</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Escaparate de Componentes -->
+	<section class="py-5 bg-body-secondary">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4">Los Componentes Bootstrap se Adaptan Automáticamente</h2>
+					<p class="lead mb-4">
+						Haz clic en el botón de alternancia de tema (arriba a la derecha) para ver todos estos componentes cambiar instantáneamente:
+					</p>
+
+					<!-- Botones -->
+					<div class="component-demo">
+						<h3 class="h4 mb-3">Botones</h3>
+						<div class="d-flex flex-wrap gap-2">
+							<button class="btn btn-primary">Primario</button>
+							<button class="btn btn-secondary">Secundario</button>
+							<button class="btn btn-success">Éxito</button>
+							<button class="btn btn-danger">Peligro</button>
+							<button class="btn btn-warning">Advertencia</button>
+							<button class="btn btn-info">Info</button>
+							<button class="btn btn-light">Claro</button>
+							<button class="btn btn-dark">Oscuro</button>
+							<button class="btn btn-outline-primary">Contorno</button>
+						</div>
+					</div>
+
+					<!-- Cards -->
+					<div class="component-demo">
+						<h3 class="h4 mb-3">Cards</h3>
+						<div class="row g-3">
+							<div class="col-md-4">
+								<div class="card">
+									<div class="card-body">
+										<h5 class="card-title">Card Estándar</h5>
+										<p class="card-text">Se adapta automáticamente al modo oscuro</p>
+										<a href="#" class="btn btn-primary btn-sm">Botón</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card border-primary">
+									<div class="card-body">
+										<h5 class="card-title">Card con Borde</h5>
+										<p class="card-text">Los colores de borde también se adaptan</p>
+										<a href="#" class="btn btn-outline-primary btn-sm">Botón</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card bg-primary text-white">
+									<div class="card-body">
+										<h5 class="card-title">Card Coloreada</h5>
+										<p class="card-text">Los colores del tema se ajustan</p>
+										<a href="#" class="btn btn-light btn-sm">Botón</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Formularios -->
+					<div class="component-demo">
+						<h3 class="h4 mb-3">Formularios</h3>
+						<div class="row g-3">
+							<div class="col-md-6">
+								<label class="form-label">Input de Texto</label>
+								<input type="text" class="form-control" placeholder="Ingresa texto">
+							</div>
+							<div class="col-md-6">
+								<label class="form-label">Select</label>
+								<select class="form-select">
+									<option>Elige opción</option>
+									<option>Opción 1</option>
+									<option>Opción 2</option>
+								</select>
+							</div>
+							<div class="col-12">
+								<label class="form-label">Textarea</label>
+								<textarea class="form-control" rows="3"></textarea>
+							</div>
+							<div class="col-12">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="check1">
+									<label class="form-check-label" for="check1">
+										Opción de checkbox
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="radio" id="radio1" checked>
+									<label class="form-check-label" for="radio1">
+										Opción de radio 1
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="radio" id="radio2">
+									<label class="form-check-label" for="radio2">
+										Opción de radio 2
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Alertas -->
+					<div class="component-demo">
+						<h3 class="h4 mb-3">Alertas</h3>
+						<div class="alert alert-primary" role="alert">
+							<i class="bi bi-info-circle-fill"></i> Alerta primaria se adapta al tema
+						</div>
+						<div class="alert alert-success" role="alert">
+							<i class="bi bi-check-circle-fill"></i> Alerta de éxito se ve genial en ambos modos
+						</div>
+						<div class="alert alert-warning" role="alert">
+							<i class="bi bi-exclamation-triangle-fill"></i> Alerta de advertencia mantiene la visibilidad
+						</div>
+						<div class="alert alert-danger mb-0" role="alert">
+							<i class="bi bi-x-circle-fill"></i> Alerta de peligro asegura legibilidad
+						</div>
+					</div>
+
+					<!-- Badges y Listas -->
+					<div class="component-demo">
+						<h3 class="h4 mb-3">Badges y Listas</h3>
+						<div class="mb-3">
+							<span class="badge bg-primary">Primario</span>
+							<span class="badge bg-secondary">Secundario</span>
+							<span class="badge bg-success">Éxito</span>
+							<span class="badge bg-danger">Peligro</span>
+							<span class="badge bg-warning text-dark">Advertencia</span>
+							<span class="badge bg-info text-dark">Info</span>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item">Item de lista estándar</li>
+							<li class="list-group-item active">Item de lista activo</li>
+							<li class="list-group-item">Otro item de lista</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Guía de Implementación: Método Integrado de Bootstrap -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4">Modo Oscuro Bootstrap 5.3: Implementación Completa</h2>
+
+					<div class="alert alert-success" role="alert">
+						<h4 class="alert-heading">
+							<i class="bi bi-check-circle-fill"></i> Por Qué el Método de Bootstrap es Mejor
+						</h4>
+						<p class="mb-0">
+							El atributo <code>data-bs-theme</code> de Bootstrap 5.3 es el enfoque recomendado para proyectos Bootstrap porque 
+							TODOS los componentes (botones, formularios, cards, nav, etc.) se adaptan automáticamente con cero CSS extra. Esto asegura perfecta 
+							consistencia en todo tu sitio.
+						</p>
+					</div>
+
+					<div class="card shadow-sm mb-4">
+						<div class="card-body p-4">
+							<h3 class="h5 mb-3">Paso 1: Establecer tema inicial en el elemento HTML</h3>
+							<div class="code-box bg-dark text-light mb-4">
+&lt;!-- En tu archivo HTML --&gt;<br>
+&lt;html lang="es" data-bs-theme="light"&gt;
+							</div>
+
+							<h3 class="h5 mb-3">Paso 2: Crear un botón de alternancia</h3>
+							<div class="code-box bg-dark text-light mb-4">
+&lt;button class="btn btn-primary" onclick="toggleTheme()"&gt;<br>
+&nbsp;&nbsp;&lt;i class="bi bi-moon-stars-fill" id="theme-icon"&gt;&lt;/i&gt;<br>
+&lt;/button&gt;
+							</div>
+
+							<h3 class="h5 mb-3">Paso 3: JavaScript para alternar tema</h3>
+							<div class="code-box bg-dark text-light mb-4">
+function toggleTheme() {<br>
+&nbsp;&nbsp;// 1. Obtener tema actual<br>
+&nbsp;&nbsp;const html = document.documentElement;<br>
+&nbsp;&nbsp;const currentTheme = html.getAttribute('data-bs-theme');<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 2. Cambiar entre oscuro y claro<br>
+&nbsp;&nbsp;const newTheme = currentTheme === 'dark' ? 'light' : 'dark';<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 3. Aplicar nuevo tema (¡TODOS los componentes Bootstrap se actualizan instantáneamente!)<br>
+&nbsp;&nbsp;html.setAttribute('data-bs-theme', newTheme);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 4. Guardar en localStorage para que persista<br>
+&nbsp;&nbsp;localStorage.setItem('theme', newTheme);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 5. Actualizar icono del botón<br>
+&nbsp;&nbsp;updateThemeIcon(newTheme);<br>
+}
+							</div>
+
+							<h3 class="h5 mb-3">Paso 4: Cargar tema guardado al cargar página</h3>
+							<div class="code-box bg-dark text-light mb-4">
+window.addEventListener('DOMContentLoaded', () => {<br>
+&nbsp;&nbsp;// Obtener tema guardado de localStorage<br>
+&nbsp;&nbsp;const savedTheme = localStorage.getItem('theme');<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;if (savedTheme) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Aplicar tema guardado<br>
+&nbsp;&nbsp;&nbsp;&nbsp;document.documentElement.setAttribute('data-bs-theme', savedTheme);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;updateThemeIcon(savedTheme);<br>
+&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Opcional: Detectar preferencia del SO para primera visita<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (prefersDark.matches) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.documentElement.setAttribute('data-bs-theme', 'dark');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updateThemeIcon('dark');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+});
+							</div>
+
+							<h3 class="h5 mb-3">Paso 5: Función auxiliar para actualizar icono</h3>
+							<div class="code-box bg-dark text-light">
+function updateThemeIcon(theme) {<br>
+&nbsp;&nbsp;const icon = document.getElementById('theme-icon');<br>
+&nbsp;&nbsp;if (theme === 'dark') {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;icon.className = 'bi bi-sun-fill'; // Mostrar sol en modo oscuro<br>
+&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;icon.className = 'bi bi-moon-stars-fill'; // Mostrar luna en modo claro<br>
+&nbsp;&nbsp;}<br>
+}
+							</div>
+						</div>
+					</div>
+
+					<div class="card border-info mb-4">
+						<div class="card-body">
+							<h4 class="h5 card-title text-info">
+								<i class="bi bi-magic"></i> Qué Hace Especial al Método de Bootstrap
+							</h4>
+							<ul class="mb-0">
+								<li><strong>Cero CSS extra:</strong> Todos los componentes Bootstrap se adaptan automáticamente</li>
+								<li><strong>Una línea lo cambia todo:</strong> <code>data-bs-theme="dark"</code></li>
+								<li><strong>Colores consistentes:</strong> Usa el sistema de colores de Bootstrap</li>
+								<li><strong>Fácil de personalizar:</strong> Sobrescribir propiedades personalizadas CSS si es necesario</li>
+								<li><strong>Puede aplicarse a secciones:</strong> Diferentes temas en diferentes partes de la página</li>
+								<li><strong>A prueba de futuro:</strong> Bootstrap maneja toda la compatibilidad</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="alert alert-warning" role="alert">
+						<h4 class="alert-heading">🧠 Reflexión Atelier</h4>
+						<p class="mb-0">
+							El modo oscuro reduce la fatiga ocular y ahorra batería en pantallas OLED. Pero considera: ¿Debe ser el modo oscuro predeterminado, 
+							o deberías respetar las preferencias del SO? ¿Cómo aseguras que todo el contenido personalizado (no solo los componentes Bootstrap) se adapte correctamente? 
+							¿Qué pasa con las imágenes y medios - necesitan versiones diferentes para modo oscuro?
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-4">
+		<div class="container">
+			<p class="mb-2">
+				<strong>Tendencias de Diseño Web Moderno con Bootstrap</strong> - Módulo 5: Modo Oscuro
+			</p>
+			<p class="small mb-0">
+				Construido con Bootstrap 5.3 • Haz clic en el botón de alternancia (arriba a la derecha) para cambiar temas
+			</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5.3 JS Bundle -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		// Función de alternancia de tema
+		function toggleTheme() {
+			const html = document.documentElement;
+			const currentTheme = html.getAttribute('data-bs-theme');
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+			html.setAttribute('data-bs-theme', newTheme);
+			localStorage.setItem('theme', newTheme);
+			updateThemeIcon(newTheme);
+
+			console.log(`Tema cambiado a: ${newTheme}`);
+		}
+
+		// Actualizar icono del tema
+		function updateThemeIcon(theme) {
+			const icon = document.getElementById('theme-icon');
+			if (theme === 'dark') {
+				icon.className = 'bi bi-sun-fill';
+			} else {
+				icon.className = 'bi bi-moon-stars-fill';
+			}
+		}
+
+		// Cargar tema guardado al cargar página
+		window.addEventListener('DOMContentLoaded', () => {
+			const savedTheme = localStorage.getItem('theme');
+			
+			if (savedTheme) {
+				document.documentElement.setAttribute('data-bs-theme', savedTheme);
+				updateThemeIcon(savedTheme);
+				console.log(`Tema guardado cargado: ${savedTheme}`);
+			} else {
+				// Opcional: Detectar preferencia del SO
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+				if (prefersDark.matches) {
+					document.documentElement.setAttribute('data-bs-theme', 'dark');
+					updateThemeIcon('dark');
+					console.log('Usando preferencia de modo oscuro del SO');
+				}
+			}
+		});
+
+		// Escuchar cambios en la preferencia del SO
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+		prefersDark.addEventListener('change', (e) => {
+			if (!localStorage.getItem('theme')) {
+				const newTheme = e.matches ? 'dark' : 'light';
+				document.documentElement.setAttribute('data-bs-theme', newTheme);
+				updateThemeIcon(newTheme);
+				console.log(`Preferencia del SO cambiada a: ${newTheme}`);
+			}
+		});
+
+		console.log('🌓 Demo Modo Oscuro con Bootstrap 5.3 Cargado');
+		console.log('💡 ¡Bootstrap 5.3 incluye soporte integrado de modo oscuro!');
+		console.log('🅱️ Simplemente establece data-bs-theme="dark" y TODOS los componentes se adaptan');
+		console.log('🔄 El tema persiste a través de recargas de página vía localStorage');
+		console.log('🎨 Prueba el botón de alternancia (arriba a la derecha) para cambiar temas');
+	</script>
+</body>
+</html>
+

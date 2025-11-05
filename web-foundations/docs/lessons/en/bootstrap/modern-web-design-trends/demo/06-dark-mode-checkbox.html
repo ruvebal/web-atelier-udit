@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Path C: Checkbox + CSS Dark Mode | ruvebal.art Approach</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				min-height: 100vh;
+				padding: 2rem;
+				background: #f5f5f5;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			.intro-section {
+				background: white;
+				padding: 2rem;
+				border-radius: 12px;
+				margin-bottom: 2rem;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+
+			.intro-section h1 {
+				color: #667eea;
+				margin-bottom: 1rem;
+			}
+
+			.intro-section p {
+				color: #6c757d;
+				margin-bottom: 1rem;
+			}
+
+			.intro-section a {
+				color: #667eea;
+				text-decoration: none;
+			}
+
+			.intro-section a:hover {
+				text-decoration: underline;
+			}
+
+			/* ============================================
+			   PATH C: CHECKBOX METHOD (ruvebal.art approach)
+			   ============================================ */
+
+			/* Hide the checkbox but keep it functional */
+			#theme-toggle-checkbox {
+				position: absolute;
+				opacity: 0;
+				pointer-events: none;
+			}
+
+			/* Theme colors for Path C - Default: Tyrian Purple Mode */
+			.tyrian-theme {
+				--toggle-shape: '\25D0'; /* Filled circle ◐ */
+
+				/* Primary */
+				--tyrian-background: hsla(307, 45%, 50%, 0.75); /* #B946AB */
+				--tyrian-foreground: hsla(50, 100%, 54%, 0.9); /* #FFDC19 */
+
+				/* Secondary */
+				--tyrian-card: hsla(303, 50%, 43%, 0.9); /* #A6369F */
+				--tyrian-card-fg: hsla(22, 90%, 36%, 0.75); /* #B34A09 */
+
+				--tyrian-primary: hsla(318, 58%, 38%, 1); /* #9B2978 */
+				--tyrian-accent: hsla(291, 46%, 42%, 0.69); /* #923AA0 */
+
+				--tyrian-border: hsla(318, 58%, 38%, 1); /* #9B2978 */
+			}
+
+			/* Dark Theme: Tyrian Indigo Mode (activated when checkbox is checked) */
+			/* 🔑 KEY: The general sibling combinator (~) */
+			#theme-toggle-checkbox:checked ~ .tyrian-container {
+				--toggle-shape: '\25D1'; /* Outlined circle ◑ */
+
+				/* Primary */
+				--tyrian-background: hsla(213, 100%, 18%, 0.9999); /* #00295E */
+				--tyrian-foreground: hsla(60, 60%, 49%, 0.9999); /* #C9C932 */
+
+				/* Secondary */
+				--tyrian-card: hsla(215, 100%, 26%, 0.9); /* #003889 */
+				--tyrian-card-fg: hsla(81, 26%, 51%, 0.9); /* #8CA362 */
+
+				--tyrian-primary: hsla(204, 100%, 38%, 0.75); /* #0073C5 */
+				--tyrian-accent: hsla(303, 47%, 39%, 0.8); /* #963590 */
+
+				--tyrian-border: hsla(357, 58%, 50%, 1); /* #C93532 */
+			}
+
+			/* Container that receives the theme */
+			.tyrian-container {
+				background: var(--tyrian-background);
+				color: var(--tyrian-foreground);
+				padding: 2rem;
+				border-radius: 12px;
+				border: 2px solid var(--tyrian-border);
+				transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			/* Theme toggle button (label for checkbox) */
+			.tyrian-toggle-button {
+				cursor: pointer;
+				padding: 0.75rem 1.5rem;
+				color: var(--tyrian-foreground);
+				background-color: var(--tyrian-card);
+				border: 2px solid var(--tyrian-border);
+				border-radius: 8px;
+				transition: all 0.3s ease;
+				font-size: 1.5rem;
+				text-align: center;
+				display: inline-block;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+				font-weight: bold;
+			}
+
+			.tyrian-toggle-button:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+			}
+
+			.tyrian-toggle-button:before {
+				content: var(--toggle-shape);
+				margin-right: 0.5rem;
+			}
+
+			/* Card elements in Tyrian theme */
+			.tyrian-card {
+				background: var(--tyrian-card);
+				color: var(--tyrian-card-fg);
+				padding: 1.5rem;
+				border-radius: 8px;
+				margin: 1rem 0;
+				border: 2px solid var(--tyrian-primary);
+				transition: all 0.3s ease;
+			}
+
+			.tyrian-card:hover {
+				transform: translateX(5px);
+				box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+			}
+
+			.tyrian-card h4 {
+				color: var(--tyrian-primary);
+				margin-bottom: 0.5rem;
+			}
+
+			/* Code display for Path C */
+			.tyrian-code {
+				background: rgba(0, 0, 0, 0.3);
+				padding: 1.5rem;
+				border-radius: 8px;
+				overflow-x: auto;
+				font-family: 'Courier New', monospace;
+				font-size: 0.9rem;
+				color: var(--tyrian-foreground);
+				border: 1px solid var(--tyrian-border);
+				margin: 1rem 0;
+			}
+
+			/* Emphasis boxes */
+			.tyrian-highlight {
+				background: rgba(255, 255, 255, 0.1);
+				padding: 1rem;
+				border-left: 4px solid var(--tyrian-accent);
+				margin: 1rem 0;
+				border-radius: 4px;
+			}
+
+			@media (max-width: 768px) {
+				body {
+					padding: 1rem;
+				}
+
+				.tyrian-toggle-button {
+					font-size: 1.2rem;
+					padding: 0.5rem 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="intro-section">
+				<h1>🎨 Path C: Checkbox + CSS </h1>
+				<p>
+					This advanced technique uses a
+					<strong>hidden checkbox</strong>
+					with the
+					<strong>general sibling combinator (~)</strong>
+					. It's pure CSS magic—no JavaScript needed for the toggle! This is the approach used in production at
+					<a href="https://ruvebal.art" target="_blank">ruvebal.art</a>
+					.
+				</p>
+			</div>
+
+			<!-- ============================================
+			     HIDDEN CHECKBOX - This is the key!
+			     ============================================ -->
+			<input type="checkbox" id="theme-toggle-checkbox" hidden />
+
+			<!-- ============================================
+			     Everything below is a sibling that will be affected
+			     ============================================ -->
+			<div class="tyrian-container tyrian-theme">
+				<!-- Toggle Button (label for checkbox) -->
+				<div style="text-align: center; margin-bottom: 2rem">
+					<label for="theme-toggle-checkbox" class="tyrian-toggle-button">Toggle Tyrian Theme</label>
+				</div>
+
+				<h3 style="color: var(--tyrian-primary); margin-bottom: 1rem">✨ How It Works</h3>
+
+				<div class="tyrian-highlight">
+					<strong>The Magic:</strong>
+					A hidden checkbox stores state (checked/unchecked). The label acts as a button. When checked, CSS uses the
+					<code>:checked</code>
+					pseudo-class with the
+					<code>~</code>
+					combinator to style ALL sibling elements!
+				</div>
+
+				<div class="tyrian-card">
+					<h4>1. Hidden Checkbox</h4>
+					<p><code>&lt;input type="checkbox" id="theme-toggle-checkbox" hidden&gt;</code></p>
+					<p>This stores the state (checked = dark mode, unchecked = light mode)</p>
+				</div>
+
+				<div class="tyrian-card">
+					<h4>2. Label as Button</h4>
+					<p><code>&lt;label for="theme-toggle-checkbox"&gt;Toggle&lt;/label&gt;</code></p>
+					<p>Clicking the label checks/unchecks the checkbox—semantic HTML!</p>
+				</div>
+
+				<div class="tyrian-card">
+					<h4>3. Sibling Combinator (~)</h4>
+					<p><code>#theme-toggle-checkbox:checked ~ .container { --color: dark; }</code></p>
+					<p>When checkbox is :checked, select ALL following siblings (~) and change their CSS variables</p>
+				</div>
+
+				<div class="tyrian-code">
+					<strong>/* The Complete Pattern */</strong>
+					<br />
+					<br />
+					/* Default: Light Theme (Tyrian Purple) */
+					<br />
+					.container {
+					<br />
+					&nbsp;&nbsp;--background: hsla(307, 45%, 50%, 0.75);
+					<br />
+					&nbsp;&nbsp;--foreground: hsla(50, 100%, 54%, 0.9);
+					<br />
+					}
+					<br />
+					<br />
+
+					/* When checkbox is checked: Dark Theme (Tyrian Indigo) */
+					<br />
+					#theme-toggle-checkbox:checked ~ .container {
+					<br />
+					&nbsp;&nbsp;--background: hsla(213, 100%, 18%, 0.9999);
+					<br />
+					&nbsp;&nbsp;--foreground: hsla(60, 60%, 49%, 0.9999);
+					<br />
+					}
+					<br />
+					<br />
+
+					/* Dynamic content with CSS variables! */
+					<br />
+					button:before {
+					<br />
+					&nbsp;&nbsp;content: var(--toggle-shape);
+					<br />
+					}
+				</div>
+
+				<div class="tyrian-highlight">
+					<strong>🎓 Educational Value:</strong>
+					This teaches advanced CSS selectors, semantic HTML, and creative problem-solving without JavaScript. It's elegant
+					and maintainable!
+				</div>
+
+				<h3 style="color: var(--tyrian-primary); margin: 2rem 0 1rem">Why This is Elegant</h3>
+
+				<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem">
+					<div class="tyrian-card">
+						<h4>✅ Semantic</h4>
+						<p>Checkbox represents binary state (light/dark) perfectly</p>
+					</div>
+
+					<div class="tyrian-card">
+						<h4>✅ CSS-Only</h4>
+						<p>Zero JavaScript required for the toggle mechanism</p>
+					</div>
+
+					<div class="tyrian-card">
+						<h4>✅ Creative</h4>
+						<p>Shows mastery of advanced CSS selectors and pseudo-classes</p>
+					</div>
+
+					<div class="tyrian-card">
+						<h4>✅ Educational</h4>
+						<p>Teaches power of CSS combinators and cascade</p>
+					</div>
+				</div>
+
+				<h3 style="color: var(--tyrian-primary); margin: 2rem 0 1rem">The Tyrian Color System</h3>
+
+				<p style="margin-bottom: 1rem">
+					This demo uses
+					<strong>Tyrian Purple</strong>
+					(light mode) and
+					<strong>Tyrian Indigo</strong>
+					(dark mode)— historical colors from ancient Phoenician shellfish dye. Notice how HSL with transparency creates
+					depth!
+				</p>
+
+				<div class="tyrian-code">
+					<strong>/* HSL: Hue, Saturation, Lightness, Alpha */</strong>
+					<br />
+					<br />
+
+					Purple Mode:
+					<br />
+					--background: hsla(307, 45%, 50%, 0.75);
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;/* H:307° (magenta), S:45%, L:50%, A:75% */
+					<br />
+					<br />
+
+					Indigo Mode:
+					<br />
+					--background: hsla(213, 100%, 18%, 0.9999);
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;/* H:213° (blue), S:100%, L:18%, A:99.99% */
+					<br />
+					<br />
+
+					<strong>Why HSL?</strong>
+					Easy to create color variations by adjusting values!
+				</div>
+
+				<div class="tyrian-highlight">
+					<strong>🎨 Color Theory Lesson:</strong>
+					Tyrian Purple symbolized royalty in ancient times. Here it represents the default "light" state. Tyrian Indigo
+					(deep blue) provides excellent contrast for dark mode while maintaining the historical theme.
+				</div>
+
+				<h3 style="color: var(--tyrian-primary); margin: 2rem 0 1rem">Inspect in DevTools!</h3>
+
+				<p>Open DevTools (F12) and try these:</p>
+				<ol style="margin-left: 2rem; line-height: 1.8">
+					<li>
+						Find
+						<code>&lt;input id="theme-toggle-checkbox"&gt;</code>
+						in Elements
+					</li>
+					<li>Watch it check/uncheck as you click the button above</li>
+					<li>
+						Inspect
+						<code>.tyrian-container</code>
+						and see CSS variables change
+					</li>
+					<li>
+						Try adding:
+						<code>#theme-toggle-checkbox:checked ~ .tyrian-container { border: 10px solid red; }</code>
+					</li>
+					<li>Experiment with your own HSL color values!</li>
+				</ol>
+
+				<div
+					style="
+						text-align: center;
+						margin-top: 2rem;
+						padding: 2rem;
+						background: rgba(255, 255, 255, 0.05);
+						border-radius: 8px;
+					">
+					<p style="font-size: 1.2rem; margin-bottom: 1rem"><strong>Try the toggle above again!</strong></p>
+					<p style="color: var(--tyrian-foreground); opacity: 0.8">
+						Notice how the symbol (◐/◑) changes using
+						<code>content: var(--toggle-shape)</code>
+					</p>
+				</div>
+
+				<div
+					style="
+						background: rgba(245, 158, 11, 0.2);
+						padding: 1.5rem;
+						border-radius: 8px;
+						margin-top: 2rem;
+						border-left: 4px solid var(--tyrian-accent);
+					">
+					<strong>Critical Thinking:</strong>
+					Is this checkbox approach more elegant than JavaScript? Consider: semantic HTML, accessibility, maintainability,
+					and teaching value. When would you choose this over Path A (CSS auto) or Path B (JavaScript)? Does the "CSS-only"
+					constraint make you more creative or more limited?
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

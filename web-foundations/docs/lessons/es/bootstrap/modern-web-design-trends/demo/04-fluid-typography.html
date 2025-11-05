@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Módulo 4: Tipografía Fluida con Bootstrap</title>
+	
+	<!-- Bootstrap 5.3 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<style>
+		/* Tipografía fluida extendiendo Bootstrap */
+		.fluid-display-1 {
+			font-size: clamp(2.5rem, 5vw + 1rem, 5rem);
+			line-height: 1.2;
+		}
+
+		.fluid-display-4 {
+			font-size: clamp(1.8rem, 3vw + 0.5rem, 3.5rem);
+			line-height: 1.3;
+		}
+
+		.fluid-lead {
+			font-size: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
+			line-height: 1.6;
+		}
+
+		.fluid-body {
+			font-size: clamp(0.9rem, 1vw + 0.3rem, 1.1rem);
+			line-height: 1.7;
+		}
+
+		/* Sección hero */
+		.hero-section {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			min-height: 60vh;
+		}
+
+		/* Cajas de comparación */
+		.comparison-box {
+			border: 2px solid var(--bs-border-color);
+			border-radius: var(--bs-border-radius-lg);
+			padding: 2rem;
+			min-height: 200px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+
+		.fixed-text {
+			font-size: 24px; /* Fijo */
+		}
+
+		.viewport-text {
+			font-size: 5vw; /* Escala con viewport pero sin límites */
+		}
+
+		.fluid-text {
+			font-size: clamp(1rem, 5vw, 3rem); /* Fluido con límites */
+		}
+
+		/* Visualización de código */
+		.code-box {
+			background: var(--bs-dark);
+			color: var(--bs-light);
+			padding: 1.5rem;
+			border-radius: var(--bs-border-radius);
+			font-family: 'Courier New', monospace;
+			font-size: 0.85rem;
+			overflow-x: auto;
+		}
+
+		/* Visualización de escala */
+		.scale-item {
+			background: var(--bs-light);
+			padding: 1rem;
+			border-radius: var(--bs-border-radius);
+			margin-bottom: 0.5rem;
+			transition: all 0.3s ease;
+		}
+
+		.scale-item:hover {
+			background: var(--bs-primary);
+			color: white;
+			transform: translateX(10px);
+		}
+
+		@media (max-width: 768px) {
+			.comparison-box {
+				min-height: 150px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Hero con Tipografía Fluida -->
+	<header class="hero-section text-white d-flex align-items-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto text-center">
+					<h1 class="display-1 fluid-display-1 fw-bold mb-3">
+						🔤 Tipografía Fluida
+					</h1>
+					<p class="lead fluid-lead mb-4">
+						Escalado de Texto Responsivo con Bootstrap 5.3 y CSS clamp()
+					</p>
+					<div>
+						<span class="badge bg-light text-primary">Bootstrap 5.3</span>
+						<span class="badge bg-light text-primary">CSS clamp()</span>
+						<span class="badge bg-light text-primary">Fuentes Variables</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Introducción -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4">Tipografía Bootstrap + Escalado Fluido</h2>
+					<p class="lead fluid-body">
+						Bootstrap 5.3 proporciona excelentes utilidades de tipografía, pero para texto verdaderamente responsivo que escale suavemente 
+						en todos los tamaños de pantalla, combinamos el sistema de Bootstrap con <code>clamp()</code> para tipografía fluida.
+					</p>
+
+					<div class="card shadow-sm mb-4">
+						<div class="card-body p-4">
+							<h3 class="h4 card-title text-primary mb-3">El Poder de clamp()</h3>
+							<p>La función <code>clamp()</code> permite que los tamaños de fuente escalen suavemente entre valores mínimos y máximos:</p>
+							<div class="code-box">
+font-size: clamp(mínimo, preferido, máximo);<br>
+<br>
+/* Ejemplo */<br>
+.fluid-display {<br>
+&nbsp;&nbsp;font-size: clamp(2.5rem, 5vw + 1rem, 5rem);<br>
+&nbsp;&nbsp;/* Nunca menor que 2.5rem (40px)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Escala con viewport: 5vw + 1rem<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nunca mayor que 5rem (80px) */<br>
+}
+							</div>
+						</div>
+					</div>
+
+					<div class="row g-4">
+						<div class="col-md-6">
+							<div class="card border-success h-100">
+								<div class="card-body">
+									<h4 class="h5 card-title text-success">✅ Bootstrap Proporciona</h4>
+									<ul class="mb-0">
+										<li><code>display-1</code> hasta <code>display-6</code> - Encabezados destacados</li>
+										<li><code>h1</code> hasta <code>h6</code> - Clases de encabezado</li>
+										<li><code>lead</code> - Párrafos enfatizados</li>
+										<li><code>fs-1</code> hasta <code>fs-6</code> - Utilidades de tamaño de fuente</li>
+										<li><code>fw-*</code> - Utilidades de peso de fuente</li>
+										<li><code>lh-*</code> - Utilidades de altura de línea</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card border-info h-100">
+								<div class="card-body">
+									<h4 class="h5 card-title text-info">💡 Las Clases Fluidas Personalizadas Agregan</h4>
+									<ul class="mb-0">
+										<li>Escalado suave en todos los tamaños de pantalla</li>
+										<li>Sin saltos abruptos en los breakpoints</li>
+										<li>Límites mínimos y máximos seguros</li>
+										<li>Funciona junto con utilidades Bootstrap</li>
+										<li>Mejor UX en tamaños de pantalla no comunes</li>
+										<li>Mantiene el lenguaje de diseño de Bootstrap</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección de Comparación -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4">Tres Enfoques Comparados</h2>
+					<p class="lead mb-4">Redimensiona la ventana del navegador para ver las diferencias:</p>
+
+					<div class="row g-4 mb-5">
+						<div class="col-md-4">
+							<div class="card h-100">
+								<div class="card-header bg-danger text-white">
+									<strong>❌ Tamaño Fijo</strong>
+								</div>
+								<div class="card-body">
+									<div class="comparison-box bg-light">
+										<div class="fixed-text fw-bold">
+											24px fijo
+										</div>
+									</div>
+									<p class="mt-3 mb-0 small text-muted">
+										<code>font-size: 24px;</code><br>
+										Mismo tamaño en todas las pantallas - no es responsivo
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card h-100">
+								<div class="card-header bg-warning text-dark">
+									<strong>⚠️ Unidades Viewport</strong>
+								</div>
+								<div class="card-body">
+									<div class="comparison-box bg-light">
+										<div class="viewport-text fw-bold">
+											Tamaño 5vw
+										</div>
+									</div>
+									<p class="mt-3 mb-0 small text-muted">
+										<code>font-size: 5vw;</code><br>
+										Escala pero puede ser muy pequeño o enorme
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card h-100">
+								<div class="card-header bg-success text-white">
+									<strong>✅ Fluido (clamp)</strong>
+								</div>
+								<div class="card-body">
+									<div class="comparison-box bg-light">
+										<div class="fluid-text fw-bold">
+											Tamaño fluido
+										</div>
+									</div>
+									<p class="mt-3 mb-0 small text-muted">
+										<code>clamp(1rem, 5vw, 3rem);</code><br>
+										Escala inteligentemente con límites seguros
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Escala Tipográfica -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4">Escala Bootstrap + Tipografía Fluida</h2>
+					<p class="lead mb-4">
+						Así es como las clases fluidas extienden el sistema de tipografía de Bootstrap. Redimensiona para ver el escalado suave:
+					</p>
+
+					<div class="scale-item">
+						<h1 class="display-1 fluid-display-1 mb-0">Display 1 + Fluido</h1>
+						<code class="small text-muted">clamp(2.5rem, 5vw + 1rem, 5rem)</code>
+					</div>
+
+					<div class="scale-item">
+						<h2 class="display-4 fluid-display-4 mb-0">Display 4 + Fluido</h2>
+						<code class="small text-muted">clamp(1.8rem, 3vw + 0.5rem, 3.5rem)</code>
+					</div>
+
+					<div class="scale-item">
+						<p class="lead fluid-lead mb-0">Párrafo lead + Fluido</p>
+						<code class="small text-muted">clamp(1rem, 1.5vw + 0.5rem, 1.5rem)</code>
+					</div>
+
+					<div class="scale-item">
+						<p class="fluid-body mb-0">Texto de cuerpo + Tamaño fluido para legibilidad óptima</p>
+						<code class="small text-muted">clamp(0.9rem, 1vw + 0.3rem, 1.1rem)</code>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Ejemplo Bootstrap -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4">Grid Bootstrap + Tipografía Fluida</h2>
+					
+					<div class="card shadow-sm mb-4">
+						<div class="card-body p-4">
+							<div class="row g-4">
+								<div class="col-md-6">
+									<h3 class="h4 fw-bold">Bootstrap Estándar</h3>
+									<p class="lead">Esto usa la clase <code>lead</code> predeterminada de Bootstrap.</p>
+									<p>Párrafo regular con la tipografía base de Bootstrap. Bueno, pero fijo en los breakpoints.</p>
+								</div>
+								<div class="col-md-6">
+									<h3 class="h4 fw-bold">Bootstrap + Fluido</h3>
+									<p class="lead fluid-lead">Esto combina <code>lead</code> con la clase <code>fluid-lead</code>.</p>
+									<p class="fluid-body">Párrafo con escalado fluido. Redimensiona la ventana para ver transiciones suaves en cualquier tamaño.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="alert alert-info" role="alert">
+						<h4 class="alert-heading">💡 Mejor Práctica</h4>
+						<p class="mb-0">
+							Usa las clases de tipografía de Bootstrap como tu base, luego agrega clases fluidas personalizadas para responsividad mejorada. 
+							Bootstrap maneja estructura y consistencia, la tipografía fluida agrega escalado suave en todos los tamaños de pantalla.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Guía de Implementación -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4">Guía de Implementación</h2>
+
+					<div class="card shadow-sm mb-4">
+						<div class="card-body p-4">
+							<h3 class="h4 mb-3">Paso 1: Usa Clases Bootstrap</h3>
+							<div class="code-box mb-3">
+&lt;h1 class="display-1 fw-bold"&gt;Título&lt;/h1&gt;<br>
+&lt;p class="lead"&gt;Subtítulo&lt;/p&gt;
+							</div>
+
+							<h3 class="h4 mb-3">Paso 2: Agrega Clases Fluidas Personalizadas</h3>
+							<div class="code-box mb-3">
+&lt;h1 class="display-1 fluid-display-1 fw-bold"&gt;Título&lt;/h1&gt;<br>
+&lt;p class="lead fluid-lead"&gt;Subtítulo&lt;/p&gt;
+							</div>
+
+							<h3 class="h4 mb-3">Paso 3: Define CSS Fluido</h3>
+							<div class="code-box">
+.fluid-display-1 {<br>
+&nbsp;&nbsp;font-size: clamp(2.5rem, 5vw + 1rem, 5rem);<br>
+}<br>
+<br>
+.fluid-lead {<br>
+&nbsp;&nbsp;font-size: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);<br>
+}
+							</div>
+						</div>
+					</div>
+
+					<div class="alert alert-warning" role="alert">
+						<h4 class="alert-heading">🧠 Reflexión Atelier</h4>
+						<p class="mb-0">
+							¿Cómo mejora la tipografía fluida la experiencia del usuario en diferentes dispositivos? ¿Cuándo podrían ser mejores los tamaños fijos de Bootstrap? 
+							(ej. UI de app vs. contenido editorial) ¿Qué consideraciones de accesibilidad son más importantes? 
+							¿Cómo se compara el escalado suave con el enfoque basado en breakpoints de Bootstrap?
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-4">
+		<div class="container">
+			<p class="mb-2">
+				<strong>Tendencias de Diseño Web Moderno con Bootstrap</strong> - Módulo 4: Tipografía Fluida
+			</p>
+			<p class="small mb-0">
+				Construido con Bootstrap 5.3 • Redimensiona tu navegador para ver el escalado fluido en acción
+			</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5.3 JS Bundle -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		console.log('🔤 Demo Tipografía Fluida con Bootstrap 5.3 Cargado');
+		console.log('💡 Redimensiona la ventana para ver escalado de texto suave');
+		console.log('🅱️ Bootstrap proporciona estructura, clamp() agrega escalado fluido');
+		console.log('📏 Compara enfoques fijo vs viewport vs clamp()');
+		console.log('✅ Mejor práctica: Clases Bootstrap + clases fluidas personalizadas');
+	</script>
+</body>
+</html>
+

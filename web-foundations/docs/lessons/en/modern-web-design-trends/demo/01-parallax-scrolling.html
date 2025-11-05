@@ -355,34 +355,87 @@
 		</div>
 
 		<div class="content">
-			<h2>Technique 2: JavaScript Parallax with transform</h2>
+			<h2>Technique 2: JavaScript Parallax with Multiple Layers</h2>
 			<p>
 				The section above uses
 				<strong>
 					JavaScript with
 					<code>transform: translateY()</code>
 				</strong>
-				to move elements at different speeds. This offers more control than pure CSS.
+				to move three separate layers at different speeds. This creates a more sophisticated depth effect than pure CSS.
 			</p>
 
+			<div class="comparison" style="background: #e0f2fe; border-left-color: #0284c7;">
+				<h3>Understanding the 3-Layer System</h3>
+				<p>Each layer has a <code>data-speed</code> attribute:</p>
+				<ul>
+					<li><strong>Back layer (🌌):</strong> <code>data-speed="0.2"</code> - Moves very slowly (distant background)</li>
+					<li><strong>Middle layer (☁️):</strong> <code>data-speed="0.5"</code> - Moves at medium speed</li>
+					<li><strong>Front layer (text):</strong> <code>data-speed="0.8"</code> - Moves fastest (closest to viewer)</li>
+				</ul>
+			</div>
+
+			<h3>Step 1: HTML Structure with data-speed</h3>
 			<div class="code-box">
 				<code>
-					// Each layer has a data-speed attribute
+					&lt;div class="parallax-js-section"&gt;
 					<br />
-					const layer = document.querySelector('.layer-back');
+					&nbsp;&nbsp;&lt;!-- Each layer moves at different speed --&gt;
 					<br />
-					const speed = layer.dataset.speed; // 0.2 = very slow
+					&nbsp;&nbsp;&lt;div class="parallax-layer layer-back" data-speed="0.2"&gt;🌌&lt;/div&gt;
 					<br />
+					&nbsp;&nbsp;&lt;div class="parallax-layer layer-middle" data-speed="0.5"&gt;☁️&lt;/div&gt;
+					<br />
+					&nbsp;&nbsp;&lt;div class="parallax-layer layer-front" data-speed="0.8"&gt;Text&lt;/div&gt;
+					<br />
+					&lt;/div&gt;
+				</code>
+			</div>
+
+			<h3>Step 2: JavaScript reads data-speed and applies transform</h3>
+			<div class="code-box">
+				<code>
+					// 1. Select all layers
+					<br />
+					const parallaxLayers = document.querySelectorAll('.parallax-layer');
+					<br />
+					<br />
+					// 2. On scroll, update each layer's position
+					<br />
+					function updateParallax() {
+					<br />
+					&nbsp;&nbsp;parallaxLayers.forEach((layer) => {
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;// Read the speed value from HTML attribute
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;const speed = parseFloat(layer.dataset.speed);
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;// Calculate how much to move this layer
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;const scrolled = window.pageYOffset;
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;const yPos = scrolled * speed * 0.5;
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;// Apply the transform
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;layer.style.transform = `translateY(${yPos}px)`;
+					<br />
+					&nbsp;&nbsp;});
+					<br />
+					}
+					<br />
+					<br />
+					// 3. Listen to scroll events efficiently
 					<br />
 					window.addEventListener('scroll', () => {
 					<br />
-					&nbsp;&nbsp;const scrolled = window.pageYOffset;
+					&nbsp;&nbsp;requestAnimationFrame(updateParallax);
 					<br />
-					&nbsp;&nbsp;const yPos = -(scrolled * speed);
-					<br />
-					&nbsp;&nbsp;layer.style.transform = `translateY(${yPos}px)`;
-					<br />
-					});
+					}, { passive: true });
 				</code>
 			</div>
 
@@ -419,6 +472,114 @@
 						Respect
 						<code>prefers-reduced-motion</code>
 					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="content" style="background: #fef3c7;">
+			<h2>♿ Accessibility: Respecting User Preferences</h2>
+			
+			<div class="comparison" style="background: #fef3c7; border-left-color: #f59e0b;">
+				<h3>⚠️ Important: Motion Sensitivity</h3>
+				<p>
+					Parallax effects can cause <strong>motion sickness, dizziness, or vestibular disorders</strong> for some users. 
+					It's essential to respect the <code>prefers-reduced-motion</code> media query.
+				</p>
+			</div>
+
+			<h3>What is prefers-reduced-motion?</h3>
+			<p>
+				<code>prefers-reduced-motion</code> is a CSS media query that detects if a user has requested reduced motion 
+				in their operating system settings. Users can enable this in:
+			</p>
+			<ul>
+				<li><strong>macOS:</strong> System Preferences → Accessibility → Display → Reduce motion</li>
+				<li><strong>Windows:</strong> Settings → Ease of Access → Display → Show animations</li>
+				<li><strong>iOS:</strong> Settings → Accessibility → Motion → Reduce Motion</li>
+				<li><strong>Android:</strong> Settings → Accessibility → Remove animations</li>
+			</ul>
+
+			<h3>How This Demo Respects It</h3>
+			<p>This demo automatically disables parallax effects when users have motion reduction enabled:</p>
+
+			<div class="code-box">
+				<code>
+					// 1. Detect user's motion preference
+					<br />
+					const prefersReducedMotion = window.matchMedia(
+					<br />
+					&nbsp;&nbsp;'(prefers-reduced-motion: reduce)'
+					<br />
+					);
+					<br />
+					let isReducedMotion = prefersReducedMotion.matches;
+					<br />
+					<br />
+					// 2. Disable CSS parallax if needed
+					<br />
+					function handleMotionPreference() {
+					<br />
+					&nbsp;&nbsp;if (isReducedMotion) {
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;// Change fixed backgrounds to scroll normally
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;document.querySelectorAll('.parallax-bg').forEach((el) => {
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;el.style.backgroundAttachment = 'scroll';
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;});
+					<br />
+					&nbsp;&nbsp;}
+					<br />
+					}
+					<br />
+					<br />
+					// 3. Don't initialize JavaScript parallax if reduced motion
+					<br />
+					function initParallax() {
+					<br />
+					&nbsp;&nbsp;if (isReducedMotion) {
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;console.log('Parallax disabled: user prefers reduced motion');
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;return; // Exit without setting up animations
+					<br />
+					&nbsp;&nbsp;}
+					<br />
+					&nbsp;&nbsp;// ... rest of parallax code
+					<br />
+					}
+					<br />
+					<br />
+					// 4. Listen for preference changes during session
+					<br />
+					prefersReducedMotion.addEventListener('change', (e) => {
+					<br />
+					&nbsp;&nbsp;isReducedMotion = e.matches;
+					<br />
+					&nbsp;&nbsp;// Update animations accordingly
+					<br />
+					});
+				</code>
+			</div>
+
+			<h3>Test It Yourself</h3>
+			<ol>
+				<li>Open your browser's DevTools (F12)</li>
+				<li>Go to the Console tab and type: <code>window.matchMedia('(prefers-reduced-motion: reduce)').matches</code></li>
+				<li>It returns <code>true</code> if reduce motion is enabled, <code>false</code> otherwise</li>
+				<li>Enable "Reduce motion" in your OS settings and refresh this page</li>
+				<li>Notice how all parallax effects are disabled!</li>
+			</ol>
+
+			<div class="comparison" style="background: #e0f2fe; border-left-color: #0284c7;">
+				<h3>💡 Best Practices for Accessibility</h3>
+				<ul>
+					<li><strong>Always respect prefers-reduced-motion</strong> - It's a user request, not a suggestion</li>
+					<li><strong>Provide fallbacks:</strong> Ensure content is accessible without motion</li>
+					<li><strong>Don't just reduce:</strong> Disable motion entirely when requested</li>
+					<li><strong>Test thoroughly:</strong> Check with motion reduction enabled</li>
+					<li><strong>Semantic HTML:</strong> Use proper structure that works regardless of effects</li>
 				</ul>
 			</div>
 		</div>

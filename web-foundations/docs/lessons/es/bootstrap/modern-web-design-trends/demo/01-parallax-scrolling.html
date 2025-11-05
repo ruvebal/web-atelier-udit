@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Módulo 1: Parallax Scrolling con Bootstrap</title>
+	
+	<!-- Bootstrap 5.3 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<style>
+		/* CSS Parallax Personalizado - extiende Bootstrap */
+		.parallax-section {
+			background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+				url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><circle cx="200" cy="150" r="80" fill="%23764ba2" opacity="0.3"/><circle cx="800" cy="400" r="120" fill="%23764ba2" opacity="0.2"/><circle cx="1000" cy="200" r="60" fill="%23764ba2" opacity="0.4"/></svg>');
+			min-height: 500px;
+			background-attachment: fixed; /* CLAVE: ¡Crea el efecto parallax! */
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.normal-section {
+			background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+				url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2310b981" width="1200" height="600"/><circle cx="300" cy="250" r="100" fill="%23059669" opacity="0.3"/><circle cx="900" cy="350" r="80" fill="%23059669" opacity="0.4"/></svg>');
+			min-height: 500px;
+			background-attachment: scroll; /* Desplazamiento normal para comparar */
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		/* Sección Parallax basada en JavaScript */
+		.parallax-js-section {
+			position: relative;
+			height: 600px;
+			overflow: hidden;
+			background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+		}
+
+		.parallax-layer {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			will-change: transform;
+		}
+
+		.layer-back {
+			font-size: 8rem;
+			opacity: 0.2;
+			color: #667eea;
+			font-weight: bold;
+		}
+
+		.layer-middle {
+			font-size: 4rem;
+			opacity: 0.5;
+			color: #f59e0b;
+			font-weight: bold;
+		}
+
+		.layer-front {
+			font-size: 2rem;
+			color: white;
+			font-weight: bold;
+			text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+		}
+
+		.speed-indicator {
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: rgba(0, 0, 0, 0.7);
+			color: white;
+			padding: 1rem 2rem;
+			border-radius: var(--bs-border-radius-lg);
+			z-index: 10;
+			font-size: 0.9rem;
+		}
+
+		/* Resaltado de código */
+		.code-highlight {
+			background: var(--bs-dark);
+			color: var(--bs-light);
+			padding: 1.5rem;
+			border-radius: var(--bs-border-radius);
+			font-family: 'Courier New', monospace;
+			font-size: 0.9rem;
+			overflow-x: auto;
+		}
+
+		.code-highlight code {
+			color: var(--bs-light);
+		}
+
+		/* Mejora de Bootstrap: hover en cards personalizadas */
+		.info-card:hover {
+			transform: translateY(-5px);
+			transition: transform 0.3s ease;
+		}
+
+		/* Ajustes responsivos */
+		@media (max-width: 768px) {
+			.parallax-section,
+			.normal-section {
+				background-attachment: scroll; /* Fallback para móviles */
+				min-height: 350px;
+			}
+
+			.parallax-js-section {
+				height: 400px;
+			}
+
+			.layer-back {
+				font-size: 4rem;
+			}
+			.layer-middle {
+				font-size: 2rem;
+			}
+			.layer-front {
+				font-size: 1.5rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Header Bootstrap -->
+	<header class="bg-gradient bg-primary text-white py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto text-center">
+					<h1 class="display-4 fw-bold mb-3">🎬 Módulo 1: Parallax Scrolling</h1>
+					<p class="lead">Agregando Profundidad Como una Película - Usando Bootstrap 5.3</p>
+					<p class="mb-0">
+						<span class="badge bg-light text-primary">Bootstrap 5.3</span>
+						<span class="badge bg-light text-primary">CSS Parallax</span>
+						<span class="badge bg-light text-primary">JavaScript Parallax</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Sección Parallax (Fondo Fijo) -->
+	<div class="parallax-section d-flex align-items-center justify-content-center text-white">
+		<div class="container">
+			<div class="text-center">
+				<h2 class="display-3 fw-bold">Fondo Parallax (Fijo)</h2>
+				<p class="lead">Desplázate para ver el efecto</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Sección de Contenido Bootstrap -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4 text-primary">¿Qué es Parallax Scrolling?</h2>
+					<p class="lead">
+						El parallax scrolling hace que los fondos se muevan más lento que el contenido del primer plano cuando te desplazas. Es como mirar por la ventana de un auto: 
+						los árboles (fondo) se mueven más lento que la carretera (primer plano). Esto agrega profundidad y hace que los sitios se sientan dinámicos.
+					</p>
+
+					<div class="card shadow-sm mb-4">
+						<div class="card-body">
+							<h3 class="h4 card-title text-primary mb-3">
+								<i class="bi bi-lightbulb"></i> Técnica Bootstrap + Parallax
+							</h3>
+							<p class="mb-2"><strong>HTML con Bootstrap:</strong></p>
+							<div class="code-highlight">
+								<code>
+&lt;div class="parallax-section d-flex align-items-center justify-content-center text-white"&gt;<br>
+&nbsp;&nbsp;&lt;div class="container"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2 class="display-3 fw-bold"&gt;Contenido Parallax&lt;/h2&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/div&gt;
+								</code>
+							</div>
+
+							<p class="mt-3 mb-2"><strong>CSS Personalizado para Parallax:</strong></p>
+							<div class="code-highlight">
+								<code>
+.parallax-section {<br>
+&nbsp;&nbsp;background-image: url('...');<br>
+&nbsp;&nbsp;min-height: 500px;<br>
+&nbsp;&nbsp;background-attachment: fixed; /* ¡CLAVE! */<br>
+&nbsp;&nbsp;background-position: center;<br>
+&nbsp;&nbsp;background-size: cover;<br>
+}
+								</code>
+							</div>
+						</div>
+					</div>
+
+					<div class="row g-4 mb-4">
+						<div class="col-md-6">
+							<div class="card h-100 border-success info-card">
+								<div class="card-body">
+									<h4 class="card-title h5 text-success">✅ Utilidades Bootstrap Usadas</h4>
+									<ul class="list-unstyled">
+										<li><code>d-flex align-items-center</code> – Centrado flexbox</li>
+										<li><code>container</code> – Ancho responsivo</li>
+										<li><code>display-3 fw-bold</code> – Tipografía</li>
+										<li><code>text-white</code> – Color de texto</li>
+										<li><code>py-5</code> – Padding vertical</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card h-100 border-warning info-card">
+								<div class="card-body">
+									<h4 class="card-title h5 text-warning">⚠️ Puntos Clave</h4>
+									<ul class="mb-0">
+										<li>Bootstrap maneja layout y diseño responsivo</li>
+										<li>CSS personalizado agrega el efecto parallax</li>
+										<li>Dispositivos móviles: parallax automáticamente deshabilitado</li>
+										<li>Respeta <code>prefers-reduced-motion</code></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="alert alert-info" role="alert">
+						<h4 class="alert-heading">
+							<i class="bi bi-info-circle"></i> Reflexión Atelier
+						</h4>
+						<p class="mb-0">
+							¿El efecto parallax hace que esta página se sienta más "viva"? ¿Por qué sí o por qué no? ¿Mejora tu comprensión del
+							contenido, o es puramente decorativo? Considera el equilibrio entre interés visual y accesibilidad.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sección de Desplazamiento Normal (Para Comparación) -->
+	<div class="normal-section d-flex align-items-center justify-content-center text-white">
+		<div class="container">
+			<div class="text-center">
+				<h2 class="display-3 fw-bold">Fondo con Desplazamiento Normal</h2>
+				<p class="lead">Compara con la sección parallax de arriba</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Contenido de Comparación -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4 text-primary">Comparación: Desplazamiento Normal</h2>
+					<p class="lead">
+						La sección verde de arriba usa <code class="text-danger">background-attachment: scroll</code> (el valor por defecto). 
+						Nota cómo se desplaza con el contenido en lugar de quedarse fija. Este es el enfoque tradicional.
+					</p>
+
+					<div class="card shadow-sm mb-4">
+						<div class="card-body">
+							<h3 class="h4 mb-3">📊 Diferencias Clave:</h3>
+							<div class="table-responsive">
+								<table class="table table-striped table-hover">
+									<thead class="table-primary">
+										<tr>
+											<th>Técnica</th>
+											<th>Implementación</th>
+											<th>Soporte Móvil</th>
+											<th>Complejidad</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong>Parallax (fijo)</strong></td>
+											<td><code>background-attachment: fixed</code></td>
+											<td><span class="badge bg-warning">Limitado</span></td>
+											<td><span class="badge bg-success">⭐ Simple</span></td>
+										</tr>
+										<tr>
+											<td><strong>Normal (scroll)</strong></td>
+											<td><code>background-attachment: scroll</code></td>
+											<td><span class="badge bg-success">✅ Funciona</span></td>
+											<td><span class="badge bg-success">⭐ Simple</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div class="alert alert-warning" role="alert">
+						<h4 class="alert-heading">🧠 Pregunta de Diseño Crítica</h4>
+						<p class="mb-0">
+							¿El efecto parallax realmente mejora la experiencia del usuario, o podría ser una barrera? Considera usuarios con trastornos
+							vestibulares que pueden experimentar incomodidad con efectos de movimiento. ¿Cómo podríamos ofrecer alternativas o respetar la
+							media query <code>prefers-reduced-motion</code>?
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Parallax basado en JavaScript con Múltiples Capas -->
+	<div class="parallax-js-section" id="js-parallax">
+		<div class="parallax-layer layer-back" data-speed="0.2">🌌</div>
+		<div class="parallax-layer layer-middle" data-speed="0.5">☁️</div>
+		<div class="parallax-layer layer-front" data-speed="0.8">JavaScript Parallax</div>
+		<div class="speed-indicator">Desplázate para ver 3 capas moviéndose a diferentes velocidades</div>
+	</div>
+
+	<!-- Explicación de Parallax JavaScript -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4 text-primary">Técnica 2: JavaScript Parallax con Múltiples Capas</h2>
+					<p class="lead">
+						La sección de arriba usa <strong>JavaScript con <code>transform: translateY()</code></strong> para mover tres capas separadas a diferentes velocidades. 
+						Esto crea un efecto de profundidad más sofisticado que CSS puro.
+					</p>
+
+					<div class="alert alert-info mb-4" role="alert">
+						<h4 class="alert-heading">
+							<i class="bi bi-layers"></i> Entendiendo el Sistema de 3 Capas
+						</h4>
+						<p class="mb-0">
+							Cada capa tiene un atributo <code>data-speed</code>:
+						</p>
+						<ul class="mt-2 mb-0">
+							<li><strong>Capa trasera (🌌):</strong> <code>data-speed="0.2"</code> - Se mueve muy lentamente (fondo distante)</li>
+							<li><strong>Capa media (☁️):</strong> <code>data-speed="0.5"</code> - Se mueve a velocidad media</li>
+							<li><strong>Capa frontal (texto):</strong> <code>data-speed="0.8"</code> - Se mueve más rápido (más cercano al espectador)</li>
+						</ul>
+					</div>
+
+					<div class="card shadow-sm mb-4">
+						<div class="card-body">
+							<h3 class="h4 mb-3">Paso 1: Estructura HTML con data-speed</h3>
+							<div class="code-highlight mb-3">
+								<code>
+&lt;div class="parallax-js-section"&gt;<br>
+&nbsp;&nbsp;&lt;!-- Cada capa se mueve a diferente velocidad --&gt;<br>
+&nbsp;&nbsp;&lt;div class="parallax-layer layer-back" data-speed="0.2"&gt;🌌&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;div class="parallax-layer layer-middle" data-speed="0.5"&gt;☁️&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;div class="parallax-layer layer-front" data-speed="0.8"&gt;Texto&lt;/div&gt;<br>
+&lt;/div&gt;
+								</code>
+							</div>
+
+							<h3 class="h4 mb-3">Paso 2: JavaScript lee data-speed y aplica transform</h3>
+							<div class="code-highlight">
+								<code>
+// 1. Seleccionar todas las capas<br>
+const parallaxLayers = document.querySelectorAll('.parallax-layer');<br>
+<br>
+// 2. Al hacer scroll, actualizar posición de cada capa<br>
+function updateParallax() {<br>
+&nbsp;&nbsp;parallaxLayers.forEach((layer) => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Leer el valor de velocidad del atributo HTML<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const speed = parseFloat(layer.dataset.speed);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Calcular cuánto mover esta capa<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const scrolled = window.pageYOffset;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const yPos = scrolled * speed * 0.5;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Aplicar el transform<br>
+&nbsp;&nbsp;&nbsp;&nbsp;layer.style.transform = `translateY(${yPos}px)`;<br>
+&nbsp;&nbsp;});<br>
+}<br>
+<br>
+// 3. Escuchar eventos de scroll eficientemente<br>
+window.addEventListener('scroll', () => {<br>
+&nbsp;&nbsp;requestAnimationFrame(updateParallax);<br>
+}, { passive: true });
+								</code>
+							</div>
+						</div>
+					</div>
+
+					<div class="row g-4">
+						<div class="col-md-6">
+							<div class="card h-100 border-success">
+								<div class="card-body">
+									<h4 class="card-title h5 text-success">✅ Ventajas</h4>
+									<ul class="mb-0">
+										<li><strong>Control Preciso:</strong> Controla la velocidad exacta por capa</li>
+										<li><strong>Múltiples Elementos:</strong> Mueve cualquier elemento HTML</li>
+										<li><strong>Funciona en Móviles:</strong> A diferencia del fondo fijo CSS</li>
+										<li><strong>Animaciones Complejas:</strong> Combina con opacity, scale, etc.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card h-100 border-warning">
+								<div class="card-body">
+									<h4 class="card-title h5 text-warning">⚠️ Consideraciones</h4>
+									<ul class="mb-0">
+										<li>Requiere JavaScript (se necesita fallback)</li>
+										<li>Usa <code>requestAnimationFrame</code> para rendimiento</li>
+										<li>Respeta <code>prefers-reduced-motion</code></li>
+										<li>Las utilidades de Bootstrap siguen siendo útiles para el layout</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Accesibilidad: prefers-reduced-motion -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4 text-primary">♿ Accesibilidad: Respetando las Preferencias del Usuario</h2>
+					
+					<div class="alert alert-warning" role="alert">
+						<h4 class="alert-heading">
+							<i class="bi bi-exclamation-triangle-fill"></i> Importante: Sensibilidad al Movimiento
+						</h4>
+						<p class="mb-0">
+							Los efectos parallax pueden causar <strong>mareos, vértigo o trastornos vestibulares</strong> en algunos usuarios. 
+							Es esencial respetar la media query <code>prefers-reduced-motion</code>.
+						</p>
+					</div>
+
+					<div class="card shadow-sm mb-4">
+						<div class="card-body">
+							<h3 class="h4 mb-3">¿Qué es prefers-reduced-motion?</h3>
+							<p>
+								<code>prefers-reduced-motion</code> es una media query CSS que detecta si un usuario ha solicitado movimiento reducido 
+								en la configuración de su sistema operativo. Los usuarios pueden habilitarlo en:
+							</p>
+							<ul class="mb-3">
+								<li><strong>macOS:</strong> Preferencias del Sistema → Accesibilidad → Pantalla → Reducir movimiento</li>
+								<li><strong>Windows:</strong> Configuración → Accesibilidad → Pantalla → Mostrar animaciones</li>
+								<li><strong>iOS:</strong> Ajustes → Accesibilidad → Movimiento → Reducir movimiento</li>
+								<li><strong>Android:</strong> Ajustes → Accesibilidad → Eliminar animaciones</li>
+							</ul>
+
+							<h3 class="h4 mt-4 mb-3">Cómo Esta Demo lo Respeta</h3>
+							<p>Esta demo automáticamente deshabilita los efectos parallax cuando los usuarios tienen la reducción de movimiento habilitada:</p>
+
+							<div class="code-highlight mb-3">
+								<code>
+// 1. Detectar la preferencia de movimiento del usuario<br>
+const prefersReducedMotion = window.matchMedia(<br>
+&nbsp;&nbsp;'(prefers-reduced-motion: reduce)'<br>
+);<br>
+let isReducedMotion = prefersReducedMotion.matches;<br>
+<br>
+// 2. Deshabilitar parallax CSS si es necesario<br>
+function handleMotionPreference() {<br>
+&nbsp;&nbsp;if (isReducedMotion) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Cambiar fondos fijos para que se desplacen normalmente<br>
+&nbsp;&nbsp;&nbsp;&nbsp;document.querySelectorAll('.parallax-bg').forEach((el) => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;el.style.backgroundAttachment = 'scroll';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// 3. No inicializar parallax JavaScript si hay movimiento reducido<br>
+function initParallax() {<br>
+&nbsp;&nbsp;if (isReducedMotion) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('Parallax deshabilitado: el usuario prefiere movimiento reducido');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return; // Salir sin configurar animaciones<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;// ... resto del código parallax<br>
+}<br>
+<br>
+// 4. Escuchar cambios de preferencia durante la sesión<br>
+prefersReducedMotion.addEventListener('change', (e) => {<br>
+&nbsp;&nbsp;isReducedMotion = e.matches;<br>
+&nbsp;&nbsp;// Actualizar animaciones en consecuencia<br>
+});
+								</code>
+							</div>
+
+							<h3 class="h4 mt-4 mb-3">Pruébalo Tú Mismo</h3>
+							<ol>
+								<li>Abre las DevTools de tu navegador (F12)</li>
+								<li>Ve a la pestaña Console y escribe: <code>window.matchMedia('(prefers-reduced-motion: reduce)').matches</code></li>
+								<li>Devuelve <code>true</code> si el movimiento reducido está habilitado, <code>false</code> de lo contrario</li>
+								<li>Habilita "Reducir movimiento" en la configuración de tu SO y recarga esta página</li>
+								<li>¡Nota cómo todos los efectos parallax están deshabilitados!</li>
+							</ol>
+						</div>
+					</div>
+
+					<div class="card border-info">
+						<div class="card-body">
+							<h4 class="h5 card-title text-info">💡 Mejores Prácticas para Accesibilidad</h4>
+							<ul class="mb-0">
+								<li><strong>Siempre respeta prefers-reduced-motion</strong> - Es una solicitud del usuario, no una sugerencia</li>
+								<li><strong>Proporciona fallbacks:</strong> Asegúrate de que el contenido sea accesible sin movimiento</li>
+								<li><strong>No solo reduzcas:</strong> Deshabilita el movimiento por completo cuando se solicite</li>
+								<li><strong>Prueba exhaustivamente:</strong> Verifica con la reducción de movimiento habilitada</li>
+								<li><strong>Bootstrap ayuda:</strong> Usa las utilidades de Bootstrap para estructura que funcione independientemente del movimiento</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer Bootstrap -->
+	<footer class="bg-dark text-white py-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto text-center">
+					<p class="mb-2">
+						<strong>Tendencias de Diseño Web Moderno con Bootstrap</strong> - Módulo 1: Parallax Scrolling
+					</p>
+					<p class="small text-white-50 mb-0">
+						Construido con Bootstrap 5.3 • Desplázate arriba y abajo para experimentar todas las técnicas
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5.3 JS Bundle -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		// Verificar preferencia de movimiento reducido
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+		let isReducedMotion = prefersReducedMotion.matches;
+
+		// Manejar parallax basado en CSS
+		function handleMotionPreference() {
+			const parallaxElements = document.querySelectorAll('.parallax-section');
+			
+			if (isReducedMotion) {
+				// El usuario prefiere movimiento reducido - deshabilitar parallax
+				parallaxElements.forEach((el) => {
+					el.style.backgroundAttachment = 'scroll';
+				});
+				console.log('Parallax deshabilitado: el usuario prefiere movimiento reducido');
+			}
+		}
+
+		// Implementación de Parallax basado en JavaScript
+		function initParallax() {
+			if (isReducedMotion) {
+				console.log('JS Parallax deshabilitado: respetando preferencia de movimiento reducido');
+				return;
+			}
+
+			const parallaxLayers = document.querySelectorAll('.parallax-layer');
+			let ticking = false;
+
+			function updateParallax() {
+				parallaxLayers.forEach((layer) => {
+					const speed = parseFloat(layer.dataset.speed) || 0.5;
+					const section = layer.parentElement;
+					const rect = section.getBoundingClientRect();
+
+					// Solo animar cuando la sección está en el viewport
+					if (rect.top < window.innerHeight && rect.bottom > 0) {
+						const sectionTop = section.offsetTop;
+						const scrolled = window.pageYOffset;
+						const offset = scrolled - sectionTop;
+						const yPos = offset * speed * 0.5;
+
+						// Usar transform para mejor rendimiento
+						layer.style.transform = `translateY(${yPos}px)`;
+					}
+				});
+
+				ticking = false;
+			}
+
+			function requestTick() {
+				if (!ticking) {
+					requestAnimationFrame(updateParallax);
+					ticking = true;
+				}
+			}
+
+			// Limitar eventos de scroll usando requestAnimationFrame
+			window.addEventListener('scroll', requestTick, { passive: true });
+
+			// Actualización inicial
+			updateParallax();
+		}
+
+		// Inicializar todo
+		handleMotionPreference();
+		initParallax();
+
+		// Escuchar cambios en la preferencia de movimiento
+		prefersReducedMotion.addEventListener('change', (e) => {
+			isReducedMotion = e.matches;
+			handleMotionPreference();
+
+			if (isReducedMotion) {
+				// Resetear todos los transforms
+				document.querySelectorAll('.parallax-layer').forEach((layer) => {
+					layer.style.transform = 'translateY(0)';
+				});
+			} else {
+				initParallax();
+			}
+		});
+
+		// Registrar información de rendimiento para aprendizaje
+		console.log('🎬 Demo Parallax con Bootstrap 5.3 Cargado');
+		console.log('📊 Capas detectadas:', document.querySelectorAll('.parallax-layer').length);
+		console.log('♿ Movimiento reducido:', isReducedMotion ? 'HABILITADO' : 'DESHABILITADO');
+		console.log('🅱️ Utilidades Bootstrap: Verifica DevTools para inspeccionar clases');
+	</script>
+</body>
+</html>
+

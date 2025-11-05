@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Module 1: Parallax Scrolling Demo</title>
+		<title>Módulo 1: Demo de Parallax Scrolling</title>
 		<style>
 			* {
 				margin: 0;
@@ -226,26 +226,25 @@
 	</head>
 	<body>
 		<div class="header">
-			<h1>🎬 Module 1: Parallax Scrolling</h1>
-			<p>Adding Depth Like a Movie</p>
+			<h1>🎬 Módulo 1: Parallax Scrolling</h1>
+			<p>Añadiendo Profundidad Como una Película</p>
 		</div>
 
 		<div class="parallax-bg">
-			<div>Parallax Background (Fixed)</div>
+			<div>Fondo Parallax (Fijo)</div>
 		</div>
 
 		<div class="content">
-			<h2>What Is Parallax Scrolling?</h2>
+			<h2>¿Qué es el Parallax Scrolling?</h2>
 			<p>
-				Parallax scrolling makes backgrounds move slower than foreground content as you scroll. It's like looking out a car
-				window: trees (background) move slower than the road (foreground). This adds depth and makes sites feel dynamic.
+				El parallax scrolling hace que los fondos se muevan más lento que el contenido en primer plano mientras desplazas. Es como mirar por la ventana de un auto: los árboles (fondo) se mueven más lento que la carretera (primer plano). Esto añade profundidad y hace que los sitios se sientan dinámicos.
 			</p>
 
-			<h2>How It Works</h2>
+			<h2>Técnica 1: Fondo Fijo CSS</h2>
 			<p>
-				The key CSS property is
+				La propiedad CSS clave es
 				<code>background-attachment: fixed</code>
-				. This keeps the background image stationary while the content scrolls over it.
+				. Esto mantiene la imagen de fondo estacionaria mientras el contenido se desplaza sobre ella.
 			</p>
 
 			<div class="code-box">
@@ -267,82 +266,83 @@
 			</div>
 
 			<div class="comparison">
-				<h3>Why Use It?</h3>
+				<h3>¿Por Qué Usarlo?</h3>
 				<ul>
 					<li>
-						<strong>Engagement:</strong>
-						Makes sites more engaging (users scroll longer)
+						<strong>Compromiso:</strong>
+						Hace que los sitios sean más atractivos (los usuarios se desplazan más tiempo)
 					</li>
 					<li>
-						<strong>Storytelling:</strong>
-						Helps tell a story visually through layers
+						<strong>Narración:</strong>
+						Ayuda a contar una historia visualmente a través de capas
 					</li>
 					<li>
-						<strong>Depth:</strong>
-						Creates a sense of 3D space on a 2D screen
+						<strong>Profundidad:</strong>
+						Crea una sensación de espacio 3D en una pantalla 2D
 					</li>
 				</ul>
-				<h3>⚠️ Cautions:</h3>
+				<h3>⚠️ Precauciones:</h3>
 				<ul>
-					<li>Can cause motion sickness in some users</li>
-					<li>May impact performance on older devices</li>
-					<li>Doesn't work well on mobile (iOS Safari doesn't support it)</li>
-					<li>Use sparingly for best effect</li>
+					<li>Puede causar mareos en algunos usuarios</li>
+					<li>Puede afectar el rendimiento en dispositivos antiguos</li>
+					<li>No funciona bien en móviles (iOS Safari no lo soporta)</li>
+					<li>Úsalo con moderación para obtener el mejor efecto</li>
 				</ul>
 			</div>
 
 			<div class="reflection">
-				<strong>Atelier Reflection:</strong>
-				Does the parallax effect make this page feel more "alive"? Why or why not? Does it enhance your understanding of the
-				content, or is it purely decorative? Consider the balance between visual interest and accessibility.
+				<strong>Reflexión Atelier:</strong>
+				¿El efecto parallax hace que esta página se sienta más "viva"? ¿Por qué sí o por qué no? ¿Mejora tu comprensión del
+				contenido, o es puramente decorativo? Considera el equilibrio entre el interés visual y la accesibilidad.
 			</div>
 		</div>
 
 		<div class="normal-bg">
-			<div>Normal Scrolling Background</div>
+			<div>Fondo con Scroll Normal</div>
 		</div>
 
 		<div class="content">
-			<h2>Comparison: Normal Scrolling</h2>
+			<h2>Comparación: Scroll Normal</h2>
 			<p>
-				The section above uses
+				La sección anterior usa
 				<code>background-attachment: scroll</code>
-				(the default). Notice how it scrolls with the content instead of staying fixed. This is the traditional approach.
+				(el valor por defecto). Nota cómo se desplaza con el contenido en lugar de permanecer fijo. Este es el enfoque tradicional.
 			</p>
 
 			<div class="comparison">
-				<h3>Key Differences:</h3>
+				<h3>Diferencias Clave:</h3>
 				<ul>
 					<li>
-						<strong>Parallax (fixed):</strong>
-						Background stays in place, content moves over it
+						<strong>Parallax (fijo):</strong>
+						El fondo permanece en su lugar, el contenido se mueve sobre él
 					</li>
 					<li>
 						<strong>Normal (scroll):</strong>
-						Background and content move together at the same speed
+						El fondo y el contenido se mueven juntos a la misma velocidad
 					</li>
 				</ul>
 				<p>
-					<strong>Tip:</strong>
-					Scroll up and down this page multiple times to really feel the difference between the purple (parallax) and green
-					(normal) sections!
+					<strong>Consejo:</strong>
+					¡Desplázate hacia arriba y hacia abajo en esta página varias veces para realmente sentir la diferencia entre las secciones púrpura (parallax) y verde
+					(normal)!
 				</p>
 			</div>
 
-			<h2>Mobile Considerations</h2>
+			<h2>Consideraciones para Móviles</h2>
 			<p>
-				On mobile devices,
+				En dispositivos móviles,
 				<code>background-attachment: fixed</code>
-				often doesn't work due to browser limitations. The CSS in this demo automatically switches to regular scrolling on
-				smaller screens to ensure a good experience for all users.
+				a menudo no funciona debido a limitaciones del navegador. El CSS en este demo cambia automáticamente a scroll regular en
+				pantallas más pequeñas para asegurar una buena experiencia para todos los usuarios.
 			</p>
 
 			<div class="reflection">
-				<strong>Critical Design Question:</strong>
-				Is the parallax effect truly enhancing the user experience, or could it be a barrier? Consider users with vestibular
-				disorders who may experience discomfort with motion effects. How might we offer alternatives or respect the
+				<strong>Pregunta Crítica de Diseño:</strong>
+				¿El efecto parallax realmente mejora la experiencia del usuario, o podría ser una barrera? Considera a los usuarios con trastornos
+				vestibulares que pueden experimentar incomodidad con los efectos de movimiento. ¿Cómo podríamos ofrecer alternativas o respetar la
+				media query
 				<code>prefers-reduced-motion</code>
-				media query?
+				?
 			</div>
 		</div>
 
@@ -355,34 +355,87 @@
 		</div>
 
 		<div class="content">
-			<h2>Técnica 2: Parallax con JavaScript + transform</h2>
+			<h2>Técnica 2: Parallax con JavaScript y Múltiples Capas</h2>
 			<p>
 				La sección anterior usa
 				<strong>
 					JavaScript con
 					<code>transform: translateY()</code>
 				</strong>
-				para mover elementos a diferentes velocidades. Esto ofrece más control que CSS puro.
+				para mover tres capas separadas a diferentes velocidades. Esto crea un efecto de profundidad más sofisticado que el CSS puro.
 			</p>
 
+			<div class="comparison" style="background: #e0f2fe; border-left-color: #0284c7;">
+				<h3>Entendiendo el Sistema de 3 Capas</h3>
+				<p>Cada capa tiene un atributo <code>data-speed</code>:</p>
+				<ul>
+					<li><strong>Capa trasera (🌌):</strong> <code>data-speed="0.2"</code> - Se mueve muy lentamente (fondo distante)</li>
+					<li><strong>Capa media (☁️):</strong> <code>data-speed="0.5"</code> - Se mueve a velocidad media</li>
+					<li><strong>Capa frontal (texto):</strong> <code>data-speed="0.8"</code> - Se mueve más rápido (más cerca del espectador)</li>
+				</ul>
+			</div>
+
+			<h3>Paso 1: Estructura HTML con data-speed</h3>
 			<div class="code-box">
 				<code>
-					// Cada capa tiene un atributo data-speed
+					&lt;div class="parallax-js-section"&gt;
 					<br />
-					const layer = document.querySelector('.layer-back');
+					&nbsp;&nbsp;&lt;!-- Cada capa se mueve a diferente velocidad --&gt;
 					<br />
-					const speed = layer.dataset.speed; // 0.2 = muy lento
+					&nbsp;&nbsp;&lt;div class="parallax-layer layer-back" data-speed="0.2"&gt;🌌&lt;/div&gt;
 					<br />
+					&nbsp;&nbsp;&lt;div class="parallax-layer layer-middle" data-speed="0.5"&gt;☁️&lt;/div&gt;
+					<br />
+					&nbsp;&nbsp;&lt;div class="parallax-layer layer-front" data-speed="0.8"&gt;Texto&lt;/div&gt;
+					<br />
+					&lt;/div&gt;
+				</code>
+			</div>
+
+			<h3>Paso 2: JavaScript lee data-speed y aplica transform</h3>
+			<div class="code-box">
+				<code>
+					// 1. Seleccionar todas las capas
+					<br />
+					const parallaxLayers = document.querySelectorAll('.parallax-layer');
+					<br />
+					<br />
+					// 2. En el scroll, actualizar la posición de cada capa
+					<br />
+					function updateParallax() {
+					<br />
+					&nbsp;&nbsp;parallaxLayers.forEach((layer) => {
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;// Leer el valor de velocidad del atributo HTML
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;const speed = parseFloat(layer.dataset.speed);
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;// Calcular cuánto mover esta capa
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;const scrolled = window.pageYOffset;
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;const yPos = scrolled * speed * 0.5;
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;// Aplicar la transformación
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;layer.style.transform = `translateY(${yPos}px)`;
+					<br />
+					&nbsp;&nbsp;});
+					<br />
+					}
+					<br />
+					<br />
+					// 3. Escuchar eventos de scroll eficientemente
 					<br />
 					window.addEventListener('scroll', () => {
 					<br />
-					&nbsp;&nbsp;const scrolled = window.pageYOffset;
+					&nbsp;&nbsp;requestAnimationFrame(updateParallax);
 					<br />
-					&nbsp;&nbsp;const yPos = -(scrolled * speed);
-					<br />
-					&nbsp;&nbsp;layer.style.transform = `translateY(${yPos}px)`;
-					<br />
-					});
+					}, { passive: true });
 				</code>
 			</div>
 
@@ -391,7 +444,7 @@
 				<ul>
 					<li>
 						<strong>Control Preciso:</strong>
-						Puedes controlar exactamente la velocidad de cada capa
+						Puedes controlar exactamente qué tan rápido se mueve cada capa
 					</li>
 					<li>
 						<strong>Múltiples Elementos:</strong>
@@ -419,6 +472,114 @@
 						Respeta
 						<code>prefers-reduced-motion</code>
 					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="content" style="background: #fef3c7;">
+			<h2>♿ Accesibilidad: Respetando las Preferencias del Usuario</h2>
+			
+			<div class="comparison" style="background: #fef3c7; border-left-color: #f59e0b;">
+				<h3>⚠️ Importante: Sensibilidad al Movimiento</h3>
+				<p>
+					Los efectos parallax pueden causar <strong>mareos, náuseas o trastornos vestibulares</strong> en algunos usuarios. 
+					Es esencial respetar la media query <code>prefers-reduced-motion</code>.
+				</p>
+			</div>
+
+			<h3>¿Qué es prefers-reduced-motion?</h3>
+			<p>
+				<code>prefers-reduced-motion</code> es una media query de CSS que detecta si un usuario ha solicitado movimiento reducido 
+				en la configuración de su sistema operativo. Los usuarios pueden habilitar esto en:
+			</p>
+			<ul>
+				<li><strong>macOS:</strong> Preferencias del Sistema → Accesibilidad → Pantalla → Reducir movimiento</li>
+				<li><strong>Windows:</strong> Configuración → Accesibilidad → Pantalla → Mostrar animaciones</li>
+				<li><strong>iOS:</strong> Ajustes → Accesibilidad → Movimiento → Reducir movimiento</li>
+				<li><strong>Android:</strong> Configuración → Accesibilidad → Eliminar animaciones</li>
+			</ul>
+
+			<h3>Cómo este Demo lo Respeta</h3>
+			<p>Este demo desactiva automáticamente los efectos parallax cuando los usuarios tienen habilitada la reducción de movimiento:</p>
+
+			<div class="code-box">
+				<code>
+					// 1. Detectar la preferencia de movimiento del usuario
+					<br />
+					const prefersReducedMotion = window.matchMedia(
+					<br />
+					&nbsp;&nbsp;'(prefers-reduced-motion: reduce)'
+					<br />
+					);
+					<br />
+					let isReducedMotion = prefersReducedMotion.matches;
+					<br />
+					<br />
+					// 2. Desactivar parallax CSS si es necesario
+					<br />
+					function handleMotionPreference() {
+					<br />
+					&nbsp;&nbsp;if (isReducedMotion) {
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;// Cambiar fondos fijos a scroll normal
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;document.querySelectorAll('.parallax-bg').forEach((el) => {
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;el.style.backgroundAttachment = 'scroll';
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;});
+					<br />
+					&nbsp;&nbsp;}
+					<br />
+					}
+					<br />
+					<br />
+					// 3. No inicializar parallax JavaScript si hay movimiento reducido
+					<br />
+					function initParallax() {
+					<br />
+					&nbsp;&nbsp;if (isReducedMotion) {
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;console.log('Parallax desactivado: el usuario prefiere movimiento reducido');
+					<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;return; // Salir sin configurar animaciones
+					<br />
+					&nbsp;&nbsp;}
+					<br />
+					&nbsp;&nbsp;// ... resto del código parallax
+					<br />
+					}
+					<br />
+					<br />
+					// 4. Escuchar cambios de preferencia durante la sesión
+					<br />
+					prefersReducedMotion.addEventListener('change', (e) => {
+					<br />
+					&nbsp;&nbsp;isReducedMotion = e.matches;
+					<br />
+					&nbsp;&nbsp;// Actualizar animaciones según corresponda
+					<br />
+					});
+				</code>
+			</div>
+
+			<h3>Pruébalo Tú Mismo</h3>
+			<ol>
+				<li>Abre las DevTools del navegador (F12)</li>
+				<li>Ve a la pestaña Console y escribe: <code>window.matchMedia('(prefers-reduced-motion: reduce)').matches</code></li>
+				<li>Devuelve <code>true</code> si la reducción de movimiento está habilitada, <code>false</code> en caso contrario</li>
+				<li>Habilita "Reducir movimiento" en la configuración de tu sistema operativo y recarga esta página</li>
+				<li>¡Nota cómo todos los efectos parallax están desactivados!</li>
+			</ol>
+
+			<div class="comparison" style="background: #e0f2fe; border-left-color: #0284c7;">
+				<h3>💡 Mejores Prácticas para Accesibilidad</h3>
+				<ul>
+					<li><strong>Siempre respeta prefers-reduced-motion</strong> - Es una solicitud del usuario, no una sugerencia</li>
+					<li><strong>Proporciona alternativas:</strong> Asegura que el contenido sea accesible sin movimiento</li>
+					<li><strong>No solo reduzcas:</strong> Desactiva el movimiento por completo cuando se solicite</li>
+					<li><strong>Prueba exhaustivamente:</strong> Verifica con la reducción de movimiento habilitada</li>
+					<li><strong>HTML Semántico:</strong> Usa una estructura adecuada que funcione independientemente de los efectos</li>
 				</ul>
 			</div>
 		</div>

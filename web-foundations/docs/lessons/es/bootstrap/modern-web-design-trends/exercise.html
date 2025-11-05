@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tendencias de Diseño Web Moderno - Ejercicio Práctico de 2 Horas</title>
+		<style>
+			:root {
+				--bg-primary: #ffffff;
+				--bg-secondary: #f8f9fa;
+				--text-primary: #212529;
+				--text-secondary: #6c757d;
+				--accent: #667eea;
+				--accent-dark: #4c51bf;
+				--border: #e9ecef;
+				--success: #28a745;
+				--warning: #ffc107;
+				--card-bg: rgba(255, 255, 255, 0.95);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--bg-primary: #1a1a1a;
+					--bg-secondary: #2d2d2d;
+					--text-primary: #e9ecef;
+					--text-secondary: #adb5bd;
+					--accent: #8b9eff;
+					--accent-dark: #6b7ff0;
+					--border: #495057;
+					--success: #40c463;
+					--warning: #ffd43b;
+					--card-bg: rgba(45, 45, 45, 0.95);
+				}
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+				background: var(--bg-primary);
+				color: var(--text-primary);
+				line-height: 1.6;
+				transition: background-color 0.3s ease, color 0.3s ease;
+			}
+
+			.container {
+				max-width: 900px;
+				margin: 0 auto;
+				padding: 2rem;
+			}
+
+			/* Header with glassmorphism effect */
+			header {
+				background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+				padding: 3rem 2rem;
+				margin: -2rem -2rem 2rem -2rem;
+				border-radius: 0 0 24px 24px;
+				position: relative;
+				overflow: hidden;
+			}
+
+			header::before {
+				content: '';
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 50%;
+				top: -100px;
+				right: -50px;
+				animation: float 6s ease-in-out infinite;
+			}
+
+			@keyframes float {
+				0%,
+				100% {
+					transform: translateY(0px);
+				}
+				50% {
+					transform: translateY(20px);
+				}
+			}
+
+			h1 {
+				color: white;
+				font-size: clamp(1.8rem, 5vw, 2.5rem);
+				margin-bottom: 0.5rem;
+				position: relative;
+				z-index: 1;
+			}
+
+			.subtitle {
+				color: rgba(255, 255, 255, 0.9);
+				font-size: clamp(1rem, 2vw, 1.1rem);
+				position: relative;
+				z-index: 1;
+			}
+
+			/* Timer badge */
+			.timer-badge {
+				display: inline-block;
+				background: rgba(255, 255, 255, 0.2);
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				padding: 0.5rem 1rem;
+				border-radius: 20px;
+				margin-top: 1rem;
+				font-weight: 600;
+				color: white;
+				border: 1px solid rgba(255, 255, 255, 0.3);
+			}
+
+			/* Cards with subtle neumorphism */
+			.card {
+				background: var(--card-bg);
+				border: 1px solid var(--border);
+				border-radius: 16px;
+				padding: 2rem;
+				margin-bottom: 2rem;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+
+			.card:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+			}
+
+			.card h2 {
+				color: var(--accent);
+				margin-bottom: 1rem;
+				font-size: clamp(1.3rem, 3vw, 1.6rem);
+			}
+
+			.card h3 {
+				color: var(--text-primary);
+				margin: 1.5rem 0 1rem 0;
+				font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+			}
+
+			/* Phase indicators */
+			.phase-indicator {
+				display: inline-block;
+				background: var(--accent);
+				color: white;
+				padding: 0.3rem 0.8rem;
+				border-radius: 12px;
+				font-size: 0.85rem;
+				font-weight: 600;
+				margin-bottom: 1rem;
+			}
+
+			.phase-indicator.setup {
+				background: var(--warning);
+				color: #000;
+			}
+
+			.phase-indicator.practice {
+				background: var(--accent);
+			}
+
+			.phase-indicator.reflect {
+				background: var(--success);
+			}
+
+			/* Step list */
+			.step-list {
+				list-style: none;
+				counter-reset: step-counter;
+			}
+
+			.step-list li {
+				counter-increment: step-counter;
+				padding-left: 3rem;
+				margin-bottom: 1.5rem;
+				position: relative;
+			}
+
+			.step-list li::before {
+				content: counter(step-counter);
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: var(--accent);
+				color: white;
+				width: 2rem;
+				height: 2rem;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 700;
+				font-size: 0.9rem;
+			}
+
+			/* Checklist */
+			.checklist {
+				list-style: none;
+				padding: 0;
+			}
+
+			.checklist li {
+				padding: 0.8rem;
+				margin-bottom: 0.5rem;
+				background: var(--bg-secondary);
+				border-radius: 8px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				border: 2px solid transparent;
+				position: relative;
+				padding-left: 2.5rem;
+			}
+
+			.checklist li::before {
+				content: '☐';
+				position: absolute;
+				left: 0.8rem;
+				font-size: 1.2rem;
+				color: var(--text-secondary);
+			}
+
+			.checklist li.checked {
+				background: rgba(40, 167, 69, 0.1);
+				border-color: var(--success);
+			}
+
+			.checklist li.checked::before {
+				content: '☑';
+				color: var(--success);
+			}
+
+			.checklist li:hover {
+				transform: translateX(5px);
+			}
+
+			/* Info boxes */
+			.info-box {
+				background: rgba(102, 126, 234, 0.1);
+				border-left: 4px solid var(--accent);
+				padding: 1rem;
+				margin: 1rem 0;
+				border-radius: 8px;
+			}
+
+			.info-box.success {
+				background: rgba(40, 167, 69, 0.1);
+				border-left-color: var(--success);
+			}
+
+			.info-box.warning {
+				background: rgba(255, 193, 7, 0.1);
+				border-left-color: var(--warning);
+			}
+
+			/* Trend grid */
+			.trend-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 1rem;
+				margin: 1.5rem 0;
+			}
+
+			.trend-card {
+				background: var(--bg-secondary);
+				border: 2px solid var(--border);
+				border-radius: 12px;
+				padding: 1.5rem 1rem;
+				text-align: center;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.trend-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			}
+
+			.trend-card.selected {
+				border-color: var(--accent);
+				background: rgba(102, 126, 234, 0.1);
+			}
+
+			.trend-emoji {
+				font-size: 2rem;
+				display: block;
+				margin-bottom: 0.5rem;
+			}
+
+			/* Time tracker */
+			.time-tracker {
+				display: flex;
+				gap: 1rem;
+				margin: 1.5rem 0;
+				flex-wrap: wrap;
+			}
+
+			.time-block {
+				flex: 1;
+				min-width: 150px;
+				background: var(--bg-secondary);
+				padding: 1rem;
+				border-radius: 12px;
+				border-left: 4px solid var(--accent);
+			}
+
+			.time-block-title {
+				font-weight: 600;
+				margin-bottom: 0.3rem;
+			}
+
+			.time-block-time {
+				font-size: 1.5rem;
+				color: var(--accent);
+				font-weight: 700;
+			}
+
+			/* Code blocks */
+			code {
+				background: var(--bg-secondary);
+				padding: 0.2rem 0.4rem;
+				border-radius: 4px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.9em;
+			}
+
+			pre {
+				background: var(--bg-secondary);
+				padding: 1rem;
+				border-radius: 8px;
+				overflow-x: auto;
+			}
+
+			/* Links */
+			a {
+				color: var(--accent);
+				text-decoration: none;
+				transition: color 0.3s ease;
+			}
+
+			a:hover {
+				color: var(--accent-dark);
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.container {
+					padding: 1rem;
+				}
+
+				.trend-grid {
+					grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+					gap: 0.8rem;
+				}
+
+				.time-tracker {
+					flex-direction: column;
+				}
+
+				.step-list li {
+					padding-left: 2.5rem;
+				}
+
+				.step-list li::before {
+					width: 1.5rem;
+					height: 1.5rem;
+					font-size: 0.8rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>🎨 Tendencias de Diseño Web Moderno con Bootstrap</h1>
+				<p class="subtitle">Ejercicio Práctico: Implementa Tendencias Usando Bootstrap 5.3</p>
+				<div class="timer-badge">⏱️ 2 Horas Tiempo Total</div>
+			</header>
+
+			<!-- Overview -->
+			<div class="card">
+				<span class="phase-indicator setup">Resumen</span>
+				<h2>📋 Resumen del Ejercicio</h2>
+				<p>
+					En este ejercicio de 2 horas, aplicarás tendencias modernas de diseño web a una página en tu propio repositorio usando
+					<strong>Bootstrap 5.3</strong>. Este es <strong>aprendizaje activo</strong>—crearás algo real,
+					reflexionarás críticamente y construirás trabajo digno de portafolio usando el poderoso framework de Bootstrap.
+				</p>
+
+				<div class="time-tracker">
+					<div class="time-block">
+						<div class="time-block-title">Fase 1: Configuración</div>
+						<div class="time-block-time">15 min</div>
+					</div>
+					<div class="time-block">
+						<div class="time-block-title">Fase 2: Construir</div>
+						<div class="time-block-time">75 min</div>
+					</div>
+					<div class="time-block">
+						<div class="time-block-title">Fase 3: Reflexionar</div>
+						<div class="time-block-time">30 min</div>
+					</div>
+				</div>
+
+				<div class="info-box">
+					<strong>🎯 Tu Objetivo:</strong>
+					Elige 2-3 tendencias de la lección e impleméntalas en una nueva página usando <strong>Bootstrap 5.3 vía CDN</strong>.
+					Aprenderás cómo combinar las utilidades de Bootstrap con CSS personalizado para efectos de diseño modernos. Enfócate en
+					<em>aplicación consciente</em> sobre complejidad.
+				</div>
+
+				<div class="info-box success">
+					<strong>✅ Configuración de Bootstrap Requerida:</strong>
+					Todas las implementaciones usarán Bootstrap 5.3 vía CDN. Combinarás los componentes y utilidades de Bootstrap
+					con CSS personalizado para lograr tendencias de diseño moderno.
+				</div>
+			</div>
+
+			<!-- Phase 1: Setup & Planning -->
+			<div class="card">
+				<span class="phase-indicator setup">Fase 1</span>
+				<h2>⚙️ Configuración y Planificación (15 minutos)</h2>
+
+				<h3>Paso 1: Elige Tus Tendencias</h3>
+				<p>
+					Selecciona
+					<strong>2-3 tendencias</strong>
+					que funcionen bien juntas y se adapten a tu proyecto. Haz clic para seleccionar/deseleccionar:
+				</p>
+
+				<a
+					href="./index.html"
+					style="
+						display: inline-block;
+						margin-bottom: 1.2rem;
+						color: var(--accent);
+						text-decoration: underline;
+						font-weight: 500;
+					">
+					← Volver al Resumen de la Lección
+				</a>
+
+				<a
+					href="./demo/index.html"
+					style="
+						display: inline-block;
+						margin-bottom: 1.2rem;
+						color: var(--accent);
+						text-decoration: underline;
+						font-weight: 500;
+					">
+					← Volver a los Ejemplos de la Lección
+				</a>
+
+				<div class="trend-grid">
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">⛰️</span>
+						<strong>Parallax</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Profundidad y Movimiento</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">🪟</span>
+						<strong>Glassmorphism</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Cristal Esmerilado</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">🎚️</span>
+						<strong>Neumorphism</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Relieve Suave</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">🔤</span>
+						<strong>Tipografía Fluida</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Texto Responsivo</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">🌓</span>
+						<strong>Modo Oscuro</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Alternar Tema</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">⚖️</span>
+						<strong>Minimalismo</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Limpio y Espacioso</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">📜</span>
+						<strong>Scrollytelling</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Historias Animadas</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">🧊</span>
+						<strong>Efectos 3D</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Profundidad y Rotación</div>
+					</div>
+				</div>
+
+				<div class="info-box warning">
+					<strong>💡 Combinaciones Recomendadas con Bootstrap:</strong>
+					<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+						<li>
+							<strong>Portafolio/Agencia:</strong>
+							Parallax + Tipografía Fluida + Modo Oscuro (data-bs-theme de Bootstrap)
+						</li>
+						<li>
+							<strong>Dashboard Moderno:</strong>
+							Glassmorphism + Neumorphism + Modo Oscuro (¡todos los componentes de Bootstrap se adaptan!)
+						</li>
+						<li>
+							<strong>Sitio de Narrativa:</strong>
+							Scrollytelling (cards de Bootstrap) + Parallax + Minimalismo (utilidades de Bootstrap)
+						</li>
+						<li>
+							<strong>Showcase Creativo:</strong>
+							Efectos 3D (grid de Bootstrap) + Glassmorphism (en cards) + Tipografía Fluida
+						</li>
+					</ul>
+				</div>
+
+				<h3>Paso 2: Crea Tu Archivo de Trabajo con Bootstrap</h3>
+				<ol class="step-list">
+					<li>
+						<strong>Navega a tu repositorio:</strong>
+						<br />
+						<code>cd /path/to/your/repo/modern-web-design-trends</code>
+					</li>
+					<li>
+						<strong>Crea un nuevo archivo HTML:</strong>
+						<br />
+						<code>touch index.html</code>
+						<br />
+						<em style="font-size: 0.9rem; color: var(--text-secondary)">¡O mejora una página existente!</em>
+					</li>
+					<li>
+						<strong>Configura la plantilla HTML5 con Bootstrap 5.3 CDN:</strong>
+						<br />
+						<div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin-top: 0.5rem">
+							<pre style="font-size: 0.85rem; margin: 0">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Mi Proyecto de Diseño Web Moderno&lt;/title&gt;
+  
+  &lt;!-- Bootstrap 5.3 CSS --&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+  
+  &lt;!-- Tu CSS personalizado --&gt;
+  &lt;style&gt;
+    /* Agrega CSS personalizado aquí */
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Tu contenido usando Bootstrap --&gt;
+  
+  &lt;!-- Bootstrap 5.3 JS Bundle --&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+						</div>
+					</li>
+					<li>
+						<strong>Abre en tu editor y navegador:</strong>
+						<br />
+						Vista lado a lado con recarga en vivo si es posible
+					</li>
+				</ol>
+
+				<h3>Paso 3: Lista de Verificación de Planificación Rápida</h3>
+				<ul class="checklist">
+					<li onclick="toggleCheck(this)">He seleccionado 2-3 tendencias que funcionan bien juntas</li>
+					<li onclick="toggleCheck(this)">Tengo los archivos demo abiertos como referencia</li>
+					<li onclick="toggleCheck(this)">Mi archivo HTML está creado con los enlaces CDN de Bootstrap 5.3</li>
+					<li onclick="toggleCheck(this)">Entiendo qué utilidades de Bootstrap usaré</li>
+					<li onclick="toggleCheck(this)">Tengo una idea clara de qué contenido crear</li>
+					<li onclick="toggleCheck(this)">He anotado en qué técnicas (Bootstrap + CSS personalizado) enfocarme</li>
+				</ul>
+			</div>
+
+			<!-- Phase 2: Build -->
+			<div class="card">
+				<span class="phase-indicator practice">Fase 2</span>
+				<h2>🔨 Construye Tu Página (75 minutos)</h2>
+
+				<div class="info-box">
+					<strong>⏱️ Gestión del Tiempo:</strong>
+					Dedica aproximadamente 25-30 minutos por tendencia. Es mejor implementar 2 tendencias
+					<em>bien</em>
+					que 4 tendencias
+					<em>mal</em>
+					.
+				</div>
+
+				<h3>Proceso de Construcción</h3>
+
+				<ol class="step-list">
+					<li>
+						<strong>Comienza con la Estructura HTML de Bootstrap (10 min)</strong>
+						<br />
+						Crea HTML semántico usando componentes y grid de Bootstrap. Manténlo simple inicialmente—siempre puedes agregar más.
+						<div class="info-box" style="margin-top: 0.8rem">
+							<strong>Estructura Bootstrap sugerida:</strong>
+							<ul style="margin-left: 1rem; margin-top: 0.5rem">
+								<li>Header con <code>container</code> y <code>row</code></li>
+								<li>Sección hero usando <code>d-flex align-items-center</code></li>
+								<li>2-4 secciones de contenido con espaciado <code>py-5</code></li>
+								<li>Componentes <code>card</code> de Bootstrap para bloques de contenido</li>
+								<li>Footer con <code>bg-dark text-white</code></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<strong>Implementa Tendencia #1 con Bootstrap (25 min)</strong>
+						<br />
+						<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+							<li>Abre el archivo demo correspondiente como referencia</li>
+							<li>Nota qué <strong>utilidades de Bootstrap</strong> se usan (grid, spacing, colors, etc.)</li>
+							<li>Copia la técnica de <strong>CSS personalizado</strong> que extiende Bootstrap</li>
+							<li>Adáptala a tu contenido usando la estructura de componentes de Bootstrap</li>
+							<li>Prueba los breakpoints responsivos de Bootstrap (sm, md, lg, xl)</li>
+							<li>Asegura accesibilidad (preferencias de movimiento, contraste, etc.)</li>
+						</ul>
+					</li>
+
+					<li>
+						<strong>Implementa Tendencia #2 con Bootstrap (25 min)</strong>
+						<br />
+						Mismo proceso que Tendencia #1. Asegúrate de que
+						<em>complemente</em>
+						en lugar de entrar en conflicto con tu primera tendencia. Usa los componentes de Bootstrap consistentemente.
+					</li>
+
+					<li>
+						<strong>Implementa Tendencia #3 (Opcional, 25 min)</strong>
+						<br />
+						Si el tiempo lo permite y has completado 2 tendencias sólidamente, agrega una tercera. De lo contrario, usa este tiempo para pulir y refinar.
+					</li>
+
+					<li>
+						<strong>Pule y Refina (10 min)</strong>
+						<br />
+						<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+							<li>Ajusta espaciado y alineación usando utilidades de Bootstrap</li>
+							<li>Verifica que los componentes de Bootstrap estén bien integrados</li>
+							<li>Prueba el grid responsivo de Bootstrap en todos los tamaños</li>
+							<li>Asegura consistencia de color con el sistema de Bootstrap</li>
+							<li>Elimina código no utilizado</li>
+							<li>Verifica que todos los efectos funcionen sin errores de consola</li>
+						</ul>
+					</li>
+				</ol>
+
+				<h3>Lista de Verificación de Implementación</h3>
+				<p style="margin-bottom: 1rem">Usa esto mientras trabajas. Marca los items a medida que los completes:</p>
+
+				<ul class="checklist">
+					<li onclick="toggleCheck(this)">
+						<strong>HTML:</strong>
+						Estructura semántica con encabezados y secciones apropiados
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Grid de Bootstrap:</strong>
+						Uso correcto de container, row, col con breakpoints responsivos
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Componentes de Bootstrap:</strong>
+						Uso de cards, buttons, nav, etc. donde sea apropiado
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Organización CSS:</strong>
+						Estilos bien organizados que extienden Bootstrap con comentarios claros
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Tendencia #1:</strong>
+						Técnica principal implementada y funcionando con Bootstrap
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Tendencia #2:</strong>
+						Técnica principal implementada y funcionando con Bootstrap
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Tendencia #3:</strong>
+						(Opcional) Técnica principal implementada y funcionando
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Responsividad:</strong>
+						Probado en móvil (320px) y escritorio (1920px) usando breakpoints de Bootstrap
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Accesibilidad:</strong>
+						Contraste suficiente, respeta movimiento reducido
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Rendimiento:</strong>
+						La página carga rápidamente, las animaciones son suaves
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Pruebas de Navegador:</strong>
+						Funciona en Chrome/Firefox/Safari
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Calidad del Código:</strong>
+						Limpio, comentado, sigue mejores prácticas de Bootstrap
+					</li>
+				</ul>
+			</div>
+
+			<!-- Phase 3: Reflect -->
+			<div class="card">
+				<span class="phase-indicator reflect">Fase 3</span>
+				<h2>🤔 Reflexiona Sobre Tu Trabajo (30 minutos)</h2>
+
+				<p>
+					Siguiendo la
+					<strong>metodología Atelier</strong>
+					, la reflexión crítica es esencial. Toma tiempo para analizar tu trabajo conscientemente.
+				</p>
+
+				<h3>Preguntas de Reflexión</h3>
+				<p style="margin-bottom: 1rem">
+					Escribe respuestas a estas preguntas en un nuevo archivo (
+					<code>reflection.md</code>
+					) o en comentarios al final de tu HTML:
+				</p>
+
+				<div class="info-box">
+					<strong>1. Decisiones de Diseño</strong>
+					<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+						<li>
+							<strong>¿Por qué elegiste estas tendencias específicas?</strong>
+							¿Qué historia o experiencia estabas tratando de crear?
+						</li>
+						<li>
+							<strong>¿Qué funcionó bien?</strong>
+							¿De qué aspectos estás orgulloso?
+						</li>
+						<li>
+							<strong>¿Qué no funcionó como esperabas?</strong>
+							¿Qué cambiarías?
+						</li>
+						<li>
+							<strong>¿Cómo ayudó Bootstrap?</strong>
+							¿Qué componentes y utilidades facilitaron la implementación?
+						</li>
+					</ul>
+				</div>
+
+				<div class="info-box">
+					<strong>2. Accesibilidad e Inclusión</strong>
+					<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+						<li>
+							<strong>¿Quién podría tener dificultades con tus elecciones de diseño?</strong>
+							Considera usuarios con sensibilidad al movimiento, discapacidades visuales o dispositivos más antiguos.
+						</li>
+						<li>
+							<strong>¿Probaste con preferencias de movimiento reducido?</strong>
+							¿Cómo se adapta tu página?
+						</li>
+						<li>
+							<strong>¿El texto es legible?</strong>
+							Verifica ratios de contraste con WebAIM o Chrome DevTools.
+						</li>
+						<li>
+							<strong>¿Los usuarios pueden controlar la experiencia?</strong>
+							(ej. pausar animaciones, alternar modo oscuro)
+						</li>
+						<li>
+							<strong>¿Bootstrap mejoró la accesibilidad?</strong>
+							¿Cómo ayudaron los componentes semánticos?
+						</li>
+					</ul>
+				</div>
+
+				<div class="info-box">
+					<strong>3. Técnico y de Aprendizaje</strong>
+					<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+						<li>
+							<strong>¿Qué nuevas propiedades CSS o técnicas aprendiste?</strong>
+						</li>
+						<li>
+							<strong>¿Qué fue más desafiante?</strong>
+							¿Cómo lo resolviste?
+						</li>
+						<li>
+							<strong>¿Qué recursos usaste?</strong>
+							(Archivos demo, MDN, documentación de Bootstrap, etc.)
+						</li>
+						<li>
+							<strong>Si volvieras a hacer esto, ¿qué harías diferente?</strong>
+						</li>
+						<li>
+							<strong>¿Cómo podrías simplificar tu implementación?</strong>
+							¿Podrías lograr el mismo efecto con menos código?
+						</li>
+						<li>
+							<strong>¿Cómo facilitó Bootstrap tu flujo de trabajo?</strong>
+							¿Qué utilidades ahorraron más tiempo?
+						</li>
+					</ul>
+				</div>
+
+				<h3>Documenta Tu Trabajo</h3>
+				<p style="margin-bottom: 1rem">Crea una breve documentación de tu ejercicio. Puedes usar esta estructura:</p>
+
+				<div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 8px">
+					<pre style="white-space: pre-wrap; font-family: monospace; font-size: 0.9rem; line-height: 1.6">
+# Tendencias de Diseño Web Moderno con Bootstrap - Ejercicio Práctico
+
+## 🎯 Objetivo
+[Describe qué intentabas lograr]
+
+## ✨ Tendencias Implementadas
+1. **[Tendencia #1]**: [Breve descripción]
+   - Componentes Bootstrap usados: [listar]
+   - CSS personalizado: [describir]
+   
+2. **[Tendencia #2]**: [Breve descripción]
+   - Componentes Bootstrap usados: [listar]
+   - CSS personalizado: [describir]
+
+## 🛠️ Stack Técnico
+- Bootstrap 5.3 (vía CDN)
+- CSS personalizado
+- [Cualquier otra tecnología]
+
+## 💡 Aprendizajes Clave
+- [Lo que aprendiste]
+- [Descubrimientos sobre Bootstrap]
+- [Desafíos que superaste]
+
+## 📸 Capturas
+[Incluye capturas de pantalla si es posible]
+
+## 🔗 Enlaces
+- Demo en vivo: [URL si está desplegado]
+- Repositorio: [URL de GitHub]
+
+## 🤔 Reflexiones
+[Pensamientos clave de tu reflexión Atelier]
+					</pre>
+				</div>
+			</div>
+
+			<!-- Completion -->
+			<div class="card">
+				<div class="info-box success">
+					<strong>🎉 ¡Felicidades!</strong>
+					Has completado el ejercicio de Tendencias de Diseño Web Moderno con Bootstrap. No solo aprendiste nuevas técnicas sino que también practicaste reflexión crítica—una habilidad clave para diseñadores conscientes.
+				</div>
+
+				<h3>Próximos Pasos</h3>
+				<p>Ahora que has completado el ejercicio básico, considera estos desafíos de extensión:</p>
+
+				<ul style="margin-left: 1.5rem">
+					<li>
+						<strong>Combina más tendencias:</strong>
+						Intenta implementar las 8 tendencias a través de múltiples páginas
+					</li>
+					<li>
+						<strong>Mejora interactividad:</strong>
+						Agrega JavaScript para efectos más dinámicos usando componentes de Bootstrap
+					</li>
+					<li>
+						<strong>Construye un sitio completo:</strong>
+						Crea 3-5 páginas usando diferentes combinaciones de tendencias con navegación de Bootstrap
+					</li>
+					<li>
+						<strong>Optimización de rendimiento:</strong>
+						Usa Lighthouse para auditar y mejorar puntuaciones
+					</li>
+					<li>
+						<strong>Pruebas cross-browser:</strong>
+						Prueba exhaustivamente en Edge, Safari, Firefox
+					</li>
+					<li>
+						<strong>Comparte tu trabajo:</strong>
+						Despliega en GitHub Pages o Netlify y comparte con compañeros
+					</li>
+					<li>
+						<strong>Personaliza Bootstrap:</strong>
+						Aprende a modificar variables Sass de Bootstrap para branding personalizado
+					</li>
+				</ul>
+
+				<h3>Recursos Adicionales</h3>
+				<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+					<li>
+						<a href="https://developer.mozilla.org/es/" target="_blank">MDN Web Docs</a>
+						- Referencia completa de CSS
+					</li>
+					<li>
+						<a href="https://getbootstrap.com/docs/5.3/" target="_blank">Bootstrap 5.3 Documentación</a>
+						- Documentación oficial completa
+					</li>
+					<li>
+						<a href="https://www.awwwards.com/" target="_blank">Awwwards</a>
+						- Inspiración de diseño y tendencias
+					</li>
+					<li>
+						<a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker</a>
+						- Prueba accesibilidad de color
+					</li>
+					<li>
+						<a href="https://www.typewolf.com/" target="_blank">Typewolf</a>
+						- Inspiración tipográfica
+					</li>
+					<li>
+						<a href="https://cssgradient.io/" target="_blank">CSS Gradient</a>
+						- Generador de gradientes
+					</li>
+					<li>
+						<a href="https://icons.getbootstrap.com/" target="_blank">Bootstrap Icons</a>
+						- Iconos oficiales de Bootstrap
+					</li>
+				</ul>
+			</div>
+
+			<!-- Footer -->
+			<footer style="text-align: center; padding: 2rem 0; color: var(--text-secondary); border-top: 1px solid var(--border)">
+				<p>
+					<strong>Atelier Web Foundations</strong>
+					- Ejercicio de Tendencias de Diseño Web Moderno con Bootstrap
+					<br />
+					Recuerda: Las tendencias son herramientas para comunicación. Úsalas conscientemente, no solo porque son populares.
+				</p>
+				<p style="margin-top: 1rem; font-size: 0.85rem">
+					¿Tienes preguntas? Consulta la
+					<a href="./index.html">documentación de la lección</a>
+					o explora los
+					<a href="./demo/index.html">demos interactivos</a>
+					.
+				</p>
+			</footer>
+		</div>
+
+		<script>
+			// Toggle trend selection
+			function toggleTrend(card) {
+				card.classList.toggle('selected');
+				const selected = document.querySelectorAll('.trend-card.selected').length;
+				if (selected > 3) {
+					alert('💡 Consejo: Enfócate en 2-3 tendencias para mejores resultados.');
+				}
+			}
+
+			// Toggle checklist items
+			function toggleCheck(item) {
+				item.classList.toggle('checked');
+			}
+
+			// Save checklist state to localStorage
+			const checklistItems = document.querySelectorAll('.checklist li');
+			checklistItems.forEach((item, index) => {
+				const savedState = localStorage.getItem(`checklist-${index}`);
+				if (savedState === 'checked') {
+					item.classList.add('checked');
+				}
+
+				item.addEventListener('click', function () {
+					if (this.classList.contains('checked')) {
+						localStorage.setItem(`checklist-${index}`, 'checked');
+					} else {
+						localStorage.removeItem(`checklist-${index}`);
+					}
+				});
+			});
+
+			// Save trend selection to localStorage
+			const trendCards = document.querySelectorAll('.trend-card');
+			trendCards.forEach((card, index) => {
+				const savedState = localStorage.getItem(`trend-${index}`);
+				if (savedState === 'selected') {
+					card.classList.add('selected');
+				}
+
+				card.addEventListener('click', function () {
+					if (this.classList.contains('selected')) {
+						localStorage.setItem(`trend-${index}`, 'selected');
+					} else {
+						localStorage.removeItem(`trend-${index}`);
+					}
+				});
+			});
+
+			console.log('🎨 Ejercicio de Tendencias de Diseño Web Moderno con Bootstrap');
+			console.log('⏱️ Tiempo estimado: 2 horas');
+			console.log('🎯 Enfoque: Aplicación consciente de 2-3 tendencias usando Bootstrap 5.3');
+		</script>
+	</body>
+</html>
+

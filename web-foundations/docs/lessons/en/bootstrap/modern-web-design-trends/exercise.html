@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Modern Web Design Trends - 2 Hour Practice Exercise</title>
+		<style>
+			:root {
+				--bg-primary: #ffffff;
+				--bg-secondary: #f8f9fa;
+				--text-primary: #212529;
+				--text-secondary: #6c757d;
+				--accent: #667eea;
+				--accent-dark: #4c51bf;
+				--border: #e9ecef;
+				--success: #28a745;
+				--warning: #ffc107;
+				--card-bg: rgba(255, 255, 255, 0.95);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--bg-primary: #1a1a1a;
+					--bg-secondary: #2d2d2d;
+					--text-primary: #e9ecef;
+					--text-secondary: #adb5bd;
+					--accent: #8b9eff;
+					--accent-dark: #6b7ff0;
+					--border: #495057;
+					--success: #40c463;
+					--warning: #ffd43b;
+					--card-bg: rgba(45, 45, 45, 0.95);
+				}
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+				background: var(--bg-primary);
+				color: var(--text-primary);
+				line-height: 1.6;
+				transition: background-color 0.3s ease, color 0.3s ease;
+			}
+
+			.container {
+				max-width: 900px;
+				margin: 0 auto;
+				padding: 2rem;
+			}
+
+			/* Header with glassmorphism effect */
+			header {
+				background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+				padding: 3rem 2rem;
+				margin: -2rem -2rem 2rem -2rem;
+				border-radius: 0 0 24px 24px;
+				position: relative;
+				overflow: hidden;
+			}
+
+			header::before {
+				content: '';
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 50%;
+				top: -100px;
+				right: -50px;
+				animation: float 6s ease-in-out infinite;
+			}
+
+			@keyframes float {
+				0%,
+				100% {
+					transform: translateY(0px);
+				}
+				50% {
+					transform: translateY(20px);
+				}
+			}
+
+			h1 {
+				color: white;
+				font-size: clamp(1.8rem, 5vw, 2.5rem);
+				margin-bottom: 0.5rem;
+				position: relative;
+				z-index: 1;
+			}
+
+			.subtitle {
+				color: rgba(255, 255, 255, 0.9);
+				font-size: clamp(1rem, 2vw, 1.1rem);
+				position: relative;
+				z-index: 1;
+			}
+
+			/* Timer badge */
+			.timer-badge {
+				display: inline-block;
+				background: rgba(255, 255, 255, 0.2);
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				padding: 0.5rem 1rem;
+				border-radius: 20px;
+				margin-top: 1rem;
+				font-weight: 600;
+				color: white;
+				border: 1px solid rgba(255, 255, 255, 0.3);
+			}
+
+			/* Cards with subtle neumorphism */
+			.card {
+				background: var(--card-bg);
+				border: 1px solid var(--border);
+				border-radius: 16px;
+				padding: 2rem;
+				margin-bottom: 2rem;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+
+			.card:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+			}
+
+			.card h2 {
+				color: var(--accent);
+				margin-bottom: 1rem;
+				font-size: clamp(1.3rem, 3vw, 1.6rem);
+			}
+
+			.card h3 {
+				color: var(--text-primary);
+				margin: 1.5rem 0 1rem 0;
+				font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+			}
+
+			/* Phase indicators */
+			.phase-indicator {
+				display: inline-block;
+				background: var(--accent);
+				color: white;
+				padding: 0.3rem 0.8rem;
+				border-radius: 12px;
+				font-size: 0.85rem;
+				font-weight: 600;
+				margin-bottom: 1rem;
+			}
+
+			.phase-indicator.setup {
+				background: var(--warning);
+				color: #000;
+			}
+
+			.phase-indicator.practice {
+				background: var(--accent);
+			}
+
+			.phase-indicator.reflect {
+				background: var(--success);
+			}
+
+			/* Step list */
+			.step-list {
+				list-style: none;
+				counter-reset: step-counter;
+			}
+
+			.step-list li {
+				counter-increment: step-counter;
+				padding-left: 3rem;
+				margin-bottom: 1.5rem;
+				position: relative;
+			}
+
+			.step-list li::before {
+				content: counter(step-counter);
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: var(--accent);
+				color: white;
+				width: 2rem;
+				height: 2rem;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 700;
+				font-size: 0.9rem;
+			}
+
+			/* Checklist */
+			.checklist {
+				list-style: none;
+			}
+
+			.checklist li {
+				padding: 0.8rem;
+				padding-left: 2.5rem;
+				margin-bottom: 0.5rem;
+				background: var(--bg-secondary);
+				border-radius: 8px;
+				position: relative;
+				cursor: pointer;
+				transition: background-color 0.2s ease;
+			}
+
+			.checklist li:hover {
+				background: var(--border);
+			}
+
+			.checklist li::before {
+				content: '☐';
+				position: absolute;
+				left: 0.8rem;
+				font-size: 1.2rem;
+				color: var(--text-secondary);
+			}
+
+			.checklist li.completed::before {
+				content: '☑';
+				color: var(--success);
+			}
+
+			.checklist li.completed {
+				text-decoration: line-through;
+				opacity: 0.6;
+			}
+
+			/* Trend cards grid */
+			.trend-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 1rem;
+				margin: 1.5rem 0;
+			}
+
+			.trend-card {
+				background: var(--bg-secondary);
+				padding: 1rem;
+				border-radius: 12px;
+				border: 2px solid transparent;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				text-align: center;
+			}
+
+			.trend-card:hover {
+				border-color: var(--accent);
+				transform: scale(1.05);
+			}
+
+			.trend-card.selected {
+				border-color: var(--accent);
+				background: var(--accent);
+				color: white;
+			}
+
+			.trend-emoji {
+				font-size: 2rem;
+				display: block;
+				margin-bottom: 0.5rem;
+			}
+
+			/* Info boxes */
+			.info-box {
+				background: var(--bg-secondary);
+				border-left: 4px solid var(--accent);
+				padding: 1rem 1.5rem;
+				margin: 1rem 0;
+				border-radius: 4px;
+			}
+
+			.info-box.warning {
+				border-left-color: var(--warning);
+			}
+
+			.info-box.success {
+				border-left-color: var(--success);
+			}
+
+			.info-box strong {
+				color: var(--accent);
+			}
+
+			/* Code inline */
+			code {
+				background: var(--bg-secondary);
+				padding: 0.2rem 0.5rem;
+				border-radius: 4px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.9em;
+				color: var(--accent);
+			}
+
+			/* Time tracker */
+			.time-tracker {
+				display: flex;
+				justify-content: space-between;
+				gap: 1rem;
+				margin: 1.5rem 0;
+				flex-wrap: wrap;
+			}
+
+			.time-block {
+				flex: 1;
+				min-width: 150px;
+				background: var(--bg-secondary);
+				padding: 1rem;
+				border-radius: 12px;
+				text-align: center;
+			}
+
+			.time-block-title {
+				font-size: 0.85rem;
+				color: var(--text-secondary);
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+				margin-bottom: 0.5rem;
+			}
+
+			.time-block-time {
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: var(--accent);
+			}
+
+			/* Links */
+			a {
+				color: var(--accent);
+				text-decoration: none;
+				border-bottom: 1px solid transparent;
+				transition: border-color 0.2s ease;
+			}
+
+			a:hover {
+				border-bottom-color: var(--accent);
+			}
+
+			/* Footer */
+			footer {
+				margin-top: 4rem;
+				padding-top: 2rem;
+				border-top: 1px solid var(--border);
+				text-align: center;
+				color: var(--text-secondary);
+				font-size: 0.9rem;
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.container {
+					padding: 1rem;
+				}
+
+				header {
+					margin: -1rem -1rem 1.5rem -1rem;
+					padding: 2rem 1rem;
+				}
+
+				.card {
+					padding: 1.5rem;
+				}
+
+				.step-list li {
+					padding-left: 2.5rem;
+				}
+
+				.step-list li::before {
+					width: 1.5rem;
+					height: 1.5rem;
+					font-size: 0.8rem;
+				}
+			}
+
+			/* Print styles */
+			@media print {
+				header::before {
+					display: none;
+				}
+
+				.card {
+					page-break-inside: avoid;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>🎨 Modern Web Design Trends with Bootstrap</h1>
+				<p class="subtitle">Hands-On Practice Exercise: Implement Trends Using Bootstrap 5.3</p>
+				<div class="timer-badge">⏱️ 2 Hours Total Time</div>
+			</header>
+
+			<!-- Overview -->
+			<div class="card">
+				<span class="phase-indicator setup">Overview</span>
+				<h2>📋 Exercise Overview</h2>
+				<p>
+					In this 2-hour exercise, you'll apply modern web design trends to a page in your own repository using
+					<strong>Bootstrap 5.3</strong>. This is <strong>active learning</strong>—you'll create something real,
+					reflect critically, and build portfolio-worthy work using Bootstrap's powerful framework.
+				</p>
+
+				<div class="time-tracker">
+					<div class="time-block">
+						<div class="time-block-title">Phase 1: Setup</div>
+						<div class="time-block-time">15 min</div>
+					</div>
+					<div class="time-block">
+						<div class="time-block-title">Phase 2: Build</div>
+						<div class="time-block-time">75 min</div>
+					</div>
+					<div class="time-block">
+						<div class="time-block-title">Phase 3: Reflect</div>
+						<div class="time-block-time">30 min</div>
+					</div>
+				</div>
+
+				<div class="info-box">
+					<strong>🎯 Your Goal:</strong>
+					Choose 2-3 trends from the lesson and implement them in a new page using <strong>Bootstrap 5.3 via CDN</strong>.
+					You'll learn how to combine Bootstrap's utilities with custom CSS for modern design effects. Focus on
+					<em>thoughtful application</em> over complexity.
+				</div>
+
+				<div class="info-box success">
+					<strong>✅ Bootstrap Setup Required:</strong>
+					All implementations will use Bootstrap 5.3 via CDN. You'll combine Bootstrap's components and utilities
+					with custom CSS to achieve modern design trends.
+				</div>
+			</div>
+
+			<!-- Phase 1: Setup & Planning -->
+			<div class="card">
+				<span class="phase-indicator setup">Phase 1</span>
+				<h2>⚙️ Setup & Planning (15 minutes)</h2>
+
+				<h3>Step 1: Choose Your Trends</h3>
+				<p>
+					Select
+					<strong>2-3 trends</strong>
+					that work well together and suit your project. Click to select/deselect:
+				</p>
+
+				<a
+					href="./index.html"
+					style="
+						display: inline-block;
+						margin-bottom: 1.2rem;
+						color: var(--accent);
+						text-decoration: underline;
+						font-weight: 500;
+					">
+					← Back to Lesson Overview
+				</a>
+
+				<a
+					href="./demo/index.html"
+					style="
+						display: inline-block;
+						margin-bottom: 1.2rem;
+						color: var(--accent);
+						text-decoration: underline;
+						font-weight: 500;
+					">
+					← Back to Lesson's Examples
+				</a>
+
+				<div class="trend-grid">
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">⛰️</span>
+						<strong>Parallax</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Depth & Movement</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">🪟</span>
+						<strong>Glassmorphism</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Frosted Glass</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">🎚️</span>
+						<strong>Neumorphism</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Soft Embossed</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">🔤</span>
+						<strong>Fluid Typography</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Responsive Text</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">🌓</span>
+						<strong>Dark Mode</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Theme Toggle</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">⚖️</span>
+						<strong>Minimalism</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Clean & Spacious</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">📜</span>
+						<strong>Scrollytelling</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Animated Stories</div>
+					</div>
+					<div class="trend-card" onclick="toggleTrend(this)">
+						<span class="trend-emoji">🧊</span>
+						<strong>3D Effects</strong>
+						<div style="font-size: 0.85rem; margin-top: 0.3rem">Depth & Rotation</div>
+					</div>
+				</div>
+
+				<div class="info-box warning">
+					<strong>💡 Recommended Combinations with Bootstrap:</strong>
+					<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+						<li>
+							<strong>Portfolio/Agency:</strong>
+							Parallax + Fluid Typography + Dark Mode (Bootstrap's data-bs-theme)
+						</li>
+						<li>
+							<strong>Modern Dashboard:</strong>
+							Glassmorphism + Neumorphism + Dark Mode (all Bootstrap components adapt!)
+						</li>
+						<li>
+							<strong>Storytelling Site:</strong>
+							Scrollytelling (Bootstrap cards) + Parallax + Minimalism (Bootstrap utilities)
+						</li>
+						<li>
+							<strong>Creative Showcase:</strong>
+							3D Effects (Bootstrap grid) + Glassmorphism (on cards) + Fluid Typography
+						</li>
+					</ul>
+				</div>
+
+				<h3>Step 2: Create Your Working File with Bootstrap</h3>
+				<ol class="step-list">
+					<li>
+						<strong>Navigate to your repository:</strong>
+						<br />
+						<code>cd /path/to/your/repo/modern-web-design-trends</code>
+					</li>
+					<li>
+						<strong>Create a new HTML file:</strong>
+						<br />
+						<code>touch index.html</code>
+						<br />
+						<em style="font-size: 0.9rem; color: var(--text-secondary)">Or enhance an existing page!</em>
+					</li>
+					<li>
+						<strong>Set up HTML5 template with Bootstrap 5.3 CDN:</strong>
+						<br />
+						<div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin-top: 0.5rem">
+							<pre style="font-size: 0.85rem; margin: 0">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My Modern Web Design Project&lt;/title&gt;
+  
+  &lt;!-- Bootstrap 5.3 CSS --&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+  
+  &lt;!-- Your custom CSS --&gt;
+  &lt;style&gt;
+    /* Add custom CSS here */
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Your content using Bootstrap --&gt;
+  
+  &lt;!-- Bootstrap 5.3 JS Bundle --&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+						</div>
+					</li>
+					<li>
+						<strong>Open in your editor and browser:</strong>
+						<br />
+						Side-by-side view with live reload if possible
+					</li>
+				</ol>
+
+				<h3>Step 3: Quick Planning Checklist</h3>
+				<ul class="checklist">
+					<li onclick="toggleCheck(this)">I've selected 2-3 trends that work well together</li>
+					<li onclick="toggleCheck(this)">I have the demo files open as reference</li>
+					<li onclick="toggleCheck(this)">My HTML file is created with Bootstrap 5.3 CDN links</li>
+					<li onclick="toggleCheck(this)">I understand which Bootstrap utilities I'll use</li>
+					<li onclick="toggleCheck(this)">I have a clear idea of what content to create</li>
+					<li onclick="toggleCheck(this)">I've noted which techniques (Bootstrap + custom CSS) to focus on</li>
+				</ul>
+			</div>
+
+			<!-- Phase 2: Build -->
+			<div class="card">
+				<span class="phase-indicator practice">Phase 2</span>
+				<h2>🔨 Build Your Page (75 minutes)</h2>
+
+				<div class="info-box">
+					<strong>⏱️ Time Management:</strong>
+					Spend roughly 25-30 minutes per trend. It's better to implement 2 trends
+					<em>well</em>
+					than 4 trends
+					<em>poorly</em>
+					.
+				</div>
+
+				<h3>Building Process</h3>
+
+				<ol class="step-list">
+					<li>
+						<strong>Start with Bootstrap HTML Structure (10 min)</strong>
+						<br />
+						Create semantic HTML using Bootstrap components and grid. Keep it simple initially—you can always add more.
+						<div class="info-box" style="margin-top: 0.8rem">
+							<strong>Suggested Bootstrap structure:</strong>
+							<ul style="margin-left: 1rem; margin-top: 0.5rem">
+								<li>Header with <code>container</code> and <code>row</code></li>
+								<li>Hero section using <code>d-flex align-items-center</code></li>
+								<li>2-4 content sections with <code>py-5</code> spacing</li>
+								<li>Bootstrap <code>card</code> components for content blocks</li>
+								<li>Footer with <code>bg-dark text-white</code></li>
+							</ul>
+						</div>
+					</li>
+
+					<li>
+						<strong>Implement Trend #1 with Bootstrap (25 min)</strong>
+						<br />
+						<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+							<li>Open the corresponding demo file for reference</li>
+							<li>Note which <strong>Bootstrap utilities</strong> are used (grid, spacing, colors, etc.)</li>
+							<li>Copy the <strong>custom CSS</strong> technique that extends Bootstrap</li>
+							<li>Adapt it to your content using Bootstrap's component structure</li>
+							<li>Test Bootstrap's responsive breakpoints (sm, md, lg, xl)</li>
+							<li>Ensure accessibility (motion preferences, contrast, etc.)</li>
+						</ul>
+					</li>
+
+					<li>
+						<strong>Implement Trend #2 (25 min)</strong>
+						<br />
+						Same process as Trend #1. Make sure it
+						<em>complements</em>
+						rather than conflicts with your first trend.
+					</li>
+
+					<li>
+						<strong>Implement Trend #3 (Optional, 25 min)</strong>
+						<br />
+						If time permits and you've completed 2 trends solidly, add a third. Otherwise, use this time to polish and refine.
+					</li>
+
+					<li>
+						<strong>Polish & Refine (10 min)</strong>
+						<br />
+						<ul style="margin-left: 1.5rem; margin-top: 0.5rem">
+							<li>Adjust spacing and alignment</li>
+							<li>Fine-tune colors and transitions</li>
+							<li>Test all interactive elements</li>
+							<li>Verify responsive behavior</li>
+							<li>Check browser DevTools for errors</li>
+						</ul>
+					</li>
+				</ol>
+
+				<h3>Implementation Checklist</h3>
+				<p style="margin-bottom: 1rem">Use this as you work. Check off items as you complete them:</p>
+
+				<ul class="checklist">
+					<li onclick="toggleCheck(this)">
+						<strong>HTML:</strong>
+						Semantic structure with proper headings and sections
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>CSS Organization:</strong>
+						Well-organized styles with clear comments
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Trend #1:</strong>
+						Core technique implemented and working
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Trend #2:</strong>
+						Core technique implemented and working
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Trend #3:</strong>
+						(Optional) Core technique implemented and working
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Responsiveness:</strong>
+						Tested on mobile (320px) and desktop (1920px)
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Accessibility:</strong>
+						Sufficient contrast, respects reduced motion
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Performance:</strong>
+						Page loads quickly, animations are smooth
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Browser Testing:</strong>
+						Works in Chrome/Firefox/Safari
+					</li>
+					<li onclick="toggleCheck(this)">
+						<strong>Code Quality:</strong>
+						Clean, commented, follows best practices
+					</li>
+				</ul>
+
+				<div class="info-box warning">
+					<strong>⚠️ Common Pitfalls to Avoid:</strong>
+					<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+						<li>Copying entire demo files without understanding the code</li>
+						<li>Ignoring mobile/responsive considerations</li>
+						<li>Forgetting accessibility (contrast, motion preferences)</li>
+						<li>Over-animating (less is more!)</li>
+						<li>Not testing on different screen sizes</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Phase 3: Critical Reflection -->
+			<div class="card">
+				<span class="phase-indicator reflect">Phase 3</span>
+				<h2>💭 Critical Reflection (30 minutes)</h2>
+
+				<p>
+					Following the
+					<strong>Atelier methodology</strong>
+					, critical reflection is essential. Take time to analyze your work thoughtfully.
+				</p>
+
+				<h3>Reflection Questions</h3>
+				<p style="margin-bottom: 1rem">
+					Write answers to these questions in a new file (
+					<code>reflection.md</code>
+					) or in comments at the bottom of your HTML:
+				</p>
+
+				<div class="info-box">
+					<strong>1. Design Intent & Effectiveness (10 min)</strong>
+					<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+						<li>
+							<strong>Why did you choose these specific trends?</strong>
+							What story or experience were you trying to create?
+						</li>
+						<li>
+							<strong>Do they enhance user understanding or just add visual appeal?</strong>
+							Be honest!
+						</li>
+						<li>
+							<strong>What worked well?</strong>
+							What aspects are you proud of?
+						</li>
+						<li>
+							<strong>What didn't work as expected?</strong>
+							What would you change?
+						</li>
+					</ul>
+				</div>
+
+				<div class="info-box">
+					<strong>2. Accessibility & Inclusivity (10 min)</strong>
+					<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+						<li>
+							<strong>Who might struggle with your design choices?</strong>
+							Consider users with motion sensitivity, visual impairments, or older devices.
+						</li>
+						<li>
+							<strong>Did you test with reduced motion preferences?</strong>
+							How does your page adapt?
+						</li>
+						<li>
+							<strong>Is text readable?</strong>
+							Check contrast ratios with WebAIM or Chrome DevTools.
+						</li>
+						<li>
+							<strong>Can users control the experience?</strong>
+							(e.g., pause animations, toggle dark mode)
+						</li>
+					</ul>
+				</div>
+
+				<div class="info-box">
+					<strong>3. Technical Learning & Growth (10 min)</strong>
+					<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+						<li>
+							<strong>What new CSS properties or techniques did you learn?</strong>
+						</li>
+						<li>
+							<strong>What was most challenging?</strong>
+							How did you solve it?
+						</li>
+						<li>
+							<strong>What resources did you use?</strong>
+							(Demo files, MDN, StackOverflow, etc.)
+						</li>
+						<li>
+							<strong>If you were to do this again, what would you do differently?</strong>
+						</li>
+						<li>
+							<strong>How could you simplify your implementation?</strong>
+							Could you achieve the same effect with less code?
+						</li>
+					</ul>
+				</div>
+
+				<h3>Document Your Work</h3>
+				<p style="margin-bottom: 1rem">Create a brief documentation of your exercise. You can use this structure:</p>
+
+				<div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 8px">
+					<pre style="white-space: pre-wrap; font-family: monospace; font-size: 0.9rem; line-height: 1.6">
+# Modern Web Design Trends - Practice Exercise
+
+## Selected Trends
+- [List the 2-3 trends you implemented]
+
+## Implementation Summary
+- **Time spent:** [e.g., 2 hours]
+- **Main techniques used:** [e.g., CSS clamp(), backdrop-filter, etc.]
+- **Challenges faced:** [Brief description]
+
+## Design Intent
+[Why these trends? What experience did you want to create?]
+
+## Accessibility Considerations
+[How did you ensure inclusive design?]
+
+## Key Learnings
+[What did you learn? What surprised you?]
+
+## Next Steps
+[What would you improve or add if you had more time?]
+
+## Links
+- **Live page:** [Link to your page]
+- **Repository:** [Link to your repo]
+					</pre>
+				</div>
+			</div>
+
+			<!-- Submission & Next Steps -->
+			<div class="card">
+				<h2>✅ Submission & Next Steps</h2>
+
+				<h3>Final Checklist</h3>
+				<ul class="checklist">
+					<li onclick="toggleCheck(this)">My HTML file is complete and functional</li>
+					<li onclick="toggleCheck(this)">Code is clean, organized, and commented</li>
+					<li onclick="toggleCheck(this)">Page tested on multiple screen sizes</li>
+					<li onclick="toggleCheck(this)">Accessibility checked (contrast, motion, keyboard nav)</li>
+					<li onclick="toggleCheck(this)">Reflection questions answered in reflection.md</li>
+					<li onclick="toggleCheck(this)">Files committed to my repository</li>
+					<li onclick="toggleCheck(this)">Ready to share or present my work</li>
+				</ul>
+
+				<div class="info-box success">
+					<strong>🎉 Congratulations!</strong>
+					You've completed the Modern Web Design Trends exercise. You've not only learned new techniques but also practiced
+					critical reflection—a key skill for thoughtful designers.
+				</div>
+
+				<h3>Optional Extensions</h3>
+				<p>If you want to continue learning:</p>
+				<ul style="margin-left: 1.5rem">
+					<li>
+						<strong>Combine more trends:</strong>
+						Try implementing all 8 trends across multiple pages
+					</li>
+					<li>
+						<strong>Enhance interactivity:</strong>
+						Add JavaScript for more dynamic effects
+					</li>
+					<li>
+						<strong>Build a complete site:</strong>
+						Create 3-5 pages using different trend combinations
+					</li>
+					<li>
+						<strong>Performance optimization:</strong>
+						Use Lighthouse to audit and improve scores
+					</li>
+					<li>
+						<strong>Cross-browser testing:</strong>
+						Test thoroughly in Edge, Safari, Firefox
+					</li>
+					<li>
+						<strong>Share your work:</strong>
+						Deploy to GitHub Pages or Netlify and share with peers
+					</li>
+				</ul>
+
+				<div class="info-box">
+					<strong>📚 Additional Resources:</strong>
+					<ul style="margin-top: 0.5rem; margin-left: 1.5rem">
+						<li>
+							<a href="https://developer.mozilla.org/en-US/" target="_blank">MDN Web Docs</a>
+							- Comprehensive CSS reference
+						</li>
+						<li>
+							<a href="https://www.awwwards.com/" target="_blank">Awwwards</a>
+							- Design inspiration and trends
+						</li>
+						<li>
+							<a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker</a>
+							- Test color accessibility
+						</li>
+						<li>
+							<a href="https://www.typewolf.com/" target="_blank">Typewolf</a>
+							- Typography inspiration
+						</li>
+						<li>
+							<a href="https://cssgradient.io/" target="_blank">CSS Gradient</a>
+							- Gradient generator
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<footer>
+				<p>
+					<strong>Atelier Web Foundations</strong>
+					- Modern Web Design Trends Exercise
+					<br />
+					Remember: Trends are tools for communication. Use them thoughtfully, not just because they're popular.
+				</p>
+				<p style="margin-top: 1rem; font-size: 0.85rem">
+					💡 Questions or want to share your work? Discuss with your instructor or peers!
+				</p>
+			</footer>
+		</div>
+
+		<script>
+			// Toggle trend card selection
+			function toggleTrend(card) {
+				card.classList.toggle('selected');
+				const selected = document.querySelectorAll('.trend-card.selected').length;
+
+				// Optional: limit to 3 selections
+				if (selected > 3) {
+					alert('💡 Tip: Start with 2-3 trends for best results!');
+				}
+			}
+
+			// Toggle checklist items
+			function toggleCheck(item) {
+				item.classList.toggle('completed');
+
+				// Save state to localStorage
+				const checklistState = Array.from(document.querySelectorAll('.checklist li')).map((li) =>
+					li.classList.contains('completed')
+				);
+				localStorage.setItem('exerciseChecklist', JSON.stringify(checklistState));
+			}
+
+			// Restore checklist state from localStorage
+			window.addEventListener('DOMContentLoaded', () => {
+				const savedState = localStorage.getItem('exerciseChecklist');
+				if (savedState) {
+					const state = JSON.parse(savedState);
+					const items = document.querySelectorAll('.checklist li');
+					state.forEach((completed, index) => {
+						if (completed && items[index]) {
+							items[index].classList.add('completed');
+						}
+					});
+				}
+			});
+
+			// Optional: Add keyboard shortcuts for power users
+			document.addEventListener('keypress', (e) => {
+				if (e.key === 'r' && e.ctrlKey) {
+					// Ctrl+R to reset checklist
+					if (confirm('Reset all checklist items?')) {
+						document.querySelectorAll('.checklist li').forEach((li) => {
+							li.classList.remove('completed');
+						});
+						localStorage.removeItem('exerciseChecklist');
+					}
+					e.preventDefault();
+				}
+			});
+
+			// Add animation on scroll for demonstration
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.style.opacity = '1';
+							entry.target.style.transform = 'translateY(0)';
+						}
+					});
+				},
+				{ threshold: 0.1 }
+			);
+
+			// Animate cards on scroll
+			document.querySelectorAll('.card').forEach((card) => {
+				card.style.opacity = '0';
+				card.style.transform = 'translateY(20px)';
+				card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+				observer.observe(card);
+			});
+		</script>
+	</body>
+</html>

@@ -503,6 +503,21 @@
    en: complete
   category: bootstrap
 
+- slug: bootstrap-modern-web-design-trends
+  title:
+   es: 'Tendencias de Diseño Web Moderno con Bootstrap: Guía Práctica para Estudiantes'
+   en: 'Modern Web Design Trends with Bootstrap: Practical Guide for Students'
+  path:
+   es: /lessons/es/bootstrap/modern-web-design-trends/
+   en: /lessons/en/bootstrap/modern-web-design-trends/
+  file:
+   es: lessons/es/bootstrap/modern-web-design-trends/index.md
+   en: lessons/en/bootstrap/modern-web-design-trends/index.md
+  status:
+   es: complete
+   en: complete
+  category: bootstrap
+
 - slug: metadata-visual-identity-web
   title:
    es: 'Metadatos e identidad visual en la documentación web'

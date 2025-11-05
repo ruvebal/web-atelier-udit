@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Module 5: Dark Mode with Bootstrap</title>
+	
+	<!-- Bootstrap 5.3 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Bootstrap Icons -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+	
+	<style>
+		:root {
+			--transition-speed: 0.3s;
+		}
+
+		body {
+			transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+		}
+
+		/* Theme toggle button */
+		.theme-toggle {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 1030;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.5rem;
+			cursor: pointer;
+			transition: all var(--transition-speed) ease;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		}
+
+		.theme-toggle:hover {
+			transform: scale(1.1) rotate(15deg);
+		}
+
+		/* Smooth transitions for all Bootstrap components */
+		.card, .btn, .alert, .badge, .form-control, .form-select {
+			transition: all var(--transition-speed) ease;
+		}
+
+		/* Code display */
+		.code-box {
+			font-family: 'Courier New', monospace;
+			font-size: 0.85rem;
+			padding: 1.5rem;
+			border-radius: var(--bs-border-radius);
+			overflow-x: auto;
+		}
+
+		/* Demo grid */
+		.component-demo {
+			border: 2px solid var(--bs-border-color);
+			border-radius: var(--bs-border-radius-lg);
+			padding: 2rem;
+			margin-bottom: 1.5rem;
+			transition: border-color var(--transition-speed) ease;
+		}
+
+		/* Comparison section */
+		.comparison-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 1.5rem;
+		}
+
+		@media (max-width: 768px) {
+			.theme-toggle {
+				width: 50px;
+				height: 50px;
+				font-size: 1.2rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Theme Toggle Button -->
+	<button class="theme-toggle btn btn-primary" onclick="toggleTheme()" aria-label="Toggle theme">
+		<i class="bi bi-moon-stars-fill" id="theme-icon"></i>
+	</button>
+
+	<!-- Header -->
+	<header class="bg-primary text-white py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto text-center">
+					<h1 class="display-4 fw-bold mb-3">🌓 Module 5: Dark Mode</h1>
+					<p class="lead">Built-in Dark Mode with Bootstrap 5.3</p>
+					<p class="mb-0">
+						<span class="badge bg-light text-primary">Bootstrap 5.3</span>
+						<span class="badge bg-light text-primary">data-bs-theme</span>
+						<span class="badge bg-light text-primary">No Extra CSS</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Introduction -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<div class="alert alert-success" role="alert">
+						<h4 class="alert-heading">
+							<i class="bi bi-check-circle-fill"></i> Bootstrap 5.3's Built-in Dark Mode
+						</h4>
+						<p class="mb-0">
+							Bootstrap 5.3 introduces native dark mode support! Simply set <code>data-bs-theme="dark"</code> on the 
+							<code>&lt;html&gt;</code> element, and ALL Bootstrap components automatically adapt. No extra CSS required!
+						</p>
+					</div>
+
+					<div class="card shadow-sm mb-4">
+						<div class="card-body p-4">
+							<h2 class="h4 card-title mb-3">How It Works</h2>
+							<p>Bootstrap 5.3 uses the <code>data-bs-theme</code> attribute to control the theme:</p>
+							
+							<div class="code-box bg-dark text-light mb-3">
+&lt;!-- Light mode (default) --&gt;<br>
+&lt;html lang="en" data-bs-theme="light"&gt;<br>
+<br>
+&lt;!-- Dark mode --&gt;<br>
+&lt;html lang="en" data-bs-theme="dark"&gt;<br>
+<br>
+&lt;!-- Auto (follows OS preference) --&gt;<br>
+&lt;html lang="en" data-bs-theme="auto"&gt;
+							</div>
+
+							<h3 class="h5 mt-4 mb-3">JavaScript Toggle</h3>
+							<div class="code-box bg-dark text-light">
+function toggleTheme() {<br>
+&nbsp;&nbsp;const html = document.documentElement;<br>
+&nbsp;&nbsp;const current = html.getAttribute('data-bs-theme');<br>
+&nbsp;&nbsp;const newTheme = current === 'dark' ? 'light' : 'dark';<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;html.setAttribute('data-bs-theme', newTheme);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// Save to localStorage<br>
+&nbsp;&nbsp;localStorage.setItem('theme', newTheme);<br>
+}
+							</div>
+						</div>
+					</div>
+
+					<div class="row g-4">
+						<div class="col-md-6">
+							<div class="card border-success h-100">
+								<div class="card-body">
+									<h4 class="h5 card-title text-success">✅ Advantages</h4>
+									<ul class="mb-0">
+										<li><strong>Zero extra CSS</strong> - works out of the box</li>
+										<li><strong>All components adapt</strong> automatically</li>
+										<li><strong>Consistent design</strong> across your site</li>
+										<li><strong>Easy to implement</strong> - one attribute</li>
+										<li><strong>Persistent</strong> - save with localStorage</li>
+										<li><strong>Respects user choice</strong> - manual or auto</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card border-info h-100">
+								<div class="card-body">
+									<h4 class="h5 card-title text-info">💡 Best Practices</h4>
+									<ul class="mb-0">
+										<li>Provide manual toggle button</li>
+										<li>Save user preference to localStorage</li>
+										<li>Can detect OS preference with matchMedia</li>
+										<li>Test all components in both modes</li>
+										<li>Ensure custom CSS adapts too</li>
+										<li>Use CSS variables for custom colors</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Component Showcase -->
+	<section class="py-5 bg-body-secondary">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4">Bootstrap Components Adapt Automatically</h2>
+					<p class="lead mb-4">
+						Click the theme toggle button (top right) to see all these components change instantly:
+					</p>
+
+					<!-- Buttons -->
+					<div class="component-demo">
+						<h3 class="h4 mb-3">Buttons</h3>
+						<div class="d-flex flex-wrap gap-2">
+							<button class="btn btn-primary">Primary</button>
+							<button class="btn btn-secondary">Secondary</button>
+							<button class="btn btn-success">Success</button>
+							<button class="btn btn-danger">Danger</button>
+							<button class="btn btn-warning">Warning</button>
+							<button class="btn btn-info">Info</button>
+							<button class="btn btn-light">Light</button>
+							<button class="btn btn-dark">Dark</button>
+							<button class="btn btn-outline-primary">Outline</button>
+						</div>
+					</div>
+
+					<!-- Cards -->
+					<div class="component-demo">
+						<h3 class="h4 mb-3">Cards</h3>
+						<div class="row g-3">
+							<div class="col-md-4">
+								<div class="card">
+									<div class="card-body">
+										<h5 class="card-title">Standard Card</h5>
+										<p class="card-text">Automatically adapts to dark mode</p>
+										<a href="#" class="btn btn-primary btn-sm">Button</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card border-primary">
+									<div class="card-body">
+										<h5 class="card-title">Bordered Card</h5>
+										<p class="card-text">Border colors adapt too</p>
+										<a href="#" class="btn btn-outline-primary btn-sm">Button</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card bg-primary text-white">
+									<div class="card-body">
+										<h5 class="card-title">Colored Card</h5>
+										<p class="card-text">Theme colors adjust</p>
+										<a href="#" class="btn btn-light btn-sm">Button</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Forms -->
+					<div class="component-demo">
+						<h3 class="h4 mb-3">Forms</h3>
+						<div class="row g-3">
+							<div class="col-md-6">
+								<label class="form-label">Text Input</label>
+								<input type="text" class="form-control" placeholder="Enter text">
+							</div>
+							<div class="col-md-6">
+								<label class="form-label">Select</label>
+								<select class="form-select">
+									<option>Choose option</option>
+									<option>Option 1</option>
+									<option>Option 2</option>
+								</select>
+							</div>
+							<div class="col-12">
+								<label class="form-label">Textarea</label>
+								<textarea class="form-control" rows="3"></textarea>
+							</div>
+							<div class="col-12">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="check1">
+									<label class="form-check-label" for="check1">
+										Checkbox option
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="radio" id="radio1" checked>
+									<label class="form-check-label" for="radio1">
+										Radio option 1
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="radio" id="radio2">
+									<label class="form-check-label" for="radio2">
+										Radio option 2
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Alerts -->
+					<div class="component-demo">
+						<h3 class="h4 mb-3">Alerts</h3>
+						<div class="alert alert-primary" role="alert">
+							<i class="bi bi-info-circle-fill"></i> Primary alert adapts to theme
+						</div>
+						<div class="alert alert-success" role="alert">
+							<i class="bi bi-check-circle-fill"></i> Success alert looks great in both modes
+						</div>
+						<div class="alert alert-warning" role="alert">
+							<i class="bi bi-exclamation-triangle-fill"></i> Warning alert maintains visibility
+						</div>
+						<div class="alert alert-danger mb-0" role="alert">
+							<i class="bi bi-x-circle-fill"></i> Danger alert ensures readability
+						</div>
+					</div>
+
+					<!-- Badges & Lists -->
+					<div class="component-demo">
+						<h3 class="h4 mb-3">Badges & Lists</h3>
+						<div class="mb-3">
+							<span class="badge bg-primary">Primary</span>
+							<span class="badge bg-secondary">Secondary</span>
+							<span class="badge bg-success">Success</span>
+							<span class="badge bg-danger">Danger</span>
+							<span class="badge bg-warning text-dark">Warning</span>
+							<span class="badge bg-info text-dark">Info</span>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item">Standard list item</li>
+							<li class="list-group-item active">Active list item</li>
+							<li class="list-group-item">Another list item</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Implementation Guide: Bootstrap's Built-in Method -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4">Bootstrap 5.3 Dark Mode: Complete Implementation</h2>
+
+					<div class="alert alert-success" role="alert">
+						<h4 class="alert-heading">
+							<i class="bi bi-check-circle-fill"></i> Why Bootstrap's Method is Best
+						</h4>
+						<p class="mb-0">
+							Bootstrap 5.3's <code>data-bs-theme</code> attribute is the recommended approach for Bootstrap projects because 
+							ALL components (buttons, forms, cards, nav, etc.) automatically adapt with zero extra CSS. This ensures perfect 
+							consistency across your entire site.
+						</p>
+					</div>
+
+					<div class="card shadow-sm mb-4">
+						<div class="card-body p-4">
+							<h3 class="h5 mb-3">Step 1: Set initial theme on HTML element</h3>
+							<div class="code-box bg-dark text-light mb-4">
+&lt;!-- In your HTML file --&gt;<br>
+&lt;html lang="en" data-bs-theme="light"&gt;
+							</div>
+
+							<h3 class="h5 mb-3">Step 2: Create a toggle button</h3>
+							<div class="code-box bg-dark text-light mb-4">
+&lt;button class="btn btn-primary" onclick="toggleTheme()"&gt;<br>
+&nbsp;&nbsp;&lt;i class="bi bi-moon-stars-fill" id="theme-icon"&gt;&lt;/i&gt;<br>
+&lt;/button&gt;
+							</div>
+
+							<h3 class="h5 mb-3">Step 3: JavaScript to toggle theme</h3>
+							<div class="code-box bg-dark text-light mb-4">
+function toggleTheme() {<br>
+&nbsp;&nbsp;// 1. Get current theme<br>
+&nbsp;&nbsp;const html = document.documentElement;<br>
+&nbsp;&nbsp;const currentTheme = html.getAttribute('data-bs-theme');<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 2. Switch between dark and light<br>
+&nbsp;&nbsp;const newTheme = currentTheme === 'dark' ? 'light' : 'dark';<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 3. Apply new theme (ALL Bootstrap components update instantly!)<br>
+&nbsp;&nbsp;html.setAttribute('data-bs-theme', newTheme);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 4. Save to localStorage so it persists<br>
+&nbsp;&nbsp;localStorage.setItem('theme', newTheme);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// 5. Update button icon<br>
+&nbsp;&nbsp;updateThemeIcon(newTheme);<br>
+}
+							</div>
+
+							<h3 class="h5 mb-3">Step 4: Load saved theme on page load</h3>
+							<div class="code-box bg-dark text-light mb-4">
+window.addEventListener('DOMContentLoaded', () => {<br>
+&nbsp;&nbsp;// Get saved theme from localStorage<br>
+&nbsp;&nbsp;const savedTheme = localStorage.getItem('theme');<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;if (savedTheme) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Apply saved theme<br>
+&nbsp;&nbsp;&nbsp;&nbsp;document.documentElement.setAttribute('data-bs-theme', savedTheme);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;updateThemeIcon(savedTheme);<br>
+&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Optional: Detect OS preference for first visit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (prefersDark.matches) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.documentElement.setAttribute('data-bs-theme', 'dark');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updateThemeIcon('dark');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+});
+							</div>
+
+							<h3 class="h5 mb-3">Step 5: Update icon helper function</h3>
+							<div class="code-box bg-dark text-light">
+function updateThemeIcon(theme) {<br>
+&nbsp;&nbsp;const icon = document.getElementById('theme-icon');<br>
+&nbsp;&nbsp;if (theme === 'dark') {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;icon.className = 'bi bi-sun-fill'; // Show sun in dark mode<br>
+&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;icon.className = 'bi bi-moon-stars-fill'; // Show moon in light mode<br>
+&nbsp;&nbsp;}<br>
+}
+							</div>
+						</div>
+					</div>
+
+					<div class="card border-info mb-4">
+						<div class="card-body">
+							<h4 class="h5 card-title text-info">
+								<i class="bi bi-magic"></i> What Makes Bootstrap's Method Special
+							</h4>
+							<ul class="mb-0">
+								<li><strong>Zero extra CSS:</strong> All Bootstrap components adapt automatically</li>
+								<li><strong>One line changes everything:</strong> <code>data-bs-theme="dark"</code></li>
+								<li><strong>Consistent colors:</strong> Uses Bootstrap's color system</li>
+								<li><strong>Easy to customize:</strong> Override CSS custom properties if needed</li>
+								<li><strong>Can apply to sections:</strong> Different themes on different parts of the page</li>
+								<li><strong>Future-proof:</strong> Bootstrap handles all compatibility</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="alert alert-warning" role="alert">
+						<h4 class="alert-heading">🧠 Atelier Reflection</h4>
+						<p class="mb-0">
+							Dark mode reduces eye strain and saves battery on OLED screens. But consider: Should dark mode be default, 
+							or should you respect OS preferences? How do you ensure all custom content (not just Bootstrap components) adapts properly? 
+							What about images and media - do they need different versions for dark mode?
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-4">
+		<div class="container">
+			<p class="mb-2">
+				<strong>Modern Web Design Trends with Bootstrap</strong> - Module 5: Dark Mode
+			</p>
+			<p class="small mb-0">
+				Built with Bootstrap 5.3 • Click the toggle button (top right) to switch themes
+			</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5.3 JS Bundle -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		// Theme toggle function
+		function toggleTheme() {
+			const html = document.documentElement;
+			const currentTheme = html.getAttribute('data-bs-theme');
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+			html.setAttribute('data-bs-theme', newTheme);
+			localStorage.setItem('theme', newTheme);
+			updateThemeIcon(newTheme);
+
+			console.log(`Theme switched to: ${newTheme}`);
+		}
+
+		// Update theme icon
+		function updateThemeIcon(theme) {
+			const icon = document.getElementById('theme-icon');
+			if (theme === 'dark') {
+				icon.className = 'bi bi-sun-fill';
+			} else {
+				icon.className = 'bi bi-moon-stars-fill';
+			}
+		}
+
+		// Load saved theme on page load
+		window.addEventListener('DOMContentLoaded', () => {
+			const savedTheme = localStorage.getItem('theme');
+			
+			if (savedTheme) {
+				document.documentElement.setAttribute('data-bs-theme', savedTheme);
+				updateThemeIcon(savedTheme);
+				console.log(`Loaded saved theme: ${savedTheme}`);
+			} else {
+				// Optional: Detect OS preference
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+				if (prefersDark.matches) {
+					document.documentElement.setAttribute('data-bs-theme', 'dark');
+					updateThemeIcon('dark');
+					console.log('Using OS dark mode preference');
+				}
+			}
+		});
+
+		// Listen for OS preference changes
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+		prefersDark.addEventListener('change', (e) => {
+			if (!localStorage.getItem('theme')) {
+				const newTheme = e.matches ? 'dark' : 'light';
+				document.documentElement.setAttribute('data-bs-theme', newTheme);
+				updateThemeIcon(newTheme);
+				console.log(`OS preference changed to: ${newTheme}`);
+			}
+		});
+
+		console.log('🌓 Dark Mode Demo with Bootstrap 5.3 Loaded');
+		console.log('💡 Bootstrap 5.3 includes built-in dark mode support!');
+		console.log('🅱️ Just set data-bs-theme="dark" and ALL components adapt');
+		console.log('🔄 Theme persists across page reloads via localStorage');
+		console.log('🎨 Try the toggle button (top right) to switch themes');
+	</script>
+</body>
+</html>

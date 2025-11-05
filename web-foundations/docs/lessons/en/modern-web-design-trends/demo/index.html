@@ -1,239 +1,609 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Web Design Trends - Demo Index</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modern Web Design Trends - Demo Index</title>
+	<style>
+		:root {
+			--bg-primary: #ffffff;
+			--bg-secondary: #f8f9fa;
+			--bg-dark: #1a1a1a;
+			--text-primary: #212529;
+			--text-secondary: #6c757d;
+			--accent: #667eea;
+			--accent-dark: #764ba2;
+			--card-bg: #ffffff;
+			--border-color: #dee2e6;
+		}
 
-        body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-attachment: fixed;
-            min-height: 100vh;
-            padding: 2rem;
-        }
+		[data-theme="dark"] {
+			--bg-primary: #1a1a1a;
+			--bg-secondary: #2d2d2d;
+			--bg-dark: #000000;
+			--text-primary: #e9ecef;
+			--text-secondary: #adb5bd;
+			--card-bg: #2d2d2d;
+			--border-color: #495057;
+		}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-        }
+		body {
+			font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+			background: var(--bg-primary);
+			color: var(--text-primary);
+			transition: background 0.3s ease, color 0.3s ease;
+			line-height: 1.6;
+		}
 
-        .header h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
+		/* Hero Section */
+		.hero {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+			padding: 4rem 2rem;
+			text-align: center;
+			position: relative;
+			min-height: 60vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-        .header p {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+		.hero-content {
+			max-width: 1000px;
+			margin: 0 auto;
+		}
 
-        .demo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
+		.hero h1 {
+			font-size: clamp(2.5rem, 6vw, 4rem);
+			margin-bottom: 1rem;
+			font-weight: 700;
+		}
 
-        .demo-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+		.hero-subtitle {
+			font-size: clamp(1.2rem, 3vw, 1.8rem);
+			margin-bottom: 1.5rem;
+			opacity: 0.95;
+		}
 
-        .demo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-        }
+		.hero-description {
+			font-size: clamp(1rem, 2vw, 1.2rem);
+			margin-bottom: 2rem;
+			opacity: 0.9;
+			max-width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 
-        .demo-number {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
+		.badges {
+			display: flex;
+			gap: 1rem;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
 
-        .demo-card h2 {
-            color: #667eea;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
+		.badge {
+			background: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(10px);
+			padding: 0.5rem 1.5rem;
+			border-radius: 50px;
+			font-size: 0.95rem;
+			font-weight: 500;
+		}
 
-        .demo-card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
+		/* Theme Toggle */
+		.theme-toggle {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 1000;
+			background: var(--card-bg);
+			border: 2px solid var(--border-color);
+			color: var(--text-primary);
+			width: 56px;
+			height: 56px;
+			border-radius: 50%;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.5rem;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			transition: all 0.3s ease;
+		}
 
-        .demo-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
+		.theme-toggle:hover {
+			transform: scale(1.1);
+		}
 
-        .tag {
-            background: #f0f0f0;
-            color: #555;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-        }
+		/* Introduction */
+		.intro {
+			background: var(--bg-secondary);
+			padding: 3rem 2rem;
+		}
 
-        .footer {
-            text-align: center;
-            color: white;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 16px;
-            margin-top: 3rem;
-        }
+		.intro-content {
+			max-width: 1000px;
+			margin: 0 auto;
+		}
 
-        .footer a {
-            color: white;
-            text-decoration: underline;
-        }
+		.info-box {
+			background: #d4edda;
+			border-left: 4px solid #28a745;
+			padding: 1.5rem;
+			border-radius: 8px;
+			color: #155724;
+		}
 
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
+		[data-theme="dark"] .info-box {
+			background: #1e4620;
+			color: #d4edda;
+		}
 
-            .demo-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+		.info-box h3 {
+			margin-bottom: 1rem;
+		}
+
+		.info-box ul {
+			margin-left: 1.5rem;
+		}
+
+		.info-box li {
+			margin-bottom: 0.5rem;
+		}
+
+		/* Demo Grid */
+		.demos {
+			padding: 4rem 2rem;
+			max-width: 1400px;
+			margin: 0 auto;
+		}
+
+		.demo-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+			gap: 2rem;
+		}
+
+		.demo-card {
+			background: var(--card-bg);
+			border: 2px solid var(--border-color);
+			border-radius: 16px;
+			padding: 2rem;
+			text-decoration: none;
+			color: var(--text-primary);
+			display: block;
+			transition: all 0.3s ease;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		.demo-card:hover {
+			transform: translateY(-8px);
+			border-color: var(--accent);
+			box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
+		}
+
+		.demo-icon {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+			display: block;
+		}
+
+		.demo-card h3 {
+			color: var(--accent);
+			font-size: 1.5rem;
+			margin-bottom: 0.75rem;
+		}
+
+		.demo-card p {
+			color: var(--text-secondary);
+			margin-bottom: 1rem;
+			line-height: 1.6;
+		}
+
+		.demo-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+
+		.tag {
+			background: var(--accent);
+			color: white;
+			padding: 0.25rem 0.75rem;
+			border-radius: 20px;
+			font-size: 0.85rem;
+		}
+
+		.tag.secondary {
+			background: var(--text-secondary);
+		}
+
+		/* How to Use */
+		.how-to-use {
+			background: var(--bg-secondary);
+			padding: 4rem 2rem;
+		}
+
+		.how-to-content {
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		.how-to-content h2 {
+			text-align: center;
+			font-size: 2.5rem;
+			margin-bottom: 3rem;
+			color: var(--text-primary);
+		}
+
+		.steps {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.step {
+			background: var(--card-bg);
+			border: 2px solid var(--accent);
+			border-radius: 12px;
+			padding: 2rem;
+			text-align: center;
+		}
+
+		.step-number {
+			width: 60px;
+			height: 60px;
+			background: var(--accent);
+			color: white;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.5rem;
+			font-weight: bold;
+			margin: 0 auto 1rem;
+		}
+
+		.step h3 {
+			margin-bottom: 0.75rem;
+			color: var(--text-primary);
+		}
+
+		.step p {
+			color: var(--text-secondary);
+		}
+
+		.pro-tip {
+			background: #fff3cd;
+			border-left: 4px solid #ffc107;
+			padding: 1.5rem;
+			border-radius: 8px;
+			color: #856404;
+			margin-top: 2rem;
+		}
+
+		[data-theme="dark"] .pro-tip {
+			background: #4a3e1a;
+			color: #fff3cd;
+		}
+
+		.pro-tip h4 {
+			margin-bottom: 0.75rem;
+		}
+
+		/* Footer */
+		.footer {
+			background: var(--bg-dark);
+			color: white;
+			padding: 3rem 2rem;
+			text-align: center;
+		}
+
+		.footer-content {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		.footer h3 {
+			margin-bottom: 1rem;
+		}
+
+		.footer p {
+			opacity: 0.8;
+			margin-bottom: 0.5rem;
+		}
+
+		.footer a {
+			color: var(--accent);
+			text-decoration: underline;
+		}
+
+		@media (max-width: 768px) {
+			.hero {
+				padding: 3rem 1.5rem;
+				min-height: 50vh;
+			}
+
+			.demos {
+				padding: 2rem 1rem;
+			}
+
+			.demo-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.theme-toggle {
+				top: 10px;
+				right: 10px;
+				width: 48px;
+				height: 48px;
+			}
+		}
+	</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎨 Modern Web Design Trends</h1>
-            <p>Interactive demos for all 8 modules. Click any card to explore hands-on examples!</p>
-        </div>
+	<!-- Theme Toggle -->
+	<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+		<span id="theme-icon">🌙</span>
+	</button>
 
-        <div class="demo-grid">
-            <a href="01-parallax-scrolling.html" class="demo-card">
-                <div class="demo-number">1</div>
-                <h2>Parallax Scrolling</h2>
-                <p>Adding depth like a movie. Learn how backgrounds move slower than foreground content to create immersive depth effects.</p>
-                <div class="demo-tags">
-                    <span class="tag">CSS</span>
-                    <span class="tag">background-attachment</span>
-                    <span class="tag">Depth</span>
-                </div>
-            </a>
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-content">
+			<h1>Modern Web Design Trends</h1>
+			<p class="hero-subtitle">Interactive Demos with Vanilla CSS & JavaScript</p>
+			<p class="hero-description">
+				Explore 8 hands-on demos showing how to implement modern design trends using pure CSS and JavaScript. 
+				No frameworks required - learn the fundamentals!
+			</p>
+			<div class="badges">
+				<span class="badge">Pure CSS</span>
+				<span class="badge">Vanilla JavaScript</span>
+				<span class="badge">8 Interactive Demos</span>
+				<span class="badge">Full Source Code</span>
+			</div>
+		</div>
+	</section>
 
-            <a href="02-glassmorphism.html" class="demo-card">
-                <div class="demo-number">2</div>
-                <h2>Glassmorphism</h2>
-                <p>Frosted glass effects for modern UIs. Explore semi-transparent elements with beautiful blur effects.</p>
-                <div class="demo-tags">
-                    <span class="tag">CSS</span>
-                    <span class="tag">backdrop-filter</span>
-                    <span class="tag">Modern</span>
-                </div>
-            </a>
+	<!-- Introduction -->
+	<section class="intro">
+		<div class="intro-content">
+			<div class="info-box">
+				<h3>✨ What Makes These Demos Special</h3>
+				<p>Each demo shows you how to:</p>
+				<ul>
+					<li>Build modern effects using <strong>vanilla CSS and JavaScript</strong> - no dependencies!</li>
+					<li>Understand the <strong>fundamental techniques</strong> behind popular design trends</li>
+					<li>Follow <strong>accessibility best practices</strong> (prefers-reduced-motion, color contrast, etc.)</li>
+					<li>View <strong>complete, working code</strong> you can learn from and adapt</li>
+					<li>Apply <strong>critical design thinking</strong> following the Atelier methodology</li>
+				</ul>
+			</div>
+		</div>
+	</section>
 
-            <a href="03-neumorphism.html" class="demo-card">
-                <div class="demo-number">3</div>
-                <h2>Neumorphism</h2>
-                <p>Soft 3D shadows for embossed interfaces. Create tactile, pressed-in button effects.</p>
-                <div class="demo-tags">
-                    <span class="tag">CSS</span>
-                    <span class="tag">box-shadow</span>
-                    <span class="tag">Interactive</span>
-                </div>
-            </a>
+	<!-- Demo Cards -->
+	<section class="demos">
+		<div class="demo-grid">
+			<!-- Demo 1 -->
+			<a href="01-parallax-scrolling.html" class="demo-card">
+				<span class="demo-icon">🎬</span>
+				<h3>Parallax Scrolling</h3>
+				<p>
+					Add depth with 3-layer parallax effects. Learn CSS fixed backgrounds and JavaScript-based parallax 
+					with comprehensive accessibility explanations.
+				</p>
+				<div class="demo-tags">
+					<span class="tag">Parallax</span>
+					<span class="tag secondary">3 Techniques</span>
+				</div>
+			</a>
 
-            <a href="04-fluid-typography.html" class="demo-card">
-                <div class="demo-number">4</div>
-                <h2>Fluid Typography</h2>
-                <p>Fonts that scale beautifully. See how text adapts smoothly across all screen sizes with clamp().</p>
-                <div class="demo-tags">
-                    <span class="tag">CSS</span>
-                    <span class="tag">clamp()</span>
-                    <span class="tag">Responsive</span>
-                </div>
-            </a>
+			<!-- Demo 2 -->
+			<a href="02-glassmorphism.html" class="demo-card">
+				<span class="demo-icon">✨</span>
+				<h3>Glassmorphism</h3>
+				<p>
+					Frosted glass effects using backdrop-filter. Create modern, translucent UI elements with proper 
+					fallbacks for older browsers.
+				</p>
+				<div class="demo-tags">
+					<span class="tag">Glass Effect</span>
+					<span class="tag secondary">Blur</span>
+				</div>
+			</a>
 
-            <a href="05-dark-mode.html" class="demo-card">
-                <div class="demo-number">5</div>
-                <h2>Dark Mode Design</h2>
-                <p>Comfortable interfaces for all. Toggle between light and dark themes with smooth transitions.</p>
-                <div class="demo-tags">
-                    <span class="tag">CSS</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Accessibility</span>
-                </div>
-            </a>
+			<!-- Demo 3 -->
+			<a href="03-neumorphism.html" class="demo-card">
+				<span class="demo-icon">🎚️</span>
+				<h3>Neumorphism</h3>
+				<p>
+					Soft 3D shadows for tactile interfaces. Dual shadows create raised and pressed effects for 
+					buttons and form elements.
+				</p>
+				<div class="demo-tags">
+					<span class="tag">Soft UI</span>
+					<span class="tag secondary">Shadows</span>
+				</div>
+			</a>
 
-            <a href="06-minimalism-maximalism.html" class="demo-card">
-                <div class="demo-number">6</div>
-                <h2>Minimalism vs. Maximalism</h2>
-                <p>Less or more? Compare clean, simple designs with bold, expressive ones side by side.</p>
-                <div class="demo-tags">
-                    <span class="tag">Design Philosophy</span>
-                    <span class="tag">Comparison</span>
-                </div>
-            </a>
+			<!-- Demo 4 -->
+			<a href="04-fluid-typography.html" class="demo-card">
+				<span class="demo-icon">🔤</span>
+				<h3>Fluid Typography</h3>
+				<p>
+					Responsive text with CSS clamp(). Create typography that scales smoothly between minimum and 
+					maximum sizes based on viewport width.
+				</p>
+				<div class="demo-tags">
+					<span class="tag">Responsive</span>
+					<span class="tag secondary">clamp()</span>
+				</div>
+			</a>
 
-            <a href="07-scrollytelling.html" class="demo-card">
-                <div class="demo-number">7</div>
-                <h2>Scrollytelling</h2>
-                <p>Stories that unfold. Experience interactive narratives that reveal content as you scroll.</p>
-                <div class="demo-tags">
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Intersection Observer</span>
-                    <span class="tag">Animation</span>
-                </div>
-            </a>
+			<!-- Demo 5 -->
+			<a href="05-dark-mode.html" class="demo-card">
+				<span class="demo-icon">🌓</span>
+				<h3>Dark Mode</h3>
+				<p>
+					Three approaches to dark mode: CSS-only with media queries, JavaScript toggle with localStorage, 
+					and the elegant checkbox method.
+				</p>
+				<div class="demo-tags">
+					<span class="tag">3 Methods</span>
+					<span class="tag secondary">CSS Variables</span>
+				</div>
+			</a>
 
-            <a href="08-3d-web.html" class="demo-card">
-                <div class="demo-number">8</div>
-                <h2>3D on the Web</h2>
-                <p>From flat to immersive. Explore flip cards, rotating cubes, and 3D depth effects.</p>
-                <div class="demo-tags">
-                    <span class="tag">CSS 3D</span>
-                    <span class="tag">transform</span>
-                    <span class="tag">Immersive</span>
-                </div>
-            </a>
-        </div>
+			<!-- Demo 6 -->
+			<a href="06-minimalism-maximalism.html" class="demo-card">
+				<span class="demo-icon">⚖️</span>
+				<h3>Minimalism vs. Maximalism</h3>
+				<p>
+					Two opposite design philosophies. See how spacing, colors, and layout choices create completely 
+					different experiences.
+				</p>
+				<div class="demo-tags">
+					<span class="tag">Design Systems</span>
+					<span class="tag secondary">Philosophy</span>
+				</div>
+			</a>
 
-        <div class="footer">
-            <p><strong>🎓 For Students:</strong> Each demo includes working code examples, best practices, and critical design reflections following the Atelier methodology.</p>
-            <p style="margin-top: 1rem; opacity: 0.8;">These demos are self-contained and can be opened directly in your browser. Experiment, modify, and learn!</p>
-            <p style="margin-top: 1.5rem;"><a href="../index.md">← Back to Lesson</a></p>
-        </div>
-    </div>
+			<!-- Demo 7 -->
+			<a href="07-scrollytelling.html" class="demo-card">
+				<span class="demo-icon">📜</span>
+				<h3>Scrollytelling</h3>
+				<p>
+					Scroll-based narratives using Intersection Observer API. Content reveals as you scroll for 
+					engaging storytelling.
+				</p>
+				<div class="demo-tags">
+					<span class="tag">Scroll</span>
+					<span class="tag secondary">Observer API</span>
+				</div>
+			</a>
+
+			<!-- Demo 8 -->
+			<a href="08-3d-web.html" class="demo-card">
+				<span class="demo-icon">🧊</span>
+				<h3>3D Web Effects</h3>
+				<p>
+					Flip cards and rotating cubes using CSS 3D transforms. Learn perspective, preserve-3d, and 
+					backface-visibility.
+				</p>
+				<div class="demo-tags">
+					<span class="tag">3D Transforms</span>
+					<span class="tag secondary">Flip Cards</span>
+				</div>
+			</a>
+		</div>
+	</section>
+
+	<!-- How to Use -->
+	<section class="how-to-use">
+		<div class="how-to-content">
+			<h2>How to Use These Demos</h2>
+
+			<div class="steps">
+				<div class="step">
+					<div class="step-number">1</div>
+					<h3>Explore</h3>
+					<p>
+						Click any demo to see it in action. Resize your browser to see responsive behavior and 
+						scroll to experience animations.
+					</p>
+				</div>
+
+				<div class="step">
+					<div class="step-number">2</div>
+					<h3>Inspect</h3>
+					<p>
+						Open DevTools (F12) to see the code. Right-click → View Page Source for the complete file. 
+						All demos are self-contained!
+					</p>
+				</div>
+
+				<div class="step">
+					<div class="step-number">3</div>
+					<h3>Adapt</h3>
+					<p>
+						Copy the techniques you like and adapt them to your own projects. Understand the fundamentals, 
+						then customize!
+					</p>
+				</div>
+			</div>
+
+			<div class="pro-tip">
+				<h4>💡 Pro Tip</h4>
+				<p>
+					Each demo is self-contained with all code in one HTML file. This makes it easy to learn from and adapt. 
+					Since these use vanilla CSS and JavaScript, you're learning the foundational techniques that work 
+					everywhere - no framework lock-in!
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="footer-content">
+			<h3>Modern Web Design Trends</h3>
+			<p>
+				All demos built with vanilla CSS & JavaScript - no build tools or frameworks required!
+			</p>
+			<p style="margin-top: 1rem;">
+				Atelier Web Foundations • Built with ❤️ using pure web technologies
+			</p>
+			<p style="margin-top: 1.5rem;">
+				<a href="../index.md">← Back to Lesson</a>
+			</p>
+		</div>
+	</footer>
+
+	<script>
+		// Theme toggle
+		function toggleTheme() {
+			const html = document.documentElement;
+			const currentTheme = html.getAttribute('data-theme');
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+			html.setAttribute('data-theme', newTheme);
+			localStorage.setItem('theme', newTheme);
+			updateThemeIcon(newTheme);
+		}
+
+		function updateThemeIcon(theme) {
+			const icon = document.getElementById('theme-icon');
+			icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+		}
+
+		// Load saved theme
+		window.addEventListener('DOMContentLoaded', () => {
+			const savedTheme = localStorage.getItem('theme');
+			
+			if (savedTheme) {
+				document.documentElement.setAttribute('data-theme', savedTheme);
+				updateThemeIcon(savedTheme);
+			} else {
+				// Detect OS preference
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+				if (prefersDark.matches) {
+					document.documentElement.setAttribute('data-theme', 'dark');
+					updateThemeIcon('dark');
+				}
+			}
+		});
+
+		console.log('🎨 Modern Web Design Trends Demo Index');
+		console.log('✨ All demos use vanilla CSS & JavaScript');
+		console.log('📚 8 interactive demos ready to explore!');
+	</script>
 </body>
 </html>
-

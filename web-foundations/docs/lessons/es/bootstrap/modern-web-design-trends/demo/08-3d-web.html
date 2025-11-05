@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Módulo 8: Efectos 3D con Bootstrap</title>
+	
+	<!-- Bootstrap 5.3 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<style>
+		/* Card giratoria 3D */
+		.flip-container {
+			perspective: 1000px;
+			height: 300px;
+		}
+
+		.flip-card {
+			width: 100%;
+			height: 100%;
+			transform-style: preserve-3d;
+			transition: transform 0.6s;
+			position: relative;
+		}
+
+		.flip-container:hover .flip-card {
+			transform: rotateY(180deg);
+		}
+
+		.flip-front,
+		.flip-back {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			backface-visibility: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: var(--bs-card-border-radius);
+		}
+
+		.flip-back {
+			transform: rotateY(180deg);
+		}
+
+		/* Cubo 3D */
+		.cube-container {
+			perspective: 1000px;
+			height: 300px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.cube {
+			width: 200px;
+			height: 200px;
+			position: relative;
+			transform-style: preserve-3d;
+			animation: rotateCube 20s infinite linear;
+		}
+
+		.cube-face {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2rem;
+			font-weight: bold;
+			opacity: 0.9;
+			border: 2px solid rgba(0, 0, 0, 0.1);
+		}
+
+		.cube-front { transform: translateZ(100px); background: var(--bs-primary); color: white; }
+		.cube-back { transform: rotateY(180deg) translateZ(100px); background: var(--bs-danger); color: white; }
+		.cube-right { transform: rotateY(90deg) translateZ(100px); background: var(--bs-success); color: white; }
+		.cube-left { transform: rotateY(-90deg) translateZ(100px); background: var(--bs-warning); }
+		.cube-top { transform: rotateX(90deg) translateZ(100px); background: var(--bs-info); color: white; }
+		.cube-bottom { transform: rotateX(-90deg) translateZ(100px); background: var(--bs-secondary); color: white; }
+
+		@keyframes rotateCube {
+			from { transform: rotateX(0deg) rotateY(0deg); }
+			to { transform: rotateX(360deg) rotateY(360deg); }
+		}
+	</style>
+</head>
+<body>
+	<!-- Header -->
+	<header class="bg-primary text-white py-5">
+		<div class="container">
+			<h1 class="display-4 fw-bold mb-3">🧊 Módulo 8: Efectos 3D Web</h1>
+			<p class="lead">Usando Grid Bootstrap + Transformaciones 3D CSS</p>
+			<p class="mb-0">
+				<span class="badge bg-light text-primary">Bootstrap 5.3</span>
+				<span class="badge bg-light text-primary">Transformaciones 3D CSS</span>
+				<span class="badge bg-light text-primary">Componentes Card</span>
+			</p>
+		</div>
+	</header>
+
+	<!-- Lo Que Bootstrap Ofrece -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="alert alert-success" role="alert">
+				<h4 class="alert-heading">Lo Que Bootstrap Ofrece para Efectos 3D</h4>
+				<p class="mb-2">Bootstrap proporciona la estructura perfecta para diseños web 3D:</p>
+				<ul class="mb-0">
+					<li><strong>Sistema de grid</strong> – <code>row</code>, <code>col-md-6 col-lg-4</code> para layouts responsivos de elementos 3D</li>
+					<li><strong>Componentes card</strong> – Base perfecta para cards giratorias con <code>card</code>, <code>card-body</code></li>
+					<li><strong>Sistema de colores</strong> – <code>bg-primary</code>, <code>bg-danger</code> para caras 3D vibrantes</li>
+					<li><strong>Utilidades</strong> – <code>h-100</code>, <code>text-white</code>, <code>d-flex</code> para estilizado</li>
+					<li><strong>Propiedades CSS personalizadas</strong> – <code>var(--bs-primary)</code> asegura colores consistentes</li>
+					<li><strong>Border radius</strong> – <code>var(--bs-card-border-radius)</code> para consistencia</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- Cards Giratorias -->
+	<section class="py-5">
+		<div class="container">
+			<h2 class="h1 mb-4">Cards Giratorias 3D con Bootstrap</h2>
+			<p class="lead mb-4">Pasa el cursor sobre las cards para girarlas. El grid y los componentes card de Bootstrap proporcionan la estructura.</p>
+
+			<div class="row g-4 mb-5">
+				<div class="col-md-6 col-lg-4">
+					<div class="flip-container">
+						<div class="card flip-card h-100">
+							<div class="card-body flip-front bg-primary text-white">
+								<h5 class="card-title">Lado Frontal</h5>
+								<p>Pasa el cursor para girar</p>
+							</div>
+							<div class="card-body flip-back bg-danger text-white">
+								<h5 class="card-title">Lado Trasero</h5>
+								<p>¡Usando cards Bootstrap!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-4">
+					<div class="flip-container">
+						<div class="card flip-card h-100">
+							<div class="card-body flip-front bg-success text-white">
+								<h5 class="card-title">Producto</h5>
+								<p>Vista previa interactiva</p>
+							</div>
+							<div class="card-body flip-back bg-warning">
+								<h5 class="card-title">Detalles</h5>
+								<p>Más información aquí</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-4">
+					<div class="flip-container">
+						<div class="card flip-card h-100">
+							<div class="card-body flip-front bg-info text-white">
+								<h5 class="card-title">Característica</h5>
+								<p>Pásame el cursor</p>
+							</div>
+							<div class="card-body flip-back bg-secondary text-white">
+								<h5 class="card-title">Descripción</h5>
+								<p>Bootstrap + CSS 3D</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Cubo 3D -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<h2 class="h1 mb-4 text-center">Cubo 3D Rotatorio</h2>
+			<p class="lead text-center mb-4">Usando colores Bootstrap para cada cara</p>
+
+			<div class="cube-container">
+				<div class="cube">
+					<div class="cube-face cube-front">Frente</div>
+					<div class="cube-face cube-back">Atrás</div>
+					<div class="cube-face cube-right">Derecha</div>
+					<div class="cube-face cube-left">Izquierda</div>
+					<div class="cube-face cube-top">Arriba</div>
+					<div class="cube-face cube-bottom">Abajo</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Guía de Implementación -->
+	<section class="py-5">
+		<div class="container">
+			<h2 class="h1 mb-4">Implementación con Bootstrap</h2>
+
+			<div class="card shadow-sm mb-4">
+				<div class="card-body p-4">
+					<h3 class="h4 mb-3">Estructura HTML usando Bootstrap</h3>
+					<pre class="bg-dark text-light p-3 rounded"><code>&lt;div class="row g-4"&gt;
+  &lt;div class="col-md-6 col-lg-4"&gt;
+    &lt;div class="flip-container"&gt;
+      &lt;div class="card flip-card h-100"&gt;
+        &lt;div class="card-body flip-front bg-primary text-white"&gt;
+          &lt;h5 class="card-title"&gt;Frente&lt;/h5&gt;
+        &lt;/div&gt;
+        &lt;div class="card-body flip-back bg-danger text-white"&gt;
+          &lt;h5 class="card-title"&gt;Atrás&lt;/h5&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+					<h3 class="h4 mt-4 mb-3">CSS para Transformación 3D</h3>
+					<pre class="bg-dark text-light p-3 rounded"><code>.flip-container {
+  perspective: 1000px; /* Crea profundidad */
+  height: 300px;
+}
+
+.flip-card {
+  transform-style: preserve-3d; /* ¡Esencial para 3D! */
+  transition: transform 0.6s;
+}
+
+.flip-container:hover .flip-card {
+  transform: rotateY(180deg); /* Girar al pasar cursor */
+}
+
+.flip-front, .flip-back {
+  backface-visibility: hidden; /* Ocultar lado trasero */
+  border-radius: var(--bs-card-border-radius); /* Radio Bootstrap */
+}</code></pre>
+
+					<h3 class="h4 mt-4 mb-3">Utilidades Bootstrap Usadas</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item"><code>row g-4</code> – Grid responsivo con márgenes</li>
+						<li class="list-group-item"><code>col-md-6 col-lg-4</code> – Columnas responsivas</li>
+						<li class="list-group-item"><code>card</code>, <code>card-body</code> – Estructura de card</li>
+						<li class="list-group-item"><code>h-100</code> – Cards de altura completa</li>
+						<li class="list-group-item"><code>bg-primary</code>, <code>text-white</code> – Colores Bootstrap</li>
+						<li class="list-group-item"><code>var(--bs-card-border-radius)</code> – Propiedad personalizada CSS</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="alert alert-warning" role="alert">
+				<h4 class="alert-heading">🧠 Reflexión Atelier</h4>
+				<p class="mb-0">
+					¿Cuándo el 3D mejora la UX (ej. vistas previas de productos) vs. cuándo es solo adorno visual? ¿Cuál es el costo de rendimiento? 
+					Nota cómo el componente card y el sistema de grid de Bootstrap proporcionan la base perfecta - el framework maneja estructura 
+					y diseño responsivo mientras CSS agrega los efectos 3D.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-4">
+		<div class="container">
+			<p class="mb-0"><strong>Tendencias de Diseño Web Moderno con Bootstrap</strong> - Módulo 8: Efectos 3D Web</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5.3 JS Bundle -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		console.log('🧊 Demo Efectos 3D Web con Bootstrap 5.3 Cargado');
+		console.log('🅱️ Bootstrap proporciona: Grid, Cards, Colores, Utilidades');
+		console.log('✨ Transformaciones 3D CSS agregan: perspective, transform-style, rotateY()');
+		console.log('🎨 Usando sistema de colores Bootstrap: var(--bs-primary), bg-danger, etc.');
+	</script>
+</body>
+</html>
+

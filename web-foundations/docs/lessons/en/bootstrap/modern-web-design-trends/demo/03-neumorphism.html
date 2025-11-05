@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Module 3: Neumorphism with Bootstrap</title>
+	
+	<!-- Bootstrap 5.3 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<style>
+		body {
+			background: #e0e0e0; /* Light gray background essential for neumorphism */
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			min-height: 100vh;
+		}
+
+		/* Neumorphic button extending Bootstrap btn */
+		.neu-button {
+			background: var(--bs-body-bg);
+			color: #555;
+			border: none;
+			border-radius: var(--bs-border-radius-lg);
+			
+			/* Dual shadows create raised effect */
+			box-shadow: 
+				8px 8px 15px rgba(190, 190, 190, 0.8),  /* Dark shadow (bottom-right) */
+				-8px -8px 15px rgba(255, 255, 255, 0.9); /* Light shadow (top-left) */
+			
+			transition: all 0.3s ease;
+		}
+
+		.neu-button:hover {
+			box-shadow: 
+				12px 12px 20px rgba(190, 190, 190, 0.9),
+				-12px -12px 20px rgba(255, 255, 255, 1);
+		}
+
+		.neu-button:active {
+			/* Inset shadows create "pressed" effect */
+			box-shadow: 
+				inset 8px 8px 15px rgba(190, 190, 190, 0.8),
+				inset -8px -8px 15px rgba(255, 255, 255, 0.9);
+			transform: scale(0.98);
+		}
+
+		/* Neumorphic input extending Bootstrap form-control */
+		.neu-input {
+			background: var(--bs-body-bg);
+			border: none;
+			border-radius: var(--bs-border-radius-lg);
+			color: #555;
+			
+			/* Inset shadows - appears recessed */
+			box-shadow: 
+				inset 6px 6px 12px rgba(190, 190, 190, 0.7),
+				inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+			
+			transition: all 0.3s ease;
+		}
+
+		.neu-input:focus {
+			box-shadow: 
+				inset 8px 8px 15px rgba(190, 190, 190, 0.8),
+				inset -8px -8px 15px rgba(255, 255, 255, 0.9);
+			outline: none;
+		}
+
+		/* Neumorphic card extending Bootstrap card */
+		.neu-card {
+			background: var(--bs-body-bg);
+			border: none;
+			border-radius: var(--bs-border-radius-xl);
+			
+			box-shadow: 
+				15px 15px 30px rgba(190, 190, 190, 0.6),
+				-15px -15px 30px rgba(255, 255, 255, 0.8);
+		}
+
+		/* Combined glassmorphism + neumorphism */
+		.neu-glass-card {
+			background: rgba(255, 255, 255, 0.3);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.5);
+			border-radius: var(--bs-border-radius-xl);
+			
+			/* Neumorphic shadows + glass effect */
+			box-shadow: 
+				12px 12px 25px rgba(190, 190, 190, 0.5),
+				-12px -12px 25px rgba(255, 255, 255, 0.7);
+		}
+
+		/* Toggle switch */
+		.neu-toggle {
+			width: 60px;
+			height: 30px;
+			background: var(--bs-body-bg);
+			border-radius: 30px;
+			position: relative;
+			cursor: pointer;
+			
+			box-shadow: 
+				inset 4px 4px 8px rgba(190, 190, 190, 0.7),
+				inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+			
+			transition: all 0.3s ease;
+		}
+
+		.neu-toggle-knob {
+			width: 24px;
+			height: 24px;
+			background: var(--bs-body-bg);
+			border-radius: 50%;
+			position: absolute;
+			top: 3px;
+			left: 3px;
+			
+			box-shadow: 
+				3px 3px 6px rgba(190, 190, 190, 0.8),
+				-3px -3px 6px rgba(255, 255, 255, 0.9);
+			
+			transition: all 0.3s ease;
+		}
+
+		.neu-toggle.active .neu-toggle-knob {
+			left: 33px;
+			background: #667eea;
+		}
+
+		/* Comparison cards */
+		.comparison-card {
+			background: #e0e0e0;
+			border-radius: var(--bs-border-radius);
+			padding: 1rem;
+			min-height: 150px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 600;
+			color: #555;
+			transition: all 0.3s ease;
+		}
+
+		.comparison-flat {
+			background: #e0e0e0;
+			border: 1px solid #ccc;
+		}
+
+		.comparison-raised {
+			box-shadow: 
+				8px 8px 15px rgba(190, 190, 190, 0.8),
+				-8px -8px 15px rgba(255, 255, 255, 0.9);
+		}
+
+		.comparison-pressed {
+			box-shadow: 
+				inset 8px 8px 15px rgba(190, 190, 190, 0.8),
+				inset -8px -8px 15px rgba(255, 255, 255, 0.9);
+		}
+
+		/* Code display */
+		.code-box {
+			background: #2d3748;
+			color: #a0aec0;
+			padding: 1.5rem;
+			border-radius: var(--bs-border-radius);
+			font-family: 'Courier New', monospace;
+			font-size: 0.85rem;
+			overflow-x: auto;
+		}
+
+		/* Header gradient */
+		.header-section {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		}
+
+		@media (max-width: 768px) {
+			.neu-button {
+				font-size: 0.9rem;
+				padding: 0.5rem 1rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Bootstrap Header -->
+	<header class="header-section text-white py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 mx-auto text-center">
+					<h1 class="display-4 fw-bold mb-3">🎚️ Module 3: Neumorphism</h1>
+					<p class="lead">Soft 3D Shadows for Embossed Interfaces - Using Bootstrap 5.3</p>
+					<p class="mb-0">
+						<span class="badge bg-light text-primary">Bootstrap 5.3</span>
+						<span class="badge bg-light text-primary">Dual Shadows</span>
+						<span class="badge bg-light text-primary">Forms & Buttons</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Main Content -->
+	<main class="py-5">
+		<div class="container">
+			<!-- Introduction -->
+			<section class="row mb-5">
+				<div class="col-lg-10 mx-auto">
+					<div class="card neu-card p-5">
+						<h2 class="h1 mb-4" style="color: #555;">What Is Neumorphism?</h2>
+						<p class="lead" style="color: #666;">
+							Neumorphism (a blend of "new" and "skeuomorphism") creates an embossed or "pressed" look using dual shadows. 
+							Elements appear to be gently pressed into or raised from the background, like soft clay.
+						</p>
+						<div class="alert alert-info border-0" role="alert" style="background: rgba(102, 126, 234, 0.1);">
+							<strong>Key Principle:</strong> Background color must match element color for seamless integration. 
+							Bootstrap's <code>var(--bs-body-bg)</code> helps maintain consistency!
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Bootstrap Integration -->
+			<section class="row mb-5">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4" style="color: #555;">Bootstrap + Neumorphism Technique</h2>
+					
+					<div class="card neu-card p-4 mb-4">
+						<h3 class="h4 mb-3" style="color: #667eea;">HTML with Bootstrap:</h3>
+						<div class="code-box">
+&lt;button class="btn neu-button btn-lg"&gt;<br>
+&nbsp;&nbsp;Click Me - Neumorphic Button<br>
+&lt;/button&gt;<br>
+<br>
+&lt;input type="text" class="form-control neu-input"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder="Type here..."&gt;
+						</div>
+
+						<h3 class="h4 mt-4 mb-3" style="color: #667eea;">Custom CSS for Neumorphism:</h3>
+						<div class="code-box">
+.neu-button {<br>
+&nbsp;&nbsp;background: var(--bs-body-bg);<br>
+&nbsp;&nbsp;border-radius: var(--bs-border-radius-lg);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;/* Dual shadows */<br>
+&nbsp;&nbsp;box-shadow: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;8px 8px 15px rgba(190, 190, 190, 0.8),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-8px -8px 15px rgba(255, 255, 255, 0.9);<br>
+}<br>
+<br>
+.neu-button:active {<br>
+&nbsp;&nbsp;/* Inset for pressed effect */<br>
+&nbsp;&nbsp;box-shadow: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;inset 8px 8px 15px rgba(190, 190, 190, 0.8),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inset -8px -8px 15px rgba(255, 255, 255, 0.9);<br>
+}
+						</div>
+					</div>
+
+					<div class="row g-4">
+						<div class="col-md-6">
+							<div class="card neu-card p-4 h-100">
+								<h4 class="h5 mb-3" style="color: #28a745;">✅ Bootstrap Utilities Used</h4>
+								<ul style="color: #666;">
+									<li><code>btn</code>, <code>btn-lg</code> – Button component</li>
+									<li><code>form-control</code> – Form styling</li>
+									<li><code>var(--bs-body-bg)</code> – Color consistency</li>
+									<li><code>var(--bs-border-radius-lg)</code> – Rounded corners</li>
+									<li><code>card</code>, <code>card-body</code> – Card structure</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card neu-card p-4 h-100">
+								<h4 class="h5 mb-3" style="color: #ffc107;">💡 How It Works</h4>
+								<ul style="color: #666;">
+									<li>Two shadows at opposite angles simulate 3D light</li>
+									<li>Dark shadow (bottom-right) = shadow side</li>
+									<li>Light shadow (top-left) = highlighted side</li>
+									<li><code>inset</code> makes shadows go inward (pressed)</li>
+									<li>Bootstrap variables ensure theme consistency</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Interactive Examples -->
+			<section class="row mb-5">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4" style="color: #555;">Interactive Examples</h2>
+					
+					<!-- Buttons -->
+					<div class="card neu-card p-5 mb-4">
+						<h3 class="h4 mb-4" style="color: #667eea;">Neumorphic Buttons</h3>
+						<div class="d-flex flex-wrap gap-3 mb-3">
+							<button class="btn neu-button btn-lg px-5 py-3">
+								Click Me - Feel the Press!
+							</button>
+							<button class="btn neu-button px-4 py-2">
+								Regular Size
+							</button>
+							<button class="btn neu-button btn-sm px-3 py-1">
+								Small
+							</button>
+						</div>
+						<p class="text-muted small mb-0">
+							<strong>Try clicking:</strong> Notice how the shadow changes from outset to inset, creating a pressed effect. 
+							Bootstrap's <code>btn</code> class provides base styling.
+						</p>
+					</div>
+
+					<!-- Form Inputs -->
+					<div class="card neu-card p-5 mb-4">
+						<h3 class="h4 mb-4" style="color: #667eea;">Neumorphic Forms</h3>
+						<div class="row g-3">
+							<div class="col-md-6">
+								<label class="form-label" style="color: #555;">Your Name</label>
+								<input type="text" class="form-control neu-input p-3" placeholder="Enter your name">
+							</div>
+							<div class="col-md-6">
+								<label class="form-label" style="color: #555;">Email Address</label>
+								<input type="email" class="form-control neu-input p-3" placeholder="your@email.com">
+							</div>
+							<div class="col-12">
+								<label class="form-label" style="color: #555;">Message</label>
+								<textarea class="form-control neu-input p-3" rows="4" placeholder="Your message..."></textarea>
+							</div>
+						</div>
+						<p class="text-muted small mt-3 mb-0">
+							<strong>Inset shadows:</strong> Form fields use inset shadows by default, making them appear recessed into the surface. 
+							Bootstrap's <code>form-control</code> provides structure.
+						</p>
+					</div>
+
+					<!-- Toggle Switch -->
+					<div class="card neu-card p-5">
+						<h3 class="h4 mb-4" style="color: #667eea;">Neumorphic Toggle</h3>
+						<div class="d-flex align-items-center gap-3">
+							<div class="neu-toggle" onclick="toggleSwitch(this)">
+								<div class="neu-toggle-knob"></div>
+							</div>
+							<span style="color: #666;">Click to toggle</span>
+						</div>
+						<p class="text-muted small mt-3 mb-0">
+							<strong>Custom component:</strong> Pure CSS toggle switch with neumorphic styling. Combines raised knob with inset track.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Comparison -->
+			<section class="row mb-5">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4" style="color: #555;">Visual Comparison</h2>
+					<div class="row g-4">
+						<div class="col-md-4">
+							<div class="text-center mb-2">
+								<span class="badge bg-secondary">Flat Design</span>
+							</div>
+							<div class="comparison-card comparison-flat">
+								No shadows
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="text-center mb-2">
+								<span class="badge" style="background: #667eea;">Raised (Outset)</span>
+							</div>
+							<div class="comparison-card comparison-raised">
+								Neumorphic Raised
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="text-center mb-2">
+								<span class="badge bg-dark">Pressed (Inset)</span>
+							</div>
+							<div class="comparison-card comparison-pressed">
+								Neumorphic Pressed
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Combined Effect -->
+			<section class="row mb-5">
+				<div class="col-lg-10 mx-auto">
+					<h2 class="h1 mb-4" style="color: #555;">Advanced: Glassmorphism + Neumorphism</h2>
+					<div class="card neu-glass-card p-5">
+						<h3 class="h3 mb-3" style="color: #667eea;">🎨 Hybrid Effect</h3>
+						<p class="lead" style="color: #555;">
+							Combine neumorphic shadows with glassmorphism blur for a futuristic, layered UI. 
+							This technique works best with colorful or textured backgrounds.
+						</p>
+						<div class="alert alert-info border-0 mb-0" style="background: rgba(102, 126, 234, 0.1);">
+							<strong>Pro tip:</strong> Use this for premium product cards, dashboard widgets, or creative portfolios. 
+							The combination creates depth and visual interest while maintaining modern aesthetics.
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Atelier Reflection -->
+			<section class="row">
+				<div class="col-lg-10 mx-auto">
+					<div class="alert alert-warning border-0 p-4" style="background: rgba(255, 193, 7, 0.15);">
+						<h4 class="alert-heading" style="color: #856404;">🧠 Atelier Reflection</h4>
+						<p style="color: #555;">
+							Does the tactile feeling of neumorphism improve user interaction, or does it just add visual complexity? 
+							Consider: How does low contrast affect accessibility? When is this style appropriate vs. when is simpler flat design better?
+						</p>
+						<hr>
+						<p class="mb-0" style="color: #555;">
+							<strong>Bootstrap advantage:</strong> Using CSS custom properties like <code>var(--bs-body-bg)</code> ensures 
+							neumorphic elements adapt to theme changes. If you switch to dark mode, shadows automatically adjust!
+						</p>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<!-- Footer -->
+	<footer class="header-section text-white text-center py-4 mt-5">
+		<div class="container">
+			<p class="mb-2">
+				<strong>Modern Web Design Trends with Bootstrap</strong> - Module 3: Neumorphism
+			</p>
+			<p class="small mb-0">
+				Built with Bootstrap 5.3 • Try clicking buttons and form fields to experience the effects
+			</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5.3 JS Bundle -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		// Toggle switch functionality
+		function toggleSwitch(element) {
+			element.classList.toggle('active');
+		}
+
+		// Log info for learning
+		console.log('🎚️ Neumorphism Demo with Bootstrap 5.3 Loaded');
+		console.log('💡 Tip: Inspect .neu-button and .neu-input to see dual shadows');
+		console.log('🅱️ Bootstrap provides structure, custom CSS adds neumorphic effect');
+		console.log('🎨 Try clicking buttons to see outset → inset shadow transition');
+		console.log('📝 Form fields use inset shadows (recessed appearance)');
+	</script>
+</body>
+</html>

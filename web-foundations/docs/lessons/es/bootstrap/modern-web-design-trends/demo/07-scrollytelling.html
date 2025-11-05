@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Módulo 7: Scrollytelling con Bootstrap</title>
+	
+	<!-- Bootstrap 5.3 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<style>
+		.story-section {
+			opacity: 0;
+			transform: translateY(50px);
+			transition: opacity 0.8s ease, transform 0.8s ease;
+		}
+
+		.story-section.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.story-section:nth-child(2) { transition-delay: 0.1s; }
+		.story-section:nth-child(3) { transition-delay: 0.2s; }
+		.story-section:nth-child(4) { transition-delay: 0.3s; }
+	</style>
+</head>
+<body>
+	<!-- Header -->
+	<header class="bg-primary text-white py-5">
+		<div class="container">
+			<h1 class="display-4 fw-bold mb-3">📜 Módulo 7: Scrollytelling</h1>
+			<p class="lead">Usando Bootstrap + Intersection Observer</p>
+			<p class="mb-0">
+				<span class="badge bg-light text-primary">Bootstrap 5.3</span>
+				<span class="badge bg-light text-primary">Intersection Observer</span>
+				<span class="badge bg-light text-primary">Cards y Grid</span>
+			</p>
+		</div>
+	</header>
+
+	<!-- Lo Que Bootstrap Ofrece -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="alert alert-success" role="alert">
+				<h4 class="alert-heading">Lo Que Bootstrap Ofrece para Scrollytelling</h4>
+				<p class="mb-2">Bootstrap proporciona la base perfecta para narrativas basadas en scroll:</p>
+				<ul class="mb-0">
+					<li><strong>Sistema de grid</strong> – <code>row</code>, <code>col-lg-8 mx-auto</code> para flujo de historia centrado</li>
+					<li><strong>Componentes card</strong> – Secciones pre-estilizadas con <code>card</code>, <code>card-body</code></li>
+					<li><strong>Utilidades de espaciado</strong> – <code>mb-5</code>, <code>py-4</code> para ritmo y cadencia</li>
+					<li><strong>Tipografía</strong> – <code>display-*</code>, <code>lead</code> para jerarquía visual</li>
+					<li><strong>Diseño responsivo</strong> – Funciona en todos los dispositivos automáticamente</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contenido Scrollytelling -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<div class="story-section card shadow-sm mb-5">
+						<div class="card-body p-5">
+							<h2 class="card-title display-5 mb-4">Capítulo 1: El Comienzo</h2>
+							<p class="card-text lead">
+								El contenido aparece al hacer scroll usando la API Intersection Observer combinada con el componente card de Bootstrap.
+							</p>
+							<p class="card-text">
+								<code>col-lg-8 mx-auto</code> de Bootstrap crea una columna centrada para ancho de lectura óptimo, 
+								mientras que <code>card</code> y <code>shadow-sm</code> proporcionan estilo hermoso y consistente.
+							</p>
+						</div>
+					</div>
+
+					<div class="story-section card shadow-sm mb-5">
+						<div class="card-body p-5">
+							<h2 class="card-title display-5 mb-4">Capítulo 2: Desarrollo</h2>
+							<p class="card-text lead">
+								Cada sección se desvanece a medida que haces scroll, creando un flujo narrativo.
+							</p>
+							<p class="card-text">
+								Las utilidades de espaciado de Bootstrap (<code>mb-5</code>, <code>p-5</code>) controlan el ritmo de la historia, 
+								mientras que el sistema de grid asegura que se vea genial en todos los tamaños de pantalla.
+							</p>
+						</div>
+					</div>
+
+					<div class="story-section card shadow-sm mb-5">
+						<div class="card-body p-5">
+							<h2 class="card-title display-5 mb-4">Capítulo 3: Transformación</h2>
+							<p class="card-text lead">
+								La API Intersection Observer detecta cuando las secciones entran en el viewport.
+							</p>
+							<p class="card-text">
+								Bootstrap maneja la estructura y el diseño responsivo, mientras JavaScript agrega las animaciones activadas por scroll.
+								Juntos crean una experiencia de narrativa fluida.
+							</p>
+						</div>
+					</div>
+
+					<div class="story-section card shadow-sm mb-5 border-primary">
+						<div class="card-body p-5">
+							<h2 class="card-title display-5 mb-4 text-primary">Capítulo 4: Conclusión</h2>
+							<p class="card-text lead">
+								Bootstrap + scrollytelling = narrativas atractivas con código mínimo.
+							</p>
+							<p class="card-text">
+								La combinación de componentes de Bootstrap y animaciones de scroll personalizadas crea narrativa profesional y 
+								accesible que funciona en todos los dispositivos.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Ejemplo de Código -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<h2 class="h1 mb-4">Implementación</h2>
+
+			<div class="card shadow-sm mb-4">
+				<div class="card-body p-4">
+					<h3 class="h4 mb-3">HTML con Bootstrap</h3>
+					<pre class="bg-dark text-light p-3 rounded"><code>&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-8 mx-auto"&gt;
+      &lt;div class="story-section card shadow-sm mb-5"&gt;
+        &lt;div class="card-body p-5"&gt;
+          &lt;h2 class="card-title display-5"&gt;Capítulo 1&lt;/h2&gt;
+          &lt;p class="card-text lead"&gt;Contenido...&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+					<h3 class="h4 mt-4 mb-3">JavaScript (Intersection Observer)</h3>
+					<pre class="bg-dark text-light p-3 rounded"><code>const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.2 // Activar cuando sea 20% visible
+});
+
+document.querySelectorAll('.story-section').forEach((section) => {
+  observer.observe(section);
+});</code></pre>
+
+					<h3 class="h4 mt-4 mb-3">CSS (Animaciones)</h3>
+					<pre class="bg-dark text-light p-3 rounded"><code>.story-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.story-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}</code></pre>
+				</div>
+			</div>
+
+			<div class="alert alert-warning" role="alert">
+				<h4 class="alert-heading">🧠 Reflexión Atelier</h4>
+				<p class="mb-0">
+					¿La revelación progresiva mejora la narrativa o distrae del contenido? ¿Cuándo es apropiado el scrollytelling vs. gratuito? 
+					Nota cómo el componente card de Bootstrap proporciona estructura consistente mientras JavaScript agrega la capa interactiva.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-4">
+		<div class="container">
+			<p class="mb-0"><strong>Tendencias de Diseño Web Moderno con Bootstrap</strong> - Módulo 7: Scrollytelling</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5.3 JS Bundle -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		// Intersection Observer para animaciones activadas por scroll
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					console.log('Sección visible:', entry.target.querySelector('.card-title').textContent);
+				}
+			});
+		}, {
+			threshold: 0.2
+		});
+
+		document.querySelectorAll('.story-section').forEach((section) => {
+			observer.observe(section);
+		});
+
+		console.log('📜 Demo Scrollytelling con Bootstrap 5.3 Cargado');
+		console.log('🅱️ Bootstrap proporciona: Grid, Cards, Espaciado, Tipografía');
+		console.log('✨ JavaScript agrega: Intersection Observer para animaciones de scroll');
+	</script>
+</body>
+</html>
+
