@@ -1474,6 +1474,7 @@ You've explored 8 trends! Web design is about communication: trends help you "sp
 ## References
 
 - [Awwwards](https://www.awwwards.com/) – Trend examples and design inspiration
-- [Nielsen Norman Group](https://nngroup.com/) – UX research on dark mode, parallax, and accessibility
+- [Dark Mode vs. Light Mode: Which Is Better?](https://www.nngroup.com/articles/dark-mode/) – UX research on dark mode, parallax, and accessibility
+- [Dark Mode: How Users Think About It and Issues to Avoid](https://www.nngroup.com/articles/dark-mode-users-issues/) – UX research on dark mode, parallax, and accessibility
 - [MDN Web Docs](https://developer.mozilla.org/) – Comprehensive CSS and web API documentation
 - **Demo Files** – All 8 interactive demos are in the `demo/` folder—open, inspect, and learn!
