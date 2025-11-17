@@ -275,6 +275,21 @@
    en: complete
   category: tailwind
 
+- slug: tailwind-dark-mode
+  title:
+   es: 'Tailwind CSS: Guía de Implementación de Modo Oscuro — Enfoque de Codificación Crítica'
+   en: 'Tailwind CSS: Dark Mode Implementation Guide — Critical Coding Approach'
+  path:
+   es: /lessons/es/tailwind/dark-mode/
+   en: /lessons/en/tailwind/dark-mode/
+  file:
+   es: lessons/es/tailwind/dark-mode/index.md
+   en: lessons/en/tailwind/dark-mode/index.md
+  status:
+   es: complete
+   en: complete
+  category: tailwind
+
 - slug: tailwind-components-inline
   title:
    es: 'Tailwind CSS: Componentes Inline en Vistas — Ruta A (sin componentización)'
