@@ -536,17 +536,29 @@ function categorize(url, meta) {
 	return categories;
 }
 
+function normalizeLineTerminators(str) {
+	if (typeof str !== 'string') return str;
+	// Replace Line Separator (U+2028) and Paragraph Separator (U+2029) with newline
+	// Also normalize CRLF to LF for consistency
+	return str
+		.replace(/\u2028|\u2029/g, '\n')
+		.replace(/\r\n/g, '\n')
+		.replace(/\r/g, '\n');
+}
+
 function toYaml(obj) {
 	// Minimal YAML serializer for our simple structures
 	const indent = (level) => '  '.repeat(level);
 	const serialize = (val, level = 0) => {
 		if (val === null || val === undefined) return 'null';
 		if (typeof val === 'string') {
-			if (/[:\-?\[\]{}#,&*!|>'"%@`\n]/.test(val)) {
+			// Normalize unusual line terminators before processing
+			const normalized = normalizeLineTerminators(val);
+			if (/[:\-?\[\]{}#,&*!|>'"%@`\n]/.test(normalized)) {
 				// quote and escape as needed (basic)
-				return JSON.stringify(val);
+				return JSON.stringify(normalized);
 			}
-			return val;
+			return normalized;
 		}
 		if (typeof val === 'number' || typeof val === 'boolean') return String(val);
 		if (Array.isArray(val)) {
@@ -841,7 +853,7 @@ async function main() {
 				const abs = path.join(docsRoot, s);
 				const raw = await fs.readFile(abs, 'utf8');
 				const fm = matter(raw).data || {};
-                                const title = fm.title || fm.title_alt || s;
+				const title = fm.title || fm.title_alt || s;
 				const href = ('/' + s).replace(/index\.md$/, '');
 				meta.push({ title, href, path: s });
 			} catch {
@@ -859,6 +871,10 @@ async function main() {
 	// Prettify YAML if Prettier is available
 	referencesYaml = await formatWithPrettier(referencesYaml);
 	errorsYaml = await formatWithPrettier(errorsYaml);
+
+	// Normalize line terminators in final output (ensure no LS/PS characters)
+	referencesYaml = normalizeLineTerminators(referencesYaml);
+	errorsYaml = normalizeLineTerminators(errorsYaml);
 
 	const refPath = path.join(dataDir, 'references.yml');
 	const errPath = path.join(dataDir, `${datetime.slice(0, 10)}-errors.yml`);
