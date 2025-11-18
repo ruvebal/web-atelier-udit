@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo de Animaciones Escalonadas | Animaciones Web</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				padding: 2rem;
+				background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				background: white;
+				border-radius: 12px;
+				padding: 2rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+			}
+
+			h1 {
+				color: #1a202c;
+				margin-bottom: 0.5rem;
+			}
+
+			.subtitle {
+				color: #718096;
+				margin-bottom: 2rem;
+			}
+
+			.demo-section {
+				margin: 3rem 0;
+				padding: 2rem;
+				border: 2px solid #e2e8f0;
+				border-radius: 8px;
+				background: #f7fafc;
+			}
+
+			.demo-section h2 {
+				font-size: 1.5rem;
+				color: #2d3748;
+				margin-bottom: 0.5rem;
+			}
+
+			.demo-section p {
+				color: #4a5568;
+				margin-bottom: 1.5rem;
+			}
+
+			.demo-display {
+				min-height: 200px;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+				gap: 1rem;
+				background: white;
+				border-radius: 8px;
+				padding: 2rem;
+			}
+
+			.back-link {
+				display: inline-block;
+				margin-bottom: 1rem;
+				color: #a8edea;
+				text-decoration: none;
+				font-weight: 600;
+			}
+
+			.back-link:hover {
+				text-decoration: underline;
+			}
+
+			/* ========================================
+			   STAGGERED ANIMATIONS
+			   ======================================== */
+
+			/* Demo 1: Fade In Up Cards */
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.card {
+				width: 150px;
+				height: 100px;
+				background: linear-gradient(135deg, #667eea, #764ba2);
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: 600;
+				opacity: 0;
+				animation: fadeInUp 0.6s ease-out forwards;
+			}
+
+			.card:nth-child(1) {
+				animation-delay: 0.1s;
+			}
+			.card:nth-child(2) {
+				animation-delay: 0.2s;
+			}
+			.card:nth-child(3) {
+				animation-delay: 0.3s;
+			}
+			.card:nth-child(4) {
+				animation-delay: 0.4s;
+			}
+			.card:nth-child(5) {
+				animation-delay: 0.5s;
+			}
+			.card:nth-child(6) {
+				animation-delay: 0.6s;
+			}
+
+			/* Demo 2: Scale Bounce In */
+			@keyframes scaleBounce {
+				0% {
+					opacity: 0;
+					transform: scale(0.3);
+				}
+				50% {
+					transform: scale(1.05);
+				}
+				70% {
+					transform: scale(0.9);
+				}
+				100% {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+
+			.bubble {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				opacity: 0;
+				animation: scaleBounce 0.6s ease-out forwards;
+			}
+
+			.bubble:nth-child(1) {
+				background: #ef4444;
+				animation-delay: 0s;
+			}
+			.bubble:nth-child(2) {
+				background: #f59e0b;
+				animation-delay: 0.1s;
+			}
+			.bubble:nth-child(3) {
+				background: #10b981;
+				animation-delay: 0.2s;
+			}
+			.bubble:nth-child(4) {
+				background: #3b82f6;
+				animation-delay: 0.3s;
+			}
+			.bubble:nth-child(5) {
+				background: #8b5cf6;
+				animation-delay: 0.4s;
+			}
+			.bubble:nth-child(6) {
+				background: #ec4899;
+				animation-delay: 0.5s;
+			}
+
+			/* Demo 3: Slide From Different Directions */
+			@keyframes slideFromLeft {
+				from {
+					opacity: 0;
+					transform: translateX(-100px);
+				}
+				to {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+
+			@keyframes slideFromRight {
+				from {
+					opacity: 0;
+					transform: translateX(100px);
+				}
+				to {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+
+			.row-item {
+				width: 100%;
+				max-width: 400px;
+				height: 60px;
+				background: linear-gradient(90deg, #fa709a, #fee140);
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				padding: 0 1.5rem;
+				color: white;
+				font-weight: 600;
+				opacity: 0;
+			}
+
+			.row-item:nth-child(odd) {
+				animation: slideFromLeft 0.6s ease-out forwards;
+			}
+
+			.row-item:nth-child(even) {
+				animation: slideFromRight 0.6s ease-out forwards;
+			}
+
+			.row-item:nth-child(1) {
+				animation-delay: 0.1s;
+			}
+			.row-item:nth-child(2) {
+				animation-delay: 0.2s;
+			}
+			.row-item:nth-child(3) {
+				animation-delay: 0.3s;
+			}
+			.row-item:nth-child(4) {
+				animation-delay: 0.4s;
+			}
+
+			/* Demo 4: Rotating Entrance */
+			@keyframes rotateIn {
+				from {
+					opacity: 0;
+					transform: rotate(-180deg) scale(0.5);
+				}
+				to {
+					opacity: 1;
+					transform: rotate(0deg) scale(1);
+				}
+			}
+
+			.icon-box {
+				width: 80px;
+				height: 80px;
+				background: linear-gradient(135deg, #4facfe, #00f2fe);
+				border-radius: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 2rem;
+				opacity: 0;
+				animation: rotateIn 0.8s ease-out forwards;
+			}
+
+			.icon-box:nth-child(1) {
+				animation-delay: 0s;
+			}
+			.icon-box:nth-child(2) {
+				animation-delay: 0.15s;
+			}
+			.icon-box:nth-child(3) {
+				animation-delay: 0.3s;
+			}
+			.icon-box:nth-child(4) {
+				animation-delay: 0.45s;
+			}
+
+			/* Demo 5: Progressive Bar Loading */
+			@keyframes barGrow {
+				from {
+					width: 0;
+					opacity: 0;
+				}
+				to {
+					width: 100%;
+					opacity: 1;
+				}
+			}
+
+			.progress-container {
+				width: 100%;
+				max-width: 500px;
+			}
+
+			.progress-bar {
+				height: 40px;
+				background: linear-gradient(90deg, #667eea, #764ba2);
+				border-radius: 6px;
+				margin-bottom: 0.5rem;
+				width: 0;
+				opacity: 0;
+				animation: barGrow 1s ease-out forwards;
+				display: flex;
+				align-items: center;
+				padding: 0 1rem;
+				color: white;
+				font-weight: 600;
+				font-size: 0.9rem;
+			}
+
+			.progress-bar:nth-child(1) {
+				animation-delay: 0.1s;
+			}
+			.progress-bar:nth-child(2) {
+				animation-delay: 0.3s;
+			}
+			.progress-bar:nth-child(3) {
+				animation-delay: 0.5s;
+			}
+			.progress-bar:nth-child(4) {
+				animation-delay: 0.7s;
+			}
+
+			/* Code snippet */
+			.code-snippet {
+				background: #1a202c;
+				color: #e2e8f0;
+				padding: 1rem;
+				border-radius: 6px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.85rem;
+				overflow-x: auto;
+				margin-top: 1rem;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<a href="../index.md" class="back-link">← Volver a la Lección</a>
+
+			<h1>⏱️ Staggered Animations</h1>
+			<p class="subtitle">
+				Create choreographed sequences by delaying animations for multiple elements. Perfect for list reveals,
+				galleries, and progressive disclosure.
+			</p>
+
+			<!-- Demo 1 -->
+			<div class="demo-section">
+				<h2>1. Fade In Up Cards</h2>
+				<p>Cards appear one after another from bottom to top.</p>
+				<div class="demo-display">
+					<div class="card">Card 1</div>
+					<div class="card">Card 2</div>
+					<div class="card">Card 3</div>
+					<div class="card">Card 4</div>
+					<div class="card">Card 5</div>
+					<div class="card">Card 6</div>
+				</div>
+				<div class="code-snippet">
+.card {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+				</div>
+			</div>
+
+			<!-- Demo 2 -->
+			<div class="demo-section">
+				<h2>2. Scale Bounce In</h2>
+				<p>Elements pop in with a bouncy scale animation.</p>
+				<div class="demo-display">
+					<div class="bubble"></div>
+					<div class="bubble"></div>
+					<div class="bubble"></div>
+					<div class="bubble"></div>
+					<div class="bubble"></div>
+					<div class="bubble"></div>
+				</div>
+				<div class="code-snippet">
+@keyframes scaleBounce {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.bubble:nth-child(n) {
+  animation-delay: calc(n * 0.1s);
+}
+				</div>
+			</div>
+
+			<!-- Demo 3 -->
+			<div class="demo-section">
+				<h2>3. Alternating Slide Directions</h2>
+				<p>Odd items slide from left, even from right.</p>
+				<div class="demo-display" style="flex-direction: column; gap: 0.5rem">
+					<div class="row-item">Item 1 (from left)</div>
+					<div class="row-item">Item 2 (from right)</div>
+					<div class="row-item">Item 3 (from left)</div>
+					<div class="row-item">Item 4 (from right)</div>
+				</div>
+				<div class="code-snippet">
+.row-item:nth-child(odd) {
+  animation: slideFromLeft 0.6s forwards;
+}
+.row-item:nth-child(even) {
+  animation: slideFromRight 0.6s forwards;
+}
+.row-item:nth-child(n) {
+  animation-delay: calc(n * 0.1s);
+}
+				</div>
+			</div>
+
+			<!-- Demo 4 -->
+			<div class="demo-section">
+				<h2>4. Rotating Entrance</h2>
+				<p>Icons rotate in with staggered timing.</p>
+				<div class="demo-display">
+					<div class="icon-box">🎨</div>
+					<div class="icon-box">⚡</div>
+					<div class="icon-box">🚀</div>
+					<div class="icon-box">✨</div>
+				</div>
+				<div class="code-snippet">
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+.icon-box:nth-child(n) {
+  animation-delay: calc(n * 0.15s);
+}
+				</div>
+			</div>
+
+			<!-- Demo 5 -->
+			<div class="demo-section">
+				<h2>5. Progressive Bar Loading</h2>
+				<p>Progress bars grow in sequence.</p>
+				<div class="demo-display" style="flex-direction: column; align-items: stretch">
+					<div class="progress-container">
+						<div class="progress-bar">HTML/CSS - 95%</div>
+						<div class="progress-bar">JavaScript - 85%</div>
+						<div class="progress-bar">Design - 90%</div>
+						<div class="progress-bar">Animation - 80%</div>
+					</div>
+				</div>
+				<div class="code-snippet">
+@keyframes barGrow {
+  from { width: 0; opacity: 0; }
+  to { width: 100%; opacity: 1; }
+}
+.progress-bar:nth-child(n) {
+  animation-delay: calc((n - 1) * 0.2s);
+}
+				</div>
+			</div>
+
+			<div style="margin-top: 2rem; padding: 1rem; background: #edf2f7; border-radius: 8px">
+				<h3 style="color: #2d3748; margin-bottom: 0.5rem">💡 Puntos Clave</h3>
+				<ul style="color: #4a5568; padding-left: 1.5rem">
+					<li><strong>Core technique:</strong> Use <code>animation-delay</code> with <code>nth-child(n)</code> selector</li>
+					<li><strong>Calc function:</strong> <code>animation-delay: calc(n * 0.1s)</code> for automatic spacing</li>
+					<li><strong>Initial state:</strong> Start with <code>opacity: 0</code> and use <code>forwards</code> fill-mode</li>
+					<li><strong>Timing:</strong> 0.1-0.2s delay between items works well for most cases</li>
+					<li><strong>Use cases:</strong> List reveals, gallery loading, feature sections, onboarding flows</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+

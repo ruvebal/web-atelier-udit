@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Intersection Observer para Animaciones | Animaciones Web</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				background: #0f172a;
+				color: #e2e8f0;
+			}
+
+			.header {
+				position: sticky;
+				top: 0;
+				z-index: 1000;
+				background: rgba(15, 23, 42, 0.95);
+				backdrop-filter: blur(10px);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				padding: 1rem 2rem;
+			}
+
+			.header h1 {
+				font-size: 1.75rem;
+				color: #fff;
+				margin-bottom: 0.5rem;
+			}
+
+			.back-link {
+				display: inline-block;
+				color: #60a5fa;
+				text-decoration: none;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+			}
+
+			.back-link:hover {
+				text-decoration: underline;
+			}
+
+			/* Controls */
+			.controls {
+				display: flex;
+				gap: 1rem;
+				align-items: center;
+				margin-top: 1rem;
+				flex-wrap: wrap;
+			}
+
+			.control-group {
+				display: flex;
+				gap: 0.5rem;
+				align-items: center;
+			}
+
+			.btn {
+				padding: 0.5rem 1rem;
+				background: #3b82f6;
+				color: white;
+				border: none;
+				border-radius: 6px;
+				cursor: pointer;
+				font-size: 0.9rem;
+				font-weight: 600;
+				transition: background 0.2s;
+			}
+
+			.btn:hover {
+				background: #2563eb;
+			}
+
+			.btn.active {
+				background: #10b981;
+			}
+
+			.btn.danger {
+				background: #ef4444;
+			}
+
+			.btn.danger:hover {
+				background: #dc2626;
+			}
+
+			.stats {
+				display: flex;
+				gap: 2rem;
+				margin-top: 1rem;
+				padding: 1rem;
+				background: rgba(59, 130, 246, 0.1);
+				border-radius: 8px;
+				font-size: 0.9rem;
+			}
+
+			.stat {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.stat-label {
+				color: #94a3b8;
+				font-size: 0.85rem;
+			}
+
+			.stat-value {
+				color: #60a5fa;
+				font-size: 1.5rem;
+				font-weight: 700;
+			}
+
+			/* Content sections */
+			.intro-section {
+				max-width: 900px;
+				margin: 3rem auto;
+				padding: 0 2rem;
+			}
+
+			.intro-section h2 {
+				color: #60a5fa;
+				margin-bottom: 1rem;
+			}
+
+			.problem-demo {
+				margin: 4rem 0;
+				padding: 2rem;
+				background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(251, 146, 60, 0.1));
+				border-left: 4px solid #ef4444;
+			}
+
+			.solution-demo {
+				margin: 4rem 0;
+				padding: 2rem;
+				background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.1));
+				border-left: 4px solid #10b981;
+			}
+
+			/* Card Grid */
+			.card-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+				margin: 2rem 0;
+			}
+
+			/* Feature Cards */
+			.feature-card {
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 12px;
+				padding: 2rem;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.feature-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 3px;
+				background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+			}
+
+			.feature-card h3 {
+				color: #60a5fa;
+				margin-bottom: 0.5rem;
+				font-size: 1.25rem;
+			}
+
+			.feature-card p {
+				color: #cbd5e1;
+				line-height: 1.8;
+			}
+
+			.feature-card .icon {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+			}
+
+			/* Animation states */
+			.feature-card.no-trigger {
+				opacity: 0;
+				transform: translateY(30px);
+				animation: fadeInUpImmediate 0.8s ease-out forwards;
+			}
+
+			@keyframes fadeInUpImmediate {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* Intersection Observer animated cards */
+			.feature-card.observe-me {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+			}
+
+			.feature-card.observe-me.animate-in {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			/* Visual indicator for observed elements */
+			.feature-card.observe-me.being-observed {
+				box-shadow: 0 0 0 2px #10b981;
+			}
+
+			/* Scroll listener cards */
+			.feature-card.scroll-trigger {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+			}
+
+			.feature-card.scroll-trigger.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			/* Debug overlay */
+			.debug-overlay {
+				position: fixed;
+				top: 100px;
+				right: 20px;
+				background: rgba(15, 23, 42, 0.95);
+				border: 1px solid rgba(59, 130, 246, 0.3);
+				border-radius: 8px;
+				padding: 1rem;
+				max-width: 250px;
+				font-size: 0.85rem;
+				z-index: 999;
+			}
+
+			.debug-overlay h4 {
+				color: #60a5fa;
+				margin-bottom: 0.5rem;
+			}
+
+			.debug-item {
+				display: flex;
+				justify-content: space-between;
+				margin: 0.25rem 0;
+				padding: 0.25rem;
+			}
+
+			.debug-label {
+				color: #94a3b8;
+			}
+
+			.debug-value {
+				color: #10b981;
+				font-weight: 600;
+			}
+
+			.debug-value.warning {
+				color: #f59e0b;
+			}
+
+			.debug-value.danger {
+				color: #ef4444;
+			}
+
+			/* Code example */
+			.code-example {
+				background: #1e293b;
+				border: 1px solid #334155;
+				border-radius: 8px;
+				padding: 1.5rem;
+				margin: 1.5rem 0;
+				overflow-x: auto;
+			}
+
+			.code-example pre {
+				color: #e2e8f0;
+				font-family: 'Courier New', monospace;
+				font-size: 0.9rem;
+				line-height: 1.6;
+			}
+
+			/* Comparison section */
+			.comparison {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2rem;
+				margin: 2rem 0;
+			}
+
+			@media (max-width: 768px) {
+				.comparison {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			.comparison-card {
+				padding: 1.5rem;
+				border-radius: 8px;
+				border: 2px solid;
+			}
+
+			.comparison-card.good {
+				background: rgba(16, 185, 129, 0.05);
+				border-color: #10b981;
+			}
+
+			.comparison-card.bad {
+				background: rgba(239, 68, 68, 0.05);
+				border-color: #ef4444;
+			}
+
+			.comparison-card h4 {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				margin-bottom: 1rem;
+				font-size: 1.1rem;
+			}
+
+			.comparison-card ul {
+				list-style: none;
+				padding: 0;
+			}
+
+			.comparison-card li {
+				padding: 0.5rem 0;
+				padding-left: 1.5rem;
+				position: relative;
+			}
+
+			.comparison-card.good li::before {
+				content: '✅';
+				position: absolute;
+				left: 0;
+			}
+
+			.comparison-card.bad li::before {
+				content: '❌';
+				position: absolute;
+				left: 0;
+			}
+
+			/* Spacer for scrolling */
+			.spacer {
+				height: 60vh;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					transition-duration: 0.01ms !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Header -->
+		<div class="header">
+			<a href="../index.md" class="back-link">← Volver a la Lección</a>
+			<h1>🎯 Intersection Observer for Animation Triggers</h1>
+
+			<div class="controls">
+				<div class="control-group">
+					<button class="btn" id="resetBtn">Reset Demo</button>
+					<button class="btn" id="toggleDebugBtn">Toggle Debug</button>
+				</div>
+			</div>
+
+			<div class="stats" id="stats">
+				<div class="stat">
+					<span class="stat-label">Scroll Events</span>
+					<span class="stat-value" id="scrollCount">0</span>
+				</div>
+				<div class="stat">
+					<span class="stat-label">Intersections</span>
+					<span class="stat-value" id="intersectionCount">0</span>
+				</div>
+				<div class="stat">
+					<span class="stat-label">Animated Cards</span>
+					<span class="stat-value" id="animatedCount">0</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Debug Overlay (hidden by default) -->
+		<div class="debug-overlay" id="debugOverlay" style="display: none">
+			<h4>📊 Performance Monitor</h4>
+			<div class="debug-item">
+				<span class="debug-label">Scroll FPS:</span>
+				<span class="debug-value" id="scrollFps">0</span>
+			</div>
+			<div class="debug-item">
+				<span class="debug-label">Memory Usage:</span>
+				<span class="debug-value" id="memUsage">N/A</span>
+			</div>
+			<div class="debug-item">
+				<span class="debug-label">Observers Active:</span>
+				<span class="debug-value" id="observersActive">0</span>
+			</div>
+		</div>
+
+		<!-- Introduction -->
+		<section class="intro-section">
+			<h2>Why We Need JavaScript Triggers</h2>
+			<p style="font-size: 1.1rem; line-height: 1.8">
+				CSS animations are powerful, but they don't know <strong>when</strong> to start. An animation that
+				starts immediately when the page loads is wasted if the element isn't visible yet. This demo compares
+				different approaches to triggering animations at the right time.
+			</p>
+		</section>
+
+		<!-- Problem Demo -->
+		<div class="problem-demo">
+			<div style="max-width: 900px; margin: 0 auto">
+				<h2 style="color: #f87171; margin-bottom: 1rem">❌ The Problem: Animations Without Triggers</h2>
+				<p style="margin-bottom: 2rem">
+					These cards animate immediately on page load, even though you can't see them yet. By the time you
+					scroll here, the animation has already finished!
+				</p>
+
+				<div class="card-grid">
+					<div class="feature-card no-trigger">
+						<div class="icon">⚡</div>
+						<h3>Immediate Start</h3>
+						<p>This animation started as soon as the page loaded, wasting the effect.</p>
+					</div>
+					<div class="feature-card no-trigger">
+						<div class="icon">🚫</div>
+						<h3>Already Done</h3>
+						<p>You probably missed this animation entirely because it finished before you scrolled here.</p>
+					</div>
+					<div class="feature-card no-trigger">
+						<div class="icon">⏱️</div>
+						<h3>Poor Timing</h3>
+						<p>Without triggers, animations happen at the wrong time and don't enhance UX.</p>
+					</div>
+				</div>
+
+				<div class="code-example">
+					<pre>
+/* ❌ This starts immediately - bad UX */
+.feature-card {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Animation runs even when element is off-screen */</pre
+					>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacer"></div>
+
+		<!-- Solution Demo -->
+		<div class="solution-demo">
+			<div style="max-width: 900px; margin: 0 auto">
+				<h2 style="color: #34d399; margin-bottom: 1rem">
+					✅ The Solution: Intersection Observer API
+				</h2>
+				<p style="margin-bottom: 2rem">
+					These cards use Intersection Observer to animate only when they enter the viewport. Scroll down to
+					see them animate at the perfect moment! (They'll glow green while being observed)
+				</p>
+
+				<div class="card-grid">
+					<div class="feature-card observe-me" data-delay="0">
+						<div class="icon">🎯</div>
+						<h3>Momento Perfecto</h3>
+						<p>This animates exactly when it becomes visible, creating the best user experience.</p>
+					</div>
+					<div class="feature-card observe-me" data-delay="100">
+						<div class="icon">⚡</div>
+						<h3>Eficiente</h3>
+						<p>Intersection Observer is efficient and doesn't block the main thread.</p>
+					</div>
+					<div class="feature-card observe-me" data-delay="200">
+						<div class="icon">🎨</div>
+						<h3>Efecto Escalonado</h3>
+						<p>Notice how cards animate in sequence for a polished, professional feel.</p>
+					</div>
+				</div>
+
+				<div class="code-example">
+					<pre>
+/* ✅ Cards start invisible */
+.feature-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* JS adds this class when visible */
+.feature-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}</pre
+					>
+				</div>
+
+				<div class="code-example">
+					<pre>
+// ✅ Intersection Observer setup
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const delay = entry.target.dataset.delay || 0;
+      setTimeout(() => {
+        entry.target.classList.add('animate-in');
+      }, delay);
+      observer.unobserve(entry.target); // Stop observing after animation
+    }
+  });
+}, { threshold: 0.2 }); // Trigger when 20% visible
+
+document.querySelectorAll('.observe-me').forEach(card => {
+  observer.observe(card);
+});</pre
+					>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacer"></div>
+
+		<!-- More cards to demonstrate -->
+		<section style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem">
+			<h2 style="color: #60a5fa; text-align: center; margin-bottom: 2rem">More Examples</h2>
+			<div class="card-grid">
+				<div class="feature-card observe-me" data-delay="0">
+					<div class="icon">📱</div>
+					<h3>Mobile Friendly</h3>
+					<p>Works perfectly on touch devices without draining battery.</p>
+				</div>
+				<div class="feature-card observe-me" data-delay="100">
+					<div class="icon">♿</div>
+					<h3>Accessible</h3>
+					<p>Respects prefers-reduced-motion and provides instant fallbacks.</p>
+				</div>
+				<div class="feature-card observe-me" data-delay="200">
+					<div class="icon">🔧</div>
+					<h3>Configurable</h3>
+					<p>Adjust thresholds, delays, and root margins easily.</p>
+				</div>
+			</div>
+		</section>
+
+		<div class="spacer"></div>
+
+		<!-- Comparison Section -->
+		<section style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem">
+			<h2 style="color: #60a5fa; text-align: center; margin-bottom: 2rem">
+				Intersection Observer vs Scroll Listeners
+			</h2>
+
+			<div class="comparison">
+				<div class="comparison-card good">
+					<h4>
+						<span>✅</span>
+						<span>Intersection Observer (Modern)</span>
+					</h4>
+					<ul>
+						<li>Fires only when visibility changes</li>
+						<li>Doesn't block main thread</li>
+						<li>Battery efficient</li>
+						<li>Built-in threshold detection</li>
+						<li>Works with lazy loading</li>
+						<li>Easy to debug and maintain</li>
+					</ul>
+				</div>
+
+				<div class="comparison-card bad">
+					<h4>
+						<span>❌</span>
+						<span>Scroll Listeners (Legacy)</span>
+					</h4>
+					<ul>
+						<li>Fires 100+ times per second</li>
+						<li>Causes layout thrashing</li>
+						<li>Drains battery quickly</li>
+						<li>Requires manual calculations</li>
+						<li>Complex debouncing needed</li>
+						<li>Difficult to optimize</li>
+					</ul>
+				</div>
+			</div>
+
+			<p style="text-align: center; margin-top: 2rem; font-size: 1.1rem; color: #94a3b8">
+				Notice in the stats at the top: Intersection callbacks fire only when needed, while scroll events fire
+				constantly. This demo tracks both to show the dramatic difference.
+			</p>
+		</section>
+
+		<div class="spacer"></div>
+
+		<!-- Final Section -->
+		<section style="max-width: 900px; margin: 4rem auto; padding: 0 2rem; margin-bottom: 4rem">
+			<div
+				style="
+					background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+					padding: 2rem;
+					border-radius: 12px;
+					border: 1px solid rgba(59, 130, 246, 0.3);
+				">
+				<h2 style="color: #60a5fa; margin-bottom: 1rem">🎓 Puntos Clave</h2>
+				<ul style="list-style: none; padding: 0">
+					<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative">
+						<span style="position: absolute; left: 0">💡</span>
+						CSS defines HOW elements animate, JavaScript decides WHEN
+					</li>
+					<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative">
+						<span style="position: absolute; left: 0">⚡</span>
+						Intersection Observer is the standard for viewport-triggered animations
+					</li>
+					<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative">
+						<span style="position: absolute; left: 0">🚫</span>
+						Avoid scroll listeners for animations—they hurt performance
+					</li>
+					<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative">
+						<span style="position: absolute; left: 0">♿</span>
+						Always respect user preferences with prefers-reduced-motion
+					</li>
+					<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative">
+						<span style="position: absolute; left: 0">🔧</span>
+						Keep animation styling in CSS, triggering logic in JS
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<script>
+			// Statistics tracking
+			let scrollEventCount = 0;
+			let intersectionCount = 0;
+			let animatedCardCount = 0;
+			let lastScrollTime = Date.now();
+			let scrollFps = 0;
+
+			// Update stats display
+			function updateStats() {
+				document.getElementById('scrollCount').textContent = scrollEventCount;
+				document.getElementById('intersectionCount').textContent = intersectionCount;
+				document.getElementById('animatedCount').textContent = animatedCardCount;
+			}
+
+			// Track scroll events (to show why they're bad)
+			let scrollTicking = false;
+			window.addEventListener(
+				'scroll',
+				() => {
+					scrollEventCount++;
+
+					// Calculate "FPS" of scroll events
+					const now = Date.now();
+					const delta = now - lastScrollTime;
+					if (delta > 0) {
+						scrollFps = Math.round(1000 / delta);
+						document.getElementById('scrollFps').textContent = scrollFps;
+						if (scrollFps > 30) {
+							document.getElementById('scrollFps').classList.add('danger');
+						}
+					}
+					lastScrollTime = now;
+
+					if (!scrollTicking) {
+						window.requestAnimationFrame(() => {
+							updateStats();
+							scrollTicking = false;
+						});
+						scrollTicking = true;
+					}
+				},
+				{ passive: true }
+			);
+
+			// ✅ INTERSECTION OBSERVER IMPLEMENTATION
+			const observerOptions = {
+				root: null, // viewport
+				rootMargin: '0px',
+				threshold: 0.2, // trigger when 20% visible
+			};
+
+			const animationObserver = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					intersectionCount++; // Track for comparison
+					updateStats();
+
+					if (entry.isIntersecting) {
+						// Visual indicator that element is being observed
+						entry.target.classList.add('being-observed');
+
+						const delay = parseInt(entry.target.dataset.delay) || 0;
+
+						setTimeout(() => {
+							entry.target.classList.add('animate-in');
+							entry.target.classList.remove('being-observed');
+							animatedCardCount++;
+							updateStats();
+						}, delay);
+
+						// Stop observing after animation triggers
+						animationObserver.unobserve(entry.target);
+					}
+				});
+			}, observerOptions);
+
+			// Observe all cards with the 'observe-me' class
+			function initializeObserver() {
+				document.querySelectorAll('.observe-me').forEach((card) => {
+					// Reset state
+					card.classList.remove('animate-in', 'being-observed');
+					animationObserver.observe(card);
+				});
+			}
+
+			// Initialize on page load
+			initializeObserver();
+
+			// Update active observers count
+			function updateDebugInfo() {
+				const observedElements = document.querySelectorAll('.observe-me:not(.animate-in)').length;
+				document.getElementById('observersActive').textContent = observedElements;
+
+				// Memory usage (if available)
+				if (performance.memory) {
+					const usedMB = (performance.memory.usedJSHeapSize / 1048576).toFixed(1);
+					document.getElementById('memUsage').textContent = `${usedMB} MB`;
+				}
+			}
+
+			setInterval(updateDebugInfo, 1000);
+
+			// Controls
+			document.getElementById('resetBtn').addEventListener('click', () => {
+				// Reset stats
+				scrollEventCount = 0;
+				intersectionCount = 0;
+				animatedCardCount = 0;
+				updateStats();
+
+				// Reinitialize observer
+				initializeObserver();
+
+				// Scroll to top
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			});
+
+			document.getElementById('toggleDebugBtn').addEventListener('click', () => {
+				const debugOverlay = document.getElementById('debugOverlay');
+				debugOverlay.style.display = debugOverlay.style.display === 'none' ? 'block' : 'none';
+			});
+
+			// Respect reduced motion preference
+			if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				document.querySelectorAll('.observe-me').forEach((card) => {
+					card.style.transition = 'none';
+					card.classList.add('animate-in');
+				});
+			}
+		</script>
+	</body>
+</html>
+

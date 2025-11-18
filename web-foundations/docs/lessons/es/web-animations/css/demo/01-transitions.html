@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo de Transiciones CSS | Animaciones Web</title>
+		<style>
+			/* Base styles for demo layout */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				padding: 2rem;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				background: white;
+				border-radius: 12px;
+				padding: 2rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+			}
+
+			h1 {
+				color: #1a202c;
+				margin-bottom: 0.5rem;
+			}
+
+			.subtitle {
+				color: #718096;
+				margin-bottom: 2rem;
+			}
+
+			.demo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+
+			.demo-card {
+				border: 2px solid #e2e8f0;
+				border-radius: 8px;
+				padding: 1.5rem;
+				background: #f7fafc;
+			}
+
+			.demo-card h2 {
+				font-size: 1.25rem;
+				color: #2d3748;
+				margin-bottom: 1rem;
+			}
+
+			.demo-card p {
+				color: #4a5568;
+				font-size: 0.95rem;
+				margin-bottom: 1rem;
+			}
+
+			/* ========================================
+			   TRANSITION DEMOS
+			   ======================================== */
+
+			/* Demo 1: Transición de Color */
+			.box-color {
+				width: 100%;
+				height: 100px;
+				background-color: #3182ce;
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: 600;
+				/* The transition property */
+				transition: background-color 0.5s ease;
+				cursor: pointer;
+			}
+
+			.box-color:hover {
+				background-color: #e53e3e;
+			}
+
+			/* Demo 2: Múltiples Propiedades */
+			.box-multi {
+				width: 100%;
+				height: 100px;
+				background-color: #48bb78;
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: 600;
+				/* Multiple properties with different timings */
+				transition:
+					background-color 0.3s ease,
+					transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+					box-shadow 0.3s ease;
+				cursor: pointer;
+			}
+
+			.box-multi:hover {
+				background-color: #9f7aea;
+				transform: translateY(-10px) scale(1.05);
+				box-shadow: 0 10px 25px rgba(159, 122, 234, 0.4);
+			}
+
+			/* Demo 3: Micro-Interacción de Botón */
+			.btn {
+				display: inline-block;
+				padding: 0.75rem 1.5rem;
+				background-color: #667eea;
+				color: white;
+				border: none;
+				border-radius: 6px;
+				font-size: 1rem;
+				font-weight: 600;
+				cursor: pointer;
+				position: relative;
+				overflow: hidden;
+				/* Smooth transitions for multiple properties */
+				transition:
+					background-color 0.2s ease,
+					transform 0.2s ease,
+					box-shadow 0.2s ease;
+			}
+
+			.btn:hover {
+				background-color: #5a67d8;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+			}
+
+			.btn:active {
+				transform: translateY(0);
+				box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+			}
+
+			/* Demo 4: Card with Overlay */
+			.card-overlay {
+				position: relative;
+				width: 100%;
+				height: 200px;
+				background: url('https://images.unsplash.com/photo-1557683316-973673baf926?w=400&h=300&fit=crop')
+					center/cover;
+				border-radius: 8px;
+				overflow: hidden;
+				cursor: pointer;
+			}
+
+			.card-overlay::after {
+				content: 'Pasa el Ratón';
+				position: absolute;
+				inset: 0;
+				background: rgba(102, 126, 234, 0.9);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: 700;
+				font-size: 1.5rem;
+				/* Start invisible and scaled down */
+				opacity: 0;
+				transform: scale(0.9);
+				/* Smooth transition */
+				transition:
+					opacity 0.3s ease,
+					transform 0.3s ease;
+			}
+
+			.card-overlay:hover::after {
+				opacity: 1;
+				transform: scale(1);
+			}
+
+			/* Demo 5: Different Timing Functions */
+			.timing-demo {
+				display: grid;
+				gap: 0.5rem;
+			}
+
+			.timing-box {
+				width: 100%;
+				height: 40px;
+				background: linear-gradient(90deg, #ed64a6, #f687b3);
+				border-radius: 4px;
+				display: flex;
+				align-items: center;
+				padding: 0 1rem;
+				color: white;
+				font-size: 0.85rem;
+				font-weight: 600;
+				cursor: pointer;
+				transition: transform 1s;
+			}
+
+			.timing-box:hover {
+				transform: translateX(150px);
+			}
+
+			.ease {
+				transition-timing-function: ease;
+			}
+			.linear {
+				transition-timing-function: linear;
+			}
+			.ease-in {
+				transition-timing-function: ease-in;
+			}
+			.ease-out {
+				transition-timing-function: ease-out;
+			}
+			.ease-in-out {
+				transition-timing-function: ease-in-out;
+			}
+
+			/* Accessibility: Respect reduced motion */
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					transition-duration: 0.01ms !important;
+				}
+			}
+
+			/* Code display */
+			.code-snippet {
+				background: #1a202c;
+				color: #e2e8f0;
+				padding: 1rem;
+				border-radius: 6px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.85rem;
+				overflow-x: auto;
+				margin-top: 1rem;
+			}
+
+			.back-link {
+				display: inline-block;
+				margin-bottom: 1rem;
+				color: #667eea;
+				text-decoration: none;
+				font-weight: 600;
+			}
+
+			.back-link:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<a href="../index.md" class="back-link">← Volver a la Lección</a>
+
+			<h1>🎨 CSS Transitions</h1>
+			<p class="subtitle">
+				Smooth property changes over time. Hover or interact with elements to see transitions in action.
+			</p>
+
+			<div class="demo-grid">
+				<!-- Demo 1 -->
+				<div class="demo-card">
+					<h2>1. Simple Transición de Color</h2>
+					<p>Pasa el ratón para ver background color change smoothly.</p>
+					<div class="box-color">Pasa el Ratón</div>
+					<div class="code-snippet">
+						transition: background-color 0.5s ease;
+					</div>
+				</div>
+
+				<!-- Demo 2 -->
+				<div class="demo-card">
+					<h2>2. Múltiples Propiedades</h2>
+					<p>Color, transform, and shadow transition together.</p>
+					<div class="box-multi">Pasa el Ratón</div>
+					<div class="code-snippet">
+						transition:<br />
+						&nbsp;&nbsp;background-color 0.3s,<br />
+						&nbsp;&nbsp;transform 0.5s,<br />
+						&nbsp;&nbsp;box-shadow 0.3s;
+					</div>
+				</div>
+
+				<!-- Demo 3 -->
+				<div class="demo-card">
+					<h2>3. Micro-Interacción de Botón</h2>
+					<p>Professional button with lift effect.</p>
+					<button class="btn">Haz Clic</button>
+					<div class="code-snippet">
+						transition:<br />
+						&nbsp;&nbsp;background-color 0.2s,<br />
+						&nbsp;&nbsp;transform 0.2s,<br />
+						&nbsp;&nbsp;box-shadow 0.2s;
+					</div>
+				</div>
+
+				<!-- Demo 4 -->
+				<div class="demo-card">
+					<h2>4. Transición de Superposición</h2>
+					<p>Smooth overlay reveal on hover.</p>
+					<div class="card-overlay"></div>
+					<div class="code-snippet">
+						.card::after {<br />
+						&nbsp;&nbsp;opacity: 0;<br />
+						&nbsp;&nbsp;transition: opacity 0.3s;<br />
+						}<br />
+						.card:hover::after {<br />
+						&nbsp;&nbsp;opacity: 1;<br />
+						}
+					</div>
+				</div>
+
+				<!-- Demo 5 -->
+				<div class="demo-card" style="grid-column: 1 / -1">
+					<h2>5. Comparación de Funciones de Temporización</h2>
+					<p>Pasa el ratón sobre each bar to see different easing curves in action.</p>
+					<div class="timing-demo">
+						<div class="timing-box ease">ease (default)</div>
+						<div class="timing-box linear">linear</div>
+						<div class="timing-box ease-in">ease-in</div>
+						<div class="timing-box ease-out">ease-out</div>
+						<div class="timing-box ease-in-out">ease-in-out</div>
+					</div>
+					<div class="code-snippet">
+						transition-timing-function: ease | linear | ease-in | ease-out | ease-in-out |
+						cubic-bezier(x1, y1, x2, y2);
+					</div>
+				</div>
+			</div>
+
+			<div style="margin-top: 2rem; padding: 1rem; background: #edf2f7; border-radius: 8px">
+				<h3 style="color: #2d3748; margin-bottom: 0.5rem">💡 Puntos Clave</h3>
+				<ul style="color: #4a5568; padding-left: 1.5rem">
+					<li>Transitions animate property changes triggered by state (hover, focus, active)</li>
+					<li>Use specific properties instead of <code>transition: all</code> for better performance</li>
+					<li>Choose appropriate durations: 100-300ms for micro-interactions, 300-500ms for larger changes</li>
+					<li>Timing functions control the acceleration curve of the animation</li>
+					<li>Always respect <code>prefers-reduced-motion</code> for accessibility</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+

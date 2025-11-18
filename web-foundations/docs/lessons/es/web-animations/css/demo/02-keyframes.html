@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo de Keyframes CSS | Animaciones Web</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				padding: 2rem;
+				background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				background: white;
+				border-radius: 12px;
+				padding: 2rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+			}
+
+			h1 {
+				color: #1a202c;
+				margin-bottom: 0.5rem;
+			}
+
+			.subtitle {
+				color: #718096;
+				margin-bottom: 2rem;
+			}
+
+			.demo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+
+			.demo-card {
+				border: 2px solid #e2e8f0;
+				border-radius: 8px;
+				padding: 1.5rem;
+				background: #f7fafc;
+				min-height: 200px;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.demo-card h2 {
+				font-size: 1.25rem;
+				color: #2d3748;
+				margin-bottom: 0.5rem;
+			}
+
+			.demo-card p {
+				color: #4a5568;
+				font-size: 0.95rem;
+				margin-bottom: 1rem;
+			}
+
+			.demo-area {
+				flex: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: white;
+				border-radius: 6px;
+				padding: 1rem;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.back-link {
+				display: inline-block;
+				margin-bottom: 1rem;
+				color: #f5576c;
+				text-decoration: none;
+				font-weight: 600;
+			}
+
+			.back-link:hover {
+				text-decoration: underline;
+			}
+
+			/* ========================================
+			   KEYFRAME ANIMATIONS
+			   ======================================== */
+
+			/* Demo 1: Slide In */
+			@keyframes slideIn {
+				from {
+					transform: translateX(-100%);
+					opacity: 0;
+				}
+				to {
+					transform: translateX(0);
+					opacity: 1;
+				}
+			}
+
+			.box-slide {
+				width: 120px;
+				height: 80px;
+				background: linear-gradient(135deg, #667eea, #764ba2);
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: 600;
+				animation: slideIn 1s ease-out;
+			}
+
+			/* Demo 2: Bounce */
+			@keyframes bounce {
+				0%,
+				100% {
+					transform: translateY(0);
+				}
+				25% {
+					transform: translateY(-30px);
+				}
+				50% {
+					transform: translateY(0);
+				}
+				75% {
+					transform: translateY(-15px);
+				}
+			}
+
+			.box-bounce {
+				width: 80px;
+				height: 80px;
+				background: linear-gradient(135deg, #fa709a, #fee140);
+				border-radius: 50%;
+				animation: bounce 2s infinite;
+			}
+
+			/* Demo 3: Pulse */
+			@keyframes pulse {
+				0%,
+				100% {
+					transform: scale(1);
+					box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+				}
+				50% {
+					transform: scale(1.05);
+					box-shadow: 0 0 0 20px rgba(236, 72, 153, 0);
+				}
+			}
+
+			.box-pulse {
+				width: 100px;
+				height: 100px;
+				background: linear-gradient(135deg, #ec4899, #be185d);
+				border-radius: 50%;
+				animation: pulse 2s ease-in-out infinite;
+			}
+
+			/* Demo 4: Fade In & Scale */
+			@keyframes fadeInScale {
+				from {
+					opacity: 0;
+					transform: scale(0.8);
+				}
+				to {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+
+			.box-fade {
+				width: 120px;
+				height: 120px;
+				background: linear-gradient(135deg, #4ade80, #22c55e);
+				border-radius: 12px;
+				animation: fadeInScale 0.8s ease-out;
+			}
+
+			/* Demo 5: Rotate & Color Change */
+			@keyframes rotateColor {
+				0% {
+					transform: rotate(0deg);
+					background: #3b82f6;
+				}
+				33% {
+					background: #8b5cf6;
+				}
+				66% {
+					background: #ec4899;
+				}
+				100% {
+					transform: rotate(360deg);
+					background: #3b82f6;
+				}
+			}
+
+			.box-rotate {
+				width: 100px;
+				height: 100px;
+				border-radius: 12px;
+				animation: rotateColor 4s linear infinite;
+			}
+
+			/* Demo 6: Complex Multi-Step */
+			@keyframes complexMove {
+				0% {
+					transform: translate(0, 0) rotate(0deg);
+					border-radius: 8px;
+				}
+				25% {
+					transform: translate(80px, 0) rotate(90deg);
+					border-radius: 50%;
+				}
+				50% {
+					transform: translate(80px, 60px) rotate(180deg);
+					border-radius: 8px;
+				}
+				75% {
+					transform: translate(0, 60px) rotate(270deg);
+					border-radius: 50%;
+				}
+				100% {
+					transform: translate(0, 0) rotate(360deg);
+					border-radius: 8px;
+				}
+			}
+
+			.box-complex {
+				width: 60px;
+				height: 60px;
+				background: linear-gradient(135deg, #f59e0b, #ef4444);
+				animation: complexMove 5s ease-in-out infinite;
+			}
+
+			/* Animation Controls */
+			.controls {
+				margin-top: 1rem;
+				display: flex;
+				gap: 0.5rem;
+				justify-content: center;
+			}
+
+			.control-btn {
+				padding: 0.5rem 1rem;
+				background: #667eea;
+				color: white;
+				border: none;
+				border-radius: 6px;
+				cursor: pointer;
+				font-size: 0.85rem;
+				font-weight: 600;
+				transition: background 0.2s;
+			}
+
+			.control-btn:hover {
+				background: #5a67d8;
+			}
+
+			.paused {
+				animation-play-state: paused !important;
+			}
+
+			/* Code snippet */
+			.code-snippet {
+				background: #1a202c;
+				color: #e2e8f0;
+				padding: 0.75rem;
+				border-radius: 6px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.75rem;
+				overflow-x: auto;
+				margin-top: 1rem;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<a href="../index.md" class="back-link">← Volver a la Lección</a>
+
+			<h1>⚡ CSS Keyframe Animations</h1>
+			<p class="subtitle">
+				Define multi-step animations with precise control over intermediate states. Watch these animations loop
+				automatically.
+			</p>
+
+			<div class="demo-grid">
+				<!-- Demo 1 -->
+				<div class="demo-card">
+					<h2>1. Slide In</h2>
+					<p>Element enters from the left side.</p>
+					<div class="demo-area">
+						<div class="box-slide">Slide</div>
+					</div>
+					<div class="code-snippet">
+						@keyframes slideIn {<br />
+						&nbsp;&nbsp;from { transform: translateX(-100%); }<br />
+						&nbsp;&nbsp;to { transform: translateX(0); }<br />
+						}
+					</div>
+				</div>
+
+				<!-- Demo 2 -->
+				<div class="demo-card">
+					<h2>2. Bounce</h2>
+					<p>Multi-step animation creating bounce effect.</p>
+					<div class="demo-area">
+						<div class="box-bounce"></div>
+					</div>
+					<div class="code-snippet">
+						@keyframes bounce {<br />
+						&nbsp;&nbsp;0%, 100% { translateY(0); }<br />
+						&nbsp;&nbsp;25% { translateY(-30px); }<br />
+						&nbsp;&nbsp;75% { translateY(-15px); }<br />
+						}
+					</div>
+				</div>
+
+				<!-- Demo 3 -->
+				<div class="demo-card">
+					<h2>3. Pulse</h2>
+					<p>Pulsing effect with expanding shadow.</p>
+					<div class="demo-area">
+						<div class="box-pulse"></div>
+					</div>
+					<div class="code-snippet">
+						@keyframes pulse {<br />
+						&nbsp;&nbsp;0% { transform: scale(1); }<br />
+						&nbsp;&nbsp;50% { transform: scale(1.05); }<br />
+						&nbsp;&nbsp;100% { transform: scale(1); }<br />
+						}
+					</div>
+				</div>
+
+				<!-- Demo 4 -->
+				<div class="demo-card">
+					<h2>4. Fade In & Scale</h2>
+					<p>Combined opacity and scale animation.</p>
+					<div class="demo-area">
+						<div class="box-fade"></div>
+					</div>
+					<div class="code-snippet">
+						@keyframes fadeInScale {<br />
+						&nbsp;&nbsp;from { opacity: 0; scale: 0.8; }<br />
+						&nbsp;&nbsp;to { opacity: 1; scale: 1; }<br />
+						}
+					</div>
+				</div>
+
+				<!-- Demo 5 -->
+				<div class="demo-card">
+					<h2>5. Rotate & Color</h2>
+					<p>Rotation with color transitions.</p>
+					<div class="demo-area">
+						<div class="box-rotate"></div>
+					</div>
+					<div class="code-snippet">
+						@keyframes rotateColor {<br />
+						&nbsp;&nbsp;0% { rotate: 0deg; }<br />
+						&nbsp;&nbsp;100% { rotate: 360deg; }<br />
+						}
+					</div>
+				</div>
+
+				<!-- Demo 6 -->
+				<div class="demo-card">
+					<h2>6. Complex Path</h2>
+					<p>Multi-property animation along a path.</p>
+					<div class="demo-area" style="min-height: 180px">
+						<div class="box-complex"></div>
+					</div>
+					<div class="code-snippet">
+						animation:<br />
+						&nbsp;&nbsp;complexMove 5s<br />
+						&nbsp;&nbsp;ease-in-out infinite;
+					</div>
+				</div>
+			</div>
+
+			<div style="margin-top: 2rem; padding: 1rem; background: #edf2f7; border-radius: 8px">
+				<h3 style="color: #2d3748; margin-bottom: 0.5rem">💡 Puntos Clave</h3>
+				<ul style="color: #4a5568; padding-left: 1.5rem">
+					<li>Use <code>@keyframes</code> to define animation steps at specific percentages (0-100%)</li>
+					<li>Apply with <code>animation: name duration timing-function delay iteration-count</code></li>
+					<li><code>animation-fill-mode</code> controls the state before/after animation (forwards, backwards, both)</li>
+					<li>Use <code>animation-play-state: paused</code> to pause animations dynamically</li>
+					<li>Keyframes allow complex, choreographed animations impossible with transitions alone</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+

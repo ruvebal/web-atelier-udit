@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo de Formas Metamórficas | Animaciones Web</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				padding: 2rem;
+				background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				background: white;
+				border-radius: 12px;
+				padding: 2rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+			}
+
+			h1 {
+				color: #1a202c;
+				margin-bottom: 0.5rem;
+			}
+
+			.subtitle {
+				color: #718096;
+				margin-bottom: 2rem;
+			}
+
+			.demo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+
+			.demo-card {
+				border: 2px solid #e2e8f0;
+				border-radius: 8px;
+				padding: 1.5rem;
+				background: #f7fafc;
+			}
+
+			.demo-card h2 {
+				font-size: 1.25rem;
+				color: #2d3748;
+				margin-bottom: 0.5rem;
+			}
+
+			.demo-card p {
+				color: #4a5568;
+				font-size: 0.95rem;
+				margin-bottom: 1rem;
+			}
+
+			.demo-display {
+				height: 180px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: white;
+				border-radius: 8px;
+				padding: 1rem;
+			}
+
+			.back-link {
+				display: inline-block;
+				margin-bottom: 1rem;
+				color: #f5576c;
+				text-decoration: none;
+				font-weight: 600;
+			}
+
+			.back-link:hover {
+				text-decoration: underline;
+			}
+
+			/* ========================================
+			   MORPHING SHAPES
+			   ======================================== */
+
+			/* Demo 1: Square to Circle */
+			@keyframes morphCircle {
+				0%,
+				100% {
+					border-radius: 0%;
+				}
+				50% {
+					border-radius: 50%;
+				}
+			}
+
+			.morph-circle {
+				width: 120px;
+				height: 120px;
+				background: linear-gradient(135deg, #667eea, #764ba2);
+				animation: morphCircle 3s ease-in-out infinite;
+			}
+
+			/* Demo 2: Complex Border Radius Morph */
+			@keyframes morphComplex {
+				0% {
+					border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+				}
+				25% {
+					border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+				}
+				50% {
+					border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+				}
+				75% {
+					border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+				}
+				100% {
+					border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+				}
+			}
+
+			.morph-blob {
+				width: 140px;
+				height: 140px;
+				background: linear-gradient(135deg, #fa709a, #fee140);
+				animation: morphComplex 8s ease-in-out infinite;
+			}
+
+			/* Demo 3: Clip-Path Morph */
+			@keyframes morphClipPath {
+				0% {
+					clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+				}
+				33% {
+					clip-path: polygon(
+						30% 0%,
+						70% 0%,
+						100% 30%,
+						100% 70%,
+						70% 100%,
+						30% 100%,
+						0% 70%,
+						0% 30%
+					);
+				}
+				66% {
+					clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+				}
+				100% {
+					clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+				}
+			}
+
+			.morph-clip {
+				width: 120px;
+				height: 120px;
+				background: linear-gradient(135deg, #4facfe, #00f2fe);
+				animation: morphClipPath 6s ease-in-out infinite;
+			}
+
+			/* Demo 4: Triangle to Square */
+			@keyframes morphPolygon {
+				0%,
+				100% {
+					clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+				}
+				50% {
+					clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+				}
+			}
+
+			.morph-triangle {
+				width: 120px;
+				height: 120px;
+				background: linear-gradient(135deg, #f093fb, #f5576c);
+				animation: morphPolygon 3s ease-in-out infinite;
+			}
+
+			/* Demo 5: Star Morph */
+			@keyframes morphStar {
+				0%,
+				100% {
+					clip-path: polygon(
+						50% 0%,
+						61% 35%,
+						98% 35%,
+						68% 57%,
+						79% 91%,
+						50% 70%,
+						21% 91%,
+						32% 57%,
+						2% 35%,
+						39% 35%
+					);
+				}
+				50% {
+					clip-path: circle(50% at 50% 50%);
+				}
+			}
+
+			.morph-star {
+				width: 120px;
+				height: 120px;
+				background: linear-gradient(135deg, #ffecd2, #fcb69f);
+				animation: morphStar 4s ease-in-out infinite;
+			}
+
+			/* Demo 6: Rotate & Morph Combined */
+			@keyframes rotateMorph {
+				0% {
+					border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+					transform: rotate(0deg);
+				}
+				50% {
+					border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+					transform: rotate(180deg);
+				}
+				100% {
+					border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+					transform: rotate(360deg);
+				}
+			}
+
+			.morph-rotate {
+				width: 120px;
+				height: 120px;
+				background: linear-gradient(135deg, #a8edea, #fed6e3);
+				animation: rotateMorph 5s ease-in-out infinite;
+			}
+
+			/* Demo 7: Width/Height Morph */
+			@keyframes morphSize {
+				0%,
+				100% {
+					width: 120px;
+					height: 80px;
+					border-radius: 40px;
+				}
+				50% {
+					width: 80px;
+					height: 120px;
+					border-radius: 40px;
+				}
+			}
+
+			.morph-size {
+				background: linear-gradient(135deg, #667eea, #764ba2);
+				animation: morphSize 2s ease-in-out infinite;
+			}
+
+			/* Demo 8: Interactive Morph (Hover) */
+			.morph-hover {
+				width: 120px;
+				height: 120px;
+				background: linear-gradient(135deg, #fa709a, #fee140);
+				border-radius: 20px;
+				cursor: pointer;
+				transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+			}
+
+			.morph-hover:hover {
+				border-radius: 50%;
+				transform: rotate(180deg) scale(1.2);
+				background: linear-gradient(135deg, #fee140, #fa709a);
+			}
+
+			/* Code snippet */
+			.code-snippet {
+				background: #1a202c;
+				color: #e2e8f0;
+				padding: 0.75rem;
+				border-radius: 6px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.75rem;
+				overflow-x: auto;
+				margin-top: 0.75rem;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+					transition-duration: 0.01ms !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<a href="../index.md" class="back-link">← Volver a la Lección</a>
+
+			<h1>🔷 Morphing Shapes</h1>
+			<p class="subtitle">
+				Transform shapes using border-radius, clip-path, and size changes. Create organic, fluid animations.
+			</p>
+
+			<div class="demo-grid">
+				<!-- Demo 1 -->
+				<div class="demo-card">
+					<h2>1. Square ↔ Circle</h2>
+					<p>Classic shape morph using border-radius.</p>
+					<div class="demo-display">
+						<div class="morph-circle"></div>
+					</div>
+					<div class="code-snippet">
+@keyframes morphCircle {
+  0%, 100% { border-radius: 0%; }
+  50% { border-radius: 50%; }
+}
+					</div>
+				</div>
+
+				<!-- Demo 2 -->
+				<div class="demo-card">
+					<h2>2. Organic Blob</h2>
+					<p>Complex border-radius for fluid shapes.</p>
+					<div class="demo-display">
+						<div class="morph-blob"></div>
+					</div>
+					<div class="code-snippet">
+border-radius:
+  30% 70% 70% 30% /
+  30% 30% 70% 70%;
+/* Animate all 8 values */
+					</div>
+				</div>
+
+				<!-- Demo 3 -->
+				<div class="demo-card">
+					<h2>3. Clip-Path Morph</h2>
+					<p>Diamond to hexagon to pentagon.</p>
+					<div class="demo-display">
+						<div class="morph-clip"></div>
+					</div>
+					<div class="code-snippet">
+@keyframes morphClipPath {
+  0% { clip-path: polygon(...); }
+  50% { clip-path: polygon(...); }
+}
+					</div>
+				</div>
+
+				<!-- Demo 4 -->
+				<div class="demo-card">
+					<h2>4. Triangle ↔ Square</h2>
+					<p>Geometric shape transformation.</p>
+					<div class="demo-display">
+						<div class="morph-triangle"></div>
+					</div>
+					<div class="code-snippet">
+0% {
+  clip-path: polygon(
+    50% 0%, 0% 100%, 100% 100%
+  );
+}
+50% {
+  clip-path: polygon(
+    0% 0%, 100% 0%,
+    100% 100%, 0% 100%
+  );
+}
+					</div>
+				</div>
+
+				<!-- Demo 5 -->
+				<div class="demo-card">
+					<h2>5. Star ↔ Circle</h2>
+					<p>Complex polygon to circle.</p>
+					<div class="demo-display">
+						<div class="morph-star"></div>
+					</div>
+					<div class="code-snippet">
+0% {
+  clip-path: polygon(/* star */);
+}
+50% {
+  clip-path: circle(50%);
+}
+					</div>
+				</div>
+
+				<!-- Demo 6 -->
+				<div class="demo-card">
+					<h2>6. Rotate + Morph</h2>
+					<p>Combined rotation and shape change.</p>
+					<div class="demo-display">
+						<div class="morph-rotate"></div>
+					</div>
+					<div class="code-snippet">
+animation: rotateMorph 5s infinite;
+/* border-radius + rotate */
+					</div>
+				</div>
+
+				<!-- Demo 7 -->
+				<div class="demo-card">
+					<h2>7. Width/Height Morph</h2>
+					<p>Size dimension changes.</p>
+					<div class="demo-display">
+						<div class="morph-size"></div>
+					</div>
+					<div class="code-snippet">
+@keyframes morphSize {
+  0% { width: 120px; height: 80px; }
+  50% { width: 80px; height: 120px; }
+}
+					</div>
+				</div>
+
+				<!-- Demo 8 -->
+				<div class="demo-card">
+					<h2>8. Interactive (Hover)</h2>
+					<p>Hover to trigger morph animation.</p>
+					<div class="demo-display">
+						<div class="morph-hover"></div>
+					</div>
+					<div class="code-snippet">
+.morph-hover:hover {
+  border-radius: 50%;
+  transform: rotate(180deg) scale(1.2);
+}
+					</div>
+				</div>
+			</div>
+
+			<div style="margin-top: 2rem; padding: 1rem; background: #edf2f7; border-radius: 8px">
+				<h3 style="color: #2d3748; margin-bottom: 0.5rem">💡 Puntos Clave</h3>
+				<ul style="color: #4a5568; padding-left: 1.5rem">
+					<li><strong>Border-radius:</strong> Use 8 values (4 corners × 2 axes) for organic blobs</li>
+					<li><strong>Clip-path:</strong> More powerful for geometric shapes; requires same number of points for smooth morph</li>
+					<li><strong>Performance:</strong> Both techniques are GPU-accelerated</li>
+					<li><strong>Tools:</strong> Use <a href="https://bennettfeely.com/clippy/" target="_blank">Clippy</a> for clip-path generation</li>
+					<li><strong>Use cases:</strong> Loaders, buttons, menu icons (hamburger ↔ X), brand elements</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo de Animaciones de Texto | Animaciones Web</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				padding: 2rem;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				background: white;
+				border-radius: 12px;
+				padding: 2rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+			}
+
+			h1 {
+				color: #1a202c;
+				margin-bottom: 0.5rem;
+			}
+
+			.subtitle {
+				color: #718096;
+				margin-bottom: 2rem;
+			}
+
+			.demo-section {
+				margin: 3rem 0;
+				padding: 2rem;
+				border: 2px solid #e2e8f0;
+				border-radius: 8px;
+				background: #f7fafc;
+			}
+
+			.demo-section h2 {
+				font-size: 1.5rem;
+				color: #2d3748;
+				margin-bottom: 0.5rem;
+			}
+
+			.demo-section p {
+				color: #4a5568;
+				margin-bottom: 1.5rem;
+			}
+
+			.demo-display {
+				min-height: 100px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: white;
+				border-radius: 8px;
+				padding: 2rem;
+				margin-bottom: 1rem;
+			}
+
+			.back-link {
+				display: inline-block;
+				margin-bottom: 1rem;
+				color: #667eea;
+				text-decoration: none;
+				font-weight: 600;
+			}
+
+			.back-link:hover {
+				text-decoration: underline;
+			}
+
+			/* ========================================
+			   TEXT ANIMATIONS
+			   ======================================== */
+
+			/* Demo 1: Typewriter Effect */
+			@keyframes typewriter {
+				from {
+					width: 0;
+				}
+				to {
+					width: 100%;
+				}
+			}
+
+			@keyframes blink {
+				50% {
+					border-color: transparent;
+				}
+			}
+
+			.typewriter {
+				overflow: hidden;
+				border-right: 3px solid #2d3748;
+				white-space: nowrap;
+				font-size: 1.5rem;
+				font-weight: 600;
+				width: 0;
+				animation:
+					typewriter 4s steps(40) 1s forwards,
+					blink 0.75s step-end infinite;
+			}
+
+			/* Demo 2: Glowing Text */
+			@keyframes glow {
+				0%,
+				100% {
+					text-shadow:
+						0 0 10px #667eea,
+						0 0 20px #667eea,
+						0 0 30px #667eea;
+				}
+				50% {
+					text-shadow:
+						0 0 20px #667eea,
+						0 0 30px #667eea,
+						0 0 40px #667eea,
+						0 0 50px #667eea;
+				}
+			}
+
+			.glow-text {
+				font-size: 2.5rem;
+				font-weight: 800;
+				color: #667eea;
+				animation: glow 2s ease-in-out infinite;
+			}
+
+			/* Demo 3: Gradient Text Animation */
+			@keyframes gradientShift {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+
+			.gradient-text {
+				font-size: 3rem;
+				font-weight: 800;
+				background: linear-gradient(
+					90deg,
+					#667eea,
+					#764ba2,
+					#f093fb,
+					#667eea
+				);
+				background-size: 300% 100%;
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+				animation: gradientShift 3s ease infinite;
+			}
+
+			/* Demo 4: Glitch Effect */
+			@keyframes glitch1 {
+				0%,
+				100% {
+					transform: translate(0);
+				}
+				20% {
+					transform: translate(-2px, 2px);
+				}
+				40% {
+					transform: translate(-2px, -2px);
+				}
+				60% {
+					transform: translate(2px, 2px);
+				}
+				80% {
+					transform: translate(2px, -2px);
+				}
+			}
+
+			.glitch {
+				font-size: 3rem;
+				font-weight: 800;
+				color: #1a202c;
+				position: relative;
+				animation: glitch1 0.3s infinite;
+			}
+
+			.glitch::before,
+			.glitch::after {
+				content: attr(data-text);
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			.glitch::before {
+				color: #ff0000;
+				z-index: -1;
+				animation: glitch1 0.2s infinite reverse;
+			}
+
+			.glitch::after {
+				color: #00ffff;
+				z-index: -2;
+				animation: glitch1 0.3s infinite alternate-reverse;
+			}
+
+			/* Demo 5: Bounce Text */
+			@keyframes bounce-letter {
+				0%,
+				100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-20px);
+				}
+			}
+
+			.bounce-text {
+				font-size: 2.5rem;
+				font-weight: 700;
+				display: flex;
+				gap: 0.1em;
+			}
+
+			.bounce-text span {
+				display: inline-block;
+				animation: bounce-letter 1s ease-in-out infinite;
+			}
+
+			.bounce-text span:nth-child(1) {
+				animation-delay: 0s;
+				color: #ef4444;
+			}
+			.bounce-text span:nth-child(2) {
+				animation-delay: 0.1s;
+				color: #f59e0b;
+			}
+			.bounce-text span:nth-child(3) {
+				animation-delay: 0.2s;
+				color: #10b981;
+			}
+			.bounce-text span:nth-child(4) {
+				animation-delay: 0.3s;
+				color: #3b82f6;
+			}
+			.bounce-text span:nth-child(5) {
+				animation-delay: 0.4s;
+				color: #8b5cf6;
+			}
+			.bounce-text span:nth-child(6) {
+				animation-delay: 0.5s;
+				color: #ec4899;
+			}
+
+			/* Demo 6: Reveal Animation */
+			@keyframes revealText {
+				from {
+					clip-path: inset(0 100% 0 0);
+				}
+				to {
+					clip-path: inset(0 0 0 0);
+				}
+			}
+
+			.reveal-text {
+				font-size: 2rem;
+				font-weight: 700;
+				color: #2d3748;
+				animation: revealText 2s ease-out forwards;
+			}
+
+			/* Demo 7: Wave Text */
+			@keyframes wave {
+				0%,
+				100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-15px);
+				}
+			}
+
+			.wave-text {
+				font-size: 2.5rem;
+				font-weight: 700;
+				color: #3b82f6;
+			}
+
+			.wave-text span {
+				display: inline-block;
+				animation: wave 1.2s ease-in-out infinite;
+			}
+
+			.wave-text span:nth-child(1) {
+				animation-delay: 0s;
+			}
+			.wave-text span:nth-child(2) {
+				animation-delay: 0.1s;
+			}
+			.wave-text span:nth-child(3) {
+				animation-delay: 0.2s;
+			}
+			.wave-text span:nth-child(4) {
+				animation-delay: 0.3s;
+			}
+			.wave-text span:nth-child(5) {
+				animation-delay: 0.4s;
+			}
+
+			/* Code snippet */
+			.code-snippet {
+				background: #1a202c;
+				color: #e2e8f0;
+				padding: 1rem;
+				border-radius: 6px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.85rem;
+				overflow-x: auto;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<a href="../index.md" class="back-link">← Volver a la Lección</a>
+
+			<h1>✍️ Text Animations</h1>
+			<p class="subtitle">
+				Advanced techniques for animating text: typewriter, glowing, gradients, glitch effects, and more.
+			</p>
+
+			<!-- Demo 1 -->
+			<div class="demo-section">
+				<h2>1. Typewriter Effect</h2>
+				<p>Classic typing animation with blinking cursor.</p>
+				<div class="demo-display">
+					<div class="typewriter">Design with motion, not distraction.</div>
+				</div>
+				<div class="code-snippet">
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid;
+  white-space: nowrap;
+  animation: typewriter 4s steps(40) forwards;
+}
+				</div>
+			</div>
+
+			<!-- Demo 2 -->
+			<div class="demo-section">
+				<h2>2. Glowing Text</h2>
+				<p>Pulsing glow effect using text-shadow.</p>
+				<div class="demo-display">
+					<div class="glow-text">GLOW</div>
+				</div>
+				<div class="code-snippet">
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 10px #667eea; }
+  50% { text-shadow: 0 0 40px #667eea; }
+}
+.glow-text {
+  animation: glow 2s ease-in-out infinite;
+}
+				</div>
+			</div>
+
+			<!-- Demo 3 -->
+			<div class="demo-section">
+				<h2>3. Animated Gradient Text</h2>
+				<p>Flowing gradient within text using background-clip.</p>
+				<div class="demo-display">
+					<div class="gradient-text">GRADIENT</div>
+				</div>
+				<div class="code-snippet">
+.gradient-text {
+  background: linear-gradient(90deg, ...);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease infinite;
+}
+				</div>
+			</div>
+
+			<!-- Demo 4 -->
+			<div class="demo-section">
+				<h2>4. Glitch Effect</h2>
+				<p>Digital distortion effect with pseudo-elements.</p>
+				<div class="demo-display">
+					<div class="glitch" data-text="GLITCH">GLITCH</div>
+				</div>
+				<div class="code-snippet">
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  animation: glitch1 0.2s infinite;
+}
+.glitch::before { color: red; }
+.glitch::after { color: cyan; }
+				</div>
+			</div>
+
+			<!-- Demo 5 -->
+			<div class="demo-section">
+				<h2>5. Bounce Text (Letter by Letter)</h2>
+				<p>Each letter bounces with staggered delay.</p>
+				<div class="demo-display">
+					<div class="bounce-text">
+						<span>B</span>
+						<span>O</span>
+						<span>U</span>
+						<span>N</span>
+						<span>C</span>
+						<span>E</span>
+					</div>
+				</div>
+				<div class="code-snippet">
+.bounce-text span {
+  display: inline-block;
+  animation: bounce-letter 1s ease-in-out infinite;
+}
+.bounce-text span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+				</div>
+			</div>
+
+			<!-- Demo 6 -->
+			<div class="demo-section">
+				<h2>6. Reveal Animation</h2>
+				<p>Text reveals from left to right using clip-path.</p>
+				<div class="demo-display">
+					<div class="reveal-text">Revealed Text</div>
+				</div>
+				<div class="code-snippet">
+@keyframes revealText {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+				</div>
+			</div>
+
+			<!-- Demo 7 -->
+			<div class="demo-section">
+				<h2>7. Wave Effect</h2>
+				<p>Letters move in a wave pattern.</p>
+				<div class="demo-display">
+					<div class="wave-text">
+						<span>W</span>
+						<span>A</span>
+						<span>V</span>
+						<span>E</span>
+						<span>S</span>
+					</div>
+				</div>
+				<div class="code-snippet">
+.wave-text span {
+  display: inline-block;
+  animation: wave 1.2s ease-in-out infinite;
+}
+.wave-text span:nth-child(n) {
+  animation-delay: calc(n * 0.1s);
+}
+				</div>
+			</div>
+
+			<div style="margin-top: 2rem; padding: 1rem; background: #edf2f7; border-radius: 8px">
+				<h3 style="color: #2d3748; margin-bottom: 0.5rem">💡 Puntos Clave</h3>
+				<ul style="color: #4a5568; padding-left: 1.5rem">
+					<li><strong>Typewriter:</strong> Use <code>steps()</code> timing function for character-by-character effect</li>
+					<li><strong>Gradient text:</strong> Requires <code>-webkit-background-clip: text</code> and <code>-webkit-text-fill-color: transparent</code></li>
+					<li><strong>Staggered letters:</strong> Wrap each letter in <code>&lt;span&gt;</code> and use <code>animation-delay</code></li>
+					<li><strong>Glitch:</strong> Use <code>::before</code> and <code>::after</code> pseudo-elements with <code>attr(data-text)</code></li>
+					<li><strong>Accessibility:</strong> Don't rely solely on animation to convey meaning; provide text alternatives</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+

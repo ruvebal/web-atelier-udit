@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo de Animaciones Infinitas | Animaciones Web</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				padding: 2rem;
+				background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				background: white;
+				border-radius: 12px;
+				padding: 2rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+			}
+
+			h1 {
+				color: #1a202c;
+				margin-bottom: 0.5rem;
+			}
+
+			.subtitle {
+				color: #718096;
+				margin-bottom: 2rem;
+			}
+
+			.demo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+
+			.demo-card {
+				border: 2px solid #e2e8f0;
+				border-radius: 8px;
+				padding: 1.5rem;
+				background: #f7fafc;
+			}
+
+			.demo-card h2 {
+				font-size: 1.25rem;
+				color: #2d3748;
+				margin-bottom: 0.5rem;
+			}
+
+			.demo-card p {
+				color: #4a5568;
+				font-size: 0.95rem;
+				margin-bottom: 1rem;
+			}
+
+			.demo-area {
+				height: 140px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: white;
+				border-radius: 6px;
+				padding: 1rem;
+			}
+
+			.back-link {
+				display: inline-block;
+				margin-bottom: 1rem;
+				color: #fcb69f;
+				text-decoration: none;
+				font-weight: 600;
+			}
+
+			.back-link:hover {
+				text-decoration: underline;
+			}
+
+			/* ========================================
+			   INFINITE ANIMATIONS
+			   ======================================== */
+
+			/* Demo 1: Spinning Loader */
+			@keyframes spin {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+
+			.spinner {
+				width: 60px;
+				height: 60px;
+				border: 6px solid #e2e8f0;
+				border-top-color: #667eea;
+				border-radius: 50%;
+				animation: spin 1s linear infinite;
+			}
+
+			/* Demo 2: Pulsing Heart */
+			@keyframes heartbeat {
+				0%,
+				100% {
+					transform: scale(1);
+				}
+				25% {
+					transform: scale(1.2);
+				}
+				50% {
+					transform: scale(1);
+				}
+				75% {
+					transform: scale(1.15);
+				}
+			}
+
+			.heart {
+				font-size: 3rem;
+				color: #ef4444;
+				animation: heartbeat 1.5s ease-in-out infinite;
+			}
+
+			/* Demo 3: Float Up & Down */
+			@keyframes float {
+				0%,
+				100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-20px);
+				}
+			}
+
+			.float-box {
+				width: 80px;
+				height: 80px;
+				background: linear-gradient(135deg, #667eea, #764ba2);
+				border-radius: 12px;
+				animation: float 3s ease-in-out infinite;
+			}
+
+			/* Demo 4: Breathing Animation */
+			@keyframes breathe {
+				0%,
+				100% {
+					transform: scale(1);
+					opacity: 1;
+				}
+				50% {
+					transform: scale(1.3);
+					opacity: 0.6;
+				}
+			}
+
+			.breathe-circle {
+				width: 80px;
+				height: 80px;
+				background: radial-gradient(circle, #4ade80, #22c55e);
+				border-radius: 50%;
+				animation: breathe 2.5s ease-in-out infinite;
+			}
+
+			/* Demo 5: Dot Wave Loading */
+			@keyframes dotWave {
+				0%,
+				60%,
+				100% {
+					transform: translateY(0);
+				}
+				30% {
+					transform: translateY(-15px);
+				}
+			}
+
+			.dot-wave {
+				display: flex;
+				gap: 0.5rem;
+			}
+
+			.dot {
+				width: 12px;
+				height: 12px;
+				background: #3b82f6;
+				border-radius: 50%;
+				animation: dotWave 1.4s ease-in-out infinite;
+			}
+
+			.dot:nth-child(1) {
+				animation-delay: 0s;
+			}
+			.dot:nth-child(2) {
+				animation-delay: 0.2s;
+			}
+			.dot:nth-child(3) {
+				animation-delay: 0.4s;
+			}
+			.dot:nth-child(4) {
+				animation-delay: 0.6s;
+			}
+
+			/* Demo 6: Rotating Squares */
+			@keyframes rotateSquares {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			.squares-container {
+				position: relative;
+				width: 80px;
+				height: 80px;
+				animation: rotateSquares 3s linear infinite;
+			}
+
+			.square {
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				background: linear-gradient(135deg, #fa709a, #fee140);
+				border-radius: 4px;
+			}
+
+			.square:nth-child(1) {
+				top: 0;
+				left: 0;
+			}
+			.square:nth-child(2) {
+				top: 0;
+				right: 0;
+			}
+			.square:nth-child(3) {
+				bottom: 0;
+				left: 0;
+			}
+			.square:nth-child(4) {
+				bottom: 0;
+				right: 0;
+			}
+
+			/* Demo 7: Shimmer Effect */
+			@keyframes shimmer {
+				0% {
+					background-position: -200% 0;
+				}
+				100% {
+					background-position: 200% 0;
+				}
+			}
+
+			.shimmer-box {
+				width: 100%;
+				height: 60px;
+				background: linear-gradient(
+					90deg,
+					#e2e8f0 25%,
+					#cbd5e0 50%,
+					#e2e8f0 75%
+				);
+				background-size: 200% 100%;
+				border-radius: 8px;
+				animation: shimmer 2s linear infinite;
+			}
+
+			/* Demo 8: Radar Pulse */
+			@keyframes radarPulse {
+				0% {
+					transform: scale(0.5);
+					opacity: 1;
+				}
+				100% {
+					transform: scale(2);
+					opacity: 0;
+				}
+			}
+
+			.radar-container {
+				position: relative;
+				width: 80px;
+				height: 80px;
+			}
+
+			.radar-dot {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 12px;
+				height: 12px;
+				margin: -6px 0 0 -6px;
+				background: #3b82f6;
+				border-radius: 50%;
+				z-index: 2;
+			}
+
+			.radar-ring {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 40px;
+				height: 40px;
+				margin: -20px 0 0 -20px;
+				border: 3px solid #3b82f6;
+				border-radius: 50%;
+				animation: radarPulse 2s ease-out infinite;
+			}
+
+			.radar-ring:nth-child(2) {
+				animation-delay: 0.5s;
+			}
+
+			.radar-ring:nth-child(3) {
+				animation-delay: 1s;
+			}
+
+			/* Code snippet */
+			.code-snippet {
+				background: #1a202c;
+				color: #e2e8f0;
+				padding: 0.75rem;
+				border-radius: 6px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.75rem;
+				overflow-x: auto;
+				margin-top: 0.75rem;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<a href="../index.md" class="back-link">← Volver a la Lección</a>
+
+			<h1>♾️ Infinite Animations</h1>
+			<p class="subtitle">
+				Continuously looping animations for loaders, ambient effects, and ongoing feedback. These animations run
+				forever.
+			</p>
+
+			<div class="demo-grid">
+				<!-- Demo 1 -->
+				<div class="demo-card">
+					<h2>1. Spinning Loader</h2>
+					<p>Classic loading spinner.</p>
+					<div class="demo-area">
+						<div class="spinner"></div>
+					</div>
+					<div class="code-snippet">
+						animation:<br />
+						&nbsp;&nbsp;spin 1s linear infinite;
+					</div>
+				</div>
+
+				<!-- Demo 2 -->
+				<div class="demo-card">
+					<h2>2. Heartbeat</h2>
+					<p>Pulsing heart animation.</p>
+					<div class="demo-area">
+						<div class="heart">❤️</div>
+					</div>
+					<div class="code-snippet">
+						animation:<br />
+						&nbsp;&nbsp;heartbeat 1.5s<br />
+						&nbsp;&nbsp;ease-in-out infinite;
+					</div>
+				</div>
+
+				<!-- Demo 3 -->
+				<div class="demo-card">
+					<h2>3. Float</h2>
+					<p>Smooth floating effect.</p>
+					<div class="demo-area">
+						<div class="float-box"></div>
+					</div>
+					<div class="code-snippet">
+						animation:<br />
+						&nbsp;&nbsp;float 3s<br />
+						&nbsp;&nbsp;ease-in-out infinite;
+					</div>
+				</div>
+
+				<!-- Demo 4 -->
+				<div class="demo-card">
+					<h2>4. Breathing</h2>
+					<p>Zen-like breathing circle.</p>
+					<div class="demo-area">
+						<div class="breathe-circle"></div>
+					</div>
+					<div class="code-snippet">
+						animation:<br />
+						&nbsp;&nbsp;breathe 2.5s<br />
+						&nbsp;&nbsp;ease-in-out infinite;
+					</div>
+				</div>
+
+				<!-- Demo 5 -->
+				<div class="demo-card">
+					<h2>5. Dot Wave</h2>
+					<p>Staggered dot animation.</p>
+					<div class="demo-area">
+						<div class="dot-wave">
+							<div class="dot"></div>
+							<div class="dot"></div>
+							<div class="dot"></div>
+							<div class="dot"></div>
+						</div>
+					</div>
+					<div class="code-snippet">
+						.dot:nth-child(n) {<br />
+						&nbsp;&nbsp;animation-delay: calc(n * 0.2s);<br />
+						}
+					</div>
+				</div>
+
+				<!-- Demo 6 -->
+				<div class="demo-card">
+					<h2>6. Rotating Squares</h2>
+					<p>Rotating group of elements.</p>
+					<div class="demo-area">
+						<div class="squares-container">
+							<div class="square"></div>
+							<div class="square"></div>
+							<div class="square"></div>
+							<div class="square"></div>
+						</div>
+					</div>
+					<div class="code-snippet">
+						animation:<br />
+						&nbsp;&nbsp;rotateSquares 3s<br />
+						&nbsp;&nbsp;linear infinite;
+					</div>
+				</div>
+
+				<!-- Demo 7 -->
+				<div class="demo-card">
+					<h2>7. Shimmer</h2>
+					<p>Skeleton loading shimmer effect.</p>
+					<div class="demo-area">
+						<div class="shimmer-box"></div>
+					</div>
+					<div class="code-snippet">
+						background:<br />
+						&nbsp;&nbsp;linear-gradient(...);<br />
+						animation:<br />
+						&nbsp;&nbsp;shimmer 2s linear infinite;
+					</div>
+				</div>
+
+				<!-- Demo 8 -->
+				<div class="demo-card">
+					<h2>8. Radar Pulse</h2>
+					<p>Expanding rings like a radar.</p>
+					<div class="demo-area">
+						<div class="radar-container">
+							<div class="radar-dot"></div>
+							<div class="radar-ring"></div>
+							<div class="radar-ring"></div>
+							<div class="radar-ring"></div>
+						</div>
+					</div>
+					<div class="code-snippet">
+						animation:<br />
+						&nbsp;&nbsp;radarPulse 2s<br />
+						&nbsp;&nbsp;ease-out infinite;<br />
+						animation-delay: 0.5s;
+					</div>
+				</div>
+			</div>
+
+			<div style="margin-top: 2rem; padding: 1rem; background: #edf2f7; border-radius: 8px">
+				<h3 style="color: #2d3748; margin-bottom: 0.5rem">💡 Puntos Clave</h3>
+				<ul style="color: #4a5568; padding-left: 1.5rem">
+					<li>Use <code>animation-iteration-count: infinite</code> to loop animations indefinitely</li>
+					<li><strong>Performance:</strong> Prefer <code>transform</code> and <code>opacity</code> for smooth 60fps</li>
+					<li><strong>Stagger delays:</strong> Use <code>animation-delay</code> with <code>nth-child()</code> for sequenced effects</li>
+					<li><strong>Timing functions:</strong> <code>linear</code> for constant speed, <code>ease-in-out</code> for organic motion</li>
+					<li><strong>Accessibility:</strong> Always provide pause controls or respect <code>prefers-reduced-motion</code></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+

@@ -125,6 +125,20 @@
   status:
    es: complete
    en: complete
+- slug: web-animations-css
+  title:
+   es: 'Animaciones Web con CSS – De lo Básico a lo Avanzado'
+   en: 'Web Animations with CSS – From Basics to Advanced Techniques'
+  path:
+   es: /lessons/es/web-animations/css/
+   en: /lessons/en/web-animations/css/
+  file:
+   es: lessons/es/web-animations/css/index.md
+   en: lessons/en/web-animations/css/index.md
+  status:
+   es: complete
+   en: complete
+  category: animations
 - slug: readings
   title:
    es: Lecturas

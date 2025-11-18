@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo de Animaciones Basadas en Scroll | Animaciones Web</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				background: #0f172a;
+				color: #e2e8f0;
+			}
+
+			.header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 1000;
+				background: rgba(15, 23, 42, 0.9);
+				backdrop-filter: blur(10px);
+				padding: 1rem 2rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.header h1 {
+				font-size: 1.5rem;
+				color: #fff;
+			}
+
+			.back-link {
+				display: inline-block;
+				color: #60a5fa;
+				text-decoration: none;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+			}
+
+			.back-link:hover {
+				text-decoration: underline;
+			}
+
+			/* ========================================
+			   SCROLL-DRIVEN ANIMATIONS
+			   ======================================== */
+
+			/* Demo 1: Reading Progress Bar */
+			.progress-bar {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 4px;
+				background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+				transform-origin: left;
+				z-index: 1001;
+			}
+
+			/* CSS Scroll Timeline (Progressive Enhancement) */
+			@supports (animation-timeline: scroll()) {
+				.progress-bar {
+					animation: progressGrow linear;
+					animation-timeline: scroll();
+				}
+
+				@keyframes progressGrow {
+					from {
+						transform: scaleX(0);
+					}
+					to {
+						transform: scaleX(1);
+					}
+				}
+			}
+
+			/* Hero Section with Parallax */
+			.hero {
+				position: relative;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+				margin-top: 80px;
+			}
+
+			.hero-bg {
+				position: absolute;
+				inset: 0;
+				background: url('https://images.unsplash.com/photo-1557683304-673a23048d34?w=1920&h=1080&fit=crop') center/cover;
+				background-attachment: fixed; /* Fallback parallax */
+			}
+
+			@supports (animation-timeline: scroll()) {
+				.hero-bg {
+					animation: heroParallax linear;
+					animation-timeline: scroll();
+					background-attachment: scroll;
+				}
+
+				@keyframes heroParallax {
+					to {
+						transform: translateY(50vh);
+					}
+				}
+			}
+
+			.hero-content {
+				position: relative;
+				z-index: 1;
+				text-align: center;
+				color: white;
+				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+			}
+
+			.hero-content h2 {
+				font-size: 4rem;
+				margin-bottom: 1rem;
+			}
+
+			/* Fade In Sections on Scroll */
+			.content-section {
+				min-height: 60vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 4rem 2rem;
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+			}
+
+			.content-card {
+				max-width: 800px;
+				background: rgba(255, 255, 255, 0.05);
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 12px;
+				padding: 3rem;
+			}
+
+			.content-card h3 {
+				font-size: 2rem;
+				margin-bottom: 1rem;
+				color: #60a5fa;
+			}
+
+			/* Scroll-triggered fade in */
+			@supports (animation-timeline: view()) {
+				.content-card {
+					animation: fadeInView linear;
+					animation-timeline: view();
+					animation-range: entry 0% cover 30%;
+				}
+
+				@keyframes fadeInView {
+					from {
+						opacity: 0;
+						transform: translateY(50px);
+					}
+					to {
+						opacity: 1;
+						transform: translateY(0);
+					}
+				}
+			}
+
+			/* Sticky Section with Scale */
+			.sticky-section {
+				position: sticky;
+				top: 100px;
+				height: 80vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				margin: 2rem;
+				border-radius: 12px;
+			}
+
+			@supports (animation-timeline: view()) {
+				.sticky-section {
+					animation: stickyScale linear;
+					animation-timeline: view();
+				}
+
+				@keyframes stickyScale {
+					entry 0% {
+						opacity: 0;
+						transform: scale(0.8);
+					}
+					entry 100% {
+						opacity: 1;
+						transform: scale(1);
+					}
+					exit 0% {
+						opacity: 1;
+						transform: scale(1);
+					}
+					exit 100% {
+						opacity: 0;
+						transform: scale(0.8);
+					}
+				}
+			}
+
+			/* Horizontal Scroll Section */
+			.horizontal-scroll {
+				height: 100vh;
+				overflow-x: auto;
+				overflow-y: hidden;
+				white-space: nowrap;
+				padding: 2rem;
+				background: #1e293b;
+			}
+
+			.horizontal-item {
+				display: inline-block;
+				width: 300px;
+				height: 400px;
+				margin-right: 2rem;
+				background: linear-gradient(135deg, #f093fb, #f5576c);
+				border-radius: 12px;
+				vertical-align: top;
+				padding: 2rem;
+			}
+
+			/* Code Example Section */
+			.code-section {
+				padding: 4rem 2rem;
+				background: rgba(255, 255, 255, 0.02);
+			}
+
+			.code-container {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			.code-snippet {
+				background: #1a202c;
+				border: 1px solid #2d3748;
+				border-radius: 8px;
+				padding: 1.5rem;
+				margin: 1.5rem 0;
+				overflow-x: auto;
+			}
+
+			.code-snippet pre {
+				color: #e2e8f0;
+				font-family: 'Courier New', monospace;
+				font-size: 0.9rem;
+				line-height: 1.6;
+			}
+
+			/* Footer Spacer */
+			.footer-spacer {
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+			}
+
+			/* Fallback for browsers without scroll timeline support */
+			@supports not (animation-timeline: scroll()) {
+				.fallback-notice {
+					position: fixed;
+					bottom: 20px;
+					right: 20px;
+					background: rgba(239, 68, 68, 0.9);
+					color: white;
+					padding: 1rem;
+					border-radius: 8px;
+					max-width: 300px;
+					font-size: 0.9rem;
+					z-index: 2000;
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Progress Bar -->
+		<div class="progress-bar" id="progressBar"></div>
+
+		<!-- Header -->
+		<div class="header">
+			<a href="../index.md" class="back-link">← Volver a la Lección</a>
+			<h1>🎢 Scroll-Driven Animations</h1>
+		</div>
+
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-bg"></div>
+			<div class="hero-content">
+				<h2>Scroll to Explore</h2>
+				<p style="font-size: 1.2rem">Modern CSS scroll-driven animations</p>
+			</div>
+		</section>
+
+		<!-- Content Sections with Fade In -->
+		<section class="content-section">
+			<div class="content-card">
+				<h3>📊 What Are Scroll-Driven Animations?</h3>
+				<p style="font-size: 1.1rem; line-height: 1.8">
+					Scroll-driven animations are a new CSS feature that lets animations progress based on scroll
+					position instead of time. This creates performant, native parallax effects, progress indicators, and
+					reveal animations without JavaScript.
+				</p>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<div class="content-card">
+				<h3>⚡ Performance Benefits</h3>
+				<p style="font-size: 1.1rem; line-height: 1.8">
+					Unlike JavaScript scroll listeners, CSS scroll-driven animations run on the compositor thread,
+					providing buttery-smooth 60fps performance. The browser optimizes these animations automatically.
+				</p>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<div class="content-card">
+				<h3>🎯 Browser Support</h3>
+				<p style="font-size: 1.1rem; line-height: 1.8">
+					Currently supported in Chrome/Edge 115+, with Firefox and Safari implementing. Use
+					<code>@supports</code> for progressive enhancement and provide JavaScript fallbacks for older
+					browsers.
+				</p>
+			</div>
+		</section>
+
+		<!-- Sticky Section -->
+		<section class="sticky-section">
+			<div style="text-align: center; max-width: 600px; padding: 2rem">
+				<h3 style="font-size: 2.5rem; margin-bottom: 1rem">Sticky Section</h3>
+				<p style="font-size: 1.2rem">
+					This section scales in and out as it enters and exits the viewport using
+					<code>animation-timeline: view()</code>.
+				</p>
+			</div>
+		</section>
+
+		<!-- Code Examples -->
+		<section class="code-section">
+			<div class="code-container">
+				<h2 style="text-align: center; margin-bottom: 2rem; color: #60a5fa">📝 Code Examples</h2>
+
+				<h3 style="color: #f0abfc; margin-top: 2rem">1. Progress Bar</h3>
+				<div class="code-snippet">
+					<pre>
+.progress-bar {
+  position: fixed;
+  top: 0;
+  height: 4px;
+  background: linear-gradient(...);
+  transform-origin: left;
+}
+
+@supports (animation-timeline: scroll()) {
+  .progress-bar {
+    animation: progressGrow linear;
+    animation-timeline: scroll();
+  }
+
+  @keyframes progressGrow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+}</pre>
+				</div>
+
+				<h3 style="color: #f0abfc; margin-top: 2rem">2. Parallax Background</h3>
+				<div class="code-snippet">
+					<pre>
+@supports (animation-timeline: scroll()) {
+  .hero-bg {
+    animation: heroParallax linear;
+    animation-timeline: scroll();
+  }
+
+  @keyframes heroParallax {
+    to { transform: translateY(50vh); }
+  }
+}</pre>
+				</div>
+
+				<h3 style="color: #f0abfc; margin-top: 2rem">3. Fade In on Scroll (View Timeline)</h3>
+				<div class="code-snippet">
+					<pre>
+@supports (animation-timeline: view()) {
+  .content-card {
+    animation: fadeInView linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  @keyframes fadeInView {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}</pre>
+				</div>
+
+				<h3 style="color: #f0abfc; margin-top: 2rem">4. JavaScript Fallback</h3>
+				<div class="code-snippet">
+					<pre>
+if (!CSS.supports('animation-timeline: scroll()')) {
+  const progress = document.getElementById('progressBar');
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.body.scrollHeight - window.innerHeight;
+    const percent = scrolled / total;
+    progress.style.transform = `scaleX(${percent})`;
+  }, { passive: true });
+}</pre>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer Spacer -->
+		<section class="footer-spacer">
+			<div style="text-align: center">
+				<h2 style="font-size: 3rem; margin-bottom: 1rem">🎉 You've Reached the End!</h2>
+				<p style="font-size: 1.2rem; color: #94a3b8">
+					Scroll back up to see all animations again
+				</p>
+			</div>
+		</section>
+
+		<!-- Fallback Notice -->
+		<div class="fallback-notice" id="fallbackNotice" style="display: none">
+			⚠️ <strong>Note:</strong> Your browser doesn't support CSS scroll-driven animations yet. Some effects may
+			use JavaScript fallbacks or be disabled.
+		</div>
+
+		<script>
+			// JavaScript fallback for browsers without CSS Scroll Timeline support
+			if (!CSS.supports('animation-timeline: scroll()')) {
+				document.getElementById('fallbackNotice').style.display = 'block';
+
+				const progress = document.getElementById('progressBar');
+
+				let ticking = false;
+
+				function updateProgress() {
+					const scrolled = window.scrollY || window.pageYOffset;
+					const total = document.body.scrollHeight - window.innerHeight;
+					const percent = total > 0 ? scrolled / total : 0;
+					progress.style.transform = `scaleX(${percent})`;
+				}
+
+				function onScroll() {
+					if (!ticking) {
+						window.requestAnimationFrame(() => {
+							updateProgress();
+							ticking = false;
+						});
+						ticking = true;
+					}
+				}
+
+				updateProgress();
+				window.addEventListener('scroll', onScroll, { passive: true });
+
+				// Respect reduced motion
+				if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+					progress.style.transition = 'none';
+				}
+			}
+
+			// Hide fallback notice after 5 seconds
+			setTimeout(() => {
+				const notice = document.getElementById('fallbackNotice');
+				if (notice) {
+					notice.style.opacity = '0';
+					notice.style.transition = 'opacity 0.5s';
+					setTimeout(() => notice.remove(), 500);
+				}
+			}, 5000);
+		</script>
+	</body>
+</html>
+

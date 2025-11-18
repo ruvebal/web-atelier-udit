@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo de Animaciones de Fondo | Animaciones Web</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				padding: 2rem;
+				background: #1a202c;
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				background: white;
+				border-radius: 12px;
+				padding: 2rem;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+			}
+
+			h1 {
+				color: #1a202c;
+				margin-bottom: 0.5rem;
+			}
+
+			.subtitle {
+				color: #718096;
+				margin-bottom: 2rem;
+			}
+
+			.demo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+
+			.demo-card {
+				border: 2px solid #e2e8f0;
+				border-radius: 8px;
+				overflow: hidden;
+				background: #f7fafc;
+			}
+
+			.demo-header {
+				padding: 1rem 1.5rem;
+			}
+
+			.demo-header h2 {
+				font-size: 1.25rem;
+				color: #2d3748;
+				margin-bottom: 0.25rem;
+			}
+
+			.demo-header p {
+				color: #4a5568;
+				font-size: 0.95rem;
+			}
+
+			.demo-display {
+				height: 200px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: 700;
+				font-size: 1.5rem;
+				text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+			}
+
+			.back-link {
+				display: inline-block;
+				margin-bottom: 1rem;
+				color: #667eea;
+				text-decoration: none;
+				font-weight: 600;
+			}
+
+			.back-link:hover {
+				text-decoration: underline;
+			}
+
+			/* ========================================
+			   BACKGROUND ANIMATIONS
+			   ======================================== */
+
+			/* Demo 1: Gradient Shift */
+			@keyframes gradientShift {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+
+			.bg-gradient-shift {
+				background: linear-gradient(
+					45deg,
+					#667eea,
+					#764ba2,
+					#f093fb,
+					#f5576c,
+					#667eea
+				);
+				background-size: 400% 400%;
+				animation: gradientShift 6s ease infinite;
+			}
+
+			/* Demo 2: Color Cycle */
+			@keyframes colorCycle {
+				0% {
+					background-color: #ef4444;
+				}
+				25% {
+					background-color: #f59e0b;
+				}
+				50% {
+					background-color: #10b981;
+				}
+				75% {
+					background-color: #3b82f6;
+				}
+				100% {
+					background-color: #ef4444;
+				}
+			}
+
+			.bg-color-cycle {
+				animation: colorCycle 8s ease infinite;
+			}
+
+			/* Demo 3: Sliding Stripes */
+			@keyframes slideStripes {
+				0% {
+					background-position: 0 0;
+				}
+				100% {
+					background-position: 80px 80px;
+				}
+			}
+
+			.bg-stripes {
+				background: repeating-linear-gradient(
+					45deg,
+					#667eea,
+					#667eea 20px,
+					#764ba2 20px,
+					#764ba2 40px
+				);
+				animation: slideStripes 2s linear infinite;
+			}
+
+			/* Demo 4: Pulsing Radial Gradient */
+			@keyframes pulseRadial {
+				0%,
+				100% {
+					background-size: 100% 100%;
+				}
+				50% {
+					background-size: 150% 150%;
+				}
+			}
+
+			.bg-pulse-radial {
+				background: radial-gradient(
+					circle,
+					#f093fb 0%,
+					#f5576c 50%,
+					#1a202c 100%
+				);
+				background-position: center;
+				animation: pulseRadial 3s ease-in-out infinite;
+			}
+
+			/* Demo 5: Floating Circles (SVG Pattern) */
+			@keyframes floatPattern {
+				from {
+					background-position: 0 0;
+				}
+				to {
+					background-position: 100px 100px;
+				}
+			}
+
+			.bg-floating-pattern {
+				background-color: #667eea;
+				background-image: radial-gradient(
+						circle at 20% 50%,
+						rgba(255, 255, 255, 0.2) 0%,
+						transparent 50%
+					),
+					radial-gradient(
+						circle at 80% 80%,
+						rgba(255, 255, 255, 0.15) 0%,
+						transparent 50%
+					),
+					radial-gradient(
+						circle at 40% 20%,
+						rgba(255, 255, 255, 0.1) 0%,
+						transparent 50%
+					);
+				background-size: 100px 100px;
+				animation: floatPattern 20s linear infinite;
+			}
+
+			/* Demo 6: Aurora Effect */
+			@keyframes aurora {
+				0%,
+				100% {
+					background-position: 0% 50%, 100% 50%, 50% 0%;
+				}
+				33% {
+					background-position: 100% 0%, 0% 100%, 50% 100%;
+				}
+				66% {
+					background-position: 50% 100%, 50% 0%, 0% 50%;
+				}
+			}
+
+			.bg-aurora {
+				background: linear-gradient(
+						45deg,
+						rgba(102, 126, 234, 0.8) 0%,
+						transparent 70%
+					),
+					linear-gradient(
+						135deg,
+						rgba(245, 87, 108, 0.8) 10%,
+						transparent 80%
+					),
+					linear-gradient(
+						225deg,
+						rgba(118, 75, 162, 0.8) 10%,
+						transparent 80%
+					),
+					linear-gradient(
+						315deg,
+						rgba(240, 147, 251, 0.8) 100%,
+						transparent 70%
+					);
+				background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%;
+				animation: aurora 10s ease infinite;
+			}
+
+			/* Demo 7: Matrix Rain Effect (CSS Only) */
+			@keyframes matrixRain {
+				0% {
+					background-position: 0% 0%;
+				}
+				100% {
+					background-position: 0% 100%;
+				}
+			}
+
+			.bg-matrix {
+				background-color: #000;
+				background-image: repeating-linear-gradient(
+					0deg,
+					transparent,
+					transparent 40px,
+					rgba(0, 255, 0, 0.4) 40px,
+					rgba(0, 255, 0, 0.4) 42px
+				);
+				background-size: 100% 200%;
+				animation: matrixRain 2s linear infinite;
+			}
+
+			/* Demo 8: Mesh Gradient */
+			@keyframes meshMove {
+				0%,
+				100% {
+					background-position: 0% 0%, 100% 100%, 50% 50%;
+				}
+				33% {
+					background-position: 100% 0%, 0% 100%, 25% 75%;
+				}
+				66% {
+					background-position: 50% 100%, 50% 0%, 75% 25%;
+				}
+			}
+
+			.bg-mesh {
+				background: radial-gradient(at 0% 0%, #667eea 0px, transparent 50%),
+					radial-gradient(at 100% 100%, #f5576c 0px, transparent 50%),
+					radial-gradient(at 50% 50%, #764ba2 0px, transparent 50%);
+				background-color: #1a202c;
+				animation: meshMove 12s ease infinite;
+			}
+
+			/* Code snippet */
+			.code-snippet {
+				background: #1a202c;
+				color: #e2e8f0;
+				padding: 1rem;
+				border-radius: 0 0 6px 6px;
+				font-family: 'Courier New', monospace;
+				font-size: 0.8rem;
+				overflow-x: auto;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<a href="../index.md" class="back-link">← Volver a la Lección</a>
+
+			<h1>🎨 Background Animations</h1>
+			<p class="subtitle">
+				Animate backgrounds using gradients, patterns, and colors. Creates ambient, engaging visual experiences.
+			</p>
+
+			<div class="demo-grid">
+				<!-- Demo 1 -->
+				<div class="demo-card">
+					<div class="demo-header">
+						<h2>1. Gradient Shift</h2>
+						<p>Flowing multi-color gradient.</p>
+					</div>
+					<div class="demo-display bg-gradient-shift">Gradient</div>
+					<div class="code-snippet">
+background: linear-gradient(...);
+background-size: 400% 400%;
+animation: gradientShift 6s ease infinite;
+					</div>
+				</div>
+
+				<!-- Demo 2 -->
+				<div class="demo-card">
+					<div class="demo-header">
+						<h2>2. Color Cycle</h2>
+						<p>Smooth color transitions.</p>
+					</div>
+					<div class="demo-display bg-color-cycle">Colors</div>
+					<div class="code-snippet">
+@keyframes colorCycle {
+  0% { background-color: #ef4444; }
+  25% { background-color: #f59e0b; }
+  50% { background-color: #10b981; }
+  75% { background-color: #3b82f6; }
+}
+					</div>
+				</div>
+
+				<!-- Demo 3 -->
+				<div class="demo-card">
+					<div class="demo-header">
+						<h2>3. Sliding Stripes</h2>
+						<p>Moving diagonal stripes.</p>
+					</div>
+					<div class="demo-display bg-stripes">Stripes</div>
+					<div class="code-snippet">
+background: repeating-linear-gradient(
+  45deg, #667eea, #667eea 20px,
+  #764ba2 20px, #764ba2 40px
+);
+animation: slideStripes 2s linear infinite;
+					</div>
+				</div>
+
+				<!-- Demo 4 -->
+				<div class="demo-card">
+					<div class="demo-header">
+						<h2>4. Pulsing Radial</h2>
+						<p>Expanding radial gradient.</p>
+					</div>
+					<div class="demo-display bg-pulse-radial">Pulse</div>
+					<div class="code-snippet">
+background: radial-gradient(...);
+animation: pulseRadial 3s ease-in-out infinite;
+					</div>
+				</div>
+
+				<!-- Demo 5 -->
+				<div class="demo-card">
+					<div class="demo-header">
+						<h2>5. Floating Pattern</h2>
+						<p>Moving circular pattern.</p>
+					</div>
+					<div class="demo-display bg-floating-pattern">Pattern</div>
+					<div class="code-snippet">
+background-image:
+  radial-gradient(...),
+  radial-gradient(...);
+animation: floatPattern 20s linear infinite;
+					</div>
+				</div>
+
+				<!-- Demo 6 -->
+				<div class="demo-card">
+					<div class="demo-header">
+						<h2>6. Aurora Effect</h2>
+						<p>Northern lights-style effect.</p>
+					</div>
+					<div class="demo-display bg-aurora">Aurora</div>
+					<div class="code-snippet">
+background:
+  linear-gradient(45deg, ...),
+  linear-gradient(135deg, ...),
+  linear-gradient(225deg, ...);
+animation: aurora 10s ease infinite;
+					</div>
+				</div>
+
+				<!-- Demo 7 -->
+				<div class="demo-card">
+					<div class="demo-header">
+						<h2>7. Matrix Rain</h2>
+						<p>Falling lines effect.</p>
+					</div>
+					<div class="demo-display bg-matrix">Matrix</div>
+					<div class="code-snippet">
+background:
+  repeating-linear-gradient(...);
+background-size: 100% 200%;
+animation: matrixRain 2s linear infinite;
+					</div>
+				</div>
+
+				<!-- Demo 8 -->
+				<div class="demo-card">
+					<div class="demo-header">
+						<h2>8. Mesh Gradient</h2>
+						<p>Multiple radial gradients moving.</p>
+					</div>
+					<div class="demo-display bg-mesh">Mesh</div>
+					<div class="code-snippet">
+background:
+  radial-gradient(at 0% 0%, ...),
+  radial-gradient(at 100% 100%, ...),
+  radial-gradient(at 50% 50%, ...);
+animation: meshMove 12s ease infinite;
+					</div>
+				</div>
+			</div>
+
+			<div style="margin-top: 2rem; padding: 1rem; background: #edf2f7; border-radius: 8px">
+				<h3 style="color: #2d3748; margin-bottom: 0.5rem">💡 Puntos Clave</h3>
+				<ul style="color: #4a5568; padding-left: 1.5rem">
+					<li><strong>Gradient animation:</strong> Animate <code>background-position</code> with <code>background-size</code> larger than 100%</li>
+					<li><strong>Performance:</strong> Background animations can be GPU-heavy; use sparingly</li>
+					<li><strong>Layering:</strong> Combine multiple gradients for complex effects</li>
+					<li><strong>Use cases:</strong> Hero sections, loading states, ambient backgrounds</li>
+					<li><strong>Alternative:</strong> For complex animations, consider <code>&lt;canvas&gt;</code> or SVG</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+
