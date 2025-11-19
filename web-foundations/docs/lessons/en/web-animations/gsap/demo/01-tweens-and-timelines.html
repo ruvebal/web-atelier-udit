@@ -1,0 +1,367 @@
+---
+---
+{% comment %}
+  YAML front matter is required for Jekyll to process Liquid template variables.
+{% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Tweens & Timelines | Web Animations</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      color: #1a202c;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #718096;
+      margin-bottom: 2rem;
+    }
+
+    .demo-section {
+      margin: 2rem 0;
+      padding: 2rem;
+      background: #f7fafc;
+      border-radius: 8px;
+      border: 2px solid #e2e8f0;
+    }
+
+    .demo-section h2 {
+      color: #2d3748;
+      margin-bottom: 1rem;
+    }
+
+    .demo-area {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      min-height: 150px;
+      background: white;
+      border-radius: 6px;
+      padding: 2rem;
+      margin: 1rem 0;
+    }
+
+    .box {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .box1 { background: #667eea; }
+    .box2 { background: #764ba2; }
+    .box3 { background: #f093fb; }
+    .box4 { background: #f5576c; }
+
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #5a67d8;
+    }
+
+    .code-snippet {
+      background: #1a202c;
+      color: #e2e8f0;
+      padding: 1rem;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+
+    .note {
+      padding: 1rem;
+      background: #edf2f7;
+      border-left: 4px solid #4299e1;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="{{ site.url }}{{ site.baseurl }}/lessons/en/web-animations/gsap/" class="back-link">← Back to Lesson</a>
+
+    <h1>🎬 GSAP Tweens & Timelines</h1>
+    <p class="subtitle">Learn the building blocks of GSAP animations</p>
+
+    <!-- Demo 1: Basic Tweens -->
+    <div class="demo-section">
+      <h2>1. Basic Tweens (gsap.to, from, fromTo)</h2>
+      <p>The simplest way to animate anything with GSAP.</p>
+      
+      <div class="demo-area">
+        <div class="box box1" id="tween1">TO</div>
+        <div class="box box2" id="tween2">FROM</div>
+        <div class="box box3" id="tween3">FROM<br>TO</div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" onclick="demoBasicTweens()">Animate All</button>
+        <button class="btn" onclick="gsap.to('#tween1', {x: 200, duration: 1})">gsap.to()</button>
+        <button class="btn" onclick="gsap.from('#tween2', {x: -200, opacity: 0, duration: 1})">gsap.from()</button>
+        <button class="btn" onclick="gsap.fromTo('#tween3', {scale: 0, rotation: -180}, {scale: 1, rotation: 0, duration: 1})">gsap.fromTo()</button>
+        <button class="btn" onclick="resetTweens()">Reset</button>
+      </div>
+
+      <div class="code-snippet">
+// Animate TO values (from current state)
+gsap.to('#tween1', { x: 200, duration: 1 });
+
+// Animate FROM values (to current state)
+gsap.from('#tween2', { x: -200, opacity: 0, duration: 1 });
+
+// Explicit start and end values
+gsap.fromTo('#tween3', 
+  { scale: 0, rotation: -180 },
+  { scale: 1, rotation: 0, duration: 1 }
+);</div>
+    </div>
+
+    <!-- Demo 2: Timeline Sequencing -->
+    <div class="demo-section">
+      <h2>2. Timeline Sequencing</h2>
+      <p>Control multiple animations with perfect timing.</p>
+      
+      <div class="demo-area">
+        <div class="box box1" id="seq1">1</div>
+        <div class="box box2" id="seq2">2</div>
+        <div class="box box3" id="seq3">3</div>
+        <div class="box box4" id="seq4">4</div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" onclick="playSequence()">Play Sequence</button>
+        <button class="btn" onclick="playStaggered()">Play Staggered</button>
+        <button class="btn" onclick="playOverlap()">Play Overlapping</button>
+        <button class="btn" onclick="tl.pause()">Pause</button>
+        <button class="btn" onclick="tl.resume()">Resume</button>
+        <button class="btn" onclick="tl.restart()">Restart</button>
+        <button class="btn" onclick="tl.reverse()">Reverse</button>
+        <button class="btn" onclick="resetSequence()">Reset</button>
+      </div>
+
+      <div class="code-snippet">
+// Sequential animations (one after another)
+const tl = gsap.timeline();
+tl.to('#seq1', { x: 100, duration: 0.5 })
+  .to('#seq2', { x: 100, duration: 0.5 })
+  .to('#seq3', { x: 100, duration: 0.5 })
+  .to('#seq4', { x: 100, duration: 0.5 });
+
+// Relative positioning for overlap
+tl.to('#seq2', { x: 100 }, '-=0.3')  // Start 0.3s before previous ends
+  .to('#seq3', { x: 100 }, '<')       // Start with previous
+  .to('#seq4', { x: 100 }, '>');      // Start after previous (default)</div>
+    </div>
+
+    <!-- Demo 3: Timeline with Defaults -->
+    <div class="demo-section">
+      <h2>3. Timeline Defaults & Labels</h2>
+      <p>Set common properties and organize complex sequences.</p>
+      
+      <div class="demo-area">
+        <div class="box box1" id="label1">A</div>
+        <div class="box box2" id="label2">B</div>
+        <div class="box box3" id="label3">C</div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" onclick="playWithDefaults()">Play with Defaults</button>
+        <button class="btn" onclick="playWithLabels()">Play with Labels</button>
+        <button class="btn" onclick="jumpToScene('scene2')">Jump to Scene 2</button>
+        <button class="btn" onclick="resetLabels()">Reset</button>
+      </div>
+
+      <div class="code-snippet">
+// Timeline with default properties
+const tl = gsap.timeline({
+  defaults: { duration: 0.5, ease: 'back.out(1.7)' }
+});
+
+tl.to('#label1', { x: 100, rotation: 360 })
+  .to('#label2', { x: 100, scale: 1.5 })
+  .to('#label3', { x: 100, y: -50 });
+
+// Using labels for scene management
+tl.add('scene1')
+  .to('#label1', { x: 100 })
+  .add('scene2', '+=0.5')
+  .to('#label2', { x: 100 }, 'scene2')
+  .to('#label3', { x: 100 }, 'scene2+=0.3');
+
+// Jump to label
+tl.seek('scene2');</div>
+    </div>
+
+    <div class="note">
+      <strong>💡 Key Concepts:</strong>
+      <ul>
+        <li><strong>Tweens</strong> are individual animations (to, from, fromTo)</li>
+        <li><strong>Timelines</strong> sequence multiple tweens with precise control</li>
+        <li><strong>Defaults</strong> reduce code repetition by setting common properties</li>
+        <li><strong>Labels</strong> create named positions in timelines for complex choreography</li>
+        <li><strong>Relative positioning</strong> ('-=0.5', '<', '>') creates overlaps and gaps</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- GSAP via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    let tl;
+
+    // Demo 1: Basic Tweens
+    function demoBasicTweens() {
+      gsap.to('#tween1', { x: 200, duration: 1, ease: 'power2.out' });
+      gsap.from('#tween2', { x: -200, opacity: 0, duration: 1, ease: 'power2.out', delay: 0.3 });
+      gsap.fromTo('#tween3', 
+        { scale: 0, rotation: -180 },
+        { scale: 1, rotation: 0, duration: 1, ease: 'back.out(1.7)', delay: 0.6 }
+      );
+    }
+
+    function resetTweens() {
+      gsap.set(['#tween1', '#tween2', '#tween3'], { clearProps: 'all' });
+    }
+
+    // Demo 2: Timeline Sequencing
+    function playSequence() {
+      tl = gsap.timeline();
+      tl.to('#seq1', { x: 100, rotation: 360, duration: 0.5, ease: 'power2.out' })
+        .to('#seq2', { x: 100, rotation: 360, duration: 0.5, ease: 'power2.out' })
+        .to('#seq3', { x: 100, rotation: 360, duration: 0.5, ease: 'power2.out' })
+        .to('#seq4', { x: 100, rotation: 360, duration: 0.5, ease: 'power2.out' });
+    }
+
+    function playStaggered() {
+      tl = gsap.timeline();
+      tl.to(['#seq1', '#seq2', '#seq3', '#seq4'], { 
+        x: 100, 
+        rotation: 360, 
+        duration: 0.5,
+        stagger: 0.15,
+        ease: 'back.out(1.7)'
+      });
+    }
+
+    function playOverlap() {
+      tl = gsap.timeline();
+      tl.to('#seq1', { x: 100, duration: 0.6, ease: 'power2.out' })
+        .to('#seq2', { x: 100, duration: 0.6, ease: 'power2.out' }, '-=0.3')
+        .to('#seq3', { x: 100, duration: 0.6, ease: 'power2.out' }, '<')
+        .to('#seq4', { x: 100, duration: 0.6, ease: 'power2.out' }, '-=0.4');
+    }
+
+    function resetSequence() {
+      if (tl) tl.kill();
+      gsap.set(['#seq1', '#seq2', '#seq3', '#seq4'], { clearProps: 'all' });
+    }
+
+    // Demo 3: Defaults & Labels
+    let labelTl;
+
+    function playWithDefaults() {
+      labelTl = gsap.timeline({
+        defaults: { duration: 0.5, ease: 'back.out(1.7)' }
+      });
+      
+      labelTl.to('#label1', { x: 100, rotation: 360 })
+              .to('#label2', { x: 100, scale: 1.5 })
+              .to('#label3', { x: 100, y: -50 });
+    }
+
+    function playWithLabels() {
+      labelTl = gsap.timeline({
+        defaults: { duration: 0.5, ease: 'power2.out' }
+      });
+      
+      labelTl.add('scene1')
+              .to('#label1', { x: 100 })
+              .add('scene2', '+=0.5')
+              .to('#label2', { x: 100, scale: 1.5 }, 'scene2')
+              .to('#label3', { x: 100, rotation: 360 }, 'scene2+=0.3');
+    }
+
+    function jumpToScene(label) {
+      if (labelTl) {
+        labelTl.seek(label);
+      }
+    }
+
+    function resetLabels() {
+      if (labelTl) labelTl.kill();
+      gsap.set(['#label1', '#label2', '#label3'], { clearProps: 'all' });
+    }
+
+    // Accessibility: Respect reduced motion
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.globalTimeline.timeScale(100); // Make animations instant
+    }
+  </script>
+</body>
+</html>
+

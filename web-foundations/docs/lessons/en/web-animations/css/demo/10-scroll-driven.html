@@ -1,3 +1,9 @@
+---
+---
+
+{% comment %} YAML front matter (---\n---) is required for Jekyll to process Liquid template variables. Without it,
+Jekyll treats this as a static HTML file and won't replace {{ site.url }} or {{ site.baseurl }}. The empty front matter
+tells Jekyll: "process this file and evaluate Liquid syntax." {% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -28,6 +34,7 @@
 				backdrop-filter: blur(10px);
 				padding: 1rem 2rem;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				/* Header height is approximately 100px including padding */
 			}
 
 			.header h1 {
@@ -173,14 +180,22 @@
 			/* Sticky Section with Scale */
 			.sticky-section {
 				position: sticky;
-				top: 100px;
+				top: 100px; /* Clearance for fixed header */
 				height: 80vh;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 				margin: 2rem;
+				margin-bottom: 4rem; /* Extra space so content below isn't blocked */
 				border-radius: 12px;
+				z-index: 1; /* Lower than header but above regular content */
+			}
+
+			/* Container to ensure sticky section doesn't block following content */
+			.sticky-container {
+				position: relative;
+				min-height: 100vh; /* Ensure enough space for sticky behavior */
 			}
 
 			@supports (animation-timeline: view()) {
@@ -298,7 +313,7 @@
 
 		<!-- Header -->
 		<div class="header">
-			<a href="../index.md" class="back-link">← Back to Lesson</a>
+			<a href="{{ site.url }}{{ site.baseurl }}/lessons/en/web-animations/css/" class="back-link">← Back to Lesson</a>
 			<h1>🎢 Scroll-Driven Animations</h1>
 		</div>
 
@@ -316,9 +331,9 @@
 			<div class="content-card">
 				<h3>📊 What Are Scroll-Driven Animations?</h3>
 				<p style="font-size: 1.1rem; line-height: 1.8">
-					Scroll-driven animations are a new CSS feature that lets animations progress based on scroll
-					position instead of time. This creates performant, native parallax effects, progress indicators, and
-					reveal animations without JavaScript.
+					Scroll-driven animations are a new CSS feature that lets animations progress based on scroll position instead of
+					time. This creates performant, native parallax effects, progress indicators, and reveal animations without
+					JavaScript.
 				</p>
 			</div>
 		</section>
@@ -327,8 +342,8 @@
 			<div class="content-card">
 				<h3>⚡ Performance Benefits</h3>
 				<p style="font-size: 1.1rem; line-height: 1.8">
-					Unlike JavaScript scroll listeners, CSS scroll-driven animations run on the compositor thread,
-					providing buttery-smooth 60fps performance. The browser optimizes these animations automatically.
+					Unlike JavaScript scroll listeners, CSS scroll-driven animations run on the compositor thread, providing
+					buttery-smooth 60fps performance. The browser optimizes these animations automatically.
 				</p>
 			</div>
 		</section>
@@ -338,22 +353,25 @@
 				<h3>🎯 Browser Support</h3>
 				<p style="font-size: 1.1rem; line-height: 1.8">
 					Currently supported in Chrome/Edge 115+, with Firefox and Safari implementing. Use
-					<code>@supports</code> for progressive enhancement and provide JavaScript fallbacks for older
-					browsers.
+					<code>@supports</code>
+					for progressive enhancement and provide JavaScript fallbacks for older browsers.
 				</p>
 			</div>
 		</section>
 
-		<!-- Sticky Section -->
-		<section class="sticky-section">
-			<div style="text-align: center; max-width: 600px; padding: 2rem">
-				<h3 style="font-size: 2.5rem; margin-bottom: 1rem">Sticky Section</h3>
-				<p style="font-size: 1.2rem">
-					This section scales in and out as it enters and exits the viewport using
-					<code>animation-timeline: view()</code>.
-				</p>
-			</div>
-		</section>
+		<!-- Sticky Section Container -->
+		<div class="sticky-container">
+			<section class="sticky-section">
+				<div style="text-align: center; max-width: 600px; padding: 2rem">
+					<h3 style="font-size: 2.5rem; margin-bottom: 1rem">Sticky Section</h3>
+					<p style="font-size: 1.2rem">
+						This section scales in and out as it enters and exits the viewport using
+						<code>animation-timeline: view()</code>
+						. Scroll down to see it stick and then continue past it.
+					</p>
+				</div>
+			</section>
+		</div>
 
 		<!-- Code Examples -->
 		<section class="code-section">
@@ -381,7 +399,8 @@
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }
   }
-}</pre>
+}</pre
+					>
 				</div>
 
 				<h3 style="color: #f0abfc; margin-top: 2rem">2. Parallax Background</h3>
@@ -396,7 +415,8 @@
   @keyframes heroParallax {
     to { transform: translateY(50vh); }
   }
-}</pre>
+}</pre
+					>
 				</div>
 
 				<h3 style="color: #f0abfc; margin-top: 2rem">3. Fade In on Scroll (View Timeline)</h3>
@@ -419,7 +439,8 @@
       transform: translateY(0);
     }
   }
-}</pre>
+}</pre
+					>
 				</div>
 
 				<h3 style="color: #f0abfc; margin-top: 2rem">4. JavaScript Fallback</h3>
@@ -434,7 +455,8 @@ if (!CSS.supports('animation-timeline: scroll()')) {
     const percent = scrolled / total;
     progress.style.transform = `scaleX(${percent})`;
   }, { passive: true });
-}</pre>
+}</pre
+					>
 				</div>
 			</div>
 		</section>
@@ -443,16 +465,16 @@ if (!CSS.supports('animation-timeline: scroll()')) {
 		<section class="footer-spacer">
 			<div style="text-align: center">
 				<h2 style="font-size: 3rem; margin-bottom: 1rem">🎉 You've Reached the End!</h2>
-				<p style="font-size: 1.2rem; color: #94a3b8">
-					Scroll back up to see all animations again
-				</p>
+				<p style="font-size: 1.2rem; color: #94a3b8">Scroll back up to see all animations again</p>
 			</div>
 		</section>
 
 		<!-- Fallback Notice -->
 		<div class="fallback-notice" id="fallbackNotice" style="display: none">
-			⚠️ <strong>Note:</strong> Your browser doesn't support CSS scroll-driven animations yet. Some effects may
-			use JavaScript fallbacks or be disabled.
+			⚠️
+			<strong>Note:</strong>
+			Your browser doesn't support CSS scroll-driven animations yet. Some effects may use JavaScript fallbacks or be
+			disabled.
 		</div>
 
 		<script>
@@ -502,4 +524,3 @@ if (!CSS.supports('animation-timeline: scroll()')) {
 		</script>
 	</body>
 </html>
-

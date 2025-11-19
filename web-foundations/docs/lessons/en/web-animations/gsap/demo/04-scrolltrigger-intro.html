@@ -1,0 +1,481 @@
+---
+---
+{% comment %}
+  YAML front matter is required for Jekyll to process Liquid template variables.
+{% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP ScrollTrigger | Web Animations</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin-top: 80px;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: white;
+    }
+
+    .hero-content h2 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .content-card {
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 3rem;
+      /* Initial state for scroll animation */
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .content-card h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #60a5fa;
+    }
+
+    .parallax-section {
+      position: relative;
+      height: 150vh;
+      overflow: hidden;
+    }
+
+    .parallax-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1557683304-673a23048d34?w=1920&h=1080') center/cover;
+      will-change: transform;
+    }
+
+    .parallax-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: white;
+      text-align: center;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .pin-section {
+      height: 300vh;
+      background: #1e293b;
+    }
+
+    .pin-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .pin-text {
+      font-size: 3rem;
+      color: white;
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .toggle-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      padding: 4rem 2rem;
+    }
+
+    .toggle-box {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      transition: transform 0.3s;
+    }
+
+    .toggle-box.is-active {
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+    }
+
+    .code-section {
+      padding: 4rem 2rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .code-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .code-snippet {
+      background: #1a202c;
+      border: 1px solid #2d3748;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+
+    .code-snippet pre {
+      color: #e2e8f0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .spacer {
+      height: 50vh;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <a href="{{ site.url }}{{ site.baseurl }}/lessons/en/web-animations/gsap/" class="back-link">← Back to Lesson</a>
+    <h1>🎯 GSAP ScrollTrigger</h1>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2 id="heroTitle">Scroll to Explore</h2>
+      <p style="font-size: 1.2rem; opacity: 0" id="heroSubtitle">Scroll-driven animations made simple</p>
+    </div>
+  </section>
+
+  <!-- Fade In On Scroll -->
+  <section class="section">
+    <div class="content-card" id="card1">
+      <h3>📖 What is ScrollTrigger?</h3>
+      <p style="font-size: 1.1rem; line-height: 1.8">
+        ScrollTrigger is GSAP's plugin that synchronizes animations with scroll position. 
+        It's more powerful and reliable than CSS scroll-driven animations, works across all browsers,
+        and provides precise control over when and how animations trigger.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="content-card" id="card2">
+      <h3>⚡ Key Features</h3>
+      <ul style="font-size: 1.1rem; line-height: 2">
+        <li><strong>Scrubbing:</strong> Animations sync perfectly with scroll position</li>
+        <li><strong>Pinning:</strong> Lock elements in place while animations play</li>
+        <li><strong>Callbacks:</strong> Execute code at specific scroll points</li>
+        <li><strong>Responsive:</strong> Automatically adjusts to window resizing</li>
+        <li><strong>Performance:</strong> Optimized for 60fps on all devices</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="content-card" id="card3">
+      <h3>🎯 When to Use ScrollTrigger</h3>
+      <p style="font-size: 1.1rem; line-height: 1.8">
+        Perfect for reveal animations, parallax effects, scroll-driven progress indicators,
+        animated infographics, interactive storytelling, and any animation that should 
+        respond to scroll position. It replaces unreliable scroll event listeners with
+        a battle-tested, performant solution.
+      </p>
+    </div>
+  </section>
+
+  <!-- Parallax Section -->
+  <section class="parallax-section">
+    <div class="parallax-bg"></div>
+    <div class="parallax-content">
+      <div>
+        <h2 style="font-size: 3rem; margin-bottom: 1rem">Parallax Effect</h2>
+        <p style="font-size: 1.2rem">Background moves slower than viewport</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pin Section -->
+  <section class="pin-section">
+    <div class="pin-content">
+      <div class="pin-text" id="pinText">
+        This section is pinned while you scroll. Watch the text change!
+      </div>
+    </div>
+  </section>
+
+  <!-- Toggle Class Section -->
+  <section class="toggle-section">
+    <div class="toggle-box" id="toggleBox">
+      I change color on scroll!
+    </div>
+  </section>
+
+  <!-- Code Examples -->
+  <section class="code-section">
+    <div class="code-container">
+      <h2 style="text-align: center; margin-bottom: 2rem; color: #60a5fa">📝 Code Examples</h2>
+
+      <h3 style="color: #f0abfc; margin-top: 2rem">1. Basic Fade In</h3>
+      <div class="code-snippet">
+        <pre>
+gsap.to('.content-card', {
+  opacity: 1,
+  y: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: '.content-card',
+    start: 'top 80%',      // When top hits 80% down viewport
+    end: 'top 20%',        // When top hits 20% down viewport
+    toggleActions: 'play none none reverse',
+    markers: true          // Show debug markers
+  }
+});</pre>
+      </div>
+
+      <h3 style="color: #f0abfc; margin-top: 2rem">2. Scrub Animation</h3>
+      <div class="code-snippet">
+        <pre>
+gsap.to('.element', {
+  x: 500,
+  rotation: 360,
+  scrollTrigger: {
+    trigger: '.section',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: true,           // Sync with scroll position
+    pin: true              // Pin the element
+  }
+});</pre>
+      </div>
+
+      <h3 style="color: #f0abfc; margin-top: 2rem">3. Timeline with ScrollTrigger</h3>
+      <div class="code-snippet">
+        <pre>
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.section',
+    start: 'top center',
+    end: 'bottom center',
+    scrub: 1,              // 1 second lag for smooth feel
+  }
+});
+
+tl.to('.box1', { x: 100, duration: 1 })
+  .to('.box2', { y: 100, duration: 1 }, '-=0.5')
+  .to('.box3', { rotation: 360, duration: 1 });</pre>
+      </div>
+
+      <h3 style="color: #f0abfc; margin-top: 2rem">4. Toggle Class</h3>
+      <div class="code-snippet">
+        <pre>
+ScrollTrigger.create({
+  trigger: '.element',
+  start: 'top center',
+  end: 'bottom center',
+  toggleClass: { targets: '.element', className: 'is-active' },
+  onEnter: () => console.log('Entered!'),
+  onLeave: () => console.log('Left!')
+});</pre>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+  <!-- GSAP and ScrollTrigger via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  
+  <script>
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero animations
+    gsap.from('#heroTitle', {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out'
+    });
+
+    gsap.to('#heroSubtitle', {
+      opacity: 1,
+      duration: 1,
+      delay: 0.5,
+      ease: 'power2.out'
+    });
+
+    // Fade in content cards on scroll
+    gsap.utils.toArray('.content-card').forEach((card, index) => {
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 80%',
+          end: 'top 20%',
+          toggleActions: 'play none none reverse',
+          // markers: true  // Uncomment to see trigger points
+        }
+      });
+    });
+
+    // Parallax background
+    gsap.to('.parallax-bg', {
+      y: 300,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.parallax-section',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    // Pin section with text changes
+    const pinTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.pin-section',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1,
+        pin: '.pin-content',
+        anticipatePin: 1
+      }
+    });
+
+    pinTimeline
+      .to('#pinText', {
+        text: 'This is powered by ScrollTrigger',
+        duration: 1,
+        ease: 'none'
+      })
+      .to('#pinText', {
+        scale: 1.2,
+        color: '#fbbf24',
+        duration: 1,
+        ease: 'none'
+      })
+      .to('#pinText', {
+        text: 'It stays pinned while scrolling',
+        scale: 1,
+        duration: 1,
+        ease: 'none'
+      })
+      .to('#pinText', {
+        rotation: 360,
+        duration: 1,
+        ease: 'none'
+      });
+
+    // Toggle class on scroll
+    ScrollTrigger.create({
+      trigger: '.toggle-section',
+      start: 'top center',
+      end: 'bottom center',
+      toggleClass: { targets: '#toggleBox', className: 'is-active' },
+      onEnter: () => console.log('Toggle box entered viewport'),
+      onLeave: () => console.log('Toggle box left viewport'),
+      onEnterBack: () => console.log('Toggle box entered back'),
+      onLeaveBack: () => console.log('Toggle box left back')
+    });
+
+    // Refresh ScrollTrigger on window resize
+    window.addEventListener('resize', () => {
+      ScrollTrigger.refresh();
+    });
+
+    // Accessibility: Respect reduced motion
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      gsap.globalTimeline.timeScale(100);
+    }
+  </script>
+</body>
+</html>
+

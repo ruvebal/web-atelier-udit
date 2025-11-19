@@ -324,6 +324,22 @@ These sophisticated methods are for students ready to push beyond basics and cre
     - SVGs scale perfectly on all screens.
     - Great for icons, illustrations, and logos.
 
+> **💡 Beyond CSS for SVG Animations:**
+> While CSS can animate SVG properties, **complex SVG morphing, sequencing, and physics-based animations** benefit significantly from JavaScript animation libraries like **GSAP (GreenSock Animation Platform)**. GSAP provides:
+>
+> - **MorphSVG Plugin**: Smoothly morph between completely different SVG shapes
+> - **DrawSVG Plugin**: More control over path drawing than CSS `stroke-dashoffset`
+> - **Timeline Sequencing**: Orchestrate complex multi-element choreography
+> - **Cross-browser Consistency**: Eliminates CSS animation quirks across browsers
+> - **Physics & Easing**: Advanced easing functions and physics-based motion
+>
+> **When to use CSS vs GSAP for SVG:**
+>
+> - **CSS**: Simple transforms, opacity, basic path drawing, hover states
+> - **GSAP**: Complex morphing, sequenced choreography, interactive animations, production-grade projects
+>
+> See our [GSAP Animation lesson](../gsap/) for advanced techniques.
+
 ---
 
 ### **10. Scroll-Driven Animations**
@@ -829,7 +845,7 @@ Remember: **Motion is a design tool, not a decoration.** Use it wisely.
 
 ---
 
-**Next Lesson**: [JavaScript Animations with GSAP & Framer Motion](../js-animations/)
+**Next Lesson**: [GSAP Animation Mastery – From Zero to Production](../gsap/)
 
 **License**: Content CC BY-NC-SA 4.0 · Code MIT
 **Author**: Rubén Vega Balbás, PhD · [UDIT](https://www.udit.es)

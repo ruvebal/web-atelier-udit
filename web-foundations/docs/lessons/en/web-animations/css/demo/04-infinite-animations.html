@@ -1,3 +1,10 @@
+---
+---
+{% comment %}
+  YAML front matter (---\n---) is required for Jekyll to process Liquid template variables.
+  Without it, Jekyll treats this as a static HTML file and won't replace {{ site.url }} or {{ site.baseurl }}.
+  The empty front matter tells Jekyll: "process this file and evaluate Liquid syntax."
+{% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -350,7 +357,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<a href="../index.md" class="back-link">← Back to Lesson</a>
+			<a href="{{ site.url }}{{ site.baseurl }}/lessons/en/web-animations/css/" class="back-link">← Back to Lesson</a>
 
 			<h1>♾️ Infinite Animations</h1>
 			<p class="subtitle">

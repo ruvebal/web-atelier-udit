@@ -139,6 +139,20 @@
    es: complete
    en: complete
   category: animations
+- slug: web-animations-gsap
+  title:
+   es: 'Dominio de Animaciones GSAP – De Cero a Producción'
+   en: 'GSAP Animation Mastery – From Zero to Production'
+  path:
+   es: /lessons/es/web-animations/gsap/
+   en: /lessons/en/web-animations/gsap/
+  file:
+   es: lessons/es/web-animations/gsap/index.md
+   en: lessons/en/web-animations/gsap/index.md
+  status:
+   es: complete
+   en: complete
+  category: animations
 - slug: readings
   title:
    es: Lecturas
