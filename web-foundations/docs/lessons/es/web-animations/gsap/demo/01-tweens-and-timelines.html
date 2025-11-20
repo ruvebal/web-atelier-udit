@@ -146,7 +146,7 @@
     <div class="demo-section">
       <h2>1. Basic Tweens (gsap.to, from, fromTo)</h2>
       <p>The simplest way to animate anything with GSAP.</p>
-
+      
       <div class="demo-area">
         <div class="box box1" id="tween1">TO</div>
         <div class="box box2" id="tween2">FROM</div>
@@ -169,7 +169,7 @@ gsap.to('#tween1', { x: 200, duration: 1 });
 gsap.from('#tween2', { x: -200, opacity: 0, duration: 1 });
 
 // Explicit start and end values
-gsap.fromTo('#tween3',
+gsap.fromTo('#tween3', 
   { scale: 0, rotation: -180 },
   { scale: 1, rotation: 0, duration: 1 }
 );</div>
@@ -179,7 +179,7 @@ gsap.fromTo('#tween3',
     <div class="demo-section">
       <h2>2. Timeline Sequencing</h2>
       <p>Control multiple animations with perfect timing.</p>
-
+      
       <div class="demo-area">
         <div class="box box1" id="seq1">1</div>
         <div class="box box2" id="seq2">2</div>
@@ -216,7 +216,7 @@ tl.to('#seq2', { x: 100 }, '-=0.3')  // Start 0.3s before previous ends
     <div class="demo-section">
       <h2>3. Timeline Defaults & Labels</h2>
       <p>Set common properties and organize complex sequences.</p>
-
+      
       <div class="demo-area">
         <div class="box box1" id="label1">A</div>
         <div class="box box2" id="label2">B</div>
@@ -265,7 +265,7 @@ tl.seek('scene2');</div>
 
   <!-- GSAP via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-
+  
   <script>
     let tl;
 
@@ -273,7 +273,7 @@ tl.seek('scene2');</div>
     function demoBasicTweens() {
       gsap.to('#tween1', { x: 200, duration: 1, ease: 'power2.out' });
       gsap.from('#tween2', { x: -200, opacity: 0, duration: 1, ease: 'power2.out', delay: 0.3 });
-      gsap.fromTo('#tween3',
+      gsap.fromTo('#tween3', 
         { scale: 0, rotation: -180 },
         { scale: 1, rotation: 0, duration: 1, ease: 'back.out(1.7)', delay: 0.6 }
       );
@@ -294,9 +294,9 @@ tl.seek('scene2');</div>
 
     function playStaggered() {
       tl = gsap.timeline();
-      tl.to(['#seq1', '#seq2', '#seq3', '#seq4'], {
-        x: 100,
-        rotation: 360,
+      tl.to(['#seq1', '#seq2', '#seq3', '#seq4'], { 
+        x: 100, 
+        rotation: 360, 
         duration: 0.5,
         stagger: 0.15,
         ease: 'back.out(1.7)'
@@ -323,7 +323,7 @@ tl.seek('scene2');</div>
       labelTl = gsap.timeline({
         defaults: { duration: 0.5, ease: 'back.out(1.7)' }
       });
-
+      
       labelTl.to('#label1', { x: 100, rotation: 360 })
               .to('#label2', { x: 100, scale: 1.5 })
               .to('#label3', { x: 100, y: -50 });
@@ -333,7 +333,7 @@ tl.seek('scene2');</div>
       labelTl = gsap.timeline({
         defaults: { duration: 0.5, ease: 'power2.out' }
       });
-
+      
       labelTl.add('scene1')
               .to('#label1', { x: 100 })
               .add('scene2', '+=0.5')

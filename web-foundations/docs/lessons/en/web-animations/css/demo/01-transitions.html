@@ -1,10 +1,3 @@
----
----
-{% comment %}
-  YAML front matter (---\n---) is required for Jekyll to process Liquid template variables.
-  Without it, Jekyll treats this as a static HTML file and won't replace {{ site.url }} or {{ site.baseurl }}.
-  The empty front matter tells Jekyll: "process this file and evaluate Liquid syntax."
-{% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -108,10 +101,7 @@
 				color: white;
 				font-weight: 600;
 				/* Multiple properties with different timings */
-				transition:
-					background-color 0.3s ease,
-					transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-					box-shadow 0.3s ease;
+				transition: background-color 0.3s ease, transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.3s ease;
 				cursor: pointer;
 			}
 
@@ -135,10 +125,7 @@
 				position: relative;
 				overflow: hidden;
 				/* Smooth transitions for multiple properties */
-				transition:
-					background-color 0.2s ease,
-					transform 0.2s ease,
-					box-shadow 0.2s ease;
+				transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 			}
 
 			.btn:hover {
@@ -157,8 +144,7 @@
 				position: relative;
 				width: 100%;
 				height: 200px;
-				background: url('https://images.unsplash.com/photo-1557683316-973673baf926?w=400&h=300&fit=crop')
-					center/cover;
+				background: url('https://images.unsplash.com/photo-1557683316-973673baf926?w=400&h=300&fit=crop') center/cover;
 				border-radius: 8px;
 				overflow: hidden;
 				cursor: pointer;
@@ -179,9 +165,7 @@
 				opacity: 0;
 				transform: scale(0.9);
 				/* Smooth transition */
-				transition:
-					opacity 0.3s ease,
-					transform 0.3s ease;
+				transition: opacity 0.3s ease, transform 0.3s ease;
 			}
 
 			.card-overlay:hover::after {
@@ -280,9 +264,7 @@
 					<h2>1. Simple Color Transition</h2>
 					<p>Hover to see background color change smoothly.</p>
 					<div class="box-color">Hover Me</div>
-					<div class="code-snippet">
-						transition: background-color 0.5s ease;
-					</div>
+					<div class="code-snippet">transition: background-color 0.5s ease;</div>
 				</div>
 
 				<!-- Demo 2 -->
@@ -291,9 +273,12 @@
 					<p>Color, transform, and shadow transition together.</p>
 					<div class="box-multi">Hover Me</div>
 					<div class="code-snippet">
-						transition:<br />
-						&nbsp;&nbsp;background-color 0.3s,<br />
-						&nbsp;&nbsp;transform 0.5s,<br />
+						transition:
+						<br />
+						&nbsp;&nbsp;background-color 0.3s,
+						<br />
+						&nbsp;&nbsp;transform 0.5s,
+						<br />
 						&nbsp;&nbsp;box-shadow 0.3s;
 					</div>
 				</div>
@@ -304,9 +289,12 @@
 					<p>Professional button with lift effect.</p>
 					<button class="btn">Click Me</button>
 					<div class="code-snippet">
-						transition:<br />
-						&nbsp;&nbsp;background-color 0.2s,<br />
-						&nbsp;&nbsp;transform 0.2s,<br />
+						transition:
+						<br />
+						&nbsp;&nbsp;background-color 0.2s,
+						<br />
+						&nbsp;&nbsp;transform 0.2s,
+						<br />
 						&nbsp;&nbsp;box-shadow 0.2s;
 					</div>
 				</div>
@@ -317,12 +305,18 @@
 					<p>Smooth overlay reveal on hover.</p>
 					<div class="card-overlay"></div>
 					<div class="code-snippet">
-						.card::after {<br />
-						&nbsp;&nbsp;opacity: 0;<br />
-						&nbsp;&nbsp;transition: opacity 0.3s;<br />
-						}<br />
-						.card:hover::after {<br />
-						&nbsp;&nbsp;opacity: 1;<br />
+						.card::after {
+						<br />
+						&nbsp;&nbsp;opacity: 0;
+						<br />
+						&nbsp;&nbsp;transition: opacity 0.3s;
+						<br />
+						}
+						<br />
+						.card:hover::after {
+						<br />
+						&nbsp;&nbsp;opacity: 1;
+						<br />
 						}
 					</div>
 				</div>
@@ -339,8 +333,7 @@
 						<div class="timing-box ease-in-out">ease-in-out</div>
 					</div>
 					<div class="code-snippet">
-						transition-timing-function: ease | linear | ease-in | ease-out | ease-in-out |
-						cubic-bezier(x1, y1, x2, y2);
+						transition-timing-function: ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(x1, y1, x2, y2);
 					</div>
 				</div>
 			</div>
@@ -349,13 +342,20 @@
 				<h3 style="color: #2d3748; margin-bottom: 0.5rem">💡 Key Takeaways</h3>
 				<ul style="color: #4a5568; padding-left: 1.5rem">
 					<li>Transitions animate property changes triggered by state (hover, focus, active)</li>
-					<li>Use specific properties instead of <code>transition: all</code> for better performance</li>
+					<li>
+						Use specific properties instead of
+						<code>transition: all</code>
+						for better performance
+					</li>
 					<li>Choose appropriate durations: 100-300ms for micro-interactions, 300-500ms for larger changes</li>
 					<li>Timing functions control the acceleration curve of the animation</li>
-					<li>Always respect <code>prefers-reduced-motion</code> for accessibility</li>
+					<li>
+						Always respect
+						<code>prefers-reduced-motion</code>
+						for accessibility
+					</li>
 				</ul>
 			</div>
 		</div>
 	</body>
 </html>
-
