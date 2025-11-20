@@ -22,8 +22,13 @@ tags: [final-project, portfolio, deployment, responsive, web-standards]
 
 ---
 
+> **Live Document:**
+> This specification is always available at:
+> [https://web-ateliers.github.io/web-foundations/lessons/en/portfolio-template-brief/challenge/](https://web-ateliers.github.io/web-foundations/lessons/en/portfolio-template-brief/challenge/)
+
+
 > **On AI Agent Usage:**
-> If you choose to work with AI coding assistants (e.g., Cursor, GitHub Copilot, Claude, ChatGPT), **every interaction must follow a two-phase approach:**
+> Even if you are working with tools like VS Code and Copilot, **every interaction with AI coding assistants (e.g., Cursor, GitHub Copilot, Claude, ChatGPT) must follow a two-phase approach:**
 >
 > 1. **Phase 1: Planning** — Request the AI to generate a development plan for the specific task/feature
 > 2. **Phase 2: Implementation** — Only after the plan is documented, proceed with implementation

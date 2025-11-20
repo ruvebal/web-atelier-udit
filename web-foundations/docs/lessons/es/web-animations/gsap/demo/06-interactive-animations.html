@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Interactive Animations | Web Animations</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .subtitle {
+      color: #cbd5e1;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    .demo-section {
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+    }
+
+    .demo-section h2 {
+      color: #60a5fa;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .demo-area {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 8px;
+      padding: 3rem;
+      margin: 1.5rem 0;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .cursor {
+      width: 20px;
+      height: 20px;
+      background: #3b82f6;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: difference;
+      transform: translate(-50%, -50%);
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn .icon {
+      display: inline-block;
+      margin-left: 0.5rem;
+      transition: transform 0.3s;
+    }
+
+    .btn:hover .icon {
+      transform: translateX(5px) rotate(15deg);
+    }
+
+    .draggable-box {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 12px;
+      cursor: grab;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .draggable-box:active {
+      cursor: grabbing;
+    }
+
+    .hover-card {
+      width: 200px;
+      height: 150px;
+      background: rgba(59, 130, 246, 0.2);
+      border: 2px solid #3b82f6;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .code-snippet {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+    }
+
+    .code-snippet pre {
+      margin: 0;
+    }
+
+    .note {
+      padding: 1.5rem;
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 4px solid #3b82f6;
+      border-radius: 4px;
+      margin: 1.5rem 0;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Volver a la Lección</a>
+
+    <h1>🖱️ Animaciones Interactivas con GSAP</h1>
+    <p class="subtitle">Interacciones con mouse, hover, arrastre y scroll</p>
+
+    <!-- Mouse Follow -->
+    <div class="demo-section">
+      <h2>1. Mouse Follow Animation</h2>
+      <p style="color: #cbd5e1; margin-bottom: 1rem;">
+        Smooth cursor following using GSAP quickTo for performance.
+      </p>
+
+      <div class="demo-area" id="mouseArea">
+        <p style="font-size: 1.2rem; color: #cbd5e1;">Move your mouse around this area</p>
+      </div>
+
+      <div class="code-snippet">
+        <pre>let mouse = { x: 0, y: 0 };
+let cursor = { x: 0, y: 0 };
+
+window.addEventListener('mousemove', (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+// Smooth follow with GSAP quickTo
+const xTo = gsap.quickTo('.cursor', 'x', {
+  duration: 0.6,
+  ease: 'power3'
+});
+const yTo = gsap.quickTo('.cursor', 'y', {
+  duration: 0.6,
+  ease: 'power3'
+});
+
+gsap.ticker.add(() => {
+  xTo(mouse.x);
+  yTo(mouse.y);
+});</pre>
+      </div>
+    </div>
+
+    <!-- Hover Effects -->
+    <div class="demo-section">
+      <h2>2. Hover Effects</h2>
+      <p style="color: #cbd5e1; margin-bottom: 1rem;">
+        Interactive button animations on hover.
+      </p>
+
+      <div class="demo-area">
+        <div class="button-group">
+          <button class="btn" id="hoverBtn1">
+            Hover Me
+            <span class="icon">→</span>
+          </button>
+          <button class="btn" id="hoverBtn2">
+            Scale Up
+            <span class="icon">↑</span>
+          </button>
+          <button class="btn" id="hoverBtn3">
+            Rotate
+            <span class="icon">↻</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="code-snippet">
+        <pre>const buttons = gsap.utils.toArray('.btn');
+
+buttons.forEach((btn) => {
+  const icon = btn.querySelector('.icon');
+
+  btn.addEventListener('mouseenter', () => {
+    gsap.to(icon, {
+      x: 5,
+      rotation: 15,
+      duration: 0.3,
+      ease: 'back.out(2)'
+    });
+    gsap.to(btn, {
+      scale: 1.05,
+      duration: 0.3,
+      ease: 'power2.out'
+    });
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    gsap.to(icon, {
+      x: 0,
+      rotation: 0,
+      duration: 0.3,
+      ease: 'power2.out'
+    });
+    gsap.to(btn, {
+      scale: 1,
+      duration: 0.3,
+      ease: 'power2.out'
+    });
+  });
+});</pre>
+      </div>
+    </div>
+
+    <!-- Card Hover -->
+    <div class="demo-section">
+      <h2>3. Card Hover Effects</h2>
+      <p style="color: #cbd5e1; margin-bottom: 1rem;">
+        Advanced card interactions with 3D transforms.
+      </p>
+
+      <div class="demo-area">
+        <div class="hover-card" id="hoverCard">
+          <p style="font-weight: 600; color: #60a5fa;">Hover Me</p>
+        </div>
+      </div>
+
+      <div class="code-snippet">
+        <pre>const card = document.querySelector('#hoverCard');
+
+card.addEventListener('mouseenter', () => {
+  gsap.to(card, {
+    scale: 1.1,
+    rotationY: 5,
+    rotationX: 5,
+    boxShadow: '0 20px 40px rgba(59, 130, 246, 0.4)',
+    duration: 0.3,
+    ease: 'power2.out'
+  });
+});
+
+card.addEventListener('mousemove', (e) => {
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+  const rotateX = (y - centerY) / 10;
+  const rotateY = (centerX - x) / 10;
+
+  gsap.to(card, {
+    rotationX: rotateX,
+    rotationY: rotateY,
+    duration: 0.3,
+    ease: 'power2.out'
+  });
+});
+
+card.addEventListener('mouseleave', () => {
+  gsap.to(card, {
+    scale: 1,
+    rotationX: 0,
+    rotationY: 0,
+    boxShadow: '0 4px 15px rgba(59, 130, 246, 0.2)',
+    duration: 0.3,
+    ease: 'power2.out'
+  });
+});</pre>
+      </div>
+    </div>
+
+    <!-- Draggable -->
+    <div class="demo-section">
+      <h2>4. Draggable Elements</h2>
+      <p style="color: #cbd5e1; margin-bottom: 1rem;">
+        Note: Draggable plugin requires Club GreenSock membership. This demo shows the concept with vanilla GSAP.
+      </p>
+
+      <div class="demo-area" id="dragArea" style="min-height: 400px;">
+        <div class="draggable-box" id="draggableBox">Drag Me</div>
+      </div>
+
+      <div class="code-snippet">
+        <pre>// With Draggable plugin (Club GreenSock)
+gsap.registerPlugin(Draggable);
+
+Draggable.create('.box', {
+  type: 'x,y',
+  bounds: '.container',
+  inertia: true,
+  onDrag: function() {
+    console.log(this.x, this.y);
+  }
+});
+
+// Vanilla GSAP approach (simplified)
+let isDragging = false;
+let startX, startY, initialX, initialY;
+
+element.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.clientX;
+  startY = e.clientY;
+  // Get current position
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    gsap.to(element, {
+      x: initialX + dx,
+      y: initialY + dy,
+      duration: 0.1,
+      ease: 'none'
+    });
+  }
+});</pre>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>💡 Key Concepts:</strong>
+      <ul style="margin-top: 1rem; line-height: 2;">
+        <li><strong>quickTo:</strong> Optimized for frequent updates (mouse tracking, scroll)</li>
+        <li><strong>Hover animations:</strong> Use mouseenter/mouseleave for smooth interactions</li>
+        <li><strong>3D transforms:</strong> rotationX, rotationY for depth effects</li>
+        <li><strong>Draggable plugin:</strong> Club GreenSock feature for advanced drag interactions</li>
+        <li><strong>Performance:</strong> Use transform properties (x, y, scale, rotation) for GPU acceleration</li>
+        <li><strong>Event handling:</strong> Combine GSAP with native events for interactive animations</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- GSAP via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    // Mouse Follow
+    let mouse = { x: 0, y: 0 };
+    let cursor = { x: 0, y: 0 };
+
+    // Create cursor element
+    const cursorEl = document.createElement('div');
+    cursorEl.className = 'cursor';
+    document.body.appendChild(cursorEl);
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    const xTo = gsap.quickTo(cursorEl, 'x', { duration: 0.6, ease: 'power3' });
+    const yTo = gsap.quickTo(cursorEl, 'y', { duration: 0.6, ease: 'power3' });
+
+    gsap.ticker.add(() => {
+      xTo(mouse.x);
+      yTo(mouse.y);
+    });
+
+    // Hover Effects
+    const buttons = [
+      document.getElementById('hoverBtn1'),
+      document.getElementById('hoverBtn2'),
+      document.getElementById('hoverBtn3')
+    ];
+
+    buttons.forEach((btn, index) => {
+      const icon = btn.querySelector('.icon');
+
+      btn.addEventListener('mouseenter', () => {
+        gsap.to(icon, {
+          x: 5,
+          rotation: 15,
+          duration: 0.3,
+          ease: 'back.out(2)'
+        });
+
+        if (index === 1) {
+          gsap.to(btn, {
+            scale: 1.1,
+            duration: 0.3,
+            ease: 'back.out(1.7)'
+          });
+        } else if (index === 2) {
+          gsap.to(btn, {
+            rotation: 360,
+            duration: 0.6,
+            ease: 'power2.out'
+          });
+        } else {
+          gsap.to(btn, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        }
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(icon, {
+          x: 0,
+          rotation: 0,
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+        gsap.to(btn, {
+          scale: 1,
+          rotation: 0,
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+      });
+    });
+
+    // Card Hover
+    const card = document.getElementById('hoverCard');
+    let cardAnimation;
+
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, {
+        scale: 1.1,
+        rotationY: 5,
+        rotationX: 5,
+        boxShadow: '0 20px 40px rgba(59, 130, 246, 0.4)',
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+
+      gsap.to(card, {
+        rotationX: rotateX,
+        rotationY: rotateY,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        scale: 1,
+        rotationX: 0,
+        rotationY: 0,
+        boxShadow: '0 4px 15px rgba(59, 130, 246, 0.2)',
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+
+    // Draggable (simplified vanilla implementation)
+    const draggableBox = document.getElementById('draggableBox');
+    const dragArea = document.getElementById('dragArea');
+    let isDragging = false;
+    let startX, startY, initialX = 0, initialY = 0;
+
+    draggableBox.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      gsap.set(draggableBox, { cursor: 'grabbing' });
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        gsap.to(draggableBox, {
+          x: initialX + dx,
+          y: initialY + dy,
+          duration: 0.1,
+          ease: 'none'
+        });
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        const currentX = gsap.getProperty(draggableBox, 'x');
+        const currentY = gsap.getProperty(draggableBox, 'y');
+        initialX = currentX;
+        initialY = currentY;
+        gsap.set(draggableBox, { cursor: 'grab' });
+      }
+    });
+
+    // Accessibility: Respect reduced motion
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.globalTimeline.timeScale(100);
+      cursorEl.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
+

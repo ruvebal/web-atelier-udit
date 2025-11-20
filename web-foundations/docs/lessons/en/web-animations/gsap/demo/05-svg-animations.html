@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP SVG Animations | Web Animations</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .subtitle {
+      color: #cbd5e1;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    .demo-section {
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+    }
+
+    .demo-section h2 {
+      color: #60a5fa;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .demo-area {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .svg-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .controls {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #64748b;
+    }
+
+    .btn-secondary:hover {
+      background: #475569;
+    }
+
+    .code-snippet {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(96, 165, 250, 0.2);
+    }
+
+    .code-snippet pre {
+      margin: 0;
+    }
+
+    .note {
+      padding: 1.5rem;
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 4px solid #3b82f6;
+      border-radius: 4px;
+      margin: 1.5rem 0;
+    }
+
+    .path-line {
+      fill: none;
+      stroke: #3b82f6;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .path-fill {
+      fill: #3b82f6;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Lesson</a>
+
+    <h1>🎨 GSAP SVG Animations</h1>
+    <p class="subtitle">Animate SVG elements beyond CSS limitations</p>
+
+    <!-- Path Drawing -->
+    <div class="demo-section">
+      <h2>1. SVG Path Drawing</h2>
+      <p style="color: #cbd5e1; margin-bottom: 1rem;">
+        Animate stroke-dashoffset to create drawing effects. Note: DrawSVG plugin (Club GreenSock) provides more control, but this technique works with vanilla GSAP.
+      </p>
+
+      <div class="demo-area">
+        <div class="svg-container">
+          <svg width="400" height="200" viewBox="0 0 400 200">
+            <path id="drawPath" class="path-line" d="M 50 100 Q 150 50, 250 100 T 450 100" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" onclick="drawPath()">Draw Path</button>
+        <button class="btn" onclick="drawPathReverse()">Draw Reverse</button>
+        <button class="btn btn-secondary" onclick="resetPath()">Reset</button>
+      </div>
+
+      <div class="code-snippet">
+        <pre>// Calculate path length first
+const path = document.querySelector('#drawPath');
+const length = path.getTotalLength();
+
+// Set initial state
+gsap.set(path, {
+  strokeDasharray: length,
+  strokeDashoffset: length
+});
+
+// Animate drawing
+gsap.to(path, {
+  strokeDashoffset: 0,
+  duration: 2,
+  ease: 'power2.inOut'
+});</pre>
+      </div>
+    </div>
+
+    <!-- SVG Transforms -->
+    <div class="demo-section">
+      <h2>2. SVG Transforms & Rotation</h2>
+      <p style="color: #cbd5e1; margin-bottom: 1rem;">
+        Animate SVG elements with transform origin control.
+      </p>
+
+      <div class="demo-area">
+        <div class="svg-container">
+          <svg width="300" height="300" viewBox="0 0 300 300">
+            <circle id="rotatingCircle" cx="150" cy="150" r="50" fill="#3b82f6" />
+            <rect id="rotatingRect" x="100" y="100" width="100" height="100" fill="#8b5cf6" />
+            <polygon id="rotatingPoly" points="150,50 200,150 100,150" fill="#ec4899" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" onclick="rotateElements()">Rotate All</button>
+        <button class="btn" onclick="scaleElements()">Scale Elements</button>
+        <button class="btn" onclick="morphShapes()">Morph Shapes</button>
+        <button class="btn btn-secondary" onclick="resetTransforms()">Reset</button>
+      </div>
+
+      <div class="code-snippet">
+        <pre>// Rotate with transform origin
+gsap.to('#rotatingCircle', {
+  rotation: 360,
+  transformOrigin: '50% 50%',
+  duration: 2,
+  ease: 'power2.inOut',
+  repeat: -1
+});
+
+// Scale animation
+gsap.to('#rotatingRect', {
+  scale: 1.5,
+  transformOrigin: '50% 50%',
+  duration: 1,
+  yoyo: true,
+  repeat: -1
+});</pre>
+      </div>
+    </div>
+
+    <!-- Path Following -->
+    <div class="demo-section">
+      <h2>3. Follow SVG Path</h2>
+      <p style="color: #cbd5e1; margin-bottom: 1rem;">
+        Animate elements along an SVG path. Note: MotionPath plugin (Club GreenSock) provides easier API, but this shows the concept.
+      </p>
+
+      <div class="demo-area">
+        <div class="svg-container">
+          <svg width="400" height="300" viewBox="0 0 400 300">
+            <path id="motionPath" class="path-line" d="M 50 150 Q 150 50, 250 150 T 350 150" fill="none" />
+            <circle id="follower" cx="50" cy="150" r="10" fill="#f59e0b" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" onclick="followPath()">Follow Path</button>
+        <button class="btn" onclick="followPathLoop()">Loop Path</button>
+        <button class="btn btn-secondary" onclick="resetFollower()">Reset</button>
+      </div>
+
+      <div class="code-snippet">
+        <pre>// Get path points (simplified approach)
+const path = document.querySelector('#motionPath');
+const follower = document.querySelector('#follower');
+
+// Animate along path using motionPath plugin (Club GreenSock)
+// Or manually calculate points for vanilla GSAP
+gsap.to(follower, {
+  motionPath: {
+    path: '#motionPath',
+    autoRotate: true
+  },
+  duration: 3,
+  ease: 'none',
+  repeat: -1
+});</pre>
+      </div>
+    </div>
+
+    <!-- Complex SVG Animation -->
+    <div class="demo-section">
+      <h2>4. Complex SVG Animation</h2>
+      <p style="color: #cbd5e1; margin-bottom: 1rem;">
+        Combine multiple SVG techniques for engaging animations.
+      </p>
+
+      <div class="demo-area">
+        <div class="svg-container">
+          <svg width="400" height="300" viewBox="0 0 400 300">
+            <g id="svgGroup">
+              <circle class="svg-circle" cx="100" cy="150" r="30" fill="#10b981" />
+              <circle class="svg-circle" cx="200" cy="150" r="30" fill="#ef4444" />
+              <circle class="svg-circle" cx="300" cy="150" r="30" fill="#06b6d4" />
+              <path class="path-line" d="M 100 150 L 200 150 L 300 150" />
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" onclick="complexAnimation()">Play Complex</button>
+        <button class="btn btn-secondary" onclick="resetComplex()">Reset</button>
+      </div>
+
+      <div class="code-snippet">
+        <pre>const tl = gsap.timeline();
+
+// Draw path
+tl.to('.path-line', {
+  strokeDashoffset: 0,
+  duration: 1
+})
+// Animate circles
+.to('.svg-circle', {
+  scale: 1.5,
+  rotation: 360,
+  transformOrigin: '50% 50%',
+  duration: 1,
+  stagger: 0.2,
+  ease: 'back.out(1.7)'
+}, '-=0.5')
+// Fade out
+.to('.svg-circle', {
+  opacity: 0.3,
+  duration: 0.5
+});</pre>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>💡 Key Concepts:</strong>
+      <ul style="margin-top: 1rem; line-height: 2;">
+        <li><strong>Path Drawing:</strong> Use stroke-dasharray and stroke-dashoffset to create drawing effects</li>
+        <li><strong>Transform Origin:</strong> Control rotation/scale center point (50% 50% = center)</li>
+        <li><strong>Path Following:</strong> MotionPath plugin (Club GreenSock) simplifies this, but manual calculation is possible</li>
+        <li><strong>Morphing:</strong> MorphSVG plugin (Club GreenSock) provides smooth morphing, or animate path 'd' attribute manually</li>
+        <li><strong>Performance:</strong> SVG transforms are GPU-accelerated, making them very performant</li>
+        <li><strong>Club GreenSock:</strong> Paid plugins (DrawSVG, MorphSVG, MotionPath) provide advanced features, but vanilla GSAP can handle most needs</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- GSAP via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    // Initialize when DOM is ready
+    function initSVGAnimations() {
+      // Path Drawing
+      const drawPath = document.querySelector('#drawPath');
+      if (drawPath) {
+        try {
+          const pathLength = drawPath.getTotalLength();
+          if (pathLength > 0) {
+            gsap.set(drawPath, {
+              strokeDasharray: pathLength,
+              strokeDashoffset: pathLength
+            });
+            window.pathLength = pathLength;
+            window.drawPath = drawPath;
+          }
+        } catch (e) {
+          console.warn('Could not initialize path drawing:', e);
+        }
+      }
+
+      // Complex Animation
+      const complexPath = document.querySelector('#svgGroup .path-line');
+      if (complexPath) {
+        try {
+          const complexPathLength = complexPath.getTotalLength();
+          if (complexPathLength > 0) {
+            gsap.set(complexPath, {
+              strokeDasharray: complexPathLength,
+              strokeDashoffset: complexPathLength
+            });
+            window.complexPathLength = complexPathLength;
+            window.complexPath = complexPath;
+          }
+        } catch (e) {
+          console.warn('Could not initialize complex path:', e);
+        }
+      }
+    }
+
+    // Initialize on load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSVGAnimations);
+    } else {
+      initSVGAnimations();
+    }
+
+    function drawPath() {
+      const path = window.drawPath || document.querySelector('#drawPath');
+      const length = window.pathLength || (path ? path.getTotalLength() : 0);
+      if (!path || length === 0) return;
+
+      gsap.killTweensOf(path);
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        duration: 2,
+        ease: 'power2.inOut'
+      });
+    }
+
+    function drawPathReverse() {
+      const path = window.drawPath || document.querySelector('#drawPath');
+      const length = window.pathLength || (path ? path.getTotalLength() : 0);
+      if (!path || length === 0) return;
+
+      gsap.killTweensOf(path);
+      gsap.to(path, {
+        strokeDashoffset: length,
+        duration: 2,
+        ease: 'power2.inOut'
+      });
+    }
+
+    function resetPath() {
+      const path = window.drawPath || document.querySelector('#drawPath');
+      const length = window.pathLength || (path ? path.getTotalLength() : 0);
+      if (!path || length === 0) return;
+
+      gsap.killTweensOf(path);
+      gsap.set(path, {
+        strokeDashoffset: length
+      });
+    }
+
+    // SVG Transforms
+    function rotateElements() {
+      gsap.to(['#rotatingCircle', '#rotatingRect', '#rotatingPoly'], {
+        rotation: 360,
+        transformOrigin: '50% 50%',
+        duration: 2,
+        ease: 'power2.inOut',
+        stagger: 0.2
+      });
+    }
+
+    function scaleElements() {
+      const tl = gsap.timeline({ repeat: -1, yoyo: true });
+      tl.to('#rotatingCircle', {
+        scale: 1.5,
+        transformOrigin: '50% 50%',
+        duration: 1,
+        ease: 'power2.inOut'
+      })
+      .to('#rotatingRect', {
+        scale: 1.5,
+        transformOrigin: '50% 50%',
+        duration: 1,
+        ease: 'power2.inOut'
+      }, '-=0.5')
+      .to('#rotatingPoly', {
+        scale: 1.5,
+        transformOrigin: '50% 50%',
+        duration: 1,
+        ease: 'power2.inOut'
+      }, '-=0.5');
+    }
+
+    function morphShapes() {
+      // Animate path 'd' attribute (simplified morphing)
+      gsap.to('#rotatingPoly', {
+        attr: { points: '150,50 250,150 50,150' },
+        duration: 1.5,
+        ease: 'power2.inOut',
+        yoyo: true,
+        repeat: 1
+      });
+    }
+
+    function resetTransforms() {
+      gsap.set(['#rotatingCircle', '#rotatingRect', '#rotatingPoly'], {
+        rotation: 0,
+        scale: 1,
+        clearProps: 'all'
+      });
+    }
+
+    // Path Following (simplified - MotionPath plugin makes this easier)
+    const motionPath = document.querySelector('#motionPath');
+    const follower = document.querySelector('#follower');
+    let pathAnimation;
+
+    function followPath() {
+      if (!motionPath || !follower) return;
+      if (pathAnimation) pathAnimation.kill();
+
+      // Get path length and animate along the path
+      const pathLength = motionPath.getTotalLength();
+
+      // Create a proxy object to animate progress
+      const progress = { value: 0 };
+
+      pathAnimation = gsap.to(progress, {
+        value: 1,
+        duration: 3,
+        ease: 'none',
+        onUpdate: function() {
+          // Get point at current progress along path
+          const point = motionPath.getPointAtLength(pathLength * progress.value);
+          follower.setAttribute('cx', point.x);
+          follower.setAttribute('cy', point.y);
+        }
+      });
+    }
+
+    function followPathLoop() {
+      if (!motionPath || !follower) return;
+      if (pathAnimation) pathAnimation.kill();
+
+      const pathLength = motionPath.getTotalLength();
+      const progress = { value: 0 };
+
+      pathAnimation = gsap.to(progress, {
+        value: 1,
+        duration: 3,
+        ease: 'none',
+        repeat: -1,
+        yoyo: true,
+        onUpdate: function() {
+          const point = motionPath.getPointAtLength(pathLength * progress.value);
+          follower.setAttribute('cx', point.x);
+          follower.setAttribute('cy', point.y);
+        }
+      });
+    }
+
+    function resetFollower() {
+      if (pathAnimation) pathAnimation.kill();
+      if (follower) {
+        gsap.set(follower, { attr: { cx: 50, cy: 150 } });
+      }
+    }
+
+
+    function complexAnimation() {
+      const complexPath = window.complexPath || document.querySelector('#svgGroup .path-line');
+      const complexPathLength = window.complexPathLength || (complexPath ? complexPath.getTotalLength() : 0);
+      const tl = gsap.timeline();
+
+      // Draw path
+      if (complexPath && complexPathLength > 0) {
+        tl.to(complexPath, {
+          strokeDashoffset: 0,
+          duration: 1,
+          ease: 'power2.inOut'
+        });
+      }
+
+      // Animate circles
+      tl.to('.svg-circle', {
+        scale: 1.5,
+        rotation: 360,
+        transformOrigin: '50% 50%',
+        duration: 1,
+        stagger: 0.2,
+        ease: 'back.out(1.7)'
+      }, '-=0.5')
+      .to('.svg-circle', {
+        opacity: 0.3,
+        duration: 0.5
+      });
+    }
+
+    function resetComplex() {
+      const complexPath = window.complexPath || document.querySelector('#svgGroup .path-line');
+      const complexPathLength = window.complexPathLength || (complexPath ? complexPath.getTotalLength() : 0);
+
+      if (complexPath && complexPathLength > 0) {
+        gsap.killTweensOf(complexPath);
+        gsap.set(complexPath, {
+          strokeDashoffset: complexPathLength
+        });
+      }
+      gsap.killTweensOf('.svg-circle');
+      gsap.set('.svg-circle', {
+        scale: 1,
+        rotation: 0,
+        opacity: 1,
+        clearProps: 'all'
+      });
+    }
+
+    // Accessibility: Respect reduced motion
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.globalTimeline.timeScale(100);
+    }
+  </script>
+</body>
+</html>
+
