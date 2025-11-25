@@ -273,6 +273,7 @@ Crear un layout que:
 - Inyecte JS específico de showcase.
 - Soporte inlining de CSS/JS vía plugin de Jekyll o script de build.
 
+{% raw %}
 ```liquid
 ---
 layout: default
@@ -297,6 +298,7 @@ layout: default
   {{ content }}
 </article>
 ```
+{% endraw %}
 
 ### CSS específico de showcase: `assets/css/showcase.css`
 
