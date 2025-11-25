@@ -35,7 +35,7 @@ tags: [final-project, portfolio, deployment, responsive, web-standards]
 >
 > Document each plan in `./docs/plan1.md`, `./docs/plan2.md`, `./docs/plan3.md`, etc., before implementing the corresponding feature. This ensures intentional architecture and prevents aimless code generation. (Though one suspects the AI might appreciate the structure as much as you will when debugging at 2 AM.)
 >
-> **Note:** This document itself was created following this methodology. See the [development plan](./plan/index.md) that guided its creation.
+> **Note:** This document itself was created following this methodology. See the [development plan](../plan/index.md) that guided its creation.
 
 ---
 

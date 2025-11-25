@@ -227,6 +227,14 @@ img.footer-logo {
 	line-height: var(--font-h6-line);
 	margin: 1.25rem 0 0.5rem;
 }
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+	padding-block: 0.35rem;
+}
 .prose p {
 	margin: 0.75rem 0;
 }

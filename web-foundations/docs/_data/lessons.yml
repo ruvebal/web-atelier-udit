@@ -633,3 +633,17 @@
   status:
    es: complete
    en: complete
+
+- slug: portfolio-template-brief
+  title:
+   es: 'Proyecto Final del Curso: Plantilla Profesional de Portfolio'
+   en: 'Final Course Project: Professional Portfolio Template'
+  path:
+   es: /lessons/es/portfolio-template-brief/challenge/
+   en: /lessons/en/portfolio-template-brief/challenge/
+  file:
+   es: lessons/es/portfolio-template-brief/challenge/index.md
+   en: lessons/en/portfolio-template-brief/challenge/index.md
+  status:
+   es: complete
+   en: complete
