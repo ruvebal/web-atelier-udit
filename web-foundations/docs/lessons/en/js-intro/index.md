@@ -406,7 +406,7 @@ It allows building **_APIs_**, real‑time _apps_, microservices.
 - **_Node.js_**/**_Express_** allow _backend_ in JS, **sharing language** with the _frontend_.
 - In a modern **_stack_**: **_Laravel_** and JS coexist, or full JS is used (**_MERN_**, **_MEAN_**).
 
-> Quick taste and `package.json` basics: see "Taste Node.js locally" in the [Development Environment lesson § Taste node](/lessons/en/development-environment/#taste-node).
+> Quick taste and `package.json` basics: see "Taste Node.js locally" in the [Development Environment lesson § Taste node]({{ base_url }}/lessons/en/development-environment/#taste-node).
 
 ---
 

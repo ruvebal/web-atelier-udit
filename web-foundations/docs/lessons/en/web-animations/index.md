@@ -1715,7 +1715,7 @@ _"Animation is not decoration. It is communication. Move with purpose. Delight w
 
 **Next Steps:**
 
-- Review [JavaScript Modules](/lessons/en/js-modules/) to organize animation code modularly
+- Review [JavaScript Modules]({{ base_url }}/lessons/en/js-modules/) to organize animation code modularly
 - Study accessibility guidelines (WCAG 2.1) for motion and animation
 - Explore performance optimization tools (Chrome DevTools, Lighthouse)
 - Practice SVG animation techniques for logos and icons

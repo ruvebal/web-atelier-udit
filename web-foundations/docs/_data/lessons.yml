@@ -647,3 +647,31 @@
   status:
    es: complete
    en: complete
+
+- slug: portfolio-template-brief-plan
+  title:
+   es: 'Proyecto Final: Plan del Brief de Plantilla de Portfolio'
+   en: 'Final Project: Portfolio Template Brief Plan'
+  path:
+   es: /lessons/es/portfolio-template-brief/plan/
+   en: /lessons/en/portfolio-template-brief/plan/
+  file:
+   es: lessons/es/portfolio-template-brief/plan/index.md
+   en: lessons/en/portfolio-template-brief/plan/index.md
+  status:
+   es: complete
+   en: complete
+
+- slug: portfolio-template-brief-site-plan
+  title:
+   es: 'Proyecto Final: Plan de Showcase y Arquitectura CSS'
+   en: 'Final Project: Showcase & CSS Architecture Plan'
+  path:
+   es: /lessons/es/portfolio-template-brief/site/plan/
+   en: /lessons/en/portfolio-template-brief/site/plan/
+  file:
+   es: lessons/es/portfolio-template-brief/site/plan/index.md
+   en: lessons/en/portfolio-template-brief/site/plan/index.md
+  status:
+   es: complete
+   en: complete

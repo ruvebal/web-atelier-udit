@@ -222,7 +222,7 @@ Regardless of your grade level, every project must include:
 
 ### 4. Responsive Design (Fluid + Elastic + Intrinsic)
 
-Reference: [Responsive Design Lesson](/lessons/en/responsive/)
+Reference: [Responsive Design Lesson]({{ base_url }}/lessons/en/responsive/)
 
 - **Mobile-first approach** with progressive enhancement
 - **Fluid typography** using `clamp()` for smooth scaling
@@ -263,7 +263,7 @@ portfolio-template/
 
 ### 6. Metadata & Visual Identity
 
-Reference: [Metadata & Visual Identity Lesson](/lessons/en/metadata-visual-identity-web/)
+Reference: [Metadata & Visual Identity Lesson]({{ base_url }}/lessons/en/metadata-visual-identity-web/)
 
 - **Complete `<head>` metadata**:
   - Title, description, keywords
@@ -277,7 +277,7 @@ Reference: [Metadata & Visual Identity Lesson](/lessons/en/metadata-visual-ident
 
 ### 7. Code Quality & Standards
 
-Reference: [Linting & Formatting Lesson](/lessons/en/linting-and-formatting/)
+Reference: [Linting & Formatting Lesson]({{ base_url }}/lessons/en/linting-and-formatting/)
 
 - **Prettier** for consistent formatting
 - **ESLint** for JavaScript linting (or JSHint minimum)
@@ -307,7 +307,7 @@ Choose techniques appropriate to your grade level:
 
 #### CSS Animations (All Levels)
 
-Reference: [CSS Animations Lesson](/lessons/en/web-animations/css/)
+Reference: [CSS Animations Lesson]({{ base_url }}/lessons/en/web-animations/css/)
 
 - **Transitions** for hover states, button interactions
 - **Keyframe animations** for hero entrances, loading states
@@ -315,7 +315,7 @@ Reference: [CSS Animations Lesson](/lessons/en/web-animations/css/)
 
 #### GSAP Animations (Grade 2 & 3)
 
-Reference: [GSAP Animations Lesson](/lessons/en/web-animations/gsap/)
+Reference: [GSAP Animations Lesson]({{ base_url }}/lessons/en/web-animations/gsap/)
 
 - **Timeline animations** for complex sequences
 - **ScrollTrigger** for scroll-based reveals and parallax
@@ -323,7 +323,7 @@ Reference: [GSAP Animations Lesson](/lessons/en/web-animations/gsap/)
 
 ### Typography
 
-Reference: [Typography & Color Lesson](/lessons/en/typography-color/)
+Reference: [Typography & Color Lesson]({{ base_url }}/lessons/en/typography-color/)
 
 - **Fluid typography system** using `clamp()`:
   ```css
@@ -340,7 +340,7 @@ Reference: [Typography & Color Lesson](/lessons/en/typography-color/)
 
 ### Design Trends (Choose 2-3 to Implement)
 
-Reference: [Modern Web Design Trends Lesson](/lessons/en/modern-web-design-trends/)
+Reference: [Modern Web Design Trends Lesson]({{ base_url }}/lessons/en/modern-web-design-trends/)
 
 - **Glassmorphism**: Frosted glass effect with `backdrop-filter: blur()`
 - **Neumorphism**: Soft UI with subtle shadows (use sparingly)
@@ -936,23 +936,23 @@ Then deploy `dist/` folder to `gh-pages` branch or configure Pages to serve from
 
 ### Essential Lessons
 
-- [Responsive Design (Canonical)](/lessons/en/responsive/) — Fluid, elastic, and intrinsic design
-- [CSS Animations](/lessons/en/web-animations/css/) — Transitions, keyframes, scroll-driven
-- [GSAP Animations](/lessons/en/web-animations/gsap/) — Timeline animations and ScrollTrigger
-- [Typography & Color](/lessons/en/typography-color/) — Fluid typography, color systems
-- [Modern Web Design Trends](/lessons/en/modern-web-design-trends/) — Glassmorphism, parallax, dark mode
-- [Metadata & Visual Identity](/lessons/en/metadata-visual-identity-web/) — Complete metadata guide
-- [Linting & Formatting](/lessons/en/linting-and-formatting/) — Code quality standards
+- [Responsive Design (Canonical)]({{ base_url }}/lessons/en/responsive/) — Fluid, elastic, and intrinsic design
+- [CSS Animations]({{ base_url }}/lessons/en/web-animations/css/) — Transitions, keyframes, scroll-driven
+- [GSAP Animations]({{ base_url }}/lessons/en/web-animations/gsap/) — Timeline animations and ScrollTrigger
+- [Typography & Color]({{ base_url }}/lessons/en/typography-color/) — Fluid typography, color systems
+- [Modern Web Design Trends]({{ base_url }}/lessons/en/modern-web-design-trends/) — Glassmorphism, parallax, dark mode
+- [Metadata & Visual Identity]({{ base_url }}/lessons/en/metadata-visual-identity-web/) — Complete metadata guide
+- [Linting & Formatting]({{ base_url }}/lessons/en/linting-and-formatting/) — Code quality standards
 
 ### Level-Specific Resources
 
 **Bootstrap + GSAP:**
 
-- [Bootstrap Final Project Deployment](/lessons/en/bootstrap/final-project-deployment/)
+- [Bootstrap Final Project Deployment]({{ base_url }}/lessons/en/bootstrap/final-project-deployment/)
 
 **Tailwind + Vite:**
 
-- [Tailwind Build & Deploy](/lessons/en/tailwind/build-deploy/)
+- [Tailwind Build & Deploy]({{ base_url }}/lessons/en/tailwind/build-deploy/)
 
 ### External Tools
 

@@ -292,7 +292,7 @@ document.addEventListener('click', (event) => {
 
 **Option 3: Use modular component (professional)** ⭐
 
-See the **[JavaScript Modules](/lessons/en/js-modules/)** lesson to understand this approach in depth:
+See the **[JavaScript Modules]({{ base_url }}/lessons/en/js-modules/)** lesson to understand this approach in depth:
 
 ```javascript
 // src/components/Button.js
@@ -454,7 +454,7 @@ group-hover:    /* Hover on parent element */
 
 ---
 
-**💡 Pro Tip:** For large applications, always use **modular components** (Option 3) to keep your code organized and reusable. Review the [JavaScript Modules](/lessons/en/js-modules/) lesson to master this professional approach.
+**💡 Pro Tip:** For large applications, always use **modular components** (Option 3) to keep your code organized and reusable. Review the [JavaScript Modules]({{ base_url }}/lessons/en/js-modules/) lesson to master this professional approach.
 
 3. **Build Card component pattern:**
 
