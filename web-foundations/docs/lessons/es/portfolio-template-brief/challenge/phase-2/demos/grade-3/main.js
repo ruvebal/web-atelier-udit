@@ -30,7 +30,7 @@ const animations = {
 	 * Initialize GSAP and register plugins
 	 */
 	init() {
-		gsap.registerPlugin(ScrollTrigger);
+		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 		if (config.reducedMotion) {
 			console.log('⚠️ Reduced motion preference detected — animations disabled');

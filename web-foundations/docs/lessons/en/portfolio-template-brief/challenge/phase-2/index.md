@@ -47,9 +47,9 @@ Study these working examples before implementing. **View source, don't just view
 
 | Grade | Demo | Source | Stack |
 |-------|------|--------|-------|
-| **Grade 1** | [Vanilla CSS Demo](./demos/grade-1-vanilla/) | [View Code](./demos/grade-1-vanilla/main.js) | HTML + CSS + IntersectionObserver |
-| **Grade 2** | [Bootstrap + GSAP Demo](./demos/grade-2-bootstrap-gsap/) | [View Code](./demos/grade-2-bootstrap-gsap/main.js) | Bootstrap 5 + GSAP ScrollTrigger |
-| **Grade 3** | [Tailwind Demo](./demos/grade-3-tailwind/) | [View Code](./demos/grade-3-tailwind/main.js) | Tailwind CSS + Modular GSAP |
+| **Grade 1** | [Vanilla CSS Demo](./demos/grade-1/) | [View Code](./demos/grade-1/main.js) | HTML + CSS + IntersectionObserver |
+| **Grade 2** | [Bootstrap + GSAP Demo](./demos/grade-2/) | [View Code](./demos/grade-2/main.js) | Bootstrap 5 + GSAP ScrollTrigger |
+| **Grade 3** | [Tailwind Demo](./demos/grade-3/) | [View Code](./demos/grade-3/main.js) | Tailwind CSS + Modular GSAP |
 
 > **The Tao of the Developer:**
 > _"Copy code, and you learn for a day. Understand code, and you build for a lifetime."_

@@ -47,9 +47,9 @@ Estudia estos ejemplos funcionales antes de implementar. **Mira el código fuent
 
 | Nivel | Demo | Código | Stack |
 |-------|------|--------|-------|
-| **Nivel 1** | [Demo Vanilla CSS](./demos/grade-1-vanilla/) | [Ver Código](./demos/grade-1-vanilla/main.js) | HTML + CSS + IntersectionObserver |
-| **Nivel 2** | [Demo Bootstrap + GSAP](./demos/grade-2-bootstrap-gsap/) | [Ver Código](./demos/grade-2-bootstrap-gsap/main.js) | Bootstrap 5 + GSAP ScrollTrigger |
-| **Nivel 3** | [Demo Tailwind](./demos/grade-3-tailwind/) | [Ver Código](./demos/grade-3-tailwind/main.js) | Tailwind CSS + GSAP Modular |
+| **Nivel 1** | [Demo Vanilla CSS](./demos/grade-1/) | [Ver Código](./demos/grade-1/main.js) | HTML + CSS + IntersectionObserver |
+| **Nivel 2** | [Demo Bootstrap + GSAP](./demos/grade-2/) | [Ver Código](./demos/grade-2/main.js) | Bootstrap 5 + GSAP ScrollTrigger |
+| **Nivel 3** | [Demo Tailwind](./demos/grade-3/) | [Ver Código](./demos/grade-3/main.js) | Tailwind CSS + GSAP Modular |
 
 > **El Tao del Desarrollador:**
 > _"Copiar código enseña por un día. Entender código construye para toda la vida."_

@@ -40,7 +40,7 @@
  * - gsap = the engine
  * - ScrollTrigger = a turbocharger you're adding to the engine
  */
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 /**
  * ACCESSIBILITY: Check motion preferences BEFORE any animations
