@@ -103,13 +103,21 @@ const animations = {
 
 	/**
 	 * Staggered reveal for project cards
+	 *
+	 * Sets initial state explicitly to prevent visual glitches where
+	 * the first column appears offset from other columns.
 	 */
 	initProjectCards() {
+		const cards = gsap.utils.toArray('.project-card');
+
+		// Set initial state explicitly for consistent starting position
+		gsap.set(cards, { y: 50, opacity: 0 });
+
 		ScrollTrigger.batch('.project-card', {
 			onEnter: (batch) => {
-				gsap.from(batch, {
-					y: 50,
-					opacity: 0,
+				gsap.to(batch, {
+					y: 0,
+					opacity: 1,
 					duration: 0.7,
 					stagger: 0.12,
 					ease: 'power2.out',
@@ -145,10 +153,59 @@ const navigation = {
 
 		this.initScrollBehavior();
 		this.initMobileMenu();
+		this.initScrollIndicator();
 		this.initSmoothScroll();
 		this.initActiveState();
 
 		console.log('🧭 Navigation initialized');
+	},
+
+	/**
+	 * Makes the hero scroll indicator clickable to scroll to the next section.
+	 */
+	initScrollIndicator() {
+		const scrollIndicator = document.querySelector('.scroll-indicator');
+		const nextSection = document.querySelector('#about');
+
+		if (!scrollIndicator || !nextSection) return;
+
+		// Make it visually interactive
+		scrollIndicator.style.cursor = 'pointer';
+		scrollIndicator.setAttribute('role', 'button');
+		scrollIndicator.setAttribute('aria-label', 'Scroll to About section');
+		scrollIndicator.setAttribute('tabindex', '0');
+
+		/**
+		 * Scroll to the next section using GSAP ScrollToPlugin
+		 */
+		const scrollToNext = () => {
+			const navHeight = this.navbar?.offsetHeight || 0;
+
+			if (config.reducedMotion) {
+				// Instant scroll for reduced motion preference
+				window.scrollTo({
+					top: nextSection.offsetTop - navHeight,
+					behavior: 'auto',
+				});
+			} else {
+				gsap.to(window, {
+					duration: 0.8,
+					scrollTo: { y: nextSection, offsetY: navHeight },
+					ease: 'power2.inOut',
+				});
+			}
+		};
+
+		// Handle click
+		scrollIndicator.addEventListener('click', scrollToNext);
+
+		// Handle keyboard (Enter/Space) for accessibility
+		scrollIndicator.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
+				scrollToNext();
+			}
+		});
 	},
 
 	/**

@@ -394,15 +394,31 @@ function initSkillBars() {
 function initProjectCards() {
 	if (prefersReducedMotion) return;
 
+	const cards = gsap.utils.toArray('.project-card');
+
+	/**
+	 * SET INITIAL STATE EXPLICITLY
+	 *
+	 * 📐 WHY THIS MATTERS:
+	 * Using gsap.from() with ScrollTrigger.batch() can cause visual glitches
+	 * because cards visible before the trigger fires don't have consistent
+	 * initial states. By explicitly setting the initial state, we ensure
+	 * all cards start from the same position regardless of when they enter.
+	 */
+	gsap.set(cards, { y: 60, opacity: 0 });
+
 	ScrollTrigger.batch('.project-card', {
 		/**
 		 * onEnter receives an array of ALL elements that just entered the viewport
 		 * (in this scroll frame). We animate them as a batch with stagger.
+		 *
+		 * Using gsap.to() instead of gsap.from() for predictable behavior
+		 * since we've already set the initial state above.
 		 */
 		onEnter: (batch) =>
-			gsap.from(batch, {
-				y: 60,           // Start 60px below
-				opacity: 0,      // Start invisible
+			gsap.to(batch, {
+				y: 0,            // Animate to final position
+				opacity: 1,      // Animate to visible
 				duration: 0.8,
 				stagger: 0.15,   // 0.15s delay between each card
 				ease: 'power2.out',
@@ -463,7 +479,105 @@ function initNavbarScroll() {
 }
 
 // ==========================================================================
-// 7. Smooth Scroll for Anchor Links
+// 7. SCROLL INDICATOR CLICK HANDLER
+// ==========================================================================
+
+/**
+ * Makes the hero scroll indicator clickable to scroll to the next section.
+ *
+ * 🎓 UX PRINCIPLE: AFFORDANCE
+ * The scroll indicator visually suggests "scroll down" — making it clickable
+ * reinforces this affordance and provides an alternative interaction method.
+ */
+function initScrollIndicator() {
+	const scrollIndicator = document.querySelector('.scroll-indicator');
+	const nextSection = document.querySelector('#about');
+
+	if (!scrollIndicator || !nextSection) return;
+
+	// Make it visually interactive
+	scrollIndicator.style.cursor = 'pointer';
+	scrollIndicator.setAttribute('role', 'button');
+	scrollIndicator.setAttribute('aria-label', 'Scroll to About section');
+	scrollIndicator.setAttribute('tabindex', '0');
+
+	/**
+	 * Scroll to the next section using GSAP ScrollToPlugin
+	 */
+	const scrollToNext = () => {
+		const navHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+
+		if (prefersReducedMotion) {
+			// Instant scroll for reduced motion preference
+			window.scrollTo({
+				top: nextSection.offsetTop - navHeight,
+				behavior: 'auto',
+			});
+		} else {
+			gsap.to(window, {
+				duration: 0.8,
+				scrollTo: { y: nextSection, offsetY: navHeight },
+				ease: 'power2.inOut',
+			});
+		}
+	};
+
+	// Handle click
+	scrollIndicator.addEventListener('click', scrollToNext);
+
+	// Handle keyboard (Enter/Space) for accessibility
+	scrollIndicator.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			scrollToNext();
+		}
+	});
+}
+
+// ==========================================================================
+// 8. ACTIVE NAVIGATION STATE
+// ==========================================================================
+
+/**
+ * Highlight the nav link corresponding to the currently visible section.
+ *
+ * 🎓 WHY NOT USE BOOTSTRAP SCROLLSPY?
+ * While Bootstrap's ScrollSpy can work with data attributes, using GSAP's
+ * ScrollTrigger provides more consistent behavior with our other animations
+ * and gives us finer control over the trigger points.
+ *
+ * 📐 THE APPROACH:
+ * Use ScrollTrigger.create() to detect when each section crosses the
+ * center of the viewport, then update nav link styling accordingly.
+ */
+function initActiveNav() {
+	const sections = document.querySelectorAll('section[id]');
+	const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+	sections.forEach((section) => {
+		ScrollTrigger.create({
+			trigger: section,
+			start: 'top center',   // When section top hits viewport center
+			end: 'bottom center',  // Until section bottom leaves viewport center
+			onEnter: () => setActiveLink(section.id),
+			onEnterBack: () => setActiveLink(section.id),
+		});
+	});
+
+	/**
+	 * Updates nav link active state
+	 * @param {string} sectionId - The ID of the currently active section
+	 */
+	function setActiveLink(sectionId) {
+		navLinks.forEach((link) => {
+			const isActive = link.getAttribute('href') === `#${sectionId}`;
+			link.classList.toggle('active', isActive);
+		});
+	}
+}
+
+// ==========================================================================
+// 9. Smooth Scroll for Anchor Links
 // ==========================================================================
 
 function initSmoothScroll() {
@@ -495,7 +609,7 @@ function initSmoothScroll() {
 }
 
 // ==========================================================================
-// 8. Initialize Everything
+// 10. Initialize Everything
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -504,6 +618,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	initSkillBars();
 	initProjectCards();
 	initNavbarScroll();
+	initScrollIndicator();
+	initActiveNav();
 	initSmoothScroll();
 
 	console.log('🚀 Grade 2 Demo: Bootstrap + GSAP animations initialized');
@@ -515,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================================================
-// 9. Cleanup (for SPA environments)
+// 11. Cleanup (for SPA environments)
 // ==========================================================================
 
 window.cleanupAnimations = () => {

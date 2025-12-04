@@ -265,7 +265,65 @@ function initSmoothScroll() {
 }
 
 // ==========================================================================
-// 4. ACTIVE NAVIGATION STATE
+// 4. SCROLL INDICATOR CLICK HANDLER
+// ==========================================================================
+
+/**
+ * Makes the hero scroll indicator clickable to scroll to the next section.
+ *
+ * 🎓 UX PRINCIPLE: AFFORDANCE
+ * The scroll indicator visually suggests "scroll down" — making it clickable
+ * reinforces this affordance and provides an alternative interaction method.
+ *
+ * 📐 THE PATTERN:
+ * 1. Find the scroll indicator element
+ * 2. Add click event listener
+ * 3. Scroll to the next section (About) with smooth animation
+ * 4. Account for fixed navigation height
+ */
+function initScrollIndicator() {
+	const scrollIndicator = document.querySelector('.scroll-indicator');
+	const nextSection = document.querySelector('#about');
+
+	if (!scrollIndicator || !nextSection) return;
+
+	// Make it visually interactive
+	scrollIndicator.style.cursor = 'pointer';
+	scrollIndicator.setAttribute('role', 'button');
+	scrollIndicator.setAttribute('aria-label', 'Scroll to About section');
+	scrollIndicator.setAttribute('tabindex', '0');
+
+	/**
+	 * Scroll to the next section
+	 */
+	const scrollToNext = () => {
+		const prefersReducedMotion = window.matchMedia(
+			'(prefers-reduced-motion: reduce)'
+		).matches;
+
+		const navHeight = document.querySelector('.nav')?.offsetHeight || 0;
+		const targetPosition = nextSection.getBoundingClientRect().top + window.scrollY - navHeight;
+
+		window.scrollTo({
+			top: targetPosition,
+			behavior: prefersReducedMotion ? 'auto' : 'smooth',
+		});
+	};
+
+	// Handle click
+	scrollIndicator.addEventListener('click', scrollToNext);
+
+	// Handle keyboard (Enter/Space) for accessibility
+	scrollIndicator.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			scrollToNext();
+		}
+	});
+}
+
+// ==========================================================================
+// 5. ACTIVE NAVIGATION STATE
 // ==========================================================================
 
 /**
@@ -320,7 +378,7 @@ function initActiveNav() {
 }
 
 // ==========================================================================
-// 5. INITIALIZATION
+// 6. INITIALIZATION
 // ==========================================================================
 
 /**
@@ -337,13 +395,14 @@ function initActiveNav() {
 document.addEventListener('DOMContentLoaded', () => {
 	initScrollAnimations();
 	initSmoothScroll();
+	initScrollIndicator();
 	initActiveNav();
 
 	console.log('🚀 Grade 1 Demo: Vanilla scroll animations initialized');
 });
 
 // ==========================================================================
-// 6. CLEANUP (FOR SPA ENVIRONMENTS)
+// 7. CLEANUP (FOR SPA ENVIRONMENTS)
 // ==========================================================================
 
 /**
