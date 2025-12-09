@@ -430,6 +430,21 @@
    en: complete
   category: tailwind
 
+- slug: tailwind-portfolio-spa-architecture
+  title:
+   es: 'Portfolio SPA con Tailwind — Guía de Arquitectura'
+   en: 'Tailwind Portfolio SPA — Architecture Guide'
+  path:
+   es: /lessons/es/tailwind/portfolio-template/
+   en: /lessons/en/tailwind/portfolio-template/
+  file:
+   es: lessons/es/tailwind/portfolio-template/index.md
+   en: lessons/en/tailwind/portfolio-template/index.md
+  status:
+   es: complete
+   en: complete
+  category: tailwind
+
 - slug: bootstrap
   title:
    es: 'Bootstrap CSS Learning Path — Complete Roadmap'
