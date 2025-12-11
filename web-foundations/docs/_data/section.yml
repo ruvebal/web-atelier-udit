@@ -1,0 +1,21 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# METADATA & SCHEMA DEFINITIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+meta:
+  title: 'The Tao of Development'
+  subtitle: 'Wisdom for the Digital Path'
+  version: '2.2.0'
+  language: 'en'
+  total_quotes: 176
+  last_id_by_section:
+    img: 73
+    qa: 16
+    ops: 1
+    dbg: 5
+    net: 1
+    ux: 4
+    cc: 32
+    wis: 13
+    dop: 2

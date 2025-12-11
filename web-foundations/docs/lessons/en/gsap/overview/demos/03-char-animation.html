@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 - Character-by-Character Animation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+    }
+    
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .split-text {
+      font-size: clamp(3rem, 12vw, 9rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    
+    .char {
+      display: inline-block;
+      will-change: transform;
+    }
+    
+    .subtitle {
+      font-size: 1.25rem;
+      color: #666;
+      margin-top: 2rem;
+    }
+    
+    .controls {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 0.875rem 1.75rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: transparent;
+      border: 1px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      border-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+    
+    .btn.primary {
+      background: #3b82f6;
+      border-color: #3b82f6;
+    }
+    
+    /* Code display */
+    .code-panel {
+      margin-top: 4rem;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: left;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .code-panel pre {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: #a0a0a0;
+      overflow-x: auto;
+    }
+    
+    .code-panel .comment { color: #6a737d; }
+    .code-panel .keyword { color: #ff7b72; }
+    .code-panel .string { color: #a5d6ff; }
+    .code-panel .number { color: #79c0ff; }
+    .code-panel .function { color: #d2a8ff; }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .char {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="split-text">Typography</h1>
+    <p class="subtitle">Hover over the letters!</p>
+    
+    <div class="controls">
+      <button class="btn primary" onclick="replayAnimation()">Replay</button>
+      <button class="btn" onclick="playWave()">Wave Effect</button>
+      <button class="btn" onclick="playRandom()">Random</button>
+      <button class="btn" onclick="playRotate()">Rotate In</button>
+    </div>
+    
+    <div class="code-panel">
+      <pre><span class="comment">// Split text into characters</span>
+<span class="keyword">const</span> text = document.<span class="function">querySelector</span>(<span class="string">'.split-text'</span>);
+<span class="keyword">const</span> chars = text.textContent.<span class="function">split</span>(<span class="string">''</span>);
+text.innerHTML = chars.<span class="function">map</span>(char => 
+  <span class="string">`&lt;span class="char"&gt;${char}&lt;/span&gt;`</span>
+).<span class="function">join</span>(<span class="string">''</span>);
+
+<span class="comment">// Animate each character</span>
+gsap.<span class="function">from</span>(<span class="string">'.char'</span>, {
+  y: <span class="number">50</span>,
+  opacity: <span class="number">0</span>,
+  rotation: <span class="number">-15</span>,
+  duration: <span class="number">0.6</span>,
+  ease: <span class="string">'back.out(1.7)'</span>,
+  stagger: <span class="number">0.03</span>
+});</pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Split text into characters
+    function splitText() {
+      const textElement = document.querySelector('.split-text');
+      const text = textElement.textContent;
+      const chars = text.split('');
+      
+      textElement.innerHTML = chars.map(char => 
+        `<span class="char">${char === ' ' ? '&nbsp;' : char}</span>`
+      ).join('');
+      
+      // Add hover interactions
+      if (!prefersReducedMotion) {
+        document.querySelectorAll('.char').forEach(char => {
+          char.addEventListener('mouseenter', () => {
+            gsap.to(char, {
+              y: -15,
+              scale: 1.2,
+              color: '#3b82f6',
+              duration: 0.3,
+              ease: 'power2.out'
+            });
+          });
+          
+          char.addEventListener('mouseleave', () => {
+            gsap.to(char, {
+              y: 0,
+              scale: 1,
+              color: '#fafafa',
+              duration: 0.5,
+              ease: 'elastic.out(1, 0.3)'
+            });
+          });
+        });
+      }
+    }
+    
+    // Default animation
+    function replayAnimation() {
+      if (prefersReducedMotion) return;
+      
+      gsap.set('.char', { opacity: 0, y: 50, rotation: -15 });
+      
+      gsap.to('.char', {
+        y: 0,
+        opacity: 1,
+        rotation: 0,
+        duration: 0.6,
+        ease: 'back.out(1.7)',
+        stagger: 0.03
+      });
+    }
+    
+    // Wave effect
+    function playWave() {
+      if (prefersReducedMotion) return;
+      
+      gsap.set('.char', { opacity: 0, y: 100 });
+      
+      gsap.to('.char', {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: 'elastic.out(1, 0.4)',
+        stagger: {
+          each: 0.05,
+          from: 'start'
+        }
+      });
+    }
+    
+    // Random order
+    function playRandom() {
+      if (prefersReducedMotion) return;
+      
+      gsap.set('.char', { opacity: 0, scale: 0 });
+      
+      gsap.to('.char', {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'back.out(2)',
+        stagger: {
+          each: 0.04,
+          from: 'random'
+        }
+      });
+    }
+    
+    // Rotate in
+    function playRotate() {
+      if (prefersReducedMotion) return;
+      
+      gsap.set('.char', { opacity: 0, rotation: 90, transformOrigin: 'bottom left' });
+      
+      gsap.to('.char', {
+        rotation: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.04
+      });
+    }
+    
+    // Initialize
+    splitText();
+    replayAnimation();
+  </script>
+</body>
+</html>

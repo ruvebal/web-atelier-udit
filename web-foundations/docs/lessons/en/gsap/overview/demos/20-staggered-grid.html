@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 - Staggered Grid Animation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    .subtitle {
+      color: #666;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    /* Controls */
+    .controls {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: transparent;
+      border: 1px solid #333;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      border-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+    
+    .btn.active {
+      background: #3b82f6;
+      border-color: #3b82f6;
+    }
+    
+    /* Grid */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    
+    .grid-item {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: white;
+      cursor: pointer;
+      transition: filter 0.2s;
+    }
+    
+    .grid-item:hover {
+      filter: brightness(1.1);
+    }
+    
+    /* Different color schemes */
+    .grid-item:nth-child(5n+1) { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+    .grid-item:nth-child(5n+2) { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+    .grid-item:nth-child(5n+3) { background: linear-gradient(135deg, #ec4899, #be185d); }
+    .grid-item:nth-child(5n+4) { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .grid-item:nth-child(5n+5) { background: linear-gradient(135deg, #10b981, #059669); }
+    
+    /* Info panel */
+    .info-panel {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .info-panel h3 {
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    
+    .info-panel code {
+      font-family: 'SF Mono', monospace;
+      font-size: 0.8rem;
+      color: #3b82f6;
+    }
+    
+    /* Code panel */
+    .code-panel {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    
+    .code-panel pre {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.7rem;
+      color: #a0a0a0;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+    
+    .code-panel .comment { color: #6a737d; }
+    .code-panel .string { color: #a5d6ff; }
+    .code-panel .number { color: #79c0ff; }
+    
+    @media (max-width: 600px) {
+      .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .grid-item {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Staggered Grid</h1>
+    <p class="subtitle">Click buttons to see different stagger patterns</p>
+    
+    <div class="controls">
+      <button class="btn active" onclick="staggerFrom('start')">From Start</button>
+      <button class="btn" onclick="staggerFrom('end')">From End</button>
+      <button class="btn" onclick="staggerFrom('center')">From Center</button>
+      <button class="btn" onclick="staggerFrom('edges')">From Edges</button>
+      <button class="btn" onclick="staggerFrom('random')">Random</button>
+    </div>
+    
+    <div class="grid-container">
+      <!-- 25 grid items (5x5) -->
+    </div>
+    
+    <div class="info-panel">
+      <h3>Current Pattern</h3>
+      <code id="currentPattern">stagger: { each: 0.05, from: 'start', grid: [5, 5] }</code>
+    </div>
+    
+    <div class="code-panel">
+      <pre><span class="comment">// Staggered grid animation</span>
+gsap.from(<span class="string">'.grid-item'</span>, {
+  scale: <span class="number">0</span>,
+  opacity: <span class="number">0</span>,
+  duration: <span class="number">0.6</span>,
+  ease: <span class="string">'back.out(1.7)'</span>,
+  stagger: {
+    amount: <span class="number">1.5</span>,        <span class="comment">// Total stagger time</span>
+    grid: [<span class="number">5</span>, <span class="number">5</span>],      <span class="comment">// Grid dimensions</span>
+    from: <span class="string">'center'</span>     <span class="comment">// 'start', 'end', 'center', 'edges', 'random'</span>
+  }
+});</pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Generate grid items
+    const gridContainer = document.querySelector('.grid-container');
+    for (let i = 1; i <= 25; i++) {
+      const item = document.createElement('div');
+      item.className = 'grid-item';
+      item.textContent = i;
+      gridContainer.appendChild(item);
+    }
+    
+    // Update active button
+    function setActiveButton(fromValue) {
+      document.querySelectorAll('.btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(fromValue.toLowerCase())) {
+          btn.classList.add('active');
+        }
+      });
+    }
+    
+    // Stagger animation
+    function staggerFrom(from) {
+      if (prefersReducedMotion) return;
+      
+      setActiveButton(from);
+      
+      // Update info panel
+      document.getElementById('currentPattern').textContent = 
+        `stagger: { each: 0.05, from: '${from}', grid: [5, 5] }`;
+      
+      // Reset items
+      gsap.set('.grid-item', { scale: 0, opacity: 0 });
+      
+      // Animate with stagger
+      gsap.to('.grid-item', {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'back.out(1.7)',
+        stagger: {
+          each: 0.05,
+          grid: [5, 5],
+          from: from
+        }
+      });
+    }
+    
+    // Click individual items
+    document.querySelectorAll('.grid-item').forEach((item, index) => {
+      item.addEventListener('click', () => {
+        if (prefersReducedMotion) return;
+        
+        // Ripple effect from clicked item
+        gsap.set('.grid-item', { scale: 1, opacity: 1 });
+        
+        gsap.from('.grid-item', {
+          scale: 0.8,
+          opacity: 0.5,
+          duration: 0.4,
+          ease: 'power2.out',
+          stagger: {
+            each: 0.03,
+            grid: [5, 5],
+            from: index
+          }
+        });
+        
+        document.getElementById('currentPattern').textContent = 
+          `stagger: { each: 0.03, from: ${index}, grid: [5, 5] }`;
+      });
+    });
+    
+    // Initial animation
+    if (!prefersReducedMotion) {
+      setTimeout(() => staggerFrom('start'), 300);
+    } else {
+      gsap.set('.grid-item', { scale: 1, opacity: 1 });
+    }
+  </script>
+</body>
+</html>

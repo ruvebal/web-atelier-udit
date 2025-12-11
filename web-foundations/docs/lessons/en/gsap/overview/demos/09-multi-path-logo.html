@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 - Multi-Path Logo Animation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #fafafa;
+    }
+    
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 800px;
+    }
+    
+    .logo-container {
+      width: 300px;
+      height: 300px;
+      margin: 0 auto 3rem;
+      position: relative;
+    }
+    
+    .logo-svg {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .logo-path {
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    
+    .path-1 { stroke: #667eea; }
+    .path-2 { stroke: #764ba2; }
+    .path-3 { stroke: #f093fb; }
+    .path-4 { stroke: #4facfe; }
+    .path-5 { stroke: #00f2fe; }
+    
+    .controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: transparent;
+      border: 2px solid #667eea;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: #667eea;
+      transform: translateY(-2px);
+    }
+    
+    .speed-control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .speed-slider {
+      width: 200px;
+      height: 4px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #333;
+      outline: none;
+      border-radius: 2px;
+    }
+    
+    .speed-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #667eea;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    
+    .speed-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #667eea;
+      cursor: pointer;
+      border-radius: 50%;
+      border: none;
+    }
+    
+    .code-panel {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      right: 2rem;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1.5rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.875rem;
+      color: #a0a0a0;
+      max-width: 600px;
+    }
+    
+    .code-panel code {
+      color: #667eea;
+    }
+    
+    .code-panel .comment {
+      color: #6a737d;
+    }
+    
+    .code-panel .string {
+      color: #a5d6ff;
+    }
+    
+    .code-panel .number {
+      color: #79c0ff;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .logo-path {
+        stroke-dasharray: none !important;
+        stroke-dashoffset: 0 !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-container">
+      <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- Abstract logo design with multiple paths -->
+        <path class="logo-path path-1" d="M50 150 Q100 50, 150 100 T250 150" />
+        <path class="logo-path path-2" d="M75 100 L150 75 L225 100" />
+        <path class="logo-path path-3" d="M100 200 Q150 150, 200 200" />
+        <path class="logo-path path-4" d="M50 150 L100 200 L150 150 L200 200 L250 150" />
+        <path class="logo-path path-5" d="M150 50 C200 100, 200 200, 150 250 C100 200, 100 100, 150 50" />
+      </svg>
+    </div>
+    
+    <div class="controls">
+      <button class="btn" onclick="animateSequential()">Sequential</button>
+      <button class="btn" onclick="animateStaggered()">Staggered</button>
+      <button class="btn" onclick="animateSimultaneous()">Simultaneous</button>
+      <button class="btn" onclick="animateWave()">Wave Effect</button>
+      <button class="btn" onclick="resetPaths()">Reset</button>
+    </div>
+    
+    <div class="speed-control">
+      <label>Speed:</label>
+      <input type="range" class="speed-slider" id="speedSlider" min="0.5" max="3" step="0.1" value="1.5">
+      <span id="speedValue">1.5s</span>
+    </div>
+  </div>
+  
+  <div class="code-panel">
+    <span class="comment">// Multi-path animation with strokeDasharray</span><br>
+    gsap.<code>from</code>(<span class="string">'.logo-path'</span>, {<br>
+    &nbsp;&nbsp;strokeDasharray: <span class="string">'0 1000'</span>,<br>
+    &nbsp;&nbsp;strokeDashoffset: <span class="number">0</span>,<br>
+    &nbsp;&nbsp;duration: <span class="number">1.5</span>,<br>
+    &nbsp;&nbsp;ease: <span class="string">'power2.inOut'</span>,<br>
+    &nbsp;&nbsp;stagger: <span class="number">0.2</span><br>
+    });
+  </div>
+
+  <!-- GSAP Core -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    let currentTimeline = null;
+    let animationSpeed = 1.5;
+    
+    // Speed slider
+    const speedSlider = document.getElementById('speedSlider');
+    const speedValue = document.getElementById('speedValue');
+    
+    speedSlider.addEventListener('input', (e) => {
+      animationSpeed = parseFloat(e.target.value);
+      speedValue.textContent = `${animationSpeed}s`;
+    });
+    
+    // Initialize paths for animation
+    function initializePaths() {
+      if (!window.gsap) return;
+      
+      const paths = document.querySelectorAll('.logo-path');
+      
+      // Set initial state for drawing animation
+      gsap.set(paths, {
+        strokeDasharray: '0 1000',
+        opacity: 0
+      });
+    }
+    
+    function animateSequential() {
+      if (prefersReducedMotion || !window.gsap) return;
+      
+      if (currentTimeline) currentTimeline.kill();
+      
+      const paths = document.querySelectorAll('.logo-path');
+      currentTimeline = gsap.timeline();
+      
+      paths.forEach((path, index) => {
+        currentTimeline.to(path, {
+          strokeDasharray: '1000 0',
+          opacity: 1,
+          duration: animationSpeed,
+          ease: 'power2.inOut'
+        });
+      });
+    }
+    
+    function animateStaggered() {
+      if (prefersReducedMotion || !window.gsap) return;
+      
+      if (currentTimeline) currentTimeline.kill();
+      
+      initializePaths();
+      
+      currentTimeline = gsap.timeline();
+      currentTimeline.to('.logo-path', {
+        strokeDasharray: '1000 0',
+        opacity: 1,
+        duration: animationSpeed,
+        ease: 'power2.inOut',
+        stagger: 0.2
+      });
+    }
+    
+    function animateSimultaneous() {
+      if (prefersReducedMotion || !window.gsap) return;
+      
+      if (currentTimeline) currentTimeline.kill();
+      
+      initializePaths();
+      
+      currentTimeline = gsap.timeline();
+      currentTimeline.to('.logo-path', {
+        strokeDasharray: '1000 0',
+        opacity: 1,
+        duration: animationSpeed,
+        ease: 'power2.inOut'
+      });
+    }
+    
+    function animateWave() {
+      if (prefersReducedMotion || !window.gsap) return;
+      
+      if (currentTimeline) currentTimeline.kill();
+      
+      initializePaths();
+      
+      currentTimeline = gsap.timeline();
+      currentTimeline.to('.logo-path', {
+        strokeDasharray: '1000 0',
+        opacity: 1,
+        duration: animationSpeed * 0.6,
+        ease: 'power2.inOut',
+        stagger: {
+          each: 0.1,
+          from: 'center'
+        }
+      });
+    }
+    
+    function resetPaths() {
+      if (currentTimeline) currentTimeline.kill();
+      
+      if (window.gsap) {
+        gsap.to('.logo-path', {
+          strokeDasharray: '0 1000',
+          opacity: 0,
+          duration: 0.5,
+          ease: 'power2.in'
+        });
+      } else {
+        const paths = document.querySelectorAll('.logo-path');
+        paths.forEach(path => {
+          path.style.strokeDasharray = '0 1000';
+          path.style.opacity = '0';
+        });
+      }
+    }
+    
+    // Initialize on load
+    window.addEventListener('load', () => {
+      initializePaths();
+      // Auto-play staggered animation
+      setTimeout(() => animateStaggered(), 500);
+    });
+  </script>
+</body>
+</html>

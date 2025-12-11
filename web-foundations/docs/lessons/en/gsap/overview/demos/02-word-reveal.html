@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 - Word-by-Word Reveal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+    }
+    
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 900px;
+    }
+    
+    .headline {
+      font-size: clamp(2.5rem, 10vw, 7rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      overflow: hidden;
+    }
+    
+    .word {
+      display: inline-block;
+      margin-right: 0.25em;
+    }
+    
+    .word:last-child {
+      margin-right: 0;
+    }
+    
+    /* Accent color for middle word */
+    .word.accent {
+      color: #3b82f6;
+    }
+    
+    .controls {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 0.875rem 1.75rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: transparent;
+      border: 1px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      border-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+    
+    .btn.primary {
+      background: #3b82f6;
+      border-color: #3b82f6;
+    }
+    
+    .btn.primary:hover {
+      background: #2563eb;
+    }
+    
+    /* Variation examples */
+    .variations {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #222;
+    }
+    
+    .variations h3 {
+      font-size: 0.875rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+    
+    .variation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .variation-item {
+      padding: 2rem;
+      background: #111;
+      border-radius: 12px;
+      text-align: left;
+    }
+    
+    .variation-item h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .variation-item p {
+      font-size: 0.75rem;
+      color: #666;
+      font-family: 'SF Mono', monospace;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .word {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="headline">
+      <span class="word">Design</span>
+      <span class="word accent">with</span>
+      <span class="word">intention</span>
+    </h1>
+    
+    <div class="controls">
+      <button class="btn primary" onclick="replayMain()">Replay</button>
+      <button class="btn" onclick="playFromBottom()">From Bottom</button>
+      <button class="btn" onclick="playFromLeft()">From Left</button>
+      <button class="btn" onclick="playScale()">Scale In</button>
+    </div>
+    
+    <div class="variations">
+      <h3>Stagger Variations</h3>
+      <div class="variation-grid">
+        <div class="variation-item">
+          <h4 class="var-1">
+            <span class="v1-word">Stagger</span>
+            <span class="v1-word">0.1s</span>
+          </h4>
+          <p>stagger: 0.1</p>
+        </div>
+        <div class="variation-item">
+          <h4 class="var-2">
+            <span class="v2-word">Stagger</span>
+            <span class="v2-word">0.3s</span>
+          </h4>
+          <p>stagger: 0.3</p>
+        </div>
+        <div class="variation-item">
+          <h4 class="var-3">
+            <span class="v3-word">From</span>
+            <span class="v3-word">End</span>
+          </h4>
+          <p>stagger: { each: 0.15, from: "end" }</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Main headline animation
+    function replayMain() {
+      if (prefersReducedMotion) return;
+      
+      gsap.set('.word', { opacity: 0, y: '100%' });
+      
+      gsap.to('.word', {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.15
+      });
+    }
+    
+    // Variation: From bottom with bounce
+    function playFromBottom() {
+      if (prefersReducedMotion) return;
+      
+      gsap.set('.word', { opacity: 0, y: 80 });
+      
+      gsap.to('.word', {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'back.out(1.7)',
+        stagger: 0.12
+      });
+    }
+    
+    // Variation: From left
+    function playFromLeft() {
+      if (prefersReducedMotion) return;
+      
+      gsap.set('.word', { opacity: 0, x: -50 });
+      
+      gsap.to('.word', {
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out',
+        stagger: 0.1
+      });
+    }
+    
+    // Variation: Scale in
+    function playScale() {
+      if (prefersReducedMotion) return;
+      
+      gsap.set('.word', { opacity: 0, scale: 0.5 });
+      
+      gsap.to('.word', {
+        scale: 1,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'elastic.out(1, 0.5)',
+        stagger: 0.1
+      });
+    }
+    
+    // Variation examples
+    function playVariations() {
+      if (prefersReducedMotion) return;
+      
+      // Variation 1: Fast stagger
+      gsap.set('.v1-word', { opacity: 0, y: 20 });
+      gsap.to('.v1-word', {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'power2.out',
+        delay: 0.5
+      });
+      
+      // Variation 2: Slow stagger
+      gsap.set('.v2-word', { opacity: 0, y: 20 });
+      gsap.to('.v2-word', {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.3,
+        ease: 'power2.out',
+        delay: 0.8
+      });
+      
+      // Variation 3: From end
+      gsap.set('.v3-word', { opacity: 0, y: 20 });
+      gsap.to('.v3-word', {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: { each: 0.15, from: 'end' },
+        ease: 'power2.out',
+        delay: 1.4
+      });
+    }
+    
+    // Initial animations
+    replayMain();
+    playVariations();
+  </script>
+</body>
+</html>

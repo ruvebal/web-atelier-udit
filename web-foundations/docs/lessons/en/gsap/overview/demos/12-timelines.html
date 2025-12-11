@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 - GSAP Timelines</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      color: #666;
+      margin-bottom: 3rem;
+    }
+    
+    /* Hero section demo */
+    .hero-demo {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border-radius: 16px;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      overflow: hidden;
+    }
+    
+    .hero-title {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: #a0a0a0;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-cta {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #3b82f6;
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    .hero-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    
+    /* Timeline visualization */
+    .timeline-viz {
+      background: #111;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-viz h3 {
+      font-size: 0.875rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+    
+    .timeline-track {
+      position: relative;
+      height: 120px;
+      background: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .timeline-bar {
+      position: absolute;
+      height: 30px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding: 0 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: white;
+    }
+    
+    .bar-title { background: #3b82f6; top: 10px; left: 0; width: 40%; }
+    .bar-subtitle { background: #8b5cf6; top: 45px; left: 30%; width: 35%; }
+    .bar-cta { background: #ec4899; top: 80px; left: 55%; width: 25%; }
+    
+    .playhead {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: #fafafa;
+      z-index: 10;
+    }
+    
+    /* Controls */
+    .controls {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: transparent;
+      border: 1px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      border-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+    
+    .btn.primary {
+      background: #3b82f6;
+      border-color: #3b82f6;
+    }
+    
+    /* Progress bar */
+    .progress-container {
+      margin-bottom: 2rem;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #222;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+      border-radius: 4px;
+    }
+    
+    .progress-time {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: #666;
+    }
+    
+    /* Code panel */
+    .code-panel {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .code-panel pre {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: #a0a0a0;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+    
+    .code-panel .comment { color: #6a737d; }
+    .code-panel .keyword { color: #ff7b72; }
+    .code-panel .string { color: #a5d6ff; }
+    .code-panel .number { color: #79c0ff; }
+    .code-panel .function { color: #d2a8ff; }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .hero-title, .hero-subtitle, .hero-cta {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>GSAP Timelines</h1>
+    <p class="subtitle">Sequence animations with precision</p>
+    
+    <!-- Hero Demo -->
+    <div class="hero-demo">
+      <h2 class="hero-title">Welcome to GSAP</h2>
+      <p class="hero-subtitle">The professional-grade animation library</p>
+      <a href="#" class="hero-cta">Get Started</a>
+    </div>
+    
+    <!-- Timeline Visualization -->
+    <div class="timeline-viz">
+      <h3>Timeline Visualization</h3>
+      <div class="timeline-track">
+        <div class="timeline-bar bar-title">.hero-title</div>
+        <div class="timeline-bar bar-subtitle">.hero-subtitle</div>
+        <div class="timeline-bar bar-cta">.hero-cta</div>
+        <div class="playhead"></div>
+      </div>
+    </div>
+    
+    <!-- Progress -->
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <div class="progress-time">
+        <span class="current-time">0.00s</span>
+        <span class="total-time">2.30s</span>
+      </div>
+    </div>
+    
+    <!-- Controls -->
+    <div class="controls">
+      <button class="btn primary" onclick="tl.restart()">▶ Play</button>
+      <button class="btn" onclick="tl.pause()">⏸ Pause</button>
+      <button class="btn" onclick="tl.reverse()">◀ Reverse</button>
+      <button class="btn" onclick="tl.timeScale(0.5)">0.5x</button>
+      <button class="btn" onclick="tl.timeScale(1)">1x</button>
+      <button class="btn" onclick="tl.timeScale(2)">2x</button>
+    </div>
+    
+    <!-- Code -->
+    <div class="code-panel">
+      <pre><span class="comment">// Create a timeline with defaults</span>
+<span class="keyword">const</span> tl = gsap.<span class="function">timeline</span>({
+  defaults: {
+    duration: <span class="number">0.8</span>,
+    ease: <span class="string">'power3.out'</span>
+  }
+});
+
+<span class="comment">// Sequence animations</span>
+tl.<span class="function">from</span>(<span class="string">'.hero-title'</span>, { y: <span class="number">100</span>, opacity: <span class="number">0</span> })
+  .<span class="function">from</span>(<span class="string">'.hero-subtitle'</span>, { y: <span class="number">50</span>, opacity: <span class="number">0</span> }, <span class="string">'-=0.5'</span>)  <span class="comment">// Start 0.5s before previous ends</span>
+  .<span class="function">from</span>(<span class="string">'.hero-cta'</span>, { scale: <span class="number">0</span>, ease: <span class="string">'back.out(2)'</span> }, <span class="string">'-=0.3'</span>);
+
+<span class="comment">// Control the timeline</span>
+tl.<span class="function">play</span>();      <span class="comment">// Play from current position</span>
+tl.<span class="function">pause</span>();     <span class="comment">// Pause</span>
+tl.<span class="function">reverse</span>();   <span class="comment">// Play backward</span>
+tl.<span class="function">restart</span>();   <span class="comment">// Start from beginning</span>
+tl.<span class="function">timeScale</span>(<span class="number">2</span>); <span class="comment">// Double speed</span></pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Create the main timeline
+    const tl = gsap.timeline({
+      defaults: {
+        duration: 0.8,
+        ease: 'power3.out'
+      },
+      paused: true,
+      onUpdate: updateProgress
+    });
+    
+    // Build the animation sequence
+    tl.from('.hero-title', { y: 100, opacity: 0 })
+      .from('.hero-subtitle', { y: 50, opacity: 0 }, '-=0.5')
+      .from('.hero-cta', { scale: 0, ease: 'back.out(2)' }, '-=0.3');
+    
+    // Playhead animation
+    const playhead = document.querySelector('.playhead');
+    const totalDuration = tl.duration();
+    
+    // Update progress bar and playhead
+    function updateProgress() {
+      const progress = tl.progress();
+      const currentTime = tl.time();
+      
+      // Update progress bar
+      gsap.set('.progress-fill', { width: `${progress * 100}%` });
+      
+      // Update playhead position
+      gsap.set(playhead, { left: `${progress * 100}%` });
+      
+      // Update time display
+      document.querySelector('.current-time').textContent = currentTime.toFixed(2) + 's';
+    }
+    
+    // Update total time display
+    document.querySelector('.total-time').textContent = totalDuration.toFixed(2) + 's';
+    
+    // Auto-play on load (unless reduced motion)
+    if (!prefersReducedMotion) {
+      setTimeout(() => tl.play(), 500);
+    } else {
+      // Show final state immediately
+      tl.progress(1);
+    }
+    
+    // Make timeline globally accessible for button controls
+    window.tl = tl;
+  </script>
+</body>
+</html>

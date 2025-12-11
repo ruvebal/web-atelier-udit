@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14 - ScrollTrigger</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150%;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      z-index: -1;
+    }
+    
+    .hero h1 {
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: #a0a0a0;
+      max-width: 500px;
+    }
+    
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: #666;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    
+    .scroll-indicator:hover {
+      color: #667eea;
+    }
+    
+    .scroll-arrow {
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid #666;
+      border-bottom: 2px solid #666;
+      transform: rotate(45deg);
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(10px); }
+    }
+    
+    /* Content Sections */
+    section {
+      min-height: 100vh;
+      padding: 6rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .section-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    section h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+    
+    section p {
+      font-size: 1.125rem;
+      color: #a0a0a0;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    /* Section themes */
+    .section-1 { background: #111; }
+    .section-2 { background: #0f172a; }
+    .section-3 { background: #1e1b4b; }
+    .section-4 { background: #172554; }
+    
+    /* Reveal elements */
+    .reveal-text {
+      overflow: hidden;
+    }
+    
+    .reveal-text span {
+      display: inline-block;
+    }
+    
+    /* Cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .card p {
+      font-size: 0.875rem;
+      color: #666;
+    }
+    
+    /* Progress indicator */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+      width: 0%;
+      z-index: 100;
+    }
+    
+    /* Pinned section */
+    .pinned-section {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #312e81 0%, #1e1b4b 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .pinned-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+      padding: 2rem;
+    }
+    
+    .pinned-content h2 {
+      font-size: clamp(2rem, 8vw, 5rem);
+      font-weight: 900;
+    }
+    
+    .reveal-item {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      color: #a0a0a0;
+    }
+    
+    /* Parallax section */
+    .section-3 {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .parallax-bg {
+      position: absolute;
+      top: -20%;
+      left: 0;
+      width: 100%;
+      height: 140%;
+      background: linear-gradient(45deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      opacity: 0.1;
+      z-index: -1;
+    }
+    
+    .section-3 .section-inner {
+      position: relative;
+      z-index: 1;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-arrow {
+        animation: none;
+      }
+      .reveal-text span,
+      .card,
+      .hero h1,
+      .hero p {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Progress bar -->
+  <div class="progress-bar"></div>
+  
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <h1>ScrollTrigger</h1>
+    <p>Scroll down to see animations triggered by your scroll position</p>
+    <div class="scroll-indicator" onclick="scrollToNext()">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+  
+  <!-- Section 1: Basic reveal -->
+  <section class="section-1">
+    <div class="section-inner">
+      <h2 class="reveal-text"><span>Reveal on Scroll</span></h2>
+      <p>This text animates in when you scroll to it. ScrollTrigger watches the scroll position and triggers animations at the right moment.</p>
+      <p>The animation plays once when the element enters the viewport, creating a smooth reveal effect.</p>
+    </div>
+  </section>
+  
+  <!-- Section 2: Staggered cards -->
+  <section class="section-2">
+    <div class="section-inner">
+      <h2 class="reveal-text"><span>Staggered Cards</span></h2>
+      <p>Multiple elements can animate with staggered timing for a cascading effect.</p>
+      
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Design</h3>
+          <p>Create beautiful interfaces</p>
+        </div>
+        <div class="card">
+          <h3>Develop</h3>
+          <p>Build with modern tools</p>
+        </div>
+        <div class="card">
+          <h3>Deploy</h3>
+          <p>Ship to production</p>
+        </div>
+        <div class="card">
+          <h3>Iterate</h3>
+          <p>Improve continuously</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section 3: Parallax -->
+  <section class="section-3">
+    <div class="parallax-bg"></div>
+    <div class="section-inner">
+      <h2 class="reveal-text"><span>Parallax Effect</span></h2>
+      <p>The hero background moves at a different speed than the content, creating depth and visual interest.</p>
+      <p>This technique is commonly used in modern web design to add dimensionality to scrolling experiences.</p>
+    </div>
+  </section>
+  
+  <!-- Section 4: Pinned -->
+  <section class="pinned-section">
+    <div class="pinned-content">
+      <h2>Pinned Section</h2>
+      <div class="reveal-item item-1">First reveal</div>
+      <div class="reveal-item item-2">Second reveal</div>
+      <div class="reveal-item item-3">Third reveal</div>
+    </div>
+  </section>
+  
+  <!-- Final section -->
+  <section class="section-1">
+    <div class="section-inner">
+      <h2 class="reveal-text"><span>The End</span></h2>
+      <p>You've experienced ScrollTrigger! These techniques can transform static pages into engaging, interactive experiences.</p>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Scroll to next section
+    function scrollToNext() {
+      const nextSection = document.querySelector('.section-1');
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    
+    if (!prefersReducedMotion) {
+      // Progress bar
+      gsap.to('.progress-bar', {
+        width: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.3
+        }
+      });
+      
+      // Hero parallax
+      gsap.to('.hero-bg', {
+        y: '30%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+      
+      // Parallax section background
+      gsap.to('.parallax-bg', {
+        y: '50%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.section-3',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+      
+      // Hero fade out
+      gsap.to('.hero h1, .hero p', {
+        opacity: 0,
+        y: -50,
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'center center',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+      
+      // Reveal text animations
+      gsap.utils.toArray('.reveal-text span').forEach(text => {
+        gsap.from(text, {
+          y: 100,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: text,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      });
+      
+      // Paragraph reveals
+      gsap.utils.toArray('section p').forEach(p => {
+        gsap.from(p, {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: p,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      });
+      
+      // Staggered cards
+      gsap.from('.card', {
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: '.cards-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+      
+      // Pinned section with reveals
+      const pinnedTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.pinned-section',
+          start: 'top top',
+          end: '+=150%',
+          pin: true,
+          scrub: 1
+        }
+      });
+      
+      pinnedTl
+        .from('.pinned-content h2', { scale: 0.8, opacity: 0 })
+        .from('.item-1', { y: 50, opacity: 0 }, '-=0.3')
+        .from('.item-2', { y: 50, opacity: 0 }, '-=0.2')
+        .from('.item-3', { y: 50, opacity: 0 }, '-=0.2');
+    }
+  </script>
+</body>
+</html>

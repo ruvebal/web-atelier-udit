@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17 - Cursor Follower</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #fafafa;
+      cursor: none;
+      overflow: hidden;
+    }
+    
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      position: relative;
+    }
+    
+    .content {
+      text-align: center;
+      max-width: 600px;
+      z-index: 1;
+    }
+    
+    h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    p {
+      font-size: 1.125rem;
+      color: #a0a0a0;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    
+    .interactive-area {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .hover-zone {
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .hover-zone:hover {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: #667eea;
+      transform: translateY(-2px);
+    }
+    
+    .hover-zone h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #667eea;
+    }
+    
+    .hover-zone p {
+      font-size: 0.875rem;
+      margin: 0;
+    }
+    
+    /* Cursor follower */
+    .cursor-follower {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #667eea 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: screen;
+      transition: transform 0.1s ease-out;
+    }
+    
+    .cursor-dot {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: #f093fb;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+    }
+    
+    .cursor-trail {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      border: 2px solid #764ba2;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.5;
+    }
+    
+    .magnetic-element {
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .controls {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      display: flex;
+      gap: 1rem;
+      z-index: 100;
+    }
+    
+    .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #667eea;
+      border-radius: 50px;
+      cursor: none;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: #667eea;
+      transform: translateY(-2px);
+    }
+    
+    .btn.active {
+      background: #667eea;
+    }
+    
+    .code-panel {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      right: 2rem;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1.5rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.875rem;
+      color: #a0a0a0;
+      max-width: 600px;
+    }
+    
+    .code-panel code {
+      color: #667eea;
+    }
+    
+    .code-panel .comment {
+      color: #6a737d;
+    }
+    
+    .code-panel .string {
+      color: #a5d6ff;
+    }
+    
+    .code-panel .number {
+      color: #79c0ff;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      body {
+        cursor: auto;
+      }
+      
+      .cursor-follower,
+      .cursor-dot,
+      .cursor-trail {
+        display: none;
+      }
+      
+      .magnetic-element {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>Cursor Follower</h1>
+      <p>Move your cursor around to see the custom cursor effects. Hover over different areas to see magnetic interactions.</p>
+      
+      <div class="interactive-area">
+        <div class="hover-zone magnetic-element">
+          <h3>Magnetic Zone</h3>
+          <p>Elements follow cursor</p>
+        </div>
+        <div class="hover-zone magnetic-element">
+          <h3>Interactive Area</h3>
+          <p>Hover effects enhanced</p>
+        </div>
+        <div class="hover-zone magnetic-element">
+          <h3>Dynamic Response</h3>
+          <p>Smooth animations</p>
+        </div>
+        <div class="hover-zone magnetic-element">
+          <h3>GSAP Powered</h3>
+          <p>Performance optimized</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Cursor elements -->
+  <div class="cursor-follower"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-trail"></div>
+  
+  <!-- Controls -->
+  <div class="controls">
+    <button class="btn active" id="normalMode">Normal</button>
+    <button class="btn" id="magneticMode">Magnetic</button>
+    <button class="btn" id="trailMode">Trail</button>
+  </div>
+  
+  <div class="code-panel">
+    <span class="comment">// Custom cursor with GSAP</span><br>
+    document.addEventListener(<span class="string">'mousemove'</span>, (e) => {<br>
+    &nbsp;&nbsp;gsap.<code>to</code>(<span class="string">'.cursor-follower'</span>, {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;x: e.clientX,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;y: e.clientY,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;duration: <span class="number">0.1</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;ease: <span class="string">'power2.out'</span><br>
+    &nbsp;&nbsp;});<br>
+    });
+  </div>
+
+  <!-- GSAP Core -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (!prefersReducedMotion && window.gsap) {
+      // Cursor elements
+      const cursor = document.querySelector('.cursor-follower');
+      const cursorDot = document.querySelector('.cursor-dot');
+      const cursorTrail = document.querySelector('.cursor-trail');
+      const magneticElements = document.querySelectorAll('.magnetic-element');
+      
+      // Cursor position
+      let mouseX = 0;
+      let mouseY = 0;
+      let cursorX = 0;
+      let cursorY = 0;
+      
+      // Mode buttons
+      const normalMode = document.getElementById('normalMode');
+      const magneticMode = document.getElementById('magneticMode');
+      const trailMode = document.getElementById('trailMode');
+      
+      let currentMode = 'normal';
+      
+      // Mouse move handler
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Update cursor with smooth following
+        gsap.to(cursor, {
+          x: mouseX - 10,
+          y: mouseY - 10,
+          duration: 0.1,
+          ease: 'power2.out'
+        });
+        
+        gsap.to(cursorDot, {
+          x: mouseX - 2,
+          y: mouseY - 2,
+          duration: 0.05,
+          ease: 'power2.out'
+        });
+        
+        // Trail effect for trail mode
+        if (currentMode === 'trail') {
+          gsap.to(cursorTrail, {
+            x: mouseX - 15,
+            y: mouseY - 15,
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        }
+        
+        // Magnetic effect
+        if (currentMode === 'magnetic') {
+          magneticElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const distance = Math.sqrt(
+              Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2)
+            );
+            
+            if (distance < 100) {
+              const angle = Math.atan2(mouseY - centerY, mouseX - centerX);
+              const force = (100 - distance) / 100;
+              const moveX = Math.cos(angle) * force * 10;
+              const moveY = Math.sin(angle) * force * 10;
+              
+              gsap.to(element, {
+                x: moveX,
+                y: moveY,
+                rotation: moveX * 0.2,
+                duration: 0.3,
+                ease: 'power2.out'
+              });
+            } else {
+              gsap.to(element, {
+                x: 0,
+                y: 0,
+                rotation: 0,
+                duration: 0.5,
+                ease: 'elastic.out(1, 0.3)'
+              });
+            }
+          });
+        }
+      });
+      
+      // Mouse enter/leave for hover effects
+      magneticElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+          gsap.to(cursor, {
+            scale: 1.5,
+            background: 'radial-gradient(circle, #f093fb 0%, transparent 70%)',
+            duration: 0.3
+          });
+          
+          gsap.to(cursorTrail, {
+            scale: 1.2,
+            borderColor: '#f093fb',
+            duration: 0.3
+          });
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          gsap.to(cursor, {
+            scale: 1,
+            background: 'radial-gradient(circle, #667eea 0%, transparent 70%)',
+            duration: 0.3
+          });
+          
+          gsap.to(cursorTrail, {
+            scale: 1,
+            borderColor: '#764ba2',
+            duration: 0.3
+          });
+        });
+      });
+      
+      // Mode switching
+      normalMode.addEventListener('click', () => {
+        currentMode = 'normal';
+        updateModeButtons();
+        resetMagneticElements();
+      });
+      
+      magneticMode.addEventListener('click', () => {
+        currentMode = 'magnetic';
+        updateModeButtons();
+      });
+      
+      trailMode.addEventListener('click', () => {
+        currentMode = 'trail';
+        updateModeButtons();
+        resetMagneticElements();
+      });
+      
+      function updateModeButtons() {
+        document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+        
+        if (currentMode === 'normal') normalMode.classList.add('active');
+        else if (currentMode === 'magnetic') magneticMode.classList.add('active');
+        else if (currentMode === 'trail') trailMode.classList.add('active');
+      }
+      
+      function resetMagneticElements() {
+        magneticElements.forEach(element => {
+          gsap.to(element, {
+            x: 0,
+            y: 0,
+            rotation: 0,
+            duration: 0.5,
+            ease: 'elastic.out(1, 0.3)'
+          });
+        });
+      }
+      
+      // Hide cursor on mouse leave
+      document.addEventListener('mouseleave', () => {
+        gsap.to([cursor, cursorDot, cursorTrail], {
+          opacity: 0,
+          duration: 0.2
+        });
+      });
+      
+      // Show cursor on mouse enter
+      document.addEventListener('mouseenter', () => {
+        gsap.to([cursor, cursorDot, cursorTrail], {
+          opacity: 1,
+          duration: 0.2
+        });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 - First GSAP Animation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #fafafa;
+    }
+    
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .hero-title {
+      font-size: clamp(3rem, 12vw, 8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .subtitle {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: #a0a0a0;
+      margin-top: 1rem;
+      font-weight: 300;
+    }
+    
+    .replay-btn {
+      margin-top: 3rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: transparent;
+      border: 2px solid #667eea;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .replay-btn:hover {
+      background: #667eea;
+      transform: translateY(-2px);
+    }
+    
+    /* Code display */
+    .code-panel {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      right: 2rem;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1.5rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.875rem;
+      color: #a0a0a0;
+      max-width: 600px;
+    }
+    
+    .code-panel code {
+      color: #f093fb;
+    }
+    
+    .code-panel .comment {
+      color: #6a737d;
+    }
+    
+    .code-panel .string {
+      color: #a5d6ff;
+    }
+    
+    .code-panel .number {
+      color: #79c0ff;
+    }
+    
+    .hero-title, .subtitle, .replay-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="hero-title">Hello GSAP</h1>
+    <p class="subtitle">Your first animation</p>
+    <button class="replay-btn" onclick="replay()">Replay Animation</button>
+  </div>
+  
+  <div class="code-panel">
+    <span class="comment">// Your first GSAP animation</span><br>
+    gsap.<code>from</code>(<span class="string">'.hero-title'</span>, {<br>
+    &nbsp;&nbsp;opacity: <span class="number">0</span>,<br>
+    &nbsp;&nbsp;y: <span class="number">100</span>,<br>
+    &nbsp;&nbsp;duration: <span class="number">1.2</span>,<br>
+    &nbsp;&nbsp;ease: <span class="string">'power3.out'</span><br>
+    });
+  </div>
+
+  <!-- GSAP Core -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    function playAnimation() {
+      if (prefersReducedMotion || !window.gsap) return;
+      
+      // Reset elements with initial animation state
+      gsap.set(['.hero-title', '.subtitle', '.replay-btn'], { 
+        opacity: 0, 
+        y: 50 
+      });
+      
+      // Create timeline for sequenced animation
+      const tl = gsap.timeline();
+      
+      tl.from('.hero-title', {
+        opacity: 0,
+        y: 100,
+        duration: 1.2,
+        ease: 'power3.out'
+      })
+      .from('.subtitle', {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, '-=0.6')
+      .from('.replay-btn', {
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.4');
+    }
+    
+    function replay() {
+      playAnimation();
+    }
+    
+    // Wait for GSAP to be available
+    if (window.gsap) {
+      playAnimation();
+    } else {
+      // Fallback: show content immediately if GSAP doesn't load
+      console.warn('GSAP not loaded - showing static content');
+    }
+  </script>
+</body>
+</html>
