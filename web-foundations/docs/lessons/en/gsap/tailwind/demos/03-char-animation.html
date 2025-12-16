@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 - Character-by-Character Animation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen grid place-items-center font-sans bg-zinc-950 text-zinc-50 overflow-x-hidden">
+  <div class="text-center p-8">
+    <h1 class="split-text text-[clamp(3rem,12vw,9rem)] font-black tracking-tight leading-none">Typography</h1>
+    <p class="subtitle text-xl text-zinc-500 mt-8">Hover over the letters!</p>
+
+    <div class="controls mt-12 flex gap-4 justify-center flex-wrap">
+      <button class="btn px-7 py-3.5 text-sm font-semibold text-zinc-50 bg-blue-500 border border-blue-500 rounded-lg cursor-pointer transition-all duration-300 hover:bg-blue-600" onclick="replayAnimation()">Replay</button>
+      <button class="btn px-7 py-3.5 text-sm font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-lg cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="playWave()">Wave Effect</button>
+      <button class="btn px-7 py-3.5 text-sm font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-lg cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="playRandom()">Random</button>
+      <button class="btn px-7 py-3.5 text-sm font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-lg cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="playRotate()">Rotate In</button>
+    </div>
+
+    <div class="code-panel mt-16 bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-left max-w-xl mx-auto">
+      <pre class="font-mono text-xs text-zinc-400 overflow-x-auto"><span class="text-zinc-600">// Split text into characters</span>
+<span class="text-red-400">const</span> text = document.<span class="text-purple-400">querySelector</span>(<span class="text-blue-300">'.split-text'</span>);
+<span class="text-red-400">const</span> chars = text.textContent.<span class="text-purple-400">split</span>(<span class="text-blue-300">''</span>);
+text.innerHTML = chars.<span class="text-purple-400">map</span>(char =>
+  <span class="text-blue-300">`&lt;span class="char"&gt;${char}&lt;/span&gt;`</span>
+).<span class="text-purple-400">join</span>(<span class="text-blue-300">''</span>);
+
+<span class="text-zinc-600">// Animate each character</span>
+gsap.<span class="text-purple-400">from</span>(<span class="text-blue-300">'.char'</span>, {
+  y: <span class="text-blue-400">50</span>,
+  opacity: <span class="text-blue-400">0</span>,
+  rotation: <span class="text-blue-400">-15</span>,
+  duration: <span class="text-blue-400">0.6</span>,
+  ease: <span class="text-blue-300">'back.out(1.7)'</span>,
+  stagger: <span class="text-blue-400">0.03</span>
+});</pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Split text into characters
+    function splitText() {
+      const textElement = document.querySelector('.split-text');
+      const text = textElement.textContent;
+      const chars = text.split('');
+
+      textElement.innerHTML = chars.map(char =>
+        `<span class="char inline-block will-change-transform">${char === ' ' ? '&nbsp;' : char}</span>`
+      ).join('');
+
+      // Add hover interactions
+      if (!prefersReducedMotion && window.gsap) {
+        document.querySelectorAll('.char').forEach(char => {
+          char.addEventListener('mouseenter', () => {
+            gsap.to(char, {
+              y: -15,
+              scale: 1.2,
+              color: '#3b82f6',
+              duration: 0.3,
+              ease: 'power2.out'
+            });
+          });
+
+          char.addEventListener('mouseleave', () => {
+            gsap.to(char, {
+              y: 0,
+              scale: 1,
+              color: '#fafafa',
+              duration: 0.5,
+              ease: 'elastic.out(1, 0.3)'
+            });
+          });
+        });
+      }
+    }
+
+    // Default animation
+    function replayAnimation() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      gsap.set('.char', { opacity: 0, y: 50, rotation: -15 });
+
+      gsap.to('.char', {
+        y: 0,
+        opacity: 1,
+        rotation: 0,
+        duration: 0.6,
+        ease: 'back.out(1.7)',
+        stagger: 0.03
+      });
+    }
+
+    // Wave effect
+    function playWave() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      gsap.set('.char', { opacity: 0, y: 100 });
+
+      gsap.to('.char', {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: 'elastic.out(1, 0.4)',
+        stagger: {
+          each: 0.05,
+          from: 'start'
+        }
+      });
+    }
+
+    // Random order
+    function playRandom() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      gsap.set('.char', { opacity: 0, scale: 0 });
+
+      gsap.to('.char', {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'back.out(2)',
+        stagger: {
+          each: 0.04,
+          from: 'random'
+        }
+      });
+    }
+
+    // Rotate in
+    function playRotate() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      gsap.set('.char', { opacity: 0, rotation: 90, transformOrigin: 'bottom left' });
+
+      gsap.to('.char', {
+        rotation: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.04
+      });
+    }
+
+    // Initialize
+    function init() {
+      splitText();
+      if (window.gsap) {
+        replayAnimation();
+      } else {
+        setTimeout(() => {
+          if (window.gsap) replayAnimation();
+        }, 100);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

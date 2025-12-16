@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 - Accessibility in GSAP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .animated-element {
+        transform: none !important;
+      }
+      .motion-status {
+        background: rgba(255, 107, 107, 0.1) !important;
+        border-color: rgba(255, 107, 107, 0.3) !important;
+        color: #ff6b6b !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen grid place-items-center font-sans bg-gradient-to-br from-zinc-950 via-slate-900 to-zinc-950 text-zinc-50 overflow-x-hidden">
+  <div class="text-center p-8 max-w-4xl w-full">
+    <h1 class="text-3xl font-bold mb-4">Accessibility in GSAP</h1>
+    <p class="mb-8">Respecting user motion preferences and creating inclusive animations</p>
+
+    <div class="motion-status my-8 p-4 bg-indigo-500/10 border border-indigo-500/30 rounded-lg font-mono" id="motionStatus">
+      Detecting motion preferences...
+    </div>
+
+    <div class="demo-section my-12 p-8 bg-white/5 rounded-xl border border-white/10">
+      <h2 class="demo-title text-2xl mb-4 text-indigo-400">Basic Animation</h2>
+      <div class="animated-element inline-block px-8 py-4 mx-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full font-semibold transition-transform duration-300 hover:-translate-y-0.5" id="basicElement">Animate Me</div>
+      <p class="mt-4">This element respects your motion preferences</p>
+    </div>
+
+    <div class="demo-section my-12 p-8 bg-white/5 rounded-xl border border-white/10">
+      <h2 class="demo-title text-2xl mb-4 text-indigo-400">Hover Effects</h2>
+      <div class="animated-element inline-block px-8 py-4 mx-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full font-semibold transition-transform duration-300 hover:-translate-y-0.5" id="hoverElement">Hover Over Me</div>
+      <p class="mt-4">Hover animations are preserved but may be reduced</p>
+    </div>
+
+    <div class="demo-section my-12 p-8 bg-white/5 rounded-xl border border-white/10">
+      <h2 class="demo-title text-2xl mb-4 text-indigo-400">Scroll Animations</h2>
+      <div class="animated-element inline-block px-8 py-4 mx-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full font-semibold transition-transform duration-300 hover:-translate-y-0.5" id="scrollElement">Scroll Triggered</div>
+      <p class="mt-4">Scroll animations respect motion preferences</p>
+    </div>
+
+    <div class="demo-section my-12 p-8 bg-white/5 rounded-xl border border-white/10">
+      <h2 class="demo-title text-2xl mb-4 text-indigo-400">Complex Animation</h2>
+      <div class="animated-element inline-block px-8 py-4 mx-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full font-semibold transition-transform duration-300 hover:-translate-y-0.5" id="complexElement">Complex Effect</div>
+      <p class="mt-4">Multi-step animations adapt to motion settings</p>
+    </div>
+
+    <div class="controls flex gap-4 justify-center flex-wrap my-8">
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="animateBasic()">Basic</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="animateHover()">Hover</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="animateScroll()">Scroll</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="animateComplex()">Complex</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="resetAll()">Reset</button>
+    </div>
+  </div>
+
+  <div class="fixed bottom-8 left-4 right-4 bg-black/80 border border-zinc-800 rounded-xl p-6 font-mono text-sm text-zinc-400 max-w-2xl">
+    <span class="text-zinc-600">// Check for reduced motion preference</span><br>
+    const prefersReducedMotion = window.matchMedia(<span class="text-blue-300">'(prefers-reduced-motion: reduce)'</span>).matches;<br><br>
+    <span class="text-zinc-600">// Conditionally run animations</span><br>
+    <span class="text-red-400">if</span> (!prefersReducedMotion) {<br>
+    &nbsp;&nbsp;gsap.<code class="text-indigo-400">to</code>(<span class="text-blue-300">'.element'</span>, {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;opacity: <span class="text-blue-400">0</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;y: <span class="text-blue-400">50</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;duration: <span class="text-blue-400">1</span><br>
+    &nbsp;&nbsp;});<br>
+    }
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const motionStatus = document.getElementById('motionStatus');
+    if (prefersReducedMotion) {
+      motionStatus.textContent = 'Reduced motion detected - animations disabled';
+      motionStatus.style.color = '#ff6b6b';
+    } else {
+      motionStatus.textContent = 'Normal motion detected - animations enabled';
+      motionStatus.style.color = '#00ff88';
+    }
+
+    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+      location.reload();
+    });
+
+    function animateBasic() {
+      if (!window.gsap) return;
+
+      if (prefersReducedMotion) {
+        document.getElementById('basicElement').style.transform = 'scale(1.1)';
+        setTimeout(() => {
+          document.getElementById('basicElement').style.transform = 'scale(1)';
+        }, 300);
+        return;
+      }
+
+      gsap.to('#basicElement', {
+        scale: 1.1,
+        rotation: 5,
+        duration: 0.6,
+        ease: 'back.out',
+        yoyo: true,
+        repeat: 1
+      });
+    }
+
+    function animateHover() {
+      if (!window.gsap) return;
+
+      if (prefersReducedMotion) {
+        document.getElementById('hoverElement').style.background = 'linear-gradient(135deg, #ff6b6b 0%, #f093fb 100%)';
+        setTimeout(() => {
+          document.getElementById('hoverElement').style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        }, 300);
+        return;
+      }
+
+      gsap.to('#hoverElement', {
+        scale: 1.05,
+        background: 'linear-gradient(135deg, #ff6b6b 0%, #f093fb 100%)',
+        duration: 0.3,
+        ease: 'power2.out',
+        yoyo: true,
+        repeat: 1
+      });
+    }
+
+    function animateScroll() {
+      if (!window.gsap) return;
+
+      if (prefersReducedMotion) {
+        document.getElementById('scrollElement').style.opacity = '0.5';
+        setTimeout(() => {
+          document.getElementById('scrollElement').style.opacity = '1';
+        }, 500);
+        return;
+      }
+
+      gsap.fromTo('#scrollElement',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+      );
+    }
+
+    function animateComplex() {
+      if (!window.gsap) return;
+
+      if (prefersReducedMotion) {
+        const element = document.getElementById('complexElement');
+        element.style.transform = 'scale(1.2)';
+        element.style.background = 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)';
+        setTimeout(() => {
+          element.style.transform = 'scale(1)';
+          element.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        }, 500);
+        return;
+      }
+
+      const tl = gsap.timeline();
+      tl.to('#complexElement', {
+        scale: 1.2,
+        rotation: 180,
+        duration: 0.6,
+        ease: 'back.inOut'
+      })
+      .to('#complexElement', {
+        background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+        duration: 0.4
+      }, '-=0.3')
+      .to('#complexElement', {
+        scale: 1,
+        rotation: 360,
+        duration: 0.6,
+        ease: 'back.inOut'
+      });
+    }
+
+    function resetAll() {
+      const elements = document.querySelectorAll('.animated-element');
+
+      if (window.gsap && !prefersReducedMotion) {
+        gsap.set(elements, {
+          scale: 1,
+          rotation: 0,
+          opacity: 1,
+          y: 0,
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+        });
+      } else {
+        elements.forEach(element => {
+          element.style.transform = 'none';
+          element.style.opacity = '1';
+          element.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        });
+      }
+    }
+
+    window.animateBasic = animateBasic;
+    window.animateHover = animateHover;
+    window.animateScroll = animateScroll;
+    window.animateComplex = animateComplex;
+    window.resetAll = resetAll;
+
+    window.addEventListener('load', () => {
+      setTimeout(() => animateBasic(), 500);
+    });
+  </script>
+</body>
+</html>

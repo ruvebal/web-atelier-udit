@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18 - Horizontal Scroll</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      .horizontal-container {
+        overflow-x: auto;
+        scroll-behavior: smooth;
+      }
+      .scroll-indicator {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans bg-zinc-950 text-zinc-50 overflow-x-hidden">
+  <div class="progress-bar fixed top-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-400 w-0 z-[100]"></div>
+
+  <div class="nav-dots fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-[100]">
+    <div class="nav-dot active w-3 h-3 rounded-full bg-indigo-500 border-2 border-indigo-500 cursor-pointer transition-all duration-300 scale-110" data-section="0"></div>
+    <div class="nav-dot w-3 h-3 rounded-full bg-white/20 border-2 border-white/30 cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:border-indigo-500 hover:scale-110" data-section="1"></div>
+    <div class="nav-dot w-3 h-3 rounded-full bg-white/20 border-2 border-white/30 cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:border-indigo-500 hover:scale-110" data-section="2"></div>
+    <div class="nav-dot w-3 h-3 rounded-full bg-white/20 border-2 border-white/30 cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:border-indigo-500 hover:scale-110" data-section="3"></div>
+    <div class="nav-dot w-3 h-3 rounded-full bg-white/20 border-2 border-white/30 cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:border-indigo-500 hover:scale-110" data-section="4"></div>
+  </div>
+
+  <section class="horizontal-section min-h-screen flex items-center justify-center p-8 relative">
+    <div class="horizontal-container flex gap-8 p-8 w-fit">
+      <div class="scroll-item min-w-[300px] h-[400px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-white/10 rounded-2xl p-8 flex flex-col justify-center items-center text-center">
+        <h3 class="text-2xl mb-4 text-indigo-400">Design Systems</h3>
+        <p class="text-base text-zinc-400 leading-relaxed">Create consistent, scalable design systems that maintain visual harmony across your entire application.</p>
+      </div>
+      <div class="scroll-item min-w-[300px] h-[400px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-white/10 rounded-2xl p-8 flex flex-col justify-center items-center text-center">
+        <h3 class="text-2xl mb-4 text-indigo-400">Performance</h3>
+        <p class="text-base text-zinc-400 leading-relaxed">Optimize animations for smooth 60fps performance with efficient rendering techniques.</p>
+      </div>
+      <div class="scroll-item min-w-[300px] h-[400px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-white/10 rounded-2xl p-8 flex flex-col justify-center items-center text-center">
+        <h3 class="text-2xl mb-4 text-indigo-400">Accessibility</h3>
+        <p class="text-base text-zinc-400 leading-relaxed">Build inclusive experiences that respect user preferences and provide alternatives.</p>
+      </div>
+      <div class="scroll-item min-w-[300px] h-[400px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-white/10 rounded-2xl p-8 flex flex-col justify-center items-center text-center">
+        <h3 class="text-2xl mb-4 text-indigo-400">Responsive</h3>
+        <p class="text-base text-zinc-400 leading-relaxed">Design flexible layouts that adapt seamlessly to any screen size or device.</p>
+      </div>
+      <div class="scroll-item min-w-[300px] h-[400px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-white/10 rounded-2xl p-8 flex flex-col justify-center items-center text-center">
+        <h3 class="text-2xl mb-4 text-indigo-400">Modern Tools</h3>
+        <p class="text-base text-zinc-400 leading-relaxed">Leverage cutting-edge tools and frameworks to build exceptional user experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="scroll-indicator fixed bottom-8 left-1/2 -translate-x-1/2 bg-black/80 px-8 py-4 rounded-full border border-zinc-800 text-sm text-zinc-400 z-[100]">
+    Scroll horizontally or use navigation dots
+  </div>
+
+  <div class="fixed bottom-8 left-4 bg-black/80 border border-zinc-800 rounded-xl p-6 font-mono text-sm text-zinc-400 max-w-[500px] z-[99]">
+    <span class="text-zinc-600">// Horizontal scroll with ScrollTrigger</span><br>
+    const container = document.querySelector(<span class="text-blue-300">'.horizontal-container'</span>);<br>
+    <br>
+    gsap.<code class="text-indigo-400">to</code>(container, {<br>
+    &nbsp;&nbsp;x: <span class="text-blue-300">'-=100%'</span>,<br>
+    &nbsp;&nbsp;ease: <span class="text-blue-300">'none'</span>,<br>
+    &nbsp;&nbsp;scrollTrigger: {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;trigger: <span class="text-blue-300">'.horizontal-section'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;start: <span class="text-blue-300">'top top'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;end: <span class="text-blue-300">'+=200%'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;scrub: <span class="text-blue-400">1</span><br>
+    &nbsp;&nbsp;}<br>
+    });
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    function init() {
+      if (!window.gsap) {
+        setTimeout(init, 100);
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        const container = document.querySelector('.horizontal-container');
+        const sections = document.querySelectorAll('.scroll-item');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const progressBar = document.querySelector('.progress-bar');
+
+        const totalWidth = sections.length * 316;
+
+        gsap.to(container, {
+          x: () => -(totalWidth - window.innerWidth + 100),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.horizontal-section',
+            start: 'top top',
+            end: () => `+=${totalWidth - window.innerWidth + 200}`,
+            scrub: 1,
+            pin: '.horizontal-section',
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const progress = self.progress * 100;
+              gsap.set(progressBar, { width: `${progress}%` });
+
+              const activeIndex = Math.floor(self.progress * navDots.length);
+              navDots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                  dot.classList.add('active', 'bg-indigo-500', 'border-indigo-500', 'scale-110');
+                  dot.classList.remove('bg-white/20', 'border-white/30');
+                } else {
+                  dot.classList.remove('active', 'bg-indigo-500', 'border-indigo-500', 'scale-110');
+                  dot.classList.add('bg-white/20', 'border-white/30');
+                }
+              });
+            }
+          }
+        });
+
+        navDots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            const scrollTarget = (index / navDots.length) * (totalWidth - window.innerWidth + 200);
+            window.scrollTo({
+              top: 0,
+              left: scrollTarget,
+              behavior: 'smooth'
+            });
+          });
+        });
+
+        let isScrolling = false;
+        document.addEventListener('wheel', (e) => {
+          if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            e.preventDefault();
+
+            if (!isScrolling) {
+              isScrolling = true;
+
+              const currentScroll = window.scrollX || window.pageXOffset;
+              const newScroll = currentScroll + e.deltaY;
+
+              window.scrollTo({
+                top: 0,
+                left: newScroll,
+                behavior: 'smooth'
+              });
+
+              setTimeout(() => {
+                isScrolling = false;
+              }, 50);
+            }
+          }
+        }, { passive: false });
+
+        let startX = 0;
+        let currentX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          currentX = window.scrollX || window.pageXOffset;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+          const touchX = e.touches[0].clientX;
+          const diff = startX - touchX;
+
+          if (Math.abs(diff) > 5) {
+            e.preventDefault();
+            window.scrollTo({
+              top: 0,
+              left: currentX + diff,
+              behavior: 'smooth'
+            });
+          }
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100 overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 - Easing Visualizer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      background: #0a0a0a;
+      color: #fafafa;
+    }
+    .ease-card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+    .ease-card:hover {
+      border-color: #0d6efd;
+    }
+    .ease-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .ease-name {
+      font-family: 'SF Mono', monospace;
+      font-size: 0.75rem;
+      color: #0d6efd;
+      margin-bottom: 1rem;
+    }
+    .description {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .track {
+      position: relative;
+      height: 40px;
+      background: #1a1a1a;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .ball {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, #0d6efd, #6f42c1);
+      border-radius: 50%;
+    }
+    .curve-container {
+      height: 60px;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .curve-svg {
+      width: 100%;
+      height: 100%;
+    }
+    .curve-line {
+      fill: none;
+      stroke: #0d6efd;
+      stroke-width: 2;
+    }
+    .curve-grid {
+      stroke: #222;
+      stroke-width: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ball {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden p-4">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-2">Easing Functions</h1>
+    <p class="text-muted mb-5">Click any card to see the easing in action</p>
+
+    <div class="controls d-flex gap-2 flex-wrap mb-4">
+      <button class="btn btn-primary" onclick="playAll()">Play All</button>
+    </div>
+
+    <div class="category mt-5 mb-3">
+      <h2 class="h5 text-muted">Power Eases (Most Common)</h2>
+    </div>
+
+    <div class="row g-3 mb-5" id="powerEases">
+    </div>
+
+    <div class="category mt-5 mb-3">
+      <h2 class="h5 text-muted">Special Eases</h2>
+    </div>
+
+    <div class="row g-3 mb-5" id="specialEases">
+    </div>
+
+    <div class="category mt-5 mb-3">
+      <h2 class="h5 text-muted">Bounce & Elastic</h2>
+    </div>
+
+    <div class="row g-3 mb-5" id="bounceEases">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    function init() {
+      if (!window.gsap) {
+        setTimeout(init, 100);
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const powerEases = [
+        { name: 'Linear', ease: 'none', description: 'Constant speed, mechanical feel' },
+        { name: 'Power1 Out', ease: 'power1.out', description: 'Subtle deceleration' },
+        { name: 'Power2 Out', ease: 'power2.out', description: 'Smooth deceleration (default)' },
+        { name: 'Power3 Out', ease: 'power3.out', description: 'Strong deceleration' },
+        { name: 'Power4 Out', ease: 'power4.out', description: 'Dramatic deceleration' },
+        { name: 'Power2 In', ease: 'power2.in', description: 'Smooth acceleration' },
+        { name: 'Power2 InOut', ease: 'power2.inOut', description: 'Smooth both ways' },
+      ];
+
+      const specialEases = [
+        { name: 'Back Out', ease: 'back.out(1.7)', description: 'Overshoots then settles' },
+        { name: 'Back In', ease: 'back.in(1.7)', description: 'Pulls back before moving' },
+        { name: 'Circ Out', ease: 'circ.out', description: 'Circular motion feel' },
+        { name: 'Expo Out', ease: 'expo.out', description: 'Exponential deceleration' },
+        { name: 'Sine Out', ease: 'sine.out', description: 'Gentle sinusoidal' },
+      ];
+
+      const bounceEases = [
+        { name: 'Elastic Out', ease: 'elastic.out(1, 0.3)', description: 'Bouncy spring effect' },
+        { name: 'Elastic In', ease: 'elastic.in(1, 0.3)', description: 'Wind up spring' },
+        { name: 'Bounce Out', ease: 'bounce.out', description: 'Physical bounce' },
+        { name: 'Bounce In', ease: 'bounce.in', description: 'Reverse bounce' },
+      ];
+
+      function createEaseCard(easeData, index) {
+        const card = document.createElement('div');
+        card.className = 'col-md-4 col-sm-6';
+        const cardInner = document.createElement('div');
+        cardInner.className = 'ease-card';
+        cardInner.innerHTML = `
+          <h3>${easeData.name}</h3>
+          <div class="ease-name">${easeData.ease}</div>
+          <div class="description">${easeData.description}</div>
+          <div class="curve-container">
+            <svg class="curve-svg" viewBox="0 0 100 60">
+              <line class="curve-grid" x1="0" y1="55" x2="100" y2="55"/>
+              <line class="curve-grid" x1="0" y1="5" x2="100" y2="5"/>
+              <path class="curve-line" d="${generateCurvePath(easeData.ease)}"/>
+            </svg>
+          </div>
+          <div class="track">
+            <div class="ball" id="ball-${index}"></div>
+          </div>
+        `;
+        card.appendChild(cardInner);
+        cardInner.addEventListener('click', () => playEase(index, easeData.ease));
+        return card;
+      }
+
+      function generateCurvePath(ease) {
+        const points = [];
+        const steps = 50;
+        for (let i = 0; i <= steps; i++) {
+          const progress = i / steps;
+          const easedValue = gsap.parseEase(ease)(progress);
+          const x = progress * 100;
+          const y = 55 - (easedValue * 50);
+          points.push(`${x},${y}`);
+        }
+        return `M ${points.join(' L ')}`;
+      }
+
+      function playEase(index, ease) {
+        if (prefersReducedMotion) return;
+        const ball = document.getElementById(`ball-${index}`);
+        if (!ball) return;
+        gsap.set(ball, { x: 0 });
+        gsap.to(ball, {
+          x: 220,
+          duration: 1.5,
+          ease: ease
+        });
+      }
+
+      function playAll() {
+        if (prefersReducedMotion) return;
+        document.querySelectorAll('.ball').forEach((ball, index) => {
+          gsap.set(ball, { x: 0 });
+          const card = ball.closest('.ease-card');
+          const easeName = card.querySelector('.ease-name').textContent;
+          gsap.to(ball, {
+            x: 220,
+            duration: 1.5,
+            ease: easeName,
+            delay: index * 0.1
+          });
+        });
+      }
+
+      const powerContainer = document.getElementById('powerEases');
+      const specialContainer = document.getElementById('specialEases');
+      const bounceContainer = document.getElementById('bounceEases');
+
+      let index = 0;
+      powerEases.forEach(ease => {
+        powerContainer.appendChild(createEaseCard(ease, index++));
+      });
+      specialEases.forEach(ease => {
+        specialContainer.appendChild(createEaseCard(ease, index++));
+      });
+      bounceEases.forEach(ease => {
+        bounceContainer.appendChild(createEaseCard(ease, index++));
+      });
+
+      window.playAll = playAll;
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

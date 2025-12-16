@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 - Text Reveal Scroll</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .text-reveal-content {
+      display: inline-block;
+      transform: translateY(100%);
+    }
+    .word-reveal-content {
+      display: inline-block;
+      transform: translateY(100%);
+    }
+    .char-reveal {
+      display: inline-block;
+      transform: translateY(100%) rotate(10deg);
+      opacity: 0;
+    }
+    .mask-reveal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0a0a0a;
+      transform-origin: left center;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .text-reveal-content,
+      .word-reveal-content,
+      .char-reveal,
+      .mask-reveal-overlay {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans bg-zinc-950 text-zinc-50 overflow-x-hidden">
+  <div class="progress-bar fixed top-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-400 w-0 z-[100]"></div>
+
+  <section class="hero min-h-screen flex flex-col justify-center items-center text-center p-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <h1 class="text-[clamp(3rem,10vw,6rem)] font-black tracking-tight mb-4 bg-gradient-to-br from-indigo-500 via-purple-600 to-fuchsia-400 bg-clip-text text-transparent">Text Reveal Scroll</h1>
+    <p class="text-xl text-zinc-400 max-w-[600px]">Scroll down to see various text reveal animations triggered by scroll position</p>
+  </section>
+
+  <section class="section-1 min-h-screen py-24 px-8 flex flex-col justify-center bg-gradient-to-br from-blue-950 via-slate-900 to-slate-900">
+    <div class="section-inner max-w-[1000px] mx-auto">
+      <h2 class="text-[clamp(2rem,5vw,4rem)] font-extrabold mb-8 leading-tight">
+        <div class="text-reveal overflow-hidden">
+          <span class="text-reveal-line block overflow-hidden">
+            <span class="text-reveal-content">Line by Line</span>
+          </span>
+          <span class="text-reveal-line block overflow-hidden">
+            <span class="text-reveal-content">Text Reveal</span>
+          </span>
+        </div>
+      </h2>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-6">
+        <span class="text-reveal overflow-hidden">
+          <span class="text-reveal-line block overflow-hidden">
+            <span class="text-reveal-content">Each line animates in sequence, creating a dramatic reveal effect.</span>
+          </span>
+        </span>
+      </p>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-6">
+        <span class="text-reveal overflow-hidden">
+          <span class="text-reveal-line block overflow-hidden">
+            <span class="text-reveal-content">Perfect for headlines and important statements that need emphasis.</span>
+          </span>
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <section class="section-2 min-h-screen py-24 px-8 flex flex-col justify-center bg-gradient-to-br from-indigo-950 via-slate-900 to-slate-900">
+    <div class="section-inner max-w-[1000px] mx-auto">
+      <h3 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold mb-6 text-indigo-400">Word by Word Animation</h3>
+      <p class="word-reveal-container text-lg text-zinc-400 leading-relaxed mb-6">
+        <span class="word-reveal overflow-hidden inline-block">
+          <span class="word-reveal-content">Words</span>
+        </span>
+        <span class="word-reveal overflow-hidden inline-block">
+          <span class="word-reveal-content">appear</span>
+        </span>
+        <span class="word-reveal overflow-hidden inline-block">
+          <span class="word-reveal-content">one</span>
+        </span>
+        <span class="word-reveal overflow-hidden inline-block">
+          <span class="word-reveal-content">by</span>
+        </span>
+        <span class="word-reveal overflow-hidden inline-block">
+          <span class="word-reveal-content">one,</span>
+        </span>
+        <span class="word-reveal overflow-hidden inline-block">
+          <span class="word-reveal-content">creating</span>
+        </span>
+        <span class="word-reveal overflow-hidden inline-block">
+          <span class="word-reveal-content">a</span>
+        </span>
+        <span class="word-reveal overflow-hidden inline-block">
+          <span class="word-reveal-content">rhythmic</span>
+        </span>
+        <span class="word-reveal overflow-hidden inline-block">
+          <span class="word-reveal-content">reading</span>
+        </span>
+        <span class="word-reveal overflow-hidden inline-block">
+          <span class="word-reveal-content">experience.</span>
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <section class="section-3 min-h-screen py-24 px-8 flex flex-col justify-center bg-gradient-to-br from-purple-950 via-slate-900 to-slate-900">
+    <div class="section-inner max-w-[1000px] mx-auto">
+      <h3 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold mb-6 text-indigo-400">Character Animation</h3>
+      <p class="char-reveal-container text-lg text-zinc-400 leading-relaxed mb-6">
+        Each character animates individually with rotation and opacity, creating a dynamic typographic effect that captures attention and adds personality to your text.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-4 min-h-screen py-24 px-8 flex flex-col justify-center bg-gradient-to-br from-slate-900 via-zinc-950 to-zinc-950">
+    <div class="section-inner max-w-[1000px] mx-auto">
+      <h3 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold mb-6 text-indigo-400">Mask Reveal Effect</h3>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-6">
+        <span class="mask-reveal relative inline-block">
+          <span class="mask-reveal-content relative z-[1]">Text reveals from left to right with a sliding mask</span>
+          <span class="mask-reveal-overlay"></span>
+        </span>
+      </p>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-6">
+        This technique creates a <span class="text-fuchsia-400 font-semibold">smooth wipe effect</span> that's commonly used in modern web design for elegant text transitions.
+      </p>
+    </div>
+  </section>
+
+  <div class="fixed bottom-8 left-4 bg-black/80 border border-zinc-800 rounded-xl p-6 font-mono text-sm text-zinc-400 max-w-[600px] z-[99]">
+    <span class="text-zinc-600">// Text reveal with ScrollTrigger</span><br>
+    gsap.<code class="text-indigo-400">fromTo</code>(<span class="text-blue-300">'.text-reveal-content'</span>,<br>
+    &nbsp;&nbsp;{ y: <span class="text-blue-300">'100%'</span> },<br>
+    &nbsp;&nbsp;{ y: <span class="text-blue-300">'0%'</span>,<br>
+    &nbsp;&nbsp;duration: <span class="text-blue-400">1</span>,<br>
+    &nbsp;&nbsp;ease: <span class="text-blue-300">'power3.out'</span>,<br>
+    &nbsp;&nbsp;scrollTrigger: {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;trigger: <span class="text-blue-300">'.text-reveal'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;start: <span class="text-blue-300">'top 85%'</span><br>
+    &nbsp;&nbsp;}<br>
+    });
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    function init() {
+      if (!window.gsap) {
+        setTimeout(init, 100);
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        gsap.to('.progress-bar', {
+          width: '100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.3
+          }
+        });
+
+        gsap.utils.toArray('.text-reveal-line').forEach((line) => {
+          gsap.fromTo(line.querySelector('.text-reveal-content'),
+            { y: '100%' },
+            {
+              y: '0%',
+              duration: 1,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: line,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray('.word-reveal').forEach((word, index) => {
+          gsap.fromTo(word.querySelector('.word-reveal-content'),
+            { y: '100%' },
+            {
+              y: '0%',
+              duration: 0.6,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: word,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                delay: index * 0.1
+              }
+            }
+          );
+        });
+
+        const charContainer = document.querySelector('.char-reveal-container');
+        if (charContainer) {
+          const text = charContainer.textContent;
+          charContainer.innerHTML = '';
+
+          text.split('').forEach((char) => {
+            if (char === ' ') {
+              charContainer.innerHTML += ' ';
+            } else {
+              const span = document.createElement('span');
+              span.className = 'char-reveal';
+              span.textContent = char;
+              charContainer.appendChild(span);
+            }
+          });
+
+          gsap.utils.toArray('.char-reveal').forEach((char, index) => {
+            gsap.fromTo(char,
+              { y: '100%', rotation: 10, opacity: 0 },
+              {
+                y: '0%',
+                rotation: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: 'back.out(1.7)',
+                scrollTrigger: {
+                  trigger: charContainer,
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse',
+                  delay: index * 0.02
+                }
+              }
+            );
+          });
+        }
+
+        gsap.utils.toArray('.mask-reveal').forEach(mask => {
+          const overlay = mask.querySelector('.mask-reveal-overlay');
+          if (overlay) {
+            gsap.fromTo(overlay,
+              { scaleX: 1 },
+              {
+                scaleX: 0,
+                duration: 1.2,
+                ease: 'power3.inOut',
+                scrollTrigger: {
+                  trigger: mask,
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse'
+                }
+              }
+            );
+          }
+        });
+
+        gsap.utils.toArray('section p').forEach(p => {
+          if (!p.classList.contains('word-reveal-container') && !p.classList.contains('char-reveal-container')) {
+            gsap.fromTo(p,
+              { y: 50, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: p,
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse'
+                }
+              }
+            );
+          }
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

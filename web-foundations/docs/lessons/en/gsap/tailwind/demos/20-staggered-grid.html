@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 - Staggered Grid Animation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .grid-item:nth-child(5n+1) { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+    .grid-item:nth-child(5n+2) { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+    .grid-item:nth-child(5n+3) { background: linear-gradient(135deg, #ec4899, #be185d); }
+    .grid-item:nth-child(5n+4) { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .grid-item:nth-child(5n+5) { background: linear-gradient(135deg, #10b981, #059669); }
+    @media (prefers-reduced-motion: reduce) {
+      .grid-item {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans bg-zinc-950 text-zinc-50 overflow-x-hidden p-8">
+  <div class="max-w-[800px] mx-auto">
+    <h1 class="text-3xl font-extrabold mb-2 text-center">Staggered Grid</h1>
+    <p class="text-zinc-500 text-center mb-8">Click buttons to see different stagger patterns</p>
+
+    <div class="controls flex gap-3 justify-center flex-wrap mb-8">
+      <button class="btn active px-5 py-2.5 text-xs font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-md cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="staggerFrom('start')">From Start</button>
+      <button class="btn px-5 py-2.5 text-xs font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-md cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="staggerFrom('end')">From End</button>
+      <button class="btn px-5 py-2.5 text-xs font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-md cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="staggerFrom('center')">From Center</button>
+      <button class="btn px-5 py-2.5 text-xs font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-md cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="staggerFrom('edges')">From Edges</button>
+      <button class="btn px-5 py-2.5 text-xs font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-md cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="staggerFrom('random')">Random</button>
+    </div>
+
+    <div class="grid-container grid grid-cols-5 gap-3 mb-8">
+    </div>
+
+    <div class="info-panel bg-zinc-900 border border-zinc-800 rounded-xl p-6 mb-8">
+      <h3 class="text-sm text-zinc-500 mb-2">Current Pattern</h3>
+      <code class="font-mono text-xs text-blue-500" id="currentPattern">stagger: { each: 0.05, from: 'start', grid: [5, 5] }</code>
+    </div>
+
+    <div class="code-panel bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+      <pre class="font-mono text-[0.7rem] text-zinc-400 overflow-x-auto leading-relaxed"><span class="text-zinc-600">// Staggered grid animation</span>
+gsap.from(<span class="text-blue-300">'.grid-item'</span>, {
+  scale: <span class="text-blue-400">0</span>,
+  opacity: <span class="text-blue-400">0</span>,
+  duration: <span class="text-blue-400">0.6</span>,
+  ease: <span class="text-blue-300">'back.out(1.7)'</span>,
+  stagger: {
+    amount: <span class="text-blue-400">1.5</span>,        <span class="text-zinc-600">// Total stagger time</span>
+    grid: [<span class="text-blue-400">5</span>, <span class="text-blue-400">5</span>],      <span class="text-zinc-600">// Grid dimensions</span>
+    from: <span class="text-blue-300">'center'</span>     <span class="text-zinc-600">// 'start', 'end', 'center', 'edges', 'random'</span>
+  }
+});</pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    function init() {
+      if (!window.gsap) {
+        setTimeout(init, 100);
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const gridContainer = document.querySelector('.grid-container');
+      for (let i = 1; i <= 25; i++) {
+        const item = document.createElement('div');
+        item.className = 'grid-item aspect-square bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center font-semibold text-sm text-white cursor-pointer transition-all duration-200 hover:brightness-110';
+        item.textContent = i;
+        gridContainer.appendChild(item);
+      }
+
+      function setActiveButton(fromValue) {
+        document.querySelectorAll('.btn').forEach(btn => {
+          btn.classList.remove('active', 'bg-blue-500', 'border-blue-500');
+          if (btn.textContent.toLowerCase().includes(fromValue.toLowerCase())) {
+            btn.classList.add('active', 'bg-blue-500', 'border-blue-500');
+          }
+        });
+      }
+
+      function staggerFrom(from) {
+        if (prefersReducedMotion) {
+          gsap.set('.grid-item', { scale: 1, opacity: 1 });
+          return;
+        }
+
+        setActiveButton(from);
+
+        document.getElementById('currentPattern').textContent =
+          `stagger: { each: 0.05, from: '${from}', grid: [5, 5] }`;
+
+        gsap.set('.grid-item', { scale: 0, opacity: 0 });
+
+        gsap.to('.grid-item', {
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+          ease: 'back.out(1.7)',
+          stagger: {
+            each: 0.05,
+            grid: [5, 5],
+            from: from
+          }
+        });
+      }
+
+      document.querySelectorAll('.grid-item').forEach((item, index) => {
+        item.addEventListener('click', () => {
+          if (prefersReducedMotion) return;
+
+          gsap.set('.grid-item', { scale: 1, opacity: 1 });
+
+          gsap.from('.grid-item', {
+            scale: 0.8,
+            opacity: 0.5,
+            duration: 0.4,
+            ease: 'power2.out',
+            stagger: {
+              each: 0.03,
+              grid: [5, 5],
+              from: index
+            }
+          });
+
+          document.getElementById('currentPattern').textContent =
+            `stagger: { each: 0.03, from: ${index}, grid: [5, 5] }`;
+        });
+      });
+
+      window.staggerFrom = staggerFrom;
+
+      if (!prefersReducedMotion) {
+        setTimeout(() => staggerFrom('start'), 300);
+      } else {
+        gsap.set('.grid-item', { scale: 1, opacity: 1 });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

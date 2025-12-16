@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100 overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 - Text Reveal Scroll</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fafafa;
+    }
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      width: 0%;
+      z-index: 100;
+    }
+    section {
+      min-height: 100vh;
+      padding: 6rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    .section-1 {
+      background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%);
+    }
+    .section-2 {
+      background: linear-gradient(135deg, #1a0f2e 0%, #1a1a2e 100%);
+    }
+    .section-3 {
+      background: linear-gradient(135deg, #2d1b3d 0%, #1a1a2e 100%);
+    }
+    .section-4 {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+    }
+    .text-reveal-content {
+      display: inline-block;
+      transform: translateY(100%);
+    }
+    .word-reveal-content {
+      display: inline-block;
+      transform: translateY(100%);
+    }
+    .char-reveal {
+      display: inline-block;
+      transform: translateY(100%) rotate(10deg);
+      opacity: 0;
+    }
+    .mask-reveal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0a0a0a;
+      transform-origin: left center;
+    }
+    .text-reveal, .word-reveal {
+      overflow: hidden;
+    }
+    .text-reveal-line {
+      display: block;
+      overflow: hidden;
+    }
+    .mask-reveal {
+      position: relative;
+      display: inline-block;
+    }
+    .mask-reveal-content {
+      position: relative;
+      z-index: 1;
+    }
+    .code-panel {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.875rem;
+      color: #a0a0a0;
+      max-width: 600px;
+      z-index: 99;
+    }
+    .code-panel code {
+      color: #667eea;
+    }
+    .code-panel .comment {
+      color: #6a737d;
+    }
+    .code-panel .string {
+      color: #a5d6ff;
+    }
+    .code-panel .number {
+      color: #79c0ff;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .text-reveal-content,
+      .word-reveal-content,
+      .char-reveal,
+      .mask-reveal-overlay {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+  <div class="progress-bar"></div>
+
+  <section class="hero text-center">
+    <h1 class="display-1 fw-bold mb-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Text Reveal Scroll</h1>
+    <p class="lead text-muted" style="max-width: 600px; margin: 0 auto;">Scroll down to see various text reveal animations triggered by scroll position</p>
+  </section>
+
+  <section class="section-1">
+    <div class="container">
+      <h2 class="display-4 fw-bold mb-4">
+        <div class="text-reveal">
+          <span class="text-reveal-line">
+            <span class="text-reveal-content">Line by Line</span>
+          </span>
+          <span class="text-reveal-line">
+            <span class="text-reveal-content">Text Reveal</span>
+          </span>
+        </div>
+      </h2>
+      <p class="lead text-muted mb-4">
+        <span class="text-reveal">
+          <span class="text-reveal-line">
+            <span class="text-reveal-content">Each line animates in sequence, creating a dramatic reveal effect.</span>
+          </span>
+        </span>
+      </p>
+      <p class="lead text-muted mb-4">
+        <span class="text-reveal">
+          <span class="text-reveal-line">
+            <span class="text-reveal-content">Perfect for headlines and important statements that need emphasis.</span>
+          </span>
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <section class="section-2">
+    <div class="container">
+      <h3 class="h2 fw-bold mb-4" style="color: #667eea;">Word by Word Animation</h3>
+      <p class="lead text-muted mb-4">
+        <span class="word-reveal d-inline-block">
+          <span class="word-reveal-content">Words</span>
+        </span>
+        <span class="word-reveal d-inline-block">
+          <span class="word-reveal-content">appear</span>
+        </span>
+        <span class="word-reveal d-inline-block">
+          <span class="word-reveal-content">one</span>
+        </span>
+        <span class="word-reveal d-inline-block">
+          <span class="word-reveal-content">by</span>
+        </span>
+        <span class="word-reveal d-inline-block">
+          <span class="word-reveal-content">one,</span>
+        </span>
+        <span class="word-reveal d-inline-block">
+          <span class="word-reveal-content">creating</span>
+        </span>
+        <span class="word-reveal d-inline-block">
+          <span class="word-reveal-content">a</span>
+        </span>
+        <span class="word-reveal d-inline-block">
+          <span class="word-reveal-content">rhythmic</span>
+        </span>
+        <span class="word-reveal d-inline-block">
+          <span class="word-reveal-content">reading</span>
+        </span>
+        <span class="word-reveal d-inline-block">
+          <span class="word-reveal-content">experience.</span>
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <section class="section-3">
+    <div class="container">
+      <h3 class="h2 fw-bold mb-4" style="color: #667eea;">Character Animation</h3>
+      <p class="lead text-muted mb-4 char-reveal-container">
+        Each character animates individually with rotation and opacity, creating a dynamic typographic effect that captures attention and adds personality to your text.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-4">
+    <div class="container">
+      <h3 class="h2 fw-bold mb-4" style="color: #667eea;">Mask Reveal Effect</h3>
+      <p class="lead text-muted mb-4">
+        <span class="mask-reveal">
+          <span class="mask-reveal-content">Text reveals from left to right with a sliding mask</span>
+          <span class="mask-reveal-overlay"></span>
+        </span>
+      </p>
+      <p class="lead text-muted mb-4">
+        This technique creates a <span class="fw-semibold" style="color: #f093fb;">smooth wipe effect</span> that's commonly used in modern web design for elegant text transitions.
+      </p>
+    </div>
+  </section>
+
+  <div class="code-panel">
+    <span class="comment">// Text reveal with ScrollTrigger</span><br>
+    gsap.<code>fromTo</code>(<span class="string">'.text-reveal-content'</span>,<br>
+    &nbsp;&nbsp;{ y: <span class="string">'100%'</span> },<br>
+    &nbsp;&nbsp;{ y: <span class="string">'0%'</span>,<br>
+    &nbsp;&nbsp;duration: <span class="number">1</span>,<br>
+    &nbsp;&nbsp;ease: <span class="string">'power3.out'</span>,<br>
+    &nbsp;&nbsp;scrollTrigger: {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;trigger: <span class="string">'.text-reveal'</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;start: <span class="string">'top 85%'</span><br>
+    &nbsp;&nbsp;}<br>
+    });
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    function init() {
+      if (!window.gsap) {
+        setTimeout(init, 100);
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        gsap.to('.progress-bar', {
+          width: '100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.3
+          }
+        });
+
+        gsap.utils.toArray('.text-reveal-line').forEach((line) => {
+          gsap.fromTo(line.querySelector('.text-reveal-content'),
+            { y: '100%' },
+            {
+              y: '0%',
+              duration: 1,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: line,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          );
+        });
+
+        gsap.utils.toArray('.word-reveal').forEach((word, index) => {
+          gsap.fromTo(word.querySelector('.word-reveal-content'),
+            { y: '100%' },
+            {
+              y: '0%',
+              duration: 0.6,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: word,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          );
+        });
+
+        const charContainer = document.querySelector('.char-reveal-container');
+        if (charContainer) {
+          const text = charContainer.textContent;
+          charContainer.innerHTML = '';
+
+          text.split('').forEach((char) => {
+            if (char === ' ') {
+              charContainer.innerHTML += ' ';
+            } else {
+              const span = document.createElement('span');
+              span.className = 'char-reveal';
+              span.textContent = char;
+              charContainer.appendChild(span);
+            }
+          });
+
+          gsap.utils.toArray('.char-reveal').forEach((char) => {
+            gsap.fromTo(char,
+              { y: '100%', rotation: 10, opacity: 0 },
+              {
+                y: '0%',
+                rotation: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: 'back.out(1.7)',
+                scrollTrigger: {
+                  trigger: charContainer,
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse'
+                }
+              }
+            );
+          });
+        }
+
+        gsap.utils.toArray('.mask-reveal').forEach(mask => {
+          const overlay = mask.querySelector('.mask-reveal-overlay');
+          if (overlay) {
+            gsap.fromTo(overlay,
+              { scaleX: 1 },
+              {
+                scaleX: 0,
+                duration: 1.2,
+                ease: 'power3.inOut',
+                scrollTrigger: {
+                  trigger: mask,
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse'
+                }
+              }
+            );
+          }
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

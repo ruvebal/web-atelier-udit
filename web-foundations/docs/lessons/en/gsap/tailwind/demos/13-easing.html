@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 - Easing Visualizer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      .ball {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans bg-zinc-950 text-zinc-50 overflow-x-hidden p-8">
+  <div class="max-w-7xl mx-auto">
+    <h1 class="text-4xl font-extrabold mb-2">Easing Functions</h1>
+    <p class="text-zinc-500 mb-12">Click any card to see the easing in action</p>
+
+    <div class="controls flex gap-4 flex-wrap mb-8">
+      <button class="px-6 py-3 text-sm font-semibold text-zinc-50 bg-blue-500 border-none rounded-lg cursor-pointer transition-all duration-300 hover:bg-blue-600" onclick="playAll()">Play All</button>
+    </div>
+
+    <div class="category mt-12 mb-6">
+      <h2 class="text-xl font-semibold text-zinc-500">Power Eases (Most Common)</h2>
+    </div>
+
+    <div class="easing-grid grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6" id="powerEases">
+    </div>
+
+    <div class="category mt-12 mb-6">
+      <h2 class="text-xl font-semibold text-zinc-500">Special Eases</h2>
+    </div>
+
+    <div class="easing-grid grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6" id="specialEases">
+    </div>
+
+    <div class="category mt-12 mb-6">
+      <h2 class="text-xl font-semibold text-zinc-500">Bounce & Elastic</h2>
+    </div>
+
+    <div class="easing-grid grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6" id="bounceEases">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    function init() {
+      if (!window.gsap) {
+        setTimeout(init, 100);
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const powerEases = [
+        { name: 'Linear', ease: 'none', description: 'Constant speed, mechanical feel' },
+        { name: 'Power1 Out', ease: 'power1.out', description: 'Subtle deceleration' },
+        { name: 'Power2 Out', ease: 'power2.out', description: 'Smooth deceleration (default)' },
+        { name: 'Power3 Out', ease: 'power3.out', description: 'Strong deceleration' },
+        { name: 'Power4 Out', ease: 'power4.out', description: 'Dramatic deceleration' },
+        { name: 'Power2 In', ease: 'power2.in', description: 'Smooth acceleration' },
+        { name: 'Power2 InOut', ease: 'power2.inOut', description: 'Smooth both ways' },
+      ];
+
+      const specialEases = [
+        { name: 'Back Out', ease: 'back.out(1.7)', description: 'Overshoots then settles' },
+        { name: 'Back In', ease: 'back.in(1.7)', description: 'Pulls back before moving' },
+        { name: 'Circ Out', ease: 'circ.out', description: 'Circular motion feel' },
+        { name: 'Expo Out', ease: 'expo.out', description: 'Exponential deceleration' },
+        { name: 'Sine Out', ease: 'sine.out', description: 'Gentle sinusoidal' },
+      ];
+
+      const bounceEases = [
+        { name: 'Elastic Out', ease: 'elastic.out(1, 0.3)', description: 'Bouncy spring effect' },
+        { name: 'Elastic In', ease: 'elastic.in(1, 0.3)', description: 'Wind up spring' },
+        { name: 'Bounce Out', ease: 'bounce.out', description: 'Physical bounce' },
+        { name: 'Bounce In', ease: 'bounce.in', description: 'Reverse bounce' },
+      ];
+
+      function createEaseCard(easeData, index) {
+        const card = document.createElement('div');
+        card.className = 'ease-card bg-zinc-900 border border-zinc-800 rounded-xl p-6 cursor-pointer transition-colors duration-300 hover:border-blue-500';
+        card.innerHTML = `
+          <h3 class="text-base font-semibold mb-1">${easeData.name}</h3>
+          <div class="ease-name font-mono text-xs text-blue-500 mb-4">${easeData.ease}</div>
+          <div class="description text-xs text-zinc-500 mb-4">${easeData.description}</div>
+          <div class="curve-container h-15 mb-4 relative">
+            <svg class="curve-svg w-full h-full" viewBox="0 0 100 60">
+              <line class="stroke-zinc-800 stroke-[1]" x1="0" y1="55" x2="100" y2="55"/>
+              <line class="stroke-zinc-800 stroke-[1]" x1="0" y1="5" x2="100" y2="5"/>
+              <path class="fill-none stroke-blue-500 stroke-[2]" d="${generateCurvePath(easeData.ease)}"/>
+            </svg>
+          </div>
+          <div class="track relative h-10 bg-zinc-950 rounded-full overflow-hidden">
+            <div class="ball absolute left-2.5 top-1/2 -translate-y-1/2 w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full" id="ball-${index}"></div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => playEase(index, easeData.ease));
+        return card;
+      }
+
+      function generateCurvePath(ease) {
+        const points = [];
+        const steps = 50;
+
+        for (let i = 0; i <= steps; i++) {
+          const progress = i / steps;
+          const easedValue = gsap.parseEase(ease)(progress);
+          const x = progress * 100;
+          const y = 55 - (easedValue * 50);
+          points.push(`${x},${y}`);
+        }
+
+        return `M ${points.join(' L ')}`;
+      }
+
+      function playEase(index, ease) {
+        if (prefersReducedMotion) return;
+
+        const ball = document.getElementById(`ball-${index}`);
+        if (!ball) return;
+
+        gsap.set(ball, { x: 0 });
+        gsap.to(ball, {
+          x: 220,
+          duration: 1.5,
+          ease: ease
+        });
+      }
+
+      function playAll() {
+        if (prefersReducedMotion) return;
+
+        document.querySelectorAll('.ball').forEach((ball, index) => {
+          gsap.set(ball, { x: 0 });
+
+          const card = ball.closest('.ease-card');
+          const easeName = card.querySelector('.ease-name').textContent;
+
+          gsap.to(ball, {
+            x: 220,
+            duration: 1.5,
+            ease: easeName,
+            delay: index * 0.1
+          });
+        });
+      }
+
+      const powerContainer = document.getElementById('powerEases');
+      const specialContainer = document.getElementById('specialEases');
+      const bounceContainer = document.getElementById('bounceEases');
+
+      let index = 0;
+
+      powerEases.forEach(ease => {
+        powerContainer.appendChild(createEaseCard(ease, index++));
+      });
+
+      specialEases.forEach(ease => {
+        specialContainer.appendChild(createEaseCard(ease, index++));
+      });
+
+      bounceEases.forEach(ease => {
+        bounceContainer.appendChild(createEaseCard(ease, index++));
+      });
+
+      window.playAll = playAll;
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

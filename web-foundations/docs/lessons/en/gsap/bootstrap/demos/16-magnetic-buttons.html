@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100 overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16 - Magnetic Buttons</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      background: #0a0a0a;
+      color: #fafafa;
+    }
+    .magnetic-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .magnetic-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fafafa;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: -1;
+    }
+    .magnetic-btn:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .magnetic-btn.filled::before {
+      background: #0d6efd;
+    }
+    .magnetic-btn.gradient::before {
+      background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+    }
+    .magnetic-btn span {
+      position: relative;
+      z-index: 1;
+    }
+    .magnetic-btn.icon-btn svg {
+      transition: transform 0.3s;
+    }
+    .magnetic-btn.icon-btn:hover svg {
+      transform: scale(1.1);
+    }
+    .code-panel {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 550px;
+      margin: 2rem auto 0;
+    }
+    .code-panel pre {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.7rem;
+      color: #a0a0a0;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .code-panel .comment { color: #6a737d; }
+    .code-panel .keyword { color: #ff7b72; }
+    .code-panel .string { color: #a5d6ff; }
+    .code-panel .number { color: #79c0ff; }
+    .code-panel .function { color: #d2a8ff; }
+    @media (prefers-reduced-motion: reduce) {
+      .magnetic-btn {
+        transform: none !important;
+      }
+      .magnetic-btn span {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="d-flex flex-column align-items-center justify-content-center overflow-x-hidden py-5 px-4">
+  <h1 class="text-uppercase text-muted small mb-5">Magnetic Buttons</h1>
+
+  <div class="d-flex gap-5 flex-wrap justify-content-center mb-5">
+    <button class="magnetic-btn btn btn-outline-light px-5 py-3 rounded-pill">
+      <span>Hover Me</span>
+    </button>
+    <button class="magnetic-btn filled btn btn-primary px-5 py-3 rounded-pill">
+      <span>Get Started</span>
+    </button>
+    <button class="magnetic-btn gradient btn px-5 py-3 rounded-pill" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
+      <span>Explore</span>
+    </button>
+  </div>
+
+  <div class="d-flex gap-5 flex-wrap justify-content-center mb-5">
+    <button class="magnetic-btn icon-btn btn btn-outline-light rounded-circle" style="width: 60px; height: 60px; padding: 0;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </button>
+    <button class="magnetic-btn icon-btn filled btn btn-primary rounded-circle" style="width: 60px; height: 60px; padding: 0;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+    </button>
+    <button class="magnetic-btn icon-btn gradient btn rounded-circle" style="width: 60px; height: 60px; padding: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </svg>
+    </button>
+  </div>
+
+  <button class="magnetic-btn large gradient btn px-5 py-3 rounded-pill mb-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; font-size: 1.25rem;">
+    <span>Start Your Journey</span>
+  </button>
+
+  <p class="text-muted text-center mb-4" style="max-width: 500px;">Move your cursor over the buttons. They follow your mouse with a magnetic effect, creating an engaging and playful interaction.</p>
+
+  <div class="code-panel">
+    <pre><span class="comment">// Magnetic button effect</span>
+<span class="keyword">const</span> buttons = gsap.utils.<span class="function">toArray</span>(<span class="string">'.magnetic-btn'</span>);
+
+buttons.<span class="function">forEach</span>(btn => {
+  btn.<span class="function">addEventListener</span>(<span class="string">'mousemove'</span>, (e) => {
+    <span class="keyword">const</span> rect = btn.<span class="function">getBoundingClientRect</span>();
+    <span class="keyword">const</span> x = e.clientX - rect.left - rect.width / <span class="number">2</span>;
+    <span class="keyword">const</span> y = e.clientY - rect.top - rect.height / <span class="number">2</span>;
+
+    gsap.<span class="function">to</span>(btn, {
+      x: x * <span class="number">0.3</span>,
+      y: y * <span class="number">0.3</span>,
+      duration: <span class="number">0.3</span>,
+      ease: <span class="string">'power2.out'</span>
+    });
+  });
+
+  btn.<span class="function">addEventListener</span>(<span class="string">'mouseleave'</span>, () => {
+    gsap.<span class="function">to</span>(btn, {
+      x: <span class="number">0</span>,
+      y: <span class="number">0</span>,
+      duration: <span class="number">0.5</span>,
+      ease: <span class="string">'elastic.out(1, 0.3)'</span>
+    });
+  });
+});</pre>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    function init() {
+      if (!window.gsap) {
+        setTimeout(init, 100);
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        const buttons = gsap.utils.toArray('.magnetic-btn');
+
+        buttons.forEach(btn => {
+          const span = btn.querySelector('span');
+          const svg = btn.querySelector('svg');
+          const innerElement = span || svg;
+
+          btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(btn, {
+              x: x * 0.3,
+              y: y * 0.3,
+              duration: 0.3,
+              ease: 'power2.out'
+            });
+
+            if (innerElement) {
+              gsap.to(innerElement, {
+                x: x * 0.15,
+                y: y * 0.15,
+                duration: 0.3,
+                ease: 'power2.out'
+              });
+            }
+          });
+
+          btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, {
+              x: 0,
+              y: 0,
+              duration: 0.5,
+              ease: 'elastic.out(1, 0.3)'
+            });
+
+            if (innerElement) {
+              gsap.to(innerElement, {
+                x: 0,
+                y: 0,
+                duration: 0.5,
+                ease: 'elastic.out(1, 0.3)'
+              });
+            }
+          });
+
+          btn.addEventListener('click', () => {
+            gsap.to(btn, {
+              scale: 0.95,
+              duration: 0.1,
+              yoyo: true,
+              repeat: 1
+            });
+          });
+        });
+
+        gsap.from('.magnetic-btn', {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.1
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

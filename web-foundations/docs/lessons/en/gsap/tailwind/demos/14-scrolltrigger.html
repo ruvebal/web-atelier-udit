@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14 - ScrollTrigger</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(10px); }
+    }
+    .scroll-arrow {
+      animation: bounce 2s infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-arrow {
+        animation: none;
+      }
+      .reveal-text span,
+      .card,
+      .hero h1,
+      .hero p {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans bg-zinc-950 text-zinc-50 overflow-x-hidden">
+  <!-- Progress bar -->
+  <div class="progress-bar fixed top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 w-0 z-[100]"></div>
+
+  <!-- Hero -->
+  <section class="hero min-h-screen flex flex-col justify-center items-center text-center p-8 relative overflow-hidden">
+    <div class="hero-bg absolute top-0 left-0 w-full h-[150%] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 -z-10"></div>
+    <h1 class="text-[clamp(3rem,10vw,7rem)] font-black tracking-tight mb-4">ScrollTrigger</h1>
+    <p class="text-xl text-zinc-400 max-w-lg">Scroll down to see animations triggered by your scroll position</p>
+    <div class="scroll-indicator absolute bottom-8 flex flex-col items-center gap-2 text-zinc-500 text-sm cursor-pointer transition-colors duration-300 hover:text-indigo-500" onclick="scrollToNext()">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow w-6 h-6 border-r-2 border-b-2 border-zinc-500 rotate-45"></div>
+    </div>
+  </section>
+
+  <!-- Section 1: Basic reveal -->
+  <section class="section-1 min-h-screen py-24 px-8 flex flex-col justify-center bg-zinc-900">
+    <div class="section-inner max-w-3xl mx-auto">
+      <h2 class="reveal-text text-[clamp(2rem,5vw,4rem)] font-extrabold mb-6 overflow-hidden"><span class="inline-block">Reveal on Scroll</span></h2>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-4">This text animates in when you scroll to it. ScrollTrigger watches the scroll position and triggers animations at the right moment.</p>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-4">The animation plays once when the element enters the viewport, creating a smooth reveal effect.</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Staggered cards -->
+  <section class="section-2 min-h-screen py-24 px-8 flex flex-col justify-center bg-slate-950">
+    <div class="section-inner max-w-3xl mx-auto">
+      <h2 class="reveal-text text-[clamp(2rem,5vw,4rem)] font-extrabold mb-6 overflow-hidden"><span class="inline-block">Staggered Cards</span></h2>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-4">Multiple elements can animate with staggered timing for a cascading effect.</p>
+
+      <div class="cards-grid grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-6 mt-8">
+        <div class="card bg-white/5 border border-white/10 rounded-xl p-6">
+          <h3 class="text-xl mb-2">Design</h3>
+          <p class="text-sm text-zinc-500">Create beautiful interfaces</p>
+        </div>
+        <div class="card bg-white/5 border border-white/10 rounded-xl p-6">
+          <h3 class="text-xl mb-2">Develop</h3>
+          <p class="text-sm text-zinc-500">Build with modern tools</p>
+        </div>
+        <div class="card bg-white/5 border border-white/10 rounded-xl p-6">
+          <h3 class="text-xl mb-2">Deploy</h3>
+          <p class="text-sm text-zinc-500">Ship to production</p>
+        </div>
+        <div class="card bg-white/5 border border-white/10 rounded-xl p-6">
+          <h3 class="text-xl mb-2">Iterate</h3>
+          <p class="text-sm text-zinc-500">Improve continuously</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Parallax -->
+  <section class="section-3 min-h-screen py-24 px-8 flex flex-col justify-center bg-indigo-950 relative overflow-hidden">
+    <div class="parallax-bg absolute -top-[20%] left-0 w-full h-[140%] bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 opacity-10 -z-10"></div>
+    <div class="section-inner max-w-3xl mx-auto relative z-10">
+      <h2 class="reveal-text text-[clamp(2rem,5vw,4rem)] font-extrabold mb-6 overflow-hidden"><span class="inline-block">Parallax Effect</span></h2>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-4">The hero background moves at a different speed than the content, creating depth and visual interest.</p>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-4">This technique is commonly used in modern web design to add dimensionality to scrolling experiences.</p>
+    </div>
+  </section>
+
+  <!-- Section 4: Pinned -->
+  <section class="pinned-section min-h-screen bg-gradient-to-br from-indigo-900 to-indigo-950 relative overflow-hidden">
+    <div class="pinned-content absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full p-8">
+      <h2 class="text-[clamp(2rem,8vw,5rem)] font-black">Pinned Section</h2>
+      <div class="reveal-item item-1 mt-8 text-2xl text-zinc-400">First reveal</div>
+      <div class="reveal-item item-2 mt-8 text-2xl text-zinc-400">Second reveal</div>
+      <div class="reveal-item item-3 mt-8 text-2xl text-zinc-400">Third reveal</div>
+    </div>
+  </section>
+
+  <!-- Final section -->
+  <section class="section-1 min-h-screen py-24 px-8 flex flex-col justify-center bg-zinc-900">
+    <div class="section-inner max-w-3xl mx-auto">
+      <h2 class="reveal-text text-[clamp(2rem,5vw,4rem)] font-extrabold mb-6 overflow-hidden"><span class="inline-block">The End</span></h2>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-4">You've experienced ScrollTrigger! These techniques can transform static pages into engaging, interactive experiences.</p>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    function initScrollTrigger() {
+      if (!window.gsap || !window.ScrollTrigger) {
+        setTimeout(initScrollTrigger, 100);
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Scroll to next section
+      window.scrollToNext = function() {
+        const nextSection = document.querySelector('.section-1');
+        if (nextSection) {
+          nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
+      if (!prefersReducedMotion) {
+        // Progress bar
+        gsap.to('.progress-bar', {
+          width: '100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.3
+          }
+        });
+
+        // Hero parallax
+        gsap.to('.hero-bg', {
+          y: '30%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true
+          }
+        });
+
+        // Parallax section background
+        gsap.to('.parallax-bg', {
+          y: '50%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.section-3',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
+          }
+        });
+
+        // Hero fade out
+        gsap.to('.hero h1, .hero p', {
+          opacity: 0,
+          y: -50,
+          scrollTrigger: {
+            trigger: '.hero',
+            start: 'center center',
+            end: 'bottom top',
+            scrub: true
+          }
+        });
+
+        // Reveal text animations
+        gsap.utils.toArray('.reveal-text span').forEach(text => {
+          gsap.from(text, {
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: text,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse'
+            }
+          });
+        });
+
+        // Paragraph reveals
+        gsap.utils.toArray('section p').forEach(p => {
+          gsap.from(p, {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: p,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse'
+            }
+          });
+        });
+
+        // Staggered cards
+        gsap.from('.card', {
+          y: 60,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: '.cards-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+
+        // Pinned section with reveals
+        const pinnedTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.pinned-section',
+            start: 'top top',
+            end: '+=150%',
+            pin: true,
+            scrub: 1
+          }
+        });
+
+        pinnedTl
+          .from('.pinned-content h2', { scale: 0.8, opacity: 0 })
+          .from('.item-1', { y: 50, opacity: 0 }, '-=0.3')
+          .from('.item-2', { y: 50, opacity: 0 }, '-=0.2')
+          .from('.item-3', { y: 50, opacity: 0 }, '-=0.2');
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollTrigger);
+    } else {
+      initScrollTrigger();
+    }
+  </script>
+</body>
+</html>

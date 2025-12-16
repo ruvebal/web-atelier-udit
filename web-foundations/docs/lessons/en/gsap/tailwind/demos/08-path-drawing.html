@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 - SVG Path Drawing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      .logo-path, .signature-path, .geometric-path {
+        stroke-dashoffset: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen grid place-items-center font-sans bg-zinc-950 text-zinc-50 overflow-x-hidden">
+  <div class="text-center p-8 w-full">
+    <h1 class="text-base text-zinc-500 uppercase tracking-widest mb-12">SVG Path Drawing Animation</h1>
+
+    <div class="svg-container flex flex-col gap-16 items-center">
+      <div class="demo-item flex flex-col items-center gap-4">
+        <h2 class="text-sm text-zinc-500 font-normal">Wave Path</h2>
+        <svg viewBox="0 0 400 100" width="400" height="100" class="overflow-visible">
+          <path class="logo-path wave-path stroke-zinc-50 stroke-[3] stroke-linecap-round stroke-linejoin-round fill-none"
+                d="M 20 50 Q 70 10 120 50 T 220 50 T 320 50 T 380 50"/>
+        </svg>
+      </div>
+
+      <div class="demo-item flex flex-col items-center gap-4">
+        <h2 class="text-sm text-zinc-500 font-normal">Signature Style</h2>
+        <svg viewBox="0 0 300 100" width="300" height="100" class="overflow-visible">
+          <path class="signature-path stroke-blue-500 stroke-[2] stroke-linecap-round fill-none"
+                d="M 20 80 C 40 20 60 20 80 50 S 120 80 140 50 C 160 20 180 30 200 50 Q 220 70 240 50 L 280 50"/>
+        </svg>
+      </div>
+
+      <div class="demo-item flex flex-col items-center gap-4">
+        <h2 class="text-sm text-zinc-500 font-normal">Geometric Logo</h2>
+        <svg viewBox="0 0 200 200" width="200" height="200" class="overflow-visible">
+          <path class="geometric-path geo-1 stroke-amber-500 stroke-[2] fill-none" d="M 100 20 L 180 80 L 150 170 L 50 170 L 20 80 Z"/>
+          <path class="geometric-path geo-2 stroke-amber-500 stroke-[2] fill-none" d="M 100 50 L 140 90 L 120 140 L 80 140 L 60 90 Z"/>
+          <circle class="geometric-path geo-3 stroke-amber-500 stroke-[2] fill-none" cx="100" cy="100" r="15"/>
+        </svg>
+      </div>
+
+      <div class="demo-item flex flex-col items-center gap-4">
+        <h2 class="text-sm text-zinc-500 font-normal">Letter Drawing</h2>
+        <svg viewBox="0 0 300 120" width="300" height="120" class="overflow-visible">
+          <path class="logo-path letter-g stroke-zinc-50 stroke-[3] stroke-linecap-round stroke-linejoin-round fill-none"
+                d="M 80 30 C 30 30 20 60 20 70 C 20 100 50 110 80 110 C 110 110 120 90 120 70 L 80 70"/>
+          <path class="logo-path letter-s stroke-zinc-50 stroke-[3] stroke-linecap-round stroke-linejoin-round fill-none"
+                d="M 180 35 C 150 30 130 45 130 55 C 130 70 160 75 170 80 C 185 88 185 105 160 110 C 140 115 125 105 125 105"/>
+          <path class="logo-path letter-a stroke-zinc-50 stroke-[3] stroke-linecap-round stroke-linejoin-round fill-none"
+                d="M 200 110 L 230 30 L 260 110 M 210 80 L 250 80"/>
+          <path class="logo-path letter-p stroke-zinc-50 stroke-[3] stroke-linecap-round stroke-linejoin-round fill-none"
+                d="M 275 110 L 275 30 C 275 30 310 30 310 55 C 310 75 275 75 275 75"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="controls mt-12 flex gap-4 justify-center">
+      <button class="btn px-7 py-3.5 text-sm font-semibold text-zinc-50 bg-blue-500 border-none rounded-lg cursor-pointer transition-all duration-300 hover:bg-blue-600 hover:-translate-y-0.5" onclick="replayAll()">Replay All</button>
+    </div>
+
+    <div class="code-panel mt-16 bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-left max-w-xl mx-auto">
+      <pre class="font-mono text-xs text-zinc-400 overflow-x-auto leading-relaxed"><span class="text-zinc-600">// Get the total length of the path</span>
+<span class="text-red-400">const</span> path = document.<span class="text-purple-400">querySelector</span>(<span class="text-blue-300">'.logo-path'</span>);
+<span class="text-red-400">const</span> length = path.<span class="text-purple-400">getTotalLength</span>();
+
+<span class="text-zinc-600">// Set up the starting state</span>
+gsap.<span class="text-purple-400">set</span>(path, {
+  strokeDasharray: length,
+  strokeDashoffset: length
+});
+
+<span class="text-zinc-600">// Animate the drawing</span>
+gsap.<span class="text-purple-400">to</span>(path, {
+  strokeDashoffset: <span class="text-blue-400">0</span>,
+  duration: <span class="text-blue-400">2</span>,
+  ease: <span class="text-blue-300">'power2.inOut'</span>
+});</pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function setupPath(path) {
+      if (!window.gsap) return 0;
+      const length = path.getTotalLength();
+      gsap.set(path, {
+        strokeDasharray: length,
+        strokeDashoffset: length
+      });
+      return length;
+    }
+
+    function drawPath(path, duration = 2, delay = 0, ease = 'power2.inOut') {
+      if (prefersReducedMotion || !window.gsap) {
+        if (window.gsap) {
+          gsap.set(path, { strokeDashoffset: 0 });
+        }
+        return;
+      }
+
+      setupPath(path);
+
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        duration: duration,
+        delay: delay,
+        ease: ease
+      });
+    }
+
+    function animateAll() {
+      if (!window.gsap) {
+        setTimeout(animateAll, 100);
+        return;
+      }
+
+      drawPath(document.querySelector('.wave-path'), 1.5, 0);
+      drawPath(document.querySelector('.signature-path'), 2, 0.3, 'power1.inOut');
+
+      const geoPaths = document.querySelectorAll('.geometric-path');
+      geoPaths.forEach((path, i) => {
+        drawPath(path, 1, 0.5 + (i * 0.3), 'power2.out');
+      });
+
+      const letters = ['.letter-g', '.letter-s', '.letter-a', '.letter-p'];
+      letters.forEach((selector, i) => {
+        const path = document.querySelector(selector);
+        if (path) {
+          drawPath(path, 0.8, 1.5 + (i * 0.2), 'power1.inOut');
+        }
+      });
+    }
+
+    function replayAll() {
+      if (!window.gsap) return;
+
+      document.querySelectorAll('.logo-path, .signature-path, .geometric-path').forEach(path => {
+        const length = path.getTotalLength();
+        gsap.set(path, {
+          strokeDasharray: length,
+          strokeDashoffset: length
+        });
+      });
+
+      setTimeout(animateAll, 100);
+    }
+
+    window.replayAll = replayAll;
+
+    function init() {
+      animateAll();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

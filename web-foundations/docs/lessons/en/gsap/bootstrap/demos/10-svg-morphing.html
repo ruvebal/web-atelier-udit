@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100 overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 - SVG Morphing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #fafafa;
+    }
+    .shape-name {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      min-height: 2.5rem;
+    }
+    .morph-shape {
+      transition: filter 0.3s;
+    }
+    .morph-shape:hover {
+      filter: brightness(1.1);
+    }
+    .shape-indicators {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .indicator.active {
+      background: #0d6efd;
+      transform: scale(1.3);
+    }
+    .btn-custom {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: transparent;
+      border: 1px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+      border-color: #0d6efd;
+      background: rgba(13, 110, 253, 0.1);
+    }
+    .btn-custom.active {
+      background: #0d6efd;
+      border-color: #0d6efd;
+    }
+    .code-panel {
+      margin-top: 3rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+    .code-panel pre {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: #a0a0a0;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .code-panel .comment { color: #6a737d; }
+    .code-panel .string { color: #a5d6ff; }
+    .code-panel .number { color: #79c0ff; }
+    @media (prefers-reduced-motion: reduce) {
+      .morph-shape {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center justify-content-center overflow-x-hidden">
+  <div class="container text-center p-4">
+    <h1 class="text-uppercase text-muted small mb-2">SVG Shape Morphing</h1>
+    <div class="shape-name" id="shapeName">Triangle</div>
+
+    <div class="svg-container my-4">
+      <svg viewBox="0 0 200 200" width="250" height="250" style="filter: drop-shadow(0 20px 40px rgba(59, 130, 246, 0.3));">
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea"/>
+            <stop offset="50%" style="stop-color:#764ba2"/>
+            <stop offset="100%" style="stop-color:#f093fb"/>
+          </linearGradient>
+        </defs>
+        <path class="morph-shape" fill="url(#gradient)" d="M100,20 L180,180 L20,180 Z"/>
+      </svg>
+    </div>
+
+    <div class="shape-indicators">
+      <div class="indicator active" data-shape="triangle"></div>
+      <div class="indicator" data-shape="circle"></div>
+      <div class="indicator" data-shape="square"></div>
+      <div class="indicator" data-shape="star"></div>
+      <div class="indicator" data-shape="hexagon"></div>
+    </div>
+
+    <div class="controls d-flex gap-2 justify-content-center flex-wrap mt-4">
+      <button class="btn-custom active" onclick="morphTo('triangle')">Triangle</button>
+      <button class="btn-custom" onclick="morphTo('circle')">Circle</button>
+      <button class="btn-custom" onclick="morphTo('square')">Square</button>
+      <button class="btn-custom" onclick="morphTo('star')">Star</button>
+      <button class="btn-custom" onclick="morphTo('hexagon')">Hexagon</button>
+    </div>
+
+    <div class="controls d-flex gap-2 justify-content-center flex-wrap mt-2">
+      <button class="btn btn-primary" onclick="playSequence()">Play Sequence</button>
+    </div>
+
+    <div class="code-panel">
+      <pre><span class="comment">// Define shape paths</span>
+const shapes = {
+  triangle: <span class="string">"M100,20 L180,180 L20,180 Z"</span>,
+  circle: <span class="string">"M100,20 C155,20..."</span>,
+  square: <span class="string">"M30,30 L170,30..."</span>
+};
+
+<span class="comment">// Morph to new shape</span>
+gsap.to(<span class="string">'.morph-shape'</span>, {
+  attr: { d: shapes.circle },
+  duration: <span class="number">1</span>,
+  ease: <span class="string">'power2.inOut'</span>
+});</pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    function init() {
+      if (!window.gsap) {
+        setTimeout(init, 100);
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const shapes = {
+        triangle: "M100,20 L180,180 L20,180 Z",
+        circle: "M100,20 C155,20 180,65 180,100 C180,155 135,180 100,180 C45,180 20,135 20,100 C20,45 65,20 100,20 Z",
+        square: "M30,30 L170,30 L170,170 L30,170 Z",
+        star: "M100,10 L120,80 L190,80 L135,125 L155,195 L100,155 L45,195 L65,125 L10,80 L80,80 Z",
+        hexagon: "M100,15 L170,55 L170,135 L100,175 L30,135 L30,55 Z"
+      };
+
+      let currentShape = 'triangle';
+      let isAnimating = false;
+
+      function morphTo(shapeName) {
+        if (isAnimating || currentShape === shapeName || !window.gsap) return;
+        if (prefersReducedMotion) {
+          gsap.set('.morph-shape', { attr: { d: shapes[shapeName] } });
+          updateUI(shapeName);
+          return;
+        }
+
+        isAnimating = true;
+        gsap.to('.morph-shape', {
+          attr: { d: shapes[shapeName] },
+          duration: 0.8,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            isAnimating = false;
+          }
+        });
+
+        updateUI(shapeName);
+        currentShape = shapeName;
+      }
+
+      function updateUI(shapeName) {
+        document.getElementById('shapeName').textContent =
+          shapeName.charAt(0).toUpperCase() + shapeName.slice(1);
+
+        document.querySelectorAll('.controls .btn-custom').forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.textContent.toLowerCase() === shapeName) {
+            btn.classList.add('active');
+          }
+        });
+
+        document.querySelectorAll('.indicator').forEach(ind => {
+          ind.classList.remove('active');
+          if (ind.dataset.shape === shapeName) {
+            ind.classList.add('active');
+          }
+        });
+      }
+
+      function playSequence() {
+        if (isAnimating) return;
+        const shapeOrder = ['triangle', 'circle', 'square', 'star', 'hexagon', 'triangle'];
+        let index = 0;
+        function nextShape() {
+          if (index >= shapeOrder.length) return;
+          morphTo(shapeOrder[index]);
+          index++;
+          if (index < shapeOrder.length) {
+            setTimeout(nextShape, 1000);
+          }
+        }
+        nextShape();
+      }
+
+      window.morphTo = morphTo;
+      window.playSequence = playSequence;
+
+      document.querySelectorAll('.indicator').forEach(ind => {
+        ind.addEventListener('click', () => {
+          morphTo(ind.dataset.shape);
+        });
+      });
+
+      if (!prefersReducedMotion) {
+        gsap.from('.morph-shape', {
+          scale: 0,
+          rotation: -180,
+          duration: 1,
+          ease: 'back.out(1.7)',
+          transformOrigin: 'center center'
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

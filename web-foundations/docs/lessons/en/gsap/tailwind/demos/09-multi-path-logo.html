@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 - Multi-Path Logo Animation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      .logo-path {
+        stroke-dasharray: none !important;
+        stroke-dashoffset: 0 !important;
+        opacity: 1 !important;
+      }
+    }
+    .speed-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #667eea;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .speed-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #667eea;
+      cursor: pointer;
+      border-radius: 50%;
+      border: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen grid place-items-center font-sans bg-gradient-to-br from-zinc-950 via-slate-900 to-zinc-950 text-zinc-50 overflow-x-hidden">
+  <div class="text-center p-8 max-w-3xl w-full">
+    <div class="logo-container w-[300px] h-[300px] mx-auto mb-12 relative">
+      <svg class="logo-svg w-full h-full" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <path class="logo-path path-1 fill-none stroke-[3] stroke-linecap-round stroke-linejoin-round stroke-[#667eea]" d="M50 150 Q100 50, 150 100 T250 150" />
+        <path class="logo-path path-2 fill-none stroke-[3] stroke-linecap-round stroke-linejoin-round stroke-[#764ba2]" d="M75 100 L150 75 L225 100" />
+        <path class="logo-path path-3 fill-none stroke-[3] stroke-linecap-round stroke-linejoin-round stroke-[#f093fb]" d="M100 200 Q150 150, 200 200" />
+        <path class="logo-path path-4 fill-none stroke-[3] stroke-linecap-round stroke-linejoin-round stroke-[#4facfe]" d="M50 150 L100 200 L150 150 L200 200 L250 150" />
+        <path class="logo-path path-5 fill-none stroke-[3] stroke-linecap-round stroke-linejoin-round stroke-[#00f2fe]" d="M150 50 C200 100, 200 200, 150 250 C100 200, 100 100, 150 50" />
+      </svg>
+    </div>
+
+    <div class="controls flex gap-4 justify-center flex-wrap mb-8">
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="animateSequential()">Sequential</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="animateStaggered()">Staggered</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="animateSimultaneous()">Simultaneous</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="animateWave()">Wave Effect</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="resetPaths()">Reset</button>
+    </div>
+
+    <div class="speed-control flex items-center justify-center gap-4 mb-8">
+      <label>Speed:</label>
+      <input type="range" class="speed-slider w-48 h-1 appearance-none bg-zinc-800 outline-none rounded" id="speedSlider" min="0.5" max="3" step="0.1" value="1.5">
+      <span id="speedValue" class="text-sm text-zinc-400">1.5s</span>
+    </div>
+  </div>
+
+  <div class="fixed bottom-8 left-4 right-4 bg-black/80 border border-zinc-800 rounded-xl p-6 font-mono text-sm text-zinc-400 max-w-2xl">
+    <span class="text-zinc-600">// Multi-path animation with strokeDasharray</span><br>
+    gsap.<code class="text-indigo-400">from</code>(<span class="text-blue-300">'.logo-path'</span>, {<br>
+    &nbsp;&nbsp;strokeDasharray: <span class="text-blue-300">'0 1000'</span>,<br>
+    &nbsp;&nbsp;strokeDashoffset: <span class="text-blue-400">0</span>,<br>
+    &nbsp;&nbsp;duration: <span class="text-blue-400">1.5</span>,<br>
+    &nbsp;&nbsp;ease: <span class="text-blue-300">'power2.inOut'</span>,<br>
+    &nbsp;&nbsp;stagger: <span class="text-blue-400">0.2</span><br>
+    });
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let currentTimeline = null;
+    let animationSpeed = 1.5;
+
+    const speedSlider = document.getElementById('speedSlider');
+    const speedValue = document.getElementById('speedValue');
+
+    speedSlider.addEventListener('input', (e) => {
+      animationSpeed = parseFloat(e.target.value);
+      speedValue.textContent = `${animationSpeed}s`;
+    });
+
+    function initializePaths() {
+      if (!window.gsap) return;
+
+      const paths = document.querySelectorAll('.logo-path');
+      gsap.set(paths, {
+        strokeDasharray: '0 1000',
+        opacity: 0
+      });
+    }
+
+    function animateSequential() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      if (currentTimeline) currentTimeline.kill();
+
+      const paths = document.querySelectorAll('.logo-path');
+      currentTimeline = gsap.timeline();
+
+      paths.forEach((path) => {
+        currentTimeline.to(path, {
+          strokeDasharray: '1000 0',
+          opacity: 1,
+          duration: animationSpeed,
+          ease: 'power2.inOut'
+        });
+      });
+    }
+
+    function animateStaggered() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      if (currentTimeline) currentTimeline.kill();
+      initializePaths();
+
+      currentTimeline = gsap.timeline();
+      currentTimeline.to('.logo-path', {
+        strokeDasharray: '1000 0',
+        opacity: 1,
+        duration: animationSpeed,
+        ease: 'power2.inOut',
+        stagger: 0.2
+      });
+    }
+
+    function animateSimultaneous() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      if (currentTimeline) currentTimeline.kill();
+      initializePaths();
+
+      currentTimeline = gsap.timeline();
+      currentTimeline.to('.logo-path', {
+        strokeDasharray: '1000 0',
+        opacity: 1,
+        duration: animationSpeed,
+        ease: 'power2.inOut'
+      });
+    }
+
+    function animateWave() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      if (currentTimeline) currentTimeline.kill();
+      initializePaths();
+
+      currentTimeline = gsap.timeline();
+      currentTimeline.to('.logo-path', {
+        strokeDasharray: '1000 0',
+        opacity: 1,
+        duration: animationSpeed * 0.6,
+        ease: 'power2.inOut',
+        stagger: {
+          each: 0.1,
+          from: 'center'
+        }
+      });
+    }
+
+    function resetPaths() {
+      if (currentTimeline) currentTimeline.kill();
+
+      if (window.gsap) {
+        gsap.to('.logo-path', {
+          strokeDasharray: '0 1000',
+          opacity: 0,
+          duration: 0.5,
+          ease: 'power2.in'
+        });
+      }
+    }
+
+    window.animateSequential = animateSequential;
+    window.animateStaggered = animateStaggered;
+    window.animateSimultaneous = animateSimultaneous;
+    window.animateWave = animateWave;
+    window.resetPaths = resetPaths;
+
+    function init() {
+      initializePaths();
+      if (!prefersReducedMotion && window.gsap) {
+        setTimeout(() => animateStaggered(), 500);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

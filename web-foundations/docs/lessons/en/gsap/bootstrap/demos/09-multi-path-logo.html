@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100 overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 - Multi-Path Logo Animation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #fafafa;
+    }
+    .logo-container {
+      width: 300px;
+      height: 300px;
+      margin: 0 auto 3rem;
+      position: relative;
+    }
+    .logo-svg {
+      width: 100%;
+      height: 100%;
+    }
+    .speed-slider {
+      width: 200px;
+      height: 4px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #333;
+      outline: none;
+      border-radius: 2px;
+    }
+    .speed-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #667eea;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .speed-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #667eea;
+      cursor: pointer;
+      border-radius: 50%;
+      border: none;
+    }
+    .btn-custom {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: transparent;
+      border: 2px solid #667eea;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+      background: #667eea;
+      transform: translateY(-2px);
+    }
+    .code-panel {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      right: 2rem;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1.5rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.875rem;
+      color: #a0a0a0;
+      max-width: 600px;
+    }
+    .code-panel code {
+      color: #667eea;
+    }
+    .code-panel .comment {
+      color: #6a737d;
+    }
+    .code-panel .string {
+      color: #a5d6ff;
+    }
+    .code-panel .number {
+      color: #79c0ff;
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center justify-content-center overflow-x-hidden">
+  <div class="container text-center p-4">
+    <div class="logo-container">
+      <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <path class="logo-path path-1" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#667eea" d="M50 150 Q100 50, 150 100 T250 150" />
+        <path class="logo-path path-2" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#764ba2" d="M75 100 L150 75 L225 100" />
+        <path class="logo-path path-3" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#f093fb" d="M100 200 Q150 150, 200 200" />
+        <path class="logo-path path-4" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#4facfe" d="M50 150 L100 200 L150 150 L200 200 L250 150" />
+        <path class="logo-path path-5" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#00f2fe" d="M150 50 C200 100, 200 200, 150 250 C100 200, 100 100, 150 50" />
+      </svg>
+    </div>
+
+    <div class="controls d-flex gap-2 justify-content-center flex-wrap mb-4">
+      <button class="btn-custom" onclick="animateSequential()">Sequential</button>
+      <button class="btn-custom" onclick="animateStaggered()">Staggered</button>
+      <button class="btn-custom" onclick="animateSimultaneous()">Simultaneous</button>
+      <button class="btn-custom" onclick="animateWave()">Wave Effect</button>
+      <button class="btn-custom" onclick="resetPaths()">Reset</button>
+    </div>
+
+    <div class="speed-control d-flex align-items-center justify-content-center gap-3 mb-4">
+      <label>Speed:</label>
+      <input type="range" class="speed-slider" id="speedSlider" min="0.5" max="3" step="0.1" value="1.5">
+      <span id="speedValue" class="text-muted small">1.5s</span>
+    </div>
+  </div>
+
+  <div class="code-panel">
+    <span class="comment">// Multi-path animation with strokeDasharray</span><br>
+    gsap.<code>from</code>(<span class="string">'.logo-path'</span>, {<br>
+    &nbsp;&nbsp;strokeDasharray: <span class="string">'0 1000'</span>,<br>
+    &nbsp;&nbsp;strokeDashoffset: <span class="number">0</span>,<br>
+    &nbsp;&nbsp;duration: <span class="number">1.5</span>,<br>
+    &nbsp;&nbsp;ease: <span class="string">'power2.inOut'</span>,<br>
+    &nbsp;&nbsp;stagger: <span class="number">0.2</span><br>
+    });
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    function init() {
+      if (!window.gsap) {
+        setTimeout(init, 100);
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let currentTimeline = null;
+      let animationSpeed = 1.5;
+
+      const speedSlider = document.getElementById('speedSlider');
+      const speedValue = document.getElementById('speedValue');
+
+      speedSlider.addEventListener('input', (e) => {
+        animationSpeed = parseFloat(e.target.value);
+        speedValue.textContent = `${animationSpeed}s`;
+      });
+
+      function initializePaths() {
+        if (!window.gsap) return;
+        const paths = document.querySelectorAll('.logo-path');
+        gsap.set(paths, {
+          strokeDasharray: '0 1000',
+          opacity: 0
+        });
+      }
+
+      function animateSequential() {
+        if (prefersReducedMotion || !window.gsap) return;
+        if (currentTimeline) currentTimeline.kill();
+        const paths = document.querySelectorAll('.logo-path');
+        currentTimeline = gsap.timeline();
+        paths.forEach((path) => {
+          currentTimeline.to(path, {
+            strokeDasharray: '1000 0',
+            opacity: 1,
+            duration: animationSpeed,
+            ease: 'power2.inOut'
+          });
+        });
+      }
+
+      function animateStaggered() {
+        if (prefersReducedMotion || !window.gsap) return;
+        if (currentTimeline) currentTimeline.kill();
+        initializePaths();
+        currentTimeline = gsap.timeline();
+        currentTimeline.to('.logo-path', {
+          strokeDasharray: '1000 0',
+          opacity: 1,
+          duration: animationSpeed,
+          ease: 'power2.inOut',
+          stagger: 0.2
+        });
+      }
+
+      function animateSimultaneous() {
+        if (prefersReducedMotion || !window.gsap) return;
+        if (currentTimeline) currentTimeline.kill();
+        initializePaths();
+        currentTimeline = gsap.timeline();
+        currentTimeline.to('.logo-path', {
+          strokeDasharray: '1000 0',
+          opacity: 1,
+          duration: animationSpeed,
+          ease: 'power2.inOut'
+        });
+      }
+
+      function animateWave() {
+        if (prefersReducedMotion || !window.gsap) return;
+        if (currentTimeline) currentTimeline.kill();
+        initializePaths();
+        currentTimeline = gsap.timeline();
+        currentTimeline.to('.logo-path', {
+          strokeDasharray: '1000 0',
+          opacity: 1,
+          duration: animationSpeed * 0.6,
+          ease: 'power2.inOut',
+          stagger: { each: 0.1, from: 'center' }
+        });
+      }
+
+      function resetPaths() {
+        if (currentTimeline) currentTimeline.kill();
+        if (window.gsap) {
+          gsap.to('.logo-path', {
+            strokeDasharray: '0 1000',
+            opacity: 0,
+            duration: 0.5,
+            ease: 'power2.in'
+          });
+        }
+      }
+
+      window.animateSequential = animateSequential;
+      window.animateStaggered = animateStaggered;
+      window.animateSimultaneous = animateSimultaneous;
+      window.animateWave = animateWave;
+      window.resetPaths = resetPaths;
+
+      initializePaths();
+      if (!prefersReducedMotion) {
+        setTimeout(() => animateStaggered(), 500);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

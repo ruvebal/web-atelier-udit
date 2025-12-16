@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 - Word-by-Word Reveal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen grid place-items-center font-sans bg-zinc-950 text-zinc-50 overflow-x-hidden">
+  <div class="text-center p-8 max-w-4xl w-full">
+    <h1 class="headline text-[clamp(2.5rem,10vw,7rem)] font-extrabold leading-tight tracking-tight overflow-hidden">
+      <span class="word inline-block mr-1 last:mr-0">Design</span>
+      <span class="word inline-block mr-1 last:mr-0 text-blue-500">with</span>
+      <span class="word inline-block mr-1 last:mr-0">intention</span>
+    </h1>
+
+    <div class="controls mt-12 flex gap-4 justify-center flex-wrap">
+      <button class="btn px-7 py-3.5 text-sm font-semibold text-zinc-50 bg-blue-500 border border-blue-500 rounded-lg cursor-pointer transition-all duration-300 hover:bg-blue-600" onclick="replayMain()">Replay</button>
+      <button class="btn px-7 py-3.5 text-sm font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-lg cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="playFromBottom()">From Bottom</button>
+      <button class="btn px-7 py-3.5 text-sm font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-lg cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="playFromLeft()">From Left</button>
+      <button class="btn px-7 py-3.5 text-sm font-semibold text-zinc-50 bg-transparent border border-zinc-800 rounded-lg cursor-pointer transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10" onclick="playScale()">Scale In</button>
+    </div>
+
+    <div class="variations mt-16 pt-8 border-t border-zinc-900">
+      <h3 class="text-sm text-zinc-500 uppercase tracking-widest mb-8">Stagger Variations</h3>
+      <div class="variation-grid grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8">
+        <div class="variation-item p-8 bg-zinc-900 rounded-xl text-left">
+          <h4 class="var-1 text-2xl mb-2 overflow-hidden">
+            <span class="v1-word">Stagger</span>
+            <span class="v1-word">0.1s</span>
+          </h4>
+          <p class="text-xs text-zinc-500 font-mono">stagger: 0.1</p>
+        </div>
+        <div class="variation-item p-8 bg-zinc-900 rounded-xl text-left">
+          <h4 class="var-2 text-2xl mb-2 overflow-hidden">
+            <span class="v2-word">Stagger</span>
+            <span class="v2-word">0.3s</span>
+          </h4>
+          <p class="text-xs text-zinc-500 font-mono">stagger: 0.3</p>
+        </div>
+        <div class="variation-item p-8 bg-zinc-900 rounded-xl text-left">
+          <h4 class="var-3 text-2xl mb-2 overflow-hidden">
+            <span class="v3-word">From</span>
+            <span class="v3-word">End</span>
+          </h4>
+          <p class="text-xs text-zinc-500 font-mono">stagger: { each: 0.15, from: "end" }</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Main headline animation
+    function replayMain() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      gsap.set('.word', { opacity: 0, y: '100%' });
+
+      gsap.to('.word', {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.15
+      });
+    }
+
+    // Variation: From bottom with bounce
+    function playFromBottom() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      gsap.set('.word', { opacity: 0, y: 80 });
+
+      gsap.to('.word', {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'back.out(1.7)',
+        stagger: 0.12
+      });
+    }
+
+    // Variation: From left
+    function playFromLeft() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      gsap.set('.word', { opacity: 0, x: -50 });
+
+      gsap.to('.word', {
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out',
+        stagger: 0.1
+      });
+    }
+
+    // Variation: Scale in
+    function playScale() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      gsap.set('.word', { opacity: 0, scale: 0.5 });
+
+      gsap.to('.word', {
+        scale: 1,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'elastic.out(1, 0.5)',
+        stagger: 0.1
+      });
+    }
+
+    // Variation examples
+    function playVariations() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      // Variation 1: Fast stagger
+      gsap.set('.v1-word', { opacity: 0, y: 20 });
+      gsap.to('.v1-word', {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'power2.out',
+        delay: 0.5
+      });
+
+      // Variation 2: Slow stagger
+      gsap.set('.v2-word', { opacity: 0, y: 20 });
+      gsap.to('.v2-word', {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.3,
+        ease: 'power2.out',
+        delay: 0.8
+      });
+
+      // Variation 3: From end
+      gsap.set('.v3-word', { opacity: 0, y: 20 });
+      gsap.to('.v3-word', {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: { each: 0.15, from: 'end' },
+        ease: 'power2.out',
+        delay: 1.4
+      });
+    }
+
+    // Initialize animations when GSAP is ready
+    function initAnimation() {
+      if (window.gsap) {
+        replayMain();
+        playVariations();
+      } else {
+        setTimeout(() => {
+          if (window.gsap) {
+            replayMain();
+            playVariations();
+          }
+        }, 100);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAnimation);
+    } else {
+      initAnimation();
+    }
+  </script>
+</body>
+</html>

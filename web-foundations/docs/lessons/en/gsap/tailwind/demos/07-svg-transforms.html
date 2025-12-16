@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 - SVG Transforms</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      .shape {
+        animation: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen grid place-items-center font-sans bg-gradient-to-br from-zinc-950 via-slate-900 to-zinc-950 text-zinc-50 overflow-x-hidden p-8">
+  <div class="text-center max-w-5xl w-full">
+    <h1 class="text-base text-zinc-500 uppercase tracking-widest mb-12">SVG Transform Animations</h1>
+
+    <div class="svg-grid grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8 mb-12">
+      <div class="svg-item bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center gap-4">
+        <h3 class="text-sm text-zinc-500 font-normal">Scale</h3>
+        <svg viewBox="0 0 100 100" class="w-30 h-30">
+          <circle class="shape scale-shape fill-blue-500 cursor-pointer transition-all duration-300 hover:brightness-110" cx="50" cy="50" r="30"/>
+        </svg>
+      </div>
+
+      <div class="svg-item bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center gap-4">
+        <h3 class="text-sm text-zinc-500 font-normal">Rotate</h3>
+        <svg viewBox="0 0 100 100" class="w-30 h-30">
+          <rect class="shape rotate-shape fill-blue-500 cursor-pointer transition-all duration-300 hover:brightness-110" x="25" y="25" width="50" height="50" rx="4"/>
+        </svg>
+      </div>
+
+      <div class="svg-item bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center gap-4">
+        <h3 class="text-sm text-zinc-500 font-normal">Translate</h3>
+        <svg viewBox="0 0 100 100" class="w-30 h-30">
+          <polygon class="shape translate-shape fill-blue-500 cursor-pointer transition-all duration-300 hover:brightness-110" points="50,15 85,85 15,85"/>
+        </svg>
+      </div>
+
+      <div class="svg-item bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center gap-4">
+        <h3 class="text-sm text-zinc-500 font-normal">Combined</h3>
+        <svg viewBox="0 0 100 100" class="w-30 h-30">
+          <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#667eea"/>
+              <stop offset="100%" style="stop-color:#f093fb"/>
+            </linearGradient>
+          </defs>
+          <circle class="shape shape-gradient combined-shape fill-[url(#gradient1)] cursor-pointer transition-all duration-300 hover:brightness-110" cx="50" cy="50" r="25"/>
+        </svg>
+      </div>
+
+      <div class="svg-item bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center gap-4">
+        <h3 class="text-sm text-zinc-500 font-normal">Stroke</h3>
+        <svg viewBox="0 0 100 100" class="w-30 h-30">
+          <circle class="shape-stroke stroke-shape fill-none stroke-purple-500 stroke-[3]" cx="50" cy="50" r="35"/>
+        </svg>
+      </div>
+
+      <div class="svg-item bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center gap-4">
+        <h3 class="text-sm text-zinc-500 font-normal">Yoyo Loop</h3>
+        <svg viewBox="0 0 100 100" class="w-30 h-30">
+          <ellipse class="shape yoyo-shape fill-blue-500 cursor-pointer transition-all duration-300 hover:brightness-110" cx="50" cy="50" rx="35" ry="20"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="controls flex gap-4 justify-center flex-wrap">
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-blue-500 border-none rounded-lg cursor-pointer transition-all duration-300 hover:bg-blue-600 hover:-translate-y-0.5" onclick="playAll()">Play All</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-blue-500 border-none rounded-lg cursor-pointer transition-all duration-300 hover:bg-blue-600 hover:-translate-y-0.5" onclick="resetAll()">Reset</button>
+    </div>
+
+    <div class="code-panel mt-12 bg-black/50 border border-zinc-800 rounded-xl p-6 text-left">
+      <pre class="font-mono text-xs text-zinc-400 overflow-x-auto"><span class="text-zinc-600">// Basic SVG transforms with GSAP</span>
+gsap.to(<span class="text-blue-300">'.circle'</span>, {
+  scale: <span class="text-blue-400">1.5</span>,
+  rotation: <span class="text-blue-400">360</span>,
+  transformOrigin: <span class="text-blue-300">'50% 50%'</span>,  <span class="text-zinc-600">// Center of element</span>
+  duration: <span class="text-blue-400">2</span>,
+  ease: <span class="text-blue-300">'elastic.out(1, 0.3)'</span>,
+  repeat: <span class="text-blue-400">-1</span>,       <span class="text-zinc-600">// Infinite loop</span>
+  yoyo: <span class="text-blue-400">true</span>        <span class="text-zinc-600">// Play forward then backward</span>
+});</pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let animations = [];
+
+    function playAll() {
+      if (prefersReducedMotion || !window.gsap) return;
+
+      animations.forEach(anim => anim.kill());
+      animations = [];
+
+      animations.push(
+        gsap.to('.scale-shape', {
+          scale: 1.4,
+          duration: 1,
+          ease: 'elastic.out(1, 0.3)',
+          repeat: -1,
+          yoyo: true,
+          transformOrigin: '50% 50%'
+        })
+      );
+
+      animations.push(
+        gsap.to('.rotate-shape', {
+          rotation: 360,
+          duration: 2,
+          ease: 'power1.inOut',
+          repeat: -1,
+          transformOrigin: '50% 50%'
+        })
+      );
+
+      animations.push(
+        gsap.to('.translate-shape', {
+          y: -15,
+          duration: 0.8,
+          ease: 'power2.inOut',
+          repeat: -1,
+          yoyo: true
+        })
+      );
+
+      const combinedTl = gsap.timeline({ repeat: -1 });
+      combinedTl
+        .to('.combined-shape', {
+          scale: 1.3,
+          duration: 0.5,
+          ease: 'power2.out',
+          transformOrigin: '50% 50%'
+        })
+        .to('.combined-shape', {
+          rotation: 180,
+          duration: 0.8,
+          ease: 'power2.inOut',
+          transformOrigin: '50% 50%'
+        })
+        .to('.combined-shape', {
+          scale: 1,
+          rotation: 360,
+          duration: 0.5,
+          ease: 'power2.in',
+          transformOrigin: '50% 50%'
+        });
+      animations.push(combinedTl);
+
+      const strokePath = document.querySelector('.stroke-shape');
+      const length = strokePath.getTotalLength ? strokePath.getTotalLength() : 220;
+
+      gsap.set(strokePath, {
+        strokeDasharray: length,
+        strokeDashoffset: length
+      });
+
+      animations.push(
+        gsap.to('.stroke-shape', {
+          strokeDashoffset: 0,
+          duration: 2,
+          ease: 'power2.inOut',
+          repeat: -1,
+          yoyo: true
+        })
+      );
+
+      animations.push(
+        gsap.to('.yoyo-shape', {
+          scaleX: 0.6,
+          scaleY: 1.4,
+          duration: 0.6,
+          ease: 'power2.inOut',
+          repeat: -1,
+          yoyo: true,
+          transformOrigin: '50% 50%'
+        })
+      );
+    }
+
+    function resetAll() {
+      animations.forEach(anim => anim.kill());
+      animations = [];
+
+      if (window.gsap) {
+        gsap.set(['.scale-shape', '.rotate-shape', '.translate-shape', '.combined-shape', '.yoyo-shape'], {
+          scale: 1,
+          rotation: 0,
+          x: 0,
+          y: 0,
+          scaleX: 1,
+          scaleY: 1
+        });
+
+        gsap.set('.stroke-shape', {
+          strokeDashoffset: 0
+        });
+      }
+    }
+
+    window.playAll = playAll;
+    window.resetAll = resetAll;
+
+    document.querySelectorAll('.svg-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const shape = item.querySelector('.shape, .shape-stroke');
+        if (!shape || prefersReducedMotion || !window.gsap) return;
+
+        gsap.to(shape, {
+          scale: 1.2,
+          duration: 0.2,
+          yoyo: true,
+          repeat: 1,
+          transformOrigin: '50% 50%'
+        });
+      });
+    });
+
+    function init() {
+      if (!prefersReducedMotion && window.gsap) {
+        setTimeout(playAll, 500);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

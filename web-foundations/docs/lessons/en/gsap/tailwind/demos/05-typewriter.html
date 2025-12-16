@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 - Typewriter Text Effect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    .cursor {
+      animation: blink 1s infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cursor {
+        animation: none;
+      }
+      .typewriter-text {
+        color: #fafafa !important;
+        text-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen grid place-items-center font-mono bg-gradient-to-br from-zinc-950 via-slate-900 to-zinc-950 text-zinc-50 overflow-x-hidden">
+  <div class="text-center p-8 max-w-3xl w-full">
+    <div class="typewriter-text text-[clamp(1.5rem,4vw,2.5rem)] leading-relaxed min-h-[3em] flex items-center justify-center text-emerald-400 [text-shadow:0_0_10px_rgba(0,255,136,0.5)]">
+      <span id="typewriter"></span>
+      <span class="cursor inline-block w-0.5 h-[1.2em] bg-emerald-400 ml-0.5"></span>
+    </div>
+
+    <div class="controls mt-12 flex gap-4 justify-center flex-wrap">
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-emerald-400 rounded-full cursor-pointer transition-all duration-300 hover:bg-emerald-400 hover:text-zinc-950 hover:-translate-y-0.5 font-mono" onclick="typeMessage('Hello, GSAP!')">Simple Message</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-emerald-400 rounded-full cursor-pointer transition-all duration-300 hover:bg-emerald-400 hover:text-zinc-950 hover:-translate-y-0.5 font-mono" onclick="typeMessage('The quick brown fox jumps over the lazy dog.')">Pangram</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-emerald-400 rounded-full cursor-pointer transition-all duration-300 hover:bg-emerald-400 hover:text-zinc-950 hover:-translate-y-0.5 font-mono" onclick="typeMessage('Welcome to the world of web animation, where creativity meets technology.')">Complex Message</button>
+      <button class="btn px-6 py-3 text-sm font-semibold text-zinc-50 bg-transparent border-2 border-emerald-400 rounded-full cursor-pointer transition-all duration-300 hover:bg-emerald-400 hover:text-zinc-950 hover:-translate-y-0.5 font-mono" onclick="clearText()">Clear</button>
+    </div>
+
+    <div class="speed-control mt-8 flex items-center justify-center gap-4">
+      <label>Speed:</label>
+      <input type="range" class="speed-slider w-48 h-1 appearance-none bg-zinc-800 outline-none rounded" id="speedSlider" min="10" max="100" value="50">
+      <span id="speedValue" class="text-sm text-zinc-400">50ms</span>
+    </div>
+  </div>
+
+  <div class="fixed bottom-8 left-4 right-4 bg-black/80 border border-zinc-800 rounded-xl p-6 font-mono text-sm text-zinc-400 max-w-2xl">
+    <span class="text-zinc-600">// Typewriter effect with GSAP TextPlugin</span><br>
+    gsap.<code class="text-emerald-400">to</code>(<span class="text-blue-300">'#typewriter'</span>, {<br>
+    &nbsp;&nbsp;text: <span class="text-blue-300">message</span>,<br>
+    &nbsp;&nbsp;duration: <span class="text-blue-400">2</span>,<br>
+    &nbsp;&nbsp;ease: <span class="text-blue-300">'none'</span>,<br>
+    &nbsp;&nbsp;onUpdate: <span class="text-blue-300">updateCursor</span><br>
+    });
+  </div>
+
+  <!-- GSAP Core + TextPlugin -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let currentTween = null;
+    let typingSpeed = 50;
+
+    // Speed slider
+    const speedSlider = document.getElementById('speedSlider');
+    const speedValue = document.getElementById('speedValue');
+
+    speedSlider.addEventListener('input', (e) => {
+      typingSpeed = parseInt(e.target.value);
+      speedValue.textContent = `${typingSpeed}ms`;
+    });
+
+    function typeMessage(message) {
+      if (prefersReducedMotion || !window.gsap) {
+        document.getElementById('typewriter').textContent = message;
+        return;
+      }
+
+      if (currentTween) {
+        currentTween.kill();
+      }
+
+      const duration = (message.length * typingSpeed) / 1000;
+
+      currentTween = gsap.to('#typewriter', {
+        text: message,
+        duration: duration,
+        ease: 'none',
+        onStart: () => {
+          document.querySelector('.cursor').style.display = 'inline-block';
+        }
+      });
+    }
+
+    function clearText() {
+      if (currentTween) {
+        currentTween.kill();
+      }
+
+      if (window.gsap) {
+        gsap.to('#typewriter', {
+          text: '',
+          duration: 0.3,
+          ease: 'power2.in'
+        });
+      } else {
+        document.getElementById('typewriter').textContent = '';
+      }
+    }
+
+    // Make functions globally accessible
+    window.typeMessage = typeMessage;
+    window.clearText = clearText;
+
+    // Initial message
+    function init() {
+      if (window.gsap) {
+        typeMessage('Hello, GSAP!');
+      } else {
+        setTimeout(() => {
+          if (window.gsap) typeMessage('Hello, GSAP!');
+        }, 100);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+  <style>
+    .speed-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #00ff88;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .speed-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #00ff88;
+      cursor: pointer;
+      border-radius: 50%;
+      border: none;
+    }
+  </style>
+</body>
+</html>

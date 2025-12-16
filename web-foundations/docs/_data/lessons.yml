@@ -153,6 +153,48 @@
    es: complete
    en: complete
   category: animations
+- slug: gsap-overview
+  title:
+   es: 'GSAP para Diseñadores: Dominio de Tipografía y Animación SVG'
+   en: 'GSAP for Designers: Typography & SVG Animation Mastery'
+  path:
+   es: /lessons/es/gsap/overview/
+   en: /lessons/en/gsap/overview/
+  file:
+   es: lessons/es/gsap/overview/index.md
+   en: lessons/en/gsap/overview/index.md
+  status:
+   es: complete
+   en: complete
+  category: animations
+- slug: gsap-tailwind
+  title:
+   es: 'GSAP para Diseñadores: Dominio de Tipografía y Animación SVG (Tailwind)'
+   en: 'GSAP for Designers: Typography & SVG Animation Mastery (Tailwind)'
+  path:
+   es: /lessons/es/gsap/tailwind/
+   en: /lessons/en/gsap/tailwind/
+  file:
+   es: lessons/es/gsap/tailwind/index.md
+   en: lessons/en/gsap/tailwind/index.md
+  status:
+   es: complete
+   en: complete
+  category: animations
+- slug: gsap-bootstrap
+  title:
+   es: 'GSAP para Diseñadores: Dominio de Tipografía y Animación SVG (Bootstrap)'
+   en: 'GSAP for Designers: Typography & SVG Animation Mastery (Bootstrap)'
+  path:
+   es: /lessons/es/gsap/bootstrap/
+   en: /lessons/en/gsap/bootstrap/
+  file:
+   es: lessons/es/gsap/bootstrap/index.md
+   en: lessons/en/gsap/bootstrap/index.md
+  status:
+   es: complete
+   en: complete
+  category: animations
 - slug: readings
   title:
    es: Lecturas

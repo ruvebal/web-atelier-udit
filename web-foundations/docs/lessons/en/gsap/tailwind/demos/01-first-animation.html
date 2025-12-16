@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 - First GSAP Animation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @layer utilities {
+      .bg-gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen grid place-items-center font-sans bg-gradient-to-br from-zinc-950 via-slate-900 to-zinc-950 text-zinc-50 overflow-x-hidden">
+  <div class="text-center p-8">
+    <h1 class="hero-title text-[clamp(3rem,12vw,8rem)] font-extrabold tracking-tight leading-none bg-gradient-text">Hello GSAP</h1>
+    <p class="subtitle text-[clamp(1rem,3vw,1.5rem)] text-zinc-400 mt-4 font-light">Your first animation</p>
+    <button class="replay-btn mt-12 px-8 py-4 text-base font-semibold text-zinc-50 bg-transparent border-2 border-indigo-500 rounded-full cursor-pointer transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" onclick="replay()">Replay Animation</button>
+  </div>
+
+  <div class="fixed bottom-8 left-4 right-4 bg-black/80 border border-zinc-800 rounded-xl p-6 font-mono text-sm text-zinc-400 max-w-2xl">
+    <span class="text-zinc-600">// Your first GSAP animation</span><br>
+    gsap.<code class="text-fuchsia-400">from</code>(<span class="text-blue-300">'.hero-title'</span>, {<br>
+    &nbsp;&nbsp;opacity: <span class="text-blue-400">0</span>,<br>
+    &nbsp;&nbsp;y: <span class="text-blue-400">100</span>,<br>
+    &nbsp;&nbsp;duration: <span class="text-blue-400">1.2</span>,<br>
+    &nbsp;&nbsp;ease: <span class="text-blue-300">'power3.out'</span><br>
+    });
+  </div>
+
+  <!-- GSAP Core -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    // Ensure GSAP is loaded before running animations
+    function initAnimation() {
+      // Check for reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function playAnimation() {
+        if (prefersReducedMotion || !window.gsap) return;
+
+        // Reset elements with initial animation state
+        gsap.set(['.hero-title', '.subtitle', '.replay-btn'], {
+          opacity: 0,
+          y: 50
+        });
+
+        // Create timeline for sequenced animation
+        const tl = gsap.timeline();
+
+        tl.from('.hero-title', {
+          opacity: 0,
+          y: 100,
+          duration: 1.2,
+          ease: 'power3.out'
+        })
+        .from('.subtitle', {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: 'power2.out'
+        }, '-=0.6')
+        .from('.replay-btn', {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          ease: 'power2.out'
+        }, '-=0.4');
+      }
+
+      window.replay = function() {
+        playAnimation();
+      };
+
+      // Wait for GSAP to be available
+      if (window.gsap) {
+        playAnimation();
+      } else {
+        // Retry after a short delay if GSAP hasn't loaded yet
+        setTimeout(() => {
+          if (window.gsap) {
+            playAnimation();
+          } else {
+            console.warn('GSAP not loaded - showing static content');
+          }
+        }, 100);
+      }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAnimation);
+    } else {
+      initAnimation();
+    }
+  </script>
+</body>
+</html>

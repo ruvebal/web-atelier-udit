@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17 - Cursor Follower</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .magnetic-element {
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      body {
+        cursor: auto;
+      }
+      .cursor-follower,
+      .cursor-dot,
+      .cursor-trail {
+        display: none;
+      }
+      .magnetic-element {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans bg-gradient-to-br from-zinc-950 via-slate-900 to-zinc-950 text-zinc-50 cursor-none overflow-hidden">
+  <div class="container min-h-screen flex flex-col justify-center items-center p-8 relative">
+    <div class="content text-center max-w-[600px] z-[1]">
+      <h1 class="text-[clamp(2rem,6vw,4rem)] font-black mb-4 bg-gradient-to-br from-indigo-500 via-purple-600 to-fuchsia-400 bg-clip-text text-transparent">Cursor Follower</h1>
+      <p class="text-lg text-zinc-400 leading-relaxed mb-8">Move your cursor around to see the custom cursor effects. Hover over different areas to see magnetic interactions.</p>
+
+      <div class="interactive-area grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-8 my-12">
+        <div class="hover-zone magnetic-element p-8 bg-white/5 border-2 border-white/10 rounded-xl transition-all duration-300 hover:bg-indigo-500/10 hover:border-indigo-500 hover:-translate-y-0.5 text-center">
+          <h3 class="text-xl mb-2 text-indigo-400">Magnetic Zone</h3>
+          <p class="text-sm m-0">Elements follow cursor</p>
+        </div>
+        <div class="hover-zone magnetic-element p-8 bg-white/5 border-2 border-white/10 rounded-xl transition-all duration-300 hover:bg-indigo-500/10 hover:border-indigo-500 hover:-translate-y-0.5 text-center">
+          <h3 class="text-xl mb-2 text-indigo-400">Interactive Area</h3>
+          <p class="text-sm m-0">Hover effects enhanced</p>
+        </div>
+        <div class="hover-zone magnetic-element p-8 bg-white/5 border-2 border-white/10 rounded-xl transition-all duration-300 hover:bg-indigo-500/10 hover:border-indigo-500 hover:-translate-y-0.5 text-center">
+          <h3 class="text-xl mb-2 text-indigo-400">Dynamic Response</h3>
+          <p class="text-sm m-0">Smooth animations</p>
+        </div>
+        <div class="hover-zone magnetic-element p-8 bg-white/5 border-2 border-white/10 rounded-xl transition-all duration-300 hover:bg-indigo-500/10 hover:border-indigo-500 hover:-translate-y-0.5 text-center">
+          <h3 class="text-xl mb-2 text-indigo-400">GSAP Powered</h3>
+          <p class="text-sm m-0">Performance optimized</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cursor-follower fixed w-5 h-5 bg-[radial-gradient(circle,#667eea_0%,transparent_70%)] rounded-full pointer-events-none z-[9999] mix-blend-screen transition-transform duration-100 ease-out"></div>
+  <div class="cursor-dot fixed w-1 h-1 bg-fuchsia-400 rounded-full pointer-events-none z-[10000]"></div>
+  <div class="cursor-trail fixed w-7.5 h-7.5 border-2 border-purple-600 rounded-full pointer-events-none z-[9998] opacity-50"></div>
+
+  <div class="controls fixed top-8 right-8 flex gap-4 z-[100]">
+    <button class="btn active px-4 py-2 text-sm font-semibold text-zinc-50 bg-black/80 border-2 border-indigo-500 rounded-full cursor-none transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" id="normalMode">Normal</button>
+    <button class="btn px-4 py-2 text-sm font-semibold text-zinc-50 bg-black/80 border-2 border-indigo-500 rounded-full cursor-none transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" id="magneticMode">Magnetic</button>
+    <button class="btn px-4 py-2 text-sm font-semibold text-zinc-50 bg-black/80 border-2 border-indigo-500 rounded-full cursor-none transition-all duration-300 hover:bg-indigo-500 hover:-translate-y-0.5" id="trailMode">Trail</button>
+  </div>
+
+  <div class="fixed bottom-8 left-4 right-4 bg-black/80 border border-zinc-800 rounded-xl p-6 font-mono text-sm text-zinc-400 max-w-2xl">
+    <span class="text-zinc-600">// Custom cursor with GSAP</span><br>
+    document.addEventListener(<span class="text-blue-300">'mousemove'</span>, (e) => {<br>
+    &nbsp;&nbsp;gsap.<code class="text-indigo-400">to</code>(<span class="text-blue-300">'.cursor-follower'</span>, {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;x: e.clientX,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;y: e.clientY,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;duration: <span class="text-blue-400">0.1</span>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;ease: <span class="text-blue-300">'power2.out'</span><br>
+    &nbsp;&nbsp;});<br>
+    });
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <script>
+    function init() {
+      if (!window.gsap) {
+        setTimeout(init, 100);
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        const cursor = document.querySelector('.cursor-follower');
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorTrail = document.querySelector('.cursor-trail');
+        const magneticElements = document.querySelectorAll('.magnetic-element');
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        const normalMode = document.getElementById('normalMode');
+        const magneticMode = document.getElementById('magneticMode');
+        const trailMode = document.getElementById('trailMode');
+
+        let currentMode = 'normal';
+
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          gsap.to(cursor, {
+            x: mouseX - 10,
+            y: mouseY - 10,
+            duration: 0.1,
+            ease: 'power2.out'
+          });
+
+          gsap.to(cursorDot, {
+            x: mouseX - 2,
+            y: mouseY - 2,
+            duration: 0.05,
+            ease: 'power2.out'
+          });
+
+          if (currentMode === 'trail') {
+            gsap.to(cursorTrail, {
+              x: mouseX - 15,
+              y: mouseY - 15,
+              duration: 0.3,
+              ease: 'power2.out'
+            });
+          }
+
+          if (currentMode === 'magnetic') {
+            magneticElements.forEach(element => {
+              const rect = element.getBoundingClientRect();
+              const centerX = rect.left + rect.width / 2;
+              const centerY = rect.top + rect.height / 2;
+
+              const distance = Math.sqrt(
+                Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2)
+              );
+
+              if (distance < 100) {
+                const angle = Math.atan2(mouseY - centerY, mouseX - centerX);
+                const force = (100 - distance) / 100;
+                const moveX = Math.cos(angle) * force * 10;
+                const moveY = Math.sin(angle) * force * 10;
+
+                gsap.to(element, {
+                  x: moveX,
+                  y: moveY,
+                  rotation: moveX * 0.2,
+                  duration: 0.3,
+                  ease: 'power2.out'
+                });
+              } else {
+                gsap.to(element, {
+                  x: 0,
+                  y: 0,
+                  rotation: 0,
+                  duration: 0.5,
+                  ease: 'elastic.out(1, 0.3)'
+                });
+              }
+            });
+          }
+        });
+
+        magneticElements.forEach(element => {
+          element.addEventListener('mouseenter', () => {
+            gsap.to(cursor, {
+              scale: 1.5,
+              background: 'radial-gradient(circle, #f093fb 0%, transparent 70%)',
+              duration: 0.3
+            });
+
+            gsap.to(cursorTrail, {
+              scale: 1.2,
+              borderColor: '#f093fb',
+              duration: 0.3
+            });
+          });
+
+          element.addEventListener('mouseleave', () => {
+            gsap.to(cursor, {
+              scale: 1,
+              background: 'radial-gradient(circle, #667eea 0%, transparent 70%)',
+              duration: 0.3
+            });
+
+            gsap.to(cursorTrail, {
+              scale: 1,
+              borderColor: '#764ba2',
+              duration: 0.3
+            });
+          });
+        });
+
+        normalMode.addEventListener('click', () => {
+          currentMode = 'normal';
+          updateModeButtons();
+          resetMagneticElements();
+        });
+
+        magneticMode.addEventListener('click', () => {
+          currentMode = 'magnetic';
+          updateModeButtons();
+        });
+
+        trailMode.addEventListener('click', () => {
+          currentMode = 'trail';
+          updateModeButtons();
+          resetMagneticElements();
+        });
+
+        function updateModeButtons() {
+          document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+          if (currentMode === 'normal') normalMode.classList.add('active');
+          else if (currentMode === 'magnetic') magneticMode.classList.add('active');
+          else if (currentMode === 'trail') trailMode.classList.add('active');
+        }
+
+        function resetMagneticElements() {
+          magneticElements.forEach(element => {
+            gsap.to(element, {
+              x: 0,
+              y: 0,
+              rotation: 0,
+              duration: 0.5,
+              ease: 'elastic.out(1, 0.3)'
+            });
+          });
+        }
+
+        document.addEventListener('mouseleave', () => {
+          gsap.to([cursor, cursorDot, cursorTrail], {
+            opacity: 0,
+            duration: 0.2
+          });
+        });
+
+        document.addEventListener('mouseenter', () => {
+          gsap.to([cursor, cursorDot, cursorTrail], {
+            opacity: 1,
+            duration: 0.2
+          });
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>
