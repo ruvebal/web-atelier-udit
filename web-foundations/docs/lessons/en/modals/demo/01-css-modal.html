@@ -1,0 +1,569 @@
+---
+permalink: /lessons/en/modals/demo/01-css-modal.html
+layout: null
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS-Only Modal with :target</title>
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════════
+       CSS Variables & Reset
+       ═══════════════════════════════════════════════════════════════════════ */
+    :root {
+      --color-bg: #0f0f0f;
+      --color-surface: #1a1a1a;
+      --color-border: #2a2a2a;
+      --color-text: #fafafa;
+      --color-text-muted: #888;
+      --color-accent: #3b82f6;
+      --color-accent-hover: #2563eb;
+      --radius-sm: 0.5rem;
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+      --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      --transition-base: 0.3s ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Layout
+       ═══════════════════════════════════════════════════════════════════════ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--color-accent);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Project Grid
+       ═══════════════════════════════════════════════════════════════════════ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-card__image {
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, var(--color-accent) 0%, #8b5cf6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .project-card__content {
+      padding: 1.25rem;
+    }
+
+    .project-card__title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card__description {
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: color var(--transition-base);
+    }
+
+    .project-card__link:hover {
+      color: var(--color-accent-hover);
+    }
+
+    .project-card__link svg {
+      width: 1rem;
+      height: 1rem;
+      transition: transform var(--transition-base);
+    }
+
+    .project-card__link:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       CSS-Only Modal (using :target)
+
+       The :target pseudo-class selects the element whose id matches the
+       current URL fragment (the part after #). This allows us to create
+       modals without any JavaScript!
+
+       Limitations:
+       - No focus trap (Tab can escape the modal)
+       - No Escape key to close
+       - URL history gets cluttered
+       - No return focus to trigger element
+       ═══════════════════════════════════════════════════════════════════════ */
+    .modal {
+      /* Hidden by default */
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity var(--transition-base),
+        visibility var(--transition-base);
+    }
+
+    /* When the modal's id matches the URL hash, :target applies */
+    .modal:target {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+
+    .modal__panel {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: auto;
+      box-shadow: var(--shadow-lg);
+
+      /* Animation */
+      transform: scale(0.95) translateY(20px);
+      transition: transform var(--transition-base);
+    }
+
+    .modal:target .modal__panel {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .modal__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .modal__close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      text-decoration: none;
+      font-size: 1.25rem;
+      transition:
+        background-color var(--transition-base),
+        border-color var(--transition-base);
+    }
+
+    .modal__close:hover {
+      background: var(--color-border);
+      border-color: transparent;
+    }
+
+    .modal__image {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--color-accent) 0%, #8b5cf6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .modal__body {
+      padding: 1.5rem;
+    }
+
+    .modal__description {
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .modal__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal__tag {
+      background: var(--color-border);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .modal__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: all var(--transition-base);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn--primary {
+      background: var(--color-accent);
+      color: white;
+    }
+
+    .btn--primary:hover {
+      background: var(--color-accent-hover);
+    }
+
+    .btn--secondary {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+
+    .btn--secondary:hover {
+      background: var(--color-border);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Info Panel
+       ═══════════════════════════════════════════════════════════════════════ */
+    .info-panel {
+      margin-top: 3rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    .info-panel__title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .info-panel__code {
+      background: var(--color-bg);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+
+    .info-panel__code .keyword {
+      color: #f472b6;
+    }
+
+    .info-panel__code .selector {
+      color: #a78bfa;
+    }
+
+    .info-panel__code .property {
+      color: #67e8f9;
+    }
+
+    .info-panel__code .value {
+      color: #86efac;
+    }
+
+    .info-panel__code .comment {
+      color: #525252;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Reduced Motion
+       ═══════════════════════════════════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">CSS Only</span>
+      <h1>Modal with :target Selector</h1>
+      <p>
+        Click any project card to open a modal. This implementation uses only CSS—no JavaScript required!
+        The <code>:target</code> pseudo-class matches when the element's ID is in the URL hash.
+      </p>
+    </header>
+
+    <main>
+      <!-- Project Grid -->
+      <section class="projects-grid">
+        <article class="project-card">
+          <div class="project-card__image">🎨</div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Brand Identity System</h3>
+            <p class="project-card__description">Complete visual identity for a sustainable fashion startup.</p>
+            <a href="#modal-1" class="project-card__link">
+              View Details
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__image">📱</div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Mobile Banking App</h3>
+            <p class="project-card__description">Redesign of a fintech app focusing on accessibility and trust.</p>
+            <a href="#modal-2" class="project-card__link">
+              View Details
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__image">🌐</div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">E-commerce Platform</h3>
+            <p class="project-card__description">Full-stack marketplace with custom checkout experience.</p>
+            <a href="#modal-3" class="project-card__link">
+              View Details
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <!-- Info Panel -->
+      <aside class="info-panel">
+        <h3 class="info-panel__title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" />
+          </svg>
+          How It Works
+        </h3>
+        <pre class="info-panel__code"><span class="comment">/* The magic selector */</span>
+<span class="selector">.modal</span> {
+  <span class="property">opacity</span>: <span class="value">0</span>;
+  <span class="property">visibility</span>: <span class="value">hidden</span>;
+}
+
+<span class="comment">/* When URL contains #modal-1, this applies */</span>
+<span class="selector">.modal:target</span> {
+  <span class="property">opacity</span>: <span class="value">1</span>;
+  <span class="property">visibility</span>: <span class="value">visible</span>;
+}
+
+<span class="comment">/* Close link removes hash: href="#" */</span></pre>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Modal 1: Brand Identity -->
+  <div id="modal-1" class="modal">
+    <div class="modal__backdrop">
+      <div class="modal__panel" role="dialog" aria-labelledby="modal-1-title">
+        <header class="modal__header">
+          <h2 id="modal-1-title" class="modal__title">Brand Identity System</h2>
+          <a href="#" class="modal__close" aria-label="Close modal">×</a>
+        </header>
+        <div class="modal__image">🎨</div>
+        <div class="modal__body">
+          <p class="modal__description">
+            A comprehensive visual identity system for EcoThreads, a sustainable fashion startup.
+            The project included logo design, color palette development, typography selection,
+            and brand guidelines documentation. The design emphasizes organic shapes and earthy
+            tones to reflect the brand's commitment to environmental responsibility.
+          </p>
+          <div class="modal__tags">
+            <span class="modal__tag">Branding</span>
+            <span class="modal__tag">Logo Design</span>
+            <span class="modal__tag">Typography</span>
+            <span class="modal__tag">Sustainability</span>
+          </div>
+          <div class="modal__actions">
+            <a href="#" class="btn btn--primary">View Full Case Study →</a>
+            <a href="#" class="btn btn--secondary">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Mobile Banking -->
+  <div id="modal-2" class="modal">
+    <div class="modal__backdrop">
+      <div class="modal__panel" role="dialog" aria-labelledby="modal-2-title">
+        <header class="modal__header">
+          <h2 id="modal-2-title" class="modal__title">Mobile Banking App</h2>
+          <a href="#" class="modal__close" aria-label="Close modal">×</a>
+        </header>
+        <div class="modal__image">📱</div>
+        <div class="modal__body">
+          <p class="modal__description">
+            Complete redesign of NeoBank's mobile application with a focus on accessibility
+            and building user trust. The project involved extensive user research, prototyping,
+            and usability testing. Key improvements included simplified navigation, enhanced
+            security indicators, and WCAG 2.1 AA compliance throughout the interface.
+          </p>
+          <div class="modal__tags">
+            <span class="modal__tag">UX Design</span>
+            <span class="modal__tag">Mobile</span>
+            <span class="modal__tag">Accessibility</span>
+            <span class="modal__tag">Fintech</span>
+          </div>
+          <div class="modal__actions">
+            <a href="#" class="btn btn--primary">View Full Case Study →</a>
+            <a href="#" class="btn btn--secondary">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: E-commerce -->
+  <div id="modal-3" class="modal">
+    <div class="modal__backdrop">
+      <div class="modal__panel" role="dialog" aria-labelledby="modal-3-title">
+        <header class="modal__header">
+          <h2 id="modal-3-title" class="modal__title">E-commerce Platform</h2>
+          <a href="#" class="modal__close" aria-label="Close modal">×</a>
+        </header>
+        <div class="modal__image">🌐</div>
+        <div class="modal__body">
+          <p class="modal__description">
+            A full-stack marketplace solution built for artisan craftspeople. The platform
+            features a custom checkout flow, real-time inventory management, and integrated
+            shipping calculations. The frontend was built with a focus on performance,
+            achieving a 95+ Lighthouse score across all metrics.
+          </p>
+          <div class="modal__tags">
+            <span class="modal__tag">Full-Stack</span>
+            <span class="modal__tag">E-commerce</span>
+            <span class="modal__tag">Performance</span>
+            <span class="modal__tag">React</span>
+          </div>
+          <div class="modal__actions">
+            <a href="#" class="btn btn--primary">View Full Case Study →</a>
+            <a href="#" class="btn btn--secondary">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

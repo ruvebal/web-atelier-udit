@@ -1,0 +1,838 @@
+---
+permalink: /lessons/en/modals/demo/03-dialog-element.html
+layout: null
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Native HTML &lt;dialog&gt; Element</title>
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════════
+       CSS Variables & Reset
+       ═══════════════════════════════════════════════════════════════════════ */
+    :root {
+      --color-bg: #0f0f0f;
+      --color-surface: #1a1a1a;
+      --color-border: #2a2a2a;
+      --color-text: #fafafa;
+      --color-text-muted: #888;
+      --color-accent: #8b5cf6;
+      --color-accent-hover: #7c3aed;
+      --radius-sm: 0.5rem;
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+      --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      --transition-base: 0.3s ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Layout
+       ═══════════════════════════════════════════════════════════════════════ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--color-accent);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Project Grid
+       ═══════════════════════════════════════════════════════════════════════ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-card__image {
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, var(--color-accent) 0%, #ec4899 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .project-card__content {
+      padding: 1.25rem;
+    }
+
+    .project-card__title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card__description {
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card__trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: none;
+      color: var(--color-accent);
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      padding: 0;
+      transition: color var(--transition-base);
+    }
+
+    .project-card__trigger:hover,
+    .project-card__trigger:focus {
+      color: var(--color-accent-hover);
+    }
+
+    .project-card__trigger:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .project-card__trigger svg {
+      width: 1rem;
+      height: 1rem;
+      transition: transform var(--transition-base);
+    }
+
+    .project-card__trigger:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Native <dialog> Element
+
+       Built-in browser features:
+       ✓ showModal() creates backdrop automatically
+       ✓ Focus trap is native
+       ✓ Escape key closes by default
+       ✓ Top-layer (above all z-index)
+       ✓ ::backdrop pseudo-element for styling
+
+       What you still need to handle:
+       - Return focus to trigger (manual)
+       - Custom animations
+       - Content management
+       ═══════════════════════════════════════════════════════════════════════ */
+    dialog {
+      /* Remove default browser styles */
+      border: none;
+      padding: 0;
+      background: transparent;
+      max-width: 600px;
+      width: calc(100% - 2rem);
+      max-height: 90vh;
+      overflow: visible;
+    }
+
+    /* The ::backdrop pseudo-element is natively created by showModal() */
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Animation for dialog */
+    dialog[open] {
+      animation: dialogFadeIn 0.3s ease-out;
+    }
+
+    dialog[open]::backdrop {
+      animation: backdropFadeIn 0.3s ease-out;
+    }
+
+    @keyframes dialogFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes backdropFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .dialog__panel {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .dialog__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .dialog__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .dialog__close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition:
+        background-color var(--transition-base),
+        border-color var(--transition-base);
+    }
+
+    .dialog__close:hover,
+    .dialog__close:focus {
+      background: var(--color-border);
+      border-color: transparent;
+    }
+
+    .dialog__close:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .dialog__image {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--color-accent) 0%, #ec4899 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .dialog__body {
+      padding: 1.5rem;
+    }
+
+    .dialog__description {
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .dialog__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .dialog__tag {
+      background: var(--color-border);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .dialog__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: all var(--transition-base);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .btn--primary {
+      background: var(--color-accent);
+      color: white;
+    }
+
+    .btn--primary:hover {
+      background: var(--color-accent-hover);
+    }
+
+    .btn--secondary {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+
+    .btn--secondary:hover {
+      background: var(--color-border);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Comparison Table
+       ═══════════════════════════════════════════════════════════════════════ */
+    .comparison {
+      margin-top: 3rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .comparison__header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .comparison__table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .comparison__table th,
+    .comparison__table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .comparison__table th {
+      background: var(--color-bg);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .comparison__table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison__table .check {
+      color: #22c55e;
+    }
+
+    .comparison__table .cross {
+      color: #ef4444;
+    }
+
+    .comparison__table .partial {
+      color: #f59e0b;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Code Examples
+       ═══════════════════════════════════════════════════════════════════════ */
+    .code-examples {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .code-panel {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .code-panel__header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .code-panel__body {
+      padding: 1.25rem;
+      overflow-x: auto;
+    }
+
+    .code-panel__code {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-size: 0.75rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      white-space: pre;
+    }
+
+    .code-panel__code .keyword {
+      color: #f472b6;
+    }
+
+    .code-panel__code .string {
+      color: #86efac;
+    }
+
+    .code-panel__code .method {
+      color: #67e8f9;
+    }
+
+    .code-panel__code .comment {
+      color: #525252;
+    }
+
+    .code-panel__code .selector {
+      color: #a78bfa;
+    }
+
+    .code-panel__code .property {
+      color: #67e8f9;
+    }
+
+    .code-panel__code .value {
+      color: #86efac;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Reduced Motion
+       ═══════════════════════════════════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Native HTML</span>
+      <h1>The &lt;dialog&gt; Element</h1>
+      <p>
+        Modern browsers provide a native modal element with built-in accessibility.
+        Focus trap, Escape to close, and backdrop are all handled automatically!
+      </p>
+    </header>
+
+    <main>
+      <!-- Project Grid -->
+      <section class="projects-grid" aria-label="Projects">
+        <article class="project-card" data-project-id="1">
+          <div class="project-card__image">✨</div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Design System</h3>
+            <p class="project-card__description">Comprehensive component library with accessibility built-in.</p>
+            <button class="project-card__trigger" data-open-dialog aria-haspopup="dialog">
+              View Details
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="project-card" data-project-id="2">
+          <div class="project-card__image">🎭</div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Animation Library</h3>
+            <p class="project-card__description">Motion primitives respecting prefers-reduced-motion.</p>
+            <button class="project-card__trigger" data-open-dialog aria-haspopup="dialog">
+              View Details
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="project-card" data-project-id="3">
+          <div class="project-card__image">📊</div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Data Visualization</h3>
+            <p class="project-card__description">Interactive charts with keyboard navigation support.</p>
+            <button class="project-card__trigger" data-open-dialog aria-haspopup="dialog">
+              View Details
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- Comparison Table -->
+      <section class="comparison">
+        <header class="comparison__header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+          </svg>
+          Feature Comparison
+        </header>
+        <table class="comparison__table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>CSS :target</th>
+              <th>Vanilla JS</th>
+              <th>&lt;dialog&gt;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Focus Trap</td>
+              <td class="cross">✗</td>
+              <td class="check">✓ Manual</td>
+              <td class="check">✓ Native</td>
+            </tr>
+            <tr>
+              <td>Escape to Close</td>
+              <td class="cross">✗</td>
+              <td class="check">✓ Manual</td>
+              <td class="check">✓ Native</td>
+            </tr>
+            <tr>
+              <td>Backdrop</td>
+              <td class="check">✓ Manual</td>
+              <td class="check">✓ Manual</td>
+              <td class="check">✓ Native</td>
+            </tr>
+            <tr>
+              <td>Top Layer (above z-index)</td>
+              <td class="cross">✗</td>
+              <td class="cross">✗</td>
+              <td class="check">✓ Native</td>
+            </tr>
+            <tr>
+              <td>Return Focus</td>
+              <td class="cross">✗</td>
+              <td class="check">✓ Manual</td>
+              <td class="partial">⚠ Manual</td>
+            </tr>
+            <tr>
+              <td>No JavaScript</td>
+              <td class="check">✓</td>
+              <td class="cross">✗</td>
+              <td class="cross">✗</td>
+            </tr>
+            <tr>
+              <td>Browser Support</td>
+              <td class="check">All</td>
+              <td class="check">All</td>
+              <td class="partial">Modern*</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Code Examples -->
+      <div class="code-examples">
+        <div class="code-panel">
+          <header class="code-panel__header">
+            HTML Structure
+          </header>
+          <div class="code-panel__body">
+            <code class="code-panel__code"><span class="comment">&lt;!-- Native dialog element --&gt;</span>
+&lt;<span class="keyword">dialog</span> <span class="property">id</span>=<span class="string">"my-dialog"</span>&gt;
+  &lt;<span class="keyword">form</span> <span class="property">method</span>=<span class="string">"dialog"</span>&gt;
+    &lt;<span class="keyword">h2</span>&gt;Dialog Title&lt;/<span class="keyword">h2</span>&gt;
+    &lt;<span class="keyword">p</span>&gt;Content here...&lt;/<span class="keyword">p</span>&gt;
+    <span class="comment">&lt;!-- form method="dialog" auto-closes --&gt;</span>
+    &lt;<span class="keyword">button</span> <span class="property">value</span>=<span class="string">"close"</span>&gt;Close&lt;/<span class="keyword">button</span>&gt;
+  &lt;/<span class="keyword">form</span>&gt;
+&lt;/<span class="keyword">dialog</span>&gt;</code>
+          </div>
+        </div>
+
+        <div class="code-panel">
+          <header class="code-panel__header">
+            JavaScript Methods
+          </header>
+          <div class="code-panel__body">
+            <code class="code-panel__code"><span class="keyword">const</span> dialog = document.<span class="method">getElementById</span>(<span class="string">'my-dialog'</span>);
+
+<span class="comment">// Open as modal (with backdrop)</span>
+dialog.<span class="method">showModal</span>();
+
+<span class="comment">// Open non-modal (no backdrop)</span>
+dialog.<span class="method">show</span>();
+
+<span class="comment">// Close</span>
+dialog.<span class="method">close</span>();
+
+<span class="comment">// Listen for close</span>
+dialog.<span class="method">addEventListener</span>(<span class="string">'close'</span>, () => {
+  console.<span class="method">log</span>(<span class="string">'Dialog closed'</span>);
+});</code>
+          </div>
+        </div>
+
+        <div class="code-panel">
+          <header class="code-panel__header">
+            CSS Styling
+          </header>
+          <div class="code-panel__body">
+            <code class="code-panel__code"><span class="comment">/* Style the backdrop */</span>
+<span class="selector">dialog::backdrop</span> {
+  <span class="property">background</span>: <span class="value">rgba(0, 0, 0, 0.8)</span>;
+  <span class="property">backdrop-filter</span>: <span class="value">blur(4px)</span>;
+}
+
+<span class="comment">/* Animate open state */</span>
+<span class="selector">dialog[open]</span> {
+  <span class="property">animation</span>: <span class="value">fadeIn 0.3s ease</span>;
+}
+
+<span class="selector">@keyframes fadeIn</span> {
+  <span class="keyword">from</span> { <span class="property">opacity</span>: <span class="value">0</span>; }
+  <span class="keyword">to</span> { <span class="property">opacity</span>: <span class="value">1</span>; }
+}</code>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Native Dialog Element -->
+  <dialog id="project-dialog" aria-labelledby="dialog-title">
+    <div class="dialog__panel">
+      <header class="dialog__header">
+        <h2 id="dialog-title" class="dialog__title"><!-- Dynamic --></h2>
+        <button class="dialog__close" data-close-dialog aria-label="Close dialog">×</button>
+      </header>
+      <div class="dialog__image" id="dialog-image"><!-- Dynamic --></div>
+      <div class="dialog__body">
+        <p class="dialog__description" id="dialog-description"><!-- Dynamic --></p>
+        <div class="dialog__tags" id="dialog-tags"><!-- Dynamic --></div>
+        <div class="dialog__actions">
+          <!-- form method="dialog" allows buttons inside to auto-close -->
+          <form method="dialog" style="display: contents;">
+            <a href="#" class="btn btn--primary" id="dialog-link">View Full Project →</a>
+            <button class="btn btn--secondary" value="close">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    /**
+     * Native <dialog> Element Usage
+     *
+     * The dialog element provides built-in:
+     * - showModal(): Opens with backdrop, focus trap, and escape to close
+     * - show(): Opens without backdrop (non-modal)
+     * - close(): Closes the dialog
+     * - ::backdrop pseudo-element for styling
+     * - 'close' event when dialog closes
+     * - form[method="dialog"] for auto-close buttons
+     *
+     * You still need to handle:
+     * - Return focus to trigger element
+     * - Dynamic content updates
+     * - Close animation (no native support)
+     */
+
+    // Project data
+    const projects = {
+      1: {
+        title: 'Design System',
+        description: 'A comprehensive component library built with accessibility as a core principle. Every component follows WAI-ARIA patterns and is tested with screen readers. The system includes tokens for colors, typography, spacing, and animations that can be customized per-brand.',
+        emoji: '✨',
+        tags: ['Components', 'Tokens', 'Accessibility', 'Figma'],
+        link: '/projects/design-system/'
+      },
+      2: {
+        title: 'Animation Library',
+        description: 'Motion primitives for web applications that respect prefers-reduced-motion. The library provides declarative animations for common patterns like page transitions, micro-interactions, and loading states. Built on Web Animations API with CSS fallbacks.',
+        emoji: '🎭',
+        tags: ['Animation', 'Web API', 'Accessibility', 'Performance'],
+        link: '/projects/animation-library/'
+      },
+      3: {
+        title: 'Data Visualization',
+        description: 'Interactive charts and graphs with full keyboard navigation support. Each visualization is accessible via screen readers with proper ARIA descriptions. Supports live data updates, zoom/pan, and exports to multiple formats.',
+        emoji: '📊',
+        tags: ['Charts', 'D3.js', 'Accessibility', 'Real-time'],
+        link: '/projects/data-viz/'
+      }
+    };
+
+    // DOM references
+    const dialog = document.getElementById('project-dialog');
+    let triggerElement = null;
+
+    /**
+     * Update dialog content with project data
+     */
+    function setDialogContent(project) {
+      document.getElementById('dialog-title').textContent = project.title;
+      document.getElementById('dialog-description').textContent = project.description;
+      document.getElementById('dialog-image').textContent = project.emoji;
+      document.getElementById('dialog-link').href = project.link;
+
+      const tagsContainer = document.getElementById('dialog-tags');
+      tagsContainer.innerHTML = project.tags
+        .map(tag => `<span class="dialog__tag">${tag}</span>`)
+        .join('');
+    }
+
+    /**
+     * Open dialog with project data
+     */
+    function openDialog(projectId, trigger) {
+      const project = projects[projectId];
+      if (!project) return;
+
+      // Store trigger for focus return
+      triggerElement = trigger;
+
+      // Update content
+      setDialogContent(project);
+
+      // Open as modal (includes backdrop, focus trap, escape to close)
+      dialog.showModal();
+    }
+
+    /**
+     * Event: Close button
+     */
+    dialog.querySelector('[data-close-dialog]').addEventListener('click', () => {
+      dialog.close();
+    });
+
+    /**
+     * Event: Dialog close (handles focus return)
+     * The 'close' event fires when:
+     * - dialog.close() is called
+     * - Escape key is pressed
+     * - form[method="dialog"] button is clicked
+     */
+    dialog.addEventListener('close', () => {
+      // Return focus to the element that opened the dialog
+      triggerElement?.focus();
+      triggerElement = null;
+    });
+
+    /**
+     * Event: Click backdrop to close
+     * The dialog element doesn't close on backdrop click by default,
+     * so we need to handle this manually.
+     */
+    dialog.addEventListener('click', (event) => {
+      // Check if click was on the dialog itself (the backdrop area)
+      // not on the panel content
+      const rect = dialog.getBoundingClientRect();
+      const clickedInDialog = (
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom
+      );
+
+      // If clicked outside the visible panel (on backdrop)
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
+
+    /**
+     * Event delegation for card triggers
+     */
+    document.querySelector('.projects-grid').addEventListener('click', (event) => {
+      const trigger = event.target.closest('[data-open-dialog]');
+      if (!trigger) return;
+
+      const card = trigger.closest('.project-card');
+      const projectId = card.dataset.projectId;
+
+      openDialog(projectId, trigger);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,822 @@
+---
+permalink: /lessons/en/modals/demo/02-vanilla-modal.html
+layout: null
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Vanilla JavaScript Modal</title>
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════════
+       CSS Variables & Reset
+       ═══════════════════════════════════════════════════════════════════════ */
+    :root {
+      --color-bg: #0f0f0f;
+      --color-surface: #1a1a1a;
+      --color-border: #2a2a2a;
+      --color-text: #fafafa;
+      --color-text-muted: #888;
+      --color-accent: #10b981;
+      --color-accent-hover: #059669;
+      --color-danger: #ef4444;
+      --radius-sm: 0.5rem;
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+      --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      --transition-base: 0.3s ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Prevent scroll when modal is open */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Layout
+       ═══════════════════════════════════════════════════════════════════════ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--color-accent);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Project Grid
+       ═══════════════════════════════════════════════════════════════════════ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-card__image {
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, var(--color-accent) 0%, #14b8a6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .project-card__content {
+      padding: 1.25rem;
+    }
+
+    .project-card__title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card__description {
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card__trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: none;
+      color: var(--color-accent);
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      padding: 0;
+      transition: color var(--transition-base);
+    }
+
+    .project-card__trigger:hover,
+    .project-card__trigger:focus {
+      color: var(--color-accent-hover);
+    }
+
+    .project-card__trigger:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .project-card__trigger svg {
+      width: 1rem;
+      height: 1rem;
+      transition: transform var(--transition-base);
+    }
+
+    .project-card__trigger:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Vanilla JS Modal
+
+       Full accessibility features:
+       ✓ Focus trap (Tab stays inside)
+       ✓ Escape to close
+       ✓ Click backdrop to close
+       ✓ Return focus to trigger on close
+       ✓ ARIA attributes for screen readers
+       ✓ Prevents background scroll
+       ═══════════════════════════════════════════════════════════════════════ */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity var(--transition-base),
+        visibility var(--transition-base);
+    }
+
+    .modal[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal__panel {
+      position: relative;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      width: calc(100% - 2rem);
+      max-height: 90vh;
+      overflow: auto;
+      box-shadow: var(--shadow-lg);
+
+      /* Animation */
+      transform: scale(0.95) translateY(20px);
+      transition: transform var(--transition-base);
+    }
+
+    .modal[aria-hidden="false"] .modal__panel {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .modal__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .modal__close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition:
+        background-color var(--transition-base),
+        border-color var(--transition-base);
+    }
+
+    .modal__close:hover,
+    .modal__close:focus {
+      background: var(--color-border);
+      border-color: transparent;
+    }
+
+    .modal__close:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .modal__image {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--color-accent) 0%, #14b8a6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .modal__body {
+      padding: 1.5rem;
+    }
+
+    .modal__description {
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .modal__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal__tag {
+      background: var(--color-border);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .modal__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: all var(--transition-base);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .btn--primary {
+      background: var(--color-accent);
+      color: white;
+    }
+
+    .btn--primary:hover {
+      background: var(--color-accent-hover);
+    }
+
+    .btn--secondary {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+
+    .btn--secondary:hover {
+      background: var(--color-border);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Feature List
+       ═══════════════════════════════════════════════════════════════════════ */
+    .features {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .feature {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .feature__icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--radius-sm);
+      background: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.25rem;
+    }
+
+    .feature__title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature__description {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Code Panel
+       ═══════════════════════════════════════════════════════════════════════ */
+    .code-panel {
+      margin-top: 2rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .code-panel__header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      font-weight: 600;
+    }
+
+    .code-panel__body {
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .code-panel__code {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      white-space: pre;
+    }
+
+    .code-panel__code .keyword {
+      color: #f472b6;
+    }
+
+    .code-panel__code .string {
+      color: #86efac;
+    }
+
+    .code-panel__code .function {
+      color: #67e8f9;
+    }
+
+    .code-panel__code .comment {
+      color: #525252;
+    }
+
+    .code-panel__code .property {
+      color: #a78bfa;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       Reduced Motion
+       ═══════════════════════════════════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Vanilla JS</span>
+      <h1>Accessible Modal with JavaScript</h1>
+      <p>
+        A fully accessible modal implementation with focus trap, keyboard navigation,
+        and proper ARIA attributes. Try navigating with keyboard only!
+      </p>
+    </header>
+
+    <main>
+      <!-- Project Grid -->
+      <section class="projects-grid" aria-label="Projects">
+        <article class="project-card" data-project-id="1">
+          <div class="project-card__image">🎯</div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">User Research Platform</h3>
+            <p class="project-card__description">Tools for conducting and analyzing UX research studies.</p>
+            <button
+              class="project-card__trigger"
+              data-modal-trigger="project-modal"
+              aria-haspopup="dialog"
+            >
+              View Details
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="project-card" data-project-id="2">
+          <div class="project-card__image">⚡</div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Performance Dashboard</h3>
+            <p class="project-card__description">Real-time metrics visualization for web applications.</p>
+            <button
+              class="project-card__trigger"
+              data-modal-trigger="project-modal"
+              aria-haspopup="dialog"
+            >
+              View Details
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="project-card" data-project-id="3">
+          <div class="project-card__image">🔐</div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Authentication Flow</h3>
+            <p class="project-card__description">Secure, accessible login and registration system.</p>
+            <button
+              class="project-card__trigger"
+              data-modal-trigger="project-modal"
+              aria-haspopup="dialog"
+            >
+              View Details
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- Accessibility Features -->
+      <section class="features" aria-label="Accessibility features">
+        <div class="feature">
+          <div class="feature__icon">⌨️</div>
+          <div>
+            <h3 class="feature__title">Focus Trap</h3>
+            <p class="feature__description">Tab key stays within the modal until closed</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature__icon">🔙</div>
+          <div>
+            <h3 class="feature__title">Return Focus</h3>
+            <p class="feature__description">Focus returns to trigger button on close</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature__icon">⎋</div>
+          <div>
+            <h3 class="feature__title">Escape to Close</h3>
+            <p class="feature__description">Press Escape key to dismiss the modal</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature__icon">📣</div>
+          <div>
+            <h3 class="feature__title">ARIA Labels</h3>
+            <p class="feature__description">Screen readers announce modal content properly</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Code Example -->
+      <div class="code-panel">
+        <header class="code-panel__header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M6.28 5.22a.75.75 0 010 1.06L2.56 10l3.72 3.72a.75.75 0 01-1.06 1.06L.97 10.53a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 0zm7.44 0a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L17.44 10l-3.72-3.72a.75.75 0 010-1.06z" clip-rule="evenodd" />
+          </svg>
+          JavaScript Modal Class (Key Methods)
+        </header>
+        <div class="code-panel__body">
+          <code class="code-panel__code"><span class="keyword">class</span> <span class="function">Modal</span> {
+  <span class="function">open</span>(trigger) {
+    <span class="comment">// Store trigger for focus return</span>
+    <span class="keyword">this</span>.<span class="property">previouslyFocused</span> = trigger;
+
+    <span class="comment">// Show modal</span>
+    <span class="keyword">this</span>.<span class="property">modal</span>.setAttribute(<span class="string">'aria-hidden'</span>, <span class="string">'false'</span>);
+    document.<span class="property">body</span>.classList.add(<span class="string">'modal-open'</span>);
+
+    <span class="comment">// Setup focus trap & move focus</span>
+    <span class="keyword">this</span>.<span class="function">setupFocusTrap</span>();
+    <span class="keyword">this</span>.<span class="property">firstFocusable</span>?.<span class="function">focus</span>();
+  }
+
+  <span class="function">close</span>() {
+    <span class="keyword">this</span>.<span class="property">modal</span>.setAttribute(<span class="string">'aria-hidden'</span>, <span class="string">'true'</span>);
+    document.<span class="property">body</span>.classList.remove(<span class="string">'modal-open'</span>);
+
+    <span class="comment">// Return focus to trigger</span>
+    <span class="keyword">this</span>.<span class="property">previouslyFocused</span>?.<span class="function">focus</span>();
+  }
+}</code>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div
+    id="project-modal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="modal-title"
+  >
+    <div class="modal__backdrop" data-modal-backdrop></div>
+    <div class="modal__panel">
+      <header class="modal__header">
+        <h2 id="modal-title" class="modal__title"><!-- Dynamic --></h2>
+        <button class="modal__close" data-modal-close aria-label="Close modal">×</button>
+      </header>
+      <div class="modal__image" id="modal-image"><!-- Dynamic --></div>
+      <div class="modal__body">
+        <p class="modal__description" id="modal-description"><!-- Dynamic --></p>
+        <div class="modal__tags" id="modal-tags"><!-- Dynamic --></div>
+        <div class="modal__actions">
+          <a href="#" class="btn btn--primary" id="modal-link">View Full Project →</a>
+          <button class="btn btn--secondary" data-modal-close>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * Modal Class - Accessible Modal Implementation
+     *
+     * Features:
+     * - Focus trap (Tab stays inside modal)
+     * - Escape key to close
+     * - Click backdrop to close
+     * - Return focus to trigger on close
+     * - ARIA attributes for screen readers
+     * - Prevents background scroll
+     *
+     * Usage:
+     *   const modal = new Modal(document.getElementById('my-modal'));
+     *   modal.open(triggerButton);
+     *   modal.close();
+     */
+    class Modal {
+      constructor(element) {
+        this.modal = element;
+        this.focusableSelector =
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        this.firstFocusable = null;
+        this.lastFocusable = null;
+        this.previouslyFocused = null;
+
+        // Bind event handlers to maintain context
+        this.handleKeydown = this.handleKeydown.bind(this);
+        this.handleBackdropClick = this.handleBackdropClick.bind(this);
+
+        // Setup close buttons
+        this.modal.querySelectorAll('[data-modal-close]').forEach(btn => {
+          btn.addEventListener('click', () => this.close());
+        });
+
+        // Setup backdrop click
+        const backdrop = this.modal.querySelector('[data-modal-backdrop]');
+        if (backdrop) {
+          backdrop.addEventListener('click', () => this.close());
+        }
+      }
+
+      /**
+       * Open the modal
+       * @param {HTMLElement} trigger - The element that triggered the modal
+       */
+      open(trigger) {
+        // Store the element that triggered the modal for focus return
+        this.previouslyFocused = trigger || document.activeElement;
+
+        // Show modal
+        this.modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+
+        // Setup focus trap
+        this.setupFocusTrap();
+
+        // Add keyboard listener
+        document.addEventListener('keydown', this.handleKeydown);
+
+        // Move focus to first focusable element (with small delay for animation)
+        requestAnimationFrame(() => {
+          this.firstFocusable?.focus();
+        });
+      }
+
+      /**
+       * Close the modal
+       */
+      close() {
+        // Hide modal
+        this.modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+
+        // Remove keyboard listener
+        document.removeEventListener('keydown', this.handleKeydown);
+
+        // Return focus to the element that triggered the modal
+        this.previouslyFocused?.focus();
+      }
+
+      /**
+       * Setup the focus trap by finding all focusable elements
+       */
+      setupFocusTrap() {
+        const focusable = this.modal.querySelectorAll(this.focusableSelector);
+        this.firstFocusable = focusable[0];
+        this.lastFocusable = focusable[focusable.length - 1];
+      }
+
+      /**
+       * Handle keyboard events
+       * @param {KeyboardEvent} event
+       */
+      handleKeydown(event) {
+        // Close on Escape
+        if (event.key === 'Escape') {
+          this.close();
+          return;
+        }
+
+        // Trap focus on Tab
+        if (event.key === 'Tab') {
+          // Shift + Tab on first element → go to last
+          if (event.shiftKey && document.activeElement === this.firstFocusable) {
+            event.preventDefault();
+            this.lastFocusable.focus();
+          }
+          // Tab on last element → go to first
+          else if (!event.shiftKey && document.activeElement === this.lastFocusable) {
+            event.preventDefault();
+            this.firstFocusable.focus();
+          }
+        }
+      }
+
+      /**
+       * Handle backdrop clicks
+       * @param {MouseEvent} event
+       */
+      handleBackdropClick(event) {
+        if (event.target === this.modal || event.target.hasAttribute('data-modal-backdrop')) {
+          this.close();
+        }
+      }
+
+      /**
+       * Update modal content dynamically
+       * @param {Object} data - Content to display
+       */
+      setContent({ title, description, emoji, tags, link }) {
+        this.modal.querySelector('#modal-title').textContent = title;
+        this.modal.querySelector('#modal-description').textContent = description;
+        this.modal.querySelector('#modal-image').textContent = emoji;
+        this.modal.querySelector('#modal-link').href = link || '#';
+
+        // Update tags
+        const tagsContainer = this.modal.querySelector('#modal-tags');
+        tagsContainer.innerHTML = tags
+          .map(tag => `<span class="modal__tag">${tag}</span>`)
+          .join('');
+      }
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // Project Data (could come from API)
+    // ═══════════════════════════════════════════════════════════════════════
+    const projects = {
+      1: {
+        title: 'User Research Platform',
+        description: 'A comprehensive platform for conducting and analyzing UX research studies. Features include participant recruitment, session scheduling, video recording, and AI-powered insight extraction. Built with accessibility as a core principle, ensuring all users can participate in research.',
+        emoji: '🎯',
+        tags: ['UX Research', 'AI/ML', 'Accessibility', 'React'],
+        link: '/projects/user-research-platform/'
+      },
+      2: {
+        title: 'Performance Dashboard',
+        description: 'Real-time metrics visualization for web applications. The dashboard displays Core Web Vitals, custom performance markers, and historical trends. Features include alerting, anomaly detection, and integration with CI/CD pipelines for automated performance regression testing.',
+        emoji: '⚡',
+        tags: ['Data Visualization', 'Web Vitals', 'Real-time', 'D3.js'],
+        link: '/projects/performance-dashboard/'
+      },
+      3: {
+        title: 'Authentication Flow',
+        description: 'A secure, accessible authentication system supporting multiple methods: password, magic link, social login, and WebAuthn. The design prioritizes security without sacrificing usability, with clear error states and progressive enhancement for users with JavaScript disabled.',
+        emoji: '🔐',
+        tags: ['Security', 'WebAuthn', 'OAuth', 'Accessibility'],
+        link: '/projects/authentication-flow/'
+      }
+    };
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // Initialize
+    // ═══════════════════════════════════════════════════════════════════════
+    document.addEventListener('DOMContentLoaded', () => {
+      const modalElement = document.getElementById('project-modal');
+      const modal = new Modal(modalElement);
+
+      // Event delegation for project card triggers
+      document.querySelector('.projects-grid').addEventListener('click', (event) => {
+        const trigger = event.target.closest('[data-modal-trigger]');
+        if (!trigger) return;
+
+        const card = trigger.closest('.project-card');
+        const projectId = card.dataset.projectId;
+        const project = projects[projectId];
+
+        if (project) {
+          modal.setContent(project);
+          modal.open(trigger);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
