@@ -677,6 +677,19 @@
    es: 'Domina las pseudo-clases y pseudo-elementos para crear interfaces dinámicas y accesibles'
    en: 'Master pseudo-classes and pseudo-elements for dynamic, accessible interfaces'
 
+- slug: modals
+  title:
+   en: 'Modals & Navigation Patterns – New Page vs. Modal Dialogs'
+  path:
+   en: /lessons/en/modals/
+  file:
+   en: lessons/en/modals/index.md
+  status:
+   en: complete
+  description:
+   en: 'A critical exploration of when to use modals vs. new pages, with implementations in pure CSS and vanilla JavaScript'
+  category: ux
+
 - slug: web-design-trends
   title:
    es: 'Tendencias de diseño web moderno: teoría y práctica'
