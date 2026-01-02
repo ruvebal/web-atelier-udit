@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 17: Plyr.js | Web Video Lesson</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --text: #e4e4e7;
+      --muted: #71717a;
+      --accent: #8b5cf6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { color: var(--muted); }
+
+    .demo-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .demo-section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin: 1.5rem 0;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+
+    .info-box {
+      background: rgba(139, 92, 246, 0.1);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .info-box strong { color: var(--accent); }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>17. Plyr.js</h1>
+      <p class="subtitle">Lightweight, accessible, beautiful video player</p>
+    </header>
+
+    <section class="demo-section">
+      <h2>Plyr Player Demo</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">
+        Plyr provides a consistent, accessible video player experience across all browsers.
+      </p>
+
+      <div class="video-wrapper">
+        <video id="plyr-player" controls>
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+            type="video/webm"
+          >
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+          >
+          <track kind="captions" src="" srclang="en" label="English" />
+        </video>
+      </div>
+
+      <div class="code-block">
+        <code><span class="tag">&lt;video</span> <span class="attr">id</span>=<span class="value">"player"</span> <span class="attr">controls</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.mp4"</span> <span class="attr">type</span>=<span class="value">"video/mp4"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;track</span> <span class="attr">kind</span>=<span class="value">"captions"</span> <span class="attr">src</span>=<span class="value">"captions.vtt"</span> <span class="attr">srclang</span>=<span class="value">"en"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/video&gt;</span>
+
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span> <span class="attr">href</span>=<span class="value">"https://cdn.plyr.io/3.7.8/plyr.css"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="value">"https://cdn.plyr.io/3.7.8/plyr.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+  <span class="property">const</span> player = <span class="property">new</span> <span class="property">Plyr</span>(<span class="value">'#player'</span>, {
+    <span class="attr">controls</span>: [
+      <span class="value">'play-large'</span>, <span class="value">'restart'</span>, <span class="value">'rewind'</span>, <span class="value">'play'</span>,
+      <span class="value">'fast-forward'</span>, <span class="value">'progress'</span>, <span class="value">'current-time'</span>, <span class="value">'duration'</span>,
+      <span class="value">'mute'</span>, <span class="value">'volume'</span>, <span class="value">'captions'</span>, <span class="value">'settings'</span>,
+      <span class="value">'pip'</span>, <span class="value">'airplay'</span>, <span class="value">'fullscreen'</span>
+    ],
+    <span class="attr">settings</span>: [<span class="value">'captions'</span>, <span class="value">'quality'</span>, <span class="value">'speed'</span>],
+  });
+<span class="tag">&lt;/script&gt;</span></code>
+      </div>
+
+      <div class="info-box">
+        <strong>Plyr features:</strong>
+        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+          <li>~25KB bundle size</li>
+          <li>Excellent accessibility (WCAG compliant)</li>
+          <li>Consistent styling across browsers</li>
+          <li>Keyboard shortcuts</li>
+          <li>Picture-in-picture support</li>
+          <li>Customizable controls</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations · CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+  <script>
+    const player = new Plyr('#plyr-player', {
+      controls: [
+        'play-large',
+        'restart',
+        'rewind',
+        'play',
+        'fast-forward',
+        'progress',
+        'current-time',
+        'duration',
+        'mute',
+        'volume',
+        'captions',
+        'settings',
+        'pip',
+        'airplay',
+        'fullscreen'
+      ],
+      settings: ['captions', 'quality', 'speed']
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 01: Basic HTML5 Video | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --text-primary: #e8e6e3;
+      --text-secondary: #9ca3af;
+      --accent: #7c3aed;
+      --accent-light: #a78bfa;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-display);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse at top, rgba(124, 58, 237, 0.15), transparent 50%),
+        radial-gradient(ellipse at bottom, rgba(16, 185, 129, 0.1), transparent 50%);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-light), var(--success));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+
+    .demo-section {
+      background: var(--bg-secondary);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .demo-section h2 {
+      font-size: 1.25rem;
+      color: var(--accent-light);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .demo-section h2::before {
+      content: '▸';
+      color: var(--success);
+    }
+
+    .video-container {
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+
+    .video-container video {
+      width: 100%;
+      display: block;
+    }
+
+    .code-block {
+      background: #1a1a24;
+      border-radius: 8px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .code-block pre {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: #e8e6e3;
+    }
+
+    .code-block code {
+      color: inherit;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+    .comment { color: #8b949e; font-style: italic; }
+
+    .info-box {
+      background: rgba(124, 58, 237, 0.1);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .info-box strong {
+      color: var(--accent-light);
+    }
+
+    .attributes-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .attributes-table th,
+    .attributes-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .attributes-table th {
+      color: var(--accent-light);
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .attributes-table td:first-child {
+      font-family: var(--font-mono);
+      color: var(--success);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge--boolean {
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--success);
+    }
+
+    .badge--string {
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--accent-light);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .demo-section {
+        padding: 1.25rem;
+      }
+
+      .attributes-table {
+        font-size: 0.8rem;
+      }
+
+      .attributes-table th,
+      .attributes-table td {
+        padding: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>01. Basic HTML5 Video</h1>
+      <p class="subtitle">The foundation of web video—semantic, accessible, and native</p>
+    </header>
+
+    <main>
+      <section class="demo-section">
+        <h2>Minimal Example</h2>
+        <p>The simplest video implementation with just source and controls.</p>
+
+        <div class="video-container">
+          <video
+            controls
+            poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+          >
+            <source
+              src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+              type="video/webm"
+            >
+            <source
+              src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+              type="video/mp4"
+            >
+            <p>Your browser doesn't support HTML5 video.
+              <a href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">Download the video</a>.
+            </p>
+          </video>
+        </div>
+
+        <div class="code-block">
+          <pre><code><span class="tag">&lt;video</span> <span class="attr">controls</span> <span class="attr">poster</span>=<span class="value">"thumbnail.jpg"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.webm"</span> <span class="attr">type</span>=<span class="value">"video/webm"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.mp4"</span> <span class="attr">type</span>=<span class="value">"video/mp4"</span><span class="tag">&gt;</span>
+  <span class="comment">&lt;!-- Fallback for no video support --&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Your browser doesn't support HTML5 video.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/video&gt;</span></code></pre>
+        </div>
+
+        <div class="info-box">
+          <strong>Why multiple sources?</strong> Different browsers support different video formats.
+          By providing both WebM and MP4, you ensure compatibility across all modern browsers.
+          The browser will use the first format it supports.
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Essential Attributes</h2>
+        <p>Understanding the key attributes that control video behavior.</p>
+
+        <table class="attributes-table">
+          <thead>
+            <tr>
+              <th>Attribute</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>controls</td>
+              <td><span class="badge badge--boolean">Boolean</span></td>
+              <td>Show native playback controls (play, pause, volume, etc.)</td>
+            </tr>
+            <tr>
+              <td>autoplay</td>
+              <td><span class="badge badge--boolean">Boolean</span></td>
+              <td>Start playing automatically (requires <code>muted</code> in most browsers)</td>
+            </tr>
+            <tr>
+              <td>muted</td>
+              <td><span class="badge badge--boolean">Boolean</span></td>
+              <td>Start with audio muted</td>
+            </tr>
+            <tr>
+              <td>loop</td>
+              <td><span class="badge badge--boolean">Boolean</span></td>
+              <td>Restart video when it ends</td>
+            </tr>
+            <tr>
+              <td>playsinline</td>
+              <td><span class="badge badge--boolean">Boolean</span></td>
+              <td>Play inline on iOS instead of fullscreen</td>
+            </tr>
+            <tr>
+              <td>poster</td>
+              <td><span class="badge badge--string">URL</span></td>
+              <td>Image to show before video plays</td>
+            </tr>
+            <tr>
+              <td>preload</td>
+              <td><span class="badge badge--string">none | metadata | auto</span></td>
+              <td>Hint for how much to preload before play</td>
+            </tr>
+            <tr>
+              <td>width / height</td>
+              <td><span class="badge badge--string">Number</span></td>
+              <td>Intrinsic dimensions (CSS should handle responsive sizing)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="demo-section">
+        <h2>Autoplay Example (Muted)</h2>
+        <p>Autoplaying video requires <code>muted</code> attribute due to browser policies.</p>
+
+        <div class="video-container">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+          >
+            <source
+              src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+              type="video/webm"
+            >
+            <source
+              src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+              type="video/mp4"
+            >
+          </video>
+        </div>
+
+        <div class="code-block">
+          <pre><code><span class="tag">&lt;video</span> <span class="attr">autoplay</span> <span class="attr">muted</span> <span class="attr">loop</span> <span class="attr">playsinline</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.webm"</span> <span class="attr">type</span>=<span class="value">"video/webm"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.mp4"</span> <span class="attr">type</span>=<span class="value">"video/mp4"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/video&gt;</span></code></pre>
+        </div>
+
+        <div class="info-box">
+          <strong>Browser autoplay policy:</strong> Since ~2018, browsers block autoplay with sound
+          to prevent annoying user experiences. To autoplay, you must include <code>muted</code>.
+          Users can then unmute if they choose.
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>The Fallback Pattern</h2>
+        <p>Always provide fallback content for accessibility and older browsers.</p>
+
+        <div class="code-block">
+          <pre><code><span class="tag">&lt;video</span> <span class="attr">controls</span> <span class="attr">poster</span>=<span class="value">"poster.jpg"</span><span class="tag">&gt;</span>
+  <span class="comment">&lt;!-- Best quality first, fallbacks follow --&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.webm"</span> <span class="attr">type</span>=<span class="value">"video/webm"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.mp4"</span> <span class="attr">type</span>=<span class="value">"video/mp4"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.ogv"</span> <span class="attr">type</span>=<span class="value">"video/ogg"</span><span class="tag">&gt;</span>
+
+  <span class="comment">&lt;!-- Fallback content if video not supported --&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="value">"video-fallback"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="value">"poster.jpg"</span> <span class="attr">alt</span>=<span class="value">"Video thumbnail"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;p&gt;</span>
+      Your browser doesn't support HTML5 video.
+      <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"video.mp4"</span><span class="tag">&gt;</span>Download the video<span class="tag">&lt;/a&gt;</span> (MP4, 12MB).
+    <span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/video&gt;</span></code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations ·
+        CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 03: Preload Strategies | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --text: #e4e4e7;
+      --muted: #71717a;
+      --accent: #8b5cf6;
+      --green: #22c55e;
+      --yellow: #f59e0b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: linear-gradient(180deg, var(--surface), transparent);
+      border-radius: 24px;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      background: linear-gradient(135deg, var(--accent), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { color: var(--muted); }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .demo-card {
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .demo-card__header {
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .demo-card__title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .demo-card__body {
+      padding: 1.5rem;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .strategy-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .strategy-info__icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+
+    .strategy-info--none .strategy-info__icon {
+      background: rgba(113, 113, 122, 0.3);
+      color: var(--muted);
+    }
+
+    .strategy-info--metadata .strategy-info__icon {
+      background: rgba(245, 158, 11, 0.3);
+      color: var(--yellow);
+    }
+
+    .strategy-info--auto .strategy-info__icon {
+      background: rgba(34, 197, 94, 0.3);
+      color: var(--green);
+    }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .comparison-table th {
+      background: rgba(255,255,255,0.02);
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>03. Preload Strategies</h1>
+      <p class="subtitle">Understanding when to preload video data</p>
+    </header>
+
+    <div class="demo-grid">
+      <!-- Preload None -->
+      <div class="demo-card">
+        <div class="demo-card__header">
+          <span class="demo-card__title">preload="none"</span>
+        </div>
+        <div class="demo-card__body">
+          <div class="strategy-info strategy-info--none">
+            <div class="strategy-info__icon">0</div>
+            <div>
+              <strong>No data downloaded</strong><br>
+              <span style="color: var(--muted); font-size: 0.8rem;">Best for: Below-fold videos, galleries</span>
+            </div>
+          </div>
+          <div class="video-wrapper">
+            <video
+              controls
+              preload="none"
+              poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+            >
+              <source
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                type="video/webm"
+              >
+              <source
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                type="video/mp4"
+              >
+            </video>
+          </div>
+          <div class="code-block">
+            <code><span class="tag">&lt;video</span> <span class="attr">preload</span>=<span class="value">"none"</span> <span class="attr">controls</span><span class="tag">&gt;</span></code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preload Metadata -->
+      <div class="demo-card">
+        <div class="demo-card__header">
+          <span class="demo-card__title">preload="metadata"</span>
+        </div>
+        <div class="demo-card__body">
+          <div class="strategy-info strategy-info--metadata">
+            <div class="strategy-info__icon">~</div>
+            <div>
+              <strong>~100-500KB downloaded</strong><br>
+              <span style="color: var(--muted); font-size: 0.8rem;">Best for: Most scenarios</span>
+            </div>
+          </div>
+          <div class="video-wrapper">
+            <video
+              controls
+              preload="metadata"
+              poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+            >
+              <source
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                type="video/webm"
+              >
+              <source
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                type="video/mp4"
+              >
+            </video>
+          </div>
+          <div class="code-block">
+            <code><span class="tag">&lt;video</span> <span class="attr">preload</span>=<span class="value">"metadata"</span> <span class="attr">controls</span><span class="tag">&gt;</span></code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preload Auto -->
+      <div class="demo-card">
+        <div class="demo-card__header">
+          <span class="demo-card__title">preload="auto"</span>
+        </div>
+        <div class="demo-card__body">
+          <div class="strategy-info strategy-info--auto">
+            <div class="strategy-info__icon">∞</div>
+            <div>
+              <strong>Entire video (browser discretion)</strong><br>
+              <span style="color: var(--muted); font-size: 0.8rem;">Best for: Critical above-fold content</span>
+            </div>
+          </div>
+          <div class="video-wrapper">
+            <video
+              controls
+              preload="auto"
+              poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+            >
+              <source
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                type="video/webm"
+              >
+              <source
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                type="video/mp4"
+              >
+            </video>
+          </div>
+          <div class="code-block">
+            <code><span class="tag">&lt;video</span> <span class="attr">preload</span>=<span class="value">"auto"</span> <span class="attr">controls</span><span class="tag">&gt;</span></code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section style="background: var(--surface); border-radius: 16px; padding: 2rem; margin-top: 3rem;">
+      <h2 style="color: var(--accent); margin-bottom: 1.5rem;">When to Use Each Strategy</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Strategy</th>
+            <th>Data Downloaded</th>
+            <th>Use Case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>none</code></td>
+            <td>Nothing</td>
+            <td>Below-fold videos, galleries with many videos</td>
+          </tr>
+          <tr>
+            <td><code>metadata</code></td>
+            <td>~100KB-500KB</td>
+            <td>Most scenarios, hero videos</td>
+          </tr>
+          <tr>
+            <td><code>auto</code></td>
+            <td>Entire video (at browser's discretion)</td>
+            <td>Above-fold critical content, short videos</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations · CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
+

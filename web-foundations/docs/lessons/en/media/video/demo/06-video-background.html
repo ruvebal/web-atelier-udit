@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 06: Video Background Hero | Web Video Lesson</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --text-light: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.8);
+      --accent: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-light);
+      background: #000;
+    }
+
+    /* Hero Section with Video Background */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero__video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    /* Dark overlay for text readability */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.6) 100%
+      );
+      z-index: 2;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .hero__badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      color: var(--accent);
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.375rem);
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    .hero__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2.5rem;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero__cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(245, 158, 11, 0.4);
+    }
+
+    .hero__cta svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Video Control Button */
+    .video-control {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.25rem;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      color: white;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .video-control:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .video-control__icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .video-control__icon--pause { display: block; }
+    .video-control__icon--play { display: none; }
+
+    .video-control[data-paused="true"] .video-control__icon--pause { display: none; }
+    .video-control[data-paused="true"] .video-control__icon--play { display: block; }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .scroll-indicator__mouse {
+      width: 24px;
+      height: 38px;
+      border: 2px solid currentColor;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .scroll-indicator__wheel {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 8px;
+      background: currentColor;
+      border-radius: 2px;
+      animation: scroll 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll {
+      0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 0.3; transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* Content Section */
+    .content {
+      min-height: 100vh;
+      background: #0a0a0f;
+      padding: 6rem 2rem;
+    }
+
+    .content__inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content h2 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--accent);
+    }
+
+    .content p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .content code {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+    }
+
+    .code-block {
+      background: #12121a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .code-block pre {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+    .comment { color: #8b949e; font-style: italic; }
+    .property { color: #ff7b72; }
+    .css-value { color: #a5d6ff; }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      .hero__video {
+        display: none;
+      }
+
+      .hero {
+        background: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&h=1080&fit=crop') center/cover no-repeat;
+      }
+
+      .scroll-indicator__wheel {
+        animation: none;
+      }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .video-control {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .scroll-indicator {
+        display: none;
+      }
+
+      .hero__badge {
+        font-size: 0.75rem;
+        padding: 0.375rem 1rem;
+      }
+
+      .hero__cta {
+        padding: 0.875rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section with Video Background -->
+  <section class="hero">
+    <video
+      class="hero__video"
+      id="heroVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&h=1080&fit=crop"
+    >
+      <source
+        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+        type="video/webm"
+      >
+      <source
+        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+        type="video/mp4"
+      >
+    </video>
+
+    <div class="hero__content">
+      <span class="hero__badge">Video Background Demo</span>
+      <h1 class="hero__title">Immersive Experiences Through Motion</h1>
+      <p class="hero__subtitle">
+        Background videos create atmosphere and set the tone for your brand.
+        When done right, they engage without overwhelming.
+      </p>
+      <a href="#learn-more" class="hero__cta">
+        Learn How It Works
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Video Control Button -->
+    <button class="video-control" id="videoControl" aria-label="Pause background video" data-paused="false">
+      <svg class="video-control__icon video-control__icon--pause" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <svg class="video-control__icon video-control__icon--play" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span class="video-control__text">Pause</span>
+    </button>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-indicator__mouse">
+        <div class="scroll-indicator__wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content" id="learn-more">
+    <div class="content__inner">
+      <h2>How It Works</h2>
+
+      <p>
+        Creating an immersive video background requires careful attention to several details:
+        the video must autoplay without sound, loop seamlessly, and provide a pause control
+        for users who prefer less motion.
+      </p>
+
+      <h3 style="color: #f59e0b; margin: 2rem 0 1rem;">HTML Structure</h3>
+
+      <div class="code-block">
+        <pre><code><span class="tag">&lt;section</span> <span class="attr">class</span>=<span class="value">"hero"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;video</span>
+    <span class="attr">class</span>=<span class="value">"hero__video"</span>
+    <span class="attr">autoplay</span>
+    <span class="attr">muted</span>
+    <span class="attr">loop</span>
+    <span class="attr">playsinline</span>
+    <span class="attr">poster</span>=<span class="value">"fallback-image.jpg"</span>
+  <span class="tag">&gt;</span>
+    <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"hero.webm"</span> <span class="attr">type</span>=<span class="value">"video/webm"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"hero.mp4"</span> <span class="attr">type</span>=<span class="value">"video/mp4"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;/video&gt;</span>
+
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="value">"hero__content"</span><span class="tag">&gt;</span>
+    <span class="comment">&lt;!-- Your content here --&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/section&gt;</span></code></pre>
+      </div>
+
+      <h3 style="color: #f59e0b; margin: 2rem 0 1rem;">CSS Styling</h3>
+
+      <div class="code-block">
+        <pre><code><span class="property">.hero</span> {
+  <span class="attr">position</span>: <span class="css-value">relative</span>;
+  <span class="attr">min-height</span>: <span class="css-value">100vh</span>;
+  <span class="attr">overflow</span>: <span class="css-value">hidden</span>;
+}
+
+<span class="property">.hero__video</span> {
+  <span class="attr">position</span>: <span class="css-value">absolute</span>;
+  <span class="attr">top</span>: <span class="css-value">50%</span>;
+  <span class="attr">left</span>: <span class="css-value">50%</span>;
+  <span class="attr">min-width</span>: <span class="css-value">100%</span>;
+  <span class="attr">min-height</span>: <span class="css-value">100%</span>;
+  <span class="attr">transform</span>: <span class="css-value">translate(-50%, -50%)</span>;
+  <span class="attr">object-fit</span>: <span class="css-value">cover</span>;
+  <span class="attr">z-index</span>: <span class="css-value">-1</span>;
+}
+
+<span class="comment">/* Dark overlay for text readability */</span>
+<span class="property">.hero::before</span> {
+  <span class="attr">content</span>: <span class="css-value">''</span>;
+  <span class="attr">position</span>: <span class="css-value">absolute</span>;
+  <span class="attr">inset</span>: <span class="css-value">0</span>;
+  <span class="attr">background</span>: <span class="css-value">linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7)
+  )</span>;
+  <span class="attr">z-index</span>: <span class="css-value">0</span>;
+}
+
+<span class="comment">/* Respect reduced motion preference */</span>
+<span class="property">@media (prefers-reduced-motion: reduce)</span> {
+  <span class="property">.hero__video</span> {
+    <span class="attr">display</span>: <span class="css-value">none</span>;
+  }
+
+  <span class="property">.hero</span> {
+    <span class="attr">background</span>: <span class="css-value">url('poster.jpg') center/cover</span>;
+  }
+}</code></pre>
+      </div>
+
+      <h3 style="color: #f59e0b; margin: 2rem 0 1rem;">Key Requirements</h3>
+
+      <p>
+        <strong><code>autoplay</code> + <code>muted</code></strong> — Browsers block autoplay with sound.
+        Always start muted for reliable autoplay.
+      </p>
+
+      <p>
+        <strong><code>playsinline</code></strong> — Prevents iOS from forcing fullscreen playback.
+        Essential for inline video backgrounds.
+      </p>
+
+      <p>
+        <strong><code>loop</code></strong> — Creates seamless continuous playback.
+        Make sure your video loops cleanly (first and last frames should match).
+      </p>
+
+      <p>
+        <strong><code>poster</code></strong> — Shows while video loads or if it fails.
+        Critical for slow connections and accessibility.
+      </p>
+
+      <p>
+        <strong>Pause control</strong> — Always provide a way for users to stop the video.
+        Some users find motion distracting or uncomfortable.
+      </p>
+
+      <p>
+        <strong><code>prefers-reduced-motion</code></strong> — Respect user system preferences.
+        Replace video with a static image for users who prefer less motion.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // Video control functionality
+    const video = document.getElementById('heroVideo');
+    const control = document.getElementById('videoControl');
+    const controlText = control.querySelector('.video-control__text');
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      video.pause();
+      control.dataset.paused = 'true';
+      controlText.textContent = 'Play';
+      control.setAttribute('aria-label', 'Play background video');
+    }
+
+    control.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        control.dataset.paused = 'false';
+        controlText.textContent = 'Pause';
+        control.setAttribute('aria-label', 'Pause background video');
+      } else {
+        video.pause();
+        control.dataset.paused = 'true';
+        controlText.textContent = 'Play';
+        control.setAttribute('aria-label', 'Play background video');
+      }
+    });
+
+    // Save preference to sessionStorage
+    control.addEventListener('click', () => {
+      sessionStorage.setItem('video-paused', video.paused);
+    });
+
+    // Restore preference on page load
+    if (sessionStorage.getItem('video-paused') === 'true') {
+      video.pause();
+      control.dataset.paused = 'true';
+      controlText.textContent = 'Play';
+    }
+
+    // Pause video when not visible (performance optimization)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting && !video.paused) {
+          video.pause();
+        } else if (entry.isIntersecting && control.dataset.paused === 'false') {
+          video.play();
+        }
+      });
+    }, { threshold: 0.25 });
+
+    observer.observe(video);
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 09: Lazy Loading Video | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --text: #e4e4e7;
+      --muted: #71717a;
+      --accent: #8b5cf6;
+      --green: #22c55e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+    header {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, var(--surface), transparent);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { color: var(--muted); font-size: 1.1rem; }
+
+    .scroll-hint {
+      margin-top: 3rem;
+      padding: 1rem 2rem;
+      background: var(--surface);
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--muted);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    .spacer {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 1.25rem;
+    }
+
+    .video-section {
+      padding: 4rem 0;
+    }
+
+    .video-section h2 {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .video-card {
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .video-card__video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      position: relative;
+    }
+
+    .video-card__video video {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .video-card__info {
+      padding: 1.5rem;
+    }
+
+    .video-card__title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .video-card__meta {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* Loading state indicator */
+    .video-card__video::before {
+      content: 'Video not loaded yet';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a24;
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: opacity 0.3s;
+    }
+
+    .video-card__video.loaded::before {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Status badge */
+    .status {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.375rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      z-index: 10;
+    }
+
+    .status--pending {
+      background: rgba(113, 113, 122, 0.3);
+      color: var(--muted);
+    }
+
+    .status--loaded {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--green);
+    }
+
+    .code-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 3rem 0;
+    }
+
+    .code-section h3 {
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .comment { color: #6b7280; }
+    .keyword { color: #c084fc; }
+    .string { color: #86efac; }
+    .function { color: #60a5fa; }
+    .property { color: #fbbf24; }
+
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>09. Lazy Loading Video</h1>
+    <p class="subtitle">Load videos only when they're about to be viewed</p>
+    <div class="scroll-hint">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+      Scroll down to see videos load on demand
+    </div>
+  </header>
+
+  <div class="spacer">
+    ↓ Keep scrolling to reach the videos ↓
+  </div>
+
+  <div class="container">
+    <section class="video-section">
+      <h2>Lazy Loaded Videos</h2>
+      <p style="color: var(--muted); margin-bottom: 2rem;">
+        These videos won't load until they're 200px from entering the viewport.
+        Watch the status badges change from "Pending" to "Loaded".
+      </p>
+
+      <!-- Video 1 -->
+      <div class="video-card">
+        <div class="video-card__video" id="video1Container">
+          <span class="status status--pending" id="status1">Pending</span>
+          <video
+            id="video1"
+            data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            poster="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&h=450&fit=crop"
+            controls
+            preload="none"
+          ></video>
+        </div>
+        <div class="video-card__info">
+          <h3 class="video-card__title">Nature Video 1</h3>
+          <p class="video-card__meta">Loads when scrolled into view</p>
+        </div>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="video-card">
+        <div class="video-card__video" id="video2Container">
+          <span class="status status--pending" id="status2">Pending</span>
+          <video
+            id="video2"
+            data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+            poster="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800&h=450&fit=crop"
+            controls
+            preload="none"
+          ></video>
+        </div>
+        <div class="video-card__info">
+          <h3 class="video-card__title">Nature Video 2</h3>
+          <p class="video-card__meta">Loads when scrolled into view</p>
+        </div>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="video-card">
+        <div class="video-card__video" id="video3Container">
+          <span class="status status--pending" id="status3">Pending</span>
+          <video
+            id="video3"
+            data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            poster="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop"
+            controls
+            preload="none"
+          ></video>
+        </div>
+        <div class="video-card__info">
+          <h3 class="video-card__title">Nature Video 3</h3>
+          <p class="video-card__meta">Loads when scrolled into view</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="code-section">
+      <h3>Implementation Code</h3>
+      <div class="code-block">
+        <pre><code><span class="comment">// Create observer with 200px root margin (preload before visible)</span>
+<span class="keyword">const</span> videoObserver = <span class="keyword">new</span> <span class="function">IntersectionObserver</span>((entries) => {
+  entries.<span class="function">forEach</span>(entry => {
+    <span class="keyword">if</span> (entry.<span class="property">isIntersecting</span>) {
+      <span class="keyword">const</span> video = entry.<span class="property">target</span>;
+
+      <span class="comment">// Set the src from data attribute</span>
+      video.<span class="property">src</span> = video.<span class="property">dataset</span>.<span class="property">src</span>;
+      video.<span class="function">load</span>();
+
+      <span class="comment">// Stop observing this video</span>
+      videoObserver.<span class="function">unobserve</span>(video);
+    }
+  });
+}, {
+  <span class="property">rootMargin</span>: <span class="string">'200px 0px'</span> <span class="comment">// Load 200px before entering viewport</span>
+});
+
+<span class="comment">// Observe all videos with data-src</span>
+document.<span class="function">querySelectorAll</span>(<span class="string">'video[data-src]'</span>).<span class="function">forEach</span>(video => {
+  videoObserver.<span class="function">observe</span>(video);
+});</code></pre>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>
+      Demo for <a href="../">Video on the Web Lesson</a> ·
+      UDIT Web Foundations · CC BY-NC-SA 4.0
+    </p>
+  </footer>
+
+  <script>
+    // Lazy loading implementation
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          const container = video.parentElement;
+          const statusEl = container.querySelector('.status');
+
+          // Set the src and load
+          video.src = video.dataset.src;
+          video.load();
+
+          // Update UI
+          container.classList.add('loaded');
+          if (statusEl) {
+            statusEl.textContent = 'Loaded';
+            statusEl.classList.remove('status--pending');
+            statusEl.classList.add('status--loaded');
+          }
+
+          console.log(`Video loaded: ${video.dataset.src}`);
+
+          // Stop observing
+          videoObserver.unobserve(video);
+        }
+      });
+    }, {
+      rootMargin: '200px 0px',
+      threshold: 0
+    });
+
+    // Observe all lazy videos
+    document.querySelectorAll('video[data-src]').forEach(video => {
+      videoObserver.observe(video);
+    });
+  </script>
+</body>
+</html>
+

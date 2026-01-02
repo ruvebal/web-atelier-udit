@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 16: Custom Video Player | Web Video Lesson</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #09090b;
+      --surface: #18181b;
+      --border: rgba(255,255,255,0.08);
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --accent: #e11d48;
+      --accent-light: #fb7185;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--accent-light);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Video Player Styles */
+    .video-player {
+      --progress-bg: rgba(255,255,255,0.2);
+      --progress-fill: var(--accent);
+
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    .video-player video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      cursor: pointer;
+    }
+
+    .video-player:fullscreen video {
+      aspect-ratio: auto;
+      height: 100%;
+    }
+
+    /* Controls Container */
+    .controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      padding: 3rem 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-player:hover .controls,
+    .video-player:focus-within .controls,
+    .video-player.paused .controls {
+      opacity: 1;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      position: relative;
+      height: 4px;
+      background: var(--progress-bg);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: height 0.2s;
+    }
+
+    .progress-container:hover {
+      height: 6px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: var(--progress-fill);
+      border-radius: 2px;
+      position: relative;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%) scale(0);
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    .progress-container:hover .progress-bar::after {
+      transform: translateY(-50%) scale(1);
+    }
+
+    .buffer-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: rgba(255,255,255,0.3);
+      border-radius: 2px;
+      width: 0%;
+    }
+
+    /* Control Buttons Row */
+    .controls-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      background: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    .btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .btn--large svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* Time Display */
+    .time-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      min-width: 100px;
+    }
+
+    .time-display .separator { margin: 0 0.25rem; }
+
+    /* Volume Control */
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .volume-slider {
+      width: 0;
+      opacity: 0;
+      transition: width 0.3s, opacity 0.3s;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      background: var(--progress-bg);
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .volume-control:hover .volume-slider {
+      width: 80px;
+      opacity: 1;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* Spacer */
+    .spacer { flex: 1; }
+
+    /* Playback Speed */
+    .speed-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      min-width: 40px;
+    }
+
+    /* Big Play Button (center) */
+    .big-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: rgba(0,0,0,0.6);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .video-player.paused .big-play {
+      opacity: 1;
+    }
+
+    .big-play:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: var(--accent);
+    }
+
+    .big-play svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+      margin-left: 4px;
+    }
+
+    /* Keyboard Shortcuts Hint */
+    .shortcuts {
+      max-width: 900px;
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .shortcut {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .shortcut kbd {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+    }
+
+    /* Hidden elements based on state */
+    .icon-play, .icon-pause, .icon-volume, .icon-mute { display: none; }
+    .video-player.paused .icon-play { display: block; }
+    .video-player:not(.paused) .icon-pause { display: block; }
+    .video-player.muted .icon-mute { display: block; }
+    .video-player:not(.muted) .icon-volume { display: block; }
+
+    @media (max-width: 640px) {
+      .shortcuts { grid-template-columns: repeat(2, 1fr); }
+      .time-display { min-width: auto; font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Custom Video Player</h1>
+  <p class="subtitle">Built with vanilla JavaScript and the HTMLVideoElement API</p>
+
+  <div class="video-player paused" id="player">
+    <video
+      id="video"
+      poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900&h=506&fit=crop"
+      preload="metadata"
+    >
+      <source
+        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+        type="video/webm"
+      >
+      <source
+        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+        type="video/mp4"
+      >
+    </video>
+
+    <!-- Big Play Button -->
+    <button class="big-play" id="bigPlay" aria-label="Play video">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+
+    <!-- Controls -->
+    <div class="controls">
+      <!-- Progress Bar -->
+      <div class="progress-container" id="progressContainer">
+        <div class="buffer-bar" id="bufferBar"></div>
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <!-- Controls Row -->
+      <div class="controls-row">
+        <button class="btn btn--large" id="playPause" aria-label="Play">
+          <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <svg class="icon-pause" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+          </svg>
+        </button>
+
+        <button class="btn" id="skipBack" aria-label="Skip back 10 seconds">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12.5 8.5L9 12l3.5 3.5M9 12h6"/>
+            <path d="M4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0z"/>
+            <text x="6" y="16" font-size="6" fill="currentColor" stroke="none">10</text>
+          </svg>
+        </button>
+
+        <button class="btn" id="skipForward" aria-label="Skip forward 10 seconds">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M11.5 8.5L15 12l-3.5 3.5M15 12H9"/>
+            <path d="M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0z"/>
+            <text x="11" y="16" font-size="6" fill="currentColor" stroke="none">10</text>
+          </svg>
+        </button>
+
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span class="separator">/</span>
+          <span id="duration">0:00</span>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="volume-control">
+          <button class="btn" id="muteBtn" aria-label="Mute">
+            <svg class="icon-volume" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+            <svg class="icon-mute" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+            </svg>
+          </button>
+          <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="100">
+        </div>
+
+        <button class="btn speed-btn" id="speedBtn" aria-label="Playback speed">1x</button>
+
+        <button class="btn" id="fullscreenBtn" aria-label="Fullscreen">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keyboard Shortcuts -->
+  <div class="shortcuts">
+    <div class="shortcut"><kbd>Space</kbd> Play/Pause</div>
+    <div class="shortcut"><kbd>←</kbd> Skip -5s</div>
+    <div class="shortcut"><kbd>→</kbd> Skip +5s</div>
+    <div class="shortcut"><kbd>↑</kbd> Volume up</div>
+    <div class="shortcut"><kbd>↓</kbd> Volume down</div>
+    <div class="shortcut"><kbd>M</kbd> Mute</div>
+    <div class="shortcut"><kbd>F</kbd> Fullscreen</div>
+  </div>
+
+  <script>
+    class VideoPlayer {
+      constructor(container) {
+        this.container = container;
+        this.video = container.querySelector('video');
+        this.playPauseBtn = container.querySelector('#playPause');
+        this.bigPlayBtn = container.querySelector('#bigPlay');
+        this.muteBtn = container.querySelector('#muteBtn');
+        this.volumeSlider = container.querySelector('#volumeSlider');
+        this.progressContainer = container.querySelector('#progressContainer');
+        this.progressBar = container.querySelector('#progressBar');
+        this.bufferBar = container.querySelector('#bufferBar');
+        this.currentTimeEl = container.querySelector('#currentTime');
+        this.durationEl = container.querySelector('#duration');
+        this.skipBackBtn = container.querySelector('#skipBack');
+        this.skipForwardBtn = container.querySelector('#skipForward');
+        this.speedBtn = container.querySelector('#speedBtn');
+        this.fullscreenBtn = container.querySelector('#fullscreenBtn');
+
+        this.speeds = [0.5, 0.75, 1, 1.25, 1.5, 2];
+        this.currentSpeedIndex = 2;
+
+        this.init();
+      }
+
+      init() {
+        // Play/Pause
+        this.playPauseBtn.addEventListener('click', () => this.togglePlay());
+        this.bigPlayBtn.addEventListener('click', () => this.togglePlay());
+        this.video.addEventListener('click', () => this.togglePlay());
+
+        // Video state changes
+        this.video.addEventListener('play', () => this.updatePlayState());
+        this.video.addEventListener('pause', () => this.updatePlayState());
+        this.video.addEventListener('volumechange', () => this.updateVolumeState());
+        this.video.addEventListener('loadedmetadata', () => this.updateDuration());
+        this.video.addEventListener('timeupdate', () => this.updateProgress());
+        this.video.addEventListener('progress', () => this.updateBuffer());
+
+        // Volume
+        this.muteBtn.addEventListener('click', () => this.toggleMute());
+        this.volumeSlider.addEventListener('input', () => this.updateVolume());
+
+        // Progress seeking
+        this.progressContainer.addEventListener('click', (e) => this.seek(e));
+
+        // Skip buttons
+        this.skipBackBtn.addEventListener('click', () => this.skip(-10));
+        this.skipForwardBtn.addEventListener('click', () => this.skip(10));
+
+        // Speed
+        this.speedBtn.addEventListener('click', () => this.cycleSpeed());
+
+        // Fullscreen
+        this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
+
+        // Keyboard
+        document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+      }
+
+      async togglePlay() {
+        if (this.video.paused) {
+          try {
+            await this.video.play();
+          } catch (err) {
+            console.error('Playback error:', err);
+          }
+        } else {
+          this.video.pause();
+        }
+      }
+
+      updatePlayState() {
+        const isPaused = this.video.paused;
+        this.container.classList.toggle('paused', isPaused);
+        this.playPauseBtn.setAttribute('aria-label', isPaused ? 'Play' : 'Pause');
+      }
+
+      toggleMute() {
+        this.video.muted = !this.video.muted;
+      }
+
+      updateVolumeState() {
+        this.container.classList.toggle('muted', this.video.muted || this.video.volume === 0);
+        this.volumeSlider.value = this.video.muted ? 0 : this.video.volume * 100;
+      }
+
+      updateVolume() {
+        this.video.volume = this.volumeSlider.value / 100;
+        this.video.muted = this.video.volume === 0;
+      }
+
+      updateDuration() {
+        this.durationEl.textContent = this.formatTime(this.video.duration);
+      }
+
+      updateProgress() {
+        const progress = (this.video.currentTime / this.video.duration) * 100;
+        this.progressBar.style.width = `${progress}%`;
+        this.currentTimeEl.textContent = this.formatTime(this.video.currentTime);
+      }
+
+      updateBuffer() {
+        if (this.video.buffered.length > 0) {
+          const buffered = (this.video.buffered.end(0) / this.video.duration) * 100;
+          this.bufferBar.style.width = `${buffered}%`;
+        }
+      }
+
+      seek(e) {
+        const rect = this.progressContainer.getBoundingClientRect();
+        const pos = (e.clientX - rect.left) / rect.width;
+        this.video.currentTime = pos * this.video.duration;
+      }
+
+      skip(seconds) {
+        this.video.currentTime = Math.max(0, Math.min(
+          this.video.duration,
+          this.video.currentTime + seconds
+        ));
+      }
+
+      cycleSpeed() {
+        this.currentSpeedIndex = (this.currentSpeedIndex + 1) % this.speeds.length;
+        const speed = this.speeds[this.currentSpeedIndex];
+        this.video.playbackRate = speed;
+        this.speedBtn.textContent = speed === 1 ? '1x' : `${speed}x`;
+      }
+
+      toggleFullscreen() {
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else {
+          this.container.requestFullscreen();
+        }
+      }
+
+      handleKeyboard(e) {
+        if (e.target.tagName === 'INPUT') return;
+
+        switch(e.key.toLowerCase()) {
+          case ' ':
+          case 'k':
+            e.preventDefault();
+            this.togglePlay();
+            break;
+          case 'arrowleft':
+            this.skip(-5);
+            break;
+          case 'arrowright':
+            this.skip(5);
+            break;
+          case 'arrowup':
+            e.preventDefault();
+            this.video.volume = Math.min(1, this.video.volume + 0.1);
+            break;
+          case 'arrowdown':
+            e.preventDefault();
+            this.video.volume = Math.max(0, this.video.volume - 0.1);
+            break;
+          case 'm':
+            this.toggleMute();
+            break;
+          case 'f':
+            this.toggleFullscreen();
+            break;
+        }
+      }
+
+      formatTime(seconds) {
+        if (isNaN(seconds)) return '0:00';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+      }
+    }
+
+    // Initialize
+    new VideoPlayer(document.getElementById('player'));
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 08: Reduced Motion Support | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg: #0d0d12;
+      --surface: #16161e;
+      --text: #e4e4e7;
+      --muted: #71717a;
+      --accent: #22c55e;
+      --warning: #f59e0b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { color: var(--muted); }
+
+    .demo-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .demo-section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-wrapper::after {
+      content: 'Video paused due to prefers-reduced-motion';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.8);
+      color: var(--accent);
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .video-wrapper::after {
+        opacity: 1;
+      }
+    }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin: 1.5rem 0;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+    .property { color: #ff7b72; }
+    .css-value { color: #a5d6ff; }
+
+    .info-box {
+      background: rgba(34, 197, 94, 0.1);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .info-box strong { color: var(--accent); }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid var(--warning);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .warning-box strong { color: var(--warning); }
+
+    .toggle-section {
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .toggle-btn {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .toggle-btn:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>08. Reduced Motion Support</h1>
+      <p class="subtitle">Respecting user preferences for motion sensitivity</p>
+    </header>
+
+    <section class="demo-section">
+      <h2>CSS Media Query Approach</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">
+        The <code>prefers-reduced-motion</code> media query allows you to disable or reduce
+        animations and video autoplay for users who prefer less motion.
+      </p>
+
+      <div class="video-wrapper">
+        <video
+          id="demoVideo"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+        >
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+            type="video/webm"
+          >
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+          >
+        </video>
+      </div>
+
+      <div class="code-block">
+        <code><span class="comment">/* Pause background video for users who prefer reduced motion */</span>
+<span class="property">@media (prefers-reduced-motion: reduce)</span> {
+  <span class="property">.hero__video</span> {
+    <span class="attr">display</span>: <span class="css-value">none</span>;
+  }
+
+  <span class="property">.hero</span> {
+    <span class="attr">background-image</span>: <span class="css-value">url('hero-poster.jpg')</span>;
+    <span class="attr">background-size</span>: <span class="css-value">cover</span>;
+    <span class="attr">background-position</span>: <span class="css-value">center</span>;
+  }
+}</code>
+      </div>
+
+      <div class="info-box">
+        <strong>How to test:</strong> Enable "Reduce motion" in your operating system settings:
+        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+          <li><strong>macOS:</strong> System Settings → Accessibility → Display → Reduce motion</li>
+          <li><strong>Windows:</strong> Settings → Ease of Access → Display → Show animations</li>
+          <li><strong>iOS:</strong> Settings → Accessibility → Motion → Reduce Motion</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>JavaScript Enhancement</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">
+        You can also check the preference in JavaScript and provide manual controls.
+      </p>
+
+      <div class="toggle-section">
+        <p style="margin-bottom: 1rem; color: var(--muted);">
+          Current preference: <strong id="motionPreference" style="color: var(--accent);">Checking...</strong>
+        </p>
+        <button class="toggle-btn" id="toggleBtn">Pause Video</button>
+      </div>
+
+      <div class="code-block">
+        <code><span class="comment">// Check for reduced motion preference</span>
+<span class="property">const</span> prefersReducedMotion = <span class="property">window</span>.<span class="property">matchMedia</span>(<span class="value">'(prefers-reduced-motion: reduce)'</span>).<span class="property">matches</span>;
+
+<span class="property">const</span> video = <span class="property">document</span>.<span class="property">querySelector</span>(<span class="value">'.hero__video'</span>);
+
+<span class="property">if</span> (prefersReducedMotion) {
+  video.<span class="property">pause</span>();
+  video.<span class="property">currentTime</span> = <span class="value">0</span>; <span class="comment">// Show first frame</span>
+} <span class="property">else</span> {
+  video.<span class="play</span>();
+}
+
+<span class="comment">// Also provide a manual toggle</span>
+<span class="property">const</span> toggleBtn = <span class="property">document</span>.<span class="property">querySelector</span>(<span class="value">'.video-toggle'</span>);
+toggleBtn.<span class="property">addEventListener</span>(<span class="value">'click'</span>, () => {
+  <span class="property">if</span> (video.<span class="property">paused</span>) {
+    video.<span class="property">play</span>();
+    toggleBtn.<span class="property">textContent</span> = <span class="value">'Pause Background'</span>;
+    toggleBtn.<span class="property">setAttribute</span>(<span class="value">'aria-pressed'</span>, <span class="value">'true'</span>);
+  } <span class="property">else</span> {
+    video.<span class="property">pause</span>();
+    toggleBtn.<span class="property">textContent</span> = <span class="value">'Play Background'</span>;
+    toggleBtn.<span class="property">setAttribute</span>(<span class="value">'aria-pressed'</span>, <span class="value">'false'</span>);
+  }
+});</code>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>Why This Matters</h2>
+      <div class="warning-box">
+        <strong>Motion sensitivity:</strong> Some users experience vestibular disorders,
+        motion sickness, or seizures triggered by moving content. Always provide:
+        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+          <li>A way to pause/stop video</li>
+          <li>Respect for <code>prefers-reduced-motion</code></li>
+          <li>Static fallback images</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations · CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const video = document.getElementById('demoVideo');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const motionPreference = document.getElementById('motionPreference');
+
+    // Check preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    motionPreference.textContent = prefersReducedMotion ? 'Reduced motion enabled' : 'Full motion';
+
+    if (prefersReducedMotion) {
+      video.pause();
+      toggleBtn.textContent = 'Video paused (reduced motion)';
+      toggleBtn.disabled = true;
+    }
+
+    // Manual toggle
+    toggleBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        toggleBtn.textContent = 'Pause Video';
+      } else {
+        video.pause();
+        toggleBtn.textContent = 'Play Video';
+      }
+    });
+
+    // Listen for preference changes
+    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+      if (e.matches) {
+        video.pause();
+        motionPreference.textContent = 'Reduced motion enabled';
+        toggleBtn.textContent = 'Video paused (reduced motion)';
+        toggleBtn.disabled = true;
+      } else {
+        motionPreference.textContent = 'Full motion';
+        toggleBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
+

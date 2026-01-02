@@ -1,3 +1,77 @@
-title: Course Site
-url: https://ruvebal.github.io/webapp-design-udit
-baseurl: /
+title: 'WEB ATELIER (UDIT) – Course Site'
+description: 'Course site for WEB ATELIER (UDIT) — Agile Teaching for Experiential Learning.'
+url: 'https://ruvebal.github.io'
+baseurl: '/webapp-design-udit'
+repository: 'ruvebal/webapp-design-udit'
+
+markdown: kramdown
+kramdown:
+ input: GFM
+ hard_wrap: false
+ parse_block_html: true
+ parse_span_html: true
+ show_warnings: false
+ auto_ids: true
+ auto_id_stripping: true
+
+ # Proper British curly quotes
+ smart_quotes: [lsquo, rsquo, ldquo, rdquo]
+
+ # Prefer real Unicode characters for punctuation & symbols
+ entity_output: as_char
+
+ # Typographic goodies
+ typographic_symbols:
+  hellip: '…'
+  ndash: '–'
+  mdash: '—'
+  laquo: '«'
+  raquo: '»'
+
+ # Footnotes
+ footnote_nr: 1
+ footnote_backlink: '↩'
+ footnote_backlink_inline: true
+ footnote_backlink_class: 'footnote-back'
+ footnote_prefix: ''
+
+ # IDs and ToC
+ toc_levels: 2..4
+
+theme: null
+highlighter: rouge
+permalink: pretty
+
+# Process files with front matter
+include:
+ - assets
+ - _data
+
+# Exclude CI and dev artifacts
+exclude:
+ - node_modules
+ - vendor
+ - Gemfile
+ - Gemfile.lock
+ - package.json
+ - package-lock.json
+ - scripts
+ - .github
+ - README.md
+ - README-es.md
+
+# Plugins available on GitHub Pages
+plugins:
+ - jekyll-seo-tag
+ - jekyll-sitemap
+
+# Language defaults
+defaults:
+ - scope:
+    path: '*/es'
+   values:
+    lang: 'es'
+ - scope:
+    path: '*/en'
+   values:
+    lang: 'en'

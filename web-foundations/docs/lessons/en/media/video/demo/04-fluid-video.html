@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 04: Fluid & Responsive Video | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg-primary: #0f0f14;
+      --bg-secondary: #16161e;
+      --bg-tertiary: #1e1e28;
+      --text-primary: #e4e4e7;
+      --text-secondary: #a1a1aa;
+      --accent-purple: #8b5cf6;
+      --accent-cyan: #22d3ee;
+      --accent-pink: #f472b6;
+      --font-display: 'Outfit', system-ui, sans-serif;
+      --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-display);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem 1rem;
+      background: linear-gradient(180deg, var(--bg-secondary), transparent);
+      border-radius: 24px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      font-weight: 300;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+    }
+
+    /* Demo Grid */
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .demo-card {
+      background: var(--bg-secondary);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .demo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .demo-card__header {
+      padding: 1rem 1.5rem;
+      background: var(--bg-tertiary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .demo-card__title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent-purple);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .demo-card__body {
+      padding: 1.5rem;
+    }
+
+    .demo-card__code {
+      background: var(--bg-primary);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      overflow-x: auto;
+    }
+
+    .demo-card__code pre {
+      white-space: pre-wrap;
+    }
+
+    /* Video Containers - Different Techniques */
+
+    /* Technique 1: Padding-bottom hack (classic) */
+    .video-wrapper--padding {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      background: #000;
+      border-radius: 8px;
+    }
+
+    .video-wrapper--padding video,
+    .video-wrapper--padding iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Technique 2: Modern aspect-ratio */
+    .video-wrapper--aspect {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .video-wrapper--aspect video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Technique 3: Container Query based */
+    .video-wrapper--container {
+      container-type: inline-size;
+      width: 100%;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .video-wrapper--container video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    @container (max-width: 400px) {
+      .video-wrapper--container video {
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    /* Ratio Showcase */
+    .ratio-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .ratio-item {
+      text-align: center;
+    }
+
+    .ratio-item__container {
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .ratio-item__container--16-9 { aspect-ratio: 16 / 9; }
+    .ratio-item__container--4-3 { aspect-ratio: 4 / 3; }
+    .ratio-item__container--21-9 { aspect-ratio: 21 / 9; }
+    .ratio-item__container--1-1 { aspect-ratio: 1 / 1; }
+    .ratio-item__container--9-16 { aspect-ratio: 9 / 16; max-width: 150px; margin: 0 auto 0.75rem; }
+
+    .ratio-item__label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .ratio-item__code {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      margin-top: 0.25rem;
+    }
+
+    /* Object Fit Comparison */
+    .object-fit-demo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .object-fit-item {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .object-fit-item__video {
+      width: 100%;
+      height: 200px;
+      background: #000;
+    }
+
+    .object-fit-item__video--cover video { object-fit: cover; }
+    .object-fit-item__video--contain video { object-fit: contain; }
+    .object-fit-item__video--fill video { object-fit: fill; }
+    .object-fit-item__video--none video { object-fit: none; }
+
+    .object-fit-item__video video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .object-fit-item__info {
+      padding: 1rem;
+    }
+
+    .object-fit-item__title {
+      font-weight: 600;
+      color: var(--accent-pink);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .object-fit-item__desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Code highlighting */
+    .code-block {
+      background: var(--bg-primary);
+      border-radius: 12px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .code-block pre {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+
+    .hljs-property { color: #7ee787; }
+    .hljs-value { color: #a5d6ff; }
+    .hljs-comment { color: #8b949e; font-style: italic; }
+    .hljs-selector { color: #ff7b72; }
+
+    /* Info cards */
+    .info-card {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(34, 211, 238, 0.1));
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .info-card__title {
+      font-weight: 600;
+      color: var(--accent-purple);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card__title::before {
+      content: '💡';
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      header {
+        padding: 2rem 1rem;
+      }
+
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>04. Fluid & Responsive Video</h1>
+      <p class="subtitle">Making video adapt beautifully to any screen size</p>
+    </header>
+
+    <main>
+      <!-- Technique Comparison -->
+      <section class="section">
+        <div class="section-header">
+          <h2>🎯 Three Techniques for Responsive Video</h2>
+          <p>Each approach has its use cases. Modern CSS makes this much easier.</p>
+        </div>
+
+        <div class="demo-grid">
+          <!-- Classic padding-bottom -->
+          <div class="demo-card">
+            <div class="demo-card__header">
+              <span class="demo-card__title">Classic: Padding-Bottom Hack</span>
+            </div>
+            <div class="demo-card__body">
+              <div class="video-wrapper--padding">
+                <video
+                  controls
+                  muted
+                  poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+                >
+                  <source
+                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                    type="video/webm"
+                  >
+                  <source
+                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                    type="video/mp4"
+                  >
+                </video>
+              </div>
+              <div class="demo-card__code">
+                <pre>.wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.wrapper video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}</pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modern aspect-ratio -->
+          <div class="demo-card">
+            <div class="demo-card__header">
+              <span class="demo-card__title">Modern: aspect-ratio Property</span>
+            </div>
+            <div class="demo-card__body">
+              <div class="video-wrapper--aspect">
+                <video
+                  controls
+                  muted
+                  poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+                >
+                  <source
+                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                    type="video/webm"
+                  >
+                  <source
+                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                    type="video/mp4"
+                  >
+                </video>
+              </div>
+              <div class="demo-card__code">
+                <pre>.wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}</pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Container Query -->
+          <div class="demo-card">
+            <div class="demo-card__header">
+              <span class="demo-card__title">Advanced: Container Queries</span>
+            </div>
+            <div class="demo-card__body">
+              <div class="video-wrapper--container">
+                <video
+                  controls
+                  muted
+                  poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+                >
+                  <source
+                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                    type="video/webm"
+                  >
+                  <source
+                    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                    type="video/mp4"
+                  >
+                </video>
+              </div>
+              <div class="demo-card__code">
+                <pre>.wrapper {
+  container-type: inline-size;
+}
+@container (max-width: 400px) {
+  video { aspect-ratio: 4/3; }
+}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__title">Which technique to use?</div>
+          <p>
+            <strong>Use <code>aspect-ratio</code></strong> for modern projects—it's cleaner and has
+            excellent browser support (95%+). The padding-bottom hack is only needed for legacy browser support.
+            Container queries are ideal when video ratio should change based on container size, not viewport.
+          </p>
+        </div>
+      </section>
+
+      <!-- Aspect Ratios -->
+      <section class="section">
+        <div class="section-header">
+          <h2>📐 Common Aspect Ratios</h2>
+          <p>Different ratios for different platforms and content types.</p>
+        </div>
+
+        <div class="ratio-showcase">
+          <div class="ratio-item">
+            <div class="ratio-item__container ratio-item__container--16-9">16:9</div>
+            <div class="ratio-item__label">Standard HD/4K, YouTube</div>
+            <div class="ratio-item__code">aspect-ratio: 16 / 9;</div>
+          </div>
+          <div class="ratio-item">
+            <div class="ratio-item__container ratio-item__container--4-3">4:3</div>
+            <div class="ratio-item__label">Classic TV, Webcams</div>
+            <div class="ratio-item__code">aspect-ratio: 4 / 3;</div>
+          </div>
+          <div class="ratio-item">
+            <div class="ratio-item__container ratio-item__container--21-9">21:9</div>
+            <div class="ratio-item__label">Cinematic Ultra-wide</div>
+            <div class="ratio-item__code">aspect-ratio: 21 / 9;</div>
+          </div>
+          <div class="ratio-item">
+            <div class="ratio-item__container ratio-item__container--1-1">1:1</div>
+            <div class="ratio-item__label">Instagram, Social</div>
+            <div class="ratio-item__code">aspect-ratio: 1 / 1;</div>
+          </div>
+          <div class="ratio-item">
+            <div class="ratio-item__container ratio-item__container--9-16">9:16</div>
+            <div class="ratio-item__label">TikTok, Reels, Stories</div>
+            <div class="ratio-item__code">aspect-ratio: 9 / 16;</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Object-fit Comparison -->
+      <section class="section">
+        <div class="section-header">
+          <h2>🎨 Object-fit Property</h2>
+          <p>Control how video fills its container when dimensions don't match.</p>
+        </div>
+
+        <div class="object-fit-demo">
+          <div class="object-fit-item">
+            <div class="object-fit-item__video object-fit-item__video--cover">
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+              >
+                <source
+                  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                  type="video/webm"
+                >
+                <source
+                  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                  type="video/mp4"
+                >
+              </video>
+            </div>
+            <div class="object-fit-item__info">
+              <div class="object-fit-item__title">object-fit: cover</div>
+              <div class="object-fit-item__desc">
+                Fills container, crops to fit. Best for backgrounds.
+              </div>
+            </div>
+          </div>
+
+          <div class="object-fit-item">
+            <div class="object-fit-item__video object-fit-item__video--contain">
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+              >
+                <source
+                  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                  type="video/webm"
+                >
+                <source
+                  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                  type="video/mp4"
+                >
+              </video>
+            </div>
+            <div class="object-fit-item__info">
+              <div class="object-fit-item__title">object-fit: contain</div>
+              <div class="object-fit-item__desc">
+                Shows entire video, may have letterbox. Best for content.
+              </div>
+            </div>
+          </div>
+
+          <div class="object-fit-item">
+            <div class="object-fit-item__video object-fit-item__video--fill">
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+              >
+                <source
+                  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                  type="video/webm"
+                >
+                <source
+                  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                  type="video/mp4"
+                >
+              </video>
+            </div>
+            <div class="object-fit-item__info">
+              <div class="object-fit-item__title">object-fit: fill</div>
+              <div class="object-fit-item__desc">
+                Stretches to fill. Usually distorts—avoid for video.
+              </div>
+            </div>
+          </div>
+
+          <div class="object-fit-item">
+            <div class="object-fit-item__video object-fit-item__video--none">
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+              >
+                <source
+                  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                  type="video/webm"
+                >
+                <source
+                  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                  type="video/mp4"
+                >
+              </video>
+            </div>
+            <div class="object-fit-item__info">
+              <div class="object-fit-item__title">object-fit: none</div>
+              <div class="object-fit-item__desc">
+                Native size, clips if needed. Useful for precise positioning.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Full CSS Example -->
+      <section class="section">
+        <div class="section-header">
+          <h2>📝 Complete Responsive Video CSS</h2>
+          <p>Copy-paste ready solution for most use cases.</p>
+        </div>
+
+        <div class="code-block">
+          <pre><span class="hljs-comment">/* Modern responsive video wrapper */</span>
+<span class="hljs-selector">.video-responsive</span> {
+  <span class="hljs-property">width</span>: <span class="hljs-value">100%</span>;
+  <span class="hljs-property">max-width</span>: <span class="hljs-value">1200px</span>;
+  <span class="hljs-property">margin</span>: <span class="hljs-value">0 auto</span>;
+}
+
+<span class="hljs-selector">.video-responsive video,
+.video-responsive iframe</span> {
+  <span class="hljs-property">width</span>: <span class="hljs-value">100%</span>;
+  <span class="hljs-property">aspect-ratio</span>: <span class="hljs-value">16 / 9</span>;
+  <span class="hljs-property">border-radius</span>: <span class="hljs-value">12px</span>;
+  <span class="hljs-property">background</span>: <span class="hljs-value">#000</span>;
+}
+
+<span class="hljs-comment">/* For background videos that fill container */</span>
+<span class="hljs-selector">.video-background video</span> {
+  <span class="hljs-property">width</span>: <span class="hljs-value">100%</span>;
+  <span class="hljs-property">height</span>: <span class="hljs-value">100%</span>;
+  <span class="hljs-property">object-fit</span>: <span class="hljs-value">cover</span>;
+  <span class="hljs-property">object-position</span>: <span class="hljs-value">center</span>;
+}
+
+<span class="hljs-comment">/* Art direction: different ratios for mobile */</span>
+<span class="hljs-selector">@media (max-width: 768px)</span> {
+  <span class="hljs-selector">.video-responsive video</span> {
+    <span class="hljs-property">aspect-ratio</span>: <span class="hljs-value">4 / 3</span>;
+  }
+
+  <span class="hljs-selector">.video-vertical video</span> {
+    <span class="hljs-property">aspect-ratio</span>: <span class="hljs-value">9 / 16</span>;
+    <span class="hljs-property">max-width</span>: <span class="hljs-value">400px</span>;
+    <span class="hljs-property">margin</span>: <span class="hljs-value">0 auto</span>;
+  }
+}</pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations ·
+        CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
+

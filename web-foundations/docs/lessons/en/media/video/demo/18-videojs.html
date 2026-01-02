@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 18: Video.js | Web Video Lesson</title>
+  <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --text: #e4e4e7;
+      --muted: #71717a;
+      --accent: #ef4444;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { color: var(--muted); }
+
+    .demo-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .demo-section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin: 1.5rem 0;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+
+    .info-box {
+      background: rgba(239, 68, 68, 0.1);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .info-box strong { color: var(--accent); }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>18. Video.js</h1>
+      <p class="subtitle">Enterprise-grade video player with extensive plugin ecosystem</p>
+    </header>
+
+    <section class="demo-section">
+      <h2>Video.js Player Demo</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">
+        Video.js is the most feature-rich open source player, used by companies like
+        Brightcove, Netflix, and many others.
+      </p>
+
+      <div class="video-wrapper">
+        <video
+          id="videojs-player"
+          class="video-js vjs-big-play-centered"
+          controls
+          preload="auto"
+          poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+          data-setup="{}"
+        >
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+            type="video/webm"
+          >
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+          >
+          <track kind="captions" src="" srclang="en" label="English" />
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that supports HTML5 video
+          </p>
+        </video>
+      </div>
+
+      <div class="code-block">
+        <code><span class="tag">&lt;video</span>
+  <span class="attr">id</span>=<span class="value">"my-video"</span>
+  <span class="attr">class</span>=<span class="value">"video-js vjs-big-play-centered"</span>
+  <span class="attr">controls</span>
+  <span class="attr">preload</span>=<span class="value">"auto"</span>
+  <span class="attr">poster</span>=<span class="value">"poster.jpg"</span>
+  <span class="attr">data-setup</span>=<span class="value">"{}"</span>
+<span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.mp4"</span> <span class="attr">type</span>=<span class="value">"video/mp4"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;track</span> <span class="attr">kind</span>=<span class="value">"captions"</span> <span class="attr">src</span>=<span class="value">"captions.vtt"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/video&gt;</span>
+
+<span class="tag">&lt;link</span> <span class="attr">href</span>=<span class="value">"https://vjs.zencdn.net/8.5.2/video-js.css"</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="value">"https://vjs.zencdn.net/8.5.2/video.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+  <span class="property">const</span> player = <span class="property">videojs</span>(<span class="value">'my-video'</span>, {
+    <span class="attr">controls</span>: <span class="value">true</span>,
+    <span class="attr">playbackRates</span>: [<span class="value">0.5</span>, <span class="value">1</span>, <span class="value">1.5</span>, <span class="value">2</span>],
+  });
+<span class="tag">&lt;/script&gt;</span></code>
+      </div>
+
+      <div class="info-box">
+        <strong>Video.js features:</strong>
+        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+          <li>~300KB bundle size</li>
+          <li>Extensive plugin ecosystem</li>
+          <li>Built-in HLS/DASH support</li>
+          <li>Highly customizable</li>
+          <li>Used by major companies</li>
+          <li>Active community and support</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations · CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+
+  <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
+  <script>
+    const player = videojs('videojs-player', {
+      controls: true,
+      autoplay: false,
+      preload: 'auto',
+      fluid: true,
+      responsive: true,
+      playbackRates: [0.5, 1, 1.5, 2]
+    });
+  </script>
+</body>
+</html>
+

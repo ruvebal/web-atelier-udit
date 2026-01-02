@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 05: Art Direction for Video | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg: #0f0f14;
+      --surface: #1a1a22;
+      --text: #e8e6e3;
+      --muted: #9ca3af;
+      --accent: #22d3ee;
+      --purple: #8b5cf6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { color: var(--muted); }
+
+    .demo-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .demo-section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .viewport-info {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(34, 211, 238, 0.1);
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin: 1.5rem 0;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+    .comment { color: #6b7280; font-style: italic; }
+
+    .info-box {
+      background: rgba(139, 92, 246, 0.1);
+      border-left: 3px solid var(--purple);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .info-box strong { color: var(--purple); }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 767px) {
+      .viewport-info::after {
+        content: ' (Mobile Portrait)';
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .viewport-info::after {
+        content: ' (Tablet)';
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .viewport-info::after {
+        content: ' (Desktop)';
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>05. Art Direction for Video</h1>
+      <p class="subtitle">Serve different video crops based on viewport size</p>
+    </header>
+
+    <section class="demo-section">
+      <h2>Responsive Video with Art Direction</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">
+        This video uses the <code>media</code> attribute on <code>&lt;source&gt;</code> elements
+        to serve different video crops based on your viewport size. Resize your browser to see the effect.
+      </p>
+
+      <div class="viewport-info" id="viewportInfo">
+        Viewport: <span id="viewportSize"></span>
+      </div>
+
+      <div class="video-wrapper">
+        <video controls poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop">
+          <!-- Vertical video for mobile portrait -->
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+            media="(max-width: 767px) and (orientation: portrait)"
+          >
+          <!-- Square video for tablet -->
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+            media="(min-width: 768px) and (max-width: 1023px)"
+          >
+          <!-- Widescreen for desktop -->
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+            media="(min-width: 1024px)"
+          >
+          <!-- Fallback -->
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+          >
+        </video>
+      </div>
+
+      <div class="code-block">
+        <code><span class="tag">&lt;video</span> <span class="attr">controls</span> <span class="attr">poster</span>=<span class="value">"poster.jpg"</span><span class="tag">&gt;</span>
+  <span class="comment">&lt;!-- Vertical video for mobile --&gt;</span>
+  <span class="tag">&lt;source</span>
+    <span class="attr">src</span>=<span class="value">"video-vertical.mp4"</span>
+    <span class="attr">type</span>=<span class="value">"video/mp4"</span>
+    <span class="attr">media</span>=<span class="value">"(max-width: 767px) and (orientation: portrait)"</span>
+  <span class="tag">/&gt;</span>
+
+  <span class="comment">&lt;!-- Square video for tablet --&gt;</span>
+  <span class="tag">&lt;source</span>
+    <span class="attr">src</span>=<span class="value">"video-square.mp4"</span>
+    <span class="attr">type</span>=<span class="value">"video/mp4"</span>
+    <span class="attr">media</span>=<span class="value">"(min-width: 768px) and (max-width: 1023px)"</span>
+  <span class="tag">/&gt;</span>
+
+  <span class="comment">&lt;!-- Widescreen for desktop --&gt;</span>
+  <span class="tag">&lt;source</span>
+    <span class="attr">src</span>=<span class="value">"video-widescreen.mp4"</span>
+    <span class="attr">type</span>=<span class="value">"video/mp4"</span>
+    <span class="attr">media</span>=<span class="value">"(min-width: 1024px)"</span>
+  <span class="tag">/&gt;</span>
+
+  <span class="comment">&lt;!-- Fallback --&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video-standard.mp4"</span> <span class="attr">type</span>=<span class="value">"video/mp4"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/video&gt;</span></code>
+      </div>
+
+      <div class="info-box">
+        <strong>Note:</strong> In production, you would create different video crops during editing/encoding.
+        This demo uses the same video file for all breakpoints to illustrate the concept.
+        The browser will select the first <code>&lt;source&gt;</code> whose <code>media</code> query matches.
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>Why Art Direction Matters</h2>
+      <p style="color: var(--muted);">
+        Different screen sizes have different optimal aspect ratios and compositions.
+        Art direction ensures your video content looks intentional and professional on every device:
+      </p>
+      <ul style="margin: 1rem 0; padding-left: 1.5rem; color: var(--muted);">
+        <li><strong style="color: var(--text);">Mobile (9:16):</strong> Vertical composition, centered subjects, larger text</li>
+        <li><strong style="color: var(--text);">Tablet (1:1 or 4:3):</strong> Square or classic TV ratio, balanced framing</li>
+        <li><strong style="color: var(--text);">Desktop (16:9 or 21:9):</strong> Widescreen, cinematic framing, detail in background</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations · CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function updateViewportInfo() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const size = document.getElementById('viewportSize');
+      size.textContent = `${width}×${height}px`;
+    }
+
+    updateViewportInfo();
+    window.addEventListener('resize', updateViewportInfo);
+  </script>
+</body>
+</html>
+

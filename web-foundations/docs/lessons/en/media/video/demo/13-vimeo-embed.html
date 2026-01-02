@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 13: Vimeo Embeds | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg: #0f0f14;
+      --surface: #1a1a22;
+      --text: #e8e6e3;
+      --muted: #9ca3af;
+      --vimeo-blue: #1ab7ea;
+      --green: #22c55e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--vimeo-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { color: var(--muted); }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .demo-card {
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .demo-card__header {
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .demo-card__title {
+      font-weight: 600;
+      color: var(--vimeo-blue);
+    }
+
+    .demo-card__body { padding: 1.5rem; }
+
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+
+    .info-box {
+      background: rgba(26, 183, 234, 0.1);
+      border-left: 3px solid var(--vimeo-blue);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .info-box strong { color: var(--vimeo-blue); }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--vimeo-blue); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .demo-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>13. Vimeo Embeds</h1>
+      <p class="subtitle">Professional video hosting with cleaner aesthetics</p>
+    </header>
+
+    <div class="demo-grid">
+      <!-- Basic Embed -->
+      <div class="demo-card">
+        <div class="demo-card__header">
+          <span class="demo-card__title">Basic Vimeo Embed</span>
+        </div>
+        <div class="demo-card__body">
+          <div class="video-wrapper">
+            <iframe
+              src="https://player.vimeo.com/video/148751763?h=1f8f4c8e3a&title=0&byline=0&portrait=0"
+              title="Vimeo Video Example"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="code-block">
+            <code><span class="tag">&lt;iframe</span>
+  <span class="attr">src</span>=<span class="value">"https://player.vimeo.com/video/VIDEO_ID?h=HASH&title=0&byline=0&portrait=0"</span>
+  <span class="attr">title</span>=<span class="value">"Video Title"</span>
+  <span class="attr">allowfullscreen</span>
+  <span class="attr">loading</span>=<span class="value">"lazy"</span>
+<span class="tag">&gt;&lt;/iframe&gt;</span></code>
+          </div>
+        </div>
+      </div>
+
+      <!-- With API -->
+      <div class="demo-card">
+        <div class="demo-card__header">
+          <span class="demo-card__title">Vimeo Player API</span>
+        </div>
+        <div class="demo-card__body">
+          <div class="video-wrapper">
+            <div id="vimeo-player" data-vimeo-id="148751763"></div>
+          </div>
+          <div class="code-block">
+            <code><span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="value">"https://player.vimeo.com/api/player.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+
+<span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="value">"vimeo-player"</span> <span class="attr">data-vimeo-id</span>=<span class="value">"VIDEO_ID"</span><span class="tag">&gt;&lt;/div&gt;</span>
+
+<span class="tag">&lt;script&gt;</span>
+  <span class="property">const</span> player = <span class="property">new</span> <span class="property">Vimeo</span>.<span class="property">Player</span>(<span class="value">'vimeo-player'</span>, {
+    <span class="attr">id</span>: <span class="property">VIDEO_ID</span>,
+    <span class="attr">width</span>: <span class="value">640</span>,
+    <span class="attr">responsive</span>: <span class="value">true</span>
+  });
+
+  player.<span class="property">on</span>(<span class="value">'play'</span>, () => <span class="property">console</span>.<span class="property">log</span>(<span class="value">'Video started'</span>));
+  player.<span class="property">on</span>(<span class="value">'ended'</span>, () => <span class="property">console</span>.<span class="property">log</span>(<span class="value">'Video finished'</span>));
+<span class="tag">&lt;/script&gt;</span></code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section style="background: var(--surface); border-radius: 16px; padding: 2rem; margin-top: 2rem;">
+      <h2 style="color: var(--vimeo-blue); margin-bottom: 1rem;">Vimeo vs YouTube</h2>
+      <div class="info-box">
+        <strong>Vimeo advantages:</strong>
+        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+          <li>Cleaner, more professional player design</li>
+          <li>No ads (on paid plans)</li>
+          <li>Better privacy controls</li>
+          <li>Higher quality default encoding</li>
+          <li>More customization options</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations · CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    const player = new Vimeo.Player('vimeo-player', {
+      id: 148751763,
+      width: 640,
+      responsive: true
+    });
+
+    player.on('play', () => console.log('Video started'));
+    player.on('ended', () => console.log('Video finished'));
+  </script>
+</body>
+</html>
+

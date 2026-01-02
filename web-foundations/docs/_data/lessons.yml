@@ -704,6 +704,24 @@
    es: complete
    en: complete
 
+- slug: video-on-web
+  title:
+   es: 'Video en la Web – De HTML5 a Experiencias Listas para Producción'
+   en: 'Video on the Web – From HTML5 to Production-Ready Experiences'
+  path:
+   es: /lessons/es/media/video/
+   en: /lessons/en/media/video/
+  file:
+   es: lessons/es/media/video/index.md
+   en: lessons/en/media/video/index.md
+  status:
+   es: stub
+   en: complete
+  category: media
+  description:
+   es: 'Guía completa sobre video en la web: HTML5, accesibilidad, rendimiento y bibliotecas'
+   en: 'Complete guide to video on the web: HTML5, accessibility, performance, and libraries'
+
 - slug: portfolio-template-brief
   title:
    es: 'Proyecto Final del Curso: Plantilla Profesional de Portfolio'

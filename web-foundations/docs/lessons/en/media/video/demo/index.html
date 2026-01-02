@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Video Demos | Web Video Lesson</title>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+			:root {
+				--bg: #0a0a0f;
+				--surface: #111118;
+				--surface-2: #1a1a24;
+				--text: #e8e6e3;
+				--muted: #9ca3af;
+				--accent-1: #8b5cf6;
+				--accent-2: #22d3ee;
+				--accent-3: #f472b6;
+				--accent-4: #22c55e;
+				--accent-5: #f59e0b;
+			}
+
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: 'Space Grotesk', system-ui, sans-serif;
+				background: var(--bg);
+				color: var(--text);
+				min-height: 100vh;
+				line-height: 1.6;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 2rem;
+			}
+
+			header {
+				text-align: center;
+				padding: 4rem 2rem;
+				background: linear-gradient(180deg, var(--surface), transparent);
+				margin-bottom: 2rem;
+			}
+
+			h1 {
+				font-size: clamp(2rem, 5vw, 3.5rem);
+				font-weight: 700;
+				background: linear-gradient(135deg, var(--accent-2), var(--accent-1), var(--accent-3));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				margin-bottom: 1rem;
+			}
+
+			.subtitle {
+				color: var(--muted);
+				font-size: 1.125rem;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+
+			.back-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				color: var(--accent-2);
+				text-decoration: none;
+				margin-bottom: 2rem;
+				font-size: 0.9rem;
+				transition: color 0.2s;
+			}
+
+			.back-link:hover {
+				color: var(--accent-1);
+			}
+
+			/* Demo Categories */
+			.category {
+				margin-bottom: 3rem;
+			}
+
+			.category__title {
+				font-size: 1.25rem;
+				font-weight: 600;
+				margin-bottom: 1.5rem;
+				padding-bottom: 0.75rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+			}
+
+			.category__icon {
+				width: 32px;
+				height: 32px;
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1rem;
+			}
+
+			.category--fundamentals .category__icon {
+				background: rgba(139, 92, 246, 0.2);
+			}
+			.category--responsive .category__icon {
+				background: rgba(34, 211, 238, 0.2);
+			}
+			.category--accessibility .category__icon {
+				background: rgba(34, 197, 94, 0.2);
+			}
+			.category--performance .category__icon {
+				background: rgba(245, 158, 11, 0.2);
+			}
+			.category--embeds .category__icon {
+				background: rgba(244, 114, 182, 0.2);
+			}
+			.category--advanced .category__icon {
+				background: rgba(239, 68, 68, 0.2);
+			}
+
+			/* Demo Grid */
+			.demo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 1.25rem;
+			}
+
+			.demo-card {
+				background: var(--surface);
+				border-radius: 12px;
+				overflow: hidden;
+				border: 1px solid rgba(255, 255, 255, 0.05);
+				transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+
+			.demo-card:hover {
+				transform: translateY(-4px);
+				border-color: rgba(255, 255, 255, 0.1);
+				box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+			}
+
+			.demo-card__preview {
+				height: 140px;
+				background: var(--surface-2);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 3rem;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.demo-card__preview::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.03));
+			}
+
+			.demo-card__body {
+				padding: 1.25rem;
+			}
+
+			.demo-card__number {
+				font-size: 0.75rem;
+				font-weight: 600;
+				color: var(--muted);
+				margin-bottom: 0.25rem;
+			}
+
+			.demo-card__title {
+				font-size: 1rem;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+			}
+
+			.demo-card__desc {
+				font-size: 0.85rem;
+				color: var(--muted);
+				line-height: 1.5;
+			}
+
+			/* Color accents for cards */
+			.demo-card--purple:hover {
+				border-color: var(--accent-1);
+			}
+			.demo-card--cyan:hover {
+				border-color: var(--accent-2);
+			}
+			.demo-card--green:hover {
+				border-color: var(--accent-4);
+			}
+			.demo-card--amber:hover {
+				border-color: var(--accent-5);
+			}
+			.demo-card--pink:hover {
+				border-color: var(--accent-3);
+			}
+
+			footer {
+				text-align: center;
+				padding: 4rem 2rem 2rem;
+				color: var(--muted);
+				font-size: 0.875rem;
+			}
+
+			footer a {
+				color: var(--accent-2);
+				text-decoration: none;
+			}
+			footer a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>🎬 Video Demos</h1>
+			<p class="subtitle">Interactive examples covering all aspects of web video—from basics to advanced techniques</p>
+		</header>
+
+		<div class="container">
+			<a href="../" class="back-link">
+				<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+					<path d="M19 12H5M12 19l-7-7 7-7" />
+				</svg>
+				Back to Video Lesson
+			</a>
+
+			<!-- Fundamentals -->
+			<section class="category category--fundamentals">
+				<h2 class="category__title">
+					<span class="category__icon">🎯</span>
+					Part I: Fundamentals
+				</h2>
+				<div class="demo-grid">
+					<a href="01-basic-video.html" class="demo-card demo-card--purple">
+						<div class="demo-card__preview">📹</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 01</span>
+							<h3 class="demo-card__title">Basic HTML5 Video</h3>
+							<p class="demo-card__desc">The foundation: video element, sources, attributes, and fallbacks.</p>
+						</div>
+					</a>
+
+					<a href="02-formats-comparison.html" class="demo-card demo-card--purple">
+						<div class="demo-card__preview">📦</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 02</span>
+							<h3 class="demo-card__title">Video Formats</h3>
+							<p class="demo-card__desc">MP4, WebM, AV1—understanding containers and codecs.</p>
+						</div>
+					</a>
+
+					<a href="03-preload-strategies.html" class="demo-card demo-card--purple">
+						<div class="demo-card__preview">⏳</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 03</span>
+							<h3 class="demo-card__title">Preload Strategies</h3>
+							<p class="demo-card__desc">None, metadata, or auto—choosing the right preload hint.</p>
+						</div>
+					</a>
+				</div>
+			</section>
+
+			<!-- Responsive -->
+			<section class="category category--responsive">
+				<h2 class="category__title">
+					<span class="category__icon">📐</span>
+					Part II: Responsive & Fluid
+				</h2>
+				<div class="demo-grid">
+					<a href="04-fluid-video.html" class="demo-card demo-card--cyan">
+						<div class="demo-card__preview">📱</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 04</span>
+							<h3 class="demo-card__title">Fluid Video</h3>
+							<p class="demo-card__desc">aspect-ratio, padding-bottom, and object-fit techniques.</p>
+						</div>
+					</a>
+
+					<a href="05-art-direction.html" class="demo-card demo-card--cyan">
+						<div class="demo-card__preview">🎨</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 05</span>
+							<h3 class="demo-card__title">Art Direction</h3>
+							<p class="demo-card__desc">Different video crops for different screen sizes.</p>
+						</div>
+					</a>
+
+					<a href="06-video-background.html" class="demo-card demo-card--cyan">
+						<div class="demo-card__preview">🖼️</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 06</span>
+							<h3 class="demo-card__title">Video Background</h3>
+							<p class="demo-card__desc">Full-screen hero sections with autoplay video.</p>
+						</div>
+					</a>
+				</div>
+			</section>
+
+			<!-- Accessibility -->
+			<section class="category category--accessibility">
+				<h2 class="category__title">
+					<span class="category__icon">♿</span>
+					Part III: Accessibility
+				</h2>
+				<div class="demo-grid">
+					<a href="07-captions.html" class="demo-card demo-card--green">
+						<div class="demo-card__preview">💬</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 07</span>
+							<h3 class="demo-card__title">Captions & Subtitles</h3>
+							<p class="demo-card__desc">WebVTT format, track element, and caption styling.</p>
+						</div>
+					</a>
+
+					<a href="08-reduced-motion.html" class="demo-card demo-card--green">
+						<div class="demo-card__preview">🎚️</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 08</span>
+							<h3 class="demo-card__title">Reduced Motion</h3>
+							<p class="demo-card__desc">Respecting prefers-reduced-motion preferences.</p>
+						</div>
+					</a>
+				</div>
+			</section>
+
+			<!-- Performance -->
+			<section class="category category--performance">
+				<h2 class="category__title">
+					<span class="category__icon">⚡</span>
+					Part IV: Performance
+				</h2>
+				<div class="demo-grid">
+					<a href="09-lazy-loading.html" class="demo-card demo-card--amber">
+						<div class="demo-card__preview">🦥</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 09</span>
+							<h3 class="demo-card__title">Lazy Loading</h3>
+							<p class="demo-card__desc">Intersection Observer for on-demand video loading.</p>
+						</div>
+					</a>
+
+					<a href="10-adaptive-streaming.html" class="demo-card demo-card--amber">
+						<div class="demo-card__preview">📶</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 10</span>
+							<h3 class="demo-card__title">Adaptive Streaming</h3>
+							<p class="demo-card__desc">HLS and DASH for quality that adapts to bandwidth.</p>
+						</div>
+					</a>
+				</div>
+			</section>
+
+			<!-- Third-Party Embeds -->
+			<section class="category category--embeds">
+				<h2 class="category__title">
+					<span class="category__icon">🔗</span>
+					Part V: Third-Party Embeds
+				</h2>
+				<div class="demo-grid">
+					<a href="12-youtube-embed.html" class="demo-card demo-card--pink">
+						<div class="demo-card__preview">▶️</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 12</span>
+							<h3 class="demo-card__title">YouTube Embeds</h3>
+							<p class="demo-card__desc">Privacy mode, facade pattern, and performance tips.</p>
+						</div>
+					</a>
+
+					<a href="13-vimeo-embed.html" class="demo-card demo-card--pink">
+						<div class="demo-card__preview">🎬</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 13</span>
+							<h3 class="demo-card__title">Vimeo Embeds</h3>
+							<p class="demo-card__desc">Vimeo Player API and customization options.</p>
+						</div>
+					</a>
+				</div>
+			</section>
+
+			<!-- Advanced -->
+			<section class="category category--advanced">
+				<h2 class="category__title">
+					<span class="category__icon">🔧</span>
+					Part VI: JavaScript API & Libraries
+				</h2>
+				<div class="demo-grid">
+					<a href="15-video-api.html" class="demo-card demo-card--purple">
+						<div class="demo-card__preview">🎮</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 15</span>
+							<h3 class="demo-card__title">Video API</h3>
+							<p class="demo-card__desc">HTMLVideoElement properties, methods, and events.</p>
+						</div>
+					</a>
+
+					<a href="16-custom-player.html" class="demo-card demo-card--purple">
+						<div class="demo-card__preview">🎛️</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 16</span>
+							<h3 class="demo-card__title">Custom Player</h3>
+							<p class="demo-card__desc">Build your own accessible video player from scratch.</p>
+						</div>
+					</a>
+
+					<a href="17-plyr.html" class="demo-card demo-card--cyan">
+						<div class="demo-card__preview">📦</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 17</span>
+							<h3 class="demo-card__title">Plyr.js</h3>
+							<p class="demo-card__desc">Lightweight, accessible, customizable player library.</p>
+						</div>
+					</a>
+
+					<a href="18-videojs.html" class="demo-card demo-card--cyan">
+						<div class="demo-card__preview">🏢</div>
+						<div class="demo-card__body">
+							<span class="demo-card__number">Demo 18</span>
+							<h3 class="demo-card__title">Video.js</h3>
+							<p class="demo-card__desc">Enterprise-grade player with plugin ecosystem.</p>
+						</div>
+					</a>
+				</div>
+			</section>
+		</div>
+
+		<footer>
+			<p>
+				Part of the
+				<a href="../">Video on the Web Lesson</a>
+				·
+				<a href="{{ '/' | absolute_url }}">UDIT Web Foundations</a>
+			</p>
+			<p style="margin-top: 0.5rem">License: CC BY-NC-SA 4.0 (content) · MIT (code)</p>
+		</footer>
+	</body>
+</html>

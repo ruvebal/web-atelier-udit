@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 12: YouTube Embeds | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg: #0f0f14;
+      --surface: #1a1a22;
+      --text: #e8e6e3;
+      --muted: #9ca3af;
+      --red: #ef4444;
+      --green: #22c55e;
+      --blue: #3b82f6;
+      --font: 'Inter', system-ui, sans-serif;
+      --mono: 'Fira Code', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    h1 {
+      font-size: 2.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--red);
+    }
+
+    .subtitle { color: var(--muted); margin-bottom: 3rem; }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .demo-card {
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .demo-card__header {
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-card__title {
+      font-weight: 600;
+      color: var(--blue);
+    }
+
+    .badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge--warning {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--red);
+    }
+
+    .badge--success {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--green);
+    }
+
+    .demo-card__body { padding: 1.5rem; }
+
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+
+    .performance-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .performance-section h2 {
+      font-size: 1.5rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .comparison__item {
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .comparison__item--bad {
+      background: rgba(239, 68, 68, 0.05);
+      border-color: rgba(239, 68, 68, 0.2);
+    }
+
+    .comparison__item--good {
+      background: rgba(34, 197, 94, 0.05);
+      border-color: rgba(34, 197, 94, 0.2);
+    }
+
+    .comparison__label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .comparison__item--bad .comparison__label { color: var(--red); }
+    .comparison__item--good .comparison__label { color: var(--green); }
+
+    .comparison__value {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .comparison__desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* Lite YouTube Embed Styles */
+    .lite-yt {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+      .lite-yt::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://i.ytimg.com/vi/jNQXAC9IVRw/maxresdefault.jpg') center/cover;
+    }
+
+    .lite-yt::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      transition: background 0.2s;
+    }
+
+    .lite-yt:hover::after {
+      background: rgba(0,0,0,0.1);
+    }
+
+    .lite-yt__play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 68px;
+      height: 48px;
+      background: #f00;
+      border-radius: 14px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .lite-yt:hover .lite-yt__play {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: #ff1a1a;
+    }
+
+    .lite-yt__play::before {
+      content: '';
+      border-style: solid;
+      border-width: 11px 0 11px 19px;
+      border-color: transparent transparent transparent #fff;
+      margin-left: 4px;
+    }
+
+    .lite-yt.activated {
+      cursor: default;
+    }
+
+    .lite-yt.activated::before,
+    .lite-yt.activated::after,
+    .lite-yt.activated .lite-yt__play {
+      display: none;
+    }
+
+    .info-box {
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 3px solid var(--blue);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--red); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .demo-grid { grid-template-columns: 1fr; }
+      .comparison { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>12. YouTube Embeds</h1>
+      <p class="subtitle">Embedding YouTube videos with privacy, performance, and accessibility in mind</p>
+    </header>
+
+    <div class="demo-grid">
+      <!-- Standard Embed -->
+      <div class="demo-card">
+        <div class="demo-card__header">
+          <span class="demo-card__title">Standard YouTube Embed</span>
+          <span class="badge badge--warning">~1MB Load</span>
+        </div>
+        <div class="demo-card__body">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/jNQXAC9IVRw"
+              title="Me at the zoo - First YouTube video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="code-block">
+            <code><span class="tag">&lt;iframe</span>
+  <span class="attr">src</span>=<span class="value">"https://www.youtube.com/embed/VIDEO_ID"</span>
+  <span class="attr">title</span>=<span class="value">"Descriptive title"</span>
+  <span class="attr">allowfullscreen</span>
+  <span class="attr">loading</span>=<span class="value">"lazy"</span>
+<span class="tag">&gt;&lt;/iframe&gt;</span></code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Privacy Mode -->
+      <div class="demo-card">
+        <div class="demo-card__header">
+          <span class="demo-card__title">Privacy-Enhanced Mode</span>
+          <span class="badge badge--success">No Tracking Cookies</span>
+        </div>
+        <div class="demo-card__body">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/jNQXAC9IVRw"
+              title="Me at the zoo - First YouTube video (Privacy Mode)"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="code-block">
+            <code><span class="tag">&lt;iframe</span>
+  <span class="attr">src</span>=<span class="value">"https://www.youtube-nocookie.com/embed/VIDEO_ID"</span>
+  <span class="attr">title</span>=<span class="value">"Descriptive title"</span>
+  <span class="attr">allowfullscreen</span>
+<span class="tag">&gt;&lt;/iframe&gt;</span></code>
+          </div>
+          <div class="info-box">
+            Using <code>youtube-nocookie.com</code> prevents YouTube from storing
+            tracking cookies until the user plays the video.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Performance Section -->
+    <section class="performance-section">
+      <h2>🚀 Performance: Facade Pattern</h2>
+      <p>
+        Each YouTube iframe loads ~1MB of JavaScript. On pages with multiple embeds,
+        this destroys performance. The facade pattern shows a lightweight placeholder
+        that only loads the full player when clicked.
+      </p>
+
+      <div class="comparison">
+        <div class="comparison__item comparison__item--bad">
+          <div class="comparison__label">Standard Embed</div>
+          <div class="comparison__value">~1MB</div>
+          <div class="comparison__desc">Per video, loaded immediately</div>
+        </div>
+        <div class="comparison__item comparison__item--good">
+          <div class="comparison__label">Facade Pattern</div>
+          <div class="comparison__value">~10KB</div>
+          <div class="comparison__desc">Thumbnail + JS, load player on click</div>
+        </div>
+      </div>
+
+      <h3 style="margin: 2rem 0 1rem; color: var(--green);">Lite YouTube Embed Demo</h3>
+      <p>Click the video below to load the actual YouTube player:</p>
+
+      <div class="video-wrapper" style="margin: 1.5rem 0;">
+        <div class="lite-yt" id="liteYt" data-video-id="jNQXAC9IVRw">
+          <div class="lite-yt__play"></div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <code><span class="tag">&lt;script</span> <span class="attr">type</span>=<span class="value">"module"</span>
+  <span class="attr">src</span>=<span class="value">"https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.0/src/lite-yt-embed.js"</span>
+<span class="tag">&gt;&lt;/script&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span>
+  <span class="attr">href</span>=<span class="value">"https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.0/src/lite-yt-embed.css"</span>
+<span class="tag">&gt;</span>
+
+<span class="tag">&lt;lite-youtube</span>
+  <span class="attr">videoid</span>=<span class="value">"VIDEO_ID"</span>
+  <span class="attr">playlabel</span>=<span class="value">"Play: Video Title"</span>
+<span class="tag">&gt;&lt;/lite-youtube&gt;</span></code>
+      </div>
+    </section>
+
+    <!-- URL Parameters -->
+    <section class="performance-section">
+      <h2>🎛️ Useful URL Parameters</h2>
+
+      <div class="code-block" style="margin: 1rem 0;">
+        <code>https://www.youtube.com/embed/VIDEO_ID<span class="value">?</span>
+  <span class="attr">autoplay</span>=<span class="value">1</span>           <span style="color:#8b949e">// Auto-start (requires mute=1)</span>
+  <span class="attr">&mute</span>=<span class="value">1</span>              <span style="color:#8b949e">// Start muted</span>
+  <span class="attr">&start</span>=<span class="value">30</span>            <span style="color:#8b949e">// Start at 30 seconds</span>
+  <span class="attr">&end</span>=<span class="value">60</span>              <span style="color:#8b949e">// End at 60 seconds</span>
+  <span class="attr">&loop</span>=<span class="value">1</span>              <span style="color:#8b949e">// Loop video</span>
+  <span class="attr">&playlist</span>=<span class="value">VIDEO_ID</span>   <span style="color:#8b949e">// Required for loop</span>
+  <span class="attr">&controls</span>=<span class="value">0</span>          <span style="color:#8b949e">// Hide controls</span>
+  <span class="attr">&modestbranding</span>=<span class="value">1</span>   <span style="color:#8b949e">// Minimal YouTube branding</span>
+  <span class="attr">&rel</span>=<span class="value">0</span>               <span style="color:#8b949e">// Show related from same channel</span>
+  <span class="attr">&cc_load_policy</span>=<span class="value">1</span>   <span style="color:#8b949e">// Show captions by default</span></code>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations · CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Simple lite-youtube implementation
+    const liteYt = document.getElementById('liteYt');
+
+    liteYt.addEventListener('click', function() {
+      const videoId = this.dataset.videoId;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      iframe.title = 'YouTube video player';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = 'width:100%;height:100%;border:none;';
+
+      this.classList.add('activated');
+      this.innerHTML = '';
+      this.appendChild(iframe);
+    });
+  </script>
+</body>
+</html>
+

@@ -7,15 +7,23 @@ if page.content contains '{:toc}' %} {% assign has_toc = true %} {% endif %}
 
 <article class="lesson mx-auto">
 	<header class="mb-8 pb-6 border-b border-slate-200 dark:border-neutral-800">
-		{% if page.lang == 'es' %}
-		<p class="text-slate-500 dark:text-neutral-500 text-sm mb-2">
-			WEB ATELIER (UDIT) · Aprender haciendo, con teoría, práctica y reflexión compartida
-		</p>
-		{% else %}
-		<p class="text-slate-500 dark:text-neutral-500 text-sm mb-2">
-			WEB ATELIER (UDIT) · Learning by doing, with theory, practice and shared reflection
-		</p>
-		{% endif %}
+		<div class="flex items-center gap-2 mb-3">
+			<img
+				src="{{ '/assets/icons/favicon.svg' | relative_url }}"
+				alt=""
+				class="w-6 h-6"
+				aria-hidden="true"
+			/>
+			{% if page.lang == 'es' %}
+			<p class="text-slate-500 dark:text-neutral-500 text-sm m-0">
+				WEB ATELIER (UDIT) · Aprender haciendo, con teoría, práctica y reflexión compartida
+			</p>
+			{% else %}
+			<p class="text-slate-500 dark:text-neutral-500 text-sm m-0">
+				WEB ATELIER (UDIT) · Learning by doing, with theory, practice and shared reflection
+			</p>
+			{% endif %}
+		</div>
 		<h1 class="text-4xl font-bold mb-4 text-slate-900 dark:text-neutral-100">{{ page.title }}</h1>
 		<p class="canonical-url text-sm">
 			<span class="sr-only">URL:</span>

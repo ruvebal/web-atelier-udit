@@ -1,0 +1,36 @@
+---
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{{ site.title }}</title>
+		<meta http-equiv="refresh" content="0; url='{{ site.baseurl }}/2025-fall/'" />
+		<script>
+			(function () {
+				// Redirect to current semester with language detection
+				const url = new URL(window.location.href);
+				const langParam = (url.searchParams.get('lang') || '').toLowerCase();
+				const browserLang = (navigator.language || 'es').toLowerCase();
+
+				let targetLang = 'es'; // default
+				if (langParam === 'en' || (langParam === '' && browserLang.startsWith('en'))) {
+					targetLang = 'en';
+				}
+
+				window.location.replace('{{ site.baseurl }}/2025-fall/' + targetLang + '/');
+			})();
+		</script>
+		<noscript>
+			<p>
+				<a href="{{ site.baseurl }}/2025-fall/es/">Español</a>
+				·
+				<a href="{{ site.baseurl }}/2025-fall/en/">English</a>
+			</p>
+		</noscript>
+	</head>
+	<body></body>
+</html>

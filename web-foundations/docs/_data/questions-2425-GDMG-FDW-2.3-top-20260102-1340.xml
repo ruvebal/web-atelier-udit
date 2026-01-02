@@ -1,0 +1,2321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/World Wide Web</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<b>World Wide Web</b> (<b>La Web</b>) o <b>red informática mundial</b><br>Categoría por defecto para preguntas compartidas en el contexto 24/25-GDDAI-DMW-4.1.]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 165268  -->
+  <question type="matching">
+    <name>
+      <text>De los orígenes de la WEB a la WEB 3.0</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Desde sus orígenes y expansión a partir de los 90, diferentes momentos del desarrollo de la WEB son conocidos como 1.0, 2.0 y 3.0. Asocia cada estadio con sus características principales<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>true</shuffleanswers>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <subquestion format="html">
+      <text><![CDATA[<p>WEB 1.0<br></p>]]></text>
+      <answer>
+        <text>Accesibilidad a recursos estáticos interconectados a través de HTTP</text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<p>WEB 2.0<br></p>]]></text>
+      <answer>
+        <text>Participación colaborativa de los usuarios: plataformas interactivas y servicios como el streaming, y redes sociales</text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<p>WEB 3.0<br></p>]]></text>
+      <answer>
+        <text>Conocida como web semántica, con agentes humanos y máquinas, y tecnologías como blockchain</text>
+      </answer>
+    </subquestion>
+  </question>
+
+<!-- question: 165272  -->
+  <question type="multichoice">
+    <name>
+      <text>HTTPS</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál es la principal ventaja de utilizar HTTPS en lugar de HTTP?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Reduce el tiempo de carga de las páginas web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Permite que la página se vea correctamente en dispositivos móviles.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Protege la información transmitida mediante cifrado, haciendo que los datos sean seguros entre el servidor y el cliente.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Aumenta la cantidad de anuncios permitidos en la página web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165267  -->
+  <question type="multichoice">
+    <name>
+      <text>Web: Definición</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Podemos definir&nbsp; la <b>World Wide Web</b> (<b>WWW</b> o conocida como la <b>Web</b>)<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Como el conjunto de todas las páginas y aplicaciones web<br></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Hay otros recursos en línea que no son ni aplicaciones ni páginas web y que también hacen parte de ella<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Como un espacio de información el el que diversos recursos son identificados y localizados mediante URIs<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>La suma de HTML + CSS + JS<br></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Son tecnologías que utilizamos para contruir recursos web pero no necesariamente deben usarse en sumatorio ni constituyen el espacio web en sí mismas<br></p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165269  -->
+  <question type="truefalse">
+    <name>
+      <text>Cliente y servidor</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Los navegadores modernos interpretan y renderizan el HTML, CSS y JavaScript del lado del cliente, lo que significa que todo el procesamiento se realiza en el servidor antes de llegar al navegador.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falso: El procesamiento de HTML, CSS y JavaScript se realiza en el navegador, del lado del cliente.<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165270  -->
+  <question type="truefalse">
+    <name>
+      <text>Elementos semánticos</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>HTML5 mantuvo los elementos semánticos de XML, como <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, y <code>&lt;article&gt;</code>, para mejorar la estructura y accesibilidad del contenido web.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Falso: Los nuevos elementos semánticos, como <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, y <code>&lt;article&gt;</code> se introdujeron con HTML5<br></p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165271  -->
+  <question type="truefalse">
+    <name>
+      <text>Navegadores</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Los navegadores actuales están estandarizados y siempre interpretan el código HTML y CSS de la misma forma, sin variaciones.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falso: Aunque los estándares ayudan, aún existen pequeñas variaciones en la interpretación de HTML y CSS entre navegadores.<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/HTML</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 165278  -->
+  <question type="truefalse">
+    <name>
+      <text>HTML lenguaje de programación</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Desde su versión 5, HTML es un lenguaje de programación orientado a objetos: <b>Object-oriented programming</b> (<b>OOP</b>)<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falso: HTML es un lenguaje de marcado, no de programación.<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165274  -->
+  <question type="truefalse">
+    <name>
+      <text>HTML5 Orígenes</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>HTML5 fue desarrollado exclusivamente por el W3<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falso (HTML5 fue desarrollado en colaboración con el WHATWG, grupo que surgió para continuar el desarrollo de HTML cuando el W3C decidió enfocarse en XHTML).<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165276  -->
+  <question type="truefalse">
+    <name>
+      <text>HTML5 y DOCTYPE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>HTML5 eliminó la necesidad de declarar el <code>DOCTYPE</code> al comienzo del documento.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falso (HTML5 simplificó el <code>DOCTYPE</code> a <code>&lt;!DOCTYPE html&gt;</code>, pero sigue siendo necesario).<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165275  -->
+  <question type="truefalse">
+    <name>
+      <text>HTML5 y XML</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>HTML5 ya o es compatible con XML porque requiere una sintaxis más estricta<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falso: HTML5 sigue siendo compatible con XML, pero ya no requiere la estricta sintaxis de XML como lo hacía XHTML.<br><br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165273  -->
+  <question type="truefalse">
+    <name>
+      <text>Orígenes</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>HTML fue desarrollado originalmente como un lenguaje basado en SGML (Standard Generalized Markup Language).<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165277  -->
+  <question type="truefalse">
+    <name>
+      <text>Semántica</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>El elemento <code>&lt;div&gt;</code> en HTML5 tiene un propósito semántico específico.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falso. El <code>&lt;div&gt;</code> es un contenedor genérico sin significado semántico.<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165279  -->
+  <question type="truefalse">
+    <name>
+      <text>Web semántica</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>El término "Web Semántica" se refiere a una web en la que los datos están estructurados de forma que las máquinas puedan entender y procesar la información.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Aplicaciones web progresivas</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Progressive web applications (PWA)<br></p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 165283  -->
+  <question type="gapselect">
+    <name>
+      <text>PWAs: manifest.json</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>El archivo <strong><code>manifest.json</code></strong> es un documento [[1]] en una aplicación web proporciona información importante como el nombre, el color de fondo y&nbsp; <strong>[[4]]</strong> de la aplicación, permitiendo que se vea y se comporte como una aplicación nativa cuando se instala en el dispositivo.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>0</shuffleanswers>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <selectoption>
+      <text>json</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>html</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>css</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>el icono</text>
+      <group>2</group>
+    </selectoption>
+    <selectoption>
+      <text>la página de inicio</text>
+      <group>2</group>
+    </selectoption>
+    <selectoption>
+      <text>si es responsive o no</text>
+      <group>2</group>
+    </selectoption>
+  </question>
+
+<!-- question: 165281  -->
+  <question type="multichoice">
+    <name>
+      <text>PWAs: características</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál de las siguientes características es clave en una Progressive Web App (PWA)?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Requiere una conexión permanente a internet.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text>Puede funcionar sin conexión (offline) gracias a los Service Workers, que almacenan en caché recursos clave de la aplicación.</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Solo se puede ejecutar en dispositivos móviles.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Solo utiliza HTML y CSS, sin JavaScript.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165280  -->
+  <question type="multichoice">
+    <name>
+      <text>PWAs: Requisitos</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál de los siguientes archivos es fundamental para que una aplicación sea reconocida como una Aplicación web progresiva??<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>manifest.json<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>index.html<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>https<br></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>https es un protocolo no un archivo<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[index.css<br>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>serviceworker.js<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165282  -->
+  <question type="truefalse">
+    <name>
+      <text>PWAs y móviles</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>La creación de aplicaciones web progresivas (PWA) es un intento de hacer que las aplicaciones web funcionen de manera similar a las aplicaciones nativas en dispositivos móviles.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Interfaz de programación de aplicaciones (API)</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p><span>Application programming interface</span> (<b>API</b>)<br></p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 165284  -->
+  <question type="gapselect">
+    <name>
+      <text>APIs: función</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Una <strong>API</strong> (Interfaz de Programación de Aplicaciones) permite que diferentes aplicaciones o servicios se <strong>[[1]]</strong> entre sí, facilitando el intercambio de datos y funcionalidades.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>0</shuffleanswers>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <selectoption>
+      <text>comuniquen</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>diseñen</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>optimicen</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>oculten</text>
+      <group>1</group>
+    </selectoption>
+  </question>
+
+<!-- question: 165286  -->
+  <question type="gapselect">
+    <name>
+      <text>APIs: naturaleza</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Una <strong>API</strong> (Interfaz de Programación de Aplicaciones) define un conjunto de <strong>[[1]]</strong> y normas que permite que una aplicación interactúe con otra.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>0</shuffleanswers>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <selectoption>
+      <text>protocolos</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>gráficos</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>consultas</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>colores</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>scripts</text>
+      <group>1</group>
+    </selectoption>
+  </question>
+
+<!-- question: 165285  -->
+  <question type="truefalse">
+    <name>
+      <text>APIs: requerimientos</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Una API siempre requiere que las aplicaciones que la usan estén instaladas en el mismo dispositivo o servidor para poder comunicarse.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>La respuesta es falsa, ya que una API permite la comunicación entre aplicaciones independientemente de su ubicación física, facilitando la conexión entre servicios locales y remotos<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Tendencias de diseño Web</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 165290  -->
+  <question type="essay">
+    <name>
+      <text>Importancia del diseño en el contexto WEB</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Escribe un texto breve (max 15 líneas) que describa y analice la importancia del diseño en el contexto de la comunicación WEB<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <responseformat>plain</responseformat>
+    <responserequired>1</responserequired>
+    <responsefieldlines>15</responsefieldlines>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <graderinfo format="html">
+      <text><![CDATA[<p><h3>Lista de Palabras Clave</h3><ol><li><strong>Diseño web</strong></li><li><strong>Comunicación visual</strong></li><li><strong>Experiencia de usuario (UX)</strong></li><li><strong>Interfaz de usuario (UI)</strong></li><li><strong>Usabilidad</strong></li><li><strong>Accesibilidad</strong></li><li><strong>Estructura visual</strong></li><li><strong>Jerarquía de información</strong></li><li><strong>Consistencia visual</strong></li><li><strong>Atracción y retención del usuario</strong></li><li><strong>Eficiencia en la navegación</strong></li><li><strong>Transmisión del mensaje</strong></li><li><strong>Interactividad</strong></li><li><strong>Responsive design (diseño adaptativo)</strong></li><li><strong>Engagement (compromiso del usuario)</strong></li></ol><br></p>]]></text>
+    </graderinfo>
+    <responsetemplate format="html">
+      <text><![CDATA[<p>Escribe aquí tu respuesta<br></p>]]></text>
+    </responsetemplate>
+  </question>
+
+<!-- question: 165287  -->
+  <question type="gapselect">
+    <name>
+      <text>Contenido automáticamente adaptable</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>En diseño web, la técnica que permite que el contenido se adapte automáticamente a diferentes tamaños de pantalla se llama <strong>[[1]]</strong>.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <selectoption>
+      <text>Responsividad</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>Flexbox</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>Fluidez</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>Web semántica</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>Multimedia </text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>Diseño web estático</text>
+      <group>1</group>
+    </selectoption>
+  </question>
+
+<!-- question: 165288  -->
+  <question type="gapselect">
+    <name>
+      <text>Diseño de Web Responsivo</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>En el desarrollo de sitios responsivos, podemos emplear <strong>[[1]] </strong>para aplicar estilos específicos según el tamaño de la pantalla del dispositivo.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>0</shuffleanswers>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <selectoption>
+      <text>Media Queries</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>Metaetiquetas</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>JavaScript</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>Flexbox</text>
+      <group>1</group>
+    </selectoption>
+  </question>
+
+<!-- question: 165289  -->
+  <question type="multichoice">
+    <name>
+      <text>Web Responsiva: elementos</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>El <b>diseño web adaptable</b> (también <b>diseño web adaptativo</b> o <b>responsivo) </b>tiene algunos requerimientos: señala lo que no corresponda:<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Un grid flexible<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Imágenes y medias flexibles<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CSS Media queries<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Java Script<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>HTTP request<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>http-server .<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>manifest.json<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Sistemas de control de versiones</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>VCS (Version Control System)<br></p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 165294  -->
+  <question type="multichoice">
+    <name>
+      <text>Git: commit</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál de las siguientes afirmaciones sobre el comando <strong>commit</strong> en Git es falsa?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>El comando <code>commit</code> guarda los cambios de manera permanente en el historial del repositorio local.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Cada commit debe tener un mensaje que describa brevemente los cambios realizados.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Los commits realizados en el repositorio local son automáticamente visibles en el repositorio remoto.<br></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Esta es la opción falsa, ya que los commits locales deben enviarse al repositorio remoto mediante <code>git push</code>.<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>El comando <code>commit</code> es fundamental para llevar un historial de cambios y revertirlos si es necesario.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165291  -->
+  <question type="multichoice">
+    <name>
+      <text>Git: propósito</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál es el propósito principal de Git?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Crear sitios web de una manera rápida.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Hacer un seguimiento de los cambios en el código y permitir la colaboración en proyectos de desarrollo.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Gestionar bases de datos y optimizar consultas GraphQL<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Desarrollar aplicaciones móviles de manera más eficiente.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165295  -->
+  <question type="multichoice">
+    <name>
+      <text><![CDATA[Git: push & pull]]></text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál de las siguientes afirmaciones sobre los comandos <strong>push</strong> y <strong>pull</strong> en Git es falsa?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>El comando <code>push</code> envía los cambios locales al repositorio remoto.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>El comando <code>pull</code> actualiza el repositorio local con los cambios del repositorio remoto.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>El comando <code>pull</code> permite fusionar automáticamente todos los conflictos de código sin intervención del usuario.<br></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p><em>Esta es la opción falsa, ya que <code>pull</code> puede generar conflictos que requieren la intervención del usuario para resolverse.</em><br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ambos comandos (<code>push</code> y <code>pull</code>) son esenciales para sincronizar el trabajo entre el repositorio local y el remoto.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165293  -->
+  <question type="multichoice">
+    <name>
+      <text>Git: repositorios</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál de las siguientes afirmaciones sobre un <strong>repositorio de Git</strong> es falsa?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Un repositorio es un espacio donde se almacenan los archivos y el historial de cambios de un proyecto.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Un repositorio puede ser local (en tu máquina) o remoto (en una plataforma como GitHub).<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Un repositorio de Git no permite colaborar con otros desarrolladores.<br></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p><em>Esta es la opción falsa, ya que Git permite la colaboración entre desarrolladores.</em><br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Un repositorio puede contener múltiples ramas (branches) para desarrollar diferentes características de un proyecto.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165292  -->
+  <question type="multichoice">
+    <name>
+      <text>GitHub</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál de las siguientes afirmaciones describe correctamente GitHub?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Es un sistema de control de versiones local para gestionar el historial de cambios de archivos.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Es una plataforma en línea que permite almacenar repositorios de Git y colaborar en proyectos de desarrollo.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Es una herramienta para crear y gestionar bases de datos relacionales.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Es una extensión de Git que permite el desarrollo de aplicaciones móviles nativas.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Hojas de estilo en cascada (CSS)</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p><b>C</b>ascading <b>S</b>tyle <b>S</b>heets<br></p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 165296  -->
+  <question type="multichoice">
+    <name>
+      <text>CSS clamp()</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué parámetros define la función <code>clamp()</code> en CSS?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Un valor mínimo, un valor ideal y un valor máximo.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Un tamaño de fuente específico, un margen y un relleno (padding).<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Un rango de colores mínimo y máximo.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Solo un valor fijo sin flexibilidad.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165301  -->
+  <question type="multichoice">
+    <name>
+      <text>CSS: naturaleza</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué describe mejor la naturaleza de CSS en el contexto de la web?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CSS es un lenguaje de programación que manipula datos en el servidor.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CSS es un lenguaje de marcado que organiza el contenido en la web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>CSS es un lenguaje de estilos que describe cómo se presenta el contenido en una página web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CSS es una herramienta de diseño para crear gráficos en sitios web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165300  -->
+  <question type="multichoice">
+    <name>
+      <text>CSS: propósito</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál es el propósito principal de CSS en el desarrollo web?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Definir la estructura y el contenido de una página web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Controlar la apariencia y el diseño visual de una página web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ejecutar scripts en el servidor para mejorar la funcionalidad de la web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Administrar bases de datos en aplicaciones web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165303  -->
+  <question type="shortanswer">
+    <name>
+      <text>ems y rems</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><br>Tanto <strong><code>em</code></strong> como <strong><code>rem</code></strong> son unidades relativas, lo que significa que se 
+escalan en función del tamaño de la fuente, a diferencia de las unidades 
+absolutas como px (píxeles).</p><p>Esto permite crear diseños más flexibles y 
+accesibles.</p><p>Explica&nbsp; brevemente las principal diferencia entre las unidades <strong><code>em</code></strong> y <strong><code>rem</code></strong><br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text><![CDATA[em: Se calcula en función del tamaño de fuente del elemento padre inmediato, rem: Se calcula en función del tamaño de fuente del elemento raíz (<html>) del documento]]></text>
+      <feedback format="html">
+        <text><![CDATA[<br>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165298  -->
+  <question type="truefalse">
+    <name>
+      <text>CSS: background-image</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Con CSS3 es posible aplicar múltiples fondos a un solo elemento utilizando la propiedad <code>background-image</code>.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165297  -->
+  <question type="truefalse">
+    <name>
+      <text>CSS: flex</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>La propiedad <code>display: flex;</code> en CSS3 convierte un contenedor en un contenedor de cuadrícula, permitiendo organizar elementos en filas y columnas.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falso: La propiedad <code>display: flex;</code> crea un contenedor flexible para organizar elementos en una dirección, ya sea en fila o columna; no es una cuadrícula.<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165302  -->
+  <question type="truefalse">
+    <name>
+      <text>CSS: interactividad</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Para lograr interactividad con el usuario utilizamos Java Script como único medio a nuestro alcance para crear efectos interactivos<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falso: Con CSS podemos lograr efectos interactivos con pseudo-clases<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165299  -->
+  <question type="truefalse">
+    <name>
+      <text>CSS: transform</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>En CSS3, la propiedad <code>transform</code> puede utilizarse para aplicar rotaciones y desplazamientos en 3D con valores como <code>rotateX</code>, <code>rotateY</code> y <code>translateZ</code>.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Red de computadoras</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Computer network<br></p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Red de computadoras/El protocolo de transferencia de hipertexto (HTTP)</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p><i lang="en">Hypertext Transfer Protocol</i><br></p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 165307  -->
+  <question type="gapselect">
+    <name>
+      <text>HTTP: GET</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>En el protocolo HTTP, el método <strong>GET</strong> se utiliza para <strong>[[1]]</strong> datos de un servidor sin modificar los datos en el servidor.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>0</shuffleanswers>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <selectoption>
+      <text>obtener</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>enviar</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>eliminar</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>actualizar</text>
+      <group>1</group>
+    </selectoption>
+  </question>
+
+<!-- question: 165308  -->
+  <question type="multichoice">
+    <name>
+      <text>Cliente-Servidor</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál de las siguientes afirmaciones describe mejor la dinámica de una arquitectura cliente-servidor en el contexto de la web?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>El servidor envía solicitudes al cliente para obtener datos y realizar cálculos.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>El cliente envía solicitudes al servidor, y el servidor responde proporcionando los datos o recursos solicitados.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tanto el cliente como el servidor envían y reciben datos de forma simultánea y sin orden específico.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>El cliente y el servidor solo se comunican mediante bases de datos externas.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165306  -->
+  <question type="multichoice">
+    <name>
+      <text>HTTP: 4xx</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>&nbsp;En HTTP, un código de estado de la familia 4xx indica que [[1]].<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>La solicitud fue exitosa y el servidor devolvió el contenido solicitado.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Hubo un error del cliente en la solicitud enviada al servidor.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ocurrió un error interno en el servidor.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>La conexión fue redirigida a una nueva URL.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165304  -->
+  <question type="multichoice">
+    <name>
+      <text>HTTP: propósito</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál es el propósito principal del protocolo HTTP en la web?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Cifrar las contraseñas en una página web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Definir cómo se envían y reciben datos entre un navegador y un servidor.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Controlar el diseño y los colores de una página web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Gestionar el almacenamiento de archivos en un dispositivo local.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165305  -->
+  <question type="multichoice">
+    <name>
+      <text>HTTP: stateless (sin estado)</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué significa que HTTP sea un "protocolo sin estado"?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Que mantiene la conexión abierta todo el tiempo entre el cliente y el servidor.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Que no guarda ninguna información sobre solicitudes previas.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Que solo funciona en redes locales (LAN).<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Que solo funciona en redes de área amplia (WAN).<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Que requiere una conexión encriptada para funcionar.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Red de computadoras/Protocolos TCP//IP</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p></p><b>TCP:</b> protocolo de control de transmisión.<br><b>IP:</b> protocolo de internet.<br><p></p>]]></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 165310  -->
+  <question type="gapselect">
+    <name>
+      <text>LAN</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Una <strong>LAN</strong> (Red de Área Local) conecta dispositivos en un área geográfica <strong>[[1]]</strong>, como una oficina o un edificio.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>0</shuffleanswers>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <selectoption>
+      <text>restringida</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>amplia</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>internacional</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>nacional</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>externa</text>
+      <group>1</group>
+    </selectoption>
+  </question>
+
+<!-- question: 165309  -->
+  <question type="multichoice">
+    <name>
+      <text>TCP/IP: propósito</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál de las siguientes afirmaciones describe correctamente el propósito del modelo TCP/IP?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Definir un conjunto de reglas para la comunicación de redes, utilizado ampliamente en internet.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Proveer un estándar de diseño gráfico para aplicaciones web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Definir cómo se procesan las solicitudes de bases de datos en redes locales.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Controlar los dispositivos de entrada y salida de un sistema operativo.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165311  -->
+  <question type="multichoice">
+    <name>
+      <text>WAN</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><p>¿Cuál de las siguientes afirmaciones describe mejor una <strong>WAN</strong> (Red de Área Amplia)?</p><p></p><br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Es una red que conecta dispositivos en una pequeña área geográfica, como una casa o una oficina.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Es una red que conecta redes más pequeñas, abarcando grandes áreas geográficas, como ciudades o incluso países.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Es una red exclusivamente inalámbrica que conecta dispositivos móviles.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Es una red privada usada únicamente por empresas para comunicaciones internas.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165312  -->
+  <question type="truefalse">
+    <name>
+      <text>IPs</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Una dirección IP es la misma para todos los dispositivos en una red, permitiendo que compartan la misma identificación.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Falso: Cada dispositivo en una red tiene una dirección IP única para asegurar que se pueda identificar y comunicar de forma individual.<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Hojas de estilo en cascada (CSS)/Tipografía</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 165313  -->
+  <question type="gapselect">
+    <name>
+      <text>Tipografía en HML head</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>En HTML, el elemento <strong>[[1]]</strong> se utiliza en el <code>&lt;head&gt;</code> para enlazar fuentes externas, como las de Google Fonts, directamente en el documento.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>0</shuffleanswers>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <selectoption>
+      <text>link</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>style</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>meta</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>script</text>
+      <group>1</group>
+    </selectoption>
+  </question>
+
+<!-- question: 165314  -->
+  <question type="gapselect">
+    <name>
+      <text>Tipografía: jerarquía de fuentes</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>La propiedad <strong>[[1]]</strong> en CSS permite especificar la jerarquía de fuentes de respaldo para un texto, en caso de que la fuente principal no esté disponible.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>0</shuffleanswers>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <selectoption>
+      <text>font-family</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>font-style</text>
+      <group>1</group>
+    </selectoption>
+    <selectoption>
+      <text>font-variant</text>
+      <group>1</group>
+    </selectoption>
+  </question>
+
+<!-- question: 165315  -->
+  <question type="multichoice">
+    <name>
+      <text>Fuentes locales</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál de los siguientes métodos permite cargar y definir una fuente personalizada alojada en el servidor del sitio (local) para usarla en CSS?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>@media<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>@font-face<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>@import<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>@charset<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165316  -->
+  <question type="multichoice">
+    <name>
+      <text>import vs link</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué ventaja tiene el uso de <code>@import</code> frente a <code>&lt;link&gt;</code> para cargar una fuente desde un servicio externo?<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Respuesta correcta</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Respuesta parcialmente correcta.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Respuesta incorrecta.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Permite cargar fuentes externas dentro de una hoja de estilo CSS en lugar de hacerlo en el documento HTML.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Aumenta la velocidad de carga del sitio web.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Permite aplicar estilos 3D a la tipografía.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Es la única forma de cargar fuentes de Google Fonts.<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 165317  -->
+  <question type="truefalse">
+    <name>
+      <text>@font-face</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><strong></strong>Las fuentes personalizadas cargadas con <code>@font-face</code> pueden ser usadas sin importar si el usuario las tiene instaladas en su sistema.<br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

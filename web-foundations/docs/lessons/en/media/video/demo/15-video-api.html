@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 15: HTMLVideoElement API | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --text: #e4e4e7;
+      --muted: #71717a;
+      --accent: #8b5cf6;
+      --green: #22c55e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { color: var(--muted); }
+
+    .demo-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .demo-section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .controls-panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .control-group {
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .control-group label {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .control-group input,
+    .control-group button {
+      width: 100%;
+      padding: 0.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .control-group button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .control-group button:hover {
+      opacity: 0.9;
+    }
+
+    .info-display {
+      background: rgba(34, 197, 94, 0.1);
+      border-left: 3px solid var(--green);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+    }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin: 1.5rem 0;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+    .comment { color: #6b7280; font-style: italic; }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>15. HTMLVideoElement API</h1>
+      <p class="subtitle">Complete control over video playback with JavaScript</p>
+    </header>
+
+    <section class="demo-section">
+      <h2>Interactive Video Controls</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">
+        Use the controls below to interact with the video via the HTMLVideoElement API.
+      </p>
+
+      <div class="video-wrapper">
+        <video
+          id="demoVideo"
+          controls
+          poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
+        >
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+            type="video/webm"
+          >
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+          >
+        </video>
+      </div>
+
+      <div class="info-display" id="videoInfo">
+        Loading video information...
+      </div>
+
+      <div class="controls-panel">
+        <div class="control-group">
+          <label>Playback Control</label>
+          <button id="playPauseBtn">Play</button>
+        </div>
+
+        <div class="control-group">
+          <label>Seek to (seconds)</label>
+          <input type="number" id="seekInput" value="0" min="0" step="1">
+          <button id="seekBtn" style="margin-top: 0.5rem;">Seek</button>
+        </div>
+
+        <div class="control-group">
+          <label>Volume (0-1)</label>
+          <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+          <span id="volumeDisplay" style="font-size: 0.75rem; color: var(--muted);">1.0</span>
+        </div>
+
+        <div class="control-group">
+          <label>Playback Speed</label>
+          <input type="range" id="speedSlider" min="0.5" max="2" step="0.25" value="1">
+          <span id="speedDisplay" style="font-size: 0.75rem; color: var(--muted);">1.0x</span>
+        </div>
+
+        <div class="control-group">
+          <label>Mute</label>
+          <button id="muteBtn">Toggle Mute</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>Essential Properties</h2>
+      <div class="code-block">
+        <code><span class="comment">// Read-only properties</span>
+<span class="property">const</span> video = <span class="property">document</span>.<span class="property">querySelector</span>(<span class="value">'video'</span>);
+
+<span class="property">console</span>.<span class="property">log</span>(video.<span class="property">duration</span>); <span class="comment">// Total length in seconds</span>
+<span class="property">console</span>.<span class="property">log</span>(video.<span class="property">currentTime</span>); <span class="comment">// Current playback position</span>
+<span class="property">console</span>.<span class="property">log</span>(video.<span class="property">paused</span>); <span class="comment">// Is video paused?</span>
+<span class="property">console</span>.<span class="property">log</span>(video.<span class="property">ended</span>); <span class="comment">// Has video finished?</span>
+<span class="property">console</span>.<span class="property">log</span>(video.<span class="property">readyState</span>); <span class="comment">// 0-4, loading state</span>
+<span class="property">console</span>.<span class="property">log</span>(video.<span class="property">videoWidth</span>); <span class="comment">// Native video width</span>
+<span class="property">console</span>.<span class="property">log</span>(video.<span class="property">videoHeight</span>); <span class="comment">// Native video height</span>
+
+<span class="comment">// Writable properties</span>
+video.<span class="property">currentTime</span> = <span class="value">30</span>; <span class="comment">// Seek to 30 seconds</span>
+video.<span class="property">volume</span> = <span class="value">0.5</span>; <span class="comment">// 50% volume</span>
+video.<span class="property">muted</span> = <span class="value">true</span>; <span class="comment">// Mute</span>
+video.<span class="property">playbackRate</span> = <span class="value">1.5</span>; <span class="comment">// 1.5x speed</span></code>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>Essential Methods</h2>
+      <div class="code-block">
+        <code><span class="comment">// Playback control</span>
+video.<span class="property">play</span>(); <span class="comment">// Returns Promise</span>
+video.<span class="property">pause</span>();
+video.<span class="property">load</span>(); <span class="comment">// Reload sources</span>
+
+<span class="comment">// Play with error handling</span>
+<span class="property">async</span> <span class="property">function</span> <span class="property">safePlay</span>() {
+  <span class="property">try</span> {
+    <span class="property">await</span> video.<span class="property">play</span>();
+    <span class="property">console</span>.<span class="property">log</span>(<span class="value">'Playing'</span>);
+  } <span class="property">catch</span> (error) {
+    <span class="property">if</span> (error.<span class="property">name</span> === <span class="value">'NotAllowedError'</span>) {
+      <span class="property">console</span>.<span class="property">log</span>(<span class="value">'Autoplay blocked - need user interaction'</span>);
+    }
+  }
+}</code>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>Essential Events</h2>
+      <div class="code-block">
+        <code>video.<span class="property">addEventListener</span>(<span class="value">'loadedmetadata'</span>, () => {
+  <span class="property">console</span>.<span class="property">log</span>(<span class="value">`Duration: ${video.duration}s`</span>);
+});
+
+video.<span class="property">addEventListener</span>(<span class="value">'play'</span>, () => {
+  <span class="property">console</span>.<span class="property">log</span>(<span class="value">'Started playing'</span>);
+});
+
+video.<span class="property">addEventListener</span>(<span class="value">'timeupdate'</span>, () => {
+  <span class="comment">// Fires frequently during playback</span>
+  <span class="property">const</span> progress = (video.<span class="property">currentTime</span> / video.<span class="property">duration</span>) * <span class="value">100</span>;
+  progressBar.<span class="property">style</span>.<span class="property">width</span> = <span class="value">`${progress}%`</span>;
+});</code>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations · CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const video = document.getElementById('demoVideo');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const seekInput = document.getElementById('seekInput');
+    const seekBtn = document.getElementById('seekBtn');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const volumeDisplay = document.getElementById('volumeDisplay');
+    const speedSlider = document.getElementById('speedSlider');
+    const speedDisplay = document.getElementById('speedDisplay');
+    const muteBtn = document.getElementById('muteBtn');
+    const videoInfo = document.getElementById('videoInfo');
+
+    function updateInfo() {
+      videoInfo.innerHTML = `
+        <strong>Video Properties:</strong><br>
+        Duration: ${video.duration ? video.duration.toFixed(2) : 'N/A'}s<br>
+        Current Time: ${video.currentTime.toFixed(2)}s<br>
+        Paused: ${video.paused}<br>
+        Volume: ${video.volume}<br>
+        Muted: ${video.muted}<br>
+        Playback Rate: ${video.playbackRate}x<br>
+        Ready State: ${video.readyState} (0=nothing, 1=metadata, 2=current data, 3=future data, 4=enough data)
+      `;
+    }
+
+    video.addEventListener('loadedmetadata', updateInfo);
+    video.addEventListener('timeupdate', updateInfo);
+    video.addEventListener('play', () => {
+      playPauseBtn.textContent = 'Pause';
+      updateInfo();
+    });
+    video.addEventListener('pause', () => {
+      playPauseBtn.textContent = 'Play';
+      updateInfo();
+    });
+
+    playPauseBtn.addEventListener('click', async () => {
+      if (video.paused) {
+        try {
+          await video.play();
+        } catch (error) {
+          console.error('Playback error:', error);
+        }
+      } else {
+        video.pause();
+      }
+    });
+
+    seekBtn.addEventListener('click', () => {
+      video.currentTime = parseFloat(seekInput.value);
+    });
+
+    volumeSlider.addEventListener('input', () => {
+      video.volume = parseFloat(volumeSlider.value);
+      volumeDisplay.textContent = video.volume.toFixed(1);
+    });
+
+    speedSlider.addEventListener('input', () => {
+      video.playbackRate = parseFloat(speedSlider.value);
+      speedDisplay.textContent = video.playbackRate.toFixed(2) + 'x';
+    });
+
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      muteBtn.textContent = video.muted ? 'Unmute' : 'Mute';
+    });
+
+    updateInfo();
+  </script>
+</body>
+</html>
+

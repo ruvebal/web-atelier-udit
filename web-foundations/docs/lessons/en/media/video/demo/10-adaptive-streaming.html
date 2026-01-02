@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 10: Adaptive Streaming | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --text: #e4e4e7;
+      --muted: #71717a;
+      --accent: #3b82f6;
+      --green: #22c55e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { color: var(--muted); }
+
+    .demo-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .demo-section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .info-box {
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .info-box strong { color: var(--accent); }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin: 1.5rem 0;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+    .comment { color: #6b7280; font-style: italic; }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid #f59e0b;
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>10. Adaptive Streaming</h1>
+      <p class="subtitle">HLS and DASH for quality that adapts to bandwidth</p>
+    </header>
+
+    <section class="demo-section">
+      <h2>What is Adaptive Streaming?</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">
+        Adaptive streaming automatically adjusts video quality based on the user's network conditions.
+        Instead of one large file, the video is split into small segments at multiple quality levels.
+      </p>
+
+      <div class="info-box">
+        <strong>Benefits:</strong>
+        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+          <li>Faster initial playback (starts with lower quality)</li>
+          <li>Automatic quality adjustment as connection improves/degrades</li>
+          <li>Better experience on mobile networks</li>
+          <li>Reduced buffering</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>HLS (HTTP Live Streaming)</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">
+        Developed by Apple, HLS is the most widely supported adaptive streaming format.
+        It uses <code>.m3u8</code> playlist files that reference video segments.
+      </p>
+
+      <div class="video-wrapper">
+        <video id="hlsVideo" controls>
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="code-block">
+        <code><span class="comment">// Native HLS support in Safari</span>
+<span class="tag">&lt;video</span> <span class="attr">controls</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.m3u8"</span> <span class="attr">type</span>=<span class="value">"application/x-mpegURL"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/video&gt;</span>
+
+<span class="comment">// For other browsers, use hls.js library</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="value">"https://cdn.jsdelivr.net/npm/hls.js@latest"</span><span class="tag">&gt;&lt;/script&gt;</span>
+<span class="tag">&lt;script&gt;</span>
+  <span class="property">const</span> video = <span class="property">document</span>.<span class="property">getElementById</span>(<span class="value">'video'</span>);
+  <span class="property">const</span> hlsUrl = <span class="value">'https://example.com/video.m3u8'</span>;
+
+  <span class="property">if</span> (<span class="property">Hls</span>.<span class="property">isSupported</span>()) {
+    <span class="property">const</span> hls = <span class="property">new</span> <span class="property">Hls</span>();
+    hls.<span class="property">loadSource</span>(hlsUrl);
+    hls.<span class="property">attachMedia</span>(video);
+  } <span class="property">else</span> <span class="property">if</span> (video.<span class="property">canPlayType</span>(<span class="value">'application/vnd.apple.mpegurl'</span>)) {
+    <span class="comment">// Native HLS support (Safari)</span>
+    video.<span class="property">src</span> = hlsUrl;
+  }
+<span class="tag">&lt;/script&gt;</span></code>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>DASH (Dynamic Adaptive Streaming over HTTP)</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">
+        An open standard alternative to HLS, DASH uses <code>.mpd</code> manifest files.
+      </p>
+
+      <div class="code-block">
+        <code><span class="comment">// Using dash.js library</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="value">"https://cdn.dashjs.org/latest/dash.all.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+<span class="tag">&lt;script&gt;</span>
+  <span class="property">const</span> player = <span class="property">dashjs</span>.<span class="property">MediaPlayer</span>().<span class="property">create</span>();
+  player.<span class="property">initialize</span>(
+    <span class="property">document</span>.<span class="property">querySelector</span>(<span class="value">'video'</span>),
+    <span class="value">'https://example.com/video.mpd'</span>,
+    <span class="value">true</span>
+  );
+<span class="tag">&lt;/script&gt;</span></code>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>When to Use Adaptive Streaming</h2>
+      <div class="warning-box">
+        <strong>Use adaptive streaming for:</strong>
+        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+          <li>Videos longer than 2-3 minutes</li>
+          <li>Users on varying network conditions</li>
+          <li>High-quality content (1080p+)</li>
+          <li>Live streaming scenarios</li>
+        </ul>
+        <p style="margin-top: 0.75rem;">
+          <strong>Don't use for:</strong> Short videos (&lt;30s), hero backgrounds,
+          or when file size is already optimized.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations · CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
+

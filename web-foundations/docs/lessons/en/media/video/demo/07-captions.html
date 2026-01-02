@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 07: Captions & Accessibility | Web Video Lesson</title>
+  <style>
+    :root {
+      --bg: #0d0d12;
+      --surface: #16161e;
+      --text: #e4e4e7;
+      --muted: #71717a;
+      --accent: #22c55e;
+      --accent-2: #3b82f6;
+      --font: 'Inter', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle { color: var(--muted); margin-bottom: 3rem; }
+
+    .video-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .video-section h2 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Custom caption styling */
+    video::cue {
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1em;
+      line-height: 1.4;
+      padding: 0.25em 0.5em;
+    }
+
+    video::cue(b) { color: #fbbf24; }
+    video::cue(i) { color: #a5b4fc; }
+
+    .code-block {
+      background: #0a0a0f;
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .tag { color: #7ee787; }
+    .attr { color: #79c0ff; }
+    .value { color: #a5d6ff; }
+
+    .vtt-example {
+      background: #1a1a24;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      white-space: pre;
+      overflow-x: auto;
+      border-left: 3px solid var(--accent);
+    }
+
+    .track-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .track-type {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .track-type__name {
+      font-weight: 600;
+      color: var(--accent-2);
+      font-family: var(--mono);
+      margin-bottom: 0.5rem;
+    }
+
+    .track-type__desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .info-box {
+      background: rgba(34, 197, 94, 0.1);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .info-box strong { color: var(--accent); }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>07. Captions & Accessibility</h1>
+      <p class="subtitle">Making video accessible to everyone with text tracks</p>
+    </header>
+
+    <section class="video-section">
+      <h2>Video with Captions Track</h2>
+      <p>This video includes English captions using WebVTT format.</p>
+
+      <div class="video-wrapper">
+        <video controls preload="metadata">
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+            type="video/webm"
+          >
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+          >
+          <!-- Inline VTT for demo purposes -->
+          <track
+            kind="captions"
+            src="data:text/vtt,WEBVTT%0A%0A00%3A00%3A00.000%20--%3E%2000%3A00%3A03.000%0AA%20beautiful%20flower%20blooms%20in%20nature.%0A%0A00%3A00%3A03.500%20--%3E%2000%3A00%3A07.000%0ANotice%20the%20vibrant%20colors%20and%20delicate%20petals.%0A%0A00%3A00%3A07.500%20--%3E%2000%3A00%3A11.000%0AThis%20is%20a%20demonstration%20of%20HTML5%20video%20captions."
+            srclang="en"
+            label="English"
+            default
+          >
+        </video>
+      </div>
+
+      <div class="code-block">
+        <code><span class="tag">&lt;video</span> <span class="attr">controls</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.mp4"</span> <span class="attr">type</span>=<span class="value">"video/mp4"</span><span class="tag">&gt;</span>
+
+  <span class="tag">&lt;track</span>
+    <span class="attr">kind</span>=<span class="value">"captions"</span>
+    <span class="attr">src</span>=<span class="value">"captions-en.vtt"</span>
+    <span class="attr">srclang</span>=<span class="value">"en"</span>
+    <span class="attr">label</span>=<span class="value">"English"</span>
+    <span class="attr">default</span>
+  <span class="tag">&gt;</span>
+
+  <span class="tag">&lt;track</span>
+    <span class="attr">kind</span>=<span class="value">"subtitles"</span>
+    <span class="attr">src</span>=<span class="value">"subtitles-es.vtt"</span>
+    <span class="attr">srclang</span>=<span class="value">"es"</span>
+    <span class="attr">label</span>=<span class="value">"Español"</span>
+  <span class="tag">&gt;</span>
+<span class="tag">&lt;/video&gt;</span></code>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <h2>Track Types Explained</h2>
+      <p>The <code>kind</code> attribute specifies the purpose of each text track.</p>
+
+      <div class="track-types">
+        <div class="track-type">
+          <div class="track-type__name">captions</div>
+          <div class="track-type__desc">Dialogue + sound effects for deaf/hard of hearing users</div>
+        </div>
+        <div class="track-type">
+          <div class="track-type__name">subtitles</div>
+          <div class="track-type__desc">Translation of dialogue for non-native speakers</div>
+        </div>
+        <div class="track-type">
+          <div class="track-type__name">descriptions</div>
+          <div class="track-type__desc">Narration of visual content for blind users</div>
+        </div>
+        <div class="track-type">
+          <div class="track-type__name">chapters</div>
+          <div class="track-type__desc">Navigation markers for jumping to sections</div>
+        </div>
+        <div class="track-type">
+          <div class="track-type__name">metadata</div>
+          <div class="track-type__desc">Machine-readable data for JavaScript</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <h2>WebVTT Format</h2>
+      <p>WebVTT (Web Video Text Tracks) is the standard caption format for HTML5 video.</p>
+
+      <div class="vtt-example">WEBVTT
+
+00:00:00.000 --> 00:00:04.000
+Welcome to this tutorial on web video.
+
+00:00:04.500 --> 00:00:08.000
+Today we'll cover accessibility best practices.
+
+00:00:08.500 --> 00:00:12.000 position:10%,line-left align:left
+[Typing sounds]
+
+00:00:12.500 --> 00:00:16.000
+&lt;b&gt;Important:&lt;/b&gt; Always provide captions!</div>
+
+      <div class="info-box">
+        <strong>Pro Tip:</strong> Use services like YouTube's auto-caption feature
+        as a starting point, then edit for accuracy. Tools like Descript and Otter.ai
+        can generate transcripts that you convert to VTT format.
+      </div>
+    </section>
+
+    <section class="video-section">
+      <h2>Styling Captions with CSS</h2>
+      <p>Modern browsers support the <code>::cue</code> pseudo-element for caption styling.</p>
+
+      <div class="code-block">
+        <code>video::cue {
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+video::cue(b) {
+  color: #fbbf24; /* Highlight bold text */
+}
+
+video::cue(i) {
+  color: #a5b4fc; /* Style italic text */
+}</code>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Demo for <a href="../">Video on the Web Lesson</a> ·
+        UDIT Web Foundations · CC BY-NC-SA 4.0
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
+

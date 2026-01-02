@@ -1,8 +1,49 @@
-<header class="site-header container">
-	<nav class="nav">
-		<a href="{{ site.baseurl }}/">Home</a>
-		<a href="{{ site.baseurl }}/lessons/es/">Lecciones</a>
-		<a href="{{ site.baseurl }}/lessons/en/">Lessons</a>
-		<a href="mailto:ruben.vega@udit.es">Email</a>
+<header
+	class="bg-white dark:bg-neutral-950 border-b border-slate-200 dark:border-neutral-800 sticky top-0 z-40 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95 shadow-sm dark:shadow-neutral-900/50 site-header">
+	<nav class="mx-auto px-4 py-4" aria-label="Main navigation">
+		<div class="flex items-center justify-between">
+			<a
+				href="{{ site.baseurl }}/"
+				class="brand flex items-center gap-2 font-bold text-xl text-slate-900 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+				<img src="{{ '/assets/icons/favicon.svg' | relative_url }}" alt="" class="brand-logo w-8 h-8" aria-hidden="true" />
+				<span>{{ site.title | default: 'WEB ATELIER' }}</span>
+			</a>
+			<ul class="flex gap-6 text-sm items-center">
+				{% assign current_lang = page.lang | default: 'en' %} {% assign locales = site.data.locales %}
+
+				<!-- Navigation links based on current language -->
+				{% if current_lang == 'es' %}
+				<li>
+					<a
+						href="{{ site.baseurl }}/2025-fall/es/"
+						class="text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+						Curso
+					</a>
+				</li>
+				{% else %}
+				<li>
+					<a
+						href="{{ site.baseurl }}/2025-fall/en/"
+						class="text-slate-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+						Course
+					</a>
+				</li>
+				{% endif %}
+
+				<!-- Language Switcher -->
+				<li>{% include lang-switcher.html %}</li>
+
+				<!-- Theme Toggle -->
+				<li>
+					<button
+						id="theme-toggle"
+						class="text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-neutral-100 transition-colors p-1"
+						aria-label="Toggle theme">
+						<span class="dark:hidden">🌙</span>
+						<span class="hidden dark:inline">☀️</span>
+					</button>
+				</li>
+			</ul>
+		</div>
 	</nav>
 </header>
