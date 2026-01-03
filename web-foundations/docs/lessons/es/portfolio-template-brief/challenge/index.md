@@ -26,7 +26,6 @@ tags: [final-project, portfolio, deployment, responsive, web-standards]
 > Esta especificación estará siempre disponible en:
 > [https://web-ateliers.github.io/web-foundations/lessons/es/portfolio-template-brief/challenge/](https://web-ateliers.github.io/web-foundations/lessons/es/portfolio-template-brief/challenge/)
 
-
 > **Sobre el uso de agentes de IA:**
 > Aunque trabajes con herramientas como VS Code y Copilot, **toda interacción con asistentes de programación basados en IA (por ejemplo, Cursor, GitHub Copilot, Claude, ChatGPT) debe seguir un enfoque en dos fases:**
 >
@@ -399,7 +398,7 @@ Construye estos componentes núcleo con atención al detalle:
 
 ---
 
-## Rúbrica de evaluación _(provisional — los valores pueden ajustarse ligeramente)_
+## Rúbrica de evaluación _(provisional y de referencia, no vinculante)_
 
 > _Nota: Estos porcentajes son un borrador de trabajo y pueden afinarse a medida que avance el curso — céntrate en el proceso, no en la perfección. No te obsesiones con cada punto; el objetivo real es disfrutar aprendiendo, construir algo significativo y hacer crecer tus habilidades._
 
@@ -1052,5 +1051,3 @@ Aborda este proyecto con intención. Documenta tus decisiones. Colabora con tus 
 
 **¿Dudas o necesitas aclaración?**
 Revisa las lecciones enlazadas, consulta al profesor en clase, colabora con tus compañeras y documenta tu proceso. Nos vemos en la meta con tu release `v1.0.0`.
-
-

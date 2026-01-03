@@ -7,6 +7,8 @@
  *   node yaml-to-moodle-xml.js
  *   node yaml-to-moodle-xml.js --input=mi-banco.yml --output=mi-banco.xml
  *
+ * Nota: Los archivos YAML deben estar en el directorio ../private/
+ *
  * También puede ejecutarse directamente tras `chmod +x yaml-to-moodle-xml.js`.
  *
  * Requiere:
@@ -23,47 +25,47 @@ const DEFAULT_INPUT_FILE = 'exam-portfolio-self-assessment.yml';
 const DEFAULT_OUTPUT_FILE = 'exam-portfolio-self-assessment-moodle.xml';
 
 function parseArgs(argv = []) {
-  return argv.reduce((acc, arg) => {
-    if (arg.startsWith('--input=')) {
-      acc.input = arg.split('=')[1];
-    } else if (arg.startsWith('--output=')) {
-      acc.output = arg.split('=')[1];
-    }
-    return acc;
-  }, {});
+	return argv.reduce((acc, arg) => {
+		if (arg.startsWith('--input=')) {
+			acc.input = arg.split('=')[1];
+		} else if (arg.startsWith('--output=')) {
+			acc.output = arg.split('=')[1];
+		}
+		return acc;
+	}, {});
 }
 
 /**
  * Escape HTML special characters for CDATA sections
  */
 function escapeHtml(text) {
-  if (!text) return '';
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+	if (!text) return '';
+	return text
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
 }
 
 /**
  * Wrap content in CDATA if it contains HTML
  */
 function wrapContent(content, useHtml = true) {
-  if (!content) return '<text></text>';
-  const trimmed = content.trim();
-  if (useHtml && (trimmed.includes('<') || trimmed.includes('&'))) {
-    return `<text><![CDATA[${trimmed}]]></text>`;
-  }
-  return `<text>${escapeHtml(trimmed)}</text>`;
+	if (!content) return '<text></text>';
+	const trimmed = content.trim();
+	if (useHtml && (trimmed.includes('<') || trimmed.includes('&'))) {
+		return `<text><![CDATA[${trimmed}]]></text>`;
+	}
+	return `<text>${escapeHtml(trimmed)}</text>`;
 }
 
 /**
  * Generate category question block
  */
 function generateCategoryBlock(category, coursePrefix = '$course$/top') {
-  const categoryPath = `${coursePrefix}/${category.name}`.replace(/&/g, '&amp;');
-  return `
+	const categoryPath = `${coursePrefix}/${category.name}`.replace(/&/g, '&amp;');
+	return `
 <!-- Category: ${category.name} -->
   <question type="category">
     <category>
@@ -81,7 +83,7 @@ function generateCategoryBlock(category, coursePrefix = '$course$/top') {
  * Generate essay question XML
  */
 function generateEssayQuestion(q) {
-  return `
+	return `
 <!-- question: ${q.id} -->
   <question type="essay">
     <name>
@@ -116,20 +118,20 @@ function generateEssayQuestion(q) {
  * Generate multiple choice question XML
  */
 function generateMultichoiceQuestion(q) {
-  const single = q.single !== false ? 'true' : 'false';
-  let answersXml = '';
-  
-  for (const answer of q.answers) {
-    answersXml += `
+	const single = q.single !== false ? 'true' : 'false';
+	let answersXml = '';
+
+	for (const answer of q.answers) {
+		answersXml += `
     <answer fraction="${answer.fraction}" format="html">
       ${wrapContent(answer.text)}
       <feedback format="html">
         ${wrapContent(answer.feedback || '')}
       </feedback>
     </answer>`;
-  }
+	}
 
-  return `
+	return `
 <!-- question: ${q.id} -->
   <question type="multichoice">
     <name>
@@ -166,10 +168,10 @@ function generateMultichoiceQuestion(q) {
  * Generate true/false question XML
  */
 function generateTrueFalseQuestion(q) {
-  const correctFraction = q.correct ? 100 : 0;
-  const incorrectFraction = q.correct ? 0 : 100;
-  
-  return `
+	const correctFraction = q.correct ? 100 : 0;
+	const incorrectFraction = q.correct ? 0 : 100;
+
+	return `
 <!-- question: ${q.id} -->
   <question type="truefalse">
     <name>
@@ -188,13 +190,13 @@ function generateTrueFalseQuestion(q) {
     <answer fraction="${correctFraction}" format="moodle_auto_format">
       <text>true</text>
       <feedback format="html">
-        ${wrapContent(q.correct ? '' : (q.feedback_true || ''))}
+        ${wrapContent(q.correct ? '' : q.feedback_true || '')}
       </feedback>
     </answer>
     <answer fraction="${incorrectFraction}" format="moodle_auto_format">
       <text>false</text>
       <feedback format="html">
-        ${wrapContent(q.correct ? (q.feedback_false || '') : '')}
+        ${wrapContent(q.correct ? q.feedback_false || '' : '')}
       </feedback>
     </answer>
   </question>
@@ -205,19 +207,19 @@ function generateTrueFalseQuestion(q) {
  * Generate matching question XML
  */
 function generateMatchingQuestion(q) {
-  let subquestionsXml = '';
-  
-  for (const subq of q.subquestions) {
-    subquestionsXml += `
+	let subquestionsXml = '';
+
+	for (const subq of q.subquestions) {
+		subquestionsXml += `
     <subquestion format="html">
       ${wrapContent(`<p>${subq.premise}</p>`)}
       <answer>
         <text>${escapeHtml(subq.answer)}</text>
       </answer>
     </subquestion>`;
-  }
+	}
 
-  return `
+	return `
 <!-- question: ${q.id} -->
   <question type="matching">
     <name>
@@ -252,22 +254,22 @@ function generateMatchingQuestion(q) {
  * Generate gap select (select missing words) question XML
  */
 function generateGapSelectQuestion(q) {
-  let selectOptionsXml = '';
-  
-  // Build options from groups
-  if (q.groups) {
-    for (const groupDef of q.groups) {
-      for (const option of groupDef.options) {
-        selectOptionsXml += `
+	let selectOptionsXml = '';
+
+	// Build options from groups
+	if (q.groups) {
+		for (const groupDef of q.groups) {
+			for (const option of groupDef.options) {
+				selectOptionsXml += `
     <selectoption>
       <text>${escapeHtml(option)}</text>
       <group>${groupDef.group}</group>
     </selectoption>`;
-      }
-    }
-  }
+			}
+		}
+	}
 
-  return `
+	return `
 <!-- question: ${q.id} -->
   <question type="gapselect">
     <name>
@@ -302,49 +304,49 @@ function generateGapSelectQuestion(q) {
  * Generate question XML based on type
  */
 function generateQuestion(q) {
-  switch (q.type) {
-    case 'essay':
-      return generateEssayQuestion(q);
-    case 'multichoice':
-      return generateMultichoiceQuestion(q);
-    case 'truefalse':
-      return generateTrueFalseQuestion(q);
-    case 'matching':
-      return generateMatchingQuestion(q);
-    case 'gapselect':
-      return generateGapSelectQuestion(q);
-    default:
-      console.warn(`Unknown question type: ${q.type} for question ${q.id}`);
-      return '';
-  }
+	switch (q.type) {
+		case 'essay':
+			return generateEssayQuestion(q);
+		case 'multichoice':
+			return generateMultichoiceQuestion(q);
+		case 'truefalse':
+			return generateTrueFalseQuestion(q);
+		case 'matching':
+			return generateMatchingQuestion(q);
+		case 'gapselect':
+			return generateGapSelectQuestion(q);
+		default:
+			console.warn(`Unknown question type: ${q.type} for question ${q.id}`);
+			return '';
+	}
 }
 
 /**
  * Main transformation function
  */
 function transformYamlToMoodleXml(inputPath, outputPath) {
-  console.log(`Reading YAML from: ${inputPath}`);
-  
-  // Read and parse YAML
-  const yamlContent = fs.readFileSync(inputPath, 'utf8');
-  const exam = yaml.load(yamlContent);
-  
-  console.log(`Loaded exam: ${exam.metadata.title}`);
-  console.log(`Categories: ${exam.categories.length}`);
-  console.log(`Questions: ${exam.questions.length}`);
-  
-  // Group questions by category
-  const questionsByCategory = {};
-  for (const q of exam.questions) {
-    if (!questionsByCategory[q.category]) {
-      questionsByCategory[q.category] = [];
-    }
-    questionsByCategory[q.category].push(q);
-  }
-  
-  // Build XML
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+	console.log(`Reading YAML from: ${inputPath}`);
+
+	// Read and parse YAML
+	const yamlContent = fs.readFileSync(inputPath, 'utf8');
+	const exam = yaml.load(yamlContent);
+
+	console.log(`Loaded exam: ${exam.metadata.title}`);
+	console.log(`Categories: ${exam.categories.length}`);
+	console.log(`Questions: ${exam.questions.length}`);
+
+	// Group questions by category
+	const questionsByCategory = {};
+	for (const q of exam.questions) {
+		if (!questionsByCategory[q.category]) {
+			questionsByCategory[q.category] = [];
+		}
+		questionsByCategory[q.category].push(q);
+	}
+
+	// Build XML
+	let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<!--
   Moodle XML Quiz Export
   ${exam.metadata.title}
   Course: ${exam.metadata.course}
@@ -356,60 +358,61 @@ function transformYamlToMoodleXml(inputPath, outputPath) {
 <quiz>
 `;
 
-  // Generate questions organized by category
-  for (const category of exam.categories) {
-    const categoryQuestions = questionsByCategory[category.id] || [];
-    
-    if (categoryQuestions.length > 0) {
-      // Add category block
-      xml += generateCategoryBlock(category);
-      
-      // Add questions in this category
-      for (const q of categoryQuestions) {
-        xml += generateQuestion(q);
-      }
-    }
-  }
+	// Generate questions organized by category
+	for (const category of exam.categories) {
+		const categoryQuestions = questionsByCategory[category.id] || [];
 
-  xml += `
+		if (categoryQuestions.length > 0) {
+			// Add category block
+			xml += generateCategoryBlock(category);
+
+			// Add questions in this category
+			for (const q of categoryQuestions) {
+				xml += generateQuestion(q);
+			}
+		}
+	}
+
+	xml += `
 </quiz>`;
 
-  // Write output
-  fs.writeFileSync(outputPath, xml, 'utf8');
-  console.log(`\nMoodle XML written to: ${outputPath}`);
-  
-  // Calculate statistics
-  let totalPoints = 0;
-  const typeCounts = {};
-  for (const q of exam.questions) {
-    totalPoints += q.points || 1;
-    typeCounts[q.type] = (typeCounts[q.type] || 0) + 1;
-  }
-  
-  console.log('\n=== Exam Statistics ===');
-  console.log(`Total Questions: ${exam.questions.length}`);
-  console.log(`Total Points: ${totalPoints}`);
-  console.log('\nQuestion Types:');
-  for (const [type, count] of Object.entries(typeCounts)) {
-    console.log(`  ${type}: ${count}`);
-  }
-  
-  return { success: true, questions: exam.questions.length, points: totalPoints };
+	// Write output
+	fs.writeFileSync(outputPath, xml, 'utf8');
+	console.log(`\nMoodle XML written to: ${outputPath}`);
+
+	// Calculate statistics
+	let totalPoints = 0;
+	const typeCounts = {};
+	for (const q of exam.questions) {
+		totalPoints += q.points || 1;
+		typeCounts[q.type] = (typeCounts[q.type] || 0) + 1;
+	}
+
+	console.log('\n=== Exam Statistics ===');
+	console.log(`Total Questions: ${exam.questions.length}`);
+	console.log(`Total Points: ${totalPoints}`);
+	console.log('\nQuestion Types:');
+	for (const [type, count] of Object.entries(typeCounts)) {
+		console.log(`  ${type}: ${count}`);
+	}
+
+	return { success: true, questions: exam.questions.length, points: totalPoints };
 }
 
 // Run transformation
 const scriptDir = __dirname;
+const privateDir = path.join(scriptDir, '..', 'private');
 const args = parseArgs(process.argv.slice(2));
 const inputFile = args.input || DEFAULT_INPUT_FILE;
 const outputFile = args.output || DEFAULT_OUTPUT_FILE;
-const inputPath = path.join(scriptDir, inputFile);
+const inputPath = path.join(privateDir, inputFile);
 const outputPath = path.join(scriptDir, outputFile);
 
 try {
-  const result = transformYamlToMoodleXml(inputPath, outputPath);
-  console.log('\n✅ Transformation completed successfully!');
-  process.exit(0);
+	const result = transformYamlToMoodleXml(inputPath, outputPath);
+	console.log('\n✅ Transformation completed successfully!');
+	process.exit(0);
 } catch (error) {
-  console.error('\n❌ Transformation failed:', error.message);
-  process.exit(1);
+	console.error('\n❌ Transformation failed:', error.message);
+	process.exit(1);
 }

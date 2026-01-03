@@ -2,7 +2,7 @@
 .env
 .env*
 _site/
-*.lock 
+*.lock
 !web-foundations/pnpm-lock.yaml
 node_modules/
 package-lock.json
@@ -11,3 +11,5 @@ yarn.lock
 Gemfile.lock
 web-foundations/docs/assets/css/tailwind-processed.css
 vendor/
+private/
+private/*

@@ -23,7 +23,7 @@ permalink: /lessons/en/media/images/the-tao-of-web-images/
 
 # The Tao of Web Images
 
-> In the ancient scrolls of web development, there exists a sacred text known as 'The Tao of the Developer'—a collection of paradoxical wisdom passed down through generations of code warriors. This chapter, dedicated to the art of web design, reveals the eternal truths about images in the digital realm.
+> In the ancient scrolls of web development, there exists a sacred text known as 'The Tao of the Developer' —a collection of paradoxical wisdom passed down through generations of code warriors. This chapter, dedicated to the art of web design, reveals the eternal truths about images in the digital realm.
 
 ---
 
