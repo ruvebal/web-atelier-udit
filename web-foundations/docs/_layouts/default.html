@@ -26,13 +26,13 @@
 		{% include footer.html %}
 		<script>
 			// Theme toggle functionality - ensure it runs after DOM is ready
-			(function() {
+			(function () {
 				function initThemeToggle() {
 					const themeToggle = document.getElementById('theme-toggle');
 					const htmlRoot = document.documentElement;
 
 					if (themeToggle) {
-						themeToggle.addEventListener('click', function(e) {
+						themeToggle.addEventListener('click', function (e) {
 							e.preventDefault();
 							const isDark = htmlRoot.classList.toggle('dark');
 							try {

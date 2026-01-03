@@ -5,25 +5,38 @@ description: 'Agile Teaching for Experiential Learning in Iterative Repos - Crit
 lang: es
 ---
 
-<div
-	class="hero-section bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-neutral-900 dark:to-neutral-800 py-16 px-4 mb-16">
-	<header class="max-w-4xl mx-auto text-center">
-		<div class="flex items-center justify-center gap-4 mb-6">
+<section
+	class="hero-section bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-neutral-900 dark:to-neutral-800 py-16 px-4 mb-16"
+	aria-labelledby="hero-title">
+	<div class="max-w-4xl mx-auto text-center">
+		<div class="flex flex-col items-center justify-center gap-6 mb-6">
 			<img
 				src="{{ '/assets/icons/favicon.svg' | relative_url }}"
 				alt=""
-				class="w-16 h-16 md:w-20 md:h-20"
-				aria-hidden="true"
-			/>
+				class="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
+				aria-hidden="true" />
+			<div class="text-center">
+				<h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-neutral-100 mb-2">
+					<span class="block">WEB ATELIER</span>
+					<span class="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-700 dark:text-neutral-300">(UDIT)</span>
+				</h1>
+				<p class="text-xl md:text-2xl font-semibold text-gray-800 dark:text-neutral-200 mb-2">
+					Learning by doing, with theory, practice and shared reflection
+				</p>
+				<p class="text-lg md:text-xl italic text-gray-600 dark:text-neutral-400 mb-4">
+					Critical Coding for a Better Living
+				</p>
+				<p class="text-base text-gray-600 dark:text-neutral-400">
+					<a href="https://orcid.org/0000-0001-6862-9081" target="_blank" rel="noopener" class="hover:underline">
+						Rubén Vega Balbás, PhD
+					</a>
+					·
+					<a href="https://www.udit.es/docentes/ruben-vega-balbas/" target="_blank" rel="noopener" class="hover:underline">
+						UDIT
+					</a>
+				</p>
+			</div>
 		</div>
-		<h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-neutral-100 mb-4">
-			<span class="block">WEB ATELIER</span>
-			<span class="text-3xl md:text-4xl font-normal text-gray-700 dark:text-neutral-300">(UDIT)</span>
-		</h1>
-		<p class="text-xl md:text-2xl font-semibold text-gray-800 dark:text-neutral-200 mb-4">
-			Agile Teaching for Experiential Learning in Iterative Repos
-		</p>
-		<p class="text-lg md:text-xl italic text-gray-600 dark:text-neutral-400 mb-8">Critical Coding for a Better Living</p>
 		<div class="max-w-2xl mx-auto">
 			<p class="text-lg md:text-xl text-gray-700 dark:text-neutral-300 leading-relaxed">
 				Bienvenidos al portal de
@@ -32,8 +45,8 @@ lang: es
 				desarrollo ético centrado en las personas.
 			</p>
 		</div>
-	</header>
-</div>
+	</div>
+</section>
 
 <main class="content-main max-w-7xl mx-auto px-4">
 	<section class="lessons-section mb-16" aria-labelledby="lessons-heading">
@@ -231,6 +244,27 @@ lang: es
 					</a>
 				</div>
 			</div>
+
+			<div
+				class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-6">
+				<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-3">
+					<span aria-hidden="true">📝</span>
+					Evaluación / Evaluation
+				</h3>
+				<p class="text-gray-700 dark:text-neutral-300 mb-4">Filosofía de evaluación, rúbricas y recursos para LMS.</p>
+				<div class="grid grid-cols-2 gap-2">
+					<a
+						href="{{ '/evaluation/es/' | relative_url }}"
+						class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline text-sm">
+						Evaluación (ES)
+					</a>
+					<a
+						href="{{ '/evaluation/en/' | relative_url }}"
+						class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline text-sm">
+						Evaluation (EN)
+					</a>
+				</div>
+			</div>
 		</div>
 	</section>
 </main>
@@ -245,7 +279,7 @@ lang: es
 				<br />
 				UDIT - Universidad de Diseño, Innovación y Tecnología
 			</p>
-			<div class="flex gap-4">
+			<div class="flex gap-4 flex-wrap">
 				<a
 					href="https://orcid.org/0000-0001-6862-9081"
 					target="_blank"
@@ -255,11 +289,19 @@ lang: es
 					<span aria-hidden="true">↗</span>
 				</a>
 				<a
+					href="https://www.udit.es/docentes/ruben-vega-balbas/"
+					target="_blank"
+					rel="noopener"
+					class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline">
+					UDIT Profile
+					<span aria-hidden="true">↗</span>
+				</a>
+				<a
 					href="https://www.udit.es"
 					target="_blank"
 					rel="noopener"
 					class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline">
-					UDIT
+					UDIT Website
 					<span aria-hidden="true">↗</span>
 				</a>
 			</div>

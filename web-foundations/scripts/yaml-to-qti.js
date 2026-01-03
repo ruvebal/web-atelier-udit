@@ -1,36 +1,53 @@
 #!/usr/bin/env node
 /**
  * YAML → QTI 2.1 Exporter
- * Genera un paquete IMS QTI 2.1 (items independientes + imsmanifest) a partir
+ * Genera un paquete IMS QTI 2.1 (ObjectBank + items + imsmanifest) a partir
  * de un banco de preguntas en YAML (mismo formato que usamos para Moodle).
  *
  * Uso:
  *   node yaml-to-qti.js \
- *     --input=examen-portafolio-auto-evaluacion.yml \
- *     --outdir=examen-portafolio-auto-evaluacion-qti
+ *     --input=../private/examen-portafolio-auto-evaluacion.yml \
+ *     --outdir=../private/examen-portafolio-auto-evaluacion-qti \
+ *     [--zip]
+ *
+ * Opciones:
+ *   --input=<file>  Archivo YAML de entrada (relativo a ../private/)
+ *   --outdir=<dir>  Directorio de salida (por defecto: <input-name>-qti)
+ *   --zip           También crea un archivo ZIP del paquete QTI
  *
  * Nota: Los archivos YAML deben estar en el directorio ../private/
  *
  * El directorio de salida contendrá:
  *   outdir/
- *     imsmanifest.xml
+ *     imsmanifest.xml    (manifest con referencia a assessment + items)
+ *     assessment.xml     (assessmentTest que referencia todos los items como pool)
  *     items/
  *       q001.xml, q002.xml, ...
+ *     README.txt
  *
- * Después de ejecutar, comprime el directorio (zip) para importarlo en
- * Blackboard Ultra u otras plataformas compatibles con QTI 2.1.
+ * Si se usa --zip, también se generará:
+ *   outdir.zip      (archivo ZIP listo para importar en LMS)
+ *
+ * El directorio raw siempre se mantiene para inspección/debugging.
+ * El ZIP es opcional pero necesario para importar en Blackboard Ultra u otras
+ * plataformas compatibles con IMS QTI 2.1.
+ *
+ * Estándares:
+ *   - QTI 2.1: https://www.1edtech.org/standards/qti/index#QTI21
+ *   - Blackboard: https://help.anthology.com/blackboard/instructor/en/assessments/questions/reuse-questions/question-banks.html
  */
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const yaml = require('js-yaml');
 
-const QTI_NAMESPACE = 'http://www.imsglobal.org/xsd/imsqtiasi_v2p1';
-const QTI_SCHEMA =
-	'http://www.imsglobal.org/xsd/imsqtiasi_v2p1 http://www.imsglobal.org/profile/cc/ccv1p3/imsqtiasi_v2p1.xsd';
+// Official QTI 2.1 namespaces and schema locations per 1EdTech specification
+// Reference: https://www.1edtech.org/standards/qti/index#QTI21
+const QTI_NAMESPACE = 'http://www.imsglobal.org/xsd/imsqti_v2p1';
+const QTI_SCHEMA = 'http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd';
 const MANIFEST_NS = 'http://www.imsglobal.org/xsd/imscp_v1p1';
-const MANIFEST_SCHEMA =
-	'http://www.imsglobal.org/xsd/imscp_v1p1 http://www.imsglobal.org/profile/cc/ccv1p3/imscp_v1p2.xsd';
+const MANIFEST_SCHEMA = 'http://www.imsglobal.org/xsd/imscp_v1p1 http://www.imsglobal.org/xsd/imscp_v1p1.xsd';
 
 function parseArgs(argv = []) {
 	return argv.reduce((acc, arg) => {
@@ -38,6 +55,8 @@ function parseArgs(argv = []) {
 			acc.input = arg.split('=')[1];
 		} else if (arg.startsWith('--outdir=')) {
 			acc.outdir = arg.split('=')[1];
+		} else if (arg === '--zip') {
+			acc.zip = true;
 		}
 		return acc;
 	}, {});
@@ -58,7 +77,15 @@ function cdata(html = '') {
 }
 
 function wrapParagraph(questionHtml = '') {
-	return questionHtml.trim().length ? `<div class="prompt">${cdata(questionHtml)}</div>` : '';
+	if (!questionHtml || !questionHtml.trim().length) {
+		return '';
+	}
+	// Wrap in p tag if not already wrapped, or use div for complex HTML
+	const trimmed = questionHtml.trim();
+	if (trimmed.startsWith('<') && (trimmed.startsWith('<p') || trimmed.startsWith('<div'))) {
+		return trimmed;
+	}
+	return `<p>${cdata(trimmed)}</p>`;
 }
 
 function ensureDir(dir) {
@@ -81,13 +108,14 @@ function buildEssayItem(q) {
 	if (['gapselect', 'matching'].includes(q.type)) {
 		note = '<p><em>Nota: Esta pregunta se ha convertido a respuesta abierta para el paquete QTI.</em></p>';
 	}
+	const itemId = sanitizeId(q.id);
 	return `<?xml version="1.0" encoding="UTF-8"?>
 <assessmentItem xmlns="${QTI_NAMESPACE}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="${QTI_SCHEMA}" identifier="${escapeAttr(q.id)}" title="${escapeAttr(
+  xsi:schemaLocation="${QTI_SCHEMA}" identifier="${escapeAttr(itemId)}" title="${escapeAttr(
 		q.name
 	)}" adaptive="false" timeDependent="false">
   <responseDeclaration identifier="RESPONSE" cardinality="single" baseType="string"/>
-  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float">
+  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float" normalMaximum="${points}">
     <defaultValue><value>0</value></defaultValue>
   </outcomeDeclaration>
   <itemBody>
@@ -109,27 +137,29 @@ function buildChoiceItem(q) {
 		text: answer.text || '',
 		correct: Number(answer.fraction) > 0,
 	}));
-	const correctValues = choices
-		.filter((c) => c.correct)
-		.map((c) => `<value>${c.id}</value>`)
-		.join('');
+	const correctChoices = choices.filter((c) => c.correct);
+	const correctValues = correctChoices.map((c) => `<value>${c.id}</value>`).join('');
 
-	if (!correctValues) {
+	if (!correctValues || correctChoices.length === 0) {
 		logWarn(`Pregunta ${q.id} no tiene respuestas correctas marcadas. Se marcará la primera como correcta.`);
 		choices[0].correct = true;
+		correctChoices.push(choices[0]);
 	}
 
+	// Use appropriate response processing template
+	const rpTemplate = single
+		? 'http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct'
+		: 'http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct';
+
+	const itemId = sanitizeId(q.id);
 	return `<?xml version="1.0" encoding="UTF-8"?>
 <assessmentItem xmlns="${QTI_NAMESPACE}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="${QTI_SCHEMA}" identifier="${escapeAttr(q.id)}" title="${escapeAttr(
+  xsi:schemaLocation="${QTI_SCHEMA}" identifier="${escapeAttr(itemId)}" title="${escapeAttr(
 		q.name
 	)}" adaptive="false" timeDependent="false">
   <responseDeclaration identifier="RESPONSE" cardinality="${cardinality}" baseType="identifier">
     <correctResponse>
-      ${choices
-							.filter((c) => c.correct)
-							.map((c) => `<value>${c.id}</value>`)
-							.join('')}
+      ${correctChoices.map((c) => `<value>${c.id}</value>`).join('')}
     </correctResponse>
   </responseDeclaration>
   <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float" normalMaximum="${points}">
@@ -143,7 +173,7 @@ function buildChoiceItem(q) {
 							.join('\n')}
     </choiceInteraction>
   </itemBody>
-  <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>
+  <responseProcessing template="${rpTemplate}"/>
 </assessmentItem>`;
 }
 
@@ -152,11 +182,12 @@ function buildMatchingItem(q) {
 	const leftChoices = q.subquestions.map((sq, idx) => ({ id: `L${idx + 1}`, text: sq.premise }));
 	const rightChoices = q.subquestions.map((sq, idx) => ({ id: `R${idx + 1}`, text: sq.answer }));
 
-	const correctPairs = q.subquestions.map((sq, idx) => `<value>${`L${idx + 1}`} ${`R${idx + 1}`}</value>`).join('');
+	const correctPairs = q.subquestions.map((sq, idx) => `      <value>L${idx + 1} R${idx + 1}</value>`).join('\n');
 
+	const itemId = sanitizeId(q.id);
 	return `<?xml version="1.0" encoding="UTF-8"?>
 <assessmentItem xmlns="${QTI_NAMESPACE}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="${QTI_SCHEMA}" identifier="${escapeAttr(q.id)}" title="${escapeAttr(
+  xsi:schemaLocation="${QTI_SCHEMA}" identifier="${escapeAttr(itemId)}" title="${escapeAttr(
 		q.name
 	)}" adaptive="false" timeDependent="false">
   <responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="directedPair">
@@ -196,6 +227,37 @@ function buildMatchingItem(q) {
 </assessmentItem>`;
 }
 
+/**
+ * Builds an AssessmentTest XML file that contains all questions as a pool.
+ * Blackboard imports QTI 2.1 packages as pools when they contain assessmentTest.
+ * @param {Array} questions - Array of question objects from YAML
+ * @param {Object} metadata - Metadata about the exam
+ * @returns {string} AssessmentTest XML content
+ */
+function buildAssessmentTest(questions, metadata = {}) {
+	const testId = sanitizeId(metadata.title || 'question-pool');
+	const testTitle = metadata.title || 'Question Pool';
+
+	// Create assessment sections with item references
+	const itemRefs = questions
+		.map((q) => {
+			const itemId = sanitizeId(q.id);
+			return `      <assessmentItemRef identifier="${itemId}" href="items/${itemId}.xml"/>`;
+		})
+		.join('\n');
+
+	return `<?xml version="1.0" encoding="UTF-8"?>
+<assessmentTest xmlns="${QTI_NAMESPACE}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="${QTI_SCHEMA}" identifier="${escapeAttr(testId)}" title="${escapeAttr(testTitle)}">
+  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+  <testPart identifier="testPart-1" navigationMode="linear" submissionMode="individual">
+    <assessmentSection identifier="section-1" title="${escapeAttr(testTitle)}" visible="true">
+${itemRefs}
+    </assessmentSection>
+  </testPart>
+</assessmentTest>`;
+}
+
 function buildItem(q) {
 	switch (q.type) {
 		case 'essay':
@@ -222,25 +284,64 @@ function buildItem(q) {
 	}
 }
 
-function writeManifest(outDir, resources) {
+function writeManifest(outDir, resources, metadata = {}, hasAssessmentTest = false) {
+	const manifestId = `manifest-${Date.now()}`;
+	// Structure for Blackboard Question Pool compatibility
+	// Blackboard imports QTI 2.1 packages with assessmentTest as pools
 	const manifest = `<?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns="${MANIFEST_NS}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  identifier="manifest-${Date.now()}" xsi:schemaLocation="${MANIFEST_SCHEMA}">
+  identifier="${manifestId}" xsi:schemaLocation="${MANIFEST_SCHEMA}">
+  <metadata>
+    <schema>IMS Content</schema>
+    <schemaversion>1.1.3</schemaversion>
+  </metadata>
   <organizations/>
   <resources>
-    ${resources
-					.map(
-						(res) => `    <resource identifier="${res.identifier}" type="imsqti_item_xmlv2p1" href="${res.href}">
+    ${
+					hasAssessmentTest
+						? `    <resource identifier="res-assessment" type="imsqti_test_xmlv2p1" href="assessment.xml">
+      <file href="assessment.xml"/>
+    </resource>
+`
+						: ''
+				}${resources
+		.map(
+			(res) => `    <resource identifier="${res.identifier}" type="imsqti_item_xmlv2p1" href="${res.href}">
       <file href="${res.href}"/>
     </resource>`
-					)
-					.join('\n')}
+		)
+		.join('\n')}
   </resources>
 </manifest>`;
 	fs.writeFileSync(path.join(outDir, 'imsmanifest.xml'), manifest, 'utf8');
 }
 
-function exportQti(inputPath, outDir) {
+/**
+ * Creates a ZIP archive of the output directory.
+ * Uses the system 'zip' command (available on macOS, Linux, and Windows with Git Bash/WSL).
+ * IMPORTANT: Zips the CONTENTS of the directory, not the directory itself, so that
+ * imsmanifest.xml is at the root of the ZIP (required by Blackboard).
+ * @param {string} outDir - Directory to zip
+ * @param {string} zipPath - Path for the output ZIP file
+ */
+function createZipArchive(outDir, zipPath) {
+	try {
+		// Change to the output directory and zip its contents (not the directory itself)
+		// This ensures imsmanifest.xml is at the root of the ZIP
+		execSync(`cd "${outDir}" && zip -r "${zipPath}" .`, {
+			stdio: 'inherit',
+			cwd: outDir,
+		});
+		console.log(`✅ Archivo ZIP creado: ${zipPath}`);
+	} catch (error) {
+		logWarn(
+			`No se pudo crear el archivo ZIP automáticamente. Asegúrate de que el comando 'zip' esté disponible en tu sistema.`
+		);
+		logWarn(`Puedes crear el ZIP manualmente: cd "${outDir}" && zip -r "${path.basename(zipPath)}" .`);
+	}
+}
+
+function exportQti(inputPath, outDir, createZip = false) {
 	console.log(`Leyendo YAML: ${inputPath}`);
 	const exam = yaml.load(fs.readFileSync(inputPath, 'utf8'));
 
@@ -256,25 +357,53 @@ function exportQti(inputPath, outDir) {
 	ensureDir(itemsDir);
 
 	const resources = [];
+	const metadata = {
+		title: exam.metadata?.title || path.basename(inputPath, '.yml'),
+	};
+
+	// Build assessmentTest XML that references all items
+	// Blackboard imports this as a Question Pool
+	const assessmentTestXml = buildAssessmentTest(exam.questions, metadata);
+	fs.writeFileSync(path.join(outDir, 'assessment.xml'), assessmentTestXml, 'utf8');
 
 	for (const question of exam.questions) {
 		const itemXml = buildItem(question);
 		const fileName = `${sanitizeId(question.id)}.xml`;
 		const filePath = path.join(itemsDir, fileName);
 		fs.writeFileSync(filePath, itemXml, 'utf8');
-		resources.push({ identifier: `res-${sanitizeId(question.id)}`, href: `items/${fileName}` });
+		resources.push({
+			identifier: `res-${sanitizeId(question.id)}`,
+			href: `items/${fileName}`,
+			title: question.name || question.id,
+		});
 	}
 
-	writeManifest(outDir, resources);
+	writeManifest(outDir, resources, metadata, true);
 
-	fs.writeFileSync(
-		path.join(outDir, 'README.txt'),
-		`Paquete generado a partir de ${path.basename(inputPath)} (${new Date().toISOString()}).\n` +
-			'Comprima este directorio (zip) antes de importarlo en Blackboard Ultra o cualquier LMS compatible con IMS QTI 2.1.\n'
-	);
+	const readmeContent = `Paquete generado a partir de ${path.basename(inputPath)} (${new Date().toISOString()}).
+Items generados: ${resources.length}
 
-	console.log(`Exportación completada: ${outDir}`);
-	console.log(`Items generados: ${resources.length}`);
+Este directorio contiene el paquete QTI 2.1 completo.
+Para importarlo en Blackboard Ultra u otros LMS compatibles con IMS QTI 2.1:
+  1. Comprime este directorio en un archivo ZIP
+  2. Importa el archivo ZIP en tu LMS
+
+Nota: Si usaste la opción --zip, ya se habrá generado un archivo ZIP automáticamente.
+`;
+	fs.writeFileSync(path.join(outDir, 'README.txt'), readmeContent);
+
+	console.log(`✅ Exportación completada: ${outDir}`);
+	console.log(`📦 Items generados: ${resources.length}`);
+
+	// Create ZIP archive if requested
+	if (createZip) {
+		const zipPath = path.resolve(`${outDir}.zip`);
+		// Remove existing zip if it exists
+		if (fs.existsSync(zipPath)) {
+			fs.unlinkSync(zipPath);
+		}
+		createZipArchive(outDir, zipPath);
+	}
 }
 
 const args = parseArgs(process.argv.slice(2));
@@ -286,7 +415,7 @@ const inputPath = path.join(privateDir, inputFile);
 const outDir = path.join(scriptDir, outDirName);
 
 try {
-	exportQti(inputPath, outDir);
+	exportQti(inputPath, outDir, args.zip);
 } catch (error) {
 	console.error('❌ Error generando QTI:', error.message);
 	process.exit(1);
