@@ -49,6 +49,8 @@ In the evolution of this wisdom tradition, we witness a natural progression:
 
 3. **The Tao of the Moving Image** — This specialized chapter, focusing on the sacred path of video in web design, where motion meets meaning, where bandwidth meets beauty, where time itself becomes a design element.
 
+4. **The Tao of AI Development** — A specialized chapter, focusing on the sacred path of machine-assisted creation, where artificial intelligence meets human wisdom, where generation meets understanding, where the future of human-machine collaboration is written in every prompt, every commit, every choice. See [The Tao of AI Development]({{ '/methodology/en/tao-of-ai-development/' | relative_url }}).
+
 This lineage represents more than mere adaptation—it is the continuation of a pedagogical tradition that uses paradox, koan, and practical wisdom to illuminate the deeper truths of our craft. Just as the original Tao of Programming spoke to the relationship between programmer and machine, these teachings speak to the relationship between developer, medium, and user.
 
 > The wise programmer is told about Tao and follows it. The average programmer is told about Tao and searches for it. The foolish programmer is told about Tao and laughs at it. If it were not for laughter, there would be no Tao. — [The Tao of Programming, Book 1.4](https://www.mit.edu/~xela/tao.html)

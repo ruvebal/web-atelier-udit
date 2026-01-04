@@ -5,15 +5,10 @@ layout: default
 {% comment %} Detect if TOC exists by checking if markdown has {:toc} {% endcomment %} {% assign has_toc = false %} {%
 if page.content contains '{:toc}' %} {% assign has_toc = true %} {% endif %}
 
-<article class="lesson mx-auto">
+<article class="lesson mx-auto py-4 px-4">
 	<header class="mb-8 pb-6 border-b border-slate-200 dark:border-neutral-800">
 		<div class="flex items-center gap-2 mb-3">
-			<img
-				src="{{ '/assets/icons/favicon.svg' | relative_url }}"
-				alt=""
-				class="w-6 h-6"
-				aria-hidden="true"
-			/>
+			<img src="{{ '/assets/icons/favicon.svg' | relative_url }}" alt="" class="w-6 h-6" aria-hidden="true" />
 			{% if page.lang == 'es' %}
 			<p class="text-slate-500 dark:text-neutral-500 text-sm m-0">
 				WEB ATELIER (UDIT) · Aprender haciendo, con teoría, práctica y reflexión compartida
@@ -24,6 +19,46 @@ if page.content contains '{:toc}' %} {% assign has_toc = true %} {% endif %}
 			</p>
 			{% endif %}
 		</div>
+		<!-- AI Usage Epigraph -->
+		<aside class="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 mb-6 text-sm">
+			{% if page.lang == 'es' %}
+			<p class="font-medium text-amber-800 dark:text-amber-200 mb-2">🤖 Sobre el Uso de IA</p>
+			<p class="text-amber-700 dark:text-amber-300 mb-2">
+				Para
+				<strong>tareas complejas</strong>
+				, se recomienda el
+				<strong>enfoque de dos fases</strong>
+				. Todo uso de IA debe ser
+				<strong>reconocido y documentado</strong>
+				.
+			</p>
+			<p class="text-amber-700 dark:text-amber-300 text-xs">
+				Ver
+				<a href="{{ site.url }}{{ site.baseurl }}/methodology/es/ai-practical-guide/" class="underline">
+					Guía Práctica de IA
+				</a>
+				.
+			</p>
+			{% else %}
+			<p class="font-medium text-amber-800 dark:text-amber-200 mb-2">🤖 On AI Usage</p>
+			<p class="text-amber-700 dark:text-amber-300 mb-2">
+				For
+				<strong>complex tasks</strong>
+				, the
+				<strong>two-phase approach</strong>
+				is recommended. All AI usage must be
+				<strong>acknowledged and documented</strong>
+				.
+			</p>
+			<p class="text-amber-700 dark:text-amber-300 text-xs">
+				See
+				<a href="{{ site.url }}{{ site.baseurl }}/methodology/en/ai-practical-guide/" class="underline">
+					AI Practical Guide
+				</a>
+				.
+			</p>
+			{% endif %}
+		</aside>
 		<h1 class="text-4xl font-bold mb-4 text-slate-900 dark:text-neutral-100">{{ page.title }}</h1>
 		<p class="canonical-url text-sm">
 			<span class="sr-only">URL:</span>

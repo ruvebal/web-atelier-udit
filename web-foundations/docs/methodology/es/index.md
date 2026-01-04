@@ -22,6 +22,8 @@ permalink: /methodology/es/
 
 > Declaración sobre Asistencia de IA: Partes de esta metodología y materiales relacionados fueron iterados con herramientas de IA (_ChatGPT GPT‑4/GPT‑5_, _Copilot/Codex_, _Cursor/Claude_). Las iteraciones siguieron un ciclo investigación–práctica–investigación y fueron revisadas por el autor. La pedagogía se fundamenta principalmente en la experiencia en el aula enseñando desarrollo web desde septiembre de 2024.
 
+> 📘 **Guía Completa de IA**: Para flujos de trabajo detallados, patrones de prompts y marcos éticos, consulta la **[Guía Práctica de Desarrollo Asistido por IA]({{ site.url }}{{ site.baseurl }}/methodology/es/ai-practical-guide/)**.
+
 ## Introducción y Fundamento
 
 Enseñar diseño web y desarrollo _front-end_ a nivel universitario requiere equilibrar teoría y práctica. Un enfoque de **aprendizaje basado en proyectos** puede involucrar a los estudiantes con tareas significativas del mundo real y proporcionar una experiencia más realista y profesional que los formatos de solo conferencias. Al estructurar el curso alrededor de un proyecto incremental – donde cada clase construye sobre un único proyecto web – los estudiantes se mantienen motivados y ven la aplicación directa de los conceptos. Este enfoque se alinea con los principios del aprendizaje activo: los estudiantes resuelven problemas activamente e integran temas de varios dominios, lo que fomenta la autonomía y una comprensión más profunda. También aborda desafíos comunes en cursos técnicos. Los métodos tradicionales a menudo presentan conceptos abstractos sin contexto, dejando a los estudiantes ansiosos y convencidos de que "cómo aplicar las cosas" es enseñable o solo para "genios". En contraste, una metodología incremental y orientada a la práctica fundamenta cada concepto en el proyecto en evolución, desmitificando ideas abstractas y reduciendo el factor de intimidación.
@@ -97,6 +99,10 @@ Mientras cada estudiante trabaja en un proyecto individual (para asegurar que to
 Respecto al **miedo de codificar y herramientas de línea de comandos** (ej. usar _Git_ o _npm_), tomamos un enfoque gradual y amigable al diseño. Temprano en el curso, proporcionamos herramientas amigables al usuario y alternativas UI: por ejemplo, usar _Visual Studio Code_ con una extensión _Git_ o _GitHub Desktop_, para que los estudiantes puedan hacer _commit_ y _push_ con botones en lugar de comandos.
 
 ## Integrando IA como Ayuda, No Atajo
+
+> 📘 **Guía Completa**: Para flujos de trabajo detallados, patrones de prompts y marcos éticos, consulta la **[Desarrollo Asistido por IA: Guía Práctica]({{ site.url }}{{ site.baseurl }}/methodology/es/ai-practical-guide/)**.
+>
+> 道 **Addendum Filosófico**: Para sabiduría ancestral sobre ética, artesanía y la lucha eterna contra el código basura, consulta **[El Tao del Desarrollo con IA]({{ site.url }}{{ site.baseurl }}/methodology/es/tao-of-ai-development/)**.
 
 Dado el auge de la IA generativa, una consideración moderna importante es cómo incorporar herramientas de IA en el currículo de diseño web. Los estudiantes hoy tienen acceso a sistemas como _ChatGPT_ y _GitHub Copilot_ que pueden producir fragmentos de código o sugerencias de diseño. Nuestro enfoque es **integrar IA como ayuda de aprendizaje mientras mantenemos integridad académica**.
 

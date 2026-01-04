@@ -24,7 +24,7 @@ permalink: /methodology/en/
 
 ## 🎭 Critical Coding Approach
 
-Our atelier (workshop) learning model is based on _critical coding_ — understanding web technologies not only as tools, but as cultural and creative media.  
+Our atelier (workshop) learning model is based on _critical coding_ — understanding web technologies not only as tools, but as cultural and creative media.
 Each session moves through a cycle:
 
 1. **Exploration** → hands-on coding, guided experiments.
@@ -141,6 +141,10 @@ Regarding the **fear of coding and command-line tools** (e.g. using Git or npm),
 We also openly address the “tendency to rely on templates” issue. Many design students, when afraid to code from scratch, seek out templates or snippets to copy-paste. In our methodology, using external resources is not banned (since in real work, developers do rely on libraries and examples), but we require attribution and understanding. If a student incorporated a template for, say, a carousel, they must note it in their commit or project journal and be able to explain in class how it works and how they modified it. This policy turns template-usage into a learning opportunity rather than a shortcut. It also dovetails with the topic of **AI assistance** – if a student used an AI tool to generate code, we encourage them to treat it like any other tool: helpful for ideas or boilerplate, but something to review critically. By having them document such uses, we remove the stigma (reducing secret cheating) and instead discuss pros and cons openly.
 
 ## Integrating AI as an Aid, Not a Shortcut
+
+> 📘 **Comprehensive Guide**: For detailed workflows, prompt patterns, and ethical frameworks, see the **[AI-Assisted Development: A Practical Guide]({{ site.url }}{{ site.baseurl }}/methodology/en/ai-practical-guide/)**.
+>
+> 道 **Philosophical Addendum**: For ancestral wisdom on ethics, craftsmanship, and the eternal struggle against garbage code, see **[The Tao of AI Development]({{ site.url }}{{ site.baseurl }}/methodology/en/tao-of-ai-development/)**.
 
 Given the rise of generative AI, an important modern consideration is how to incorporate AI tools into the web design curriculum. Students today have access to systems like ChatGPT and GitHub Copilot which can produce code snippets or design suggestions. Completely banning these would be counterproductive – these tools are becoming part of professional workflows – but uncritical use can undermine learning. Our approach is to **integrate AI as a learning aid while maintaining academic integrity**.
 
