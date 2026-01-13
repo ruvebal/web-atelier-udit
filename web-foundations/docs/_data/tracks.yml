@@ -1,0 +1,53 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# TRACKS / RUTAS DE APRENDIZAJE
+# ═══════════════════════════════════════════════════════════════════════════════
+# Tracks temáticos que agrupan lecciones canónicas en rutas de aprendizaje
+# ────────────────────────────────────────────────────────────────────────────────
+
+tracks:
+  # ────────────────────────────────────────────────────────────────────────────
+  # Ilustración Aplicada: Productos Digitales Web-App
+  # ────────────────────────────────────────────────────────────────────────────
+  ilustracion-webapp:
+    title: 'Ilustración Aplicada: Productos Digitales Web-App'
+    title_alt: 'Ilustración Aplicada: Productos Digitales Web-App'
+    description: 'Track del módulo (4 sesiones): objetivos, metodología ATELIER, entregables y rutas a lecciones canónicas. Enfocado en ilustradores que quieren publicar su arte en la web.'
+    lang: es
+    permalink: /tracks/es/ilustracion-webapp/
+    sessions: 4
+    duration: '16 horas'
+    tags: [ilustracion, web, webapp, atelier, html, css, javascript, responsive, ux, media, portfolio]
+    sessions_list:
+      - title: 'La web como lienzo + planteamiento del proyecto'
+        slug: 's1-introduccion-ecosistema-y-proyecto'
+        description: 'Entender la web como medio creativo, configurar el flujo Git/GitHub Pages y publicar un primer "Hello, Web" con tu ilustración.'
+        duration: '3,5 horas'
+        tags: [ilustracion, web, html, css, github, atelier]
+      - title: 'Galerías y layouts para tu arte'
+        slug: 's2-galerias-layouts-media'
+        description: 'Construir galerías de imágenes y layouts que muestren tu trabajo con ritmo visual y jerarquía. Enfoque en media, grids y presentación de arte.'
+        duration: '3,5 horas'
+        tags: [ilustracion, web, media, grid, galeria, layout, css, responsive]
+      - title: 'Maquetación responsive con Bootstrap + Tailwind'
+        slug: 's3-maquetacion-responsive-frameworks'
+        description: 'Dar forma visual al proyecto con maquetación responsive, componentes y branding personal usando frameworks CSS de forma pragmática.'
+        duration: '3,5 horas'
+        tags: [responsive, bootstrapcss, tailwindcss, accesibilidad, diseno, ilustracion]
+      - title: 'Interactividad + UX/UI básico'
+        slug: 's4-interactividad-ux-ui'
+        description: 'Añadir movimiento, interacción y pruebas rápidas de usabilidad. JavaScript mínimo viable + UX básico para ilustradores.'
+        duration: '3,5 horas'
+        tags: [javascript, ux, ui, interactividad, accesibilidad, atelier, ilustracion]
+    objectives:
+      - 'Publicar un sitio (o micro-app) donde tu ilustración sea experiencia, no solo imagen.'
+      - 'Dominar un mínimo técnico viable: HTML/CSS, responsive + grids para galerías, interactividad (JS).'
+      - 'Practicar hábitos profesionales: Git, despliegue, iteración + feedback.'
+    deliverables:
+      - 'Sitio publicado (URL) + repo en GitHub.'
+      - 'Evidencia por sesión: S1 primer deploy + wireframe, S2 galería con grid/layout, S3 responsive + componente, S4 1 interacción + test.'
+      - '1 commit final por sesión (mínimo 4).'
+    methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión)'
+    evaluation:
+      technical: 40
+      creative: 40
+      process: 20

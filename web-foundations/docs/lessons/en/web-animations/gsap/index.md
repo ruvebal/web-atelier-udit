@@ -991,21 +991,77 @@ recognition.onresult = (event) => {
 
 ## 💬 Wisdom from the Trenches
 
-> **Anonymous Designer-Developer Quote #1:** > _"GSAP is the difference between 'I animated something' and 'I animated something people actually want to watch.' CSS is like watercolors. GSAP is like having a film crew."_
+<figure class="quote">
+  <blockquote>
+    GSAP is the difference between 'I animated something' and 'I animated something people actually want to watch.' CSS is like watercolors. GSAP is like having a film crew.
+  </blockquote>
+  <figcaption>
+    &mdash; Anonymous Designer-Developer Quote #1
+  </figcaption>
+</figure>
 
-> **Anonymous Designer-Developer Quote #2:** > _"My first GSAP timeline was 300 lines of code. Then I learned about defaults and relative positioning. Now it's 30 lines and I sleep at night."_
+<figure class="quote">
+  <blockquote>
+    My first GSAP timeline was 300 lines of code. Then I learned about defaults and relative positioning. Now it's 30 lines and I sleep at night.
+  </blockquote>
+  <figcaption>
+    &mdash; Anonymous Designer-Developer Quote #2
+  </figcaption>
+</figure>
 
-> **Anonymous Designer-Developer Quote #3:** > _"Client: 'Can you make it bounce?' Me with CSS: 'I can try...' Me with GSAP: 'How bouncy do you want it and would you like it to rotate while it bounces?'"_
+<figure class="quote">
+  <blockquote>
+    Client: 'Can you make it bounce?' Me with CSS: 'I can try...' Me with GSAP: 'How bouncy do you want it and would you like it to rotate while it bounces?'
+  </blockquote>
+  <figcaption>
+    &mdash; Anonymous Designer-Developer Quote #3
+  </figcaption>
+</figure>
 
-> **Anonymous Designer-Developer Quote #4:** > _"I showed my designer a ScrollTrigger demo. They asked if we could make the whole site like that. I said yes. I haven't slept in three days. Worth it."_
+<figure class="quote">
+  <blockquote>
+    I showed my designer a ScrollTrigger demo. They asked if we could make the whole site like that. I said yes. I haven't slept in three days. Worth it.
+  </blockquote>
+  <figcaption>
+    &mdash; Anonymous Designer-Developer Quote #4
+  </figcaption>
+</figure>
 
-> **Anonymous Designer-Developer Quote #5:** > _"Learning GSAP timelines was like discovering you don't have to wash dishes one at a time. You can load the dishwasher. And program it. And it cleans itself."_
+<figure class="quote">
+  <blockquote>
+    Learning GSAP timelines was like discovering you don't have to wash dishes one at a time. You can load the dishwasher. And program it. And it cleans itself.
+  </blockquote>
+  <figcaption>
+    &mdash; Anonymous Designer-Developer Quote #5
+  </figcaption>
+</figure>
 
-> **Anonymous Designer-Developer Quote #6:** > _"Before GSAP: 'This animation doesn't work in Safari.' After GSAP: 'Wait, it works in Safari?' The bar for happiness is very low in web development."_
+<figure class="quote">
+  <blockquote>
+    Before GSAP: 'This animation doesn't work in Safari.' After GSAP: 'Wait, it works in Safari?' The bar for happiness is very low in web development.
+  </blockquote>
+  <figcaption>
+    &mdash; Anonymous Designer-Developer Quote #6
+  </figcaption>
+</figure>
 
-> **Anonymous Designer-Developer Quote #7:** > _"GSAP's pricing model is reverse psychological warfare. You spend a month with the free version, realize you need MorphSVG, and suddenly $99/year seems like a bargain for your sanity."_
+<figure class="quote">
+  <blockquote>
+    GSAP's pricing model is reverse psychological warfare. You spend a month with the free version, realize you need MorphSVG, and suddenly $99/year seems like a bargain for your sanity.
+  </blockquote>
+  <figcaption>
+    &mdash; Anonymous Designer-Developer Quote #7
+  </figcaption>
+</figure>
 
-> **Anonymous Designer-Developer Quote #8:** > _"My portfolio site has a 2-second intro animation. It took me 2 weeks to make. This is why designers don't just 'quickly animate it.'"_
+<figure class="quote">
+  <blockquote>
+    My portfolio site has a 2-second intro animation. It took me 2 weeks to make. This is why designers don't just 'quickly animate it.'
+  </blockquote>
+  <figcaption>
+    &mdash; Anonymous Designer-Developer Quote #8
+  </figcaption>
+</figure>
 
 ---
 
@@ -1138,5 +1194,4 @@ Once you've built your GSAP-powered animations:
 
 ---
 
-> **Final Anonymous Quote:**
-> \*"I started learning GSAP to make things move. I stayed because I realized it makes me a better designer. Understanding timing, easing, and sequence makes you think differently about every interaction. Also, timelines are just** \***chef's kiss\*\*\*."
+> **Final Anonymous Quote:** > \*"I started learning GSAP to make things move. I stayed because I realized it makes me a better designer. Understanding timing, easing, and sequence makes you think differently about every interaction. Also, timelines are just** \***chef's kiss\*\*\*."

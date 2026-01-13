@@ -6,7 +6,7 @@ lang: es
 ---
 
 <section
-	class="hero-section bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-neutral-900 dark:to-neutral-800 py-16 px-4 mb-16"
+	class="hero-section bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-neutral-900 dark:to-neutral-800"
 	aria-labelledby="hero-title">
 	<div class="max-w-4xl mx-auto text-center">
 		<div class="flex flex-col items-center justify-center gap-6 mb-6">
@@ -95,6 +95,70 @@ lang: es
 		</div>
 	</section>
 
+	<section class="tracks-section mb-16" aria-labelledby="tracks-heading">
+		<h2 id="tracks-heading" class="text-3xl font-bold text-gray-900 dark:text-neutral-100 mb-8 text-center">
+			Tracks de Aprendizaje / Learning Tracks
+		</h2>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div
+				class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 hover:shadow-xl transition-shadow p-8">
+				<div class="mb-4">
+					<span class="inline-flex items-center justify-center w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg mb-4">
+						<span aria-hidden="true" class="text-2xl">🎨</span>
+					</span>
+					<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-2">
+						Ilustración Aplicada
+					</h3>
+					<p class="text-sm text-gray-500 dark:text-neutral-400 uppercase tracking-wider font-medium mb-4">
+						4 sesiones · 16 horas
+					</p>
+				</div>
+				<p class="text-gray-700 dark:text-neutral-300 mb-6 leading-relaxed">
+					Convierte tu lenguaje visual en un producto web publicado. Desde "Hello, Web" hasta una experiencia interactiva con galerías de tu arte.
+				</p>
+				<ul class="text-sm text-gray-600 dark:text-neutral-400 mb-6 space-y-2">
+					<li>✓ HTML/CSS y responsive</li>
+					<li>✓ Galerías de imágenes y layouts</li>
+					<li>✓ Interactividad básica</li>
+					<li>✓ Metodología ATELIER</li>
+				</ul>
+				<a
+					href="{{ '/tracks/es/ilustracion-webapp/' | relative_url }}"
+					class="inline-block bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+					aria-describedby="illustracion-track-desc">
+					Iniciar Track
+					<span class="sr-only">de Ilustración Aplicada</span>
+				</a>
+				<div id="illustracion-track-desc" class="sr-only">Accede al track de Ilustración Aplicada para publicar tu arte en la web</div>
+			</div>
+
+			<!-- Placeholder for future tracks -->
+			<div
+				class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-8 opacity-75">
+				<div class="mb-4">
+					<span class="inline-flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg mb-4">
+						<span aria-hidden="true" class="text-2xl">🚧</span>
+					</span>
+					<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-2">
+						Próximamente
+					</h3>
+					<p class="text-sm text-gray-500 dark:text-neutral-400 uppercase tracking-wider font-medium mb-4">
+						Más tracks en desarrollo
+					</p>
+				</div>
+				<p class="text-gray-700 dark:text-neutral-300 mb-6 leading-relaxed">
+					Estamos trabajando en nuevos tracks especializados para diferentes perfiles y necesidades de aprendizaje.
+				</p>
+				<div class="text-sm text-gray-500 dark:text-neutral-400">
+					<p>• Desarrollo Frontend Avanzado</p>
+					<p>• UX/UI Design</p>
+					<p>• Accesibilidad Web</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="methodology-section mb-16" aria-labelledby="methodology-heading">
 		<h2 id="methodology-heading" class="text-3xl font-bold text-gray-900 dark:text-neutral-100 mb-8 text-center">
 			Metodología / Methodology
@@ -171,46 +235,90 @@ lang: es
 			</div>
 
 			<div
-				class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-6">
-				<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-3">
-					<span aria-hidden="true">📖</span>
-					Guías Metodológicas (ES) / Methodology (EN)
-				</h3>
-				<p class="text-gray-700 dark:text-neutral-300 mb-4">
+				class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-8">
+				<div class="mb-6">
+					<h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-neutral-100 mb-2 tracking-tight">Methodology</h3>
+					<p class="text-sm text-gray-500 dark:text-neutral-400 uppercase tracking-wider font-medium">
+						Pedagogical Framework
+					</p>
+				</div>
+
+				<p class="text-gray-600 dark:text-neutral-300 mb-8 leading-relaxed text-base">
 					Documentación detallada sobre el enfoque pedagógico y mejores prácticas.
 				</p>
-				<div class="space-y-2">
-					<a
-						href="{{ '/methodology/en/' | relative_url }}"
-						class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline">
-						Read Methodology
-					</a>
-					<a
-						href="{{ '/methodology/es/' | relative_url }}"
-						class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold underline">
-						Leer Metodología
-					</a>
-					<a
-						href="{{ '/methodology/en/ai-practical-guide/' | relative_url }}"
-						class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline text-sm">
-						🤖 AI Practical Guide (EN)
-					</a>
-					<a
-						href="{{ '/methodology/es/ai-practical-guide/' | relative_url }}"
-						class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline text-sm">
-						🤖 Guía Práctica de IA (ES)
-					</a>
-					<a
-						href="{{ '/methodology/en/tao-of-ai-development/' | relative_url }}"
-						class="block text-amber-600 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 underline text-sm">
-						道 The Tao of AI Development (EN)
-					</a>
-					<a
-						href="{{ '/methodology/es/tao-of-ai-development/' | relative_url }}"
-						class="block text-amber-600 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 underline text-sm">
-						道 El Tao del Desarrollo con IA (ES)
-					</a>
+
+				<!-- Core Methodology -->
+				<div class="mb-8">
+					<h4 class="text-xs font-semibold text-gray-400 dark:text-neutral-500 uppercase tracking-widest mb-4">Core</h4>
+					<div class="space-y-3">
+						<a
+							href="{{ '/methodology/en/' | relative_url }}"
+							class="group flex items-center gap-3 text-gray-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+							<span class="text-lg font-medium group-hover:translate-x-1 transition-transform">Read Methodology</span>
+							<svg
+								class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+						</a>
+						<a
+							href="{{ '/methodology/es/' | relative_url }}"
+							class="group flex items-center gap-3 text-gray-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+							<span class="text-lg font-medium group-hover:translate-x-1 transition-transform">Leer Metodología</span>
+							<svg
+								class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+						</a>
+					</div>
 				</div>
+
+				<!-- Divider -->
+				<div class="border-t border-slate-200 dark:border-neutral-700 my-8"></div>
+
+				<!-- AI Guidance -->
+				<div class="mb-8">
+					<h4 class="text-xs font-semibold text-gray-400 dark:text-neutral-500 uppercase tracking-widest mb-4">
+						AI Guidance
+					</h4>
+					<div class="space-y-3">
+						<a
+							href="{{ '/methodology/en/ai-practical-guide/' | relative_url }}"
+							class="group flex items-center gap-3 text-gray-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+							<span class="text-base font-normal group-hover:translate-x-1 transition-transform">AI Practical Guide (EN)</span>
+							<svg
+								class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+						</a>
+						<a
+							href="{{ '/methodology/es/ai-practical-guide/' | relative_url }}"
+							class="group flex items-center gap-3 text-gray-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+							<span class="text-base font-normal group-hover:translate-x-1 transition-transform">
+								Guía Práctica de IA (ES)
+							</span>
+							<svg
+								class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+						</a>
+					</div>
+				</div>
+
+				<!-- Divider -->
+				<div class="border-t border-slate-200 dark:border-neutral-700 my-8"></div>
+
 			</div>
 
 			<div

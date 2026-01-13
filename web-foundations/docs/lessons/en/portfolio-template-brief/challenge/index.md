@@ -41,8 +41,14 @@ tags: [final-project, portfolio, deployment, responsive, web-standards]
 
 ## The Philosophy: Teaching to Fish, Not Giving a Fish
 
-> _"Give a man a fish and you feed him for a day. Teach him how to fish and you feed him for a lifetime."_
-> — Chinese Proverb
+<figure class="quote">
+  <blockquote>
+    Give a man a fish and you feed him for a day. Teach him how to fish and you feed him for a lifetime.
+  </blockquote>
+  <figcaption>
+    &mdash; Chinese Proverb
+  </figcaption>
+</figure>
 
 This final project is **not** about building just another portfolio. We have enough static portfolios cluttering GitHub that will never be updated again after receiving a grade. Instead, you are building a **reusable template**—a well-architected foundation that you (and others) can clone, fork, and customize for multiple projects throughout your career.
 

@@ -1,3 +1,13 @@
+- slug: ilustracion-webapp
+  title:
+   es: 'Ilustración Aplicada: Productos Digitales Web-App — Track'
+  path:
+   es: /tracks/es/ilustracion-webapp/
+  file:
+   es: tracks/es/ilustracion-webapp/index.md
+  status:
+   es: complete
+  type: track
 - slug: atelier-prompts
   title:
    en: 'Atelier Prompt Collection — Modern Web Development'

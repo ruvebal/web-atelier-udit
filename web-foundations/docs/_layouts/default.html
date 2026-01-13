@@ -22,7 +22,9 @@
 			{% if page.lang == 'es' or page.lang == 'es' %}Saltar al contenido{% else %}Skip to main content{% endif %}
 		</a>
 		{% include header.html %}
-		<main id="main" class="min-h-screen prose-slate dark:prose-invert w-full max-w-none">{{ content }}</main>
+		<main id="main" class="min-h-screen prose-slate dark:prose-invert w-full max-w-none">
+			{{ content }}
+		</main>
 		{% include footer.html %}
 		<script>
 			// Theme toggle functionality - ensure it runs after DOM is ready

@@ -1,0 +1,1036 @@
+<?xml version="1.0"?>
+<root ptr="0x7f8df31180a0" id="342" symbol="11SwRootFrame" lower="343" format="0x7f8de3e83a40" formatName="Root">
+ <sfxViewShells>
+  <SwView>
+   <SfxViewShell ptr="0x7f8e64097600" id="4"/>
+   <SwCursorShell>
+    <SwViewShell>
+     <SwViewOption ptr="0x7f8df529c830">
+      <ViewOptFlags1 ptr="0x7f8df529c890">
+       <bUseHeaderFooterMenu value="true"/>
+       <bTab value="true"/>
+       <bBlank value="true"/>
+       <bHardBlank value="true"/>
+       <bParagraph value="true"/>
+       <bLinebreak value="true"/>
+       <bPagebreak value="false"/>
+       <bColumnbreak value="false"/>
+       <bSoftHyph value="true"/>
+       <bBookmarks value="true"/>
+       <bRef value="true"/>
+       <bFieldName value="false"/>
+       <bPostits value="true"/>
+       <bFieldHidden value="false"/>
+       <bCharHidden value="false"/>
+       <bGraphic value="true"/>
+       <bTable value="true"/>
+       <bDraw value="true"/>
+       <bControl value="true"/>
+       <bCrosshair value="false"/>
+       <bSnap value="false"/>
+       <bSynchronize value="false"/>
+       <bGridVisible value="false"/>
+       <bOnlineSpell value="true"/>
+       <bTreatSubOutlineLevelsAsContent value="false"/>
+       <bShowInlineTooltips value="true"/>
+       <bViewMetachars value="false"/>
+       <bRedlineRecordingOn value="false"/>
+       <bPageback value="true"/>
+       <bShowOutlineContentVisibilityButton value="false"/>
+       <bShowChangesInMargin value="false"/>
+       <bShowChangesInMargin2 value="false"/>
+      </ViewOptFlags1>
+     </SwViewOption>
+    </SwViewShell>
+    <m_pCurrentCursor>
+     <SwPaM>
+      <point>
+       <SwPosition nNode="71" nContent="12"/>
+      </point>
+     </SwPaM>
+    </m_pCurrentCursor>
+   </SwCursorShell>
+  </SwView>
+ </sfxViewShells>
+ <infos>
+  <bounds left="284" top="284" width="34368" height="96460" bottom="96743" right="34651" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+  <prtBounds left="0" top="0" width="34368" height="96460" bottom="96459" right="34367"/>
+ </infos>
+ <page ptr="0x7f8de3ee6370" id="343" symbol="11SwPageFrame" next="421" upper="342" lower="344" format="0x7f8e739b3b20" formatName="Default Page Style">
+  <page_status ValidFlyLayout="true" ValidFlyContent="true" ValidFlyInCnt="true" ValidLayout="true" ValidContent="true"/>
+  <page_info phyNum="1" virtNum="1" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="22412" top="284" width="12240" height="15840" bottom="16123" right="34651" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8df330e9b0" id="344" symbol="11SwBodyFrame" upper="343" lower="345" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="23852" top="1724" width="9360" height="12960" bottom="14683" right="33211" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8de3ede080" id="345" symbol="11SwTextFrame" next="346" upper="344" txtNodeIndex="9" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="1724" width="9360" height="1280" bottom="3003" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="360" width="9360" height="920" bottom="1279" right="9359"/>
+    </infos>
+Plan Docente: Ilustración Aplicada (Productos Digitales – Web &amp; App)    <SwParaPortion ptr="0x7f8df4afafc0">
+     <SwLineLayout ptr="0x7f8df4afafc0" symbol="13SwParaPortion" width="9286" height="460" length="58" type="PortionType::Para" portion="Plan Docente: Ilustraci&#xF3;n Aplicada (Productos Digitales &#x2013; ">
+      <SwBookmarkPortion ptr="0x7f8df4aeb0e0" symbol="17SwBookmarkPortion" width="0" height="460" length="0" type="PortionType::Bookmark" portion="" colors="#header Bookmark#X76380eed17fe81a1f38e6b04c939fa354548e67 Bookmark Start#content Bookmark Start"/>
+      <SwLinePortion ptr="0x7f8de376beb0" symbol="13SwTextPortion" width="9286" height="460" length="57" type="PortionType::Text" portion="Plan Docente: Ilustraci&#xF3;n Aplicada (Productos Digitales &#x2013;"/>
+      <SwHolePortion ptr="0x7f8de7bc35b0" symbol="13SwHolePortion" width="100" height="460" length="1" type="PortionType::Hole" portion=" " blank-width="0" show-underline="false"/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7bdfdb0" symbol="12SwLineLayout" width="2088" height="460" length="10" type="PortionType::Lay" portion="Web &amp; App)">
+      <SwLineLayout ptr="0x7f8de7bdfdb0" symbol="12SwLineLayout" width="2088" height="460" length="10" type="PortionType::Lay" portion="Web &amp; App)"/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8de3f65280" id="346" symbol="11SwTextFrame" next="347" prev="345" upper="344" txtNodeIndex="10" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="3004" width="9360" height="528" bottom="3531" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="160" width="9360" height="368" bottom="527" right="9359"/>
+    </infos>
+Contexto y perfil del estudiante    <SwParaPortion ptr="0x7f8de77cb560">
+     <SwLineLayout ptr="0x7f8de77cb560" symbol="13SwParaPortion" width="4034" height="368" length="32" type="PortionType::Para" portion="Contexto y perfil del estudiante">
+      <SwBookmarkPortion ptr="0x7f8de77f5eb0" symbol="17SwBookmarkPortion" width="0" height="368" length="0" type="PortionType::Bookmark" portion="" colors="#contexto-y-perfil-del-estudiante Bookmark Start"/>
+      <SwLinePortion ptr="0x7f8de373dce0" symbol="13SwTextPortion" width="4034" height="368" length="32" type="PortionType::Text" portion="Contexto y perfil del estudiante"/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8df57ce500" id="347" symbol="11SwTextFrame" next="348" prev="346" upper="344" txtNodeIndex="11" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="3532" width="9360" height="2940" bottom="6471" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="2760" bottom="2939" right="9359"/>
+    </infos>
+En el Máster en Ilustración de UDIT, los alumnos son perfiles creativos (diseñadores gráficos, artistas visuales, profesionales de editorial o publicidad) con base artística sólida que buscan expandir sus habilidades al ámbito digital[1]. No todos poseen experiencia técnica en desarrollo web, pero comparten la pasión por contar historias visuales y comprender cómo aplicar su talento en nuevos medios. El programa enfatiza la combinación de técnicas tradicionales y digitales, fomentando que cada estudiante desarrolle un estilo propio a la vez que realiza proyectos reales que simulan encargos profesionales (desde portadas de libros hasta campañas publicitarias)[2]. La formación es muy práctica: al terminar el máster, se espera que el alumno cuente con un portfolio impresionante y las herramientas necesarias para lanzarse con éxito al mundo profesional[3].    <SwParaPortion ptr="0x7f8de77e7c70">
+     <SwLineLayout ptr="0x7f8de77e7c70" symbol="13SwParaPortion" width="9289" height="276" length="95" type="PortionType::Para" portion="En el M&#xE1;ster en Ilustraci&#xF3;n de UDIT, los alumnos son perfiles creativos (dise&#xF1;adores gr&#xE1;ficos, ">
+      <SwLinePortion ptr="0x7f8de3721510" symbol="13SwTextPortion" width="559" height="276" length="6" type="PortionType::Text" portion="En el "/>
+      <SwLinePortion ptr="0x7f8de372a970" symbol="13SwTextPortion" width="2212" height="276" length="21" type="PortionType::Text" portion="M&#xE1;ster en Ilustraci&#xF3;n"/>
+      <SwLinePortion ptr="0x7f8de3709a20" symbol="13SwTextPortion" width="6518" height="276" length="68" type="PortionType::Text" portion=" de UDIT, los alumnos son perfiles creativos (dise&#xF1;adores gr&#xE1;ficos, "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b39ac0" symbol="12SwLineLayout" width="8930" height="276" length="97" type="PortionType::Lay" portion="artistas visuales, profesionales de editorial o publicidad) con base art&#xED;stica s&#xF3;lida que buscan ">
+      <SwLineLayout ptr="0x7f8de7b39ac0" symbol="12SwLineLayout" width="8930" height="276" length="97" type="PortionType::Lay" portion="artistas visuales, profesionales de editorial o publicidad) con base art&#xED;stica s&#xF3;lida que buscan "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b3f650" symbol="12SwLineLayout" width="9262" height="276" length="97" type="PortionType::Lay" portion="expandir sus habilidades al &#xE1;mbito digital[1]. No todos poseen experiencia t&#xE9;cnica en desarrollo ">
+      <SwLinePortion ptr="0x7f8de3762560" symbol="13SwTextPortion" width="3992" height="276" length="42" type="PortionType::Text" portion="expandir sus habilidades al &#xE1;mbito digital"/>
+      <SwLinePortion ptr="0x7f8de372a900" symbol="13SwTextPortion" width="279" height="276" length="3" type="PortionType::Text" portion="[1]"/>
+      <SwLinePortion ptr="0x7f8de7b3f720" symbol="13SwTextPortion" width="4991" height="276" length="52" type="PortionType::Text" portion=". No todos poseen experiencia t&#xE9;cnica en desarrollo "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b2a2c0" symbol="12SwLineLayout" width="8710" height="276" length="89" type="PortionType::Lay" portion="web, pero comparten la pasi&#xF3;n por contar historias visuales y comprender c&#xF3;mo aplicar su ">
+      <SwLineLayout ptr="0x7f8de7b2a2c0" symbol="12SwLineLayout" width="8710" height="276" length="89" type="PortionType::Lay" portion="web, pero comparten la pasi&#xF3;n por contar historias visuales y comprender c&#xF3;mo aplicar su "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b75f50" symbol="12SwLineLayout" width="8743" height="276" length="90" type="PortionType::Lay" portion="talento en nuevos medios. El programa enfatiza la combinaci&#xF3;n de t&#xE9;cnicas tradicionales y ">
+      <SwLineLayout ptr="0x7f8de7b75f50" symbol="12SwLineLayout" width="8743" height="276" length="90" type="PortionType::Lay" portion="talento en nuevos medios. El programa enfatiza la combinaci&#xF3;n de t&#xE9;cnicas tradicionales y "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7722b60" symbol="12SwLineLayout" width="8550" height="276" length="91" type="PortionType::Lay" portion="digitales, fomentando que cada estudiante desarrolle un estilo propio a la vez que realiza ">
+      <SwLinePortion ptr="0x7f8de7b08060" symbol="13SwTextPortion" width="8550" height="276" length="91" type="PortionType::Text" portion="digitales, fomentando que cada estudiante desarrolle un estilo propio a la vez que realiza "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de371ec50" symbol="12SwLineLayout" width="9129" height="276" length="93" type="PortionType::Lay" portion="proyectos reales que simulan encargos profesionales (desde portadas de libros hasta campa&#xF1;as ">
+      <SwLinePortion ptr="0x7f8de7b213e0" symbol="13SwTextPortion" width="1579" height="276" length="16" type="PortionType::Text" portion="proyectos reales"/>
+      <SwLinePortion ptr="0x7f8de7b39b90" symbol="13SwTextPortion" width="7550" height="276" length="77" type="PortionType::Text" portion=" que simulan encargos profesionales (desde portadas de libros hasta campa&#xF1;as "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b16890" symbol="12SwLineLayout" width="9108" height="276" length="96" type="PortionType::Lay" portion="publicitarias)[2]. La formaci&#xF3;n es muy pr&#xE1;ctica: al terminar el m&#xE1;ster, se espera que el alumno ">
+      <SwLinePortion ptr="0x7f8de7b424b0" symbol="13SwTextPortion" width="1266" height="276" length="14" type="PortionType::Text" portion="publicitarias)"/>
+      <SwLinePortion ptr="0x7f8de7bc5d80" symbol="13SwTextPortion" width="279" height="276" length="3" type="PortionType::Text" portion="[2]"/>
+      <SwLinePortion ptr="0x7f8de7b131b0" symbol="13SwTextPortion" width="7563" height="276" length="79" type="PortionType::Text" portion=". La formaci&#xF3;n es muy pr&#xE1;ctica: al terminar el m&#xE1;ster, se espera que el alumno "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b5f690" symbol="12SwLineLayout" width="9075" height="276" length="95" type="PortionType::Lay" portion="cuente con un portfolio impresionante y las herramientas necesarias para lanzarse con &#xE9;xito al ">
+      <SwLinePortion ptr="0x7f8de7b5f760" symbol="13SwTextPortion" width="1092" height="276" length="11" type="PortionType::Text" portion="cuente con "/>
+      <SwLinePortion ptr="0x7f8de7b42fb0" symbol="13SwTextPortion" width="2573" height="276" length="26" type="PortionType::Text" portion="un portfolio impresionante"/>
+      <SwLinePortion ptr="0x7f8de7b25de0" symbol="13SwTextPortion" width="5410" height="276" length="58" type="PortionType::Text" portion=" y las herramientas necesarias para lanzarse con &#xE9;xito al "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8df32225e0" symbol="12SwLineLayout" width="2145" height="276" length="21" type="PortionType::Lay" portion="mundo profesional[3].">
+      <SwLinePortion ptr="0x7f8de7b42e90" symbol="13SwTextPortion" width="1806" height="276" length="17" type="PortionType::Text" portion="mundo profesional"/>
+      <SwLinePortion ptr="0x7f8de7b42e20" symbol="13SwTextPortion" width="279" height="276" length="3" type="PortionType::Text" portion="[3]"/>
+      <SwLinePortion ptr="0x7f8df3222770" symbol="13SwTextPortion" width="60" height="276" length="1" type="PortionType::Text" portion="."/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8df57a9f50" id="348" symbol="11SwTextFrame" next="349" prev="347" upper="344" txtNodeIndex="12" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="6472" width="9360" height="5148" bottom="11619" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="4968" bottom="5147" right="9359"/>
+    </infos>
+En este contexto, la comunicación web y el diseño de productos digitales son pilares fundamentales. Vivimos en una era de ubicuidad digital donde casi todo proyecto creativo requiere presencia en web o app. La ilustración trasciende el papel y cobra vida en sites, aplicaciones móviles, redes sociales y otros soportes en línea. Saber crear y adaptar ilustraciones a estos medios amplía las oportunidades laborales del ilustrador, permitiéndole conectar con audiencias globales de forma interactiva. De hecho, dominar las plataformas digitales para difundir el trabajo propio se ha vuelto imprescindible: un buen manejo de los medios online permite llegar eficazmente a distintos públicos y destacar en un entorno competitivo[4]. Por ello, la asignatura Ilustración Aplicada: Productos Analógicos y Digitales dedica una parte significativa a las herramientas y lenguajes de la web, para que el ilustrador aprenda a crear productos digitales atractivos que complementen su obra física. Los alumnos disponen de recursos profesionales (Adobe CC, Unity, etc.), pero nos enfocaremos en tecnologías web accesibles (HTML5, CSS3, un mínimo de JS) y en herramientas de diseño de interfaz como Figma para el prototipado. Esto les permitirá materializar sus ideas sin necesidad de programación compleja, integrando sus ilustraciones en formatos interactivos actuales (sitios web, micrositios, portfolios online, prototipos de app, etc.). En resumen, el módulo Web &amp; App les brinda la oportunidad de llevar su creatividad al mundo digital, respondiendo a la demanda creciente de contenidos visuales en plataformas online.    <SwParaPortion ptr="0x7f8de3a9f090">
+     <SwLineLayout ptr="0x7f8de3a9f090" symbol="13SwParaPortion" width="8164" height="276" length="85" type="PortionType::Para" portion="En este contexto, la comunicaci&#xF3;n web y el dise&#xF1;o de productos digitales son pilares ">
+      <SwParaPortion ptr="0x7f8de3a9f090" symbol="13SwParaPortion" width="8164" height="276" length="85" type="PortionType::Para" portion="En este contexto, la comunicaci&#xF3;n web y el dise&#xF1;o de productos digitales son pilares "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de42b0340" symbol="12SwLineLayout" width="8836" height="276" length="89" type="PortionType::Lay" portion="fundamentales. Vivimos en una era de ubicuidad digital donde casi todo proyecto creativo ">
+      <SwLinePortion ptr="0x7f8de7fbde70" symbol="13SwTextPortion" width="3738" height="276" length="37" type="PortionType::Text" portion="fundamentales. Vivimos en una era de "/>
+      <SwLinePortion ptr="0x7f8de7fa69a0" symbol="13SwTextPortion" width="1740" height="276" length="17" type="PortionType::Text" portion="ubicuidad digital"/>
+      <SwLinePortion ptr="0x7f8de7fbbb30" symbol="13SwTextPortion" width="3358" height="276" length="35" type="PortionType::Text" portion=" donde casi todo proyecto creativo "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de423af10" symbol="12SwLineLayout" width="8515" height="276" length="91" type="PortionType::Lay" portion="requiere presencia en web o app. La ilustraci&#xF3;n trasciende el papel y cobra vida en sites, ">
+      <SwLinePortion ptr="0x7f8de7fcf190" symbol="13SwTextPortion" width="7969" height="276" length="84" type="PortionType::Text" portion="requiere presencia en web o app. La ilustraci&#xF3;n trasciende el papel y cobra vida en "/>
+      <SwLinePortion ptr="0x7f8de7f9a040" symbol="13SwTextPortion" width="426" height="276" length="5" type="PortionType::Text" portion="sites"/>
+      <SwLinePortion ptr="0x7f8de7fcf440" symbol="13SwTextPortion" width="120" height="276" length="2" type="PortionType::Text" portion=", "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de425b180" symbol="12SwLineLayout" width="9330" height="276" length="100" type="PortionType::Lay" portion="aplicaciones m&#xF3;viles, redes sociales y otros soportes en l&#xED;nea. Saber crear y adaptar ilustraciones ">
+      <SwLineLayout ptr="0x7f8de425b180" symbol="12SwLineLayout" width="9330" height="276" length="100" type="PortionType::Lay" portion="aplicaciones m&#xF3;viles, redes sociales y otros soportes en l&#xED;nea. Saber crear y adaptar ilustraciones "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de4268c50" symbol="12SwLineLayout" width="8910" height="276" length="93" type="PortionType::Lay" portion="a estos medios ampl&#xED;a las oportunidades laborales del ilustrador, permiti&#xE9;ndole conectar con ">
+      <SwLineLayout ptr="0x7f8de4268c50" symbol="12SwLineLayout" width="8910" height="276" length="93" type="PortionType::Lay" portion="a estos medios ampl&#xED;a las oportunidades laborales del ilustrador, permiti&#xE9;ndole conectar con "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de4204870" symbol="12SwLineLayout" width="8743" height="276" length="91" type="PortionType::Lay" portion="audiencias globales de forma interactiva. De hecho, dominar las plataformas digitales para ">
+      <SwLineLayout ptr="0x7f8de4204870" symbol="12SwLineLayout" width="8743" height="276" length="91" type="PortionType::Lay" portion="audiencias globales de forma interactiva. De hecho, dominar las plataformas digitales para "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de4256860" symbol="12SwLineLayout" width="8871" height="276" length="92" type="PortionType::Lay" portion="difundir el trabajo propio se ha vuelto imprescindible: un buen manejo de los medios online ">
+      <SwLineLayout ptr="0x7f8de4256860" symbol="12SwLineLayout" width="8871" height="276" length="92" type="PortionType::Lay" portion="difundir el trabajo propio se ha vuelto imprescindible: un buen manejo de los medios online "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de425e7c0" symbol="12SwLineLayout" width="9355" height="276" length="99" type="PortionType::Lay" portion="permite llegar eficazmente a distintos p&#xFA;blicos y destacar en un entorno competitivo[4]. Por ello, ">
+      <SwLinePortion ptr="0x7f8de7fd64d0" symbol="13SwTextPortion" width="8083" height="276" length="84" type="PortionType::Text" portion="permite llegar eficazmente a distintos p&#xFA;blicos y destacar en un entorno competitivo"/>
+      <SwLinePortion ptr="0x7f8de7fe6320" symbol="13SwTextPortion" width="279" height="276" length="3" type="PortionType::Text" portion="[4]"/>
+      <SwLinePortion ptr="0x7f8df5609a60" symbol="13SwTextPortion" width="993" height="276" length="12" type="PortionType::Text" portion=". Por ello, "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7f9f750" symbol="12SwLineLayout" width="8564" height="276" length="86" type="PortionType::Lay" portion="la asignatura Ilustraci&#xF3;n Aplicada: Productos Anal&#xF3;gicos y Digitales dedica una parte ">
+      <SwLinePortion ptr="0x7f8df48f6ce0" symbol="13SwTextPortion" width="1279" height="276" length="14" type="PortionType::Text" portion="la asignatura "/>
+      <SwLinePortion ptr="0x7f8df560b330" symbol="13SwTextPortion" width="5593" height="276" length="54" type="PortionType::Text" portion="Ilustraci&#xF3;n Aplicada: Productos Anal&#xF3;gicos y Digitales"/>
+      <SwLinePortion ptr="0x7f8df48ce020" symbol="13SwTextPortion" width="1692" height="276" length="18" type="PortionType::Text" portion=" dedica una parte "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7fae0b0" symbol="12SwLineLayout" width="8882" height="276" length="95" type="PortionType::Lay" portion="significativa a las herramientas y lenguajes de la web, para que el ilustrador aprenda a crear ">
+      <SwLinePortion ptr="0x7f8df48d09f0" symbol="13SwTextPortion" width="1739" height="276" length="20" type="PortionType::Text" portion="significativa a las "/>
+      <SwLinePortion ptr="0x7f8df48f25c0" symbol="13SwTextPortion" width="3406" height="276" length="34" type="PortionType::Text" portion="herramientas y lenguajes de la web"/>
+      <SwLinePortion ptr="0x7f8df48eee40" symbol="13SwTextPortion" width="3737" height="276" length="41" type="PortionType::Text" portion=", para que el ilustrador aprenda a crear "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7fa9710" symbol="12SwLineLayout" width="8657" height="276" length="88" type="PortionType::Lay" portion="productos digitales atractivos que complementen su obra f&#xED;sica. Los alumnos disponen de ">
+      <SwLineLayout ptr="0x7f8de7fa9710" symbol="12SwLineLayout" width="8657" height="276" length="88" type="PortionType::Lay" portion="productos digitales atractivos que complementen su obra f&#xED;sica. Los alumnos disponen de "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7f96970" symbol="12SwLineLayout" width="8690" height="276" length="88" type="PortionType::Lay" portion="recursos profesionales (Adobe CC, Unity, etc.), pero nos enfocaremos en tecnolog&#xED;as web ">
+      <SwLineLayout ptr="0x7f8de7f96970" symbol="12SwLineLayout" width="8690" height="276" length="88" type="PortionType::Lay" portion="recursos profesionales (Adobe CC, Unity, etc.), pero nos enfocaremos en tecnolog&#xED;as web "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7f85d60" symbol="12SwLineLayout" width="8871" height="276" length="87" type="PortionType::Lay" portion="accesibles (HTML5, CSS3, un m&#xED;nimo de JS) y en herramientas de dise&#xF1;o de interfaz como ">
+      <SwLinePortion ptr="0x7f8df36ee280" symbol="13SwTextPortion" width="8871" height="276" length="87" type="PortionType::Text" portion="accesibles (HTML5, CSS3, un m&#xED;nimo de JS) y en herramientas de dise&#xF1;o de interfaz como "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7fc01c0" symbol="12SwLineLayout" width="8157" height="276" length="86" type="PortionType::Lay" portion="Figma para el prototipado. Esto les permitir&#xE1; materializar sus ideas sin necesidad de ">
+      <SwLinePortion ptr="0x7f8df3644300" symbol="13SwTextPortion" width="653" height="276" length="5" type="PortionType::Text" portion="Figma"/>
+      <SwLinePortion ptr="0x7f8df3685910" symbol="13SwTextPortion" width="7504" height="276" length="81" type="PortionType::Text" portion=" para el prototipado. Esto les permitir&#xE1; materializar sus ideas sin necesidad de "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7fa7e30" symbol="12SwLineLayout" width="8977" height="276" length="94" type="PortionType::Lay" portion="programaci&#xF3;n compleja, integrando sus ilustraciones en formatos interactivos actuales (sitios ">
+      <SwLineLayout ptr="0x7f8de7fa7e30" symbol="12SwLineLayout" width="8977" height="276" length="94" type="PortionType::Lay" portion="programaci&#xF3;n compleja, integrando sus ilustraciones en formatos interactivos actuales (sitios "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7fb5ca0" symbol="12SwLineLayout" width="9264" height="276" length="95" type="PortionType::Lay" portion="web, micrositios, portfolios online, prototipos de app, etc.). En resumen, el m&#xF3;dulo Web &amp; App ">
+      <SwLineLayout ptr="0x7f8de7fb5ca0" symbol="12SwLineLayout" width="9264" height="276" length="95" type="PortionType::Lay" portion="web, micrositios, portfolios online, prototipos de app, etc.). En resumen, el m&#xF3;dulo Web &amp; App "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7fec530" symbol="12SwLineLayout" width="9311" height="276" length="95" type="PortionType::Lay" portion="les brinda la oportunidad de llevar su creatividad al mundo digital, respondiendo a la demanda ">
+      <SwLinePortion ptr="0x7f8df363ce70" symbol="13SwTextPortion" width="2739" height="276" length="29" type="PortionType::Text" portion="les brinda la oportunidad de "/>
+      <SwLinePortion ptr="0x7f8df3619960" symbol="13SwTextPortion" width="3833" height="276" length="38" type="PortionType::Text" portion="llevar su creatividad al mundo digital"/>
+      <SwLinePortion ptr="0x7f8df362b240" symbol="13SwTextPortion" width="2739" height="276" length="27" type="PortionType::Text" portion=", respondiendo a la demanda"/>
+      <SwHolePortion ptr="0x7f8df48c9640" symbol="13SwHolePortion" width="60" height="276" length="1" type="PortionType::Hole" portion=" " blank-width="0" show-underline="false"/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7fc06a0" symbol="12SwLineLayout" width="5284" height="276" length="55" type="PortionType::Lay" portion="creciente de contenidos visuales en plataformas online.">
+      <SwLinePortion ptr="0x7f8df3689ad0" symbol="13SwTextPortion" width="5284" height="276" length="55" type="PortionType::Text" portion="creciente de contenidos visuales en plataformas online."/>
+      <SwBookmarkPortion ptr="0x7f8e151f2c30" symbol="17SwBookmarkPortion" width="0" height="276" length="0" type="PortionType::Bookmark" portion="" colors="#contexto-y-perfil-del-estudiante Bookmark End"/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8df577e520" id="349" symbol="11SwTextFrame" next="350" prev="348" upper="344" txtNodeIndex="13" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="11620" width="9360" height="548" bottom="12167" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="368" bottom="547" right="9359"/>
+    </infos>
+Objetivos del módulo (Web &amp; App)    <SwParaPortion ptr="0x7f8de7f97c40">
+     <SwLineLayout ptr="0x7f8de7f97c40" symbol="13SwParaPortion" width="4630" height="368" length="32" type="PortionType::Para" portion="Objetivos del m&#xF3;dulo (Web &amp; App)">
+      <SwBookmarkPortion ptr="0x7f8e151f6840" symbol="17SwBookmarkPortion" width="0" height="368" length="0" type="PortionType::Bookmark" portion="" colors="#objetivos-del-m&#xF3;dulo-web-app Bookmark Start"/>
+      <SwLinePortion ptr="0x7f8df36bdc40" symbol="13SwTextPortion" width="4630" height="368" length="32" type="PortionType::Text" portion="Objetivos del m&#xF3;dulo (Web &amp; App)"/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8df336cf50" id="350" symbol="11SwTextFrame" next="351" prev="349" upper="344" txtNodeIndex="14" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="12168" width="9360" height="1008" bottom="13175" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="828" bottom="1007" right="9359"/>
+    </infos>
+El objetivo general de este módulo es que el estudiante de ilustración adquiera competencias prácticas en diseño digital orientadas a web y aplicaciones, de modo que pueda aplicar su talento visual en productos interactivos. Al finalizar las 4 sesiones, el alumno podrá:    <SwParaPortion ptr="0x7f8de42608d0">
+     <SwLineLayout ptr="0x7f8de42608d0" symbol="13SwParaPortion" width="8943" height="276" length="93" type="PortionType::Para" portion="El objetivo general de este m&#xF3;dulo es que el estudiante de ilustraci&#xF3;n adquiera competencias ">
+      <SwLinePortion ptr="0x7f8de3a90af0" symbol="13SwTextPortion" width="7577" height="276" length="80" type="PortionType::Text" portion="El objetivo general de este m&#xF3;dulo es que el estudiante de ilustraci&#xF3;n adquiera "/>
+      <SwLinePortion ptr="0x7f8df3676950" symbol="13SwTextPortion" width="1366" height="276" length="13" type="PortionType::Text" portion="competencias "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de3aa9350" symbol="12SwLineLayout" width="9343" height="276" length="98" type="PortionType::Lay" portion="pr&#xE1;cticas en dise&#xF1;o digital orientadas a web y aplicaciones, de modo que pueda aplicar su talento ">
+      <SwLinePortion ptr="0x7f8de3a66ff0" symbol="13SwTextPortion" width="2553" height="276" length="27" type="PortionType::Text" portion="pr&#xE1;cticas en dise&#xF1;o digital"/>
+      <SwLinePortion ptr="0x7f8de3aed0d0" symbol="13SwTextPortion" width="6790" height="276" length="70" type="PortionType::Text" portion=" orientadas a web y aplicaciones, de modo que pueda aplicar su talento"/>
+      <SwHolePortion ptr="0x7f8de4204ca0" symbol="13SwHolePortion" width="60" height="276" length="1" type="PortionType::Hole" portion=" " blank-width="0" show-underline="false"/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de3a8e010" symbol="12SwLineLayout" width="7378" height="276" length="79" type="PortionType::Lay" portion="visual en productos interactivos. Al finalizar las 4 sesiones, el alumno podr&#xE1;:">
+      <SwLineLayout ptr="0x7f8de3a8e010" symbol="12SwLineLayout" width="7378" height="276" length="79" type="PortionType::Lay" portion="visual en productos interactivos. Al finalizar las 4 sesiones, el alumno podr&#xE1;:"/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8df33fd360" id="351" symbol="11SwTextFrame" prev="350" upper="344" txtNodeIndex="15" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="13176" width="9360" height="1294" bottom="14469" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="180" width="9000" height="1114" bottom="1293" right="9359"/>
+    </infos>
+Concebir y planificar un producto digital sencillo (ej. un mini-sitio web ilustrado o interfaz de app) adecuado a un objetivo comunicativo y a un público definido, integrando su estilo personal en la experiencia de usuario[5][4]. Esto implica reflexionar sobre la finalidad del sitio/app, su audiencia y cómo la ilustración potencia el mensaje.    <SwParaPortion ptr="0x7f8de7fe5470">
+     <SwLineLayout ptr="0x7f8de7fe5470" symbol="13SwParaPortion" width="8666" height="286" length="86" type="PortionType::Para" portion="Concebir y planificar un producto digital sencillo (ej. un mini-sitio web ilustrado o ">
+      <SwFieldPortion ptr="0x7f8de7ffaac0" symbol="15SwBulletPortion" width="110" height="240" length="0" type="PortionType::Bullet" portion="" expand="&#xF0B7;">
+       <SwFont ptr="0x7f8de7f825e0" color="ffffffff" height="240" width="0" weight="normal"/>
+      </SwFieldPortion>
+      <SwFixPortion ptr="0x7f8de7f8deb0" symbol="16SwTabLeftPortion" width="250" height="240" length="0" type="PortionType::TabLeft" portion="" fix="110"/>
+      <SwLinePortion ptr="0x7f8de7fe5620" symbol="13SwTextPortion" width="5040" height="276" length="50" type="PortionType::Text" portion="Concebir y planificar un producto digital sencillo"/>
+      <SwLinePortion ptr="0x7f8de7f80380" symbol="13SwTextPortion" width="3266" height="276" length="36" type="PortionType::Text" portion=" (ej. un mini-sitio web ilustrado o "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8df364b030" symbol="12SwLineLayout" width="8583" height="276" length="89" type="PortionType::Lay" portion="interfaz de app) adecuado a un objetivo comunicativo y a un p&#xFA;blico definido, integrando ">
+      <SwLinePortion ptr="0x7f8de42656a0" symbol="13SwTextPortion" width="8583" height="276" length="88" type="PortionType::Text" portion="interfaz de app) adecuado a un objetivo comunicativo y a un p&#xFA;blico definido, integrando"/>
+      <SwHolePortion ptr="0x7f8de7fa6690" symbol="13SwHolePortion" width="60" height="276" length="1" type="PortionType::Hole" portion=" " blank-width="0" show-underline="false"/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8df3668a40" symbol="12SwLineLayout" width="8275" height="276" length="89" type="PortionType::Lay" portion="su estilo personal en la experiencia de usuario[5][4]. Esto implica reflexionar sobre la ">
+      <SwLinePortion ptr="0x7f8de42668f0" symbol="13SwTextPortion" width="4405" height="276" length="47" type="PortionType::Text" portion="su estilo personal en la experiencia de usuario"/>
+      <SwLinePortion ptr="0x7f8de42665e0" symbol="13SwTextPortion" width="279" height="276" length="3" type="PortionType::Text" portion="[5]"/>
+      <SwLinePortion ptr="0x7f8de423b6d0" symbol="13SwTextPortion" width="279" height="276" length="3" type="PortionType::Text" portion="[4]"/>
+      <SwLinePortion ptr="0x7f8df366fb20" symbol="13SwTextPortion" width="3312" height="276" length="36" type="PortionType::Text" portion=". Esto implica reflexionar sobre la "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de422e790" symbol="12SwLineLayout" width="7497" height="276" length="80" type="PortionType::Lay" portion="finalidad del sitio/app, su audiencia y c&#xF3;mo la ilustraci&#xF3;n potencia el mensaje.">
+      <SwLineLayout ptr="0x7f8de422e790" symbol="12SwLineLayout" width="7497" height="276" length="80" type="PortionType::Lay" portion="finalidad del sitio/app, su audiencia y c&#xF3;mo la ilustraci&#xF3;n potencia el mensaje."/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+  </body>
+ </page>
+ <page ptr="0x7f8de3f35140" id="421" symbol="11SwPageFrame" next="424" prev="343" upper="342" lower="422" format="0x7f8e739b39d8" formatName="Default Page Style">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <page_info phyNum="2" virtNum="2" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="10172" top="16408" width="12240" height="15840" bottom="32247" right="22411" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8de3f35310" id="422" symbol="11SwBodyFrame" upper="421" lower="352" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="11612" top="17848" width="9360" height="12960" bottom="30807" right="20971" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8de3bd8010" id="352" symbol="11SwTextFrame" next="353" upper="422" txtNodeIndex="16" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="17848" width="9360" height="1666" bottom="19513" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="0" width="9000" height="1666" bottom="1665" right="9359"/>
+    </infos>
+Entender los principios básicos de UX/UI para productos digitales: desde la investigación e ideación inicial hasta el diseño de interfaces accesibles y atractivas, aprendiendo a plantear funcionalidades eficaces y a estructurar la información de forma usable[6]. Se introducirá el pensamiento de diseño centrado en el usuario (design thinking) en un nivel básico, apropiado para ilustradores, para que valoren la usabilidad además de la estética.    <SwParaPortion ptr="0x7f8de3adad90">
+     <SwLineLayout ptr="0x7f8de3adad90" symbol="13SwParaPortion" width="7898" height="286" length="76" type="PortionType::Para" portion="Entender los principios b&#xE1;sicos de UX/UI para productos digitales: desde la ">
+      <SwFieldPortion ptr="0x7f8de4247110" symbol="15SwBulletPortion" width="110" height="240" length="0" type="PortionType::Bullet" portion="" expand="&#xF0B7;">
+       <SwFont ptr="0x7f8df36b4e30" color="ffffffff" height="240" width="0" weight="normal"/>
+      </SwFieldPortion>
+      <SwFixPortion ptr="0x7f8de426dba0" symbol="16SwTabLeftPortion" width="250" height="240" length="0" type="PortionType::TabLeft" portion="" fix="110"/>
+      <SwLinePortion ptr="0x7f8df3639500" symbol="13SwTextPortion" width="4220" height="276" length="40" type="PortionType::Text" portion="Entender los principios b&#xE1;sicos de UX/UI"/>
+      <SwLinePortion ptr="0x7f8de3adaf40" symbol="13SwTextPortion" width="3318" height="276" length="36" type="PortionType::Text" portion=" para productos digitales: desde la "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de3afd1e0" symbol="12SwLineLayout" width="8097" height="276" length="88" type="PortionType::Lay" portion="investigaci&#xF3;n e ideaci&#xF3;n inicial hasta el dise&#xF1;o de interfaces accesibles y atractivas, ">
+      <SwLinePortion ptr="0x7f8df366aad0" symbol="13SwTextPortion" width="3825" height="276" length="42" type="PortionType::Text" portion="investigaci&#xF3;n e ideaci&#xF3;n inicial hasta el "/>
+      <SwLinePortion ptr="0x7f8df368a190" symbol="13SwTextPortion" width="4152" height="276" length="44" type="PortionType::Text" portion="dise&#xF1;o de interfaces accesibles y atractivas"/>
+      <SwLinePortion ptr="0x7f8df3678da0" symbol="13SwTextPortion" width="120" height="276" length="2" type="PortionType::Text" portion=", "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de3a4f470" symbol="12SwLineLayout" width="8475" height="276" length="88" type="PortionType::Lay" portion="aprendiendo a plantear funcionalidades eficaces y a estructurar la informaci&#xF3;n de forma ">
+      <SwLineLayout ptr="0x7f8de3a4f470" symbol="12SwLineLayout" width="8475" height="276" length="88" type="PortionType::Lay" portion="aprendiendo a plantear funcionalidades eficaces y a estructurar la informaci&#xF3;n de forma "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de423ca00" symbol="12SwLineLayout" width="7843" height="276" length="82" type="PortionType::Lay" portion="usable[6]. Se introducir&#xE1; el pensamiento de dise&#xF1;o centrado en el usuario (design ">
+      <SwLinePortion ptr="0x7f8df368c420" symbol="13SwTextPortion" width="613" height="276" length="6" type="PortionType::Text" portion="usable"/>
+      <SwLinePortion ptr="0x7f8df366e9d0" symbol="13SwTextPortion" width="279" height="276" length="3" type="PortionType::Text" portion="[6]"/>
+      <SwLinePortion ptr="0x7f8df3643e50" symbol="13SwTextPortion" width="6951" height="276" length="73" type="PortionType::Text" portion=". Se introducir&#xE1; el pensamiento de dise&#xF1;o centrado en el usuario (design "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de4273550" symbol="12SwLineLayout" width="8470" height="276" length="90" type="PortionType::Lay" portion="thinking) en un nivel b&#xE1;sico, apropiado para ilustradores, para que valoren la usabilidad ">
+      <SwLineLayout ptr="0x7f8de4273550" symbol="12SwLineLayout" width="8470" height="276" length="90" type="PortionType::Lay" portion="thinking) en un nivel b&#xE1;sico, apropiado para ilustradores, para que valoren la usabilidad "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de423cad0" symbol="12SwLineLayout" width="2078" height="276" length="22" type="PortionType::Lay" portion="adem&#xE1;s de la est&#xE9;tica.">
+      <SwLineLayout ptr="0x7f8de423cad0" symbol="12SwLineLayout" width="2078" height="276" length="22" type="PortionType::Lay" portion="adem&#xE1;s de la est&#xE9;tica."/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8de3be20c0" id="353" symbol="11SwTextFrame" next="354" prev="352" upper="422" txtNodeIndex="17" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="19514" width="9360" height="1702" bottom="21215" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1666" bottom="1701" right="9359"/>
+    </infos>
+Dominar nociones fundamentales de front-end (HTML/CSS) suficientes para implementar un diseño web responsivo. El estudiante aprenderá a estructurar contenido con HTML5 semántico y a dar estilo mediante CSS3, siguiendo buenas prácticas de accesibilidad (accesibilidad por defecto como premisa)[7]. Se priorizará el uso de frameworks CSS modernos (Bootstrap, Tailwind) que permitan lograr resultados pulidos sin partir de cero, reduciendo la barrera técnica.</txt>
+   <txt ptr="0x7f8df31ae610" id="354" symbol="11SwTextFrame" next="355" prev="353" upper="422" txtNodeIndex="18" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="21216" width="9360" height="1702" bottom="22917" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1666" bottom="1701" right="9359"/>
+    </infos>
+Prototipar y maquetar interfaces adaptativas: utilizar frameworks y herramientas visuales (p. ej. Figma para wireframes, Bootstrap/Tailwind para CSS) para crear layouts que funcionen en desktop y móvil, comprendiendo el concepto de responsive design. El alumno deberá ser capaz de implementar componentes comunes de UI (navegación, galerías de imágenes, formularios simples, etc.) con un estilo coherente a su proyecto ilustrado.</txt>
+   <txt ptr="0x7f8df3157cf0" id="355" symbol="11SwTextFrame" next="356" prev="354" upper="422" txtNodeIndex="19" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="22918" width="9360" height="1426" bottom="24343" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1390" bottom="1425" right="9359"/>
+    </infos>
+Añadir interactividad básica a un producto digital ilustrado: incorporar elementos dinámicos sencillos que enriquezcan la experiencia (animaciones CSS, transiciones, o scripts ligeros de JS para menús desplegables, carruseles, etc.). Con ello, entenderá cómo la narrativa visual puede extenderse con movimiento e interacción, características distintivas del medio digital frente al estático.</txt>
+   <txt ptr="0x7f8df52ea740" id="356" symbol="11SwTextFrame" next="357" prev="355" upper="422" txtNodeIndex="20" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="24344" width="9360" height="1426" bottom="25769" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1390" bottom="1425" right="9359"/>
+    </infos>
+Gestionar un proyecto web mediante repositorio: aprender a manejar un flujo de trabajo simplificado con Git/GitHub para versionar su proyecto y publicarlo en línea (por ejemplo, via GitHub Pages). La idea es introducirlos en la cultura de trabajo del desarrollador web de forma amigable: crear commits al final de cada sesión/sprint como evidencia de progreso[8], y lograr un despliegue que les dé un producto final público.</txt>
+   <txt ptr="0x7f8df5236b40" id="357" symbol="11SwTextFrame" next="358" prev="356" upper="422" txtNodeIndex="21" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="25770" width="9360" height="1702" bottom="27471" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1666" bottom="1701" right="9359"/>
+    </infos>
+Desarrollar criterio de evaluación y reflexión crítica sobre su propio trabajo digital: el módulo no solo busca producir “sitios reales” sino también cultivar en el estudiante una mirada analítica sobre la tecnología y su proceso de creación[9]. Habrá instancias de autoevaluación y retroalimentación donde deberán juzgar la funcionalidad, accesibilidad, estética y ética de sus decisiones de diseño/código, alineado con la filosofía de fomentar la reflexión crítica sobre la tecnología, el trabajo y el bienestar en el aprendizaje[9].</txt>
+   <txt ptr="0x7f8df52f4510" id="358" symbol="11SwTextFrame" next="359" prev="357" upper="422" txtNodeIndex="22" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="27472" width="9360" height="1560" bottom="29031" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="1380" bottom="1559" right="9359"/>
+    </infos>
+Estos objetivos se alinean con la misión pedagógica del programa, que es formar ilustradores integrales, capaces de adaptarse a múltiples formatos y con un pensamiento estratégico. Al terminar, cada estudiante habrá desarrollado un proyecto digital completo (portafoliable en sí mismo) que muestra su capacidad para llevar la ilustración al terreno web/app, reforzando así su portfolio personal con una nueva dimensión[3].</txt>
+   <txt ptr="0x7f8df521d080" id="359" symbol="11SwTextFrame" next="360" prev="358" upper="422" txtNodeIndex="23" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="29032" width="9360" height="548" bottom="29579" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="368" bottom="547" right="9359"/>
+    </infos>
+Metodología de enseñanza (“atelier” ágil)</txt>
+   <txt ptr="0x7f8df5243bf0" id="360" symbol="11SwTextFrame" prev="359" upper="422" txtNodeIndex="24" WritingMode="Horizontal" follow="423" offset="0">
+    <infos>
+     <bounds left="11612" top="29580" width="9360" height="1008" bottom="30587" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="828" bottom="1007" right="9359"/>
+    </infos>
+Dada la naturaleza práctica de la materia, adoptaremos una metodología tipo atelier, inspirada en el enfoque crítico y experimental propuesto en este módulo. Esto significa que cada sesión se estructura como un sprint de desarrollo con objetivos concretos y un entregable al finalizar la </txt>
+  </body>
+ </page>
+ <page ptr="0x7f8de77cdbb0" id="424" symbol="11SwPageFrame" next="427" prev="421" upper="342" lower="425" format="0x7f8e739b3890" formatName="Default Page Style">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <page_info phyNum="3" virtNum="3" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="22412" top="16408" width="12240" height="15840" bottom="32247" right="34651" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8de3738b50" id="425" symbol="11SwBodyFrame" upper="424" lower="423" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="23852" top="17848" width="9360" height="12960" bottom="30807" right="33211" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8de77d71a0" id="423" symbol="11SwTextFrame" next="361" upper="425" txtNodeIndex="24" WritingMode="Horizontal" precede="360" offset="288">
+    <infos>
+     <bounds left="23852" top="17848" width="9360" height="828" bottom="18675" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="0" width="9360" height="828" bottom="827" right="9359"/>
+    </infos>
+clase. En palabras de nuestra propia guía docente, “cada clase es como un sprint y cada sprint termina en un commit”[8]. Es decir, los estudiantes irán construyendo iterativamente su proyecto web paso a paso, dejando evidencia tangible de su avance en un repositorio git.</txt>
+   <txt ptr="0x7f8df523e150" id="361" symbol="11SwTextFrame" next="362" prev="423" upper="425" txtNodeIndex="25" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="18676" width="9360" height="3216" bottom="21891" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="3036" bottom="3215" right="9359"/>
+    </infos>
+Las clases combinarán breves exposiciones teóricas con aprendizaje práctico activo. Empezaremos generalmente con una introducción conceptual o demostración por parte del profesor, seguida de un bloque principal de taller donde los alumnos trabajan en sus propios proyectos (con la guía y apoyo del docente), y cerramos con una puesta en común o reflexión final. Este ciclo corresponde a las fases exploración → producción → exhibición/reflexión, típicas del atelier, promoviendo tanto la acción (codificar, diseñar) como la metacognición (analizar lo hecho). La enseñanza será “practice-first”, es decir, priorizando la experimentación directa y la creación de un producto real desde el primer día[9]. Paralelamente, se introducirán valores transversales: trabajo centrado en las personas (diseño empático), accesibilidad por defecto, y una perspectiva crítica sobre las herramientas (por ejemplo, discutir no solo el “cómo” sino el “por qué” de ciertas tecnologías)[7].</txt>
+   <txt ptr="0x7f8df552b020" id="362" symbol="11SwTextFrame" next="363" prev="361" upper="425" txtNodeIndex="26" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="21892" width="9360" height="2388" bottom="24279" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="2208" bottom="2387" right="9359"/>
+    </infos>
+Se fomentará la colaboración y el aprendizaje entre pares: los estudiantes podrán compartir hallazgos, ayudarse en la detección de errores y dar feedback mutuo en las presentaciones. Dado que el grupo proviene de una disciplina creativa, se incentivará también la libertad expresiva en las soluciones (dentro de los límites técnicos enseñados) para que cada sitio refleje la personalidad del ilustrador. En resumen, la metodología será ágil, creativa y centrada en el estudiante, creando un espacio seguro para probar, equivocarse y aprender haciendo. Cada sesión-sprint tendrá su mini-entregable, y al final del módulo convergerán en un proyecto final completo y funcional.</txt>
+   <txt ptr="0x7f8df4e6d9e0" id="363" symbol="11SwTextFrame" next="364" prev="362" upper="425" txtNodeIndex="27" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="24280" width="9360" height="548" bottom="24827" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="368" bottom="547" right="9359"/>
+    </infos>
+Plan de sesiones (contenido por sprint)</txt>
+   <txt ptr="0x7f8df4ed89a0" id="364" symbol="11SwTextFrame" next="365" prev="363" upper="425" txtNodeIndex="28" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="24828" width="9360" height="1560" bottom="26387" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="1380" bottom="1559" right="9359"/>
+    </infos>
+A continuación se detalla el plan de las 4 sesiones (de 3,5 h cada una) que impartiré, con sus contenidos progresivos. Cada sesión es un bloque práctico (atelier) orientado a resultados, pero conectado a los intereses del estudiante de ilustración. Las sesiones avanzan gradualmente: iniciamos desde cero con fundamentos y culminamos con un proyecto digital publicado, listo para portfolio.</txt>
+   <txt ptr="0x7f8df4ef03d0" id="365" symbol="11SwTextFrame" next="366" prev="364" upper="425" txtNodeIndex="29" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="26388" width="9360" height="502" bottom="26889" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="322" bottom="501" right="9359"/>
+    </infos>
+Sesión 1: Introducción al ecosistema web y planteamiento del proyecto</txt>
+   <txt ptr="0x7f8df4e675f0" id="366" symbol="11SwTextFrame" next="367" prev="365" upper="425" txtNodeIndex="30" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="26890" width="9360" height="2112" bottom="29001" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="1932" bottom="2111" right="9359"/>
+    </infos>
+Rationale &amp; objetivos: en esta primera clase se busca romper el hielo con la tecnología web, mostrando por qué el medio online es relevante para un ilustrador y sentando las bases técnicas mínimas. Se enfatiza la ubicuidad de la web como plataforma creativa y se inspiran a los estudiantes con ejemplos. Al final de la sesión 1, cada alumno habrá definido la idea de su proyecto digital y habrá publicado una página web básica propia. Esto les dará un primer logro tangible (¡su sitio en línea desde el día 1!) que genera confianza y motivación para profundizar en las siguientes clases.</txt>
+   <txt ptr="0x7f8df4e0b440" id="367" symbol="11SwTextFrame" next="368" prev="366" upper="425" txtNodeIndex="31" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="29002" width="9360" height="456" bottom="29457" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+Contenidos y actividades:</txt>
+   <txt ptr="0x7f8df4ea8790" id="368" symbol="11SwTextFrame" prev="367" upper="425" txtNodeIndex="32" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="29458" width="9360" height="1294" bottom="30751" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="180" width="9000" height="1114" bottom="1293" right="9359"/>
+    </infos>
+La web como nuevo lienzo: Presentación de ejemplos de ilustración aplicada en web/apps (sitios ilustrados, storytelling interactivo, webcomics, portfolios de artistas) para entender el potencial expresivo del medio. Debate breve sobre cómo cambia la comunicación visual cuando pasa del papel/pantalla fija a una página web interactiva.</txt>
+  </body>
+ </page>
+ <page ptr="0x7f8df31bf630" id="427" symbol="11SwPageFrame" next="429" prev="424" upper="342" lower="428" format="0x7f8e739b39d8" formatName="Default Page Style">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <page_info phyNum="4" virtNum="4" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="10172" top="32532" width="12240" height="15840" bottom="48371" right="22411" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8df31bf750" id="428" symbol="11SwBodyFrame" upper="427" lower="369" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="11612" top="33972" width="9360" height="12960" bottom="46931" right="20971" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8df4e73be0" id="369" symbol="11SwTextFrame" next="370" upper="428" txtNodeIndex="33" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="33972" width="9360" height="1942" bottom="35913" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="0" width="9000" height="1942" bottom="1941" right="9359"/>
+    </infos>
+Conceptos básicos de la web: Explicación sencilla de cómo funciona un sitio web (cliente/servidor, navegadores) y de los lenguajes fundamentales: HTML para la estructura del contenido y CSS para la presentación visual. Se introducen las etiquetas HTML5 más comunes (estructura de una página: &lt;html&gt;, &lt;head&gt;, &lt;body&gt;, encabezados, párrafos, imágenes con &lt;img&gt;, enlaces) y nociones de estilo en CSS (selectores, propiedades básicas de texto, color, etc.), con énfasis en escribir código semántico y limpio desde el inicio.</txt>
+   <txt ptr="0x7f8df4e592b0" id="370" symbol="11SwTextFrame" next="371" prev="369" upper="428" txtNodeIndex="34" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="35914" width="9360" height="1978" bottom="37891" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1942" bottom="1977" right="9359"/>
+    </infos>
+Configuración del entorno y repositorio: Paso a paso para comenzar un proyecto: creación de una cuenta de GitHub (si no la tienen) y uso de una plantilla inicial (Student Project Template) provista por el profesor. Se guía en clonar o forkear el repositorio de plantilla que ya contiene la estructura base de un sitio (archivos, carpetas, configuración mínima) para evitar instalar Node u otras herramientas complejas. El objetivo es que cada estudiante tenga su propio repositorio git desde el primer día, siguiendo la filosofía de aprendizaje basado en evidencias (commits)[7].</txt>
+   <txt ptr="0x7f8df4ee2a10" id="371" symbol="11SwTextFrame" next="372" prev="370" upper="428" txtNodeIndex="35" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="37892" width="9360" height="1978" bottom="39869" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1942" bottom="1977" right="9359"/>
+    </infos>
+Hola mundo web – handson: Edición práctica de contenido: cada estudiante modifica el HTML de la página de inicio de la plantilla para incluir información básica personal (por ejemplo, su nombre, una breve bio o statement creativo) e insertar al menos una imagen ilustrativa (puede ser un boceto o ilustración propia). Se proporciona una breve guía de Markdown/HTML para formatear texto y se practican commmits y push al repo. Luego se activa GitHub Pages para desplegar el sitio. Al final de esta actividad, el sitio web de cada alumno estará en línea (accesible por URL pública). 🚀</txt>
+   <txt ptr="0x7f8df4edae10" id="372" symbol="11SwTextFrame" next="373" prev="371" upper="428" txtNodeIndex="36" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="39870" width="9360" height="2806" bottom="42675" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="2770" bottom="2805" right="9359"/>
+    </infos>
+Diseño de la idea y wireframe: Paralelamente al montaje técnico básico, se dedica tiempo a la planificación conceptual del proyecto que desarrollarán en el módulo. Cada alumno define qué producto digital quiere crear: puede ser su portfolio personal, la página promocional de un proyecto ilustrado (ej: un libro, una exposición) o incluso el prototipo de interfaz de una app ilustrada. Se les pide que piensen en el objetivo del sitio/app y en su audiencia objetivo[5] (ej.: “mostrar mi estilo para atraer clientes editoriales” o “promocionar mi cómic independiente”). Con esa idea, realizan un boceto de wireframe: un esquema de cómo organizarán visualmente la página (se permite dibujar en papel o usar Figma para quienes sepan). El profesor asesora para que el contenido y la navegación propuesta sean coherentes con el objetivo.</txt>
+   <txt ptr="0x7f8df4e80af0" id="373" symbol="11SwTextFrame" next="374" prev="372" upper="428" txtNodeIndex="37" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="42676" width="9360" height="1702" bottom="44377" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1666" bottom="1701" right="9359"/>
+    </infos>
+Instalación de herramientas opcionales: Introducción rápida a editores de código (Visual Studio Code recomendado) para quien quiera usarlo en lugar de editores online, y a Figma (o Adobe XD) como herramienta de diseño de interfaz para quienes deseen detallar más su wireframe digitalmente. Se aclara que no es obligatorio dominar estas herramientas desde ya, pero que están disponibles en el laboratorio y son estándar en la industria.</txt>
+   <txt ptr="0x7f8de7a62bb0" id="374" symbol="11SwTextFrame" prev="373" upper="428" txtNodeIndex="38" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="44378" width="9360" height="1978" bottom="46355" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1942" bottom="1977" right="9359"/>
+    </infos>
+Cierre reflexivo: Breve repaso de lo logrado (cada uno ha “lanzado” su primera página web). Discusión grupal sobre la experiencia: ¿qué les sorprendió del proceso técnico?, ¿cómo se imaginan expandiendo esa página básica hacia su visión de proyecto final? Se refuerza la idea de que no es necesario ser desarrollador para crear algo funcional en web, y se resuelven dudas emergentes. Cada estudiante enuncia un pequeño compromiso para la siguiente sesión (por ej., “traeré preparados 3 dibujos para mi galería” o “terminaré el wireframe de todas las secciones”) fomentando la autonomía.</txt>
+  </body>
+ </page>
+ <page ptr="0x7f8df52590e0" id="429" symbol="11SwPageFrame" next="432" prev="427" upper="342" lower="430" format="0x7f8e739b3890" formatName="Default Page Style">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <page_info phyNum="5" virtNum="5" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="22412" top="32532" width="12240" height="15840" bottom="48371" right="34651" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8de7a4fcd0" id="430" symbol="11SwBodyFrame" upper="429" lower="375" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="23852" top="33972" width="9360" height="12960" bottom="46931" right="33211" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8de7a74b70" id="375" symbol="11SwTextFrame" next="376" upper="430" txtNodeIndex="39" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="33972" width="9360" height="644" bottom="34615" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="0" width="9360" height="644" bottom="643" right="9359"/>
+    </infos>
+Sesión 2: Maquetación responsive con frameworks CSS (Bootstrap &amp; Tailwind)</txt>
+   <txt ptr="0x7f8de3f24e60" id="376" symbol="11SwTextFrame" next="377" prev="375" upper="430" txtNodeIndex="40" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="34616" width="9360" height="2388" bottom="37003" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="2208" bottom="2387" right="9359"/>
+    </infos>
+Rationale &amp; objetivos: esta sesión se centra en el diseño visual y la maquetación responsive del sitio, dotándolo de una presentación atractiva y profesional sin requerir programación avanzada. Para ilustradores, es importante ver resultados estéticos rápidos; por ello introducimos frameworks CSS que facilitan dar estilo coherente y adaptable a su contenido. El objetivo es que al final de la clase 2, el esqueleto inicial cobre vida: el sitio de cada alumno tendrá ya un diseño definido, multisección y ajustado a distintos tamaños de pantalla, integrando sus ilustraciones y branding personal. Se hace hincapié en accesibilidad y buenas prácticas de diseño desde el principio, alineado con la idea de “accesibilidad por defecto”[7] en todo proyecto web.</txt>
+   <txt ptr="0x7f8de3f272e0" id="377" symbol="11SwTextFrame" next="378" prev="376" upper="430" txtNodeIndex="41" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="37004" width="9360" height="456" bottom="37459" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+Contenidos y actividades:</txt>
+   <txt ptr="0x7f8df57f88a0" id="378" symbol="11SwTextFrame" next="379" prev="377" upper="430" txtNodeIndex="42" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="37460" width="9360" height="2950" bottom="40409" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="180" width="9000" height="2770" bottom="2949" right="9359"/>
+    </infos>
+Introducción a frameworks front-end: Presentación de las herramientas que usaremos para acelerar la maquetación. Se explican las diferencias y ventajas de Bootstrap vs. Tailwind CSS: Bootstrap ofrece componentes prefabricados (sistema de grid, botones, menús) muy útiles para montar rápido páginas con diseño clásico, mientras Tailwind permite un diseño más personalizado mediante clases utilitarias pero requiere familiarizarse con su filosofía. Dado el poco tiempo, se decide utilizar Bootstrap para componentes complejos y incorporar Tailwind para retoques de estilo específicos, así los alumnos vislumbran ambas aproximaciones modernas. No utilizaremos Node/compilación: en su lugar, incluiremos Bootstrap via CDN y usaremos una versión precompilada de Tailwind (o Tailwind Playground) para evitar configuraciones locales.</txt>
+   <txt ptr="0x7f8df57f9fa0" id="379" symbol="11SwTextFrame" next="380" prev="378" upper="430" txtNodeIndex="43" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="40410" width="9360" height="2806" bottom="43215" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="2770" bottom="2805" right="9359"/>
+    </infos>
+Responsive design – teoría y práctica: Explicación de qué es el diseño responsive y por qué es crucial (usuarios visitarán sus sitios desde móviles, tablets, etc.). Se muestra cómo el grid system de Bootstrap facilita crear layouts adaptables: concepto de filas y columnas, y uso de clases como .col-md-6 para distribuir columnas según tamaños de pantalla. Igualmente, se introducen las media queries de CSS (brevemente, ya que Bootstrap/Tailwind las abstraen con sus clases). Ejercicio guiado: transformar la sencilla página de la sesión 1 en una estructura de múltiples secciones apiladas, por ejemplo: header con presentación, galería de ilustraciones, sección de biografía/proyecto, y pie de contacto. Cada sección se marca en el HTML y se aplica grid de Bootstrap para organizar contenido en columnas donde corresponda.</txt>
+   <txt ptr="0x7f8df578de30" id="380" symbol="11SwTextFrame" next="381" prev="379" upper="430" txtNodeIndex="44" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="43216" width="9360" height="3082" bottom="46297" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="3046" bottom="3081" right="9359"/>
+    </infos>
+Estilos y branding personal: Ahora que la estructura está montada, pasamos a la estética. Cada estudiante define o aplica una paleta de color acorde a su estilo/branding (muchos tendrán ya colores de preferencia de su trabajo ilustrativo). Se enseña cómo sobreescribir variables CSS de Bootstrap (o utilizar clases utilitarias de Tailwind) para personalizar colores, tipografías (por ejemplo integrando Google Fonts elegidas que reflejen su identidad) y otros estilos. Se cubren fundamentos de diseño visual: contraste (importante para accesibilidad), legibilidad tipográfica, alineación y uso de espacios en blanco. El profesor asesora para que la página sea atractiva pero también legible y accesible (p. ej., comprobando tamaño de fuente mínimo, contraste color texto-fondo). Se recuerda incluir textos alternativos descriptivos en las imágenes – pequeño pero crucial detalle de accesibilidad que ya aplican por defecto[7].</txt>
+   <txt ptr="0x7f8df33d4020" id="381" symbol="11SwTextFrame" prev="380" upper="430" txtNodeIndex="45" WritingMode="Horizontal" follow="431" offset="0">
+    <infos>
+     <bounds left="23852" top="46298" width="9360" height="598" bottom="46895" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="562" bottom="597" right="9359"/>
+    </infos>
+Componentes listos para usar: Los alumnos exploran la librería de componentes de Bootstrap. En función de las necesidades de sus proyectos, se les anima a incorporar al </txt>
+  </body>
+ </page>
+ <page ptr="0x7f8de3eb2b30" id="432" symbol="11SwPageFrame" next="435" prev="429" upper="342" lower="433" format="0x7f8e739b39d8" formatName="Default Page Style">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <page_info phyNum="6" virtNum="6" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="10172" top="48656" width="12240" height="15840" bottom="64495" right="22411" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8df52a1f20" id="433" symbol="11SwBodyFrame" upper="432" lower="431" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="11612" top="50096" width="9360" height="12960" bottom="63055" right="20971" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8de3ea0c00" id="431" symbol="11SwTextFrame" next="382" upper="433" txtNodeIndex="45" WritingMode="Horizontal" precede="381" offset="169">
+    <infos>
+     <bounds left="11612" top="50096" width="9360" height="1932" bottom="52027" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="0" width="9000" height="1932" bottom="1931" right="9359"/>
+    </infos>
+menos un componente avanzado: puede ser un navbar (barra de navegación) al inicio para enlazar secciones o páginas, un carrusel/slider para mostrar ilustraciones destacadas, tarjetas de contenido para proyectos, o un formulario de contacto sencillo. Se realiza un mini-ejemplo en vivo de cómo copiar el código de un componente del docs de Bootstrap y adaptarlo (cambiando imágenes o texto). Esto les muestra un flujo típico de trabajo profesional: reutilizar recursos existentes eficientemente en lugar de “reinventar la rueda”.</txt>
+   <txt ptr="0x7f8df33cfaf0" id="382" symbol="11SwTextFrame" next="383" prev="431" upper="433" txtNodeIndex="46" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="52028" width="9360" height="1978" bottom="54005" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1942" bottom="1977" right="9359"/>
+    </infos>
+Tailwind CSS quick demo: A modo de contraste, el profesor enseña brevemente cómo sería estilizar con Tailwind (por ejemplo, aplicando clases utilitarias directamente en el HTML para customizar margen, padding, color). Se muestra un ejemplo: crear una tarjeta con sombra o un botón con clases Tailwind. Aunque no profundizamos, los alumnos ven otra filosofía de trabajo (muy usada en entornos modernos). Opcional: quienes se sientan cómodos pueden usar Tailwind en lugar de Bootstrap para ciertas partes, aprovechando que la plantilla inicial ya lo incluye configurado.</txt>
+   <txt ptr="0x7f8df3311230" id="383" symbol="11SwTextFrame" next="384" prev="382" upper="433" txtNodeIndex="47" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="54006" width="9360" height="2254" bottom="56259" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="2218" bottom="2253" right="9359"/>
+    </infos>
+Taller guiado – handson maquetación: Con los conceptos presentados, dedicamos buen tiempo a que cada estudiante dé forma a su sitio. Se espera que implementen el diseño de su wireframe: distribuyan sus ilustraciones y textos en las secciones definidas, apliquen estilos coherentes y aseguren que la página se vea bien en desktop y en móvil (usando herramientas de vista responsive en el navegador para comprobar). El profesor va pasando por cada puesto, ayudando a resolver problemas de CSS o HTML que surjan (ej.: “mi imagen no se ajusta”, “el menú se ve extraño en móvil”). Al terminar, deberán hacer commit de los cambios significativos.</txt>
+   <txt ptr="0x7f8df52ecda0" id="384" symbol="11SwTextFrame" next="385" prev="383" upper="433" txtNodeIndex="48" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="56260" width="9360" height="1150" bottom="57409" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1114" bottom="1149" right="9359"/>
+    </infos>
+Revisión colectiva rápida: Se proyectan 2-3 ejemplos de avances (voluntarios) para comentar en grupo fortalezas y posibles mejoras del diseño. Se refuerzan conceptos: por ejemplo, se felicita un uso acertado de composición visual, o se señala si alguna sección resulta confusa de navegar, siempre en ánimo constructivo.</txt>
+   <txt ptr="0x7f8df5293ec0" id="385" symbol="11SwTextFrame" next="386" prev="384" upper="433" txtNodeIndex="49" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="57410" width="9360" height="1426" bottom="58835" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1390" bottom="1425" right="9359"/>
+    </infos>
+Tarea breve para siguiente sesión: Pedimos a los estudiantes que piensen en una funcionalidad interactiva que les gustaría añadir a su sitio (por sencilla que sea) en la sesión 3. Puede ser desde “quiero que al pinchar en cada imagen se abra grande” hasta “me gustaría incluir una pequeña animación al cargar la página”. Que lleguen con una idea en mente nos ayudará a enfocar la parte de interactividad según sus intereses.</txt>
+   <txt ptr="0x7f8df529f440" id="386" symbol="11SwTextFrame" next="387" prev="385" upper="433" txtNodeIndex="50" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="58836" width="9360" height="482" bottom="59317" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="160" width="9360" height="322" bottom="481" right="9359"/>
+    </infos>
+Sesión 3: Interactividad web y adaptación a aplicaciones (UX/UI básico)</txt>
+   <txt ptr="0x7f8df52f92a0" id="387" symbol="11SwTextFrame" next="388" prev="386" upper="433" txtNodeIndex="51" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="59318" width="9360" height="3216" bottom="62533" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="3036" bottom="3215" right="9359"/>
+    </infos>
+Rationale &amp; objetivos: en la tercera clase abordamos el aspecto dinámico de los productos digitales. Hasta ahora los alumnos han creado un sitio estático pero bien diseñado; ahora verán cómo añadir movimiento y respuesta a las acciones del usuario, lo que convierte una página en una experiencia interactiva. Esto es clave para que entiendan el paso de ilustración estática a ilustración viva en pantalla. También ampliaremos la mirada hacia el diseño de producto digital en general: qué implica pensar en una aplicación (web o móvil) y cómo la web puede ser base de aplicaciones multiplataforma. El propósito es que, tras esta sesión, los proyectos incorporen al menos una funcionalidad interactiva y que los estudiantes tengan nociones de UX/UI más profundas: habrán considerado la usabilidad de sus sitios y conocido metodologías iterativas propias del diseño digital[6]. Esto sienta las bases por si en el futuro quieren prototipar aplicaciones o profundizar en animación/multimedia.</txt>
+   <txt ptr="0x7f8df52f9760" id="388" symbol="11SwTextFrame" prev="387" upper="433" txtNodeIndex="52" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="62534" width="9360" height="456" bottom="62989" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+Contenidos y actividades:</txt>
+  </body>
+ </page>
+ <page ptr="0x7f8de6619530" id="435" symbol="11SwPageFrame" next="438" prev="432" upper="342" lower="436" format="0x7f8e739b3890" formatName="Default Page Style">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <page_info phyNum="7" virtNum="7" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="22412" top="48656" width="12240" height="15840" bottom="64495" right="34651" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8de666fec0" id="436" symbol="11SwBodyFrame" upper="435" lower="389" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="23852" top="50096" width="9360" height="12960" bottom="63055" right="33211" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8df52fbbc0" id="389" symbol="11SwTextFrame" next="390" upper="436" txtNodeIndex="53" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="50096" width="9360" height="2218" bottom="52313" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="0" width="9000" height="2218" bottom="2217" right="9359"/>
+    </infos>
+UX 101 para ilustradores: Empezamos con una breve exposición sobre Experiencia de Usuario (UX): por qué no basta con que un sitio “se vea bonito”, sino que debe funcionar bien para el usuario. Se introducen conceptos como flujo de navegación, jerarquía de información y llamados a la acción. Ejemplo: analizamos juntos la página de un ilustrador profesional o una web de storytelling interactivo desde la perspectiva del usuario – ¿Encuentra fácilmente el portafolio? ¿Es intuitivo el menú? ¿Cómo influyen las ilustraciones en la comprensión del contenido? Esta reflexión conecta con su formación visual pero añade la capa de pensar en el usuario final.</txt>
+   <txt ptr="0x7f8df52f4a60" id="390" symbol="11SwTextFrame" next="391" prev="389" upper="436" txtNodeIndex="54" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="52314" width="9360" height="2806" bottom="55119" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="2770" bottom="2805" right="9359"/>
+    </infos>
+Interacción y animación en la web: Presentación de técnicas para dar vida a la interfaz. Primero, CSS interacciones: se muestran propiedades CSS para transiciones suaves (ej.: transition, transform) y animaciones simples (@keyframes) que pueden hacer que una ilustración cambie al pasar el mouse, parpadee, etc., sin necesidad de JavaScript. Luego, introducimos JavaScript básico al nivel más accesible: explicamos qué es un script y cómo permite responder a eventos (clics, scroll, etc.). No profundizamos en sintaxis compleja; en su lugar, utilizamos ejemplos prácticos y quizás alguna librería ligera. Por ejemplo: uso de componentes interactivos de Bootstrap (un modal de imagen, un carrusel auto-play) que requieren activar su script, o incorporamos un snippet sencillo de JS para mostrar/ocultar una capa (como un menú mobile togglable).</txt>
+   <txt ptr="0x7f8df52fca90" id="391" symbol="11SwTextFrame" next="392" prev="390" upper="436" txtNodeIndex="55" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="55120" width="9360" height="2530" bottom="57649" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="2494" bottom="2529" right="9359"/>
+    </infos>
+Caso práctico de JS sencillo: El profesor hace en vivo un mini-desarrollo: añade un botón “Modo oscuro” en la página y con JavaScript cambia estilos al pulsarlo, o implementa una galería de imágenes interactiva. Esto se hace paso a paso para demistificar el código JS: se enseña cómo seleccionar elementos del DOM (document.querySelector), cómo escuchar eventos (addEventListener) y modificar clases o contenido dinámicamente. El objetivo no es que dominen JS en una sesión, sino que pierdan el miedo y vean posibilidades. Se proporciona a los alumnos fragmentos reutilizables (por ejemplo, un código listo para un menú desplegable responsive).</txt>
+   <txt ptr="0x7f8df5290690" id="392" symbol="11SwTextFrame" next="393" prev="391" upper="436" txtNodeIndex="56" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="57650" width="9360" height="2806" bottom="60455" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="2770" bottom="2805" right="9359"/>
+    </infos>
+Web vs. app nativa: Abrimos un paréntesis para discutir la diferencia entre un sitio web móvil y una aplicación nativa. Muchos estudiantes mencionan apps populares; aclaramos cómo a veces las fronteras son difusas: existen Progressive Web Apps (PWA) que son sitios web capaces de funcionar como apps instalables, e incluso muchas aplicaciones móviles realmente usan tecnologías web por dentro. Esto se conecta a nuestra premisa de la ubicuidad: las habilidades que están adquiriendo en HTML/CSS/JS pueden habilitarlos para prototipar interfaces de apps multiplataforma sin aprender lenguajes nuevos. Sin entrar en detalle técnico, explicamos que un buen diseño responsive más ciertas APIs (offline, notificaciones) convierten un sitio en app. Este conocimiento contextual amplía su perspectiva sobre dónde puede llegar su trabajo digital.</txt>
+   <txt ptr="0x7f8df52f17b0" id="393" symbol="11SwTextFrame" prev="392" upper="436" txtNodeIndex="57" WritingMode="Horizontal" follow="437" offset="0">
+    <infos>
+     <bounds left="23852" top="60456" width="9360" height="2254" bottom="62709" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="2218" bottom="2253" right="9359"/>
+    </infos>
+Taller práctico – handson interactividad: Los estudiantes implementan la funcionalidad interactiva que planificaron. El profesor proporciona guía personalizada según cada caso: algunos insertarán un script de galería de imágenes (lightbox) para sus ilustraciones – se les da un plugin sencillo o instrucciones para usar la característica de Bootstrap de abrir imágenes en modal; otros querrán animar elementos SVG – se les sugiere usar CSS :hover o incluso una librería como GSAP (mostrando un ejemplo básico si da tiempo). Se anima a que experimenten, recordando siempre probar en el navegador constantemente y verificar que también en móvil se comporta bien. Es un </txt>
+  </body>
+ </page>
+ <page ptr="0x7f8df520dba0" id="438" symbol="11SwPageFrame" next="441" prev="435" upper="342" lower="439" format="0x7f8e739b39d8" formatName="Default Page Style">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <page_info phyNum="8" virtNum="8" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="10172" top="64780" width="12240" height="15840" bottom="80619" right="22411" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8df521d260" id="439" symbol="11SwBodyFrame" upper="438" lower="437" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="11612" top="66220" width="9360" height="12960" bottom="79179" right="20971" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8df521d620" id="437" symbol="11SwTextFrame" next="394" upper="439" txtNodeIndex="57" WritingMode="Horizontal" precede="393" offset="667">
+    <infos>
+     <bounds left="11612" top="66220" width="9360" height="552" bottom="66771" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="0" width="9000" height="552" bottom="551" right="9359"/>
+    </infos>
+momento de descubrimiento creativo, p. ej., ver un personaje ilustrado moverse con CSS les suele resultar muy gratificante.</txt>
+   <txt ptr="0x7f8df52fafe0" id="394" symbol="11SwTextFrame" next="395" prev="437" upper="439" txtNodeIndex="58" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="66772" width="9360" height="1978" bottom="68749" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1942" bottom="1977" right="9359"/>
+    </infos>
+Testing de usabilidad rápida: Una vez integradas las interacciones, se organizan parejas de alumnos para hacer pruebas cruzadas: cada uno visita el sitio del compañero en modo “usuario nuevo” y realiza una breve tarea (por ejemplo: “encuentra tal información”, “navega por la galería”). Detectan si algo no está claro o si alguna interacción no funciona como esperaba. Luego comparten ese feedback, lo que da pie a mejoras inmediatas. Esta dinámica infunde la idea de iterar basado en la prueba, tal como se hace en diseño centrado en el usuario[6].</txt>
+   <txt ptr="0x7f8de3e85df0" id="395" symbol="11SwTextFrame" next="396" prev="394" upper="439" txtNodeIndex="59" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="68750" width="9360" height="2530" bottom="71279" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="2494" bottom="2529" right="9359"/>
+    </infos>
+Ajustes finales de contenido: Los últimos 30-40 minutos se dedican a pulir detalles pendientes en cada proyecto: completar secciones de texto que falten, sustituir cualquier imagen provisional por la definitiva, optimizar ilustraciones (por ej., exportar a tamaño adecuado y formato JPG/PNG/WebP según el caso para que el sitio cargue rápido). El profesor repasa con cada alumno una especie de checklist de calidad: consistencia en estilos, desempeño en móvil, accesibilidad básica (texto alt, orden lógico de encabezados). Se solucionan últimos bugs. Al terminar la sesión 3, funcionalmente los sitios están casi terminados en contenido y funcionalidad. Se hace commit de esta versión casi final.</txt>
+   <txt ptr="0x7f8de3e7ca70" id="396" symbol="11SwTextFrame" next="397" prev="395" upper="439" txtNodeIndex="60" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="71280" width="9360" height="1150" bottom="72429" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="1114" bottom="1149" right="9359"/>
+    </infos>
+Preview colectivo opcional: Si el tiempo lo permite, se muestran rápidamente los sitios en un navegador del proyector para apreciar la diversidad de resultados y motivar a la recta final. Se aplaude el progreso – muchos habrán logrado efectos que ni imaginaban poder hacer hace un par de clases.</txt>
+   <txt ptr="0x7f8de3e9fa90" id="397" symbol="11SwTextFrame" next="398" prev="396" upper="439" txtNodeIndex="61" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="72430" width="9360" height="482" bottom="72911" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="160" width="9360" height="322" bottom="481" right="9359"/>
+    </infos>
+Sesión 4: Publicación final, presentación y evaluación reflexiva</txt>
+   <txt ptr="0x7f8de3e9ce80" id="398" symbol="11SwTextFrame" next="399" prev="397" upper="439" txtNodeIndex="62" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="72912" width="9360" height="2940" bottom="75851" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="2760" bottom="2939" right="9359"/>
+    </infos>
+Rationale &amp; objetivos: la sesión de cierre está dedicada a consolidar el aprendizaje, exhibir los resultados y promover la autoevaluación y reflexión sobre lo aprendido. En línea con la pedagogía crítica del módulo, no se trata solo de entregar un proyecto, sino de tomar conciencia de las fortalezas y debilidades del mismo, y del proceso recorrido. Se busca que el estudiante no solo tenga su sitio publicado, sino que pueda articular lo que hizo y por qué, integrando consideraciones estéticas, técnicas y éticas. Al finalizar esta clase, todos habrán presentado sus proyectos (consiguiendo una experiencia de exhibición pública similar a la presentación de un porfolio), habrán recibido feedback valioso, y habrán completado un ejercicio de autoevaluación que refuerza su aprendizaje autónomo. Esto responde a la necesidad de formar profesionales reflexivos y seguros de sus competencias[9].</txt>
+   <txt ptr="0x7f8de3eaa200" id="399" symbol="11SwTextFrame" next="400" prev="398" upper="439" txtNodeIndex="63" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="75852" width="9360" height="456" bottom="76307" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+Contenidos y actividades:</txt>
+   <txt ptr="0x7f8de3ea89a0" id="400" symbol="11SwTextFrame" next="401" prev="399" upper="439" txtNodeIndex="64" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="76308" width="9360" height="1846" bottom="78153" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="180" width="9000" height="1666" bottom="1845" right="9359"/>
+    </infos>
+Últimos retoques y freeze del proyecto: Los primeros minutos se dedican a finalizar cualquier detalle menor pendiente. Se congela el desarrollo (“pinceles abajo”) a un tiempo acordado para proceder a la publicación oficial. Cada alumno verifica nuevamente que su sitio esté en línea y accesible (URL de GitHub Pages funcionando). Si alguien tiene problemas técnicos de última hora, el profesor y compañeros asisten para solucionarlo en conjunto (espíritu colaborativo hasta el final).</txt>
+   <txt ptr="0x7f8df4e86540" id="401" symbol="11SwTextFrame" prev="400" upper="439" txtNodeIndex="65" WritingMode="Horizontal" follow="440" offset="0">
+    <infos>
+     <bounds left="11612" top="78154" width="9360" height="874" bottom="79027" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="838" bottom="873" right="9359"/>
+    </infos>
+Entrega del proyecto digital: Se formaliza la entrega recogiendo las URLs de los sitios y los repositorios. Además, se pide a cada estudiante que prepare brevemente una o dos pantallas de su sitio abiertas para mostrar al resto (puede ser en su propio ordenador </txt>
+  </body>
+ </page>
+ <page ptr="0x7f8df3689560" id="441" symbol="11SwPageFrame" next="444" prev="438" upper="342" lower="442" format="0x7f8e739b3890" formatName="Default Page Style">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <page_info phyNum="9" virtNum="9" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="22412" top="64780" width="12240" height="15840" bottom="80619" right="34651" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8de3a8aae0" id="442" symbol="11SwBodyFrame" upper="441" lower="440" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="23852" top="66220" width="9360" height="12960" bottom="79179" right="33211" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8df36dba30" id="440" symbol="11SwTextFrame" next="402" upper="442" txtNodeIndex="65" WritingMode="Horizontal" precede="401" offset="262">
+    <infos>
+     <bounds left="23852" top="66220" width="9360" height="552" bottom="66771" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="0" width="9000" height="552" bottom="551" right="9359"/>
+    </infos>
+conectado al proyector o pasando por turnos). Aquí el producto final queda registrado como entregable principal de la asignatura.</txt>
+   <txt ptr="0x7f8df4e5cf90" id="402" symbol="11SwTextFrame" next="403" prev="440" upper="442" txtNodeIndex="66" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="66772" width="9360" height="3082" bottom="69853" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="3046" bottom="3081" right="9359"/>
+    </infos>
+Presentaciones tipo review: Cada alumno presenta su trabajo al grupo en 5 minutos, navegando por su sitio. Debe explicar: el concepto de su producto (qué quiso lograr, audiencia objetivo), destacar alguna decisión de diseño ilustrativo o técnica de la que esté orgulloso, y comentar brevemente algún reto que enfrentó y cómo lo resolvió. Esta es una simulación de presentación profesional de proyecto, ejercitando su capacidad de comunicación. El resto de compañeros y el profesor actúan de jurado amable: tras cada presentación, hay 5 minutos para feedback y preguntas. Se enfatiza comentar primero lo positivo (ej: “la integración de tu ilustración en la cabecera es muy llamativa y funciona bien”) y luego sugerir mejoras o reflexiones (“¿consideraste tal cosa? quizá en móvil el texto quedó un poco largo, podrías...”). Esta dinámica de design critique les enseña a dar y recibir crítica constructiva, y a ver otros enfoques de resolución de un mismo encargo.</txt>
+   <txt ptr="0x7f8df4e9b4c0" id="403" symbol="11SwTextFrame" next="404" prev="402" upper="442" txtNodeIndex="67" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="69854" width="9360" height="3082" bottom="72935" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="3046" bottom="3081" right="9359"/>
+    </infos>
+Autoevaluación individual: Tras las presentaciones, cada estudiante completa un cuestionario de autoevaluación. Este contiene ítems para que puntúe o reflexione sobre distintos aspectos de su proyecto: calidad visual, usabilidad, originalidad creativa, cumplimiento de objetivos propuestos, limpieza del código, accesibilidad, etc. Incluye preguntas abiertas del tipo: “¿Qué cambiarías o mejorarías si tuvieras más tiempo?”, “¿Qué aprendiste sobre tus habilidades al hacer este proyecto?”. Este ejercicio está inspirado en la idea de revisar el propio trabajo con criterios amplios (estéticos, éticos, inclusivos) como promovía nuestro enfoque de critical coding[9]. Por ejemplo, les animamos a pensar si su interfaz cuenta una historia coherente, o si su código refleja cuidado y buenas prácticas, conectando con preguntas como “¿Qué historia cuenta tu interfaz?” que subyacen a la pedagogía crítica.</txt>
+   <txt ptr="0x7f8df4edb7d0" id="404" symbol="11SwTextFrame" next="405" prev="403" upper="442" txtNodeIndex="68" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="72936" width="9360" height="3358" bottom="76293" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="3322" bottom="3357" right="9359"/>
+    </infos>
+Reflexión de autoconsciencia: A continuación, abrimos un diálogo grupal sobre la experiencia global del módulo. Preguntas detonantes: ¿Cómo ven ahora la web y la tecnología en relación a su campo de ilustración?; ¿Ha cambiado en algo su percepción del trabajo en equipo, la planificación o la resolución de problemas?; ¿Qué les emocionó o frustró del proceso?. Se espera que mencionen descubrimientos (ej.: “me encantó poder animar un dibujo, nunca lo había hecho”) y también dilemas (ej.: “tuve que simplificar mis ideas para ajustarme a lo que sabía hacer en código”). Asimismo, se tocan temas de ética y bienestar: por ejemplo, la importancia de la accesibilidad y cómo pequeñas decisiones en su web pueden excluir o incluir audiencias, o la gestión del tiempo y el estrés creativo al enfrentarse a nuevas herramientas. Esta discusión final consolida la perspectiva crítica y de cuidado promovida durante la asignatura (tal como estaba planteado en la misión del taller)[7].</txt>
+   <txt ptr="0x7f8df4e44500" id="405" symbol="11SwTextFrame" prev="404" upper="442" txtNodeIndex="69" WritingMode="Horizontal" follow="443" offset="0">
+    <infos>
+     <bounds left="23852" top="76294" width="9360" height="2806" bottom="79099" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="2770" bottom="2805" right="9359"/>
+    </infos>
+Cierre y siguientes pasos: El profesor resume los logros: en pocas semanas, los ilustradores han pasado de no tener experiencia web a publicar su propio sitio/aplicación ilustrada – un salto significativo. Se felicita el esfuerzo y se anima a los alumnos a mantener y mejorar esos sitios en el futuro, usándolos como parte de su portfolio profesional (por ejemplo, manteniendo actualizado su portfolio online con nuevos trabajos). Para fomentar el aprendizaje continuo, se facilitan recursos adicionales: recomendaciones de plataformas para seguir practicando (p. ej. FreeCodeCamp, MDN web docs para referencias), comunidades o foros donde pueden pedir ayuda (Stack Overflow, comunidades de diseño web), y cursos avanzados si desean profundizar (por ejemplo, animación web, UX avanzado, etc.). También se invita a que integren lo </txt>
+  </body>
+ </page>
+ <page ptr="0x7f8df52253d0" id="444" symbol="11SwPageFrame" next="446" prev="441" upper="342" lower="445" format="0x7f8e739b39d8" formatName="Default Page Style">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <page_info phyNum="10" virtNum="10" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="10172" top="80904" width="12240" height="15840" bottom="96743" right="22411" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8df52ee3c0" id="445" symbol="11SwBodyFrame" upper="444" lower="443" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="11612" top="82344" width="9360" height="12960" bottom="95303" right="20971" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8df52ee5e0" id="443" symbol="11SwTextFrame" next="406" upper="445" txtNodeIndex="69" WritingMode="Horizontal" precede="405" offset="830">
+    <infos>
+     <bounds left="11612" top="82344" width="9360" height="552" bottom="82895" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="0" width="9000" height="552" bottom="551" right="9359"/>
+    </infos>
+aprendido en el Trabajo Final de Máster u otros proyectos, combinando ilustración y medios digitales.    <SwParaPortion ptr="0x7f8df4dcb870">
+     <SwLineLayout ptr="0x7f8df4dcb870" symbol="13SwParaPortion" width="8250" height="276" length="84" type="PortionType::Para" portion="aprendido en el Trabajo Final de M&#xE1;ster u otros proyectos, combinando ilustraci&#xF3;n y ">
+      <SwLinePortion ptr="0x7f8de751bd70" symbol="13SwTextPortion" width="1539" height="276" length="16" type="PortionType::Text" portion="aprendido en el "/>
+      <SwLinePortion ptr="0x7f8de75bb7a0" symbol="13SwTextPortion" width="2379" height="276" length="23" type="PortionType::Text" portion="Trabajo Final de M&#xE1;ster"/>
+      <SwLinePortion ptr="0x7f8de75bbea0" symbol="13SwTextPortion" width="4332" height="276" length="45" type="PortionType::Text" portion=" u otros proyectos, combinando ilustraci&#xF3;n y "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de41eb860" symbol="12SwLineLayout" width="1626" height="276" length="17" type="PortionType::Lay" portion="medios digitales.">
+      <SwLineLayout ptr="0x7f8de41eb860" symbol="12SwLineLayout" width="1626" height="276" length="17" type="PortionType::Lay" portion="medios digitales."/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8df4e43f70" id="406" symbol="11SwTextFrame" next="407" prev="443" upper="445" txtNodeIndex="70" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="82896" width="9360" height="2806" bottom="85701" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="360" top="36" width="9000" height="2770" bottom="2805" right="9359"/>
+    </infos>
+Evaluación final: Finalmente se explica cómo se calculará la nota del módulo, dando transparencia: el proyecto web entregable tiene el mayor peso (se evalúa diseño visual, funcionamiento, creatividad y cumplimiento de requisitos); la participación en clase y presentaciones cuentan significativamente (reflejando su implicación práctica); y la autoevaluación/reflexión puede emplearse como parte del criterio (p. ej., para subir nota quien demuestre gran nivel de autoanálisis). Al ser una evaluación continua y formativa, la mayoría ya sabrá su desempeño por la retroalimentación constante en cada sprint. Se cierra con un aplauso general y recordando que, más allá de la calificación, se llevan una nueva herramienta en su arsenal creativo y la confianza para seguir explorando la intersección de ilustración y mundo digital.    <SwParaPortion ptr="0x7f8de7b0bb30">
+     <SwLineLayout ptr="0x7f8de7b0bb30" symbol="13SwParaPortion" width="8664" height="286" length="84" type="PortionType::Para" portion="Evaluaci&#xF3;n final: Finalmente se explica c&#xF3;mo se calcular&#xE1; la nota del m&#xF3;dulo, dando ">
+      <SwFieldPortion ptr="0x7f8de7b0b420" symbol="15SwBulletPortion" width="110" height="240" length="0" type="PortionType::Bullet" portion="" expand="&#xF0B7;">
+       <SwFont ptr="0x7f8de3739dc0" color="ffffffff" height="240" width="0" weight="normal"/>
+      </SwFieldPortion>
+      <SwFixPortion ptr="0x7f8de3767ba0" symbol="16SwTabLeftPortion" width="250" height="240" length="0" type="PortionType::TabLeft" portion="" fix="110"/>
+      <SwLinePortion ptr="0x7f8de77ccc10" symbol="13SwTextPortion" width="1753" height="276" length="17" type="PortionType::Text" portion="Evaluaci&#xF3;n final:"/>
+      <SwLinePortion ptr="0x7f8de7b14950" symbol="13SwTextPortion" width="6551" height="276" length="67" type="PortionType::Text" portion=" Finalmente se explica c&#xF3;mo se calcular&#xE1; la nota del m&#xF3;dulo, dando "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7bd37a0" symbol="12SwLineLayout" width="8396" height="276" length="88" type="PortionType::Lay" portion="transparencia: el proyecto web entregable tiene el mayor peso (se eval&#xFA;a dise&#xF1;o visual, ">
+      <SwLineLayout ptr="0x7f8de7bd37a0" symbol="12SwLineLayout" width="8396" height="276" length="88" type="PortionType::Lay" portion="transparencia: el proyecto web entregable tiene el mayor peso (se eval&#xFA;a dise&#xF1;o visual, "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de37cce90" symbol="12SwLineLayout" width="8303" height="276" length="87" type="PortionType::Lay" portion="funcionamiento, creatividad y cumplimiento de requisitos); la participaci&#xF3;n en clase y ">
+      <SwLineLayout ptr="0x7f8de37cce90" symbol="12SwLineLayout" width="8303" height="276" length="87" type="PortionType::Lay" portion="funcionamiento, creatividad y cumplimiento de requisitos); la participaci&#xF3;n en clase y "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de37ccf60" symbol="12SwLineLayout" width="8069" height="276" length="85" type="PortionType::Lay" portion="presentaciones cuentan significativamente (reflejando su implicaci&#xF3;n pr&#xE1;ctica); y la ">
+      <SwLineLayout ptr="0x7f8de37ccf60" symbol="12SwLineLayout" width="8069" height="276" length="85" type="PortionType::Lay" portion="presentaciones cuentan significativamente (reflejando su implicaci&#xF3;n pr&#xE1;ctica); y la "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de3734600" symbol="12SwLineLayout" width="8509" height="276" length="90" type="PortionType::Lay" portion="autoevaluaci&#xF3;n/reflexi&#xF3;n puede emplearse como parte del criterio (p. ej., para subir nota ">
+      <SwLineLayout ptr="0x7f8de3734600" symbol="12SwLineLayout" width="8509" height="276" length="90" type="PortionType::Lay" portion="autoevaluaci&#xF3;n/reflexi&#xF3;n puede emplearse como parte del criterio (p. ej., para subir nota "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de37346d0" symbol="12SwLineLayout" width="8550" height="276" length="89" type="PortionType::Lay" portion="quien demuestre gran nivel de autoan&#xE1;lisis). Al ser una evaluaci&#xF3;n continua y formativa, ">
+      <SwLinePortion ptr="0x7f8de371ca90" symbol="13SwTextPortion" width="6431" height="276" length="67" type="PortionType::Text" portion="quien demuestre gran nivel de autoan&#xE1;lisis). Al ser una evaluaci&#xF3;n "/>
+      <SwLinePortion ptr="0x7f8de371eba0" symbol="13SwTextPortion" width="1999" height="276" length="20" type="PortionType::Text" portion="continua y formativa"/>
+      <SwLinePortion ptr="0x7f8df322bb20" symbol="13SwTextPortion" width="120" height="276" length="2" type="PortionType::Text" portion=", "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de37d0810" symbol="12SwLineLayout" width="8430" height="276" length="87" type="PortionType::Lay" portion="la mayor&#xED;a ya sabr&#xE1; su desempe&#xF1;o por la retroalimentaci&#xF3;n constante en cada sprint. Se ">
+      <SwLineLayout ptr="0x7f8de37d0810" symbol="12SwLineLayout" width="8430" height="276" length="87" type="PortionType::Lay" portion="la mayor&#xED;a ya sabr&#xE1; su desempe&#xF1;o por la retroalimentaci&#xF3;n constante en cada sprint. Se "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de3740570" symbol="12SwLineLayout" width="8589" height="276" length="91" type="PortionType::Lay" portion="cierra con un aplauso general y recordando que, m&#xE1;s all&#xE1; de la calificaci&#xF3;n, se llevan una ">
+      <SwLinePortion ptr="0x7f8de37347a0" symbol="13SwTextPortion" width="7269" height="276" length="77" type="PortionType::Text" portion="cierra con un aplauso general y recordando que, m&#xE1;s all&#xE1; de la calificaci&#xF3;n, "/>
+      <SwLinePortion ptr="0x7f8de3740640" symbol="13SwTextPortion" width="1320" height="276" length="13" type="PortionType::Text" portion="se llevan una"/>
+      <SwHolePortion ptr="0x7f8de37cd030" symbol="13SwHolePortion" width="0" height="276" length="1" type="PortionType::Hole" portion=" " blank-width="0" show-underline="false"/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de3740490" symbol="12SwLineLayout" width="8190" height="276" length="82" type="PortionType::Lay" portion="nueva herramienta en su arsenal creativo y la confianza para seguir explorando la ">
+      <SwLinePortion ptr="0x7f8de7b0fca0" symbol="13SwTextPortion" width="4232" height="276" length="40" type="PortionType::Text" portion="nueva herramienta en su arsenal creativo"/>
+      <SwLinePortion ptr="0x7f8df321a160" symbol="13SwTextPortion" width="3958" height="276" length="42" type="PortionType::Text" portion=" y la confianza para seguir explorando la "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de3733520" symbol="12SwLineLayout" width="4158" height="276" length="44" type="PortionType::Lay" portion="intersecci&#xF3;n de ilustraci&#xF3;n y mundo digital.">
+      <SwLinePortion ptr="0x7f8de3744320" symbol="13SwTextPortion" width="4158" height="276" length="44" type="PortionType::Text" portion="intersecci&#xF3;n de ilustraci&#xF3;n y mundo digital."/>
+      <SwBookmarkPortion ptr="0x7f8de7b2b0c0" symbol="17SwBookmarkPortion" width="0" height="276" length="0" type="PortionType::Bookmark" portion="" colors="#plan-de-sesiones-contenido-por-sprint Bookmark End#X4836875f89e1f0c399cc132d16d378de6b55168 Bookmark End"/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8df4ee1420" id="407" symbol="11SwTextFrame" next="408" prev="406" upper="445" txtNodeIndex="71" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="85702" width="9360" height="528" bottom="86229" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="160" width="9360" height="368" bottom="527" right="9359"/>
+    </infos>
+Conclusiones    <SwParaPortion ptr="0x7f8de7b220c0">
+     <SwLineLayout ptr="0x7f8de7b220c0" symbol="13SwParaPortion" width="1724" height="368" length="12" type="PortionType::Para" portion="Conclusiones">
+      <SwBookmarkPortion ptr="0x7f8de7b22270" symbol="17SwBookmarkPortion" width="0" height="368" length="0" type="PortionType::Bookmark" portion="" colors="#conclusiones Bookmark Start"/>
+      <SwLinePortion ptr="0x7f8de3733410" symbol="13SwTextPortion" width="1724" height="368" length="12" type="PortionType::Text" portion="Conclusiones"/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8df4ec7350" id="408" symbol="11SwTextFrame" next="409" prev="407" upper="445" txtNodeIndex="72" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="86230" width="9360" height="2940" bottom="89169" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="2760" bottom="2939" right="9359"/>
+    </infos>
+En suma, este módulo de Ilustración Aplicada en Productos Digitales ha sido diseñado para conectar los intereses artísticos de los estudiantes con las exigencias técnicas del ecosistema web de forma progresiva, práctica y crítica. A lo largo de cuatro sesiones intensivas, los alumnos evolucionan de espectadores de la web a creadores en la web, entendiendo que sus ilustraciones pueden vivir no solo en el papel o lienzo digital tradicional, sino en páginas interactivas accesibles para el mundo entero. El enfoque de “atelier ágil” garantiza que cada clase produzca un avance concreto (sitios reales en línea)[9], lo que no solo refuerza el aprendizaje sino que aporta motivación inmediata al ver resultados tangibles. Al mismo tiempo, el énfasis en la reflexión y la autoevaluación forja ilustradores más conscientes de su proceso y del impacto de sus decisiones de diseño en la audiencia.    <SwParaPortion ptr="0x7f8de7b246e0">
+     <SwLineLayout ptr="0x7f8de7b246e0" symbol="13SwParaPortion" width="8844" height="276" length="90" type="PortionType::Para" portion="En suma, este m&#xF3;dulo de Ilustraci&#xF3;n Aplicada en Productos Digitales ha sido dise&#xF1;ado para ">
+      <SwParaPortion ptr="0x7f8de7b246e0" symbol="13SwParaPortion" width="8844" height="276" length="90" type="PortionType::Para" portion="En suma, este m&#xF3;dulo de Ilustraci&#xF3;n Aplicada en Productos Digitales ha sido dise&#xF1;ado para "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b1ad40" symbol="12SwLineLayout" width="9229" height="276" length="96" type="PortionType::Lay" portion="conectar los intereses art&#xED;sticos de los estudiantes con las exigencias t&#xE9;cnicas del ecosistema ">
+      <SwLinePortion ptr="0x7f8de3733480" symbol="13SwTextPortion" width="1212" height="276" length="13" type="PortionType::Text" portion="conectar los "/>
+      <SwLinePortion ptr="0x7f8de7b24890" symbol="13SwTextPortion" width="3732" height="276" length="39" type="PortionType::Text" portion="intereses art&#xED;sticos de los estudiantes"/>
+      <SwLinePortion ptr="0x7f8de7b281a0" symbol="13SwTextPortion" width="793" height="276" length="9" type="PortionType::Text" portion=" con las "/>
+      <SwLinePortion ptr="0x7f8de7b280c0" symbol="13SwTextPortion" width="3492" height="276" length="35" type="PortionType::Text" portion="exigencias t&#xE9;cnicas del ecosistema "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b24080" symbol="12SwLineLayout" width="9316" height="276" length="99" type="PortionType::Lay" portion="web de forma progresiva, pr&#xE1;ctica y cr&#xED;tica. A lo largo de cuatro sesiones intensivas, los alumnos ">
+      <SwLinePortion ptr="0x7f8de7b28130" symbol="13SwTextPortion" width="413" height="276" length="3" type="PortionType::Text" portion="web"/>
+      <SwLinePortion ptr="0x7f8de7b24150" symbol="13SwTextPortion" width="8903" height="276" length="95" type="PortionType::Text" portion=" de forma progresiva, pr&#xE1;ctica y cr&#xED;tica. A lo largo de cuatro sesiones intensivas, los alumnos"/>
+      <SwHolePortion ptr="0x7f8de7b28210" symbol="13SwHolePortion" width="0" height="276" length="1" type="PortionType::Hole" portion=" " blank-width="0" show-underline="false"/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b22e50" symbol="12SwLineLayout" width="9309" height="276" length="95" type="PortionType::Lay" portion="evolucionan de espectadores de la web a creadores en la web, entendiendo que sus ilustraciones ">
+      <SwLinePortion ptr="0x7f8de7b22fc0" symbol="13SwTextPortion" width="3951" height="276" length="40" type="PortionType::Text" portion="evolucionan de espectadores de la web a "/>
+      <SwLinePortion ptr="0x7f8de7b28290" symbol="13SwTextPortion" width="2019" height="276" length="19" type="PortionType::Text" portion="creadores en la web"/>
+      <SwLinePortion ptr="0x7f8de7b23f70" symbol="13SwTextPortion" width="3339" height="276" length="35" type="PortionType::Text" portion=", entendiendo que sus ilustraciones"/>
+      <SwHolePortion ptr="0x7f8de7b22f20" symbol="13SwHolePortion" width="0" height="276" length="1" type="PortionType::Hole" portion=" " blank-width="0" show-underline="false"/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b166a0" symbol="12SwLineLayout" width="8477" height="276" length="92" type="PortionType::Lay" portion="pueden vivir no solo en el papel o lienzo digital tradicional, sino en p&#xE1;ginas interactivas ">
+      <SwLineLayout ptr="0x7f8de7b166a0" symbol="12SwLineLayout" width="8477" height="276" length="92" type="PortionType::Lay" portion="pueden vivir no solo en el papel o lienzo digital tradicional, sino en p&#xE1;ginas interactivas "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b33b60" symbol="12SwLineLayout" width="9195" height="276" length="96" type="PortionType::Lay" portion="accesibles para el mundo entero. El enfoque de &#x201C;atelier &#xE1;gil&#x201D; garantiza que cada clase produzca ">
+      <SwLineLayout ptr="0x7f8de7b33b60" symbol="12SwLineLayout" width="9195" height="276" length="96" type="PortionType::Lay" portion="accesibles para el mundo entero. El enfoque de &#x201C;atelier &#xE1;gil&#x201D; garantiza que cada clase produzca "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b07c60" symbol="12SwLineLayout" width="8934" height="276" length="96" type="PortionType::Lay" portion="un avance concreto (sitios reales en l&#xED;nea)[9], lo que no solo refuerza el aprendizaje sino que ">
+      <SwLinePortion ptr="0x7f8de7b23030" symbol="13SwTextPortion" width="4011" height="276" length="43" type="PortionType::Text" portion="un avance concreto (sitios reales en l&#xED;nea)"/>
+      <SwLinePortion ptr="0x7f8de7b16770" symbol="13SwTextPortion" width="279" height="276" length="3" type="PortionType::Text" portion="[9]"/>
+      <SwLinePortion ptr="0x7f8de7b23fe0" symbol="13SwTextPortion" width="4644" height="276" length="50" type="PortionType::Text" portion=", lo que no solo refuerza el aprendizaje sino que "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b33c30" symbol="12SwLineLayout" width="8704" height="276" length="91" type="PortionType::Lay" portion="aporta motivaci&#xF3;n inmediata al ver resultados tangibles. Al mismo tiempo, el &#xE9;nfasis en la ">
+      <SwLineLayout ptr="0x7f8de7b33c30" symbol="12SwLineLayout" width="8704" height="276" length="91" type="PortionType::Lay" portion="aporta motivaci&#xF3;n inmediata al ver resultados tangibles. Al mismo tiempo, el &#xE9;nfasis en la "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b30cf0" symbol="12SwLineLayout" width="9176" height="276" length="96" type="PortionType::Lay" portion="reflexi&#xF3;n y la autoevaluaci&#xF3;n forja ilustradores m&#xE1;s conscientes de su proceso y del impacto de ">
+      <SwLineLayout ptr="0x7f8de7b30cf0" symbol="12SwLineLayout" width="9176" height="276" length="96" type="PortionType::Lay" portion="reflexi&#xF3;n y la autoevaluaci&#xF3;n forja ilustradores m&#xE1;s conscientes de su proceso y del impacto de "/>
+     </SwLineLayout>
+     <SwLineLayout ptr="0x7f8de7b07d30" symbol="12SwLineLayout" width="3898" height="276" length="41" type="PortionType::Lay" portion="sus decisiones de dise&#xF1;o en la audiencia.">
+      <SwLineLayout ptr="0x7f8de7b07d30" symbol="12SwLineLayout" width="3898" height="276" length="41" type="PortionType::Lay" portion="sus decisiones de dise&#xF1;o en la audiencia."/>
+     </SwLineLayout>
+    </SwParaPortion>
+   </txt>
+   <txt ptr="0x7f8df4e8cab0" id="409" symbol="11SwTextFrame" next="410" prev="408" upper="445" txtNodeIndex="73" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="89170" width="9360" height="2940" bottom="92109" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="2760" bottom="2939" right="9359"/>
+    </infos>
+Resultados esperados: Al finalizar, cada estudiante cuenta con un mini-portfolio web propio (o proyecto digital análogo) publicado y funcional, el cual evidencia competencias clave adquiridas: desde nociones de UX/UI y responsive design[6], hasta manejo de herramientas colaborativas modernas (repositorios, deploy online). Este resultado es portfoliable: puede incluirse en su currículum creativo, mostrando a futuros clientes o empleadores que el alumno sabe llevar una idea ilustrada al entorno web. Más allá del proyecto en sí, se llevan un aprendizaje transferible: la capacidad de aprender nuevas tecnologías por su cuenta, de trabajar iterativamente y de adaptar su voz visual a cualquier plataforma. Esto los prepara para un mundo profesional donde, como indica el máster, la ilustración convive con el diseño gráfico, lo audiovisual, lo publicitario y lo digital de forma integrada[10].</txt>
+   <txt ptr="0x7f8df4e51c00" id="410" symbol="11SwTextFrame" next="411" prev="409" upper="445" txtNodeIndex="74" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="92110" width="9360" height="2388" bottom="94497" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="2208" bottom="2387" right="9359"/>
+    </infos>
+En conclusión, mi rol como profesor en este módulo es guiar una experiencia activa donde los ilustradores descubran el poder de la web como medio creativo, adquiriendo habilidades técnicas iniciales y, sobre todo, confianza para seguir explorando. Cumpliremos con los contenidos previstos de la asignatura dentro del máster, aportando un componente “vivo” y actualizado al plan de estudios: la ilustración aplicada al entorno web y app, con todas sus posibilidades. Este plan docente busca alinear los objetivos académicos con los intereses genuinos de nuestros estudiantes, logrando que lo aprendido sea relevante, práctico y significativo para su desarrollo como ilustradores profesionales del siglo XXI. [9][6]</txt>
+   <txt ptr="0x7f8df4e518c0" id="411" symbol="11SwTextFrame" prev="410" upper="445" txtNodeIndex="75" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="11612" top="94498" width="9360" height="456" bottom="94953" right="20971" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+    <anchored>
+     <SwAnchoredDrawObject ptr="0x7f8e74073730" anchor-frame="411" anchor-char-frame="411">
+      <bounds left="11611" top="94677" width="9363" height="33" bottom="94709" right="20973"/>
+      <SdrObject ptr="0x7f8de3f1eca0" symbol="10SdrRectObj" name="" title="" description="" nOrdNum="0" aOutRect="11611, 94677, 9362, 32">
+       <DefaultProperties>
+        <BaseProperties/>
+        <SfxItemSet>
+         <XFillColorItem whichId="1015">
+          <XColorItem whichId="XATTR_FILLCOLOR" aColor="ffffff">
+           <NameOrIndex whichId="1015" isIndex="false" name="" index="-1"/>
+           <complex-color scheme-index="-1"/>
+          </XColorItem>
+         </XFillColorItem>
+         <XFillStyleItem whichId="1014" value="1" presentation="Continuous"/>
+         <XColorItem aColor="000000">
+          <NameOrIndex whichId="1003" isIndex="false" name="" index="-1"/>
+          <complex-color scheme-index="-1"/>
+         </XColorItem>
+         <SfxPoolItem ptr="0x7f8de3bd8370" whichId="1011" typeName="14XLineJointItem" presentation="Line joint round"/>
+         <SdrTextVertAdjustItem whichId="1077" value="0"/>
+         <SfxPoolItem ptr="0x7f8de3bd8160" whichId="1000" typeName="14XLineStyleItem" presentation="Continuous"/>
+         <SdrOnOffItem>
+          <SfxBoolItem value="off">
+           <SfxPoolItem ptr="0x7f8df23c3c20" whichId="1071" typeName="12SdrOnOffItem" presentation="AutoFit height off"/>
+          </SfxBoolItem>
+         </SdrOnOffItem>
+         <SfxInt32Item whichId="1002" value="0"/>
+         <SfxPoolItem ptr="0x7f8de4233ee0" whichId="4037" typeName="13SvxAdjustItem" presentation="Centered"/>
+         <SdrOnOffItem>
+          <SfxBoolItem value="on">
+           <SfxPoolItem ptr="0x7f8df23c32f0" whichId="1093" typeName="12SdrOnOffItem" presentation="Word wrap text in shape on"/>
+          </SfxBoolItem>
+         </SdrOnOffItem>
+         <SfxPoolItem ptr="0x7f8de427e770" whichId="1082" typeName="21SdrTextHorzAdjustItem" presentation="Horizontal text anchor Center"/>
+         <SfxPoolItem ptr="0x7f8de3bd8390" whichId="1012" typeName="12XLineCapItem" presentation="Line cap flat"/>
+        </SfxItemSet>
+       </DefaultProperties>
+      </SdrObject>
+     </SwAnchoredDrawObject>
+    </anchored>
+*</txt>
+  </body>
+ </page>
+ <page ptr="0x7f8df5297ae0" id="446" symbol="11SwPageFrame" prev="444" upper="342" lower="447" format="0x7f8e739b3890" formatName="Default Page Style">
+  <page_status ValidFlyLayout="false" ValidFlyContent="false" ValidFlyInCnt="false" ValidLayout="false" ValidContent="false"/>
+  <page_info phyNum="11" virtNum="11" pageDesc="Default Page Style"/>
+  <infos>
+   <bounds left="22412" top="80904" width="12240" height="15840" bottom="96743" right="34651" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+   <prtBounds left="1440" top="1440" width="9360" height="12960" bottom="14399" right="10799"/>
+  </infos>
+  <body ptr="0x7f8df52a5b30" id="447" symbol="11SwBodyFrame" upper="446" lower="412" format="0x7f8df3ee4740" formatName="Frameformat">
+   <infos>
+    <bounds left="23852" top="82344" width="9360" height="12960" bottom="95303" right="33211" mbFixSize="true" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="true" mbFramePrintAreaValid="true"/>
+    <prtBounds left="0" top="0" width="9360" height="12960" bottom="12959" right="9359"/>
+   </infos>
+   <txt ptr="0x7f8df4ee9990" id="412" symbol="11SwTextFrame" next="413" upper="447" txtNodeIndex="76" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="82344" width="9360" height="276" bottom="82619" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="0" width="9360" height="276" bottom="275" right="9359"/>
+    </infos>
+[1] [2] [3] [10] Máster Oficial en Ilustración en Madrid | UDIT</txt>
+   <txt ptr="0x7f8df31aed20" id="413" symbol="11SwTextFrame" next="414" prev="412" upper="447" txtNodeIndex="77" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="82620" width="9360" height="456" bottom="83075" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+https://www.udit.es/master-en-ilustracion/</txt>
+   <txt ptr="0x7f8df31f20f0" id="414" symbol="11SwTextFrame" next="415" prev="413" upper="447" txtNodeIndex="78" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="83076" width="9360" height="456" bottom="83531" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+[4] [6] Titulaciones - Máster Diseño Ilustración</txt>
+   <txt ptr="0x7f8df31f7470" id="415" symbol="11SwTextFrame" next="416" prev="414" upper="447" txtNodeIndex="79" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="83532" width="9360" height="456" bottom="83987" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+https://mdi.upv.es/titulaciones/</txt>
+   <txt ptr="0x7f8df31f7180" id="416" symbol="11SwTextFrame" next="417" prev="415" upper="447" txtNodeIndex="80" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="83988" width="9360" height="456" bottom="84443" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+[5] Portfolio Website Design For Artists (ONLINE) - Maine Media Workshops + College</txt>
+   <txt ptr="0x7f8df31b7c50" id="417" symbol="11SwTextFrame" next="418" prev="416" upper="447" txtNodeIndex="81" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="84444" width="9360" height="456" bottom="84899" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+https://www.mainemedia.edu/workshops/item/portfolio-website-design-for-artists-online/</txt>
+   <txt ptr="0x7f8df314fab0" id="418" symbol="11SwTextFrame" next="419" prev="417" upper="447" txtNodeIndex="82" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="84900" width="9360" height="456" bottom="85355" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="276" bottom="455" right="9359"/>
+    </infos>
+[7] [8] [9] README.md</txt>
+   <txt ptr="0x7f8df578e830" id="419" symbol="11SwTextFrame" prev="418" upper="447" txtNodeIndex="83" WritingMode="Horizontal" offset="0">
+    <infos>
+     <bounds left="23852" top="85356" width="9360" height="732" bottom="86087" right="33211" mbFixSize="false" mbFrameAreaPositionValid="true" mbFrameAreaSizeValid="false" mbFramePrintAreaValid="true"/>
+     <prtBounds left="0" top="180" width="9360" height="552" bottom="731" right="9359"/>
+    </infos>
+https://github.com/ruvebal/web-atelier-udit/blob/58e5d990f55428c7a1bfa11cbe243119ba4f0ba6/README.md</txt>
+  </body>
+ </page>
+</root>

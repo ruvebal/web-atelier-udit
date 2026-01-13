@@ -994,29 +994,77 @@ recognition.onresult = (event) => {
 
 ## 💬 Sabiduría desde las Trincheras
 
-> **Cita Anónima de Diseñador-Desarrollador #1:**
-> _"GSAP es la diferencia entre 'animé algo' y 'animé algo que la gente realmente quiere ver'. CSS es como acuarelas. GSAP es como tener un equipo de filmación."_
+<figure class="quote">
+  <blockquote>
+    GSAP es la diferencia entre 'animé algo' y 'animé algo que la gente realmente quiere ver'. CSS es como acuarelas. GSAP es como tener un equipo de filmación.
+  </blockquote>
+  <figcaption>
+    &mdash; Cita Anónima de Diseñador-Desarrollador #1
+  </figcaption>
+</figure>
 
-> **Cita Anónima de Diseñador-Desarrollador #2:**
-> _"Mi primer timeline de GSAP tenía 300 líneas de código. Luego aprendí sobre defaults y posicionamiento relativo. Ahora son 30 líneas y duermo por las noches."_
+<figure class="quote">
+  <blockquote>
+    Mi primer timeline de GSAP tenía 300 líneas de código. Luego aprendí sobre defaults y posicionamiento relativo. Ahora son 30 líneas y duermo por las noches.
+  </blockquote>
+  <figcaption>
+    &mdash; Cita Anónima de Diseñador-Desarrollador #2
+  </figcaption>
+</figure>
 
-> **Cita Anónima de Diseñador-Desarrollador #3:**
-> _"Cliente: '¿Puedes hacer que rebote?' Yo con CSS: 'Puedo intentarlo...' Yo con GSAP: '¿Qué tan rebotante lo quieres y te gustaría que rotara mientras rebota?'"_
+<figure class="quote">
+  <blockquote>
+    Cliente: '¿Puedes hacer que rebote?' Yo con CSS: 'Puedo intentarlo...' Yo con GSAP: '¿Qué tan rebotante lo quieres y te gustaría que rotara mientras rebota?'
+  </blockquote>
+  <figcaption>
+    &mdash; Cita Anónima de Diseñador-Desarrollador #3
+  </figcaption>
+</figure>
 
-> **Cita Anónima de Diseñador-Desarrollador #4:**
-> _"Le mostré una demo de ScrollTrigger a mi diseñador. Preguntaron si podíamos hacer todo el sitio así. Dije que sí. No he dormido en tres días. Valió la pena."_
+<figure class="quote">
+  <blockquote>
+    Le mostré una demo de ScrollTrigger a mi diseñador. Preguntaron si podíamos hacer todo el sitio así. Dije que sí. No he dormido en tres días. Valió la pena.
+  </blockquote>
+  <figcaption>
+    &mdash; Cita Anónima de Diseñador-Desarrollador #4
+  </figcaption>
+</figure>
 
-> **Cita Anónima de Diseñador-Desarrollador #5:**
-> _"Aprender timelines de GSAP fue como descubrir que no tienes que lavar los platos de uno en uno. Puedes cargar el lavavajillas. Y programarlo. Y se limpia solo."_
+<figure class="quote">
+  <blockquote>
+    Aprender timelines de GSAP fue como descubrir que no tienes que lavar los platos de uno en uno. Puedes cargar el lavavajillas. Y programarlo. Y se limpia solo.
+  </blockquote>
+  <figcaption>
+    &mdash; Cita Anónima de Diseñador-Desarrollador #5
+  </figcaption>
+</figure>
 
-> **Cita Anónima de Diseñador-Desarrollador #6:**
-> _"Antes de GSAP: 'Esta animación no funciona en Safari.' Después de GSAP: '¿Espera, funciona en Safari?' El listón de felicidad es muy bajo en desarrollo web."_
+<figure class="quote">
+  <blockquote>
+    Antes de GSAP: 'Esta animación no funciona en Safari.' Después de GSAP: '¿Espera, funciona en Safari?' El listón de felicidad es muy bajo en desarrollo web.
+  </blockquote>
+  <figcaption>
+    &mdash; Cita Anónima de Diseñador-Desarrollador #6
+  </figcaption>
+</figure>
 
-> **Cita Anónima de Diseñador-Desarrollador #7:**
-> _"El modelo de precios de GSAP es guerra psicológica inversa. Pasas un mes con la versión gratuita, te das cuenta de que necesitas MorphSVG, y de repente $99/año parece una ganga para tu cordura."_
+<figure class="quote">
+  <blockquote>
+    El modelo de precios de GSAP es guerra psicológica inversa. Pasas un mes con la versión gratuita, te das cuenta de que necesitas MorphSVG, y de repente $99/año parece una ganga para tu cordura.
+  </blockquote>
+  <figcaption>
+    &mdash; Cita Anónima de Diseñador-Desarrollador #7
+  </figcaption>
+</figure>
 
-> **Cita Anónima de Diseñador-Desarrollador #8:**
-> _"Mi sitio portfolio tiene una animación de intro de 2 segundos. Me tomó 2 semanas hacerla. Por esto los diseñadores no simplemente 'lo animan rápido'."_
+<figure class="quote">
+  <blockquote>
+    Mi sitio portfolio tiene una animación de intro de 2 segundos. Me tomó 2 semanas hacerla. Por esto los diseñadores no simplemente 'lo animan rápido'.
+  </blockquote>
+  <figcaption>
+    &mdash; Cita Anónima de Diseñador-Desarrollador #8
+  </figcaption>
+</figure>
 
 ---
 

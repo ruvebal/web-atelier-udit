@@ -29,8 +29,8 @@
 	--code-block-fg: #e5e7eb; /* light text for dark code blocks */
 
 	/* Links and focus */
-	--link: var(--primary);
-	--link-visited: #4338ca; /* indigo-700 – distinct visited state */
+	--link: #9373dd;
+	--link-visited: #7a4dea; /* indigo-700 – distinct visited state */
 	--focus-outline: #93c5fd; /* indigo-300 – visible focus */
 	--link-inverse: #e2b127; /* inverse of --link for accents */
 	--link-visited-inverse: rgb(81, 63, 15); /* inverse of --link-visited for accents */
@@ -252,6 +252,7 @@ img.footer-logo {
 	text-decoration: underline;
 	text-decoration-color: currentColor;
 	text-underline-offset: 2px;
+	color: var(--link) !important;
 }
 .prose a:hover {
 	color: var(--primary-hover);
@@ -265,7 +266,7 @@ img.footer-logo {
 	outline-offset: 2px;
 }
 .prose code {
-	padding: 0.1rem;
+	padding: none !important;
 	border-radius: 0.25rem;
 	border: 1px solid var(--code-inline-border);
 }
@@ -288,7 +289,7 @@ img.footer-logo {
 .prose pre code {
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 	font-size: var(--font-code-block-size);
-	line-height: var(--font-code-block-line);
+	line-height: var(--font-code-block-line) !important;
 	border: 0;
 }
 .prose pre::-webkit-scrollbar {
@@ -399,9 +400,27 @@ img.footer-logo {
 .hero-section {
 	background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
 	color: var(--hero-fg);
-	padding: 4rem 0;
+	padding: 4rem 2rem;
 	text-align: center;
 	margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+	.hero-section {
+		padding: 3rem 1.5rem;
+	}
+}
+
+@media (min-width: 769px) {
+	.hero-section {
+		padding: 5rem 3rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.hero-section {
+		padding: 6rem 4rem;
+	}
 }
 
 .hero-title {
@@ -674,7 +693,7 @@ img.footer-logo {
 /* Responsive Design */
 @media (max-width: 768px) {
 	.hero-section {
-		padding: 2rem 0;
+		padding: 2rem 1rem;
 	}
 
 	.lessons-grid,
@@ -879,35 +898,565 @@ img.footer-logo {
 }
 
 /* ========================================
-   Lesson Sidebar TOC (indent by heading level)
+   Modern Lesson Layout - Awwwards Level
    ======================================== */
+
+/* Lesson Wrapper - Grid Layout */
+.lesson-wrapper {
+	display: grid;
+	grid-template-columns: 280px 1fr;
+	gap: 0;
+	min-height: calc(100vh - 80px);
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+	/* Ensure no extra spacing */
+	box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+	.lesson-wrapper {
+		grid-template-columns: 1fr;
+		min-height: 0; /* Remove min-height on mobile */
+		display: block;
+		/* Remove any spacing that TOC might have created */
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+	
+	/* TOC doesn't take space in grid on mobile - completely removed from flow */
+	/* But allow it to show when expanded - this rule only applies when NOT expanded */
+	.lesson-wrapper > .lesson-toc:not([aria-expanded="true"]) {
+		display: none !important;
+		position: fixed !important; /* Override any other positioning */
+	}
+	
+	/* When expanded, ensure TOC is visible and positioned correctly */
+	.lesson-wrapper > .lesson-toc[aria-expanded="true"] {
+		display: block !important;
+		position: fixed !important;
+	}
+}
+
+/* ========================================
+   TOC Sidebar (Aside)
+   ======================================== */
+
+.lesson-toc {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	overflow: hidden;
+	background: var(--bg);
+	border-right: 1px solid var(--border-light);
+	z-index: 10;
+}
+
+@media (max-width: 1024px) {
+	.lesson-toc {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		max-width: 320px;
+		height: 100vh;
+		z-index: 100;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease;
+		box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+		border-right: none;
+		/* Remove from document flow on mobile */
+		display: none;
+	}
+
+	.lesson-toc[aria-expanded="true"] {
+		display: block;
+		transform: translateX(0);
+	}
+}
+
+.toc-container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.toc-header {
+	padding: 1.5rem 1.25rem 1rem;
+	border-bottom: 1px solid var(--border-light);
+	background: var(--bg);
+	flex-shrink: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+
+.toc-title {
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--text-secondary);
+	margin: 0;
+	line-height: 1.2;
+	flex: 1;
+}
+
+.toc-close {
+	display: none;
+	background: none;
+	border: none;
+	color: var(--text-secondary);
+	cursor: pointer;
+	padding: 0.25rem;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	width: 24px;
+	height: 24px;
+	align-items: center;
+	justify-content: center;
+}
+
+.toc-close:hover {
+	background: var(--bg-light);
+	color: var(--text-primary);
+}
+
+@media (max-width: 1024px) {
+	.toc-close {
+		display: flex;
+	}
+}
+
+.toc-toggle {
+	display: none;
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	z-index: 101;
+	background: var(--primary);
+	color: white;
+	border: none;
+	border-radius: 50px;
+	padding: 0.75rem 1.25rem;
+	cursor: pointer;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	transition: all 0.3s ease;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+
+.toc-toggle:hover {
+	background: var(--primary-hover);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.toc-toggle svg {
+	flex-shrink: 0;
+}
+
+.toc-backdrop {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 99; /* Below TOC (100) */
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	backdrop-filter: blur(4px);
+	pointer-events: none;
+}
+
+.toc-backdrop[aria-hidden="false"] {
+	display: block;
+	opacity: 1;
+	pointer-events: all;
+}
+
+@media (max-width: 1024px) {
+	.toc-toggle {
+		display: flex;
+	}
+
+	/* TOC is completely removed from document flow on mobile */
+	.lesson-toc {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		max-width: 320px;
+		height: 100vh;
+		z-index: 100;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease;
+		box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+		display: none; /* Hidden by default, removed from flow */
+		background: var(--bg); /* Ensure background is visible */
+	}
+
+	.lesson-toc[aria-expanded="true"] {
+		display: block !important; /* Override any other display rules */
+		transform: translateX(0) !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+		z-index: 100 !important; /* Ensure it's above backdrop */
+	}
+
+	/* Hide toggle when TOC is open - using body class set by JS */
+	body.toc-open .toc-toggle {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.toc-backdrop {
+		display: block;
+	}
+}
+
+.toc-nav {
+	flex: 1;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 1rem 0;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+}
+
+.toc-nav::-webkit-scrollbar {
+	width: 6px;
+}
+
+.toc-nav::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.toc-nav::-webkit-scrollbar-thumb {
+	background: var(--border-light);
+	border-radius: 3px;
+}
+
+.toc-nav::-webkit-scrollbar-thumb:hover {
+	background: var(--muted);
+}
+
+.toc-content {
+	padding: 0 1.25rem;
+}
+
+/* TOC List Styling */
 #toc-sidebar-placeholder ul {
 	list-style: none;
 	margin: 0;
-	padding-left: 0;
+	padding: 0;
 }
-#toc-sidebar-placeholder li {
-	margin: 0.25rem 0;
-}
-/* Root list (H2s) */
+
 #toc-sidebar-placeholder > ul {
-	margin-left: 0;
+	margin: 0;
 }
-/* H3 level */
+
+#toc-sidebar-placeholder li {
+	margin: 0;
+	position: relative;
+}
+
+#toc-sidebar-placeholder > ul > li {
+	margin-bottom: 0.5rem;
+}
+
+/* TOC Links */
+#toc-sidebar-placeholder a {
+	display: block;
+	padding: 0.5rem 0.75rem;
+	margin: 0 -0.75rem;
+	text-decoration: none;
+	color: var(--text-secondary);
+	font-size: 0.875rem;
+	line-height: 1.5;
+	border-radius: 6px;
+	transition: all 0.2s ease;
+	position: relative;
+}
+
+#toc-sidebar-placeholder a:hover {
+	color: var(--text-primary);
+	background: var(--bg-light);
+}
+
+#toc-sidebar-placeholder a.toc-active {
+	color: var(--primary);
+	background: var(--bg-light);
+	font-weight: 500;
+}
+
+#toc-sidebar-placeholder a.toc-active::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 3px;
+	height: 60%;
+	background: var(--primary);
+	border-radius: 0 2px 2px 0;
+}
+
+/* Nested TOC Items (H3, H4) */
 #toc-sidebar-placeholder ul ul {
-	margin-left: 1rem;
-	padding-left: 0.5rem;
+	margin-left: 0.75rem;
+	margin-top: 0.25rem;
+	padding-left: 0.75rem;
 	border-left: 1px solid var(--border-light);
 }
-/* H4 level */
+
 #toc-sidebar-placeholder ul ul ul {
-	margin-left: 1.75rem;
+	margin-left: 0.5rem;
+	padding-left: 0.5rem;
 }
-#toc-sidebar-placeholder a {
+
+#toc-sidebar-placeholder ul ul a {
+	font-size: 0.8125rem;
+	padding: 0.375rem 0.625rem;
+	color: var(--muted);
+}
+
+#toc-sidebar-placeholder ul ul a:hover,
+#toc-sidebar-placeholder ul ul a.toc-active {
+	color: var(--text-primary);
+}
+
+/* Active TOC Item */
+.toc-item-active > a {
+	color: var(--primary);
+	font-weight: 500;
+}
+
+/* ========================================
+   Main Content Area
+   ======================================== */
+
+.lesson-main {
+	overflow-y: auto;
+	height: 100vh;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+@media (max-width: 1024px) {
+	.lesson-main {
+		height: auto;
+		overflow-y: visible;
+		min-height: calc(100vh - 80px);
+		margin: 0;
+		padding: 0;
+		/* Start immediately, no extra spacing */
+	}
+}
+
+.lesson-main::-webkit-scrollbar {
+	width: 8px;
+}
+
+.lesson-main::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.lesson-main::-webkit-scrollbar-thumb {
+	background: var(--border-light);
+	border-radius: 4px;
+}
+
+.lesson-main::-webkit-scrollbar-thumb:hover {
+	background: var(--muted);
+}
+
+.lesson-content {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 2rem 3rem;
+}
+
+@media (max-width: 1024px) {
+	.lesson-content {
+		padding: 1.5rem 1.25rem;
+		max-width: 100%;
+		margin-top: 0; /* Remove any top margin */
+	}
+}
+
+@media (max-width: 768px) {
+	.lesson-content {
+		padding: 1.25rem 1rem;
+	}
+}
+
+/* ========================================
+   Breadcrumb Navigation
+   ======================================== */
+
+.breadcrumb {
+	margin-bottom: 2rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid var(--border-light);
+	margin-top: 0; /* Ensure no top margin */
+}
+
+@media (max-width: 1024px) {
+	.breadcrumb {
+		margin-top: 0;
+		padding-top: 0;
+	}
+}
+
+.breadcrumb-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 0.5rem;
+	font-size: 0.875rem;
+}
+
+.breadcrumb-item {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.breadcrumb-separator {
+	color: var(--muted);
+	user-select: none;
+}
+
+.breadcrumb-link {
+	color: var(--text-secondary);
 	text-decoration: none;
+	transition: color 0.2s ease;
 }
-#toc-sidebar-placeholder a:hover {
+
+.breadcrumb-link:hover {
+	color: var(--primary);
 	text-decoration: underline;
+}
+
+.breadcrumb-text {
+	color: var(--text-primary);
+}
+
+.breadcrumb-current .breadcrumb-text {
+	color: var(--text-primary);
+	font-weight: 500;
+}
+
+/* ========================================
+   Lesson Header
+   ======================================== */
+
+.lesson-header {
+	margin-bottom: 3rem;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid var(--border-light);
+	margin-top: 0; /* Ensure no top margin */
+}
+
+@media (max-width: 1024px) {
+	.lesson-header {
+		margin-top: 0;
+		padding-top: 0;
+	}
+}
+
+.lesson-meta {
+	margin-bottom: 1rem;
+}
+
+.lesson-tagline {
+	font-size: 0.875rem;
+	color: var(--muted);
+	margin: 0 0 1.5rem 0;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.lesson-title {
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--text-primary);
+	margin: 0 0 1.5rem 0;
+	letter-spacing: -0.02em;
+}
+
+.lesson-author-date {
+	display: flex;
+	gap: 1rem;
+	font-size: 0.875rem;
+	color: var(--text-secondary);
+	margin-bottom: 1rem;
+}
+
+.lesson-author,
+.lesson-date {
+	margin: 0;
+}
+
+.lesson-url {
+	margin: 0;
+	font-size: 0.8125rem;
+}
+
+.lesson-permalink {
+	color: var(--primary);
+	text-decoration: none;
+	word-break: break-all;
+	transition: color 0.2s ease;
+}
+
+.lesson-permalink:hover {
+	color: var(--primary-hover);
+	text-decoration: underline;
+}
+
+/* ========================================
+   Lesson Body (Prose Content)
+   ======================================== */
+
+.lesson-body {
+	margin-top: 2rem;
+}
+
+.lesson-body :where(h2, h3, h4) {
+	scroll-margin-top: 120px;
+}
+
+.lesson-body :where(h2, h3, h4)[id] {
+	position: relative;
+}
+
+.lesson-body :where(h2, h3, h4)[id]:hover::before {
+	content: '#';
+	position: absolute;
+	left: -1.5rem;
+	color: var(--muted);
+	font-weight: 400;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.lesson-body :where(h2, h3, h4)[id]:hover::before {
+	opacity: 1;
 }
 
 /* ========================================
@@ -1053,12 +1602,99 @@ img.footer-logo {
 	z-index: 1000;
 }
 
-/* Reduced motion and print styles */
+/* ========================================
+   Responsive Adjustments for Lesson Layout
+   ======================================== */
+
+@media (max-width: 768px) {
+	.lesson-content {
+		padding: 1.25rem 1.25rem;
+	}
+
+	.lesson-title {
+		font-size: 1.75rem;
+	}
+
+	.breadcrumb-list {
+		font-size: 0.8125rem;
+	}
+
+	.toc-header {
+		padding: 1rem 1rem 0.75rem;
+	}
+
+	.toc-content {
+		padding: 0 1rem;
+	}
+
+	#toc-sidebar-placeholder a {
+		font-size: 0.8125rem;
+		padding: 0.4375rem 0.625rem;
+	}
+}
+
+/* Ensure main content area doesn't conflict with default layout */
+main#main {
+	max-width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+main#main .lesson-wrapper {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/* When lesson-wrapper is present, make main#main a simple container */
+main#main:has(.lesson-wrapper) {
+	display: contents;
+	min-height: 0; /* Remove min-height that might cause spacing */
+	padding: 0;
+	margin: 0;
+}
+
+@media (max-width: 1024px) {
+	main#main:has(.lesson-wrapper) {
+		min-height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	
+	/* Ensure lesson-wrapper starts immediately after header */
+	.lesson-wrapper {
+		margin-top: 0 !important;
+		padding-top: 0 !important;
+	}
+}
+
+/* ========================================
+   Print-only Elements
+   ======================================== */
+
+.print-only {
+	display: none !important;
+}
+
+@media print {
+	.print-only {
+		display: block !important;
+	}
+}
+
+/* ========================================
+   Reduced motion and print styles
+   ======================================== */
 @media (prefers-reduced-motion: reduce) {
 	* {
 		animation-duration: 0.001ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.001ms !important;
+	}
+
+	.lesson-main,
+	.toc-nav {
+		scroll-behavior: auto;
 	}
 }
 @media print {
@@ -1069,8 +1705,22 @@ img.footer-logo {
 	.site-header,
 	.site-footer,
 	nav,
-	.hero-section {
+	.hero-section,
+	.lesson-toc,
+	.breadcrumb {
 		display: none !important;
+	}
+	.lesson-wrapper {
+		grid-template-columns: 1fr !important;
+		display: block !important;
+	}
+	.lesson-main {
+		height: auto !important;
+		overflow: visible !important;
+	}
+	.lesson-content {
+		max-width: 100% !important;
+		padding: 0 !important;
 	}
 	.container {
 		max-width: none;

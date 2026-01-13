@@ -224,33 +224,33 @@ No confundiré velocidad con progreso.
 Soy el humano en el bucle.
 El código es mío para poseer.
 Los bugs son míos para arreglar.
-El aprendizaje es mío para ganar.
+El aprendizaje es mío para crecer.
 ```
 
 ### El Lugar de la Máquina
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                                                                              │
+│                                                                             │
 │   La IA es:                                                                 │
 │   ✅ Un asistente incansable                                                │
 │   ✅ Una biblioteca de patrones con opiniones                               │
 │   ✅ Un patito de goma que responde                                         │
 │   ✅ Un generador de primeros borradores                                    │
-│                                                                              │
+│                                                                             │
 │   La IA NO es:                                                              │
 │   ❌ Un sustituto de la comprensión                                         │
 │   ❌ Un reemplazo de la experiencia                                         │
 │   ❌ Una excusa para no aprender                                            │
 │   ❌ Un chivo expiatorio para código malo                                   │
-│                                                                              │
+│                                                                             │
 │   La IA no conoce a tus usuarios.                                           │
 │   La IA no conoce tus restricciones.                                        │
 │   La IA no conoce tu deadline.                                              │
 │   La IA no conoce tu alma.                                                  │
-│                                                                              │
+│                                                                             │
 │   Tú sí.                                                                    │
-│                                                                              │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

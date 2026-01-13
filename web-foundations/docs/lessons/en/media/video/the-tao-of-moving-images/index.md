@@ -23,7 +23,11 @@ permalink: /lessons/en/media/video/the-tao-of-moving-images/
 
 # The Tao of the Moving Image
 
-> In the ancient scrolls of web development, there exists a sacred text known as 'The Tao of the Developer'—a collection of paradoxical wisdom passed down through generations of code warriors. This chapter, dedicated to the art of motion and time, reveals the eternal truths about video in the digital realm.
+<figure class="quote">
+  <blockquote>
+    In the ancient scrolls of web development, there exists a sacred text known as 'The Tao of the Developer'—a collection of paradoxical wisdom passed down through generations of code warriors. This chapter, dedicated to the art of motion and time, reveals the eternal truths about video in the digital realm.
+  </blockquote>
+</figure>
 
 ---
 
@@ -53,7 +57,14 @@ In the evolution of this wisdom tradition, we witness a natural progression:
 
 This lineage represents more than mere adaptation—it is the continuation of a pedagogical tradition that uses paradox, koan, and practical wisdom to illuminate the deeper truths of our craft. Just as the original Tao of Programming spoke to the relationship between programmer and machine, these teachings speak to the relationship between developer, medium, and user.
 
-> The wise programmer is told about Tao and follows it. The average programmer is told about Tao and searches for it. The foolish programmer is told about Tao and laughs at it. If it were not for laughter, there would be no Tao. — [The Tao of Programming, Book 1.4](https://www.mit.edu/~xela/tao.html)
+<figure class="quote">
+  <blockquote>
+    The wise programmer is told about Tao and follows it. The average programmer is told about Tao and searches for it. The foolish programmer is told about Tao and laughs at it. If it were not for laughter, there would be no Tao.
+  </blockquote>
+  <figcaption>
+    &mdash; <cite><a href="https://www.mit.edu/~xela/tao.html">The Tao of Programming, Book 1.4</a></cite>
+  </figcaption>
+</figure>
 
 We honor this ancestral wisdom and continue its tradition, adapting its timeless principles to the ever-evolving landscape of web development.
 

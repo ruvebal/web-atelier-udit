@@ -40,8 +40,14 @@ tags: [final-project, portfolio, deployment, responsive, web-standards]
 
 ## La filosofía: Enseñar a pescar, no dar el pez
 
-> _«Dale un pez a un hombre y comerá un día. Enséñale a pescar y comerá toda la vida.»_
-> — Proverbio chino
+<figure class="quote">
+  <blockquote>
+    Dale un pez a un hombre y comerá un día. Enséñale a pescar y comerá toda la vida.
+  </blockquote>
+  <figcaption>
+    &mdash; Proverbio chino
+  </figcaption>
+</figure>
 
 Este proyecto final **no** va de crear «otro portfolio más». Ya hay suficientes portfolios estáticos perdidos en GitHub que nunca se actualizarán después de recibir una nota. En lugar de eso, vas a construir una **plantilla reutilizable**: una base bien pensada que tú (y otras personas) podréis clonar, bifurcar y personalizar para múltiples proyectos a lo largo de vuestra carrera.
 

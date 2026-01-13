@@ -23,7 +23,11 @@ permalink: /lessons/es/media/video/the-tao-of-moving-images/
 
 # El Tao de la Imagen en Movimiento
 
-> En los antiguos pergaminos del desarrollo web, existe un texto sagrado conocido como 'El Tao del Desarrollador'—una colección de sabiduría paradójica transmitida a través de generaciones de guerreros del código. Este capítulo, dedicado al arte del movimiento y el tiempo, revela las verdades eternas sobre el video en el reino digital.
+<figure class="quote">
+  <blockquote>
+    En los antiguos pergaminos del desarrollo web, existe un texto sagrado conocido como 'El Tao del Desarrollador'—una colección de sabiduría paradójica transmitida a través de generaciones de guerreros del código. Este capítulo, dedicado al arte del movimiento y el tiempo, revela las verdades eternas sobre el video en el reino digital.
+  </blockquote>
+</figure>
 
 ---
 
@@ -53,7 +57,14 @@ En la evolución de esta tradición de sabiduría, presenciamos una progresión 
 
 Este linaje representa más que mera adaptación—es la continuación de una tradición pedagógica que usa paradojas, koans y sabiduría práctica para iluminar las verdades más profundas de nuestro oficio. Así como el Tao de la Programación original hablaba de la relación entre programador y máquina, estas enseñanzas hablan de la relación entre desarrollador, medio y usuario.
 
-> Al programador sabio se le habla del Tao y lo sigue. Al programador promedio se le habla del Tao y lo busca. Al programador necio se le habla del Tao y se ríe de él. Si no fuera por la risa, no habría Tao. — [El Tao de la Programación, Libro 1.4](https://www.mit.edu/~xela/tao.html)
+<figure class="quote">
+  <blockquote>
+    Al programador sabio se le habla del Tao y lo sigue. Al programador promedio se le habla del Tao y lo busca. Al programador necio se le habla del Tao y se ríe de él. Si no fuera por la risa, no habría Tao.
+  </blockquote>
+  <figcaption>
+    &mdash; <cite><a href="https://www.mit.edu/~xela/tao.html">El Tao de la Programación, Libro 1.4</a></cite>
+  </figcaption>
+</figure>
 
 Honramos esta sabiduría ancestral y continuamos su tradición, adaptando sus principios atemporales al paisaje en constante evolución del desarrollo web.
 

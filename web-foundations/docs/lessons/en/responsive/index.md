@@ -20,7 +20,14 @@ permalink: /lessons/en/responsive/
 
 ## Introduction and Context
 
-> Good designers and developers are innovative by nature, and as more and more content makers begin to play with intrinsic the design, the more stunning and jaw dropping their creations will become. — **Danny Decker**[^1]
+<figure class="quote">
+  <blockquote>
+    Good designers and developers are innovative by nature, and as more and more content makers begin to play with intrinsic the design, the more stunning and jaw dropping their creations will become.
+  </blockquote>
+  <figcaption>
+    &mdash; <cite>Danny Decker</cite>[^1]
+  </figcaption>
+</figure>
 
 **Responsive web design** refers to creating websites capable of providing an optimal user experience across a wide variety of devices, from desktop computers to mobile phones[^2].
 
