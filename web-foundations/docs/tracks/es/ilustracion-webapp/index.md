@@ -7,8 +7,9 @@ date: 2026-01-13
 author: 'Rubén Vega Balbás, PhD'
 lang: es
 permalink: /tracks/es/ilustracion-webapp/
-description: 'Track del módulo (4 sesiones): objetivos, metodología ATELIER, entregables y rutas a lecciones canónicas. Enfocado en ilustradores que quieren publicar su arte en la web.'
+description: 'Curso del módulo (4 sesiones): objetivos, metodología ATELIER, entregables y rutas a lecciones canónicas. Enfocado en ilustradores que quieren publicar su arte en la web.'
 tags: [ilustracion, web, webapp, atelier, html, css, javascript, responsive, ux, media, portfolio]
+status: borrador
 ---
 
 <!-- prettier-ignore-start -->
@@ -33,7 +34,7 @@ Este módulo está diseñado para estudiantes de **Ilustración Aplicada** que d
 
 ### 🤖 Herramientas de apoyo
 
-Durante este track, puedes utilizar herramientas de IA para acelerar tu aprendizaje:
+Durante este curso, puedes utilizar herramientas de IA para acelerar tu aprendizaje:
 
 - **[Guía Práctica de Desarrollo Asistido por IA]({{ '/methodology/es/ai-practical-guide/' | relative_url }})** — Aprende a usar IA de forma ética e intencional para generar código, resolver problemas y documentar tu proceso
 - **Metodología docs-first** — Documenta primero, implementa después
@@ -128,7 +129,6 @@ Convertir tu página en un layout responsive con identidad visual y componentes 
 Canon recomendado:
 
 - [Bootstrap CSS: Configuración y Fundamentos]({{ '/lessons/es/bootstrap/setup-and-fundamentals/' | relative_url }})
-- [Bootstrap CSS: Sistema de Rejilla y Contenedores]({{ '/lessons/es/bootstrap/layout-grid-containers/' | relative_url }})
 - [Tailwind CSS: Configuración y Fundamentos]({{ '/lessons/es/tailwind/setup-and-fundamentals/' | relative_url }})
 
 ### Sesión 4 — Interactividad + UX/UI básico
@@ -172,10 +172,9 @@ Bibliografía viva (Zotero):
 
 - [Zotero Web Atelier (UDIT) Library](https://www.zotero.org/groups/5649080/ruvebal-web/library)
 
-
 ## Nota crítica
 
-Este track busca formar **creadores conscientes**: no solo "hacer web", sino reflexionar sobre impacto, ética, accesibilidad y cultura visual.
+Este curso busca formar **creadores conscientes**: no solo "hacer web", sino reflexionar sobre impacto, ética, accesibilidad y cultura visual.
 
 - Cuestiona paradigmas establecidos.
 - Considera implicaciones sociales y éticas.

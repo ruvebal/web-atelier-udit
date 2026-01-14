@@ -1395,8 +1395,76 @@ img.footer-logo {
 	font-weight: 700;
 	line-height: 1.2;
 	color: var(--text-primary);
-	margin: 0 0 1.5rem 0;
+	margin: 0;
 	letter-spacing: -0.02em;
+}
+
+.lesson-status {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.375rem 0.75rem;
+	border-radius: 0.5rem;
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	white-space: nowrap;
+}
+
+/* Estados finalizados (verde) */
+.lesson-status.status-finished,
+.lesson-status.status-terminado,
+.lesson-status[class*="status-finished"],
+.lesson-status[class*="status-terminado"] {
+	background: #dcfce7;
+	color: #166534;
+}
+
+.dark .lesson-status.status-finished,
+.dark .lesson-status.status-terminado,
+.dark .lesson-status[class*="status-finished"],
+.dark .lesson-status[class*="status-terminado"] {
+	background: #14532d;
+	color: #86efac;
+}
+
+/* Estados en progreso/borrador (amarillo) */
+.lesson-status.status-draft,
+.lesson-status.status-borrador,
+.lesson-status.status-en-proceso,
+.lesson-status[class*="in-progress"],
+.lesson-status.status-in-progress,
+.lesson-status[class*="in progress"],
+.lesson-status[class*="status-draft"],
+.lesson-status[class*="status-borrador"],
+.lesson-status[class*="status-en-proceso"] {
+	background: #fef3c7;
+	color: #92400e;
+}
+
+.dark .lesson-status.status-draft,
+.dark .lesson-status.status-borrador,
+.dark .lesson-status.status-en-proceso,
+.dark .lesson-status[class*="in-progress"],
+.dark .lesson-status.status-in-progress,
+.dark .lesson-status[class*="in progress"],
+.dark .lesson-status[class*="status-draft"],
+.dark .lesson-status[class*="status-borrador"],
+.dark .lesson-status[class*="status-en-proceso"] {
+	background: #78350f;
+	color: #fde047;
+}
+
+@media (max-width: 768px) {
+	.lesson-header .flex {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.lesson-status {
+		align-self: flex-start;
+	}
 }
 
 .lesson-author-date {

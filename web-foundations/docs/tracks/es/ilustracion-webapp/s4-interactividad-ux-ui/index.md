@@ -9,6 +9,7 @@ lang: es
 permalink: /tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/
 description: 'Cuarta sesión: añadir movimiento, interacción y pruebas rápidas de usabilidad. JavaScript mínimo viable + UX básico para ilustradores.'
 tags: [javascript, ux, ui, interactividad, accesibilidad, atelier, ilustracion]
+status: borrador
 ---
 
 <!-- prettier-ignore-start -->
@@ -26,7 +27,7 @@ tags: [javascript, ux, ui, interactividad, accesibilidad, atelier, ilustracion]
 
 ## 🎯 Objetivos
 
-- Entender que "bonito" no siempre es "usable": introducir **UX 101**.
+- Entender que "bonito" no siempre es "usable": introducir **[UX 101](https://firstlinesoftware.com/blog/user-experience-101-basics-every-online-business-should-know-about-ux/)**.
 - Añadir **al menos una interacción real** al proyecto (sin complejidad innecesaria).
 - Practicar interactividad en tres capas:
   - CSS (estados, transiciones).
@@ -37,15 +38,19 @@ tags: [javascript, ux, ui, interactividad, accesibilidad, atelier, ilustracion]
 ## 🧭 Canon (contenido ya existente para ampliar)
 
 - JavaScript base:
+
   - [Introducción a JS]({{ '/lessons/es/js-intro/' | relative_url }})
 
 - DOM y eventos:
+
   - [JS: DOM Manipulation]({{ '/lessons/es/js-dom-manipulation/' | relative_url }})
 
 - Interactividad con Bootstrap (si tu proyecto usa Bootstrap):
+
   - [Bootstrap: Interactividad y Componentes JavaScript]({{ '/lessons/es/bootstrap/interactivity-js-components/' | relative_url }})
 
 - Estados visuales (sin JS):
+
   - [Pseudo-elementos y estilos de estado]({{ '/lessons/es/pseudo-elementos-y-estilos-de-estado/' | relative_url }})
 
 - Animación (si quieres ir un paso más):

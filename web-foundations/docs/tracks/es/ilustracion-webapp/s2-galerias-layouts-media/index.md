@@ -9,6 +9,7 @@ lang: es
 permalink: /tracks/es/ilustracion-webapp/s2-galerias-layouts-media/
 description: 'Segunda sesión: construir galerías de imágenes y layouts que muestren tu trabajo con ritmo visual y jerarquía. Enfoque en media, grids y presentación de arte.'
 tags: [ilustracion, web, media, grid, galeria, layout, css, responsive]
+status: borrador
 ---
 
 <!-- prettier-ignore-start -->

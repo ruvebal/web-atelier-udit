@@ -103,7 +103,23 @@ if page.content contains '{:toc}' %} {% assign has_toc = true %} {% endif %}
 					</p>
 					{% endif %}
 				</div>
-				<h1 class="lesson-title">{{ page.title }}</h1>
+				<div class="flex items-start justify-between gap-4 mb-4">
+					<h1 class="lesson-title flex-1">{{ page.title }}</h1>
+					{% if page.status %}
+					{% assign status_lower = page.status | downcase %}
+					<span class="lesson-status status-{{ page.status | downcase | replace: ' ', '-' }} flex-shrink-0">
+						{% if status_lower == 'finished' or status_lower == 'terminado' %}
+							{% if page.lang == 'es' %}✓ Finalizado{% else %}✓ Finished{% endif %}
+						{% elsif status_lower == 'draft' or status_lower == 'borrador' %}
+							{% if page.lang == 'es' %}Borrador{% else %}Draft{% endif %}
+						{% elsif status_lower == 'in progress' or status_lower == 'in-progress' or status_lower == 'en proceso' %}
+							{% if page.lang == 'es' %}En Proceso{% else %}In Progress{% endif %}
+						{% else %}
+							{{ page.status | capitalize }}
+						{% endif %}
+					</span>
+					{% endif %}
+				</div>
 				{% if page.author or page.date %}
 				<div class="lesson-author-date">
 					{% if page.author %}<span class="lesson-author">By {{ page.author }}</span>{% endif %}

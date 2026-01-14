@@ -9,6 +9,7 @@ lang: es
 permalink: /tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/
 description: 'Tercera sesión: dar forma visual al proyecto con maquetación responsive, componentes y branding personal usando frameworks CSS de forma pragmática.'
 tags: [responsive, bootstrapcss, tailwindcss, accesibilidad, diseno, ilustracion]
+status: borrador
 ---
 
 <!-- prettier-ignore-start -->

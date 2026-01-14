@@ -9,6 +9,7 @@ lang: es
 permalink: /tracks/es/ilustracion-webapp/s1-introduccion-ecosistema-y-proyecto/
 description: 'Primera sesión: entender la web como medio creativo, configurar el flujo Git/GitHub Pages y publicar un primer "Hello, Web" con tu ilustración.'
 tags: [ilustracion, web, html, css, github, atelier]
+status: borrador
 ---
 
 <!-- prettier-ignore-start -->

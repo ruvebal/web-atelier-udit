@@ -1,56 +1,41 @@
 ---
-layout: track
-title: 'Learning Tracks — WEB ATELIER (UDIT)'
-description: 'Thematic learning paths that group canonical lessons into specialized tracks.'
+layout: default
+title: 'Learning Tracks / Cursos de Aprendizaje — WEB ATELIER (UDIT)'
+description: 'Thematic learning paths that group canonical lessons into specialized courses. Available in multiple languages.'
 lang: en
+permalink: /tracks/
 ---
 
-# Learning Tracks
+# Learning Tracks / Cursos de Aprendizaje
 
-Welcome to WEB ATELIER learning tracks. Here you'll find thematic learning paths that group canonical lessons into complete, structured experiences.
+This hub centralizes **thematic learning paths** that group canonical lessons into complete, structured experiences. The resources below are organized by language.
 
-## 📚 Available Tracks
+## Available Locales
 
-### 🎨 Applied Illustration: Digital Web-App Products
+| Locale | Resource                                                             | Format        | Notes                                   |
+| ------ | -------------------------------------------------------------------- | ------------- | --------------------------------------- |
+| **ES** | [Cursos de Aprendizaje]({{ site.url }}{{ site.baseurl }}/tracks/es/) | HTML/Markdown | Rutas de aprendizaje en español         |
+| **EN** | [Learning Tracks]({{ site.url }}{{ site.baseurl }}/tracks/en/)       | HTML/Markdown | Learning paths in English (coming soon) |
 
-**Duration:** 4 sessions (16 hours)  
-**Audience:** Applied Illustration students  
-**Goal:** Transform your visual language into a published web product
+## What are Learning Tracks?
 
-[View Track →]({{ '/tracks/es/ilustracion-webapp/' | relative_url }})
+**Learning tracks** (or **cursos de aprendizaje**) are thematic learning paths that:
 
----
+- **Group canonical lessons** into a coherent sequence
+- **Define clear objectives** and concrete deliverables
+- **Follow the ATELIER methodology** (Exploration, Conceptualization, Production, Exhibition, Reflection)
+- **Connect theory and practice** with real projects
+- **Adapt content** to specific profiles (illustrators, designers, developers)
 
-## 🚧 Coming Soon
+## Alignment with Methodology
 
-We're working on new specialized tracks:
-
-- Advanced Frontend Development
-- UX/UI Design
-- Web Accessibility
-
----
-
-## 🎯 What is a Track?
-
-A **track** is a learning path that:
-
-- **Groups canonical lessons** into a coherent sequence
-- **Defines clear objectives** and concrete deliverables
-- **Follows the ATELIER methodology** (Exploration, Conceptualization, Production, Exhibition, Reflection)
-- **Connects theory and practice** with real projects
-- **Adapts content** to specific profiles (illustrators, designers, developers)
+- **ATELIER Framework:** All tracks follow the Exploration → Conceptualization → Production → Exhibition → Reflection cycle
+- **Canonical Lessons:** Tracks reference and sequence lessons from the [canonical lessons repository]({{ site.url }}{{ site.baseurl }}/lessons/)
+- **Methodology Integration:** Each track aligns with the pedagogical framework described in the [methodology section]({{ site.url }}{{ site.baseurl }}/methodology/)
 
 ---
 
-## 🔄 ATELIER Methodology
+**Authorship:** Rubén Vega Balbás, PhD (UDIT) · ORCID: [0000-0001-6862-9081](https://orcid.org/0000-0001-6862-9081)
+**License:** Content CC BY-NC-SA 4.0
 
-All our tracks follow the ATELIER methodology:
-
-1. **Exploration** — Research and references
-2. **Conceptualization** — Ideas and wireframes
-3. **Production** — Development and creation
-4. **Exhibition** — Presentation and feedback
-5. **Reflection** — Analysis and continuous improvement
-
-[More about the methodology →]({{ '/methodology/en/' | relative_url }})
+_Critical Coding for a Better Living._

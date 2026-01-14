@@ -97,16 +97,21 @@ lang: es
 
 	<section class="tracks-section mb-16" aria-labelledby="tracks-heading">
 		<h2 id="tracks-heading" class="text-3xl font-bold text-gray-900 dark:text-neutral-100 mb-8 text-center">
-			Tracks de Aprendizaje / Learning Tracks
+			Cursos de Aprendizaje / Learning Tracks
 		</h2>
 
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			<div
 				class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 hover:shadow-xl transition-shadow p-8">
 				<div class="mb-4">
-					<span class="inline-flex items-center justify-center w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg mb-4">
-						<span aria-hidden="true" class="text-2xl">🎨</span>
-					</span>
+					<div class="flex items-start justify-between mb-2">
+						<span class="inline-flex items-center justify-center w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg">
+							<span aria-hidden="true" class="text-2xl">🎨</span>
+						</span>
+						<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+							✓ Finalizado
+						</span>
+					</div>
 					<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-2">
 						Ilustración Aplicada
 					</h3>
@@ -126,29 +131,34 @@ lang: es
 				<a
 					href="{{ '/tracks/es/ilustracion-webapp/' | relative_url }}"
 					class="inline-block bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-					aria-describedby="illustracion-track-desc">
-					Iniciar Track
+					aria-describedby="illustracion-curso-desc">
+					Iniciar Curso
 					<span class="sr-only">de Ilustración Aplicada</span>
 				</a>
-				<div id="illustracion-track-desc" class="sr-only">Accede al track de Ilustración Aplicada para publicar tu arte en la web</div>
+				<div id="illustracion-curso-desc" class="sr-only">Accede al curso de Ilustración Aplicada para publicar tu arte en la web</div>
 			</div>
 
-			<!-- Placeholder for future tracks -->
+			<!-- Placeholder for future cursos -->
 			<div
 				class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 p-8 opacity-75">
 				<div class="mb-4">
-					<span class="inline-flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg mb-4">
-						<span aria-hidden="true" class="text-2xl">🚧</span>
-					</span>
+					<div class="flex items-start justify-between mb-2">
+						<span class="inline-flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg">
+							<span aria-hidden="true" class="text-2xl">🚧</span>
+						</span>
+						<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+							Borrador
+						</span>
+					</div>
 					<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-2">
 						Próximamente
 					</h3>
 					<p class="text-sm text-gray-500 dark:text-neutral-400 uppercase tracking-wider font-medium mb-4">
-						Más tracks en desarrollo
+						Más cursos en desarrollo
 					</p>
 				</div>
 				<p class="text-gray-700 dark:text-neutral-300 mb-6 leading-relaxed">
-					Estamos trabajando en nuevos tracks especializados para diferentes perfiles y necesidades de aprendizaje.
+					Estamos trabajando en nuevos cursos especializados para diferentes perfiles y necesidades de aprendizaje.
 				</p>
 				<div class="text-sm text-gray-500 dark:text-neutral-400">
 					<p>• Desarrollo Frontend Avanzado</p>

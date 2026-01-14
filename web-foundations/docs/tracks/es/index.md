@@ -1,29 +1,30 @@
 ---
 layout: track
-title: 'Tracks de Aprendizaje — WEB ATELIER (UDIT)'
-description: 'Rutas de aprendizaje temáticas que agrupan lecciones canónicas en tracks especializados.'
+title: 'Cursos de Aprendizaje — WEB ATELIER (UDIT)'
+description: 'Rutas de aprendizaje temáticas que agrupan lecciones canónicas en cursos especializados.'
 lang: es
+status: in progress
 ---
 
-# Tracks de Aprendizaje
+# Cursos de Aprendizaje
 
-Bienvenido a los tracks de WEB ATELIER. Aquí encontrarás rutas de aprendizaje temáticas que agrupan lecciones canónicas en experiencias completas y estructuradas.
+Bienvenido a los cursos de WEB ATELIER. Aquí encontrarás rutas de aprendizaje temáticas que agrupan lecciones canónicas en experiencias completas y estructuradas.
 
-## 📚 Tracks Disponibles
+## 📚 Cursos Disponibles
 
 ### 🎨 Ilustración Aplicada: Productos Digitales Web-App
 
-**Duración:** 4 sesiones (16 horas)  
-**Público:** Estudiantes de Ilustración Aplicada  
+**Duración:** 4 sesiones (16 horas)
+**Público:** Estudiantes de Ilustración Aplicada
 **Objetivo:** Convertir tu lenguaje visual en un producto web publicado
 
-[Ver Track →]({{ '/tracks/es/ilustracion-webapp/' | relative_url }})
+[Ver Curso →]({{ '/tracks/es/ilustracion-webapp/' | relative_url }})
 
 ---
 
 ## 🚧 Próximamente
 
-Estamos trabajando en nuevos tracks especializados:
+Estamos trabajando en nuevos cursos especializados:
 
 - Desarrollo Frontend Avanzado
 - UX/UI Design
@@ -31,9 +32,9 @@ Estamos trabajando en nuevos tracks especializados:
 
 ---
 
-## 🎯 ¿Qué es un Track?
+## 🎯 ¿Qué es un Curso?
 
-Un **track** es una ruta de aprendizaje que:
+Un **curso** es una ruta de aprendizaje que:
 
 - **Agrupa lecciones canónicas** en una secuencia coherente
 - **Define objetivos claros** y entregables concretos
@@ -45,7 +46,7 @@ Un **track** es una ruta de aprendizaje que:
 
 ## 🔄 Metodología ATELIER
 
-Todos nuestros tracks siguen la metodología ATELIER:
+Todos nuestros cursos siguen la metodología ATELIER:
 
 1. **Exploración** — Investigación y referentes
 2. **Conceptualización** — Ideas y wireframes
