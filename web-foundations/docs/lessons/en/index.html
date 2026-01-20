@@ -133,6 +133,7 @@ permalink: /lessons/en/
 				class="text-sm font-semibold text-slate-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2 flex-1 overflow-hidden pr-8"
 				style="
 					display: -webkit-box;
+					line-clamp: 3;
 					-webkit-line-clamp: 3;
 					-webkit-box-orient: vertical;
 					line-height: 1.4;
@@ -208,9 +209,17 @@ permalink: /lessons/en/
 						react: ['react', 'modern-fe-intro', 'state-and-ui', 'react-fundamentals', 'react-hooks', 'react-state-architecture', 'react-routing', 'react-backend-integration', 'react-authentication', 'react-testing', 'react-performance', 'react-deployment'],
 					};
 
+					const normalizedCategory = (itemCategory || '').toLowerCase().trim();
+					const slugLower = (slug || '').toLowerCase();
+
+					if (normalizedCategory === this.category) {
+						return true;
+					}
+
 					const searchTerms = categoryMap[this.category] || [];
-					const categoryMatch = itemCategory && searchTerms.some(term => itemCategory.toLowerCase().includes(term));
-					const slugMatch = slug && searchTerms.some(term => slug.toLowerCase().includes(term));
+					const categoryMatch = searchTerms.some(term => normalizedCategory.includes(term));
+					const slugMatch =
+						slugLower.includes(this.category) || searchTerms.some(term => slugLower.includes(term));
 
 					if (!categoryMatch && !slugMatch) {
 						return false;

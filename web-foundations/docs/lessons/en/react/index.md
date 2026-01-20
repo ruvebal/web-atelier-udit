@@ -71,7 +71,7 @@ This teaching sequence guides students from philosophical foundations through Re
 
 ### Lesson 1: Philosophy & Pedagogical Vision
 
-**File**: (Lesson to be developed)
+**File**: [`modern-fe-intro`](./modern-fe-intro/)
 
 | Aspect           | Details                                            |
 | ---------------- | -------------------------------------------------- |
