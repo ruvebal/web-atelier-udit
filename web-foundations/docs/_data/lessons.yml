@@ -763,24 +763,32 @@
 # React Curriculum Section
 - slug: react
   title:
+   es: 'Desarrollo Frontend Moderno: Secuencia Didáctica de React'
    en: 'Modern Frontend Development: React Teaching Sequence'
   path:
+   es: /lessons/es/react/
    en: /lessons/en/react/
   file:
+   es: lessons/es/react/index.md
    en: lessons/en/react/index.md
   status:
+   es: draft
    en: complete
   category: react
   type: overview
 
 - slug: modern-fe-intro
   title:
+   es: 'Filosofía y visión pedagógica: El Tao Developer'
    en: 'Philosophy & Pedagogical Vision: The Tao Developer'
   path:
+   es: /lessons/es/react/modern-fe-intro/
    en: /lessons/en/react/modern-fe-intro/
   file:
+   es: lessons/es/react/modern-fe-intro/index.md
    en: lessons/en/react/modern-fe-intro/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [philosophy, atelier, critical-coding, ai-assisted]
@@ -790,12 +798,16 @@
 
 - slug: frameworks-comparative
   title:
+   es: 'Fundamentos de frameworks: una comparativa crítica'
    en: 'Framework Fundamentals: A Critical Comparison'
   path:
+   es: /lessons/es/react/frameworks-comparative/
    en: /lessons/en/react/frameworks-comparative/
   file:
+   es: lessons/es/react/frameworks-comparative/index.md
    en: lessons/en/react/frameworks-comparative/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, vue, vanilla-js, frameworks, vite]
@@ -805,12 +817,16 @@
 
 - slug: state-and-ui
   title:
+   es: 'Estado e IU: la memoria de la interacción'
    en: 'State & UI: The Memory of Interaction'
   path:
+   es: /lessons/es/react/state-and-ui/
    en: /lessons/en/react/state-and-ui/
   file:
+   es: lessons/es/react/state-and-ui/index.md
    en: lessons/en/react/state-and-ui/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, state, fsm, ui-patterns]
@@ -820,12 +836,16 @@
 
 - slug: react-fundamentals
   title:
+   es: 'Fundamentos de React: bloques de construcción de UI moderna'
    en: 'React Fundamentals: Building Blocks of Modern UI'
   path:
+   es: /lessons/es/react/react-fundamentals/
    en: /lessons/en/react/react-fundamentals/
   file:
+   es: lessons/es/react/react-fundamentals/index.md
    en: lessons/en/react/react-fundamentals/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, components, jsx, props, events]
@@ -835,12 +855,16 @@
 
 - slug: react-hooks
   title:
+   es: 'Dominio de hooks: el motor de la interactividad'
    en: 'Hooks Mastery: The Engine of Interactivity'
   path:
+   es: /lessons/es/react/react-hooks/
    en: /lessons/en/react/react-hooks/
   file:
+   es: lessons/es/react/react-hooks/index.md
    en: lessons/en/react/react-hooks/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, hooks, useState, useEffect, custom-hooks]
@@ -850,12 +874,16 @@
 
 - slug: react-state-architecture
   title:
+   es: 'Arquitectura de estado: escalar más allá de los componentes'
    en: 'State Architecture: Scaling Beyond Components'
   path:
+   es: /lessons/es/react/react-state-architecture/
    en: /lessons/en/react/react-state-architecture/
   file:
+   es: lessons/es/react/react-state-architecture/index.md
    en: lessons/en/react/react-state-architecture/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, state, context, zustand, redux, useReducer]
@@ -865,12 +893,16 @@
 
 - slug: react-routing
   title:
+   es: 'Routing y navegación: la SPA multipágina'
    en: 'Routing & Navigation: The Multi-Page SPA'
   path:
+   es: /lessons/es/react/react-routing/
    en: /lessons/en/react/react-routing/
   file:
+   es: lessons/es/react/react-routing/index.md
    en: lessons/en/react/react-routing/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, routing, react-router, navigation, spa]
@@ -880,12 +912,16 @@
 
 - slug: react-backend-integration
   title:
+   es: 'Integración con backend: conectando con el mundo real'
    en: 'Backend Integration: Connecting to the Real World'
   path:
+   es: /lessons/es/react/react-backend-integration/
    en: /lessons/en/react/react-backend-integration/
   file:
+   es: lessons/es/react/react-backend-integration/index.md
    en: lessons/en/react/react-backend-integration/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, fetch, api, react-query, laravel, hygraph]
@@ -895,12 +931,16 @@
 
 - slug: react-authentication
   title:
+   es: 'Autenticación: asegurar tu aplicación'
    en: 'Authentication: Securing Your Application'
   path:
+   es: /lessons/es/react/react-authentication/
    en: /lessons/en/react/react-authentication/
   file:
+   es: lessons/es/react/react-authentication/index.md
    en: lessons/en/react/react-authentication/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, authentication, jwt, security, oauth]
@@ -910,12 +950,16 @@
 
 - slug: react-testing
   title:
+   es: 'Testing: construir confianza en tu código'
    en: 'Testing: Building Confidence in Your Code'
   path:
+   es: /lessons/es/react/react-testing/
    en: /lessons/en/react/react-testing/
   file:
+   es: lessons/es/react/react-testing/index.md
    en: lessons/en/react/react-testing/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, testing, vitest, rtl, cypress]
@@ -925,12 +969,16 @@
 
 - slug: react-performance
   title:
+   es: 'Performance: la velocidad como feature'
    en: 'Performance: Speed as a Feature'
   path:
+   es: /lessons/es/react/react-performance/
    en: /lessons/en/react/react-performance/
   file:
+   es: lessons/es/react/react-performance/index.md
    en: lessons/en/react/react-performance/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, performance, optimization, memoization, code-splitting]
@@ -940,12 +988,16 @@
 
 - slug: react-deployment
   title:
+   es: 'Deployment: enviar al mundo'
    en: 'Deployment: Shipping to the World'
   path:
+   es: /lessons/es/react/react-deployment/
    en: /lessons/en/react/react-deployment/
   file:
+   es: lessons/es/react/react-deployment/index.md
    en: lessons/en/react/react-deployment/index.md
   status:
+   es: draft
    en: complete
   category: react
   tags: [react, deployment, vercel, cicd, github-actions]

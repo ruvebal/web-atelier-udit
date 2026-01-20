@@ -36,11 +36,11 @@ status: draft
 
 By the end of this lesson, you will:
 
-- [ ] Articulate the atelier methodology and contrast it with traditional instruction models (Bloom: Analyze)
-- [ ] Map the Five Pillars of the Tao Developer to concrete behaviors in your own practice (Bloom: Apply)
-- [ ] Explain how AI can be integrated ethically via the Docs-First Methodology (Bloom: Evaluate)
-- [ ] Draw parallels between classical architectures (MVC/MVVM) and React’s component paradigm (Bloom: Understand)
-- [ ] Draft a semester plan that balances philosophical intent, technical milestones, and reflective practice (Bloom: Create)
+- Articulate the atelier methodology and contrast it with traditional instruction models (Bloom: Analyze)
+- Map the Five Pillars of the Tao Developer to concrete behaviors in your own practice (Bloom: Apply)
+- Explain how AI can be integrated ethically via the Docs-First Methodology (Bloom: Evaluate)
+- Draw parallels between classical architectures (MVC/MVVM) and React’s component paradigm (Bloom: Understand)
+- Draft a semester plan that balances philosophical intent, technical milestones, and reflective practice (Bloom: Create)
 
 ---
 
