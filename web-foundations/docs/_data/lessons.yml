@@ -746,20 +746,6 @@
    es: complete
    en: complete
 
-- slug: portfolio-template-brief-plan
-  title:
-   es: 'Proyecto Final: Plan del Brief de Plantilla de Portfolio'
-   en: 'Final Project: Portfolio Template Brief Plan'
-  path:
-   es: /lessons/es/portfolio-template-brief/plan/
-   en: /lessons/en/portfolio-template-brief/plan/
-  file:
-   es: lessons/es/portfolio-template-brief/plan/index.md
-   en: lessons/en/portfolio-template-brief/plan/index.md
-  status:
-   es: complete
-   en: complete
-
 - slug: portfolio-template-brief-site-plan
   title:
    es: 'Proyecto Final: Plan de Showcase y Arquitectura CSS'
@@ -773,3 +759,196 @@
   status:
    es: complete
    en: complete
+
+# React Curriculum Section
+- slug: react
+  title:
+   en: 'Modern Frontend Development: React Teaching Sequence'
+  path:
+   en: /lessons/en/react/
+  file:
+   en: lessons/en/react/index.md
+  status:
+   en: complete
+  category: react
+  type: overview
+
+- slug: modern-fe-intro
+  title:
+   en: 'Philosophy & Pedagogical Vision: The Tao Developer'
+  path:
+   en: /lessons/en/react/modern-fe-intro/
+  file:
+   en: lessons/en/react/modern-fe-intro/index.md
+  status:
+   en: complete
+  category: react
+  tags: [philosophy, atelier, critical-coding, ai-assisted]
+  week: 1
+  phase: 1
+  sprint: 1
+
+- slug: frameworks-comparative
+  title:
+   en: 'Framework Fundamentals: A Critical Comparison'
+  path:
+   en: /lessons/en/react/frameworks-comparative/
+  file:
+   en: lessons/en/react/frameworks-comparative/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, vue, vanilla-js, frameworks, vite]
+  week: 2
+  phase: 1
+  sprint: 2
+
+- slug: state-and-ui
+  title:
+   en: 'State & UI: The Memory of Interaction'
+  path:
+   en: /lessons/en/react/state-and-ui/
+  file:
+   en: lessons/en/react/state-and-ui/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, state, fsm, ui-patterns]
+  week: 3
+  phase: 1
+  sprint: 3
+
+- slug: react-fundamentals
+  title:
+   en: 'React Fundamentals: Building Blocks of Modern UI'
+  path:
+   en: /lessons/en/react/react-fundamentals/
+  file:
+   en: lessons/en/react/react-fundamentals/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, components, jsx, props, events]
+  week: 4
+  phase: 2
+  sprint: 5
+
+- slug: react-hooks
+  title:
+   en: 'Hooks Mastery: The Engine of Interactivity'
+  path:
+   en: /lessons/en/react/react-hooks/
+  file:
+   en: lessons/en/react/react-hooks/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, hooks, useState, useEffect, custom-hooks]
+  week: 5
+  phase: 2
+  sprint: 6
+
+- slug: react-state-architecture
+  title:
+   en: 'State Architecture: Scaling Beyond Components'
+  path:
+   en: /lessons/en/react/react-state-architecture/
+  file:
+   en: lessons/en/react/react-state-architecture/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, state, context, zustand, redux, useReducer]
+  week: 6
+  phase: 2
+  sprint: 7
+
+- slug: react-routing
+  title:
+   en: 'Routing & Navigation: The Multi-Page SPA'
+  path:
+   en: /lessons/en/react/react-routing/
+  file:
+   en: lessons/en/react/react-routing/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, routing, react-router, navigation, spa]
+  week: 7
+  phase: 2
+  sprint: 8
+
+- slug: react-backend-integration
+  title:
+   en: 'Backend Integration: Connecting to the Real World'
+  path:
+   en: /lessons/en/react/react-backend-integration/
+  file:
+   en: lessons/en/react/react-backend-integration/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, fetch, api, react-query, laravel, hygraph]
+  week: 8
+  phase: 3
+  sprint: 9
+
+- slug: react-authentication
+  title:
+   en: 'Authentication: Securing Your Application'
+  path:
+   en: /lessons/en/react/react-authentication/
+  file:
+   en: lessons/en/react/react-authentication/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, authentication, jwt, security, oauth]
+  week: 9
+  phase: 3
+  sprint: 10
+
+- slug: react-testing
+  title:
+   en: 'Testing: Building Confidence in Your Code'
+  path:
+   en: /lessons/en/react/react-testing/
+  file:
+   en: lessons/en/react/react-testing/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, testing, vitest, rtl, cypress]
+  week: 10
+  phase: 3
+  sprint: 11
+
+- slug: react-performance
+  title:
+   en: 'Performance: Speed as a Feature'
+  path:
+   en: /lessons/en/react/react-performance/
+  file:
+   en: lessons/en/react/react-performance/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, performance, optimization, memoization, code-splitting]
+  week: 11
+  phase: 4
+  sprint: 12
+
+- slug: react-deployment
+  title:
+   en: 'Deployment: Shipping to the World'
+  path:
+   en: /lessons/en/react/react-deployment/
+  file:
+   en: lessons/en/react/react-deployment/index.md
+  status:
+   en: complete
+  category: react
+  tags: [react, deployment, vercel, cicd, github-actions]
+  week: 12
+  phase: 4
+  sprint: 13

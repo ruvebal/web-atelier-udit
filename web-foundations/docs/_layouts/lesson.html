@@ -72,17 +72,36 @@ if page.content contains '{:toc}' %} {% assign has_toc = true %} {% endif %}
 					</li>
 					{% endif %}
 					{% assign path_segments = page.url | split: '/' %}
-					{% assign segment_count = 0 %}
+					{% assign accumulated_path = '' %}
+					{% assign show_current_segment = false %}
+					{% assign base_segment_path = '/lessons/' | append: page.lang | append: '/' | append: page.slug | append: '/' %}
+					{% if page.url == base_segment_path %}
+						{% assign show_current_segment = true %}
+					{% endif %}
 					{% for segment in path_segments %}
-						{% if segment != '' and segment != 'lessons' and segment != page.lang and segment != page.slug %}
-							{% assign segment_count = segment_count | plus: 1 %}
-							{% if segment_count <= 2 %}
-							<li class="breadcrumb-item">
-								<span class="breadcrumb-separator" aria-hidden="true">/</span>
-								<span class="breadcrumb-text">{{ segment | replace: '-', ' ' | capitalize }}</span>
-							</li>
-							{% endif %}
+						{% if segment == '' %}
+							{% continue %}
 						{% endif %}
+						{% assign accumulated_path = accumulated_path | append: '/' | append: segment %}
+						{% if segment == 'lessons' or segment == page.lang %}
+							{% continue %}
+						{% endif %}
+						{% if segment == page.slug %}
+							{% assign is_current_segment = true %}
+						{% else %}
+							{% assign is_current_segment = false %}
+						{% endif %}
+						{% if is_current_segment and show_current_segment == false %}
+							{% continue %}
+						{% endif %}
+						<li class="breadcrumb-item">
+							<span class="breadcrumb-separator" aria-hidden="true">/</span>
+							{% if is_current_segment %}
+								<a href="{{ site.baseurl }}{{ accumulated_path }}/" class="breadcrumb-link">{{ segment | replace: '-', ' ' | capitalize }}</a>
+							{% else %}
+								<a href="{{ site.baseurl }}{{ accumulated_path }}/" class="breadcrumb-link">{{ segment | replace: '-', ' ' | capitalize }}</a>
+							{% endif %}
+						</li>
 					{% endfor %}
 					<li class="breadcrumb-item breadcrumb-current" aria-current="page">
 						<span class="breadcrumb-separator" aria-hidden="true">/</span>

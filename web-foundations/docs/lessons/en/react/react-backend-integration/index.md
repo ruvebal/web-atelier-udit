@@ -1,0 +1,207 @@
+---
+layout: lesson
+title: 'Backend Integration: Connecting to the Real World'
+slug: react-backend-integration
+category: react
+tags: [react, fetch, api, react-query, laravel, hygraph]
+week: 8
+phase: 3
+sprint: 9
+date: 2025-01-15
+author: 'Rubén Vega Balbás, PhD'
+lang: en
+permalink: /lessons/en/react/react-backend-integration/
+status: draft
+---
+
+<!-- prettier-ignore-start -->
+
+## 📋 Table of Contents
+{: .no_toc }
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
+> *"A frontend without a backend is a painting without a gallery—beautiful, but unseen."*
+
+---
+
+## 🎯 Sprint Goal
+
+**By the end of this sprint**: Your app talks to real data sources—fetching, caching, and mutating data from Laravel APIs, Hygraph CMS, or other backends with professional-grade patterns.
+
+---
+
+## 📍 Position in Journey
+
+| Sprint | Focus | Your App Grows |
+|--------|-------|----------------|
+| 7. Architecture | Global state | Connected features |
+| 8. Routing | Navigation | Multi-page structure |
+| **→ 9. Backend** | Data fetching | Real data, real app |
+| 10. Auth | Security | User sessions |
+
+---
+
+## 🧭 Learning Objectives
+
+By the end of this lesson, you will:
+
+- [ ] Fetch data with the Fetch API and async/await
+- [ ] Handle loading, error, and empty states elegantly
+- [ ] Implement React Query for caching and sync
+- [ ] Perform mutations (POST, PUT, DELETE) and optimistic updates
+- [ ] Integrate with Laravel REST API endpoints
+- [ ] (Optional) Query Hygraph GraphQL API
+
+---
+
+## 🏗️ What We'll Build This Sprint
+
+### API Layer Architecture
+
+```typescript
+// Clean separation of concerns:
+
+src/
+├── api/
+│   ├── client.ts         // Axios or fetch wrapper
+│   ├── endpoints.ts      // URL constants
+│   └── types.ts          // API response types
+├── hooks/
+│   ├── useProducts.ts    // React Query for products
+│   ├── useUser.ts        // React Query for user
+│   └── useMutations.ts   // Create, update, delete
+└── components/
+    └── ProductList.tsx   // Uses useProducts hook
+```
+
+---
+
+## 🔧 Integration Options
+
+Choose one or more based on your project:
+
+### Option A: Laravel REST API
+
+```typescript
+// Typical Laravel endpoints
+const API = {
+  products: '/api/products',
+  product: (id: string) => `/api/products/${id}`,
+  auth: '/api/auth/login',
+  user: '/api/user',
+};
+
+// React Query usage
+const { data: products } = useQuery({
+  queryKey: ['products'],
+  queryFn: () => fetch(API.products).then(r => r.json())
+});
+```
+
+### Option B: Hygraph GraphQL
+
+```typescript
+// GraphQL query
+const PRODUCTS_QUERY = `
+  query Products {
+    products {
+      id
+      name
+      price
+      image { url }
+    }
+  }
+`;
+
+// Fetch from Hygraph
+const { data } = useQuery({
+  queryKey: ['products'],
+  queryFn: () => hygraphClient.request(PRODUCTS_QUERY)
+});
+```
+
+### Option C: Local JSON / Mock API
+
+```typescript
+// For development without backend
+const { data } = useQuery({
+  queryKey: ['products'],
+  queryFn: () => import('./data/products.json')
+});
+```
+
+---
+
+## 🎓 Methodology: Atelier Practice
+
+### The Sprint Rhythm
+
+```
+┌─────────────────────────────────────────────────────────┐
+│ DAY 1: Fetching Fundamentals                            │
+│   • Set up API client (Axios or fetch wrapper)          │
+│   • Basic useQuery pattern with React Query             │
+│   • Loading/error states in UI                          │
+├─────────────────────────────────────────────────────────┤
+│ DAY 2: Mutations & Real Data                            │
+│   • Connect to Laravel API (coordinate with backend)    │
+│   • Implement useMutation for create/update/delete      │
+│   • Optimistic updates for snappy UX                    │
+├─────────────────────────────────────────────────────────┤
+│ DAY 3: Caching & Edge Cases                             │
+│   • Configure cache times and stale-while-revalidate    │
+│   • Handle offline states (optional)                    │
+│   • Error boundaries for failed requests                │
+└─────────────────────────────────────────────────────────┘
+```
+
+### AI-Assisted Development Protocol
+
+| Task | AI Role | Your Role |
+|------|---------|-----------|
+| Debug API errors | Explain CORS, 401, 500 | Fix config and retry |
+| Generate API types | Infer from JSON response | Validate and refine |
+| Write loading states | Suggest skeleton/spinner | Match your design system |
+| Optimize queries | Suggest caching strategy | Test invalidation |
+
+---
+
+## 📝 Sprint Deliverables
+
+- [ ] **API client** configured with base URL and auth headers
+- [ ] **3+ data-fetching hooks** using React Query
+- [ ] **Loading states** with skeletons or spinners
+- [ ] **Error handling** with user-friendly messages
+- [ ] **1 mutation** (create, update, or delete something)
+- [ ] **Cache invalidation** after mutations
+- [ ] **Reflection**: How does async data change your app's feel?
+
+---
+
+## 🔗 Lesson Navigation
+
+| Previous | Current | Next |
+|----------|---------|------|
+| [Routing](../react-routing/) | **Backend Integration** | [Authentication](../react-authentication/) |
+
+---
+
+## 📚 Key Concepts Preview
+
+*Full content to be developed. Topics include:*
+
+1. Async/Await & Promises Review
+2. The Fetch API vs Axios
+3. React Query: The Essential Patterns
+4. Caching Strategies
+5. Mutations & Optimistic Updates
+6. Error Boundaries for Async
+7. GraphQL with Apollo or urql (Optional)
+8. Type Safety with API Responses
+
+---
+
+> *"Real data is messy. Your job is to make it feel clean."*
