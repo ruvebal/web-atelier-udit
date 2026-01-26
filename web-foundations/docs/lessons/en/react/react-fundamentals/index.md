@@ -514,7 +514,7 @@ function ProductCard({ product }: { product: Product }) {
 
 | Previous | Current | Next |
 |----------|---------|------|
-| [AI Foundations](/methodology/en/ai-assisted-development-foundations/) | **React Fundamentals** | [Hooks Mastery](../react-hooks/) |
+| [AI Foundations](../ai-assisted-development-foundations/) | **React Fundamentals** | [Hooks Mastery](../react-hooks/) |
 
 ---
 

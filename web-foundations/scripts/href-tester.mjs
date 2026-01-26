@@ -3,12 +3,12 @@
  * href-tester.mjs
  *
  * Usage:
- *   pnpm run href-tester -- <rootDir> [--exclude-dirs <glob>]
+ *   pnpm run href-tester -- [<rootDir> ...] [--exclude-dirs <glob> ...]
  * Example:
- *   pnpm run href-tester -- docs --exclude-dirs _* templates
+ *   pnpm run href-tester -- docs ../student-project-template --exclude-dirs _* templates
  *
  * Scans Markdown files for external links [text](url) and checks HTTP status (HEAD then GET fallback).
- * Writes two YAML files under docs/_data:
+ * Writes two YAML files under docs/_data (always under web-foundations/docs/_data):
  *   - references.yml: consolidated database of scanned references
  *   - date-errors.yml: errors for the current run (non-200 or failures)
  */
@@ -26,13 +26,20 @@ const __dirname = path.dirname(__filename);
 let PRETTIER_NOTICE_DONE = false;
 
 function parseArgs(argv) {
-	const args = { root: 'docs', exclude: [] };
+	/**
+	 * Backwards-compatible CLI:
+	 * - positional args are treated as one or more scan roots
+	 * - if no root is provided, we scan:
+	 *   - web-foundations/docs (includes tracks, lessons, etc.)
+	 *   - ../student-project-template (repo-level template, outside web-foundations)
+	 */
+	const args = { roots: [], exclude: [] };
 	const rest = argv.slice(2);
 	for (let i = 0; i < rest.length; i++) {
 		const token = rest[i];
 		if (!token) continue;
 		if (!token.startsWith('--')) {
-			args.root = token;
+			args.roots.push(token);
 			continue;
 		}
 		if (token === '--exclude-dirs') {
@@ -650,25 +657,55 @@ async function readYamlIfExists(filePath) {
 }
 
 async function main() {
-	const { root, exclude } = parseArgs(process.argv);
-	const cwd = path.resolve(__dirname, '..');
-	const docsRoot = path.isAbsolute(root) ? root : path.resolve(cwd, root);
-	const dataDir = path.join(docsRoot, '_data');
+	const { roots, exclude } = parseArgs(process.argv);
+
+	// web-foundations/ (project root for scripts)
+	const wfRoot = path.resolve(__dirname, '..');
+	// repo root (parent of web-foundations/)
+	const repoRoot = path.resolve(wfRoot, '..');
+	// site docs root (jekyll --source docs)
+	const siteDocsRoot = path.join(wfRoot, 'docs');
+
+	const effectiveRoots = roots.length > 0 ? roots : ['docs', '../student-project-template'];
+	const rootAbsList = effectiveRoots
+		.map((r) => (path.isAbsolute(r) ? r : path.resolve(wfRoot, r)))
+		// normalize separators and remove trailing slashes
+		.map((r) => r.replace(/[\\\/]+$/, ''))
+		// dedupe
+		.filter((r, idx, arr) => arr.indexOf(r) === idx)
+		// remove roots that are contained within another root
+		.filter((r, idx, arr) => !arr.some((other, j) => j !== idx && r.startsWith(other + path.sep)));
+
+	// Always write outputs to web-foundations/docs/_data so Jekyll can consume them.
+	const dataDir = path.join(siteDocsRoot, '_data');
 	await ensureDir(dataDir);
 
 	const ignoreGlobs = [...exclude.map((e) => `**/${e}/**`), '**/_site/**', '**/node_modules/**'];
-	const mdFiles = await glob('**/*.md', { cwd: docsRoot, ignore: ignoreGlobs, nodir: true });
+	const sourceAbsBySourcePath = new Map();
 
-	console.log(`[href-tester] Scanning root: ${docsRoot}`);
+	const allMdFiles = [];
+	for (const rootAbs of rootAbsList) {
+		const mdFiles = await glob('**/*.md', { cwd: rootAbs, ignore: ignoreGlobs, nodir: true });
+		for (const relInRoot of mdFiles) {
+			const abs = path.join(rootAbs, relInRoot);
+			const isInSiteDocs = abs.startsWith(siteDocsRoot + path.sep);
+			const sourcePath = isInSiteDocs
+				? path.relative(siteDocsRoot, abs).split(path.sep).join('/')
+				: path.relative(repoRoot, abs).split(path.sep).join('/');
+			sourceAbsBySourcePath.set(sourcePath, abs);
+			allMdFiles.push({ abs, sourcePath });
+		}
+	}
+
+	console.log(`[href-tester] Scanning roots:\n- ${rootAbsList.join('\n- ')}`);
 	console.log(`[href-tester] Excluding: ${exclude.length ? exclude.join(', ') : 'none'}`);
-	console.log(`[href-tester] Found ${mdFiles.length} Markdown files`);
+	console.log(`[href-tester] Found ${allMdFiles.length} Markdown files`);
 
 	const seen = new Map();
 	const errors = [];
 	const datetime = nowIso();
 
-	for (const rel of mdFiles) {
-		const abs = path.join(docsRoot, rel);
+	for (const { abs, sourcePath } of allMdFiles) {
 		const src = await fs.readFile(abs, 'utf8');
 		let content = src;
 		let data = {};
@@ -684,13 +721,13 @@ async function main() {
 		const lang = data?.lang || (abs.includes('/en/') ? 'en' : abs.includes('/es/') ? 'es' : null);
 		const links = extractLinksFromMarkdown(content);
 		const externalLinks = links.filter(isExternalUrl);
-		console.log(`[href-tester] File: ${rel} — links: ${links.length}, external: ${externalLinks.length}`);
+		console.log(`[href-tester] File: ${sourcePath} — links: ${links.length}, external: ${externalLinks.length}`);
 		for (const href of externalLinks) {
 			const url = href;
 			const key = uniqueKey({ url });
 			if (seen.has(key)) {
 				// still record source occurrence if new
-				seen.get(key).sources.add(rel);
+				seen.get(key).sources.add(sourcePath);
 				continue;
 			}
 			const controller = new AbortController();
@@ -816,7 +853,7 @@ async function main() {
 			const item = {
 				url,
 				datetime,
-				sources: new Set([rel]),
+				sources: new Set([sourcePath]),
 				lang,
 				status,
 				ok,
@@ -825,8 +862,10 @@ async function main() {
 			seen.set(key, item);
 
 			if (!ok) {
-				errors.push({ url, status, error, source: rel, datetime });
-				console.error(`[href-tester] Error ${status ?? 'ERR'}: ${url} (source: ${rel})${error ? ' - ' + error : ''}`);
+				errors.push({ url, status, error, source: sourcePath, datetime });
+				console.error(
+					`[href-tester] Error ${status ?? 'ERR'}: ${url} (source: ${sourcePath})${error ? ' - ' + error : ''}`
+				);
 			}
 		}
 	}
@@ -850,14 +889,25 @@ async function main() {
 		const meta = [];
 		for (const s of ref.sources || []) {
 			try {
-				const abs = path.join(docsRoot, s);
+				const abs =
+					sourceAbsBySourcePath.get(s) ||
+					path.join(siteDocsRoot, s) ||
+					path.join(repoRoot, s);
 				const raw = await fs.readFile(abs, 'utf8');
 				const fm = matter(raw).data || {};
 				const title = fm.title || fm.title_alt || s;
-				const href = ('/' + s).replace(/index\.md$/, '');
+				const isInSiteDocs = abs.startsWith(siteDocsRoot + path.sep);
+				const docRel = isInSiteDocs
+					? path.relative(siteDocsRoot, abs).split(path.sep).join('/')
+					: null;
+				const href = docRel ? ('/' + docRel).replace(/index\.md$/, '') : null;
 				meta.push({ title, href, path: s });
 			} catch {
-				const href = ('/' + s).replace(/index\.md$/, '');
+				const abs = sourceAbsBySourcePath.get(s);
+				const isInSiteDocs = abs ? abs.startsWith(siteDocsRoot + path.sep) : false;
+				const docRel =
+					abs && isInSiteDocs ? path.relative(siteDocsRoot, abs).split(path.sep).join('/') : null;
+				const href = docRel ? ('/' + docRel).replace(/index\.md$/, '') : null;
 				meta.push({ title: s, href, path: s });
 			}
 		}
@@ -892,7 +942,9 @@ async function main() {
 	// console output
 	const errorCount = errors.length;
 	if (errorCount > 0) {
-		console.error(`[href-tester] Completed with ${errorCount} errors. See ${path.relative(docsRoot, errPath)}`);
+		console.error(
+			`[href-tester] Completed with ${errorCount} errors. See ${path.relative(siteDocsRoot, errPath)}`
+		);
 	} else {
 		console.log('[href-tester] All external links returned 200 OK.');
 	}

@@ -134,7 +134,7 @@ This teaching sequence guides students from philosophical foundations through Re
 
 ### Lesson 4: AI-Assisted Development Foundations
 
-**File**: [`ai-assisted-development-foundations`](/methodology/en/ai-assisted-development-foundations/)
+**File**: [`ai-assisted-development-foundations`](./ai-assisted-development-foundations/)
 
 | Aspect           | Details                                                  |
 | ---------------- | -------------------------------------------------------- |
@@ -458,10 +458,10 @@ By the end of this lesson, you will be able to:
 
 ### Phase 1: Foundations ✓
 
-- [x] `modern-fe-intro.md` — Philosophy & Vision
-- [x] `frameworks-comparative.md` — Framework Comparison
-- [x] `state-and-ui-extended.md` — State & UI
-- [x] `ai-assisted-development-foundations.md` — AI Theory & Architecture
+- [x] `modern-fe-intro` — Philosophy & Vision
+- [x] `frameworks-comparative` — Framework Comparison
+- [x] `state-and-ui` — State & UI
+- [x] `ai-assisted-development-foundations` — AI Theory & Architecture
 
 ### 📘 Reference Guides
 
@@ -469,14 +469,16 @@ By the end of this lesson, you will be able to:
 
 ### Phase 2-4: React + Integration (Skeletons Ready for Iteration)
 
-- [x] `react-fundamentals.md` — Components, JSX, props
-- [x] `react-hooks.md` — useState, useEffect, custom
-- [x] `react-state-architecture.md` — Context, reducers, Zustand
-- [x] `react-routing.md` — React Router, protected routes
-- [x] `react-backend-integration.md` — Laravel/Hygraph, React Query
-- [x] `react-authentication.md` — Auth patterns, security
-- [x] `react-testing.md` — Vitest, RTL, Cypress
-- [x] `react-performance.md` — Optimization, Lighthouse
+- [x] `react-fundamentals` — Components, JSX, props
+- [x] `react-hooks` — useState, useEffect, custom
+- [x] `react-state-architecture` — Context, reducers, Zustand
+- [x] `react-routing` — React Router, protected routes
+- [x] `react-backend-integration` — Laravel/Hygraph, React Query
+- [x] `react-authentication` — Auth patterns, security
+- [x] `react-testing` — Vitest, RTL, Cypress
+- [x] `react-performance` — Optimization, Lighthouse
+- [x] `react-deployment` — Shipping to production
+- [x] `final-presentation` — Demo Day & Monograph
 - [x] `react-deployment.md` — Vercel, CI/CD
 
 ### All 14 curriculum files created! 🎉

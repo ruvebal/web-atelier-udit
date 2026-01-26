@@ -498,16 +498,16 @@ function SearchInput() {
 
 ## 📚 Key Concepts Preview
 
-*Full content to be developed. Topics include:*
+### Key concepts you should master after this lesson
 
-1. The Rules of Hooks (and why they exist)
-2. useState Patterns & Pitfalls
-3. useEffect: The Mental Model
-4. Cleanup Functions & Memory Leaks
-5. useRef: Beyond DOM Access
-6. Performance: useMemo & useCallback
-7. Building Custom Hooks
-8. Testing Hooks
+- **Rules of Hooks**: why ordering matters, what “consistent call sites” means
+- **`useState`**: functional updates, derived state avoidance
+- **`useEffect`**: sync vs effect, dependency reasoning, cleanup discipline
+- **`useRef`**: stable mutable cell (not “state”), escape hatch for integration
+- **Custom hooks**: composition, configuration vs specialization trade-offs
+- **Testing**: validate behavior, not implementation details
+
+If any of these still feels “magical”, don’t add more hooks—reduce the problem until you can explain it without guessing.
 
 ---
 

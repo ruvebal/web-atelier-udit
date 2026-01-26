@@ -203,16 +203,47 @@ test('submits email and password', async () => {
 
 ## 📚 Key Concepts Preview
 
-*Full content to be developed. Topics include:*
+### What “good testing” means (in this course)
 
-1. The Philosophy of Testing
-2. Vitest Setup & Configuration
-3. React Testing Library Fundamentals
-4. Testing User Interactions
-5. Mocking with MSW
-6. Cypress E2E Basics
-7. CI/CD Integration
-8. When NOT to Test
+- **Tests are a change-enabler**: the goal is confidence to refactor, not “100% coverage”.
+- **Prefer integration tests** for user-visible behavior (forms, flows, navigation).
+- **Unit test pure logic** (reducers, validators, formatters).
+- **Avoid brittle tests** (testing implementation details, internal state, DOM structure).
+
+### Minimal stack (recommended)
+
+- **Unit / component**: Vitest + React Testing Library
+- **Network mocking**: MSW (Mock Service Worker)
+- **E2E smoke** (optional): Cypress (or Playwright if you already know it)
+
+### Example: test behavior, not structure
+
+```typescript
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+it('submits the form with user input', async () => {
+  const user = userEvent.setup();
+  const onSubmit = vi.fn();
+  render(<LoginForm onSubmit={onSubmit} />);
+
+  await user.type(screen.getByLabelText(/email/i), 'test@example.com');
+  await user.type(screen.getByLabelText(/password/i), 'password123');
+  await user.click(screen.getByRole('button', { name: /login/i }));
+
+  expect(onSubmit).toHaveBeenCalledWith({ email: 'test@example.com', password: 'password123' });
+});
+```
+
+### Reflection (Atelier)
+
+> 💭 _Which bug did your tests prevent—specifically? What changed in your code because tests existed?_
+
+> 💭 _Which test became too hard to write? What does that reveal about your architecture?_
+
+### Koan
+
+> _"If your tests require lies, your design is already lying."_
 
 ---
 

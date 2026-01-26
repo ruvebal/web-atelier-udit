@@ -23,8 +23,6 @@ status: draft
 
 <!-- prettier-ignore-end -->
 
-# 🚀 Deployment: Shipping to the World
-
 > *"Code that isn't deployed doesn't exist. Ship it."*
 
 ---
@@ -211,22 +209,35 @@ netlify deploy --prod
 
 | Previous | Current | Next |
 |----------|---------|------|
-| [Performance](../react-performance/) | **Deployment** | [React Overview](../) |
+| [Performance](../react-performance/) | **Deployment** | [Final Presentation](../final-presentation/) |
 
 ---
 
 ## 📚 Key Concepts Preview
 
-*Full content to be developed. Topics include:*
+### Shipping is a discipline (not a button)
 
-1. Build Process: What Vite Produces
-2. Vercel/Netlify: How They Work
-3. Environment Variables Best Practices
-4. CI/CD Pipelines with GitHub Actions
-5. Preview Deployments for Team Collaboration
-6. Custom Domains & SSL
-7. Monitoring & Error Tracking
-8. Rollbacks & Deployment Safety
+- **Build artifacts** are different from source code.
+- **Environments** (dev/staging/prod) must be separated.
+- **Secrets** must never be committed.
+- **Rollback** is part of “done”.
+
+### Deployment baseline (student projects)
+
+- Production build (`vite build`)
+- Hosted on Vercel/Netlify (or equivalent)
+- Environment variables configured
+- One CI check (lint/typecheck/tests) before “green deploy”
+
+### Reflection (Atelier)
+
+> 💭 _What failed only after deployment (CORS, env vars, base paths, caching)?_
+
+> 💭 _What “invisible work” did you underestimate (docs, secrets, CI)?_
+
+### Koan
+
+> _"If it only runs on your laptop, it does not yet run."_
 
 ---
 

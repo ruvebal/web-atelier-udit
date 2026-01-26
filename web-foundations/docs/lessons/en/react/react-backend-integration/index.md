@@ -191,16 +191,36 @@ const { data } = useQuery({
 
 ## 📚 Key Concepts Preview
 
-*Full content to be developed. Topics include:*
+### Separate “server state” from “UI state”
 
-1. Async/Await & Promises Review
-2. The Fetch API vs Axios
-3. React Query: The Essential Patterns
-4. Caching Strategies
-5. Mutations & Optimistic Updates
-6. Error Boundaries for Async
-7. GraphQL with Apollo or urql (Optional)
-8. Type Safety with API Responses
+- **Server state**: remote, async, cached, can be stale.
+- **UI state**: local, immediate, ephemeral (modals, filters, form input).
+
+### Practical baseline (student projects)
+
+- A single “API client” module (timeouts, error normalization)
+- React Query for caching + refetching + mutations
+- Clear loading/error/empty UI for every data view
+
+### Example: normalize errors at the boundary
+
+```ts
+export async function apiGet<T>(url: string): Promise<T> {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+  return (await res.json()) as T;
+}
+```
+
+### Reflection (Atelier)
+
+> 💭 _Where did you mix UI state with server state? What bug did it create?_
+
+> 💭 _What does “optimistic update” assume about reality? When is it unethical (misleading UI)?_
+
+### Koan
+
+> _"Cache is memory. Memory must be questioned."_
 
 ---
 

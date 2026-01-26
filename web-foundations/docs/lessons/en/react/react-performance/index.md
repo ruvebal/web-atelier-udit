@@ -208,16 +208,37 @@ const MemoizedChild = React.memo(({ data }) => (
 
 ## 📚 Key Concepts Preview
 
-*Full content to be developed. Topics include:*
+### Performance is a UX contract
 
-1. The Psychology of Performance
-2. Chrome DevTools Performance Tab
-3. React DevTools Profiler
-4. Code Splitting Strategies
-5. useMemo, useCallback, React.memo
-6. Virtualization for Lists
-7. Image Optimization
-8. Core Web Vitals Deep Dive
+- Users feel latency as “brokenness”.
+- Performance work must be **measured** (profile first, optimize second).
+- Prefer **reducing work** (less rendering, less JS, fewer requests) over micro-optimizations.
+
+### Three practical levers
+
+1) **Rendering**: avoid unnecessary re-renders (stable props, component boundaries).
+2) **Loading**: split bundles, defer non-critical code, optimize images.
+3) **Data**: cache server state, avoid refetch storms, handle race conditions.
+
+### Example: “don’t memoize blindly”
+
+```ts
+// ✅ Memoize ONLY when you measured re-render cost.
+const expensive = useMemo(() => compute(data), [data]);
+
+// ❌ This often makes code harder without measurable benefit:
+const onClick = useCallback(() => setOpen(true), []);
+```
+
+### Reflection (Atelier)
+
+> 💭 _Which metric did you improve? What evidence do you have (before/after)?_
+
+> 💭 _What “optimization” made your code worse? Why?_
+
+### Koan
+
+> _"The profiler is the mirror. Without it, you polish shadows."_
 
 ---
 

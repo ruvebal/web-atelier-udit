@@ -172,16 +172,33 @@ const filter = searchParams.get('filter') || 'all';
 
 ## 📚 Key Concepts Preview
 
-*Full content to be developed. Topics include:*
+### URL state is real state
 
-1. SPA vs MPA: The Mental Model
-2. React Router v6 Fundamentals
-3. Dynamic Routes & useParams
-4. Search Parameters as State
-5. Nested Routes & Layouts
-6. Protected Routes Pattern
-7. Navigation: Links vs Programmatic
-8. Scroll Restoration & Transitions
+- Filters, pagination, and selected entities often belong in the **URL**.
+- Treat the URL as a **shareable snapshot** of app state.
+
+### Practical patterns
+
+- **Nested layouts**: keep nav + shell stable while pages change
+- **Protected routes**: authorization gate, not just “redirect magic”
+- **Search params**: the simplest persistence for filters
+
+### Example: filters as URL state (conceptual)
+
+```ts
+// Example state you can encode in the URL:
+// /products?query=shoes&sort=price&page=2
+```
+
+### Reflection (Atelier)
+
+> 💭 _Which state should be shareable via link? Which state should not? Why?_
+
+> 💭 _What breaks when you refresh the page? What does that reveal about your architecture?_
+
+### Koan
+
+> _"If the URL lies, the user will not return."_
 
 ---
 

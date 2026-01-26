@@ -716,7 +716,7 @@ _Translation: A single state / avoids a thousand guesses / peace in the render_
 
 | Previous                                                                                    | Current        | Next                                                     |
 | ------------------------------------------------------------------------------------------- | -------------- | -------------------------------------------------------- |
-| [AI-Assisted Development Foundations](/methodology/en/ai-assisted-development-foundations/) | **State & UI** | [React Programming Fundamentals](../react-fundamentals/) |
+| [AI-Assisted Development Foundations](../ai-assisted-development-foundations/) | **State & UI** | [React Programming Fundamentals](../react-fundamentals/) |
 
 ---
 

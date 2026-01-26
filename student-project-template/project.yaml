@@ -43,8 +43,8 @@ learning_focus:
 milestones:
  week_1_setup: false
  week_2_brief: false
- week_4_metadata: false
- week_5_showcase: false
+ week_3_metadata: false
+ week_4_showcase: false
 
 # Optional: link to your project brief
 brief_url: project-brief.md

@@ -23,8 +23,6 @@ status: draft
 
 <!-- prettier-ignore-end -->
 
-# 🏛️ State Architecture: Scaling Beyond Components
-
 > *"When state grows beyond a component, architecture becomes your ally or your enemy."*
 
 ---
@@ -165,16 +163,38 @@ Is this state...
 
 ## 📚 Key Concepts Preview
 
-*Full content to be developed. Topics include:*
+### The State Locality Principle
 
-1. The State Locality Principle
-2. useReducer: Redux in Miniature
-3. Context API Deep Dive
-4. Zustand: The Modern Lightweight Store
-5. Selectors & Derived State
-6. Persistence Strategies
-7. State & TypeScript
-8. Common Antipatterns
+Keep state as **close as possible** to where it’s used. Move it “up” only when:
+
+- multiple siblings need it
+- you must persist/share it
+- URL needs to represent it
+
+### Three tools, three jobs
+
+- **`useReducer`**: complex local transitions (FSM-like)
+- **Context**: dependency injection for shared state
+- **Store (Zustand/Redux)**: shared state with selectors + devtools
+
+### Example: model state transitions explicitly
+
+```ts
+type CartAction =
+  | { type: 'ADD'; id: string }
+  | { type: 'REMOVE'; id: string }
+  | { type: 'CLEAR' };
+```
+
+### Reflection (Atelier)
+
+> 💭 _Which state did you move too early? What complexity did it add?_
+
+> 💭 _What invariant should your global state always respect?_
+
+### Koan
+
+> _"If your state has no home, it will haunt every component."_
 
 ---
 

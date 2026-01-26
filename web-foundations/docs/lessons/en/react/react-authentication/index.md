@@ -191,16 +191,43 @@ window.location.href = '/api/auth/github/redirect';
 
 ## 📚 Key Concepts Preview
 
-*Full content to be developed. Topics include:*
+### Non-negotiables (security + UX)
 
-1. Authentication vs Authorization
-2. JWT Deep Dive: Structure, Claims, Signature
-3. Session Cookies vs Tokens
-4. OAuth 2.0 & OpenID Connect
-5. CSRF, XSS, and Token Security
-6. Refresh Tokens & Silent Auth
-7. Role-Based Access Control (RBAC)
-8. Auth State in React Context
+- **Never store access tokens in `localStorage`** for serious apps (XSS risk). Prefer **httpOnly cookies** when possible.
+- **Always implement loading + error states** for auth actions (login/register/refresh).
+- **Treat auth as state**: `anonymous | authenticating | authenticated | error`.
+
+### Authentication vs Authorization
+
+- **Authentication**: who are you?
+- **Authorization**: what can you do?
+- In React: route guards are **authorization**; login is **authentication**.
+
+### Example: auth state as a discriminated union
+
+```ts
+type AuthState =
+  | { status: 'anonymous' }
+  | { status: 'authenticating' }
+  | { status: 'authenticated'; user: { id: string; role?: string } }
+  | { status: 'error'; message: string };
+```
+
+### Practical checklist (student baseline)
+
+- **CSRF/XSS awareness**: sanitize/escape, never render untrusted HTML, protect cookies.
+- **Session persistence**: refresh on load, handle “expired session” gracefully.
+- **RBAC**: at least 2 roles (e.g., user/admin) or 2 permission levels.
+
+### Reflection (Atelier)
+
+> 💭 _Which threat model did you assume? What is the most realistic attack on your project?_
+
+> 💭 _Where did AI help—and where would following AI blindly create a security bug?_
+
+### Koan
+
+> _"If convenience defeats security, you built a demo—not a system."_
 
 ---
 

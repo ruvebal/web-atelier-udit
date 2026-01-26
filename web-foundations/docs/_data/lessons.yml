@@ -834,6 +834,25 @@
   phase: 1
   sprint: 3
 
+- slug: ai-assisted-development-foundations
+  title:
+   es: 'Teoría y arquitectura de IA para React: contratos, descomposición y verificación'
+   en: 'AI Theory & Architecture for React: Contracts, Decomposition, Verification'
+  path:
+   es: /lessons/es/react/ai-assisted-development-foundations/
+   en: /lessons/en/react/ai-assisted-development-foundations/
+  file:
+   es: lessons/es/react/ai-assisted-development-foundations/index.md
+   en: lessons/en/react/ai-assisted-development-foundations/index.md
+  status:
+   es: draft
+   en: draft
+  category: react
+  tags: [react, ai, architecture, contracts, verification, prompting, security]
+  week: 4
+  phase: 1
+  sprint: 4
+
 - slug: react-fundamentals
   title:
    es: 'Fundamentos de React: bloques de construcción de UI moderna'
@@ -1004,3 +1023,22 @@
   week: 12
   phase: 4
   sprint: 13
+
+- slug: final-presentation
+  title:
+   es: 'Presentación final: Demo Day y monografía'
+   en: 'Final Presentation: Demo Day & Monograph'
+  path:
+   es: /lessons/es/react/final-presentation/
+   en: /lessons/en/react/final-presentation/
+  file:
+   es: lessons/es/react/final-presentation/index.md
+   en: lessons/en/react/final-presentation/index.md
+  status:
+   es: draft
+   en: draft
+  category: react
+  tags: [react, presentation, demo, portfolio, writing, ethics]
+  week: 13
+  phase: 4
+  sprint: 14
