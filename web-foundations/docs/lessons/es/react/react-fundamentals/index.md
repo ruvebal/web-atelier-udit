@@ -1,16 +1,16 @@
 ---
 layout: lesson
-title: 'Fundamentos de React: bloques de construcción de UI moderna'
-slug: react-fundamentals
+title: 'Fundamentos de React: Tu primera aplicación interactiva'
+slug: react-fundamentals-simplified
 category: react
-tags: [react, components, jsx, props, events]
+tags: [react, componentes, estado, principiante, todo]
 week: 4
 phase: 2
 sprint: 5
 date: 2025-01-15
 author: 'Rubén Vega Balbás, PhD'
 lang: es
-permalink: /lessons/es/react/react-fundamentals/
+permalink: /lessons/es/react/react-fundamentals-simplified/
 status: draft
 ---
 
@@ -23,493 +23,631 @@ status: draft
 
 <!-- prettier-ignore-end -->
 
-
-> *"Un componente es una promesa: dadas estas props, renderizaré esta UI."*
-
----
-
-## 🎯 Objetivo del sprint
-
-**Al finalizar este sprint**: construir la librería base de componentes para tu proyecto del semestre: piezas reutilizables, tipadas y composables que funcionarán como átomos de tu aplicación.
+> _"Un componente es una promesa: dados estos props, renderizaré esta UI."_
 
 ---
 
-## 📍 Posición en el viaje
+## 🎯 Objetivo de la sesión (2 horas)
 
-| Sprint | Enfoque | Tu app crece |
-|--------|---------|--------------|
-| **→ 5. Fundamentos** | Componentes, JSX, Props | Esqueleto de librería de componentes |
-| 6. Hooks | Estado y efectos | Componentes interactivos |
-| 7. Arquitectura | Estado global | Features conectadas |
-| 8. Routing | Navegación | Estructura multipágina |
+**Al final de esta sesión**: Construir una aplicación de lista de tareas que demuestre:
 
----
+1. **Componentes**: Dividir la UI en piezas reutilizables
+2. **Estado**: Hacer que tu aplicación recuerde y actualice datos
+3. **Keys**: Ayudar a React a rastrear elementos de lista eficientemente
 
-## 🧭 Objetivos de aprendizaje
-
-Al final de esta lección:
-
-- Crearás componentes funcionales con TypeScript
-- Entenderás JSX como azúcar sintáctico de `React.createElement`
-- Pasarás y tiparás props correctamente
-- Gestionarás eventos (click, change, submit)
-- Renderizarás listas con keys correctas
-- Aplicarás patrones de renderizado condicional
+**Lo que construirás**: Una aplicación de tareas donde puedes añadir, eliminar y marcar tareas como completadas.
 
 ---
 
-## 🏗️ Qué construiremos este sprint
+## 🧭 Requisitos previos
 
-### La librería de componentes
+- Conocimientos básicos de HTML/CSS/JavaScript
+- Node.js instalado (para Vite)
+- Un editor de código (VS Code recomendado)
+- Tailwind CSS (lo configuraremos juntos)
+
+---
+
+## 🚀 Configuración (10 minutos)
+
+### Paso 1: Crear proyecto React con Vite
+
+```bash
+# Crear nuevo proyecto
+npm create vite@latest my-todo-app -- --template react
+
+# Navegar al proyecto
+cd my-todo-app
+
+# Instalar dependencias
+npm install
+
+# Instalar Tailwind CSS v4
+npm install tailwindcss@next @tailwindcss/vite@next
+```
+
+### Paso 2: Configurar Vite para Tailwind v4
+
+Edita `vite.config.js`:
+
+```js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+```
+
+### Paso 3: Añadir Tailwind al CSS
+
+Edita `src/index.css` (reemplaza todo el contenido):
+
+```css
+@import "tailwindcss";
+```
+
+### Paso 4: Crear directorio de componentes
+
+```bash
+mkdir src/components
+```
+
+### Paso 5: Iniciar servidor de desarrollo
+
+```bash
+npm run dev
+```
+
+Visita `http://localhost:5173` — deberías ver la pantalla de bienvenida de Vite.
+
+---
+
+## 📦 La aplicación de tareas completa
+
+### Estructura de archivos final
 
 ```
 src/
 ├── components/
-│   ├── ui/
-│   │   ├── Button.tsx       ← Variantes, tamaños, estados
-│   │   ├── Input.tsx        ← Text, email, password
-│   │   ├── Card.tsx         ← Contenedor por slots
-│   │   ├── Modal.tsx        ← Patrón overlay
-│   │   └── Badge.tsx        ← Indicadores de estado
-│   └── layout/
-│       ├── Container.tsx    ← Max-width wrapper
-│       ├── Stack.tsx        ← Espaciado vertical
-│       └── Grid.tsx         ← Columnas responsive
+│   ├── TaskList.jsx     (muestra todas las tareas)
+│   ├── TaskItem.jsx     (componente de tarea individual)
+│   └── AddTaskInput.jsx (input para añadir nuevas tareas)
+├── App.jsx          (componente principal con estado)
+└── main.jsx         (punto de entrada)
 ```
 
-Estos componentes se **reutilizarán durante todo tu proyecto del semestre**.
+### Crear directorio de componentes
 
----
-
-## 🔧 Puntos de integración
-
-| Fuente de datos | Cómo conecta |
-|-------------|-----------------|
-| **Hardcoded** | Empieza con props estáticas para prototipado rápido |
-| **Laravel API** | Más adelante, los componentes recibirán datos desde llamadas a la API |
-| **Hygraph CMS** | Componentes “content-driven” (cards de blog, etc.) |
-
----
-
-## 🎓 Metodología: práctica atelier
-
-### Ritmo del sprint
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ DÍA 1: Aprender el patrón                                │
-│   • Mini-lecture: modelo de componentes                  │
-│   • Live coding: construir Button juntas                 │
-│   • Práctica IA: usar Copilot para variantes             │
-├─────────────────────────────────────────────────────────┤
-│ DÍA 2: Aplicar a tu proyecto                             │
-│   • Trabajo en equipo: 3+ componentes para TU app        │
-│   • Code review: pareja con otro equipo                  │
-│   • Commit: subir librería a GitHub                      │
-├─────────────────────────────────────────────────────────┤
-│ DÍA 3: Integrar y reflexionar                            │
-│   • Componer: combinar componentes en layout de página   │
-│   • Documentar: JSDoc, Storybook opcional                │
-│   • Reflexión: ¿qué patrones emergen? ¿qué fue difícil?  │
-└─────────────────────────────────────────────────────────┘
-```
-
-### Protocolo de desarrollo asistido por IA
-
-| Tarea | Rol de la IA | Tu rol |
-|------|---------|-----------|
-| Generar esqueleto de componente | Copilot sugiere | Tú validas tipos |
-| Añadir attrs de accesibilidad | Preguntar a Claude/GPT | Tú verificas con axe |
-| Crear estilos de variantes | IA propone opciones | Tú eliges con intención |
-| Documentar props | IA redacta JSDoc | Tú garantizas precisión |
-
-#### Prompts concretos para este sprint
-
-```markdown
-✅ BUEN PROMPT:
-"Crea un componente Button en TypeScript con variantes (primary, secondary, danger),
-tamaños (sm, md, lg) y estado disabled. Incluye atributos ARIA correctos y
-maneja estado loading con un spinner. Usa Tailwind CSS para estilos."
-
-❌ MAL PROMPT:
-"Hazme un botón"
-
-✅ PROMPT DE VALIDACIÓN:
-"Revisa este componente Button para:
-1. Problemas de accesibilidad (teclado, ARIA, focus states)
-2. Seguridad de tipos en TypeScript (¿todas las props están bien tipadas?)
-3. Rendimiento (¿re-renders innecesarios?)
-4. Casos límite (¿qué pasa si onClick es undefined?)"
-
-🔍 CUÁNDO NO USAR IA:
-- Entender POR QUÉ un componente re-renderiza (usa React DevTools)
-- Decidir el API de un componente (es una decisión arquitectónica TUYA)
-- Elegir controlado vs no controlado (requiere conocimiento de dominio)
+```bash
+mkdir src/components
 ```
 
 ---
 
-## 💡 Ejemplos de código listos para producción
+## 🧱 Construyendo bloque por bloque
 
-### Ejemplo 1: Button (buenas prácticas)
+### 1. Entendiendo los componentes (Concepto)
 
-```typescript
-// components/ui/Button.tsx
-import { ButtonHTMLAttributes, ReactNode } from 'react';
-import { cn } from '@/lib/utils'; // util de classnames
+**¿Qué es un componente?**
 
-type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
-type ButtonSize = 'sm' | 'md' | 'lg';
+Un componente es una **función que devuelve JSX** (sintaxis similar a HTML). Piensa en él como una etiqueta HTML personalizada.
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  isLoading?: boolean;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
-  children: ReactNode;
+```jsx
+// Esto es un componente
+function Greeting() {
+  return <h1>¡Hola, Mundo!</h1>;
 }
 
-const variantStyles: Record<ButtonVariant, string> = {
-  primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-  secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
-  danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
-  ghost: 'bg-transparent hover:bg-gray-100 focus:ring-gray-500',
-};
+// Lo usas así:
+<Greeting />
+```
 
-const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'px-3 py-1.5 text-sm',
-  md: 'px-4 py-2 text-base',
-  lg: 'px-6 py-3 text-lg',
-};
+**¿Por qué componentes?**
 
-export function Button({
-  variant = 'primary',
-  size = 'md',
-  isLoading = false,
-  leftIcon,
-  rightIcon,
-  disabled,
-  className,
-  children,
-  ...props
-}: ButtonProps) {
+- **Reutilización**: Escribe una vez, usa muchas veces
+- **Organización**: Cada componente tiene un trabajo
+- **Mantenibilidad**: Fácil de encontrar y corregir errores
+
+---
+
+### 2. El componente App principal
+
+**Archivo: `src/App.jsx`**
+
+Este es el "cerebro" de nuestra aplicación. Contiene el **estado** (los datos) y los pasa a los componentes hijos.
+
+```jsx
+import { useState } from 'react';
+import TaskList from './components/TaskList';
+import AddTaskInput from './components/AddTaskInput';
+
+function App() {
+  // ESTADO: La lista de tareas (esta es la memoria de nuestra app)
+  const [tasks, setTasks] = useState([
+    { id: 1, text: 'Aprender fundamentos de React', completed: false },
+    { id: 2, text: 'Construir una app de tareas', completed: false },
+  ]);
+
+  // FUNCIÓN: Añadir una nueva tarea
+  const addTask = (text) => {
+    const newTask = {
+      id: Date.now(), // ID único simple
+      text: text,
+      completed: false,
+    };
+    setTasks([...tasks, newTask]); // Añadir a las tareas existentes
+  };
+
+  // FUNCIÓN: Eliminar una tarea
+  const removeTask = (id) => {
+    setTasks(tasks.filter(task => task.id !== id));
+  };
+
+  // FUNCIÓN: Alternar completado de tarea
+  const toggleTask = (id) => {
+    setTasks(tasks.map(task =>
+      task.id === id
+        ? { ...task, completed: !task.completed }
+        : task
+    ));
+  };
+
   return (
-    <button
-      className={cn(
-        // Estilos base
-        'inline-flex items-center justify-center gap-2',
-        'rounded-lg font-medium transition-colors',
-        'focus:outline-none focus:ring-2 focus:ring-offset-2',
-        'disabled:opacity-50 disabled:cursor-not-allowed',
-        // Variante y tamaño
-        variantStyles[variant],
-        sizeStyles[size],
-        className
-      )}
-      disabled={disabled || isLoading}
-      aria-busy={isLoading}
-      {...props}
-    >
-      {isLoading ? (
-        <>
-          <Spinner className="h-4 w-4" />
-          <span>Cargando...</span>
-        </>
-      ) : (
-        <>
-          {leftIcon}
-          {children}
-          {rightIcon}
-        </>
-      )}
-    </button>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-center text-indigo-900 mb-8">
+          📝 Mi lista de tareas
+        </h1>
+
+        <AddTaskInput onAdd={addTask} />
+
+        <TaskList
+          tasks={tasks}
+          onRemove={removeTask}
+          onToggle={toggleTask}
+        />
+
+        <div className="mt-6 text-center text-sm text-gray-600">
+          Total: {tasks.length} tareas | Completadas: {tasks.filter(t => t.completed).length}
+        </div>
+      </div>
+    </div>
   );
 }
 
-// Componente spinner
-function Spinner({ className }: { className?: string }) {
-  return (
-    <svg
-      className={cn('animate-spin', className)}
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <circle
-        className="opacity-25"
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        strokeWidth="4"
-      />
-      <path
-        className="opacity-75"
-        fill="currentColor"
-        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-      />
-    </svg>
-  );
-}
+export default App;
 ```
 
-**Uso:**
+**🔑 Conceptos clave aquí:**
 
-```typescript
-// En tu página/componente
-import { Button } from '@/components/ui/Button';
-import { PlusIcon } from 'lucide-react';
+1. **`useState`**: Crea una pieza de estado (datos que pueden cambiar)
+   - `tasks` = valor actual
+   - `setTasks` = función para actualizarlo
+2. **Las actualizaciones de estado son inmutables**: Creamos nuevos arrays, no modificamos los existentes
+3. **Props hacia abajo, eventos hacia arriba**: Pasamos datos hacia abajo y funciones hacia abajo (para ser llamadas por los hijos)
 
-function MyPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+**📚 Métodos de arrays de JavaScript utilizados:**
 
-  const handleSubmit = async () => {
-    setIsSubmitting(true);
-    try {
-      await api.createItem(data);
-    } finally {
-      setIsSubmitting(false);
+- **Operador spread (`...`)**: Crea un nuevo array/objeto copiando valores existentes
+  - `[...tasks, newTask]` → copia todas las tareas, luego añade una nueva
+  - `{ ...task, completed: !task.completed }` → copia el objeto tarea, actualiza una propiedad
+  - [MDN: Sintaxis spread](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+- **`.filter()`**: Crea un nuevo array con elementos que pasan una prueba
+  - `tasks.filter(task => task.id !== id)` → mantiene solo las tareas que no coinciden con el ID
+  - `tasks.filter(t => t.completed)` → mantiene solo las tareas completadas
+  - [MDN: Array.filter()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+
+- **`.map()`**: Crea un nuevo array transformando cada elemento
+  - `tasks.map(task => ...)` → crea nuevo array, puede modificar cada tarea
+  - Devuelve un array de la misma longitud, pero los elementos pueden cambiar
+  - [MDN: Array.map()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+---
+
+### 3. El componente lista de tareas (Empezar simple: solo lectura)
+
+**Archivo: `src/components/TaskList.jsx`**
+
+Empecemos con el componente **más simple**: mostrar una lista. Sin edición todavía, solo mostrando tareas.
+
+```jsx
+import TaskItem from './TaskItem';
+
+function TaskList({ tasks, onRemove, onToggle }) {
+  // Si no hay tareas, mostrar un mensaje amigable
+  if (tasks.length === 0) {
+    return (
+      <div className="text-center py-12 text-gray-500">
+        <p className="text-lg">¡Aún no hay tareas. Añade una arriba! 👆</p>
+      </div>
+    );
+  }
+
+  // Renderizar cada tarea usando .map()
+  return (
+    <div className="space-y-2">
+      {tasks.map(task => (
+        <TaskItem
+          key={task.id}
+          task={task}
+          onRemove={onRemove}
+          onToggle={onToggle}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default TaskList;
+```
+
+**🔑 Conceptos clave aquí:**
+
+1. **Renderizado condicional**: Mostrar diferente UI según el estado
+   - `if (tasks.length === 0)` comprueba si el array está vacío
+   - Devuelve diferente JSX según la condición
+
+2. **Listas con `.map()`**: Transforma array en elementos React
+   - `tasks.map(task => ...)` transforma cada tarea en un componente `<TaskItem />`
+   - Devuelve un array de elementos React que React renderiza
+   - [MDN: Array.map()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+3. **Keys**: Cada `TaskItem` necesita un prop `key` único
+   - `key={task.id}` usa el ID único de la tarea
+   - Ayuda a React a rastrear qué elementos cambiaron (más sobre esto abajo)
+
+---
+
+### 4. El componente input de añadir tarea (Simplificado: sin formulario)
+
+**Archivo: `src/components/AddTaskInput.jsx`**
+
+Este componente maneja la entrada del usuario. Usaremos un input + botón simple (sin envoltorio `<form>`).
+
+```jsx
+import { useState } from 'react';
+
+function AddTaskInput({ onAdd }) {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleAdd = () => {
+    if (inputValue.trim()) {
+      onAdd(inputValue); // Llamar función del padre
+      setInputValue(''); // Limpiar input
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    // Permitir tecla Enter para añadir tarea (como haría un formulario)
+    if (e.key === 'Enter') {
+      handleAdd();
     }
   };
 
   return (
-    <div className="space-y-4">
-      <Button variant="primary" onClick={handleSubmit} isLoading={isSubmitting}>
-        Crear ítem
-      </Button>
-      
-      <Button variant="secondary" leftIcon={<PlusIcon />}>
-        Añadir nuevo
-      </Button>
-      
-      <Button variant="danger" size="sm" disabled>
-        Borrar
-      </Button>
+    <div className="mb-6 flex gap-2">
+      {/* onChange: Se dispara cada vez que el usuario escribe
+          e = objeto evento (contiene info sobre lo que pasó)
+          e.target = el elemento DOM que disparó el evento (este input)
+          e.target.value = el texto actual escrito en el input */}
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder="¿Qué necesitas hacer?"
+        className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      />
+      <button
+        onClick={handleAdd}
+        className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+      >
+        Añadir
+      </button>
     </div>
   );
+}
+
+export default AddTaskInput;
+```
+
+**🔑 Conceptos clave aquí:**
+
+1. **Input controlado**: React controla el valor del input (no el DOM)
+   - El `value` del input viene del estado (`inputValue`)
+   - Cada pulsación de tecla actualiza el estado vía `onChange`
+   - React re-renderiza con el nuevo valor
+
+2. **Manejadores de eventos**: `onChange`, `onClick`, y `onKeyDown`
+   - **`onChange`**: Se dispara cada vez que el usuario escribe
+     - `e` = el objeto evento (contiene información sobre lo que pasó)
+     - `e.target` = el elemento DOM que disparó el evento (el campo input)
+     - `e.target.value` = el texto actual en ese campo input
+     - `(e) => setInputValue(e.target.value)` lee el texto actual del input y actualiza el estado
+     - Actualiza el estado inmediatamente, creando una conexión "en vivo"
+     - [MDN: Event.target](https://developer.mozilla.org/es/docs/Web/API/Event/target)
+     - [MDN: Evento onChange](https://developer.mozilla.org/es/docs/Web/API/HTMLElement/change_event)
+   - **`onClick`**: Se dispara cuando se hace clic en el botón
+     - Más simple que `onSubmit` (no necesita `preventDefault()`)
+     - [MDN: Evento click](https://developer.mozilla.org/es/docs/Web/API/Element/click_event)
+   - **`onKeyDown`**: Se dispara cuando se presiona una tecla
+     - `e.key === 'Enter'` comprueba si se presionó Enter
+     - Permite interacción solo con teclado (¡accesibilidad!)
+     - [MDN: Evento keydown](https://developer.mozilla.org/es/docs/Web/API/Element/keydown_event)
+
+3. **Props**: `onAdd` es una función pasada desde el padre
+
+---
+
+### 5. El componente elemento de tarea (Simplificado: sin modo edición)
+
+**Archivo: `src/components/TaskItem.jsx`**
+
+Este componente representa una tarea individual. Lo mantenemos simple: solo mostrar, alternar y eliminar.
+
+```jsx
+function TaskItem({ task, onRemove, onToggle }) {
+  return (
+    <div className="bg-white rounded-lg shadow-sm p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
+      {/* Checkbox para alternar completado */}
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => onToggle(task.id)}
+        className="w-5 h-5 text-indigo-600 rounded focus:ring-2 focus:ring-indigo-500"
+      />
+
+      {/* Texto de tarea (tachado si está completada) */}
+      <span
+        className={`flex-1 ${task.completed ? 'line-through text-gray-400' : 'text-gray-800'}`}
+      >
+        {task.text}
+      </span>
+
+      {/* Botón eliminar */}
+      <button
+        onClick={() => onRemove(task.id)}
+        className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+      >
+        Eliminar
+      </button>
+    </div>
+  );
+}
+
+export default TaskItem;
+```
+
+**🔑 Conceptos clave aquí:**
+
+1. **Componente simple**: No necesita estado local (más simple para principiantes)
+2. **Estilos condicionales**: Usa template literals para aplicar diferentes clases
+3. **Propagación de eventos**: Los botones llaman funciones del padre vía props (`onToggle`, `onRemove`)
+
+---
+
+## 🔑 Profundización: Por qué importan las keys
+
+### El problema sin keys
+
+Cuando React renderiza una lista, necesita saber qué elementos cambiaron. Sin keys, React usa el índice del array, lo que causa errores:
+
+```jsx
+// ❌ MAL: Usar índice como key
+{tasks.map((task, index) => (
+  <TaskItem key={index} task={task} />
+))}
+```
+
+**¿Qué sale mal?**
+
+1. Eliminar elemento 2 → React piensa que el elemento 3 es ahora el elemento 2
+2. Reordenar elementos → React se confunde sobre qué componente es cuál
+3. El estado del input se mezcla entre elementos
+
+### La solución: Keys únicas
+
+```jsx
+// ✅ BIEN: Usar ID único como key
+{tasks.map(task => (
+  <TaskItem key={task.id} task={task} />
+))}
+```
+
+**Por qué funciona:**
+
+- Cada tarea tiene un `id` estable y único
+- React puede rastrear qué elemento es cuál, incluso si cambia el orden
+- El estado del componente (como `isEditing`) permanece con el elemento correcto
+
+**Regla general:** Usa un identificador único de tus datos, no el índice del array.
+
+---
+
+## 🧠 Entendiendo la gestión de estado
+
+### ¿Qué es el estado?
+
+El estado son **datos que cambian con el tiempo**. En nuestra app:
+
+- Array `tasks` (en `App.jsx`) — compartido por múltiples componentes
+- `inputValue` (en `AddTaskForm.jsx`) — local al formulario
+- `isEditing` (en `TaskItem.jsx`) — local a cada tarea
+
+### ¿Dónde debe vivir el estado?
+
+**Regla:** Pon el estado en el **ancestro común más bajo** de los componentes que lo necesitan.
+
+```
+App (estado tasks aquí - tanto TaskList como stats lo necesitan)
+├── AddTaskForm (inputValue aquí - solo el formulario lo necesita)
+└── TaskList
+    └── TaskItem (isEditing aquí - solo este elemento lo necesita)
+```
+
+### Cómo actualizar el estado
+
+**Nunca mutes el estado directamente:**
+
+```jsx
+// ❌ MAL
+tasks.push(newTask);
+setTasks(tasks);
+
+// ✅ BIEN
+setTasks([...tasks, newTask]);
+```
+
+**¿Por qué?** React compara el estado antiguo y nuevo por referencia. Si mutas, React piensa que nada cambió.
+
+**El operador spread (`...`) crea un nuevo array:**
+- `[...tasks, newTask]` copia todas las tareas existentes en un nuevo array, luego añade la nueva tarea
+- Esto crea una nueva referencia, así React sabe que el estado cambió
+- [MDN: Sintaxis spread](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+---
+
+## 🎨 Entendiendo la componentización
+
+### ¿Por qué dividir en componentes?
+
+Nuestra app tiene 4 componentes. Podríamos escribirlo todo en un archivo, pero:
+
+1. **Responsabilidad única**: Cada componente hace una cosa
+   - `App` → gestiona el estado
+   - `AddTaskForm` → maneja la entrada
+   - `TaskList` → muestra la lista
+   - `TaskItem` → muestra una tarea
+
+2. **Reutilización**: `TaskItem` se usa una vez por tarea
+
+3. **Testabilidad**: Fácil de probar cada pieza independientemente
+
+4. **Mantenibilidad**: ¿Error en la edición? Mira `TaskItem`.
+
+### Props: La API del componente
+
+Los props son cómo los componentes se comunican entre sí:
+
+```jsx
+// El padre pasa datos hacia abajo
+<TaskItem
+  task={task}           // datos
+  onRemove={removeTask} // función
+/>
+
+// El hijo recibe vía props
+function TaskItem({ task, onRemove }) {
+  // Usa task.text, llama onRemove(task.id)
 }
 ```
 
-### Ejemplo 2: Card con patrón de slots
+**Los props son de solo lectura.** El hijo no puede modificarlos.
 
-```typescript
-// components/ui/Card.tsx
-import { HTMLAttributes, ReactNode } from 'react';
-import { cn } from '@/lib/utils';
+---
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
-}
+## 💭 Preguntas de reflexión
 
-function Card({ className, children, ...props }: CardProps) {
-  return (
-    <div
-      className={cn(
-        'rounded-lg border bg-white shadow-sm',
-        'dark:border-gray-800 dark:bg-gray-950',
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
+> 💭 **Pregunta 1: Ubicación del estado**
+>
+> ¿Por qué está el estado `tasks` en `App.jsx` y no en `TaskList.jsx`?
+>
+> **Pista:** ¿Quién más necesita saber sobre las tareas?
 
-function CardHeader({ className, children, ...props }: CardProps) {
-  return (
-    <div
-      className={cn('flex flex-col space-y-1.5 p-6', className)}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
+> 💭 **Pregunta 2: Keys**
+>
+> ¿Qué pasaría si usaras `Math.random()` como key en lugar de `task.id`?
+>
+> **Pista:** Las keys deben ser estables entre renderizados.
 
-function CardTitle({ className, children, ...props }: CardProps) {
-  return (
-    <h3
-      className={cn('text-2xl font-semibold leading-none tracking-tight', className)}
-      {...props}
-    >
-      {children}
-    </h3>
-  );
-}
+> 💭 **Pregunta 3: Inmutabilidad**
+>
+> ¿Por qué escribimos `setTasks([...tasks, newTask])` en lugar de `tasks.push(newTask)`?
+>
+> **Pista:** React necesita detectar cambios.
 
-function CardDescription({ className, children, ...props }: CardProps) {
-  return (
-    <p className={cn('text-sm text-gray-500 dark:text-gray-400', className)} {...props}>
-      {children}
-    </p>
-  );
-}
+---
 
-function CardContent({ className, children, ...props }: CardProps) {
-  return (
-    <div className={cn('p-6 pt-0', className)} {...props}>
-      {children}
-    </div>
-  );
-}
+## 🧪 Ejercicios (Opcional)
 
-function CardFooter({ className, children, ...props }: CardProps) {
-  return (
-    <div className={cn('flex items-center p-6 pt-0', className)} {...props}>
-      {children}
-    </div>
-  );
-}
+### Ejercicio 1: Añadir botón "Limpiar completadas"
 
-export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter };
+Añade un botón que elimine todas las tareas completadas.
+
+**Pista:**
+
+```jsx
+const clearCompleted = () => {
+  setTasks(tasks.filter(task => !task.completed));
+};
 ```
 
-**Uso:**
+### Ejercicio 2: Añadir prioridad de tarea
 
-```typescript
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+Añade un campo `priority` (baja, media, alta) y colorea las tareas según la prioridad.
 
-function ProductCard({ product }: { product: Product }) {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{product.name}</CardTitle>
-        <CardDescription>{product.category}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <img src={product.image} alt={product.name} className="w-full rounded" />
-        <p className="mt-4 text-gray-700">{product.description}</p>
-        <p className="mt-2 text-2xl font-bold">${product.price}</p>
-      </CardContent>
-      <CardFooter className="gap-2">
-        <Button variant="primary" className="flex-1">
-          Añadir al carrito
-        </Button>
-        <Button variant="ghost">
-          Detalles
-        </Button>
-      </CardFooter>
-    </Card>
-  );
-}
-```
+### Ejercicio 3: Persistir en localStorage
+
+Guarda las tareas en `localStorage` para que sobrevivan al refresco de página.
+
+**Pista:** Usa `useEffect` para sincronizar el estado con localStorage.
 
 ---
 
-## 🎯 Preguntas críticas: metodología atelier
+## 📚 Conclusiones clave
 
-### Sobre diseño de componentes
+### Componentes
 
-> 💭 **Pregunta 1: el dilema de la abstracción**
-> 
-> Has construido un componente `Button` con 5 variantes, 3 tamaños y varios estados.
-> Una compañera te dice: “Esto es over-engineered. Solo usamos 2 variantes.”
-> 
-> **Reflexiona:**
-> - ¿Cuándo la abstracción se convierte en optimización prematura?
-> - ¿Cómo equilibras “diseñar para el futuro” vs “YAGNI” (You Aren't Gonna Need It)?
-> - ¿Qué evidencia te convencería de simplificar o ampliar el API del componente?
+- Funciones que devuelven JSX
+- Dividen la UI en piezas reutilizables
+- Reciben datos vía props
 
-> 💭 **Pregunta 2: composición vs configuración**
-> 
-> Compara estos dos enfoques:
-> 
-> ```typescript
-> // Enfoque A: configuración
-> <Card variant="product" showImage showPrice showActions />
-> 
-> // Enfoque B: composición
-> <Card>
->   <CardImage src={...} />
->   <CardPrice value={...} />
->   <CardActions>{...}</CardActions>
-> </Card>
-> ```
-> 
-> **Reflexiona:**
-> - ¿Cuál es más flexible? ¿Cuál es más fácil de usar?
-> - ¿Cuándo elegirías uno u otro?
-> - ¿Cómo se relaciona con el principio del “pit of success”?
+### Estado
 
-> 💭 **Pregunta 3: accesibilidad por defecto**
-> 
-> Tu asistente de IA generó un modal precioso, pero le falta:
-> - Focus trap
-> - Cerrar con ESC
-> - Atributos ARIA
-> - Anuncios para lectores de pantalla
-> 
-> **Reflexiona:**
-> - ¿Por qué la IA no incluye esto por defecto?
-> - ¿Qué revela esto sobre los datos de entrenamiento?
-> - ¿Cómo construyes una “mentalidad checklist” para accesibilidad?
-> - ¿A quién excluimos cuando omitimos accesibilidad?
+- Datos que cambian con el tiempo
+- Usa el hook `useState`
+- Nunca mutes directamente — crea nuevos arrays/objetos
+- Usa métodos de arrays: `.map()`, `.filter()`, y operador spread `...`
+  - [MDN: Array.map()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+  - [MDN: Array.filter()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+  - [MDN: Sintaxis spread](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
-### Sobre desarrollo asistido por IA
+### Keys
 
-> 💭 **Pregunta 4: el límite de confianza**
-> 
-> Pides a la IA que genere validación de formularios. Produce 200 líneas.
-> No entiendes del todo las líneas 87-134 (regex y casos límite).
-> 
-> **Reflexiona:**
-> - ¿Lo entregas igualmente? ¿Por qué sí/no?
-> - ¿Dónde está TU frontera de responsabilidad al usar IA?
-> - ¿Cómo validas código que no escribiste?
-> - ¿Qué pasa si ese código falla en producción a las 3 AM?
+- Deben ser únicas y estables
+- Ayudan a React a rastrear elementos de lista
+- Usa IDs de datos, no índice del array
 
-> 💭 **Pregunta 5: reconocer patrones vs entender**
-> 
-> Tras usar IA para generar 10 componentes, notas que puedes predecir lo que sugerirá.
-> 
-> **Reflexiona:**
-> - ¿Significa que aprendiste React o solo “el patrón de la IA”?
-> - ¿Cómo distingues entre “saber React” y “saber lo que genera la IA”?
-> - ¿Qué ocurriría si mañana desaparecieran las herramientas de IA?
+### Flujo de datos
 
-### Sobre colaboración en atelier
-
-> 💭 **Pregunta 6: code review como aprendizaje**
-> 
-> En revisión por pares, el componente `Input` de una compañera maneja validación distinto al tuyo.
-> Ninguno está “mal”, pero son incompatibles.
-> 
-> **Reflexiona:**
-> - ¿Cómo decides qué patrón adopta el equipo?
-> - ¿Qué papel juegan consistencia, DX y accesibilidad en esa decisión?
-> - ¿Cómo conviertes el desacuerdo en aprendizaje colectivo?
-
-> 💭 **Pregunta 7: la paradoja del portfolio**
-> 
-> Tu portfolio incluye componentes generados con IA.
-> Una reclutadora te pregunta: “¿Qué parte hiciste tú?”
-> 
-> **Reflexiona:**
-> - ¿Cómo documentas el uso de IA de forma ética?
-> - ¿Qué significa “autoría” en 2026?
-> - ¿Qué evidencias de comprensión puedes aportar (tests, diagramas, explicaciones)?
+- Los props fluyen hacia abajo (padre → hijo)
+- Los eventos fluyen hacia arriba (hijo llama función del padre)
+- El estado vive en el ancestro común
 
 ---
 
-## 📝 Entregables del sprint
+## 🔗 Próximos pasos
 
-- [ ] **3+ componentes UI** (Button, Card, Input, Modal, Badge…)
-- [ ] **1 página compuesta** usando varios componentes
-- [ ] **Variantes y estados** al menos en `Button` (disabled, loading)
-- [ ] **Audit de accesibilidad** con axe DevTools
-- [ ] **Peer review** con feedback escrito
-- [ ] **Reflexión**: responde al menos 3 preguntas críticas
+Después de dominar esto, estás listo para:
+
+1. **Profundización en Hooks** (`useEffect`, `useRef`, hooks personalizados)
+2. **Arquitectura de estado** (Context, reducers, Zustand)
+3. **Enrutamiento** (React Router para apps multipágina)
+4. **Integración con backend** (obtener datos de APIs)
+
+---
+
+## 🧘 Koan
+
+> _"Un componente sin estado es una función pura. Un componente con estado es algo vivo."_
 
 ---
 
-## 🔗 Navegación de la lección
+## 📖 Lecturas adicionales
 
-| Anterior | Actual | Siguiente |
-|----------|---------|------|
-| [Estado e IU](../state-and-ui/) | **Fundamentos de React** | [Hooks](../react-hooks/) |
-
----
+- [Documentación React: Pensar en React](https://es.react.dev/learn/thinking-in-react)
+- [Documentación React: El estado como una instantánea](https://es.react.dev/learn/state-as-a-snapshot)
+- [Documentación React: Renderizar listas](https://es.react.dev/learn/rendering-lists)

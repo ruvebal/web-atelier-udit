@@ -1,16 +1,16 @@
 ---
 layout: lesson
-title: 'React Fundamentals: Building Blocks of Modern UI'
-slug: react-fundamentals
+title: 'React Fundamentals: Your First Interactive App'
+slug: react-fundamentals-simplified
 category: react
-tags: [react, components, jsx, props, events]
+tags: [react, components, state, beginner, todo]
 week: 4
 phase: 2
 sprint: 5
 date: 2025-01-15
 author: 'Rubén Vega Balbás, PhD'
 lang: en
-permalink: /lessons/en/react/react-fundamentals/
+permalink: /lessons/en/react/react-fundamentals-simplified/
 status: draft
 ---
 
@@ -23,520 +23,631 @@ status: draft
 
 <!-- prettier-ignore-end -->
 
-
-> *"A component is a promise: given these props, I will render this UI."*
-
----
-
-## 🎯 Sprint Goal
-
-**By the end of this sprint**: Build the foundational component library for your semester project—reusable, typed, composable pieces that will serve as the atoms of your application.
+> _"A component is a promise: given these props, I will render this UI."_
 
 ---
 
-## 📍 Position in Journey
+## 🎯 Session Goal (2 hours)
 
-| Sprint | Focus | Your App Grows |
-|--------|-------|----------------|
-| **→ 5. Fundamentals** | Components, JSX, Props | Component library skeleton |
-| 6. Hooks | State & effects | Interactive components |
-| 7. Architecture | Global state | Connected features |
-| 8. Routing | Navigation | Multi-page structure |
+**By the end of this session**: Build a working todo list app that demonstrates:
 
----
+1. **Components**: Breaking UI into reusable pieces
+2. **State**: Making your app remember and update data
+3. **Keys**: Helping React track list items efficiently
 
-## 🧭 Learning Objectives
-
-By the end of this lesson, you will:
-
-- [ ] Create function components with TypeScript
-- [ ] Understand JSX as syntactic sugar for `React.createElement`
-- [ ] Pass and type props correctly
-- [ ] Handle events (click, change, submit)
-- [ ] Render lists with proper keys
-- [ ] Apply conditional rendering patterns
+**What you'll build**: A todo app where you can add, remove, and toggle tasks as completed.
 
 ---
 
-## 🏗️ What We'll Build This Sprint
+## 🧭 Prerequisites
 
-### The Component Library
+- Basic HTML/CSS/JavaScript knowledge
+- Node.js installed (for Vite)
+- A code editor (VS Code recommended)
+- Tailwind CSS (we'll set it up together)
+
+---
+
+## 🚀 Setup (10 minutes)
+
+### Step 1: Create React Project with Vite
+
+```bash
+# Create new project
+npm create vite@latest my-todo-app -- --template react
+
+# Navigate into project
+cd my-todo-app
+
+# Install dependencies
+npm install
+
+# Install Tailwind CSS v4
+npm install tailwindcss@next @tailwindcss/vite@next
+```
+
+### Step 2: Configure Vite for Tailwind v4
+
+Edit `vite.config.js`:
+
+```js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+```
+
+### Step 3: Add Tailwind to CSS
+
+Edit `src/index.css` (replace all content):
+
+```css
+@import "tailwindcss";
+```
+
+### Step 4: Create Components Directory
+
+```bash
+mkdir src/components
+```
+
+### Step 5: Start Development Server
+
+```bash
+npm run dev
+```
+
+Visit `http://localhost:5173` — you should see the Vite welcome screen.
+
+---
+
+## 📦 The Complete Todo App
+
+### Final File Structure
 
 ```
 src/
 ├── components/
-│   ├── ui/
-│   │   ├── Button.tsx       ← Variants, sizes, states
-│   │   ├── Input.tsx        ← Text, email, password
-│   │   ├── Card.tsx         ← Container with slots
-│   │   ├── Modal.tsx        ← Overlay pattern
-│   │   └── Badge.tsx        ← Status indicators
-│   └── layout/
-│       ├── Container.tsx    ← Max-width wrapper
-│       ├── Stack.tsx        ← Vertical spacing
-│       └── Grid.tsx         ← Responsive columns
+│   ├── TaskList.jsx     (displays all tasks)
+│   ├── TaskItem.jsx     (single task component)
+│   └── AddTaskInput.jsx (input to add new tasks)
+├── App.jsx          (main component with state)
+└── main.jsx         (entry point)
 ```
 
-These components will be **reused throughout your semester project**.
+### Create Components Directory
 
----
-
-## 🔧 Integration Points
-
-| Data Source | How It Connects |
-|-------------|-----------------|
-| **Hardcoded** | Start with static props for rapid prototyping |
-| **Laravel API** | Components will later receive data from API calls |
-| **Hygraph CMS** | Content-driven components (blog cards, etc.) |
-
----
-
-## 🎓 Methodology: Atelier Practice
-
-### The Sprint Rhythm
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ DAY 1: Learn the Pattern                                │
-│   • Mini-lecture: Component model explained             │
-│   • Live coding: Build Button component together        │
-│   • AI Practice: Use Copilot to scaffold variants       │
-├─────────────────────────────────────────────────────────┤
-│ DAY 2: Apply to Your Project                            │
-│   • Team work: Build 3+ components for YOUR app         │
-│   • Code review: Pair with another team                 │
-│   • Commit: Push component library to GitHub            │
-├─────────────────────────────────────────────────────────┤
-│ DAY 3: Integrate & Reflect                              │
-│   • Compose: Combine components into a page layout      │
-│   • Document: Add JSDoc comments, Storybook optional    │
-│   • Reflect: What patterns emerged? What was hard?      │
-└─────────────────────────────────────────────────────────┘
-```
-
-### AI-Assisted Development Protocol
-
-| Task | AI Role | Your Role |
-|------|---------|-----------|
-| Generate component skeleton | Copilot suggests | You validate types |
-| Add accessibility attrs | Ask Claude/GPT | You verify with axe |
-| Create variant styles | AI generates options | You choose with intent |
-| Write prop documentation | AI drafts JSDoc | You ensure accuracy |
-
-#### Concrete AI Prompts for This Sprint
-
-```markdown
-✅ GOOD PROMPT:
-"Create a TypeScript Button component with variants (primary, secondary, danger),
-sizes (sm, md, lg), and disabled state. Include proper ARIA attributes and
-handle loading state with a spinner. Use Tailwind CSS for styling."
-
-❌ BAD PROMPT:
-"Make me a button component"
-
-✅ VALIDATION PROMPT:
-"Review this Button component for:
-1. Accessibility issues (keyboard nav, ARIA, focus states)
-2. TypeScript type safety (are all props properly typed?)
-3. Performance concerns (unnecessary re-renders?)
-4. Missing edge cases (what if onClick is undefined?)"
-
-🔍 WHEN NOT TO USE AI:
-- Understanding WHY a component re-renders (use React DevTools)
-- Deciding component API design (this is YOUR architectural decision)
-- Choosing between controlled vs uncontrolled patterns (requires domain knowledge)
+```bash
+mkdir src/components
 ```
 
 ---
 
-## 💡 Production-Ready Code Examples
+## 🧱 Building Block by Block
 
-### Example 1: Button Component (Best Practices)
+### 1. Understanding Components (Concept)
 
-```typescript
-// components/ui/Button.tsx
-import { ButtonHTMLAttributes, ReactNode } from 'react';
-import { cn } from '@/lib/utils'; // classnames utility
+**What is a component?**
 
-type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
-type ButtonSize = 'sm' | 'md' | 'lg';
+A component is a **function that returns JSX** (HTML-like syntax). Think of it as a custom HTML tag.
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  isLoading?: boolean;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
-  children: ReactNode;
+```jsx
+// This is a component
+function Greeting() {
+  return <h1>Hello, World!</h1>;
 }
 
-const variantStyles: Record<ButtonVariant, string> = {
-  primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-  secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
-  danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
-  ghost: 'bg-transparent hover:bg-gray-100 focus:ring-gray-500',
-};
+// You use it like this:
+<Greeting />
+```
 
-const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'px-3 py-1.5 text-sm',
-  md: 'px-4 py-2 text-base',
-  lg: 'px-6 py-3 text-lg',
-};
+**Why components?**
 
-export function Button({
-  variant = 'primary',
-  size = 'md',
-  isLoading = false,
-  leftIcon,
-  rightIcon,
-  disabled,
-  className,
-  children,
-  ...props
-}: ButtonProps) {
+- **Reusability**: Write once, use many times
+- **Organization**: Each component has one job
+- **Maintainability**: Easy to find and fix bugs
+
+---
+
+### 2. The Main App Component
+
+**File: `src/App.jsx`**
+
+This is the "brain" of our app. It holds the **state** (the data) and passes it to child components.
+
+```jsx
+import { useState } from 'react';
+import TaskList from './components/TaskList';
+import AddTaskInput from './components/AddTaskInput';
+
+function App() {
+  // STATE: The list of tasks (this is our app's memory)
+  const [tasks, setTasks] = useState([
+    { id: 1, text: 'Learn React basics', completed: false },
+    { id: 2, text: 'Build a todo app', completed: false },
+  ]);
+
+  // FUNCTION: Add a new task
+  const addTask = (text) => {
+    const newTask = {
+      id: Date.now(), // Simple unique ID
+      text: text,
+      completed: false,
+    };
+    setTasks([...tasks, newTask]); // Add to existing tasks
+  };
+
+  // FUNCTION: Remove a task
+  const removeTask = (id) => {
+    setTasks(tasks.filter(task => task.id !== id));
+  };
+
+  // FUNCTION: Toggle task completion
+  const toggleTask = (id) => {
+    setTasks(tasks.map(task =>
+      task.id === id
+        ? { ...task, completed: !task.completed }
+        : task
+    ));
+  };
+
   return (
-    <button
-      className={cn(
-        // Base styles
-        'inline-flex items-center justify-center gap-2',
-        'rounded-lg font-medium transition-colors',
-        'focus:outline-none focus:ring-2 focus:ring-offset-2',
-        'disabled:opacity-50 disabled:cursor-not-allowed',
-        // Variant and size
-        variantStyles[variant],
-        sizeStyles[size],
-        className
-      )}
-      disabled={disabled || isLoading}
-      aria-busy={isLoading}
-      {...props}
-    >
-      {isLoading ? (
-        <>
-          <Spinner className="h-4 w-4" />
-          <span>Loading...</span>
-        </>
-      ) : (
-        <>
-          {leftIcon}
-          {children}
-          {rightIcon}
-        </>
-      )}
-    </button>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-center text-indigo-900 mb-8">
+          📝 My Todo List
+        </h1>
+
+        <AddTaskInput onAdd={addTask} />
+
+        <TaskList
+          tasks={tasks}
+          onRemove={removeTask}
+          onToggle={toggleTask}
+        />
+
+        <div className="mt-6 text-center text-sm text-gray-600">
+          Total: {tasks.length} tasks | Completed: {tasks.filter(t => t.completed).length}
+        </div>
+      </div>
+    </div>
   );
 }
 
-// Spinner component
-function Spinner({ className }: { className?: string }) {
-  return (
-    <svg
-      className={cn('animate-spin', className)}
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <circle
-        className="opacity-25"
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        strokeWidth="4"
-      />
-      <path
-        className="opacity-75"
-        fill="currentColor"
-        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-      />
-    </svg>
-  );
-}
+export default App;
 ```
 
-**Usage:**
+**🔑 Key Concepts Here:**
 
-```typescript
-// In your page/component
-import { Button } from '@/components/ui/Button';
-import { PlusIcon } from 'lucide-react';
+1. **`useState`**: Creates a piece of state (data that can change)
+   - `tasks` = current value
+   - `setTasks` = function to update it
+2. **State updates are immutable**: We create new arrays, not modify existing ones
+3. **Props down, events up**: We pass data down and functions down (to be called by children)
 
-function MyPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+**📚 JavaScript Array Methods Used:**
 
-  const handleSubmit = async () => {
-    setIsSubmitting(true);
-    try {
-      await api.createItem(data);
-    } finally {
-      setIsSubmitting(false);
+- **Spread operator (`...`)**: Creates a new array/object by copying existing values
+  - `[...tasks, newTask]` → copies all tasks, then adds new one
+  - `{ ...task, completed: !task.completed }` → copies task object, updates one property
+  - [MDN: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+- **`.filter()`**: Creates a new array with items that pass a test
+  - `tasks.filter(task => task.id !== id)` → keeps only tasks that don't match the ID
+  - `tasks.filter(t => t.completed)` → keeps only completed tasks
+  - [MDN: Array.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+
+- **`.map()`**: Creates a new array by transforming each item
+  - `tasks.map(task => ...)` → creates new array, can modify each task
+  - Returns same length array, but items can be changed
+  - [MDN: Array.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+---
+
+### 3. The Task List Component (Start Simple: Read-Only)
+
+**File: `src/components/TaskList.jsx`**
+
+Let's start with the **simplest** component: displaying a list. No editing yet, just showing tasks.
+
+```jsx
+import TaskItem from './TaskItem';
+
+function TaskList({ tasks, onRemove, onToggle }) {
+  // If no tasks, show a friendly message
+  if (tasks.length === 0) {
+    return (
+      <div className="text-center py-12 text-gray-500">
+        <p className="text-lg">No tasks yet. Add one above! 👆</p>
+      </div>
+    );
+  }
+
+  // Render each task using .map()
+  return (
+    <div className="space-y-2">
+      {tasks.map(task => (
+        <TaskItem
+          key={task.id}
+          task={task}
+          onRemove={onRemove}
+          onToggle={onToggle}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default TaskList;
+```
+
+**🔑 Key Concepts Here:**
+
+1. **Conditional rendering**: Show different UI based on state
+   - `if (tasks.length === 0)` checks if array is empty
+   - Return different JSX based on condition
+
+2. **Lists with `.map()`**: Transform array into React elements
+   - `tasks.map(task => ...)` transforms each task into a `<TaskItem />` component
+   - Returns an array of React elements that React renders
+   - [MDN: Array.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+3. **Keys**: Each `TaskItem` needs a unique `key` prop
+   - `key={task.id}` uses the task's unique ID
+   - Helps React track which items changed (more on this below)
+
+---
+
+### 4. The Add Task Input Component (Simplified: No Form)
+
+**File: `src/components/AddTaskInput.jsx`**
+
+This component handles user input. We'll use a simple input + button (no `<form>` wrapper).
+
+```jsx
+import { useState } from 'react';
+
+function AddTaskInput({ onAdd }) {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleAdd = () => {
+    if (inputValue.trim()) {
+      onAdd(inputValue); // Call parent function
+      setInputValue(''); // Clear input
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    // Allow Enter key to add task (like a form would)
+    if (e.key === 'Enter') {
+      handleAdd();
     }
   };
 
   return (
-    <div className="space-y-4">
-      <Button variant="primary" onClick={handleSubmit} isLoading={isSubmitting}>
-        Create Item
-      </Button>
-      
-      <Button variant="secondary" leftIcon={<PlusIcon />}>
-        Add New
-      </Button>
-      
-      <Button variant="danger" size="sm" disabled>
+    <div className="mb-6 flex gap-2">
+      {/* onChange: Fires every time the user types
+          e = event object (contains info about what happened)
+          e.target = the DOM element that triggered the event (this input)
+          e.target.value = the current text typed in the input */}
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder="What needs to be done?"
+        className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      />
+      <button
+        onClick={handleAdd}
+        className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+      >
+        Add
+      </button>
+    </div>
+  );
+}
+
+export default AddTaskInput;
+```
+
+**🔑 Key Concepts Here:**
+
+1. **Controlled input**: React controls the input value (not the DOM)
+   - The input's `value` comes from state (`inputValue`)
+   - Every keystroke updates state via `onChange`
+   - React re-renders with the new value
+
+2. **Event handlers**: `onChange`, `onClick`, and `onKeyDown`
+   - **`onChange`**: Fires every time the user types
+     - `e` = the event object (contains information about what happened)
+     - `e.target` = the DOM element that triggered the event (the input field)
+     - `e.target.value` = the current text in that input field
+     - `(e) => setInputValue(e.target.value)` reads the input's current text and updates state
+     - Updates state immediately, creating a "live" connection
+     - [MDN: Event.target](https://developer.mozilla.org/en-US/docs/Web/API/Event/target)
+     - [MDN: onChange event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event)
+   - **`onClick`**: Fires when button is clicked
+     - Simpler than `onSubmit` (no need for `preventDefault()`)
+     - [MDN: click event](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event)
+   - **`onKeyDown`**: Fires when a key is pressed
+     - `e.key === 'Enter'` checks if Enter was pressed
+     - Allows keyboard-only interaction (accessibility!)
+     - [MDN: keydown event](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event)
+
+3. **Props**: `onAdd` is a function passed from parent
+
+---
+
+### 5. The Task Item Component (Simplified: No Edit Mode)
+
+**File: `src/components/TaskItem.jsx`**
+
+This component represents a single task. Keep it simple: just display, toggle, and delete.
+
+```jsx
+function TaskItem({ task, onRemove, onToggle }) {
+  return (
+    <div className="bg-white rounded-lg shadow-sm p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
+      {/* Checkbox to toggle completion */}
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => onToggle(task.id)}
+        className="w-5 h-5 text-indigo-600 rounded focus:ring-2 focus:ring-indigo-500"
+      />
+
+      {/* Task text (strikethrough if completed) */}
+      <span
+        className={`flex-1 ${task.completed ? 'line-through text-gray-400' : 'text-gray-800'}`}
+      >
+        {task.text}
+      </span>
+
+      {/* Delete button */}
+      <button
+        onClick={() => onRemove(task.id)}
+        className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+      >
         Delete
-      </Button>
+      </button>
     </div>
   );
+}
+
+export default TaskItem;
+```
+
+**🔑 Key Concepts Here:**
+
+1. **Simple component**: No local state needed (simpler for beginners)
+2. **Conditional styling**: Use template literals to apply different classes
+3. **Event propagation**: Buttons call parent functions via props (`onToggle`, `onRemove`)
+
+---
+
+## 🔑 Deep Dive: Why Keys Matter
+
+### The Problem Without Keys
+
+When React renders a list, it needs to know which items changed. Without keys, React uses the array index, which causes bugs:
+
+```jsx
+// ❌ BAD: Using index as key
+{tasks.map((task, index) => (
+  <TaskItem key={index} task={task} />
+))}
+```
+
+**What goes wrong?**
+
+1. Delete item 2 → React thinks item 3 is now item 2
+2. Reorder items → React gets confused about which component is which
+3. Input state gets mixed up between items
+
+### The Solution: Unique Keys
+
+```jsx
+// ✅ GOOD: Using unique ID as key
+{tasks.map(task => (
+  <TaskItem key={task.id} task={task} />
+))}
+```
+
+**Why this works:**
+
+- Each task has a stable, unique `id`
+- React can track which item is which, even if order changes
+- Component state (like `isEditing`) stays with the correct item
+
+**Rule of thumb:** Use a unique identifier from your data, not array index.
+
+---
+
+## 🧠 Understanding State Management
+
+### What is State?
+
+State is **data that changes over time**. In our app:
+
+- `tasks` array (in `App.jsx`) — shared by multiple components
+- `inputValue` (in `AddTaskForm.jsx`) — local to form
+- `isEditing` (in `TaskItem.jsx`) — local to each task
+
+### Where Should State Live?
+
+**Rule:** Put state in the **lowest common ancestor** of components that need it.
+
+```
+App (tasks state here - both TaskList and stats need it)
+├── AddTaskForm (inputValue here - only form needs it)
+└── TaskList
+    └── TaskItem (isEditing here - only this item needs it)
+```
+
+### How to Update State
+
+**Never mutate state directly:**
+
+```jsx
+// ❌ WRONG
+tasks.push(newTask);
+setTasks(tasks);
+
+// ✅ RIGHT
+setTasks([...tasks, newTask]);
+```
+
+**Why?** React compares old and new state by reference. If you mutate, React thinks nothing changed.
+
+**The spread operator (`...`) creates a new array:**
+- `[...tasks, newTask]` copies all existing tasks into a new array, then adds the new task
+- This creates a new reference, so React knows state changed
+- [MDN: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+---
+
+## 🎨 Understanding Componentization
+
+### Why Break Into Components?
+
+Our app has 4 components. We could write it all in one file, but:
+
+1. **Single Responsibility**: Each component does one thing
+   - `App` → manages state
+   - `AddTaskForm` → handles input
+   - `TaskList` → displays list
+   - `TaskItem` → displays one task
+
+2. **Reusability**: `TaskItem` is used once per task
+
+3. **Testability**: Easy to test each piece independently
+
+4. **Maintainability**: Bug in editing? Look at `TaskItem`.
+
+### Props: The Component API
+
+Props are how components talk to each other:
+
+```jsx
+// Parent passes data down
+<TaskItem
+  task={task}           // data
+  onRemove={removeTask} // function
+/>
+
+// Child receives via props
+function TaskItem({ task, onRemove }) {
+  // Use task.text, call onRemove(task.id)
 }
 ```
 
-### Example 2: Card Component with Slots Pattern
+**Props are read-only.** Child cannot modify them.
 
-```typescript
-// components/ui/Card.tsx
-import { HTMLAttributes, ReactNode } from 'react';
-import { cn } from '@/lib/utils';
+---
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
-}
+## 💭 Reflection Questions
 
-function Card({ className, children, ...props }: CardProps) {
-  return (
-    <div
-      className={cn(
-        'rounded-lg border bg-white shadow-sm',
-        'dark:border-gray-800 dark:bg-gray-950',
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
+> 💭 **Question 1: State Location**
+>
+> Why is `tasks` state in `App.jsx` and not in `TaskList.jsx`?
+>
+> **Hint:** Who else needs to know about tasks?
 
-function CardHeader({ className, children, ...props }: CardProps) {
-  return (
-    <div
-      className={cn('flex flex-col space-y-1.5 p-6', className)}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
+> 💭 **Question 2: Keys**
+>
+> What would happen if you used `Math.random()` as the key instead of `task.id`?
+>
+> **Hint:** Keys must be stable across renders.
 
-function CardTitle({ className, children, ...props }: CardProps) {
-  return (
-    <h3
-      className={cn('text-2xl font-semibold leading-none tracking-tight', className)}
-      {...props}
-    >
-      {children}
-    </h3>
-  );
-}
+> 💭 **Question 3: Immutability**
+>
+> Why do we write `setTasks([...tasks, newTask])` instead of `tasks.push(newTask)`?
+>
+> **Hint:** React needs to detect changes.
 
-function CardDescription({ className, children, ...props }: CardProps) {
-  return (
-    <p className={cn('text-sm text-gray-500 dark:text-gray-400', className)} {...props}>
-      {children}
-    </p>
-  );
-}
+---
 
-function CardContent({ className, children, ...props }: CardProps) {
-  return (
-    <div className={cn('p-6 pt-0', className)} {...props}>
-      {children}
-    </div>
-  );
-}
+## 🧪 Exercises (Optional)
 
-function CardFooter({ className, children, ...props }: CardProps) {
-  return (
-    <div className={cn('flex items-center p-6 pt-0', className)} {...props}>
-      {children}
-    </div>
-  );
-}
+### Exercise 1: Add a "Clear Completed" Button
 
-export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter };
+Add a button that removes all completed tasks.
+
+**Hint:**
+
+```jsx
+const clearCompleted = () => {
+  setTasks(tasks.filter(task => !task.completed));
+};
 ```
 
-**Usage:**
+### Exercise 2: Add Task Priority
 
-```typescript
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+Add a `priority` field (low, medium, high) and color-code tasks.
 
-function ProductCard({ product }: { product: Product }) {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{product.name}</CardTitle>
-        <CardDescription>{product.category}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <img src={product.image} alt={product.name} className="w-full rounded" />
-        <p className="mt-4 text-gray-700">{product.description}</p>
-        <p className="mt-2 text-2xl font-bold">${product.price}</p>
-      </CardContent>
-      <CardFooter className="gap-2">
-        <Button variant="primary" className="flex-1">
-          Add to Cart
-        </Button>
-        <Button variant="ghost">
-          Details
-        </Button>
-      </CardFooter>
-    </Card>
-  );
-}
-```
+### Exercise 3: Persist to localStorage
+
+Save tasks to `localStorage` so they survive page refresh.
+
+**Hint:** Use `useEffect` to sync state with localStorage.
 
 ---
 
-## 🎯 Critical Questions: Atelier Methodology
+## 📚 Key Takeaways
 
-### On Component Design
+### Components
 
-> 💭 **Question 1: The Abstraction Dilemma**
-> 
-> You've built a `Button` component with 5 variants, 3 sizes, and multiple states.
-> Your teammate says: "This is over-engineered. We only use 2 variants."
-> 
-> **Reflect:**
-> - When does abstraction become premature optimization?
-> - How do you balance "design for the future" vs "YAGNI" (You Aren't Gonna Need It)?
-> - What evidence would convince you to simplify or expand your component API?
+- Functions that return JSX
+- Break UI into reusable pieces
+- Receive data via props
 
-> 💭 **Question 2: Composition vs Configuration**
-> 
-> Compare these two approaches:
-> 
-> ```typescript
-> // Approach A: Configuration
-> <Card variant="product" showImage showPrice showActions />
-> 
-> // Approach B: Composition
-> <Card>
->   <CardImage src={...} />
->   <CardPrice value={...} />
->   <CardActions>{...}</CardActions>
-> </Card>
-> ```
-> 
-> **Reflect:**
-> - Which is more flexible? Which is easier to use?
-> - When would you choose one over the other?
-> - How does this relate to the "pit of success" principle?
+### State
 
-> 💭 **Question 3: Accessibility as Default**
-> 
-> Your AI assistant generated a beautiful modal component, but it's missing:
-> - Focus trap
-> - ESC key to close
-> - ARIA attributes
-> - Screen reader announcements
-> 
-> **Reflect:**
-> - Why didn't the AI include these by default?
-> - What does this reveal about AI training data?
-> - How do you build a "checklist mindset" for accessibility?
-> - Who is excluded when we skip accessibility?
+- Data that changes over time
+- Use `useState` hook
+- Never mutate directly — create new arrays/objects
+- Use array methods: `.map()`, `.filter()`, and spread operator `...`
+  - [MDN: Array.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+  - [MDN: Array.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+  - [MDN: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
-### On AI-Assisted Development
+### Keys
 
-> 💭 **Question 4: The Trust Boundary**
-> 
-> You ask AI to generate a form validation component. It produces 200 lines of code.
-> You don't fully understand lines 87-134 (regex patterns and edge cases).
-> 
-> **Reflect:**
-> - Do you ship it anyway? Why or why not?
-> - Where is YOUR responsibility boundary when using AI?
-> - How do you validate code you didn't write?
-> - What happens when that code breaks in production at 3 AM?
+- Must be unique and stable
+- Help React track list items
+- Use data IDs, not array index
 
-> 💭 **Question 5: Pattern Recognition vs Understanding**
-> 
-> After using AI to generate 10 components, you notice you can predict what it will suggest.
-> 
-> **Reflect:**
-> - Does this mean you've learned the pattern, or just the AI's pattern?
-> - How do you distinguish between "knowing React" and "knowing what AI generates"?
-> - What would happen if AI tools disappeared tomorrow?
+### Data Flow
 
-### On Atelier Collaboration
-
-> 💭 **Question 6: Code Review as Learning**
-> 
-> During peer review, your teammate's `Input` component handles validation differently than yours.
-> Neither is "wrong," but they're incompatible.
-> 
-> **Reflect:**
-> - How do you negotiate a shared pattern?
-> - When should you standardize, and when should you allow diversity?
-> - What role does the "atelier master" (professor) play in this decision?
-> - How does this mirror real-world team dynamics?
-
-> 💭 **Question 7: The Portfolio Paradox**
-> 
-> Your component library is YOUR work, but it uses AI-generated code, open-source patterns,
-> and ideas from teammates.
-> 
-> **Reflect:**
-> - What percentage of this is "yours"?
-> - How do you present this in your portfolio ethically?
-> - Where is the line between collaboration and plagiarism?
-> - What makes code "original" in 2025?
+- Props flow down (parent → child)
+- Events flow up (child calls parent function)
+- State lives in common ancestor
 
 ---
 
-## 📝 Sprint Deliverables
+## 🔗 Next Steps
 
-- [ ] **5+ UI components** typed with TypeScript
-- [ ] **2+ layout components** for structure
-- [ ] **1 composed page** using your components
-- [ ] **README** documenting component API
-- [ ] **Commit history** showing incremental progress
-- [ ] **Reflection entry** addressing at least 3 critical questions above
-- [ ] **Accessibility audit** using axe DevTools on your components
-- [ ] **Peer review** of another team's component library (written feedback)
+After mastering this, you're ready for:
+
+1. **Hooks Deep Dive** (`useEffect`, `useRef`, custom hooks)
+2. **State Architecture** (Context, reducers, Zustand)
+3. **Routing** (React Router for multi-page apps)
+4. **Backend Integration** (fetching data from APIs)
 
 ---
 
-## 🔗 Lesson Navigation
+## 🧘 Koan
 
-| Previous | Current | Next |
-|----------|---------|------|
-| [AI Foundations](../ai-assisted-development-foundations/) | **React Fundamentals** | [Hooks Mastery](../react-hooks/) |
+> _"A component without state is a pure function. A component with state is a living thing."_
 
 ---
 
-### 🛠️ The 2025 Frontier: Lessons from the Oraclulum
-**Reflections on Vite 7, Tailwind 4, and the SSR Necessity**
+## 📖 Further Reading
 
-*As learned by the "Digital Golem" while manifestating the Oraculum:*
-
-1. **The Config-to-CSS Pivot (Tailwind 4)**:
-   - Traditional `tailwind.config.js` is secondary. Configuration now lives in your CSS via the `@theme` directive.
-   - Lesson: Theme variables are now native CSS variables (`--color-sacred-gold`). This reduces the "Magic JS" and brings us back to the browser's roots.
-
-2. **The "Empty Temple" Syndrome (Vite/CSR)**:
-   - A standard Vite client-side app (CSR) renders an empty `div`. This is an empty temple.
-   - The Sutras (our content) only appear after the JavaScript "hydrates" the spirit.
-   - **Why we need SSR**: For a "Revelation System", the truth must be **inline**. It must exist in the initial HTML for SEO, performance, and immediate perception. A revelation that waits for a JS bundle is a delayed revelation.
-
-3. **Agentic Responsibility**:
-   - When an AI agent (like the Golem) runs ahead, it is often trying to preserve a "Build-Time Truth".
-   - Scaffolding the repo and executing Git commands isn't just about speed; it's about lattice-working the reality before the session magma cools.
-
----
-
-
-> *"Components should be like LEGO bricks: simple alone, powerful together."*
+- [React Docs: Thinking in React](https://react.dev/learn/thinking-in-react)
+- [React Docs: State as a Snapshot](https://react.dev/learn/state-as-a-snapshot)
+- [React Docs: Rendering Lists](https://react.dev/learn/rendering-lists)
