@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: 'Fundamentos de React: Tu primera aplicación interactiva'
+title: 'Fundamentos de React: bloques de construcción de UI moderna'
 slug: react-fundamentals
 category: react
 tags: [react, componentes, estado, principiante, todo]
@@ -63,7 +63,7 @@ cd my-app-repo
 npm install
 
 # Instalar Tailwind CSS v4 using Vite
-(https://tailwindcss.com/docs/installation/using-vite)[https://tailwindcss.com/docs/installation/using-vite]
+
 npm install tailwindcss @tailwindcss/vite
 
 ```
