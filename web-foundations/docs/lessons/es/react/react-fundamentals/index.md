@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Fundamentos de React: Tu primera aplicación interactiva'
-slug: react-fundamentals-simplified
+slug: react-fundamentals
 category: react
 tags: [react, componentes, estado, principiante, todo]
 week: 4
@@ -10,7 +10,7 @@ sprint: 5
 date: 2025-01-15
 author: 'Rubén Vega Balbás, PhD'
 lang: es
-permalink: /lessons/es/react/react-fundamentals-simplified/
+permalink: /lessons/es/react/react-fundamentals/
 status: draft
 ---
 
@@ -54,16 +54,18 @@ status: draft
 
 ```bash
 # Crear nuevo proyecto
-npm create vite@latest my-todo-app -- --template react
+npm create vite@latest my-app-repo -- --template react
 
 # Navegar al proyecto
-cd my-todo-app
+cd my-app-repo
 
 # Instalar dependencias
 npm install
 
-# Instalar Tailwind CSS v4
-npm install tailwindcss@next @tailwindcss/vite@next
+# Instalar Tailwind CSS v4 using Vite
+(https://tailwindcss.com/docs/installation/using-vite)[https://tailwindcss.com/docs/installation/using-vite]
+npm install tailwindcss @tailwindcss/vite
+
 ```
 
 ### Paso 2: Configurar Vite para Tailwind v4
@@ -71,13 +73,13 @@ npm install tailwindcss@next @tailwindcss/vite@next
 Edita `vite.config.js`:
 
 ```js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-})
+	plugins: [react(), tailwindcss()],
+});
 ```
 
 ### Paso 3: Añadir Tailwind al CSS
@@ -85,7 +87,7 @@ export default defineConfig({
 Edita `src/index.css` (reemplaza todo el contenido):
 
 ```css
-@import "tailwindcss";
+@import 'tailwindcss';
 ```
 
 ### Paso 4: Crear directorio de componentes
@@ -137,11 +139,11 @@ Un componente es una **función que devuelve JSX** (sintaxis similar a HTML). Pi
 ```jsx
 // Esto es un componente
 function Greeting() {
-  return <h1>¡Hola, Mundo!</h1>;
+	return <h1>¡Hola, Mundo!</h1>;
 }
 
 // Lo usas así:
-<Greeting />
+<Greeting />;
 ```
 
 **¿Por qué componentes?**
@@ -164,57 +166,47 @@ import TaskList from './components/TaskList';
 import AddTaskInput from './components/AddTaskInput';
 
 function App() {
-  // ESTADO: La lista de tareas (esta es la memoria de nuestra app)
-  const [tasks, setTasks] = useState([
-    { id: 1, text: 'Aprender fundamentos de React', completed: false },
-    { id: 2, text: 'Construir una app de tareas', completed: false },
-  ]);
+	// ESTADO: La lista de tareas (esta es la memoria de nuestra app)
+	const [tasks, setTasks] = useState([
+		{ id: 1, text: 'Aprender fundamentos de React', completed: false },
+		{ id: 2, text: 'Construir una app de tareas', completed: false },
+	]);
 
-  // FUNCIÓN: Añadir una nueva tarea
-  const addTask = (text) => {
-    const newTask = {
-      id: Date.now(), // ID único simple
-      text: text,
-      completed: false,
-    };
-    setTasks([...tasks, newTask]); // Añadir a las tareas existentes
-  };
+	// FUNCIÓN: Añadir una nueva tarea
+	const addTask = (text) => {
+		const newTask = {
+			id: Date.now(), // ID único simple
+			text: text,
+			completed: false,
+		};
+		setTasks([...tasks, newTask]); // Añadir a las tareas existentes
+	};
 
-  // FUNCIÓN: Eliminar una tarea
-  const removeTask = (id) => {
-    setTasks(tasks.filter(task => task.id !== id));
-  };
+	// FUNCIÓN: Eliminar una tarea
+	const removeTask = (id) => {
+		setTasks(tasks.filter((task) => task.id !== id));
+	};
 
-  // FUNCIÓN: Alternar completado de tarea
-  const toggleTask = (id) => {
-    setTasks(tasks.map(task =>
-      task.id === id
-        ? { ...task, completed: !task.completed }
-        : task
-    ));
-  };
+	// FUNCIÓN: Alternar completado de tarea
+	const toggleTask = (id) => {
+		setTasks(tasks.map((task) => (task.id === id ? { ...task, completed: !task.completed } : task)));
+	};
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-indigo-900 mb-8">
-          📝 Mi lista de tareas
-        </h1>
+	return (
+		<div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+			<div className="max-w-2xl mx-auto">
+				<h1 className="text-4xl font-bold text-center text-indigo-900 mb-8">📝 Mi lista de tareas</h1>
 
-        <AddTaskInput onAdd={addTask} />
+				<AddTaskInput onAdd={addTask} />
 
-        <TaskList
-          tasks={tasks}
-          onRemove={removeTask}
-          onToggle={toggleTask}
-        />
+				<TaskList tasks={tasks} onRemove={removeTask} onToggle={toggleTask} />
 
-        <div className="mt-6 text-center text-sm text-gray-600">
-          Total: {tasks.length} tareas | Completadas: {tasks.filter(t => t.completed).length}
-        </div>
-      </div>
-    </div>
-  );
+				<div className="mt-6 text-center text-sm text-gray-600">
+					Total: {tasks.length} tareas | Completadas: {tasks.filter((t) => t.completed).length}
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default App;
@@ -257,28 +249,23 @@ Empecemos con el componente **más simple**: mostrar una lista. Sin edición tod
 import TaskItem from './TaskItem';
 
 function TaskList({ tasks, onRemove, onToggle }) {
-  // Si no hay tareas, mostrar un mensaje amigable
-  if (tasks.length === 0) {
-    return (
-      <div className="text-center py-12 text-gray-500">
-        <p className="text-lg">¡Aún no hay tareas. Añade una arriba! 👆</p>
-      </div>
-    );
-  }
+	// Si no hay tareas, mostrar un mensaje amigable
+	if (tasks.length === 0) {
+		return (
+			<div className="text-center py-12 text-gray-500">
+				<p className="text-lg">¡Aún no hay tareas. Añade una arriba! 👆</p>
+			</div>
+		);
+	}
 
-  // Renderizar cada tarea usando .map()
-  return (
-    <div className="space-y-2">
-      {tasks.map(task => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          onRemove={onRemove}
-          onToggle={onToggle}
-        />
-      ))}
-    </div>
-  );
+	// Renderizar cada tarea usando .map()
+	return (
+		<div className="space-y-2">
+			{tasks.map((task) => (
+				<TaskItem key={task.id} task={task} onRemove={onRemove} onToggle={onToggle} />
+			))}
+		</div>
+	);
 }
 
 export default TaskList;
@@ -311,44 +298,43 @@ Este componente maneja la entrada del usuario. Usaremos un input + botón simple
 import { useState } from 'react';
 
 function AddTaskInput({ onAdd }) {
-  const [inputValue, setInputValue] = useState('');
+	const [inputValue, setInputValue] = useState('');
 
-  const handleAdd = () => {
-    if (inputValue.trim()) {
-      onAdd(inputValue); // Llamar función del padre
-      setInputValue(''); // Limpiar input
-    }
-  };
+	const handleAdd = () => {
+		if (inputValue.trim()) {
+			onAdd(inputValue); // Llamar función del padre
+			setInputValue(''); // Limpiar input
+		}
+	};
 
-  const handleKeyDown = (e) => {
-    // Permitir tecla Enter para añadir tarea (como haría un formulario)
-    if (e.key === 'Enter') {
-      handleAdd();
-    }
-  };
+	const handleKeyDown = (e) => {
+		// Permitir tecla Enter para añadir tarea (como haría un formulario)
+		if (e.key === 'Enter') {
+			handleAdd();
+		}
+	};
 
-  return (
-    <div className="mb-6 flex gap-2">
-      {/* onChange: Se dispara cada vez que el usuario escribe
+	return (
+		<div className="mb-6 flex gap-2">
+			{/* onChange: Se dispara cada vez que el usuario escribe
           e = objeto evento (contiene info sobre lo que pasó)
           e.target = el elemento DOM que disparó el evento (este input)
           e.target.value = el texto actual escrito en el input */}
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="¿Qué necesitas hacer?"
-        className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-      />
-      <button
-        onClick={handleAdd}
-        className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
-      >
-        Añadir
-      </button>
-    </div>
-  );
+			<input
+				type="text"
+				value={inputValue}
+				onChange={(e) => setInputValue(e.target.value)}
+				onKeyDown={handleKeyDown}
+				placeholder="¿Qué necesitas hacer?"
+				className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+			/>
+			<button
+				onClick={handleAdd}
+				className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">
+				Añadir
+			</button>
+		</div>
+	);
 }
 
 export default AddTaskInput;
@@ -390,32 +376,27 @@ Este componente representa una tarea individual. Lo mantenemos simple: solo most
 
 ```jsx
 function TaskItem({ task, onRemove, onToggle }) {
-  return (
-    <div className="bg-white rounded-lg shadow-sm p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
-      {/* Checkbox para alternar completado */}
-      <input
-        type="checkbox"
-        checked={task.completed}
-        onChange={() => onToggle(task.id)}
-        className="w-5 h-5 text-indigo-600 rounded focus:ring-2 focus:ring-indigo-500"
-      />
+	return (
+		<div className="bg-white rounded-lg shadow-sm p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
+			{/* Checkbox para alternar completado */}
+			<input
+				type="checkbox"
+				checked={task.completed}
+				onChange={() => onToggle(task.id)}
+				className="w-5 h-5 text-indigo-600 rounded focus:ring-2 focus:ring-indigo-500"
+			/>
 
-      {/* Texto de tarea (tachado si está completada) */}
-      <span
-        className={`flex-1 ${task.completed ? 'line-through text-gray-400' : 'text-gray-800'}`}
-      >
-        {task.text}
-      </span>
+			{/* Texto de tarea (tachado si está completada) */}
+			<span className={`flex-1 ${task.completed ? 'line-through text-gray-400' : 'text-gray-800'}`}>{task.text}</span>
 
-      {/* Botón eliminar */}
-      <button
-        onClick={() => onRemove(task.id)}
-        className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-      >
-        Eliminar
-      </button>
-    </div>
-  );
+			{/* Botón eliminar */}
+			<button
+				onClick={() => onRemove(task.id)}
+				className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+				Eliminar
+			</button>
+		</div>
+	);
 }
 
 export default TaskItem;
@@ -437,9 +418,9 @@ Cuando React renderiza una lista, necesita saber qué elementos cambiaron. Sin k
 
 ```jsx
 // ❌ MAL: Usar índice como key
-{tasks.map((task, index) => (
-  <TaskItem key={index} task={task} />
-))}
+{
+	tasks.map((task, index) => <TaskItem key={index} task={task} />);
+}
 ```
 
 **¿Qué sale mal?**
@@ -452,9 +433,9 @@ Cuando React renderiza una lista, necesita saber qué elementos cambiaron. Sin k
 
 ```jsx
 // ✅ BIEN: Usar ID único como key
-{tasks.map(task => (
-  <TaskItem key={task.id} task={task} />
-))}
+{
+	tasks.map((task) => <TaskItem key={task.id} task={task} />);
+}
 ```
 
 **Por qué funciona:**
@@ -504,6 +485,7 @@ setTasks([...tasks, newTask]);
 **¿Por qué?** React compara el estado antiguo y nuevo por referencia. Si mutas, React piensa que nada cambió.
 
 **El operador spread (`...`) crea un nuevo array:**
+
 - `[...tasks, newTask]` copia todas las tareas existentes en un nuevo array, luego añade la nueva tarea
 - Esto crea una nueva referencia, así React sabe que el estado cambió
 - [MDN: Sintaxis spread](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
@@ -535,13 +517,13 @@ Los props son cómo los componentes se comunican entre sí:
 ```jsx
 // El padre pasa datos hacia abajo
 <TaskItem
-  task={task}           // datos
-  onRemove={removeTask} // función
-/>
+	task={task} // datos
+	onRemove={removeTask} // función
+/>;
 
 // El hijo recibe vía props
 function TaskItem({ task, onRemove }) {
-  // Usa task.text, llama onRemove(task.id)
+	// Usa task.text, llama onRemove(task.id)
 }
 ```
 
@@ -581,7 +563,7 @@ Añade un botón que elimine todas las tareas completadas.
 
 ```jsx
 const clearCompleted = () => {
-  setTasks(tasks.filter(task => !task.completed));
+	setTasks(tasks.filter((task) => !task.completed));
 };
 ```
 

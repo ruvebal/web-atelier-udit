@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: 'Fundamentos de React: bloques de construcción de UI moderna'
-slug: react-fundamentals
+slug: react-fundamentals-old
 category: react
 tags: [react, components, jsx, props, events]
 week: 4
@@ -10,7 +10,7 @@ sprint: 5
 date: 2025-01-15
 author: 'Rubén Vega Balbás, PhD'
 lang: es
-permalink: /lessons/es/react/react-fundamentals/
+permalink: /lessons/es/react/react-fundamentals/index-old
 status: draft
 ---
 
