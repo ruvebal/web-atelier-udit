@@ -23,7 +23,7 @@ status: draft
 
 <!-- prettier-ignore-end -->
 
-> _"Un componente es una promesa: dados estos props, renderizaré esta UI."_
+> _"Un componente es un compromiso: dados estos props, renderizaré esta UI."_
 
 ---
 

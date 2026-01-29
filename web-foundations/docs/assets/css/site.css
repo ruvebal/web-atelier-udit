@@ -134,8 +134,18 @@ html {
 }
 body {
 	margin: 0;
-	font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial,
-		'Apple Color Emoji', 'Segoe UI Emoji';
+	font-family:
+		system-ui,
+		-apple-system,
+		Segoe UI,
+		Roboto,
+		Ubuntu,
+		Cantarell,
+		Noto Sans,
+		Helvetica Neue,
+		Arial,
+		'Apple Color Emoji',
+		'Segoe UI Emoji';
 	font-size: var(--font-body-size);
 	line-height: var(--font-body-line);
 	color: var(--text-primary);
@@ -315,7 +325,10 @@ img.footer-logo {
 	color: var(--code-block-fg);
 	cursor: pointer;
 	opacity: 0;
-	transition: opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+	transition:
+		opacity 0.2s ease,
+		background 0.2s ease,
+		border-color 0.2s ease;
 }
 
 .prose pre:hover .copy-code-btn,
@@ -724,7 +737,7 @@ img.footer-logo {
 	position: relative;
 	overflow: visible;
 	/* Define quote characters: double quotes, single quotes */
-	quotes: '\201C''\201D''\2018''\2019';
+	quotes: '\201C' '\201D' '\2018' '\2019';
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -924,16 +937,16 @@ img.footer-logo {
 		padding: 0;
 		width: 100%;
 	}
-	
+
 	/* TOC doesn't take space in grid on mobile - completely removed from flow */
 	/* But allow it to show when expanded - this rule only applies when NOT expanded */
-	.lesson-wrapper > .lesson-toc:not([aria-expanded="true"]) {
+	.lesson-wrapper > .lesson-toc:not([aria-expanded='true']) {
 		display: none !important;
 		position: fixed !important; /* Override any other positioning */
 	}
-	
+
 	/* When expanded, ensure TOC is visible and positioned correctly */
-	.lesson-wrapper > .lesson-toc[aria-expanded="true"] {
+	.lesson-wrapper > .lesson-toc[aria-expanded='true'] {
 		display: block !important;
 		position: fixed !important;
 	}
@@ -970,7 +983,7 @@ img.footer-logo {
 		display: none;
 	}
 
-	.lesson-toc[aria-expanded="true"] {
+	.lesson-toc[aria-expanded='true'] {
 		display: block;
 		transform: translateX(0);
 	}
@@ -1075,7 +1088,7 @@ img.footer-logo {
 	pointer-events: none;
 }
 
-.toc-backdrop[aria-hidden="false"] {
+.toc-backdrop[aria-hidden='false'] {
 	display: block;
 	opacity: 1;
 	pointer-events: all;
@@ -1102,7 +1115,7 @@ img.footer-logo {
 		background: var(--bg); /* Ensure background is visible */
 	}
 
-	.lesson-toc[aria-expanded="true"] {
+	.lesson-toc[aria-expanded='true'] {
 		display: block !important; /* Override any other display rules */
 		transform: translateX(0) !important;
 		visibility: visible !important;
@@ -1414,16 +1427,16 @@ img.footer-logo {
 /* Estados finalizados (verde) */
 .lesson-status.status-finished,
 .lesson-status.status-terminado,
-.lesson-status[class*="status-finished"],
-.lesson-status[class*="status-terminado"] {
+.lesson-status[class*='status-finished'],
+.lesson-status[class*='status-terminado'] {
 	background: #dcfce7;
 	color: #166534;
 }
 
 .dark .lesson-status.status-finished,
 .dark .lesson-status.status-terminado,
-.dark .lesson-status[class*="status-finished"],
-.dark .lesson-status[class*="status-terminado"] {
+.dark .lesson-status[class*='status-finished'],
+.dark .lesson-status[class*='status-terminado'] {
 	background: #14532d;
 	color: #86efac;
 }
@@ -1432,12 +1445,12 @@ img.footer-logo {
 .lesson-status.status-draft,
 .lesson-status.status-borrador,
 .lesson-status.status-en-proceso,
-.lesson-status[class*="in-progress"],
+.lesson-status[class*='in-progress'],
 .lesson-status.status-in-progress,
-.lesson-status[class*="in progress"],
-.lesson-status[class*="status-draft"],
-.lesson-status[class*="status-borrador"],
-.lesson-status[class*="status-en-proceso"] {
+.lesson-status[class*='in progress'],
+.lesson-status[class*='status-draft'],
+.lesson-status[class*='status-borrador'],
+.lesson-status[class*='status-en-proceso'] {
 	background: #fef3c7;
 	color: #92400e;
 }
@@ -1445,12 +1458,12 @@ img.footer-logo {
 .dark .lesson-status.status-draft,
 .dark .lesson-status.status-borrador,
 .dark .lesson-status.status-en-proceso,
-.dark .lesson-status[class*="in-progress"],
+.dark .lesson-status[class*='in-progress'],
 .dark .lesson-status.status-in-progress,
-.dark .lesson-status[class*="in progress"],
-.dark .lesson-status[class*="status-draft"],
-.dark .lesson-status[class*="status-borrador"],
-.dark .lesson-status[class*="status-en-proceso"] {
+.dark .lesson-status[class*='in progress'],
+.dark .lesson-status[class*='status-draft'],
+.dark .lesson-status[class*='status-borrador'],
+.dark .lesson-status[class*='status-en-proceso'] {
 	background: #78350f;
 	color: #fde047;
 }
@@ -1728,11 +1741,94 @@ main#main:has(.lesson-wrapper) {
 		padding: 0;
 		margin: 0;
 	}
-	
+
 	/* Ensure lesson-wrapper starts immediately after header */
 	.lesson-wrapper {
 		margin-top: 0 !important;
 		padding-top: 0 !important;
+	}
+}
+
+/* ========================================
+   Back to Top Button
+   ======================================== */
+
+.back-to-top {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	width: 3rem;
+	height: 3rem;
+	background: var(--primary);
+	color: var(--on-primary);
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(1rem);
+	transition:
+		opacity 0.3s ease,
+		visibility 0.3s ease,
+		transform 0.3s ease,
+		background-color 0.2s ease;
+	z-index: 90;
+}
+
+.back-to-top:hover {
+	background: var(--primary-hover);
+	transform: translateY(0);
+}
+
+.back-to-top:focus {
+	outline: 2px solid var(--focus-outline);
+	outline-offset: 2px;
+}
+
+.back-to-top.visible {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.back-to-top svg {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+/* Dark mode support */
+.dark .back-to-top {
+	background: #3b82f6;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dark .back-to-top:hover {
+	background: #2563eb;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+	.back-to-top {
+		bottom: 1rem;
+		right: 1rem;
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+
+	.back-to-top svg {
+		width: 1rem;
+		height: 1rem;
+	}
+}
+
+/* Hide in print */
+@media print {
+	.back-to-top {
+		display: none !important;
 	}
 }
 

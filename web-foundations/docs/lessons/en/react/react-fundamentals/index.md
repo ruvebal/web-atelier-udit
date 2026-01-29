@@ -71,13 +71,13 @@ npm install tailwindcss@next @tailwindcss/vite@next
 Edit `vite.config.js`:
 
 ```js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-})
+	plugins: [react(), tailwindcss()],
+});
 ```
 
 ### Step 3: Add Tailwind to CSS
@@ -85,7 +85,7 @@ export default defineConfig({
 Edit `src/index.css` (replace all content):
 
 ```css
-@import "tailwindcss";
+@import 'tailwindcss';
 ```
 
 ### Step 4: Create Components Directory
@@ -137,11 +137,11 @@ A component is a **function that returns JSX** (HTML-like syntax). Think of it a
 ```jsx
 // This is a component
 function Greeting() {
-  return <h1>Hello, World!</h1>;
+	return <h1>Hello, World!</h1>;
 }
 
 // You use it like this:
-<Greeting />
+<Greeting />;
 ```
 
 **Why components?**
@@ -164,57 +164,47 @@ import TaskList from './components/TaskList';
 import AddTaskInput from './components/AddTaskInput';
 
 function App() {
-  // STATE: The list of tasks (this is our app's memory)
-  const [tasks, setTasks] = useState([
-    { id: 1, text: 'Learn React basics', completed: false },
-    { id: 2, text: 'Build a todo app', completed: false },
-  ]);
+	// STATE: The list of tasks (this is our app's memory)
+	const [tasks, setTasks] = useState([
+		{ id: 1, text: 'Learn React basics', completed: false },
+		{ id: 2, text: 'Build a todo app', completed: false },
+	]);
 
-  // FUNCTION: Add a new task
-  const addTask = (text) => {
-    const newTask = {
-      id: Date.now(), // Simple unique ID
-      text: text,
-      completed: false,
-    };
-    setTasks([...tasks, newTask]); // Add to existing tasks
-  };
+	// FUNCTION: Add a new task
+	const addTask = (text) => {
+		const newTask = {
+			id: Date.now(), // Simple unique ID
+			text: text,
+			completed: false,
+		};
+		setTasks([...tasks, newTask]); // Add to existing tasks
+	};
 
-  // FUNCTION: Remove a task
-  const removeTask = (id) => {
-    setTasks(tasks.filter(task => task.id !== id));
-  };
+	// FUNCTION: Remove a task
+	const removeTask = (id) => {
+		setTasks(tasks.filter((task) => task.id !== id));
+	};
 
-  // FUNCTION: Toggle task completion
-  const toggleTask = (id) => {
-    setTasks(tasks.map(task =>
-      task.id === id
-        ? { ...task, completed: !task.completed }
-        : task
-    ));
-  };
+	// FUNCTION: Toggle task completion
+	const toggleTask = (id) => {
+		setTasks(tasks.map((task) => (task.id === id ? { ...task, completed: !task.completed } : task)));
+	};
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-indigo-900 mb-8">
-          📝 My Todo List
-        </h1>
+	return (
+		<div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+			<div className="max-w-2xl mx-auto">
+				<h1 className="text-4xl font-bold text-center text-indigo-900 mb-8">📝 My Todo List</h1>
 
-        <AddTaskInput onAdd={addTask} />
+				<AddTaskInput onAdd={addTask} />
 
-        <TaskList
-          tasks={tasks}
-          onRemove={removeTask}
-          onToggle={toggleTask}
-        />
+				<TaskList tasks={tasks} onRemove={removeTask} onToggle={toggleTask} />
 
-        <div className="mt-6 text-center text-sm text-gray-600">
-          Total: {tasks.length} tasks | Completed: {tasks.filter(t => t.completed).length}
-        </div>
-      </div>
-    </div>
-  );
+				<div className="mt-6 text-center text-sm text-gray-600">
+					Total: {tasks.length} tasks | Completed: {tasks.filter((t) => t.completed).length}
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default App;
@@ -257,28 +247,23 @@ Let's start with the **simplest** component: displaying a list. No editing yet, 
 import TaskItem from './TaskItem';
 
 function TaskList({ tasks, onRemove, onToggle }) {
-  // If no tasks, show a friendly message
-  if (tasks.length === 0) {
-    return (
-      <div className="text-center py-12 text-gray-500">
-        <p className="text-lg">No tasks yet. Add one above! 👆</p>
-      </div>
-    );
-  }
+	// If no tasks, show a friendly message
+	if (tasks.length === 0) {
+		return (
+			<div className="text-center py-12 text-gray-500">
+				<p className="text-lg">No tasks yet. Add one above! 👆</p>
+			</div>
+		);
+	}
 
-  // Render each task using .map()
-  return (
-    <div className="space-y-2">
-      {tasks.map(task => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          onRemove={onRemove}
-          onToggle={onToggle}
-        />
-      ))}
-    </div>
-  );
+	// Render each task using .map()
+	return (
+		<div className="space-y-2">
+			{tasks.map((task) => (
+				<TaskItem key={task.id} task={task} onRemove={onRemove} onToggle={onToggle} />
+			))}
+		</div>
+	);
 }
 
 export default TaskList;
@@ -311,44 +296,43 @@ This component handles user input. We'll use a simple input + button (no `<form>
 import { useState } from 'react';
 
 function AddTaskInput({ onAdd }) {
-  const [inputValue, setInputValue] = useState('');
+	const [inputValue, setInputValue] = useState('');
 
-  const handleAdd = () => {
-    if (inputValue.trim()) {
-      onAdd(inputValue); // Call parent function
-      setInputValue(''); // Clear input
-    }
-  };
+	const handleAdd = () => {
+		if (inputValue.trim()) {
+			onAdd(inputValue); // Call parent function
+			setInputValue(''); // Clear input
+		}
+	};
 
-  const handleKeyDown = (e) => {
-    // Allow Enter key to add task (like a form would)
-    if (e.key === 'Enter') {
-      handleAdd();
-    }
-  };
+	const handleKeyDown = (e) => {
+		// Allow Enter key to add task (like a form would)
+		if (e.key === 'Enter') {
+			handleAdd();
+		}
+	};
 
-  return (
-    <div className="mb-6 flex gap-2">
-      {/* onChange: Fires every time the user types
+	return (
+		<div className="mb-6 flex gap-2">
+			{/* onChange: Fires every time the user types
           e = event object (contains info about what happened)
           e.target = the DOM element that triggered the event (this input)
           e.target.value = the current text typed in the input */}
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="What needs to be done?"
-        className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-      />
-      <button
-        onClick={handleAdd}
-        className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
-      >
-        Add
-      </button>
-    </div>
-  );
+			<input
+				type="text"
+				value={inputValue}
+				onChange={(e) => setInputValue(e.target.value)}
+				onKeyDown={handleKeyDown}
+				placeholder="What needs to be done?"
+				className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+			/>
+			<button
+				onClick={handleAdd}
+				className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">
+				Add
+			</button>
+		</div>
+	);
 }
 
 export default AddTaskInput;
@@ -390,32 +374,27 @@ This component represents a single task. Keep it simple: just display, toggle, a
 
 ```jsx
 function TaskItem({ task, onRemove, onToggle }) {
-  return (
-    <div className="bg-white rounded-lg shadow-sm p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
-      {/* Checkbox to toggle completion */}
-      <input
-        type="checkbox"
-        checked={task.completed}
-        onChange={() => onToggle(task.id)}
-        className="w-5 h-5 text-indigo-600 rounded focus:ring-2 focus:ring-indigo-500"
-      />
+	return (
+		<div className="bg-white rounded-lg shadow-sm p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
+			{/* Checkbox to toggle completion */}
+			<input
+				type="checkbox"
+				checked={task.completed}
+				onChange={() => onToggle(task.id)}
+				className="w-5 h-5 text-indigo-600 rounded focus:ring-2 focus:ring-indigo-500"
+			/>
 
-      {/* Task text (strikethrough if completed) */}
-      <span
-        className={`flex-1 ${task.completed ? 'line-through text-gray-400' : 'text-gray-800'}`}
-      >
-        {task.text}
-      </span>
+			{/* Task text (strikethrough if completed) */}
+			<span className={`flex-1 ${task.completed ? 'line-through text-gray-400' : 'text-gray-800'}`}>{task.text}</span>
 
-      {/* Delete button */}
-      <button
-        onClick={() => onRemove(task.id)}
-        className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-      >
-        Delete
-      </button>
-    </div>
-  );
+			{/* Delete button */}
+			<button
+				onClick={() => onRemove(task.id)}
+				className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+				Delete
+			</button>
+		</div>
+	);
 }
 
 export default TaskItem;
@@ -437,9 +416,9 @@ When React renders a list, it needs to know which items changed. Without keys, R
 
 ```jsx
 // ❌ BAD: Using index as key
-{tasks.map((task, index) => (
-  <TaskItem key={index} task={task} />
-))}
+{
+	tasks.map((task, index) => <TaskItem key={index} task={task} />);
+}
 ```
 
 **What goes wrong?**
@@ -452,9 +431,9 @@ When React renders a list, it needs to know which items changed. Without keys, R
 
 ```jsx
 // ✅ GOOD: Using unique ID as key
-{tasks.map(task => (
-  <TaskItem key={task.id} task={task} />
-))}
+{
+	tasks.map((task) => <TaskItem key={task.id} task={task} />);
+}
 ```
 
 **Why this works:**
@@ -504,6 +483,7 @@ setTasks([...tasks, newTask]);
 **Why?** React compares old and new state by reference. If you mutate, React thinks nothing changed.
 
 **The spread operator (`...`) creates a new array:**
+
 - `[...tasks, newTask]` copies all existing tasks into a new array, then adds the new task
 - This creates a new reference, so React knows state changed
 - [MDN: Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
@@ -535,13 +515,13 @@ Props are how components talk to each other:
 ```jsx
 // Parent passes data down
 <TaskItem
-  task={task}           // data
-  onRemove={removeTask} // function
-/>
+	task={task} // data
+	onRemove={removeTask} // function
+/>;
 
 // Child receives via props
 function TaskItem({ task, onRemove }) {
-  // Use task.text, call onRemove(task.id)
+	// Use task.text, call onRemove(task.id)
 }
 ```
 
@@ -581,7 +561,7 @@ Add a button that removes all completed tasks.
 
 ```jsx
 const clearCompleted = () => {
-  setTasks(tasks.filter(task => !task.completed));
+	setTasks(tasks.filter((task) => !task.completed));
 };
 ```
 
@@ -634,11 +614,29 @@ Save tasks to `localStorage` so they survive page refresh.
 After mastering this, you're ready for:
 
 1. **Hooks Deep Dive** (`useEffect`, `useRef`, custom hooks)
+   - [Hooks Mastery: The Engine of Interactivity]({{ '/lessons/en/react/react-hooks/' | relative_url }})
 2. **State Architecture** (Context, reducers, Zustand)
+   - [State Architecture: Scaling Beyond Components]({{ '/lessons/en/react/react-state-architecture/' | relative_url }})
 3. **Routing** (React Router for multi-page apps)
+   - [Routing & Navigation: The Multi-Page SPA]({{ '/lessons/en/react/react-routing/' | relative_url }})
 4. **Backend Integration** (fetching data from APIs)
+   - [Backend Integration: Connecting to the Real World]({{ '/lessons/en/react/react-backend-integration/' | relative_url }})
+5. **Authentication** (sessions, protected routes, security)
+   - [Authentication: Securing Your Application]({{ '/lessons/en/react/react-authentication/' | relative_url }})
+6. **Testing** (unit, integration, E2E)
+   - [Testing: Building Confidence in Your Code]({{ '/lessons/en/react/react-testing/' | relative_url }})
+7. **Performance** (profiling, memoization, code splitting)
+   - [Performance: Speed as a Feature]({{ '/lessons/en/react/react-performance/' | relative_url }})
+8. **Deployment** (build, CI/CD, hosting)
+   - [Deployment: Shipping to the World]({{ '/lessons/en/react/react-deployment/' | relative_url }})
 
 ---
+
+## 🔗 Lesson Navigation
+
+| Previous                                                        | Current          | Next                   |
+| --------------------------------------------------------------- | ---------------- | ---------------------- | --------------------------------------------------- | ---------------- |
+| [Modern Frontend Intro]({{ '/lessons/en/react/modern-fe-intro/' | relative_url }}) | **React Fundamentals** | [Hooks Mastery]({{ '/lessons/en/react/react-hooks/' | relative_url }}) |
 
 ## 🧘 Koan
 
