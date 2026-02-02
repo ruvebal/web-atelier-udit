@@ -42,21 +42,30 @@ This repository is the **starting point for each student’s personal project** 
 
 ```plaintext
 student-project-template/
-├── index.html         # Homepage (starter HTML with semantic structure)
-├── assets/            # Modern asset organization
+├── index.html              # Homepage (semantic HTML)
+├── assets/
 │   ├── css/
-│   │   └── style.css  # Main stylesheet with responsive design
+│   │   ├── style.css       # Main entry (imports partials)
+│   │   ├── _variables.css  # Design tokens
+│   │   ├── _reset.css      # Browser reset
+│   │   ├── _base.css       # Typography, links
+│   │   ├── _layout.css     # Containers, grids
+│   │   ├── _components.css # Header, footer, buttons, cards
+│   │   ├── _utilities.css  # Helper classes
+│   │   ├── _accessibility.css
+│   │   ├── _responsive.css
+│   │   └── _print.css
 │   └── js/
-│       └── main.js    # JavaScript functionality
-├── images/            # Image assets (keep optimized)
-├── css/               # Legacy CSS (imports from assets/css/)
-│   └── style.css      # Compatibility layer
-├── project.yaml       # Project metadata (complete by Week 4)
-├── project-brief.md   # Project concept definition (Week 2)
-├── README.md          # Instructions and weekly progress log
-├── .nojekyll          # Prevents Jekyll processing conflicts
+│       └── main.js         # JavaScript functionality
+├── images/                 # Image assets (keep optimized)
+├── project.yaml            # Project metadata (complete by Week 4)
+├── project-brief.md        # Project concept definition (Week 2)
+├── project-inspiration.md  # References and moodboard
+├── GETTING-STARTED.md      # Setup and methodology guide
+├── README.md               # Instructions and weekly progress log
+├── .nojekyll               # Prevents Jekyll processing conflicts
 └── .github/workflows/
-    └── critical.yml   # Automated quality checks (CI/CD)
+    └── critical.yml        # Automated quality checks (CI/CD)
 ```
 
 ## Workflow in Practice
@@ -87,7 +96,7 @@ student-project-template/
 - GitHub Actions – [https://docs.github.com/en/actions](https://docs.github.com/en/actions)
 - Jekyll (optional background) – [https://jekyllrb.com](https://jekyllrb.com)
 - Markdown Guide – [https://www.markdownguide.org](https://www.markdownguide.org)
-- YAML Introduction – [https://yaml.org/start.html](https://yaml.org/start.html)
+- YAML Introduction – [https://learnxinyminutes.com/docs/yaml/](https://learnxinyminutes.com/docs/yaml/)
 - Schema.org / JSON-LD – [https://schema.org](https://schema.org)
 
 © 2025 Rubén Vega Balbás, PhD — WEB ATELIER (UDIT) · ORCID: <https://orcid.org/0000-0001-6862-9081>

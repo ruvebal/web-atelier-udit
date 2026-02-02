@@ -69,6 +69,38 @@ Para detalles y teoría profunda, consulta:
 **Metodología IA**:
 
 - [Guía Práctica de Desarrollo Asistido por IA]({{ '/methodology/es/ai-practical-guide/' | relative_url }})
+- En tu template: `GETTING-STARTED.md` → AI-Assisted Development (Docs-First). Guarda prompts y planes en `docs/`.
+
+### Tu plantilla de proyecto
+
+Esta sesión trabaja directamente con tu **student-project-template**. Estructura relevante:
+
+| Archivo/Carpeta          | Uso en S2                                                                                                                                                                                 |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `index.html`             | Ya tiene `.container`, `.grid`, `.card`, `.card-title`, `.card-content`. Añadirás la sección de galería y extenderás las cards.                                                           |
+| `project-brief.md`       | Actualiza **Key Sections** con tu galería, **Design Direction** con paleta y tipografía.                                                                                                  |
+| `project-inspiration.md` | Añade referencias de galerías que admiras (Award-Winning Design Galleries, Portfolio Sites).                                                                                              |
+| `assets/css/`            | Sistema modular: `_variables.css` (tokens), `_components.css` (cards), `_layout.css` (grids). Añade estilos de galería en `_components.css` o crea `_gallery.css`.                        |
+| `images/`                | Carpeta para tus proyectos. Usa subcarpetas: `images/proyectos/`.                                                                                                                         |
+| `docs/`                  | **Crea si no existe.** Guarda aquí: planes (`plan-gallery.md`), prompts IA (`prompt-content-strategy.md`), reflexiones (`reflexion-s2.md`). Sigue la metodología de `GETTING-STARTED.md`. |
+
+**Prompts IA**: Cuando uses los prompts de esta lección, guarda prompt + respuesta en `docs/prompt-[nombre].md` (ej. `docs/prompt-content-strategy.md`). Así documentas decisiones y evitas repetir trabajo.
+
+## 🧩 Kit de contexto para prompts IA (obligatorio)
+
+Muchos prompts fallan por falta de contexto (o por “inventar” decisiones). La idea aquí no es “pegar texto porque sí”, sino **aprender a leer tus propios archivos y extraer el contexto correcto**.
+
+> **Objetivo pedagógico**: aprender a **referenciar tus fuentes** (`project-brief.md`, `project-inspiration.md`, tokens CSS) y a pedir salidas **verificables** (criterios + checklist), no solo “texto bonito”.
+
+Cómo usarlo (2 minutos):
+
+- **Atajo (recomendado)**: empieza tus prompts con una frase de referencia a fuentes, por ejemplo:
+  “Teniendo en cuenta mis líneas de diseño y decisiones técnicas descritas en `project-brief.md` y `project-inspiration.md` (y respetando los tokens de `assets/css/_variables.css`)...”
+
+- **Paso 1**: Abre `project-brief.md` y resume lo relevante en 5–8 bullets.
+- **Paso 2**: Abre `project-inspiration.md` y selecciona 3 referencias (URL + “por qué”).
+- **Paso 3**: Abre `assets/css/_variables.css` y anota los tokens clave que vas a respetar.
+- **Paso 4**: Si tu IA **no tiene acceso al repo**, entonces sí: **pega SOLO el extracto** (no el archivo completo).
 
 ### Preparación Previa
 
@@ -77,8 +109,10 @@ Antes de la sesión, ten listo:
 - [ ] 6-8 imágenes de tus mejores proyectos
 - [ ] Imágenes optimizadas (WebP, < 500KB cada una)
 - [ ] Títulos y descripciones breves para cada proyecto
-- [ ] Referencias visuales de galerías que admiras
-- [ ] Sistema de diseño de S1 funcionando
+- [ ] Referencias en `project-inspiration.md` (galerías que admiras)
+- [ ] `project-brief.md` con Key Sections y Design Direction definidos
+- [ ] Carpeta `docs/` creada (para planes, prompts IA, reflexiones)
+- [ ] Sistema de diseño de S1 funcionando (`assets/css/_variables.css`)
 
 ---
 
@@ -99,6 +133,8 @@ Antes de la sesión, ten listo:
 
 **Actividad**: Analiza 3 portfolios de ilustradores premiados
 
+Aquí algunas propuestas:
+
 **Criterios de análisis**:
 
 | Aspecto          | Preguntas Clave                                             |
@@ -113,48 +149,71 @@ Antes de la sesión, ten listo:
 
 **Prompt IA - Análisis de Galerías**:
 
+> **Documenta**: Guarda este prompt y la respuesta en `docs/prompt-analisis-galerias.md`. Añade las URLs analizadas a `project-inspiration.md` en la sección de Portfolio Sites.
+
 ```markdown
-Analiza estos 3 portfolios de ilustradores [URLs]:
+Teniendo en cuenta mis líneas de diseño y decisiones técnicas descritas en `project-brief.md` y `project-inspiration.md` (y respetando los tokens de `assets/css/_variables.css`), analiza estos 3 portfolios de ilustradores [URLs].
+
+## Volcado de entrega (archivos destino)
+
+- `docs/prompt-analisis-galerias.md`: pega este prompt + la respuesta completa.
+- `project-inspiration.md`: añade las 3 URLs analizadas y 3 bullets de “patrones transferibles” (sin copiar).
+- `project-brief.md`: incorpora 2 decisiones concretas (layout + contenido) en Key Sections / Design Direction.
+
+Objetivo pedagógico: detectar **patrones transferibles** (no copiar estética).
 
 Para cada uno, evalúa:
 
 1. **Diseño Visual (Awwwards criteria)**
+
    - Estética general (1-10)
    - Tipografía y jerarquía
    - Uso de color y contraste
    - Composición y espaciado
 
 2. **UX de Galería**
+
    - Facilidad para explorar proyectos
    - Claridad de navegación
    - Información por proyecto (título, descripción, tags)
    - Call-to-actions efectivos
 
 3. **Técnica**
+
    - Tipo de layout (grid, masonry, custom)
    - Responsive behavior
    - Performance (carga de imágenes)
    - Micro-interacciones
 
-4. **Insights Accionables**
-   - 3 cosas que funcionan bien
-   - 3 oportunidades de mejora
-   - 2 ideas que puedo adaptar a mi portfolio
+4. **Insights Accionables (aplicables a mi brief)**
+   - 3 patrones que puedo reutilizar sin copiar (con explicación)
+   - 3 riesgos/antipatrones a evitar (con explicación)
+   - 2 decisiones concretas para mi galería (layout + contenido), justificadas con mi `project-brief.md`
 
-Formato: Tabla comparativa + recomendaciones específicas.
+Devuelve:
+
+- Tabla comparativa (Diseño / UX / Técnica)
+- “Decisiones para mi proyecto” (bullets)
+- Checklist de verificación (qué revisar al implementarlo)
 ```
+
+> Modifica tu project-brief.md añadiendo los insights que consideres
 
 ### 1.2 Content Strategy — Copy Compelling (15 min)
 
-**Actividad**: Escribe contenido que venda tu trabajo
+**Actividad**: Escribe contenido que comunique tu trabajo
+
+Actualiza `project-brief.md` → **Key Sections** con tu galería y **Content Strategy** con fuentes de contenido. Usa `project-inspiration.md` como referencia de tono y estilo.
 
 **Elementos de contenido**:
 
 1. **Headline de galería** (5-10 palabras)
+
    - Ejemplo: "Ilustraciones que cuentan historias"
    - Ejemplo: "Narrativa visual para marcas con propósito"
 
 2. **Descripción por proyecto** (20-30 palabras)
+
    - Contexto: ¿Para quién? ¿Qué problema resolvió?
    - Enfoque: ¿Qué técnica? ¿Qué hace único este proyecto?
    - Resultado: ¿Qué impacto tuvo?
@@ -166,39 +225,34 @@ Formato: Tabla comparativa + recomendaciones específicas.
 
 **Prompt IA - Content Strategy**:
 
+> **Documenta**: Guarda prompt + respuesta en `docs/prompt-content-strategy.md`. Actualiza `project-brief.md` → Key Sections con tu galería.
+
 ```markdown
-Crea copy compelling para mi galería de proyectos.
+Teniendo en cuenta mis líneas de diseño y decisiones técnicas descritas en `project-brief.md` y `project-inspiration.md` (y respetando los tokens de `assets/css/_variables.css`), crea copy compelling para mi galería de proyectos.
 
-Contexto:
+## Volcado de entrega (archivos destino)
 
-- Especialidad: [tu especialidad]
-- Audiencia: [directores de arte, editores, etc.]
-- Tono: [profesional/creativo/accesible]
+- `docs/prompt-content-strategy.md`: pega este prompt + la respuesta completa.
+- `project-brief.md`: actualiza Key Sections (galería) y Content Strategy (tono, fuentes, estructura).
+- `index.html`: pega el headline y la descripción final en la sección de galería (h2 + párrafo).
 
-Para cada uno de mis 6 proyectos:
+Reglas pedagógicas:
 
-Proyecto 1: [título provisional]
+- No inventes datos. Si falta info, haz **3 preguntas máximo** (las más críticas).
+- Propón **2 variantes** de tono (A/B) y recomienda una según mi inspiración.
+- Evita clichés (“apasionado/a”, “creativo/a”, “soluciones innovadoras”) salvo que mi brief lo exija.
 
-- Cliente/Contexto: [describe]
-- Técnica: [describe]
-- Objetivo: [qué buscaba lograr]
+Entrega:
 
-Genera:
+1. Headline de galería (3 opciones) + por qué funcionan (1 frase cada una)
+2. Descripción de galería (1–2 frases) + versión “micro” (≤ 120 caracteres)
+3. Para cada proyecto (mínimo 6):
+   - Título (≤ 6 palabras)
+   - Descripción (20–30 palabras) en formato Contexto → Enfoque → Resultado
+   - 3–5 tags útiles para filtrado (coherentes con `project-inspiration.md`)
+4. Checklist de revisión: claridad, especificidad, coherencia de tono, consistencia de tags
 
-1. **Headline de galería** (3 opciones)
-   - Debe comunicar valor en 5 segundos
-   - Tono consistente con mi marca
-
-2. **Descripción por proyecto** (20-30 palabras)
-   - Formato: Contexto + Enfoque + Resultado
-   - Lenguaje activo y específico
-   - Evitar jerga innecesaria
-
-3. **Tags relevantes**
-   - Categorías útiles para filtrado
-   - Términos que buscaría mi audiencia
-
-Criterios: Claridad > Creatividad. El copy debe vender, no decorar.
+Formato: tabla por proyecto + recomendaciones al final.
 ```
 
 ### 1.3 Jerarquía de Información (10 min)
@@ -219,7 +273,7 @@ Criterios: Claridad > Creatividad. El copy debe vender, no decorar.
 - **Destacados** (2-3): Tamaño grande, posiciones estratégicas
 - **Estándar** (3-5): Tamaño regular, completan la galería
 
-**Documenta**: `docs/content-strategy-s2.md`
+**Documenta**: `docs/content-strategy-s2.md` (crea `docs/` si no existe)
 
 ---
 
@@ -229,7 +283,22 @@ Criterios: Claridad > Creatividad. El copy debe vender, no decorar.
 
 **Actividad**: Refina tu sistema tipográfico para contenido
 
-**Escala tipográfica para galería**:
+**Highlights (qué importa de verdad)**:
+
+- **Jerarquía clara**: título > descripción > tags (sin “gritar” visualmente).
+- **Tipografía fluida**: usa `clamp()` para evitar breakpoints innecesarios.
+- **Legibilidad**: `line-height` generoso en descripción, y “line-length” razonable (máx ~60–75 caracteres por línea).
+- **Consistencia**: si cambias el “tono” tipográfico, actualiza tokens en `_variables.css` antes de tocar 20 clases.
+
+Snippet mínimo (idea de escala):
+
+```css
+.project-title {
+	font-size: clamp(1.25rem, 2vw + 1rem, 1.75rem);
+}
+```
+
+### CSS de ejemplo (opcional)
 
 ```css
 /* Títulos de proyectos */
@@ -258,8 +327,16 @@ Criterios: Claridad > Creatividad. El copy debe vender, no decorar.
 
 **Prompt IA - Tipografía**:
 
+> **Documenta**: Guarda en `docs/prompt-tipografia.md`. Los tokens van en `assets/css/_variables.css`.
+
 ```markdown
-Optimiza mi sistema tipográfico para galería de proyectos.
+Teniendo en cuenta mis líneas de diseño y decisiones técnicas descritas en `project-brief.md` y `project-inspiration.md` (y respetando los tokens de `assets/css/_variables.css`), optimiza mi sistema tipográfico para galería de proyectos.
+
+## Volcado de entrega (archivos destino)
+
+- `docs/prompt-tipografia.md`: pega este prompt + la respuesta completa.
+- `assets/css/_variables.css`: vuelca aquí los tokens tipográficos recomendados.
+- `assets/css/_components.css`: vuelca aquí las clases tipográficas de la galería (título/descripcion/tags) si no son tokens.
 
 Sistema actual:
 
@@ -270,25 +347,34 @@ Sistema actual:
 Necesito:
 
 1. **Escala para galería**
+
    - Título de galería (h2)
    - Título de proyecto (h3)
    - Descripción de proyecto (p)
    - Tags/categorías (small)
 
 2. **Responsive con clamp()**
+
    - Mobile: legible en 320px
    - Desktop: aprovecha espacio en 1920px
    - Fluid scaling entre breakpoints
 
 3. **Jerarquía visual**
+
    - Contraste de tamaño claro
    - Line-height óptimo para legibilidad
    - Letter-spacing para títulos
 
 4. **CSS listo para copiar**
-   - Variables CSS
-   - Clases reutilizables
-   - Comentarios explicativos
+   - Tokens para `_variables.css`
+   - Clases para la galería (títulos, descripción, tags)
+   - Comentarios explicativos (qué cambia y por qué)
+
+Devuelve:
+
+- 2 escalas tipográficas (A/B) con pros/contras
+- Recomendación final alineada con 1–2 referencias de `project-inspiration.md`
+- Checklist de verificación (legibilidad, jerarquía, line-length, contraste percibido)
 
 Criterios: Legibilidad > Estética. Debe funcionar en todos los tamaños.
 ```
@@ -297,9 +383,26 @@ Criterios: Legibilidad > Estética. Debe funcionar en todos los tamaños.
 
 **Actividad**: Implementa layout profesional con Grid
 
-**Opciones de layout**:
+**Highlights (qué importa de verdad)**:
 
-**Opción A: Grid Uniforme con Hero**
+- **Base robusta**: `repeat(auto-fit, minmax(...))` + `gap` del sistema → funciona en casi todos los casos.
+- **Jerarquía sin drama**: hero/featured se resuelven con `grid-column`/`grid-row` (spans), no reescribiendo el grid.
+- **Opción “editorial”**: un grid 12 columnas te da control, pero exige más disciplina (y más “debug”).
+- **Masonry**: es tentador, pero **experimental**; úsalo solo si sabes gestionar fallbacks.
+
+Snippet mínimo (grid base recomendado):
+
+```css
+.gallery__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: var(--space-lg);
+}
+```
+
+### Opciones completas de layout (opcional)
+
+**Opción A: Grid uniforme con hero (segura)**
 
 ```css
 .gallery {
@@ -314,7 +417,7 @@ Criterios: Legibilidad > Estética. Debe funcionar en todos los tamaños.
 }
 ```
 
-**Opción B: Grid Asimétrico**
+**Opción B: Grid asimétrico (más editorial)**
 
 ```css
 .gallery {
@@ -347,23 +450,34 @@ Criterios: Legibilidad > Estética. Debe funcionar en todos los tamaños.
 
 **Prompt IA - Layout Grid**:
 
+> **Documenta**: Guarda en `docs/prompt-layout-grid.md`. El CSS va en `assets/css/_components.css` o `_layout.css`. Usa variables de `_variables.css` (--space-_, --radius-_).
+
 ```markdown
-Diseña un layout de galería CSS Grid para portfolio de ilustrador/a.
+Teniendo en cuenta mis líneas de diseño y decisiones técnicas descritas en `project-brief.md` y `project-inspiration.md` (y respetando los tokens de `assets/css/_variables.css`), diseña un layout de galería CSS Grid para mi portfolio.
+
+## Volcado de entrega (archivos destino)
+
+- `docs/prompt-layout-grid.md`: pega este prompt + la respuesta completa.
+- `assets/css/_layout.css` (o `assets/css/_components.css`): vuelca aquí el CSS del grid de galería y los spans (hero/featured).
+- `index.html`: aplica la estructura/clases (gallery, gallery\_\_grid, project-card--hero, etc.).
 
 Requisitos:
 
 1. **Estructura**
+
    - 6-8 proyectos
    - 1 hero project (doble tamaño)
    - 2-3 proyectos destacados (grande)
    - Resto estándar
 
 2. **Responsive**
+
    - Mobile (< 768px): 1 columna, hero normal
    - Tablet (768-1023px): 2 columnas, hero span 2
    - Desktop (1024px+): 3-4 columnas, hero span 2x2
 
 3. **Diseño Intrínseco**
+
    - Auto-fit para flexibilidad
    - Minmax para control de tamaño
    - Gap consistente con sistema de diseño
@@ -373,11 +487,12 @@ Requisitos:
    - Object-fit: cover para imágenes
    - Transiciones suaves en hover
 
-Genera:
+Devuelve:
 
-- CSS completo con comentarios
-- Variantes de layout (uniforme, asimétrico, masonry)
-- Recomendación con justificación
+- 2 propuestas (A/B): una “segura” y otra “más editorial”
+- Para cada propuesta: CSS + esquema de spans (hero/destacados/estándar) + riesgos
+- Recomendación final, citando 1–2 referencias de `project-inspiration.md`
+- Checklist responsive (qué debe pasar en 320 / 768 / 1024+)
 ```
 
 ### 2.3 Color y Contraste (15 min)
@@ -399,8 +514,16 @@ Genera:
 
 **Prompt IA - Verificación de Contraste**:
 
+> **Documenta**: Guarda en `docs/prompt-contraste.md`. Ajusta valores en `assets/css/_variables.css`.
+
 ```markdown
-Verifica el contraste de mi sistema de colores para galería.
+Teniendo en cuenta mis líneas de diseño y decisiones técnicas descritas en `project-brief.md` y `project-inspiration.md` (y respetando los tokens de `assets/css/_variables.css`), verifica el contraste de mi sistema de colores para la galería.
+
+## Volcado de entrega (archivos destino)
+
+- `docs/prompt-contraste.md`: pega este prompt + la respuesta completa.
+- `assets/css/_variables.css`: actualiza los tokens de color (y/o añade variantes accesibles).
+- `assets/css/_components.css`: si hay texto sobre imagen/overlay, ajusta aquí overlays/estados para mantener contraste.
 
 Colores actuales:
 
@@ -412,11 +535,13 @@ Colores actuales:
 Verifica:
 
 1. **Ratios WCAG AA**
+
    - Texto normal: ≥ 4.5:1
    - Texto grande (18px+): ≥ 3:1
    - UI components: ≥ 3:1
 
 2. **Casos de uso**
+
    - Títulos de proyecto sobre fondo
    - Descripciones sobre fondo
    - Tags/categorías
@@ -428,7 +553,11 @@ Verifica:
    - Mantén coherencia con paleta
    - Proporciona valores hex ajustados
 
-Formato: Tabla con ratios + recomendaciones.
+Devuelve:
+
+- Tabla con ratios + “pasa/falla”
+- Si falla: 2 alternativas por color (con hex) y por qué
+- Checklist final (hover, focus, overlay, texto sobre imagen)
 ```
 
 ### 2.4 Imagery y Optimización (25 min)
@@ -438,11 +567,13 @@ Formato: Tabla con ratios + recomendaciones.
 **Proceso de optimización**:
 
 1. **Formato**
+
    - WebP (primera opción, -30% tamaño vs JPEG)
    - JPEG optimizado (fallback)
    - Evitar PNG para fotos (muy pesado)
 
 2. **Tamaños**
+
    - Thumbnail: 400px ancho, ~50KB
    - Medium: 800px ancho, ~150KB
    - Large: 1600px ancho, ~300KB
@@ -450,29 +581,60 @@ Formato: Tabla con ratios + recomendaciones.
 
 3. **Responsive Images**
 
+Highlights:
+
+- **Evita CLS**: siempre `width` + `height` (o `aspect-ratio`) en `<img>`.
+- **Mejor formato primero**: `source type="image/webp"` (o AVIF si lo usas) + fallback JPEG.
+- **Carga inteligente**: `loading="lazy"` salvo hero/above-the-fold.
+
+### Template &lt;picture&gt; + `srcset` (opcional)
+
 ```html
 <picture>
 	<source
-		srcset="img/proyecto-400.webp 400w, img/proyecto-800.webp 800w, img/proyecto-1600.webp 1600w"
+		srcset="
+			images/proyectos/proyecto-400.webp   400w,
+			images/proyectos/proyecto-800.webp   800w,
+			images/proyectos/proyecto-1600.webp 1600w
+		"
 		type="image/webp" />
-	<img src="img/proyecto-800.jpg" alt="Descripción detallada del proyecto" loading="lazy" width="800" height="600" />
+	<img
+		src="images/proyectos/proyecto-800.jpg"
+		alt="Descripción detallada del proyecto"
+		loading="lazy"
+		width="800"
+		height="600" />
 </picture>
 ```
 
 4. **Lazy Loading**
+
    - Atributo `loading="lazy"` en todas las imágenes
    - Excepto hero/above-the-fold
 
+5. **CDN con API (recomendado para producción)**
+   - [ImageKit.io](https://imagekit.io/) — CDN con API para optimización automática: redimensionado, WebP/AVIF, lazy loading y entrega desde edge. Evita subir binarios grandes a Git.
+
 **Herramientas**:
 
-- [TinyPNG](https://tinypng.com/) - Compresión
-- [Squoosh](https://squoosh.app/) - Conversión WebP
-- [ImageOptim](https://imageoptim.com/) - Batch optimization
+- [ImageKit.io](https://imagekit.io/) — CDN para optimización automática (preferido para producción)
+- [TinyPNG](https://tinypng.com/) — Compresión local
+- [Squoosh](https://squoosh.app/) — Conversión WebP
+- [ImageOptim](https://imageoptim.com/) — Batch optimization local
 
 **Prompt IA - Optimización de Imágenes**:
 
+> **Documenta**: Guarda en `docs/prompt-optimizacion-imagenes.md`. Las imágenes van en `images/proyectos/`.
+
 ```markdown
-Crea un script de optimización para mis imágenes de portfolio.
+Teniendo en cuenta mis líneas de diseño y decisiones técnicas descritas en `project-brief.md` y `project-inspiration.md` (y respetando los tokens de `assets/css/_variables.css`), crea un flujo de optimización para mis imágenes de portfolio.
+
+## Volcado de entrega (archivos destino)
+
+- `docs/prompt-optimizacion-imagenes.md`: pega este prompt + la respuesta completa.
+- `images/proyectos/`: guarda aquí las variantes optimizadas (400/800/1600/2400 en WebP + JPG fallback).
+- `docs/scripts/optimize-images.sh` (opcional): si propones un script, guárdalo aquí para poder repetir el proceso.
+- `index.html`: actualiza los `<picture>`/`srcset` para que apunten a los nombres reales generados.
 
 Contexto:
 
@@ -481,19 +643,25 @@ Contexto:
 - Formatos originales: PNG, JPEG (alta resolución)
 - Tamaños originales: 3000-5000px, 2-5MB cada una
 
+Objetivo pedagógico: entender _qué_ optimizas (formatos/tamaños) y _cómo_ lo verificas (peso, dimensiones, LCP/CLS).
+
 Necesito:
 
 1. **Proceso de optimización**
+
    - Redimensionar a múltiples tamaños (400, 800, 1600, 2400px)
    - Convertir a WebP + mantener JPEG fallback
    - Comprimir sin pérdida visible de calidad
    - Mantener aspect ratio original
 
-2. **Nomenclatura**
-   - proyecto-nombre-[tamaño].[formato]
-   - Ejemplo: proyecto-editorial-800.webp
+2. **Nomenclatura y ubicación**
+
+   - Carpeta: `images/proyectos/`
+   - Formato: proyecto-nombre-[tamaño].[formato]
+   - Ejemplo: images/proyectos/proyecto-editorial-800.webp
 
 3. **Script automatizado**
+
    - Bash script o Node.js
    - Procesa todas las imágenes en carpeta
    - Genera todas las variantes
@@ -504,7 +672,12 @@ Necesito:
    - Lazy loading
    - Width/height para evitar layout shift
 
-Formato: Script + instrucciones + template HTML.
+Devuelve:
+
+- Opción A: script (bash) + requisitos (ImageMagick/cwebp/avifenc si aplica)
+- Opción B: flujo con ImageKit (patrón de URL + transformaciones típicas)
+- Ejemplo “antes/después” (tabla: tamaño, peso, formato)
+- Template `<picture>` mínimo + checklist (peso, alt, width/height, lazy, above-the-fold)
 ```
 
 ---
@@ -515,16 +688,79 @@ Formato: Script + instrucciones + template HTML.
 
 **Actividad**: Crea componente de proyecto reutilizable
 
-**Estructura HTML semántica**:
+Tu template ya incluye `.card`, `.card-title`, `.card-content` en `index.html` (sección #goals). Para la galería, creamos `.project-card` con imagen, overlay y tags. Puedes extender las clases existentes o usar BEM (`.project-card__*`). El CSS va en `assets/css/_components.css`.
+
+**Code highlights (qué copiar y por qué)**:
+
+- **Semántica + UX**: `<article>` por proyecto y un `<a>` envolviendo la card para un “hit area” grande.
+- **Imágenes**: `<picture>` + `srcset` + `width/height` para evitar CLS.
+- **Consistencia visual**: `aspect-ratio` + `object-fit: cover`.
+- **Accesibilidad**: `:focus-within` (o `:focus-visible`) y `prefers-reduced-motion`.
+
+Snippet mínimo (estructura):
+
+```html
+<article class="project-card">
+	<a class="project-card__link" href="#proyecto-detalle">
+		<figure class="project-card__figure">
+			<!-- <picture> + <img> -->
+			<figcaption class="project-card__overlay">
+				<span class="project-card__category">Editorial</span>
+			</figcaption>
+		</figure>
+		<div class="project-card__content">
+			<h3 class="project-card__title">Título</h3>
+			<p class="project-card__description">Contexto → Enfoque → Resultado.</p>
+			<ul class="project-card__tags">
+				<li class="tag">Tag</li>
+			</ul>
+		</div>
+	</a>
+</article>
+```
+
+Snippet mínimo (comportamientos clave):
+
+```css
+.project-card__figure {
+	aspect-ratio: 4 / 3;
+}
+.project-card__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.project-card__overlay {
+	opacity: 0;
+	transition: opacity 300ms ease;
+}
+.project-card:hover .project-card__overlay {
+	opacity: 1;
+}
+.project-card:focus-within {
+	outline: 3px solid color-mix(in oklab, var(--color-primary) 80%, white);
+	outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+	.project-card,
+	.project-card * {
+		transition: none !important;
+	}
+}
+```
+
+### HTML completo (opcional)
 
 ```html
 <article class="project-card" data-category="editorial">
 	<a href="#proyecto-detalle" class="project-card__link">
 		<figure class="project-card__figure">
 			<picture>
-				<source srcset="img/proyecto-400.webp 400w, img/proyecto-800.webp 800w" type="image/webp" />
+				<source
+					srcset="images/proyectos/proyecto-400.webp 400w, images/proyectos/proyecto-800.webp 800w"
+					type="image/webp" />
 				<img
-					src="img/proyecto-800.jpg"
+					src="images/proyectos/proyecto-800.jpg"
 					alt="Ilustración editorial para revista literaria: personaje leyendo bajo árbol"
 					loading="lazy"
 					width="800"
@@ -550,17 +786,15 @@ Formato: Script + instrucciones + template HTML.
 </article>
 ```
 
-**CSS del componente**:
+### CSS completo (opcional)
 
 ```css
 .project-card {
 	position: relative;
 	border-radius: var(--radius-md);
 	overflow: hidden;
-	background: var(--color-bg-alt);
-	transition:
-		transform 300ms ease,
-		box-shadow 300ms ease;
+	background: var(--color-bg-light);
+	transition: transform 300ms ease, box-shadow 300ms ease;
 }
 
 .project-card:hover {
@@ -619,7 +853,7 @@ Formato: Script + instrucciones + template HTML.
 .project-card__title {
 	font-size: clamp(1.125rem, 1.5vw + 0.875rem, 1.375rem);
 	margin: 0 0 var(--space-xs) 0;
-	color: var(--color-text);
+	color: var(--color-text-primary);
 }
 
 .project-card__description {
@@ -641,7 +875,7 @@ Formato: Script + instrucciones + template HTML.
 .tag {
 	font-size: 0.75rem;
 	padding: 0.25rem 0.5rem;
-	background: var(--color-bg);
+	background: var(--color-bg-light);
 	border-radius: var(--radius-sm);
 	color: var(--color-text-muted);
 }
@@ -649,12 +883,23 @@ Formato: Script + instrucciones + template HTML.
 
 **Prompt IA - Card Component**:
 
+> **Documenta**: Guarda en `docs/prompt-card-component.md`. Tu template ya tiene `.card`, `.card-title`, `.card-content` en `index.html`. Extiende con `.project-card` para la galería. CSS en `assets/css/_components.css`.
+
 ```markdown
-Crea un componente de proyecto (card) para galería de portfolio.
+Teniendo en cuenta mis líneas de diseño y decisiones técnicas descritas en `project-brief.md` y `project-inspiration.md` (y respetando los tokens de `assets/css/_variables.css`), crea un componente de proyecto (card) para mi galería.
+
+## Volcado de entrega (archivos destino)
+
+- `docs/prompt-card-component.md`: pega este prompt + la respuesta completa.
+- `assets/css/_components.css`: vuelca aquí el CSS del componente (`.project-card*`, `.tag`, estados).
+- `index.html`: vuelca aquí el HTML de 6–8 cards usando el componente y tu copy final.
+
+Objetivo pedagógico: justificar cada decisión (semántica, accesibilidad, performance), no solo “hacer que se vea bonito”.
 
 Requisitos:
 
 1. **Estructura**
+
    - Imagen responsive con picture/srcset
    - Título del proyecto
    - Descripción breve (20-30 palabras)
@@ -662,18 +907,21 @@ Requisitos:
    - Overlay en hover con categoría
 
 2. **Estados**
+
    - Default: card estático
    - Hover: elevación + zoom imagen + overlay visible
    - Focus: outline visible para teclado
    - Active: feedback táctil
 
 3. **Accesibilidad**
+
    - Semántica HTML correcta (<article>, <figure>)
    - Alt text descriptivo en imágenes
    - Link wrapping para toda la card
    - Keyboard navigable
 
 4. **Performance**
+
    - Lazy loading en imágenes
    - Transiciones GPU-accelerated (transform, opacity)
    - Will-change solo en hover
@@ -683,19 +931,25 @@ Requisitos:
    - Tipografía fluid con clamp()
    - Padding proporcional
 
-Genera:
+Devuelve:
 
-- HTML completo
-- CSS con BEM naming
-- Variantes (hero, destacado, estándar)
-- Comentarios explicativos
+- HTML mínimo + notas de semántica (por qué `<article>`, por qué envolver con `<a>`)
+- CSS “mínimo” (comportamientos clave) + CSS “extendido” (polish)
+- Variantes claras (hero/featured/standard) con spans
+- Checklist de verificación: teclado+focus, reduced motion, CLS (width/height), contraste overlay, rendimiento (solo transform/opacity)
 ```
 
 ### 3.2 Galería Completa (25 min)
 
 **Actividad**: Ensambla galería con todos los proyectos
 
-**HTML de galería**:
+**Highlights (qué importa de verdad)**:
+
+- **Estructura**: `<section>` + header + grid.
+- **Grid**: `auto-fit + minmax()` para que el layout se adapte sin “breakpoints mágicos”.
+- **Jerarquía**: `--hero` y `--featured` solo cambian spans (no cambies todo el sistema).
+
+### HTML de galería (opcional)
 
 ```html
 <section class="gallery" aria-labelledby="gallery-heading">
@@ -726,7 +980,7 @@ Genera:
 </section>
 ```
 
-**CSS de galería**:
+### CSS de galería (opcional)
 
 ```css
 .gallery {
@@ -789,9 +1043,7 @@ Genera:
 
 ```css
 .project-card {
-	transition:
-		transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
-		box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card:hover {
@@ -847,8 +1099,18 @@ Genera:
 
 **Prompt IA - Micro-interacciones**:
 
+> **Documenta**: Guarda en `docs/prompt-microinteracciones.md`. CSS en `assets/css/_components.css`.
+
 ```markdown
-Diseña micro-interacciones CSS para galería de portfolio.
+Teniendo en cuenta mis líneas de diseño y decisiones técnicas descritas en `project-brief.md` y `project-inspiration.md` (y respetando los tokens de `assets/css/_variables.css`), diseña micro-interacciones CSS para mi galería.
+
+## Volcado de entrega (archivos destino)
+
+- `docs/prompt-microinteracciones.md`: pega este prompt + la respuesta completa.
+- `assets/css/_components.css`: vuelca aquí transiciones/animaciones/estados hover/focus/active.
+- `assets/css/_accessibility.css` (opcional): si añades una política global de reduced motion, colócala aquí.
+
+Objetivo pedagógico: cada micro-interacción debe tener **propósito** (feedback, jerarquía, guía) y ser **verificable** (teclado, reduced motion, rendimiento).
 
 Componentes:
 
@@ -860,12 +1122,14 @@ Componentes:
 Requisitos:
 
 1. **Principios**
+
    - Sutiles pero perceptibles
    - Propósito claro (feedback, guía, deleite)
    - Performance (GPU-accelerated)
    - Accesibles (respeta prefers-reduced-motion)
 
 2. **Interacciones específicas**
+
    - Hover en card: elevación + sombra
    - Hover en imagen: zoom sutil (1.05-1.1x)
    - Hover en overlay: fade-in con info
@@ -873,6 +1137,7 @@ Requisitos:
    - Hover en tags: cambio de color
 
 3. **Timing**
+
    - Duración: 200-400ms (rápido pero no abrupto)
    - Easing: cubic-bezier para naturalidad
    - Stagger: delays progresivos si hay múltiples elementos
@@ -882,12 +1147,11 @@ Requisitos:
    - Mantener funcionalidad sin animaciones
    - Focus states siempre visibles
 
-Genera:
+Devuelve:
 
-- CSS completo con transiciones
-- Variantes de easing
-- Media query para reduced motion
-- Comentarios sobre por qué cada decisión
+- 3 micro-interacciones “mínimas” (hover/focus/active) con propósito claro
+- 1 micro-interacción “premium” (opcional) inspirada en 1 referencia del `project-inspiration.md`
+- Checklist de accesibilidad (focus visible + reduced motion) y performance (solo transform/opacity, sin layout thrashing)
 ```
 
 ---
@@ -901,6 +1165,7 @@ Genera:
 **Checklist de testing**:
 
 - [ ] **Mobile (320px-767px)**
+
   - Galería en 1 columna
   - Imágenes cargan lazy
   - Texto legible
@@ -908,6 +1173,7 @@ Genera:
   - No scroll horizontal
 
 - [ ] **Tablet (768px-1023px)**
+
   - Galería en 2 columnas
   - Hero project visible
   - Spacing proporcional
@@ -930,23 +1196,27 @@ Genera:
 **Checklist WCAG AA**:
 
 - [ ] **Imágenes**
+
   - Alt text descriptivo (no "imagen 1")
   - Describe contenido y contexto
   - Vacío si decorativa
 
 - [ ] **Contraste**
+
   - Títulos: ≥ 4.5:1
   - Descripciones: ≥ 4.5:1
   - Tags: ≥ 4.5:1
   - Overlay text: ≥ 4.5:1
 
 - [ ] **Navegación por teclado**
+
   - Tab recorre todos los proyectos
   - Focus visible en cada card
   - Enter/Space activa links
   - Escape cierra modals (si hay)
 
 - [ ] **Semántica**
+
   - Headings jerárquicos (h2 → h3)
   - Landmarks (<section>, <article>)
   - ARIA labels donde necesario
@@ -962,6 +1232,8 @@ Genera:
 - Lighthouse Accessibility audit
 
 ### 4.3 Deploy y Documentación (10 min)
+
+**⚠️ Recordatorio**: No incluyas imágenes, videos ni binarios grandes en Git. Usa [ImageKit.io CDN API](https://imagekit.io/) para optimización automática de imágenes y entrega desde edge.
 
 **Commit**:
 
@@ -1037,7 +1309,7 @@ Entregables S2:
 ### Mínimo Viable (Requerido)
 
 - [ ] **Galería funcional** con 6-8 proyectos
-- [ ] **Content strategy** documentada (`docs/content-strategy-s2.md`)
+- [ ] **Content strategy** documentada (`docs/content-strategy-s2.md` o `docs/prompt-content-strategy.md`)
 - [ ] **Layout responsive** (320px-1920px)
 - [ ] **Hero project** destacado visualmente
 - [ ] **Componente de proyecto** reutilizable
@@ -1070,23 +1342,23 @@ Entregables S2:
 
 ### Diseño Visual (Awwwards)
 
-✅ **Estética profesional** con tipografía, color y composición cuidadas  
-✅ **Jerarquía visual clara** que guía la atención del usuario  
-✅ **Micro-interacciones** que mejoran la experiencia sin distraer  
+✅ **Estética profesional** con tipografía, color y composición cuidadas
+✅ **Jerarquía visual clara** que guía la atención del usuario
+✅ **Micro-interacciones** que mejoran la experiencia sin distraer
 ✅ **Consistencia** con sistema de diseño de S1
 
 ### Contenido
 
-✅ **Copy compelling** que comunica valor en segundos  
-✅ **Descripciones específicas** que contextualizan cada proyecto  
-✅ **Alt text descriptivo** en todas las imágenes  
+✅ **Copy compelling** que comunica valor en segundos
+✅ **Descripciones específicas** que contextualizan cada proyecto
+✅ **Alt text descriptivo** en todas las imágenes
 ✅ **Tags relevantes** para categorización
 
 ### Técnica
 
-✅ **CSS Grid** implementado correctamente  
-✅ **Responsive** sin roturas en ningún breakpoint  
-✅ **Imágenes optimizadas** con WebP + lazy loading  
+✅ **CSS Grid** implementado correctamente
+✅ **Responsive** sin roturas en ningún breakpoint
+✅ **Imágenes optimizadas** con WebP + lazy loading
 ✅ **Performance** con carga rápida (< 3s)
 
 ---
@@ -1101,13 +1373,14 @@ Entregables S2:
 
 ### Optimización
 
+- [ImageKit.io CDN API](https://imagekit.io/) — Optimización automática de imágenes (redimensionado, formatos modernos, entrega desde edge)
 - [web.dev: Image Optimization](https://web.dev/fast/#optimize-your-images)
-- [Squoosh](https://squoosh.app/) - Herramienta de compresión
+- [Squoosh](https://squoosh.app/) — Herramienta de compresión
 - [Responsive Images 101](https://cloudfour.com/thinks/responsive-images-101-definitions/)
 
 ### Inspiración
 
-- [Siteinspire: Illustration](https://www.siteinspire.com/websites?categories=18)
+- [Land-book: Portfolio](https://land-book.com/design/portfolio)
 - [Behance: Portfolio Design](https://www.behance.net/search/projects?field=portfolio%20design)
 - [Codrops: Image Grid Effects](https://tympanus.net/codrops/category/playground/)
 
@@ -1116,10 +1389,12 @@ Entregables S2:
 **Presentación** (2 min por persona):
 
 1. **Muestra tu galería**
+
    - Vista móvil y desktop
    - Hover en proyectos
 
 2. **Comparte 1 decisión de diseño**
+
    - Layout elegido y por qué
    - Proyecto hero y criterio de selección
 
@@ -1157,7 +1432,7 @@ Entregables S2:
 3. ¿Qué interacción te gustaría añadir en S3?
 ```
 
-**Documenta**: `docs/reflexion-s2.md`
+**Documenta**: `docs/reflexion-s2.md` (crea `docs/` si no existe). Metodología: `GETTING-STARTED.md` → AI-Assisted Development (Docs-First).
 
 ---
 

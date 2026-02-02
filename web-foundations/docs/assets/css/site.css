@@ -134,18 +134,8 @@ html {
 }
 body {
 	margin: 0;
-	font-family:
-		system-ui,
-		-apple-system,
-		Segoe UI,
-		Roboto,
-		Ubuntu,
-		Cantarell,
-		Noto Sans,
-		Helvetica Neue,
-		Arial,
-		'Apple Color Emoji',
-		'Segoe UI Emoji';
+	font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial,
+		'Apple Color Emoji', 'Segoe UI Emoji';
 	font-size: var(--font-body-size);
 	line-height: var(--font-body-line);
 	color: var(--text-primary);
@@ -255,6 +245,58 @@ img.footer-logo {
 .prose h6 {
 	padding-block: 0.35rem;
 }
+
+/* ========================================
+   Heading shades (scan-friendly hierarchy)
+   ======================================== */
+/* Subtle “shaded” bands to make sections easier to follow.
+   - H2 strongest (section)
+   - H3 medium (subsection)
+   - H4 light (detail)
+*/
+
+:root {
+	--heading-shade-h2: color-mix(in oklab, var(--primary), white 88%);
+	--heading-shade-h3: color-mix(in oklab, var(--primary), white 93%);
+	--heading-shade-h4: color-mix(in oklab, var(--primary), white 96%);
+}
+
+html.dark,
+.dark {
+	--heading-shade-h2: color-mix(in oklab, var(--primary), black 78%);
+	--heading-shade-h3: color-mix(in oklab, var(--primary), black 84%);
+	--heading-shade-h4: color-mix(in oklab, var(--primary), black 88%);
+}
+
+.prose :where(h2, h3, h4) {
+	border-radius: 0.5rem;
+	padding-inline: 0.75rem;
+}
+
+.prose h2 {
+	background: linear-gradient(90deg, var(--heading-shade-h2) 0%, transparent 70%);
+	border-left: 6px solid color-mix(in oklab, var(--primary), white 25%);
+}
+
+.prose h3 {
+	background: linear-gradient(90deg, var(--heading-shade-h3) 0%, transparent 72%);
+	border-left: 4px solid color-mix(in oklab, var(--primary), white 40%);
+}
+
+.prose h4 {
+	background: linear-gradient(90deg, var(--heading-shade-h4) 0%, transparent 75%);
+	border-left: 3px solid color-mix(in oklab, var(--primary), white 55%);
+}
+
+@media print {
+	.prose h2,
+	.prose h3,
+	.prose h4 {
+		background: none !important;
+		border-left: 0 !important;
+		padding-inline: 0 !important;
+	}
+}
 .prose p {
 	margin: 0.75rem 0;
 }
@@ -325,10 +367,7 @@ img.footer-logo {
 	color: var(--code-block-fg);
 	cursor: pointer;
 	opacity: 0;
-	transition:
-		opacity 0.2s ease,
-		background 0.2s ease,
-		border-color 0.2s ease;
+	transition: opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .prose pre:hover .copy-code-btn,
@@ -737,7 +776,7 @@ img.footer-logo {
 	position: relative;
 	overflow: visible;
 	/* Define quote characters: double quotes, single quotes */
-	quotes: '\201C' '\201D' '\2018' '\2019';
+	quotes: '\201C''\201D''\2018''\2019';
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -1771,11 +1810,7 @@ main#main:has(.lesson-wrapper) {
 	opacity: 0;
 	visibility: hidden;
 	transform: translateY(1rem);
-	transition:
-		opacity 0.3s ease,
-		visibility 0.3s ease,
-		transform 0.3s ease,
-		background-color 0.2s ease;
+	transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
 	z-index: 90;
 }
 

@@ -1,43 +1,34 @@
 # Project Inspiration
 
-Use this document to collect inspiration, trends, and references for your web project. This is your creative research space.
+## Tendencias Destacadas en Diseño Web (2025)
 
----
+### 1. Brutalismo & Neo-Brutalismo
+- **Descripción:** Estética cruda y directa, tipografía llamativa, contraste fuerte, elementos sin pulir.
+- **Ejemplo:** [Gumroad](https://gumroad.com)
 
-## 🎨 Current Web Design Trends (2025)
+### 2. Glassmorfismo
+- **Descripción:** Uso creativo de transparencias y difuminados tipo vidrio esmerilado.
+- **Referencia:** [MDN - backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
+- **CSS Destacado:** `backdrop-filter: blur(10px)`
 
-### Visual & Aesthetic Trends
+### 3. Tipografía Cinética
+- **Descripción:** Textos animados y adaptativos que interactúan o acompañan la navegación.
+- **Ejemplos y Recursos:**
+  - [Colección de animaciones tipográficas](https://tympanus.net/codrops/tag/typography/)
+  - [Tutorial SVG: animar letras con código](https://tympanus.net/codrops/2023/01/31/bringing-letters-to-life-coding-a-kinetic-svg-typography-animation/)
+  - [Animaciones por scroll](https://tympanus.net/codrops/2023/01/18/on-scroll-typography-animations/)
 
-- **Brutalism & Neo-Brutalism**: Raw, unpolished aesthetics with bold typography and stark contrasts
-  - Example: [Gumroad](https://gumroad.com), [Bloomberg](https://www.bloomberg.com)
-- **Glassmorphism**: Frosted glass effect with transparency and blur
-  - CSS: `backdrop-filter: blur(10px)` with semi-transparent backgrounds
-- **Kinetic Typography**: Animated, responsive text that reacts to user interaction
-- **3D Elements & Depth**: Subtle 3D transforms, shadows, and parallax effects
-- **Organic Shapes**: Fluid, asymmetric layouts breaking from rigid grids
-- **Dark Mode First**: Designing for dark mode as the primary experience
-- **Maximalism**: Rich colors, bold patterns, layered content (counter to minimalism)
-- **Retro/Y2K Aesthetics**: 90s/early 2000s inspired gradients, chrome effects, pixel art
+### 4. UI Modular & Web Components
+- **Descripción:** Construcción de interfaces a partir de bloques reutilizables y compatibles.
+- **Referencia general:** [Web Components MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 
-### Interaction & Motion Trends
+### 5. Design Systems
+- **Descripción:** Uso sistemático de tokens para color, espacio, tipografía y componentes coherentes.
+- **Repositorio de sistemas:** [Design Systems Repo](https://designsystemsrepo.com/design-systems/)
 
-- **Micro-interactions**: Small, delightful animations on hover, click, scroll
-- **Scroll-triggered Animations**: Content reveals and transforms as you scroll
-- **Cursor Effects**: Custom cursors that respond to page elements
-- **Smooth Page Transitions**: View transitions API for seamless navigation
-- **Parallax Scrolling**: Multi-layer depth effects (use sparingly for accessibility)
-- **Horizontal Scrolling**: Breaking vertical convention for storytelling
-- **Loading Skeletons**: Placeholder content while data loads
-
-### Technical & UX Trends
-
-- **Mobile-First Design**: Designing for small screens first, then scaling up
-- **Accessibility-First**: WCAG AAA compliance, keyboard navigation, screen reader optimization
-- **Performance Budgets**: Sub-3s load times, Core Web Vitals optimization
-- **Progressive Enhancement**: Works without JavaScript, enhanced with it
-- **Component-Based Design**: Reusable, modular UI components
-- **Design Systems**: Consistent tokens for colors, spacing, typography
-- **Sustainable Web Design**: Optimized for low energy consumption and carbon footprint
+### 6. Web Sostenible
+- **Descripción:** Experiencias web eficientes, optimizadas para bajo consumo y menor huella de carbono.
+- **Guía de buenas prácticas:** [Sustainable Web Design](https://www.wholegraindigital.com/blog/sustainable-web-design/)
 
 ---
 
@@ -49,7 +40,7 @@ Use this document to collect inspiration, trends, and references for your web pr
 - **[CSS Design Awards](https://www.cssdesignawards.com/)**: Showcases innovative CSS work
 - **[Behance](https://www.behance.net/)**: Creative portfolios and case studies
 - **[Dribbble](https://dribbble.com/)**: UI/UX design shots and concepts
-- **[SiteInspire](https://www.siteinspire.com/)**: Curated web design showcase
+- **[Land-book](https://land-book.com/)**: Curated web design inspiration gallery
 - **[Httpster](https://httpster.net/)**: Totally rocking websites
 - **[Lapa Ninja](https://www.lapa.ninja/)**: Landing page design inspiration
 - **[One Page Love](https://onepagelove.com/)**: Single-page website gallery
@@ -70,15 +61,14 @@ Use this document to collect inspiration, trends, and references for your web pr
 - **[Flexbox Froggy](https://flexboxfroggy.com/)**: Learn Flexbox through a game
 - **[CSS Grid Garden](https://cssgridgarden.com/)**: Learn CSS Grid through a game
 - **[Every Layout](https://every-layout.dev/)**: Modern CSS layout patterns
-- **[Spacing in Design Systems](https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62)**: Spacing scale methodology
+- **[Open Props Sizes](https://open-props.style/#sizes)**: Spacing scale and design tokens
 
 ### Icons & Graphics
 
 - **[Lucide Icons](https://lucide.dev/)**: Beautiful, consistent icon set (recommended)
 - **[Heroicons](https://heroicons.com/)**: Tailwind's icon library
 - **[Phosphor Icons](https://phosphoricons.com/)**: Flexible icon family
-- **[Unsplash](https://unsplash.com/)**: Free high-quality photos
-- **[Pexels](https://www.pexels.com/)**: Free stock photos and videos
+- **[Unsplash](https://unsplash.com/)**: Free high-quality photos and videos
 - **[unDraw](https://undraw.co/)**: Open-source illustrations
 - **[Humaaans](https://www.humaaans.com/)**: Mix-and-match illustration library
 
@@ -100,7 +90,7 @@ Use this document to collect inspiration, trends, and references for your web pr
 - **[Bruno Simon](https://bruno-simon.com/)**: Interactive 3D portfolio (WebGL)
 - **[Brittany Chiang](https://brittanychiang.com/)**: Clean, accessible developer portfolio
 - **[Lynn Fisher](https://lynnandtonic.com/)**: Creative, playful personal site
-- **[Jacek Jeznach](https://jacekjeznach.com/)**: Minimalist designer portfolio
+- **[Tobias Ahlin](https://tobiasahlin.com/)**: Minimalist designer portfolio (motion, typography)
 
 ### Landing Pages
 
@@ -150,7 +140,7 @@ Create a folder in your project: `/images/inspiration/` and save screenshots of:
 
 ### Core Concept
 
-**What is your project about?**  
+**What is your project about?**
 _Example: A portfolio showcasing my graphic design work with a focus on sustainability and eco-friendly branding._
 
 [Write your project's core concept here—1-2 sentences]
@@ -159,7 +149,7 @@ _Example: A portfolio showcasing my graphic design work with a focus on sustaina
 
 ### Target Audience
 
-**Who is this for?**  
+**Who is this for?**
 _Example: Potential clients looking for a designer who specializes in environmental brands, and recruiters from design agencies._
 
 [Describe your target audience]
@@ -168,7 +158,7 @@ _Example: Potential clients looking for a designer who specializes in environmen
 
 ### Key Message
 
-**What do you want visitors to feel/understand?**  
+**What do you want visitors to feel/understand?**
 _Example: I want them to see me as a thoughtful, detail-oriented designer who cares about making a positive impact through design._
 
 [Your key message]
@@ -177,7 +167,7 @@ _Example: I want them to see me as a thoughtful, detail-oriented designer who ca
 
 ### Visual Direction
 
-**What aesthetic/mood are you going for?**  
+**What aesthetic/mood are you going for?**
 _Example: Clean, modern, with earthy tones (greens, browns, off-white). Lots of whitespace, organic shapes, and subtle animations._
 
 [Describe your visual direction]
@@ -186,7 +176,7 @@ _Example: Clean, modern, with earthy tones (greens, browns, off-white). Lots of 
 
 ### Technical Goals
 
-**What do you want to learn/demonstrate?**  
+**What do you want to learn/demonstrate?**
 _Example: Master CSS Grid for complex layouts, implement smooth scroll animations, achieve 95+ Lighthouse scores, ensure WCAG AA accessibility._
 
 - [ ] Goal 1: [e.g., Responsive design with CSS Grid]

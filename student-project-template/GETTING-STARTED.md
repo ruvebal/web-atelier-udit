@@ -21,7 +21,16 @@ your-project/
 ├── index.html              # Your main page
 ├── assets/
 │   ├── css/
-│   │   └── style.css       # Styles with design system
+│   │   ├── style.css       # Main entry (imports all partials)
+│   │   ├── _variables.css   # Design tokens
+│   │   ├── _reset.css      # Browser reset
+│   │   ├── _base.css       # Typography, links
+│   │   ├── _layout.css     # Containers, grids
+│   │   ├── _components.css # Header, footer, buttons, cards
+│   │   ├── _utilities.css  # Helper classes
+│   │   ├── _accessibility.css
+│   │   ├── _responsive.css
+│   │   └── _print.css
 │   └── js/
 │       └── main.js         # JavaScript functionality
 ├── images/                 # Your optimized images
@@ -167,6 +176,24 @@ Your `assets/css/style.css` includes CSS custom properties:
 
 **Customize** these values to match your project's visual identity.
 
+### Modular CSS Architecture
+
+The stylesheet is split into **partials** (files starting with `_`) for modularization:
+
+| Partial              | Purpose                                     |
+| -------------------- | ------------------------------------------- |
+| `_variables.css`     | Design tokens (colors, spacing, typography) |
+| `_reset.css`         | Browser default overrides                   |
+| `_base.css`          | Typography, links, raw HTML elements        |
+| `_layout.css`        | Containers, grids, main structure           |
+| `_components.css`    | Header, footer, buttons, cards              |
+| `_utilities.css`     | Single-purpose helpers (text-center, mt-md) |
+| `_accessibility.css` | sr-only, skip-link, reduced motion          |
+| `_responsive.css`    | Breakpoint overrides                        |
+| `_print.css`         | Print-specific styles                       |
+
+**Why modularize?** Each file has one concern. Change a color in `_variables.css` → it updates everywhere. Add a component → create `_my-component.css` and import it in `style.css`. Read the pedagogical comments in each partial to learn more.
+
 ---
 
 ## Quality Standards
@@ -222,7 +249,7 @@ Add a `CNAME` file with your domain name.
 ### Design Inspiration
 
 - [Awwwards](https://www.awwwards.com/)
-- [Siteinspire](https://www.siteinspire.com/)
+- [Land-book](https://land-book.com/) — Curated web design gallery
 - [Dribbble](https://dribbble.com/)
 
 ### Tools

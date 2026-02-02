@@ -1,8 +1,10 @@
 # WEB ATELIER (UDIT) – Plantilla de Proyecto Estudiantil
 
-Este repositorio es el **punto de partida para el proyecto personal de cada estudiante** dentro del marco WEB ATELIER (UDIT). Mientras que `web-foundations` proporciona las lecciones canónicas y `professor-course-template` organiza la instancia del curso, la **Plantilla de Proyecto Estudiantil** es donde cada estudiante diseña y desarrolla su propio sitio web. Cada semana, los estudiantes realizan commits aquí — _un estudiante · un repo · un proyecto · un commit por clase_.
+_Critical Coding for a Better Living._
 
-**Lema:** _Critical Coding for a Better Living._
+**Construye un sitio real, accesible y multilingüe—commit cada semana.**
+
+Este repositorio es el **punto de partida para el proyecto personal de cada estudiante** dentro del marco WEB ATELIER (UDIT). Mientras que `web-foundations` proporciona las lecciones canónicas y `professor-course-template` organiza la instancia del curso, la **Plantilla de Proyecto Estudiantil** es donde cada estudiante diseña y desarrolla su propio sitio web. Cada semana, los estudiantes realizan commits aquí — _un estudiante · un repo · un proyecto · un commit por clase_.
 
 ## Propósito y Audiencia
 
@@ -40,14 +42,30 @@ Este repositorio es el **punto de partida para el proyecto personal de cada estu
 
 ```plaintext
 student-project-template/
-├── index.html         # Página principal (HTML inicial)
-├── assets/css/        # Estilos
-├── assets/js/         # Scripts
-├── images/            # Imágenes
-├── project.yaml       # Metadatos del proyecto (rellenar por estudiante)
-├── project-brief.md   # Brief de proyecto (Semana 2)
-├── README-es.md       # Guía y registro semanal
-└── .github/workflows/critical.yml  # CI opcional
+├── index.html              # Página principal (HTML semántico)
+├── assets/
+│   ├── css/
+│   │   ├── style.css       # Entrada principal (importa parciales)
+│   │   ├── _variables.css  # Tokens de diseño
+│   │   ├── _reset.css      # Reset del navegador
+│   │   ├── _base.css       # Tipografía, enlaces
+│   │   ├── _layout.css     # Contenedores, grids
+│   │   ├── _components.css # Header, footer, botones, cards
+│   │   ├── _utilities.css  # Clases auxiliares
+│   │   ├── _accessibility.css
+│   │   ├── _responsive.css
+│   │   └── _print.css
+│   └── js/
+│       └── main.js         # Funcionalidad JavaScript
+├── images/                 # Imágenes (mantener optimizadas)
+├── project.yaml            # Metadatos del proyecto (Semana 4)
+├── project-brief.md        # Definición del proyecto (Semana 2)
+├── project-inspiration.md  # Referencias y moodboard
+├── GETTING-STARTED.md      # Guía de inicio y metodología
+├── README-es.md            # Guía y registro semanal
+├── .nojekyll               # Evita conflictos con Jekyll
+└── .github/workflows/
+    └── critical.yml        # Comprobaciones CI/CD
 ```
 
 ## Flujo en la Práctica
@@ -78,5 +96,7 @@ student-project-template/
 - GitHub Actions – [https://docs.github.com/es/actions](https://docs.github.com/es/actions)
 - Jekyll – [https://jekyllrb.com](https://jekyllrb.com)
 - Guía Markdown – [https://www.markdownguide.org](https://www.markdownguide.org)
-- YAML – [https://yaml.org/start.html](https://yaml.org/start.html)
+- Introducción YAML – [https://learnxinyminutes.com/docs/yaml/](https://learnxinyminutes.com/docs/yaml/)
 - Schema.org / JSON-LD – [https://schema.org](https://schema.org)
+
+© 2025 Rubén Vega Balbás, PhD — WEB ATELIER (UDIT) · ORCID: <https://orcid.org/0000-0001-6862-9081>
