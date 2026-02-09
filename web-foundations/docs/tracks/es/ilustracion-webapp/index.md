@@ -584,10 +584,10 @@ Añadir galería de proyectos con imágenes de ImageKit, realizar testing UX con
 
 | Parte | Duración | Actividad                                                                 |
 | ----- | -------- | ------------------------------------------------------------------------- |
-| 1     | 60 min   | **Galería de proyectos**: 6+ proyectos del brief con ImageKit + lightbox opcional |
-| 2     | 45 min   | **UX Testing**: dinámica con compañeros, feedback estructurado            |
-| 3     | 45 min   | **Iteración y pulido**: mejoras críticas de feedback implementadas        |
-| 4     | 45 min   | **Lanzamiento y presentación**: Meta tags, case study, deploy, demo       |
+| 1     | 90 min   | **Navegación sticky + Galería**: Navbar hamburguesa + 6+ proyectos ImageKit + lightbox |
+| 2     | 40 min   | **UX Testing**: dinámica con compañeros, feedback estructurado            |
+| 3     | 40 min   | **Iteración y pulido**: mejoras críticas de feedback implementadas        |
+| 4     | 40 min   | **Lanzamiento y presentación**: Meta tags, case study, deploy, demo       |
 
 **Ejemplo de Prompt con Contexto para Galería**:
 
@@ -634,6 +634,7 @@ NO dupliques - extrae todo de project-brief.md
 
 **Entregables S4**:
 
+- ✅ Navegación sticky con menú hamburguesa responsive
 - ✅ Galería con mínimo 6 proyectos (ImageKit optimizado)
 - ✅ Lightbox funcional (opcional pero recomendado)
 - ✅ Testing UX con compañero completado
