@@ -1,102 +1,282 @@
-# WEB ATELIER (UDIT) – Student Project Template
+# Portfolio Scrollytelling - Template para Estudiantes
 
-_Critical Coding for a Better Living._
+## 🎯 Objetivo
 
-**Build a real, accessible, multilingual site—commit every week.**
+Este template te proporciona un portfolio scrollytelling **completamente funcional** con componentes ya implementados. Tu tarea es **personalizarlo** con tus contenidos, no construirlo desde cero.
 
-This repository is the **starting point for each student’s personal project** in the WEB ATELIER (UDIT) framework. While `web-foundations` provides the canonical lessons and `professor-course-template` manages the class instance, the **Student Project Template** is where each student designs and develops their own site. Every week, students commit progress here — _one student · one repo · one project · one commit per class_.
+---
 
-## Purpose & Audience
+## 📁 Estructura del Proyecto
 
-- **For Students:** A personal repository to build a web project step by step, following lessons. It deploys live via GitHub Pages.
-- **For Professors:** A window into each student’s weekly progress, commit history, and final project.
-
-## Core Technologies (Deep Explanation)
-
-### GitHub Pages
-
-- Students enable Pages on their repo to publish their project live at a URL like `https://username.github.io/project`.
-- Automatic deployment: every commit to `main` updates the live site.
-
-### Jekyll
-
-- Not required by students, but Pages uses Jekyll under the hood.
-- A `.nojekyll` file is provided to avoid conflicts unless Jekyll is explicitly needed.
-
-### GitHub Actions
-
-- Optional CI workflows included:
-
-  - **Critical CI (Student):** checks links, page weight, and accessibility.
-
-- Encouraged: students learn how professional developers automate quality checks.
-
-## Supporting Technologies (Overview)
-
-- **Markdown:** for `README.md` and `project-brief.md`.
-- **YAML:** in `project.yaml` to describe project metadata (title, tagline, URL, etc.).
-- **Liquid:** not directly edited by students, but used in professor/course templates to display project info.
-- **JSON-LD:** added automatically by templates when projects are listed in the showroom.
-
-## Repository Structure
-
-```plaintext
+```
 student-project-template/
-├── index.html              # Homepage (semantic HTML)
+├── index.html                      # Tu portfolio scrollytelling
+├── project-brief.md                # 🔑 TU FUENTE DE VERDAD
+├── project-inspiration.md          # Referencias visuales
 ├── assets/
 │   ├── css/
-│   │   ├── style.css       # Main entry (imports partials)
-│   │   ├── _variables.css  # Design tokens
-│   │   ├── _reset.css      # Browser reset
-│   │   ├── _base.css       # Typography, links
-│   │   ├── _layout.css     # Containers, grids
-│   │   ├── _components.css # Header, footer, buttons, cards
-│   │   ├── _utilities.css  # Helper classes
-│   │   ├── _accessibility.css
-│   │   ├── _responsive.css
-│   │   └── _print.css
+│   │   ├── _variables.css          # 👈 Personalizar colores + tipografías
+│   │   ├── _base.css
+│   │   ├── _layout.css
+│   │   ├── _components.css
+│   │   ├── _scrollytelling.css     # Componentes ya listos
+│   │   ├── _utilities.css
+│   │   └── style.css               # Importa todos los módulos
 │   └── js/
-│       └── main.js         # JavaScript functionality
-├── images/                 # Image assets (keep optimized)
-├── project.yaml            # Project metadata (complete by Week 4)
-├── project-brief.md        # Project concept definition (Week 2)
-├── project-inspiration.md  # References and moodboard
-├── GETTING-STARTED.md      # Setup and methodology guide
-├── README.md               # Instructions and weekly progress log
-├── .nojekyll               # Prevents Jekyll processing conflicts
-└── .github/workflows/
-    └── critical.yml        # Automated quality checks (CI/CD)
+│       └── main.js                 # JavaScript ya funcionando
+├── docs/
+│   └── prompt-*.md                 # Tus prompts IA guardados
+└── images/
+    └── inspiration/                # Screenshots de inspiración
 ```
 
-## Workflow in Practice
+---
 
-1. **Clone Template:** Student creates repo from this template.
-2. **Week 1:** Setup repo, push first commit (README updated).
-3. **Week 2:** Fill out `project-brief.md` and `project.yaml` (project definition).
-4. **Weekly Commits:** Update `index.html`, CSS, JS with new lessons. Each class → one commit.
-5. **Week 4:** Ensure `project.yaml` is complete; submit metadata to professor’s repo (via PR or form).
-6. **Week 5+:** Continue improving project; reflect on commits.
+## 🧭 Metodología: Docs-First + Archivos de Contexto
 
-## Scaling and Feedback
+### 1. `project-brief.md` es tu Fuente de Verdad
 
-- **Commit Log:** Each commit is a trace of weekly learning.
-- **Peer Review:** In Week 5, peers view each other’s projects via the course showroom.
-- **CI Feedback:** Automated checks give quick signals (broken links, large assets, accessibility issues).
-- **Professor Review:** Spot-checks commits or reviews final project.
+**IMPORTANTE:** Completa `project-brief.md` ANTES de empezar a personalizar el portfolio.
 
-## Differences from Other Repos
+Este archivo contiene:
+- ✅ Identidad Visual (colores, tipografías)
+- ✅ Contenidos Preparados (bio, lema, stats)
+- ✅ Áreas de Especialización
+- ✅ Proceso Creativo
+- ✅ Herramientas y Skills
+- ✅ Proyectos para Galería (S4)
 
-- `web-foundations`: shared lessons & methodology, not edited by students.
-- `professor-course-template`: course-level repo with roster and showroom.
-- `student-project-template`: student’s own creative space; only this repo is graded per individual.
+### 2. Usa Archivos de Contexto con IA
 
-## References
+**Método ANTIGUO (malo):**
+```markdown
+# Prompt
+Personaliza mi hero con:
+- Nombre: Juan Pérez
+- Lema: Ilustrador digital especializado en narrativas visuales
+- Color primario: #FF6B6B
+- Fuente heading: Montserrat
+...
+```
+❌ Duplicas información  
+❌ Si cambias algo, debes actualizar múltiples prompts  
+❌ Prompts largos y confusos
 
-- GitHub Pages – [https://docs.github.com/en/pages](https://docs.github.com/en/pages)
-- GitHub Actions – [https://docs.github.com/en/actions](https://docs.github.com/en/actions)
-- Jekyll (optional background) – [https://jekyllrb.com](https://jekyllrb.com)
-- Markdown Guide – [https://www.markdownguide.org](https://www.markdownguide.org)
-- YAML Introduction – [https://learnxinyminutes.com/docs/yaml/](https://learnxinyminutes.com/docs/yaml/)
-- Schema.org / JSON-LD – [https://schema.org](https://schema.org)
+**Método NUEVO (bueno):**
+```markdown
+# Prompt
+Personaliza mi hero section.
 
-© 2025 Rubén Vega Balbás, PhD — WEB ATELIER (UDIT) · ORCID: <https://orcid.org/0000-0001-6862-9081>
+## 📎 CONTEXTO
+Adjunta: `project-brief.md`
+
+Lee sección "Contenidos Preparados" → "Lema/Tagline para Hero"
+
+## TAREA
+Actualiza el hero con el nombre y lema del brief.
+NO dupliques información - léela del archivo adjunto.
+```
+✅ Prompt corto y claro  
+✅ Fuente única de verdad (DRY principle)  
+✅ Cambias el brief, no 10 prompts  
+✅ Metodología profesional
+
+### 3. Workflow de Cada Prompt
+
+Para CADA personalización:
+
+1. **Asegúrate** que `project-brief.md` tiene la sección relevante completa
+2. **Guarda el prompt** como `docs/prompt-[nombre].md`
+3. **Adjunta** `project-brief.md` al prompt IA
+4. **Envía** a la IA (ChatGPT, Claude, etc.)
+5. **Implementa** el código generado
+6. **Actualiza** el prompt con el report de implementación
+
+**Ejemplo:**
+```bash
+# 1. Completas en project-brief.md la paleta de colores
+# 2. Guardas el prompt
+docs/prompt-sistema-diseno.md
+
+# 3. En tu IA, adjuntas:
+# - project-brief.md
+# - assets/css/_variables.css
+
+# 4. Envías prompt
+# 5. IA lee el brief y genera código
+# 6. Implementas cambios en _variables.css
+# 7. Actualizas docs/prompt-sistema-diseno.md con report
+```
+
+---
+
+## 🎨 Componentes Scrollytelling Incluidos
+
+### ✅ Ya Implementados (Solo personalizar)
+
+1. **Hero Section** - Título, subtítulo, scroll indicator con animaciones
+2. **Story Sections** (Chapters 1-3) - About, Work, Process con progressive reveal
+3. **Statistics Display** - 3 números + labels con stagger animations
+4. **Parallax Section** - Background fijo con overlay
+5. **Interactive Cards** - Grid auto-fit con hover effects
+6. **Timeline** - Gradient line con dots y content boxes
+7. **Final CTA** - Call-to-action con botón destacado
+8. **Info Overlay** - Indicador de progreso de scroll
+
+### JavaScript Funcional
+
+- ✅ Intersection Observer para animaciones al scroll
+- ✅ Scroll progress indicator
+- ✅ Smooth scroll
+- ✅ Prefers-reduced-motion detection
+
+---
+
+## 🚀 Sesiones del Track
+
+### Sesión 3 (S3) - Personalización
+**Duración:** 3.5 horas
+
+**Objetivos:**
+1. Completar `project-brief.md` al 100%
+2. Personalizar sistema de diseño (colores + tipografías)
+3. Integrar contenidos en los 8 componentes
+4. Testing responsive y accesibilidad
+
+**Archivos a modificar:**
+- `project-brief.md` (completar)
+- `assets/css/_variables.css` (colores + fuentes)
+- `index.html` (contenidos en cada sección)
+
+### Sesión 4 (S4) - Galería y Lanzamiento
+**Duración:** 3.5 horas
+
+**Objetivos:**
+1. Añadir galería de proyectos (6+ imágenes ImageKit)
+2. Implementar lightbox (opcional)
+3. Testing UX con compañeros
+4. Iterar con feedback
+5. Lanzar portfolio público
+
+**Archivos a modificar:**
+- `project-brief.md` (sección "Proyectos para Galería")
+- `index.html` (nueva sección galería)
+- `assets/js/main.js` (lightbox opcional)
+- `assets/css/_scrollytelling.css` (estilos lightbox)
+
+---
+
+## ✅ Checklist de Personalización
+
+### S3 - Personalización
+
+- [ ] `project-brief.md` completado (identidad, bio, stats, especialidades, proceso, skills)
+- [ ] Paleta de colores personalizada en `_variables.css`
+- [ ] Tipografías de Google Fonts aplicadas
+- [ ] Hero con tu nombre y lema
+- [ ] About con tu bio y estadísticas reales
+- [ ] Work con tus 3 especialidades
+- [ ] Timeline con tu proceso creativo
+- [ ] Skills con tus herramientas
+- [ ] Responsive verificado (320px-1440px)
+- [ ] Contraste WCAG AA verificado
+- [ ] Commit con mensaje significativo
+
+### S4 - Galería y Lanzamiento
+
+- [ ] 6+ proyectos añadidos en `project-brief.md` sección "Proyectos para Galería"
+- [ ] URLs de ImageKit optimizadas (tr:w-400,h-300,q-80,f-auto)
+- [ ] Galería implementada en `index.html`
+- [ ] Lightbox funcional (opcional)
+- [ ] Testing UX con compañero realizado
+- [ ] 2-3 mejoras críticas implementadas
+- [ ] Meta tags Open Graph añadidos
+- [ ] Case study documentado
+- [ ] Portfolio desplegado y público
+- [ ] Commit final
+
+---
+
+## 🛠️ Comandos Útiles
+
+### Desarrollo Local
+
+```bash
+# Opción 1: Live Server (VS Code extension)
+# Click derecho en index.html → Open with Live Server
+
+# Opción 2: Servidor Python
+python3 -m http.server 8000
+# Abre http://localhost:8000
+```
+
+### Git
+
+```bash
+# Añadir cambios
+git add .
+
+# Commit con mensaje significativo
+git commit -m "feat(s3): personalizado con contenidos de project-brief
+
+- Sistema de diseño: Montserrat + Open Sans + paleta #FF6B6B
+- Hero: Juan Pérez + tagline integrado
+- About: bio + stats reales
+- Work: 3 especialidades del brief
+- Timeline: proceso creativo documentado
+- Skills: herramientas actuales
+- Responsive: 320px-1440px ✓
+- Accesibilidad: WCAG AA ✓"
+
+# Push a GitHub
+git push origin main
+```
+
+---
+
+## 📚 Recursos
+
+### Documentación
+- [Track completo](../web-foundations/docs/tracks/es/ilustracion-webapp/)
+- [S3: Personalización](../web-foundations/docs/tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/)
+- [S4: Galería y Lanzamiento](../web-foundations/docs/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/)
+
+### Herramientas
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - Verificar contraste
+- [Google Fonts](https://fonts.google.com/) - Tipografías
+- [Coolors](https://coolors.co/) - Paletas de color
+- [ImageKit](https://imagekit.io/) - Optimización de imágenes
+
+---
+
+## 💡 Tips
+
+1. **Completa el brief primero** - Es tu fuente de verdad, no lo saltes
+2. **Adjunta archivos** - La IA lee mejor archivos que prompts largos
+3. **Guarda prompts** - Documenta en `docs/` para referencia futura
+4. **Testing continuo** - Verifica responsive y accesibilidad frecuentemente
+5. **Commits significativos** - Mensajes claros de lo que cambiaste
+
+---
+
+## 🆘 Problemas Comunes
+
+### Estilos no se aplican
+- ✅ Verifica que `style.css` importa todos los módulos
+- ✅ Revisa la consola del navegador (F12) para errores
+
+### Animaciones no funcionan
+- ✅ Verifica que `main.js` está enlazado en `<script>`
+- ✅ Usa `data-observe` en elementos que quieres animar
+
+### Colores no cambian
+- ✅ Usa variables CSS: `var(--color-primary)` en lugar de hex directos
+- ✅ Actualiza `_variables.css`, no cada archivo CSS
+
+### Imágenes lentas
+- ✅ Usa transformaciones ImageKit: `tr:w-400,h-300,q-80,f-auto`
+- ✅ Añade `loading="lazy"` en `<img>`
+
+---
+
+**¡A personalizar tu portfolio! 🎨**

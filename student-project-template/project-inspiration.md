@@ -1,6 +1,36 @@
-# Project Inspiration
+# Project Inspiration - Ilustración & Scrollytelling
 
-## Tendencias Destacadas en Diseño Web (2025)
+## 🎨 Mis Referencias Visuales
+
+### Portfolio de Ilustradores (Scrollytelling)
+
+<!-- Añade aquí los portfolios que te inspiran -->
+<!-- Formato: [Nombre](URL) - Qué te gusta de este portfolio -->
+
+1. [Nombre ilustrador](URL) - _Qué me inspira: [...]_
+2. [Nombre ilustrador](URL) - _Qué me inspira: [...]_
+3. [Nombre ilustrador](URL) - _Qué me inspira: [...]_
+
+### Capturas de Inspiración
+
+Guarda screenshots en `/images/inspiration/` de:
+- Layouts que te gustan
+- Combinaciones de color
+- Estilos tipográficos
+- Animaciones interesantes
+
+---
+
+## 📐 Tendencias de Diseño Web para Portfolios (2025)
+
+### 1. Scrollytelling & Narrativa Progresiva
+- **Descripción:** Historias que se despliegan mientras scrolleas
+- **Por qué funciona:** Mantiene atención, guía al usuario, crea experiencia memorable
+- **Ejemplo en tu template:** Hero → Chapters → Timeline → CTA
+
+### 2. Minimalismo con Toques de Color
+- **Descripción:** Espacios limpios con acentos de color estratégicos
+- **Aplicación:** Fondos neutros, color en CTAs y elementos clave
 
 ### 1. Brutalismo & Neo-Brutalismo
 - **Descripción:** Estética cruda y directa, tipografía llamativa, contraste fuerte, elementos sin pulir.

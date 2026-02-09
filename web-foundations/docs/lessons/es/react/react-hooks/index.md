@@ -96,6 +96,32 @@ const { data, isLoading, error } = useQuery(['products'], fetchProducts);
 
 ---
 
+## 🔑 Conceptos clave: useRef y cleanup en useEffect
+
+Antes de construir custom hooks, conviene tener claros dos patrones que usarás una y otra vez.
+
+### useRef: acceso al DOM y valores que no disparan re-render
+
+**useRef** devuelve un objeto `{ current: valor }` que se conserva entre renders.
+
+- **Acceso al DOM:** puedes guardar una referencia a un nodo (por ejemplo el `<input>` de “nueva tarea”) y usarla de forma imperativa: por ejemplo `inputRef.current.focus()` para devolver el foco después de enviar un formulario. No necesitas estado para eso: leer o escribir `.current` **no** provoca un re-render.
+
+- **Valores que no disparan re-render:** si guardas en `.current` algo que debe persistir entre renders pero no debe redibujar la UI (por ejemplo el último `AbortController` de un fetch, un id de timer o un flag “¿es la primera vez?”), React no re-renderiza cuando cambias `.current`. Por eso useRef sirve para “valores mutables que no son parte de la UI”.
+
+En resumen: **useRef** = referencia estable al DOM o a un valor que debe vivir entre renders sin provocar re-render.
+
+### useEffect con cleanup (timers, suscripciones)
+
+**useEffect** puede devolver una función. Esa función es el **cleanup**: React la ejecuta cuando el componente se desmonta o antes de volver a ejecutar el efecto (por cambio de dependencias).
+
+- **Timers:** si en un efecto usas `setTimeout` o `setInterval`, sin cleanup el timer sigue activo aunque el componente ya no esté en pantalla → memory leaks y posibles actualizaciones de estado en un componente desmontado. Por eso en hooks como `useDebounce` verás `return () => clearTimeout(handler);` para cancelar el timer al desmontar o cuando cambian las dependencias.
+
+- **Suscripciones:** lo mismo con suscripciones (eventos, WebSockets, observables): el cleanup debe “darse de baja” (`removeEventListener`, `unsubscribe`, etc.) para no dejar listeners activos.
+
+En una frase: **cleanup** = “deshacer” lo que hizo el efecto (cancelar timers, desuscribirse) para no dejar trabajo colgado ni actualizar estado en componentes desmontados.
+
+---
+
 ## 🎓 Metodología: práctica atelier
 
 ### Ritmo del sprint

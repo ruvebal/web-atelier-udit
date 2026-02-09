@@ -1,13 +1,13 @@
 ---
 layout: lesson
-title: 'Galería de Proyectos, UX Testing y Lanzamiento'
-title_alt: 'Galería de Proyectos, UX Testing y Lanzamiento'
+title: 'Galería de Proyectos y Lanzamiento'
+title_alt: 'Galería de Proyectos y Lanzamiento'
 slug: ilustracion-webapp-s4
 date: 2026-01-13
 author: 'Rubén Vega Balbás, PhD'
 lang: es
 permalink: /tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/
-description: 'Cuarta sesión: añadir galería de proyectos con imágenes de ImageKit, testing de usabilidad con compañeros y lanzamiento final.'
+description: 'Cuarta sesión: galería de proyectos con ImageKit, UX testing con compañeros y lanzamiento final del portfolio.'
 tags: [javascript, galeria, ux, imagekit, ilustracion, lanzamiento]
 status: borrador
 ---
@@ -27,116 +27,114 @@ status: borrador
 
 ## 🎯 Objetivos
 
-- Añadir **galería de proyectos** con tus imágenes de ImageKit
-- Implementar **lightbox** para ver imágenes ampliadas (opcional)
+- Añadir **galería de proyectos** con imágenes de ImageKit
+- Implementar **lightbox** para vista ampliada (opcional)
 - Realizar **testing UX** con compañeros
-- **Iterar** basándose en feedback
-- **Lanzar** el portfolio final
+- **Iterar** con feedback
+- **Lanzar** portfolio completo
 
 ---
 
-## 🧭 Canon de Referencia
+## 📁 Archivos Clave
 
-- [Media: Images y optimización]({{ '/lessons/es/media/images/' | relative_url }})
-- [Guía Práctica de Desarrollo Asistido por IA]({{ '/methodology/es/ai-practical-guide/' | relative_url }})
+**Contexto:**
+- `project-brief.md` → Sección "Proyectos para Galería"
+
+**A Modificar:**
+- `index.html` → Añadir sección galería
+- `assets/js/main.js` → Lightbox (opcional)
+- `assets/css/_scrollytelling.css` → Estilos lightbox (opcional)
 
 ---
 
 ## ⏱️ Desglose de Tiempo
 
-| Parte | Duración | Actividad                                   |
-| ----- | -------- | ------------------------------------------- |
-| **1** | 60 min   | Añadir galería de proyectos con ImageKit   |
-| **2** | 45 min   | Testing UX con compañeros                   |
-| **3** | 45 min   | Iteración y pulido basado en feedback       |
-| **4** | 45 min   | Lanzamiento y presentación                  |
+| Parte | Duración | Actividad                      |
+| ----- | -------- | ------------------------------ |
+| **1** | 60 min   | Galería de proyectos + lightbox |
+| **2** | 45 min   | UX testing con compañeros       |
+| **3** | 45 min   | Iteración y pulido              |
+| **4** | 45 min   | Lanzamiento y presentación      |
 
 ---
 
-## Parte 1: Añadir Galería de Proyectos (60 min)
+## Parte 1: Galería de Proyectos (60 min)
 
-### 1.1 Preparar Imágenes en ImageKit (si no está hecho)
+### 1.1 Completar Proyectos en Brief (15 min)
 
-**Checklist:**
-- [ ] Imágenes subidas a ImageKit
-- [ ] URLs copiadas y organizadas
-- [ ] Nombres descriptivos para alt text
+**Acción:** Abre `project-brief.md` sección "Proyectos para Galería"
 
-### 1.2 Crear Sección de Proyectos
+**Completa mínimo 6 proyectos con:**
+- URL de ImageKit (con transformaciones)
+- Título del proyecto
+- Descripción (1 frase)
+- Categoría
+- Alt text descriptivo
 
-**Prompt IA — Galería de Proyectos con ImageKit:**
+**Formato URLs ImageKit optimizadas:**
+```
+https://ik.imagekit.io/tu-id/tr:w-400,h-300,q-80,f-auto/proyecto.jpg
+```
+
+### 1.2 Prompt IA — Galería de Proyectos
 
 **Metodología docs-first:**
-1. Guarda como `docs/prompt-galeria-proyectos.md`
-2. Envía a IA
-3. Implementa en index.html
+1. Guarda como `docs/prompt-galeria.md`
+2. **Adjunta:** `project-brief.md`
+3. Envía a IA
+4. Implementa sección nueva
 
 ```markdown
-Crea una galería de proyectos usando mis imágenes de ImageKit.
+Crea galería de proyectos usando mis imágenes de ImageKit.
 
-## Ubicación en el Portfolio
+## 📎 CONTEXTO
+Adjunta: `project-brief.md`
 
-Añadir DESPUÉS del parallax section (línea ~60 de index.html), ANTES de "My Work" chapter-2.
+Lee sección "Proyectos para Galería" - extrae:
+- URLs de ImageKit de cada proyecto
+- Títulos, descripciones, categorías
+- Alt text
 
-## Contenidos
+## UBICACIÓN
 
-**Título de sección:** [Ej. "Proyectos Destacados", "Mi Portfolio", "Trabajos Recientes"]
+Añadir NUEVA sección en `index.html` después del `parallax-section` (línea ~60), ANTES del `chapter-2` (My Work).
 
-**Proyectos (mínimo 6):**
-
-### Proyecto 1
-- Imagen: [URL de ImageKit]
-- Título: [Nombre del proyecto]
-- Descripción corta: [1 frase]
-- Categoría: [Ej. Editorial, Digital, Branding]
-
-### Proyecto 2
-- Imagen: [URL]
-- Título: [Nombre]
-- Descripción: [1 frase]
-- Categoría: [...]
-
-[Repetir para cada proyecto - mínimo 6]
-
-## Implementación
-
-Añade esta nueva sección en `index.html`:
+## ESTRUCTURA
 
 ```html
-<!-- Añadir después del parallax-section, antes de chapter-2 -->
+<!-- NUEVA SECCIÓN - Añadir aquí -->
 <section class="story-section chapter-1" data-observe>
   <div class="story-content">
-    <h2>[Tu título de galería]</h2>
-    <p class="text-large mb-lg">[Intro opcional a tu trabajo]</p>
+    <h2>Mi Portfolio</h2>
+    <p class="text-large mb-lg">Proyectos destacados de ilustración</p>
 
     <div class="interactive-cards">
-      <!-- Card de Proyecto 1 -->
-      <div class="card project-card" data-category="[categoría]">
+      <!-- Generar UNA card por cada proyecto del brief -->
+      <div class="card project-card" data-category="[categoría del brief]">
         <img 
-          src="[URL de ImageKit]" 
-          alt="[Descripción accesible del proyecto]"
+          src="[URL ImageKit del brief con tr:w-400,h-300,q-80,f-auto]" 
+          alt="[Alt text del brief]"
           loading="lazy"
-          style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
-        <h4>[Título del proyecto]</h4>
-        <p>[Descripción corta]</p>
-        <span class="project-tag">[Categoría]</span>
+          style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; cursor: pointer;">
+        <h4>[Título del brief]</h4>
+        <p>[Descripción del brief]</p>
+        <span class="project-tag">[Categoría del brief]</span>
       </div>
-
-      <!-- Repetir para proyectos 2-6+ -->
+      
+      <!-- Repetir para CADA proyecto listado en project-brief.md -->
     </div>
   </div>
 </section>
 ```
 
-## Estilos Adicionales
+## CSS ADICIONAL
 
-Añadir en `assets/css/_scrollytelling.css` o crear nuevo archivo:
+Añadir al final de `assets/css/_scrollytelling.css`:
 
 ```css
-/* Project cards específicos */
+/* Project cards */
 .project-card img {
   transition: transform 0.3s ease;
-  cursor: pointer;
 }
 
 .project-card:hover img {
@@ -154,167 +152,47 @@ Añadir en `assets/css/_scrollytelling.css` o crear nuevo archivo:
 }
 ```
 
-## Optimización de Imágenes con ImageKit
+## REPORT
 
-Usa transformaciones de ImageKit en las URLs:
+1. **Proyectos extraídos de brief:** [N proyectos]
+2. **Categorías:** [Lista categorías únicas]
+3. **URLs ImageKit:** Todas con transformaciones optimizadas ✓
+4. **Alt text:** Descriptivo en [N] imágenes ✓
+5. **Lazy loading:** Aplicado a todas ✓
+6. **Grid responsive:** Auto-fit 1/2/3 columnas ✓
+7. **Ubicación:** Insertado después parallax, antes chapter-2 ✓
 
-```
-Original: https://ik.imagekit.io/tu-id/proyecto.jpg
-Optimizado: https://ik.imagekit.io/tu-id/tr:w-400,h-300,q-80/proyecto.jpg
-```
-
-Parámetros:
-- `w-400`: ancho 400px
-- `h-300`: alto 300px
-- `q-80`: calidad 80%
-- `f-auto`: formato automático (WebP si soportado)
-
-## Report de Implementación
-
-1. **Proyectos añadidos:** [N proyectos] con imágenes de ImageKit
-2. **Categorías:** [Lista categorías usadas]
-3. **Alt text:** Descriptivo y accesible en todas las imágenes ✓
-4. **Optimización:** URLs de ImageKit con transformaciones ✓
-5. **Lazy loading:** `loading="lazy"` en todas las imágenes ✓
-6. **Responsive:** Grid adapta a 1/2/3 columnas según viewport ✓
-7. **Performance:** Imágenes optimizadas, carga rápida
-
-[La IA completará esta sección]
+[La IA completará]
 ```
 
 ### 1.3 Lightbox Opcional (15 min)
 
-**Prompt IA — Lightbox Simple:**
-
-**Metodología docs-first:**
-1. Guarda como `docs/prompt-lightbox.md` (opcional)
-2. Solo si tienes tiempo
+**Prompt IA:**
 
 ```markdown
-Añade un lightbox simple para ampliar imágenes de la galería.
+Añade lightbox para ampliar imágenes.
 
-## Funcionalidad
+## FUNCIONALIDAD
 
-Al hacer click en una imagen de proyecto:
-1. Se abre un modal/lightbox
-2. Muestra la imagen a tamaño completo
-3. Overlay oscuro de fondo
-4. Botón X para cerrar
-5. ESC key para cerrar
-6. Click fuera de imagen para cerrar
+Click en imagen → Modal con imagen ampliada (ImageKit tr:w-1200)
 
-## Implementación JavaScript
+## CÓDIGO JAVASCRIPT
 
 Añadir al final de `assets/js/main.js`:
 
-```javascript
-// ===== LIGHTBOX PARA GALERÍA =====
+[El código JavaScript completo del lightbox se proporcionará en la sesión - ver versión anterior de S4 para referencia]
 
-// Crear elemento lightbox (solo una vez)
-const lightbox = document.createElement('div');
-lightbox.className = 'lightbox';
-lightbox.innerHTML = `
-  <div class="lightbox-content">
-    <button class="lightbox-close" aria-label="Cerrar">&times;</button>
-    <img src="" alt="" class="lightbox-image">
-  </div>
-`;
-document.body.appendChild(lightbox);
-
-// Añadir event listeners a imágenes de proyectos
-document.querySelectorAll('.project-card img').forEach(img => {
-  img.addEventListener('click', () => {
-    const lightboxImg = lightbox.querySelector('.lightbox-image');
-    lightboxImg.src = img.src.replace('/tr:w-400,h-300', '/tr:w-1200'); // Imagen más grande
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Bloquear scroll
-  });
-});
-
-// Cerrar lightbox
-function closeLightbox() {
-  lightbox.classList.remove('active');
-  document.body.style.overflow = ''; // Restaurar scroll
-}
-
-lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) closeLightbox(); // Click fuera
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-    closeLightbox();
-  }
-});
-```
-
-## Estilos CSS
+## CSS
 
 Añadir a `assets/css/_scrollytelling.css`:
 
-```css
-/* ===== LIGHTBOX ===== */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: var(--z-modal);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
+[El código CSS del lightbox - ver código anterior]
 
-.lightbox.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.lightbox-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
-}
-
-.lightbox-image {
-  max-width: 100%;
-  max-height: 90vh;
-  object-fit: contain;
-  border-radius: var(--radius-md);
-}
-
-.lightbox-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  line-height: 1;
-  transition: transform 0.2s ease;
-}
-
-.lightbox-close:hover {
-  transform: scale(1.2);
-}
-```
-
-## Report
-
-1. **Lightbox implementado:** Click en imagen → modal ✓
-2. **Cierre múltiple:** X, ESC, click fuera ✓
-3. **Imágenes optimizadas:** ImageKit tr:w-1200 para lightbox ✓
-4. **Accesibilidad:** aria-label, focus trap básico ✓
-5. **UX:** Scroll bloqueado cuando lightbox abierto ✓
+## REPORT
+1. Lightbox implementado: Click funciona ✓
+2. Cierre múltiple: X, ESC, click fuera ✓
+3. Imágenes ampliadas: URLs ImageKit tr:w-1200 ✓
+4. Accesibilidad: aria-label, body scroll bloqueado ✓
 
 [La IA completará]
 ```
@@ -323,373 +201,113 @@ Añadir a `assets/css/_scrollytelling.css`:
 
 ## Parte 2: Testing UX con Compañeros (45 min)
 
-### 2.1 Dinámica de Testing (25 min)
+### 2.1 Dinámica (25 min)
 
 **Formato:** Parejas intercambian portfolios
 
-**Proceso:**
-1. Estudiante A abre el portfolio de B en su dispositivo
-2. A navega **sin indicaciones** mientras B observa y toma notas
-3. A completa las tareas de testing (abajo)
-4. Intercambiar roles
+**5 Tareas de Testing:**
+1. Primera impresión (30s): ¿De qué trata?
+2. Scroll completo (2min): ¿Qué secciones viste?
+3. Galería (1min): ¿Cuántos proyectos? ¿Se ven bien?
+4. Contacto (30s): ¿Cómo contactarías?
+5. Móvil (2min): Emulador o real
 
-**Tareas de Testing (dar a quien prueba):**
+### 2.2 Tabla de Feedback
 
-| # | Tarea | Tiempo | Notas |
-|---|-------|--------|-------|
-| 1 | Primera impresión: ¿De qué trata este portfolio? | 30s | |
-| 2 | Scroll hasta el final: ¿Qué secciones viste? | 2min | |
-| 3 | Encuentra la información de contacto | 30s | |
-| 4 | ¿Cuál es la especialidad principal del autor/a? | 30s | |
-| 5 | Abre el portfolio en móvil (o emulador) | 2min | |
+| Aspecto | ✓/✗ | Comentario |
+|---------|-----|------------|
+| Claridad identidad | | |
+| Scroll fluido | | |
+| Galería carga rápido | | |
+| Bio interesante | | |
+| CTA claro | | |
+| Móvil funcional | | |
 
-### 2.2 Feedback Estructurado
+**1 mejora crítica:** _______________
 
-**Tabla de Feedback** (imprimir o compartir digitalmente):
-
-| Aspecto | Pregunta | ✓/✗ | Comentario |
-|---------|----------|-----|------------|
-| **Claridad** | ¿Entendiste qué hace en 5 segundos? | | |
-| **Navegación** | ¿El scroll fue fluido y fácil de seguir? | | |
-| **Contenido** | ¿La bio y stats son creíbles/interesantes? | | |
-| **Proyectos** | ¿Las imágenes cargan rápido y se ven bien? | | |
-| **Contacto** | ¿El CTA de contacto es claro? | | |
-| **Móvil** | ¿Funciona bien en móvil? | | |
-| **Velocidad** | ¿Carga rápido? ¿Algo se siente lento? | | |
-| **Animaciones** | ¿Las animaciones mejoran o distraen? | | |
-
-**1 sugerencia concreta de mejora:** _________________
-
-### 2.3 Discusión Grupal (20 min)
-
-**Formato:** Ronda de compartir
+### 2.3 Discusión (20 min)
 
 Cada pareja comparte:
-1. **1 cosa que funcionó muy bien** en el portfolio del compañero
-2. **1 mejora crítica** detectada
-3. **1 idea** que te inspiró para tu propio portfolio
-
-**Profesor facilita:**
-- Patrones comunes (ej. "3 personas reportaron carga lenta de imágenes")
-- Soluciones rápidas (ej. "Usar transformaciones ImageKit")
-- Priorización: Crítico vs Nice-to-have
+- 1 cosa excelente
+- 1 mejora crítica
+- 1 idea inspiradora
 
 ---
 
-## Parte 3: Iteración y Pulido (45 min)
+## Parte 3: Iteración (45 min)
 
-### 3.1 Priorizar Mejoras del Feedback (10 min)
+### Priorizar y Ejecutar
 
-**Matriz de Priorización:**
+**Matriz:**
+- 🔴 Crítico: Imágenes no cargan, texto ilegible
+- 🟡 Alto: Bio larga, CTA confuso
+- 🟢 Medio: Animaciones lentas
+- ⚪ Bajo: Espaciados menores
 
-| Prioridad | Criterio | Ejemplos |
-|-----------|----------|----------|
-| **🔴 Crítico** | Impide uso básico | Imágenes no cargan, texto ilegible, nav rota |
-| **🟡 Alto** | Confunde usuario | Bio muy larga, CTA no claro, stats confusas |
-| **🟢 Medio** | Mejora experiencia | Animaciones demasiado lentas, colores poco contrastados |
-| **⚪ Bajo** | Polish visual | Espaciados, pequeños ajustes tipográficos |
+**Implementa 2-3 mejoras** de prioridad Alta/Crítica.
 
-**Acción:** Escoge **2-3 mejoras** de prioridad Alta/Crítica para implementar ahora.
-
-### 3.2 Implementar Mejoras (25 min)
-
-**Ejemplos de Mejoras Comunes:**
-
-**Problema:** "Imágenes cargan muy lento"
-```markdown
-Solución: Optimizar URLs de ImageKit
-
-Cambiar:
-https://ik.imagekit.io/tu-id/proyecto.jpg
-
-Por:
-https://ik.imagekit.io/tu-id/tr:w-400,h-300,q-80,f-auto/proyecto.jpg
-```
-
-**Problema:** "Bio muy larga, no la leo completa"
-```markdown
-Solución: Acortar a 2-3 párrafos máximo
-
-Antes: 5 párrafos, 300 palabras
-Después: 2 párrafos, 120 palabras + link "Saber más"
-```
-
-**Problema:** "Botón de contacto no se ve"
-```markdown
-Solución: Aumentar contraste del CTA
-
-En _variables.css:
-.cta-button {
-  background: white; /* Ya está */
-  color: #667eea;
-  /* Añadir borde para más visibilidad */
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
-}
-```
-
-### 3.3 Checklist Final (10 min)
-
-**Pre-Lanzamiento:**
-
-- [ ] **Funcionalidad**
-  - [ ] Todas las secciones cargan
-  - [ ] Scroll suave funciona
-  - [ ] Animaciones activas
-  - [ ] Lightbox funciona (si implementado)
-  - [ ] Links externos con target="_blank"
-  - [ ] Sin errores en consola
-
-- [ ] **Performance**
-  - [ ] Imágenes optimizadas (ImageKit transformations)
-  - [ ] Lazy loading en imágenes
-  - [ ] Scroll progress funcionando
-
-- [ ] **Accesibilidad**
-  - [ ] Contraste WCAG AA en todos los textos
-  - [ ] Alt text en todas las imágenes
-  - [ ] Navegación por teclado
-  - [ ] Reduced motion respetado
-  - [ ] Skip link funciona
-
-- [ ] **SEO**
-  - [ ] Title único y descriptivo
-  - [ ] Meta description relevante
-  - [ ] Open Graph meta tags (opcional)
+**Ejemplos comunes:**
+- Imágenes lentas → Optimizar ImageKit
+- Bio larga → Reducir a 2 párrafos
+- CTA no claro → Aumentar contraste
 
 ---
 
-## Parte 4: Lanzamiento y Presentación (45 min)
+## Parte 4: Lanzamiento (45 min)
 
-### 4.1 Meta Tags para Compartir (10 min)
-
-Añadir en `<head>` de index.html:
+### 4.1 Meta Tags (10 min)
 
 ```html
-<!-- Open Graph para redes sociales -->
-<meta property="og:title" content="[Tu Nombre] - Portfolio de Ilustración">
-<meta property="og:description" content="[Tu tagline de 1 frase]">
-<meta property="og:image" content="[URL imagen destacada de ImageKit]">
-<meta property="og:url" content="https://[tu-usuario].github.io/[tu-repo]/">
-<meta property="og:type" content="website">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="[Tu Nombre] - Portfolio">
-<meta name="twitter:description" content="[Tu tagline]">
-<meta name="twitter:image" content="[URL imagen]">
+<meta property="og:title" content="[Tu Nombre del brief] - Portfolio">
+<meta property="og:description" content="[Tu tagline del brief]">
+<meta property="og:image" content="[URL proyecto destacado de brief]">
 ```
 
-### 4.2 Commit Final (10 min)
+### 4.2 Case Study (15 min)
 
-```bash
-git add .
-git commit -m "feat(s4): galería de proyectos y lanzamiento final
-
-GALERÍA:
-- Añadida sección de proyectos con [N] trabajos
-- Imágenes de ImageKit optimizadas (tr:w-400,h-300,q-80,f-auto)
-- Lightbox implementado para vista ampliada [si aplica]
-- Lazy loading en todas las imágenes
-
-MEJORAS UX (FEEDBACK):
-- [Mejora 1 implementada]
-- [Mejora 2 implementada]
-- [Mejora 3 implementada]
-
-OPTIMIZACIONES:
-- Meta tags Open Graph para compartir
-- Performance: imágenes optimizadas, lazy loading
-- Accesibilidad: alt text en [N] imágenes, contraste verificado
-
-TESTING:
-- Responsive verificado: 320px, 768px, 1024px, 1440px ✓
-- UX testing con compañero: feedback integrado ✓
-- Sin errores en consola ✓
-
-LANZAMIENTO: Portfolio listo para producción 🚀"
-
-git push origin main
-```
-
-### 4.3 Case Study (10 min)
-
-Crear `case-study.md` en el repo:
+Crear `case-study.md`:
 
 ```markdown
-# Portfolio Scrollytelling - Case Study
+# Portfolio Scrollytelling - [Tu Nombre]
 
-## Objetivo
-[1 párrafo: qué querías lograr con este portfolio]
+## Concepto
+[Extrae de project-brief.md sección "Concepto del Portfolio"]
 
-## Inspiración
-[Referencias de diseño, estilos que te inspiraron]
+## Proceso (4 Sesiones)
+S1: Foundation
+S2: Content Strategy  
+S3: Personalización con mi identidad visual
+S4: Galería + UX Testing + Lanzamiento
 
-## Proceso de Desarrollo (4 Sesiones)
-
-### S1: Foundation
-[Breve resumen]
-
-### S2: Content Strategy
-[Breve resumen]
-
-### S3: Personalización
-[Breve resumen]
-
-### S4: Galería y Lanzamiento
-[Breve resumen]
-
-## Desafíos Técnicos y Soluciones
-
-1. **Desafío:** [Problema que enfrentaste]
-   **Solución:** [Cómo lo resolviste]
-
-2. **Desafío:** [Otro problema]
-   **Solución:** [Tu solución]
-
-## Tecnologías Usadas
-
-- HTML5 Semántico
-- CSS modular (Variables, Scrollytelling module)
-- JavaScript (Intersection Observer, Lightbox)
-- ImageKit para optimización de imágenes
-- GitHub Pages para deployment
-
-## Métricas de Éxito
-
-- **Performance:** [Score Lighthouse / tiempo de carga]
-- **Accessibility:** [Score / features implementadas]
-- **Proyectos mostrados:** [N]
-- **Componentes scrollytelling:** [N]
-
-## Aprendizajes Clave
-
-1. [Aprendizaje 1]
-2. [Aprendizaje 2]
-3. [Aprendizaje 3]
-
-## Próximas Iteraciones
-
-- [ ] [Mejora futura 1]
-- [ ] [Mejora futura 2]
-- [ ] [Mejora futura 3]
+## Tecnologías
+- Scrollytelling con Intersection Observer
+- ImageKit para optimización
+- CSS modular
+- GitHub Pages
 
 ## URL Final
-
-https://[tu-usuario].github.io/[tu-repo]/
-
----
-
-**Atelier Reflection:** [Reflexión personal sobre el proceso]
+https://[tu-usuario].github.io/[repo]/
 ```
 
-### 4.4 Presentación al Grupo (15 min)
+### 4.3 Presentación (15 min)
 
-**Formato:** 2-3 min por persona
-
-**Estructura de presentación:**
-1. **Abrir URL live** y hacer scroll completo
-2. **Destacar 1 componente** que te enorgullece
-3. **Compartir 1 desafío** superado
-4. **1 aprendizaje** del proceso de 4 sesiones
-
-**Todos guardan las URLs** para explorar después.
+**2-3 min por persona:**
+1. URL live + scroll
+2. 1 componente favorito
+3. 1 desafío superado
+4. 1 aprendizaje
 
 ---
 
-## ✅ Checklist de Entregables S4
+## ✅ Entregables S4
 
-### Galería
-- [ ] **Sección de proyectos** añadida con mínimo 6 trabajos
-- [ ] **Imágenes de ImageKit** optimizadas
-- [ ] **Alt text descriptivo** en todas las imágenes
-- [ ] **Lazy loading** implementado
-- [ ] **Lightbox** funcional (opcional)
-
-### UX Testing
-- [ ] **Testing con compañero** completado
-- [ ] **Feedback documentado** en tabla
-- [ ] **2-3 mejoras críticas** implementadas
-
-### Lanzamiento
-- [ ] **Meta tags** Open Graph añadidos
-- [ ] **Sin errores** en consola
-- [ ] **Case study** documentado
-- [ ] **URL pública** funcionando
-- [ ] **Commit final** con mensaje descriptivo
-
----
-
-## 🎯 Criterios de Evaluación Final
-
-### Técnico (40%)
-- HTML semántico y válido
-- CSS modular bien organizado
-- JavaScript funcional (Intersection Observer, Lightbox)
-- Responsive en todos los breakpoints
-- Imágenes optimizadas con ImageKit
-
-### Creativo (40%)
-- Diseño visual coherente con estilo personal
-- Galería muestra trabajos reales y atractivos
-- UX clara y efectiva
-- Presentación profesional
-
-### Proceso (20%)
-- 4 commits significativos (1 por sesión)
-- Documentación (case study, reflexiones)
-- Participación en testing con compañero
-- Feedback integrado
-
----
-
-## 🎉 ¡Felicidades!
-
-Has completado el track **Ilustración Aplicada: Productos Digitales Web-App**.
-
-Tu portfolio scrollytelling es ahora:
-- ✅ Un producto digital profesional
-- ✅ Una demostración de tus habilidades técnicas y creativas
-- ✅ Una herramienta para conseguir trabajo/clientes
-- ✅ Una base para seguir iterando
-
-**Próximos pasos sugeridos:**
-1. Comparte tu portfolio en redes profesionales
-2. Añade nuevos proyectos regularmente
-3. Experimenta con nuevas animaciones/componentes
-4. Considera añadir un blog para mostrar tu proceso
-
----
-
-## Reflexión Final ATELIER
-
-```markdown
-## Reflexión S4 - Final
-
-### Producto
-1. ¿Estás orgulloso/a de tu portfolio?
-2. ¿Lo usarías profesionalmente?
-3. ¿Qué es lo que más te gusta?
-
-### Galería
-1. ¿Tus proyectos se presentan de forma atractiva?
-2. ¿Las imágenes cargan rápido?
-3. ¿El lightbox mejora la experiencia?
-
-### Testing UX
-1. ¿El feedback de tu compañero fue útil?
-2. ¿Qué mejoraste basándote en ese feedback?
-3. ¿Qué aprendiste probando el portfolio de otro/a?
-
-### Aprendizaje
-1. ¿Qué fue lo más difícil de estas 4 sesiones?
-2. ¿Qué componente te gustó más implementar?
-3. ¿Qué te gustaría aprender a continuación?
-
-### Scrollytelling
-1. ¿La narrativa progresiva funciona para tu portfolio?
-2. ¿Las animaciones mejoran la experiencia?
-3. ¿Qué ajustarías si tuvieras más tiempo?
-```
+- [ ] Galería con mínimo 6 proyectos (ImageKit)
+- [ ] Lightbox funcional (opcional)
+- [ ] Testing con compañero completado
+- [ ] 2-3 mejoras implementadas
+- [ ] Meta tags Open Graph
+- [ ] Case study documentado
+- [ ] Portfolio público funcionando
 
 ---
 

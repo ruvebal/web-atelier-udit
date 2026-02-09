@@ -81,9 +81,29 @@ Este módulo está diseñado para estudiantes de **Ilustración Aplicada** que d
 
 ---
 
-## 🤖 Desarrollo Asistido por IA (Docs-First)
+## 🤖 Desarrollo Asistido por IA (Docs-First + Archivos de Contexto)
 
 Este track integra la **[Guía Práctica de Desarrollo Asistido por IA]({{ '/methodology/es/ai-practical-guide/' | relative_url }})** como metodología central.
+
+### Archivos de Contexto (Nueva Metodología)
+
+**IMPORTANTE:** En este track aprenderás a usar **archivos de contexto** para evitar duplicar información en prompts.
+
+**Archivos clave:**
+- `project-brief.md` - Tu fuente de verdad (contenidos, colores, tipografías, proyectos)
+- `project-inspiration.md` - Referencias visuales y tendencias
+
+**Cómo usarlos con IA:**
+1. Completa `project-brief.md` con TODOS tus contenidos preparados
+2. En cada prompt, **adjunta** `project-brief.md` 
+3. Instruye a la IA: "Lee project-brief.md sección X para obtener Y"
+4. La IA extrae la información - NO la dupliques en el prompt
+
+**Beneficios:**
+- ✅ Prompts más cortos y claros
+- ✅ Fuente única de verdad (DRY principle)
+- ✅ Fácil de actualizar - cambias el brief, no 10 prompts
+- ✅ Aprendes a usar contexto profesionalmente
 
 ### El Enfoque de Dos Fases (No Negociable)
 
@@ -487,49 +507,53 @@ Testea todas las combinaciones con WebAIM Contrast Checker.
 
 ---
 
-### Sesión 3 — Maquetación responsive y estructura multi-sección (3.5h)
+### Sesión 3 — Personalización del Portfolio Scrollytelling (3.5h)
 
-**Fase de Producto**: Revisión contenidos → Arquitectura → Multi-sección → Responsive
+**Fase de Producto**: Completar Brief → Personalizar Diseño → Integrar Contenidos → Testing
 
-Comprobar contenidos preparados (ImageKit, textos, tipografía, colores), definir el esqueleto común (Header, Hero, Proyectos, About, Footer) y maquetar responsive mobile-first.
+Completa `project-brief.md` con todos tus contenidos, personaliza el sistema de diseño (colores/tipografías) y rellena las secciones scrollytelling con tus textos preparados.
 
 - Sesión:
-  - [S3 — Maquetación responsive y estructura multi-sección]({{ '/tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/' | relative_url }})
+  - [S3 — Personalización del Portfolio Scrollytelling]({{ '/tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/' | relative_url }})
 
 **Desglose de tiempo**:
 
 | Parte | Duración | Actividad                                                                 |
 | ----- | -------- | ------------------------------------------------------------------------- |
-| 1     | 20 min   | **Revisión de contenidos**: imágenes ImageKit, textos, fuentes, colores   |
-| 2     | 30 min   | **Arquitectura de página**: esqueleto común en pizarra, semántica HTML     |
-| 3     | 90 min   | **Maquetación de secciones**: Hero, Galería, About, Footer                |
-| 4     | 45 min   | **Testing responsive y accesibilidad**: breakpoints, WCAG, teclado         |
-| 5     | 25 min   | **Commit y documentación**: progreso reflejado en repo                    |
+| 1     | 30 min   | **Completar project-brief.md**: identidad visual, bio, stats, especialidades |
+| 2     | 30 min   | **Personalizar sistema de diseño**: colores + tipografías del brief      |
+| 3     | 80 min   | **Integrar contenidos**: Hero, About, Work, Timeline, Skills del brief   |
+| 4     | 30 min   | **Testing responsive y accesibilidad**: 320px-1440px, WCAG AA             |
+| 5     | 20 min   | **Commit y documentación**: portfolio personalizado completo              |
 
-**Prompt IA recomendado**:
+**Ejemplo de Prompt con Archivos de Contexto**:
 
 ```markdown
-Siguiendo docs/plan-layout.md, implementa la Fase 2: Layout Multi-sección
+Personaliza la Hero Section del portfolio.
 
-Crea un layout responsive para página de portfolio con:
+## 📎 CONTEXTO
+Adjunta: `project-brief.md`
 
-Requisitos:
+Lee sección "Contenidos Preparados" → "Lema/Tagline para Hero"
 
-- Header con navegación (nombre/logo + enlaces a secciones)
-- Hero con ilustración destacada y lema
-- Sección Proyectos/Galería (reutilizar galería S2)
-- Sección Sobre mí (bio/statement)
-- Footer con contacto y redes (aria-label en iconos)
+## TAREA
 
-Restricciones:
+Actualiza en `index.html` la Hero Section con:
+- Nombre del brief
+- Tagline del brief
+- Emoji apropiado para tu especialidad
 
-- Mobile-first (320px base). Breakpoints: 768px, 1024px, 1440px
-- Variables CSS del sistema de diseño
-- HTML semántico: nav, main, section, footer. Headings en orden
-- Navegación por teclado y contraste WCAG AA
+NO dupliques información del brief en este prompt - la IA debe LEER el archivo adjunto.
 
-Genera informe de implementación después de completar.
+## REPORT
+1. Nombre extraído del brief: [...]
+2. Tagline integrado: [...]
+3. Responsive: Verificado ✓
+
+[La IA completará después de leer project-brief.md]
 ```
+
+**Aprendizaje clave:** Usa archivos de contexto para evitar duplicar información.
 
 **Canon recomendado**:
 
@@ -538,62 +562,69 @@ Genera informe de implementación después de completar.
 
 **Entregables S3**:
 
-- ✅ Todas las secciones implementadas (Hero, Work, About, Footer)
-- ✅ Navegación funcional con anclas
-- ✅ Contenido real integrado (imágenes, textos)
-- ✅ Responsive en móvil y desktop
-- ✅ Semántica HTML y accesibilidad verificada
-- ✅ 1 commit significativo
+- ✅ `project-brief.md` completado al 100%
+- ✅ Sistema de diseño personalizado (colores + tipografías del brief)
+- ✅ Todos los componentes con contenido real (no placeholders)
+- ✅ Responsive verificado (320px-1440px)
+- ✅ Accesibilidad WCAG AA
+- ✅ 1 commit significativo con portfolio personalizado
 
 ---
 
-### Sesión 4 — Interactividad, UX Testing y Lanzamiento (3.5h)
+### Sesión 4 — Galería de Proyectos y Lanzamiento (3.5h)
 
-**Fase de Producto**: Interactividad → UX Testing → Iteración → Launch & Present
+**Fase de Producto**: Galería ImageKit → UX Testing → Iteración → Launch & Present
 
-Añadir interactividad (animaciones al scroll, menú responsive), testing con compañeros, iterar con el feedback y lanzar el portfolio.
+Añadir galería de proyectos con imágenes de ImageKit, realizar testing UX con compañeros, iterar con feedback y lanzar el portfolio público.
 
 - Sesión:
-  - [S4 — Interactividad, UX Testing y Lanzamiento]({{ '/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/' | relative_url }})
+  - [S4 — Galería de Proyectos y Lanzamiento]({{ '/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/' | relative_url }})
 
 **Desglose de tiempo**:
 
 | Parte | Duración | Actividad                                                                 |
 | ----- | -------- | ------------------------------------------------------------------------- |
-| 1     | 60 min   | **Interactividad**: animaciones on-scroll (Intersection Observer), menú móvil |
-| 2     | 45 min   | **UX Testing**: dinámica con compañeros, feedback documentado             |
-| 3     | 45 min   | **Iteración y pulido**: mejoras por feedback, accesibilidad final         |
-| 4     | 45 min   | **Lanzamiento y presentación**: deploy, URL pública, presentación al grupo |
+| 1     | 60 min   | **Galería de proyectos**: 6+ proyectos del brief con ImageKit + lightbox opcional |
+| 2     | 45 min   | **UX Testing**: dinámica con compañeros, feedback estructurado            |
+| 3     | 45 min   | **Iteración y pulido**: mejoras críticas de feedback implementadas        |
+| 4     | 45 min   | **Lanzamiento y presentación**: Meta tags, case study, deploy, demo       |
 
-**Prompt IA recomendado**:
+**Ejemplo de Prompt con Contexto para Galería**:
 
 ```markdown
-Siguiendo docs/plan-interactivity.md, implementa Fase 1: Animaciones de Scroll
+Crea galería de proyectos usando mis imágenes de ImageKit.
 
-Escribe una función JavaScript usando Intersection Observer para fade-in de elementos al hacer scroll.
+## 📎 CONTEXTO
+Adjunta: `project-brief.md`
 
-Requisitos:
+Lee sección "Proyectos para Galería" - extrae:
+- URLs de ImageKit de cada proyecto
+- Títulos, descripciones, categorías
+- Alt text
 
-- Progressive enhancement (sitio funciona sin JS)
-- Respeta media query prefers-reduced-motion
-- Usa requestAnimationFrame para rendimiento
-- Threshold y root margin configurables
-- Limpia observers cuando elementos son visibles
-- Soporta múltiples elementos con data attributes
+## UBICACIÓN
 
-Restricciones:
+Añadir NUEVA sección en `index.html` después del `parallax-section`, antes de "My Work".
 
-- Vanilla JS (sin librerías)
-- Sintaxis ES6+
-- Accesible (no rompe navegación por teclado)
-- Performante (sin layout thrashing)
+## ESTRUCTURA
 
-Entrega:
+Genera UNA card por cada proyecto listado en project-brief.md con:
+- Imagen optimizada (tr:w-400,h-300,q-80,f-auto)
+- Título y descripción del brief
+- Tag de categoría
+- Lazy loading
+- Grid responsive auto-fit
 
-1. Código comentado con explicación
-2. Ejemplos de uso
-3. Recomendaciones de testing
-4. Informe de implementación
+NO dupliques - extrae todo de project-brief.md
+
+## REPORT
+1. Proyectos extraídos: [N] del brief
+2. Categorías únicas: [lista]
+3. URLs optimizadas: ✓
+4. Alt text: ✓
+5. Grid responsive: ✓
+
+[La IA completará]
 ```
 
 **Canon recomendado**:
@@ -603,13 +634,14 @@ Entrega:
 
 **Entregables S4**:
 
-- ✅ Features interactivas con JavaScript
-- ✅ Progressive enhancement (funciona sin JS)
-- ✅ Testeado con usuarios e iterado
-- ✅ Lighthouse score 90+
-- ✅ Totalmente accesible (WCAG AA)
-- ✅ Case study y presentación
-- ✅ 1 commit significativo
+- ✅ Galería con mínimo 6 proyectos (ImageKit optimizado)
+- ✅ Lightbox funcional (opcional pero recomendado)
+- ✅ Testing UX con compañero completado
+- ✅ 2-3 mejoras críticas implementadas por feedback
+- ✅ Meta tags Open Graph
+- ✅ Case study documentado
+- ✅ Portfolio público y funcionando
+- ✅ 1 commit final significativo
 
 ---
 
