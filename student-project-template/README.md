@@ -123,12 +123,18 @@ docs/prompt-sistema-diseno.md
 7. **Final CTA** - Call-to-action con botón destacado
 8. **Info Overlay** - Indicador de progreso de scroll
 
+### 🆕 A Implementar en S4
+
+9. **Navegación Sticky** - Navbar siempre visible con blur
+10. **Menú Hamburguesa** - Responsive mobile con overlay full-screen
+
 ### JavaScript Funcional
 
 - ✅ Intersection Observer para animaciones al scroll
 - ✅ Scroll progress indicator
 - ✅ Smooth scroll
 - ✅ Prefers-reduced-motion detection
+- 🆕 **S4:** Navbar toggle + keyboard navigation
 
 ---
 
@@ -148,21 +154,22 @@ docs/prompt-sistema-diseno.md
 - `assets/css/_variables.css` (colores + fuentes)
 - `index.html` (contenidos en cada sección)
 
-### Sesión 4 (S4) - Galería y Lanzamiento
+### Sesión 4 (S4) - Navegación + Galería y Lanzamiento
 **Duración:** 3.5 horas
 
 **Objetivos:**
-1. Añadir galería de proyectos (6+ imágenes ImageKit)
-2. Implementar lightbox (opcional)
-3. Testing UX con compañeros
-4. Iterar con feedback
-5. Lanzar portfolio público
+1. Implementar navegación sticky con menú hamburguesa
+2. Añadir galería de proyectos (6+ imágenes ImageKit)
+3. Implementar lightbox (opcional)
+4. Testing UX con compañeros
+5. Iterar con feedback
+6. Lanzar portfolio público
 
 **Archivos a modificar:**
+- `index.html` (navbar + galería)
+- `assets/css/_components.css` (estilos navbar)
+- `assets/js/main.js` (navbar toggle + lightbox)
 - `project-brief.md` (sección "Proyectos para Galería")
-- `index.html` (nueva sección galería)
-- `assets/js/main.js` (lightbox opcional)
-- `assets/css/_scrollytelling.css` (estilos lightbox)
 
 ---
 
@@ -182,8 +189,11 @@ docs/prompt-sistema-diseno.md
 - [ ] Contraste WCAG AA verificado
 - [ ] Commit con mensaje significativo
 
-### S4 - Galería y Lanzamiento
+### S4 - Navegación + Galería y Lanzamiento
 
+- [ ] Navegación sticky implementada con backdrop-filter
+- [ ] Menú hamburguesa responsive funcional (<768px)
+- [ ] IDs añadidos a secciones (about, portfolio, process, contact)
 - [ ] 6+ proyectos añadidos en `project-brief.md` sección "Proyectos para Galería"
 - [ ] URLs de ImageKit optimizadas (tr:w-400,h-300,q-80,f-auto)
 - [ ] Galería implementada en `index.html`
@@ -239,7 +249,11 @@ git push origin main
 ### Documentación
 - [Track completo](../web-foundations/docs/tracks/es/ilustracion-webapp/)
 - [S3: Personalización](../web-foundations/docs/tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/)
-- [S4: Galería y Lanzamiento](../web-foundations/docs/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/)
+- [S4: Navegación + Galería y Lanzamiento](../web-foundations/docs/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/)
+
+### Ejemplos Visuales
+- [Metodología Archivos de Contexto](./docs/ejemplo-contexto-archivos.md)
+- [Navegación Sticky - Guía Visual](./docs/ejemplo-navegacion.md)
 
 ### Herramientas
 - [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - Verificar contraste
