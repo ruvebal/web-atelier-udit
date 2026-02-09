@@ -383,8 +383,8 @@ Este módulo sigue la metodología **ATELIER**, que se caracteriza por:
 | ------ | --------------------------------- | --------------------------------- | -------------------------- |
 | **S1** | Discovery → Definition → MVP      | Sitio live + wireframe            | Arquitectura y fundamentos |
 | **S2** | Content → Visual Design           | Galería + sistema visual          | Excelencia visual          |
-| **S3** | Component Library → Responsive    | Multi-sección + componentes       | Maquetación profesional    |
-| **S4** | Interaction → UX Testing → Launch | Portfolio completo + presentación | Interactividad y pulido    |
+| **S3** | Arquitectura → Multi-sección → Responsive | Página multi-sección completa     | Estructura y maquetación    |
+| **S4** | Interactividad → UX Testing → Launch       | Portfolio completo + presentación | Interactividad y lanzamiento |
 
 ---
 
@@ -487,83 +487,83 @@ Testea todas las combinaciones con WebAIM Contrast Checker.
 
 ---
 
-### Sesión 3 — Responsive Mastery & Professional Layout (3.5h)
+### Sesión 3 — Maquetación responsive y estructura multi-sección (3.5h)
 
-**Fase de Producto**: Component Library → Multi-Section → Responsive
+**Fase de Producto**: Revisión contenidos → Arquitectura → Multi-sección → Responsive
 
-Convertir tu página en un layout responsive con identidad visual y componentes funcionales.
+Comprobar contenidos preparados (ImageKit, textos, tipografía, colores), definir el esqueleto común (Header, Hero, Proyectos, About, Footer) y maquetar responsive mobile-first.
 
 - Sesión:
-  - [S3 — Maquetación responsive con Bootstrap + Tailwind]({{ '/tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/' | relative_url }})
+  - [S3 — Maquetación responsive y estructura multi-sección]({{ '/tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/' | relative_url }})
 
 **Desglose de tiempo**:
 
-| Parte | Duración | Actividad                                                          |
-| ----- | -------- | ------------------------------------------------------------------ |
-| 1     | 45 min   | **Architecture Review**: estructura multi-sección, navegación      |
-| 2     | 90 min   | **Framework Integration**: Bootstrap/Tailwind, componentes         |
-| 3     | 60 min   | **Responsive Testing**: breakpoints, DevTools, dispositivos reales |
-| 4     | 30 min   | **Accessibility Audit**: WCAG AA, contraste, teclado, commit       |
+| Parte | Duración | Actividad                                                                 |
+| ----- | -------- | ------------------------------------------------------------------------- |
+| 1     | 20 min   | **Revisión de contenidos**: imágenes ImageKit, textos, fuentes, colores   |
+| 2     | 30 min   | **Arquitectura de página**: esqueleto común en pizarra, semántica HTML     |
+| 3     | 90 min   | **Maquetación de secciones**: Hero, Galería, About, Footer                |
+| 4     | 45 min   | **Testing responsive y accesibilidad**: breakpoints, WCAG, teclado         |
+| 5     | 25 min   | **Commit y documentación**: progreso reflejado en repo                    |
 
 **Prompt IA recomendado**:
 
 ```markdown
 Siguiendo docs/plan-layout.md, implementa la Fase 2: Layout Multi-sección
 
-Crea un layout CSS Grid responsive para página de portfolio con:
+Crea un layout responsive para página de portfolio con:
 
 Requisitos:
 
-- Header sticky con navegación
-- Hero section con ilustración destacada
-- Galería de proyectos (del S2)
-- Sección bio/about
-- Footer con contacto/redes
+- Header con navegación (nombre/logo + enlaces a secciones)
+- Hero con ilustración destacada y lema
+- Sección Proyectos/Galería (reutilizar galería S2)
+- Sección Sobre mí (bio/statement)
+- Footer con contacto y redes (aria-label en iconos)
 
 Restricciones:
 
-- Mobile-first (320px base)
-- Breakpoints: 768px, 1024px, 1440px
-- Usa variables CSS del sistema de diseño
-- Navegación accesible por teclado
-- Skip links para accesibilidad
+- Mobile-first (320px base). Breakpoints: 768px, 1024px, 1440px
+- Variables CSS del sistema de diseño
+- HTML semántico: nav, main, section, footer. Headings en orden
+- Navegación por teclado y contraste WCAG AA
 
 Genera informe de implementación después de completar.
 ```
 
 **Canon recomendado**:
 
-- [Bootstrap CSS: Configuración y Fundamentos]({{ '/lessons/es/bootstrap/setup-and-fundamentals/' | relative_url }})
 - [Tailwind CSS: Configuración y Fundamentos]({{ '/lessons/es/tailwind/setup-and-fundamentals/' | relative_url }})
+- [Diseño Web: Responsive, Fluido e Intrínseco]({{ '/lessons/es/responsive/' | relative_url }})
 
 **Entregables S3**:
 
-- ✅ Sitio multi-sección responsive
-- ✅ Navegación funcional y accesible
-- ✅ Componentes integrados (Bootstrap/Tailwind o custom)
-- ✅ Testeado en 320px, 768px, 1024px, 1920px
-- ✅ Audit de accesibilidad pasado
+- ✅ Todas las secciones implementadas (Hero, Work, About, Footer)
+- ✅ Navegación funcional con anclas
+- ✅ Contenido real integrado (imágenes, textos)
+- ✅ Responsive en móvil y desktop
+- ✅ Semántica HTML y accesibilidad verificada
 - ✅ 1 commit significativo
 
 ---
 
-### Sesión 4 — Interactivity, UX Testing & Launch (3.5h)
+### Sesión 4 — Interactividad, UX Testing y Lanzamiento (3.5h)
 
-**Fase de Producto**: Interaction Design → JavaScript → UX Testing → Public Launch
+**Fase de Producto**: Interactividad → UX Testing → Iteración → Launch & Present
 
-Añadir interacción real, hacer un test rápido con pares y mejorar la experiencia iterando.
+Añadir interactividad (animaciones al scroll, menú responsive), testing con compañeros, iterar con el feedback y lanzar el portfolio.
 
 - Sesión:
-  - [S4 — Interactividad + UX/UI básico]({{ '/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/' | relative_url }})
+  - [S4 — Interactividad, UX Testing y Lanzamiento]({{ '/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/' | relative_url }})
 
 **Desglose de tiempo**:
 
-| Parte | Duración | Actividad                                                                  |
-| ----- | -------- | -------------------------------------------------------------------------- |
-| 1     | 45 min   | **Interaction Design**: user flows, inventario de micro-interacciones      |
-| 2     | 60 min   | **JavaScript Implementation**: funcionalidad core, progressive enhancement |
-| 3     | 60 min   | **UX Testing**: test con 2-3 pares, documentar feedback, iterar            |
-| 4     | 45 min   | **Launch & Present**: deploy final, case study, presentación               |
+| Parte | Duración | Actividad                                                                 |
+| ----- | -------- | ------------------------------------------------------------------------- |
+| 1     | 60 min   | **Interactividad**: animaciones on-scroll (Intersection Observer), menú móvil |
+| 2     | 45 min   | **UX Testing**: dinámica con compañeros, feedback documentado             |
+| 3     | 45 min   | **Iteración y pulido**: mejoras por feedback, accesibilidad final         |
+| 4     | 45 min   | **Lanzamiento y presentación**: deploy, URL pública, presentación al grupo |
 
 **Prompt IA recomendado**:
 
@@ -621,7 +621,7 @@ Entrega:
 | ------ | ------------------------------------------------------------------ |
 | **S1** | URL live + wireframe + plan de discovery documentado               |
 | **S2** | Galería con grid/layout + sistema visual + contenido               |
-| **S3** | Responsive testeado + componentes + audit accesibilidad            |
+| **S3** | Página multi-sección + responsive + audit accesibilidad            |
 | **S4** | Interacción + evidencia de test con pares + iteración + case study |
 
 ### Totales

@@ -24,7 +24,7 @@ breadcrumbs = breadcrumbs | push: breadcrumb_item %} {% endif %} {% endfor %}
 <div class="toc-backdrop" id="toc-backdrop" aria-hidden="true"></div>
 {% endif %}
 
-<div class="lesson-wrapper">
+<div class="lesson-wrapper{% unless has_toc %} lesson-wrapper--no-toc{% endunless %}">
 	{% if has_toc %}
 	<aside class="lesson-toc" id="lesson-toc" aria-label="Table of Contents">
 		<div class="toc-container">

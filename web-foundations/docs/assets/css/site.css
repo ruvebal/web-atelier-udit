@@ -966,6 +966,11 @@ html.dark,
 	box-sizing: border-box;
 }
 
+/* When page has no TOC, single column so main content uses full width */
+.lesson-wrapper--no-toc {
+	grid-template-columns: 1fr;
+}
+
 @media (max-width: 1024px) {
 	.lesson-wrapper {
 		grid-template-columns: 1fr;

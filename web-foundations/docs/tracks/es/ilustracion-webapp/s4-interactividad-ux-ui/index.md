@@ -1,487 +1,563 @@
 ---
 layout: lesson
-title: 'Interactividad con GSAP + UX Final'
-title_alt: 'Interactividad con GSAP + UX Final'
+title: 'Interactividad, UX Testing y Lanzamiento'
+title_alt: 'Interactividad, UX Testing y Lanzamiento'
 slug: ilustracion-webapp-s4
 date: 2026-01-13
 author: 'Rubén Vega Balbás, PhD'
 lang: es
 permalink: /tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/
-description: 'Cuarta sesión: animaciones profesionales con GSAP, micro-interacciones, testing de usabilidad y lanzamiento final del portfolio.'
-tags: [gsap, animaciones, ux, interactividad, ilustracion, lanzamiento]
+description: 'Cuarta sesión: interactividad con JavaScript, testing de usabilidad con compañeros y lanzamiento final del portfolio.'
+tags: [javascript, animaciones, ux, interactividad, ilustracion, lanzamiento]
 status: borrador
 ---
+
+<!-- prettier-ignore-start -->
+
+## 📋 Tabla de contenidos
+{: .no_toc }
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
 
 ## ⏰ Duración estimada
 
 **3,5 horas (1 sesión)**
 
-**Fase de Producto**: Animation → UX Testing → Launch → Presentation
-
 ---
 
 ## 🎯 Objetivos
 
-### Objetivos de Producto
-
-- Transformar tu portfolio en una **experiencia interactiva** memorable
-- Implementar **animaciones profesionales** que mejoren la narrativa visual
-- Realizar **testing de usabilidad** con peers para validar la experiencia
-- **Lanzar** el portfolio final con calidad de producción
-
-### Objetivos Técnicos
-
-- Dominar **GSAP** para animaciones profesionales
-- Implementar **ScrollTrigger** para animaciones on-scroll
-- Crear **micro-interacciones** que mejoren el feedback visual
-- Optimizar **performance** de animaciones (60fps)
-
-### Objetivos de UX
-
-- Validar la experiencia con **testing rápido** entre peers
-- Aplicar **principios de UX** para mejorar conversión
-- Asegurar que animaciones **respetan prefers-reduced-motion**
+- Añadir **interactividad** con JavaScript (animaciones scroll, menú móvil)
+- Realizar **testing UX** con compañeros
+- **Iterar** basándose en feedback
+- **Lanzar** el portfolio final
 
 ---
 
 ## 🧭 Canon de Referencia
 
-**GSAP**:
-- [Dominio de Animaciones GSAP – De Cero a Producción]({{ '/lessons/es/web-animations/gsap/' | relative_url }})
-- [Animaciones Web con CSS – De lo Básico a lo Avanzado]({{ '/lessons/es/web-animations/css/' | relative_url }})
-
-**UX/UI**:
-- [Metodología ATELIER]({{ '/methodology/es/' | relative_url }})
-
-**Metodología**:
+- [Animaciones Web con CSS]({{ '/lessons/es/web-animations/css/' | relative_url }})
+- [Dominio de Animaciones GSAP]({{ '/lessons/es/web-animations/gsap/' | relative_url }}) _(opcional)_
 - [Guía Práctica de Desarrollo Asistido por IA]({{ '/methodology/es/ai-practical-guide/' | relative_url }})
 
 ---
 
-## ⏱️ Desglose de Tiempo (3.5 horas)
+## ⏱️ Desglose de Tiempo
 
-| Parte | Duración | Fase | Actividad |
-|-------|----------|------|-----------|
-| **1** | 75 min | Animation | GSAP setup, scroll animations, micro-interacciones |
-| **2** | 45 min | UX Testing | Testing con peers, iteración rápida |
-| **3** | 45 min | Launch | Optimización final, deploy, documentación |
-| **4** | 30 min | Presentation | Demo final, reflexión, celebración |
+| Parte | Duración | Actividad                          |
+| ----- | -------- | ---------------------------------- |
+| **1** | 60 min   | Añadir interactividad (JavaScript) |
+| **2** | 45 min   | Testing UX con compañeros          |
+| **3** | 45 min   | Iteración y pulido final           |
+| **4** | 45 min   | Lanzamiento y presentación         |
 
 ---
 
-## Parte 1: GSAP Animations (75 min)
+## Parte 1: Añadir Interactividad (60 min)
 
-### 1.1 Setup GSAP (10 min)
+### 1.1 Animaciones al hacer scroll (25 min)
 
-En tu `<head>` o antes de `</body>`:
-
-```html
-<!-- GSAP Core -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-<!-- ScrollTrigger Plugin -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<script>
-  // Registrar plugin
-  gsap.registerPlugin(ScrollTrigger);
-  
-  // Respetar preferencias de usuario
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-</script>
-```
-
-### 1.2 Hero Animation (15 min)
-
-**Animación de entrada del hero**:
+Hacer que elementos aparezcan con efecto fade-in al entrar en pantalla.
 
 ```javascript
-// Solo si el usuario no prefiere reduced motion
-if (!prefersReducedMotion) {
-  // Timeline para hero
-  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-  
-  heroTl
-    .from('.hero-title', { 
-      y: 60, 
-      opacity: 0, 
-      duration: 1 
-    })
-    .from('.hero-subtitle', { 
-      y: 40, 
-      opacity: 0, 
-      duration: 0.8 
-    }, '-=0.6')
-    .from('.hero-cta', { 
-      y: 30, 
-      opacity: 0, 
-      duration: 0.6 
-    }, '-=0.4')
-    .from('.hero-image', { 
-      scale: 0.95, 
-      opacity: 0, 
-      duration: 1.2 
-    }, '-=0.8');
+// Intersection Observer para animaciones on-scroll
+const observer = new IntersectionObserver(
+	(entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('visible');
+			}
+		});
+	},
+	{ threshold: 0.1 }
+);
+
+// Observar elementos con clase .animate-on-scroll
+document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+	observer.observe(el);
+});
+```
+
+```css
+/* CSS para la animación */
+.animate-on-scroll {
+	opacity: 0;
+	transform: translateY(30px);
+	transition:
+		opacity 0.6s ease,
+		transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+	opacity: 1;
+	transform: translateY(0);
 }
 ```
 
-### 1.3 Scroll Animations (25 min)
+**Uso**: Añadir clase `animate-on-scroll` a elementos que quieras animar.
 
-**Fade-in de secciones al scroll**:
-
-```javascript
-if (!prefersReducedMotion) {
-  // Animación para cada sección
-  gsap.utils.toArray('section').forEach(section => {
-    gsap.from(section.querySelectorAll('.animate-on-scroll'), {
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 60,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.15
-    });
-  });
-}
-```
-
-**Parallax sutil en hero**:
-
-```javascript
-if (!prefersReducedMotion) {
-  gsap.to('.hero-image', {
-    scrollTrigger: {
-      trigger: '.hero',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 1
-    },
-    y: 100,
-    ease: 'none'
-  });
-}
-```
-
-**Animación de galería**:
-
-```javascript
-if (!prefersReducedMotion) {
-  gsap.from('.project-card', {
-    scrollTrigger: {
-      trigger: '.gallery',
-      start: 'top 75%'
-    },
-    y: 80,
-    opacity: 0,
-    duration: 0.8,
-    stagger: {
-      amount: 0.6,
-      from: 'start'
-    }
-  });
-}
-```
-
-### 1.4 Micro-interacciones (25 min)
-
-**Hover en project cards**:
-
-```javascript
-if (!prefersReducedMotion) {
-  document.querySelectorAll('.project-card').forEach(card => {
-    const image = card.querySelector('img');
-    const overlay = card.querySelector('.overlay');
-    
-    card.addEventListener('mouseenter', () => {
-      gsap.to(image, { scale: 1.05, duration: 0.4 });
-      gsap.to(overlay, { opacity: 1, duration: 0.3 });
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      gsap.to(image, { scale: 1, duration: 0.4 });
-      gsap.to(overlay, { opacity: 0, duration: 0.3 });
-    });
-  });
-}
-```
-
-**Magnetic button effect**:
-
-```javascript
-if (!prefersReducedMotion) {
-  document.querySelectorAll('.magnetic-btn').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      
-      gsap.to(btn, {
-        x: x * 0.3,
-        y: y * 0.3,
-        duration: 0.3
-      });
-    });
-    
-    btn.addEventListener('mouseleave', () => {
-      gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
-    });
-  });
-}
-```
-
-**Prompt IA - Animaciones GSAP**:
+**Prompt IA — Animaciones On-Scroll**:
 
 ```markdown
-Crea animaciones GSAP para mi portfolio de ilustrador.
+Implementa animaciones suaves al hacer scroll usando Intersection Observer.
 
-Elementos a animar:
-1. Hero (título, subtítulo, CTA, imagen)
-2. Galería de proyectos (fade-in on scroll)
-3. Sección About (parallax sutil)
-4. Micro-interacciones en cards
+**Elementos a animar en mi portfolio:**
+- Títulos de sección (h2)
+- Cards de proyectos en galería
+- Sección About
+- Footer
 
-Requisitos:
+**Requisitos técnicos:**
+- Vanilla JavaScript (sin librerías)
+- Intersection Observer API
+- Fade-in + translateY
+- Threshold configurable (0.1 recomendado)
 - Respetar prefers-reduced-motion
-- Performance 60fps
-- Timelines para secuencias
-- ScrollTrigger para on-scroll
-- Easing natural (power3, elastic)
+- Performance: no causar reflows
 
-Genera código JS completo y comentado.
+**Implementación:**
+1. Función observer que detecta elementos con clase .animate-on-scroll
+2. Al entrar en viewport: añadir clase .visible
+3. CSS con transition para opacity y transform
+4. Duración: 0.6s, easing: ease
+
+Genera JavaScript + CSS completo y comentado.
 ```
 
----
+### 1.2 Menú responsive (20 min)
 
-## Parte 2: UX Testing (45 min)
-
-### 2.1 Testing con Peers (25 min)
-
-**Formato**: Parejas intercambian portfolios
-
-**Tareas de testing** (5 min cada):
-
-1. **Primera impresión**: ¿De qué trata este portfolio?
-2. **Navegación**: Encuentra la sección About
-3. **Contacto**: ¿Cómo contactarías a esta persona?
-4. **Galería**: ¿Cuál es el proyecto destacado?
-5. **Mobile**: Navega en móvil (emulador)
-
-**Checklist de feedback**:
-
-| Aspecto | Pregunta | Respuesta |
-|---------|----------|-----------|
-| Claridad | ¿Entendiste qué hace en 5 segundos? | Sí/No |
-| Navegación | ¿Encontraste todo fácilmente? | Sí/No |
-| Animaciones | ¿Mejoran o distraen? | Mejoran/Distraen |
-| CTA | ¿El contacto es claro? | Sí/No |
-| Mobile | ¿Funciona bien en móvil? | Sí/No |
-| Sugerencia | 1 cosa a mejorar | [texto] |
-
-### 2.2 Iteración Rápida (20 min)
-
-**Priorizar fixes**:
-
-1. **Crítico**: Bugs que impiden uso
-2. **Alto**: Confusión en navegación/CTA
-3. **Medio**: Mejoras de animación
-4. **Bajo**: Polish visual
-
-**Implementa 2-3 mejoras** basadas en feedback.
-
----
-
-## Parte 3: Launch (45 min)
-
-### 3.1 Checklist Pre-Launch (15 min)
-
-**Funcionalidad**:
-- [ ] Todas las secciones cargan
-- [ ] Navegación funciona
-- [ ] Links externos abren en nueva pestaña
-- [ ] Formulario/email funciona
-- [ ] Sin errores en consola
-
-**Performance**:
-- [ ] Lighthouse Performance 90+
-- [ ] Imágenes optimizadas
-- [ ] Animaciones 60fps
-- [ ] First Contentful Paint < 2s
-
-**Accesibilidad**:
-- [ ] Lighthouse Accessibility 100
-- [ ] Navegación por teclado
-- [ ] prefers-reduced-motion respetado
-- [ ] Alt text en todas las imágenes
-
-**SEO**:
-- [ ] Title y description únicos
-- [ ] Open Graph meta tags
-- [ ] URL amigable
-- [ ] Favicon
-
-### 3.2 Optimización Final (15 min)
-
-**Meta tags para redes sociales**:
+Si la navegación necesita un menú desplegable en móvil:
 
 ```html
-<!-- Open Graph -->
-<meta property="og:title" content="Tu Nombre - Ilustrador/a">
-<meta property="og:description" content="Portfolio de ilustración...">
-<meta property="og:image" content="https://tu-url/og-image.jpg">
-<meta property="og:url" content="https://tu-url">
+<!-- Botón hamburguesa -->
+<button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
+<!-- Lista de navegación -->
+<ul id="nav-menu" class="nav-menu">
+	<li><a href="#work">Trabajo</a></li>
+	<li><a href="#about">Sobre mí</a></li>
+	<li><a href="#contact">Contacto</a></li>
+</ul>
 ```
 
-### 3.3 Deploy Final (15 min)
+```javascript
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
 
-**Commit final**:
+menuToggle.addEventListener('click', () => {
+	const isOpen = navMenu.classList.toggle('open');
+	menuToggle.setAttribute('aria-expanded', isOpen);
+});
+```
+
+```css
+/* Móvil: menú oculto por defecto */
+@media (max-width: 768px) {
+	.nav-menu {
+		display: none;
+	}
+	.nav-menu.open {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+/* Desktop: menú siempre visible */
+@media (min-width: 769px) {
+	#menu-toggle {
+		display: none;
+	}
+	.nav-menu {
+		display: flex;
+	}
+}
+```
+
+**Prompt IA — Menú Hamburguesa Responsive**:
+
+```markdown
+Implementa un menú hamburguesa funcional para móvil.
+
+**Estructura actual de mi navegación:**
+[Describe tu nav: enlaces a #work, #about, #contact]
+
+**Requisitos:**
+- Desktop (>768px): navegación horizontal visible
+- Móvil (≤768px): botón hamburguesa + menú desplegable
+- Toggle con JavaScript vanilla
+- Transición suave de apertura/cierre
+- Cerrar al hacer clic en enlace
+- Accesibilidad: aria-expanded, aria-label
+- Overlay de fondo cuando está abierto (opcional)
+
+**Funcionalidad:**
+1. Botón hamburguesa con icono (☰)
+2. Click: toggle clase .open en menú
+3. Actualizar aria-expanded
+4. Bloquear scroll de body cuando menú abierto
+
+Genera HTML + CSS + JavaScript completo.
+```
+
+### 1.3 Extras opcionales (15 min)
+
+Para estudiantes que vayan más rápido:
+
+**Lightbox para galería**:
+
+```javascript
+// Abrir imagen en modal al hacer clic
+document.querySelectorAll('.gallery img').forEach((img) => {
+	img.addEventListener('click', () => {
+		// Crear modal con imagen ampliada
+	});
+});
+```
+
+**Smooth scroll**:
+
+```css
+html {
+	scroll-behavior: smooth;
+}
+```
+
+### Progressive Enhancement
+
+**Importante**: La página debe funcionar sin JavaScript.
+
+- Los enlaces de navegación deben existir en HTML
+- El contenido debe ser visible aunque no cargue el JS
+- Las animaciones son mejoras, no requisitos
+
+**Prompt IA — Lightbox para Galería (Opcional)**:
+
+```markdown
+Crea un lightbox simple para ampliar imágenes de la galería.
+
+**Galería actual:**
+[Describe tu grid de proyectos con imágenes]
+
+**Requisitos:**
+- Click en imagen de galería: abrir lightbox
+- Lightbox: imagen ampliada + overlay oscuro
+- Botón cerrar (X) visible
+- Click fuera de imagen: cerrar
+- ESC key: cerrar
+- Navegación previa/siguiente (opcional)
+- Accesibilidad: focus trap, aria-label
+
+**Implementación:**
+- Modal con position: fixed
+- Imagen centrada con max-width/height
+- Overlay rgba(0,0,0,0.8)
+- Transición fade-in/out
+- Bloquear scroll de body cuando abierto
+
+Genera HTML + CSS + JavaScript vanilla.
+```
+
+---
+
+## Parte 2: Testing UX con Compañeros (45 min)
+
+### 2.1 Dinámica de testing (25 min)
+
+**Formato**: Parejas o tríos intercambian portfolios.
+
+**Proceso**:
+
+1. Estudiante A abre el portfolio de B en su dispositivo
+2. A navega **sin indicaciones** mientras B observa
+3. A toma notas de qué funcionó y qué no
+4. Intercambiar roles
+
+**Tareas de testing** (dar a quien prueba):
+
+1. ¿De qué trata este portfolio? (primera impresión)
+2. Encuentra la sección "Sobre mí"
+3. ¿Cómo contactarías a esta persona?
+4. Navega en móvil (emulador o dispositivo real)
+
+### 2.2 Feedback estructurado
+
+| Aspecto    | Pregunta                            | ✓/✗ |
+| ---------- | ----------------------------------- | --- |
+| Claridad   | ¿Entendiste qué hace en 5 segundos? |     |
+| Navegación | ¿Encontraste todo fácilmente?       |     |
+| Contacto   | ¿El email/redes son claros?         |     |
+| Móvil      | ¿Funciona bien en móvil?            |     |
+| Velocidad  | ¿Carga rápido?                      |     |
+
+**1 sugerencia concreta de mejora**: **\*\*\*\***\_**\*\*\*\***
+
+### 2.3 Discusión grupal (20 min)
+
+Compartir en grupo:
+
+- ¿Qué problemas comunes aparecieron?
+- ¿Qué soluciones encontraron?
+- Cada estudiante identifica **1-2 mejoras** a implementar
+
+---
+
+## Parte 3: Iteración y Pulido Final (45 min)
+
+### 3.1 Implementar mejoras del feedback (25 min)
+
+Ejemplos comunes:
+
+- "El texto de mi bio era muy largo" → Resumir
+- "El botón de contacto no se veía" → Más contraste
+- "La animación era lenta" → Ajustar duración
+- "En móvil el menú no funcionaba" → Revisar JS
+
+### 3.2 Checklist de accesibilidad final (10 min)
+
+- [ ] **Contraste** de texto legible (4.5:1 mínimo)
+- [ ] **Alt text** en todas las imágenes
+- [ ] **Focus visible** al navegar con Tab
+- [ ] **Tamaños de letra** legibles (mínimo 16px body)
+- [ ] **Touch targets** de 44px+ en móvil
+
+### 3.3 Optimización (10 min)
+
+- [ ] Sin errores en consola del navegador
+- [ ] Imágenes optimizadas (no gigantes)
+- [ ] Lighthouse Performance > 80
+
+---
+
+## Parte 4: Lanzamiento y Presentación (45 min)
+
+### 4.1 Deploy final (15 min)
+
+**Verificar GitHub Pages**:
 
 ```bash
 git add .
-git commit -m "feat(s4): portfolio completo con GSAP y UX polish
+git commit -m "feat(s4): portfolio final con interactividad
 
-- Animaciones GSAP profesionales
-- ScrollTrigger para on-scroll effects
-- Micro-interacciones en galería
-- Testing de usabilidad completado
-- Fixes basados en feedback
-- Optimización de performance
-- Meta tags para redes sociales
-- Accesibilidad verificada
-
-LAUNCH: Portfolio listo para producción 🚀"
+- Animaciones on-scroll
+- Menú responsive
+- Mejoras de feedback UX
+- Accesibilidad verificada"
 
 git push origin main
 ```
 
----
+Comprobar que la URL pública funciona correctamente.
 
-## Parte 4: Presentation (30 min)
+### 4.2 Preparar presentación (10 min)
 
-### 4.1 Demo Final (15 min)
+Cada estudiante prepara:
 
-**Formato**: 2-3 min por persona
+- **URL pública** del portfolio
+- **1-2 frases** explicando el concepto
+- **1 desafío** superado durante el proceso
+- **1 cosa** de la que está orgulloso/a
 
-1. **Muestra tu portfolio live**
-2. **Destaca 1 animación** que te enorgullece
-3. **Comparte 1 aprendizaje** del proceso
-4. **URL pública** para que todos la guarden
+### 4.3 Ronda de presentaciones (20 min)
 
-### 4.2 Reflexión Final (15 min)
+**Formato**: 2-3 minutos por persona
 
-```markdown
-## Reflexión S4 - Final
+1. Mostrar portfolio en vivo
+2. Explicar brevemente el concepto/inspiración
+3. Compartir un aprendizaje del proceso
 
-### Producto
-1. ¿Estás orgulloso/a de tu portfolio?
-2. ¿Qué te gustaría mejorar con más tiempo?
-3. ¿Lo usarías para buscar trabajo/clientes?
-
-### Técnica
-1. ¿GSAP fue más fácil o difícil de lo esperado?
-2. ¿Qué animación fue la más compleja?
-3. ¿Qué aprendiste sobre performance?
-
-### Proceso
-1. ¿El testing con peers fue útil?
-2. ¿Qué cambió basado en feedback?
-3. ¿Docs-first funcionó para ti?
-
-### Futuro
-1. ¿Qué features añadirías?
-2. ¿Qué tecnología quieres aprender?
-3. ¿Cómo mantendrás el portfolio actualizado?
-```
+**Celebrar el trabajo realizado.**
 
 ---
 
 ## ✅ Checklist de Entregables S4
 
-### Animaciones
-- [ ] **GSAP integrado** y funcionando
-- [ ] **Hero animation** con timeline
-- [ ] **Scroll animations** en secciones
-- [ ] **Micro-interacciones** en galería
-- [ ] **prefers-reduced-motion** respetado
+### Interactividad
+
+- [ ] **Animaciones on-scroll** funcionando
+- [ ] **Menú responsive** (si aplica)
+- [ ] **Progressive enhancement** (funciona sin JS)
 
 ### UX
-- [ ] **Testing con peers** completado
+
+- [ ] **Testing con compañeros** completado
 - [ ] **Feedback documentado**
-- [ ] **2-3 mejoras** implementadas
+- [ ] **Mejoras implementadas** basadas en feedback
 
-### Launch
-- [ ] **Lighthouse 90+** en todas las métricas
+### Lanzamiento
+
 - [ ] **Sin errores** en consola
-- [ ] **Meta tags** para redes sociales
+- [ ] **Accesibilidad** verificada
 - [ ] **URL pública** funcionando
-
-### Documentación
-- [ ] **README** actualizado con URL final
-- [ ] **Reflexión S4** documentada
 - [ ] **Commit final** con mensaje descriptivo
 
 ---
 
-## 🎯 Criterios de Éxito S4
+## 🎯 Criterios de Evaluación Final
 
-✅ **Animaciones profesionales** que mejoran la experiencia  
-✅ **Performance 60fps** en todas las animaciones  
-✅ **Accesibilidad** con reduced-motion respetado  
-✅ **Testing validado** con feedback incorporado  
-✅ **Portfolio publicado** y funcionando  
+### Técnico (40%)
 
----
-
-## 🏆 Criterios de Evaluación Final
-
-### Componente Técnico (40%)
 - HTML semántico y válido
-- CSS/Tailwind bien estructurado
-- JavaScript/GSAP funcional
+- CSS bien estructurado
+- JavaScript funcional
 - Responsive en todos los breakpoints
-- Lighthouse 90+ en todas las métricas
 
-### Componente Creativo (40%)
-- Diseño visual coherente con tu estilo
-- Animaciones que mejoran la narrativa
+### Creativo (40%)
+
+- Diseño visual coherente con el estilo del ilustrador
 - UX clara y efectiva
 - Presentación profesional del trabajo
 
-### Componente Procesual (20%)
+### Proceso (20%)
+
 - Commits significativos por sesión
-- Documentación (plans, reflexiones)
-- Uso ético de IA
+- Documentación (reflexiones)
 - Participación en testing de peers
 
 ---
 
-## 🎉 ¡Felicidades!
+## 🎉 Cierre del Track
 
-Has completado el track **Ilustración Aplicada: Productos Digitales Web-App**.
+**Recapitulación**:
 
-Tu portfolio es ahora:
-- ✅ Un producto digital profesional
-- ✅ Una demostración de tus habilidades técnicas
-- ✅ Una herramienta para conseguir trabajo/clientes
-- ✅ Una base para seguir iterando
+- En 4 sesiones han creado un portfolio profesional
+- Han aplicado HTML semántico, CSS responsive, JavaScript
+- Han seguido metodología docs-first con IA
+- Han validado su trabajo con testing de usuarios
 
 **Próximos pasos sugeridos**:
-1. Comparte tu portfolio en redes profesionales
-2. Añade nuevos proyectos regularmente
-3. Explora frameworks como React/Vue
-4. Considera un blog para mostrar proceso
+
+1. Compartir el portfolio en redes profesionales
+2. Añadir nuevos proyectos regularmente
+3. Seguir aprendiendo (React, animaciones avanzadas, etc.)
+
+---
+
+## 🚀 Prompt IA Master — Portfolio Final con Interactividad
+
+**Para integrar todas las mejoras de S4:**
+
+```markdown
+Añade interactividad profesional a mi portfolio completado en S3.
+
+## Portfolio Actual
+
+[Describe brevemente tu portfolio: secciones, colores, estilo]
+URL actual: [tu-github-pages-url]
+
+## Interactividad a Añadir
+
+### 1. Animaciones On-Scroll
+**Elementos:**
+- Fade-in en títulos de sección (h2)
+- Stagger en cards de galería (aparecer una tras otra)
+- Slide-in en sección About
+
+**Implementación:**
+- Intersection Observer API
+- Clase .animate-on-scroll
+- CSS transitions (opacity + translateY)
+- Respetar prefers-reduced-motion
+
+### 2. Menú Responsive
+**Funcionalidad:**
+- Desktop: navegación horizontal visible
+- Móvil: botón hamburguesa + menú desplegable
+- Toggle suave con JavaScript
+- Cerrar al hacer click en enlace
+- aria-expanded para accesibilidad
+
+### 3. Micro-interacciones
+**En galería:**
+- Hover: scale sutil (1.05) + overlay
+- Click: abrir lightbox (opcional)
+
+**En navegación:**
+- Smooth scroll a secciones
+- Highlight del enlace activo según scroll
+
+**En CTAs:**
+- Hover con color primario
+- Transform subtle
+
+## Mejoras Basadas en Feedback UX
+
+**Issues detectados en testing:**
+[Lista problemas encontrados por compañeros]
+
+Ejemplo:
+- "Bio muy larga" → Reducir a 2 párrafos máximo
+- "Botón contacto no se ve" → Aumentar contraste
+- "Carga lenta" → Optimizar imágenes
+
+**Cambios a implementar:**
+1. [Mejora 1]
+2. [Mejora 2]
+3. [Mejora 3]
+
+## Requisitos Técnicos
+
+**JavaScript:**
+- Vanilla JS (sin librerías)
+- Progressive enhancement
+- Sin errores en consola
+- Performance 60fps en animaciones
+
+**Accesibilidad:**
+- Mantener navegación por teclado
+- Focus visible en todos los interactivos
+- prefers-reduced-motion respetado
+
+**Performance:**
+- Lighthouse > 80 en todas las métricas
+- First Contentful Paint < 2s
+- Imágenes lazy-load
+
+## Entregables
+
+1. **main.js** — Todo el JavaScript de interactividad
+2. **Estilos actualizados** — Animaciones y micro-interacciones
+3. **README.md actualizado** — Documentar cambios y features
+4. **Case study** — Breve descripción del portfolio:
+   - Objetivo
+   - Inspiración de diseño
+   - Desafíos superados
+   - Tecnologías usadas
+   - Próximos pasos
+
+Genera código comentado y listo para producción.
+```
+
+---
+
+## Reflexión Final ATELIER
+
+```markdown
+## Reflexión S4 - Final
+
+### Producto
+
+1. ¿Estás orgulloso/a de tu portfolio?
+2. ¿Lo usarías para buscar trabajo/clientes?
+
+### Proceso
+
+1. ¿El testing con compañeros fue útil?
+2. ¿Qué cambió basado en el feedback?
+
+### Aprendizaje
+
+1. ¿Qué fue lo más difícil de estas 4 sesiones?
+2. ¿Qué te gustaría aprender a continuación?
+```
 
 ---
 
 <table style="width: 100%; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-light);">
   <tr>
     <td style="text-align: left;">
-      ← Anterior: <a href="{{ '/tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/' | relative_url }}">S3: Tailwind CSS</a>
+      ← Anterior: <a href="{{ '/tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/' | relative_url }}">S3: Maquetación responsive</a>
     </td>
     <td style="text-align: right;">
       <a href="{{ '/tracks/es/ilustracion-webapp/' | relative_url }}">Volver al Track</a>

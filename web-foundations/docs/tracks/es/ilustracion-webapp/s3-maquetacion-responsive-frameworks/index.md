@@ -1,292 +1,523 @@
 ---
 layout: lesson
-title: 'Maquetación responsive con Tailwind CSS'
-title_alt: 'Maquetación responsive con Tailwind CSS'
+title: 'Maquetación responsive y estructura multi-sección'
+title_alt: 'Maquetación responsive y estructura multi-sección'
 slug: ilustracion-webapp-s3
 date: 2026-01-13
 author: 'Rubén Vega Balbás, PhD'
 lang: es
 permalink: /tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/
-description: 'Tercera sesión: página multi-sección completa con Tailwind CSS, arquitectura de componentes, branding personal y testing responsive.'
+description: 'Tercera sesión: página multi-sección completa, arquitectura de componentes, branding personal y testing responsive.'
 tags: [responsive, tailwindcss, accesibilidad, diseno, ilustracion, componentes]
 status: borrador
 ---
+
+<!-- prettier-ignore-start -->
+
+## 📋 Tabla de contenidos
+{: .no_toc }
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
 
 ## ⏰ Duración estimada
 
 **3,5 horas (1 sesión)**
 
-**Fase de Producto**: Architecture → Tailwind Integration → Testing → Polish
-
 ---
 
 ## 🎯 Objetivos
 
-### Objetivos de Producto
-
-- Convertir tu galería en una **página multi-sección** completa
-- Implementar **navegación** efectiva y secciones **About/Contact**
+- Convertir la galería en una **página multi-sección** completa
+- Implementar **navegación** y secciones **About/Contact/Footer**
 - Aplicar **branding personal** consistente
-
-### Objetivos Técnicos
-
-- Dominar **Tailwind CSS via CDN** para desarrollo rápido
-- Implementar **diseño responsive** mobile-first
-- Crear **componentes** con utility classes
-- Aplicar **dark mode** con Tailwind
-
-### Objetivos de Calidad
-
-- Alcanzar **Lighthouse 90+** en todas las métricas
-- Testing exhaustivo en **todos los breakpoints**
+- Lograr **diseño responsive** mobile/desktop-first
 
 ---
 
 ## 🧭 Canon de Referencia
 
-**Tailwind CSS**:
 - [Tailwind CSS: Configuración y Fundamentos]({{ '/lessons/es/tailwind/setup-and-fundamentals/' | relative_url }})
-- [Tailwind: Estado e Interactividad]({{ '/lessons/es/tailwind/state-interactivity/' | relative_url }})
-
-**Responsive Design**:
 - [Diseño Web: Responsive, Fluido e Intrínseco]({{ '/lessons/es/responsive/' | relative_url }})
-
-**Branding**:
 - [Identidad Visual + Metadatos para Web]({{ '/lessons/es/metadata-visual-identity-web/' | relative_url }})
 
 ---
 
-## ⏱️ Desglose de Tiempo (3.5 horas)
+## ⏱️ Desglose de Tiempo
 
-| Parte | Duración | Fase | Actividad |
-|-------|----------|------|-----------|
-| **1** | 30 min | Architecture | Planificar estructura de página |
-| **2** | 90 min | Integration | Tailwind CDN, navegación, About, Contact |
-| **3** | 45 min | Testing | Responsive, accesibilidad, performance |
-| **4** | 45 min | Polish | Dark mode, deploy, documentación |
+| Parte | Duración | Actividad                          |
+| ----- | -------- | ---------------------------------- |
+| **1** | 20 min   | Revisión de contenidos preparados  |
+| **2** | 30 min   | Arquitectura de página (esqueleto) |
+| **3** | 90 min   | Maquetación de secciones           |
+| **4** | 45 min   | Testing responsive y accesibilidad |
+| **5** | 25 min   | Commit y documentación             |
 
 ---
 
-## Parte 1: Architecture (30 min)
+## Parte 1: Revisión de Contenidos (20 min)
 
-### 1.1 Estructura de Página
+### Checklist de preparación
 
-Define tu arquitectura:
+Antes de maquetar, verificar que cada estudiante tiene:
+
+- [ ] **Imágenes** subidas en ImageKit (con URLs a mano)
+- [ ] **Textos** redactados (bio, statement, descripciones)
+- [ ] **Tipografías** decididas (Google Fonts)
+- [ ] **Colores** definidos (paleta base)
+
+### Integración rápida
+
+Si falta algún elemento, resolverlo en 5-10 minutos:
+
+```html
+<!-- Google Fonts en <head> -->
+<link href="https://fonts.googleapis.com/css2?family=TU_FUENTE&display=swap" rel="stylesheet" />
+```
+
+```css
+/* En theme.css o variables */
+:root {
+	--color-primary: #tu-color;
+	--color-secondary: #tu-color;
+	--font-heading: 'Tu Fuente', serif;
+	--font-body: 'Tu Fuente', sans-serif;
+}
+```
+
+### Prompt IA — Integración de Sistema de Diseño
+
+```markdown
+Integra mi sistema de diseño en el portfolio.
+
+**Tipografías seleccionadas:**
+- Heading: [Nombre de fuente] (Google Fonts)
+- Body: [Nombre de fuente] (Google Fonts)
+
+**Paleta de colores:**
+- Primario: #[hex]
+- Secundario: #[hex]
+- Fondo: #[hex]
+- Texto: #[hex]
+
+**Tareas:**
+1. Añade los enlaces de Google Fonts en <head>
+2. Define variables CSS en theme.css con estos valores
+3. Aplica las fuentes a headings y body
+4. Verifica contraste WCAG AA (4.5:1 texto, 3:1 UI)
+5. Crea clases utilitarias: .text-primary, .bg-primary, etc.
+
+Genera el código CSS completo con variables y aplicación.
+```
+
+---
+
+## Parte 2: Arquitectura de Página (30 min)
+
+### Esqueleto común
+
+Dibujar en pizarra la estructura que todos deben seguir:
 
 ```
 ┌─────────────────────────────────────┐
-│  HEADER (fixed)                     │
-│  [Logo]     [Work|About|Contact]    │
+│  <header> NAVEGACIÓN                │
+│  [Logo/Nombre]  [Work|About|Contact]│
 ├─────────────────────────────────────┤
-│  HERO                               │
-│  [Título + CTA + Ilustración]       │
+│  <main>                             │
+│    ┌─────────────────────────────┐  │
+│    │ HERO                        │  │
+│    │ Imagen destacada + lema     │  │
+│    └─────────────────────────────┘  │
+│    ┌─────────────────────────────┐  │
+│    │ PROYECTOS / GALERÍA         │  │
+│    │ Grid de ilustraciones       │  │
+│    └─────────────────────────────┘  │
+│    ┌─────────────────────────────┐  │
+│    │ SOBRE MÍ (Bio/Statement)    │  │
+│    │ Foto + texto personal       │  │
+│    └─────────────────────────────┘  │
 ├─────────────────────────────────────┤
-│  WORK (galería de S2)               │
-├─────────────────────────────────────┤
-│  ABOUT                              │
-│  [Foto + bio + skills]              │
-├─────────────────────────────────────┤
-│  CONTACT                            │
-│  [CTA + email + redes]              │
-├─────────────────────────────────────┤
-│  FOOTER                             │
+│  <footer>                           │
+│  Contacto + Redes sociales          │
 └─────────────────────────────────────┘
 ```
 
-**Prompt IA - Arquitectura**:
+### Elementos semánticos clave
 
-```markdown
-Planifica la arquitectura de mi portfolio multi-sección.
-
-Secciones: Header, Hero, Work, About, Contact, Footer
-
-Para cada sección, define:
-1. Contenido necesario
-2. Layout (columnas, grid)
-3. Comportamiento responsive
-4. Componentes Tailwind a usar
-
-Documenta en docs/architecture-s3.md
-```
+- `<header>` con `<nav>` para navegación
+- `<main>` para contenido principal
+- `<section>` con `id` para cada bloque (hero, work, about)
+- `<footer>` para contacto y redes
+- Encabezados `<h1>` → `<h2>` en orden lógico
 
 ---
 
-## Parte 2: Tailwind Integration (90 min)
+## Parte 3: Maquetación de Secciones (90 min)
 
-### 2.1 Setup Tailwind CDN (10 min)
-
-En tu `<head>`:
+### 3.1 Header/Navegación (15 min)
 
 ```html
-<!-- Tailwind CSS via CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          primary: '#1d4ed8',
-          secondary: '#64748b',
-        },
-        fontFamily: {
-          heading: ['Playfair Display', 'serif'],
-          body: ['Inter', 'sans-serif'],
-        },
-      },
-    },
-  }
-</script>
-```
-
-### 2.2 Navegación Responsive (20 min)
-
-```html
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
-  <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
-    <a href="#" class="text-xl font-bold">Tu Nombre</a>
-    
-    <!-- Desktop Nav -->
-    <ul class="hidden md:flex items-center gap-8">
-      <li><a href="#work" class="hover:text-primary">Work</a></li>
-      <li><a href="#about" class="hover:text-primary">About</a></li>
-      <li><a href="#contact" class="bg-primary text-white px-4 py-2 rounded">Contact</a></li>
-    </ul>
-    
-    <!-- Mobile Menu Button -->
-    <button class="md:hidden" aria-label="Menú">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </nav>
+<header>
+	<nav>
+		<a href="#">Tu Nombre</a>
+		<ul>
+			<li><a href="#work">Trabajo</a></li>
+			<li><a href="#about">Sobre mí</a></li>
+			<li><a href="#contact">Contacto</a></li>
+		</ul>
+		<!-- Botón hamburguesa para móvil (opcional S4) -->
+	</nav>
 </header>
 ```
 
-### 2.3 Sección About (30 min)
+**Tip responsive**: En móvil, la navegación puede ser un menú simple o implementar hamburguesa en S4.
+
+### 3.2 Sección Hero (15 min)
+
+Primera impresión del portfolio. Debe captar la esencia del estudiante.
 
 ```html
-<section id="about" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <img src="images/about.jpg" alt="Descripción" 
-           class="rounded-2xl shadow-xl aspect-[4/5] object-cover">
-      <div>
-        <h2 class="text-3xl font-bold mb-6">Sobre mí</h2>
-        <p class="text-gray-600 mb-6">Tu bio aquí...</p>
-        <div class="flex flex-wrap gap-2 mb-8">
-          <span class="px-3 py-1 bg-white rounded-full text-sm">Skill 1</span>
-          <span class="px-3 py-1 bg-white rounded-full text-sm">Skill 2</span>
-        </div>
-        <a href="#contact" class="bg-primary text-white px-6 py-3 rounded-lg">
-          Trabajemos juntos
-        </a>
-      </div>
-    </div>
-  </div>
+<section id="hero">
+	<h1>Tu Nombre</h1>
+	<p>Tu lema o frase de impacto</p>
+	<img src="ilustracion-destacada.jpg" alt="Descripción" />
+	<a href="#work">Ver mi trabajo</a>
 </section>
 ```
 
-### 2.4 Sección Contact (30 min)
+**Consideraciones**:
+
+- Si hay texto sobre imagen, usar overlay para contraste
+- La imagen debe ser representativa del estilo
+
+**Prompt IA — Sección Hero**:
+
+```markdown
+Crea la sección Hero de mi portfolio usando mis contenidos.
+
+**Contenidos preparados:**
+- Nombre/Logo: [Tu nombre]
+- Lema/Tagline: [Tu lema preparado del email]
+- Imagen destacada: [URL de ImageKit]
+
+**Requisitos de diseño:**
+- Layout con imagen destacada + texto superpuesto o al lado
+- Aplicar tipografía heading de mi sistema de diseño
+- Usar color primario en CTA
+- Si texto sobre imagen: overlay oscuro/claro para contraste
+- Responsive: stack vertical en móvil, horizontal en desktop
+- Altura mínima: 70vh
+
+**Accesibilidad:**
+- Alt text descriptivo en imagen
+- Contraste WCAG AA en texto
+- CTA con target mínimo 44px
+
+Genera HTML + CSS completo para la sección hero.
+```
+
+### 3.3 Sección Proyectos/Galería (30 min)
+
+Reutilizar la galería de S2 o crear grid nuevo.
 
 ```html
-<section id="contact" class="py-20">
-  <div class="container mx-auto px-4 text-center max-w-2xl">
-    <h2 class="text-4xl font-bold mb-6">¿Tienes un proyecto?</h2>
-    <p class="text-xl text-gray-600 mb-8">
-      Me encantaría escuchar tu idea.
-    </p>
-    <a href="mailto:tu@email.com" 
-       class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg text-lg mb-8">
-      tu@email.com
-    </a>
-    <div class="flex justify-center gap-4">
-      <a href="#" class="p-3 text-gray-400 hover:text-primary">Instagram</a>
-      <a href="#" class="p-3 text-gray-400 hover:text-primary">Behance</a>
-    </div>
-  </div>
+<section id="work">
+	<h2>Mi Trabajo</h2>
+	<div class="gallery-grid">
+		<!-- Cards de proyectos -->
+		<article class="project-card">
+			<img src="proyecto1.jpg" alt="Descripción del proyecto" />
+			<h3>Nombre del proyecto</h3>
+		</article>
+		<!-- Más cards... -->
+	</div>
 </section>
+```
+
+**Grid responsive**:
+
+- Móvil: 1 columna
+- Tablet: 2 columnas
+- Desktop: 3-4 columnas
+
+**Prompt IA — Galería de Proyectos**:
+
+```markdown
+Crea la galería de proyectos usando mis ilustraciones.
+
+**Imágenes preparadas en ImageKit:**
+[Lista tus URLs de ImageKit organizadas por proyecto]
+
+Ejemplo:
+- Proyecto 1: https://ik.imagekit.io/tu-id/proyecto1-cover.jpg
+- Proyecto 2: https://ik.imagekit.io/tu-id/proyecto2-cover.jpg
+- ...
+
+**Requisitos:**
+- Grid responsive (1 col móvil, 2 tablet, 3-4 desktop)
+- Cards con imagen + título del proyecto
+- Hover effect sutil (scale, overlay, etc.)
+- Aspect ratio consistente (ej. 4:3 o 16:9)
+- Lazy loading para performance
+- Alt text descriptivo en cada imagen
+
+**Opcional:**
+- Filtros por categoría/tipo de ilustración
+- Lightbox para ver imágenes ampliadas
+
+Genera HTML + CSS para la galería.
+```
+
+### 3.4 Sección Sobre Mí (15 min)
+
+Tono personal que refleje la identidad del ilustrador.
+
+```html
+<section id="about">
+	<h2>Sobre mí</h2>
+	<img src="foto-autor.jpg" alt="Tu nombre" />
+	<p>Tu bio aquí...</p>
+	<blockquote>Extracto de tu statement artístico</blockquote>
+</section>
+```
+
+**Personalización**: Tipografía decorativa para el nombre, fondo con color de la paleta, etc.
+
+**Prompt IA — Sección Sobre Mí**:
+
+```markdown
+Crea la sección "Sobre mí" con mis textos preparados.
+
+**Contenidos:**
+- Bio: [Pega tu bio preparada]
+- Statement artístico: [Pega tu statement preparado]
+- Foto personal (opcional): [URL de ImageKit si la tienes]
+
+**Requisitos de diseño:**
+- Layout: foto + texto (grid 2 columnas en desktop, stack en móvil)
+- Tipografía body de mi sistema de diseño
+- Statement destacado con blockquote o estilo especial
+- Fondo sutil con color secundario de mi paleta
+- Espaciado generoso para legibilidad
+
+**Personalización:**
+- Refleja mi identidad como ilustrador/a
+- Usa tipografía decorativa para mi nombre si aplica
+- Considera añadir lista de skills/herramientas (opcional)
+
+Genera HTML + CSS para la sección about.
+```
+
+### 3.5 Footer/Contacto (15 min)
+
+```html
+<footer id="contact">
+	<h2>Contacto</h2>
+	<a href="mailto:tu@email.com">tu@email.com</a>
+	<ul>
+		<li><a href="https://instagram.com/tu" aria-label="Instagram">Instagram</a></li>
+		<li><a href="https://behance.net/tu" aria-label="Behance">Behance</a></li>
+		<!-- Más redes -->
+	</ul>
+	<p>© 2026 Tu Nombre</p>
+</footer>
+```
+
+**Importante**: Usar `aria-label` en iconos de redes sociales.
+
+**Prompt IA — Footer con Contacto**:
+
+```markdown
+Crea el footer con información de contacto y redes sociales.
+
+**Información de contacto:**
+- Email: [tu@email.com]
+- Redes sociales con URLs:
+  - Instagram: [URL]
+  - Behance: [URL]
+  - LinkedIn: [URL]
+  - [Otras que uses]
+
+**Requisitos:**
+- Sección destacada con CTA de contacto (email visible)
+- Iconos de redes sociales con aria-label
+- Layout centrado y limpio
+- Usar color primario en enlaces hover
+- Copyright con tu nombre y año actual
+
+**Accesibilidad:**
+- Cada icono social debe tener aria-label descriptivo
+- Enlaces externos con target="_blank" y rel="noopener"
+- Touch targets de 44px+ en móvil
+
+Genera HTML + CSS para footer completo.
 ```
 
 ---
 
-## Parte 3: Testing (45 min)
+## Parte 4: Testing Responsive y Accesibilidad (45 min)
 
-### 3.1 Testing Responsive
+### 4.1 Testing Responsive
 
-**Checklist**:
+**Enfoque mobile-first**: Comenzar con móvil, luego adaptar.
 
-- [ ] **Mobile (320px)**: Stack vertical, hamburger menu, touch targets 44px+
-- [ ] **Tablet (768px)**: Grid 2 columnas, navegación visible
-- [ ] **Desktop (1024px+)**: Layout completo, hover states
+| Breakpoint            | Verificar                                          |
+| --------------------- | -------------------------------------------------- |
+| **320px** (móvil)     | Stack vertical, texto legible, touch targets 44px+ |
+| **768px** (tablet)    | Grid 2 columnas, navegación visible                |
+| **1024px+** (desktop) | Layout completo, hover states                      |
 
-### 3.2 Testing Accesibilidad
+**Herramientas**:
 
-- [ ] Contraste WCAG AA (4.5:1)
-- [ ] Navegación por teclado
-- [ ] Focus visible
-- [ ] Alt text en imágenes
-- [ ] Headings jerárquicos
+- DevTools → Device Mode
+- Probar en móvil real si es posible
 
-### 3.3 Lighthouse
+### 4.2 Checklist de Accesibilidad
 
-Target: **90+** en Performance, Accessibility, Best Practices, SEO
+- [ ] **Semántica**: `<nav>`, `<main>`, `<footer>`, headings ordenados
+- [ ] **Contraste**: Texto legible sobre fondos (ratio 4.5:1 mínimo)
+- [ ] **Navegación teclado**: Tab funciona en todos los enlaces
+- [ ] **Alt text**: Todas las imágenes tienen descripción
+- [ ] **Focus visible**: Se ve qué elemento está enfocado
+
+### 4.3 Verificar imágenes
+
+- [ ] Cargan correctamente desde ImageKit
+- [ ] No son excesivamente pesadas
+- [ ] Tienen dimensiones apropiadas
 
 ---
 
-## Parte 4: Polish & Deploy (45 min)
+## Parte 5: Commit y Documentación (25 min)
 
-### 4.1 Dark Mode
-
-```html
-<script>
-  tailwind.config = {
-    darkMode: 'class',
-    // ...
-  }
-</script>
-
-<!-- Uso -->
-<section class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-```
-
-### 4.2 Commit
+### Commit
 
 ```bash
 git add .
-git commit -m "feat(s3): página multi-sección con Tailwind CSS
+git commit -m "feat(s3): página multi-sección responsive
 
-- Navegación responsive
-- Sección About con grid
-- Sección Contact con CTA
-- Dark mode
-- Testing responsive completo
-- Lighthouse 90+"
+- Header con navegación
+- Sección Hero
+- Galería de proyectos
+- Sección About
+- Footer con contacto y redes
+- Diseño responsive mobile-first"
 ```
+
+### Verificar GitHub Pages
+
+Asegurar que el deploy refleja los cambios.
 
 ---
 
 ## ✅ Checklist de Entregables S3
 
-- [ ] **Página multi-sección** (Hero, Work, About, Contact, Footer)
-- [ ] **Tailwind CSS** integrado
-- [ ] **Navegación responsive** (desktop + móvil)
-- [ ] **Sección About** con foto, bio, skills
-- [ ] **Sección Contact** con CTA
-- [ ] **Dark mode** implementado
-- [ ] **Testing responsive** en todos los breakpoints
-- [ ] **Lighthouse 90+**
-- [ ] **1 commit significativo**
+- [ ] **Todas las secciones** implementadas (Hero, Work, About, Footer)
+- [ ] **Navegación** funcional con anclas
+- [ ] **Contenido real** (imágenes propias, textos redactados)
+- [ ] **Responsive** funcionando en móvil y desktop
+- [ ] **Semántica HTML** correcta
+- [ ] **1 commit** documentando el progreso
 
 ---
 
-## 🎯 Criterios de Éxito S3
+## 🎯 Al finalizar la sesión
 
-✅ **Página completa** con todas las secciones  
-✅ **Tailwind** dominado para utility-first CSS  
-✅ **Responsive** sin roturas en ningún breakpoint  
-✅ **Accesibilidad** verificada  
-✅ **Dark mode** funcional  
+Cada estudiante debe tener:
+
+1. ✅ Sitio multi-sección **estructuralmente completo**
+2. ✅ Navegación funcional (anclas a secciones)
+3. ✅ Diseño adaptativo en móvil y escritorio
+4. ✅ Contenido personalizado integrado
+
+---
+
+## 🎨 Prompt IA Master — Portfolio Completo
+
+**Para estudiantes que prefieren un enfoque integrado:**
+
+```markdown
+Crea mi portfolio completo de ilustrador/a con TODOS mis contenidos preparados.
+
+## Contenidos Preparados
+
+**Sistema de Diseño:**
+- Tipografía Heading: [Nombre] (Google Fonts)
+- Tipografía Body: [Nombre] (Google Fonts)
+- Color Primario: #[hex]
+- Color Secundario: #[hex]
+- Color Fondo: #[hex]
+- Color Texto: #[hex]
+
+**Textos:**
+- Nombre/Logo: [Tu nombre]
+- Lema Hero: [Tu lema]
+- Bio: [Tu bio completa]
+- Statement: [Tu statement artístico]
+
+**Imágenes (URLs de ImageKit):**
+- Hero: [URL]
+- Proyectos:
+  1. [Proyecto 1 - URL + descripción breve]
+  2. [Proyecto 2 - URL + descripción breve]
+  3. [Proyecto 3 - URL + descripción breve]
+  ...
+- Foto personal: [URL] (opcional)
+
+**Contacto:**
+- Email: [email]
+- Instagram: [URL]
+- Behance: [URL]
+- Otras redes: [URLs]
+
+## Estructura Requerida
+
+**HTML Semántico:**
+```
+<header> con <nav>
+  └─ Logo/Nombre + enlaces (#work, #about, #contact)
+<main>
+  <section id="hero">
+    └─ Título + Lema + Imagen destacada + CTA
+  <section id="work">
+    └─ Grid responsive de proyectos (cards con imagen + título)
+  <section id="about">
+    └─ Foto + Bio + Statement
+<footer id="contact">
+  └─ Email + Redes sociales + Copyright
+```
+
+**Responsive:**
+- Mobile-first (320px base)
+- Breakpoints: 768px, 1024px, 1440px
+- Móvil: stack vertical, 1 columna
+- Tablet: 2 columnas en galería
+- Desktop: 3-4 columnas, navegación horizontal
+
+**Accesibilidad:**
+- Headings jerárquicos (h1 > h2 > h3)
+- Alt text descriptivo en TODAS las imágenes
+- Contraste WCAG AA (4.5:1 texto, 3:1 UI)
+- Navegación por teclado funcional
+- aria-label en iconos de redes
+
+**CSS:**
+- Variables CSS para colores y fuentes
+- Grid/Flexbox para layouts
+- Transiciones suaves en hover
+- Progressive enhancement
+
+## Entregables
+
+Genera 3 archivos:
+
+1. **index.html** — Estructura completa
+2. **theme.css** — Sistema de diseño + estilos
+3. **README.md** — Documentación del portfolio
+
+Documenta decisiones de diseño y próximos pasos para S4 (interactividad).
+```
 
 ---
 
@@ -295,17 +526,20 @@ git commit -m "feat(s3): página multi-sección con Tailwind CSS
 ```markdown
 ## Reflexión S3
 
-### Framework
-1. ¿Qué ganaste con Tailwind? ¿Qué te costó?
-2. ¿Utility-first funciona para tu flujo?
+### Estructura
 
-### Diseño
-1. ¿Tu voz visual se conservó?
-2. ¿About/Contact comunican lo que querías?
+1. ¿Qué sección fue más difícil de maquetar?
+2. ¿Tu diseño refleja tu identidad como ilustrador/a?
+
+### Responsive
+
+1. ¿Qué ajustes tuviste que hacer para móvil?
+2. ¿Qué breakpoints usaste?
 
 ### Preparación S4
-1. ¿Qué animaciones GSAP quieres añadir?
-2. ¿Qué mejoras de UX detectaste?
+
+1. ¿Qué interacciones quieres añadir?
+2. ¿Qué mejorarías de la navegación?
 ```
 
 ---
@@ -316,7 +550,7 @@ git commit -m "feat(s3): página multi-sección con Tailwind CSS
       ← Anterior: <a href="{{ '/tracks/es/ilustracion-webapp/s2-galerias-layouts-media/' | relative_url }}">S2: Galerías y layouts</a>
     </td>
     <td style="text-align: right;">
-      Siguiente →: <a href="{{ '/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/' | relative_url }}">S4: Interactividad con GSAP</a>
+      Siguiente →: <a href="{{ '/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/' | relative_url }}">S4: Interactividad y UX</a>
     </td>
   </tr>
 </table>
