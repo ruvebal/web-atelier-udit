@@ -60,54 +60,103 @@ status: borrador
 
 ## Parte 1: Navegación Sticky + Galería de Proyectos (90 min)
 
-### 1.1 Navegación Sticky con Menú Hamburguesa (30 min)
+### 1.1 Navegación Sticky con Menú Responsive (30 min)
 
-**Problema:** El template no tiene navegación. Necesitas una navbar sticky con menú hamburguesa responsive.
+**Problema:** El template no tiene navegación. Necesitas una navbar sticky con menú responsive.
+
+**Elige tu estilo de menú:**
+- **Opción A (Recomendada):** Hamburguesa overlay
+- **Opción B:** Sidebar deslizante
+- **Opción C:** Mega menu dropdown
 
 **Prompt IA — Navegación Sticky:**
 
 **Metodología docs-first:**
 1. Guarda como `docs/prompt-navegacion.md`
-2. Envía a IA
-3. Implementa en orden: HTML → CSS → JS
+2. **Elige una opción** de menú (A, B o C)
+3. Envía a IA
+4. Implementa en orden: HTML → CSS → JS
 
 ```markdown
-Crea navegación sticky con menú hamburguesa responsive (vanilla CSS/JS).
+Crea navegación sticky con menú responsive (vanilla CSS/JS).
 
-## REQUISITOS FUNCIONALES
+## ELIGE TU ESTILO DE MENÚ
+
+Selecciona UNA opción (copia solo la sección elegida al prompt):
+
+---
+
+### OPCIÓN A: HAMBURGUESA OVERLAY (Recomendada - Simple y efectiva)
+
+**Desktop:** Links horizontales  
+**Mobile:** Icono ☰ → Full-screen overlay
+
+**Ventajas:** Maximiza espacio móvil, muy común, fácil de implementar  
+**Ideal para:** Portfolios minimalistas, 5-7 links
+
+---
+
+### OPCIÓN B: SIDEBAR DESLIZANTE (Moderna y elegante)
+
+**Desktop:** Links horizontales  
+**Mobile:** Icono ☰ → Sidebar desde izquierda (300px ancho)
+
+**Ventajas:** Más sofisticado, permite más contenido (logo, redes, bio)  
+**Ideal para:** Portfolios con mucha personalidad, 7-10 links
+
+---
+
+### OPCIÓN C: MEGA MENU DROPDOWN (Profesional y estructurada)
+
+**Desktop:** Links con categorías → Hover muestra submenu grid  
+**Mobile:** Acordeón con categorías expandibles
+
+**Ventajas:** Organización para muchas páginas, muy profesional  
+**Ideal para:** Portfolios con múltiples categorías de proyectos, 10+ links
+
+---
+
+## IMPLEMENTACIÓN ELEGIDA: [Escribe aquí: A, B o C]
+
+## REQUISITOS COMUNES (Todas las opciones)
 
 ### Desktop (768px+)
 - Navbar sticky en top (siempre visible al scroll)
 - Logo/nombre a la izquierda
-- Links horizontales a la derecha: Inicio, Portfolio, Sobre mí, Proceso, Contacto
 - Fondo semi-transparente con backdrop-filter blur
 - Sombra sutil al hacer scroll
 
 ### Mobile (<768px)
 - Logo/nombre a la izquierda
-- Icono hamburguesa (☰) a la derecha
-- Click hamburguesa → menú full-screen overlay
-- Links verticales centrados
-- Botón cerrar (✕) en esquina
+- Icono toggle a la derecha
 - Animación suave entrada/salida
+- Body scroll bloqueado cuando menú abierto
 
-## ESTRUCTURA HTML
+---
 
-Añadir ANTES del `<div class="hero">` en index.html:
+## CÓDIGO POR OPCIÓN
+
+**INSTRUCCIÓN:** Copia solo el código de la opción que elegiste (A, B o C).
+
+---
+
+## OPCIÓN A: HAMBURGUESA OVERLAY
+
+### HTML - Opción A
 
 ```html
 <header class="navbar" id="navbar">
   <div class="navbar-container">
     <a href="#" class="navbar-logo">Tu Nombre</a>
     
-    <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false">
       <span class="hamburger"></span>
     </button>
     
     <nav class="navbar-menu" id="navbar-menu">
-      <button class="navbar-close" id="navbar-close" aria-label="Cerrar menú">✕</button>
+      <button class="navbar-close" id="navbar-close" aria-label="Cerrar">✕</button>
       <ul class="navbar-links">
-        <li><a href="#main">Inicio</a></li>
+        <li><a href="#inicio">Inicio</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#about">Sobre Mí</a></li>
         <li><a href="#process">Proceso</a></li>
@@ -118,7 +167,7 @@ Añadir ANTES del `<div class="hero">` en index.html:
 </header>
 ```
 
-## CSS
+### CSS - Opción A
 
 Añadir a `assets/css/_components.css`:
 
@@ -372,7 +421,763 @@ document.addEventListener('keydown', (e) => {
 console.log('✓ Navbar sticky con menú hamburguesa inicializado');
 ```
 
-## ACCESIBILIDAD
+---
+
+## OPCIÓN B: SIDEBAR DESLIZANTE
+
+### HTML - Opción B
+
+```html
+<header class="navbar" id="navbar">
+  <div class="navbar-container">
+    <a href="#" class="navbar-logo">Tu Nombre</a>
+    
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+  </div>
+</header>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <button class="sidebar-close" id="sidebar-close" aria-label="Cerrar">✕</button>
+  </div>
+  
+  <nav class="sidebar-content">
+    <div class="sidebar-logo-section">
+      <a href="#" class="sidebar-logo">Tu Nombre</a>
+      <p class="sidebar-tagline">Ilustrador Digital</p>
+    </div>
+    
+    <ul class="sidebar-links">
+      <li><a href="#inicio"><span class="link-icon">🏠</span> Inicio</a></li>
+      <li><a href="#portfolio"><span class="link-icon">🎨</span> Portfolio</a></li>
+      <li><a href="#about"><span class="link-icon">👤</span> Sobre Mí</a></li>
+      <li><a href="#process"><span class="link-icon">⚙️</span> Proceso</a></li>
+      <li><a href="#contact"><span class="link-icon">📧</span> Contacto</a></li>
+    </ul>
+    
+    <div class="sidebar-social">
+      <a href="#" aria-label="Instagram">📷</a>
+      <a href="#" aria-label="Behance">🎯</a>
+      <a href="#" aria-label="LinkedIn">💼</a>
+    </div>
+  </nav>
+</aside>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+```
+
+### CSS - Opción B
+
+```css
+/* ============================================
+   NAVBAR STICKY (Desktop + Mobile)
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-family-heading);
+}
+
+/* Hamburger - Siempre visible en mobile */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1002;
+}
+
+.hamburger {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--color-text);
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: var(--color-text);
+  transition: transform 0.3s ease;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { bottom: -8px; }
+
+.navbar-toggle[aria-expanded="true"] .hamburger {
+  background: transparent;
+}
+
+.navbar-toggle[aria-expanded="true"] .hamburger::before {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.navbar-toggle[aria-expanded="true"] .hamburger::after {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* ============================================
+   SIDEBAR (Solo mobile)
+   ============================================ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background: var(--color-background);
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1001;
+  overflow-y: auto;
+  display: none; /* Hidden en desktop */
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  padding: 1.5rem 2rem;
+  text-align: right;
+}
+
+.sidebar-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--color-text);
+  padding: 0.5rem;
+}
+
+.sidebar-content {
+  padding: 2rem;
+}
+
+.sidebar-logo-section {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.sidebar-logo {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-family-heading);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-tagline {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem 0;
+}
+
+.sidebar-links li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-links a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  font-size: var(--font-size-lg);
+}
+
+.sidebar-links a:hover {
+  background: var(--color-card-bg);
+  color: var(--color-primary);
+  transform: translateX(8px);
+}
+
+.link-icon {
+  font-size: 1.5rem;
+}
+
+.sidebar-social {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.sidebar-social a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-social a:hover {
+  transform: scale(1.2);
+}
+
+/* Overlay oscuro detrás del sidebar */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  display: none; /* Hidden en desktop */
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 767px) {
+  .navbar-toggle {
+    display: block;
+  }
+  
+  .sidebar,
+  .sidebar-overlay {
+    display: block;
+  }
+}
+
+body {
+  padding-top: 70px;
+}
+```
+
+### JavaScript - Opción B
+
+```javascript
+// ============================================
+// NAVBAR STICKY + SIDEBAR
+// ============================================
+
+const navbar = document.getElementById('navbar');
+const navbarToggle = document.getElementById('navbar-toggle');
+const sidebar = document.getElementById('sidebar');
+const sidebarClose = document.getElementById('sidebar-close');
+const sidebarOverlay = document.getElementById('sidebar-overlay');
+const sidebarLinks = document.querySelectorAll('.sidebar-links a');
+
+// Sombra al hacer scroll
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Toggle sidebar
+function toggleSidebar() {
+  const isOpen = navbarToggle.getAttribute('aria-expanded') === 'true';
+  navbarToggle.setAttribute('aria-expanded', !isOpen);
+  sidebar.classList.toggle('active');
+  sidebarOverlay.classList.toggle('active');
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+
+navbarToggle.addEventListener('click', toggleSidebar);
+sidebarClose.addEventListener('click', toggleSidebar);
+sidebarOverlay.addEventListener('click', toggleSidebar);
+
+// Cerrar al hacer click en un link
+sidebarLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth < 768) {
+      toggleSidebar();
+    }
+  });
+});
+
+// Cerrar con ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+    toggleSidebar();
+  }
+});
+
+console.log('✓ Navbar sticky con sidebar inicializado');
+```
+
+---
+
+## OPCIÓN C: MEGA MENU DROPDOWN
+
+### HTML - Opción C
+
+```html
+<header class="navbar" id="navbar">
+  <div class="navbar-container">
+    <a href="#" class="navbar-logo">Tu Nombre</a>
+    
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+    
+    <nav class="navbar-menu" id="navbar-menu">
+      <ul class="navbar-links">
+        <li><a href="#inicio">Inicio</a></li>
+        
+        <!-- Dropdown Portfolio -->
+        <li class="has-dropdown">
+          <button class="dropdown-toggle" aria-expanded="false">
+            Portfolio <span class="dropdown-arrow">▼</span>
+          </button>
+          <div class="mega-dropdown">
+            <div class="mega-grid">
+              <div class="mega-column">
+                <h4>Ilustración Editorial</h4>
+                <ul>
+                  <li><a href="#editorial-revistas">Revistas</a></li>
+                  <li><a href="#editorial-libros">Libros</a></li>
+                  <li><a href="#editorial-prensa">Prensa</a></li>
+                </ul>
+              </div>
+              <div class="mega-column">
+                <h4>Branding</h4>
+                <ul>
+                  <li><a href="#branding-logos">Logos</a></li>
+                  <li><a href="#branding-identidad">Identidad</a></li>
+                  <li><a href="#branding-packaging">Packaging</a></li>
+                </ul>
+              </div>
+              <div class="mega-column">
+                <h4>Digital</h4>
+                <ul>
+                  <li><a href="#digital-web">Web</a></li>
+                  <li><a href="#digital-apps">Apps</a></li>
+                  <li><a href="#digital-redes">Redes Sociales</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        
+        <li><a href="#about">Sobre Mí</a></li>
+        <li><a href="#process">Proceso</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+```
+
+### CSS - Opción C
+
+```css
+/* ============================================
+   NAVBAR STICKY
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-family-heading);
+}
+
+/* Toggle (Mobile only) */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--color-text);
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: var(--color-text);
+  transition: transform 0.3s ease;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { bottom: -8px; }
+
+.navbar-toggle[aria-expanded="true"] .hamburger {
+  background: transparent;
+}
+
+.navbar-toggle[aria-expanded="true"] .hamburger::before {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.navbar-toggle[aria-expanded="true"] .hamburger::after {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* ============================================
+   MEGA MENU - DESKTOP
+   ============================================ */
+
+.navbar-menu {
+  display: flex;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar-links > li {
+  position: relative;
+}
+
+.navbar-links > li > a,
+.dropdown-toggle {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navbar-links > li > a:hover,
+.dropdown-toggle:hover {
+  color: var(--color-primary);
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.has-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Mega Dropdown */
+.mega-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  min-width: 600px;
+  z-index: 100;
+}
+
+.has-dropdown:hover .mega-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mega-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.mega-column h4 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-size: var(--font-size-md);
+}
+
+.mega-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mega-column li {
+  margin-bottom: 0.5rem;
+}
+
+.mega-column a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.mega-column a:hover {
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE ACCORDION
+   ============================================ */
+
+@media (max-width: 767px) {
+  .navbar-toggle {
+    display: block;
+  }
+  
+  .navbar-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-background);
+    flex-direction: column;
+    padding: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+  }
+  
+  .navbar-menu.active {
+    transform: translateX(0);
+  }
+  
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+  
+  .navbar-links > li {
+    width: 100%;
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .navbar-links > li > a,
+  .dropdown-toggle {
+    padding: 1rem 0;
+    font-size: var(--font-size-lg);
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  /* Accordion en mobile */
+  .mega-dropdown {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    padding: 0 0 1rem 1rem;
+    min-width: auto;
+    opacity: 1;
+    visibility: visible;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .has-dropdown.open .mega-dropdown {
+    max-height: 500px;
+  }
+  
+  .has-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .mega-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .mega-column h4 {
+    font-size: var(--font-size-md);
+  }
+  
+  .mega-column a {
+    font-size: var(--font-size-md);
+    padding: 0.5rem 0;
+  }
+}
+
+body {
+  padding-top: 70px;
+}
+```
+
+### JavaScript - Opción C
+
+```javascript
+// ============================================
+// NAVBAR STICKY + MEGA MENU
+// ============================================
+
+const navbar = document.getElementById('navbar');
+const navbarToggle = document.getElementById('navbar-toggle');
+const navbarMenu = document.getElementById('navbar-menu');
+const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+const allLinks = document.querySelectorAll('.navbar-links a, .mega-column a');
+
+// Sombra al hacer scroll
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Toggle menú móvil
+function toggleMenu() {
+  const isOpen = navbarToggle.getAttribute('aria-expanded') === 'true';
+  navbarToggle.setAttribute('aria-expanded', !isOpen);
+  navbarMenu.classList.toggle('active');
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+
+navbarToggle.addEventListener('click', toggleMenu);
+
+// Accordion dropdowns en mobile
+dropdownToggles.forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    if (window.innerWidth < 768) {
+      e.preventDefault();
+      const parent = toggle.closest('.has-dropdown');
+      const isOpen = parent.classList.contains('open');
+      
+      // Cerrar otros dropdowns
+      document.querySelectorAll('.has-dropdown.open').forEach(item => {
+        if (item !== parent) {
+          item.classList.remove('open');
+        }
+      });
+      
+      // Toggle current
+      parent.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', !isOpen);
+    }
+  });
+});
+
+// Cerrar menú al hacer click en un link
+allLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth < 768) {
+      toggleMenu();
+      // Cerrar dropdowns
+      document.querySelectorAll('.has-dropdown.open').forEach(item => {
+        item.classList.remove('open');
+      });
+    }
+  });
+});
+
+// Cerrar con ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navbarMenu.classList.contains('active')) {
+    toggleMenu();
+  }
+});
+
+console.log('✓ Navbar sticky con mega menu inicializado');
+```
+
+---
+
+## ACCESIBILIDAD (Todas las opciones)
 
 **Verificar:**
 - [ ] `aria-label` en botones toggle/close
@@ -395,28 +1200,32 @@ Añadir IDs a las secciones para anclas:
 
 ## REPORT DE IMPLEMENTACIÓN
 
-1. **HTML añadido:** Navbar antes del hero ✓
-2. **CSS implementado:** _components.css actualizado ✓
-3. **JavaScript funcional:** Toggle + scroll shadow ✓
-4. **Responsive verificado:**
-   - Desktop (768px+): Links horizontales ✓
-   - Mobile (<768px): Menú hamburguesa overlay ✓
-5. **Animaciones:**
-   - Hamburger → X animado ✓
-   - Menu slide-in from right ✓
+Documenta qué opción elegiste y verifica:
+
+1. **Opción elegida:** [A/B/C] - [Nombre opción]
+2. **HTML añadido:** Navbar + estructura específica ✓
+3. **CSS implementado:** _components.css con estilos de la opción ✓
+4. **JavaScript funcional:** Interacciones específicas funcionando ✓
+5. **Responsive verificado:**
+   - Desktop (768px+): [Describe comportamiento] ✓
+   - Mobile (<768px): [Describe comportamiento] ✓
+6. **Animaciones:**
+   - [Lista animaciones de tu opción] ✓
    - Sombra al scroll ✓
-6. **Accesibilidad:**
+7. **Accesibilidad:**
    - aria-label y aria-expanded ✓
    - Navegación teclado ✓
    - ESC cierra menú ✓
    - Body scroll bloqueado ✓
-7. **IDs de secciones:** Anclas funcionando ✓
-8. **Testing:**
+8. **IDs de secciones:** Anclas funcionando ✓
+9. **Testing:**
    - Chrome DevTools móvil ✓
-   - Safari iOS real (si disponible) ✓
-   - Click, tap, teclado ✓
+   - Navegador real móvil (si disponible) ✓
+   - Click, tap, teclado, hover ✓
+10. **Por qué elegí esta opción:**
+    - [Tu justificación basada en tu portfolio]
 
-[La IA completará]
+[La IA completará después de implementar]
 ```
 
 ---
