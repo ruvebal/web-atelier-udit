@@ -1,25 +1,23 @@
 ---
 layout: lesson
-title: 'Maquetación responsive y estructura multi-sección'
-title_alt: 'Maquetación responsive y estructura multi-sección'
+title: 'Personalización del Portfolio Scrollytelling'
+title_alt: 'Personalización del Portfolio Scrollytelling'
 slug: ilustracion-webapp-s3
 date: 2026-01-13
 author: 'Rubén Vega Balbás, PhD'
 lang: es
 permalink: /tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/
-description: 'Tercera sesión: página multi-sección completa, arquitectura de componentes, branding personal y testing responsive.'
-tags: [responsive, tailwindcss, accesibilidad, diseno, ilustracion, componentes]
+description: 'Tercera sesión: personaliza tu portfolio scrollytelling con tus contenidos preparados (imágenes, textos, colores, tipografías).'
+tags: [responsive, scrollytelling, accesibilidad, diseno, ilustracion, componentes]
 status: borrador
 ---
-
-<!-- prettier-ignore-start -->
 
 ## 📋 Tabla de contenidos
 {: .no_toc }
 - TOC
 {:toc}
 
-<!-- prettier-ignore-end -->
+---
 
 ## ⏰ Duración estimada
 
@@ -29,10 +27,10 @@ status: borrador
 
 ## 🎯 Objetivos
 
-- Convertir la galería en una **página multi-sección** completa
-- Implementar **navegación** y secciones **About/Contact/Footer**
-- Aplicar **branding personal** consistente
-- Lograr **diseño responsive** mobile/desktop-first
+- **Personalizar** tu portfolio scrollytelling con tus contenidos preparados
+- **Adaptar** el sistema de diseño (colores, tipografías) a tu identidad
+- **Integrar** tus imágenes de ImageKit en los componentes existentes
+- **Verificar** responsive y accesibilidad en todos los breakpoints
 
 ---
 
@@ -44,463 +42,512 @@ status: borrador
 
 ---
 
-## ⏱️ Desglose de Tiempo
+## 🎨 Componentes Ya Implementados en el Template
 
-| Parte | Duración | Actividad                          |
-| ----- | -------- | ---------------------------------- |
-| **1** | 20 min   | Revisión de contenidos preparados  |
-| **2** | 30 min   | Arquitectura de página (esqueleto) |
-| **3** | 90 min   | Maquetación de secciones           |
-| **4** | 45 min   | Testing responsive y accesibilidad |
-| **5** | 25 min   | Commit y documentación             |
+Tu template **YA TIENE** estos componentes listos para personalizar:
+
+### 1. **Hero Section** 
+- Animaciones fadeInUp y bounce
+- Título, subtítulo y scroll indicator
+- Background gradient personalizable
+
+### 2. **Story Sections (Chapters)**
+- Progressive reveal con Intersection Observer
+- 3 temas de colores (chapter-1, chapter-2, chapter-3)
+- Atributo `data-observe` para animaciones
+
+### 3. **Statistics Display**
+- Grid responsive con stagger animations
+- Números grandes + labels
+- Auto-anima al entrar en viewport
+
+### 4. **Parallax Section**
+- Background fixed con overlay
+- Contenido centrado
+- Se desactiva en móvil automáticamente
+
+### 5. **Interactive Cards**
+- Grid auto-fit responsive
+- Hover effects incluidos
+- Transiciones con stagger
+
+### 6. **Timeline**
+- Gradient line con dots
+- Content boxes alternados (desktop) / left-aligned (móvil)
+- Animaciones al scroll
+
+### 7. **Final CTA**
+- Call-to-action section
+- Botón con hover effect
+- Background gradient
+
+### 8. **Info Overlay**
+- Indicador de progreso de scroll
+- Fixed bottom-right
+- Actualización automática
 
 ---
 
-## Parte 1: Revisión de Contenidos (20 min)
+## ⏱️ Desglose de Tiempo (3.5 horas)
 
-### Checklist de preparación
+| Parte | Duración | Actividad                                    |
+| ----- | -------- | -------------------------------------------- |
+| **1** | 20 min   | Revisión de contenidos y estructura template |
+| **2** | 30 min   | Personalización del sistema de diseño        |
+| **3** | 90 min   | Integración de contenidos personales         |
+| **4** | 45 min   | Testing responsive y accesibilidad           |
+| **5** | 25 min   | Commit y documentación                       |
 
-Antes de maquetar, verificar que cada estudiante tiene:
+---
 
-- [ ] **Imágenes** subidas en ImageKit (con URLs a mano)
-- [ ] **Textos** redactados (bio, statement, descripciones)
-- [ ] **Tipografías** decididas (Google Fonts)
-- [ ] **Colores** definidos (paleta base)
+## Parte 1: Revisión de Template y Contenidos (20 min)
 
-### Integración rápida
+### 1.1 Explorar la Estructura del Template
 
-Si falta algún elemento, resolverlo en 5-10 minutos:
+Abre tu proyecto y familiarízate con los archivos:
 
-```html
-<!-- Google Fonts en <head> -->
-<link href="https://fonts.googleapis.com/css2?family=TU_FUENTE&display=swap" rel="stylesheet" />
+```
+student-project-template/
+├── index.html                 # Tu portfolio scrollytelling
+├── assets/
+│   ├── css/
+│   │   ├── _variables.css     # 👈 AQUÍ personalizarás colores/fuentes
+│   │   ├── _scrollytelling.css # Componentes ya listos
+│   │   └── style.css
+│   └── js/
+│       └── main.js            # JavaScript ya funcionando
 ```
 
-```css
-/* En theme.css o variables */
-:root {
-	--color-primary: #tu-color;
-	--color-secondary: #tu-color;
-	--font-heading: 'Tu Fuente', serif;
-	--font-body: 'Tu Fuente', sans-serif;
-}
+### 1.2 Checklist de Contenidos Preparados
+
+Verifica que tienes listos:
+
+- [ ] **Imágenes** en ImageKit (URLs copiadas)
+- [ ] **Textos**: Bio, statement, lema hero, descripciones
+- [ ] **Tipografías**: 2 fuentes de Google Fonts elegidas
+- [ ] **Colores**: Paleta definida (primario, secundario, acentos)
+
+### 1.3 Ver el Template en Acción
+
+Abre `index.html` en el navegador local:
+
+```bash
+# Opción 1: Live Server (recomendado)
+# Click derecho en index.html → Open with Live Server
+
+# Opción 2: Servidor Python
+python3 -m http.server 8000
+# Abre http://localhost:8000
 ```
 
-### Prompt IA — Integración de Sistema de Diseño
+**Scroll por toda la página** para ver los componentes ya funcionando.
+
+---
+
+## Parte 2: Personalización del Sistema de Diseño (30 min)
+
+### Prompt IA — Sistema de Diseño Personalizado
 
 **Metodología docs-first:**
 1. Guarda este prompt como `docs/prompt-sistema-diseno.md`
-2. Envía el prompt a la IA
-3. La IA generará el código Y un report de implementación
-4. Implementa el código generado
-5. Actualiza el document con el report al final
+2. Envía a la IA
+3. Implementa cambios en `assets/css/_variables.css`
+4. Actualiza documento con report
 
 ```markdown
-Integra mi sistema de diseño en el portfolio.
+Personaliza el sistema de diseño del portfolio scrollytelling con mi identidad visual.
 
-**Tipografías seleccionadas:**
-- Heading: [Nombre de fuente] (Google Fonts)
-- Body: [Nombre de fuente] (Google Fonts)
+## Mi Identidad Visual
 
-**Paleta de colores:**
-- Primario: #[hex]
-- Secundario: #[hex]
-- Fondo: #[hex]
-- Texto: #[hex]
+**Tipografías (Google Fonts):**
+- Heading: [Tu fuente para títulos]
+- Body: [Tu fuente para texto]
 
-**Tareas:**
-1. Añade los enlaces de Google Fonts en <head>
-2. Define variables CSS en theme.css con estos valores
-3. Aplica las fuentes a headings y body
-4. Verifica contraste WCAG AA (4.5:1 texto, 3:1 UI)
-5. Crea clases utilitarias: .text-primary, .bg-primary, etc.
+**Paleta de Colores:**
+- Primario: #[hex] (para CTAs, enlaces destacados)
+- Secundario: #[hex] (para acentos)
+- Acento 1: #[hex] (para chapter-1, stats azules)
+- Acento 2: #[hex] (para chapter-2, timeline)
+- Acento 3: #[hex] (para chapter-3, success states)
 
-Genera el código CSS completo con variables y aplicación.
+## Archivos a Modificar
+
+**1. assets/css/_variables.css:**
+
+Actualiza estas variables:
+
+```css
+:root {
+  /* Fuentes */
+  --font-family-heading: '[Tu fuente heading]', var(--font-family-base);
+  
+  /* Colores principales */
+  --color-primary: #[tu hex];
+  --color-primary-hover: #[variación más oscura];
+  
+  /* Gradientes scrollytelling */
+  --gradient-hero: linear-gradient(135deg, #[color1] 0%, #[color2] 100%);
+  --gradient-chapter-1: linear-gradient(135deg, #[color1], #[color2]);
+  --gradient-chapter-2: linear-gradient(135deg, #[color1], #[color2]);
+  --gradient-chapter-3: linear-gradient(135deg, #[color1], #[color2]);
+  
+  /* Acentos */
+  --color-accent-blue: #[tu hex para chapter-1];
+  --color-accent-red: #[tu hex para chapter-2];
+  --color-accent-green: #[tu hex para chapter-3];
+}
+```
+
+**2. index.html `<head>`:**
+
+Añade las Google Fonts:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=[TU_FUENTE_HEADING]&family=[TU_FUENTE_BODY]&display=swap" rel="stylesheet">
+```
+
+## Verificación de Accesibilidad
+
+Verifica contraste con WebAIM Contrast Checker:
+- Texto sobre fondo: mínimo 4.5:1 (WCAG AA)
+- UI elements: mínimo 3:1
+- Títulos grandes: mínimo 3:1
 
 ## Report de Implementación
 
-Después de implementar, documenta:
+1. **Fuentes aplicadas:** [Heading font] en h1-h6, [Body font] en p/li
+2. **Colores actualizados:** Primario, gradientes, acentos
+3. **Contraste verificado:** [Lista ratios de contraste principales]
+4. **Testing visual:** Hero, chapters, cards, timeline tienen nuevos colores
+5. **Próximos pasos:** Integrar contenidos personales
 
-1. **Archivos modificados:** Lista qué archivos tocaste
-2. **Decisiones clave:** Justifica elecciones importantes
-3. **Problemas encontrados:** Documenta issues y soluciones
-4. **Testing realizado:** Contraste verificado, fuentes cargando, etc.
-5. **Próximos pasos:** Qué falta o mejorar
-
-[La IA completará esta sección después de generar el código]
+[La IA completará esta sección]
 ```
 
 ---
 
-## Parte 2: Arquitectura de Página (30 min)
+## Parte 3: Integración de Contenidos Personales (90 min)
 
-### Esqueleto común
+### 3.1 Hero Section (15 min)
 
-Dibujar en pizarra la estructura que todos deben seguir:
+**Componente ya listo en** `index.html` líneas 16-22
 
-```
-┌─────────────────────────────────────┐
-│  <header> NAVEGACIÓN                │
-│  [Logo/Nombre]  [Work|About|Contact]│
-├─────────────────────────────────────┤
-│  <main>                             │
-│    ┌─────────────────────────────┐  │
-│    │ HERO                        │  │
-│    │ Imagen destacada + lema     │  │
-│    └─────────────────────────────┘  │
-│    ┌─────────────────────────────┐  │
-│    │ PROYECTOS / GALERÍA         │  │
-│    │ Grid de ilustraciones       │  │
-│    └─────────────────────────────┘  │
-│    ┌─────────────────────────────┐  │
-│    │ SOBRE MÍ (Bio/Statement)    │  │
-│    │ Foto + texto personal       │  │
-│    └─────────────────────────────┘  │
-├─────────────────────────────────────┤
-│  <footer>                           │
-│  Contacto + Redes sociales          │
-└─────────────────────────────────────┘
-```
-
-### Elementos semánticos clave
-
-- `<header>` con `<nav>` para navegación
-- `<main>` para contenido principal
-- `<section>` con `id` para cada bloque (hero, work, about)
-- `<footer>` para contacto y redes
-- Encabezados `<h1>` → `<h2>` en orden lógico
-
----
-
-## Parte 3: Maquetación de Secciones (90 min)
-
-### 3.1 Header/Navegación (15 min)
-
-```html
-<header>
-	<nav>
-		<a href="#">Tu Nombre</a>
-		<ul>
-			<li><a href="#work">Trabajo</a></li>
-			<li><a href="#about">Sobre mí</a></li>
-			<li><a href="#contact">Contacto</a></li>
-		</ul>
-		<!-- Botón hamburguesa para móvil (opcional S4) -->
-	</nav>
-</header>
-```
-
-**Tip responsive**: En móvil, la navegación puede ser un menú simple o implementar hamburguesa en S4.
-
-### 3.2 Sección Hero (15 min)
-
-Primera impresión del portfolio. Debe captar la esencia del estudiante.
-
-```html
-<section id="hero">
-	<h1>Tu Nombre</h1>
-	<p>Tu lema o frase de impacto</p>
-	<img src="ilustracion-destacada.jpg" alt="Descripción" />
-	<a href="#work">Ver mi trabajo</a>
-</section>
-```
-
-**Consideraciones**:
-
-- Si hay texto sobre imagen, usar overlay para contraste
-- La imagen debe ser representativa del estilo
-
-**Prompt IA — Sección Hero**:
+**Prompt IA — Personalizar Hero:**
 
 **Metodología docs-first:**
-1. Guarda este prompt como `docs/prompt-hero.md`
-2. Envía el prompt a la IA
-3. Implementa el código generado
-4. La IA actualizará el documento con el report
+1. Guarda como `docs/prompt-hero.md`
+2. Envía a IA
+3. Implementa cambios
 
 ```markdown
-Crea la sección Hero de mi portfolio usando mis contenidos.
+Personaliza la Hero Section con mis contenidos.
 
-**Contenidos preparados:**
-- Nombre/Logo: [Tu nombre]
-- Lema/Tagline: [Tu lema preparado del email]
-- Imagen destacada: [URL de ImageKit]
+## Contenidos
 
-**Requisitos de diseño:**
-- Layout con imagen destacada + texto superpuesto o al lado
-- Aplicar tipografía heading de mi sistema de diseño
-- Usar color primario en CTA
-- Si texto sobre imagen: overlay oscuro/claro para contraste
-- Responsive: stack vertical en móvil, horizontal en desktop
-- Altura mínima: 70vh
+**Título principal:** [Tu nombre o marca personal]
+**Subtítulo/Tagline:** [Tu lema preparado del email]
+**Scroll indicator:** [Mensaje personalizado o mantener "Scroll para descubrir..."]
 
-**Accesibilidad:**
-- Alt text descriptivo en imagen
-- Contraste WCAG AA en texto
-- CTA con target mínimo 44px
+## Cambios en index.html
 
-Genera HTML + CSS completo para la sección hero.
-
-## Report de Implementación
-
-Después de implementar, documenta en este mismo archivo:
-
-1. **Archivos modificados:** (ej. index.html líneas 20-45, style.css líneas 100-150)
-2. **Decisiones de diseño:** (ej. "Overlay rgba(0,0,0,0.4) para legibilidad", "CTA con color primario")
-3. **Problemas resueltos:** (ej. "Imagen no responsive → añadido max-width: 100%")
-4. **Accesibilidad verificada:** (ej. "Contraste 5.2:1 ✓", "Alt text descriptivo ✓")
-5. **Próximos pasos:** (ej. "Considerar parallax sutil en S4")
-
-[La IA completará esta sección]
-```
-
-### 3.3 Sección Proyectos/Galería (30 min)
-
-Reutilizar la galería de S2 o crear grid nuevo.
+Actualiza líneas 18-20 del hero:
 
 ```html
-<section id="work">
-	<h2>Mi Trabajo</h2>
-	<div class="gallery-grid">
-		<!-- Cards de proyectos -->
-		<article class="project-card">
-			<img src="proyecto1.jpg" alt="Descripción del proyecto" />
-			<h3>Nombre del proyecto</h3>
-		</article>
-		<!-- Más cards... -->
-	</div>
-</section>
+<h1>📜 [Tu Nombre]</h1>
+<p>[Tu tagline / especialización]<br />[Frase de impacto]</p>
+<div class="scroll-indicator">↓ [Tu mensaje de scroll] ↓</div>
 ```
 
-**Grid responsive**:
+**Opcional - Cambiar emoji:**
+- 🎨 Arte
+- ✏️ Ilustración
+- 🖌️ Diseño
+- 📐 Arquitectura visual
+- ⚡ Creatividad
 
-- Móvil: 1 columna
-- Tablet: 2 columnas
-- Desktop: 3-4 columnas
+## Report
 
-**Prompt IA — Galería de Proyectos**:
+1. **Contenido actualizado:** Nombre, tagline, scroll message
+2. **Emoji elegido:** [emoji] por [razón]
+3. **Longitud del tagline:** [N caracteres] - responsive verificado
+4. **Preview:** Texto legible en móvil y desktop ✓
 
-**Metodología docs-first:**
-1. Guarda como `docs/prompt-galeria.md`
-2. Envía a la IA
-3. Implementa código + report
+[La IA completará]
+```
+
+### 3.2 About Section (Chapter 1) (20 min)
+
+**Componente en** `index.html` líneas 27-53
+
+**Prompt IA — About con Estadísticas:**
 
 ```markdown
-Crea la galería de proyectos usando mis ilustraciones.
+Personaliza la sección "Sobre Mí" (chapter-1) con mi bio y stats.
 
-**Imágenes preparadas en ImageKit:**
-[Lista tus URLs de ImageKit organizadas por proyecto]
+## Contenidos
 
-Ejemplo:
-- Proyecto 1: https://ik.imagekit.io/tu-id/proyecto1-cover.jpg
-- Proyecto 2: https://ik.imagekit.io/tu-id/proyecto2-cover.jpg
-- ...
+**Título de sección:** [Ej. "Sobre Mí", "Mi Historia", "Quién Soy"]
 
-**Requisitos:**
-- Grid responsive (1 col móvil, 2 tablet, 3-4 desktop)
-- Cards con imagen + título del proyecto
-- Hover effect sutil (scale, overlay, etc.)
-- Aspect ratio consistente (ej. 4:3 o 16:9)
-- Lazy loading para performance
-- Alt text descriptivo en cada imagen
+**Bio (2-3 párrafos):**
+[Pega tu bio preparada]
 
-**Opcional:**
-- Filtros por categoría/tipo de ilustración
-- Lightbox para ver imágenes ampliadas
+**Estadísticas (3 números + labels):**
+1. [Número]+: [Label] (Ej. "3+ Años de Experiencia")
+2. [Número]+: [Label] (Ej. "50+ Proyectos")
+3. [Número]+: [Label] (Ej. "10+ Clientes")
 
-Genera HTML + CSS para la galería.
+## Implementación
 
-## Report de Implementación
+En `index.html`, actualiza:
 
-1. **Archivos:** (ej. index.html sección #work, style.css .gallery-grid)
-2. **Grid configurado:** (ej. "1 col móvil, 2 tablet, 4 desktop con gap: 2rem")
-3. **Performance:** (ej. "Lazy loading añadido, imágenes optimizadas en ImageKit")
-4. **Hover effects:** (ej. "Scale 1.05 + overlay rgba con transition 0.3s")
-5. **Testing:** (ej. "Verificado en 320px, 768px, 1440px ✓")
-
-[La IA completará esta sección]
+**Título y bio (líneas 29-35):**
+```html
+<h2>[Tu título]</h2>
+<p class="text-large">
+  [Primer párrafo de tu bio]
+</p>
 ```
 
-### 3.4 Sección Sobre Mí (15 min)
+**Stats (líneas 37-49):**
+```html
+<div class="stat-item">
+  <span class="stat-number">[Tu número]</span>
+  <span class="stat-label">[Tu label]</span>
+</div>
+```
 
-Tono personal que refleje la identidad del ilustrador.
+## Report
+
+1. **Bio integrada:** [N palabras] - legibilidad verificada
+2. **Stats personalizadas:** [3 métricas relevantes a tu carrera]
+3. **Animaciones:** Stats aparecen con stagger al scroll ✓
+4. **Responsive:** Text-large legible en todos los breakpoints ✓
+
+[La IA completará]
+```
+
+### 3.3 My Work Section (Chapter 2) (25 min)
+
+**Componente en** `index.html` líneas 62-87
+
+**Prompt IA — Sección de Trabajo:**
+
+```markdown
+Personaliza la sección "Mi Trabajo" con mis áreas de especialización.
+
+## Contenidos
+
+**Título:** [Ej. "Mi Trabajo", "Especialidades", "Lo Que Hago"]
+
+**Introducción:**
+[1-2 frases describiendo tu enfoque]
+
+**3 Cards de Especialidades:**
+
+1. **Card 1:**
+   - Título: [Ej. "Editorial"]
+   - Descripción: [1-2 frases sobre esta área]
+
+2. **Card 2:**
+   - Título: [Ej. "Branding"]
+   - Descripción: [1-2 frases]
+
+3. **Card 3:**
+   - Título: [Ej. "Digital"]
+   - Descripción: [1-2 frases]
+
+## Implementación
+
+Actualiza en `index.html` (líneas 64-84):
 
 ```html
-<section id="about">
-	<h2>Sobre mí</h2>
-	<img src="foto-autor.jpg" alt="Tu nombre" />
-	<p>Tu bio aquí...</p>
-	<blockquote>Extracto de tu statement artístico</blockquote>
-</section>
+<h2>[Tu título]</h2>
+<p class="text-large mb-lg">[Tu introducción]</p>
+
+<div class="interactive-cards">
+  <div class="card">
+    <h4>[Especialidad 1]</h4>
+    <p>[Descripción 1]</p>
+  </div>
+  <!-- Repetir para card 2 y 3 -->
+</div>
 ```
 
-**Personalización**: Tipografía decorativa para el nombre, fondo con color de la paleta, etc.
+## Report
 
-**Prompt IA — Sección Sobre Mí**:
+1. **Especialidades definidas:** [3 áreas de tu trabajo]
+2. **Descripciones:** Concisas, [N palabras promedio por card]
+3. **Hover effects:** Funcionando en las 3 cards ✓
+4. **Grid responsive:** 1 col móvil, 2-3 desktop ✓
 
-**Metodología docs-first:**
-1. Guarda como `docs/prompt-about.md`
-2. Envía a la IA
-3. Implementa código + report
+[La IA completará]
+```
+
+### 3.4 Timeline / Process (15 min)
+
+**Componente en** `index.html` líneas 91-121
+
+**Prompt IA — Timeline de Proceso:**
 
 ```markdown
-Crea la sección "Sobre mí" con mis textos preparados.
+Personaliza el Timeline con mi proceso creativo.
 
-**Contenidos:**
-- Bio: [Pega tu bio preparada]
-- Statement artístico: [Pega tu statement preparado]
-- Foto personal (opcional): [URL de ImageKit si la tienes]
+## Mi Proceso (3 pasos)
 
-**Requisitos de diseño:**
-- Layout: foto + texto (grid 2 columnas en desktop, stack en móvil)
-- Tipografía body de mi sistema de diseño
-- Statement destacado con blockquote o estilo especial
-- Fondo sutil con color secundario de mi paleta
-- Espaciado generoso para legibilidad
+1. **Paso 1:**
+   - Título: [Ej. "Investigación y Concepto"]
+   - Descripción: [Qué haces en esta fase]
 
-**Personalización:**
-- Refleja mi identidad como ilustrador/a
-- Usa tipografía decorativa para mi nombre si aplica
-- Considera añadir lista de skills/herramientas (opcional)
+2. **Paso 2:**
+   - Título: [Ej. "Bocetos y Exploración"]
+   - Descripción: [Qué haces aquí]
 
-Genera HTML + CSS para la sección about.
+3. **Paso 3:**
+   - Título: [Ej. "Refinamiento y Entrega"]
+   - Descripción: [Fase final]
 
-## Report de Implementación
+## Implementación
 
-1. **Archivos:** (ej. index.html #about, style.css .about-section)
-2. **Layout:** (ej. "Grid 2 columnas desktop, stack móvil. Foto 40%, texto 60%")
-3. **Tipografía:** (ej. "Bio en body font 1.125rem, statement en blockquote italic")
-4. **Personalización:** (ej. "Fondo color secundario #f5f5f5, padding generoso")
-5. **Legibilidad:** (ej. "Line-height 1.7, max-width 65ch para texto")
-
-[La IA completará esta sección]
-```
-
-### 3.5 Footer/Contacto (15 min)
+Actualiza timeline-items (líneas 97-119):
 
 ```html
-<footer id="contact">
-	<h2>Contacto</h2>
-	<a href="mailto:tu@email.com">tu@email.com</a>
-	<ul>
-		<li><a href="https://instagram.com/tu" aria-label="Instagram">Instagram</a></li>
-		<li><a href="https://behance.net/tu" aria-label="Behance">Behance</a></li>
-		<!-- Más redes -->
-	</ul>
-	<p>© 2026 Tu Nombre</p>
-</footer>
+<div class="timeline-item">
+  <div class="timeline-dot"></div>
+  <div class="timeline-content">
+    <h4>[Título paso 1]</h4>
+    <p>[Descripción paso 1]</p>
+  </div>
+</div>
 ```
 
-**Importante**: Usar `aria-label` en iconos de redes sociales.
+## Report
 
-**Prompt IA — Footer con Contacto**:
+1. **Proceso documentado:** [3 fases de tu workflow]
+2. **Timeline visual:** Línea gradient + dots funcionando ✓
+3. **Responsive:** Left-aligned en móvil, centered en desktop ✓
+4. **Animaciones:** Items aparecen con stagger al scroll ✓
 
-**Metodología docs-first:**
-1. Guarda como `docs/prompt-footer.md`
-2. Envía a la IA
-3. Implementa código + report
+[La IA completará]
+```
+
+### 3.5 Skills Section (Chapter 3) (15 min)
+
+**Componente en** `index.html` líneas 125-151
+
+**Prompt IA — Herramientas y Skills:**
 
 ```markdown
-Crea el footer con información de contacto y redes sociales.
+Personaliza la sección de Skills con mis herramientas.
 
-**Información de contacto:**
-- Email: [tu@email.com]
-- Redes sociales con URLs:
-  - Instagram: [URL]
-  - Behance: [URL]
-  - LinkedIn: [URL]
-  - [Otras que uses]
+## Mis Herramientas
 
-**Requisitos:**
-- Sección destacada con CTA de contacto (email visible)
-- Iconos de redes sociales con aria-label
-- Layout centrado y limpio
-- Usar color primario en enlaces hover
-- Copyright con tu nombre y año actual
+**Card 1 - Digital:**
+- [Lista 4 herramientas digitales que usas]
 
-**Accesibilidad:**
-- Cada icono social debe tener aria-label descriptivo
-- Enlaces externos con target="_blank" y rel="noopener"
-- Touch targets de 44px+ en móvil
+**Card 2 - Tradicional:**
+- [Lista 4 técnicas tradicionales]
 
-Genera HTML + CSS para footer completo.
+**Card 3 - Especialidades:**
+- [Lista 4 áreas donde destacas]
 
-## Report de Implementación
+## Implementación
 
-1. **Archivos:** (ej. index.html <footer>, style.css footer styles)
-2. **Estructura:** (ej. "Email destacado, iconos sociales inline con gap, copyright")
-3. **Accesibilidad:** (ej. "aria-label en cada red: 'Sígueme en Instagram' ✓")
-4. **Links externos:** (ej. "target='_blank' rel='noopener noreferrer' ✓")
-5. **Responsive:** (ej. "Stack vertical en móvil, touch targets 48px ✓")
+Actualiza cards (líneas 131-149):
 
-[La IA completará esta sección]
+```html
+<div class="card">
+  <h4>🎨 Digital</h4>
+  <p>• [Herramienta 1]<br />• [Herramienta 2]<br />...</p>
+</div>
+```
+
+## Report
+
+1. **Skills documentadas:** [Categorías: Digital, Tradicional, Especialidades]
+2. **Emojis elegidos:** [Emojis para cada card]
+3. **Hover effects:** Funcionando ✓
+4. **Responsive:** Grid adaptativo ✓
+
+[La IA completará]
 ```
 
 ---
 
 ## Parte 4: Testing Responsive y Accesibilidad (45 min)
 
-### 4.1 Testing Responsive
+### 4.1 Testing Responsive (25 min)
 
-**Enfoque mobile-first**: Comenzar con móvil, luego adaptar.
+**Checklist por Breakpoint:**
 
-| Breakpoint            | Verificar                                          |
-| --------------------- | -------------------------------------------------- |
-| **320px** (móvil)     | Stack vertical, texto legible, touch targets 44px+ |
-| **768px** (tablet)    | Grid 2 columnas, navegación visible                |
-| **1024px+** (desktop) | Layout completo, hover states                      |
+| Breakpoint   | Verificar                                                |
+| ------------ | -------------------------------------------------------- |
+| **320px**    | Texto legible, stats en 1 col, timeline left-aligned    |
+| **768px**    | Cards en 2 col, timeline centrado empieza              |
+| **1024px+**  | Cards en 3 col, timeline full centrado, parallax activo |
 
-**Herramientas**:
-
+**Herramientas:**
 - DevTools → Device Mode
-- Probar en móvil real si es posible
+- Probar en móvil real
 
-### 4.2 Checklist de Accesibilidad
+### 4.2 Checklist de Accesibilidad (20 min)
 
-- [ ] **Semántica**: `<nav>`, `<main>`, `<footer>`, headings ordenados
-- [ ] **Contraste**: Texto legible sobre fondos (ratio 4.5:1 mínimo)
-- [ ] **Navegación teclado**: Tab funciona en todos los enlaces
-- [ ] **Alt text**: Todas las imágenes tienen descripción
-- [ ] **Focus visible**: Se ve qué elemento está enfocado
+- [ ] **Contraste:** Verificar todos los textos (WebAIM)
+- [ ] **Headings:** Jerarquía h1 > h2 > h3 > h4 correcta
+- [ ] **Alt text:** (No hay imágenes de contenido aún - S4)
+- [ ] **Navegación teclado:** Tab funciona, skip-link presente
+- [ ] **Focus visible:** Se ve qué está enfocado
+- [ ] **Reduced motion:** Probar con preferencia activada
+- [ ] **Scroll progress:** Indicador funcionando
 
-### 4.3 Verificar imágenes
-
-- [ ] Cargan correctamente desde ImageKit
-- [ ] No son excesivamente pesadas
-- [ ] Tienen dimensiones apropiadas
+**Probar Reduced Motion:**
+```bash
+# macOS: System Preferences → Accessibility → Display → Reduce motion
+# Windows: Settings → Ease of Access → Display → Show animations
+# DevTools: Rendering → Emulate CSS media feature prefers-reduced-motion
+```
 
 ---
 
 ## Parte 5: Commit y Documentación (25 min)
 
-### Commit
+### 5.1 Commit
 
 ```bash
 git add .
-git commit -m "feat(s3): página multi-sección responsive
+git commit -m "feat(s3): personalizado portfolio scrollytelling
 
-- Header con navegación
-- Sección Hero
-- Galería de proyectos
-- Sección About
-- Footer con contacto y redes
-- Diseño responsive mobile-first"
+- Sistema de diseño: colores [primario] + fuentes [heading/body]
+- Hero: [tu nombre] + tagline personalizado
+- About: bio + stats ([N] años, [N] proyectos, [N] clientes)
+- Work: especialidades en [área1], [área2], [área3]
+- Timeline: proceso de [N] pasos documentado
+- Skills: herramientas digitales/tradicionales listadas
+- Testing: responsive 320px-1440px ✓
+- Accesibilidad: contraste WCAG AA verificado ✓"
 ```
 
-### Verificar GitHub Pages
+### 5.2 Verificar GitHub Pages
 
-Asegurar que el deploy refleja los cambios.
+Asegurar que el deploy muestra los cambios:
+- URL: `https://[tu-usuario].github.io/[tu-repo]/`
+- Scroll completo funcionando
+- Animaciones activas
 
 ---
 
 ## ✅ Checklist de Entregables S3
 
-- [ ] **Todas las secciones** implementadas (Hero, Work, About, Footer)
-- [ ] **Navegación** funcional con anclas
-- [ ] **Contenido real** (imágenes propias, textos redactados)
-- [ ] **Responsive** funcionando en móvil y desktop
-- [ ] **Semántica HTML** correcta
-- [ ] **1 commit** documentando el progreso
+- [ ] **Sistema de diseño personalizado** (colores + fuentes en _variables.css)
+- [ ] **Hero con contenido propio** (nombre, tagline)
+- [ ] **About con bio y stats** reales
+- [ ] **Work con especialidades** definidas
+- [ ] **Timeline con proceso** personal
+- [ ] **Skills con herramientas** que usas
+- [ ] **Responsive verificado** (320px, 768px, 1024px+)
+- [ ] **Accesibilidad comprobada** (contraste, headings, keyboard nav)
+- [ ] **1 commit significativo** con mensaje descriptivo
 
 ---
 
@@ -508,141 +555,21 @@ Asegurar que el deploy refleja los cambios.
 
 Cada estudiante debe tener:
 
-1. ✅ Sitio multi-sección **estructuralmente completo**
-2. ✅ Navegación funcional (anclas a secciones)
-3. ✅ Diseño adaptativo en móvil y escritorio
-4. ✅ Contenido personalizado integrado
+1. ✅ Portfolio scrollytelling **personalizado** con su identidad
+2. ✅ Todos los textos **reales** integrados (no placeholder)
+3. ✅ Sistema de colores **propio** aplicado
+4. ✅ Componentes funcionando en **todos los breakpoints**
 
 ---
 
-## 🎨 Prompt IA Master — Portfolio Completo
+## 🚀 Preparación para S4
 
-**Para estudiantes que prefieren un enfoque integrado:**
-
-**Metodología docs-first:**
-1. Guarda este prompt como `docs/prompt-portfolio-completo-s3.md`
-2. Envía el prompt completo a la IA
-3. La IA generará código + documentación + report
-4. Implementa los archivos generados
-5. Actualiza el documento con el report final
-
-```markdown
-Crea mi portfolio completo de ilustrador/a con TODOS mis contenidos preparados.
-
-## Contenidos Preparados
-
-**Sistema de Diseño:**
-- Tipografía Heading: [Nombre] (Google Fonts)
-- Tipografía Body: [Nombre] (Google Fonts)
-- Color Primario: #[hex]
-- Color Secundario: #[hex]
-- Color Fondo: #[hex]
-- Color Texto: #[hex]
-
-**Textos:**
-- Nombre/Logo: [Tu nombre]
-- Lema Hero: [Tu lema]
-- Bio: [Tu bio completa]
-- Statement: [Tu statement artístico]
-
-**Imágenes (URLs de ImageKit):**
-- Hero: [URL]
-- Proyectos:
-  1. [Proyecto 1 - URL + descripción breve]
-  2. [Proyecto 2 - URL + descripción breve]
-  3. [Proyecto 3 - URL + descripción breve]
-  ...
-- Foto personal: [URL] (opcional)
-
-**Contacto:**
-- Email: [email]
-- Instagram: [URL]
-- Behance: [URL]
-- Otras redes: [URLs]
-
-## Estructura Requerida
-
-**HTML Semántico:**
-```
-<header> con <nav>
-  └─ Logo/Nombre + enlaces (#work, #about, #contact)
-<main>
-  <section id="hero">
-    └─ Título + Lema + Imagen destacada + CTA
-  <section id="work">
-    └─ Grid responsive de proyectos (cards con imagen + título)
-  <section id="about">
-    └─ Foto + Bio + Statement
-<footer id="contact">
-  └─ Email + Redes sociales + Copyright
-```
-
-**Responsive:**
-- Mobile-first (320px base)
-- Breakpoints: 768px, 1024px, 1440px
-- Móvil: stack vertical, 1 columna
-- Tablet: 2 columnas en galería
-- Desktop: 3-4 columnas, navegación horizontal
-
-**Accesibilidad:**
-- Headings jerárquicos (h1 > h2 > h3)
-- Alt text descriptivo en TODAS las imágenes
-- Contraste WCAG AA (4.5:1 texto, 3:1 UI)
-- Navegación por teclado funcional
-- aria-label en iconos de redes
-
-**CSS:**
-- Variables CSS para colores y fuentes
-- Grid/Flexbox para layouts
-- Transiciones suaves en hover
-- Progressive enhancement
-
-## Entregables
-
-Genera 3 archivos:
-
-1. **index.html** — Estructura completa
-2. **theme.css** — Sistema de diseño + estilos
-3. **README.md** — Documentación del portfolio
-
-Documenta decisiones de diseño y próximos pasos para S4 (interactividad).
-
-## Report de Implementación Final
-
-Después de implementar todo el portfolio, documenta:
-
-### Archivos Generados
-- [ ] index.html — [líneas totales, secciones implementadas]
-- [ ] theme.css — [líneas totales, componentes CSS]
-- [ ] README.md — [documentación del proyecto]
-
-### Decisiones Clave de Arquitectura
-1. **Sistema de diseño:** [Variables CSS usadas, convenciones de naming]
-2. **Layout principal:** [Grid/Flexbox, estructura responsive]
-3. **Componentes creados:** [Cards, botones, navegación, etc.]
-
-### Testing Realizado
-- [ ] Responsive: 320px ✓ | 768px ✓ | 1024px ✓ | 1440px ✓
-- [ ] Accesibilidad: Contraste ✓ | Headings ✓ | Alt text ✓ | Teclado ✓
-- [ ] Performance: Imágenes optimizadas ✓ | CSS eficiente ✓
-- [ ] Navegación: Anclas funcionales ✓ | Smooth scroll ✓
-
-### Problemas Encontrados y Soluciones
-[Lista los issues que surgieron y cómo los resolviste]
-
-### Métricas Finales
-- Líneas HTML: [número]
-- Líneas CSS: [número]
-- Imágenes usadas: [número]
-- Secciones completadas: [Hero, Work, About, Footer]
-
-### Próximos Pasos para S4
-1. [Animaciones a añadir]
-2. [Interactividad pendiente]
-3. [Mejoras de UX detectadas]
-
-[La IA completará esta sección después de generar todo el código]
-```
+En la próxima sesión añadiremos:
+- **Imágenes** de tus proyectos (ImageKit)
+- **Galería** de trabajos
+- **Lightbox** para ver imágenes ampliadas
+- **Interacciones** adicionales
+- **Testing UX** con compañeros
 
 ---
 
@@ -651,20 +578,21 @@ Después de implementar todo el portfolio, documenta:
 ```markdown
 ## Reflexión S3
 
-### Estructura
+### Personalización
+1. ¿Tu portfolio refleja tu identidad visual?
+2. ¿Los colores elegidos comunican tu estilo?
 
-1. ¿Qué sección fue más difícil de maquetar?
-2. ¿Tu diseño refleja tu identidad como ilustrador/a?
+### Contenidos
+1. ¿Tu bio es clara y atractiva?
+2. ¿Las estadísticas representan bien tu experiencia?
 
-### Responsive
-
-1. ¿Qué ajustes tuviste que hacer para móvil?
-2. ¿Qué breakpoints usaste?
+### Experiencia Técnica
+1. ¿Fue fácil personalizar los componentes existentes?
+2. ¿Qué componente te gustó más y por qué?
 
 ### Preparación S4
-
-1. ¿Qué interacciones quieres añadir?
-2. ¿Qué mejorarías de la navegación?
+1. ¿Qué imágenes quieres destacar en la galería?
+2. ¿Qué interacciones adicionales te gustaría añadir?
 ```
 
 ---
@@ -675,7 +603,7 @@ Después de implementar todo el portfolio, documenta:
       ← Anterior: <a href="{{ '/tracks/es/ilustracion-webapp/s2-galerias-layouts-media/' | relative_url }}">S2: Galerías y layouts</a>
     </td>
     <td style="text-align: right;">
-      Siguiente →: <a href="{{ '/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/' | relative_url }}">S4: Interactividad y UX</a>
+      Siguiente →: <a href="{{ '/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/' | relative_url }}">S4: Galería e Interactividad</a>
     </td>
   </tr>
 </table>
