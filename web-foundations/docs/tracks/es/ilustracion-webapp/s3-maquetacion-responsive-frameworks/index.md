@@ -88,6 +88,13 @@ Si falta algún elemento, resolverlo en 5-10 minutos:
 
 ### Prompt IA — Integración de Sistema de Diseño
 
+**Metodología docs-first:**
+1. Guarda este prompt como `docs/prompt-sistema-diseno.md`
+2. Envía el prompt a la IA
+3. La IA generará el código Y un report de implementación
+4. Implementa el código generado
+5. Actualiza el document con el report al final
+
 ```markdown
 Integra mi sistema de diseño en el portfolio.
 
@@ -109,6 +116,18 @@ Integra mi sistema de diseño en el portfolio.
 5. Crea clases utilitarias: .text-primary, .bg-primary, etc.
 
 Genera el código CSS completo con variables y aplicación.
+
+## Report de Implementación
+
+Después de implementar, documenta:
+
+1. **Archivos modificados:** Lista qué archivos tocaste
+2. **Decisiones clave:** Justifica elecciones importantes
+3. **Problemas encontrados:** Documenta issues y soluciones
+4. **Testing realizado:** Contraste verificado, fuentes cargando, etc.
+5. **Próximos pasos:** Qué falta o mejorar
+
+[La IA completará esta sección después de generar el código]
 ```
 
 ---
@@ -193,6 +212,12 @@ Primera impresión del portfolio. Debe captar la esencia del estudiante.
 
 **Prompt IA — Sección Hero**:
 
+**Metodología docs-first:**
+1. Guarda este prompt como `docs/prompt-hero.md`
+2. Envía el prompt a la IA
+3. Implementa el código generado
+4. La IA actualizará el documento con el report
+
 ```markdown
 Crea la sección Hero de mi portfolio usando mis contenidos.
 
@@ -215,6 +240,18 @@ Crea la sección Hero de mi portfolio usando mis contenidos.
 - CTA con target mínimo 44px
 
 Genera HTML + CSS completo para la sección hero.
+
+## Report de Implementación
+
+Después de implementar, documenta en este mismo archivo:
+
+1. **Archivos modificados:** (ej. index.html líneas 20-45, style.css líneas 100-150)
+2. **Decisiones de diseño:** (ej. "Overlay rgba(0,0,0,0.4) para legibilidad", "CTA con color primario")
+3. **Problemas resueltos:** (ej. "Imagen no responsive → añadido max-width: 100%")
+4. **Accesibilidad verificada:** (ej. "Contraste 5.2:1 ✓", "Alt text descriptivo ✓")
+5. **Próximos pasos:** (ej. "Considerar parallax sutil en S4")
+
+[La IA completará esta sección]
 ```
 
 ### 3.3 Sección Proyectos/Galería (30 min)
@@ -243,6 +280,11 @@ Reutilizar la galería de S2 o crear grid nuevo.
 
 **Prompt IA — Galería de Proyectos**:
 
+**Metodología docs-first:**
+1. Guarda como `docs/prompt-galeria.md`
+2. Envía a la IA
+3. Implementa código + report
+
 ```markdown
 Crea la galería de proyectos usando mis ilustraciones.
 
@@ -267,6 +309,16 @@ Ejemplo:
 - Lightbox para ver imágenes ampliadas
 
 Genera HTML + CSS para la galería.
+
+## Report de Implementación
+
+1. **Archivos:** (ej. index.html sección #work, style.css .gallery-grid)
+2. **Grid configurado:** (ej. "1 col móvil, 2 tablet, 4 desktop con gap: 2rem")
+3. **Performance:** (ej. "Lazy loading añadido, imágenes optimizadas en ImageKit")
+4. **Hover effects:** (ej. "Scale 1.05 + overlay rgba con transition 0.3s")
+5. **Testing:** (ej. "Verificado en 320px, 768px, 1440px ✓")
+
+[La IA completará esta sección]
 ```
 
 ### 3.4 Sección Sobre Mí (15 min)
@@ -285,6 +337,11 @@ Tono personal que refleje la identidad del ilustrador.
 **Personalización**: Tipografía decorativa para el nombre, fondo con color de la paleta, etc.
 
 **Prompt IA — Sección Sobre Mí**:
+
+**Metodología docs-first:**
+1. Guarda como `docs/prompt-about.md`
+2. Envía a la IA
+3. Implementa código + report
 
 ```markdown
 Crea la sección "Sobre mí" con mis textos preparados.
@@ -307,6 +364,16 @@ Crea la sección "Sobre mí" con mis textos preparados.
 - Considera añadir lista de skills/herramientas (opcional)
 
 Genera HTML + CSS para la sección about.
+
+## Report de Implementación
+
+1. **Archivos:** (ej. index.html #about, style.css .about-section)
+2. **Layout:** (ej. "Grid 2 columnas desktop, stack móvil. Foto 40%, texto 60%")
+3. **Tipografía:** (ej. "Bio en body font 1.125rem, statement en blockquote italic")
+4. **Personalización:** (ej. "Fondo color secundario #f5f5f5, padding generoso")
+5. **Legibilidad:** (ej. "Line-height 1.7, max-width 65ch para texto")
+
+[La IA completará esta sección]
 ```
 
 ### 3.5 Footer/Contacto (15 min)
@@ -327,6 +394,11 @@ Genera HTML + CSS para la sección about.
 **Importante**: Usar `aria-label` en iconos de redes sociales.
 
 **Prompt IA — Footer con Contacto**:
+
+**Metodología docs-first:**
+1. Guarda como `docs/prompt-footer.md`
+2. Envía a la IA
+3. Implementa código + report
 
 ```markdown
 Crea el footer con información de contacto y redes sociales.
@@ -352,6 +424,16 @@ Crea el footer con información de contacto y redes sociales.
 - Touch targets de 44px+ en móvil
 
 Genera HTML + CSS para footer completo.
+
+## Report de Implementación
+
+1. **Archivos:** (ej. index.html <footer>, style.css footer styles)
+2. **Estructura:** (ej. "Email destacado, iconos sociales inline con gap, copyright")
+3. **Accesibilidad:** (ej. "aria-label en cada red: 'Sígueme en Instagram' ✓")
+4. **Links externos:** (ej. "target='_blank' rel='noopener noreferrer' ✓")
+5. **Responsive:** (ej. "Stack vertical en móvil, touch targets 48px ✓")
+
+[La IA completará esta sección]
 ```
 
 ---
@@ -437,6 +519,13 @@ Cada estudiante debe tener:
 
 **Para estudiantes que prefieren un enfoque integrado:**
 
+**Metodología docs-first:**
+1. Guarda este prompt como `docs/prompt-portfolio-completo-s3.md`
+2. Envía el prompt completo a la IA
+3. La IA generará código + documentación + report
+4. Implementa los archivos generados
+5. Actualiza el documento con el report final
+
 ```markdown
 Crea mi portfolio completo de ilustrador/a con TODOS mis contenidos preparados.
 
@@ -517,6 +606,42 @@ Genera 3 archivos:
 3. **README.md** — Documentación del portfolio
 
 Documenta decisiones de diseño y próximos pasos para S4 (interactividad).
+
+## Report de Implementación Final
+
+Después de implementar todo el portfolio, documenta:
+
+### Archivos Generados
+- [ ] index.html — [líneas totales, secciones implementadas]
+- [ ] theme.css — [líneas totales, componentes CSS]
+- [ ] README.md — [documentación del proyecto]
+
+### Decisiones Clave de Arquitectura
+1. **Sistema de diseño:** [Variables CSS usadas, convenciones de naming]
+2. **Layout principal:** [Grid/Flexbox, estructura responsive]
+3. **Componentes creados:** [Cards, botones, navegación, etc.]
+
+### Testing Realizado
+- [ ] Responsive: 320px ✓ | 768px ✓ | 1024px ✓ | 1440px ✓
+- [ ] Accesibilidad: Contraste ✓ | Headings ✓ | Alt text ✓ | Teclado ✓
+- [ ] Performance: Imágenes optimizadas ✓ | CSS eficiente ✓
+- [ ] Navegación: Anclas funcionales ✓ | Smooth scroll ✓
+
+### Problemas Encontrados y Soluciones
+[Lista los issues que surgieron y cómo los resolviste]
+
+### Métricas Finales
+- Líneas HTML: [número]
+- Líneas CSS: [número]
+- Imágenes usadas: [número]
+- Secciones completadas: [Hero, Work, About, Footer]
+
+### Próximos Pasos para S4
+1. [Animaciones a añadir]
+2. [Interactividad pendiente]
+3. [Mejoras de UX detectadas]
+
+[La IA completará esta sección después de generar todo el código]
 ```
 
 ---

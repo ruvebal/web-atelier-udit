@@ -100,6 +100,11 @@ document.querySelectorAll('.animate-on-scroll').forEach((el) => {
 
 **Prompt IA — Animaciones On-Scroll**:
 
+**Metodología docs-first:**
+1. Guarda como `docs/prompt-animaciones-scroll.md`
+2. Envía a la IA
+3. Implementa JavaScript + CSS + report
+
 ```markdown
 Implementa animaciones suaves al hacer scroll usando Intersection Observer.
 
@@ -124,6 +129,17 @@ Implementa animaciones suaves al hacer scroll usando Intersection Observer.
 4. Duración: 0.6s, easing: ease
 
 Genera JavaScript + CSS completo y comentado.
+
+## Report de Implementación
+
+1. **Archivos:** (ej. main.js líneas 1-50, style.css .animate-on-scroll)
+2. **Implementación:** (ej. "Intersection Observer con threshold 0.1")
+3. **Elementos animados:** (ej. "h2, .project-card, #about → 12 elementos total")
+4. **CSS transitions:** (ej. "opacity + translateY(30px), duration 0.6s ease")
+5. **Accesibilidad:** (ej. "prefers-reduced-motion detectado y respetado ✓")
+6. **Testing:** (ej. "Verificado en Chrome, Firefox, Safari ✓")
+
+[La IA completará esta sección]
 ```
 
 ### 1.2 Menú responsive (20 min)
@@ -177,6 +193,11 @@ menuToggle.addEventListener('click', () => {
 
 **Prompt IA — Menú Hamburguesa Responsive**:
 
+**Metodología docs-first:**
+1. Guarda como `docs/prompt-menu-hamburguesa.md`
+2. Envía a la IA
+3. Implementa HTML + CSS + JS + report
+
 ```markdown
 Implementa un menú hamburguesa funcional para móvil.
 
@@ -199,6 +220,17 @@ Implementa un menú hamburguesa funcional para móvil.
 4. Bloquear scroll de body cuando menú abierto
 
 Genera HTML + CSS + JavaScript completo.
+
+## Report de Implementación
+
+1. **Archivos:** (ej. index.html nav modificado, style.css media queries, main.js toggle)
+2. **Funcionalidad:** (ej. "Click toggle, ESC cierra, click en enlace cierra")
+3. **Breakpoint:** (ej. "Hamburguesa ≤768px, horizontal >768px")
+4. **Accesibilidad:** (ej. "aria-expanded actualizado, aria-label en botón ✓")
+5. **UX:** (ej. "Body scroll bloqueado cuando abierto, overlay añadido")
+6. **Testing:** (ej. "Probado en iPhone SE, iPad, desktop ✓")
+
+[La IA completará esta sección]
 ```
 
 ### 1.3 Extras opcionales (15 min)
@@ -234,6 +266,11 @@ html {
 
 **Prompt IA — Lightbox para Galería (Opcional)**:
 
+**Metodología docs-first:**
+1. Guarda como `docs/prompt-lightbox.md` (opcional)
+2. Envía a la IA
+3. Implementa + report
+
 ```markdown
 Crea un lightbox simple para ampliar imágenes de la galería.
 
@@ -257,6 +294,16 @@ Crea un lightbox simple para ampliar imágenes de la galería.
 - Bloquear scroll de body cuando abierto
 
 Genera HTML + CSS + JavaScript vanilla.
+
+## Report de Implementación (Opcional)
+
+1. **Archivos:** (ej. main.js lightbox class, style.css .lightbox-modal)
+2. **Estructura:** (ej. "Modal fixed con overlay + imagen centrada + botón X")
+3. **Navegación:** (ej. "Flechas prev/next, teclado ESC/Left/Right")
+4. **Accesibilidad:** (ej. "Focus trap, aria-hidden en contenido, role='dialog'")
+5. **Performance:** (ej. "Lazy load de imagen full-size al abrir")
+
+[La IA completará esta sección]
 ```
 
 ---
@@ -438,6 +485,13 @@ Cada estudiante prepara:
 
 **Para integrar todas las mejoras de S4:**
 
+**Metodología docs-first:**
+1. Guarda este prompt como `docs/prompt-portfolio-final-s4.md`
+2. Envía el prompt completo a la IA
+3. La IA generará código de interactividad + case study + report completo
+4. Implementa las mejoras generadas
+5. Actualiza el documento con el report final de lanzamiento
+
 ```markdown
 Añade interactividad profesional a mi portfolio completado en S3.
 
@@ -527,6 +581,70 @@ Ejemplo:
    - Próximos pasos
 
 Genera código comentado y listo para producción.
+
+## Report de Implementación Final — Lanzamiento
+
+Después de implementar todas las mejoras de S4:
+
+### Interactividad Implementada
+- [ ] Animaciones on-scroll: [número de elementos animados]
+- [ ] Menú hamburguesa: [funcional en móvil ✓]
+- [ ] Smooth scroll: [navegación fluida ✓]
+- [ ] Micro-interacciones: [hover effects, transitions]
+- [ ] Lightbox: [implementado / no necesario]
+
+### Mejoras de UX Aplicadas
+**Feedback del testing con compañeros:**
+1. [Issue 1] → [Solución implementada]
+2. [Issue 2] → [Solución implementada]
+3. [Issue 3] → [Solución implementada]
+
+### Métricas Finales
+**Performance:**
+- Lighthouse Performance: [score]
+- Lighthouse Accessibility: [score]
+- Lighthouse Best Practices: [score]
+- Lighthouse SEO: [score]
+- First Contentful Paint: [tiempo]
+- Total Blocking Time: [tiempo]
+
+**Código:**
+- Líneas JavaScript: [número]
+- Elementos interactivos: [número]
+- Event listeners: [número]
+- CSS animations/transitions: [número]
+
+### Testing Completo
+- [ ] Desktop (Chrome, Firefox, Safari): ✓
+- [ ] Tablet (iPad, Android): ✓
+- [ ] Mobile (iPhone, Android): ✓
+- [ ] Teclado: Tab navigation funciona ✓
+- [ ] Screen reader: [probado con VoiceOver/NVDA]
+- [ ] Reduced motion: Respetado ✓
+
+### Case Study Generado
+**Archivo:** `case-study-portfolio.md`
+
+**Contenido:**
+1. Objetivo del portfolio
+2. Inspiración y referencias de diseño
+3. Proceso de desarrollo (4 sesiones)
+4. Desafíos técnicos y soluciones
+5. Tecnologías y herramientas usadas
+6. Métricas de éxito alcanzadas
+7. Aprendizajes clave
+8. Próximas iteraciones
+
+### URL Final
+- GitHub Pages: [tu-url.github.io]
+- Repositorio: [github.com/tu-usuario/tu-repo]
+
+### Próximos Pasos (Futuro)
+1. [Mejora 1 - ej. añadir blog]
+2. [Mejora 2 - ej. proyectos con páginas detalle]
+3. [Mejora 3 - ej. formulario de contacto funcional]
+
+[La IA completará esta sección después de generar todo]
 ```
 
 ---
