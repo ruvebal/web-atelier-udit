@@ -24,7 +24,7 @@ tags: [ilustracion, portfolio, scrollytelling, vanilla-js, responsive, web-stand
 
 > **Documento Vivo:**
 > Esta especificación estará siempre disponible en:
-> [https://web-ateliers.github.io/web-foundations/tracks/es/ilustracion-webapp/portfolio-challenge/](https://web-ateliers.github.io/web-foundations/tracks/es/ilustracion-webapp/portfolio-challenge/)
+> [https://ruvebal.github.io/web-atelier-udit/tracks/es/ilustracion-webapp/portfolio-challenge/](https://ruvebal.github.io/web-atelier-udit/tracks/es/ilustracion-webapp/portfolio-challenge/)
 
 > **Sobre el uso de agentes de IA:**
 > **Toda interacción con asistentes de programación basados en IA (Cursor, GitHub Copilot, Claude, ChatGPT) debe seguir un enfoque en dos fases:**
@@ -125,7 +125,6 @@ Un **portfolio profesional de ilustración** con experiencia de scrollytelling q
 ### 3. Documentación
 
 - **README.md** con:
-
   - Enlace al despliegue **en la primera línea**
   - Descripción y propósito del proyecto
   - Stack tecnológico utilizado
@@ -136,12 +135,10 @@ Un **portfolio profesional de ilustración** con experiencia de scrollytelling q
 - **LICENSE** en la raíz (recomendada: [MIT](https://choosealicense.com/licenses/mit/))
 
 - **Política de uso de agentes de IA**: si utilizas asistentes de IA, incluye una sección clara en el README describiendo cuándo y cómo se ha usado la IA. **Crítico:** toda interacción con IA debe seguir un **flujo en dos fases**:
-
   1. **Fase 1: Planificación** — Solicitar a la IA un plan de desarrollo
   2. **Fase 2: Implementación** — Solo después de documentar el plan, pasar a código
 
 - **`docs/plan1.md, plan2.md, plan3.md...`**: para cada feature o tarea en la que uses IA, crea un archivo de plan independiente:
-
   - `docs/plan1.md` — Primera feature/tarea (ej. «Componente de navegación responsive»)
   - `docs/plan2.md` — Segunda feature/tarea (ej. «Galería con lightbox»)
   - `docs/plan3.md` — Tercera feature/tarea (ej. «Animaciones de scroll reveal»)
@@ -316,12 +313,12 @@ Referencia: [Ejemplo de Navegación](/student-project-template/docs/ejemplo-nave
 
 ```html
 <!-- Thumbnail en grid -->
-<img src="https://ik.imagekit.io/tu-id/proyecto1.jpg?tr=w-400,h-300,q-80,f-auto" 
-     alt="Descripción accesible del proyecto">
+<img
+	src="https://ik.imagekit.io/tu-id/proyecto1.jpg?tr=w-400,h-300,q-80,f-auto"
+	alt="Descripción accesible del proyecto" />
 
 <!-- Full-size para lightbox -->
-<img src="https://ik.imagekit.io/tu-id/proyecto1.jpg?tr=w-1200,q-85,f-auto" 
-     alt="Descripción accesible del proyecto">
+<img src="https://ik.imagekit.io/tu-id/proyecto1.jpg?tr=w-1200,q-85,f-auto" alt="Descripción accesible del proyecto" />
 ```
 
 #### 8. **Sección de Contacto**
@@ -437,7 +434,7 @@ Usa la plantilla en `/student-project-template/project-brief.md` y completa:
 
 ---
 
-## Rúbrica de evaluación
+## Rúbrica de evaluación (indicativa)
 
 Tu proyecto se evaluará tanto por la **excelencia técnica** (60 puntos) como por el **diseño y factores humanos** (40 puntos). Este equilibrio refleja que el desarrollo web profesional exige tanto una buena ingeniería como una experiencia de usuario cuidada.
 
@@ -622,7 +619,6 @@ Este proyecto se desarrolla durante las 4 sesiones del track, con apoyo del prof
 #### Tareas:
 
 1. **Preparación de contenidos** (CRÍTICO)
-
    - Completar `project-brief.md` al 100%
    - Definir paleta de colores y tipografías
    - Verificar contraste con WebAIM
@@ -631,27 +627,23 @@ Este proyecto se desarrolla durante las 4 sesiones del track, con apoyo del prof
    - Probar URLs de ImageKit con transformaciones
 
 2. **Configuración del repositorio**
-
    - Crear repositorio en GitHub con nombre claro
    - Inicializar con README
    - Crear `.gitignore`
    - Preparar entorno de desarrollo local
 
 3. **Estructura del proyecto**
-
    - Crear estructura de directorios (assets/css, assets/js, docs)
    - Montar `index.html` con esqueleto semántico
    - Crear página `404.html`
 
 4. **Arquitectura CSS**
-
    - Definir custom properties para colores, espaciado y tipografía
    - Crear reset/normalize CSS
    - Configurar estilos tipográficos base
    - Cargar Google Fonts
 
 5. **Despliegue inicial**
-
    - Configurar GitHub Pages
    - Desplegar la primera versión
    - Verificar que el despliegue funciona
@@ -667,13 +659,11 @@ Este proyecto se desarrolla durante las 4 sesiones del track, con apoyo del prof
 #### Tareas:
 
 1. **Sistema tipográfico fluido**
-
    - Implementar una escala tipográfica basada en `clamp()`
    - Probar la escala en distintos breakpoints
    - Garantizar legibilidad en todos los tamaños
 
 2. **HTML de secciones principales**
-
    - Construir sección hero con CTA
    - Crear la estructura de la sección About
    - Montar sección My Work (3 especialidades)
@@ -683,14 +673,12 @@ Este proyecto se desarrolla durante las 4 sesiones del track, con apoyo del prof
    - Crear el footer
 
 3. **Layout responsive**
-
    - Implementar CSS mobile-first
    - Añadir media queries para tablet y escritorio
    - Probar el layout en todos los breakpoints
    - Asegurar ausencia de scroll horizontal en móvil
 
 4. **Layouts con Grid/Flexbox**
-
    - CSS Grid para especialidades y skills
    - Flexbox para navegación y componentes más pequeños
    - Asegurar comportamiento intrínseco
@@ -706,7 +694,6 @@ Este proyecto se desarrolla durante las 4 sesiones del track, con apoyo del prof
 #### Tareas:
 
 1. **Navegación sticky responsive**
-
    - Implementar navegación con menú hamburguesa en móvil
    - Scroll suave a secciones
    - Indicación de estado activo
@@ -714,26 +701,22 @@ Este proyecto se desarrolla durante las 4 sesiones del track, con apoyo del prof
    - Usar ejemplo de navegación como referencia
 
 2. **Animaciones CSS**
-
    - Transiciones para estados hover (botones, cards, enlaces)
    - Animaciones con `@keyframes` para la entrada del hero
    - Efectos de parallax con CSS `transform`
 
 3. **JavaScript vanilla**
-
    - Toggle de menú responsive
    - Smooth scroll a secciones
    - Scroll reveal con Intersection Observer
    - Parallax con JavaScript
 
 4. **Accesibilidad del movimiento**
-
    - Implementar media query `prefers-reduced-motion`
    - Probar con la preferencia de movimiento reducida activada
    - Garantizar que la funcionalidad principal no depende de las animaciones
 
 5. **Pruebas de rendimiento**
-
    - Verificar que las animaciones corren a 60fps
    - Optimizar animaciones con _jank_
    - Asegurar rendimiento suave en móvil
@@ -749,7 +732,6 @@ Este proyecto se desarrolla durante las 4 sesiones del track, con apoyo del prof
 #### Tareas:
 
 1. **Galería de proyectos** (CRÍTICO)
-
    - Implementar grid responsive con CSS Grid
    - Integrar mínimo 6 proyectos con ImageKit
    - Lightbox funcional (opcional pero recomendado)
@@ -757,59 +739,50 @@ Este proyecto se desarrolla durante las 4 sesiones del track, con apoyo del prof
    - Alt text descriptivo en todas las imágenes
 
 2. **Implementación de metadatos**
-
    - Completar todas las etiquetas meta en `<head>`
    - Crear imagen Open Graph (1200×630px)
    - Configurar etiquetas Twitter Card
    - Añadir meta theme-color
 
 3. **Favicon e identidad visual**
-
    - Diseñar y generar paquete de favicon (múltiples tamaños)
    - Crear `manifest.json` (opcional)
    - Asegurar identidad visual consistente en todas las secciones
 
 4. **Implementación de tendencias de diseño**
-
    - Escoger e implementar 2–3 tendencias modernas
    - Glassmorphism, parallax, gradientes, etc.
    - Asegurarse de que las tendencias suman y no distraen
 
 5. **Revisión completa con checklist**
-
    - Pasar por toda la checklist de pre‑entrega
    - Corregir cualquier problema detectado
    - Documentar limitaciones conocidas
 
 6. **Pase de calidad de código**
-
    - Ejecutar Prettier en todos los archivos
    - Ejecutar ESLint y corregir issues
    - Eliminar `console.log` y código comentado
    - Verificar que los comentarios restantes son útiles
 
 7. **Pruebas cross‑browser**
-
    - Probar en Chrome, Firefox, Safari, Edge
    - Móvil: Safari en iOS y Chrome en Android
    - Corregir problemas específicos de cada navegador
 
 8. **Optimización de rendimiento**
-
    - Verificar optimización de imágenes con ImageKit
    - Minificar CSS y JS (opcional)
    - Medir velocidad de carga con DevTools
    - Objetivo: < 3 segundos en 3G
 
 9. **Documentación final**
-
    - Actualizar README con detalles finales
    - Añadir capturas de pantalla o GIF de demo
    - Documentar instrucciones con claridad
    - Añadir información de licencia
 
 10. **Control de versiones y entrega**
-
     - Commit final con mensaje «Release v1.0.0»
     - Crear tag: `git tag -a v1.0.0 -m "Final submission"`
     - Hacer push del tag: `git push origin v1.0.0`
@@ -824,7 +797,6 @@ Este proyecto se desarrolla durante las 4 sesiones del track, con apoyo del prof
 ### Cuando estés listo para entregar:
 
 1. **Verifica el despliegue**
-
    - Confirma que el sitio está en vivo en tu URL de GitHub Pages
    - Prueba en modo incógnito/privado para evitar problemas de caché
    - Revisa la consola por errores
@@ -837,7 +809,6 @@ git push origin v1.0.0
 ```
 
 3. **Crea la GitHub Release**
-
    - Ve al repositorio en GitHub
    - Haz clic en «Releases» → «Create a new release»
    - Elige el tag `v1.0.0`
@@ -846,7 +817,6 @@ git push origin v1.0.0
    - Publica la release
 
 4. **Confirmación de entrega**
-
    - Verifica que tu GitHub Release es pública
    - Asegúrate de que el README tiene el enlace de despliegue bien visible arriba
    - Revisa por última vez toda la checklist
