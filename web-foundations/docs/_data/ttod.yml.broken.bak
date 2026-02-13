@@ -275,7 +275,7 @@ sections:
      - http
      - protocols
 
-  - id:: ux
+  - id: ux
     prefix: ux
     name: 'User Experience'
     icon: '✨'
@@ -287,7 +287,7 @@ sections:
      - navigation
      - emotion
 
-  - id:: code-craft
+  - id: code-craft
     prefix: cc
     name: 'Code Craft'
     icon: '🛠️'
@@ -299,7 +299,7 @@ sections:
      - refactoring
      - patterns
 
-  - id:: wisdom
+  - id: wisdom
     prefix: wis
     name: 'Wisdom'
     icon: '🧠'
@@ -311,7 +311,7 @@ sections:
      - teaching
      - philosophy
 
-  - id:: devops
+  - id: devops
     prefix: dop
     name: 'DevOps'
     icon: '📦'
@@ -323,7 +323,7 @@ sections:
      - pipelines
      - infrastructure
 
-  - id:: general
+  - id: general
     prefix: gen
     name: 'General Wisdom'
     icon: '🧘'
@@ -334,7 +334,7 @@ sections:
      - mindset
      - collaboration
 
-  - id:: architecture
+  - id: architecture
     prefix: arch
     name: 'Architecture & Modularization'
     icon: '🏛️'
@@ -351,7 +351,7 @@ sections:
      - fractals
      - entropy
 
-  - id:: remote-repo
+  - id: remote-repo
     prefix: rrp
     name: 'Remote Repository Processing'
     icon: '☁️'
@@ -364,174 +364,174 @@ sections:
      - automation
      - philosophy
 
- # Controlled vocabulary for tags (improves consistency)
- tag_taxonomy:
+# Controlled vocabulary for tags (improves consistency)
+tag_taxonomy:
   technical:
-   - optimization
-   - compression
-   - formats
-   - svg
-   - png
-   - jpg
-   - webp
-   - gif
-   - responsive
-   - lazy-loading
-   - srcset
-   - alt-text
-   - data-uri
-   - cdn
-   - caching
-   - performance
-   - dns
-   - http
-   - ci-cd
-   - automation
-   - testing
-   - documentation
-   - versioning
-   - devtools
+    - optimization
+    - compression
+    - formats
+    - svg
+    - png
+    - jpg
+    - webp
+    - gif
+    - responsive
+    - lazy-loading
+    - srcset
+    - alt-text
+    - data-uri
+    - cdn
+    - caching
+    - performance
+    - dns
+    - http
+    - ci-cd
+    - automation
+    - testing
+    - documentation
+    - versioning
+    - devtools
   conceptual:
-   - philosophy
-   - balance
-   - purpose
-   - meaning
-   - identity
-   - journey
-   - learning
-   - teaching
-   - wisdom
-   - reflection
-   - contemplation
-   - paradox
-   - koan
-   - laws
-   - ethics
-   - accessibility
-   - empathy
-   - compassion
+    - philosophy
+    - balance
+    - purpose
+    - meaning
+    - identity
+    - journey
+    - learning
+    - teaching
+    - wisdom
+    - reflection
+    - contemplation
+    - paradox
+    - koan
+    - laws
+    - ethics
+    - accessibility
+    - empathy
+    - compassion
   pedagogical:
-   - beginner-friendly
-   - featured
-   - humor
-   - teaching
-   - grading
-   - assessment
+    - beginner-friendly
+    - featured
+    - humor
+    - teaching
+    - grading
+    - assessment
   source:
-   - tao-of-web-images
-   - web-qa-toolkit
-   - ops-chapter
-   - debugging-chapter
-   - networking-chapter
-   - ux-chapter
-   - code-craft-chapter
-   - wisdom-chapter
-   - qa-chapter
-   - devops-chapter
+    - tao-of-web-images
+    - web-qa-toolkit
+    - ops-chapter
+    - debugging-chapter
+    - networking-chapter
+    - ux-chapter
+    - code-craft-chapter
+    - wisdom-chapter
+    - qa-chapter
+    - devops-chapter
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # VISUALIZATION SCHEMA (for 3D/Network Graphs)
 # ═══════════════════════════════════════════════════════════════════════════════
 visualization:
- description: 'Schema for rendering TTOD as interactive 3D knowledge graph'
+  description: 'Schema for rendering TTOD as interactive 3D knowledge graph'
 
- # Node positioning strategy
- layout:
-  algorithm: 'force-directed-3d' # Three.js + d3-force-3d
-  clustering: 'section' # Primary cluster by section
-  z_axis: 'level' # Z-depth by mastery level
-  node_size: 'connection_count' # Size by relationships
+  # Node positioning strategy
+  layout:
+    algorithm: 'force-directed-3d' # Three.js + d3-force-3d
+    clustering: 'section' # Primary cluster by section
+    z_axis: 'level' # Z-depth by mastery level
+    node_size: 'connection_count' # Size by relationships
 
- # Color encoding
- encoding:
-  node_color: 'section'
-  node_opacity: 'level_weight'
-  edge_color: 'relationship_type'
-  edge_width: 'strength'
+  # Color encoding
+  encoding:
+    node_color: 'section'
+    node_opacity: 'level_weight'
+    edge_color: 'relationship_type'
+    edge_width: 'strength'
 
- # Relationship types for edges
- relationship_types:
-  - id: 'same_subsection'
-    label: 'Same Topic'
-    color: '#94a3b8'
-    strength: 0.8
-  - id: 'same_lesson'
-    label: 'Same Lesson'
-    color: '#60a5fa'
-    strength: 0.9
-  - id: 'semantic_link'
-    label: 'Related Concept'
-    color: '#34d399'
-    strength: 0.5
-  - id: 'progression'
-    label: 'Learning Path'
-    color: '#fbbf24'
-    strength: 0.7
-  - id: 'contrast'
-    label: 'Opposing View'
-    color: '#f87171'
-    strength: 0.4
+  # Relationship types for edges
+  relationship_types:
+    - id: 'same_subsection'
+      label: 'Same Topic'
+      color: '#94a3b8'
+      strength: 0.8
+    - id: 'same_lesson'
+      label: 'Same Lesson'
+      color: '#60a5fa'
+      strength: 0.9
+    - id: 'semantic_link'
+      label: 'Related Concept'
+      color: '#34d399'
+      strength: 0.5
+    - id: 'progression'
+      label: 'Learning Path'
+      color: '#fbbf24'
+      strength: 0.7
+    - id: 'contrast'
+      label: 'Opposing View'
+      color: '#f87171'
+      strength: 0.4
 
- # Export formats for visualization tools
- export_formats:
-  - json_graph # D3.js compatible
-  - gexf # Gephi
-  - graphml # yEd, Cytoscape
-  - csv_edges # Spreadsheet analysis
+  # Export formats for visualization tools
+  export_formats:
+    - json_graph # D3.js compatible
+    - gexf # Gephi
+    - graphml # yEd, Cytoscape
+    - csv_edges # Spreadsheet analysis
 
- # 3D rendering options
- three_js_options:
-  camera_distance: 1500
-  fog_near: 1000
-  fog_far: 3000
-  particle_size: 8
-  link_opacity: 0.3
-  bloom_enabled: true
-  bloom_strength: 0.5
+  # 3D rendering options
+  three_js_options:
+    camera_distance: 1500
+    fog_near: 1000
+    fog_far: 3000
+    particle_size: 8
+    link_opacity: 0.3
+    bloom_enabled: true
+    bloom_strength: 0.5
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STATISTICS (auto-generate from quotes for dashboards)
 # ═══════════════════════════════════════════════════════════════════════════════
 statistics:
- by_section:
-  images: 73
-  qa-tooling: 16
-  architecture: 27
-  operations: 1
-  debugging: 5
-  networking: 1
-  ux: 4
-  code-craft: 32
-  wisdom: 13
-  devops: 2
-  javascript: 1
-  accessibility: 1
-  css: 0
-  html: 0
-  performance: 0
-  git: 0
-  general: 0
+  by_section:
+    images: 73
+    qa-tooling: 16
+    architecture: 27
+    operations: 1
+    debugging: 5
+    networking: 1
+    ux: 4
+    code-craft: 32
+    wisdom: 13
+    devops: 2
+    javascript: 1
+    accessibility: 1
+    css: 0
+    html: 0
+    performance: 0
+    git: 0
+    general: 0
 
- by_level:
-  beginner: 46
-  intermediate: 58
-  advanced: 36
-  master: 36
+  by_level:
+    beginner: 46
+    intermediate: 58
+    advanced: 36
+    master: 36
 
- by_source:
-  original: 28
-  tao-of-web-images: 45
-  web-qa-toolkit: 15
-  chapter-quotes: 8
-  modularization-chapter: 12
-  naming-chapter: 4
-  legal-pages-implementation: 18
-  ai-route-implementation-guide: 12
+  by_source:
+    original: 28
+    tao-of-web-images: 45
+    web-qa-toolkit: 15
+    chapter-quotes: 8
+    modularization-chapter: 12
+    naming-chapter: 4
+    legal-pages-implementation: 18
+    ai-route-implementation-guide: 12
 
- coverage:
-  sections_populated: 11
-  sections_total: 16
-  coverage_percent: 68.75
+  coverage:
+    sections_populated: 11
+    sections_total: 16
+    coverage_percent: 68.75
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # QUOTES DATABASE
@@ -2235,268 +2235,268 @@ quotes:
    chapter: 'Data Operations Chapter'
    related: [cc-019, wis-013, dop-001]
 
-- id: cc-021
-  text: '"Drop and reimport" is not evil, but it is a ritual, not a routine. Use it where consequences are acceptable (DEV/STG). In PROD, prefer incremental convergence + optional prune.'
-  section: code-craft
-  subsection: patterns
-  level: intermediate
-  tags: [codecraft, migration, drop-reimport, incremental, convergence, patterns]
-  teaches: '"Drop and reimport" is a ritual, not a routine. Use it where consequences are acceptable. In PROD, prefer incremental convergence. Backup, then pour slow.'
-  chapter: 'Data Operations Chapter'
-  related: [cc-016, cc-017, cc-020]
+ - id: cc-021
+   text: '"Drop and reimport" is not evil, but it is a ritual, not a routine. Use it where consequences are acceptable (DEV/STG). In PROD, prefer incremental convergence + optional prune.'
+   section: code-craft
+   subsection: patterns
+   level: intermediate
+   tags: [codecraft, migration, drop-reimport, incremental, convergence, patterns]
+   teaches: '"Drop and reimport" is a ritual, not a routine. Use it where consequences are acceptable. In PROD, prefer incremental convergence. Backup, then pour slow.'
+   chapter: 'Data Operations Chapter'
+   related: [cc-016, cc-017, cc-020]
 
-- id: cc-022
-  text: 'The pot once emptied, Must be filled without a spill, Backup, then pour slow.'
-  section: code-craft
-  subsection: patterns
-  level: beginner
-  tags: [codecraft, migration, backup, haiku, poetry, safety, patterns]
-  teaches: 'Migration requires care. The pot once emptied must be filled without a spill. Backup first, then pour slow. Incremental convergence beats reckless replacement.'
-  chapter: 'Data Operations Chapter'
-  related: [cc-021, cc-017]
+ - id: cc-022
+   text: 'The pot once emptied, Must be filled without a spill, Backup, then pour slow.'
+   section: code-craft
+   subsection: patterns
+   level: beginner
+   tags: [codecraft, migration, backup, haiku, poetry, safety, patterns]
+   teaches: 'Migration requires care. The pot once emptied must be filled without a spill. Backup first, then pour slow. Incremental convergence beats reckless replacement.'
+   chapter: 'Data Operations Chapter'
+   related: [cc-021, cc-017]
 
-- id: cc-023
-  text: "Name your repository 'Project' and it shall be deleted with the same indifference you showed when naming it."
-  section: code-craft
-  subsection: naming
-  level: beginner
-  tags: [naming, git, humor, anti-pattern]
-  teaches: 'Generic names lead to lost projects and lost grades'
-  show_when: 'Student names repo "project", "my-website", or "folder"'
+ - id: cc-023
+   text: "Name your repository 'Project' and it shall be deleted with the same indifference you showed when naming it."
+   section: code-craft
+   subsection: naming
+   level: beginner
+   tags: [naming, git, humor, anti-pattern]
+   teaches: 'Generic names lead to lost projects and lost grades'
+   show_when: 'Student names repo "project", "my-website", or "folder"'
 
-- id: cc-024
-  text: "CamelCase in URLs is like wearing a tuxedo to a mud wrestling match. You think you look fancy, but you are just going to get dirty."
-  section: code-craft
-  subsection: naming
-  level: beginner
-  tags: [naming, conventions, humor]
-  teaches: 'URLs and file systems prefer kebab-case; case sensitivity is a trap'
-  related: [cc-028]
+ - id: cc-024
+   text: "CamelCase in URLs is like wearing a tuxedo to a mud wrestling match. You think you look fancy, but you are just going to get dirty."
+   section: code-craft
+   subsection: naming
+   level: beginner
+   tags: [naming, conventions, humor]
+   teaches: 'URLs and file systems prefer kebab-case; case sensitivity is a trap'
+   related: [cc-028]
 
-- id: cc-025
-  text: "You put an 'ñ' in the URL. The browser smiled, the server cried, and the git remote simply ceased to exist."
-  section: code-craft
-  subsection: naming
-  level: beginner
-  tags: [naming, encoding, urls, disaster]
-  teaches: 'Special characters in filenames are a ticking time bomb'
-  show_when: 'Student uses non-ASCII characters in filenames'
+ - id: cc-025
+   text: "You put an 'ñ' in the URL. The browser smiled, the server cried, and the git remote simply ceased to exist."
+   section: code-craft
+   subsection: naming
+   level: beginner
+   tags: [naming, encoding, urls, disaster]
+   teaches: 'Special characters in filenames are a ticking time bomb'
+   show_when: 'Student uses non-ASCII characters in filenames'
 
-- id: cc-026
-  text: "Your repository is named 'assignment-1_x7z9'. Are you a human or a captcha? The grader is unsure."
-  section: code-craft
-  subsection: naming
-  level: intermediate
-  tags: [naming, clarity, humor, identity]
-  teaches: 'Avoid auto-generated or cryptic suffixes'
+ - id: cc-026
+   text: "Your repository is named 'assignment-1_x7z9'. Are you a human or a captcha? The grader is unsure."
+   section: code-craft
+   subsection: naming
+   level: intermediate
+   tags: [naming, clarity, humor, identity]
+   teaches: 'Avoid auto-generated or cryptic suffixes'
 
-- id: cc-027
-  text: "User 'dark_killer_69' pushes code. The hiring manager pulls code. The hiring manager deletes the resume. The circle of life continues."
-  section: code-craft
-  subsection: naming
-  level: beginner
-  tags: [identity, professionalism, career, humor]
-  teaches: 'Your username is your first impression'
-  show_when: 'Student uses unprofessional handles'
+ - id: cc-027
+   text: "User 'dark_killer_69' pushes code. The hiring manager pulls code. The hiring manager deletes the resume. The circle of life continues."
+   section: code-craft
+   subsection: naming
+   level: beginner
+   tags: [identity, professionalism, career, humor]
+   teaches: 'Your username is your first impression'
+   show_when: 'Student uses unprofessional handles'
 
-- id: cc-028
-  text: "Use a space in a filename, and the command line will treat your file as two strangers passing in the night."
-  section: code-craft
-  subsection: naming
-  level: beginner
-  tags: [cli, naming, bash, suffering]
-  teaches: 'Spaces in filenames break scripts and command line arguments'
-  related: [cc-024]
+ - id: cc-028
+   text: "Use a space in a filename, and the command line will treat your file as two strangers passing in the night."
+   section: code-craft
+   subsection: naming
+   level: beginner
+   tags: [cli, naming, bash, suffering]
+   teaches: 'Spaces in filenames break scripts and command line arguments'
+   related: [cc-024]
 
-- id: cc-029
-  text: "You named the variable 'data'. I assume the function is named 'doThings'. We shall bury them together in the graveyard of ambiguity."
-  section: code-craft
-  subsection: naming
-  level: intermediate
-  tags: [naming, variables, ambiguity, clean-code]
-  teaches: 'Vague naming is effectively no naming at all'
+ - id: cc-029
+   text: "You named the variable 'data'. I assume the function is named 'doThings'. We shall bury them together in the graveyard of ambiguity."
+   section: code-craft
+   subsection: naming
+   level: intermediate
+   tags: [naming, variables, ambiguity, clean-code]
+   teaches: 'Vague naming is effectively no naming at all'
 
-- id: cc-030
-  text: "A repository without a clear name is like a tombstone without an inscription. We know something is buried there, but we don't care who it was."
-  section: code-craft
-  subsection: naming
-  level: intermediate
-  tags: [naming, documentation, morbidity]
-  teaches: 'Descriptive names prevent project obsolescence'
+ - id: cc-030
+   text: "A repository without a clear name is like a tombstone without an inscription. We know something is buried there, but we don't care who it was."
+   section: code-craft
+   subsection: naming
+   level: intermediate
+   tags: [naming, documentation, morbidity]
+   teaches: 'Descriptive names prevent project obsolescence'
 
-- id: cc-031
-  text: "Inconsistent casing is not a style. It is a ransom note written by a psychopath."
-  section: code-craft
-  subsection: naming
-  level: beginner
-  tags: [consistency, naming, discipline, humor]
-  teaches: 'Pick one convention and stick to it or perish'
+ - id: cc-031
+   text: "Inconsistent casing is not a style. It is a ransom note written by a psychopath."
+   section: code-craft
+   subsection: naming
+   level: beginner
+   tags: [consistency, naming, discipline, humor]
+   teaches: 'Pick one convention and stick to it or perish'
 
-- id: cc-032
-  text: "'Final_Final_v2' implies you have looked into the future and were wrong. Twice."
-  section: code-craft
-  subsection: versioning
-  level: beginner
-  tags: [git, versioning, sarcasm, anti-pattern]
-  teaches: 'Git tags exist so you stop renaming files like a hoarder'
-  show_when: 'Student uses "final" in filenames'
+ - id: cc-032
+   text: "'Final_Final_v2' implies you have looked into the future and were wrong. Twice."
+   section: code-craft
+   subsection: versioning
+   level: beginner
+   tags: [git, versioning, sarcasm, anti-pattern]
+   teaches: 'Git tags exist so you stop renaming files like a hoarder'
+   show_when: 'Student uses "final" in filenames'
 
-- id: dbg-005
-  text: 'The debugger who debugs wisely, debugs only once; for each bug fixed in understanding will not return in code.'
-  section: debugging
-  subsection: mindset
-  level: master
-  tags: [debugging, understanding, learning, philosophy, featured]
-  teaches: 'Do not just fix bugs—understand them. Every bug reveals a gap in understanding. Fill the gap, and the bug will not return. Debugging is not about fixing code—it is about fixing understanding.'
-  chapter: 'Route Implementation Chapter'
-  source: ai-route-implementation-guide
-  related: [dbg-004, wis-001, dbg-002]
+ - id: dbg-005
+   text: 'The debugger who debugs wisely, debugs only once; for each bug fixed in understanding will not return in code.'
+   section: debugging
+   subsection: mindset
+   level: master
+   tags: [debugging, understanding, learning, philosophy, featured]
+   teaches: 'Do not just fix bugs—understand them. Every bug reveals a gap in understanding. Fill the gap, and the bug will not return. Debugging is not about fixing code—it is about fixing understanding.'
+   chapter: 'Route Implementation Chapter'
+   source: ai-route-implementation-guide
+   related: [dbg-004, wis-001, dbg-002]
 
-- id: ux-004
-  text: 'The master teaches by example, not by perfection.'
-  section: ux
-  subsection: philosophy
-  level: master
-  tags: [ux, teaching, example, philosophy, featured]
-  teaches: 'Documentation is a living document, born from real implementation experience. It evolves as new patterns emerge. The master teaches through working examples, not theoretical perfection.'
-  chapter: 'Route Implementation Chapter'
-  source: ai-route-implementation-guide
-  related: [wis-001, cc-001, arch-014]
+ - id: ux-004
+   text: 'The master teaches by example, not by perfection.'
+   section: ux
+   subsection: philosophy
+   level: master
+   tags: [ux, teaching, example, philosophy, featured]
+   teaches: 'Documentation is a living document, born from real implementation experience. It evolves as new patterns emerge. The master teaches through working examples, not theoretical perfection.'
+   chapter: 'Route Implementation Chapter'
+   source: ai-route-implementation-guide
+   related: [wis-001, cc-001, arch-014]
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # COLLECTIONS (Curated sets for specific purposes)
 # ═══════════════════════════════════════════════════════════════════════════════
 
 collections:
- daily_wisdom:
-  name: 'Quote of the Day'
-  description: 'Featured quotes suitable for daily display'
-  filter: "tags contains 'featured'"
-  count: 12
+  daily_wisdom:
+    name: 'Quote of the Day'
+    description: 'Featured quotes suitable for daily display'
+    filter: "tags contains 'featured'"
+    count: 12
 
- first_class:
-  name: 'First Class Quotes'
-  description: 'Best quotes to show in the first class of a unit'
-  ids: [img-001, img-004, img-009, img-023, qa-001, cc-001]
+  first_class:
+    name: 'First Class Quotes'
+    description: 'Best quotes to show in the first class of a unit'
+    ids: [img-001, img-004, img-009, img-023, qa-001, cc-001]
 
- humor:
-  name: 'Lighter Moments'
-  description: 'Quotes with humor for engagement'
-  filter: "tags contains 'humor'"
-  count: 14
+  humor:
+    name: 'Lighter Moments'
+    description: 'Quotes with humor for engagement'
+    filter: "tags contains 'humor'"
+    count: 14
 
- assessment:
-  name: 'Grading Context'
-  description: 'Quotes relevant to assessment feedback'
-  ids: [img-011, img-025, img-006, img-008, qa-012]
+  assessment:
+    name: 'Grading Context'
+    description: 'Quotes relevant to assessment feedback'
+    ids: [img-011, img-025, img-006, img-008, qa-012]
 
- masters_path:
-  name: "The Master's Path"
-  description: 'Quotes at master level for advanced practitioners'
-  filter: "level == 'master'"
-  count: 12
+  masters_path:
+    name: "The Master's Path"
+    description: 'Quotes at master level for advanced practitioners'
+    filter: "level == 'master'"
+    count: 12
 
- accessibility_awareness:
-  name: 'Accessibility Awareness'
-  description: 'All quotes related to inclusive design'
-  filter: "tags contains 'accessibility' or tags contains 'alt-text'"
-  count: 10
+  accessibility_awareness:
+    name: 'Accessibility Awareness'
+    description: 'All quotes related to inclusive design'
+    filter: "tags contains 'accessibility' or tags contains 'alt-text'"
+    count: 10
 
- performance_critical:
-  name: 'Performance Critical'
-  description: 'Quotes about optimization and speed'
-  filter: "tags contains 'performance' or tags contains 'optimization'"
-  count: 18
+  performance_critical:
+    name: 'Performance Critical'
+    description: 'Quotes about optimization and speed'
+    filter: "tags contains 'performance' or tags contains 'optimization'"
+    count: 18
 
- chapter_quotes:
-  name: 'Chapter Quotes'
-  description: 'One-liner wisdom from each chapter'
-  ids: [ops-001, dbg-001, net-001, ux-001, cc-001, wis-001, qa-016, dop-001, arch-001]
+  chapter_quotes:
+    name: 'Chapter Quotes'
+    description: 'One-liner wisdom from each chapter'
+    ids: [ops-001, dbg-001, net-001, ux-001, cc-001, wis-001, qa-016, dop-001, arch-001]
 
- architecture_wisdom:
-  name: 'Architecture & Modularization'
-  description: 'Wisdom for structuring systems and knowing when to split'
-  filter: "section == 'architecture'"
-  count: 12
+  architecture_wisdom:
+    name: 'Architecture & Modularization'
+    description: 'Wisdom for structuring systems and knowing when to split'
+    filter: "section == 'architecture'"
+    count: 12
 
- fractal_dilemma:
-  name: 'The Fractal Dilemma'
-  description: 'Quotes addressing the eternal question: Am I abstracting too much?'
-  ids: [arch-002, arch-003, arch-012, arch-010]
+  fractal_dilemma:
+    name: 'The Fractal Dilemma'
+    description: 'Quotes addressing the eternal question: Am I abstracting too much?'
+    ids: [arch-002, arch-003, arch-012, arch-010]
 
- naming_things:
-  name: 'The Art of Naming'
-  description: 'Koans for the eternal struggle of naming things'
-  ids: [cc-002, cc-003, cc-004, cc-005]
+  naming_things:
+    name: 'The Art of Naming'
+    description: 'Koans for the eternal struggle of naming things'
+    ids: [cc-002, cc-003, cc-004, cc-005]
 
- six_pillars:
-  name: 'The Six Pillars of Development Enlightenment'
-  description: 'Wisdom from bug fixes: Identity, Simplicity, Context, Space, Completeness, Discernment'
-  ids: [arch-015, arch-016, arch-017, arch-018, arch-019, arch-020]
+  six_pillars:
+    name: 'The Six Pillars of Development Enlightenment'
+    description: 'Wisdom from bug fixes: Identity, Simplicity, Context, Space, Completeness, Discernment'
+    ids: [arch-015, arch-016, arch-017, arch-018, arch-019, arch-020]
 
   legal_pages_wisdom:
-   name: 'Legal Pages Implementation Wisdom'
-   description: 'Lessons learned from implementing legal pages: debugging, simplicity, and design philosophy'
-   filter: "source == 'legal-pages-implementation' or tags contains 'legal-pages'"
-   count: 18
+    name: 'Legal Pages Implementation Wisdom'
+    description: 'Lessons learned from implementing legal pages: debugging, simplicity, and design philosophy'
+    filter: "source == 'legal-pages-implementation' or tags contains 'legal-pages'"
+    count: 18
 
   ai_route_wisdom:
-   name: 'AI Route Implementation Wisdom'
-   description: 'Core principles and patterns from route implementation: BWU, simplicity, identity, and architecture'
-   filter: "source == 'ai-route-implementation-guide' or tags contains 'bwu' or tags contains 'route-implementation'"
-   count: 12
+    name: 'AI Route Implementation Wisdom'
+    description: 'Core principles and patterns from route implementation: BWU, simplicity, identity, and architecture'
+    filter: "source == 'ai-route-implementation-guide' or tags contains 'bwu' or tags contains 'route-implementation'"
+    count: 12
 
   bwu_principle:
-   name: 'Build Write Understand (BWU) Principle'
-   description: 'The three stages of code enlightenment: Build (功), Write (文), Understand (悟)'
-   ids: [wis-007, wis-008, cc-011]
+    name: 'Build Write Understand (BWU) Principle'
+    description: 'The three stages of code enlightenment: Build (功), Write (文), Understand (悟)'
+    ids: [wis-007, wis-008, cc-011]
 
   data_formatting_wisdom:
-   name: 'Data Formatting Wisdom'
-   description: 'The art of human-readable data: indentation, spaces, tabs, and the balance between machine and human'
-   ids: [cc-012, cc-013, cc-014]
+    name: 'Data Formatting Wisdom'
+    description: 'The art of human-readable data: indentation, spaces, tabs, and the balance between machine and human'
+    ids: [cc-012, cc-013, cc-014]
 
   koans_collection:
-   name: 'The Koans'
-   description: 'Paradoxical wisdom in question-answer form'
-   filter: "tags contains 'koan' or koan"
-   ids: [cc-002, cc-003, cc-004, cc-005, cc-012, cc-015]
+    name: 'The Koans'
+    description: 'Paradoxical wisdom in question-answer form'
+    filter: "tags contains 'koan' or koan"
+    ids: [cc-002, cc-003, cc-004, cc-005, cc-012, cc-015]
 
   non_destructive_operations:
-   name: 'Non-Destructive by Default'
-   description: 'Wisdom about preferring upserts over deletions, growth over destruction'
-   filter: "tags contains 'non-destructive' or tags contains 'upsert'"
-   ids: [cc-015, cc-016, cc-017, cc-018, wis-009, wis-010]
+    name: 'Non-Destructive by Default'
+    description: 'Wisdom about preferring upserts over deletions, growth over destruction'
+    filter: "tags contains 'non-destructive' or tags contains 'upsert'"
+    ids: [cc-015, cc-016, cc-017, cc-018, wis-009, wis-010]
 
   data_operations_wisdom:
-   name: 'Data Operations & Migration Wisdom'
-   description: 'Complete wisdom on sources of truth, upserts, deletion safety, CLI design, environments, and migration strategies'
-   filter: "chapter == 'Data Operations Chapter' or tags contains 'upsert' or tags contains 'migration' or tags contains 'prune'"
-   ids: [cc-015, cc-016, cc-017, cc-018, cc-019, cc-020, cc-021, cc-022, wis-009, wis-010, wis-011, wis-012, wis-013]
+    name: 'Data Operations & Migration Wisdom'
+    description: 'Complete wisdom on sources of truth, upserts, deletion safety, CLI design, environments, and migration strategies'
+    filter: "chapter == 'Data Operations Chapter' or tags contains 'upsert' or tags contains 'migration' or tags contains 'prune'"
+    ids: [cc-015, cc-016, cc-017, cc-018, cc-019, cc-020, cc-021, cc-022, wis-009, wis-010, wis-011, wis-012, wis-013]
 
   sources_of_truth:
-   name: 'Sources of Truth'
-   description: 'Wisdom about single sources of truth, mirrors, and synchronization'
-   filter: "tags contains 'single-source-of-truth' or tags contains 'mirror' or tags contains 'synchronization'"
-   ids: [cc-016, arch-013, qa-015]
+    name: 'Sources of Truth'
+    description: 'Wisdom about single sources of truth, mirrors, and synchronization'
+    filter: "tags contains 'single-source-of-truth' or tags contains 'mirror' or tags contains 'synchronization'"
+    ids: [cc-016, arch-013, qa-015]
 
   safe_operations:
-   name: 'Safe Operations Patterns'
-   description: 'CLI design, dangerous operations, dry-runs, and safety-first practices'
-   filter: "tags contains 'cli-design' or tags contains 'dangerous-operations' or tags contains 'dry-run' or tags contains 'safety'"
-   ids: [cc-019, wis-012, arch-027]
+    name: 'Safe Operations Patterns'
+    description: 'CLI design, dangerous operations, dry-runs, and safety-first practices'
+    filter: "tags contains 'cli-design' or tags contains 'dangerous-operations' or tags contains 'dry-run' or tags contains 'safety'"
+    ids: [cc-019, wis-012, arch-027]
 
   environment_practices:
-   name: 'Environment Practices (Dojo Pattern)'
-   description: 'Practice in DEV/STG, perform in PROD'
-   filter: "tags contains 'environments' or tags contains 'dev-stg-prod' or tags contains 'practice'"
-   ids: [cc-020, wis-013, dop-001]
+    name: 'Environment Practices (Dojo Pattern)'
+    description: 'Practice in DEV/STG, perform in PROD'
+    filter: "tags contains 'environments' or tags contains 'dev-stg-prod' or tags contains 'practice'"
+    ids: [cc-020, wis-013, dop-001]
 
   haiku_collection:
-   name: 'The Haikus'
-   description: 'Poetic wisdom in 5-7-5 syllable form'
-   filter: "tags contains 'haiku'"
-   ids: [cc-013, cc-022, rrp-013]
+    name: 'The Haikus'
+    description: 'Poetic wisdom in 5-7-5 syllable form'
+    filter: "tags contains 'haiku'"
+    ids: [cc-013, cc-022, rrp-013]
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LESSONS (Link quotes to pedagogical content)
