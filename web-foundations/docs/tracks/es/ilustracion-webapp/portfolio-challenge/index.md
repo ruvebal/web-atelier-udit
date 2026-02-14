@@ -301,10 +301,10 @@ Referencia: [Ejemplo de Navegación](/student-project-template/docs/ejemplo-nave
 
 #### 7. **Galería de Proyectos**
 
-**CRÍTICO**: Mínimo 6 proyectos de ilustración
+**CRÍTICO**: Mínimo 3-6 proyectos de ilustración
 
 - Grid responsive con CSS Grid
-- Imágenes optimizadas con ImageKit
+- Imágenes servidas desde ImageKit
 - Lightbox funcional (opcional pero recomendado)
 - Información de proyecto al hover o click
 - Categorías/filtros (opcional)
@@ -544,7 +544,6 @@ Antes de entregar, verifica **cada ítem** de esta checklist. Las personas profe
 - [ ] JavaScript no produce errores de consola en producción
 - [ ] Código formateado con Prettier
 - [ ] Código linteado (ESLint para JS)
-- [ ] No quedan bloques de código comentado en producción
 - [ ] Los comentarios explican el «por qué», no el «qué»
 
 ### HTML semántico y estructura
@@ -576,10 +575,10 @@ Antes de entregar, verifica **cada ítem** de esta checklist. Las personas profe
 
 ### Rendimiento
 
-- [ ] Imágenes optimizadas con ImageKit (transformaciones correctas)
-- [ ] CSS minificado (opcional, pero recomendado)
+- [ ] Imágenes via CDN
+- [ ] CSS minificado (para nivel `programación`)
 - [ ] Sin CSS o JS no utilizados
-- [ ] Fuentes cargadas eficientemente (`font-display: swap`)
+- [ ] Fuentes cargadas eficientemente (`font-display: swap`). (para nivel `programación`)
 - [ ] La página carga en menos de 3 segundos en 3G
 
 ### Accesibilidad (básica)
