@@ -370,7 +370,7 @@ Referencia: [Lección de Tipografía y Color](/lessons/es/tipografia-color/)
 }
 ```
 
-- **Google Fonts** (máximo 2 familias)
+- **Google Fonts** (máximo 3 familias)
 - **Interlineados responsivos**
 - **Jerarquía visual clara**
 
@@ -511,7 +511,7 @@ Antes de entregar, verifica **cada ítem** de esta checklist. Las personas profe
 
 - [ ] El repositorio tiene un nombre claro y descriptivo
 - [ ] Existe `README.md` con el enlace de despliegue en la parte superior
-- [ ] El README incluye instrucciones de instalación y stack tecnológico
+- [ ] El README incluye instrucciones de instalación (si corresponde) y stack tecnológico
 - [ ] `.gitignore` es completo y adecuado
 - [ ] El historial de commits es limpio, con mensajes significativos
 - [ ] Tag `v1.0.0` creado
@@ -800,7 +800,9 @@ Este proyecto se desarrolla durante las 4 sesiones del track, con apoyo del prof
    - Prueba en modo incógnito/privado para evitar problemas de caché
    - Revisa la consola por errores
 
-2. **Crea el tag de Git**
+2. **Crea el tag de Git** (opcional hacerlo en la consola)
+
+Si no haces este paso en la terminal, podrás hacer el `tag` cuando vayas a hacer el `release`en Github (paso 3).
 
 ```bash
 git tag -a v1.0.0 -m "Portfolio de ilustración v1.0.0"
@@ -810,7 +812,7 @@ git push origin v1.0.0
 3. **Crea la GitHub Release**
    - Ve al repositorio en GitHub
    - Haz clic en «Releases» → «Create a new release»
-   - Elige el tag `v1.0.0`
+   - Elige el tag `v1.0.0` si lo has creado en el paso 2, o créalo ahora.
    - Título: «Portfolio de Ilustración v1.0.0»
    - Descripción: notas breves de la release (qué incluye, features clave)
    - Publica la release
@@ -910,6 +912,19 @@ Para este proyecto, **NO**. El objetivo es demostrar dominio de vanilla JavaScri
 ### «¿Puedo usar un framework de animaciones como GSAP?»
 
 Para este proyecto, **NO**. Usa animaciones CSS y JavaScript vanilla con Intersection Observer. Esto demuestra que entiendes los fundamentos antes de usar librerías.
+
+### «¿Y si quiero ir más allá?»
+
+Si ya dominas los conceptos básicos y cumples la checklist, ¡puedes explorar todo lo que quieras!
+
+- ¿Quieres trabajar con herramientas modernas (Vite, SASS, PostCSS, ES Modules, etc.)? Adelante.
+- ¿Te interesa experimentar con algún framework (React, Vue, Svelte) solo por probar? Haz un fork y juégatela (aunque recuerda que para la entrega pedida, la versión base debe ser vanilla JS).
+- Puedes añadir animaciones avanzadas (WebGL, SVG, Three.js), integración con APIs, componentes personalizados, lo que desees.
+- Documenta estos extras en tu README: explica qué usas, cómo lo implementas y para qué sirve.
+
+Lo importante es que se note **tu intención, aprendizaje y documentación del proceso**—las herramientas son un medio, no el objetivo.
+
+¡Diviértete y presume tu portfolio avanzado si llegaste hasta aquí!
 
 ---
 
