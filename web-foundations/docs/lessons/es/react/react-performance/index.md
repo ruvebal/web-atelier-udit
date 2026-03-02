@@ -93,7 +93,7 @@ Al final de esta lección:
 
 ### Code splitting
 
-```typescript
+```jsx
 // Antes: todo en un bundle
 import { Dashboard } from './pages/Dashboard';
 import { Settings } from './pages/Settings';
@@ -113,7 +113,7 @@ const Settings = lazy(() => import('./pages/Settings'));
 
 ### Memoización (usar con moderación)
 
-```typescript
+```javascript
 // Solo memoiza cuando has DEMOSTRADO un problema de rendimiento
 
 // Para cálculos costosos

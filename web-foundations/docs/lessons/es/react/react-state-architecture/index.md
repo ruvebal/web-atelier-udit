@@ -63,20 +63,20 @@ Al final de esta lección:
 
 ### Dominios de estado para tu app
 
-```typescript
+```text
 // Organiza el estado por dominio:
 
 src/
 ├── store/
 │   ├── auth/           // Sesión de usuario, tokens
-│   │   ├── AuthContext.tsx
-│   │   └── useAuth.ts
+│   │   ├── AuthContext.jsx
+│   │   └── useAuth.js
 │   ├── cart/           // Carrito (si aplica)
-│   │   └── useCartStore.ts  // Zustand
+│   │   └── useCartStore.js  // Zustand
 │   ├── theme/          // Modo oscuro/claro
-│   │   └── ThemeContext.tsx
+│   │   └── ThemeContext.jsx
 │   └── ui/             // Modales, sidebars, toasts
-│       └── useUIStore.ts
+│       └── useUIStore.js
 ```
 
 ---
@@ -173,7 +173,7 @@ src/
 4. Zustand: store moderno y ligero
 5. Selectores y estado derivado
 6. Estrategias de persistencia
-7. Estado y TypeScript
+7. Estado y tipado (opcional)
 8. Antipatrones comunes
 
 ---

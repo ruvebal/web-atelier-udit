@@ -493,30 +493,22 @@ export default function Counter() {
 
 **Key Observation**: State transitions are explicit actions. Reducer is pure and testable.
 
-### Example 4: Fetch State as FSM (TypeScript)
+### Example 4: Fetch State as FSM
 
-```typescript
-type Status = 'idle' | 'loading' | 'success' | 'error';
+```javascript
+// Discriminated union pattern in plain JS: use status + data/error
 
-type State<T> =
-	| { status: 'idle' }
-	| { status: 'loading' }
-	| { status: 'success'; data: T }
-	| { status: 'error'; error: string };
-
-type Action<T> = { type: 'FETCH' } | { type: 'RESOLVE'; data: T } | { type: 'REJECT'; error: string };
-
-function reducer<T>(state: State<T>, action: Action<T>): State<T> {
-	switch (action.type) {
-		case 'FETCH':
-			return { status: 'loading' };
-		case 'RESOLVE':
-			return { status: 'success', data: action.data };
-		case 'REJECT':
-			return { status: 'error', error: action.error };
-		default:
-			return state;
-	}
+function reducer(state, action) {
+  switch (action.type) {
+    case 'FETCH':
+      return { status: 'loading' };
+    case 'RESOLVE':
+      return { status: 'success', data: action.data };
+    case 'REJECT':
+      return { status: 'error', error: action.error };
+    default:
+      return state;
+  }
 }
 ```
 
@@ -524,7 +516,7 @@ function reducer<T>(state: State<T>, action: Action<T>): State<T> {
 
 ### Example 5: XState (Formal State Machine)
 
-```typescript
+```javascript
 import { createMachine } from 'xstate';
 
 export const fetchMachine = createMachine({
@@ -596,7 +588,7 @@ A recommended learning progression:
 
 **Task**: Write pure reducer tests.
 
-```typescript
+```javascript
 describe('counterReducer', () => {
 	it('increments correctly', () => {
 		const state = { count: 0 };

@@ -61,20 +61,19 @@ Al final de esta lección:
 
 ### Arquitectura de capa API
 
-```typescript
+```text
 // Separación limpia de responsabilidades:
 
 src/
 ├── api/
-│   ├── client.ts         // Wrapper de Axios o fetch
-│   ├── endpoints.ts      // Constantes de URL
-│   └── types.ts          // Tipos de respuesta
+│   ├── client.js         // Wrapper de Axios o fetch
+│   ├── endpoints.js      // Constantes de URL
 ├── hooks/
-│   ├── useProducts.ts    // React Query para productos
-│   ├── useUser.ts        // React Query para usuario
-│   └── useMutations.ts   // Create, update, delete
+│   ├── useProducts.js    // React Query para productos
+│   ├── useUser.js       // React Query para usuario
+│   └── useMutations.js  // Create, update, delete
 └── components/
-    └── ProductList.tsx   // Usa useProducts
+    └── ProductList.jsx  // Usa useProducts
 ```
 
 ---
@@ -85,11 +84,11 @@ Elige una o más según tu proyecto:
 
 ### Opción A: Laravel REST API
 
-```typescript
+```javascript
 // Endpoints típicos en Laravel
 const API = {
   products: '/api/products',
-  product: (id: string) => `/api/products/${id}`,
+  product: (id) => `/api/products/${id}`,
   auth: '/api/auth/login',
   user: '/api/user',
 };
@@ -103,7 +102,7 @@ const { data: products } = useQuery({
 
 ### Opción B: Hygraph GraphQL
 
-```typescript
+```javascript
 // Query GraphQL
 const PRODUCTS_QUERY = `
   query Products {
@@ -125,7 +124,7 @@ const { data } = useQuery({
 
 ### Opción C: JSON local / Mock API
 
-```typescript
+```javascript
 // Para desarrollo sin backend
 const { data } = useQuery({
   queryKey: ['products'],

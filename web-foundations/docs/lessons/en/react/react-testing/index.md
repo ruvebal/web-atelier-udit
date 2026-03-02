@@ -70,9 +70,6 @@ By the end of this lesson, you will:
                  ┌──────┴──────┐
                  │    Unit     │  ← Pure functions, hooks
                  └──────┬──────┘
-               ┌────────┴────────┐
-               │  Static Types   │  ← TypeScript
-               └─────────────────┘
 
 Focus: Does the user's goal get accomplished?
 Avoid: Testing implementation details
@@ -88,7 +85,6 @@ Avoid: Testing implementation details
 | **Component** | React Testing Library | User interactions with UI |
 | **Integration** | RTL + MSW | Components with mocked APIs |
 | **E2E** | Cypress | Full app flows in browser |
-| **Static** | TypeScript | Types catch errors at compile |
 
 ---
 
@@ -153,8 +149,8 @@ Avoid: Testing implementation details
 
 ### Unit Test (Vitest)
 
-```typescript
-// src/utils/formatPrice.test.ts
+```javascript
+// src/utils/formatPrice.test.js
 import { formatPrice } from './formatPrice';
 
 describe('formatPrice', () => {
@@ -170,8 +166,8 @@ describe('formatPrice', () => {
 
 ### Component Test (RTL)
 
-```typescript
-// src/components/LoginForm.test.tsx
+```jsx
+// src/components/LoginForm.test.jsx
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { LoginForm } from './LoginForm';
@@ -218,7 +214,7 @@ test('submits email and password', async () => {
 
 ### Example: test behavior, not structure
 
-```typescript
+```jsx
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 

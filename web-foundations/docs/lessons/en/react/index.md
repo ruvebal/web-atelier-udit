@@ -165,7 +165,7 @@ This teaching sequence guides students from philosophical foundations through Re
 | **Props**           | Passing data, prop types, children |
 | **Events**          | Handling clicks, forms, keyboard   |
 | **Rendering**       | Conditional, lists, keys           |
-| **Project Setup**   | Vite + React + TypeScript          |
+| **Project Setup**   | Vite + React          |
 
 **Hands-On**: Build a component library with `Button`, `Card`, `Input`, `Modal`.
 

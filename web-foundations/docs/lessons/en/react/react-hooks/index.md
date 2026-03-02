@@ -3,7 +3,7 @@ layout: lesson
 title: 'Hooks Mastery: The Engine of Interactivity'
 slug: react-hooks
 category: react
-tags: [react, hooks, useState, useEffect, custom-hooks]
+tags: [react, hooks, useState, useEffect, useMemo, useCallback, custom-hooks]
 week: 5
 phase: 2
 sprint: 6
@@ -62,14 +62,14 @@ By the end of this lesson, you will:
 
 ### Custom Hooks for Your App
 
-```typescript
+```javascript
 // Hooks you'll create this sprint:
 
-useFetch<T>(url: string)           // → { data, loading, error }
-useLocalStorage<T>(key: string)     // → [value, setValue]
-useDebounce<T>(value: T, delay: ms) // → debouncedValue
-useToggle(initial: boolean)         // → [state, toggle, setTrue, setFalse]
-useForm<T>(initialValues: T)        // → { values, handleChange, reset }
+useFetch(url)                 // → { data, loading, error }
+useLocalStorage(key)          // → [value, setValue]
+useDebounce(value, delay)     // → debouncedValue
+useToggle(initial)            // → [state, toggle, setTrue, setFalse]
+useForm(initialValues)        // → { values, handleChange, reset }
 ```
 
 These hooks will **power your entire application**.
@@ -86,9 +86,9 @@ These hooks will **power your entire application**.
 
 ### Preview: API Integration Pattern
 
-```typescript
+```javascript
 // This sprint's hook...
-const { data, loading, error } = useFetch<Product[]>('/api/products');
+const { data, loading, error } = useFetch('/api/products');
 
 // ...prepares you for next sprint's React Query
 const { data, isLoading, error } = useQuery(['products'], fetchProducts);
@@ -130,7 +130,7 @@ const { data, isLoading, error } = useQuery(['products'], fetchProducts);
 2. Returns { data, loading, error, refetch }
 3. Handles race conditions (ignore stale requests)
 4. Cleans up on unmount
-5. Uses TypeScript generics for type safety"
+5. Returns an object with data, loading, error and refetch"
 
 ❌ BAD PROMPT:
 "Make a fetch hook"
@@ -161,32 +161,19 @@ const { data, isLoading, error } = useQuery(['products'], fetchProducts);
 
 ### Example 1: useFetch Hook (Best Practices)
 
-```typescript
-// hooks/useFetch.ts
+```javascript
+// hooks/useFetch.js
 import { useState, useEffect, useRef } from 'react';
 
-interface UseFetchState<T> {
-  data: T | null;
-  loading: boolean;
-  error: Error | null;
-}
-
-interface UseFetchReturn<T> extends UseFetchState<T> {
-  refetch: () => void;
-}
-
-export function useFetch<T = unknown>(
-  url: string,
-  options?: RequestInit
-): UseFetchReturn<T> {
-  const [state, setState] = useState<UseFetchState<T>>({
+export function useFetch(url, options) {
+  const [state, setState] = useState({
     data: null,
     loading: true,
     error: null,
   });
 
   // Track latest request to handle race conditions
-  const abortControllerRef = useRef<AbortController | null>(null);
+  const abortControllerRef = useRef(null);
 
   const fetchData = async () => {
     // Cancel previous request if still pending
@@ -247,9 +234,9 @@ export function useFetch<T = unknown>(
 
 **Usage:**
 
-```typescript
+```jsx
 function ProductList() {
-  const { data, loading, error, refetch } = useFetch<Product[]>('/api/products');
+  const { data, loading, error, refetch } = useFetch('/api/products');
 
   if (loading) return <Spinner />;
   if (error) return <ErrorMessage error={error} onRetry={refetch} />;
@@ -268,18 +255,13 @@ function ProductList() {
 
 ### Example 2: useLocalStorage Hook
 
-```typescript
-// hooks/useLocalStorage.ts
+```javascript
+// hooks/useLocalStorage.js
 import { useState, useEffect } from 'react';
 
-type SetValue<T> = (value: T | ((prev: T) => T)) => void;
-
-export function useLocalStorage<T>(
-  key: string,
-  initialValue: T
-): [T, SetValue<T>] {
+export function useLocalStorage(key, initialValue) {
   // Get from localStorage or use initial value
-  const [storedValue, setStoredValue] = useState<T>(() => {
+  const [storedValue, setStoredValue] = useState(() => {
     try {
       const item = window.localStorage.getItem(key);
       return item ? JSON.parse(item) : initialValue;
@@ -290,11 +272,11 @@ export function useLocalStorage<T>(
   });
 
   // Return a wrapped version of useState's setter that persists to localStorage
-  const setValue: SetValue<T> = (value) => {
+  const setValue = (value) => {
     try {
       // Allow value to be a function (same API as useState)
       const valueToStore = value instanceof Function ? value(storedValue) : value;
-      
+
       setStoredValue(valueToStore);
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
@@ -308,9 +290,9 @@ export function useLocalStorage<T>(
 
 **Usage:**
 
-```typescript
+```jsx
 function ThemeToggle() {
-  const [theme, setTheme] = useLocalStorage<'light' | 'dark'>('theme', 'light');
+  const [theme, setTheme] = useLocalStorage('theme', 'light');
 
   return (
     <button onClick={() => setTheme(t => t === 'light' ? 'dark' : 'light')}>
@@ -322,12 +304,12 @@ function ThemeToggle() {
 
 ### Example 3: useDebounce Hook
 
-```typescript
-// hooks/useDebounce.ts
+```javascript
+// hooks/useDebounce.js
 import { useState, useEffect } from 'react';
 
-export function useDebounce<T>(value: T, delay: number = 500): T {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+export function useDebounce(value, delay = 500) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
     // Set up the timeout
@@ -347,7 +329,7 @@ export function useDebounce<T>(value: T, delay: number = 500): T {
 
 **Usage:**
 
-```typescript
+```jsx
 function SearchInput() {
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
@@ -418,7 +400,7 @@ function SearchInput() {
 > 
 > AI generated this code:
 > 
-> ```typescript
+> ```javascript
 > useEffect(() => {
 >   const interval = setInterval(() => {
 >     setCount(count + 1); // BUG: count is stale!
@@ -476,6 +458,28 @@ function SearchInput() {
 
 ---
 
+## 📌 Note: Memoization in React vs Other Environments
+
+When you work with **useMemo**, **useCallback**, and **React.memo**, it’s natural to ask: *why does React make us care so much about references?* This note puts React’s design in context.
+
+### Why React Relies on Reference Equality
+
+In JavaScript, equality is **by reference** (`===`). On every re-render, a function or array created during render is a **new** value in memory—same behavior, different reference. To React (and to `React.memo`) that means “props changed,” so the child re-renders. That’s why we use `useCallback` and `useMemo`: not to stop the parent from re-rendering, but to **keep the same reference** when the logical value hasn’t changed, so memoized children don’t receive “new” props and skip unnecessary work.
+
+### How Other Languages and Frameworks Handle It
+
+| Approach | Example | Main idea |
+|----------|---------|-----------|
+| **Structural equality** | Clojure, Elm, Rust (with equality traits) | Two values that “look the same” are considered equal even if they’re different references. The framework can decide whether to recompute without you manually stabilizing references. |
+| **Compiler or runtime tracks dependencies** | Svelte, Vue (`ref`/`computed`), SwiftUI | Svelte analyzes which variables each block uses and generates code that only re-runs when those change—no `useMemo` or `useCallback`. Vue and SwiftUI encapsulate “what this depends on” in a similar way. |
+| **Immutable data by default** | Elm, ClojureScript | Data isn’t mutated; equality is usually structural. “Did it change?” is answered by value, not reference, so the “same function, new reference” issue doesn’t arise in the same way. |
+
+### Takeaway
+
+It’s not that “JavaScript is just like that”: React chose an **explicit** model where you control identity (references) and when to optimize. That makes the model very teachable and flexible, but it also forces you to think about references and to use `useCallback`/`useMemo`/`memo` when you want to avoid re-renders or redundant work. In other ecosystems, that concern is often hidden behind structural equality or a compiler/runtime that infers dependencies. Knowing both perspectives helps explain why memoization is part of React’s design, not a quirk of the language.
+
+---
+
 ## 📝 Sprint Deliverables
 
 - [ ] **3+ custom hooks** (`useFetch`, `useLocalStorage`, `useDebounce`)
@@ -504,6 +508,7 @@ function SearchInput() {
 - **`useState`**: functional updates, derived state avoidance
 - **`useEffect`**: sync vs effect, dependency reasoning, cleanup discipline
 - **`useRef`**: stable mutable cell (not “state”), escape hatch for integration
+- **`useMemo` / `useCallback`**: when and why to memoize; see the [note on memoization vs other environments](#-note-memoization-in-react-vs-other-environments)
 - **Custom hooks**: composition, configuration vs specialization trade-offs
 - **Testing**: validate behavior, not implementation details
 

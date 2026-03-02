@@ -61,20 +61,20 @@ By the end of this lesson, you will:
 
 ### State Domains for Your App
 
-```typescript
+```text
 // Organize state by domain:
 
 src/
 ├── store/
 │   ├── auth/           // User session, tokens
-│   │   ├── AuthContext.tsx
-│   │   └── useAuth.ts
+│   │   ├── AuthContext.jsx
+│   │   └── useAuth.js
 │   ├── cart/           // Shopping cart (if applicable)
-│   │   └── useCartStore.ts  // Zustand
+│   │   └── useCartStore.js  // Zustand
 │   ├── theme/          // Dark/light mode
-│   │   └── ThemeContext.tsx
+│   │   └── ThemeContext.jsx
 │   └── ui/             // Modals, sidebars, toasts
-│       └── useUIStore.ts
+│       └── useUIStore.js
 ```
 
 ---
@@ -179,11 +179,8 @@ Keep state as **close as possible** to where it’s used. Move it “up” only 
 
 ### Example: model state transitions explicitly
 
-```ts
-type CartAction =
-  | { type: 'ADD'; id: string }
-  | { type: 'REMOVE'; id: string }
-  | { type: 'CLEAR' };
+```javascript
+// Action shape: { type: 'ADD', id } | { type: 'REMOVE', id } | { type: 'CLEAR' }
 ```
 
 ### Reflection (Atelier)

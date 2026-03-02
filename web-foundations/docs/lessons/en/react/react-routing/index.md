@@ -61,7 +61,7 @@ By the end of this lesson, you will:
 
 ### Route Structure for Your App
 
-```typescript
+```jsx
 // Example route structure:
 
 <Routes>
@@ -101,7 +101,7 @@ By the end of this lesson, you will:
 
 ### URL as State
 
-```typescript
+```javascript
 // Filters in URL = shareable, bookmarkable UI state
 
 // Instead of:
@@ -185,7 +185,7 @@ const filter = searchParams.get('filter') || 'all';
 
 ### Example: filters as URL state (conceptual)
 
-```ts
+```javascript
 // Example state you can encode in the URL:
 // /products?query=shoes&sort=price&page=2
 ```

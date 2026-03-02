@@ -495,23 +495,12 @@ export default function Counter() {
 
 **Observación clave**: transiciones explícitas. Reducer puro y testeable.
 
-### Ejemplo 4: estado de fetch como FSM (TypeScript)
+### Ejemplo 4: estado de fetch como FSM
 
-```typescript
-type Status = 'idle' | 'loading' | 'success' | 'error';
+```javascript
+// Patrón unión discriminada en JS: usar status + data/error
 
-type State<T> =
-	| { status: 'idle' }
-	| { status: 'loading' }
-	| { status: 'success'; data: T }
-	| { status: 'error'; error: string };
-
-type Action<T> =
-	| { type: 'FETCH' }
-	| { type: 'RESOLVE'; data: T }
-	| { type: 'REJECT'; error: string };
-
-function reducer<T>(state: State<T>, action: Action<T>): State<T> {
+function reducer(state, action) {
 	switch (action.type) {
 		case 'FETCH':
 			return { status: 'loading' };
@@ -529,7 +518,7 @@ function reducer<T>(state: State<T>, action: Action<T>): State<T> {
 
 ### Ejemplo 5: XState (máquina formal)
 
-```typescript
+```javascript
 import { createMachine } from 'xstate';
 
 export const fetchMachine = createMachine({
@@ -601,7 +590,7 @@ Progresión recomendada:
 
 **Tarea**: escribe tests puros del reducer.
 
-```typescript
+```javascript
 describe('counterReducer', () => {
 	it('incrementa correctamente', () => {
 		const state = { count: 0 };

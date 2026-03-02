@@ -61,19 +61,19 @@ By the end of this lesson, you will:
 
 ### Auth Architecture
 
-```typescript
+```text
 src/
 ├── auth/
-│   ├── AuthContext.tsx      // User state + login/logout
-│   ├── AuthProvider.tsx     // Wraps app, checks token
-│   ├── useAuth.ts           // Consumer hook
-│   └── ProtectedRoute.tsx   // Route guard
+│   ├── AuthContext.jsx      // User state + login/logout
+│   ├── AuthProvider.jsx     // Wraps app, checks token
+│   ├── useAuth.js           // Consumer hook
+│   └── ProtectedRoute.jsx   // Route guard
 ├── pages/
-│   ├── Login.tsx            // Login form
-│   ├── Register.tsx         // Registration form
-│   └── Profile.tsx          // Protected page
+│   ├── Login.jsx            // Login form
+│   ├── Register.jsx         // Registration form
+│   └── Profile.jsx          // Protected page
 └── api/
-    └── auth.ts              // Login/logout API calls
+    └── auth.js              // Login/logout API calls
 ```
 
 ---
@@ -82,7 +82,7 @@ src/
 
 ### Option A: Laravel Sanctum (Recommended for Full-Stack)
 
-```typescript
+```javascript
 // Laravel Sanctum with cookies (CSRF protected)
 await fetch('/sanctum/csrf-cookie', { credentials: 'include' });
 const response = await fetch('/api/login', {
@@ -94,7 +94,7 @@ const response = await fetch('/api/login', {
 
 ### Option B: JWT with Laravel API
 
-```typescript
+```javascript
 // JWT token flow
 const { token } = await login(email, password);
 localStorage.setItem('token', token); // ⚠️ Not ideal for production
@@ -105,7 +105,7 @@ headers: { 'Authorization': `Bearer ${token}` }
 
 ### Option C: Firebase Auth (Quick Setup)
 
-```typescript
+```javascript
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 const provider = new GoogleAuthProvider();
 const result = await signInWithPopup(auth, provider);
@@ -114,7 +114,7 @@ const user = result.user;
 
 ### Option D: OAuth Providers (GitHub, Google)
 
-```typescript
+```javascript
 // Redirect flow
 window.location.href = '/api/auth/github/redirect';
 // Callback handles token exchange
@@ -205,12 +205,11 @@ window.location.href = '/api/auth/github/redirect';
 
 ### Example: auth state as a discriminated union
 
-```ts
-type AuthState =
-  | { status: 'anonymous' }
-  | { status: 'authenticating' }
-  | { status: 'authenticated'; user: { id: string; role?: string } }
-  | { status: 'error'; message: string };
+```javascript
+// Auth state shape: status + optional user/error
+// { status: 'anonymous' } | { status: 'authenticating' }
+// | { status: 'authenticated'; user: { id, role? } }
+// | { status: 'error'; message: string }
 ```
 
 ### Practical checklist (student baseline)

@@ -857,6 +857,7 @@ git commit -m "feat: añadir flujo auth (IA-asistido: Claude)"
 
 | Recurso                                                                                                         | Descripción                              |
 | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| [**Uso de la IA: specs y arquitectura**](uso-ia-specs-arquitectura.md)                                        | Nota: dar especificaciones y descripción de arquitectura al asistente para resultados coherentes |
 | [**El Tao del Desarrollo con IA**]({{ site.url }}{{ site.baseurl }}/methodology/es/tao-of-ai-development/) | 道 Addendum filosófico sobre ética, artesanía y la lucha eterna contra el código basura |
 | [Metodología Web Atelier]({{ site.url }}{{ site.baseurl }}/methodology/es/)                                     | Pedagogía central y estructura del curso |
 | [Colección de Prompts del Atelier]({{ site.url }}{{ site.baseurl }}/lessons/en/atelier-prompts/)                | Prompts curados para desarrollo web      |

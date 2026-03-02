@@ -61,20 +61,19 @@ By the end of this lesson, you will:
 
 ### API Layer Architecture
 
-```typescript
+```text
 // Clean separation of concerns:
 
 src/
 ├── api/
-│   ├── client.ts         // Axios or fetch wrapper
-│   ├── endpoints.ts      // URL constants
-│   └── types.ts          // API response types
+│   ├── client.js         // Axios or fetch wrapper
+│   ├── endpoints.js      // URL constants
 ├── hooks/
-│   ├── useProducts.ts    // React Query for products
-│   ├── useUser.ts        // React Query for user
-│   └── useMutations.ts   // Create, update, delete
+│   ├── useProducts.js    // React Query for products
+│   ├── useUser.js        // React Query for user
+│   └── useMutations.js   // Create, update, delete
 └── components/
-    └── ProductList.tsx   // Uses useProducts hook
+    └── ProductList.jsx  // Uses useProducts hook
 ```
 
 ---
@@ -85,11 +84,11 @@ Choose one or more based on your project:
 
 ### Option A: Laravel REST API
 
-```typescript
+```javascript
 // Typical Laravel endpoints
 const API = {
   products: '/api/products',
-  product: (id: string) => `/api/products/${id}`,
+  product: (id) => `/api/products/${id}`,
   auth: '/api/auth/login',
   user: '/api/user',
 };
@@ -103,7 +102,7 @@ const { data: products } = useQuery({
 
 ### Option B: Hygraph GraphQL
 
-```typescript
+```javascript
 // GraphQL query
 const PRODUCTS_QUERY = `
   query Products {
@@ -125,7 +124,7 @@ const { data } = useQuery({
 
 ### Option C: Local JSON / Mock API
 
-```typescript
+```javascript
 // For development without backend
 const { data } = useQuery({
   queryKey: ['products'],
@@ -204,11 +203,11 @@ const { data } = useQuery({
 
 ### Example: normalize errors at the boundary
 
-```ts
-export async function apiGet<T>(url: string): Promise<T> {
+```javascript
+export async function apiGet(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Request failed: ${res.status}`);
-  return (await res.json()) as T;
+  return await res.json();
 }
 ```
 

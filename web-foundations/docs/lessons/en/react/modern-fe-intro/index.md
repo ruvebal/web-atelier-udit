@@ -815,7 +815,7 @@ Your monograph is not a user manual. It is a **scholarly reflection** on your jo
 ├─────────────────────────────────────────────────────────┤
 │  FRAMEWORK        React 19+ (or Next.js for SSR/SSG)    │
 │  BUILD TOOL       Vite (fast, modern, DX-focused)       │
-│  LANGUAGE         TypeScript (strongly recommended)      │
+│  LANGUAGE         JavaScript                              │
 │  STYLING          Your choice (see below)                │
 │  STATE            Your choice (see below)                │
 │  TESTING          Vitest + React Testing Library         │
@@ -931,7 +931,7 @@ const { token } = await response.json();
 │                 │    Unit       │  Pure functions        │
 │                 └───────┬───────┘                       │
 │               ┌─────────┴─────────┐                     │
-│               │   Static Types    │  TypeScript          │
+│               │   Static Types    │  (optional: JSDoc or type checkers) │
 │               └───────────────────┘                     │
 └─────────────────────────────────────────────────────────┘
 
@@ -1336,7 +1336,6 @@ Now, open your editor. Begin.
 
 - [React Documentation](https://react.dev)
 - [Vite](https://vitejs.dev)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
 - [React Router](https://reactrouter.com)
@@ -1348,8 +1347,8 @@ Now, open your editor. Begin.
 ### Command Cheatsheet
 
 ```bash
-# Create new Vite project with React + TypeScript
-npm create vite@latest my-app -- --template react-ts
+# Create new Vite project with React
+npm create vite@latest my-app -- --template react
 cd my-app
 npm install
 npm run dev

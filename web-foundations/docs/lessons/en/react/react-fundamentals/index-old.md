@@ -49,7 +49,7 @@ status: draft
 
 By the end of this lesson, you will:
 
-- [ ] Create function components with TypeScript
+- [ ] Create function components with JavaScript (JSX)
 - [ ] Understand JSX as syntactic sugar for `React.createElement`
 - [ ] Pass and type props correctly
 - [ ] Handle events (click, change, submit)
@@ -66,15 +66,15 @@ By the end of this lesson, you will:
 src/
 ├── components/
 │   ├── ui/
-│   │   ├── Button.tsx       ← Variants, sizes, states
-│   │   ├── Input.tsx        ← Text, email, password
-│   │   ├── Card.tsx         ← Container with slots
-│   │   ├── Modal.tsx        ← Overlay pattern
-│   │   └── Badge.tsx        ← Status indicators
+│   │   ├── Button.jsx       ← Variants, sizes, states
+│   │   ├── Input.jsx        ← Text, email, password
+│   │   ├── Card.jsx         ← Container with slots
+│   │   ├── Modal.jsx        ← Overlay pattern
+│   │   └── Badge.jsx        ← Status indicators
 │   └── layout/
-│       ├── Container.tsx    ← Max-width wrapper
-│       ├── Stack.tsx        ← Vertical spacing
-│       └── Grid.tsx         ← Responsive columns
+│       ├── Container.jsx    ← Max-width wrapper
+│       ├── Stack.jsx        ← Vertical spacing
+│       └── Grid.jsx         ← Responsive columns
 ```
 
 These components will be **reused throughout your semester project**.
@@ -127,7 +127,7 @@ These components will be **reused throughout your semester project**.
 
 ```markdown
 ✅ GOOD PROMPT:
-"Create a TypeScript Button component with variants (primary, secondary, danger),
+"Create a Button component with variants (primary, secondary, danger),
 sizes (sm, md, lg), and disabled state. Include proper ARIA attributes and
 handle loading state with a spinner. Use Tailwind CSS for styling."
 
@@ -137,7 +137,7 @@ handle loading state with a spinner. Use Tailwind CSS for styling."
 ✅ VALIDATION PROMPT:
 "Review this Button component for:
 1. Accessibility issues (keyboard nav, ARIA, focus states)
-2. TypeScript type safety (are all props properly typed?)
+2. Prop validation (are all props documented or validated?)
 3. Performance concerns (unnecessary re-renders?)
 4. Missing edge cases (what if onClick is undefined?)"
 
@@ -153,8 +153,8 @@ handle loading state with a spinner. Use Tailwind CSS for styling."
 
 ### Example 1: Button Component (Best Practices)
 
-```typescript
-// components/ui/Button.tsx
+```javascript
+// components/ui/Button.jsx
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cn } from '@/lib/utils'; // classnames utility
 
@@ -257,7 +257,7 @@ function Spinner({ className }: { className?: string }) {
 
 **Usage:**
 
-```typescript
+```javascript
 // In your page/component
 import { Button } from '@/components/ui/Button';
 import { PlusIcon } from 'lucide-react';
@@ -294,8 +294,8 @@ function MyPage() {
 
 ### Example 2: Card Component with Slots Pattern
 
-```typescript
-// components/ui/Card.tsx
+```javascript
+// components/ui/Card.jsx
 import { HTMLAttributes, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -369,7 +369,7 @@ export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 
 **Usage:**
 
-```typescript
+```javascript
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
@@ -418,7 +418,7 @@ function ProductCard({ product }: { product: Product }) {
 >
 > Compare these two approaches:
 >
-> ```typescript
+> ```javascript
 > // Approach A: Configuration
 > <Card variant="product" showImage showPrice showActions />
 >
@@ -499,7 +499,7 @@ function ProductCard({ product }: { product: Product }) {
 
 ## 📝 Sprint Deliverables
 
-- [ ] **5+ UI components** typed with TypeScript
+- [ ] **5+ UI components** with clear prop usage
 - [ ] **2+ layout components** for structure
 - [ ] **1 composed page** using your components
 - [ ] **README** documenting component API

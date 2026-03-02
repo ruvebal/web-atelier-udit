@@ -61,19 +61,19 @@ Al final de esta lección:
 
 ### Arquitectura de autenticación
 
-```typescript
+```text
 src/
 ├── auth/
-│   ├── AuthContext.tsx      // Estado de usuario + login/logout
-│   ├── AuthProvider.tsx     // Envuelve la app, comprueba token
-│   ├── useAuth.ts           // Hook consumidor
-│   └── ProtectedRoute.tsx   // Guardia de ruta
+│   ├── AuthContext.jsx      // Estado de usuario + login/logout
+│   ├── AuthProvider.jsx     // Envuelve la app, comprueba token
+│   ├── useAuth.js           // Hook consumidor
+│   └── ProtectedRoute.jsx   // Guardia de ruta
 ├── pages/
-│   ├── Login.tsx            // Formulario login
-│   ├── Register.tsx         // Formulario registro
-│   └── Profile.tsx          // Página protegida
+│   ├── Login.jsx            // Formulario login
+│   ├── Register.jsx         // Formulario registro
+│   └── Profile.jsx          // Página protegida
 └── api/
-    └── auth.ts              // Calls de API login/logout
+    └── auth.js              // Calls de API login/logout
 ```
 
 ---
@@ -82,7 +82,7 @@ src/
 
 ### Opción A: Laravel Sanctum (recomendado para full‑stack)
 
-```typescript
+```javascript
 // Laravel Sanctum con cookies (CSRF protected)
 await fetch('/sanctum/csrf-cookie', { credentials: 'include' });
 const response = await fetch('/api/login', {
@@ -94,7 +94,7 @@ const response = await fetch('/api/login', {
 
 ### Opción B: JWT con Laravel API
 
-```typescript
+```javascript
 // Flujo JWT
 const { token } = await login(email, password);
 localStorage.setItem('token', token); // ⚠️ No ideal en producción
@@ -105,7 +105,7 @@ headers: { 'Authorization': `Bearer ${token}` }
 
 ### Opción C: Firebase Auth (setup rápido)
 
-```typescript
+```javascript
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 const provider = new GoogleAuthProvider();
 const result = await signInWithPopup(auth, provider);
@@ -114,7 +114,7 @@ const user = result.user;
 
 ### Opción D: Proveedores OAuth (GitHub, Google)
 
-```typescript
+```javascript
 // Flujo redirect
 window.location.href = '/api/auth/github/redirect';
 // El callback gestiona el intercambio de tokens

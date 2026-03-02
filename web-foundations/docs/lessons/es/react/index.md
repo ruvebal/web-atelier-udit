@@ -165,7 +165,7 @@ Esta secuencia didáctica guía al alumnado desde los fundamentos filosóficos h
 | **Props**           | Paso de datos, tipos, children     |
 | **Eventos**          | Clicks, formularios, teclado       |
 | **Renderizado**      | Condicionales, listas, keys        |
-| **Setup de proyecto** | Vite + React + TypeScript         |
+| **Setup de proyecto** | Vite + React         |
 
 **Hands-on**: construir una librería de componentes con `Button`, `Card`, `Input`, `Modal`.
 

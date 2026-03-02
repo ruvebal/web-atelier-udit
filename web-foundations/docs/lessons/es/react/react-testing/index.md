@@ -70,9 +70,6 @@ Al final de esta lección:
                  ┌──────┴──────┐
                  │    Unit     │  ← Funciones puras, hooks
                  └──────┬──────┘
-               ┌────────┴────────┐
-               │  Static Types   │  ← TypeScript
-               └─────────────────┘
 
 Foco: ¿El usuario logra su objetivo?
 Evita: Testear detalles de implementación
@@ -88,7 +85,6 @@ Evita: Testear detalles de implementación
 | **Component** | React Testing Library | Interacciones de usuario con UI |
 | **Integration** | RTL + MSW | Componentes con APIs mockeadas |
 | **E2E** | Cypress | Flujos completos en navegador |
-| **Static** | TypeScript | Tipos atrapan errores al compilar |
 
 ---
 
@@ -153,8 +149,8 @@ Evita: Testear detalles de implementación
 
 ### Test unitario (Vitest)
 
-```typescript
-// src/utils/formatPrice.test.ts
+```javascript
+// src/utils/formatPrice.test.js
 import { formatPrice } from './formatPrice';
 
 describe('formatPrice', () => {
@@ -170,8 +166,8 @@ describe('formatPrice', () => {
 
 ### Test de componente (RTL)
 
-```typescript
-// src/components/LoginForm.test.tsx
+```jsx
+// src/components/LoginForm.test.jsx
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { LoginForm } from './LoginForm';

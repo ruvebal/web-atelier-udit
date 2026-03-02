@@ -45,14 +45,14 @@ This lesson is React-focused, but it builds on the canonical methodology:
 
 | Classical idea | React translation | Why it matters with AI |
 | --- | --- | --- |
-| Contracts | Types, props interfaces, API schemas | AI is “creative”; contracts limit ambiguity |
+| Contracts | Prop shapes, API schemas, JSDoc or types | AI is “creative”; contracts limit ambiguity |
 | Decomposition | Components + hooks + modules | Smaller units are easier to verify |
 | Invariants | “Always true” rules | Prevents silent regressions |
 | Observability | Logs, error boundaries, devtools | AI code fails in surprising ways |
 
 ### Minimal “Contract Stack” for Student Projects
 
-- **Type contracts**: TypeScript types for component props and API responses
+- **Type contracts**: Clear prop shapes and API response shapes (JSDoc or type checkers as needed)
 - **Runtime contracts**: defensive checks at boundaries (inputs, API errors)
 - **Behavior contracts**: tests for reducers/hooks + a few critical flows
 
@@ -81,9 +81,9 @@ This lesson is React-focused, but it builds on the canonical methodology:
 Return only the plan, no code."
 
 ✅ CONTRACT PROMPT
-"Write TypeScript types for:
+"Write clear contracts for:
 - API response shape (include error variants)
-- UI state discriminated union
+- UI state discriminated union (status + data/error)
 Then list 5 invariants that must remain true."
 
 ✅ VERIFICATION PROMPT
@@ -103,7 +103,7 @@ Pick one feature (auth, cart, search, media upload) and produce:
 
 - **Decomposition**: 5–10 components/hooks/modules (named)
 - **Contracts**:
-  - TypeScript types
+  - Clear prop and API shapes (JSDoc or types as needed)
   - 3–6 invariants
 - **Verification evidence**:
   - at least 2 tests (hook/reducer)

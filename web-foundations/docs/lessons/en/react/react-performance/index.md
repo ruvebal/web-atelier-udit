@@ -93,7 +93,7 @@ By the end of this lesson, you will:
 
 ### Code Splitting
 
-```typescript
+```jsx
 // Before: Everything in one bundle
 import { Dashboard } from './pages/Dashboard';
 import { Settings } from './pages/Settings';
@@ -113,7 +113,7 @@ const Settings = lazy(() => import('./pages/Settings'));
 
 ### Memoization (Use Sparingly)
 
-```typescript
+```javascript
 // Only memoize when you've PROVEN a performance problem
 
 // For expensive calculations
@@ -222,7 +222,7 @@ const MemoizedChild = React.memo(({ data }) => (
 
 ### Example: “don’t memoize blindly”
 
-```ts
+```javascript
 // ✅ Memoize ONLY when you measured re-render cost.
 const expensive = useMemo(() => compute(data), [data]);
 

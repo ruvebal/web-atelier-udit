@@ -61,7 +61,7 @@ Al final de esta lección:
 
 ### Estructura de rutas para tu app
 
-```typescript
+```jsx
 // Ejemplo de estructura de rutas:
 
 <Routes>
@@ -101,7 +101,7 @@ Al final de esta lección:
 
 ### La URL como estado
 
-```typescript
+```javascript
 // Filtros en la URL = estado compartible y marcable
 
 // En lugar de:
