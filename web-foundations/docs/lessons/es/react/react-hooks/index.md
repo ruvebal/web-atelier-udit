@@ -129,27 +129,143 @@ En una frase: **cleanup** = “deshacer” lo que hizo el efecto (cancelar timer
 
 Antes de encapsular la lógica en un hook, conviene entender **qué hace el navegador** cuando pedimos datos por HTTP. El hook `useFetch` que construirás usa por debajo la [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch): la interfaz nativa del navegador para hacer peticiones y leer respuestas.
 
-**Prerequisito:** `fetch` devuelve una **Promise**; si aún no tienes claro qué es el **objeto** Promise (estados pending/fulfilled/rejected, `.then()` / `async/await`), conviene repasarlo antes: [Promise en MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). Para escribir el código de forma secuencial con Promises usa la [función `async`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/async_function) y el operador [await](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/await). En JS conviene distinguir: **objetos** nativos como `Promise` (representan un valor o una acción; tienen métodos como `.then()`), **funciones** como `async function` (declaran una función que devuelve una Promise), y **operadores** como `await` (pausan la ejecución hasta que la Promise se resuelve).
+**Prerequisito: Entender Promises**
 
-### Lo mínimo que necesitas saber
+`fetch` devuelve una **Promise**. Si necesitas repasar este concepto antes de continuar, aquí tienes los fundamentos:
 
-- **`fetch(url, options?)`** es una función global que devuelve una **Promise** que se resuelve con un objeto **Response** (aunque la petición falle con 404 o 500: la Promise no se rechaza por código HTTP de error).
-- **Comprobar el estado:** hay que revisar `response.ok` (o `response.status`) antes de leer el cuerpo. Si no lo haces, tratarás errores HTTP como si fueran éxito.
-- **Leer el cuerpo:** `response.json()` (o `.text()`, `.blob()`, etc.) devuelve otra Promise; el cuerpo solo se puede consumir una vez.
-- **Cancelación:** para poder cancelar la petición (por ejemplo al desmontar el componente o al cambiar la URL), se usa **[WEB API's AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)**: pasas `signal: controller.signal` en las opciones de `fetch` y llamas a `controller.abort()` cuando quieras cancelar.
+**¿Qué es una Promise?**
 
-Ejemplo mínimo sin React (solo Fetch API):
+Una Promise es un **objeto nativo de JavaScript** que representa una operación asíncrona. Puede estar en tres estados:
+
+- `pending` (pendiente): la operación aún no ha terminado
+- `fulfilled` (cumplida): la operación terminó con éxito
+- `rejected` (rechazada): la operación falló
+
+**Tres conceptos que debes distinguir:**
+
+1. **Objeto Promise**: representa un valor futuro; tiene métodos como `.then()` y `.catch()`
+2. **Función `async`**: declara una función que siempre devuelve una Promise
+3. **Operador `await`**: pausa la ejecución hasta que la Promise se resuelve (solo funciona dentro de funciones `async`)
+
+**Dos formas de trabajar con Promises:**
+
+```javascript
+// Forma 1: Usando .then() (estilo tradicional)
+fetch('/api/data')
+	.then((response) => response.json())
+	.then((data) => console.log(data))
+	.catch((error) => console.error(error)); // Captura errores
+
+// Forma 2: Usando async/await (estilo moderno, más legible)
+async function getData() {
+	try {
+		// Bloque try: código que puede fallar
+		const response = await fetch('/api/data');
+		const data = await response.json();
+		console.log(data);
+	} catch (error) {
+		// Bloque catch: se ejecuta si hay algún error en try
+		console.error(error);
+	}
+}
+```
+
+**¿Qué hace `try...catch`?**
+
+Es una **estructura de control** para manejar errores:
+
+- **`try { }`**: ejecuta el código que puede fallar (como una petición de red)
+- **`catch (error) { }`**: captura cualquier error que ocurra en el bloque `try` y ejecuta código alternativo
+
+**Equivalencia entre las dos formas:**
+
+- `.catch()` en Promises ≈ `catch (error) { }` en async/await
+- Ambas capturan errores, pero `try...catch` hace que el código se lea de forma más secuencial
+
+**Recursos para profundizar:**
+
+- [Promise en MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) - Documentación del objeto Promise
+- [async function](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/async_function) - Funciones asíncronas
+- [await operator](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/await) - Operador de espera
+- [.then() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) - Método para encadenar acciones
+- [try…catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#trystatements) – Declaración 
+
+### Lo mínimo que necesitas saber sobre `fetch`
+
+Estos cuatro puntos son la base para usar la Fetch API correctamente (y luego construir un hook como `useFetch`).
+
+---
+
+**1. `fetch` devuelve una Promise que casi nunca "falla" por HTTP**
+
+`fetch(url, options?)` es una función global. Devuelve una **Promise** que se resuelve con un objeto **Response** cuando la petición termina — **incluso si el servidor responde 404 o 500**. La Promise solo se rechaza por errores de red (sin conexión, CORS, etc.).
+
+**Consecuencia:** no puedes confiar en que un error HTTP vaya al `.catch()`. Hay que comprobar el estado de la respuesta a mano.
+
+---
+
+**2. Siempre comprueba el estado antes de leer el cuerpo**
+
+Antes de llamar a `response.json()` (o `.text()`, `.blob()`), revisa:
+
+- **`response.ok`** — `true` si el código HTTP está entre 200 y 299
+- **`response.status`** — el código numérico (200, 404, 500, etc.)
+
+Si no compruebas y la respuesta es 404 o 500, estarás tratando un error como si fuera éxito (y `response.json()` puede fallar o devolver un cuerpo de error).
+
+---
+
+**3. El cuerpo de la respuesta se consume una sola vez**
+
+`response.json()`, `response.text()` o `response.blob()` devuelven **otra Promise** y leen el cuerpo del Response. Ese cuerpo es un stream: **solo se puede leer una vez**. Si llamas dos veces a `response.json()`, la segunda fallará.
+
+---
+
+**4. Para cancelar la petición: AbortController**
+
+Si el componente se desmonta o la URL cambia antes de que llegue la respuesta, querrás **cancelar** la petición para no actualizar estado en un componente ya desmontado. Para eso se usa la [Web API AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController):
+
+- Creas `new AbortController()`
+- Pasas `{ signal: controller.signal }` en las opciones de `fetch`
+- Cuando quieras cancelar, llamas a `controller.abort()`
+
+En un hook como `useFetch`, típicamente llamas a `abort()` en la función de cleanup de `useEffect`.
+
+---
+
+**Ejemplo mínimo (sin React)**
+
+Todo lo anterior aplicado en una función reutilizable:
 
 ```javascript
 async function getData(url) {
 	const controller = new AbortController();
 	const response = await fetch(url, { signal: controller.signal });
-	if (!response.ok) throw new Error(`HTTP ${response.status}`);
-	return response.json();
+
+	// Importante: comprobar estado HTTP antes de leer el cuerpo
+	if (!response.ok) {
+		throw new Error(`HTTP ${response.status}`);
+	}
+
+	return response.json(); // El cuerpo se consume una sola vez
 }
 ```
 
-Cuando construyas `useFetch`, estarás añadiendo alrededor de esto: estado (`data`, `loading`, `error`), cleanup en el unmount (abortar la petición) y manejo de **[Race Conditions](https://en.wikipedia.org/wiki/Race_condition)** (cuando lanzas varias peticiones y una antigua responde después que una reciente: si actualizas estado con la respuesta antigua, la UI muestra datos obsoletos; por eso se cancelan o se ignoran las respuestas de requests ya “superadas”). Para el detalle completo de la Fetch API (métodos, cabeceras, CORS, credenciales, etc.), consulta [Using the Fetch API en MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+**Nota:** En un componente React no usarías solo esto. Guardarías `controller` para llamar a `controller.abort()` en el cleanup cuando el componente se desmonte o cuando cambie la URL.
+
+---
+
+**Qué añade un hook `useFetch` sobre esto**
+
+Al construir `useFetch` estarás envolviendo esta lógica y añadiendo:
+
+| Concepto | Qué aporta |
+|----------|------------|
+| **Estado** | `data`, `loading`, `error` para que el componente pueda renderizar según el estado de la petición. |
+| **Cleanup** | En el unmount (o al cambiar dependencias), llamar a `controller.abort()` para cancelar la petición. |
+| **Race conditions** | Si se lanzan varias peticiones (p. ej. el usuario cambia de página rápido), una respuesta antigua puede llegar después que una reciente. Si actualizas el estado con la respuesta antigua, la UI mostrará datos obsoletos. Por eso se cancelan peticiones anteriores o se ignoran respuestas de requests ya "superadas". Ver [Race condition](https://en.wikipedia.org/wiki/Race_condition). |
+
+Para el detalle completo de la Fetch API (métodos, cabeceras, CORS, credenciales, etc.), consulta [Using the Fetch API en MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
 
 ---
 
@@ -301,6 +417,7 @@ export function useFetch(url, options) {
 ```
 
 **Uso:**
+
 ```javascript
 function ProductList() {
 	const { data, loading, error, refetch } = useFetch('/api/products');
@@ -522,7 +639,7 @@ function SearchInput() {
 
 ## 📌 Nota: Memoización en React frente a otros entornos
 
-Cuando trabajas con **useMemo**, **useCallback** y **React.memo**, es natural preguntarse: *¿por qué en React tenemos que preocuparnos tanto por las referencias?* Esta nota sitúa el diseño de React en contexto.
+Cuando trabajas con **useMemo**, **useCallback** y **React.memo**, es natural preguntarse: _¿por qué en React tenemos que preocuparnos tanto por las referencias?_ Esta nota sitúa el diseño de React en contexto.
 
 ### Por qué React depende de la referencia
 
@@ -530,11 +647,11 @@ En JavaScript la igualdad es **por referencia** (`===`). Cada vez que el compone
 
 ### Cómo lo abordan otros lenguajes y frameworks
 
-| Enfoque | Ejemplo | Idea clave |
-|--------|---------|------------|
-| **Igualdad estructural** | Clojure, Elm, Rust (con traits de igualdad) | Dos valores “iguales en contenido” se consideran iguales aunque sean referencias distintas. El framework puede decidir si recalcular o no sin que tú estabilices referencias a mano. |
-| **Compilador o runtime que rastrea dependencias** | Svelte, Vue (`ref`/`computed`), SwiftUI | Svelte analiza qué variables usa cada bloque y genera código que solo se re-ejecuta cuando esas variables cambian; no escribes `useMemo` ni `useCallback`. Vue y SwiftUI encapsulan de forma similar la noción de “de qué depende esto”. |
-| **Datos inmutables por defecto** | Elm, ClojureScript | Los datos no se mutan; la igualdad suele ser estructural. “¿Ha cambiado?” se resuelve por valor, no por referencia, y el problema de “misma función, otra referencia” no se plantea igual. |
+| Enfoque                                           | Ejemplo                                     | Idea clave                                                                                                                                                                                                                               |
+| ------------------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Igualdad estructural**                          | Clojure, Elm, Rust (con traits de igualdad) | Dos valores “iguales en contenido” se consideran iguales aunque sean referencias distintas. El framework puede decidir si recalcular o no sin que tú estabilices referencias a mano.                                                     |
+| **Compilador o runtime que rastrea dependencias** | Svelte, Vue (`ref`/`computed`), SwiftUI     | Svelte analiza qué variables usa cada bloque y genera código que solo se re-ejecuta cuando esas variables cambian; no escribes `useMemo` ni `useCallback`. Vue y SwiftUI encapsulan de forma similar la noción de “de qué depende esto”. |
+| **Datos inmutables por defecto**                  | Elm, ClojureScript                          | Los datos no se mutan; la igualdad suele ser estructural. “¿Ha cambiado?” se resuelve por valor, no por referencia, y el problema de “misma función, otra referencia” no se plantea igual.                                               |
 
 ### Conclusión
 
