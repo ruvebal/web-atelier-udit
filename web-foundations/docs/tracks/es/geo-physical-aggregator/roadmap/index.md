@@ -26,6 +26,36 @@ Cada sprint produce **entregables funcionales** que se integran progresivamente.
 
 ---
 
+## Rol: profesor vs estudiantes (Fullstack 2º)
+
+| Responsable | Qué hace |
+|------------|----------|
+| **Profesor** | **Preparar y explicar** conceptos antes de cada clase (ver tabla siguiente). **Desarrollar y entregar** el scaffolding base del proyecto (template RR v7 + estructura de carpetas, `app/db/`, `app/services/`, API Registry JSON vacío o de ejemplo), criterios de evaluación y guías (p. ej. este roadmap). Opcionalmente: un repo "starter" con la app en estado "post-Sprint 1 mínimo" para quien se incorpore tarde. **No** implementar por los estudiantes los sprints 2–8: eso lo hacen ellos. |
+| **Estudiantes** (2º Fullstack) | Partir del scaffolding (o del starter si se ofrece). **Implementar** los sprints 2–8 en equipo: fetchers, normalizer, CRUD, charts, WebSockets, widget system, auth, CI/CD ampliado, tests y polish. Entregar commits, PRs y demos según el roadmap. |
+
+Resumen: el profesor **explica y da la base** (conceptos + estructura + criterios); los estudiantes **construyen** la aplicación sobre esa base.
+
+---
+
+## Conceptos a explicar antes de cada clase
+
+Antes de entrar en cada sprint conviene haber visto en clase los conceptos que se usan. Orden sugerido (ajustable al calendario real):
+
+| Antes de… | Conceptos a explicar (profesor) |
+|-----------|----------------------------------|
+| **Sprint 1** | **React en general** (componentes, JSX, estado local con `useState`, efectos con `useEffect`). **Stack del proyecto**: React Router v7, Vite, Tailwind, SQLite con better-sqlite3 (SQL directo), JavaScript. Qué es un loader y qué es SSR en RR v7 (a nivel idea). |
+| **Sprint 2** | **React Context**: cuándo usarlo, Provider/Consumer, evitar prop drilling. Cómo encaja con TanStack Query (caché, invalidación). **HttpRequest** y manejo de errores (HttpErrors) en cliente/servidor. |
+| **Sprint 3** | **React Router v7** en más detalle: rutas, loaders, actions, `useLoaderData`, `useFetcher`. **Shadcn**: instalación, temas, componentes que usaremos (Card, Button, Skeleton, etc.). Tailwind para layouts y dark mode. |
+| **Sprint 4** | **WebSockets** en el navegador y en Node: `WebSocket`, evento `message`, reconexión. Patrón hook `useWebSocket`. Cómo el servidor RR puede exponer un WS en el mismo proceso. |
+| **Sprint 5** | **Estado global / contexto** para el dashboard (qué widgets hay, orden, layout). **react-grid-layout**: concepto de grid, persistencia del layout. Form actions y mutations en RR v7. |
+| **Sprint 6** | **Autenticación con sesiones**: cookies, HttpOnly, `createCookieSessionStorage` (RR), flujo login/registro/logout. Protección de rutas y loaders. |
+| **Sprint 7** | **CI/CD**: qué es un pipeline, GitHub Actions (workflow, jobs, secrets). Cómo el deploy del Sprint 1 se amplía con lint y tests. **Docs-as-code** y uso de asistentes (Cursor, CLAUDE.md) para mantener el proyecto. |
+| **Sprint 8** | **Testing**: unit tests (fetchers, normalizer), E2E con Playwright. **Accesibilidad** (WCAG, axe-core) y **performance** (Lighthouse). Criterios de "listo para producción". |
+
+Si el curso empieza desde cero con React, conviene **una o dos sesiones previas** dedicadas a: React (componentes, estado, efectos), luego **React Context**, y después **React Router y Shadcn** y el stack en general, antes de arrancar el Sprint 1 en el repo.
+
+---
+
 ## Sprint 1 — Foundation & Data Sources
 
 Inicialización del proyecto fullstack con React Router v7 SSR, configuración de Tailwind v4, SQLite con better-sqlite3 y SQL directo (KISS, sin ORM), y el primer data fetcher funcional (NASA DONKI).
