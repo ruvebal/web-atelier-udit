@@ -97,6 +97,104 @@ const { data, isLoading, error } = useQuery(['products'], fetchProducts);
 
 ---
 
+## ⏭️ Adelanto: React Query (TanStack Query) para datos remotos
+
+En esta lección aprendemos el “motor” (hooks + efectos). En el siguiente sprint daremos el salto a **React Query** (TanStack Query) para estandarizar el fetching en apps reales.
+
+### Qué mejora frente a `useFetch`
+
+- **Caché** automática por `queryKey` (no vuelves a pedir lo mismo si ya está fresco).
+- **Reintentos** configurables y estado de error consistente.
+- **Deduplicación**: si 2 componentes piden lo mismo, comparte la petición.
+- **Background refresh**: refetch al volver al tab, al reconectar, etc.
+- **Estados más ricos**: `isLoading`, `isFetching`, `isError`, `isSuccess`, `status`.
+
+> Idea clave: `useFetch` te enseña el patrón. React Query lo convierte en una “infra” estable.
+
+### Setup mínimo (cuando lo usemos)
+
+En tu entrypoint (`main.jsx` / `index.jsx`) envuelves la app con `QueryClientProvider`.
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import App from './App.jsx';
+
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			retry: 2,
+			staleTime: 30_000,
+		},
+	},
+});
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+	<React.StrictMode>
+		<QueryClientProvider client={queryClient}>
+			<App />
+		</QueryClientProvider>
+	</React.StrictMode>
+);
+```
+
+### Patrón recomendado: `useQuery` consume un servicio (no `fetch` directo)
+
+Igual que en `useFetch`, separaremos responsabilidades:
+
+- **Servicio**: “cómo” se llama a la API (URL, headers, validación, parseo).
+- **Hook** (`useQuery`): “cuándo” se llama, caché, reintentos, estados.
+- **Componente**: UI.
+
+```jsx
+// services/posts.js
+export async function fetchPosts(signal) {
+	const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5', { signal });
+	if (!res.ok) throw new Error(`HTTP ${res.status}`);
+	return res.json();
+}
+```
+
+```jsx
+import { useQuery } from '@tanstack/react-query';
+import { fetchPosts } from './services/posts';
+
+export function Posts() {
+	const { data, isLoading, isError, error, refetch, isFetching } = useQuery({
+		queryKey: ['posts', { limit: 5 }],
+		queryFn: ({ signal }) => fetchPosts(signal),
+	});
+
+	if (isLoading) return <p>Cargando…</p>;
+	if (isError) return <p>Error: {error.message}</p>;
+
+	return (
+		<section>
+			<button onClick={() => refetch()} disabled={isFetching}>
+				{isFetching ? 'Actualizando…' : 'Refetch'}
+			</button>
+			<ul>
+				{data.map((p) => (
+					<li key={p.id}>{p.title}</li>
+				))}
+			</ul>
+		</section>
+	);
+}
+```
+
+### Pruébalo en StackBlitz (React Query)
+
+**Sandbox:** **[→ Nuevo proyecto React en StackBlitz](https://stackblitz.com/fork/react)**
+
+1. Añade la dependencia `@tanstack/react-query` (en StackBlitz: “Dependencies” → busca y añade).
+2. En `main.jsx` pega el setup de `QueryClientProvider`.
+3. Crea `src/services/posts.js` y pega `fetchPosts`.
+4. En `App.jsx` renderiza el componente `Posts`.
+
+> Si el objetivo es docencia: compara el render al cambiar de pestaña / refrescar. Verás que la caché reduce peticiones y el estado `isFetching` diferencia “cargando por primera vez” de “actualizando en background”.
+
 ## 🔑 Conceptos clave: useRef y cleanup en useEffect
 
 Antes de construir custom hooks, conviene tener claros dos patrones que usarás una y otra vez.
@@ -188,7 +286,7 @@ Es una **estructura de control** para manejar errores:
 - [async function](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/async_function) - Funciones asíncronas
 - [await operator](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/await) - Operador de espera
 - [.then() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) - Método para encadenar acciones
-- [try…catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#trystatements) – Declaración 
+- [try…catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#trystatements) – Declaración
 
 ### Lo mínimo que necesitas saber sobre `fetch`
 
@@ -259,15 +357,101 @@ async function getData(url) {
 
 Al construir `useFetch` estarás envolviendo esta lógica y añadiendo:
 
-| Concepto | Qué aporta |
-|----------|------------|
-| **Estado** | `data`, `loading`, `error` para que el componente pueda renderizar según el estado de la petición. |
-| **Cleanup** | En el unmount (o al cambiar dependencias), llamar a `controller.abort()` para cancelar la petición. |
+| Concepto            | Qué aporta                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Estado**          | `data`, `loading`, `error` para que el componente pueda renderizar según el estado de la petición.                                                                                                                                                                                                                                                                                           |
+| **Cleanup**         | En el unmount (o al cambiar dependencias), llamar a `controller.abort()` para cancelar la petición.                                                                                                                                                                                                                                                                                          |
 | **Race conditions** | Si se lanzan varias peticiones (p. ej. el usuario cambia de página rápido), una respuesta antigua puede llegar después que una reciente. Si actualizas el estado con la respuesta antigua, la UI mostrará datos obsoletos. Por eso se cancelan peticiones anteriores o se ignoran respuestas de requests ya "superadas". Ver [Race condition](https://en.wikipedia.org/wiki/Race_condition). |
 
 Para el detalle completo de la Fetch API (métodos, cabeceras, CORS, credenciales, etc.), consulta [Using the Fetch API en MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
 
 ---
+
+### Pruébalo en StackBlitz con APIs gratuitas
+
+Puedes practicar **fetch + useEffect** en un sandbox sin instalar nada. [https://stackblitz.com/edit/react-bf4ktrpu?file=src%2FApp.js](https://stackblitz.com/edit/react-bf4ktrpu?file=src%2FApp.js) ejecuta React en el navegador.
+
+**Abre un proyecto React en StackBlitz:**
+
+**[→ Nuevo proyecto React en StackBlitz](https://stackblitz.com/fork/react)**
+
+En el proyecto que se abre, sustituye el contenido de `App.jsx` por el código del bloque siguiente. Después puedes cambiar la URL del `fetch` por cualquiera de las APIs de la tabla para probar distintos datos.
+
+**APIs públicas que funcionan bien (sin API key, CORS permitido):**
+
+| API                            | URL de ejemplo                                                                                 | Qué devuelve                      |
+| ------------------------------ | ---------------------------------------------------------------------------------------------- | --------------------------------- |
+| **JSONPlaceholder**            | `https://jsonplaceholder.typicode.com/posts?_limit=5`                                          | Lista de posts (título, body, id) |
+| **JSONPlaceholder (usuarios)** | `https://jsonplaceholder.typicode.com/users`                                                   | Lista de usuarios                 |
+| **ReqRes**                     | `https://reqres.in/api/users?page=1`                                                           | Usuarios con avatar (paginado)    |
+| **PokéAPI**                    | `https://pokeapi.co/api/v2/pokemon/pikachu`                                                    | Objeto de un Pokémon              |
+| **Open-Meteo**                 | `https://api.open-meteo.com/v1/forecast?latitude=40.42&longitude=-3.70&current=temperature_2m` | Clima actual (JSON)               |
+
+**Código mínimo (pégalo en `App.jsx`):**
+
+```jsx
+import React from 'react';
+import { useEffect, useState } from 'react';
+
+export default function App() {
+	const [data, setData] = useState(null);
+	const [status, setStatus] = useState('idle'); // idle | loading | success | error
+	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		const controller = new AbortController();
+
+		async function load() {
+			try {
+				setStatus('loading');
+				setError(null);
+
+				const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5', {
+					signal: controller.signal,
+				});
+
+				if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+				const json = await res.json();
+				setData(json);
+				setStatus('success');
+			} catch (e) {
+				if (e?.name === 'AbortError') return;
+				setError(e);
+				setStatus('error');
+			}
+		}
+
+		load();
+		return () => controller.abort();
+	}, []);
+
+	if (status === 'loading') return <p>Cargando…</p>;
+	if (status === 'error') return <p>Error: {error?.message ?? 'Error desconocido'}</p>;
+
+	return (
+		<main style={{ fontFamily: 'system-ui', padding: 16 }}>
+			<h1>Fetch con useEffect</h1>
+			<ul>
+				{(data ?? []).map((post) => (
+					<li key={post.id}>
+						<strong>{post.title}</strong>
+					</li>
+				))}
+			</ul>
+		</main>
+	);
+}
+```
+
+**Qué hacer en el sandbox:**
+
+1. Abre el enlace de StackBlitz de arriba (o crea un proyecto “React” en [stackblitz.com](https://stackblitz.com)).
+2. Sustituye la URL del `fetch` por otra de la tabla (por ejemplo PokéAPI o ReqRes).
+3. Ajusta el render: si la API devuelve un objeto (p. ej. Pokémon), muestra `data.name` en lugar de `data.map(...)`.
+4. Comprueba estados: usa una URL errónea para ver el mensaje de error.
+
+Así ves en vivo el ciclo **loading → success/error** y el uso de **cleanup** con `AbortController` antes de pasar al custom hook `useFetch`.
 
 ## 🎓 Metodología: práctica atelier
 
@@ -437,6 +621,153 @@ function ProductList() {
 }
 ```
 
+#### Pruébalo en StackBlitz (useFetch)
+
+**Sandbox:** **[https://stackblitz.com/edit/vitejs-vite-bcvzeelp?file=src%2FApp.jsx](https://stackblitz.com/edit/vitejs-vite-bcvzeelp?file=src%2FApp.jsx)**
+
+En StackBlitz crea 2 archivos:
+
+- `src/hooks/useFetch.js`
+- `src/App.jsx` (reemplaza el contenido)
+
+Pega este hook en `src/hooks/useFetch.js` (idéntico al de arriba):
+
+```javascript
+import { useEffect, useRef, useState } from 'react';
+
+export function useFetch(url, options) {
+	const [state, setState] = useState({
+		data: null,
+		loading: true,
+		error: null,
+	});
+
+	const abortControllerRef = useRef(null);
+
+	const fetchData = async () => {
+		if (abortControllerRef.current) abortControllerRef.current.abort();
+
+		const abortController = new AbortController();
+		abortControllerRef.current = abortController;
+
+		setState((prev) => ({ ...prev, loading: true, error: null }));
+
+		try {
+			const response = await fetch(url, {
+				...options,
+				signal: abortController.signal,
+			});
+
+			if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+			const data = await response.json();
+
+			if (!abortController.signal.aborted) {
+				setState({ data, loading: false, error: null });
+			}
+		} catch (error) {
+			if (error instanceof Error && error.name === 'AbortError') return;
+			setState({
+				data: null,
+				loading: false,
+				error: error instanceof Error ? error : new Error('Unknown error'),
+			});
+		}
+	};
+
+	useEffect(() => {
+		fetchData();
+		return () => abortControllerRef.current?.abort();
+	}, [url]); // Re-fetch si cambia la URL
+
+	return { ...state, refetch: fetchData };
+}
+```
+
+Pega este demo en `src/App.jsx`:
+
+```jsx
+import { useState } from 'react';
+import { useFetch } from './hooks/useFetch';
+
+const ENDPOINTS = {
+	posts: 'https://jsonplaceholder.typicode.com/posts?_limit=5',
+	users: 'https://jsonplaceholder.typicode.com/users',
+	reqres: 'https://reqres.in/api/users?page=1',
+	pokemon: 'https://pokeapi.co/api/v2/pokemon/pikachu',
+	meteo: 'https://api.open-meteo.com/v1/forecast?latitude=40.42&longitude=-3.70&current=temperature_2m',
+};
+
+export default function App() {
+	const [key, setKey] = useState('posts');
+	const { data, loading, error, refetch } = useFetch(ENDPOINTS[key]);
+
+	return (
+		<main style={{ fontFamily: 'system-ui', padding: 16 }}>
+			<h1>Demo: useFetch</h1>
+
+			<label>
+				Endpoint:{' '}
+				<select value={key} onChange={(e) => setKey(e.target.value)}>
+					{Object.keys(ENDPOINTS).map((k) => (
+						<option key={k} value={k}>
+							{k}
+						</option>
+					))}
+				</select>
+			</label>
+
+			<button style={{ marginLeft: 8 }} onClick={refetch}>
+				Refetch
+			</button>
+
+			{loading && <p>Cargando…</p>}
+			{error && <p>Error: {error.message}</p>}
+
+			<pre style={{ marginTop: 12, whiteSpace: 'pre-wrap' }}>{JSON.stringify(data, null, 2)}</pre>
+		</main>
+	);
+}
+```
+
+**Qué observar:** cambia el `<select>` varias veces (dispara nuevos fetch), usa “Refetch”, y mira cómo el cleanup evita actualizar estado desde requests abortados.
+
+> **Mejoras de este sandbox (useFetch) frente al primer sandbox (fetch mínimo)**
+>
+> Este segundo sandbox es “más real” y se parece más a cómo trabajarás en una app:
+>
+> - **Reutilización**: extrae la lógica a un hook (`useFetch`) en lugar de repetir `useEffect + fetch` en cada componente.
+> - **Cancelación y cleanup consistente**: aborta el request anterior al lanzar uno nuevo y al desmontar (evita warnings y estados “tarde”).
+> - **Race conditions controladas**: al abortar requests anteriores, reduces el riesgo de que una respuesta antigua sobrescriba datos nuevos.
+> - **API de consumo clara**: el componente solo usa `{ data, loading, error, refetch }` y se centra en UI.
+>
+> **¿Por qué usamos `useRef` aquí?**
+>
+> `useRef` nos da un contenedor estable (`abortControllerRef.current`) que **persiste entre renders** sin provocar re-render cuando cambia. Es ideal para guardar “cosas imperativas” como el `AbortController` del request en curso, para poder abortarlo desde:
+>
+> - el siguiente `fetchData()` (cuando cambia la URL o el usuario pulsa “Refetch”)
+> - el cleanup del `useEffect` (cuando el componente se desmonta)
+>
+> Si esto fuese estado (`useState`), cada asignación del controller causaría renders innecesarios y complicaría el flujo.
+>
+> **¿Qué pinta `instanceof` en el `catch`?**
+>
+> En JS, `catch (error)` puede capturar **cualquier valor** (no siempre un `Error`). Por eso se usa:
+>
+> - `error instanceof Error`: para asegurarnos de que tiene propiedades estándar como `.name` y `.message`.
+> - `error.name === 'AbortError'`: para **ignorar** el error esperado cuando cancelamos un fetch con `AbortController`.
+>
+> Así evitamos tratar una cancelación como “error real” en la UI.
+
+> **Nota (arquitectura): servicios para el fetching**
+>
+> En el sandbox llamamos a `fetch` directamente para enfocarnos en hooks. En la app “real” del atelier, **no** mezclaremos URLs, headers y parsing dentro de componentes: crearemos una capa de **servicios** (por ejemplo `src/services/api/`) que exporte funciones tipo `getProducts()`, `getUsers()`, etc.
+>
+> - El **servicio** se encarga de lo “imperativo” y repetitivo: construir URL (baseURL + path), añadir headers (auth), validar `response.ok`, parsear JSON, normalizar errores y (si aplica) reintentos/timeouts.
+> - El **hook** (`useFetch` / `useQuery`-like) se encarga de lo “reactivo”: `loading/error/data`, cancelación (AbortController) y coordinación con el ciclo de vida.
+>
+> Resultado: menos duplicación, errores consistentes y una API interna estable aunque cambie el backend.
+
 ### Ejemplo 2: useLocalStorage
 
 ```javascript
@@ -480,6 +811,76 @@ function ThemeToggle() {
 	return <button onClick={() => setTheme((t) => (t === 'light' ? 'dark' : 'light'))}>Actual: {theme}</button>;
 }
 ```
+
+#### Pruébalo en StackBlitz (useLocalStorage)
+
+**Sandbox:** **[→ Nuevo proyecto React en StackBlitz](https://stackblitz.com/fork/react)**
+
+En StackBlitz crea 2 archivos:
+
+- `src/hooks/useLocalStorage.js`
+- `src/App.jsx` (reemplaza el contenido)
+
+Pega este hook en `src/hooks/useLocalStorage.js`:
+
+```javascript
+import { useState } from 'react';
+
+export function useLocalStorage(key, initialValue) {
+	const [storedValue, setStoredValue] = useState(() => {
+		try {
+			const item = window.localStorage.getItem(key);
+			return item ? JSON.parse(item) : initialValue;
+		} catch {
+			return initialValue;
+		}
+	});
+
+	const setValue = (value) => {
+		const valueToStore = value instanceof Function ? value(storedValue) : value;
+		setStoredValue(valueToStore);
+		window.localStorage.setItem(key, JSON.stringify(valueToStore));
+	};
+
+	return [storedValue, setValue];
+}
+```
+
+Pega este demo en `src/App.jsx`:
+
+```jsx
+import { useLocalStorage } from './hooks/useLocalStorage';
+
+export default function App() {
+	const [theme, setTheme] = useLocalStorage('theme', 'light');
+	const [count, setCount] = useLocalStorage('count', 0);
+
+	return (
+		<main style={{ fontFamily: 'system-ui', padding: 16 }}>
+			<h1>Demo: useLocalStorage</h1>
+
+			<section style={{ marginTop: 12 }}>
+				<h2>Tema</h2>
+				<button onClick={() => setTheme((t) => (t === 'light' ? 'dark' : 'light'))}>Actual: {theme}</button>
+			</section>
+
+			<section style={{ marginTop: 12 }}>
+				<h2>Contador persistente</h2>
+				<button onClick={() => setCount((c) => c + 1)}>+1</button>
+				<button style={{ marginLeft: 8 }} onClick={() => setCount(0)}>
+					Reset
+				</button>
+				<p>Valor: {count}</p>
+				<p>
+					Recarga la pestaña: el valor se mantiene porque está en <code>localStorage</code>.
+				</p>
+			</section>
+		</main>
+	);
+}
+```
+
+**Qué observar:** recarga el sandbox y verás que `theme` y `count` se conservan; abre DevTools → Application/Storage para inspeccionar las keys.
 
 ### Ejemplo 3: useDebounce
 
