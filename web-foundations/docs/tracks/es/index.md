@@ -22,11 +22,20 @@ Bienvenido a los cursos de WEB ATELIER. Aquí encontrarás rutas de aprendizaje 
 
 ---
 
+### ◈ HELIOS DECK — Observatorio Cósmico de Datos Geofísicos
+
+**Duración:** 8 sprints (~16 semanas)
+**Público:** Estudiantes de Desarrollo Web Fullstack
+**Objetivo:** Construir un dashboard de clima espacial con React Router v7 SSR, SQLite, WebSockets y APIs públicas
+
+[Ver Curso →]({{ '/tracks/es/geo-physical-aggregator/' | relative_url }})
+
+---
+
 ## 🚧 Próximamente
 
 Estamos trabajando en nuevos cursos especializados:
 
-- Desarrollo Frontend Avanzado
 - UX/UI Design
 - Accesibilidad Web
 

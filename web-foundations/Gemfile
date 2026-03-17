@@ -5,3 +5,5 @@ gem "jekyll-sitemap", group: :jekyll_plugins
 gem "webrick"
 gem "kramdown"
 gem "kramdown-parser-gfm"
+# Required by Jekyll's built-in livereload (em-websocket)
+gem "eventmachine", "~> 1.2.7"

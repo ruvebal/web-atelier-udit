@@ -51,3 +51,64 @@ tracks:
       technical: 40
       creative: 40
       process: 20
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # HELIOS DECK — Observatorio Cósmico de Datos Geofísicos
+  # ────────────────────────────────────────────────────────────────────────────
+  geo-physical-aggregator:
+    title: 'HELIOS DECK — Observatorio Cósmico de Datos Geofísicos'
+    title_alt: 'Track de desarrollo fullstack · React Router v7 · Datos en tiempo real'
+    description: 'Dashboard de clima espacial con React Router v7 SSR, SQLite, WebSockets y APIs públicas (NASA DONKI, NOAA SWPC, GFZ Kp, SpaceWeatherLive, Open Notify, NASA POWER). 8 sprints.'
+    lang: es
+    permalink: /tracks/es/geo-physical-aggregator/
+    sessions: 8
+    duration: '~16 semanas'
+    tags: [react, fullstack, ssr, sqlite, websocket, api, space-weather, dashboard, react-router]
+    sessions_list:
+      - title: 'Foundation & Data Sources'
+        slug: 's1-foundation'
+        description: 'Scaffolding RR v7 SSR, SQLite + Drizzle, primer fetcher NASA DONKI.'
+        duration: '~2 semanas'
+      - title: 'CRUD & Data Normalization'
+        slug: 's2-crud-normalization'
+        description: 'HttpRequest, HttpErrors, normalizer (validación en runtime), 8 fetchers, aggregator.'
+        duration: '~2 semanas'
+      - title: 'Visualization & Charts'
+        slug: 's3-visualization'
+        description: 'Recharts, gauges, event feeds, SignalCard, responsive + dark mode.'
+        duration: '~2 semanas'
+      - title: 'Real-Time & WebSockets'
+        slug: 's4-websockets'
+        description: 'WebSocket server, ISS position, solar wind live, useWebSocket hook.'
+        duration: '~2 semanas'
+      - title: 'Widget System & Dashboard'
+        slug: 's5-widget-system'
+        description: 'Widget registry, react-grid-layout, CRUD de widgets, persistencia.'
+        duration: '~2 semanas'
+      - title: 'Authentication & User Profiles'
+        slug: 's6-auth'
+        description: 'Cookie sessions, registro, login, dashboards por usuario.'
+        duration: '~2 semanas'
+      - title: 'AI-Assisted Development & DevOps'
+        slug: 's7-ai-devops'
+        description: '.cursor rules/skills, CLAUDE.md, Docker, GitHub Actions, Fly.io.'
+        duration: '~2 semanas'
+      - title: 'Polish, Testing & Launch'
+        slug: 's8-launch'
+        description: 'Lighthouse, WCAG, tests E2E, monitoring, lanzamiento.'
+        duration: '~2 semanas'
+    objectives:
+      - 'Agregar 8 señales geofísicas desde APIs públicas en un esquema normalizado.'
+      - 'Construir dashboard con widgets configurables y persistencia en SQLite.'
+      - 'Integrar WebSockets para datos en tiempo real (ISS, viento solar).'
+      - 'Desplegar aplicación fullstack self-contained con asistencia de IA.'
+    deliverables:
+      - '8 fetchers funcionales con normalización en runtime.'
+      - 'Dashboard con al menos 4 tipos de widgets (chart, gauge, map, feed).'
+      - 'Auth con sesiones cookie y CRUD de layouts por usuario.'
+      - 'Deploy en Fly.io con SQLite volume y CI/CD.'
+    methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión)'
+    evaluation:
+      technical: 70
+      collaboration: 15
+      documentation: 15

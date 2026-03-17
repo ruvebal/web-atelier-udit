@@ -8,6 +8,16 @@
   status:
    es: complete
   type: track
+- slug: geo-physical-aggregator
+  title:
+   es: 'HELIOS DECK — Observatorio Cósmico de Datos Geofísicos — Track'
+  path:
+   es: /tracks/es/geo-physical-aggregator/
+  file:
+   es: tracks/es/geo-physical-aggregator/index.md
+  status:
+   es: in progress
+  type: track
 - slug: atelier-prompts
   title:
    en: 'Atelier Prompt Collection — Modern Web Development'
