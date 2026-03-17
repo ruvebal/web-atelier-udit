@@ -67,7 +67,7 @@ tracks:
     sessions_list:
       - title: 'Foundation & Data Sources'
         slug: 's1-foundation'
-        description: 'Scaffolding RR v7 SSR, SQLite + Drizzle, primer fetcher NASA DONKI.'
+        description: 'Scaffolding RR v7 SSR, SQLite (better-sqlite3, SQL directo KISS), primer fetcher NASA DONKI.'
         duration: '~2 semanas'
       - title: 'CRUD & Data Normalization'
         slug: 's2-crud-normalization'
