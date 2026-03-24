@@ -1,0 +1,94 @@
+# Lesson Authoring Rules
+
+Apply these rules when editing lesson Markdown in `web-foundations/docs/**/*.md`.
+
+## Code block categories
+
+Every code block must be explicitly treated as one of:
+
+- `CodeSandbox-ready`
+- `Excerpt`
+- `Template`
+
+Add a short note near the first code section so the reader knows the convention.
+
+## CodeSandbox-ready standard
+
+Only mark a block `CodeSandbox-ready` if it is genuinely copy-paste ready:
+
+- imports included
+- root component or complete file structure included when needed
+- no missing app shell
+- no hidden globals
+- no undefined helpers
+- no fake completeness
+
+Prefer complete JavaScript / JSX examples unless the lesson explicitly requires another language.
+
+## Excerpt standard
+
+Mark blocks as `Excerpt` when they are:
+
+- partial
+- conceptual
+- pseudocode
+- shader fragments
+- utility-only snippets that rely on external setup
+
+Do not imply that excerpts run as-is.
+
+## Template standard
+
+Mark blocks as `Template` when they are intended to be customized:
+
+- config files
+- prompt skeletons
+- starter documents
+- examples with placeholders
+
+Always state what must be replaced or adapted.
+
+## Sandbox architecture: multi-file with routes
+
+Lessons with more than one runnable example MUST use a **routed multi-file sandbox**. Never replace `App.jsx` for each example.
+
+### Structure
+
+```
+src/
+  main.jsx                  ← providers + CSS import (set up once)
+  App.jsx                   ← NavBar + Routes (all examples pre-wired)
+  services/                 ← shared API functions (fetch, create, delete, gqlRequest)
+  components/               ← reusable UI (cards, status messages, forms)
+  pages/
+    Home.jsx                ← lesson index with links to each example
+    Ex1Topic.jsx            ← example 1 — imports from services/ and components/
+    Ex2Topic.jsx            ← example 2
+    ...
+```
+
+### Rules for Cascade
+
+- Start the lesson with a **Sandbox setup** section: template, dependencies, config, then all scaffold files.
+- `App.jsx` pre-wires ALL routes. Pages that don't exist yet will error until the student creates them.
+- Each page component is self-contained: imports from `services/` and `components/`, never redefines API logic inline.
+- Label page files: `**CodeSandbox-ready** — Create src/pages/ExNName.jsx.`
+- Students never overwrite previous examples — they only add files.
+- Scaffold files (main, App, services, components, Home) are each a separate `CodeSandbox-ready` block with target path.
+- After the scaffold is complete, the preview must show a working nav bar and home page.
+
+### Separation of concerns
+
+- `services/` holds all data fetching (REST helpers, GraphQL client, query strings). Components never contain fetch logic.
+- `components/` holds reusable UI pieces shared across example pages.
+- `pages/` holds the per-example page components, each focused on one teaching concept.
+- This separation is taught structurally — students learn it by building it, not by reading about it.
+
+## Editing rule
+
+If a block looks runnable but is not:
+
+- either complete it fully
+- or relabel it as `Excerpt` / `Template`
+
+Never leave ambiguous runnable-looking snippets in lessons.

@@ -1,0 +1,78 @@
+---
+description: Lesson authoring rules for executable vs excerpt code blocks
+globs: web-foundations/docs/**/*.md
+alwaysApply: false
+---
+
+# Lesson Code Block Conventions
+
+When editing or creating lesson Markdown under `web-foundations/docs/**/*.md`, enforce these rules:
+
+## Code block categories
+
+- Every code block must be treated as one of: `CodeSandbox-ready`, `Excerpt`, or `Template`.
+- Add a short note near the first code section explaining the convention used in that lesson.
+- Use `CodeSandbox-ready` only for blocks that are genuinely copy-paste ready.
+- A `CodeSandbox-ready` block must include enough context to run:
+  imports, wrapper/root component or `index.html` + `main.js` pairing when needed, and no hidden variables.
+- If a snippet depends on missing setup, external state, pseudocode, undefined helpers, or omitted assets, mark it as `Excerpt` instead of implying it runs as-is.
+- If a block is intended to be customized by the reader, mark it as `Template` and say what must be replaced.
+- Prefer a few strong complete runnable examples over many fake-complete snippets.
+- Keep runnable examples in plain JavaScript / JSX unless the lesson explicitly targets another stack.
+- Do not leave TypeScript fences in lessons that are meant to stay JavaScript-first.
+- For fragment-only shader code, CLI fragments, YAML, prompts, or config skeletons, explicitly label them `Excerpt` or `Template`.
+- When converting an incomplete runnable-looking snippet, either make it fully executable or downgrade it clearly.
+
+## Sandbox architecture: multi-file with routes
+
+Lessons with more than one runnable example MUST use a **routed multi-file sandbox** instead of replacing `App.jsx` for each example. The sandbox is set up once and grows by adding files.
+
+### Scaffold (built once at the start of the lesson)
+
+The lesson must provide a permanent foundation that students create once:
+
+- `src/main.jsx` — providers (QueryClient, BrowserRouter, etc.) + global CSS import.
+- `src/App.jsx` — nav bar with all routes pre-wired + `<Routes>` with all example pages.
+- `src/services/` — API functions and data fetching logic, shared across all examples.
+- `src/components/` — reusable UI components (cards, status messages, forms).
+- `src/pages/Home.jsx` — lesson index with links to each example.
+
+### Per-example pages
+
+Each example is a self-contained page component in `src/pages/`:
+
+- File name matches the example number: `Ex1Query.jsx`, `Ex2Mutation.jsx`, etc.
+- The page imports from `services/` and `components/` — never redefines API functions inline.
+- The page is `CodeSandbox-ready`: paste the file into the scaffold and the route lights up.
+- Label: `**CodeSandbox-ready** — Create src/pages/ExNName.jsx.`
+
+### Why
+
+- Students never delete previous work to try the next example.
+- The nav bar shows the full lesson arc from the start.
+- Separation of concerns (services, components, pages) is taught by doing.
+- The sandbox accumulates state: DevTools caches show all examples at once.
+
+### Sandbox setup section
+
+Every multi-example lesson must start with a **Sandbox setup** section specifying:
+
+1. Which CodeSandbox template to use (React/Vite/JS — no TypeScript).
+2. Dependencies to add (list for the Dependencies panel).
+3. Any Vite config changes (e.g., Tailwind plugin).
+4. CSS setup (e.g., `@import "tailwindcss"`).
+5. All scaffold files listed in order.
+
+### Rules for scaffold files
+
+- Scaffold files (`main.jsx`, `App.jsx`, services, components) are `CodeSandbox-ready` — complete files.
+- Each gets its own labeled code block with the target path: `**CodeSandbox-ready** — src/services/postsApi.js (create new file)`
+- `App.jsx` pre-wires ALL routes (pages that don't exist yet will error — state that explicitly).
+- After the scaffold, verify: the preview shows a working nav bar and a home page.
+
+## Quick checks
+
+- Ask: "Could a learner paste this into CodeSandbox and run it with minimal friction?"
+- If the honest answer is no, it is not `CodeSandbox-ready`.
+- Preserve pedagogical excerpts, but never disguise them as full examples.
+- For multi-example lessons, ask: "Does this lesson replace App.jsx for each example?" If yes, refactor to routed pages.
