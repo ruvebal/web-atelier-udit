@@ -30,6 +30,8 @@ status: published
 
 ## Code conventions in this lesson
 
+[https://codesandbox.io/p/devbox/fetch-project-79syrg](https://codesandbox.io/p/devbox/fetch-project-79syrg)
+
 All examples live in **one permanent CodeSandbox**. The sandbox is set up once at the start of class. As each topic is introduced, you add one new file to `src/pages/` — nothing is ever replaced.
 
 - **CodeSandbox-ready** — a complete, copy-paste file. Works once the scaffold below is in place.
@@ -81,13 +83,13 @@ Replace `vite.config.js` with:
 
 ```js
 // vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-})
+	plugins: [react(), tailwindcss()],
+});
 ```
 
 **Step 4 — Enable Tailwind in CSS**
@@ -95,7 +97,7 @@ export default defineConfig({
 Replace the contents of `src/index.css` with:
 
 ```css
-@import "tailwindcss";
+@import 'tailwindcss';
 ```
 
 **Step 5 — Build the scaffold** (Section 2 below) and verify the preview shows the home page with nav links.
@@ -256,9 +258,7 @@ export default function App() {
 								end
 								className={({ isActive }) =>
 									`text-sm px-3 py-1.5 rounded-lg transition-colors ${
-										isActive
-											? 'bg-blue-500 text-white font-semibold'
-											: 'text-slate-600 hover:bg-slate-100'
+										isActive ? 'bg-blue-500 text-white font-semibold' : 'text-slate-600 hover:bg-slate-100'
 									}`
 								}>
 								{label}
@@ -404,11 +404,7 @@ export function Loading({ text = 'Loading…' }) {
 }
 
 export function ErrorMsg({ message }) {
-	return (
-		<p className="text-red-500 bg-red-50 border border-red-200 rounded-lg p-3">
-			❌ {message}
-		</p>
-	);
+	return <p className="text-red-500 bg-red-50 border border-red-200 rounded-lg p-3">❌ {message}</p>;
 }
 
 export function Empty({ text = 'No items found.' }) {
@@ -493,7 +489,12 @@ import PostCard from '../components/PostCard';
 import { Loading, ErrorMsg, Empty } from '../components/StatusMessage';
 
 export default function Ex1Query() {
-	const { data: posts, isLoading, isError, error } = useQuery({
+	const {
+		data: posts,
+		isLoading,
+		isError,
+		error,
+	} = useQuery({
 		queryKey: ['posts'],
 		queryFn: () => fetchPosts(10),
 		staleTime: 1000 * 30, // 30 s — won't refetch if data is still fresh
@@ -662,7 +663,9 @@ export default function Ex2Mutation() {
 				<Loading />
 			) : (
 				<ul className="space-y-2">
-					{posts?.map((post) => <PostCard key={post.id} post={post} />)}
+					{posts?.map((post) => (
+						<PostCard key={post.id} post={post} />
+					))}
 				</ul>
 			)}
 		</div>
@@ -740,7 +743,11 @@ function CreatePostForm() {
 
 function PostListWithDelete() {
 	const queryClient = useQueryClient();
-	const { data: posts, isLoading, isError } = useQuery({
+	const {
+		data: posts,
+		isLoading,
+		isError,
+	} = useQuery({
 		queryKey: ['posts'],
 		queryFn: () => fetchPosts(8),
 	});
@@ -877,8 +884,7 @@ export default function Ex4GraphQLQuery() {
 		<div>
 			<h1 className="text-2xl font-bold mb-2">🔷 GraphQL Query</h1>
 			<p className="text-sm text-slate-400 mb-6">
-				Source: <code className="bg-slate-100 px-1 rounded">graphqlzero.almansi.me</code> — public mirror of
-				JSONPlaceholder
+				Source: <code className="bg-slate-100 px-1 rounded">graphqlzero.almansi.me</code> — public mirror of JSONPlaceholder
 			</p>
 			<ul className="space-y-3">
 				{posts.map((post) => (
@@ -925,8 +931,7 @@ export default function Ex5GraphQLMutation() {
 	const [created, setCreated] = useState(null);
 
 	const mutation = useMutation({
-		mutationFn: ({ title, body }) =>
-			gqlRequest(CREATE_POST_MUTATION, { input: { title, body } }),
+		mutationFn: ({ title, body }) => gqlRequest(CREATE_POST_MUTATION, { input: { title, body } }),
 		onSuccess: (data) => {
 			setCreated(data.createPost);
 			setTitle('');
