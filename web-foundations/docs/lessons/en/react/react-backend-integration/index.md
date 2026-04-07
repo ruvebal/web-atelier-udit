@@ -1258,9 +1258,9 @@ const mutation = useMutation({
 
 ## 🔗 Lesson Navigation
 
-| Previous                     | Current                 | Next                                       |
-| ---------------------------- | ----------------------- | ------------------------------------------ |
-| [Routing](../react-routing/) | **Backend Integration** | [Authentication](../react-authentication/) |
+| Previous                                                         | Current                 | Next                               |
+| ---------------------------------------------------------------- | ----------------------- | ---------------------------------- |
+| [State Architecture](../react-state-architecture/)             | **Backend Integration** | [Routing](../react-routing/)       |
 
 ---
 

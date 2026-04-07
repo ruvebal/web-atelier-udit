@@ -185,7 +185,7 @@ window.location.href = '/api/auth/github/redirect';
 
 | Previous | Current | Next |
 |----------|---------|------|
-| [Backend Integration](../react-backend-integration/) | **Authentication** | [Testing](../react-testing/) |
+| [Routing](../react-routing/) | **Authentication** | [Testing](../react-testing/) |
 
 ---
 
