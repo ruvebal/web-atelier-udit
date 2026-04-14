@@ -111,7 +111,7 @@ Implementación del servicio HttpRequest centralizado, HttpErrors para mensajes 
 
 **Servicio HttpRequest:**
 
-```typescript
+```javascript
 // app/services/HttpRequest.js
 
 const DEFAULT_TIMEOUT = 10_000;
@@ -192,7 +192,7 @@ Servidor WebSocket integrado en el proceso Node.js. Canales para posición ISS e
 
 ### ISSMap: ejemplo de widget en tiempo real
 
-```typescript
+```javascript
 // app/components/widgets/ISSMap.jsx
 
 import { MapContainer, TileLayer, Marker, Polyline } from 'react-leaflet';
@@ -247,7 +247,7 @@ Arquitectura de widgets configurables. Grid drag-and-drop con react-grid-layout.
 
 ### Widget Registry
 
-```typescript
+```javascript
 // app/lib/widget-registry.js
 
 export const WIDGET_REGISTRY = {
