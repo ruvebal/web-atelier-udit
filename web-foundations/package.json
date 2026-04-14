@@ -8,7 +8,7 @@
 		"postcss:watch": "postcss docs/assets/css/tailwind.css -o docs/assets/css/tailwind-processed.css --watch",
 		"normalize:ids": "node scripts/normalize-ids.mjs",
 		"mark-broken-links": "node scripts/mark-broken-links.mjs",
-		"develop": "npm run postcss:build && bundle exec jekyll serve --source docs --livereload --config _config.yml",
+		"develop": "npm run postcss:build && bundle exec jekyll serve --source docs --livereload --config _config.yml --port ${PORT:-4000}",
 		"build": "npm run postcss:build && bundle exec jekyll build --source docs --destination _site --config _config.yml",
 		"wrap:i18n": "node scripts/wrap-frontmatter-i18n.mjs",
 		"validate:lessons": "yaml-lint docs/_data/lessons.yml",
