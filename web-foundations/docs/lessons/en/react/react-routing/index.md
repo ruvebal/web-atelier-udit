@@ -1163,11 +1163,22 @@ export default function Ex5Deck() {
 
 ## — ACT 2: Framework Mode — Explicit Config —
 
+> **Before you begin:** Act 2 assumes students completed Act 1 and can explain `<Route>`, `<Outlet />`, `useParams`, and `useSearchParams`. A quick 5-minute warm-up: "Tell me the difference between `<Link>` and `useNavigate`" shakes off the rust.
+
 ---
 
 ## 8 — From Declarative Mode to Framework Mode
 
-You now speak declarative routing fluently. Every concept from Act 1 exists in Framework Mode — the vocabulary is the same. What Framework Mode **adds**:
+> _routes defined once,_
+> _the server loads your data —_
+> _no more useEffect_
+
+You now speak declarative routing fluently. Every concept from Act 1 exists in Framework Mode — the vocabulary is the same.
+
+**Declarative Mode** is React Router as a **routing library inside your React app**.
+**Framework Mode** is React Router as a **full application framework** that also handles routing, data loading, actions, code splitting, and rendering strategy.
+
+What Framework Mode **adds**:
 
 | Capability         | Declarative (Act 1)           | Framework Mode (Act 2)                           |
 | ------------------ | ----------------------------- | ------------------------------------------------ |
@@ -1176,7 +1187,8 @@ You now speak declarative routing fluently. Every concept from Act 1 exists in F
 | Forms / mutations  | `fetch` in event handlers     | `action` + `<Form>` + automatic revalidation     |
 | Code splitting     | Manual `lazy()` / Suspense    | Automatic per route                              |
 | SSR / SSG / SPA    | SPA only                      | Any strategy, same config                        |
-| TypeScript         | Optional                      | First-class with generated types per route       |
+
+> **Pedagogical note:** The biggest mental shift from Act 1 is that the server does the work _before_ React renders. Draw the lifecycle diagram on the board before opening any code. Let it sink in.
 
 **Excerpt** — Framework Mode request lifecycle.
 
@@ -1194,99 +1206,506 @@ hydrate (React takes over)
 client navigations → clientLoader (or re-run server loader via fetch)
 ```
 
+### The 4 rules of React Router (Framework Mode)
+
+1. Routes form a tree
+2. URL walks the tree
+3. Layouts render via `<Outlet />`
+4. Loaders run at each matched level
+
+> **In class:** write these four rules on the board. Leave them visible for the entire session. Every pattern and every student question comes back to one of these four.
+
 ---
 
 ## 9 — The `routes.js` config — seven patterns
 
-**Excerpt** — The four builder functions from `@react-router/dev/routes`.
+### The core mental model (read this before the patterns)
+
+Before syntax, give students one invariant to hold onto:
+
+> A React Router app (Framework Mode) is a **tree of routes**.
+> Every URL **walks that tree** and renders nested layouts via `<Outlet />`.
+
+The four rules from section 8 apply at every level of that tree. Patterns 1–7 are just the ways to build nodes in it.
+
+---
+
+### Visual map of the tree
+
+> **In class:** draw this tree on the board first, before showing any code. Students need the spatial model before the syntax.
+
+**Excerpt** — how a typical i18n app's routes form a tree.
+
+```text
+/                              ← root (root.jsx with <Outlet />)
+├── index                      ← detect locale → redirect
+├── confirm-account            ← flat, locale-agnostic (auth)
+├── api/revalidate             ← resource route (data only, no UI)
+├── :locale                    ← dynamic parent (en, es, fr…)
+│   ├── index                  ← /:locale (home)
+│   ├── who-we-are             ← layout (shared section nav)
+│   │   ├── index              ← /:locale/who-we-are
+│   │   ├── mission            ← /:locale/who-we-are/mission
+│   │   └── board              ← /:locale/who-we-are/board
+│   ├── members                ← layout (list shell)
+│   │   ├── index              ← /:locale/members
+│   │   └── :memberId          ← /:locale/members/abc-123
+│   └── *                      ← locale-aware 404
+└── *                          ← global fallback 404
+```
+
+Each node may have a **layout** (shared chrome), an **index** (default content), and **children** (sub-pages). Content routes live inside `:locale`; auth and API routes live outside it. That's the whole system.
+
+---
+
+### Builder functions — quick reference
+
+**Excerpt** — the four functions from `@react-router/dev/routes`.
 
 ```js
 import { index, route, layout, prefix } from '@react-router/dev/routes';
 
-// index(file)                  → matches the parent's URL exactly (no extra segment)
-// route(path, file, [children])→ adds a URL segment + maps to a route module file
-// layout(file, [children])     → adds nesting (shared chrome) WITHOUT a URL segment
-// prefix(path, [children])     → adds a path prefix to a group WITHOUT a layout file
+// index(file)                    → default child; matches parent URL exactly (no extra segment)
+// route(path, file, [children])  → adds a URL segment; maps to a route module file
+// layout(file, children)         → adds shared chrome WITHOUT a URL segment
+// prefix(path, children)         → groups children under a path WITHOUT a layout file
 ```
 
-> Note: The actual `routes.ts` file uses TypeScript (`satisfies RouteConfig`). This lesson keeps JavaScript. The mental model is identical — remove the type annotation and the code is the same.
+> The official docs show `routes.ts` with TypeScript (`satisfies RouteConfig`). This lesson uses JavaScript — drop the type annotation and the code is identical.
 
-### Pattern 1 — Root index (`index()`)
+---
+
+### Pattern 1 — Root index: "default child of a route"
+
+**Concept:** `index()` renders when you are at the parent path with no extra segments. Think of it like `index.html` in a folder.
+
+**Teaching sentence:** _"Index = default content of a folder."_
+
+**Excerpt**
 
 ```js
 index('./routes/_index.jsx'),
-// matches: /
-// URL: /  →  renders _index.jsx inside root.jsx Outlet
 ```
 
-### Pattern 2 — Flat route (no nesting)
+| URL | Renders                                   |
+| --- | ----------------------------------------- |
+| `/` | `_index.jsx` inside `root.jsx <Outlet />` |
+
+> **`_index.jsx` vs `index.jsx`** — with explicit `routes.js` config the filename is a plain string; the framework doesn't care what you call it. The underscore prefix is a convention borrowed from **file-based routing**, where `_index.jsx` is *required* to prevent the auto-discovery system from treating it as a layout. With explicit config, `index.jsx` works identically. Common practice: keep `_index.jsx` for the **root route** (visual convention, widely seen in docs and starters); use `index.jsx` inside named folders (e.g. `routes/blog/index.jsx`) — that's what the rest of this lesson does.
+
+Reference: [https://reactrouter.com/api/components/Outlet](https://reactrouter.com/api/components/Outlet)
+
+### Pattern 2 — Flat route: "leaf node"
+
+**Concept:** A route with no children is a final, standalone page. No `<Outlet />` needed.
+
+**Teaching sentence:** _"Flat route = standalone page."_
+
+Some pages are locale-aware (they live inside `:locale`); others are locale-agnostic — auth flows, error pages, legal documents. Both are flat routes; only their position in the tree differs.
+
+**Excerpt**
 
 ```js
+// locale-agnostic flat route (auth — same page for all locales)
 route('confirm-account', './routes/confirm-account.jsx'),
-// matches: /confirm-account
-// No children → no Outlet needed in this file
+
+// locale-aware flat route (terms — different copy per locale)
+route(':locale', './routes/$locale/layout.jsx', [
+  route('terms', './routes/$locale/terms.jsx'),
+]),
 ```
 
-### Pattern 3 — Resource route (API endpoint, no component)
+| URL                   | `params.locale` | Renders              |
+| --------------------- | --------------- | -------------------- |
+| `/confirm-account`    | —               | `confirm-account.jsx`|
+| `/en/terms`           | `"en"`          | `$locale/terms.jsx`  |
+| `/es/terms`           | `"es"`          | same file, `"es"`    |
 
-A route module that exports only `loader` or `action` — no default component — becomes a **server endpoint**. It never renders HTML; it returns JSON, redirect, or raw responses.
+---
+
+### Pattern 3 — Resource route: "backend inside the router"
+
+> **In class:** this is often the "aha" moment — the router is not just frontend. Pause here and ask: "What happens if you omit the `default` export?" Let them guess before showing the answer.
+
+**Concept:** A route module with no default component export becomes a server endpoint — returns JSON or a redirect, never HTML. This is where students first encounter full-stack routing.
+
+**Teaching sentence:** _"Same routing system, but returning data instead of HTML."_
+
+API routes live outside the locale tree — they serve data to any client regardless of language.
+
+**Excerpt**
 
 ```js
-route('api/cms/*', './routes/api.cms.$.js'),
+// outside :locale — language-agnostic API
 route('api/revalidate', './routes/api.revalidate.js'),
-// matches: /api/cms/anything  and  /api/revalidate
-// These files have NO default export — just loader/action
 ```
 
-### Pattern 4 — Dynamic segment parent (scoped sub-tree)
+```js
+// routes/api.revalidate.js — NO default export
+export async function loader({ request }) {
+  const locale = new URL(request.url).searchParams.get('locale') ?? 'en';
+  return Response.json({ ok: true, locale });
+}
+```
+
+| URL               | Returns               |
+| ----------------- | --------------------- |
+| `/api/revalidate` | JSON — no UI rendered |
+
+> This is **full-stack routing**, not just frontend routing. The router owns both HTML routes and API endpoints. Locale context for API routes comes from query params or `Accept-Language`, not the URL tree.
+
+---
+
+### Pattern 4 — Dynamic segment parent: "scoped context"
+
+**Concept:** A `:param` segment creates a variable URL slot and propagates that value as `params.param` to every loader and component in the sub-tree.
+
+**Teaching sentence:** _"Dynamic parent = context provider for URLs."_
+
+**Excerpt**
 
 ```js
-route(':locale', './routes/$locale.layout.jsx', [
-  // children go here — all prefixed with /:locale
-  index('./routes/$locale.index.jsx'),
+route(':locale', './routes/$locale/layout.jsx', [
+  index('./routes/$locale/index.jsx'),
   route('dashboard', './routes/$locale/dashboard/layout.jsx', [...]),
 ]),
-// :locale is injected as params.locale in every loader inside this tree
 ```
 
-### Pattern 5 — Layout + index + children
+| URL             | `params.locale` |
+| --------------- | --------------- |
+| `/en`           | `"en"`          |
+| `/es/dashboard` | `"es"`          |
 
-The most common composition: a layout file owns the shell, an `index()` renders the default child, named segments render specific pages.
+Every child inherits the param. One tree branch handles all locales.
+
+---
+
+### Pattern 5 — Layout + index + children: "the canonical pattern"
+
+> _the frame stays still —_
+> _only the content inside_
+> _changes with the path_
+
+> **In class:** this is the pattern students will use 80% of the time. Spend the most time here. Show the layout component with `<Outlet />` first, then the URL table. Ask: "what stays, what changes?"
+
+**Concept:** A layout file owns the persistent shell (nav, sidebar, header). Children fill the content via `<Outlet />`. This is the pattern students will write most.
+
+**Teaching sentence:** _"Layout owns the frame, children fill the content."_
+
+This example nests under the `:locale` parent from Pattern 4, showing how patterns compose in a real i18n app:
+
+**Excerpt**
 
 ```js
-route('who-we-are', './routes/who-we-are/layout.jsx', [
-  index('./routes/who-we-are/index.jsx'),        // /who-we-are
-  route('mission', './routes/who-we-are/mission.jsx'), // /who-we-are/mission
-  route('board', './routes/who-we-are/board.jsx'),     // /who-we-are/board
+route(':locale', './routes/$locale/layout.jsx', [
+  index('./routes/$locale/index.jsx'),
+
+  route('who-we-are', './routes/$locale/who-we-are/layout.jsx', [
+    index('./routes/$locale/who-we-are/index.jsx'),
+    route('mission', './routes/$locale/who-we-are/mission.jsx'),
+    route('board',   './routes/$locale/who-we-are/board.jsx'),
+  ]),
 ]),
 ```
 
-### Pattern 6 — Dynamic segment child (`:id` pages)
+| URL                      | What renders                                           |
+| ------------------------ | ------------------------------------------------------ |
+| `/en/who-we-are`         | `$locale/layout` → `who-we-are/layout` + `index.jsx`  |
+| `/en/who-we-are/mission` | `$locale/layout` → `who-we-are/layout` + `mission.jsx`|
+| `/es/who-we-are/board`   | same tree, `params.locale` is `"es"`                  |
 
-```js
-route('members', './routes/members/layout.jsx', [
-  index('./routes/members/index.jsx'),            // /members
-  route(':memberId', './routes/members/$memberId.jsx'), // /members/abc-123
-]),
-// memberId is available as params.memberId in the loader
+```jsx
+// routes/$locale/who-we-are/layout.jsx
+import { Outlet, useParams } from 'react-router';
+
+export default function WhoWeAreLayout() {
+  const { locale } = useParams();
+  return (
+    <div>
+      <SectionNav locale={locale} />
+      <Outlet />
+    </div>
+  );
+}
 ```
 
-### Pattern 7 — Splat / catchall (404 page)
+`params.locale` is available anywhere in the sub-tree — both in loaders and components — without passing it as a prop.
+
+---
+
+### Pattern 6 — Dynamic segment child: "one page per entity"
+
+**Concept:** A `:id` child renders a specific resource instance (post, member, product). The param is available in the loader alongside the inherited `locale` param.
+
+**Teaching sentence:** _"Dynamic child = one page per entity."_
+
+Nested inside `:locale`, both params are available in the loader simultaneously:
+
+**Excerpt**
 
 ```js
+route(':locale', './routes/$locale/layout.jsx', [
+  route('members', './routes/$locale/members/layout.jsx', [
+    index('./routes/$locale/members/index.jsx'),
+    route(':memberId', './routes/$locale/members/$memberId.jsx'),
+  ]),
+]),
+```
+
+```js
+// routes/$locale/members/$memberId.jsx
+import { getMember } from '~/db/queries/members';
+
+export async function loader({ params }) {
+  const member = getMember(params.memberId, { locale: params.locale });
+  if (!member) throw new Response('Not Found', { status: 404 });
+  return { member };
+}
+```
+
+| URL                    | `params.locale` | `params.memberId` |
+| ---------------------- | --------------- | ----------------- |
+| `/en/members`          | `"en"`          | — (index renders) |
+| `/en/members/abc-123`  | `"en"`          | `"abc-123"`       |
+| `/es/members/abc-123`  | `"es"`          | `"abc-123"`       |
+
+---
+
+### Pattern 7 — Splat / catchall: "last fallback"
+
+**Concept:** Matches any URL not caught by the routes above. Must be **last** in the config.
+
+**Teaching sentence:** _"Final safety net."_
+
+A 404 that is locale-aware can read the URL prefix to render a translated message:
+
+**Excerpt**
+
+```js
+// locale-aware 404 — inside the :locale tree
+route(':locale', './routes/$locale/layout.jsx', [
+  // ...all other locale routes...
+  route('*', './routes/$locale/not-found.jsx'),
+]),
+// global fallback for anything outside the locale tree (e.g. /confirm-account/typo)
 route('*', './routes/catchall.jsx'),
-// matches anything not caught above → 404 handler
+```
+
+| URL                      | Renders                             |
+| ------------------------ | ----------------------------------- |
+| `/en/unknown-page`       | `$locale/not-found.jsx` (`"en"`)    |
+| `/es/unknown-page`       | `$locale/not-found.jsx` (`"es"`)    |
+| `/totally-unknown`       | `catchall.jsx` (global fallback)    |
+
+---
+
+### Synthesis
+
+> _seven small patterns —_
+> _one tree holds them all at once._
+> _the URL knows._
+
+> **In class:** show this synthesis block last. The students should recognise every line from the patterns they just learned. If they can read this cold and name the pattern on each line, they have it.
+
+The seven patterns are not seven independent tools — they compose. A fully i18n-compliant app collapses all of them into one coherent tree:
+
+```js
+export default [
+  // Pattern 1 — root index (redirect to detected locale)
+  index('./routes/_index.jsx'),
+
+  // Pattern 3 — API routes (locale-agnostic, outside the locale tree)
+  route('api/revalidate', './routes/api/revalidate.js'),
+
+  // Pattern 2 — locale-agnostic flat route (auth)
+  route('confirm-account', './routes/confirm-account.jsx'),
+
+  // Pattern 4 — dynamic parent (locale context for the entire app)
+  route(':locale', './routes/$locale/layout.jsx', [
+    index('./routes/$locale/index.jsx'),
+
+    // Pattern 2 (locale-aware) — flat page with translated content
+    route('terms', './routes/$locale/terms.jsx'),
+
+    // Pattern 5 — layout + index + children
+    route('blog', './routes/$locale/blog/layout.jsx', [
+      index('./routes/$locale/blog/index.jsx'),
+      route(':slug', './routes/$locale/blog/$slug.jsx'), // Pattern 6
+    ]),
+
+    // Pattern 6 — entity pages with two params
+    route('members', './routes/$locale/members/layout.jsx', [
+      index('./routes/$locale/members/index.jsx'),
+      route(':memberId', './routes/$locale/members/$memberId.jsx'),
+    ]),
+
+    // Pattern 7 — locale-aware 404 (inside the locale tree, must be last)
+    route('*', './routes/$locale/not-found.jsx'),
+  ]),
+
+  // Pattern 7 — global fallback (outside the locale tree, last of all)
+  route('*', './routes/catchall.jsx'),
+];
+```
+
+The 4 rules from section 8 govern how this tree resolves at runtime:
+
+1. Routes form a tree
+2. URL walks the tree
+3. Layouts render via `<Outlet />`
+4. Loaders run at each matched level
+
+---
+
+### Common mistakes to watch for
+
+| Mistake | Symptom | Fix |
+|---|---|---|
+| Forgetting `<Outlet />` in a layout | Children never appear | Layout must render `<Outlet />` |
+| Putting the catchall before other routes | Everything 404s | `route('*', ...)` must be **last** |
+| Using `index()` with a path argument | Build error | `index()` takes only a file — it inherits the parent path |
+| Nesting API routes inside `:locale` | URLs become `/en/api/...` | API routes belong outside the locale tree |
+| Calling `db` directly in a loader | Works, but couples route to DB | Import from a service module (`~/db/queries/...`) |
+
+---
+
+### Classroom exercise
+
+> **In class:** give students 10–15 minutes. Let them write on paper or in a blank file — no running code yet. The goal is internalizing the tree, not passing a compiler.
+
+**Task** — model an i18n blog in `routes.js`. Write only the config calls, no component code.
+
+```text
+/                   redirect to detected locale
+/confirm-account    auth page (same for all locales)
+/:locale            locale shell (en, es, fr…)
+/:locale/           locale home (index)
+/:locale/blog       blog list
+/:locale/blog/:slug single post
+/api/posts          JSON endpoint (no UI)
+/:locale/*          locale 404
+/*                  global 404
+```
+
+**Expected solution:**
+
+**Template** — fill in the file paths for your project.
+
+```js
+export default [
+  index('./routes/_index.jsx'),                           // P1 — root redirect
+  route('confirm-account', './routes/confirm-account.jsx'), // P2 — flat, locale-agnostic
+  route('api/posts', './routes/api/posts.js'),            // P3 — resource route
+
+  route(':locale', './routes/$locale/layout.jsx', [       // P4 — dynamic parent
+    index('./routes/$locale/index.jsx'),                  // P1 — locale home
+
+    route('blog', './routes/$locale/blog/layout.jsx', [   // P5 — layout
+      index('./routes/$locale/blog/index.jsx'),
+      route(':slug', './routes/$locale/blog/$slug.jsx'),  // P6 — dynamic child
+    ]),
+
+    route('*', './routes/$locale/not-found.jsx'),         // P7 — locale 404
+  ]),
+
+  route('*', './routes/catchall.jsx'),                    // P7 — global fallback
+];
+```
+
+Ask students: what does the root `index()` need to do? (Detect the browser's preferred locale and redirect to `/{locale}`.) That's Pattern 1 + a loader that reads `Accept-Language` or a cookie.
+
+---
+
+## 10 — Production reference: reading ADADI's route config
+
+> _theory meets the real —_
+> _fifty routes, two languages,_
+> _one file holds the map_
+
+> **Context:** [adadi.org](https://adadi.org) is a bilingual professional association website (EN + ES) built with React Router v7 Framework Mode and explicit config. Its route table (TypeScript in production, shown here as JS) is the canonical production reference for this lesson.
+
+> **In class:** open the ADADI routes excerpt on the projector. Ask students to identify each pattern silently for 2 minutes before discussing. Cold reading a production config is one of the most valuable exercises in this lesson.
+
+### The i18n problem ADADI had to solve
+
+ADADI is a professional association with a bilingual audience: English and Spanish. The routing challenge was not just translating content — it was translating **URLs**.
+
+Most i18n tutorials stop at translated content: one URL, two languages, a language toggle. ADADI went further: the URL itself changes per language.
+
+```text
+English:  /en/who-we-are/mission-vision
+Spanish:  /es/quienes-somos/mision-vision
+```
+
+These are two different URLs pointing to structurally equivalent pages. The URL slug (`who-we-are` vs `quienes-somos`) is part of the user experience — it should read naturally in the user's language, appear correctly in search results, and be shareable within that language community.
+
+This rules out the simple approach (one URL, `?lang=es` query param, or a header toggle). The routes themselves must be bilingual.
+
+---
+
+### Why explicit `routes.js` was essential
+
+File-based routing (auto-discovery) would require two separate file trees for the same content structure — confusing to maintain and impossible to keep in sync. Explicit config lets you express the bilingual structure declaratively in one place:
+
+```js
+// Both sections map to the same layout pattern — different URL slugs
+route('who-we-are',   './routes/$locale/who-we-are/layout.jsx',   [...]), // EN
+route('quienes-somos','./routes/$locale/quienes-somos/layout.jsx', [...]), // ES
+```
+
+The layout files are different (so each can load the right CMS slug), but they follow the same structural pattern. The config makes that symmetry visible at a glance.
+
+---
+
+### The architecture in three decisions
+
+**Decision 1 — `:locale` as a dynamic segment, not a hardcoded pair of trees.**
+
+The naive approach would be two parallel static trees: `route('en', ...)` and `route('es', ...)`. ADADI uses `route(':locale', ...)` instead. A single tree handles all language codes. Adding a third language (e.g. French) means adding translated slug routes inside the existing tree, not duplicating the whole structure.
+
+**Decision 2 — locale-agnostic routes live outside `:locale`.**
+
+Auth flows (`confirm-account`) and API endpoints (`api/cms/*`, `api/revalidate`) are the same regardless of language. They sit at the root level, outside the `:locale` subtree, so they are not affected by locale context and do not carry a language prefix in their URL.
+
+**Decision 3 — the root `index()` redirects to the detected locale.**
+
+`/` itself renders nothing — it reads the `Accept-Language` header (or a stored preference cookie) and issues a redirect to `/{locale}`. The user always lands on a locale-scoped URL. This is a **resource-route-style loader** on a Pattern 1 index: no UI, just a redirect response.
+
+```js
+// routes/_index.jsx — no default component export
+export async function loader({ request }) {
+  const locale = detectLocale(request); // reads Accept-Language or cookie
+  throw redirect(`/${locale}`);
+}
 ```
 
 ---
 
-## 10 — Production reference: reading ADADI's `routes.ts`
+### The bilingual parallel tree (the key insight)
 
-> **Context:** [adadi.org](https://adadi.org) is a bilingual professional association website (EN + ES) built with React Router v7 Framework Mode and explicit config. Its `routes.ts` is the canonical production reference for this lesson.
+Inside `:locale`, ADADI maintains **parallel bilingual subtrees**: `who-we-are` (EN) and `quienes-somos` (ES) are siblings in the config. Both follow Pattern 5 (layout + index + children). The loader in each leaf reads the CMS using the locale-specific slug.
+
+```text
+/:locale
+  ├── who-we-are/          ← EN subtree
+  │     ├── index
+  │     ├── mission-vision
+  │     └── objectives
+  └── quienes-somos/       ← ES subtree (parallel structure, different slugs)
+        ├── index
+        ├── mision-vision
+        └── objetivos
+```
+
+This pattern means a Spanish-speaking user who navigates to `/es/quienes-somos/mision-vision` gets a properly structured, SEO-friendly, shareable URL — not a translated overlay on an English URL.
+
+The trade-off: more routes to maintain. The benefit: clean, crawlable, language-native URLs with no URL hacks.
+
+---
 
 The file maps 50+ routes in ~200 lines. Read it as an exercise: for each `route()` call, identify which of the seven patterns above it uses.
 
-**Excerpt** — `apps/web/app/routes.ts` (TypeScript stripped, patterns annotated)
+**Excerpt** — ADADI's route config (TypeScript stripped, patterns annotated)
 
 ```js
 // app/routes.js — ADADI production reference
@@ -1354,7 +1773,50 @@ export default [
 
 ---
 
+### Conclusion: one way to use React Router Framework Mode
+
+The seven patterns exist to explain the system. In practice, **you do not choose between them** — you combine them into one architecture, and that architecture has a clear shape.
+
+Here it is:
+
+```text
+/                        ← root index (detect locale → redirect)
+/confirm-account         ← flat, locale-agnostic (auth, legal)
+/api/*                   ← resource routes (data endpoints, no UI)
+
+/:locale                 ← dynamic parent (the locale shell, owns the top layout)
+  /                      ← locale home
+  /section               ← layout + index + named children (Pattern 5)
+  /section/:id           ← dynamic child (entity pages, Pattern 6)
+  /*                     ← locale-aware 404
+
+/*                       ← global fallback
+```
+
+This is the structure ADADI uses in production. It is not the only valid structure — React Router imposes none. But it is the one that scales cleanly from a two-page site to a 50-route bilingual app without needing to restructure. Start with it, and the patterns you learned are already in place.
+
+**The recommendation for this course:**
+
+Use React Router Framework Mode with explicit `routes.js` config, `:locale` as the dynamic parent of the entire app, and one layout per section. Locale-agnostic routes (auth, API) sit outside the locale tree. Every content page sits inside it.
+
+This is not a constraint — it is a decision made once, up front, so you never have to make it again mid-project. The ADADI codebase is the proof that it works at production scale.
+
+| If you need | Use |
+|---|---|
+| A page that is the same for all languages | Flat route outside `:locale` |
+| A page with translated content and URL | Route inside `:locale` with a locale-specific slug |
+| Data for the server before render | `loader` in the route module |
+| A form that mutates data | `action` in the route module |
+| An API endpoint (no UI) | Resource route (no `default` export) |
+| A translated 404 | `route('*', ...)` inside `:locale` |
+
+If every route decision you make fits one of these rows, your architecture is sound.
+
+---
+
 ## 11 — Route modules: what each file exports
+
+> **In class:** after the pattern exercise, pivot to: "OK, you know _where_ files go in the tree — now let's see _what goes inside each file_." This section is the bridge between config and implementation.
 
 A **route module** is the file referenced in `routes.js`. It can export any combination of:
 
@@ -1372,32 +1834,44 @@ A **route module** is the file referenced in `routes.js`. It can export any comb
 
 ```jsx
 // app/routes/signals/solar-activity.jsx
-// Pattern: loader runs on server → useLoaderData in component
+// Pattern: loader calls a service function → useLoaderData in component
 
 import { useLoaderData } from 'react-router';
+import { getRecentSignals } from '~/db/queries/signals';
 
-export async function loader({ request }) {
-	// In HELIOS this reads from SQLite via Drizzle.
-	// For Sprint 1 you can return mock data here.
-	const flares = await db
-		.select()
-		.from(signals)
-		.where(eq(signals.signal, 'solar_flare_events'))
-		.orderBy(desc(signals.timestamp))
-		.limit(20);
-	return { flares };
+export async function loader() {
+  const flares = getRecentSignals('solar_flare_events', { limit: 20 });
+  return { flares };
 }
 
 export default function SolarActivity() {
-	const { flares } = useLoaderData(); // ← typed from the loader return
+  const { flares } = useLoaderData();
 
-	return (
-		<ul>
-			{flares.map((f) => (
-				<li key={f.id}>{f.value}</li>
-			))}
-		</ul>
-	);
+  return (
+    <ul>
+      {flares.map((f) => (
+        <li key={f.id}>{f.value}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+The SQL lives in a service module, not in the route:
+
+```js
+// app/db/queries/signals.js
+import db from '~/db';
+
+export function getRecentSignals(signal, { limit = 20 } = {}) {
+  return db
+    .prepare(
+      `SELECT * FROM signals
+       WHERE signal = ?
+       ORDER BY timestamp DESC
+       LIMIT ?`
+    )
+    .all(signal, limit);
 }
 ```
 
@@ -1407,21 +1881,23 @@ export default function SolarActivity() {
 
 ## 12 — HELIOS DECK seed — explicit config scaffold
 
+> _type three commands —_
+> _a server is born from seed._
+> _now make it yours._
+
 **Template** — Run locally; replace `helios-deck` with your folder name.
 
 ```bash
 # Node 20+ required
-npx create-react-router@latest helios-deck
+npx create-react-router@latest helios-deck --template remix-run/react-router-templates/javascript
 cd helios-deck
 npm install
 npm run dev
 ```
 
-The generated app uses **explicit config** (`app/routes.ts`) by default — exactly what this lesson teaches. Remove the TypeScript if your cohort is on JavaScript-first:
+> **`remix-run` org — not Remix.** The CLI is `create-react-router` and the package it scaffolds is React Router v7. The templates live in the `remix-run` GitHub organisation because React Router v7 Framework Mode is the direct successor to Remix (the same team, same codebase, new name). `create-remix` and Remix v2 are the old tool. Use `create-react-router` and the `react-router-templates` repo for everything in this course.
 
-```bash
-# Rename routes.ts → routes.js and remove the `satisfies RouteConfig` type annotation.
-```
+The `javascript` template scaffolds the app with explicit config (`app/routes.js`) and no TypeScript — exactly the stack this lesson and the HELIOS DECK track use.
 
 ### Scaffold: `app/routes.js` (Sprint 1 seed, JS)
 
@@ -1472,42 +1948,44 @@ export default [
 
 ### Sprint 1 milestone: your first loader
 
-Once the scaffold runs, the first concrete task is wiring one real signal. Create the route module below—it uses mock data initially; you swap the mock for a SQLite query once Drizzle is set up.
+Once the scaffold runs, the first concrete task is wiring one real signal. Create the route module below — it uses mock data initially; in Sprint 2 you swap the mock for a service that reads from SQLite.
 
 **Template** — `app/routes/signals/solar-activity.jsx`
 
 ```jsx
 // app/routes/signals/solar-activity.jsx
-// Sprint 1: returns mock data. Sprint 2: replace mockFlares with a Drizzle query.
+// Sprint 1: returns mock data.
+// Sprint 2: replace MOCK_FLARES with getRecentSignals() from ~/db/queries/signals.
 
 import { useLoaderData, Link } from 'react-router';
 
-// Mock data for Sprint 1 — swap with db.select() in Sprint 2
 const MOCK_FLARES = [
-	{ id: 1, signal: 'solar_flare_events', source: 'NASA_DONKI', value: '{"classType":"M2.1"}' },
-	{ id: 2, signal: 'solar_flare_events', source: 'NASA_DONKI', value: '{"classType":"C5.3"}' },
+  { id: 1, signal: 'solar_flare_events', source: 'NASA_DONKI', value: '{"classType":"M2.1"}' },
+  { id: 2, signal: 'solar_flare_events', source: 'NASA_DONKI', value: '{"classType":"C5.3"}' },
 ];
 
 export async function loader() {
-	return { flares: MOCK_FLARES };
+  // Sprint 2: import { getRecentSignals } from '~/db/queries/signals';
+  // Sprint 2: const flares = getRecentSignals('solar_flare_events', { limit: 20 });
+  return { flares: MOCK_FLARES };
 }
 
 export default function SolarActivity() {
-	const { flares } = useLoaderData();
+  const { flares } = useLoaderData();
 
-	return (
-		<div>
-			<h1>Solar Flare Events</h1>
-			<Link to="/signals">← All signals</Link>
-			<ul>
-				{flares.map((f) => (
-					<li key={f.id}>
-						#{f.id} · {f.source} · {JSON.parse(f.value).classType}
-					</li>
-				))}
-			</ul>
-		</div>
-	);
+  return (
+    <div>
+      <h1>Solar Flare Events</h1>
+      <Link to="/signals">&larr; All signals</Link>
+      <ul>
+        {flares.map((f) => (
+          <li key={f.id}>
+            #{f.id} &middot; {f.source} &middot; {JSON.parse(f.value).classType}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 ```
 
@@ -1517,57 +1995,13 @@ export default function SolarActivity() {
 
 ## — ACT 3: AI-Empowered Development —
 
----
-
-## 13 — Using AI without skipping architecture
-
-Students will ask: **"If Claude Code can scaffold an app in 5 minutes, why learn routing?"** Answer with roles:
-
-| Tool / practice                                       | What it compresses                          | What it cannot replace                                 |
-| ----------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------ |
-| **shadcn/ui CLI v4** (`init --template react-router`) | Scaffolding a project with the right config | Deciding **which** routes are public vs protected      |
-| **shadcn/skills** (`npx skills add shadcn/ui`)        | Agent context for components + CLI          | Your **security** and **product** constraints          |
-| **shadcn MCP** (`npx shadcn@latest mcp init`)         | Live component registry lookups in Cursor   | Route architecture decisions                           |
-| **v0 (Vercel)**                                       | Rapid layout prototypes from prompts        | Connecting prototypes to **real loaders**              |
-| **Cursor/Windsurf rules**                             | Enforcing project conventions               | Testing edge cases: refresh, back button, stale params |
-
-**The thesis:** Generative tools compress **typing**, not **judgment**. Routing is where **information architecture** meets **security** (public vs protected) and **UX** (what is shareable, what breaks on refresh). You learn explicit config to **steer** agents — to read and verify their output — not to compete with them.
-
-**Deliverable:** Add `.cursor/rules/react-router-patterns.mdc` to your HELIOS repo:
-
-```markdown
----
-description: React Router v7 explicit config conventions for HELIOS DECK
-globs: ['app/routes.js', 'app/routes/**/*.jsx']
----
-
-Route definition:
-
-- ALL routes are defined in app/routes.js (explicit config, not flatRoutes)
-- Route modules live in app/routes/ following the path structure
-
-Loaders:
-
-- All data fetching happens in loader(), not useEffect
-- requireUser(request) is the first call in any protected loader
-- Return plain objects; never return Response from loader in Framework Mode
-
-Actions:
-
-- Form mutations use action() + <Form method="post"> + redirect on success
-- No direct fetch('/api/...') inside React components
-
-Naming:
-
-- Dynamic segments: $paramName.jsx (e.g. $signalId.jsx)
-- Layout files: layout.jsx
-- Index files: index.jsx
-- Catchall: catchall.jsx
-```
+> ACT 3 has been expanded into its own dedicated lesson. Proceed there after completing ACTs 1 and 2.
+>
+> **[AI-Assisted Routing: From Architect to Auditor](../ai-assisted-routing/)** — failure modes, verification protocol, architectural prompting, security rules, controlled failure exercise, and the AI development loop applied to React Router.
 
 ---
 
-## 14 — Sprint deliverables
+## 13 — Sprint deliverables
 
 |     | Deliverable                                           | Act |
 | --- | ----------------------------------------------------- | --- |
@@ -1579,19 +2013,19 @@ Naming:
 | ✅  | HELIOS seed running locally (`npm run dev`)           | 2   |
 | ✅  | `app/routes.js` with explicit config (Sprint 1 shape) | 2   |
 | ✅  | One loader returning mock data, visible in browser    | 2   |
-| 🎁  | `.cursor/rules/react-router-patterns.mdc`             | 3   |
+| ✅  | `.cursor/rules/react-router-patterns.mdc`             | AI  |
 
 ---
 
-## 15 — Atelier reflections
+## 14 — Atelier reflections
 
-> 💭 _Read ADADI's `routes.ts` cold. Before the explanation, count how many of the seven patterns you can identify. What did you miss?_
+> _Read ADADI's route config cold. Before the explanation, count how many of the seven patterns you can identify. What did you miss?_
 
-> 💭 _Which part of your HELIOS DECK URL structure cannot be expressed with file naming conventions? Prove it._
+> _Which part of your HELIOS DECK URL structure cannot be expressed with file naming conventions? Prove it._
 
-> 💭 _You gave your `routes.js` to Claude Code and asked it to add a new protected signal route. It returned a version that works—but it used `useEffect` instead of `loader`. What is wrong with that, and how do you explain it to the agent?_
+> _Explain to a classmate, without code, what happens between the browser typing `/en/members/abc-123` and the page appearing. Use the 4 rules._
 
-> 💭 _A route guard that only runs in the browser is not a security boundary. Why not? Where must the real check live?_
+> _If you add French to HELIOS DECK tomorrow, which files change and which don't?_
 
 ---
 
@@ -1684,10 +2118,12 @@ export function ErrorBoundary() {
 
 ## 🔗 Lesson navigation
 
-| Previous                                             | Current     | Next                                       |
-| ---------------------------------------------------- | ----------- | ------------------------------------------ |
-| [Backend Integration](../react-backend-integration/) | **Routing** | [Authentication](../react-authentication/) |
+| Previous                                             | Current     | Next                                                    |
+| ---------------------------------------------------- | ----------- | ------------------------------------------------------- |
+| [Backend Integration](../react-backend-integration/) | **Routing** | [AI-Assisted Routing](../ai-assisted-routing/) |
 
 ---
 
-> _"A URL is a promise to the user: this address names a coherent place in your app."_
+> _a URL is a promise:_
+> _this address names a place —_
+> _don't break that contract._

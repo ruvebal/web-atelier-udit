@@ -25,7 +25,7 @@ status: in progress
 
 1. **Cero fricción backend.** Los estudiantes no necesitan aprender Express, NestJS ni Laravel. Escriben funciones `loader` y `action` junto a sus componentes React. Una sola mentalidad, un solo lenguaje, un solo deploy.
 
-2. **SQLite como base de datos embebida.** Sin instalar Postgres ni MySQL. `better-sqlite3` es un archivo `.db` en disco que se versiona junto al código (o se genera al iniciar). Ideal para prototipado y proyectos educativos.
+2. **SQLite como base de datos embebida.** Sin instalar Postgres ni MySQL. `better-sqlite3` es un archivo `.db` en disco que se genera/usa en cada entorno. Ideal para prototipado y proyectos educativos.
 
 3. **SSR-first con hidratación selectiva.** El HTML se genera en el servidor con datos reales. El navegador hidrata los componentes interactivos (charts, WebSocket feeds). SEO incluido, Time to First Byte bajo, cero waterfalls de fetch en el cliente.
 
@@ -87,9 +87,21 @@ Loaders y actions de React Router v7 ejecutados en Node.js:
 SQLite embebido + servicios de fetching y normalización:
 
 - `better-sqlite3` — DB en archivo, síncrono, rápido
-- `drizzle-orm` — queries y migraciones (funciona con JavaScript)
+- **SQL directo (KISS)** — queries parametrizadas (sin ORM)
 - Fetchers — un servicio por API externa
 - Normalizer — transforma a objeto normalizado
+
+#### ¿Se versiona el `.db`?
+
+**No.** El archivo `.db` **no debe ir a git** (va en `.gitignore`).
+
+- **Razón 1 (seguridad/privacidad):** contiene **perfiles de usuario** (emails, contraseñas hasheadas) y **widgets/dashboards de cada uno** (layout, orden, configuración). Eso no debe acabar en el repositorio.
+- **Razón 2 (ruido):** cambia constantemente y genera diffs binarios inútiles.
+- **Razón 3 (portabilidad):** cada entorno (dev/CI/prod) tiene rutas y datos distintos; lo reproducible es el **esquema** y un **seed** opcional.
+
+**Dónde viven los datos por usuario:** en el mismo SQLite: tablas `users` (perfil), `dashboards` (vista por usuario) y `widgets` (widgets de cada dashboard). Los perfiles y la configuración de widgets de cada uno están en el `.db` — local en dev o en el volumen del servidor en producción; por eso no se versiona.
+
+**Patrón recomendado:** versionamos el esquema (SQL) y un `seed` determinista; cada entorno crea su `.db` al arrancar o con un script (`npm run db:init` / `db:seed`).
 
 ### Capa Real-Time
 
@@ -157,21 +169,22 @@ helios-deck/
 │   │   ├── HttpRequest.js          ← Wrapper fetch con retry + timeout
 │   │   └── HttpErrors.js           ← Mensajes genéricos por status code
 │   ├── db/
-│   │   ├── schema.js               ← Drizzle schema (signals, users, widgets, dashboards)
-│   │   ├── migrations/             ← SQL migrations auto-generadas
-│   │   ├── seed.js                 ← Datos iniciales para desarrollo
-│   │   └── index.js                ← Conexión better-sqlite3
+│   │   ├── schema.sql              ← Esquema SQLite versionado (signals, users, widgets, dashboards)
+│   │   ├── seed.js                 ← Datos iniciales para desarrollo/demo
+│   │   └── index.js                ← Conexión better-sqlite3 + helpers SQL
 │   ├── lib/
 │   │   ├── session.server.js       ← createCookieSessionStorage
 │   │   ├── auth.server.js          ← hash passwords, verify, requireUser
 │   │   └── constants.js            ← API URLs, timeouts, config
 │   └── root.jsx                    ← Layout raíz con providers
 ├── public/                         ← Assets estáticos
-├── drizzle.config.js               ← Configuración Drizzle ORM
+├── db/
+│   ├── schema.sql                  ← Esquema SQLite versionado
+│   └── seed.js                     ← Seed determinista (dev/demo)
 ├── vite.config.js                  ← Vite + React Router plugin
 ├── tailwind.config.js
 ├── package.json
-├── .env.example                    ← NASA_API_KEY, SESSION_SECRET
+├── .env.example                    ← NASA_API_KEY, SESSION_SECRET, DATABASE_PATH
 └── helios.db                       ← SQLite database file (gitignored)
 ```
 
@@ -234,7 +247,7 @@ CREATE INDEX idx_widgets_dashboard ON widgets(dashboard_id);
 
 Resumen del flujo (archivos en `.jsx`/`.js`):
 
-- **Loader:** `requireUser(request)` → consulta a `signals` con Drizzle → `return { flares }` para el componente.
+- **Loader:** `requireUser(request)` → consulta a `signals` con SQL parametrizado → `return { flares }` para el componente.
 - **Action:** `formData.get('intent')` → `create` / `update` / `delete` sobre `widgets` → `redirect('/dashboard')`.
 - **WebSocket:** `initWebSocketServer(httpServer)` con canal `iss:position` cada 5s; cliente usa `useWebSocket('iss:position')` con reconexión.
 
@@ -263,8 +276,8 @@ Timer (cron) → Aggregator Service → Normalizer (validación en runtime) → 
 | Decisión | Opción elegida | Alternativa descartada | Razón |
 |----------|---------------|----------------------|--------|
 | Framework | React Router v7 SSR | Next.js / Astro | Continuidad con el curriculum React; loaders/actions son más explícitos |
-| Base de datos | SQLite + Drizzle | PostgreSQL | Cero config, embebido, ideal para educación. Migratable a Postgres si escala |
-| ORM | Drizzle ORM | Prisma | Type-safe, más ligero, SQL puro cuando necesario |
+| Base de datos | SQLite + `better-sqlite3` | PostgreSQL | Cero config, embebido, ideal para educación. Migratable a Postgres si escala |
+| Acceso a datos | **SQL directo (KISS)** | ORM | Menos magia, menos dependencias, más fácil de depurar y enseñar en JS |
 | Charts | Recharts | D3 directo | API declarativa React-friendly. D3 disponible para visualizaciones custom |
 | Real-time | WebSocket (`ws`) | Socket.io / SSE | Menor overhead, sin dependencias. SSE no soporta bidireccional |
 | Auth | Cookie sessions | JWT | Más seguro para SSR (HttpOnly), sin almacenamiento en cliente |

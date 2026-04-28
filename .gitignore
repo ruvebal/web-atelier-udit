@@ -13,3 +13,7 @@ web-foundations/docs/assets/css/tailwind-processed.css
 vendor/
 private/
 private/*
+
+# SQLite databases (local/dev artifacts)
+*.db
+*.db-*

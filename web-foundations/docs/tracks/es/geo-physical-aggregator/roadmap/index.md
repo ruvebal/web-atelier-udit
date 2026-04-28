@@ -22,31 +22,62 @@ status: in progress
 
 Cada sprint produce **entregables funcionales** que se integran progresivamente. El proyecto crece de un simple fetch a un dashboard completo con autenticación, widgets configurables y deploy asistido por IA.
 
+**Deploy desde el principio:** la app se despliega **en cuanto sea posible** (incluso en modo cáscara: una ruta, un “Hello HELIOS” o el primer loader funcionando). A partir de ahí se va **añadiendo CI/CD de forma progresiva**: primero un pipeline que hace build + deploy en cada push a `main`; más adelante se incorporan lint, tests y health checks. Objetivo: URL pública desde el Sprint 1 e ir haciendo CD/CI en los sprints siguientes.
+
+---
+
+## Rol: profesor vs estudiantes (Fullstack 2º)
+
+| Responsable | Qué hace |
+|------------|----------|
+| **Profesor** | **Preparar y explicar** conceptos antes de cada clase (ver tabla siguiente). **Desarrollar y entregar** el scaffolding base del proyecto (template RR v7 + estructura de carpetas, `app/db/`, `app/services/`, API Registry JSON vacío o de ejemplo), criterios de evaluación y guías (p. ej. este roadmap). Opcionalmente: un repo "starter" con la app en estado "post-Sprint 1 mínimo" para quien se incorpore tarde. **No** implementar por los estudiantes los sprints 2–8: eso lo hacen ellos. |
+| **Estudiantes** (2º Fullstack) | Partir del scaffolding (o del starter si se ofrece). **Implementar** los sprints 2–8 en equipo: fetchers, normalizer, CRUD, charts, WebSockets, widget system, auth, CI/CD ampliado, tests y polish. Entregar commits, PRs y demos según el roadmap. |
+
+Resumen: el profesor **explica y da la base** (conceptos + estructura + criterios); los estudiantes **construyen** la aplicación sobre esa base.
+
+---
+
+## Conceptos a explicar antes de cada clase
+
+Antes de entrar en cada sprint conviene haber visto en clase los conceptos que se usan. Orden sugerido (ajustable al calendario real):
+
+| Antes de… | Conceptos a explicar (profesor) |
+|-----------|----------------------------------|
+| **Sprint 1** | **React en general** (componentes, JSX, estado local con `useState`, efectos con `useEffect`). **Stack del proyecto**: React Router v7, Vite, Tailwind, SQLite con better-sqlite3 (SQL directo), JavaScript. Qué es un loader y qué es SSR en RR v7 (a nivel idea). |
+| **Sprint 2** | **React Context**: cuándo usarlo, Provider/Consumer, evitar prop drilling. Cómo encaja con TanStack Query (caché, invalidación). **HttpRequest** y manejo de errores (HttpErrors) en cliente/servidor. |
+| **Sprint 3** | **React Router v7** en más detalle: rutas, loaders, actions, `useLoaderData`, `useFetcher`. **Shadcn**: instalación, temas, componentes que usaremos (Card, Button, Skeleton, etc.). Tailwind para layouts y dark mode. |
+| **Sprint 4** | **WebSockets** en el navegador y en Node: `WebSocket`, evento `message`, reconexión. Patrón hook `useWebSocket`. Cómo el servidor RR puede exponer un WS en el mismo proceso. |
+| **Sprint 5** | **Estado global / contexto** para el dashboard (qué widgets hay, orden, layout). **react-grid-layout**: concepto de grid, persistencia del layout. Form actions y mutations en RR v7. |
+| **Sprint 6** | **Autenticación con sesiones**: cookies, HttpOnly, `createCookieSessionStorage` (RR), flujo login/registro/logout. Protección de rutas y loaders. |
+| **Sprint 7** | **CI/CD**: qué es un pipeline, GitHub Actions (workflow, jobs, secrets). Cómo el deploy del Sprint 1 se amplía con lint y tests. **Docs-as-code** y uso de asistentes (Cursor, CLAUDE.md) para mantener el proyecto. |
+| **Sprint 8** | **Testing**: unit tests (fetchers, normalizer), E2E con Playwright. **Accesibilidad** (WCAG, axe-core) y **performance** (Lighthouse). Criterios de "listo para producción". |
+
+Si el curso empieza desde cero con React, conviene **una o dos sesiones previas** dedicadas a: React (componentes, estado, efectos), luego **React Context**, y después **React Router y Shadcn** y el stack en general, antes de arrancar el Sprint 1 en el repo.
+
 ---
 
 ## Sprint 1 — Foundation & Data Sources
 
-Inicialización del proyecto fullstack con React Router v7 SSR, configuración de Tailwind v4, SQLite con Drizzle ORM, y el primer data fetcher funcional (NASA DONKI).
+Inicialización del proyecto fullstack con React Router v7 SSR, configuración de Tailwind v4, SQLite con better-sqlite3 y SQL directo (KISS, sin ORM), y el primer data fetcher funcional (NASA DONKI).
 
-**Entregables:** Proyecto RR v7 SSR + Vite funcionando · Tailwind v4 + Shadcn configurados · SQLite + Drizzle con esquema inicial · API Registry JSON con las 8 fuentes · Primer fetcher: NASA DONKI (flares) · Loader que lee de SQLite y muestra datos · Estructura de carpetas definida · README con instrucciones de setup
+**Entregables:** Proyecto RR v7 SSR + Vite funcionando · Tailwind v4 + Shadcn configurados · SQLite (better-sqlite3) con esquema inicial en SQL · API Registry JSON con las 8 fuentes · Primer fetcher: NASA DONKI (flares) · Loader que lee de SQLite y muestra datos · Estructura de carpetas definida · README con instrucciones de setup · **Primer deploy (cáscara)** en Fly.io (o similar): app accesible por URL pública · **Pipeline CD mínimo**: GitHub Action que hace build + deploy en push a `main`
 
-**Tech:** React Router v7 · Vite · Tailwind v4 · better-sqlite3 · Drizzle ORM · JavaScript
+**Tech:** React Router v7 · Vite · Tailwind v4 · better-sqlite3 (SQL directo, sin ORM) · JavaScript · Fly.io (o Railway/Render) · GitHub Actions
 
 ### Detalle del Sprint 1
 
 **Día 1-2: Scaffolding**
 
 ```bash
-npx create-react-router@latest helios-deck --template remix-run/react-router/templates/node
+npx create-react-router@latest helios-deck --template remix-run/react-router-templates/javascript 
 cd helios-deck
-npm install better-sqlite3 drizzle-orm
-npm install -D drizzle-kit @types/better-sqlite3
+npm install better-sqlite3
 npm install @tanstack/react-query tailwindcss @tailwindcss/vite
 ```
 
 **Día 3-4: Esquema DB + primer fetcher**
 
-- Crear `app/db/schema.js` con tabla `signals`
+- Crear esquema SQL (p. ej. `app/db/schema.sql` o `app/db/init.js` que ejecute `CREATE TABLE signals (...)`) y tabla `signals`
 - Implementar `app/services/fetchers/nasa-donki.js`
 - Obtener API key gratuita en [api.nasa.gov](https://api.nasa.gov/)
 - Primer `loader` en `app/routes/signals/solar-activity.jsx`
@@ -55,6 +86,16 @@ npm install @tanstack/react-query tailwindcss @tailwindcss/vite
 
 - Ejecutar fetcher → normalizar → insertar en SQLite → leer en loader → renderizar
 - Commit: `feat: initial setup with NASA DONKI solar flare fetcher`
+
+**Día 6 (o final del Sprint 1): Primer deploy (cáscara) + CD mínimo**
+
+- Crear **Dockerfile** mínimo (Node 20, `npm ci`, `npm run build`, `npm start`) o usar `fly launch` / equivalente en Railway o Render.
+- Configurar app en **Fly.io** (o alternativa): crear app, volumen opcional para SQLite si se usa en prod, variable de entorno si hace falta.
+- Añadir **GitHub Action** (p. ej. `.github/workflows/deploy.yml`) que en cada push a `main`: checkout → `npm ci` → `npm run build` → deploy (e.g. `fly deploy --remote-only` con `FLY_API_TOKEN` en secrets).
+- Objetivo: **URL pública** donde la app responde (aunque sea una sola ruta o una página “cáscara”). A partir de aquí, cada merge a `main` despliega automáticamente.
+- Commit: `feat: first shell deploy + minimal CD pipeline`
+
+En sprints posteriores se irá **enriqueciendo el pipeline** (lint, tests, health check) sin cambiar la idea: deploy pronto, CD desde el principio, CI progresivo.
 
 ---
 
@@ -70,34 +111,34 @@ Implementación del servicio HttpRequest centralizado, HttpErrors para mensajes 
 
 **Servicio HttpRequest:**
 
-```typescript
+```javascript
 // app/services/HttpRequest.js
 
 const DEFAULT_TIMEOUT = 10_000;
 
 export class HttpRequest {
-  static async get(url, options) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), DEFAULT_TIMEOUT);
-    try {
-      const res = await fetch(url, { ...options, signal: controller.signal });
-      if (!res.ok) throw new HttpError(res.status, res.statusText);
-      return res.json();
-    } finally {
-      clearTimeout(timeout);
-    }
-  }
+	static async get(url, options) {
+		const controller = new AbortController();
+		const timeout = setTimeout(() => controller.abort(), DEFAULT_TIMEOUT);
+		try {
+			const res = await fetch(url, { ...options, signal: controller.signal });
+			if (!res.ok) throw new HttpError(res.status, res.statusText);
+			return res.json();
+		} finally {
+			clearTimeout(timeout);
+		}
+	}
 
-  static async post(url, body) {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
-    if (!res.ok) throw new HttpError(res.status, res.statusText);
-    return res.json();
-  }
-  // PUT y DELETE siguen el mismo patrón
+	static async post(url, body) {
+		const res = await fetch(url, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(body),
+		});
+		if (!res.ok) throw new HttpError(res.status, res.statusText);
+		return res.json();
+	}
+	// PUT y DELETE siguen el mismo patrón
 }
 ```
 
@@ -128,16 +169,16 @@ Integración de librerías de visualización (Recharts / D3). Cada estudiante co
 
 ### Tipos de widget por señal
 
-| Señal | Widget | Visualización |
-|-------|--------|---------------|
-| `solar_flare_events` | EventFeed | Lista cronológica con badges de clase (C/M/X) |
-| `coronal_mass_ejections` | TimeChart | Scatter plot con velocidad de eyección |
-| `solar_wind_speed` | TimeChart | Línea temporal con umbral de tormenta |
-| `solar_wind_density` | TimeChart | Área apilada (speed + density) |
-| `kp_index` | Gauge | Medidor circular 0–9 con colores semáforo |
-| `auroral_oval_probability` | Gauge | Probabilidad % con gradiente verde-púrpura |
-| `iss_coordinates` | ISSMap | Mapa Leaflet (se completa en Sprint 4) |
-| `solar_radiation` | TimeChart | Barras diarias con media móvil |
+| Señal                      | Widget    | Visualización                                 |
+| -------------------------- | --------- | --------------------------------------------- |
+| `solar_flare_events`       | EventFeed | Lista cronológica con badges de clase (C/M/X) |
+| `coronal_mass_ejections`   | TimeChart | Scatter plot con velocidad de eyección        |
+| `solar_wind_speed`         | TimeChart | Línea temporal con umbral de tormenta         |
+| `solar_wind_density`       | TimeChart | Área apilada (speed + density)                |
+| `kp_index`                 | Gauge     | Medidor circular 0–9 con colores semáforo     |
+| `auroral_oval_probability` | Gauge     | Probabilidad % con gradiente verde-púrpura    |
+| `iss_coordinates`          | ISSMap    | Mapa Leaflet (se completa en Sprint 4)        |
+| `solar_radiation`          | TimeChart | Barras diarias con media móvil                |
 
 ---
 
@@ -151,7 +192,7 @@ Servidor WebSocket integrado en el proceso Node.js. Canales para posición ISS e
 
 ### ISSMap: ejemplo de widget en tiempo real
 
-```typescript
+```javascript
 // app/components/widgets/ISSMap.jsx
 
 import { MapContainer, TileLayer, Marker, Polyline } from 'react-leaflet';
@@ -206,7 +247,7 @@ Arquitectura de widgets configurables. Grid drag-and-drop con react-grid-layout.
 
 ### Widget Registry
 
-```typescript
+```javascript
 // app/lib/widget-registry.js
 
 export const WIDGET_REGISTRY = {
@@ -314,9 +355,9 @@ GET /dashboard (loader verifica sesión → sirve datos del usuario)
 
 ## Sprint 7 — AI-Assisted Development & DevOps
 
-Creación de rules y skills para asistentes de IA (.cursor, Claude Code, Windsurf, Antigravity). Documentación como definición para deploy asistido. CI/CD pipeline y estrategia de despliegue.
+Creación de rules y skills para asistentes de IA (.cursor, Claude Code, Windsurf, Antigravity). Documentación como definición para deploy asistido. **Evolución del CI/CD**: sobre el pipeline de deploy ya existente (Sprint 1), se añaden lint, tests y health check para tener un CI completo antes del deploy.
 
-**Entregables:** .cursor/rules/ para convenciones del proyecto · .cursor/skills/ para workflows de desarrollo · CLAUDE.md para Claude Code · Docs-as-deployment-definition · Dockerfile multi-stage optimizado · GitHub Actions CI pipeline · Deploy a Fly.io con SQLite volume · Health check endpoint + monitoring
+**Entregables:** .cursor/rules/ para convenciones del proyecto · .cursor/skills/ para workflows de desarrollo · CLAUDE.md para Claude Code · Docs-as-deployment-definition · Dockerfile multi-stage optimizado · **CI ampliado**: lint + tests en GitHub Actions antes de deploy · Health check endpoint + monitoring · SQLite volume persistente en Fly.io (si no estaba ya)
 
 **Tech:** .cursor/rules · CLAUDE.md · Docker · GitHub Actions · Fly.io
 
@@ -335,7 +376,7 @@ helios-deck/
 │   ├── rules/
 │   │   ├── project-conventions.mdc    ← Estructura, naming, imports
 │   │   ├── react-router-patterns.mdc  ← Loader/action patterns
-│   │   ├── database-patterns.mdc      ← Drizzle ORM conventions
+│   │   ├── database-patterns.mdc      ← SQL / better-sqlite3 (KISS, sin ORM)
 │   │   └── api-fetcher-pattern.mdc    ← Contrato DataFetcher
 │   └── skills/
 │       ├── create-fetcher/SKILL.md    ← Workflow: crear un nuevo fetcher
@@ -361,7 +402,7 @@ helios-deck/
 ```markdown
 ---
 description: Patrón para crear nuevos data fetchers
-globs: ["app/services/fetchers/*.js"]
+globs: ['app/services/fetchers/*.js']
 ---
 
 Todos los fetchers implementan la interfaz DataFetcher:
@@ -375,10 +416,12 @@ Todos los fetchers implementan la interfaz DataFetcher:
 - Logging estructurado en formato JSON
 ```
 
-### GitHub Actions: CI/CD
+### GitHub Actions: evolución CI/CD
+
+En **Sprint 1** el workflow hace solo `npm ci` → `npm run build` → deploy. En **Sprint 7** se amplía con pasos de CI antes de desplegar (lint, tests). Ejemplo de pipeline completo:
 
 ```yaml
-# .github/workflows/deploy.yml
+# .github/workflows/deploy.yml (versión Sprint 7: CI + CD)
 name: Deploy HELIOS DECK
 
 on:
@@ -386,22 +429,30 @@ on:
     branches: [main]
 
 jobs:
-  deploy:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-
       - run: npm ci
-      - run: npm run typecheck
       - run: npm run lint
       - run: npm test
       - run: npm run build
 
+  deploy:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
         env:
@@ -450,7 +501,7 @@ Launch:
 
 ```text
 Sprint 1 ──────┐
-Foundation     │
+Foundation     │  (+ deploy cáscara + CD mínimo)
                ▼
 Sprint 2 ──── Sprint 3 ──── Sprint 4
 CRUD/Norm      Charts        WebSockets
@@ -479,28 +530,28 @@ Los Sprints 2, 3 y 4 pueden ejecutarse **en paralelo** por diferentes estudiante
 
 ## Metodología ATELIER aplicada
 
-| Fase ATELIER | Sprints | Actividad |
-|-------------|---------|-----------|
-| **Exploración** | 1–2 | Investigar APIs, diseñar esquema, primer fetch funcional |
-| **Conceptualización** | 3–4 | Diseñar widgets, planificar WebSocket, wireframes del dashboard |
-| **Producción** | 5–6 | Construir widget system, auth, CRUD completo |
-| **Exhibición** | 7 | Deploy, documentación, demo ante la clase |
-| **Reflexión** | 8 | Testing, retrospectiva, mejoras y portfolio |
+| Fase ATELIER          | Sprints | Actividad                                                       |
+| --------------------- | ------- | --------------------------------------------------------------- |
+| **Exploración**       | 1–2     | Investigar APIs, diseñar esquema, primer fetch funcional        |
+| **Conceptualización** | 3–4     | Diseñar widgets, planificar WebSocket, wireframes del dashboard |
+| **Producción**        | 5–6     | Construir widget system, auth, CRUD completo                    |
+| **Exhibición**        | 7       | CI completo (lint + tests), refinamiento deploy, documentación, demo |
+| **Reflexión**         | 8       | Testing, retrospectiva, mejoras y portfolio                     |
 
 ---
 
 ## Evaluación por sprint
 
-| Criterio | Peso | Sprint de evaluación |
-|----------|------|---------------------|
-| Fetching funcional con datos reales | 15% | Sprint 2 |
-| Visualización con charts interactivos | 15% | Sprint 3 |
-| WebSocket con datos en vivo | 10% | Sprint 4 |
-| Widget system configurable | 15% | Sprint 5 |
-| Auth + CRUD de dashboards | 15% | Sprint 6 |
-| AI config + deploy | 10% | Sprint 7 |
-| Testing + accesibilidad + performance | 10% | Sprint 8 |
-| Git profesional + colaboración | 10% | Continuo |
+| Criterio                              | Peso | Sprint de evaluación |
+| ------------------------------------- | ---- | -------------------- |
+| Fetching funcional con datos reales   | 15%  | Sprint 2             |
+| Visualización con charts interactivos | 15%  | Sprint 3             |
+| WebSocket con datos en vivo           | 10%  | Sprint 4             |
+| Widget system configurable            | 15%  | Sprint 5             |
+| Auth + CRUD de dashboards             | 15%  | Sprint 6             |
+| AI config + deploy                    | 10%  | Sprint 7             |
+| Testing + accesibilidad + performance | 10%  | Sprint 8             |
+| Git profesional + colaboración        | 10%  | Continuo             |
 
 ---
 

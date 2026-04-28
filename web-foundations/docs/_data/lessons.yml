@@ -939,6 +939,21 @@
   phase: 2
   sprint: 8
 
+- slug: ai-assisted-routing
+  title:
+   en: 'AI-Assisted Routing: From Architect to Auditor'
+  path:
+   en: /lessons/en/react/ai-assisted-routing/
+  file:
+   en: lessons/en/react/ai-assisted-routing/index.md
+  status:
+   en: in progress
+  category: react
+  tags: [react, ai, routing, react-router, architecture, security, prompting, verification]
+  week: 7
+  phase: 2
+  sprint: 8
+
 - slug: react-backend-integration
   title:
    es: 'Integración con backend: conectando con el mundo real'
