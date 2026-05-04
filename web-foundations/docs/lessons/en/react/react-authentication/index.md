@@ -215,11 +215,11 @@ This sandbox stores the **refresh token** (only) in `localStorage`. The **access
 
 For this lesson we use [dummyjson.com/auth](https://dummyjson.com/docs/auth) — a free, public auth API that returns realistic JWTs and supports refresh.
 
-| Method | URL             | Body / Header                   | Returns                                          |
-| ------ | --------------- | ------------------------------- | ------------------------------------------------ |
-| POST   | `/auth/login`   | `{ username, password }`        | user object + `accessToken` + `refreshToken`     |
-| GET    | `/auth/me`      | `Authorization: Bearer <token>` | current user (verifies the token is still valid) |
-| POST   | `/auth/refresh` | `{ refreshToken }`              | new `accessToken` + `refreshToken`               |
+| Method | URL             | Body / Header                   | Returns                                                          |
+| ------ | --------------- | ------------------------------- | ---------------------------------------------------------------- |
+| POST   | `/auth/login`   | `{ username, password }`        | partial user + `accessToken` + `refreshToken` (no `role` field!) |
+| GET    | `/auth/me`      | `Authorization: Bearer <token>` | **full** user profile including `role`                           |
+| POST   | `/auth/refresh` | `{ refreshToken }`              | new `accessToken` + `refreshToken`                               |
 
 **Test credentials** (always work):
 
@@ -252,8 +252,8 @@ This is the headline section of the lesson. **§3 adds or edits the files in the
 | `src/components/ProtectedRoute.jsx` | **edit**              | Swap `useMockAuth` → `useAuth`; add `isLoading` branch                         |
 | `src/auth/RoleGuard.jsx`            | **add**               | Authorisation guard (`user.role`) — add **before** `routes.jsx` imports it     |
 | `src/pages/Ex8RoleGuard.jsx`        | **add**               | Public `/ex8` info page + admin-only deck for the role example                 |
-| `src/routes.jsx`                    | **add**               | **Central route map** — every `<Route>` in one file (habit for Framework Mode) |
-| `src/App.jsx`                       | **edit**              | Nav + `<AuthBadge />`; renders `<AppRoutes />` from `routes.jsx`               |
+| `src/routes.jsx`                    | **add**               | **Central route map** — owns `<Routes>` + every `<Route>` in one file          |
+| `src/App.jsx`                       | **edit**              | Nav + `<AuthBadge />`; renders `<AppRoutes />` (no `<Routes>` here)            |
 | `src/pages/Ex5ProtectedRoute.jsx`   | **edit**              | Replace mock button with real `LoginForm`; show real user on the deck          |
 | `src/context/MockAuthContext.jsx`   | **delete (optional)** | Becomes dead code; deleting clarifies the migration is final                   |
 
@@ -301,6 +301,20 @@ export const tokenStorage = {
 // import these functions — never call fetch() directly from a component.
 //
 // Returns parsed JSON or throws an Error with the server's message when present.
+//
+// ─── REAL APP: one service file per domain, same folder ───────────────
+// Auth lives here. Data queries get their own service files alongside it:
+//
+//   src/services/authApi.js       ← you are here (login, getMe, refresh)
+//   src/services/apiClient.js     ← fetchWithAuth (built in Ex7)
+//   src/services/postsApi.js      ← getPosts(), createPost(body)
+//   src/services/ordersApi.js     ← getOrders(), cancelOrder(id)
+//   src/services/adminApi.js      ← getUsers(), banUser(id)
+//
+// Before Ex7: each service receives accessToken as a parameter.
+// After Ex7:  each service imports fetchWithAuth from apiClient.js —
+//             token injection + refresh-on-401 happen automatically.
+// ──────────────────────────────────────────────────────────────────────
 
 const BASE = 'https://dummyjson.com/auth';
 
@@ -320,7 +334,8 @@ export async function login({ username, password }) {
 		body: JSON.stringify({ username, password, expiresInMins: 30 }),
 	});
 	return parseOrThrow(res);
-	// → { id, username, email, firstName, lastName, image, role, accessToken, refreshToken }
+	// → { id, username, email, firstName, lastName, image, accessToken, refreshToken }
+	// NOTE: `role` is NOT in this response — call getMe() for the full profile.
 }
 
 export async function getMe(accessToken) {
@@ -400,10 +415,11 @@ export function AuthProvider({ children }) {
 			const result = await authApi.login({ username, password });
 			setAccessToken(result.accessToken);
 			tokenStorage.setRefreshToken(result.refreshToken);
-			// Strip tokens from the user object — UI never needs them
-			const { accessToken: _a, refreshToken: _r, ...userOnly } = result;
-			setUser(userOnly);
-			return userOnly;
+			// The login endpoint does NOT return `role` — only /auth/me does.
+			// Fetch the full profile so user.role is available immediately.
+			const me = await authApi.getMe(result.accessToken);
+			setUser(me);
+			return me;
 		} catch (e) {
 			setError(e.message);
 			throw e;
@@ -421,11 +437,17 @@ export function AuthProvider({ children }) {
 
 	// Used by the refresh-on-401 helper (Example 7) to push fresh tokens back
 	// into the source of truth after a successful refresh.
+	// ─── REAL APP: your apiClient.js calls updateTokens after every refresh so
+	// subsequent requests automatically use the new access token. ──────────
 	const updateTokens = useCallback(({ accessToken: newAccess, refreshToken: newRefresh }) => {
 		setAccessToken(newAccess);
 		if (newRefresh) tokenStorage.setRefreshToken(newRefresh);
 	}, []);
 
+	// ─── REAL APP: every page/component that fetches data reads accessToken
+	// from this context. The flow:
+	//   Page → useAuth().accessToken → fetchWithAuth(url) → your API
+	// Pages never store tokens themselves — this provider is the single source.
 	const value = { user, accessToken, isLoading, error, login, logout, updateTokens };
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
@@ -736,7 +758,7 @@ export default function Ex8AdminDeck() {
 
 ### 3.9 Add `src/routes.jsx` — central route map
 
-**This is the key organisational move.** Every `<Route>` lives here; `App.jsx` becomes layout-only. Same habit as Framework Mode's `routes.js` — one file = full picture.
+**This is the key organisational move.** Every `<Route>` lives here inside its own `<Routes>` wrapper; `App.jsx` becomes layout-only. Same habit as Framework Mode's `routes.js` — one file = full picture. We put `<Routes>` here (not in `App.jsx`) because React Router only allows `<Route>` or `<React.Fragment>` as direct children of `<Routes>` — a custom component is rejected even if it returns valid route elements.
 
 **CodeSandbox-ready** — Create `src/routes.jsx`.
 
@@ -745,8 +767,12 @@ export default function Ex8AdminDeck() {
 // Central route registration — every URL in one file.
 // In Framework Mode you'd use route() from @react-router/dev/routes;
 // here we use JSX <Route> but keep the same habit: one registry file.
+//
+// This component owns <Routes> because React Router only allows <Route>
+// or <React.Fragment> as direct children of <Routes> — a custom component
+// is rejected even if it returns valid <Route> elements.
 
-import { Navigate, Route } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import RoleGuard from './auth/RoleGuard';
 
@@ -760,10 +786,10 @@ import Ex6Profile from './pages/Ex6Profile';
 import Ex7Refresh from './pages/Ex7Refresh';
 import Ex8AdminDeck, { Ex8RoleInfo } from './pages/Ex8RoleGuard';
 
-/** Every path in the lesson — composed inside <Routes> from App.jsx. */
-export function AppRoutes() {
+/** Every path in the lesson — owns the <Routes> wrapper. */
+export default function AppRoutes() {
 	return (
-		<>
+		<Routes>
 			<Route path="/" element={<Home />} />
 
 			{/* Routing-lesson examples (unchanged) */}
@@ -819,7 +845,7 @@ export function AppRoutes() {
 			/>
 
 			<Route path="*" element={<p className="text-slate-500">404 — no route matched.</p>} />
-		</>
+		</Routes>
 	);
 }
 ```
@@ -828,16 +854,18 @@ export function AppRoutes() {
 
 ### 3.10 Edit `src/App.jsx` — layout shell only
 
-Now `App.jsx` is pure chrome: nav bar, `<AuthBadge />`, and `<Routes>` wrapping `<AppRoutes />`. No route definitions here.
+Now `App.jsx` is pure chrome: nav bar, `<AuthBadge />`, and `<AppRoutes />`. No route definitions here, and no `<Routes>` — that wrapper lives inside `routes.jsx` because React Router only accepts `<Route>` or `<React.Fragment>` as direct children of `<Routes>`.
 
 **CodeSandbox-ready** — Replace the contents of `src/App.jsx`.
 
 ```jsx
 // src/App.jsx
-// Layout shell: nav + AuthBadge + <Routes>. All <Route> definitions live in ./routes.jsx.
+// Layout shell: nav + AuthBadge + AppRoutes. All <Route> definitions live in ./routes.jsx.
+// AppRoutes owns the <Routes> wrapper because React Router requires only <Route>
+// or <React.Fragment> as direct children of <Routes> — no custom components allowed.
 
-import { NavLink, Routes } from 'react-router-dom';
-import { AppRoutes } from './routes';
+import { NavLink } from 'react-router-dom';
+import AppRoutes from './routes';
 import AuthBadge from './components/AuthBadge';
 
 const NAV = [
@@ -875,9 +903,7 @@ export default function App() {
 				<AuthBadge />
 			</nav>
 			<main className="max-w-2xl mx-auto px-4 py-10">
-				<Routes>
-					<AppRoutes />
-				</Routes>
+				<AppRoutes />
 			</main>
 		</div>
 	);
@@ -944,6 +970,28 @@ export function Ex5Login() {
 export default function Ex5Deck() {
 	const { user, logout } = useAuth();
 
+	// ─── REAL APP: data fetching lives in src/services/ ──────────────────────
+	// This page would import a service function and call it here:
+	//
+	//   import { getMissions } from '../services/missionsApi';
+	//
+	//   const [missions, setMissions] = useState(null);
+	//   useEffect(() => {
+	//     getMissions(accessToken).then(setMissions);
+	//   }, [accessToken]);
+	//
+	// The service file (src/services/missionsApi.js) owns the fetch call:
+	//   export async function getMissions(token) {
+	//     const res = await fetch('/api/missions', {
+	//       headers: { Authorization: `Bearer ${token}` },
+	//     });
+	//     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+	//     return res.json();
+	//   }
+	//
+	// Pages never call fetch() directly — services are the boundary.
+	// ─────────────────────────────────────────────────────────────────────────
+
 	return (
 		<div>
 			<h1 className="text-2xl font-bold mb-2">Mission deck (protected)</h1>
@@ -1007,6 +1055,26 @@ export default function Ex6Profile() {
 	const [serverUser, setServerUser] = useState(null);
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(true);
+
+	// ─── REAL APP: import from src/services/, never fetch() here ─────────────
+	// This page imports getMe from authApi. In production you'd import from
+	// your own service files the same way:
+	//
+	//   import { getProfile } from '../services/profileApi';
+	//   import { getOrders }  from '../services/ordersApi';
+	//   import { getInbox }   from '../services/notificationsApi';
+	//
+	// Each service file exports async functions that accept accessToken:
+	//   // src/services/ordersApi.js
+	//   export async function getOrders(token) {
+	//     const res = await fetch(`${API}/orders`, {
+	//       headers: { Authorization: `Bearer ${token}` },
+	//     });
+	//     return parseOrThrow(res);
+	//   }
+	//
+	// Pages stay thin — they call services and render the result.
+	// ─────────────────────────────────────────────────────────────────────────
 
 	useEffect(() => {
 		let cancelled = false;
@@ -1147,6 +1215,32 @@ export default function Ex7Refresh() {
 	// Use the override token if set (for the "broken token" demo), else the real one.
 	const currentToken = overrideToken ?? accessToken;
 
+	// ─── REAL APP: extract into src/services/apiClient.js ─────────────────────
+	// In production, move fetchWithAuth to its own service file:
+	//
+	//   // src/services/apiClient.js
+	//   export async function fetchWithAuth(url, init = {}) { ... }
+	//
+	// Then every other service file imports it instead of raw fetch:
+	//
+	//   // src/services/postsApi.js
+	//   import { fetchWithAuth } from './apiClient';
+	//   export async function getPosts() {
+	//     const res = await fetchWithAuth('/api/posts');
+	//     return res.json();
+	//   }
+	//   export async function createPost(body) {
+	//     const res = await fetchWithAuth('/api/posts', {
+	//       method: 'POST',
+	//       headers: { 'Content-Type': 'application/json' },
+	//       body: JSON.stringify(body),
+	//     });
+	//     return res.json();
+	//   }
+	//
+	// The 401 → refresh → retry is invisible to all calling services and pages.
+	// ──────────────────────────────────────────────────────────────────────────
+
 	async function fetchWithAuth(url) {
 		const attempt = (tok) => fetch(url, { headers: { Authorization: `Bearer ${tok}` } });
 
@@ -1178,6 +1272,10 @@ export default function Ex7Refresh() {
 		setResult(null);
 		setLoading(true);
 		try {
+			// ─── REAL APP: this call would come from a service function ──────
+			// You'd never write fetchWithAuth() here directly. Instead:
+			//   import { getDashboard } from '../services/dashboardApi';
+			//   const data = await getDashboard();  // apiClient handles auth
 			const res = await fetchWithAuth('https://dummyjson.com/auth/me');
 			if (!res.ok) throw new Error(`HTTP ${res.status}`);
 			const data = await res.json();
@@ -1233,6 +1331,20 @@ export default function Ex7Refresh() {
 3. The page recovered without the user noticing.
 
 > **Production note.** Every API call should go through `fetchWithAuth`, not just this one route. The standard pattern is to build it into your API client (`apiGet`, `apiPost` from the backend lesson) so refresh-on-401 is automatic everywhere. We left it inline here to keep the example readable.
+
+**Where real data queries would live — the services architecture:**
+
+```
+src/services/
+├── authApi.js          ← login(), getMe(), refresh()      (already built)
+├── tokenStorage.js     ← getRefreshToken(), clear()       (already built)
+├── apiClient.js        ← fetchWithAuth(url, init)         (extract from Ex7)
+├── postsApi.js         ← getPosts(), createPost(body)     (imports apiClient)
+├── ordersApi.js        ← getOrders(), cancelOrder(id)     (imports apiClient)
+└── adminApi.js         ← getUsers(), banUser(id)          (imports apiClient)
+```
+
+**The rule:** pages import from `services/` — they never call `fetch()` directly. Each service file is a thin wrapper over `fetchWithAuth`, so every data query automatically gets token injection and 401→refresh→retry for free.
 
 ---
 

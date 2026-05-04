@@ -412,7 +412,44 @@ This is the longest section because it carries the lesson's headline. We build, 
 6. **`admin.jsx`** — role-protected page; loader uses `requireRole`.
 7. **The `/auth/me` 401 fix** — explicit refresh-and-retry inside the loader.
 
+### How each client-side piece maps to the server
+
+Before we build, here is the conceptual picture. Every piece from the Declarative lesson has a direct equivalent:
+
+| Client auth (what you already built) | Server auth (what we build now) | Why the change matters |
+| ------------------------------------ | ------------------------------- | ---------------------- |
+| `tokenStorage.js` — read/write localStorage | `session.server.js` — read/write httpOnly cookie | Cookie is invisible to JS → XSS can't steal it |
+| `authApi.js` — called from components/context | `authApi.server.js` — called from loaders/actions | Never bundled to the browser → secrets stay secret |
+| `AuthContext` + `useAuth()` — React state | Root `loader` returns `{ user }` → `useRouteLoaderData('root')` | No Context, no provider tree, no re-render cascade |
+| `<ProtectedRoute>` — renders `<Navigate>` after mount | `requireUser(request)` — `throw redirect()` in the loader | Guard runs BEFORE render → no flash of protected content |
+| `<RoleGuard role="admin">` — reads `user.role` in JSX | `requireRole(request, 'admin')` — throws 403 in the loader | Can't be bypassed by editing React state in DevTools |
+| `LoginForm` + `useState` + `useAuth().login()` | `<Form method="post">` → `action` calls `authApi.login` | Works without JS; no controlled inputs needed |
+| `useEffect` calling `/auth/me` on mount | Loader calls `verifyOrRefresh` before responding | Data is in the HTML on first paint — no spinner |
+| `fetchWithAuth` retry in the browser | `verifyOrRefresh` retry on the server | No race conditions; no concurrent refresh management |
+
+**Read this table at the board before coding.** Then, as you build each file, watch the mapping come alive.
+
+### The request lifecycle — client vs server
+
+**Client auth (Declarative lesson):**
+
+```
+Browser → renders App → useEffect fires → fetch /auth/refresh → fetch /auth/me
+→ setState(user) → re-render → ProtectedRoute checks user → render page
+```
+
+**Server auth (this lesson):**
+
+```
+Browser → GET /en/deck → server loader runs requireUser → session cookie read
+→ verifyOrRefresh → already authenticated HTML sent → browser paints (no flash)
+```
+
+The server collapses **seven async steps spread across multiple renders** into **one synchronous-feeling request** that resolves before the user sees anything. This is why the "Restoring session…" spinner disappears entirely.
+
 ### 5.1 `app/utils/session.server.js`
+
+> **Client equivalent:** `tokenStorage.js` + the `useAuth()` guard logic inside `AuthContext`. On the client, you wrote to localStorage and read it back. Here, you write to a signed cookie and read it back — but the browser never sees the value.
 
 The `.server.js` suffix is a **convention**: React Router (and your editor) treat any module ending in `.server.js` / `.server.jsx` as **server-only**. Importing one from a client-only module errors at build time. This protects us from accidentally bundling `SESSION_SECRET` into the browser.
 
@@ -503,6 +540,8 @@ export async function requireRole(request, role, options = {}) {
 
 ### 5.2 `app/utils/authApi.server.js`
 
+> **Client equivalent:** `src/services/authApi.js`. Same `login()`, `getMe()`, `refresh()` functions, same `parseOrThrow` helper, same dummyjson URLs. The only difference: the `.server.js` suffix means Vite refuses to bundle this into the browser — the `fetch` calls happen on your node process, not the user's device.
+
 Same shape as the Declarative lesson's `authApi.js` — same dummyjson endpoints, same `parseOrThrow` helper. **The only difference**: it lives in `.server.js`, so route modules import it freely from loaders and actions but never from components.
 
 **Project-ready** — Create `app/utils/authApi.server.js`.
@@ -510,6 +549,19 @@ Same shape as the Declarative lesson's `authApi.js` — same dummyjson endpoints
 ```js
 // app/utils/authApi.server.js
 // Server-only — never imported by a component.
+//
+// ─── REAL APP: one .server.js service file per domain ─────────────────────
+// Auth lives here. Domain data gets parallel service files in the same folder:
+//
+//   app/utils/authApi.server.js       ← you are here (login, getMe, refresh)
+//   app/utils/postsApi.server.js      ← getPosts(), createPost(body)
+//   app/utils/ordersApi.server.js     ← getOrders(userId), cancelOrder(id)
+//   app/utils/adminApi.server.js      ← listUsers(), banUser(id)
+//
+// Each exports async functions called exclusively from loaders and actions.
+// The .server.js suffix guarantees they never leak into the client bundle.
+// Components NEVER import these — they receive data through loaderData props.
+// ──────────────────────────────────────────────────────────────────────────
 
 const BASE = 'https://dummyjson.com/auth';
 
@@ -551,6 +603,8 @@ export async function refresh(refreshToken) {
 
 ### 5.3 The login route module
 
+> **Client equivalent:** `Ex5Login` + `LoginForm.jsx` + `useAuth().login()`. On the client you had: a controlled form → `onSubmit` → `await login(username, password)` → `useEffect` navigates on success. Here: a native `<Form method="post">` → browser POSTs → `action` calls `authApi.login` → `commitSession` + `redirect`. No `useState`, no `useEffect`, no `useNavigate`. The form even works if JavaScript fails to load.
+
 The login page is a **route module with both a `loader` and an `action`**:
 
 - The **loader** redirects to `/:locale/deck` if the user is already signed in (no need to show a login form to a logged-in user).
@@ -576,6 +630,20 @@ export async function loader({ request, params }) {
 	return { t };
 }
 
+// ─── REAL APP: actions are for ALL mutations, not just login ──────────────
+// The same pattern applies to any form submission:
+//
+//   // app/routes/$locale/posts.new.jsx
+//   import { createPost } from '../../utils/postsApi.server';
+//   export async function action({ request, params }) {
+//     const user = await requireUser(request, { ... });
+//     const form = await request.formData();
+//     const post = await createPost({ title: form.get('title'), userId: user.id });
+//     return redirect(`/${params.locale}/posts/${post.id}`);
+//   }
+//
+// Service functions handle the fetch; actions handle form parsing + redirects.
+// ─────────────────────────────────────────────────────────────────────────────
 export async function action({ request, params }) {
 	const form = await request.formData();
 	const username = String(form.get('username') ?? '').trim();
@@ -657,6 +725,8 @@ export default function Login({ loaderData, actionData, params }) {
 
 ### 5.4 The logout route
 
+> **Client equivalent:** `useAuth().logout()` — which called `tokenStorage.clear()` + set state to null. Here, the action destroys the cookie server-side. The user cannot "forget" to clear — the server controls the lifecycle.
+
 **Project-ready** — Create `app/routes/logout.js`.
 
 ```js
@@ -680,6 +750,8 @@ A `<Form method="post" action="/logout">` button anywhere in the app logs the us
 
 ### 5.5 The deck route — protected
 
+> **Client equivalent:** `<ProtectedRoute><Ex5Deck /></ProtectedRoute>` in `routes.jsx`. On the client, the guard was a React component that ran AFTER the component tree mounted — that's why you needed `isLoading` to prevent a flash. Here, `requireUser` runs in the loader BEFORE any HTML is generated — if the user isn't authenticated, the browser receives a 302 redirect, never a rendered page. The flash-prevention problem doesn't exist.
+
 **Project-ready** — Create `app/routes/$locale/deck.jsx`.
 
 ```jsx
@@ -696,6 +768,22 @@ export const meta = ({ data }) => [{ title: `${data?.user.firstName} · ${data?.
 export async function loader({ request, params }) {
 	const user = await requireUser(request, { loginPath: `/${params.locale}/login` });
 	const t = await tFor(params.locale);
+
+	// ─── REAL APP: fetch domain data from services here ───────────────────
+	// The loader is WHERE data fetching happens in Framework Mode.
+	// Import service functions from app/utils/*.server.js:
+	//
+	//   import { getMissions } from '../../utils/missionsApi.server';
+	//   import { getNotifications } from '../../utils/notificationsApi.server';
+	//
+	//   const missions = await getMissions(user.id);
+	//   const notifications = await getNotifications(user.id);
+	//   return { user, t, missions, notifications };
+	//
+	// The component receives everything through loaderData — no useEffect,
+	// no loading spinners, no client-side fetch. Data is in the HTML on first paint.
+	// ──────────────────────────────────────────────────────────────────────────
+
 	return { user, t };
 }
 
@@ -723,6 +811,8 @@ export default function Deck({ loaderData }) {
 
 ### 5.6 The admin route — role-protected
 
+> **Client equivalent:** `<RoleGuard role="admin"><Ex8AdminDeck /></RoleGuard>`. On the client, the role check happened in the browser — any user who opened DevTools and edited `user.role` in the React tree could bypass it. Here, the role check runs on the server inside the loader. By the time the HTML reaches the browser, the gate has already opened or closed. There is no client-side state to tamper with.
+
 **Project-ready** — Create `app/routes/$locale/admin.jsx`.
 
 ```jsx
@@ -738,6 +828,28 @@ export const meta = () => [{ title: 'Admin' }];
 export async function loader({ request, params }) {
 	const user = await requireRole(request, 'admin', { loginPath: `/${params.locale}/login` });
 	const t = await tFor(params.locale);
+
+	// ─── REAL APP: admin-only data from services ──────────────────────────
+	// After the role guard passes, fetch admin-scoped data:
+	//
+	//   import { listUsers, getAuditLog } from '../../utils/adminApi.server';
+	//
+	//   const [users, auditLog] = await Promise.all([
+	//     listUsers(),
+	//     getAuditLog({ limit: 50 }),
+	//   ]);
+	//   return { user, t, users, auditLog };
+	//
+	// Service files accept the user/token only when needed for API auth:
+	//   // app/utils/adminApi.server.js
+	//   export async function listUsers() {
+	//     const res = await fetch(`${API}/admin/users`, {
+	//       headers: { Authorization: `Bearer ${getServerToken()}` },
+	//     });
+	//     return parseOrThrow(res);
+	//   }
+	// ─────────────────────────────────────────────────────────────────────
+
 	return { user, t };
 }
 
@@ -759,6 +871,8 @@ export default function Admin({ loaderData }) {
 > Try this in DevTools: open the React tree and edit `user.role` to `'admin'` while signed in as `michaelw`. **Nothing happens.** The page already rendered server-side; the role check has already executed. The Declarative lesson's "defence in depth" warning is now backed by code: the gate is on a different machine.
 
 ### 5.7 The `/auth/me` 401 problem, finally solved
+
+> **Client equivalent:** The `useEffect` mount flow in `AuthContext` that called `refresh()` → `getMe()` → `setUser()`, plus the `fetchWithAuth` retry helper from Ex7. On the client, this involved: a module-level `refreshPromise` for concurrency safety, `useEffect` timing, a `try/catch` that silently logged users out, and a "Break access token" button to test it. Here, all of that collapses into a single `verifyOrRefresh` function that runs synchronously inside the loader — no races, no `useEffect`, no concurrent-request sharing needed (each server request is its own scope).
 
 > _"The Declarative lesson said: 'never trust localStorage as truth — verify with `/auth/me`.' That advice was correct. The implementation, on the client, was fragile. The server makes it boring."_
 
@@ -829,6 +943,22 @@ async function refreshOnce(refreshToken) {
  * or { error } if dead. Never throws on a 401 from /me alone.
  *
  * This is what the Declarative auth lesson tried to do on mount and got wrong.
+ *
+ * ─── REAL APP: reuse this pattern for domain API calls ──────────────────
+ * When your service functions call a backend that also rejects expired tokens,
+ * wrap them the same way:
+ *
+ *   // app/utils/postsApi.server.js
+ *   export async function getPostsWithRetry(session) {
+ *     const { tokens } = await verifyOrRefresh(session.get('tokens'));
+ *     const res = await fetch(`${API}/posts`, {
+ *       headers: { Authorization: `Bearer ${tokens.accessToken}` },
+ *     });
+ *     return parseOrThrow(res);
+ *   }
+ *
+ * This keeps retry logic in the service layer — loaders stay thin.
+ * ─────────────────────────────────────────────────────────────────────────
  */
 export async function verifyOrRefresh({ accessToken, refreshToken }) {
 	try {
@@ -1210,6 +1340,28 @@ export async function loader() {
 ```
 
 `curl http://localhost:3000/api/healthz` returns `{"ok":true,"time":"..."}`. **This is the same pattern ADADI uses for its BFF proxy** at `/api/cms/*` and `/api/media/*` — a route module without a `default` export, returning data instead of UI.
+
+### 6.8 The services architecture in Framework Mode
+
+In the Declarative lesson, pages imported services and passed `accessToken` from `useAuth()`. In Framework Mode, loaders/actions import `.server.js` services — components never touch fetch or tokens.
+
+```
+app/utils/                              (server-only service layer)
+├── session.server.js                   ← cookie read/write + guards
+├── authApi.server.js                   ← login, getMe, refresh, verifyOrRefresh
+├── i18n.server.js                      ← locale resolution + translation lookup
+├── postsApi.server.js                  ← getPosts(), createPost()        [REAL APP]
+├── ordersApi.server.js                 ← getOrders(), cancelOrder()      [REAL APP]
+└── adminApi.server.js                  ← listUsers(), getAuditLog()      [REAL APP]
+
+app/routes/$locale/                     (route modules)
+├── deck.jsx                            loader: requireUser → postsApi.getPosts()
+├── admin.jsx                           loader: requireRole → adminApi.listUsers()
+├── login.jsx                           action: authApi.login → commitSession
+└── posts.new.jsx                       action: postsApi.createPost → redirect  [REAL APP]
+```
+
+**The rule:** route modules call services; services call APIs. Components receive data through `loaderData` — they never import `.server.js` files (Vite enforces this at build time).
 
 ---
 
