@@ -245,6 +245,20 @@ This teaching sequence guides students from philosophical foundations through Re
 
 ---
 
+### Lesson 10b: Framework Mode + SSR Auth + i18n (heavy 3h class)
+
+**Suggested File**: `react-framework-mode-auth-i18n.md`
+
+| Topic                 | Content                                                                |
+| --------------------- | ---------------------------------------------------------------------- |
+| **Framework Mode**    | RR v7 SSR project, `routes.js`, route modules, four canonical exports  |
+| **Server-side auth**  | `createCookieSessionStorage`, `requireUser`, `requireRole`, `<Form>`   |
+| **`/auth/me` 401 fix**| Atomic refresh-and-retry inside the loader; explicit reasons on logout |
+| **i18n (ADADI port)** | `:locale` parameter, `i18n.server.js`, slug-aliased trees vs generic   |
+| **Production**        | PM2 + nginx template; trade-offs honest                                |
+
+---
+
 ### Lesson 11: Testing
 
 **Suggested File**: `react-testing.md`
@@ -475,6 +489,7 @@ By the end of this lesson, you will be able to:
 - [x] `react-routing` — React Router, protected routes
 - [x] `react-backend-integration` — Laravel/Hygraph, React Query
 - [x] `react-authentication` — Auth patterns, security
+- [x] `react-framework-mode-auth-i18n` — RR v7 Framework Mode: SSR auth + bilingual `:locale` URLs
 - [x] `react-testing` — Vitest, RTL, Cypress
 - [x] `react-performance` — Optimization, Lighthouse
 - [x] `react-deployment` — Shipping to production

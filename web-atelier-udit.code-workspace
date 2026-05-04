@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../courses-repos/react-template"
+		},
+		{
+			"path": "../../../../../src/deviac"
+		},
+		{
+			"path": "../../../../adadi/web/adadi.org"
+		},
+		{
+			"path": "../../../website"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501
+	}
+}
