@@ -656,12 +656,144 @@ Track A produces a static bundle (`dist/`) that can be served from any static ho
 
 | Platform | Effort | Free tier | Notes |
 |---|---|---|---|
-| **Netlify** | Very low | Yes | Drag-and-drop or GitHub deploy; custom domains; no sleep |
-| **Vercel** | Very low | Yes | `vercel deploy`; excellent DX; automatic HTTPS |
-| **GitHub Pages** | Low | Yes | `gh-pages` branch; no custom server logic |
-| **Railway / Render** | Low | Yes | Can also serve static files if you add a small Express/Node server |
+| **Netlify** | Very low | Yes | Drag-and-drop or GitHub deploy; custom domains; no sleep. Handles SPA routing natively. |
+| **Vercel** | Very low | Yes | `vercel deploy`; excellent DX; automatic HTTPS. Handles SPA routing natively. |
+| **GitHub Pages** | Low | Yes | `gh-pages` branch; no custom server logic. **Requires extra config — see below.** |
+| **Railway / Render** | Low | Yes | Can serve static files if you add a small Express/Node server. |
 
 > **Track A caveat:** If your auth provider requires a secret (e.g., a token exchange that must not happen in the browser), you will need a small server proxy. In that case, use Railway or Render just like Track B.
+
+---
+
+### Deploying Track A to GitHub Pages — the refresh problem
+
+GitHub Pages serves static files from `dist/`. When a user navigates directly to `https://yourname.github.io/your-repo/earthquakes` or refreshes that page, GitHub Pages looks for a file at `dist/earthquakes/index.html`, finds nothing, and returns a **404**.
+
+This is not a bug in your code — it is a fundamental mismatch between client-side routing and a static file server that has no concept of "send `index.html` for every path."
+
+**You have two options. Choose one before you build.**
+
+#### Option 1 — HashRouter (simplest, no config)
+
+Swap `BrowserRouter` for `HashRouter`. All routes move behind a `#`:
+
+- `/earthquakes` → `/#/earthquakes`
+- `/en/dashboard` → `/#/en/dashboard`
+
+```js
+// CodeSandbox-ready — src/main.jsx (HashRouter variant)
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import App from './App';
+import './index.css';
+
+const queryClient = new QueryClient();
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </QueryClientProvider>
+  </StrictMode>
+);
+```
+
+No other changes needed — `<Routes>`, `<Route>`, `<Link>`, `useNavigate` all work identically.
+
+**Trade-off:** URLs contain `#`. Shareable links work; the fragment is never sent to the server so refreshes always land on `index.html`. Locale URL segments (`/#/en/earthquakes`) still work.
+
+---
+
+#### Option 2 — 404.html redirect (clean URLs, more config)
+
+GitHub Pages serves `404.html` for any unknown path. A script in that file encodes the full URL into a query string, redirects to `index.html`, and a matching script in `index.html` reconstructs the original URL before React Router boots. Clean `/en/earthquakes` URLs survive refresh.
+
+**Step 1** — Create `public/404.html`:
+
+```html
+<!-- Template — public/404.html
+     Replace REPO_SEGMENT_COUNT with 1 if deploying to a repo page
+     (yourname.github.io/your-repo/) or 0 if deploying to a user/org page
+     (yourname.github.io/). -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <script>
+      var segmentCount = 1; // ← set to 0 for user/org pages
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') +
+        '/?/' +
+        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+</html>
+```
+
+**Step 2** — Add this snippet to `index.html` **before** your Vite `<script>` tag:
+
+```html
+<!-- Template — add inside <head> in index.html -->
+<script>
+  (function (l) {
+    if (l.search[1] === '/') {
+      var decoded = l.search.slice(1).split('&').map(function (s) {
+        return s.replace(/~and~/g, '&');
+      });
+      window.history.replaceState(
+        null, null,
+        l.pathname.slice(0, -1) + decoded[0] +
+        (decoded[1] ? '?' + decoded[1] : '') +
+        l.hash
+      );
+    }
+  }(window.location));
+</script>
+```
+
+**Step 3** — Set the Vite `base` to your repo name (required for all GitHub Pages repo deploys):
+
+```js
+// Template — vite.config.js
+// Replace 'your-repo-name' with your actual GitHub repository name.
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  base: '/your-repo-name/',
+  plugins: [react()],
+});
+```
+
+> Without `base`, all asset paths (`/assets/index-abc.js`) are absolute from the root. GitHub Pages repo sites live at `/your-repo-name/`, so every asset 404s.
+
+**Step 4** — Deploy with `gh-pages`:
+
+```bash
+npm install --save-dev gh-pages
+# Add to package.json scripts:
+#   "predeploy": "npm run build",
+#   "deploy": "gh-pages -d dist"
+npm run deploy
+```
+
+The `gh-pages` package pushes the `dist/` folder to the `gh-pages` branch. GitHub Pages serves from that branch automatically once configured in the repository settings (Settings → Pages → Source: `gh-pages` branch).
+
+**Trade-off:** Clean URLs preserved on refresh. More setup. The `404.html` trick is a widely-used workaround, not an official GitHub Pages feature — it works because GitHub Pages is predictable, not because it was designed for this.
+
+---
+
+**Recommendation:** Use **Netlify or Vercel** if you want clean URLs with zero extra config. Use **HashRouter** if you specifically want GitHub Pages and minimal setup. Use the `404.html` trick only if you have a strong reason to avoid the hash and are comfortable with the extra files.
 
 ---
 
