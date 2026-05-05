@@ -1060,7 +1060,7 @@
   status:
    en: draft
   category: react
-  tags: [react, react-router, framework-mode, ssr, react-query, i18n, authentication, geophysics, public-api, deployment, individual-project]
+  tags: [react, react-router, declarative-mode, framework-mode, ssr, react-query, i18n, authentication, geophysics, public-api, deployment, individual-project]
   week: 12
   phase: 4
   sprint: 13
