@@ -1049,6 +1049,22 @@
   phase: 4
   sprint: 13
 
+- slug: geophysical-aggregator-project
+  title:
+   es: 'Proyecto Individual: Agregador Geofísico'
+   en: 'Individual Project: Geophysical Aggregator'
+  path:
+   en: /lessons/en/react/geophysical-aggregator-project/
+  file:
+   en: lessons/en/react/geophysical-aggregator-project/index.md
+  status:
+   en: draft
+  category: react
+  tags: [react, react-router, framework-mode, ssr, react-query, i18n, authentication, geophysics, public-api, deployment, individual-project]
+  week: 12
+  phase: 4
+  sprint: 13
+
 - slug: final-presentation
   title:
    es: 'Presentación final: Demo Day y monografía'
