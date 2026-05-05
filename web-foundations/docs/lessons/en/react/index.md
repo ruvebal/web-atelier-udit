@@ -56,11 +56,12 @@ This teaching sequence guides students from philosophical foundations through Re
 │  10. Authentication ─────► JWT, sessions, security       │
 │  11. Testing ────────────► Vitest, RTL, Cypress          │
 │                                                          │
-│  PHASE 4: MASTERY (Weeks 11-12)                          │
+│  PHASE 4: MASTERY (Weeks 11-13)                          │
 │  ═══════════════════════════                             │
 │  12. Performance ────────► Memoization, code splitting   │
 │  13. Deployment ─────────► Vercel, CI/CD, environment    │
-│  14. Presentation ───────► Demo day, monograph           │
+│  14. Individual Project ─► Geophysical Aggregator        │
+│  15. Presentation ───────► Demo day, monograph           │
 │                                                          │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -300,7 +301,33 @@ This teaching sequence guides students from philosophical foundations through Re
 
 ---
 
-### Lesson 14: Final Presentation
+### Lesson 14: Individual Project — Geophysical Aggregator
+
+**File**: [`geophysical-aggregator-project`](./geophysical-aggregator-project/)
+
+| Aspect | Details |
+| ------ | ------- |
+| **Duration** | 2–3 weeks (individual, out-of-class) |
+| **Core Concept** | Synthesise the full React curriculum into a deployed application |
+| **Key Outcomes** | SSR app with React Query, two public APIs, i18n, auth, public deployment |
+
+**What Students Deliver**:
+
+- React Router v7 Framework Mode app deployed to a public URL
+- At least two public geophysical APIs (USGS, Open-Meteo, NOAA Tides, GeoNet, OpenAQ, etc.)
+- React Query for client-side data management with `staleTime` and SSR `initialData`
+- Bilingual UI (`/en/...`, `/es/...`) with server-resolved locale
+- httpOnly cookie authentication gating at least one route
+- GitHub repository with `docs/plans/`, `docs/reports/`, and README AI disclosure
+- Departs from the `helios-deck-fw` scaffold from Lesson 10b
+
+**Prerequisites**: Lessons 8 (Routing), 9 (Backend Integration), 10 (Authentication), 10b (Framework Mode + SSR Auth + i18n).
+
+**Connection to Next Lesson**: The deployed project becomes the live demo for the Final Presentation.
+
+---
+
+### Lesson 15: Final Presentation
 
 | Component              | Weight |
 | ---------------------- | ------ |
@@ -365,11 +392,19 @@ This teaching sequence guides students from philosophical foundations through Re
       └─────┬─────┘       └─────┬─────┘
             │                   │
             └─────────┬─────────┘
-                      ▼
-              ┌───────────────┐
-              │ 14. Final     │
-              │ Presentation  │
-              └───────────────┘
+                      │
+              ┌───────┴────────────────┐
+              ▼                        ▼
+      ┌───────────────┐      ┌──────────────────────┐
+      │ 10b. FW Mode  │─────►│ 14. Geophysical      │
+      │ Auth + i18n   │      │ Aggregator (project) │
+      └───────────────┘      └──────────┬───────────┘
+                                        │
+                                        ▼
+                               ┌───────────────┐
+                               │ 15. Final     │
+                               │ Presentation  │
+                               └───────────────┘
 ```
 
 ---
@@ -493,10 +528,11 @@ By the end of this lesson, you will be able to:
 - [x] `react-testing` — Vitest, RTL, Cypress
 - [x] `react-performance` — Optimization, Lighthouse
 - [x] `react-deployment` — Shipping to production
+- [x] `geophysical-aggregator-project` — **Individual project assignment**: React Router v7 Framework Mode + React Query + public geophysical APIs + i18n + auth + deployment
 - [x] `final-presentation` — Demo Day & Monograph
 - [x] `react-deployment.md` — Vercel, CI/CD
 
-### All 14 curriculum files created! 🎉
+### All 15 curriculum files created! 🎉
 
 ---
 
