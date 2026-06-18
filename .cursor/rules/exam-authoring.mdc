@@ -1,0 +1,50 @@
+---
+description: Enforce anti-AI patterns, YAML schema, and length-bias checks when authoring exam banks
+globs: "**/private/**/*.yml,**/exams/**/*.yml,**/exam*.yml"
+alwaysApply: false
+---
+
+# Exam Authoring Conventions
+
+When creating or editing YAML exam bank files (`.yml`), follow these rules strictly.
+
+## Directory layout (gitignored)
+
+- **Source banks:** `private/exams/<slug>.yml` — author here; do not commit to public repos.
+- **LMS exports:** `private/exams-out/<slug>/` — Moodle XML, QTI dirs, ZIPs only; never commit.
+- Run `export-exam.sh` after authoring; see `.cursor/skills/exam-forge/PORTABILITY.md` to copy this pack to another course repo.
+
+## YAML schema
+
+Every bank MUST have `metadata`, `categories`, and `questions` top-level keys. Every question MUST have `id`, `category`, `type`, `name`, `points`, `question`. See `.cursor/skills/exam-forge/reference.md` for full schema.
+
+## Anti-AI: longest-answer bias
+
+For every `multichoice` question, the correct answer (`fraction: 100`) MUST NOT be the longest option by character count. If it is, apply one of:
+1. Pad distractors with plausible technical detail.
+2. Trim the correct answer to its most concise form.
+3. Equalize all options to within ±15% character count.
+4. Invert — make the correct answer deliberately shortest.
+
+## Anti-AI: honeypots
+
+At least 15% of MCQ questions should include at least one distractor that is a "honeypot" — the answer ChatGPT would plausibly give, containing a subtle but critical error. See `anti-ai-playbook.md §2`.
+
+## Anti-AI: local anchors
+
+At least 20% of questions should reference course-specific artifacts (slide numbers, project names, repo paths, exercise names) that only course participants would know.
+
+## HTML in question stems
+
+All `question:` values must be valid XHTML (for QTI compatibility). Use `<p>`, `<strong>`, `<em>`, `<code>`, `<ul>/<li>`, `<pre><code>`. Never use Markdown. Escape `&` as `&amp;`.
+
+## ID conventions
+
+- `q*` — objective questions (MCQ, T/F, matching)
+- `p*` — project/portfolio essay questions
+- `r*` — reflection essays
+- `essay_*` — standalone essays
+
+## Bilingual exams
+
+When a bank has `language: es`, all question text, answers, and feedback must be in Spanish. When `language: en`, all in English. Never mix languages within a bank.

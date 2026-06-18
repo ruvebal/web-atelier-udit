@@ -1,0 +1,9 @@
+# --- Exam Forge (paste into your course repo .gitignore) ---
+# YAML exam banks and LMS export artifacts — do not commit to public repos
+private/exams/
+private/exams-out/
+**/private/exams/
+**/private/exams-out/
+*-moodle.xml
+*-qti/
+*-qti.zip

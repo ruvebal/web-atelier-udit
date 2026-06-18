@@ -11,8 +11,12 @@ yarn.lock
 Gemfile.lock
 web-foundations/docs/assets/css/tailwind-processed.css
 vendor/
+# Exam Forge + course-private material (banks, LMS exports, legacy private/)
 private/
 private/*
+# Explicit (covered by private/ above; documented for portability to other repos)
+# private/exams/
+# private/exams-out/
 
 # SQLite databases (local/dev artifacts)
 *.db

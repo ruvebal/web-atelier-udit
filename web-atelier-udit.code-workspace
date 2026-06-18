@@ -1,22 +1,25 @@
 {
 	"folders": [
 		{
-			"path": "."
+			"path": ".",
 		},
 		{
-			"path": "../courses-repos/react-template"
+			"path": "../courses-repos/react-template",
 		},
 		{
-			"path": "../../../../../src/deviac"
+			"path": "../../../../../src/deviac",
 		},
 		{
-			"path": "../../../../adadi/web/adadi.org"
+			"path": "../../../../adadi/web/adadi.org",
 		},
 		{
-			"path": "../../../website"
-		}
+			"path": "../../../website",
+		},
+		{
+			"path": "../25-26/GDFS/FEI/final",
+		},
 	],
 	"settings": {
-		"liveServer.settings.port": 5501
-	}
+		"liveServer.settings.port": 5501,
+	},
 }

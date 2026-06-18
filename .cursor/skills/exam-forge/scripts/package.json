@@ -1,0 +1,19 @@
+{
+  "name": "@web-atelier/exam-forge",
+  "version": "2.0.0",
+  "private": true,
+  "description": "YAML exam bank validator + 4-format LMS exporter (Moodle XML/GIFT, Blackboard QTI/TXT)",
+  "scripts": {
+    "validate": "node validate-exam.js",
+    "export:moodle": "node yaml-to-moodle-xml.js",
+    "export:gift": "node yaml-to-gift.js",
+    "export:qti": "node yaml-to-qti.js",
+    "export:bb-txt": "node yaml-to-bb-txt.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
