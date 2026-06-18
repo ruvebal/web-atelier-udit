@@ -583,6 +583,20 @@ Flujo MCP:
    ✅ Contexto completo, automatizado, auditable, controlado
 ```
 
+### Configuración de MCP (Ejemplo con Claude Desktop)
+
+```json
+// ~/.config/claude/claude_desktop_config.json
+{
+	"mcpServers": {
+		"filesystem": {
+			"command": "npx",
+			"args": ["-y", "@anthropic/mcp-server-filesystem", "/path/to/project"]
+		}
+	}
+}
+```
+
 ### Mejores Prácticas MCP
 
 | Práctica                           | Justificación                             |

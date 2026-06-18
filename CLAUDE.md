@@ -85,3 +85,11 @@ src/
 - Preserve teaching value, but be honest about execution status.
 - If a snippet looks runnable but is not, either complete it or relabel it.
 - For multi-example lessons, never overwrite `App.jsx` per example — use routed pages.
+
+## Exam banks (YAML → LMS)
+
+- **Skill:** `.cursor/skills/exam-forge/SKILL.md` — schema, anti-AI patterns, export.
+- **Rules:** `.cursor/rules/exam-authoring.mdc` — bias checks, `assessment_mode`, honeypot IDs.
+- **Resit suite spec:** `web-foundations/private/0626-resit_exams/INDEX.md`
+- **Export:** `.cursor/skills/exam-forge/scripts/export-exam.sh` (not legacy `private/yaml-to-*.js`; see `web-foundations/private/DEPRECATED.md`).
+- **Blackboard:** `.cursor/skills/exam-forge/BLACKBOARD-QTI-RULES.md`

@@ -33,6 +33,7 @@ Modes:
   --gift-only         validate + Moodle GIFT
   --qti-only          validate + Blackboard QTI + ZIP
   --bb-txt-only       validate + Blackboard TXT
+  --bb-split          QTI export + split essay/auto ZIPs for /10 scoring
   --validate-only     validate only, no export
   --skip-validation   export without validation
 
@@ -76,6 +77,7 @@ resolve_out_root() {
 OUT_ROOT="$(resolve_out_root)"
 OUT_DIR="${OUT_ROOT}/${BASE}"
 mkdir -p "${OUT_DIR}"
+OUT_DIR_ABS="$(cd "${OUT_DIR}" && pwd)"
 
 MOODLE_OUT="${OUT_DIR}/${BASE}-moodle.xml"
 GIFT_OUT="${OUT_DIR}/${BASE}.gift.txt"
@@ -113,16 +115,36 @@ export_gift() {
     --output="${GIFT_OUT}"
 }
 
+zip_qti_dir() {
+  local dir="$1"
+  local zip_path="$2"
+  rm -f "${zip_path}"
+  (cd "${dir}" && zip -r "${zip_path}" . -x "*.DS_Store") >/dev/null
+}
+
 export_qti() {
-  echo "━━━ Blackboard QTI 2.1 ━━━"
+  echo "━━━ Blackboard QTI 2.1 (Ultra profile) ━━━"
   node "${SCRIPT_DIR}/yaml-to-qti.js" \
     --input="${INPUT}" \
     --outdir="${QTI_OUT}"
 
-  # Auto-create ZIP (imsmanifest.xml at root per BLACKBOARD-QTI-RULES.md §6)
   echo "Creating ZIP..."
-  (cd "${QTI_OUT}" && zip -r "${OUT_DIR}/${BASE}-qti.zip" . -x "*.DS_Store") >/dev/null
-  echo "Blackboard ZIP: ${OUT_DIR}/${BASE}-qti.zip"
+  zip_qti_dir "${QTI_OUT}" "${OUT_DIR_ABS}/${BASE}-qti.zip"
+  echo "Blackboard ZIP: ${OUT_DIR_ABS}/${BASE}-qti.zip"
+
+  if [[ "${BB_SPLIT_POINTS:-}" == "1" ]] || [[ "${MODE}" == "--bb-split" ]]; then
+    echo "━━━ Blackboard split banks (essays / auto) ━━━"
+    node "${SCRIPT_DIR}/yaml-to-qti.js" \
+      --input="${INPUT}" \
+      --outdir="${QTI_OUT}" \
+      --split-by-points
+    ESSAY_QTI="${OUT_DIR}/${BASE}-essays-qti"
+    AUTO_QTI="${OUT_DIR}/${BASE}-auto-qti"
+    zip_qti_dir "${ESSAY_QTI}" "${OUT_DIR_ABS}/${BASE}-essays-qti.zip"
+    zip_qti_dir "${AUTO_QTI}" "${OUT_DIR_ABS}/${BASE}-auto-qti.zip"
+    echo "Essay pool ZIP (set 0.5 pt when adding): ${OUT_DIR_ABS}/${BASE}-essays-qti.zip"
+    echo "Auto pool ZIP (set 0.25 pt when adding): ${OUT_DIR_ABS}/${BASE}-auto-qti.zip"
+  fi
 }
 
 export_bb_txt() {
@@ -151,6 +173,9 @@ case "${MODE}" in
     ;;
   --qti-only)
     run_validation; export_qti
+    ;;
+  --bb-split)
+    run_validation; BB_SPLIT_POINTS=1 export_qti
     ;;
   --bb-txt-only)
     run_validation; export_bb_txt

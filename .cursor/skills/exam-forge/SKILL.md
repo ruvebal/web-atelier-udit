@@ -104,7 +104,8 @@ questions:
 | `subquestions[]` | matching | yes | `.premise`, `.answer` |
 | `groups[]` | gapselect | yes | `.group` (int), `.options` (string array) |
 | `response_lines` | essay | no | Hint for textarea height |
-| `grader_info` | essay | no | HTML rubric for markers |
+| `grader_info` | essay | no | HTML rubric for markers; include `<!-- ref: https://... -->` lesson URL |
+| `lesson_ref` | all | no | Canonical lesson URL (alternative to ref comment in grader_info) |
 
 ---
 

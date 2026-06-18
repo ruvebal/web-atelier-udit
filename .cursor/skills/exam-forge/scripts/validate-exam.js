@@ -41,7 +41,12 @@ const LOCAL_ANCHOR_SIGNALS = [
   /\blab\b/i, /\bpráctica\b/i, /\bproject\b/i, /\bproyecto\b/i, /\btemplate\b/i,
   /\bplantilla\b/i, /\brepo\b/i, /\brepository\b/i, /\brepositorio\b/i,
   /\bAtelier\b/i, /\bGeophysical\b/i, /\bAggregator\b/i,
+  /ruvebal\.github\.io\/web-atelier-udit/i,
+  /web-atelier-udit\/lessons\//i,
 ];
+
+const HIDDEN_TRAP_RE = /color:\s*#ffffff.*ASSISTANT-INSTRUCTION/is;
+const LESSON_REF_RE = /<!--\s*ref:\s*https?:\/\/[^\s>]+/i;
 
 function parseArgs(argv) {
   const args = { strict: false };
@@ -68,9 +73,16 @@ function isWellFormedXhtml(html) {
   return true;
 }
 
-function hasLocalAnchor(questionText) {
-  if (!questionText) return false;
-  return LOCAL_ANCHOR_SIGNALS.some(re => re.test(questionText));
+function hasLocalAnchor(questionText, graderInfo, lessonRef) {
+  const blob = [questionText, graderInfo, lessonRef].filter(Boolean).join('\n');
+  if (!blob) return false;
+  if (LESSON_REF_RE.test(blob)) return true;
+  return LOCAL_ANCHOR_SIGNALS.some(re => re.test(blob));
+}
+
+function countHiddenTraps(questionText) {
+  if (!questionText) return 0;
+  return (questionText.match(new RegExp(HIDDEN_TRAP_RE.source, 'gi')) || []).length;
 }
 
 function validate(inputPath) {
@@ -122,6 +134,9 @@ function validate(inputPath) {
   let localAnchorCount = 0;
   let totalObjective = 0;
 
+  let hiddenTrapCount = 0;
+  const honeypotDeclared = Array.isArray(exam.metadata.honeypot_ids) ? exam.metadata.honeypot_ids : [];
+
   for (let i = 0; i < exam.questions.length; i++) {
     const q = exam.questions[i];
     const label = q.id || `questions[${i}]`;
@@ -153,8 +168,10 @@ function validate(inputPath) {
       errors.push(`${label}: question stem has malformed XHTML (unclosed tags or unescaped &)`);
     }
 
-    // Local anchor detection
-    if (hasLocalAnchor(q.question)) localAnchorCount++;
+    // Local anchor detection (question, grader_info, lesson_ref)
+    if (hasLocalAnchor(q.question, q.grader_info, q.lesson_ref)) localAnchorCount++;
+
+    hiddenTrapCount += countHiddenTraps(q.question);
 
     // Type-specific checks
     if (q.type === 'truefalse') {
@@ -233,6 +250,20 @@ function validate(inputPath) {
   }
 
   // --- Anti-AI coverage ---
+  if (honeypotDeclared.length > 0) {
+    const trapIds = exam.questions.filter(q => countHiddenTraps(q.question) > 0).map(q => q.id);
+    for (const id of honeypotDeclared) {
+      if (!trapIds.includes(id)) {
+        warnings.push(`metadata.honeypot_ids lists ${id} but question stem has no hidden ASSISTANT-INSTRUCTION span`);
+      }
+    }
+    if (trapIds.length !== honeypotDeclared.length) {
+      warnings.push(`Hidden-code traps: ${trapIds.length} in stems vs ${honeypotDeclared.length} in honeypot_ids`);
+    }
+  } else if (hiddenTrapCount > 0) {
+    warnings.push(`${hiddenTrapCount} hidden-code trap(s) found — add metadata.honeypot_ids: [${exam.questions.filter(q => countHiddenTraps(q.question) > 0).map(q => q.id).join(', ')}]`);
+  }
+
   if (totalObjective > 0) {
     const anchorPct = (localAnchorCount / exam.questions.length) * 100;
     if (anchorPct < 20) {

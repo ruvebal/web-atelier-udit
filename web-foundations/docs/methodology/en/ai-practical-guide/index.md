@@ -1,5 +1,5 @@
 ---
-layout: methodology
+layout: lesson
 title: 'AI-Assisted Development: A Practical Guide'
 title_alt: 'Desarrollo Asistido por IA: Guía Práctica'
 slug: ai-practical-guide

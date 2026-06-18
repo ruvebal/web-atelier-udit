@@ -159,16 +159,16 @@ unzip -l examen-react-uno-qti.zip | head -8
 
 ## REGLA 7 — Tipos de pregunta soportados por Blackboard Ultra (QTI 2.1)
 
-| Tipo QTI                 | Blackboard Ultra | Notas                                              |
-|--------------------------|------------------|----------------------------------------------------|
-| `multichoice` (single)   | ✅ Sí            | `cardinality="single"` + `maxChoices="1"`          |
-| `multichoice` (multiple) | ✅ Sí            | `cardinality="multiple"` + `maxChoices="N"`        |
-| `truefalse`              | ✅ Sí            | Se implementa como `choiceInteraction` de 2 opciones |
-| `essay`                  | ✅ Sí            | `extendedTextInteraction` + template `null`        |
-| `matching`               | ✅ Sí            | `matchInteraction` con `directedPair`              |
-| `gapselect`              | ⚠️ Parcial       | No hay equivalente QTI directo; exportar como ensayo |
-| `ordering`               | ❌ No            | No soportado; convertir a multichoice              |
-| `calculated`             | ❌ No            | Fuera del alcance de este script                   |
+| Tipo YAML                | Blackboard Ultra | Notas en export Ultra profile                          |
+|--------------------------|------------------|--------------------------------------------------------|
+| `multichoice` (single)   | ✅ Sí            | `cardinality="multiple"` + `maxChoices="1"` + `answer_N` |
+| `multichoice` (multiple) | ✅ Sí            | `cardinality="multiple"` + `maxChoices="N"`            |
+| `truefalse`              | ✅ Sí            | `choiceInteraction` Verdadero/Falso (como MC)          |
+| `essay`                  | ✅ Sí            | `extendedTextInteraction`; puntos en `MAXSCORE`        |
+| `matching`               | ✅ Sí            | `matchInteraction` con `directedPair`                  |
+| `gapselect`              | ⚠️ Parcial       | Exportado como ensayo                                  |
+| `ordering`               | ❌ No            | Convertir a multichoice                                |
+| `calculated`             | ❌ No            | Fuera de alcance                                       |
 
 ---
 
@@ -177,7 +177,7 @@ unzip -l examen-react-uno-qti.zip | head -8
 Usar `xmllint` para detectar errores de formación antes de subir a Blackboard:
 
 ```bash
-for f in mi-examen-qti/items/*.xml mi-examen-qti/assessment.xml mi-examen-qti/imsmanifest.xml; do
+for f in mi-examen-qti/qti21/*.xml mi-examen-qti/imsmanifest.xml; do
   xmllint --noout "$f" && echo "OK: $f" || echo "ERROR: $f"
 done
 ```
@@ -187,7 +187,68 @@ Blackboard rechace el paquete completo aunque el resto de ficheros sean válidos
 
 ---
 
-## REGLA 9 — Contenido del `question:` en el YAML fuente
+## REGLA 9 — Puntuación fraccional (/10): Blackboard Ultra vs Moodle
+
+### Ingeniería inversa (export BB → ZIP) — verificado 2026-06-15
+
+Tras importar el banco y **editar Q1 a 0,5 pt en la UI de Blackboard**, un re-export QTI (`ExportFile_P_2526_4177_GRDFS_20260615080057.zip`) muestra:
+
+| Campo en `assessmentItem00001.xml` (ensayo “Diseño para desarrolladores…”) | Valor en XML |
+|---------------------------------------------------------------------------|--------------|
+| UI Blackboard (confirmado por docente) | **0,5** pt |
+| `MAXSCORE` → `defaultValue` → `value` | **`0`** |
+| `SCORE` → `defaultValue` → `value` | **`0`** |
+| `question_bank00001.xml` / manifest | sin peso por item |
+
+**Conclusión:** Blackboard **no serializa los puntos en el paquete QTI**, ni siquiera para una pregunta que en la UI está a 0,5. Los puntos viven solo en la base de datos de Learn Ultra. **No uses re-export QTI para comprobar si la importación respetó las notas.**
+
+Comparación con nuestro export (`make export-fe`):
+
+| Fuente | Q1 (ensayo) | Q11 (MC) |
+|--------|-------------|----------|
+| BB re-export (Q1 = 0,5 en UI) | `MAXSCORE=0` | `MAXSCORE=0` |
+| `resit-2626-fdw-fe-qti.zip` (exam-forge) | `MAXSCORE=0.5` | `MAXSCORE=0.25` |
+
+El paquete exam-forge lleva **más información de puntuación que el propio export de Blackboard**. Si tras importar nuestro ZIP las preguntas siguen a 1 pt, es limitación de **import** (no de export): BB ignora `MAXSCORE` y aplica el default 1.
+
+Estructura que sí coincide con BB (contenido, no puntos):
+
+- `qti21/assessmentItem000NN.xml` + `question_bank00001.xml`
+- Manifest `<schema>QTIv2.1</schema>` + `<dependency>` por item
+- `responseProcessing` custom: acierto → `SCORE = MAXSCORE`
+
+### Qué hace el exporter (`yaml-to-qti.js`)
+
+- Emite el perfil Ultra anterior con `MAXSCORE` = `0.5` / `0.25` desde el YAML
+- MC: `cardinality="multiple"`, ids `answer_1`, `shuffle="false"`, prompt en `<div><div>…`
+
+### Limitación documentada de Anthology
+
+Blackboard Ultra **prioriza texto de pregunta sobre metadatos QTI**. Muchas importaciones dejan **1 pt por defecto** aunque `MAXSCORE` esté bien formado.
+
+**Workaround recomendado para exámenes /10:**
+
+```bash
+node yaml-to-qti.js --input=exam.yml --outdir=exam-qti --split-by-points
+# o: export-exam.sh exam.yml --bb-split
+```
+
+Genera dos ZIP:
+
+| ZIP | Preguntas | Al añadir al test, asignar |
+|-----|-----------|----------------------------|
+| `*-essays-qti.zip` | ensayos | **0,5** pt (UI español) / `0.5` en XML |
+| `*-auto-qti.zip` | MC/TF | **0,25** pt / `0.25` en XML |
+
+Total: 10×0,5 + 20×0,25 = **10 puntos**.
+
+### Moodle (cursos diseño)
+
+Usar **Moodle XML** (`*-moodle.xml`), no QTI. `<defaultgrade>0.5000000</defaultgrade>` (punto decimal; ver `grade-utils.js`).
+
+---
+
+## REGLA 10 — Contenido del `question:` en el YAML fuente
 
 Los campos `question:` deben contener HTML válido y bien formado (XHTML), ya que
 se embeben directamente en el XML del item sin ninguna capa de escaping adicional.
@@ -211,7 +272,7 @@ question: |
 node yaml-to-qti.js --input=mi-examen.yml --outdir=mi-examen-qti
 
 # 2. Validar todos los XML
-for f in mi-examen-qti/**/*.xml mi-examen-qti/*.xml; do
+for f in mi-examen-qti/qti21/*.xml mi-examen-qti/imsmanifest.xml; do
   xmllint --noout "$f" && echo "OK: $f" || echo "ERROR: $f"
 done
 

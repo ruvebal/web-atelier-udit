@@ -25,6 +25,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const { resolveInputPath, resolveOutputPath } = require('./resolve-path');
+const { formatMoodleDefaultGrade } = require('./grade-utils');
 
 const DEFAULT_INPUT_FILE = 'exam-portfolio-self-assessment.yml';
 const DEFAULT_OUTPUT_FILE = 'exam-portfolio-self-assessment-moodle.xml';
@@ -108,7 +109,7 @@ function generateEssayQuestion(q) {
     <generalfeedback format="html">
       <text></text>
     </generalfeedback>
-    <defaultgrade>${q.points || 1}.0000000</defaultgrade>
+    <defaultgrade>${formatMoodleDefaultGrade(q.points)}</defaultgrade>
     <penalty>0.0000000</penalty>
     <hidden>0</hidden>
     <idnumber>${q.id}</idnumber>
@@ -156,7 +157,7 @@ function generateMultichoiceQuestion(q) {
     <generalfeedback format="html">
       <text></text>
     </generalfeedback>
-    <defaultgrade>${q.points || 1}.0000000</defaultgrade>
+    <defaultgrade>${formatMoodleDefaultGrade(q.points)}</defaultgrade>
     <penalty>0.3333333</penalty>
     <hidden>0</hidden>
     <idnumber>${q.id}</idnumber>
@@ -196,7 +197,7 @@ function generateTrueFalseQuestion(q) {
     <generalfeedback format="html">
       <text></text>
     </generalfeedback>
-    <defaultgrade>${q.points || 1}.0000000</defaultgrade>
+    <defaultgrade>${formatMoodleDefaultGrade(q.points)}</defaultgrade>
     <penalty>1.0000000</penalty>
     <hidden>0</hidden>
     <idnumber>${q.id}</idnumber>
@@ -244,7 +245,7 @@ function generateMatchingQuestion(q) {
     <generalfeedback format="html">
       <text></text>
     </generalfeedback>
-    <defaultgrade>${q.points || 1}.0000000</defaultgrade>
+    <defaultgrade>${formatMoodleDefaultGrade(q.points)}</defaultgrade>
     <penalty>0.3333333</penalty>
     <hidden>0</hidden>
     <idnumber>${q.id}</idnumber>
@@ -294,7 +295,7 @@ function generateGapSelectQuestion(q) {
     <generalfeedback format="html">
       <text></text>
     </generalfeedback>
-    <defaultgrade>${q.points || 1}.0000000</defaultgrade>
+    <defaultgrade>${formatMoodleDefaultGrade(q.points)}</defaultgrade>
     <penalty>0.3333333</penalty>
     <hidden>0</hidden>
     <idnumber>${q.id}</idnumber>

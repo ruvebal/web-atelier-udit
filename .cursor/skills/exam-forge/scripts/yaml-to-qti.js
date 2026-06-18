@@ -1,69 +1,42 @@
 #!/usr/bin/env node
 /**
- * YAML → QTI 2.1 Exporter para Blackboard Ultra (exam-forge)
+ * YAML → QTI 2.1 Exporter for Blackboard Ultra (exam-forge)
  *
- * Convierte un banco de preguntas en YAML al formato IMS QTI 2.1 listo para
- * importar en Blackboard Ultra (o cualquier LMS compatible con QTI 2.1).
+ * Emits the same package shape Blackboard Ultra exports after a successful import:
+ *   imsmanifest.xml          (schema QTIv2.1 / 2.0, dependency refs)
+ *   qti21/question_bank00001.xml
+ *   qti21/assessmentItem000NN.xml
  *
- * Part of: .cursor/skills/exam-forge/scripts/  — Portability: ../PORTABILITY.md
- * Git: prefer --outdir under private/exams-out/ (gitignored).
- * Install: npm install  (in this directory, requires js-yaml)
- * Rules:   ../BLACKBOARD-QTI-RULES.md
+ * Points live in MAXSCORE outcome defaultValue (not SCORE normalMaximum).
+ * Blackboard may still default imported bank items to 1 pt — use --split-by-points
+ * for two pools (essays vs auto) and set 0.5 / 0.25 when adding each pool to a test.
  *
- * Uso:
- *   node yaml-to-qti.js --input=path/to/exam.yml --outdir=exam-qti
- *   npm run qti -- --input=../exams/midterm.yml --outdir=midterm-qti
- *
- * Relative --input / --outdir paths resolve from process.cwd() first.
- *
- * Estructura de salida:
- *   outdir/
- *     imsmanifest.xml   ← manifest del paquete IMS Content (Regla 3 + 4)
- *     assessment.xml    ← wrapper assessmentTest con refs a todos los items (Regla 4)
- *     items/
- *       q001.xml, ...   ← un assessmentItem por pregunta (Regla 1 + 2)
- *
- * Flujo de empaquetado (ver también BLACKBOARD-QTI-RULES.md §Flujo):
- *
- *   1. Ejecutar este script para generar el directorio outdir/
- *   2. Validar XML:
- *        for f in outdir/**\/*.xml outdir/*.xml; do xmllint --noout "$f"; done
- *   3. Comprimir con imsmanifest.xml en la RAÍZ del ZIP (Regla 6):
- *        cd outdir && zip -r ../outdir.zip .
- *      ⚠️  NO usar: zip -r outdir.zip outdir/
- *         (anida los ficheros bajo un subdirectorio → Blackboard: "Unable to convert")
- *   4. Subir el .zip a Blackboard: Course Content > Reuse Questions > Import QTI
- *
- * Reglas de compatibilidad documentadas en: ../BLACKBOARD-QTI-RULES.md
+ * Usage:
+ *   node yaml-to-qti.js --input=exam.yml --outdir=exam-qti
+ *   node yaml-to-qti.js --input=exam.yml --outdir=exam-qti --split-by-points
  */
 
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const { resolveInputPath } = require('./resolve-path');
+const { formatQtiMaxScore } = require('./grade-utils');
 
-// ─── Namespace constants ──────────────────────────────────────────────────────
-// Regla 1 (BLACKBOARD-QTI-RULES.md): usar el namespace QTI puro `imsqti_v2p1`.
-// El perfil Common Cartridge (`imsqtiasi_v2p1`) es rechazado por Blackboard
-// cuando se importa como banco de preguntas o test.
 const QTI_NAMESPACE = 'http://www.imsglobal.org/xsd/imsqti_v2p1';
 const QTI_SCHEMA =
   'http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd';
 
-// Regla 3 (BLACKBOARD-QTI-RULES.md): manifest con namespace IMS CP v1p1 y
-// schemaversion "1.1.3". Sin el bloque <metadata> Blackboard no identifica
-// el paquete como IMS Content Package válido.
 const MANIFEST_NS = 'http://www.imsglobal.org/xsd/imscp_v1p1';
 const MANIFEST_SCHEMA =
-  'http://www.imsglobal.org/xsd/imscp_v1p1 http://www.imsglobal.org/xsd/imscp_v1p1.xsd';
+  'http://www.imsglobal.org/xsd/imscp_v1p1 http://www.imsglobal.org/xsd/imscp_v1p2.xsd http://ltsc.ieee.org/xsd/LOM imsmd_loose_v1p3.xsd http://www.imsglobal.org/xsd/imsqti_metadata_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_metadata_v2p1.xsd http://www.imsglobal.org/xsd/imsccv1p2/imscsmd_v1p0 http://www.imsglobal.org/profile/cc/ccv1p2/ccv1p2_imscsmd_v1p0.xsd';
+
+const BB_RESPONSE_PROCESSING = `<responseProcessing><responseCondition><responseIf><match><variable identifier="RESPONSE"/><correct identifier="RESPONSE"/></match><setOutcomeValue identifier="SCORE"><variable identifier="MAXSCORE"/></setOutcomeValue><setOutcomeValue identifier="FEEDBACKBASIC"><baseValue baseType="identifier">correct_fb</baseValue></setOutcomeValue></responseIf><responseElse><setOutcomeValue identifier="FEEDBACKBASIC"><baseValue baseType="identifier">incorrect_fb</baseValue></setOutcomeValue></responseElse></responseCondition></responseProcessing>`;
 
 function parseArgs(argv = []) {
   return argv.reduce((acc, arg) => {
-    if (arg.startsWith('--input=')) {
-      acc.input = arg.split('=')[1];
-    } else if (arg.startsWith('--outdir=')) {
-      acc.outdir = arg.split('=')[1];
-    }
+    if (arg.startsWith('--input=')) acc.input = arg.split('=').slice(1).join('=');
+    else if (arg.startsWith('--outdir=')) acc.outdir = arg.split('=').slice(1).join('=');
+    else if (arg === '--split-by-points') acc.splitByPoints = true;
     return acc;
   }, {});
 }
@@ -75,167 +48,106 @@ function sanitizeId(id) {
 }
 
 function escapeAttr(str = '') {
-  return str.replace(/"/g, '&quot;');
+  return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-function cdata(html = '') {
-  return `<![CDATA[${html}]]>`;
+function escapeHtmlForBbDiv(html = '') {
+  return String(html)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
-// Regla 2 (BLACKBOARD-QTI-RULES.md): el texto de la pregunta se embebe como
-// XML/XHTML inline en <itemBody>. Envolver en <div class="prompt"> con CDATA
-// provoca "Unable to convert the given package" en Blackboard.
-// Si el contenido ya abre con una etiqueta de bloque se pasa tal cual;
-// el texto plano (sin etiquetas) se envuelve en <p>.
-function wrapParagraph(questionHtml = '') {
-  const text = questionHtml.trim();
-  if (!text) return '';
-  if (/^<(p|ul|ol|div|h[1-6]|blockquote|pre)[\s>]/i.test(text)) {
-    return text;
-  }
-  return `<p>${text}</p>`;
+function wrapBbPrompt(questionHtml = '') {
+  const text = (questionHtml || '').trim();
+  if (!text) return '<div><div></div></div>';
+  const inner = /^<(p|ul|ol|div|h[1-6]|blockquote|pre)[\s>]/i.test(text) ? text : `<p>${text}</p>`;
+  return `<div><div> \n ${inner} \n</div></div>`;
 }
 
-function ensureDir(dir) {
-  fs.mkdirSync(dir, { recursive: true });
+function padItemRef(index) {
+  return `assessmentItem${String(index).padStart(5, '0')}`;
 }
 
-function normalizePoints(points) {
-  const value = Number(points);
-  return Number.isFinite(value) && value > 0 ? value : 1;
+function bbOutcomes(maxScore) {
+  const points = formatQtiMaxScore(maxScore);
+  return `<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"><defaultValue><value>0</value></defaultValue></outcomeDeclaration><outcomeDeclaration identifier="FEEDBACKBASIC" cardinality="single" baseType="identifier"/><outcomeDeclaration identifier="MAXSCORE" cardinality="single" baseType="float"><defaultValue><value>${points}</value></defaultValue></outcomeDeclaration>`;
 }
 
 function logWarn(msg) {
   console.warn(`⚠️  ${msg}`);
 }
 
-function buildEssayItem(q) {
-  const points = normalizePoints(q.points);
+function buildEssayItem(q, itemIdentifier) {
   const lines = q.response_lines || 8;
   let note = '';
   if (['gapselect', 'matching'].includes(q.type)) {
-    note = '<p><em>Nota: Esta pregunta se ha convertido a respuesta abierta para el paquete QTI.</em></p>';
+    note =
+      '<p><em>Nota: Esta pregunta se ha convertido a respuesta abierta para el paquete QTI.</em></p>';
   }
+  const prompt = wrapBbPrompt(`${q.question || ''}${note ? `\n${note}` : ''}`);
   return `<?xml version="1.0" encoding="UTF-8"?>
-<assessmentItem xmlns="${QTI_NAMESPACE}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="${QTI_SCHEMA}" identifier="${escapeAttr(q.id)}" title="${escapeAttr(
-    q.name
-  )}" adaptive="false" timeDependent="false">
-  <responseDeclaration identifier="RESPONSE" cardinality="single" baseType="string"/>
-  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float">
-    <defaultValue><value>0</value></defaultValue>
-  </outcomeDeclaration>
-  <itemBody>
-    ${wrapParagraph(q.question || '')}
-    ${note}
-    <extendedTextInteraction responseIdentifier="RESPONSE" expectedLines="${lines}" maxStrings="1"/>
-  </itemBody>
-  <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/null"/>
-</assessmentItem>`;
+<assessmentItem xmlns="${QTI_NAMESPACE}" xmlns:ns9="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0" xmlns:ns8="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="${QTI_SCHEMA}" adaptive="false" timeDependent="false" identifier="${escapeAttr(itemIdentifier)}" title="${escapeAttr(q.name)}"><responseDeclaration cardinality="single" baseType="string" identifier="RESPONSE"/>${bbOutcomes(q.points)}<itemBody>${prompt}<extendedTextInteraction responseIdentifier="RESPONSE" expectedLines="${lines}"/></itemBody></assessmentItem>`;
 }
 
-function buildChoiceItem(q) {
-  const points = normalizePoints(q.points);
+function buildChoiceItem(q, itemIdentifier) {
   const single = q.single !== false;
   const maxChoices = single ? 1 : q.answers.filter((a) => Number(a.fraction) > 0).length || 1;
-  const cardinality = single ? 'single' : 'multiple';
   const choices = q.answers.map((answer, idx) => ({
-    id: `CHOICE_${idx + 1}`,
+    id: `answer_${idx + 1}`,
     text: answer.text || '',
     correct: Number(answer.fraction) > 0,
   }));
-  const correctValues = choices.filter((c) => c.correct).map((c) => `<value>${c.id}</value>`).join('');
 
-  if (!correctValues) {
+  if (!choices.some((c) => c.correct)) {
     logWarn(`Pregunta ${q.id} no tiene respuestas correctas marcadas. Se marcará la primera como correcta.`);
     choices[0].correct = true;
   }
 
+  const correctValues = choices
+    .filter((c) => c.correct)
+    .map((c) => `<value>${c.id}</value>`)
+    .join('');
+
+  const choiceXml = choices
+    .map(
+      (choice) =>
+        `<simpleChoice identifier="${choice.id}" fixed="true"><div>\n  ${escapeHtmlForBbDiv(choice.text)}\n</div></simpleChoice>`
+    )
+    .join('');
+
   return `<?xml version="1.0" encoding="UTF-8"?>
-<assessmentItem xmlns="${QTI_NAMESPACE}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="${QTI_SCHEMA}" identifier="${escapeAttr(q.id)}" title="${escapeAttr(
-    q.name
-  )}" adaptive="false" timeDependent="false">
-  <responseDeclaration identifier="RESPONSE" cardinality="${cardinality}" baseType="identifier">
-    <correctResponse>
-      ${choices
-        .filter((c) => c.correct)
-        .map((c) => `<value>${c.id}</value>`)
-        .join('')}
-    </correctResponse>
-  </responseDeclaration>
-  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float" normalMaximum="${points}">
-    <defaultValue><value>0</value></defaultValue>
-  </outcomeDeclaration>
-  <itemBody>
-    ${wrapParagraph(q.question || '')}
-    <choiceInteraction responseIdentifier="RESPONSE" shuffle="true" maxChoices="${maxChoices}">
-      ${choices
-        .map(
-          (choice) => `      <simpleChoice identifier="${choice.id}">${cdata(choice.text || '')}</simpleChoice>`
-        )
-        .join('\n')}
-    </choiceInteraction>
-  </itemBody>
-  <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>
-</assessmentItem>`;
+<assessmentItem xmlns="${QTI_NAMESPACE}" xmlns:ns9="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0" xmlns:ns8="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="${QTI_SCHEMA}" adaptive="false" timeDependent="false" identifier="${escapeAttr(itemIdentifier)}" title="${escapeAttr(q.name)}"><responseDeclaration cardinality="multiple" baseType="identifier" identifier="RESPONSE"><correctResponse>${correctValues}</correctResponse></responseDeclaration>${bbOutcomes(q.points)}<itemBody>${wrapBbPrompt(q.question || '')}<choiceInteraction responseIdentifier="RESPONSE" maxChoices="${maxChoices}" shuffle="false">${choiceXml}</choiceInteraction></itemBody>${BB_RESPONSE_PROCESSING}</assessmentItem>`;
 }
 
-function buildMatchingItem(q) {
-  const points = normalizePoints(q.points);
+function buildMatchingItem(q, itemIdentifier) {
   const leftChoices = q.subquestions.map((sq, idx) => ({ id: `L${idx + 1}`, text: sq.premise }));
   const rightChoices = q.subquestions.map((sq, idx) => ({ id: `R${idx + 1}`, text: sq.answer }));
-
   const correctPairs = q.subquestions
     .map((sq, idx) => `<value>${`L${idx + 1}`} ${`R${idx + 1}`}</value>`)
     .join('');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<assessmentItem xmlns="${QTI_NAMESPACE}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="${QTI_SCHEMA}" identifier="${escapeAttr(q.id)}" title="${escapeAttr(
-    q.name
-  )}" adaptive="false" timeDependent="false">
-  <responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="directedPair">
-    <correctResponse>
-      ${correctPairs}
-    </correctResponse>
-  </responseDeclaration>
-  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float" normalMaximum="${points}">
-    <defaultValue><value>0</value></defaultValue>
-  </outcomeDeclaration>
-  <itemBody>
-    ${wrapParagraph(q.question || '')}
-    <matchInteraction responseIdentifier="RESPONSE" shuffle="true" maxAssociations="${leftChoices.length}">
-      <simpleMatchSet>
-        ${leftChoices
-          .map(
-            (choice) => `        <simpleAssociableChoice identifier="${choice.id}" matchMax="1">${cdata(
-              choice.text || ''
-            )}</simpleAssociableChoice>`
-          )
-          .join('\n')}
-      </simpleMatchSet>
-      <simpleMatchSet>
-        ${rightChoices
-          .map(
-            (choice) => `        <simpleAssociableChoice identifier="${choice.id}" matchMax="1">${cdata(
-              choice.text || ''
-            )}</simpleAssociableChoice>`
-          )
-          .join('\n')}
-      </simpleMatchSet>
-    </matchInteraction>
-  </itemBody>
-  <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>
-</assessmentItem>`;
+<assessmentItem xmlns="${QTI_NAMESPACE}" xmlns:ns9="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0" xmlns:ns8="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="${QTI_SCHEMA}" adaptive="false" timeDependent="false" identifier="${escapeAttr(itemIdentifier)}" title="${escapeAttr(q.name)}"><responseDeclaration cardinality="multiple" baseType="directedPair" identifier="RESPONSE"><correctResponse>${correctPairs}</correctResponse></responseDeclaration>${bbOutcomes(q.points)}<itemBody>${wrapBbPrompt(q.question || '')}<matchInteraction responseIdentifier="RESPONSE" shuffle="false" maxAssociations="${leftChoices.length}"><simpleMatchSet>${leftChoices
+    .map(
+      (c) =>
+        `<simpleAssociableChoice identifier="${c.id}" matchMax="1"><div>${escapeHtmlForBbDiv(c.text)}</div></simpleAssociableChoice>`
+    )
+    .join('')}</simpleMatchSet><simpleMatchSet>${rightChoices
+    .map(
+      (c) =>
+        `<simpleAssociableChoice identifier="${c.id}" matchMax="1"><div>${escapeHtmlForBbDiv(c.text)}</div></simpleAssociableChoice>`
+    )
+    .join('')}</simpleMatchSet></matchInteraction></itemBody>${BB_RESPONSE_PROCESSING}</assessmentItem>`;
 }
 
-function buildItem(q) {
+function buildItem(q, itemIdentifier) {
   switch (q.type) {
     case 'essay':
-      return buildEssayItem(q);
+      return buildEssayItem(q, itemIdentifier);
     case 'multichoice':
-      return buildChoiceItem(q);
+      return buildChoiceItem(q, itemIdentifier);
     case 'truefalse':
       return buildChoiceItem({
         ...q,
@@ -244,75 +156,84 @@ function buildItem(q) {
           { text: 'Verdadero', fraction: q.correct ? 100 : 0 },
           { text: 'Falso', fraction: q.correct ? 0 : 100 },
         ],
-      });
+      }, itemIdentifier);
     case 'matching':
-      return buildMatchingItem(q);
+      return buildMatchingItem(q, itemIdentifier);
     case 'gapselect':
       logWarn(`Pregunta ${q.id} (gapselect) se exportará como ensayo para mantener compatibilidad QTI.`);
-      return buildEssayItem(q);
+      return buildEssayItem(q, itemIdentifier);
     default:
       logWarn(`Tipo ${q.type} no soportado plenamente. Se exporta como ensayo.`);
-      return buildEssayItem(q);
+      return buildEssayItem(q, itemIdentifier);
   }
 }
 
-function writeManifest(outDir, resources) {
+function writeQuestionBank(qtiDir, questions, title) {
+  const refs = questions
+    .map((q, idx) => {
+      const refId = padItemRef(idx + 1);
+      return `<assessmentItemRef identifier="${refId}" href="${refId}.xml" />`;
+    })
+    .join('');
+
+  const bank = `<?xml version="1.0" encoding="UTF-8"?>
+<assessmentTest xmlns="${QTI_NAMESPACE}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="${QTI_SCHEMA}" identifier="question_bank00001" title="${escapeAttr(title)}"><testPart identifier="question_bank00001_1" navigationMode="nonlinear" submissionMode="simultaneous"><assessmentSection identifier="question_bank00001_1_1" visible="false" title="Section 1">${refs}</assessmentSection></testPart></assessmentTest>`;
+
+  fs.writeFileSync(path.join(qtiDir, 'question_bank00001.xml'), bank, 'utf8');
+}
+
+function writeManifest(outDir, itemCount) {
+  const deps = Array.from({ length: itemCount }, (_, i) => {
+    const refId = padItemRef(i + 1);
+    return `<dependency identifierref="${refId}"/>`;
+  }).join('');
+
+  const itemResources = Array.from({ length: itemCount }, (_, i) => {
+    const refId = padItemRef(i + 1);
+    return `<resource href="qti21/${refId}.xml" identifier="${refId}" type="imsqti_item_xmlv2p1"><file href="qti21/${refId}.xml"/></resource>`;
+  }).join('');
+
   const manifest = `<?xml version="1.0" encoding="UTF-8"?>
-<manifest xmlns="${MANIFEST_NS}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  identifier="manifest-${Date.now()}" xsi:schemaLocation="${MANIFEST_SCHEMA}">
-  <metadata>
-    <schema>IMS Content</schema>
-    <schemaversion>1.1.3</schemaversion>
-  </metadata>
-  <organizations/>
-  <resources>
-    <resource identifier="res-assessment" type="imsqti_test_xmlv2p1" href="assessment.xml">
-      <file href="assessment.xml"/>
-    </resource>
-    ${resources
-      .map(
-        (res) => `    <resource identifier="${res.identifier}" type="imsqti_item_xmlv2p1" href="${res.href}">
-      <file href="${res.href}"/>
-    </resource>`
-      )
-      .join('\n')}
-  </resources>
-</manifest>`;
+<manifest identifier="man00001" xmlns="${MANIFEST_NS}" xmlns:csm="http://www.imsglobal.org/xsd/imsccv1p2/imscsmd_v1p0" xmlns:imsmd="http://ltsc.ieee.org/xsd/LOM" xmlns:imsqti="http://www.imsglobal.org/xsd/imsqti_metadata_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="${MANIFEST_SCHEMA}"><metadata><schema>QTIv2.1</schema><schemaversion>2.0</schemaversion></metadata><organizations/><resources><resource href="qti21/question_bank00001.xml" identifier="question_bank00001" type="imsqti_test_xmlv2p1"><file href="qti21/question_bank00001.xml"/>${deps}</resource>${itemResources}</resources></manifest>`;
+
   fs.writeFileSync(path.join(outDir, 'imsmanifest.xml'), manifest, 'utf8');
 }
 
-// Regla 4 (BLACKBOARD-QTI-RULES.md): `assessment.xml` es el wrapper
-// assessmentTest que lista todos los items via <assessmentItemRef>.
-// Sin este fichero (y su entrada en el manifest) Blackboard no puede
-// importar el paquete como un test completo.
-function writeAssessment(outDir, questions) {
-  const testId = sanitizeId(path.basename(outDir));
-  const testTitle = 'Assessment generado desde banco YAML';
+function exportQtiPackage(exam, outDir) {
+  if (fs.existsSync(outDir)) {
+    fs.rmSync(outDir, { recursive: true, force: true });
+  }
+  const qtiDir = path.join(outDir, 'qti21');
+  fs.mkdirSync(qtiDir, { recursive: true });
 
-  const itemsXml = questions
-    .map(
-      (q) =>
-        `      <assessmentItemRef identifier="${escapeAttr(q.id)}" href="items/${sanitizeId(q.id)}.xml"/>`
-    )
-    .join('\n');
+  const questions = Array.isArray(exam.questions) ? exam.questions : [];
+  const title = exam.metadata?.title || 'Question bank';
 
-  const assessment = `<?xml version="1.0" encoding="UTF-8"?>
-<assessmentTest xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" identifier="${testId}" title="${escapeAttr(
-    testTitle
-  )}">
-  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
-  <testPart identifier="testPart-1" navigationMode="linear" submissionMode="individual">
-    <assessmentSection identifier="section-1" title="${escapeAttr(testTitle)}" visible="true">
-${itemsXml}
-    </assessmentSection>
-  </testPart>
-</assessmentTest>`;
+  questions.forEach((question, idx) => {
+    const refId = padItemRef(idx + 1);
+    const itemIdentifier = `QUE__${sanitizeId(question.id)}`;
+    const itemXml = buildItem(question, itemIdentifier);
+    fs.writeFileSync(path.join(qtiDir, `${refId}.xml`), itemXml, 'utf8');
+  });
 
-  fs.writeFileSync(path.join(outDir, 'assessment.xml'), assessment, 'utf8');
+  writeQuestionBank(qtiDir, questions, title);
+  writeManifest(outDir, questions.length);
+
+  fs.writeFileSync(
+    path.join(outDir, 'README.txt'),
+    `Blackboard Ultra QTI 2.1 package (${new Date().toISOString()}).\n` +
+      `Items: ${questions.length}. Points in MAXSCORE per item.\n` +
+      'Zip this folder (imsmanifest.xml at root) before import.\n'
+  );
+
+  return questions.length;
 }
 
-function exportQti(inputPath, outDir) {
+function isAutoGraded(q) {
+  return q.type !== 'essay';
+}
+
+function exportQti(inputPath, outDir, options = {}) {
   console.log(`Leyendo YAML: ${inputPath}`);
   const exam = yaml.load(fs.readFileSync(inputPath, 'utf8'));
 
@@ -320,45 +241,29 @@ function exportQti(inputPath, outDir) {
     throw new Error('El banco YAML no contiene preguntas.');
   }
 
-  if (fs.existsSync(outDir)) {
-    fs.rmSync(outDir, { recursive: true, force: true });
-  }
-  ensureDir(outDir);
-  const itemsDir = path.join(outDir, 'items');
-  ensureDir(itemsDir);
+  if (options.splitByPoints) {
+    const essays = exam.questions.filter((q) => !isAutoGraded(q));
+    const auto = exam.questions.filter((q) => isAutoGraded(q));
+    const base = outDir.replace(/-qti$/, '');
+    const essayDir = `${base}-essays-qti`;
+    const autoDir = `${base}-auto-qti`;
 
-  const resources = [];
-  const questions = Array.isArray(exam.questions) ? exam.questions : [];
+    const essayCount = exportQtiPackage({ ...exam, questions: essays }, essayDir);
+    const autoCount = exportQtiPackage({ ...exam, questions: auto }, autoDir);
 
-  for (const question of questions) {
-    const itemXml = buildItem(question);
-    const fileName = `${sanitizeId(question.id)}.xml`;
-    const filePath = path.join(itemsDir, fileName);
-    fs.writeFileSync(filePath, itemXml, 'utf8');
-    resources.push({ identifier: `res-${sanitizeId(question.id)}`, href: `items/${fileName}` });
+    console.log(`\n✅ Split export (by points tier):`);
+    console.log(`   Essays (${essayCount}): ${essayDir}`);
+    console.log(`   Auto (${autoCount}):   ${autoDir}`);
+    return { essayDir, autoDir, essayCount, autoCount };
   }
 
-  writeManifest(outDir, resources);
-  writeAssessment(outDir, questions);
-
-  fs.writeFileSync(
-    path.join(outDir, 'README.txt'),
-    `Paquete generado a partir de ${path.basename(inputPath)} (${new Date().toISOString()}).\n` +
-      'Comprima este directorio (zip) antes de importarlo en Blackboard Ultra o cualquier LMS compatible con IMS QTI 2.1.\n'
-  );
-
+  const count = exportQtiPackage(exam, outDir);
+  console.log(`\n✅ Exportación completada: ${outDir}`);
+  console.log(`   Items generados: ${count}`);
   const outDirBase = path.basename(outDir);
   const zipName = `${outDirBase}.zip`;
-
-  console.log(`\n✅ Exportación completada: ${outDir}`);
-  console.log(`   Items generados: ${resources.length}`);
-  // Regla 6 (BLACKBOARD-QTI-RULES.md): imsmanifest.xml debe estar en la RAÍZ
-  // del ZIP. Usar siempre el comando de abajo; nunca zip -r nombre.zip directorio/
   console.log(`\n📦 Para generar el ZIP listo para Blackboard:`);
   console.log(`   cd ${outDirBase} && zip -r ../${zipName} . && cd ..`);
-  console.log(`\n🔍 Para verificar estructura del ZIP:`);
-  console.log(`   unzip -l ${zipName} | head -8`);
-  console.log(`   (imsmanifest.xml debe aparecer en la raíz, sin subdirectorio)\n`);
 }
 
 const args = parseArgs(process.argv.slice(2));
@@ -371,8 +276,10 @@ const outDir = path.isAbsolute(outDirName)
   : path.resolve(process.cwd(), outDirName);
 
 try {
-  exportQti(inputPath, outDir);
+  exportQti(inputPath, outDir, { splitByPoints: Boolean(args.splitByPoints) });
 } catch (error) {
   console.error('❌ Error generando QTI:', error.message);
   process.exit(1);
 }
+
+module.exports = { exportQti, exportQtiPackage, buildItem };

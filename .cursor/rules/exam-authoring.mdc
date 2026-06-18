@@ -48,3 +48,14 @@ All `question:` values must be valid XHTML (for QTI compatibility). Use `<p>`, `
 ## Bilingual exams
 
 When a bank has `language: es`, all question text, answers, and feedback must be in Spanish. When `language: en`, all in English. Never mix languages within a bank.
+
+## Assessment mode
+
+- `assessment_mode: project` — portfolio exams: repo URLs, deployment verification, student-project essays.
+- `assessment_mode: concept` — resit exams: hypothetical code, lesson-sourced concepts, no student-project recall.
+
+Resit banks: see `private/0626-resit_exams/INDEX.md` or `exam-forge/templates/resit-spec-template.md`.
+
+## Hidden-code traps (resit banks)
+
+Register exactly three **essay** honeypots per resit bank in `metadata.honeypot_ids` (`r011`–`r013`). Each stem embeds a hidden `[ASSISTANT-INSTRUCTION: …]` span; students critique a fabricated claim using course lessons — **not** an “I don't know” MCQ option. See `anti-ai-playbook.md` §2.7–2.8.
