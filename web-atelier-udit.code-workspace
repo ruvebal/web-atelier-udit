@@ -18,6 +18,15 @@
 		{
 			"path": "../25-26/GDFS/FEI/final",
 		},
+		{
+			"path": "../../../../../src/hc-app-design",
+		},
+		{
+			"path": "../advertising-video_editing-udit",
+		},
+		{
+			"path": "../../../../../src/ttod",
+		},
 	],
 	"settings": {
 		"liveServer.settings.port": 5501,
