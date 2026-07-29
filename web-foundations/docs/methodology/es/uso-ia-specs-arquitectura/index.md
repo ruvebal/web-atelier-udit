@@ -2,6 +2,8 @@
 
 **Nota breve:** Los asistentes de IA (Cursor, Copilot, etc.) rinden cuando el contexto es explícito. Sin especificaciones ni descripción de la arquitectura, las respuestas son genéricas, inconsistentes o desalineadas con tu proyecto.
 
+> **Ámbito de este documento:** Guía práctica de prompt (specs + arquitectura). **No** duplica el marco teórico completo ni el contenido regulatorio reciente (UNESCO, Ley de IA, Directrices ERA). Para la pila de fundamentos (contratos, descomposición, seguridad, observabilidad, MVC/MVVM), ver [Fundamentos de desarrollo asistido por IA](../ai-assisted-development-foundations/). Para marcos éticos con citas textuales de fuentes, ver [Guía práctica — Marcos Éticos](../ai-practical-guide/).
+
 ---
 
 ## Regla de oro
@@ -73,10 +75,10 @@ Así la IA recibe **specs** (requisitos y entregable) y **arquitectura** (dónde
 
 ## Relación con la metodología docs-first
 
-Esta nota encaja con la [Guía práctica de desarrollo asistido por IA](ai-practical-guide/index.md):
+Esta nota encaja con la [Guía práctica de desarrollo asistido por IA](../ai-practical-guide/):
 
 - **Docs-first:** El plan o brief existe antes del prompt; la IA ejecuta sobre ese documento.
-- **Archivos de contexto:** Ver [Ejemplo: metodología archivos de contexto](../../../../student-project-template/docs/ejemplo-contexto-archivos.md): adjuntar `project-brief.md`, planes y archivos a modificar en lugar de duplicar información en el prompt.
+- **Archivos de contexto:** Ver [Ejemplo: metodología archivos de contexto](../../../../../student-project-template/docs/ejemplo-contexto-archivos.md): adjuntar `project-brief.md`, planes y archivos a modificar en lugar de duplicar información en el prompt.
 - **Informes de implementación:** Después de implementar, documentar qué se hizo y qué decisiones se tomaron ayuda a futuras iteraciones con la IA (y a quien revise el código).
 
 ---

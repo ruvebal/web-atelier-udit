@@ -227,6 +227,8 @@ Los bugs son míos para arreglar.
 El aprendizaje es mío para crecer.
 ```
 
+El derecho internacional reformula este juramento en registro formal: los humanos pueden recurrir a sistemas de IA en la toma de decisiones, pero un sistema de IA nunca puede reemplazar la responsabilidad y rendición de cuentas humanas últimas (UNESCO, 2021, «Responsibility and accountability»).
+
 ### El Lugar de la Máquina
 
 ```text
@@ -288,6 +290,8 @@ Cada prompt que envías:
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+> Esto no es solo retórica. La *Recommendation on the Ethics of AI* de la UNESCO (2021, «Proportionality and Do No Harm») exige que los actores de IA favorezcan métodos eficientes en datos, energía y recursos — y que la IA no se use cuando existan impactos ambientales negativos desproporcionados.
 
 ### El Coste Humano
 
@@ -416,6 +420,8 @@ El estudiante no pudo.
 
 El evaluador dijo: "Entonces has entregado el trabajo de otro que no entiendes. Esto no es aprender. Esto es blanquear."
 
+> **Precedente académico:** La ICMJE (2025) exige que los autores divulguen tecnologías asistidas por IA, prohíbe listar chatbots como autores y requiere que los humanos afirmen que no hay plagio en texto e imágenes producidos por IA — el mismo estándar que este koan aplica en el aula.
+
 ---
 
 ## Capítulo VII: El Pacto del README
@@ -521,6 +527,7 @@ _Código Crítico para una Vida Mejor._
 | [Guía Práctica de IA]({{ '/methodology/es/ai-practical-guide/'                             | relative_url }})                      | Metodología práctica para desarrollo asistido por IA |
 | [Código de Ética ACM](https://www.acm.org/code-of-ethics)                                  | Guías de ética profesional            |
 | [Ética IA UNESCO](https://www.unesco.org/es/artificial-intelligence/recommendation-ethics) | Marco internacional                   |
+| Merrill et al. (2025), *Memory, Mind & Media* | Registro académico anti-hype sobre IA — desmitificando chatbots dentro de ensamblajes sociales y ambientales más amplios |
 | [Fausto (Goethe)](<https://es.wikipedia.org/wiki/Fausto_(Goethe)>)                         | El cuento con moraleja original       |
 
 ---

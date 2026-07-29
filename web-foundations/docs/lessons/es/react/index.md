@@ -134,7 +134,7 @@ Esta secuencia didáctica guía al alumnado desde los fundamentos filosóficos h
 
 ### Lección 4: Fundamentos de desarrollo asistido por IA
 
-**Archivo**: [`ai-assisted-development-foundations`](/methodology/en/ai-assisted-development-foundations/)
+**Archivo**: [`ai-assisted-development-foundations`](/methodology/es/ai-assisted-development-foundations/)
 
 | Aspecto          | Detalles                                                  |
 | ---------------- | -------------------------------------------------------- |

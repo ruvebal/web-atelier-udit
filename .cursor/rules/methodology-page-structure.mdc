@@ -1,0 +1,42 @@
+---
+description: Methodology pages must live in slug directories as index.md
+globs: web-foundations/docs/methodology/**/*
+alwaysApply: false
+---
+
+# Methodology Page Structure
+
+Under `web-foundations/docs/methodology/`, every content page is a **directory named by slug** containing `index.md`. Never add a bare `slug.md` next to language roots or sibling page folders.
+
+## Required layout
+
+```
+methodology/
+  en/
+    index.md                                    ← language hub only
+    ai-practical-guide/index.md
+    ai-assisted-development-foundations/index.md
+    ai-regulatory-grounding-proposal/index.md
+    tao-of-ai-development/index.md
+  es/
+    index.md
+    ai-practical-guide/index.md
+    ai-assisted-development-foundations/index.md
+    uso-ia-specs-arquitectura/index.md
+    ai-practical-guide/tao-of-ai-development/index.md
+```
+
+## Rules when creating or renaming
+
+1. **New page** → `mkdir methodology/{en|es}/<slug>` then write `<slug>/index.md`.
+2. **Never** create `methodology/{en|es}/<slug>.md` at the language-root level.
+3. **Front matter `permalink`** (when present) must end with a trailing slash matching the dir:
+   `/methodology/{lang}/<slug>/`
+4. **Cross-links** prefer directory URLs (`../other-slug/` or site permalinks), not `other-slug.md`.
+5. Nested pages (e.g. Tao under the practical guide) still use `…/<slug>/index.md`.
+6. If you find a legacy bare `.md` page, convert with:
+   `mkdir -p <slug> && mv <slug>.md <slug>/index.md` and fix relative links one level deeper.
+
+## Why
+
+Jekyll pretty URLs, lesson navigation, and bilingual parity all assume slug folders. Bare files break permalink consistency and force brittle `.md` relative links.

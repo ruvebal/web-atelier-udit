@@ -207,6 +207,8 @@ This underlies:
 - Tool allowlists
 - Role-scoped agents
 
+The EU's *Ethics Guidelines for Trustworthy AI* (Horizon Europe) requires that AI systems guarantee privacy and data protection throughout their lifecycle — and that data minimisation must never be leveraged to hide or obscure bias. Capability-based security and blast-radius thinking are practical implementations of that requirement.
+
 ### 5.2 Blast Radius Thinking
 
 | Principle | Application |
@@ -253,6 +255,8 @@ This enables:
 | Approval gates | Explicit human confirmation |
 
 > **Mantra**: Agents are *junior interns*, not autonomous gods.
+
+The Trustworthy AI framework's "human agency and oversight" requirement states that AI systems must support human autonomy and decision-making, enabling users to make informed autonomous decisions (European Commission, *How to complete your ethics self-assessment*, §8). This mantra is a compliance-grounded restatement of that principle.
 
 ---
 

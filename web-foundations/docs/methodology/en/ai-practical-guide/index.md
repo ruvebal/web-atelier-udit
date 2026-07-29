@@ -56,6 +56,8 @@ tags: [ai, methodology, ethics, prompts, mcp, documentation]
 | **AI as Teacher**    | Ask AI to explain, not just do                          |
 | **AI as Pair**       | Collaborate, critique, iterate together                 |
 
+> **Scholarly precedent:** The "AI as Mirror" and "AI as Amplifier" mindsets echo *extended cognition* in digital scholarly editing — tools outside the mind that participate in its process (Van Hulle, 2016). Van Hulle (2019) distinguishes *imitatio* (style mimicry from published texts) from *aemulatio* (simulating revision itself) as the threshold of "artificial imagination" — a useful vocabulary for generative AI in creative work.
+
 ### The Human Flourishing Test
 
 Before every AI-assisted project, ask:
@@ -63,6 +65,8 @@ Before every AI-assisted project, ask:
 > 1. Will this app **reduce suffering** or **increase joy**?
 > 2. Am I **learning** through this process, or just **copying**?
 > 3. Will future-me **thank** present-me for this work?
+
+The [European Declaration on Digital Rights and Principles for the Digital Decade](https://digital-strategy.ec.europa.eu/en/library/european-declaration-digital-rights-and-principles) (European Commission, 2022) states the same principle in policy register: artificial intelligence should serve as a tool for people, with the ultimate aim of increasing human well-being, and everyone should be empowered to make informed choices in the digital environment while being protected against risks and harm.
 
 ---
 
@@ -133,7 +137,7 @@ Be aware of the **monopolistic dynamics** in AI:
 
 ### Ethical Frameworks
 
-Our AI usage aligns with established ethical guidelines:
+Our AI usage aligns with established ethical guidelines at international, EU, and professional levels:
 
 **ACM Code of Ethics (Association for Computing Machinery):**
 
@@ -146,6 +150,13 @@ Our AI usage aligns with established ethical guidelines:
 
 **UNESCO Recommendation on the Ethics of AI (2021):**
 
+On teaching, teacher training, and e-learning specifically:
+
+> "Member States should encourage research initiatives on the responsible and ethical use of AI technologies in teaching, teacher training and e-learning, among other issues... Member States should also ensure that AI technologies empower students and teachers and enhance their experience, bearing in mind that relational and social aspects and the value of traditional forms of education are vital in teacher-student and student-student relationships... AI should support the learning process without reducing cognitive abilities and without extracting sensitive information, in compliance with relevant personal data protection standards."
+> — UNESCO (2021), §104
+
+The Recommendation's broader principles (summarized):
+
 - **Proportionality**: AI should not exceed what is necessary
 - **Safety and security**: Prevent harm throughout lifecycle
 - **Fairness and non-discrimination**: Promote social justice
@@ -155,10 +166,39 @@ Our AI usage aligns with established ethical guidelines:
 - **Transparency and explainability**: Understand AI decisions
 - **Responsibility and accountability**: Clear attribution of responsibility
 
+**EU AI Act — Article 4, AI Literacy (Regulation (EU) 2024/1689):**
+
+> "Providers and deployers of AI systems shall take measures to ensure, to their best extent, a sufficient level of AI literacy of their staff and other persons dealing with the operation and use of AI systems on their behalf, taking into account their technical knowledge, experience, education and training and the context the AI systems are to be used in..."
+
+Article 4 makes AI literacy a **binding legal requirement** in the EU — not merely good pedagogy. This course is a working example of that obligation.
+
+**Ethics Guidelines for Trustworthy AI (Horizon Europe / European Commission):**
+
+MSCA fellows complete ethics self-assessments against this framework. Its seven requirements include: human agency and oversight; privacy and data governance; societal and environmental well-being; and accountability — requiring that developers and operators explain how and why a system produces particular outcomes (European Commission, *How to complete your ethics self-assessment*, §8).
+
+**MSCA-NET Policy Brief: Artificial Intelligence (2025):**
+
+> "This policy brief explores the opportunities and challenges AI presents within Horizon Europe and the Marie Skłodowska-Curie Actions (MSCA)... It also offers a summary of recommendations to ensure AI research is conducted responsibly, ethically, and in line with the EU's values."
+>
+> "Ethical and legal risks: AI technologies can raise significant ethical and legal concerns, particularly regarding bias, discrimination, copyright issues and plagiarism. It must be ensured that AI research adheres to high ethical standards, including transparency, fairness, accountability, and non-discrimination."
+
+I hold students to the same standard my own funding network holds me to.
+
+**ERA Living Guidelines on the Responsible Use of Generative AI in Research (European Commission & ERA Forum):**
+
+> "These guidelines intend to set out common directions on the responsible use of generative AI. While non-binding, they should be considered as a supporting tool for researchers, research organisations and research funding bodies, including the ones applying to the European Framework Programme for Research and Innovation."
+>
+> "Researchers, to be transparent, detail which generative AI tools have been used substantially in their research processes. When generative AI meaningfully shapes results, researchers transparently note its use according to the guidelines of their journal or standards in their discipline in the methods section (or equivalent) responsibly evaluating the extent of the contribution."
+>
+> "Accountability for the research from idea to publication, for its management and organisation, for training, supervision and mentoring, and for its wider societal impacts. This includes responsibility for all output that a researcher produces, underpinned by the notion of human agency and oversight."
+
 > 📚 **References:**
 >
 > - [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
 > - [UNESCO Recommendation on AI Ethics](https://www.unesco.org/en/artificial-intelligence/recommendation-ethics)
+> - [EU AI Act (Regulation (EU) 2024/1689)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
+> - [Ethics Guidelines for Trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)
+> - [ERA Living Guidelines on Generative AI in Research](https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en?filename=ec_rtd_ai-guidelines.pdf)
 
 ---
 
@@ -705,6 +745,8 @@ MCP workflow:
 
 ## The AI Ethics Protocol
 
+> _"What do gatekeepers expect of contributors regarding AI use?"_ — Chigwada & Ngulube (2026) ask this of publishers and author guidelines; instructors ask the same of students in the classroom (instructor : student :: publisher : author).
+
 ### The Non-Negotiables
 
 | Rule                      | Why It Matters                      |
@@ -716,6 +758,10 @@ MCP workflow:
 | **Cite in deliverables**  | Academic and professional integrity |
 
 ### ⚠️ README AI Disclosure Requirement
+
+Scholarly publishing norms require the same transparency. The ICMJE (2025) states:
+
+> "At submission, the journal should require authors to disclose whether they used Artificial Intelligence (AI)-assisted technologies... Chatbots (such as ChatGPT) should not be listed as authors because they cannot be responsible for the accuracy, integrity, and originality of the work... Authors should be able to assert that there is no plagiarism in their paper, including in text and images produced by the AI. Humans must ensure there is appropriate attribution of all quoted material, including full citations."
 
 > **MANDATORY**: Every repository using AI assistance **MUST** include a visible AI usage disclosure in the `README.md` file.
 
@@ -745,6 +791,10 @@ This project was developed with AI assistance (Claude/GPT-4/Copilot).
 4. **Legal clarity**: AI-generated code has complex IP implications
 
 > 🚨 **Repositories without AI disclosure that contain AI-generated code may be flagged for academic integrity review.**
+
+### Who Owns What You Build With AI
+
+Portfolio work often includes AI-generated code, images, or layout suggestions. The U.S. Copyright Office (2023) applies a practical test: copyright requires human authorship — the work must be "basically one of human authorship, with the computer merely being an assisting instrument," not "conceived and executed not by man but by a machine." For grading and professional claims, treat AI as an assisting instrument: you own what you understand, integrate, and can defend — not raw model output you cannot explain.
 
 ### The Documentation Standard
 
@@ -877,7 +927,10 @@ git commit -m "feat: add auth flow (AI-assisted: Claude)"
 | [Atelier Prompt Collection]({{ site.url }}{{ site.baseurl }}/lessons/en/atelier-prompts/)                   | Curated prompts for web development                                                               |
 | [Portfolio Template Brief]({{ site.url }}{{ site.baseurl }}/lessons/en/portfolio-template-brief/challenge/) | Example project using this methodology                                                            |
 | [ACM Code of Ethics](https://www.acm.org/code-of-ethics)                                                    | Professional ethics guidelines                                                                    |
-| [UNESCO AI Ethics](https://www.unesco.org/en/artificial-intelligence/recommendation-ethics)                 | International framework for AI ethics                                                             |
+| [UNESCO AI Ethics](https://www.unesco.org/en/artificial-intelligence/recommendation-ethics)                 | International framework for AI ethics                                                               |
+| [EU AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)                                                 | Binding AI literacy obligation (Art. 4)                                                             |
+| [ERA Living Guidelines](https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en?filename=ec_rtd_ai-guidelines.pdf) | EU framework for responsible generative AI in research                                              |
+| [Regulatory Grounding Proposal]({{ site.url }}{{ site.baseurl }}/methodology/en/ai-regulatory-grounding-proposal/) | Evidence audit with Ahmes Tri-Anchor provenance                                                     |
 
 ---
 

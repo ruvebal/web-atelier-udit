@@ -104,9 +104,22 @@ Respecto al **miedo de codificar y herramientas de línea de comandos** (ej. usa
 >
 > 道 **Addendum Filosófico**: Para sabiduría ancestral sobre ética, artesanía y la lucha eterna contra el código basura, consulta **[El Tao del Desarrollo con IA]({{ site.url }}{{ site.baseurl }}/methodology/es/tao-of-ai-development/)**.
 
+La [Carta Europea del Investigador](https://euraxess.ec.europa.eu/jobs/charter) (Comisión Europea, 2005) recoge lo que la UE exige de los investigadores financiados: evitar el plagio, respetar la propiedad intelectual, rendir cuentas del trabajo delegado. Exijo de mis estudiantes el mismo estándar que mi propia red de financiación exige de mí:
+
+> "Researchers should make every effort to ensure that their research is relevant to society and does not duplicate research previously carried out elsewhere. They must avoid plagiarism of any kind and abide by the principle of intellectual property and joint data ownership..."
+>
+> "Researchers need to be aware that they are accountable towards their employers, funders or other related public or private bodies as well as, on more ethical grounds, towards society as a whole..."
+> — *European Charter for Researchers* (European Commission, 2005), "Professional responsibility" (p. 12–13) & "Accountability" (p. 14)
+> Ancla Ahmes: `svcm/documents/am509774cee_en_e4_5bcc3da7/`
+
+Este espejo pedagógico se apoya en política internacional, no solo en la preferencia del docente. Sobre IA en la enseñanza, la UNESCO recomienda:
+
+> "Member States should encourage research initiatives on the responsible and ethical use of AI technologies in teaching, teacher training and e-learning, among other issues... Member States should also ensure that AI technologies empower students and teachers and enhance their experience, bearing in mind that relational and social aspects and the value of traditional forms of education are vital in teacher-student and student-student relationships... AI should support the learning process without reducing cognitive abilities and without extracting sensitive information, in compliance with relevant personal data protection standards."
+> — UNESCO, *Recommendation on the Ethics of Artificial Intelligence* (2021), §104
+
 Dado el auge de la IA generativa, una consideración moderna importante es cómo incorporar herramientas de IA en el currículo de diseño web. Los estudiantes hoy tienen acceso a sistemas como _ChatGPT_ y _GitHub Copilot_ que pueden producir fragmentos de código o sugerencias de diseño. Nuestro enfoque es **integrar IA como ayuda de aprendizaje mientras mantenemos integridad académica**.
 
-Informamos a los estudiantes que pueden usar asistentes basados en IA para inspiración, depuración, o para obtener pistas cuando están atascados, tanto como usarían _Google_ o _Stack Overflow_. Sin embargo, deben **citar o reconocer contribuciones significativas generadas por IA** en su documentación de _commit_.
+Informamos a los estudiantes que pueden usar asistentes basados en IA para inspiración, depuración, o para obtener pistas cuando están atascados, tanto como usarían _Google_ o _Stack Overflow_. Sin embargo, deben **citar o reconocer contribuciones significativas generadas por IA** en su documentación de _commit_. Para mantener el foco en el aprendizaje, diseñamos tareas centradas en el proceso y la personalización, no en soluciones triviales que una IA podría entregar de forma genérica. Esto se alinea con la política de alfabetización digital y en IA de la UE y la UNESCO: aprendices y docentes deben adquirir competencias digitales, alfabetización mediática y pensamiento crítico para participar activamente en la sociedad y los procesos democráticos (Declaración Europea sobre los Derechos Digitales y los Principios para el Decenio Digital, 2022; UNESCO, 2021, pp. 33, 35).
 
 ## Estrategia de Evaluación: Evaluación Continua y Final
 

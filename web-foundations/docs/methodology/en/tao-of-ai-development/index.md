@@ -226,6 +226,8 @@ The bugs are mine to fix.
 The learning is mine to earn.
 ```
 
+International law restates this oath in formal register: humans may resort to AI systems in decision-making, but an AI system can never replace ultimate human responsibility and accountability (UNESCO, 2021, "Responsibility and accountability").
+
 ### The Machine's Place
 
 ```
@@ -287,6 +289,8 @@ Each prompt you send:
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+> This is not just rhetoric. UNESCO's *Recommendation on the Ethics of AI* (2021, "Proportionality and Do No Harm") requires that AI actors favour data-, energy-, and resource-efficient methods — and that AI should not be used where there are disproportionate negative environmental impacts.
 
 ### The Human Cost
 
@@ -415,6 +419,8 @@ The student could not.
 
 The grader said: "Then you have submitted someone else's work that you do not understand. This is not learning. This is laundering."
 
+> **Scholarly precedent:** ICMJE (2025) requires authors to disclose AI-assisted technologies, forbids listing chatbots as authors, and requires humans to assert no plagiarism in AI-produced text — the same standard this koan enforces in the classroom.
+
 ---
 
 ## Chapter VII: The README Covenant
@@ -520,6 +526,7 @@ _Critical Coding for a Better Living._
 | [AI Practical Guide]({{ '/methodology/en/ai-practical-guide/'                               | relative_url }})                       | Practical methodology for AI-assisted development |
 | [ACM Code of Ethics](https://www.acm.org/code-of-ethics)                                    | Professional ethics guidelines         |
 | [UNESCO AI Ethics](https://www.unesco.org/en/artificial-intelligence/recommendation-ethics) | International framework                |
+| Merrill et al. (2025), *Memory, Mind & Media* | Academic anti-hype register for AI — demystifying chatbots within wider social and environmental assemblages |
 | [Faust (Goethe)](https://en.wikipedia.org/wiki/Faust)                                       | The original cautionary tale           |
 
 ---

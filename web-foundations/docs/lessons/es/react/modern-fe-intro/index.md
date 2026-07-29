@@ -48,7 +48,7 @@ Al finalizar esta lección, serás capaz de:
 
 | Concepto | Dónde se cubre | Por qué importa aquí |
 | --- | --- | --- |
-| Metodología Docs-First | [`/methodology/en/ai-assisted-development-foundations/`](../../../methodology/en/ai-assisted-development-foundations/index.md) | Es necesaria para comprender los protocolos de IA introducidos en esta lección |
+| Metodología Docs-First | [`/methodology/es/ai-assisted-development-foundations/`](../../../methodology/es/ai-assisted-development-foundations/index.md) | Es necesaria para comprender los protocolos de IA introducidos en esta lección |
 | Panorama del frontend moderno | `/lessons/es/react/frameworks-comparative/` | Aporta contexto para la evolución histórica (MVC → MVVM → React) |
 
 ---

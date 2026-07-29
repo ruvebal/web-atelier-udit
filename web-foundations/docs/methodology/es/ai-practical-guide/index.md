@@ -57,6 +57,8 @@ tags: [ia, metodología, ética, prompts, mcp, documentación]
 | **IA como Profesor**     | Pide a la IA que explique, no solo que haga                    |
 | **IA como Par**          | Colabora, critica, itera juntos                                |
 
+> **Precedente académico:** Las mentalidades «IA como Espejo» e «IA como Amplificador» evocan la *cognición extendida* en la edición académica digital: herramientas fuera de la mente que participan en su proceso (Van Hulle, 2016). Van Hulle (2019) distingue *imitatio* (mimetismo estilístico a partir de textos publicados) de *aemulatio* (simular el propio proceso de revisión) como umbral de la «artificial imagination» — un vocabulario útil para la IA generativa en trabajo creativo.
+
 ### El Test del Florecimiento Humano
 
 Antes de cada proyecto asistido por IA, pregunta:
@@ -64,6 +66,8 @@ Antes de cada proyecto asistido por IA, pregunta:
 > 1. ¿Esta aplicación **reducirá el sufrimiento** o **aumentará la alegría**?
 > 2. ¿Estoy **aprendiendo** a través de este proceso, o solo **copiando**?
 > 3. ¿El yo-del-futuro me **agradecerá** por este trabajo?
+
+La [Declaración Europea sobre los Derechos Digitales y los Principios para el Decenio Digital](https://digital-strategy.ec.europa.eu/en/library/european-declaration-digital-rights-and-principles) (Comisión Europea, 2022) formula el mismo principio en registro normativo: la inteligencia artificial debe servir como herramienta para las personas, con el objetivo último de aumentar el bienestar humano, y todas las personas deben poder tomar decisiones informadas en el entorno digital estando protegidas frente a riesgos y daños.
 
 ---
 
@@ -134,7 +138,7 @@ Sé consciente de las **dinámicas monopolísticas** en IA:
 
 ### Marcos Éticos
 
-Nuestro uso de IA se alinea con guías éticas establecidas:
+Nuestro uso de IA se alinea con marcos éticos establecidos a nivel internacional, europeo y profesional:
 
 **Código de Ética ACM (Association for Computing Machinery):**
 
@@ -147,6 +151,13 @@ Nuestro uso de IA se alinea con guías éticas establecidas:
 
 **Recomendación de la UNESCO sobre la Ética de la IA (2021):**
 
+En enseñanza, formación docente y e-learning específicamente:
+
+> "Member States should encourage research initiatives on the responsible and ethical use of AI technologies in teaching, teacher training and e-learning, among other issues... Member States should also ensure that AI technologies empower students and teachers and enhance their experience, bearing in mind that relational and social aspects and the value of traditional forms of education are vital in teacher-student and student-student relationships... AI should support the learning process without reducing cognitive abilities and without extracting sensitive information, in compliance with relevant personal data protection standards."
+> — UNESCO (2021), §104
+
+Principios más amplios de la Recomendación (resumidos):
+
 - **Proporcionalidad**: La IA no debe exceder lo necesario
 - **Seguridad y protección**: Prevenir daños a lo largo del ciclo de vida
 - **Equidad y no discriminación**: Promover la justicia social
@@ -156,10 +167,39 @@ Nuestro uso de IA se alinea con guías éticas establecidas:
 - **Transparencia y explicabilidad**: Entender las decisiones de IA
 - **Responsabilidad y rendición de cuentas**: Atribución clara de responsabilidad
 
+**Ley de IA de la UE — Artículo 4, Alfabetización en IA (Reglamento (UE) 2024/1689):**
+
+> "Providers and deployers of AI systems shall take measures to ensure, to their best extent, a sufficient level of AI literacy of their staff and other persons dealing with the operation and use of AI systems on their behalf, taking into account their technical knowledge, experience, education and training and the context the AI systems are to be used in..."
+
+El Artículo 4 convierte la alfabetización en IA en un **requisito legal vinculante** en la UE — no solo en buena pedagogía. Este curso es un ejemplo práctico de ese deber.
+
+**Directrices de Ética para una IA Fiable (Horizonte Europa / Comisión Europea):**
+
+Los becarios MSCA completan autoevaluaciones éticas conforme a este marco. Sus siete requisitos incluyen: agencia y supervisión humana; privacidad y gobernanza de datos; bienestar social y ambiental; y rendición de cuentas — exigiendo que desarrolladores y operadores expliquen cómo y por qué un sistema produce determinados resultados (Comisión Europea, *How to complete your ethics self-assessment*, §8).
+
+**Policy Brief MSCA-NET sobre Inteligencia Artificial (2025):**
+
+> "This policy brief explores the opportunities and challenges AI presents within Horizon Europe and the Marie Skłodowska-Curie Actions (MSCA)... It also offers a summary of recommendations to ensure AI research is conducted responsibly, ethically, and in line with the EU's values."
+>
+> "Ethical and legal risks: AI technologies can raise significant ethical and legal concerns, particularly regarding bias, discrimination, copyright issues and plagiarism. It must be ensured that AI research adheres to high ethical standards, including transparency, fairness, accountability, and non-discrimination."
+
+Exijo de mis estudiantes el mismo estándar que mi propia red de financiación exige de mí.
+
+**Directrices Vivas de la ERA sobre el Uso Responsable de la IA Generativa en la Investigación (Comisión Europea y Foro ERA):**
+
+> "These guidelines intend to set out common directions on the responsible use of generative AI. While non-binding, they should be considered as a supporting tool for researchers, research organisations and research funding bodies, including the ones applying to the European Framework Programme for Research and Innovation."
+>
+> "Researchers, to be transparent, detail which generative AI tools have been used substantially in their research processes. When generative AI meaningfully shapes results, researchers transparently note its use according to the guidelines of their journal or standards in their discipline in the methods section (or equivalent) responsibly evaluating the extent of the contribution."
+>
+> "Accountability for the research from idea to publication, for its management and organisation, for training, supervision and mentoring, and for its wider societal impacts. This includes responsibility for all output that a researcher produces, underpinned by the notion of human agency and oversight."
+
 > 📚 **Referencias:**
 >
 > - [Código de Ética ACM](https://www.acm.org/code-of-ethics)
 > - [Recomendación UNESCO sobre Ética de la IA](https://www.unesco.org/es/artificial-intelligence/recommendation-ethics)
+> - [Ley de IA de la UE (Reglamento (UE) 2024/1689)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
+> - [Directrices de Ética para una IA Fiable](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)
+> - [Directrices Vivas ERA sobre IA Generativa en la Investigación](https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en?filename=ec_rtd_ai-guidelines.pdf)
 
 ---
 
@@ -706,6 +746,8 @@ Flujo MCP:
 
 ## El Protocolo de Ética IA
 
+> _«¿Qué esperan los guardianes de los contribuyentes respecto al uso de la IA?»_ — Chigwada y Ngulube (2026) plantean esta pregunta sobre editoriales y guías para autores; en el aula, el docente la formula a sus estudiantes (docente : estudiante :: editorial : autor).
+
 ### Los No Negociables
 
 | Regla                       | Por Qué Importa                           |
@@ -717,6 +759,10 @@ Flujo MCP:
 | **Cita en entregables**     | Integridad académica y profesional        |
 
 ### ⚠️ Requisito de Declaración de IA en README
+
+Las normas de publicación académica exigen la misma transparencia. La ICMJE (2025) establece:
+
+> "At submission, the journal should require authors to disclose whether they used Artificial Intelligence (AI)-assisted technologies... Chatbots (such as ChatGPT) should not be listed as authors because they cannot be responsible for the accuracy, integrity, and originality of the work... Authors should be able to assert that there is no plagiarism in their paper, including in text and images produced by the AI. Humans must ensure there is appropriate attribution of all quoted material, including full citations."
 
 > **OBLIGATORIO**: Todo repositorio que use asistencia de IA **DEBE** incluir una declaración visible de uso de IA en el archivo `README.md`.
 
@@ -744,6 +790,10 @@ Este proyecto fue desarrollado con asistencia de IA (Claude/GPT-4/Copilot).
 4. **Claridad legal**: El código generado por IA tiene implicaciones de PI complejas
 
 > 🚨 **Los repositorios sin declaración de IA que contengan código generado por IA pueden ser marcados para revisión de integridad académica.**
+
+### ¿De quién es lo que construyes con IA?
+
+El trabajo de portafolio suele incluir código, imágenes o sugerencias de maquetación generados por IA. La Oficina de Copyright de EE. UU. (2023) aplica una prueba práctica: el copyright exige autoría humana — la obra debe ser «basically one of human authorship, with the computer merely being an assisting instrument», no «conceived and executed not by man but by a machine». Para la evaluación y las reivindicaciones profesionales, trata la IA como instrumento auxiliar: te pertenece lo que comprendes, integras y puedes defender — no la salida cruda del modelo que no sabes explicar.
 
 ### El Estándar de Documentación
 
@@ -871,13 +921,17 @@ git commit -m "feat: añadir flujo auth (IA-asistido: Claude)"
 
 | Recurso                                                                                                         | Descripción                              |
 | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| [**Uso de la IA: specs y arquitectura**](uso-ia-specs-arquitectura.md)                                        | Nota: dar especificaciones y descripción de arquitectura al asistente para resultados coherentes |
+| [**Fundamentos de desarrollo asistido por IA**](ai-assisted-development-foundations/index.md)                   | Marco teórico: contratos, descomposición, seguridad, observabilidad, RAG, MVC/MVVM |
+| [**Uso de la IA: specs y arquitectura**](../uso-ia-specs-arquitectura/)                                        | Nota breve: specs + arquitectura en el prompt para resultados coherentes |
 | [**El Tao del Desarrollo con IA**]({{ site.url }}{{ site.baseurl }}/methodology/es/tao-of-ai-development/) | 道 Addendum filosófico sobre ética, artesanía y la lucha eterna contra el código basura |
 | [Metodología Web Atelier]({{ site.url }}{{ site.baseurl }}/methodology/es/)                                     | Pedagogía central y estructura del curso |
 | [Colección de Prompts del Atelier]({{ site.url }}{{ site.baseurl }}/lessons/en/atelier-prompts/)                | Prompts curados para desarrollo web      |
 | [Brief de Plantilla Portfolio]({{ site.url }}{{ site.baseurl }}/lessons/en/portfolio-template-brief/challenge/) | Proyecto ejemplo usando esta metodología |
 | [Código de Ética ACM](https://www.acm.org/code-of-ethics)                                                       | Guías de ética profesional               |
 | [Ética IA UNESCO](https://www.unesco.org/es/artificial-intelligence/recommendation-ethics)                      | Marco internacional para ética de IA     |
+| [Ley de IA de la UE](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)                                           | Obligación legal de alfabetización en IA (Art. 4) |
+| [Directrices Vivas ERA](https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en?filename=ec_rtd_ai-guidelines.pdf) | Marco de la UE para IA generativa en investigación |
+| [Propuesta de fundamentación regulatoria]({{ site.url }}{{ site.baseurl }}/methodology/en/ai-regulatory-grounding-proposal/) | Auditoría de evidencia con proveniencia Ahmes Tri-Anchor (inglés) |
 
 ---
 
