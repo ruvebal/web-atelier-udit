@@ -1,0 +1,168 @@
+---
+permalink: /tracks/feii/how-to-pass-this-track/
+sitemap: false
+---
+
+<!--
+Front-End II — How to Pass This Track
+UDIT · Grado en Desarrollo Full-Stack / Data-Science & AI · 2026-27
+Rubén Vega Balbás, PhD · ruvebal@crea-comm.net
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Pass Front-End II — UDIT 2026-27</title>
+    <link rel="stylesheet" href="./vendor/reveal.css" />
+    <style>
+        :root {
+            --background: 15 23 42;
+            --foreground: 248 250 252;
+            --primary: 59 130 246;
+            --primary-foreground: 255 255 255;
+            --accent: 16 185 129;
+            --accent-foreground: 255 255 255;
+            --muted: 71 85 105;
+            --muted-foreground: 148 163 184;
+            --border: 51 65 85;
+            --card: 30 41 59;
+            --destructive: 239 68 68;
+            --ring: 59 130 246;
+            --radius: 0.5rem;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: rgb(var(--background));
+            color: rgb(var(--foreground));
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .reveal {
+            color: rgb(var(--foreground));
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: rgb(var(--foreground));
+            font-family: Georgia, serif;
+        }
+
+        .reveal h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .reveal h2 {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .reveal h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .reveal .slides section {
+            background: rgb(var(--card) / 0.8);
+            border: 1px solid rgb(var(--border));
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+
+        .reveal a {
+            color: rgb(var(--primary));
+        }
+
+        .reveal a:hover {
+            color: rgb(var(--accent));
+        }
+
+        .reveal .progress span {
+            background: rgb(var(--primary));
+        }
+
+        .reveal table {
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+
+        .reveal table th,
+        .reveal table td {
+            padding: 0.5rem 1rem;
+            border: 1px solid rgb(var(--border));
+            text-align: left;
+        }
+
+        .reveal table th {
+            background: rgb(var(--muted));
+            font-weight: 600;
+        }
+
+        .reveal ul {
+            margin: 0.5rem 0;
+        }
+
+        .reveal ul li {
+            margin: 0.25rem 0;
+        }
+
+        .reveal .weight-highlight {
+            color: rgb(var(--accent));
+            font-weight: 700;
+        }
+
+        .reveal .deadline {
+            color: rgb(var(--primary));
+            font-weight: 600;
+        }
+
+        .reveal .requirement {
+            color: rgb(var(--muted-foreground));
+            font-style: italic;
+        }
+
+        .reveal .pass-grade {
+            color: rgb(var(--accent));
+            font-weight: 700;
+        }
+
+        .reveal .fail-grade {
+            color: rgb(var(--destructive));
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides" id="slides"></div>
+    </div>
+
+    <script src="./vendor/reveal.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slidesRoot = document.getElementById('slides');
+            
+            fetch('./data/content.json')
+                .then(response => response.json())
+                .then(data => {
+                    slidesRoot.innerHTML = data.slides.map(slide => 
+                        `<section>${slide.content}</section>`
+                    ).join('');
+                    
+                    Reveal.initialize({
+                        hash: true,
+                        slideNumber: true,
+                        transition: 'slide',
+                        backgroundTransition: 'fade'
+                    });
+                })
+                .catch(error => {
+                    slidesRoot.innerHTML = `<section><h2>Error loading slides</h2><p>${error.message}</p></section>`;
+                });
+        });
+    </script>
+</body>
+</html>

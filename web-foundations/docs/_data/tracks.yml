@@ -324,3 +324,109 @@ tracks:
    technical: 60
    creative: 25
    process: 15
+
+ # ────────────────────────────────────────────────────────────────────────────
+ # Front-End II — Desarrollo Web: Front-End II (UDIT)
+ # ────────────────────────────────────────────────────────────────────────────
+ feii:
+  title: 'Front-End II — Desarrollo Web: Front-End II'
+  title_alt: 'Front-End II — Desarrollo Web: Front-End II'
+  description: 'Track semestral del Grado en Desarrollo Full-Stack y Data-Science & AI (UDIT). Arquitectura de producción, PWA, testing, performance, 3D, e IoT/robotics. 6 ECTS, 150h totales (30h laboratorio).'
+  lang: es
+  permalink: /tracks/feii/
+  sessions: 12
+  duration: '150 horas (semestral)'
+  tags: [frontend, astro, pwa, testing, performance, r3f, iot, python, udit, production-architecture]
+  sessions_list:
+   # ═══════════════════════════════════════════════════════════════════════
+   # SEMESTER 2 — Production Architecture & Interface-Layer Frontier
+   # ═══════════════════════════════════════════════════════════════════════
+   - title: 'Kickoff: From FE I React to Production Architecture'
+     slug: 'unit-1-kickoff'
+     description: 'Orientación: transición de React FE I a arquitectura de producción, reframe de la capa de interfaz como sistemas de interfaces.'
+     duration: '2 horas'
+     labHours: 0
+     tags: [orientation, architecture, interface-layer, systems-thinking]
+   - title: 'Astro Meta-Framework — Islands Architecture & SSR'
+     slug: 'unit-2-astro-fundamentals'
+     description: 'Astro fundamentals: content-first philosophy, islands architecture, SSR vs SSG, and multi-framework integration.'
+     duration: '3 horas'
+     labHours: 2
+     tags: [astro, meta-framework, ssr, islands-architecture, multi-framework]
+   - title: 'Advanced Astro Architecture & Multi-Framework Integration'
+     slug: 'unit-3-astro-advanced'
+     description: 'Advanced Astro patterns: content collections, data fetching, multi-framework islands, and micro-frontend architecture.'
+     duration: '3 horas'
+     labHours: 2
+     tags: [astro, advanced-architecture, content-collections, multi-framework, micro-frontends]
+   - title: 'Progressive Web Apps & Offline Capabilities'
+     slug: 'unit-4-pwa-offline'
+     description: 'PWA fundamentals: service workers, caching strategies, web app manifest, and offline-first UX patterns.'
+     duration: '2 horas'
+     labHours: 2
+     tags: [pwa, service-workers, offline-first, caching-strategies, installability]
+   - title: 'Testing Strategy — Pyramid, Tools, and CI/CD Integration'
+     slug: 'unit-5-testing-strategy'
+     description: 'Testing strategy fundamentals: testing pyramid, unit testing with Vitest, component testing with RTL, E2E with Playwright, and CI/CD integration.'
+     duration: '3 horas'
+     labHours: 3
+     tags: [testing, testing-pyramid, vitest, react-testing-library, playwright, ci-cd]
+   - title: 'AI-Assisted Code Review — Human-in-the-Loop Workflow'
+     slug: 'unit-6-ai-code-review'
+     description: 'AI-assisted code review as a taught technique: GitHub PR integration, human-in-the-loop workflows, and Oliveira et al. 2026 research findings.'
+     duration: '3 horas'
+     labHours: 3
+     tags: [ai-assisted-development, code-review, github-pr, human-in-the-loop, testing-automation]
+   - title: 'Performance Engineering — Core Web Vitals & Optimization'
+     slug: 'unit-7-performance'
+     description: 'Performance engineering fundamentals: Core Web Vitals, performance budgets, bundle optimization, and runtime performance optimization.'
+     duration: '2 horas'
+     labHours: 2
+     tags: [performance, core-web-vitals, performance-budgets, bundle-optimization, runtime-optimization]
+   - title: 'React Three Fiber — 3D Interfaces with React Patterns'
+     slug: 'unit-8-r3f-fundamentals'
+     description: 'React Three Fiber fundamentals: declarative 3D components, state management, animation, and interface-layer transfer from React.'
+     duration: '3 horas'
+     labHours: 3
+     tags: [r3f, react-three-fiber, 3d, webgl, three-js, interface-layer]
+   - title: 'Shader Literacy & Cutting-Edge Interface Aesthetics'
+     slug: 'unit-9-shader-literacy'
+     description: 'Shader literacy fundamentals: GLSL basics, custom shaders in R3F, post-processing effects, and cutting-edge interface aesthetics.'
+     duration: '3 horas'
+     labHours: 3
+     tags: [shaders, glsl, post-processing, aesthetics, cutting-edge, r3f, webgl]
+   - title: 'IoT/Robotics Control-Panel & Python-Backed Interface'
+     slug: 'unit-10-iot-python-backend'
+     description: 'IoT/robotics control-panel development: device APIs, WebSocket real-time data, Python-backed interfaces, and the component model beyond REST/GraphQL.'
+     duration: '2 horas'
+     labHours: 4
+     tags: [iot, robotics, websockets, python-backend, real-time, control-panel]
+   - title: 'Capstone Integration — Process Evidence & AI Use Declaration'
+     slug: 'unit-11-capstone-integration'
+     description: 'Capstone project integration: process evidence documentation, AI use declaration, and the verify/narrate axes from the profield methodology.'
+     duration: '3 horas'
+     labHours: 3
+     tags: [capstone, process-evidence, ai-declaration, verify-axis, narrate-axis]
+   - title: 'Capstone Oral Defence & Final Evaluation'
+     slug: 'unit-12-capstone-defence'
+     description: 'Capstone oral defence: presentation structure, evaluation criteria, diff-based questions, and final assessment.'
+     duration: '2 horas'
+     labHours: 3
+     tags: [capstone, oral-defence, final-evaluation, presentation, evaluation-criteria]
+  objectives:
+   - 'Dominar arquitecturas de producción: meta-frameworks (Astro), SSR/SSG, y micro-frontends.'
+   - 'Construir aplicaciones PWA con capacidades offline y estrategia de caching avanzada.'
+   - 'Aplicar estrategias de testing profesionales: pirámide de testing, CI/CD, y revisión de código asistida por IA.'
+   - 'Ingeniería de rendimiento: Core Web Vitals, performance budgets, y optimización de bundles.'
+   - 'Extender la capa de interfaz al 3D (R3F, shaders) y más allá del navegador (IoT/robotics, Python backends).'
+   - 'Documentar evidencia del proceso y declarar uso de IA de forma transparente con verify/narrate axes.'
+  deliverables:
+   - 'Entrega 1 (unidades 2-6): Proyecto arquitectónico Astro con testing strategy y CI/CD integration.'
+   - 'Entrega 2 (unidades 8-10): Interface 3D R3F con control-panel IoT/Python-backed.'
+   - 'Entrega 3 / Examen Final (unidades 11-12): Proyecto integrador con process evidence, AI declaration, y defensa oral.'
+   - 'Evidencia por sesión: commits, reflexiones ATELIER, y documentación de decisiones.'
+  methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión) + Desarrollo asistido por IA con validación crítica'
+  evaluation:
+   technical: 50
+   creative: 30
+   process: 20
