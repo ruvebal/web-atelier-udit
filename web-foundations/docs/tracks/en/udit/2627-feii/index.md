@@ -135,19 +135,19 @@ By completing this track, students will be able to:
 
 ## 📊 Evaluation
 
-**FE II weights** (evaluation range to choose within):
+**FE II weights** (selected within official range):
 
-| Component                                    | Weight Range | Selected |
-| -------------------------------------------- | ------------ | -------- |
-| Pruebas (Tests)                              | 30–50%       | 30%      |
-| Trabajos, entregables y proyectos (Projects) | 40–60%       | 50%      |
-| Portafolio (Problem-solving portfolio)       | 10–20%       | 20%      |
+| Component                                    | Weight |
+| -------------------------------------------- | ------ |
+| Pruebas (Tests)                              | 30%    |
+| Trabajos, entregables y proyectos (Projects) | 50%    |
+| Portafolio (Problem-solving portfolio)       | 20%    |
 
-**Track-level breakdown** (aligned with selected weights):
+**Track-level breakdown** (aligned with institutional weights and evaluation philosophy):
 
-- **Technical Excellence (50%)** — Code quality, architecture, implementation, performance
-- **Creative Innovation (30%)** — 3D aesthetics, shader effects, interface design
-- **Process Evidence (20%)** — Documentation, AI declaration, decision logs, iteration logs
+- **Technical Excellence (40%)** — Code quality, architecture, implementation, performance (mapped from tests + projects technical)
+- **Reflection & Documentation (35%)** — Process evidence, AI declaration, decision logs, iteration logs (mapped from portfolio + projects documentation)
+- **Conceptual Understanding (25%)** — Understanding of patterns, trade-offs, and architecture rationale (mapped from tests + projects conceptual)
 
 ---
 
@@ -175,6 +175,7 @@ AI assistance is integrated following the **[AI Practical Guide]({{ '/methodolog
 ## 🔗 Related Resources
 
 - **[How to Pass This Track](how-to-pass-this-track/)** — Evaluation criteria, deliverable specifications, and grading rubric
+- **[AI Declaration & Oral Defence Rubric](../../../../evaluation/shared/ai-declaration-oral-defence-rubric/)** — Shared rubric for AI use declarations and oral defences
 - **[FE II Unit Sequence](../../../../lessons/en/feii/)** — Detailed curriculum with 12 units covering production architecture and interface-layer frontier
 - **[AI Practical Guide](../../../../methodology/en/ai-practical-guide/)** — Methodology for AI-assisted development
 - **[Official Syllabus](https://udit.es)** — UDIT course documentation (Spanish)

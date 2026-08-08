@@ -1,47 +1,47 @@
 {
-  "title": "How to Pass Front-End II — UDIT 2026-27",
-  "slides": [
-    {
-      "content": "<h1>How to Pass Front-End II</h1><h2>UDIT 2026-27 · Grado en Desarrollo Full-Stack / Data-Science & AI</h2><p><strong>Rubén Vega Balbás, PhD</strong> · ruvebal@crea-comm.net</p><p><em>6 ECTS · 150h total · 30h laboratory · Semester</em></p>"
-    },
-    {
-      "content": "<h2>Course Information</h2><table><tr><th>Academic Year</th><td>2026-27</td></tr><tr><th>Semester</th><td>Semester 2 (annual course)</td></tr><tr><th>ECTS</th><td>6</td></tr><tr><th>Instructor</th><td>Rubén Vega Balbás, PhD</td></tr><tr><th>Email</th><td>ruvebal@crea-comm.net</td></tr></table><p>This document details the deliverables, evaluation tests, and requirements to successfully complete Front-End II. Delivery dates may vary from the indicative dates shown here.</p>"
-    },
-    {
-      "content": "<h2>Evaluation Structure</h2><table><tr><th>Component</th><th>Weight</th></tr><tr><td>Pruebas (Tests)</td><td class=\"weight-highlight\">30%</td></tr><tr><td>Trabajos, entregables y proyectos (Projects)</td><td class=\"weight-highlight\">50%</td></tr><tr><td>Portafolio (Problem-solving portfolio)</td><td class=\"weight-highlight\">20%</td></tr></table><p><strong>Total:</strong> 100% · <strong>Pass threshold:</strong> 5.0 average</p>"
-    },
-    {
-      "content": "<h2>Deliverable 1: Astro Architectural Project</h2><table><tr><th>Name</th><td>Entrega 1 — Astro Architecture (Units 2-6)</td></tr><tr><th>Description</th><td>Astro project with content collections, islands architecture, multi-framework integration, testing strategy, and CI/CD</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Week 7 (October 2026)</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">20%</td></tr><tr><th>Requirements</th><td class=\"requirement\">Complete Astro setup, testing suite (Vitest + RTL + Playwright), and AI-assisted code review workflow</td></tr></table>"
-    },
-    {
-      "content": "<h2>Deliverable 2: 3D Interface & IoT Control Panel</h2><table><tr><th>Name</th><td>Entrega 2 — 3D/IoT Integration (Units 8-10)</td></tr><tr><th>Description</th><td>R3F 3D interface with shader effects + IoT/robotics control panel consuming Python-backed WebSocket service</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Week 11 (November 2026)</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">20%</td></tr><tr><th>Requirements</th><td class=\"requirement\">R3F interactive 3D components, custom GLSL shaders, WebSocket real-time data, Python FastAPI backend</td></tr></table>"
-    },
-    {
-      "content": "<h2>Deliverable 3: Capstone Project & Oral Defence</h2><table><tr><th>Name</th><td>Entrega 3 / Examen Final — Capstone (Units 11-12)</td></tr><tr><th>Description</th><td>Capstone project integration with process evidence, AI use declaration, and oral defence presentation</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Final exam period (December 2026)</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">10%</td></tr><tr><th>Requirements</th><td class=\"requirement\">Complete process evidence (decisions.md, iterations.md, AI_USE_DECLARATION.md), verify/narrate axes, 15-minute oral defence</td></tr></table>"
-    },
-    {
-      "content": "<h2>Test 1: Mid-Term Examination</h2><table><tr><th>Name</th><td>Mid-Term Written Test</td></tr><tr><th>Description</th><td>Theory and practical skills covering units 1-7 (Astro, PWA, testing, performance)</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Week 7 (October 2026)</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">15%</td></tr><tr><th>Requirements</th><td class=\"requirement\">No prerequisite · Covers sessions U1-U7</td></tr></table>"
-    },
-    {
-      "content": "<h2>Test 2: Final Examination</h2><table><tr><th>Name</th><td>Final Written Test</td></tr><tr><th>Description</th><td>Theory and practical skills covering full curriculum (3D, IoT, capstone concepts)</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Final exam period (December 2026)</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">15%</td></tr><tr><th>Requirements</th><td class=\"requirement\">Must present Deliverables 1, 2, and 3 previously</td></tr></table>"
-    },
-    {
-      "content": "<h2>Portfolio Component</h2><table><tr><th>Name</th><td>Problem-Solving Portfolio</td></tr><tr><th>Description</th><td>Resolution of exercises, problem-solving evidence, session reflections, and process documentation</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Continuous throughout the semester</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">20%</td></tr><tr><th>Requirements</th><td class=\"requirement\">Commit evidence per session with ATELIER reflections, decision logs, and iteration documentation</td></tr></table>"
-    },
-    {
-      "content": "<h2>Ordinary Evaluation Criteria</h2><ul><li>The average of all evaluated components must reach <span class=\"pass-grade\">5.0</span> for the subject to be considered approved.</li><li>If any deliverable or test scores below <span class=\"fail-grade\">4.5</span>, the subject will be suspended, and the student must present to the extraordinary evaluation.</li><li>All components must be completed to calculate the final average.</li></ul>"
-    },
-    {
-      "content": "<h2>Extraordinary Evaluation</h2><ul><li>Students who fail the ordinary evaluation may present to the extraordinary evaluation.</li><li>Conditions: Must complete failed deliverables (1, 2, or 3) and/or retake failed tests (mid-term, final).</li><li>Type of test: Written examination covering failed content areas.</li><li>Portfolio evidence may be requested for review.</li></ul>"
-    },
-    {
-      "content": "<h2>Important Notes</h2><ul><li><strong>AI Disclosure:</strong> All AI-assisted work must follow the docs-first methodology with documented plans and implementation reports.</li><li><strong>Process Evidence:</strong> All capstone projects must include decisions.md, iterations.md, and AI_USE_DECLARATION.md.</li><li><strong>Oral Defence:</strong> Units 11-12 require a 15-minute presentation with diff walkthrough and Q&A.</li><li><strong>Phase 5 Dependency:</strong> Unit 10 IoT data source will be defined in Back-End II synergy sheet; placeholder until then.</li></ul>"
-    },
-    {
-      "content": "<h2>Key Dates Summary</h2><ul><li><strong>October 2026:</strong> Mid-Term Test (15%) + Entrega 1 (20%)</li><li><strong>November 2026:</strong> Entrega 2 (20%)</li><li><strong>December 2026:</strong> Final Test (15%) + Entrega 3 / Oral Defence (10%)</li><li><strong>Continuous:</strong> Problem-Solving Portfolio (20%)</li></ul>"
-    },
-    {
-      "content": "<h2>Questions?</h2><p>For clarification on deliverables, evaluation criteria, or technical requirements:</p><ul><li>Email: <a href=\"mailto:ruvebal@crea-comm.net\">ruvebal@crea-comm.net</a></li><li>Course track: <a href=\"../../index.html\">/tracks/feii/</a></li><li>GitHub: Course repository (provided in class)</li></ul><p><em>Good luck — critical coding for a better living!</em></p>"
-    }
-  ]
+	"title": "How to Pass Front-End II — UDIT 2026-27",
+	"slides": [
+		{
+			"content": "<h1>How to Pass Front-End II</h1><h2>UDIT 2026-27 · Grado en Desarrollo Full-Stack / Data-Science & AI</h2><p><strong>Rubén Vega Balbás, PhD</strong> · ruvebal@crea-comm.net</p><p><em>6 ECTS · 150h total · 30h laboratory · Semester</em></p>"
+		},
+		{
+			"content": "<h2>Course Information</h2><table><tr><th>Academic Year</th><td>2026-27</td></tr><tr><th>Semester</th><td>Semester 2 (annual course)</td></tr><tr><th>ECTS</th><td>6</td></tr><tr><th>Instructor</th><td>Rubén Vega Balbás, PhD</td></tr><tr><th>Email</th><td>ruvebal@crea-comm.net</td></tr></table><p>This document details the deliverables, evaluation tests, and requirements to successfully complete Front-End II. Delivery dates may vary from the indicative dates shown here.</p>"
+		},
+		{
+			"content": "<h2>Evaluation Structure</h2><table><tr><th>Component</th><th>Weight</th></tr><tr><td>Pruebas (Tests)</td><td class=\"weight-highlight\">30%</td></tr><tr><td>Trabajos, entregables y proyectos (Projects)</td><td class=\"weight-highlight\">50%</td></tr><tr><td>Portafolio (Problem-solving portfolio)</td><td class=\"weight-highlight\">20%</td></tr></table><p><strong>Total:</strong> 100% · <strong>Pass threshold:</strong> 5.0 average</p><p><em>Selected within official range: Pruebas 30–50% / Trabajos 40–60% / Portafolio 10–20%</em></p>"
+		},
+		{
+			"content": "<h2>Deliverable 1: Astro Architectural Project</h2><table><tr><th>Name</th><td>Entrega 1 — Astro Architecture (Units 2-6)</td></tr><tr><th>Description</th><td>Astro project with content collections, islands architecture, multi-framework integration, testing strategy, and CI/CD</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Week 7 (October 2026)</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">20%</td></tr><tr><th>Requirements</th><td class=\"requirement\">Complete Astro setup, testing suite (Vitest + RTL + Playwright), and AI-assisted code review workflow</td></tr></table>"
+		},
+		{
+			"content": "<h2>Deliverable 2: 3D Interface & IoT Control Panel</h2><table><tr><th>Name</th><td>Entrega 2 — 3D/IoT Integration (Units 8-10)</td></tr><tr><th>Description</th><td>R3F 3D interface with shader effects + IoT/robotics control panel consuming Python-backed WebSocket service</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Week 11 (November 2026)</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">20%</td></tr><tr><th>Requirements</th><td class=\"requirement\">R3F interactive 3D components, custom GLSL shaders, WebSocket real-time data, Python FastAPI backend</td></tr></table>"
+		},
+		{
+			"content": "<h2>Deliverable 3: Capstone Project & Oral Defence</h2><table><tr><th>Name</th><td>Entrega 3 / Examen Final — Capstone (Units 11-12)</td></tr><tr><th>Description</th><td>Capstone project integration with process evidence, AI use declaration, and oral defence presentation</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Final exam period (December 2026)</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">10%</td></tr><tr><th>Requirements</th><td class=\"requirement\">Complete process evidence (decisions.md, iterations.md, AI_USE_DECLARATION.md), verify/narrate axes, 15-minute oral defence</td></tr></table>"
+		},
+		{
+			"content": "<h2>Test 1: Mid-Term Examination</h2><table><tr><th>Name</th><td>Mid-Term Written Test</td></tr><tr><th>Description</th><td>Theory and practical skills covering units 1-7 (Astro, PWA, testing, performance)</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Week 7 (October 2026)</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">15%</td></tr><tr><th>Requirements</th><td class=\"requirement\">No prerequisite · Covers sessions U1-U7</td></tr></table>"
+		},
+		{
+			"content": "<h2>Test 2: Final Examination</h2><table><tr><th>Name</th><td>Final Written Test</td></tr><tr><th>Description</th><td>Theory and practical skills covering full curriculum (3D, IoT, capstone concepts)</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Final exam period (December 2026)</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">15%</td></tr><tr><th>Requirements</th><td class=\"requirement\">Must present Deliverables 1, 2, and 3 previously</td></tr></table>"
+		},
+		{
+			"content": "<h2>Portfolio Component</h2><table><tr><th>Name</th><td>Problem-Solving Portfolio</td></tr><tr><th>Description</th><td>Resolution of exercises, problem-solving evidence, session reflections, and process documentation</td></tr><tr><th>Indicative Date</th><td class=\"deadline\">Continuous throughout the semester</td></tr><tr><th>% Evaluation</th><td class=\"weight-highlight\">20%</td></tr><tr><th>Requirements</th><td class=\"requirement\">Commit evidence per session with ATELIER reflections, decision logs, and iteration documentation</td></tr></table>"
+		},
+		{
+			"content": "<h2>Ordinary Evaluation Criteria</h2><ul><li>The average of all evaluated components must reach <span class=\"pass-grade\">5.0</span> for the subject to be considered approved.</li><li>If any deliverable or test scores below <span class=\"fail-grade\">4.5</span>, the subject will be suspended, and the student must present to the extraordinary evaluation.</li><li>All components must be completed to calculate the final average.</li></ul>"
+		},
+		{
+			"content": "<h2>Extraordinary Evaluation</h2><ul><li>Students who fail the ordinary evaluation may present to the extraordinary evaluation.</li><li>Conditions: Must complete failed deliverables (1, 2, or 3) and/or retake failed tests (mid-term, final).</li><li>Type of test: Written examination covering failed content areas.</li><li>Portfolio evidence may be requested for review.</li></ul>"
+		},
+		{
+			"content": "<h2>Important Notes</h2><ul><li><strong>AI Disclosure:</strong> All AI-assisted work must follow the docs-first methodology with documented plans and implementation reports. See <a href=\"../../../../evaluation/shared/ai-declaration-oral-defence-rubric/\">AI Use Declaration Rubric</a>.</li><li><strong>Oral Defence:</strong> Units 11-12 require a 15-minute presentation with diff walkthrough and Q&A. See <a href=\"../../../../evaluation/shared/ai-declaration-oral-defence-rubric/\">Oral Defence Rubric</a>.</li><li><strong>Process Evidence:</strong> All capstone projects must include decisions.md, iterations.md, and AI_USE_DECLARATION.md.</li><li><strong>Phase 5 Dependency:</strong> Unit 10 IoT data source will be defined in Back-End II synergy sheet; placeholder until then.</li></ul>"
+		},
+		{
+			"content": "<h2>Key Dates Summary</h2><ul><li><strong>October 2026:</strong> Mid-Term Test (15%) + Entrega 1 (20%)</li><li><strong>November 2026:</strong> Entrega 2 (20%)</li><li><strong>December 2026:</strong> Final Test (15%) + Entrega 3 / Oral Defence (10%)</li><li><strong>Continuous:</strong> Problem-Solving Portfolio (20%)</li></ul>"
+		},
+		{
+			"content": "<h2>Questions?</h2><p>For clarification on deliverables, evaluation criteria, or technical requirements:</p><ul><li>Email: <a href=\"mailto:ruvebal@crea-comm.net\">ruvebal@crea-comm.net</a></li><li>Course track: <a href=\"../../index.html\">/tracks/feii/</a></li><li>GitHub: Course repository (provided in class)</li><li><strong>Rubrics:</strong> <a href=\"../../../../evaluation/shared/ai-declaration-oral-defence-rubric/\">AI Declaration & Oral Defence Rubric</a></li></ul><p><em>Good luck — critical coding for a better living!</em></p>"
+		}
+	]
 }

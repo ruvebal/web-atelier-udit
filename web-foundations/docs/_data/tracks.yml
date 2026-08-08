@@ -321,9 +321,9 @@ tracks:
    - 'Pruebas escritas (30%), proyectos entregables (60%), y portafolio de resolución de problemas (10%).'
   methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión) + Desarrollo asistido por IA con validación crítica'
   evaluation:
-   technical: 60
-   creative: 25
-   process: 15
+   technical: 40
+   reflection: 35
+   conceptual: 25
 
  # ────────────────────────────────────────────────────────────────────────────
  # Front-End II — Desarrollo Web: Front-End II (UDIT)
@@ -427,6 +427,6 @@ tracks:
    - 'Evidencia por sesión: commits, reflexiones ATELIER, y documentación de decisiones.'
   methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión) + Desarrollo asistido por IA con validación crítica'
   evaluation:
-   technical: 50
-   creative: 30
-   process: 20
+   technical: 40
+   reflection: 35
+   conceptual: 25
