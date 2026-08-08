@@ -5,110 +5,322 @@
 # ────────────────────────────────────────────────────────────────────────────────
 
 tracks:
-  # ────────────────────────────────────────────────────────────────────────────
-  # Ilustración Aplicada: Productos Digitales Web-App
-  # ────────────────────────────────────────────────────────────────────────────
-  ilustracion-webapp:
-    title: 'Ilustración Aplicada: Productos Digitales Web-App'
-    title_alt: 'Ilustración Aplicada: Productos Digitales Web-App'
-    description: 'Track del módulo (4 sesiones): objetivos, metodología ATELIER, entregables y rutas a lecciones canónicas. Enfocado en ilustradores que quieren publicar su arte en la web.'
-    lang: es
-    permalink: /tracks/es/ilustracion-webapp/
-    sessions: 4
-    duration: '16 horas'
-    tags: [ilustracion, web, webapp, atelier, html, css, javascript, responsive, ux, media, portfolio]
-    sessions_list:
-      - title: 'La web como lienzo + planteamiento del proyecto'
-        slug: 's1-introduccion-ecosistema-y-proyecto'
-        description: 'Entender la web como medio creativo, configurar el flujo Git/GitHub Pages y publicar un primer "Hello, Web" con tu ilustración.'
-        duration: '3,5 horas'
-        tags: [ilustracion, web, html, css, github, atelier]
-      - title: 'Galerías y layouts para tu arte'
-        slug: 's2-galerias-layouts-media'
-        description: 'Construir galerías de imágenes y layouts que muestren tu trabajo con ritmo visual y jerarquía. Enfoque en media, grids y presentación de arte.'
-        duration: '3,5 horas'
-        tags: [ilustracion, web, media, grid, galeria, layout, css, responsive]
-      - title: 'Maquetación responsive con Bootstrap + Tailwind'
-        slug: 's3-maquetacion-responsive-frameworks'
-        description: 'Dar forma visual al proyecto con maquetación responsive, componentes y branding personal usando frameworks CSS de forma pragmática.'
-        duration: '3,5 horas'
-        tags: [responsive, bootstrapcss, tailwindcss, accesibilidad, diseno, ilustracion]
-      - title: 'Interactividad + UX/UI básico'
-        slug: 's4-interactividad-ux-ui'
-        description: 'Añadir movimiento, interacción y pruebas rápidas de usabilidad. JavaScript mínimo viable + UX básico para ilustradores.'
-        duration: '3,5 horas'
-        tags: [javascript, ux, ui, interactividad, accesibilidad, atelier, ilustracion]
-    objectives:
-      - 'Publicar un sitio (o micro-app) donde tu ilustración sea experiencia, no solo imagen.'
-      - 'Dominar un mínimo técnico viable: HTML/CSS, responsive + grids para galerías, interactividad (JS).'
-      - 'Practicar hábitos profesionales: Git, despliegue, iteración + feedback.'
-    deliverables:
-      - 'Sitio publicado (URL) + repo en GitHub.'
-      - 'Evidencia por sesión: S1 primer deploy + wireframe, S2 galería con grid/layout, S3 responsive + componente, S4 1 interacción + test.'
-      - '1 commit final por sesión (mínimo 4).'
-    methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión)'
-    evaluation:
-      technical: 40
-      creative: 40
-      process: 20
+ # ────────────────────────────────────────────────────────────────────────────
+ # Ilustración Aplicada: Productos Digitales Web-App
+ # ────────────────────────────────────────────────────────────────────────────
+ ilustracion-webapp:
+  title: 'Ilustración Aplicada: Productos Digitales Web-App'
+  title_alt: 'Ilustración Aplicada: Productos Digitales Web-App'
+  description: 'Track del módulo (4 sesiones): objetivos, metodología ATELIER, entregables y rutas a lecciones canónicas. Enfocado en ilustradores que quieren publicar su arte en la web.'
+  lang: es
+  permalink: /tracks/es/ilustracion-webapp/
+  sessions: 4
+  duration: '16 horas'
+  tags: [ilustracion, web, webapp, atelier, html, css, javascript, responsive, ux, media, portfolio]
+  sessions_list:
+   - title: 'La web como lienzo + planteamiento del proyecto'
+     slug: 's1-introduccion-ecosistema-y-proyecto'
+     description: 'Entender la web como medio creativo, configurar el flujo Git/GitHub Pages y publicar un primer "Hello, Web" con tu ilustración.'
+     duration: '3,5 horas'
+     tags: [ilustracion, web, html, css, github, atelier]
+   - title: 'Galerías y layouts para tu arte'
+     slug: 's2-galerias-layouts-media'
+     description: 'Construir galerías de imágenes y layouts que muestren tu trabajo con ritmo visual y jerarquía. Enfoque en media, grids y presentación de arte.'
+     duration: '3,5 horas'
+     tags: [ilustracion, web, media, grid, galeria, layout, css, responsive]
+   - title: 'Maquetación responsive con Bootstrap + Tailwind'
+     slug: 's3-maquetacion-responsive-frameworks'
+     description: 'Dar forma visual al proyecto con maquetación responsive, componentes y branding personal usando frameworks CSS de forma pragmática.'
+     duration: '3,5 horas'
+     tags: [responsive, bootstrapcss, tailwindcss, accesibilidad, diseno, ilustracion]
+   - title: 'Interactividad + UX/UI básico'
+     slug: 's4-interactividad-ux-ui'
+     description: 'Añadir movimiento, interacción y pruebas rápidas de usabilidad. JavaScript mínimo viable + UX básico para ilustradores.'
+     duration: '3,5 horas'
+     tags: [javascript, ux, ui, interactividad, accesibilidad, atelier, ilustracion]
+  objectives:
+   - 'Publicar un sitio (o micro-app) donde tu ilustración sea experiencia, no solo imagen.'
+   - 'Dominar un mínimo técnico viable: HTML/CSS, responsive + grids para galerías, interactividad (JS).'
+   - 'Practicar hábitos profesionales: Git, despliegue, iteración + feedback.'
+  deliverables:
+   - 'Sitio publicado (URL) + repo en GitHub.'
+   - 'Evidencia por sesión: S1 primer deploy + wireframe, S2 galería con grid/layout, S3 responsive + componente, S4 1 interacción + test.'
+   - '1 commit final por sesión (mínimo 4).'
+  methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión)'
+  evaluation:
+   technical: 40
+   creative: 40
+   process: 20
 
-  # ────────────────────────────────────────────────────────────────────────────
-  # HELIOS DECK — Observatorio Cósmico de Datos Geofísicos
-  # ────────────────────────────────────────────────────────────────────────────
-  geo-physical-aggregator:
-    title: 'HELIOS DECK — Observatorio Cósmico de Datos Geofísicos'
-    title_alt: 'Track de desarrollo fullstack · React Router v7 · Datos en tiempo real'
-    description: 'Dashboard de clima espacial con React Router v7 SSR, SQLite, WebSockets y APIs públicas (NASA DONKI, NOAA SWPC, GFZ Kp, SpaceWeatherLive, Open Notify, NASA POWER). 8 sprints.'
-    lang: es
-    permalink: /tracks/es/geo-physical-aggregator/
-    sessions: 8
-    duration: '~16 semanas'
-    tags: [react, fullstack, ssr, sqlite, websocket, api, space-weather, dashboard, react-router]
-    sessions_list:
-      - title: 'Foundation & Data Sources'
-        slug: 's1-foundation'
-        description: 'Scaffolding RR v7 SSR, SQLite (better-sqlite3, SQL directo KISS), primer fetcher NASA DONKI.'
-        duration: '~2 semanas'
-      - title: 'CRUD & Data Normalization'
-        slug: 's2-crud-normalization'
-        description: 'HttpRequest, HttpErrors, normalizer (validación en runtime), 8 fetchers, aggregator.'
-        duration: '~2 semanas'
-      - title: 'Visualization & Charts'
-        slug: 's3-visualization'
-        description: 'Recharts, gauges, event feeds, SignalCard, responsive + dark mode.'
-        duration: '~2 semanas'
-      - title: 'Real-Time & WebSockets'
-        slug: 's4-websockets'
-        description: 'WebSocket server, ISS position, solar wind live, useWebSocket hook.'
-        duration: '~2 semanas'
-      - title: 'Widget System & Dashboard'
-        slug: 's5-widget-system'
-        description: 'Widget registry, react-grid-layout, CRUD de widgets, persistencia.'
-        duration: '~2 semanas'
-      - title: 'Authentication & User Profiles'
-        slug: 's6-auth'
-        description: 'Cookie sessions, registro, login, dashboards por usuario.'
-        duration: '~2 semanas'
-      - title: 'AI-Assisted Development & DevOps'
-        slug: 's7-ai-devops'
-        description: '.cursor rules/skills, CLAUDE.md, Docker, GitHub Actions, Fly.io.'
-        duration: '~2 semanas'
-      - title: 'Polish, Testing & Launch'
-        slug: 's8-launch'
-        description: 'Lighthouse, WCAG, tests E2E, monitoring, lanzamiento.'
-        duration: '~2 semanas'
-    objectives:
-      - 'Agregar 8 señales geofísicas desde APIs públicas en un esquema normalizado.'
-      - 'Construir dashboard con widgets configurables y persistencia en SQLite.'
-      - 'Integrar WebSockets para datos en tiempo real (ISS, viento solar).'
-      - 'Desplegar aplicación fullstack self-contained con asistencia de IA.'
-    deliverables:
-      - '8 fetchers funcionales con normalización en runtime.'
-      - 'Dashboard con al menos 4 tipos de widgets (chart, gauge, map, feed).'
-      - 'Auth con sesiones cookie y CRUD de layouts por usuario.'
-      - 'Deploy en Fly.io con SQLite volume y CI/CD.'
-    methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión)'
-    evaluation:
-      technical: 70
-      collaboration: 15
-      documentation: 15
+ # ────────────────────────────────────────────────────────────────────────────
+ # HELIOS DECK — Observatorio Cósmico de Datos Geofísicos
+ # ────────────────────────────────────────────────────────────────────────────
+ geo-physical-aggregator:
+  title: 'HELIOS DECK — Observatorio Cósmico de Datos Geofísicos'
+  title_alt: 'Track de desarrollo fullstack · React Router v7 · Datos en tiempo real'
+  description: 'Dashboard de clima espacial con React Router v7 SSR, SQLite, WebSockets y APIs públicas (NASA DONKI, NOAA SWPC, GFZ Kp, SpaceWeatherLive, Open Notify, NASA POWER). 8 sprints.'
+  lang: es
+  permalink: /tracks/es/geo-physical-aggregator/
+  sessions: 8
+  duration: '~16 semanas'
+  tags: [react, fullstack, ssr, sqlite, websocket, api, space-weather, dashboard, react-router]
+  sessions_list:
+   - title: 'Foundation & Data Sources'
+     slug: 's1-foundation'
+     description: 'Scaffolding RR v7 SSR, SQLite (better-sqlite3, SQL directo KISS), primer fetcher NASA DONKI.'
+     duration: '~2 semanas'
+   - title: 'CRUD & Data Normalization'
+     slug: 's2-crud-normalization'
+     description: 'HttpRequest, HttpErrors, normalizer (validación en runtime), 8 fetchers, aggregator.'
+     duration: '~2 semanas'
+   - title: 'Visualization & Charts'
+     slug: 's3-visualization'
+     description: 'Recharts, gauges, event feeds, SignalCard, responsive + dark mode.'
+     duration: '~2 semanas'
+   - title: 'Real-Time & WebSockets'
+     slug: 's4-websockets'
+     description: 'WebSocket server, ISS position, solar wind live, useWebSocket hook.'
+     duration: '~2 semanas'
+   - title: 'Widget System & Dashboard'
+     slug: 's5-widget-system'
+     description: 'Widget registry, react-grid-layout, CRUD de widgets, persistencia.'
+     duration: '~2 semanas'
+   - title: 'Authentication & User Profiles'
+     slug: 's6-auth'
+     description: 'Cookie sessions, registro, login, dashboards por usuario.'
+     duration: '~2 semanas'
+   - title: 'AI-Assisted Development & DevOps'
+     slug: 's7-ai-devops'
+     description: '.cursor rules/skills, CLAUDE.md, Docker, GitHub Actions, Fly.io.'
+     duration: '~2 semanas'
+   - title: 'Polish, Testing & Launch'
+     slug: 's8-launch'
+     description: 'Lighthouse, WCAG, tests E2E, monitoring, lanzamiento.'
+     duration: '~2 semanas'
+  objectives:
+   - 'Agregar 8 señales geofísicas desde APIs públicas en un esquema normalizado.'
+   - 'Construir dashboard con widgets configurables y persistencia en SQLite.'
+   - 'Integrar WebSockets para datos en tiempo real (ISS, viento solar).'
+   - 'Desplegar aplicación fullstack self-contained con asistencia de IA.'
+  deliverables:
+   - '8 fetchers funcionales con normalización en runtime.'
+   - 'Dashboard con al menos 4 tipos de widgets (chart, gauge, map, feed).'
+   - 'Auth con sesiones cookie y CRUD de layouts por usuario.'
+   - 'Deploy en Fly.io con SQLite volume y CI/CD.'
+  methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión)'
+  evaluation:
+   technical: 70
+   collaboration: 15
+   documentation: 15
+
+ # ────────────────────────────────────────────────────────────────────────────
+ # Front-End I — Desarrollo Web: Front-End I (UDIT)
+ # ────────────────────────────────────────────────────────────────────────────
+ fei:
+  title: 'Front-End I — Desarrollo Web: Front-End I'
+  title_alt: 'Front-End I — Desarrollo Web: Front-End I'
+  description: 'Track anual del Grado en Desarrollo Full-Stack y Data-Science & AI (UDIT). Semestre 1: vanilla JS/CSS sin frameworks. Semestre 2: React moderno con IA asistida. 6 ECTS, 150h totales (30h laboratorio).'
+  lang: es
+  permalink: /tracks/fei/
+  sessions: 25
+  duration: '150 horas (anual)'
+  tags: [frontend, html, css, javascript, react, accessibility, responsive, animation, 3d, udit]
+  sessions_list:
+   # ═══════════════════════════════════════════════════════════════════════
+   # SEMESTER 1 — Vanilla JS/CSS (no frameworks)
+   # ═══════════════════════════════════════════════════════════════════════
+   - title: 'Development Environment Setup'
+     slug: 's1-dev-environment'
+     description: 'Configurar entorno de desarrollo: VS Code, Git/GitHub, extensiones, y flujos de trabajo básicos.'
+     duration: '2 horas'
+     labHours: 1
+     tags: [setup, git, vscode, environment]
+   - title: 'First Steps: Git & GitHub Flow'
+     slug: 's2-first-steps'
+     description: 'Primeros commits, ramas básicas, pull requests simples, y publicación inicial en GitHub Pages.'
+     duration: '2 horas'
+     labHours: 1
+     tags: [git, github, workflow, collaboration]
+   - title: 'HTML Semantic + CSS Fundamentals'
+     slug: 's3-html-css-basics'
+     description: 'Estructura HTML5 semántica, selectores CSS, modelo de caja, y tipografía básica. Landing page inicial.'
+     duration: '3 horas'
+     labHours: 1.5
+     tags: [html, css, semantic, layout]
+   - title: 'Typography & Color Systems'
+     slug: 's4-typography-color'
+     description: 'Sistemas tipográficos fluidos con clamp(), paletas de color accesibles, y jerarquía visual.'
+     duration: '2 horas'
+     labHours: 1
+     tags: [typography, color, design, accessibility]
+   - title: 'Intrinsic Web Design: Container Queries'
+     slug: 's5-intrinsic-web-design'
+     description: 'Container queries, subgrid, y diseño responsivo basado en contexto no solo viewport.'
+     duration: '2 horas'
+     labHours: 1
+     tags: [css, responsive, container-queries, subgrid]
+   - title: 'Pseudo-Elements & State-Based Styling'
+     slug: 's6-pseudo-elements-state'
+     description: 'Pseudo-clases (:hover, :focus-visible), pseudo-elements (::before, ::after), y patrones de interacción accesibles.'
+     duration: '2 horas'
+     labHours: 1
+     tags: [css, pseudo-elements, state, accessibility]
+   - title: 'JavaScript Introduction'
+     slug: 's7-js-intro'
+     description: 'Fundamentos JS: tipos, control flow, funciones, comparación con C++/PHP, y modelo de eventos.'
+     duration: '3 horas'
+     labHours: 1.5
+     tags: [javascript, fundamentals, events, dom]
+   - title: 'DOM Manipulation: Strings, APIs, Templates'
+     slug: 's8-js-dom-manipulation'
+     description: 'Manipulación del DOM: innerHTML vs APIs nativas, seguridad XSS, y patrones de actualización.'
+     duration: '3 horas'
+     labHours: 1
+     tags: [javascript, dom, security, manipulation]
+   - title: 'JavaScript Modules: ES6 Modularity'
+     slug: 's9-js-modules'
+     description: 'Historia de la modularidad (IIFE → CommonJS → ES6), import/export, y arquitectura modular.'
+     duration: '2 horas'
+     labHours: 1
+     tags: [javascript, modules, es6, architecture]
+   - title: 'Linting & Formatting: Professional Standards'
+     slug: 's10-linting-formatting'
+     description: 'Prettier, ESLint, Stylelint, HTMLHint: configuración y automatización de calidad de código.'
+     duration: '1.5 horas'
+     labHours: 0.5
+     tags: [tooling, linting, formatting, quality]
+   - title: 'GSAP: Typography & SVG Animation'
+     slug: 's11-gsap-animation'
+     description: 'GSAP para animación de tipografía y SVG: timelines, stagger, easing, y ScrollTrigger.'
+     duration: '3 horas'
+     labHours: 1.5
+     tags: [animation, gsap, svg, typography]
+   - title: 'Modern Web Design Trends'
+     slug: 's12-design-trends'
+     description: 'Parallax, glassmorphism, neumorphism, dark mode, y tendencias contemporáneas con demos interactivas.'
+     duration: '2 horas'
+     labHours: 1
+     tags: [design, trends, ui, animation]
+   - title: 'Portfolio Template Brief (Semester 1 Project)'
+     slug: 's13-portfolio-template'
+     description: 'Proyecto integrador semestral: portfolio template en tres niveles (vanilla, Bootstrap+GSAP, Tailwind+Vite).'
+     duration: '4 horas'
+     labHours: 1.5
+     tags: [project, portfolio, integration, deployment]
+
+   # ═══════════════════════════════════════════════════════════════════════
+   # SEMESTER 2 — React Modern (15 lessons, 4 phases)
+   # ═══════════════════════════════════════════════════════════════════════
+   - title: 'Philosophy & Pedagogical Vision'
+     slug: 's14-react-philosophy'
+     description: 'Tao Developer mindset, Five Pillars, y filosofía de "Critical Coding for a Better Living".'
+     duration: '3 horas'
+     labHours: 1
+     tags: [philosophy, pedagogy, mindset, ai-assisted]
+   - title: 'Framework Fundamentals & Comparison'
+     slug: 's15-frameworks-comparative'
+     description: 'React vs Vue vs Vanilla: comparativa práctica, decisión tecnológica, y setup con Vite.'
+     duration: '4 horas'
+     labHours: 1.5
+     tags: [frameworks, comparison, react, vue, vanilla]
+   - title: 'State & UI: Finite State Machines'
+     slug: 's16-state-ui'
+     description: 'Modelado de estado como FSM, taxonomía de estado (UI, form, server, URL, shared), y antipatrones.'
+     duration: '3 horas'
+     labHours: 1.5
+     tags: [state, fsm, ui, architecture]
+   - title: 'AI-Assisted Development Foundations'
+     slug: 's17-ai-assisted-foundations'
+     description: 'LLMs como motores de razonamiento probabilístico, contratos arquitectónicos, y patrones de observabilidad.'
+     duration: '2 horas'
+     labHours: 0.5
+     tags: [ai, llm, architecture, observability]
+   - title: 'React Fundamentals: Components & JSX'
+     slug: 's18-react-fundamentals'
+     description: 'Modelo de componentes funcionales, JSX sintaxis, props, eventos, y renderizado condicional/listas.'
+     duration: '3 horas'
+     labHours: 1.5
+     tags: [react, components, jsx, props]
+   - title: 'Hooks Mastery: useState, useEffect, Custom Hooks'
+     slug: 's19-react-hooks'
+     description: 'useState, useEffect, useRef, useMemo/useCallback, y custom hooks reutilizables.'
+     duration: '3 horas'
+     labHours: 1.5
+     tags: [react, hooks, state, effects]
+   - title: 'State Architecture: useReducer, Context, External Libraries'
+     slug: 's20-state-architecture'
+     description: 'useReducer para lógica compleja, Context API para estado global, y Zustand/Redux Toolkit.'
+     duration: '3 horas'
+     labHours: 1.5
+     tags: [react, state, context, redux, zustand]
+   - title: 'Routing & Navigation: React Router v7'
+     slug: 's21-react-routing'
+     description: 'React Router v6/v7, rutas dinámicas, nested routes, layouts, y protected routes con auth.'
+     duration: '3 horas'
+     labHours: 1.5
+     tags: [react, routing, navigation, auth]
+   - title: 'Backend Integration: Fetch, React Query, GraphQL'
+     slug: 's22-backend-integration'
+     description: 'Fetch API, patrones async, React Query para caching/mutations, y GraphQL opcional.'
+     duration: '3 horas'
+     labHours: 1.5
+     tags: [react, api, fetch, react-query, graphql]
+   - title: 'Authentication: JWT, Sessions, Security'
+     slug: 's23-authentication'
+     description: 'Conceptos de auth (JWT, sessions, OAuth), implementación segura, httpOnly cookies, y prevención XSS.'
+     duration: '3 horas'
+     labHours: 1.5
+     tags: [react, auth, jwt, security, sessions]
+   - title: 'Framework Mode + SSR Auth + i18n (Advanced)'
+     slug: 's24-framework-mode-ssr'
+     description: 'React Router v7 Framework Mode, SSR con routes.js, auth server-side, i18n con :locale, y deployment PM2+nginx.'
+     duration: '3 horas'
+     labHours: 1
+     tags: [react, ssr, framework-mode, auth, i18n, deployment]
+   - title: 'Testing: Vitest, RTL, Cypress'
+     slug: 's25-testing'
+     description: 'Unit testing con Vitest, component testing con React Testing Library, y E2E con Cypress.'
+     duration: '2 horas'
+     labHours: 1
+     tags: [react, testing, vitest, rtl, cypress]
+   - title: 'Performance: Memoization, Code Splitting, Bundle Analysis'
+     slug: 's26-performance'
+     description: 'React DevTools Profiler, React.memo, useMemo/useCallback, lazy() + Suspense, y análisis de bundle.'
+     duration: '2 horas'
+     labHours: 1
+     tags: [react, performance, optimization, profiling]
+   - title: 'Deployment: Vercel, Netlify, CI/CD'
+     slug: 's27-deployment'
+     description: 'Build production de Vite, deployment a Vercel/Netlify desde GitHub, variables de entorno, y GitHub Actions.'
+     duration: '2 horas'
+     labHours: 1
+     tags: [react, deployment, vercel, netlify, ci-cd]
+   - title: 'Individual Project: Geophysical Aggregator'
+     slug: 's28-geophysical-project'
+     description: 'Proyecto individual integrador: app SSR con React Query, dos APIs geofísicas públicas, i18n, auth, y deployment público.'
+     duration: '3 semanas (individual, fuera de clase)'
+     labHours: 0
+     tags: [project, integration, api, deployment, individual]
+   - title: 'Final Presentation & Monograph'
+     slug: 's29-final-presentation'
+     description: 'Presentación final del proyecto: demo en vivo, presentación técnica, y monografía reflexiva.'
+     duration: '2 horas'
+     labHours: 0
+     tags: [presentation, demo, monograph, evaluation]
+  objectives:
+   - 'Dominar los fundamentos del desarrollo web front-end: HTML5 semántico, CSS moderno, y JavaScript ES6+.'
+   - 'Construir interfaces interactivas sin frameworks (semestre 1) y con React moderno (semestre 2).'
+   - 'Aplicar patrones de arquitectura y estado escalables, desde gestión local hasta Context/Redux.'
+   - 'Integrar APIs públicas, autenticación segura, y i18n en aplicaciones React Router v7.'
+   - 'Desplegar aplicaciones web profesionales con CI/CD y optimización de rendimiento.'
+   - 'Practicar desarrollo asistido por IA con contratos arquitectónicos y validación crítica.'
+  deliverables:
+   - 'Semestre 1: Portfolio template en tres niveles (vanilla, Bootstrap+GSAP, Tailwind+Vite) desplegado en GitHub Pages.'
+   - 'Semestre 2: Proyecto individual Geophysical Aggregator desplegado públicamente con React Router v7 Framework Mode.'
+   - 'Evidencia por sesión: commits con mensajes claros, reflexiones ATELIER, y demostración de conceptos.'
+   - 'Pruebas escritas (30%), proyectos entregables (60%), y portafolio de resolución de problemas (10%).'
+  methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión) + Desarrollo asistido por IA con validación crítica'
+  evaluation:
+   technical: 60
+   creative: 25
+   process: 15
