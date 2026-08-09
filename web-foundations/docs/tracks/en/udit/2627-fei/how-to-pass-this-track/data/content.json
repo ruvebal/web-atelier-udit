@@ -1,3 +1,7 @@
+---
+# Frontmatter present so Jekyll/Liquid resolves relative_url below.
+# Stripped at build time; served output is valid JSON.
+---
 {
 	"title": "How to Pass Front-End I — UDIT 2026-27",
 	"slides": [
@@ -35,13 +39,13 @@
 			"content": "<h2>Extraordinary Evaluation</h2><ul><li>Students who fail the ordinary evaluation may present to the extraordinary evaluation.</li><li>Conditions: Must complete failed deliverables (1, 2, or 3) and/or retake failed tests (mid-term, final).</li><li>Type of test: Written examination covering failed content areas.</li><li>Portfolio evidence may be requested for review.</li></ul>"
 		},
 		{
-			"content": "<h2>Important Notes</h2><ul><li><strong>AI Disclosure:</strong> All AI-assisted work must follow the docs-first methodology with documented plans and implementation reports. See <a href=\"../../../../evaluation/shared/ai-declaration-oral-defence-rubric/\">AI Use Declaration Rubric</a>.</li><li><strong>Oral Defence:</strong> Final presentation includes diff walkthrough and Q&A. See <a href=\"../../../../evaluation/shared/ai-declaration-oral-defence-rubric/\">Oral Defence Rubric</a>.</li><li><strong>Code Quality:</strong> Projects must include linting, formatting, and follow professional standards.</li><li><strong>Accessibility:</strong> WCAG 2.2 AA compliance is required for all projects.</li><li><strong>Deployment:</strong> All projects must be publicly deployed with working URLs.</li></ul>"
+			"content": "<h2>Important Notes</h2><ul><li><strong>AI Disclosure:</strong> All AI-assisted work must follow the docs-first methodology with documented plans and implementation reports. See <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">AI Use Declaration Rubric</a>.</li><li><strong>Oral Defence:</strong> Final presentation includes diff walkthrough and Q&A. See <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">Oral Defence Rubric</a>.</li><li><strong>Code Quality:</strong> Projects must include linting, formatting, and follow professional standards.</li><li><strong>Accessibility:</strong> WCAG 2.2 AA compliance is required for all projects.</li><li><strong>Deployment:</strong> All projects must be publicly deployed with working URLs.</li></ul>"
 		},
 		{
 			"content": "<h2>Key Dates Summary</h2><ul><li><strong>November 2026:</strong> Mid-Term Test (15%)</li><li><strong>January 2027:</strong> Portfolio Template Deliverable (25%)</li><li><strong>May 2027:</strong> Geophysical Aggregator Deliverable (30%)</li><li><strong>June 2027:</strong> Final Test (15%) + Final Presentation (5%)</li><li><strong>Continuous:</strong> Problem-Solving Portfolio (10%)</li></ul>"
 		},
 		{
-			"content": "<h2>Questions?</h2><p>For clarification on deliverables, evaluation criteria, or technical requirements:</p><ul><li>Email: <a href=\"mailto:ruvebal@crea-comm.net\">ruvebal@crea-comm.net</a></li><li>Course track: <a href=\"../../index.html\">/tracks/fei/</a></li><li>GitHub: Course repository (provided in class)</li><li><strong>Rubrics:</strong> <a href=\"../../../../evaluation/shared/ai-declaration-oral-defence-rubric/\">AI Declaration & Oral Defence Rubric</a></li></ul><p><em>Good luck — critical coding for a better living!</em></p>"
+			"content": "<h2>Questions?</h2><p>For clarification on deliverables, evaluation criteria, or technical requirements:</p><ul><li>Email: <a href=\"mailto:ruvebal@crea-comm.net\">ruvebal@crea-comm.net</a></li><li>Course track: <a href=\"{{ '/tracks/fei/' | relative_url }}\">/tracks/fei/</a></li><li>GitHub: Course repository (provided in class)</li><li><strong>Rubrics:</strong> <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">AI Declaration & Oral Defence Rubric</a></li></ul><p><em>Good luck — critical coding for a better living!</em></p>"
 		}
 	]
 }

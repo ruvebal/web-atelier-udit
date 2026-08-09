@@ -83,8 +83,8 @@ This track follows the canonical sequence defined in `web-foundations/docs/_data
 | U2  | Astro Meta-Framework — Islands Architecture & SSR            | 3h       | 2h        | Astro fundamentals, content-first, SSR vs SSG, multi-framework |
 | U3  | Advanced Astro Architecture & Multi-Framework Integration    | 3h       | 2h        | Content collections, data fetching, micro-frontends            |
 | U4  | Progressive Web Apps & Offline Capabilities                  | 2h       | 2h        | Service workers, caching strategies, web app manifest          |
-| U5  | Testing Strategy — Pyramid, Tools, and CI/CD Integration     | 3h       | 3h        | Testing pyramid, Vitest, RTL, Playwright, CI/CD                |
-| U6  | AI-Assisted Code Review — Human-in-the-Loop Workflow         | 3h       | 3h        | GitHub PR integration, Oliveira et al. 2026 research           |
+| U5  | Testing Strategy — Designing a Suite That Earns Its Cost     | 3h       | 3h        | What *not* to test, flakiness, CI budgets, contract testing    |
+| U6  | AI-Assisted Code Review — Human-in-the-Loop, Graded As Such  | 3h       | 3h        | GitHub PR integration, Oliveira et al. 2026 (arXiv 2604.23251) |
 | U7  | Performance Engineering — Core Web Vitals & Optimization     | 2h       | 2h        | Core Web Vitals, performance budgets, bundle optimization      |
 | U8  | React Three Fiber — 3D Interfaces with React Patterns        | 3h       | 3h        | Declarative 3D components, state in 3D, raycasting             |
 | U9  | Shader Literacy & Cutting-Edge Interface Aesthetics          | 3h       | 3h        | GLSL basics, custom shaders, post-processing effects           |
@@ -174,10 +174,10 @@ AI assistance is integrated following the **[AI Practical Guide]({{ '/methodolog
 
 ## 🔗 Related Resources
 
-- **[How to Pass This Track](how-to-pass-this-track/)** — Evaluation criteria, deliverable specifications, and grading rubric
-- **[AI Declaration & Oral Defence Rubric](../../../../evaluation/shared/ai-declaration-oral-defence-rubric/)** — Shared rubric for AI use declarations and oral defences
-- **[FE II Unit Sequence](../../../../lessons/en/feii/)** — Detailed curriculum with 12 units covering production architecture and interface-layer frontier
-- **[AI Practical Guide](../../../../methodology/en/ai-practical-guide/)** — Methodology for AI-assisted development
+- **[How to Pass This Track]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }})** — Evaluation criteria, deliverable specifications, and grading rubric
+- **[AI Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }})** — Shared rubric for AI use declarations and oral defences
+- **[Front-End I track]({{ '/tracks/fei/' | relative_url }})** — the prerequisite course; FE II opens where it closes
+- **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — Methodology for AI-assisted development
 - **[Official Syllabus](https://udit.es)** — UDIT course documentation (Spanish)
 
 ---

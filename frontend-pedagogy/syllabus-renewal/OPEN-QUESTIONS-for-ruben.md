@@ -1,6 +1,27 @@
-# Open questions for Rubén — lesson-depth pass, 2026-08-09
+# Open questions for Rubén — lesson-depth + publishing pass, 2026-08-09
 
-Written by Claude at the end of the FE II lesson-depth pass. Everything here is **either a decision only you can make, or a claim I could not verify.** Nothing below is blocking a commit; all of it is blocking *publication with confidence*.
+Written by Claude. Everything here is **either a decision only you can make, or a claim I could not verify.** Nothing below is blocking a commit; all of it is blocking *publication with confidence*.
+
+---
+
+## 0. Where we are — publishing readiness
+
+**Status: the tracks and lessons are publishable now.** `git push` is the only remaining step; I don't push (rule 9).
+
+| Check | State |
+| --- | --- |
+| Jekyll build | ✅ **0 warnings, 0 errors** (was 17 Liquid warnings) |
+| `/tracks/`, `/tracks/en/`, `/tracks/es/` | ✅ resolve |
+| `/tracks/fei/`, `/tracks/feii/` | ✅ resolve, pedagogy section present |
+| `/tracks/fei/how-to-pass-this-track/`, `/tracks/feii/…` | ✅ resolve **and now actually render** (see §9) |
+| `/lessons/en/feii/` canonical index | ✅ **created this pass** (did not exist) |
+| 12 FE II unit pages | ✅ all resolve, all linked from the index |
+| Internal links on the 17 FE I/FE II pages | ✅ **all resolve** (were broken — see §9) |
+| FE II units discoverable in `/lessons/en/` browser | ✅ **registered this pass** (were invisible) |
+| Lab hours | ✅ 30 h both courses |
+| Site-wide broken links | 11 remain, **all pre-existing and unrelated** — see §11 |
+
+**What is NOT ready:** ten of twelve FE II units are still scaffold-quality prose (§7), there are no Spanish versions of any FE II material (§10), and Phase 5's institutional deliverables (TEMARIO, Back-End II synergy sheet) are untouched (§1).
 
 ---
 
@@ -114,3 +135,52 @@ I rebuilt **Units 5 and 6** (the Entrega 1 pair) as the reference implementation
 ## 8. Minor: the site's TTOD copy is stale
 
 `web-foundations/docs/_data/ttod.yml` has **176** quotes; the source at `/Users/ruvebal/src/ttod/ttod.yml` has **213**. I quoted statically with IDs (`— Tao of Development, qa-009`) so nothing breaks today, but any future Liquid lookup (`site.data.ttod`) against a newer ID would silently return nothing. Worth a re-sync.
+
+---
+
+## 9. 🔴 Both reveal.js decks were broken in production. Fixed.
+
+Found during the publishing pass, and it would not have been visible until a student opened the page.
+
+`index.html` carries `permalink: /tracks/fei/how-to-pass-this-track/`, so Jekyll **moves the HTML** — but its sibling `vendor/`, `data/`, and `design/` folders are static files that **stay at their source path** (`/tracks/en/udit/2627-fei/how-to-pass-this-track/…`). The deck asked for `./vendor/reveal.js`, `./vendor/reveal.css` and `./data/content.json` relative to its *published* location, so all three 404'd.
+
+**Result: both decks would have rendered as a blank page** — no reveal.js, no stylesheet, no slide content. FE I and FE II alike.
+
+**Fixed** by pointing the three references at the real published asset paths via `relative_url`. Verified: assets resolve, `content.json` parses, 14 slides each.
+
+Two related fixes in the same area:
+
+- **Links inside `data/content.json` were broken too** (`../../../../evaluation/…` escaped the baseurl; `../../index.html` overshot the track page). JSON gets no Liquid by default, so I added Jekyll frontmatter to both files — output is still valid JSON, and `relative_url` now resolves. Verified.
+- **FE II had no `design/tokens.json`** while FE I did. Added for parity. Note: neither deck *loads* tokens at runtime — they consume `site.css` custom properties, exactly like the `SVCM/web/pitch` precedent, where `tokens.json` is a declared design record rather than a runtime dependency. I documented that inside the new file so it isn't mistaken for dead weight.
+
+**Worth adding to CI:** the Pages workflow could fail on `Liquid Warning` in build output. That single grep would have caught both this class of bug and the JSX corruption from the previous pass.
+
+---
+
+## 10. Spanish parity — a real gap, and a decision for you
+
+Every FE II artefact is **English-only**: 12 units, the new sequence index, and the track page. FE I's lessons mostly have `es` + `en`, and `tracks.yml`'s `feii:` entry is written in Spanish while the lessons it points at are English.
+
+Given the course is taught at UDIT in Spanish, this is a live question, not a nicety:
+
+- **Option A** — English lessons, Spanish track/institutional pages (the current de-facto state). Defensible: the industry vocabulary is English, and FE I's React track already leans this way.
+- **Option B** — full `es` mirrors for all 12 units. Significant work; needs to be planned, not improvised.
+
+**I did not guess.** Tell me which, and I'll make it consistent either way.
+
+---
+
+## 11. Pre-existing broken links elsewhere on the site (not from this cascade)
+
+The full-site sweep found **11 broken internal links, none in FE I/FE II pages**. Recorded here so they're not mistaken for cascade damage:
+
+| Page | Broken target | Likely cause |
+| --- | --- | --- |
+| `index.html` (root) | `/LICENSE-CODE`, `/LICENSE-CONTENT` | Files not published under `docs/` |
+| `lessons/es/index.html` | `es/gsap/overview`, `es/gsap/tailwind`, `es/gsap/bootstrap` | `lessons.yml` registers Spanish GSAP pages that don't exist |
+| `lessons/es/index.html` | `es/react/ai-assisted-development-foundations`, `es/react/final-presentation` | Registered, not translated |
+| `lessons/en/index.html` | `en/web-design-trends` | Registered, file missing |
+| `lessons/*/portfolio-template-brief/site/plan/` | `/assets/css/index.css` | Demo site referencing a stylesheet that isn't there |
+| `lessons/es/react/react-fundamentals/index-old.html` | self-referential | Stale `index-old` file — probably deletable |
+
+Mostly `_data/lessons.yml` promising Spanish pages that were never written. Cheap to fix (either write them or drop the `es` keys) — say the word.

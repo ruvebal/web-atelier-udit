@@ -49,6 +49,12 @@ A **cascade**: six phases, each with an `Entry` condition, a `Do` (the actual ta
 | 5 | [`phase-5-institutional.md`](./phase-5-institutional.md) | Phase 2/3 content stable | TEMARIO drafted for FE I & FE II 2026/2027 guides; Back-End II synergy sheet drafted; UX/UI boundary note written | UX/UI boundary note exists as a draft (`ux-ui-boundary-note.md`) but still pending Rubén's clarification; TEMARIO and synergy sheet not started |
 | 6 | [`phase-6-repo-decision.md`](./phase-6-repo-decision.md) | — | Decision recorded | ✅ **done 2026-08-08** (decided: stay in `web-atelier-udit`) |
 
+## Publishing state (2026-08-09, after the lesson-depth + publishing pass)
+
+Everything the cascade promised as a *page* now builds and resolves locally with **0 Jekyll warnings**: `/tracks/en/`, `/tracks/fei/`, `/tracks/feii/`, both `how-to-pass-this-track` decks (which were rendering blank — assets 404'd past their `permalink`, now fixed), the **newly created** `/lessons/en/feii/` canonical index, and all 12 unit pages, registered in `_data/lessons.yml` so they appear in the lesson browser. Rule 1's third checkbox — *actually live* — is Rubén's `git push`.
+
+Read [`OPEN-QUESTIONS-for-ruben.md`](./OPEN-QUESTIONS-for-ruben.md) **§0 first**: it carries the readiness table, what is deliberately still open (10 of 12 units at scaffold depth, no Spanish parity, Phase 5 institutional deliverables untouched), and two defects worth knowing about — Liquid silently eating JSX in published code blocks, and fabricated citations that were replaced with verified ones.
+
 ## When you're done with a phase
 
 Update this table's Status column and the phase file's own header, then either continue to the next phase in the same session or stop — each phase file is written to survive being picked up cold in a new session.

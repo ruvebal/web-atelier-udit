@@ -1,3 +1,7 @@
+---
+# Frontmatter present so Jekyll/Liquid resolves relative_url below.
+# Stripped at build time; served output is valid JSON.
+---
 {
 	"title": "How to Pass Front-End II — UDIT 2026-27",
 	"slides": [
@@ -35,13 +39,13 @@
 			"content": "<h2>Extraordinary Evaluation</h2><ul><li>Students who fail the ordinary evaluation may present to the extraordinary evaluation.</li><li>Conditions: Must complete failed deliverables (1, 2, or 3) and/or retake failed tests (mid-term, final).</li><li>Type of test: Written examination covering failed content areas.</li><li>Portfolio evidence may be requested for review.</li></ul>"
 		},
 		{
-			"content": "<h2>Important Notes</h2><ul><li><strong>AI Disclosure:</strong> All AI-assisted work must follow the docs-first methodology with documented plans and implementation reports. See <a href=\"../../../../evaluation/shared/ai-declaration-oral-defence-rubric/\">AI Use Declaration Rubric</a>.</li><li><strong>Oral Defence:</strong> Units 11-12 require a 15-minute presentation with diff walkthrough and Q&A. See <a href=\"../../../../evaluation/shared/ai-declaration-oral-defence-rubric/\">Oral Defence Rubric</a>.</li><li><strong>Process Evidence:</strong> All capstone projects must include decisions.md, iterations.md, and AI_USE_DECLARATION.md.</li><li><strong>Phase 5 Dependency:</strong> Unit 10 IoT data source will be defined in Back-End II synergy sheet; placeholder until then.</li></ul>"
+			"content": "<h2>Important Notes</h2><ul><li><strong>AI Disclosure:</strong> All AI-assisted work must follow the docs-first methodology with documented plans and implementation reports. See <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">AI Use Declaration Rubric</a>.</li><li><strong>Oral Defence:</strong> Units 11-12 require a 15-minute presentation with diff walkthrough and Q&A. See <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">Oral Defence Rubric</a>.</li><li><strong>Process Evidence:</strong> All capstone projects must include decisions.md, iterations.md, and AI_USE_DECLARATION.md.</li><li><strong>Phase 5 Dependency:</strong> Unit 10 IoT data source will be defined in Back-End II synergy sheet; placeholder until then.</li></ul>"
 		},
 		{
 			"content": "<h2>Key Dates Summary</h2><ul><li><strong>October 2026:</strong> Mid-Term Test (15%) + Entrega 1 (20%)</li><li><strong>November 2026:</strong> Entrega 2 (20%)</li><li><strong>December 2026:</strong> Final Test (15%) + Entrega 3 / Oral Defence (10%)</li><li><strong>Continuous:</strong> Problem-Solving Portfolio (20%)</li></ul>"
 		},
 		{
-			"content": "<h2>Questions?</h2><p>For clarification on deliverables, evaluation criteria, or technical requirements:</p><ul><li>Email: <a href=\"mailto:ruvebal@crea-comm.net\">ruvebal@crea-comm.net</a></li><li>Course track: <a href=\"../../index.html\">/tracks/feii/</a></li><li>GitHub: Course repository (provided in class)</li><li><strong>Rubrics:</strong> <a href=\"../../../../evaluation/shared/ai-declaration-oral-defence-rubric/\">AI Declaration & Oral Defence Rubric</a></li></ul><p><em>Good luck — critical coding for a better living!</em></p>"
+			"content": "<h2>Questions?</h2><p>For clarification on deliverables, evaluation criteria, or technical requirements:</p><ul><li>Email: <a href=\"mailto:ruvebal@crea-comm.net\">ruvebal@crea-comm.net</a></li><li>Course track: <a href=\"{{ '/tracks/feii/' | relative_url }}\">/tracks/feii/</a></li><li>GitHub: Course repository (provided in class)</li><li><strong>Rubrics:</strong> <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">AI Declaration & Oral Defence Rubric</a></li></ul><p><em>Good luck — critical coding for a better living!</em></p>"
 		}
 	]
 }

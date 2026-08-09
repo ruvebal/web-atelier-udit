@@ -202,12 +202,13 @@ AI assistance is integrated following the **[AI Practical Guide]({{ '/methodolog
 
 ## 🔗 Related Resources
 
-- **[How to Pass This Track](how-to-pass-this-track/)** — Evaluation criteria, deliverable specifications, and grading rubric
-- **[AI Declaration & Oral Defence Rubric](../../../../evaluation/shared/ai-declaration-oral-defence-rubric/)** — Shared rubric for AI use declarations and oral defences
-- **[React Teaching Sequence](../../../../lessons/en/react/)** — Detailed semester 2 curriculum with dependency graph
-- **[Portfolio Template Brief](../../../../lessons/en/portfolio-template-brief/plan/)** — Semester 1 project specifications
-- **[Geophysical Aggregator Project](../../../../lessons/en/react/geophysical-aggregator-project/)** — Semester 2 individual project brief
-- **[AI Practical Guide](../../../../methodology/en/ai-practical-guide/)** — Methodology for AI-assisted development
+- **[How to Pass This Track]({{ '/tracks/fei/how-to-pass-this-track/' | relative_url }})** — Evaluation criteria, deliverable specifications, and grading rubric
+- **[AI Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }})** — Shared rubric for AI use declarations and oral defences
+- **[React Teaching Sequence]({{ '/lessons/en/react/' | relative_url }})** — Detailed semester 2 curriculum with dependency graph
+- **[Portfolio Template Brief]({{ '/lessons/en/portfolio-template-brief/plan/' | relative_url }})** — Semester 1 project specifications
+- **[Geophysical Aggregator Project]({{ '/lessons/en/react/geophysical-aggregator-project/' | relative_url }})** — Semester 2 individual project brief
+- **[Front-End II track]({{ '/tracks/feii/' | relative_url }})** — where this course continues in year 3
+- **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — Methodology for AI-assisted development
 - **[Official Syllabus](https://udit.es)** — UDIT course documentation (Spanish)
 
 ---
@@ -215,7 +216,7 @@ AI assistance is integrated following the **[AI Practical Guide]({{ '/methodolog
 ## 📝 Notes
 
 - **3D Foundation** — Semester 1 includes introductory 3D content (GSAP, modern design trends) as the seed for FE II's advanced 3D unit. FE II builds on this foundation rather than duplicating it.
-- **UX/UI Boundary** — Módulo 3 (UX/UI + accessibility) scope is pending clarification with the dedicated UX/UI course. Current implementation focuses on accessibility-in-practice (WCAG, testing tools) while reserving deep UX theory for the sibling course. See [`ux-ui-boundary-note.md`](../../../../../../frontend-pedagogy/syllabus-renewal/ux-ui-boundary-note.md) for details.
+- **UX/UI Boundary** — Módulo 3 (UX/UI + accessibility) scope is pending clarification with the dedicated UX/UI course. Current implementation focuses on accessibility-in-practice (WCAG, testing tools) while reserving deep UX theory for the sibling course. _(Scope note held in the course repository, not published.)_
 - **Cross-Degree Context** — This track serves both Full-Stack and Data-Science & AI degrees. Back-End II and Data Science cross-listings are based on direct professor contact rather than independent syllabus verification (official JSONs are empty stubs).
 - **React Territory** — Semester 2's 15-lesson React sequence is untouched FE I territory — FE II must not repeat React fundamentals/hooks/testing/deployment but extend past them into advanced topics.
 

@@ -365,18 +365,18 @@ tracks:
      duration: '2 horas'
      labHours: 2
      tags: [pwa, service-workers, offline-first, caching-strategies, installability]
-   - title: 'Testing Strategy — Pyramid, Tools, and CI/CD Integration'
+   - title: 'Testing Strategy — Diseñar una Suite Que Justifique Su Coste'
      slug: 'unit-5-testing-strategy'
-     description: 'Testing strategy fundamentals: testing pyramid, unit testing with Vitest, component testing with RTL, E2E with Playwright, and CI/CD integration.'
+     description: 'El testeo como decisión de ingeniería, no como tutorial de herramientas: qué NO testear, flakiness y determinismo, migración Cypress→Playwright, presupuestos de tiempo en CI, y contract testing contra el backend. Hereda el Testing Trophy de FE I en lugar de contradecirlo.'
      duration: '3 horas'
      labHours: 3
-     tags: [testing, testing-pyramid, vitest, react-testing-library, playwright, ci-cd]
-   - title: 'AI-Assisted Code Review — Human-in-the-Loop Workflow'
+     tags: [testing, testing-strategy, vitest, playwright, flakiness, ci-cd, contract-testing, test-design]
+   - title: 'AI-Assisted Code Review — Human-in-the-Loop y Evaluada Como Tal'
      slug: 'unit-6-ai-code-review'
-     description: 'AI-assisted code review as a taught technique: GitHub PR integration, human-in-the-loop workflows, and Oliveira et al. 2026 research findings.'
+     description: 'Revisión de código asistida por IA como técnica enseñada: integración en PRs de GitHub, diseño de prompts de revisión, y defensa de las sugerencias aceptadas y rechazadas. Basada en Oliveira et al. 2026 (arXiv 2604.23251, ICSE SEET).'
      duration: '3 horas'
      labHours: 3
-     tags: [ai-assisted-development, code-review, github-pr, human-in-the-loop, testing-automation]
+     tags: [ai-code-review, human-in-the-loop, github-pr, self-regulated-learning, ai-declaration]
    - title: 'Performance Engineering — Core Web Vitals & Optimization'
      slug: 'unit-7-performance'
      description: 'Performance engineering fundamentals: Core Web Vitals, performance budgets, bundle optimization, and runtime performance optimization.'

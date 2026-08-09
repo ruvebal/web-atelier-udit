@@ -12,10 +12,19 @@ This hub centralizes **thematic learning paths** that group canonical lessons in
 
 ## Available Locales
 
-| Locale | Resource                                                             | Format        | Notes                                   |
-| ------ | -------------------------------------------------------------------- | ------------- | --------------------------------------- |
-| **ES** | [Cursos de Aprendizaje]({{ site.url }}{{ site.baseurl }}/tracks/es/) | HTML/Markdown | Rutas de aprendizaje en español         |
-| **EN** | [Learning Tracks]({{ site.url }}{{ site.baseurl }}/tracks/en/)       | HTML/Markdown | Learning paths in English (coming soon) |
+| Locale | Resource                                                             | Format        | Notes                                    |
+| ------ | -------------------------------------------------------------------- | ------------- | ---------------------------------------- |
+| **ES** | [Cursos de Aprendizaje]({{ site.url }}{{ site.baseurl }}/tracks/es/) | HTML/Markdown | Rutas de aprendizaje en español          |
+| **EN** | [Learning Tracks]({{ site.url }}{{ site.baseurl }}/tracks/en/)       | HTML/Markdown | UDIT degree courses (Front-End I and II) |
+
+## 🎓 UDIT Degree Courses 2026–27
+
+| Course | Year | Load | Track | Sequence |
+| ------ | ---- | ---- | ----- | -------- |
+| **Desarrollo Web: Front-End I** | 2nd, annual | 6 ECTS · 150 h (30 h lab) | [/tracks/fei/]({{ site.url }}{{ site.baseurl }}/tracks/fei/) | [React sequence]({{ site.url }}{{ site.baseurl }}/lessons/en/react/) |
+| **Desarrollo Web: Front-End II** | 3rd, 1 semester | 6 ECTS · 150 h (30 h lab) | [/tracks/feii/]({{ site.url }}{{ site.baseurl }}/tracks/feii/) | [12-unit sequence]({{ site.url }}{{ site.baseurl }}/lessons/en/feii/) |
+
+Both are taught in the **Grado en Desarrollo Full-Stack** and the **Grado en Ciencia de Datos e IA**.
 
 ## What are Learning Tracks?
 

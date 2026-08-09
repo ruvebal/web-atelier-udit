@@ -1083,3 +1083,170 @@
   week: 13
   phase: 4
   sprint: 14
+
+# ── Front-End II (UDIT 2026-27) — 12-unit canonical sequence ──
+- slug: feii
+  title:
+   en: 'Front-End II: Production Architecture & the Interface-Layer Frontier'
+  path:
+   en: /lessons/en/feii/
+  file:
+   en: lessons/en/feii/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, curriculum, overview]
+- slug: feii-unit-1-kickoff
+  title:
+   en: 'Unit 1: Kickoff — From FE I React to Production Architecture'
+  path:
+   en: /lessons/en/feii/unit-1-kickoff/
+  file:
+   en: lessons/en/feii/unit-1-kickoff/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, kickoff, interface-layer, production-architecture]
+- slug: feii-unit-2-astro-fundamentals
+  title:
+   en: 'Unit 2: Astro Meta-Framework — Islands Architecture & SSR'
+  path:
+   en: /lessons/en/feii/unit-2-astro-fundamentals/
+  file:
+   en: lessons/en/feii/unit-2-astro-fundamentals/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, astro, islands-architecture, ssr, meta-framework]
+- slug: feii-unit-3-astro-advanced
+  title:
+   en: 'Unit 3: Advanced Astro Architecture & Multi-Framework Integration'
+  path:
+   en: /lessons/en/feii/unit-3-astro-advanced/
+  file:
+   en: lessons/en/feii/unit-3-astro-advanced/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, astro, content-collections, micro-frontends]
+- slug: feii-unit-4-pwa-offline
+  title:
+   en: 'Unit 4: Progressive Web Apps & Offline Capabilities'
+  path:
+   en: /lessons/en/feii/unit-4-pwa-offline/
+  file:
+   en: lessons/en/feii/unit-4-pwa-offline/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, pwa, service-workers, offline-first, caching]
+- slug: feii-unit-5-testing-strategy
+  title:
+   en: 'Unit 5: Testing Strategy — Designing a Suite That Earns Its Cost'
+  path:
+   en: /lessons/en/feii/unit-5-testing-strategy/
+  file:
+   en: lessons/en/feii/unit-5-testing-strategy/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, testing, testing-strategy, vitest, playwright, flakiness, ci-cd, contract-testing]
+- slug: feii-unit-6-ai-code-review
+  title:
+   en: 'Unit 6: AI-Assisted Code Review — Human-in-the-Loop, and Graded as Such'
+  path:
+   en: /lessons/en/feii/unit-6-ai-code-review/
+  file:
+   en: lessons/en/feii/unit-6-ai-code-review/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, ai-code-review, human-in-the-loop, github-pr, ai-declaration]
+- slug: feii-unit-7-performance
+  title:
+   en: 'Unit 7: Performance Engineering — Core Web Vitals & Optimization'
+  path:
+   en: /lessons/en/feii/unit-7-performance/
+  file:
+   en: lessons/en/feii/unit-7-performance/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, performance, core-web-vitals, bundle-optimization]
+- slug: feii-unit-8-r3f-fundamentals
+  title:
+   en: 'Unit 8: React Three Fiber — 3D Interfaces with React Patterns'
+  path:
+   en: /lessons/en/feii/unit-8-r3f-fundamentals/
+  file:
+   en: lessons/en/feii/unit-8-r3f-fundamentals/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, react-three-fiber, 3d, webgl, spatial-interface]
+- slug: feii-unit-9-shader-literacy
+  title:
+   en: 'Unit 9: Shader Literacy & Cutting-Edge Interface Aesthetics'
+  path:
+   en: /lessons/en/feii/unit-9-shader-literacy/
+  file:
+   en: lessons/en/feii/unit-9-shader-literacy/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, shaders, glsl, post-processing, aesthetics]
+- slug: feii-unit-10-iot-python-backend
+  title:
+   en: 'Unit 10: IoT/Robotics Control-Panel & Python-Backed Interface'
+  path:
+   en: /lessons/en/feii/unit-10-iot-python-backend/
+  file:
+   en: lessons/en/feii/unit-10-iot-python-backend/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, iot, robotics, websocket, python, fastapi]
+- slug: feii-unit-11-capstone-integration
+  title:
+   en: 'Unit 11: Capstone Integration — Process Evidence & AI Use Declaration'
+  path:
+   en: /lessons/en/feii/unit-11-capstone-integration/
+  file:
+   en: lessons/en/feii/unit-11-capstone-integration/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, capstone, process-evidence, ai-declaration]
+- slug: feii-unit-12-capstone-defence
+  title:
+   en: 'Unit 12: Capstone Oral Defence & Final Evaluation'
+  path:
+   en: /lessons/en/feii/unit-12-capstone-defence/
+  file:
+   en: lessons/en/feii/unit-12-capstone-defence/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, capstone, oral-defence, evaluation]
+
+# ── UDIT course tracks ──
+- slug: fei
+  title:
+   en: 'Front-End I — Desarrollo Web: Front-End I (Track)'
+  path:
+   en: /tracks/fei/
+  file:
+   en: tracks/en/udit/2627-fei/index.md
+  status:
+   en: complete
+  type: track
+- slug: feii-track
+  title:
+   en: 'Front-End II — Desarrollo Web: Front-End II (Track)'
+  path:
+   en: /tracks/feii/
+  file:
+   en: tracks/en/udit/2627-feii/index.md
+  status:
+   en: complete
+  type: track
