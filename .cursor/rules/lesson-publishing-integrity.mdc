@@ -1,0 +1,223 @@
+---
+description: Publishing correctness and editorial integrity for lessons and tracks — the rules that prevent silently-broken published pages
+globs: web-foundations/docs/**/*
+alwaysApply: false
+---
+
+# Lesson Publishing & Integrity
+
+Companion to [`lesson-code-block-conventions.mdc`](./lesson-code-block-conventions.mdc) (which governs *how code blocks are labelled*) and [`methodology-page-structure.mdc`](./methodology-page-structure.mdc) (slug-directory layout).
+
+**This file governs whether the page is actually correct once published.** Every rule below was written after a real defect shipped into this repo. None of them are hypothetical.
+
+> The failure mode this file exists to prevent: **the build succeeds, the page loads, and the content is silently wrong.** Nothing warns you. A student finds it.
+
+---
+
+## 1. Liquid runs inside code fences — wrap or lose your code
+
+Jekyll processes Liquid **everywhere in a `.md` file, including fenced code blocks.** Any `{{ … }}` or `{% … %}` is evaluated and, if it isn't valid Liquid, **silently deleted from the published HTML**.
+
+Real breakage found in this repo:
+
+| Source | Published as |
+| --- | --- |
+| `<Navigate ... replace state={{ from: location }} />` | `<Navigate ... replace state= />` |
+| `--shard=${{ matrix.shard }}/3` | `--shard=$/3` |
+| `${{ secrets.GITHUB_TOKEN }}` | *(empty)* |
+| `style={{ marginLeft: 8 }}` | *(attribute gutted)* |
+
+**Rule:** any code fence containing `{{`, `}}`, `{%`, or `${{` **must** be wrapped:
+
+~~~~markdown
+{% raw %}
+
+```jsx
+<Navigate to={redirectTo} replace state={{ from: location }} />
+```
+
+{% endraw %}
+~~~~
+
+Applies to **JSX object literals/style props, GitHub Actions expressions, Vue/Angular/Handlebars templates, and Liquid being taught as a subject.**
+
+**Enforcement:** `.github/workflows/pages.yml` fails the build on `Liquid Warning`. Never silence it — fix the fence. Check locally before committing:
+
+```bash
+cd web-foundations && npm run build 2>&1 | grep "Liquid Warning"
+```
+
+---
+
+## 2. `permalink:` moves the HTML — it does **not** move sibling assets
+
+A page with `permalink: /tracks/feii/how-to-pass-this-track/` is written to that path. Its sibling `vendor/`, `data/`, `design/`, and image folders are **static files that stay at their source path**.
+
+This broke both reveal.js decks: `index.html` asked for `./vendor/reveal.js` and `./data/content.json` relative to its *published* location, and every asset 404'd. **Both decks rendered as a blank page in production** while building without a single warning.
+
+**Rule:** in any page carrying a `permalink:` that differs from its source directory, reference sibling assets by their **real published path**, never `./`:
+
+```liquid
+<script src="{{ '/tracks/en/udit/2627-feii/how-to-pass-this-track/vendor/reveal.js' | relative_url }}"></script>
+fetch('{{ '/tracks/en/udit/2627-feii/how-to-pass-this-track/data/content.json' | relative_url }}')
+```
+
+**Verify after building** — never assume:
+
+```bash
+grep -oE '(src|href)="[^"]*"' _site/<permalink-path>/index.html   # then confirm each exists on disk
+```
+
+---
+
+## 3. Internal links: `relative_url`, never `../../../../`
+
+Relative `../` chains are written against the **source** directory and break once `permalink:` relocates the page. Every "Related Resources" link on both track pages was broken this way — they escaped `/web-atelier-udit` entirely and 404'd on Pages.
+
+**Rule:**
+
+- ✅ `[Testing]({{ '/lessons/en/react/react-testing/' | relative_url }})`
+- ✅ `[Frameworks](./frameworks-comparative/)` — sibling files in the *same* folder only
+- ❌ `[Rubric](../../../../evaluation/shared/…/)` — breaks under `permalink:`
+- ❌ `https://ruvebal.github.io/web-atelier-udit/…` — hardcoded host
+- ❌ links to repo files that aren't published (`frontend-pedagogy/**` is **not** under `docs/`)
+
+**Static JSON/JS needs frontmatter to get Liquid.** A `.json` consumed by `fetch()` gets no Liquid by default. Add empty frontmatter — the served output stays valid JSON:
+
+```json
+---
+# Frontmatter present so Liquid resolves relative_url below.
+---
+{ "href": "{{ '/evaluation/shared/rubric/' | relative_url }}" }
+```
+
+---
+
+## 4. A lesson nobody can find is not published
+
+`web-foundations/docs/_data/lessons.yml` is the registry that drives the `/lessons/{lang}/` browser and `head-hreflang.html`. **Twelve FE II units existed as live URLs but were invisible** because nobody registered them.
+
+**Rule:** every new lesson gets an entry. Match the existing shape exactly:
+
+```yaml
+- slug: feii-unit-5-testing-strategy
+  title:
+   en: 'Unit 5: Testing Strategy — Designing a Suite That Earns Its Cost'
+  path:
+   en: /lessons/en/feii/unit-5-testing-strategy/
+  file:
+   en: lessons/en/feii/unit-5-testing-strategy/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, testing, ci-cd]
+```
+
+- `slug` must be **globally unique** across the file.
+- Only declare an `es:`/`en:` key if that file **actually exists** — the site currently has 11 broken links from registered-but-never-written translations.
+- Tracks use the same file with `type: track`.
+- A multi-unit sequence also needs its own **index page** (`/lessons/en/feii/`), mirroring `/lessons/en/react/`.
+
+---
+
+## 5. Frontmatter and TOC boilerplate
+
+Every lesson opens with exactly this, and the fence is **load-bearing** — a typo (`pretier-ignore-end` shipped in two units) leaves the marker visible and unprotects the TOC:
+
+```markdown
+<!-- prettier-ignore-start -->
+
+## 📋 Table of Contents
+{: .no_toc }
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+```
+
+Required frontmatter: `layout: lesson`, `title`, `slug`, `date`, `author`, `lang`, `permalink` (trailing slash), `status`, `tags`. Use `category` for units in a sequence. Pages live as `<slug>/index.md`, never bare `<slug>.md`.
+
+---
+
+## 6. Cite only what you verified
+
+An FE II unit shipped **five fabricated "Key Findings"** attributed to a real paper (Oliveira et al. 2026). In a course whose central assessment artefact is an AI Use Declaration, that is disqualifying.
+
+**Rule:**
+
+- Only cite a source you have **actually read or that is recorded in [`profield-frontend-pedagogy.md`](../../frontend-pedagogy/profield-frontend-pedagogy.md)** with its identifier and findings.
+- Reproduce the **real numbers**, including unflattering ones (~32–33% responsiveness is the honest figure; teach it).
+- Carry the **scope caveat** into the lesson. If the evidence is from a different cohort, say so — an `[UNVERIFIED-GAP]` is a legitimate teaching point ("you are inside the gap"), not something to paper over.
+- `[UNVERIFIED-NOISE]` claims are excluded from lesson design entirely.
+- **Never invent a URL** — sandbox links, DOIs, endpoints. If it must exist and you cannot create it, mark it clearly and escalate to the professor.
+
+---
+
+## 7. Quotes come from TTOD, with their ID
+
+Epigraphs are not decoration and must not be improvised. Source them from `/Users/ruvebal/src/ttod/ttod.yml` (213 quotes) and cite the ID so they stay traceable:
+
+```markdown
+> _"Code without quality checks is like a ship without a compass: it moves, but who knows where."_
+> — Tao of Development, `qa-009`
+```
+
+Sections: `images`, `architecture`, `code-craft`, `qa-tooling`, `wisdom`, `remote-repo`, `devops`, `debugging`, `ux`, `accessibility`, `javascript`. Place them at conceptual turns — the opening frame, each major pivot, the close — not every heading.
+
+> ⚠️ `web-foundations/docs/_data/ttod.yml` is a **stale copy** (176 quotes vs 213 upstream). Quote statically in Markdown; don't rely on `site.data.ttod` for newer IDs until it's re-synced.
+
+The site tagline is **"Critical Coding for a Better Living"** — it is real, pre-existing site identity (homepage, footer, methodology). Extending it (`"…for all humans and machines"`) is established practice, not invention.
+
+---
+
+## 8. Pin library versions, and date the pin
+
+The volatile layer moves faster than the syllabus. Every lesson naming a dependency states the version **and when it was checked**, in a table, plus the trap that bites copy-pasted tutorials.
+
+```markdown
+Pinned as of **August 2026** — re-verify before the term starts:
+
+| Package | Version | Note |
+| --- | --- | --- |
+| `vitest` | `^4.1` | Requires Node ≥ 20; **v4 no longer auto-installs jsdom** |
+| `@playwright/test` | `^1.60` | Runs on Chrome for Testing builds |
+```
+
+**Search before you write.** Model knowledge lags by months. Astro 7 requires Node 22; a CI file pinned to Node 20 would have broken the build. Treat a stale pin as a teaching moment about durable-core vs. volatile-layer, not an embarrassment.
+
+---
+
+## 9. Respect the FE I → FE II boundary
+
+FE I owns **tool literacy** (*can I build and ship this?*). FE II owns **engineering judgement** (*should it be built this way, and can I prove it?*).
+
+An FE II unit shipped teaching the Testing **Pyramid** while FE I teaches the **Trophy** — two contradictory models in consecutive courses, plus a near 1:1 repeat of Vitest/RTL/Actions.
+
+**Rule, before writing any FE II unit:**
+
+1. **Open the FE I lesson** on that topic. Do not infer from a folder name.
+2. If FE I already teaches it, either **inherit it explicitly and link back**, or teach the layer above it. Never silently contradict.
+3. State the boundary in the lesson so the student sees the continuity.
+
+FE I React territory — do not re-teach: components/JSX, hooks, state architecture, routing, auth/JWT, Vitest/RTL/MSW/Cypress basics, Vite build + Vercel/Netlify deploy.
+
+---
+
+## 10. Verify before claiming done
+
+"It builds" is not "it works." Before reporting a lesson or track complete:
+
+```bash
+cd web-foundations && npm run build 2>&1 | grep -iE "warning|error"   # must be empty
+```
+
+Then confirm, against the **built output** in `_site/`:
+
+- [ ] The page exists at its `permalink`.
+- [ ] Every internal link resolves on disk (`/web-atelier-udit/...` → real file).
+- [ ] Referenced assets (JS/CSS/JSON) exist at the URLs the HTML requests.
+- [ ] Code blocks survived — strip tags and read the code back, especially any `{{ }}`.
+- [ ] The lesson is registered in `_data/lessons.yml`.
+- [ ] Sequence tables (`_data/tracks.yml`, track index, lesson index) agree on titles and hours. **Renaming a unit means updating all three.**
+
+Local build verification and *published* are different checkboxes. Publishing is the professor's `git push`.

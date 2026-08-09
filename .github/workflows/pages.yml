@@ -55,7 +55,28 @@ jobs:
    - name: Build site (from nested source web-foundations/docs)
      working-directory: web-foundations
      run: |
-      npm run build
+      set -o pipefail
+      npm run build 2>&1 | tee "$RUNNER_TEMP/jekyll-build.log"
+
+   # A "Liquid Warning" means Jekyll parsed {{ ... }} or {% ... %} somewhere it
+   # should not have — almost always inside a fenced code block. The page still
+   # builds, but the expression is SILENTLY DELETED from the published HTML, so
+   # students copy-paste broken code. Real cases caught this way:
+   #   JSX     <Navigate ... state={{ from: location }} />  -> published as  state=
+   #   Actions --shard=${{ matrix.shard }}/3                -> published as  --shard=$/3
+   # Fix by wrapping the fence in {% raw %} / {% endraw %}.
+   # See .cursor/rules/lesson-publishing-integrity.mdc
+   - name: Fail on Liquid warnings (silently corrupts published code blocks)
+     run: |
+      LOG="$RUNNER_TEMP/jekyll-build.log"
+      if grep -q "Liquid Warning" "$LOG"; then
+        echo "::error title=Liquid processed inside a code block::Wrap the offending fence in {% raw %} / {% endraw %}. The expression is deleted from the published HTML, so readers copy broken code."
+        echo
+        echo "Offending files:"
+        grep "Liquid Warning" "$LOG" | sed 's/^/  /'
+        exit 1
+      fi
+      echo "✅ No Liquid warnings — no code blocks were mangled."
 
    - name: Prepare artifact (flatten path)
      run: |

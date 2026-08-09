@@ -2,6 +2,11 @@
 
 This project contains teaching material under `web-foundations/docs/**/*.md`.
 
+> **Read first — publishing correctness:** [`.cursor/rules/lesson-publishing-integrity.mdc`](.cursor/rules/lesson-publishing-integrity.mdc).
+> The rules below govern *how a lesson is written*; that file governs *whether it is still correct once published* — Liquid silently deleting code inside fences, `permalink:` orphaning sibling assets, relative links escaping the baseurl, unregistered lessons being invisible, and citation/version integrity. Every rule in it was written after a real defect shipped here. The Pages workflow fails the build on `Liquid Warning` for exactly this reason.
+
+Companion rules: [`lesson-code-block-conventions.mdc`](.cursor/rules/lesson-code-block-conventions.mdc) (code-block labels, routed sandbox architecture) · [`methodology-page-structure.mdc`](.cursor/rules/methodology-page-structure.mdc) (slug-directory layout).
+
 When creating or editing lessons:
 
 ## Code block policy
