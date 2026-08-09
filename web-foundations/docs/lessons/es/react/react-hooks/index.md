@@ -389,6 +389,8 @@ En el proyecto que se abre, sustituye el contenido de `App.jsx` por el código d
 
 **Código mínimo (pégalo en `App.jsx`):**
 
+{% raw %}
+
 ```jsx
 import React from 'react';
 import { useEffect, useState } from 'react';
@@ -443,6 +445,8 @@ export default function App() {
 	);
 }
 ```
+
+{% endraw %}
 
 **Qué hacer en el sandbox:**
 
@@ -686,6 +690,8 @@ export function useFetch(url, options) {
 
 Pega este demo en `src/App.jsx`:
 
+{% raw %}
+
 ```jsx
 import { useState } from 'react';
 import { useFetch } from './hooks/useFetch';
@@ -729,6 +735,8 @@ export default function App() {
 	);
 }
 ```
+
+{% endraw %}
 
 **Qué observar:** cambia el `<select>` varias veces (dispara nuevos fetch), usa “Refetch”, y mira cómo el cleanup evita actualizar estado desde requests abortados.
 
@@ -848,6 +856,8 @@ export function useLocalStorage(key, initialValue) {
 
 Pega este demo en `src/App.jsx`:
 
+{% raw %}
+
 ```jsx
 import { useLocalStorage } from './hooks/useLocalStorage';
 
@@ -879,6 +889,8 @@ export default function App() {
 	);
 }
 ```
+
+{% endraw %}
 
 **Qué observar:** recarga el sandbox y verás que `theme` y `count` se conservan; abre DevTools → Application/Storage para inspeccionar las keys.
 

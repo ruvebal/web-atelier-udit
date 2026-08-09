@@ -1,233 +1,324 @@
 ---
 layout: lesson
-title: 'Unit 6: AI-Assisted Code Review — Human-in-the-Loop Workflow'
-title_alt: 'Unidad 6: Revisión de Código Asistida por IA — Flujo Humano-en-el-Bucleo'
+title: 'Unit 6: AI-Assisted Code Review — Human-in-the-Loop, and Graded as Such'
+title_alt: 'Unidad 6: Revisión de Código Asistida por IA — Human-in-the-Loop y Evaluada Como Tal'
 slug: feii-unit-6-ai-code-review
-date: 2026-08-08
+date: 2026-08-09
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /lessons/en/feii/unit-6-ai-code-review/
-description: 'AI-assisted code review as a taught technique: GitHub PR integration, human-in-the-loop workflows, and Oliveira et al. 2026 research findings.'
+description: 'AI code review as a taught technique, not a shortcut: what the research actually shows, wiring an LLM reviewer into GitHub PRs, designing review prompts, and defending the review decisions you kept and rejected.'
 tags:
-  [
-    feii,
-    ai-assisted-development,
-    code-review,
-    github-pr,
-    human-in-the-loop,
-    testing-automation,
-    research-grounded,
-  ]
-status: complete
+  [feii, ai-code-review, human-in-the-loop, github-actions, pull-request, self-regulated-learning, ai-declaration]
+status: draft
 ---
 
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
-{: .no_tOC }
+{: .no_toc }
 - TOC
 {:toc}
 
-<!-- pretier-ignore-end -->
+<!-- prettier-ignore-end -->
 
 ---
 
-> _"AI-assisted code review is not a shortcut. It's a force multiplier for human reviewers."_
+> _"Write code for humans first, computers second; the Tao lies in balancing both."_
+> — Tao of Development, `cc-001`
 
-> **AI Assistance Disclosure:** This unit teaches AI-assisted code review as a documented technique following Oliveira et al. 2026 research. Plans, prompts, and implementation reports are documented throughout the process.
+> **AI Assistance Disclosure:** This unit is about AI assistance itself. Everything you produce here is disclosed under the shared [AI Use Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}) — including the AI reviewer you configure.
+
+---
+
+## The claim this unit makes
+
+Most courses treat AI in one of two ways: banned, or ignored. Both are dishonest about how software is actually written in 2026.
+
+This unit takes a third position, and it is the position the whole Web Atelier methodology rests on: **AI review is a technique with a correct form and many incorrect ones, so it should be taught, practised, and graded like any other technique.**
+
+The grading target is not "did the AI find bugs". It is: **can you defend which suggestions you accepted and which you rejected?**
+
+> _"Before fixing, understand. Before understanding, observe. Before observing, breathe."_
+> — Tao of Development, `wis-002`
+
+---
+
+## Code conventions in this unit
+
+- **CodeSandbox-ready** — complete file, copy-paste, runs as-is.
+- **Excerpt** — partial pattern, illustrative. Does **not** run as-is.
+- **Template** — copy and replace `[BRACKETED]` values before use.
+
+Most of this unit is **Template**: your reviewer configuration depends on your repository, your model provider, and your team's conventions.
 
 ---
 
 ## 🎯 Learning Objectives
 
-By the end of this unit, you will be:
+By the end of this unit, you will be able to:
 
-- **Grounded in research** — Understand Oliveira et al. 2026 findings on AI-assisted code review effectiveness
-- **Configure AI for PR review** — Set up GitHub Actions with AI review tools that integrate into your workflow
-- **Design human-in-the-loop processes** — AI suggests, human decides, with explicit accountability
-- **Measure review quality** — Metrics for review coverage, accuracy, and false positive/negative rates
-- **Avoid common pitfalls** — AI hallucinations, over-reliance, and maintaining human judgment
-
----
-
-## 📖 Research Context: Oliveira et al. 2026
-
-The research by Oliveira et al. (2026) on AI-assisted code review provides evidence-based guidance:
-
-### Key Findings
-
-1. **AI as force multiplier** — AI can review faster than humans, but human oversight remains critical
-2. **Accuracy vs. speed trade-off** — AI catches many issues but produces false positives requiring human filtering
-3. **Human-in-the-loop essential** — Best results when AI suggests and human decides, not AI decides unilaterally
-4. **Domain-specific tuning** — AI models trained on your codebase perform better than generic models
-5. **Accountability matters** — All AI suggestions must be attributable to a human reviewer
-
-### Implications for Teaching
-
-- AI-assisted code review should be **taught as a technique**, not used as a shortcut
-- Students must learn to **evaluate AI suggestions critically**, not accept them blindly
-- The workflow must preserve **human responsibility** for the final review decision
+- [ ] Summarise what the research **actually** shows about in-workflow AI code review — including its limits
+- [ ] Wire an LLM reviewer into your GitHub pull-request workflow
+- [ ] Write a **review prompt** that produces useful criticism instead of flattery
+- [ ] Classify AI review output into accept / reject / escalate, and justify each
+- [ ] Produce an **AI Use Declaration** that a sceptical examiner would accept
+- [ ] Explain why the human, not the model, is accountable for a merged PR
 
 ---
 
-## 🤖 Configuring AI for PR Review
+## 1 — What the research actually says
 
-### GitHub Actions with AI Review Tools
+> _"Not every problem is a bug. Sometimes the problem is expectation."_
+> — Tao of Development, `arch-020`
 
-Several AI-powered code review tools integrate with GitHub:
+The primary source for this unit is:
 
-- **GitHub Copilot** — PR suggestions inline with the diff
-- **CodeT5** — AI-powered code review as a GitHub Action
-- **Ponicode** — AI security-focused code review
-- **DeepCode** — AI vulnerability detection
+> **Oliveira, E.; Fu, M.; Thongtanunam, P.; López-Pernas, S.; Saqr, M.** — "AI-Assisted Code Review as a Scaffold for Code Quality and Self-Regulated Learning: An Experience Report." arXiv `2604.23251`, 2026. Accepted at **ICSE 2026 (SEET track)**.
 
-### Example: CodeT5 GitHub Action
+**What the study did:** deployed an in-workflow, **GitHub-PR-integrated LLM reviewer** across two cohorts (>100 students, 2023–2024) in software-engineering capstone courses.
+
+**What it found, precisely:**
+
+- Iterative activity roughly **doubled cohort-over-cohort** — 581 → 1176 pull requests.
+- Student **responsiveness stayed stable** at roughly **32–33%** of successfully reviewed PRs being followed by a subsequent commit.
+
+Read that second number carefully, because it is the honest one: **about two-thirds of AI reviews produced no follow-up commit at all.** In-workflow AI review is a scaffold that increases iteration. It is not a mechanism that makes students act on feedback most of the time.
+
+### The limits you must state in your defence
+
+> **Scope caveat.** The cohort was *software-engineering capstone*, not front-end. Whether these results transfer to HTML/CSS/JS/React work is, in the research field this course is built on, an explicit **`[UNVERIFIED-GAP]`** — a documented blank, not a settled finding.
+
+That gap is not a footnote. It is the intellectual position of this unit:
+
+> **You are inside the gap.** This course applies a mechanism validated in general software engineering to a front-end cohort, and asks you to report honestly on whether it helped. Your Entrega is evidence in a question the literature has not answered.
+
+This is what it means to be taught by research rather than by tutorials — and it is a legitimate thing to say out loud in Unit 12's oral defence.
+
+---
+
+## 2 — What AI review is good and bad at
+
+Calibrate before you configure. An LLM reviewer is not a uniformly capable reviewer.
+
+| Reliably useful | Unreliable — verify always | Cannot do |
+| --- | --- | --- |
+| Missing `await`, unhandled promise rejections | Whether an abstraction is *worth* extracting | Know your product requirements |
+| Inconsistent naming, dead code | Performance claims (measure — see Unit 7) | Know what your users actually need |
+| Missing `alt`, unlabelled inputs, obvious a11y | Security judgements beyond common patterns | Take responsibility |
+| Missing error/loading states | "This is fine" (flattery bias) | Know what your team agreed last week |
+| Forgotten test for a changed branch | Framework-version-specific advice (training lag) | |
+
+> **The flattery failure.** The default failure of an LLM reviewer is not hallucinating a bug — it is approving code to be agreeable. A reviewer that never objects is a reviewer you must re-prompt, not trust. §3 is written to counter exactly this.
+
+> _"Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it."_
+> — Tao of Development, `dbg-003`
+
+---
+
+## 3 — Designing the review prompt
+
+A generic "review this code" prompt produces generic praise. A good review prompt does three things: **assigns a role, constrains scope, and forbids agreeableness.**
+
+**Template** — `.github/ai-review-prompt.md`. Replace the `[BRACKETED]` values with your project's real conventions.
+
+```markdown
+You are reviewing a pull request in a [FRONT-END / ASTRO + REACT] project
+for a third-year university course.
+
+PROJECT CONVENTIONS (treat as non-negotiable):
+
+- Accessibility: WCAG 2.2 AA. Interactive elements need accessible names.
+- Testing: every changed branch of logic needs a corresponding test.
+- Services: components never call fetch() directly — only modules in src/services/.
+- State: server state via [React Query]; UI state local; auth state in context.
+
+REVIEW ONLY the diff provided. Do not comment on unchanged code.
+
+For each issue, output exactly:
+  SEVERITY: blocker | should-fix | nitpick
+  FILE:LINE
+  PROBLEM: one sentence, concrete
+  WHY IT MATTERS: user-visible or maintenance consequence
+  SUGGESTION: minimal change, as a diff
+
+RULES:
+- If you are not confident, write "UNCERTAIN" and say what you would need to check.
+- Do NOT praise. Do NOT summarise the PR. Only issues.
+- If you find no blockers, say "No blockers found" and list nitpicks only.
+- Never suggest a library the project does not already depend on without
+  flagging it as a new dependency with a cost.
+```
+
+> **Why "do not praise" is a real instruction.** You are optimising for *signal*. Praise consumes reviewer attention and biases you toward merging. The human — you — supplies the encouragement.
+
+**Excerpt** — the same review request, weak vs. strong. Run both on one of your own PRs and compare the output; the difference is the lesson.
+
+```text
+❌ "Can you review this code and tell me if it looks good?"
+   → invites agreement, unbounded scope, no severity, no format
+
+✅ "Review ONLY this diff against the conventions above. Output blockers first
+    in the given format. If you find none, say so. Do not praise."
+   → bounded, structured, adversarial by design
+```
+
+---
+
+## 4 — Wiring the reviewer into GitHub
+
+The point of *in-workflow* review (Oliveira et al.'s core design) is that feedback arrives **where the work already is** — the pull request — not in a chat window you have to remember to open.
+
+**Template** — `.github/workflows/ai-review.yml`. Requires a model API key in repository secrets.
+
+{% raw %}
 
 ```yaml
 # .github/workflows/ai-review.yml
-name: AI Code Review
+# In-workflow AI review: posts a review comment on every PR.
+# The AI NEVER approves or merges — it comments. A human approves. (See §5.)
 
-on:
-  pull_request:
-    types: [opened, synchronize]
+name: AI Review
+
+on: pull_request
 
 permissions:
-  pull-requests: write
+  contents: read
+  pull-requests: write # comment only — deliberately NOT `approve`
 
 jobs:
-  ai-review:
+  review:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: codet5/codet5-action@main
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0 # need history to diff against the base branch
+
+      - name: Collect the diff
+        run: git diff origin/${{ github.base_ref }}...HEAD > /tmp/pr.diff
+
+      - name: Request review
+        env:
+          API_KEY: ${{ secrets.[YOUR_MODEL_API_KEY] }}
+        run: node .github/scripts/ai-review.mjs /tmp/pr.diff > /tmp/review.md
+
+      - name: Post as PR comment
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr comment ${{ github.event.number }} --body-file /tmp/review.md
 ```
 
-### GitHub Copilot for PR Review
+{% endraw %}
 
-GitHub Copilot can provide inline suggestions during PR review:
-
-```bash
-# Install GitHub CLI
-gh extension install github/nextbrave/ai-reviewer
-```
-
-This adds AI-generated review comments directly to PR diffs.
+> ⚠️ **Two guardrails that are graded.**
+>
+> 1. `permissions:` grants `pull-requests: write` (comment) and **never** approval rights. An AI that can approve its own suggestions has removed the human from the loop — which is the entire mechanism.
+> 2. Never send secrets, `.env` files, or personal data in a diff to a third-party model. Add a path filter if your repo contains anything sensitive.
 
 ---
 
-## 🔄 Human-in-the-Loop Workflow
+## 5 — The human-in-the-loop workflow
 
-The critical pattern: **AI suggests, human decides**.
+> _"Code is not written in text — it is written in understanding. The text is just the shadow of the understanding."_
+> — Tao of Development, `wis-005`
 
-### AI-Assisted Review Process
+The workflow you are graded on:
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│           HUMAN-IN-THE-LOOP WORKFLOW                   │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│   1. AI Scans PR                                     │
-│      └─ Generates suggestions: "Add null check",    │
-│        "Extract magic number", "Add type guard"        │
-│                                                          │
-│   2. Human Reviewer Evaluates                         │
-│      └─ Accepts valid suggestions                    │
-│      └─ Rejects false positives                        │
-│      └─ Adds context AI missed (business logic)      │
-                                                          │
-│   3. Changes Committed                                │
-│      └─ Each line attributable to human reviewer        │
-│                                                          │
-│   4. Feedback Loop                                    │
-│      └─ Track false positives to improve AI prompts      │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
+1. Open PR
+      ↓
+2. AI posts structured review
+      ↓
+3. YOU triage every item:  ACCEPT / REJECT / ESCALATE
+      ↓
+4. You implement accepted items as commits
+      ↓
+5. You record REJECTED items and your reason  ← the graded artefact
+      ↓
+6. A human reviewer (peer or instructor) approves
+      ↓
+7. Merge
 ```
 
-### Accountability Mechanisms
+**Step 5 is the assessment.** Accepting good advice is easy. **Rejecting bad advice with a stated reason is the demonstration of competence** — it is the "corrective competence" that the profield research (Sankaranarayanan, 2026) identifies as what's actually at risk when AI is used unreflectively.
 
-Every AI suggestion must be:
+**Template** — `docs/ai-review-log.md`. One row per AI suggestion, for every PR in Entrega 1.
 
-- **Attributed** — Logged with reviewer ID and timestamp
-- **Actionable** — Specific enough to implement or reject
-- **Contextualized** — Includes rationale, not just the change
-- **Reversible** — Human can revert with a single revert if needed
+```markdown
+# AI Review Log — Entrega 1
+
+| PR  | Suggestion (short)                    | Severity   | Decision | Reason                                                     |
+| --- | ------------------------------------- | ---------- | -------- | ---------------------------------------------------------- |
+| #12 | Add `alt` to the chart `<img>`        | blocker    | ACCEPT   | Real WCAG 2.2 failure; screen reader announced nothing.    |
+| #12 | Extract `useSignalData` into a hook   | should-fix | REJECT   | One consumer only. Rule of three — premature (`arch-012`). |
+| #14 | Replace `map` with `for` "for speed"  | nitpick    | REJECT   | Unmeasured claim. Profiled: no difference at n=40.         |
+| #15 | Add loading state to `<DevicePanel>`  | blocker    | ACCEPT   | WebSocket latency left a blank panel for ~800 ms.          |
+| #16 | Use `[LIBRARY]` for date formatting   | nitpick    | ESCALATE | New dependency — asked instructor before adding (`qa-006`).|
+```
+
+> _"A dependency added is a dependency maintained. Choose wisely."_
+> — Tao of Development, `qa-006`
 
 ---
 
-## 🎯 Designing Effective AI Review Prompts
+## 6 — Entrega 1 is due here
 
-The quality of AI review depends heavily on prompt design:
+Entrega 1 covers **Units 2–6**: the Astro architecture (U2–U3), PWA behaviour (U4), the testing strategy (U5), and the AI review workflow (U6).
 
-### Good Review Prompt Template
+Submit, in the repository:
 
-```
-Review this pull request for:
+- [ ] Working Astro project with your islands architecture
+- [ ] `docs/testing-strategy.md` — from [Unit 5]({{ '/lessons/en/feii/unit-5-testing-strategy/' | relative_url }})
+- [ ] Green CI within the stated wall-clock budget, with the measurement recorded
+- [ ] `.github/workflows/ai-review.yml` running on your PRs
+- [ ] `docs/ai-review-log.md` — **minimum 5 PRs**, with at least **two REJECT decisions** and their reasons
+- [ ] `AI_USE_DECLARATION.md` per the [shared rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }})
+- [ ] Commit history that shows iteration, not one final dump
 
-1. Bug risks: null checks, array bounds, type mismatches
-2. Performance issues: unnecessary loops, memory leaks, N+1 queries
-3. Security concerns: SQL injection, XSS, CSRF vulnerabilities
-4. Code style violations: inconsistent naming, magic numbers, long functions
-5. Missing edge cases: error handling, input validation, boundary conditions
+> **The two REJECTs are not padding.** A log with only ACCEPTs suggests you did not evaluate — you complied. If the AI genuinely produced nothing worth rejecting across five PRs, say so explicitly and show the reviews; that itself is a finding worth defending.
 
-For each issue, provide:
-- The problematic line number
-- The specific problem
-- A suggested fix
-- The severity level (critical, major, minor)
-
-Ignore style preferences (spaces vs tabs) unless they violate the project's lint rules.
-```
-
-### Measuring AI Review Quality
-
-Track metrics to improve the AI review process:
-
-- **False positive rate** — Percentage of AI suggestions rejected by humans
-- **False negative rate** — Percentage of real issues AI missed (caught by human review)
-- **Review coverage** — Percentage of files AI reviewed vs. total changed files
-- **Time saved** — Reduction in human review time (comparing before/after AI integration)
+> _"The wise instructor grades with consistency. The enlightened instructor grades with compassion."_
+> — Tao of Development, `qa-012`
 
 ---
 
 ## 🎯 Practice Exercise
 
-**Time:** 3 hours
+**Lab time: 3 h** (of the official 30 h Prácticas de Laboratorio)
 
-1. **Set up AI code review** in a GitHub repo using CodeT5 or Copilot
-2. **Create a test PR** with intentional bugs (null check missing, type error, security issue)
-3. **Review the AI suggestions** — Evaluate each suggestion for accuracy and relevance
-4. **Document false positives** — Keep a log of AI suggestions you rejected and why
-5. **Iterate on prompts** — Refine the AI review prompt based on false positive patterns
-6. **Compare review quality** — Measure time saved vs. manual review for similar PRs
+1. **Calibrate (30 min).** Take a PR you already merged in Unit 5. Run the weak prompt and the strong prompt (§3) over the same diff. Paste both outputs side by side in your log. Which found real problems?
+2. **Wire it (60 min).** Add the workflow (§4) to your repository. Confirm the comment appears on a test PR.
+3. **Break it deliberately (30 min).** Introduce a real accessibility failure and a real missing-await bug in a branch. Does your reviewer catch them? Record what it missed — misses are data.
+4. **Run the loop (60 min).** Work normally for the rest of the session. Every AI suggestion goes in `docs/ai-review-log.md` with a decision and a reason.
 
-**Deliverable:** AI review configuration + test PR analysis + prompt iteration log
+**Deliverable:** the AI review log, plus a 150-word reflection answering: *did in-workflow review change how you wrote code, or only how you documented it?* — the honest answer to the research question in §1.
 
 ---
 
 ## 📚 Recommended Reading
 
-- **Oliveira et al. 2026** — AI-Assisted Code Review: A Human-in-the-Loop Approach (research paper)
-- **GitHub Copilot for PR Review** — https://github.com/features/copilot
-- **CodeT5 Documentation** — https://codet5.com/docs/
-- **Google AI Review** — https://cloud.google.com/ai/reviewer
+- Oliveira, Fu, Thongtanunam, López-Pernas & Saqr — "AI-Assisted Code Review as a Scaffold for Code Quality and Self-Regulated Learning," arXiv [`2604.23251`](https://arxiv.org/abs/2604.23251), ICSE 2026 SEET
+- Sankaranarayanan — "Mitigating 'Epistemic Debt' in Generative AI-Scaffolded Novice Programming using Metacognitive Scripts," arXiv [`2602.20206`](https://arxiv.org/abs/2602.20206), L@S '26 — the "fragile expert" framing behind §5
+- [Web Atelier AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }}) — the docs-first methodology this unit operationalises
+- [AI Use Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}) — how this is graded
 
 ---
 
 ## ✅ Session Outcome
 
-By the end of this unit, you should:
+You should now be able to:
 
-- Understand the research evidence for AI-assisted code review as a human-in-the-loop technique
-- Be able to configure AI tools for GitHub PR review
-- Design human-in-the-loop workflows that preserve human accountability
-- Write effective AI review prompts that minimize false positives
-- Measure AI review quality to iterate and improve
+- State what the evidence for AI code review actually supports — and where it stops
+- Run an in-workflow reviewer on your own pull requests
+- Write a review prompt that produces criticism rather than agreement
+- Defend a rejection of AI advice on technical grounds
+- Submit Entrega 1 with process evidence, not just a working app
 
-This unit completes the **Testeo (herramientas, diseño de pruebas, automatización)** official CONTENIDOS requirement by adding AI-assisted code review as a taught technique. The Entrega 1 project can now be built using the testing strategy (unit 5) and AI-assisted review (unit 6) patterns.
+This unit completes the official **Testeo (herramientas, diseño de pruebas, automatización)** CONTENIDOS block alongside Unit 5.
+
+Next: [Unit 7 — Performance Engineering]({{ '/lessons/en/feii/unit-7-performance/' | relative_url }}), where "measure, don't assume" stops being advice about tests and becomes advice about milliseconds.
 
 ---
 
-> _"AI assists, but humans decide. The difference is accountability."_
+> _"The wise instructor automates what repeats. The foolish instructor repeats what should be automated."_
+> — Tao of Development, `qa-001`

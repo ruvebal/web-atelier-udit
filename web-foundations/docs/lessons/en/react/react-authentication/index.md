@@ -611,6 +611,8 @@ The routing sandbox's `ProtectedRoute` already does the **hard part** — `Navig
 
 **CodeSandbox-ready** — Replace the contents of `src/components/ProtectedRoute.jsx`.
 
+{% raw %}
+
 ```jsx
 // src/components/ProtectedRoute.jsx
 // Three branches, in order:
@@ -639,6 +641,8 @@ export default function ProtectedRoute({ children, redirectTo = '/ex5/login' }) 
 }
 ```
 
+{% endraw %}
+
 > **Teaching moment.** Open the routing sandbox version side-by-side. The `Navigate` line is **byte-identical**. Only the destructuring and the `isLoading` branch are new. _Your routing knowledge transferred completely._
 
 ---
@@ -648,6 +652,8 @@ export default function ProtectedRoute({ children, redirectTo = '/ex5/login' }) 
 `routes.jsx` will import this file. **Create it now** so Vite never sees a missing module.
 
 **CodeSandbox-ready** — Create `src/auth/RoleGuard.jsx`.
+
+{% raw %}
 
 ```jsx
 // src/auth/RoleGuard.jsx
@@ -679,6 +685,8 @@ export default function RoleGuard({ children, role, fallback = '/ex8' }) {
 	return children;
 }
 ```
+
+{% endraw %}
 
 > **Why a separate component (not a `requiresRole` prop on `ProtectedRoute`)?** Composition over options. `ProtectedRoute` is the "are you signed in" guard; `RoleGuard` is the "are you _this kind of_ signed-in user" guard. They can compose (`<ProtectedRoute><RoleGuard role="admin">…`) but a single component with a flag would muddy the boundary between authentication and authorization. Two guards = two clear questions.
 

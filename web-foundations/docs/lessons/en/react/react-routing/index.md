@@ -536,6 +536,8 @@ export default function SignalCard({ signal, to, subtitle }) {
 
 **CodeSandbox-ready** — `src/components/ProtectedRoute.jsx` (create new file)
 
+{% raw %}
+
 ```jsx
 // src/components/ProtectedRoute.jsx
 // Guard pattern: if not logged in, redirect. Otherwise render children.
@@ -560,6 +562,8 @@ export default function ProtectedRoute({ children, redirectTo = '/ex5/login' }) 
 	return children;
 }
 ```
+
+{% endraw %}
 
 ---
 
@@ -2035,6 +2039,8 @@ export default function SolarActivity() {
 
 **Excerpt** — APIs used in Act 1.
 
+{% raw %}
+
 ```jsx
 import {
 	BrowserRouter,
@@ -2056,6 +2062,8 @@ import {
 // Programmatic: const nav = useNavigate();  nav('/path', { replace: true })
 // Guard:    <Navigate to="/login" replace state={{ from: location }} />
 ```
+
+{% endraw %}
 
 ### Framework Mode (Act 2 — local project)
 

@@ -169,6 +169,8 @@ Services in Track A are plain async functions — no `.server.js` convention, no
 
 ### Track A — Client-side i18n pattern
 
+{% raw %}
+
 ```js
 // Excerpt — minimal i18n context
 // src/i18n.js
@@ -187,6 +189,8 @@ export function I18nProvider({ children }) {
 
 export const useTranslation = () => useContext(I18nContext);
 ```
+
+{% endraw %}
 
 Reflect the locale in the URL so links are shareable: `/en/earthquakes`, `/es/earthquakes`. Use a `/:lang/*` route segment and sync it to the context on navigation.
 
@@ -484,6 +488,8 @@ These are **not graded as required**, but a project that includes one or more de
 
 ### Framer Motion interactions
 
+{% raw %}
+
 ```js
 // Excerpt — animated earthquake row
 import { motion, AnimatePresence } from 'framer-motion';
@@ -502,6 +508,8 @@ function EarthquakeRow({ quake }) {
 	);
 }
 ```
+
+{% endraw %}
 
 ---
 
