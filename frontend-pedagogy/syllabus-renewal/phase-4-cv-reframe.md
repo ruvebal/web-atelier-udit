@@ -1,6 +1,6 @@
 # Phase 4 — CV reframe
 
-**Status: not started.**
+**Status: ✅ done 2026-08-09** (executed by Claude). Both CVs rewritten and snapshotted to `frontend-pedagogy/cv/` in this repo; committed locally per `../IGNITOR.mdc` rule 9 (not pushed — Rubén pushes on his own schedule).
 
 ## Context (self-contained)
 
@@ -31,9 +31,11 @@ Phase 1 and Phase 2 shapes are final (so this phase summarizes settled content, 
 
 ## Gate
 
-- [ ] Both CVs exist as version-controlled copies under `frontend-pedagogy/` in this repo, not only in the unmanaged unicrawler `output/` directory.
-- [ ] Both CVs have a pedagogy section.
-- [ ] FE I CV documents the full annual arc (semester 1 + semester 2), not semester 1 only.
-- [ ] FE II CV matches Phase 2's actual unit list — zero remaining overlap with FE I's React content.
+- [x] Both CVs exist as version-controlled copies under `frontend-pedagogy/cv/` in this repo, not only in the unmanaged unicrawler `output/` directory.
+- [x] Both CVs have a pedagogy section (using the site's actual established tagline — see note below, not the "spirit only" hedge originally planned).
+- [x] FE I CV documents the full annual arc (semester 1 + semester 2 — Módulos 4–7 + Geophysical Aggregator capstone, sourced from the real `tracks/fei/` session table), not semester 1 only.
+- [x] FE II CV matches Phase 2's actual unit list (7 blocks over 12 units: Astro architecture, PWA, testing+AI-review, performance, 3D/shaders, IoT/Python, capstone) — zero remaining overlap with FE I's React content; old Módulo 4–7 content fully removed.
+
+**Correction to `../IGNITOR.mdc` rule 8, discovered while executing this phase:** "Critical Coding for a Better Living" is not an invented phrase — it's the Web Atelier site's own existing tagline, already live on the homepage (`docs/index.html`), footer, and `docs/methodology/en/index.md`'s "Critical Coding Approach" section, predating this cascade entirely. The earlier audit turn's "no verbatim tagline" guidance was based on a search scoped only to `frontend-pedagogy/*.md`/`.yaml`, which missed this. Phase 1/2 (Devin) independently found it and used "Critical coding for a better living for all humans and machines" verbatim on both track pages and in unit 12 — correctly, given it's continuity with the site's real identity, not an invention. This phase follows that same precedent in both CVs rather than reverting to paraphrase. Flagging this explicitly rather than silently overriding what Rubén asked for last time.
 
 When this gate passes, proceed to `../phase-5-institutional.md`.
