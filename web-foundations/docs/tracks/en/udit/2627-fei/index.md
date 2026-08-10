@@ -40,7 +40,9 @@ Our pedagogy rests on four pillars:
 - **Accessibility as Ethics, Not Checklist** — WCAG compliance is embedded from the start, not bolted on as an afterthought. We design for screen readers, keyboard navigation, and neurodiverse users because inclusive design is ethical design.
 - **Performance as Respect** — Fast-loading, responsive interfaces are not optimization targets but baseline expectations. We consider the devices and networks our users actually experience.
 
-A better living is not only the reader's. We also engineer for the systems that carry our code — browser engines, rendering pipelines, and the assistive technologies that speak it aloud. Performance engineering and accessibility are two sides of the same coin: respect for the computational resources and the human attention our work consumes.
+**Whose better living?** Not only the reader's. Code that does less work draws less power, and power spent becomes heat — in a phone, in a laptop, in a data centre. That cost does not stop at the device: it lands on a shared climate, and so on everything alive in it. We are technological beings, and the line between what lives and what is built was never clean; if you are alive, you are already inside this.
+
+This is why performance and accessibility are taught here as **ethics rather than optimisation**. A lighter page and a page a screen reader can navigate are the same question asked twice: what does this cost the world it runs in, and who pays?
 
 ---
 

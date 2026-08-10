@@ -40,7 +40,9 @@ Our pedagogy rests on four pillars:
 - **Performance as Respect** — Core Web Vitals, performance budgets, and optimization are not optional features but baseline expectations for professional development.
 - **Interface-Layer Thinking** — The interface layer extends beyond the browser to spatial interfaces (3D), physical devices (IoT/robotics), and backend services (Python). The component model stays the same; the deployment context changes.
 
-A better living is not only the reader's. In this course the systems we engineer for widen beyond browser engines to GPU pipelines, device APIs, and backend services. Performance engineering and accessibility are two sides of the same coin: respect for the computational resources and the human attention our work consumes.
+**Whose better living?** Not only the reader's. Code that does less work draws less power, and power spent becomes heat — in a phone, in a GPU rendering a scene, in a data centre answering a WebSocket. That cost does not stop at the device: it lands on a shared climate, and so on everything alive in it. We are technological beings, and the line between what lives and what is built was never clean; if you are alive, you are already inside this.
+
+Front-End II raises the stakes, because everything this course adds is expensive: a shader runs every frame, a real-time stream never sleeps, a third-party dependency ships to every visitor. So the performance budgets of Unit 7 are not a scoring exercise — they are the habit of asking, before you add something, **what it costs the world it runs in, and who pays.** Accessibility asks the same question about who is shut out. Neither is optimisation; both are ethics.
 
 ---
 
