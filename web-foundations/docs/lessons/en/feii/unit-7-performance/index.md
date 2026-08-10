@@ -299,8 +299,9 @@ export default defineConfig({
 **The "who pays" argument** — for the ethics framing above, and for your oral defence
 
 - Fisseler, B. (2024). *Digital Accessibility Literacy: A Conceptual Framework for Training on Digital Accessibility.* ASSETS 2024 Workshop, Teaching Accessibility in Different Disciplines. — Accessibility literacy as **encoding *and* decoding**, which "improves technical skills and instills ethical and social responsibility." Cites Lewthwaite and Sloan on accessibility as "a socio-technical challenge that is primarily about the problem of teaching empathy," and reports that **only ~15% of surveyed computing teachers actually teach digital accessibility** — the gap this course is trying not to reproduce.
+- Correa, M., Vitoriano, M. A., & Llanos, C. H. (2025). *Web Accessibility in an Academic Management System in Brazil.* Informatics, 12(3), 63. — SIGAA, in use at **39 higher-education institutions**, still shows accessibility gaps *"even after 20 years of eMAG"*, evidenced through living-lab testing with visually impaired students. Standards do not enforce themselves; someone has to build to them, which is the point of the budget.
+- Batista, H. E. N., & Baluz, R. A. R. S. (2025). *Evaluation of Higher Education Institution Websites According to WCAG 2.1 — Brazil.* iSys, 18(1). — Recurring failures across university sites are **missing alternative text and inadequate contrast**: cheap to fix, routinely unfixed.
 - ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023.* DOI: [`10.1145/3664191`](https://doi.org/10.1145/3664191) — curricular standing for treating accessibility and web platforms as core rather than elective.
-- **Spain — Real Decreto 1112/2018** ([BOE-A-2018-12699](https://www.boe.es/buscar/act.php?id=BOE-A-2018-12699)) — accessibility of public-sector websites and mobile applications. In Spain this is **law, not preference**: if your capstone client is public-sector, WCAG conformance is a legal requirement, and "we ran out of time" is not a defence.
 
 ---
 

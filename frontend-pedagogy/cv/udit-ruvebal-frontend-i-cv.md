@@ -115,3 +115,49 @@ Proyecto individual (no en equipo): una aplicación SSR con React Router v7 Fram
 *Nota de alcance:* este semestre 2 es el territorio ya construido que Frontend II (Módulos 4–7 en su guía original) debía dejar de repetir — ver la guía curricular de Frontend II revisada, que ahora abre donde este semestre cierra: arquitectura de producción, PWA, testing avanzado con revisión de IA, rendimiento, 3D, e interfaces IoT/Python.
 
 
+
+---
+---
+
+## Fundamentación académica de las decisiones curriculares
+
+_Añadido 2026-08-10. Mapea cada decisión de diseño a la evidencia que la respalda. **Fuentes exclusivamente del vault ahmes del proyecto** (`profield/runs/frontend-pedagogy/01/pdfs` y `pdfs-ibero`), leídas en texto completo. No se cita nada fuera del vault, y se declara explícitamente dónde el vault **no** respalda una decisión._
+
+| Decisión curricular | Evidencia (vault) | Qué respalda exactamente |
+| --- | --- | --- |
+| **Módulo 3 — accesibilidad como práctica ética**, no checklist final | Fisseler (2024) | La alfabetización en accesibilidad abarca *"both the creation (encoding) and interpretation (decoding) of accessible digital content"*, y su enseñanza *"improves technical skills and instills ethical and social responsibility"*. Cita a Lewthwaite y Sloan: es *"a socio-technical challenge that is primarily about the problem of teaching empathy"*. |
+| **Módulo 3 — enseñarla es la excepción, no la norma** | Fisseler (2024); Bhatt & Joshi / educadores en India (ICER '24) | Fisseler reporta que solo ~**15%** del profesorado encuestado enseña accesibilidad digital. El estudio en India documenta las perspectivas del profesorado sobre por qué no se enseña. Justifica que este módulo exista y no se delegue. |
+| **Módulo 3 — auditoría WCAG sobre sitios reales** como actividad | Batista & Baluz (2025); Correa, Vitoriano & Llanos (2025) | Batista evalúa webs universitarias brasileñas contra **WCAG 2.1** con la herramienta QualWeb: fallos recurrentes de **textos alternativos ausentes y contraste inadecuado** — exactamente los errores que el alumnado puede detectar y corregir. Correa evalúa **SIGAA, usado por 39 instituciones de educación superior**, y constata que las carencias persisten *"even after 20 years of eMAG"*, con metodología *living lab* junto a estudiantes con discapacidad visual. La auditoría no es un ejercicio ficticio: es el estado real del sector. |
+| **Proyecto integrador — portafolio autocodificado** | Garcia (2025) | **Coincidencia temática directa**: 176 estudiantes de grado en un *"website design and development course"*, con tareas semanales de código que culminan en un **portafolio autocodificado** bajo aprendizaje basado en proyectos. Es el diseño de nuestro proyecto integrador y del lema *"un estudiante, un repositorio, un proyecto"*. |
+| **Semestre 2 — metodología docs-first** (plan antes que código) | Phung et al. (2025) | 102 estudiantes; entre pistas de *planning*, *debugging* y *optimization*, las de **planificación fueron las más solicitadas y se asocian consistentemente con mejores calificaciones**. Respaldo empírico directo de exigir plan antes de implementar. |
+| **Semestre 2 — IA con validación crítica** | Liu, Fan & Pan (2026) | Nombra dos fallos evaluables que este curso combate: *"Trust-but-Can't-Verify"* en principiantes y *"Boilerplate Blindspot"* en avanzados, junto a *"attenuated meta-cognitive calibration — a mismatch between perceived readiness and independent capability"*. Es la justificación de la defensa oral. |
+| **Semestre 2 — asistencia diferida y escritura de pistas** | Singh et al. (2026) | Compara escribir pistas de forma independiente, con IA a demanda y con **IA diferida**; la tarea fuerza depuración, pensamiento crítico y reflexión. Modelo para estructurar el acceso a la IA en evaluación. |
+| **Semestre 2 — despliegue de asistente de IA en aula** | Kazemitabaar et al. (2024), CHI | Despliegue real en aula de un asistente LLM: evidencia de qué ocurre cuando la IA es ambiente, no excepción. |
+| **Declaración de uso de IA e integridad** | González-Videgaray et al. (2026) | En el ámbito hispanohablante: la integridad académica es *"una actitud sustentada en un sistema de valores colectivo que debe formarse, preservarse y fomentarse"* — **formarse**, no solo vigilarse. Respalda declarar y evaluar el uso de IA en lugar de prohibirlo. |
+| **Pertinencia regional del enfoque** | CEPAL (2024); Digital Education Council (2026); Gonçalves et al. (2025); Neves & Oliveira (2024); RCS (2026) | Competencias digitales en América Latina y el Caribe; encuesta sobre IA en educación superior en LATAM; revisión sistemática de la enseñanza de programación en Brasil; experiencia de informática K-12 en Portugal; revisión sistemática sobre IA generativa en la enseñanza de matemáticas y programación. Sitúan las decisiones en el espacio iberoamericano, no solo anglosajón. |
+| **Rango curricular** (web y accesibilidad como núcleo) | CS2023 | Legitimidad curricular internacional para tratar plataformas web y accesibilidad como área de conocimiento, no como optativa. |
+
+**Dónde el vault NO respalda el diseño — declarado, no rellenado.**
+
+- **Módulos 1 y 2 (CSS3 avanzado, JavaScript y asincronía):** el vault no contiene investigación educativa sobre enseñanza de CSS moderno, layout o asincronía en JavaScript. Estos módulos se sostienen en la práctica profesional y en documentación de plataforma (MDN), no en evidencia empírica. Es una laguna real del campo, no un descuido de esta guía.
+- **Coste energético y climático del código** (véase *Fundamento Pedagógico*): el vault no contiene ninguna fuente sobre energía o huella de carbono de la computación. Se mantiene como **compromiso razonado, no como hallazgo citado**, y no se acompaña de cifras inventadas.
+- **Marco legal de accesibilidad** (RD 1112/2018 y equivalentes): no hay instrumentos legales en el vault. El único apoyo disponible es indirecto — Correa et al. discuten **eMAG** (Brasil) como marco normativo. Si esta guía va a invocar obligación legal española, requiere una pasada de corpus propia.
+
+**Referencias (todas leídas del vault)**
+
+- ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023.* DOI: `10.1145/3664191`
+- Batista, H. E. N., & Baluz, R. A. R. S. (2025). *Evaluation of Higher Education Institution Websites According to WCAG 2.1… Brazil.* iSys, 18(1).
+- Correa, M., Vitoriano, M. A., & Llanos, C. H. (2025). *Web Accessibility in an Academic Management System in Brazil.* Informatics, 12(3), 63.
+- CEPAL/ECLAC (2024). *Digital competences in Latin America and the Caribbean.*
+- Digital Education Council (2026). *AI in Higher Education — LATAM Survey 2026.*
+- Fisseler, B. (2024). *Digital Accessibility Literacy.* ASSETS 2024 Workshop.
+- Garcia, M. B. (2025). *Self-Coded Digital Portfolios as an Authentic Project-Based Learning Assessment in Computing Education.*
+- Gonçalves, S. C. L., et al. (2025). *Programming in Brazilian Higher Education and High School: A Systematic Literature Review.*
+- González-Videgaray, M. del C., et al. (2026). *Integridad académica y plagio en la educación superior: disrupción de la IA generativa.* FIGURAS, 7(2).
+- Kazemitabaar, M., et al. (2024). *CodeAid: Evaluating a Classroom Deployment of an LLM-based Programming Assistant.* CHI 2024.
+- Liu, D., Fan, G., & Pan, L. (2026). *Tool, tutor, or crutch?* Int. J. STEM Education, 13:10.
+- Neves, F. L., & Oliveira, J. N. (2024). *First Steps towards K-12 Computer Science Education in Portugal.*
+- Phung, et al. (2025). *Plan More, Debug Less.* AIED 2025.
+- RCS (2026). *IA generativa para la enseñanza de matemáticas y programación en educación superior: revisión sistemática.*
+- Singh, et al. (2026). *Hint-Writing with Deferred AI Assistance.*
+- *Teaching Digital Accessibility in Computing Education: Views of Educators in India* (ICER '24).

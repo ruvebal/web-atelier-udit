@@ -85,3 +85,34 @@ Desglose alineado con la filosofía de evaluación del Web Atelier (misma que Fr
 ---
 
 _Nota de alcance (2026-08-09):_ esta guía sustituye la versión anterior (Módulos 4–7: introducción a frameworks, React, testing con Jest/RTL/Cypress, despliegue en Vercel/Netlify), que duplicaba casi 1:1 el semestre 2 ya construido de Frontend I. El territorio de comparativa de frameworks, fundamentos de React, hooks, enrutamiento, testing básico y despliegue queda íntegramente en Frontend I; esta asignatura abre donde esa termina.
+
+---
+
+## Fundamentación académica de las decisiones curriculares
+
+_Añadido 2026-08-10. **Fuentes exclusivamente del vault ahmes del proyecto** (`profield/runs/frontend-pedagogy/01`), leídas en texto completo. El resultado es deliberadamente desigual y esa desigualdad es informativa: **Frontend II opera en la frontera del campo**, donde la evidencia pedagógica todavía no existe._
+
+| Bloque | Evidencia (vault) | Qué respalda |
+| --- | --- | --- |
+| **Bloque 3 — revisión de código asistida por IA** (Unidad 6) | Liu, Fan & Pan (2026); Kazemitabaar et al. (2024) | Liu et al. nombran los fallos que el flujo *human-in-the-loop* combate: *"Trust-but-Can't-Verify"* en principiantes y *"Boilerplate Blindspot"* en avanzados, más una *"attenuated meta-cognitive calibration"* entre competencia percibida y real. Kazemitabaar aporta evidencia de despliegue real de un asistente LLM en aula. Justifica evaluar **el rechazo razonado** de sugerencias, no solo su aceptación. |
+| **Bloque 3 — planificar antes de implementar** | Phung et al. (2025) | Las pistas de planificación fueron **las más solicitadas y se asocian con mejores calificaciones**; las de optimización, casi nunca pedidas. Respalda el orden docs-first y advierte que la optimización no se demanda sola: hay que exigirla (Bloque 4). |
+| **Bloque 3 — acceso escalonado a la IA en evaluación** | Singh et al. (2026) | Diseños comparados de asistencia independiente, a demanda y **diferida** para escritura de pistas. Modelo para estructurar el acceso a IA en pruebas. |
+| **Bloque 7 — capstone, evidencia de proceso y defensa** | Garcia (2025); González-Videgaray et al. (2026) | Garcia valida el portafolio autocodificado como evaluación auténtica de ABP en un curso de desarrollo web (176 estudiantes). González-Videgaray sostiene que la integridad *"debe formarse, preservarse y fomentarse"*: la declaración de uso de IA es formación, no vigilancia. |
+| **Legibilidad para el Grado en Ciencia de Datos e IA** (Bloque 6) | Phung et al. (2025); Singh et al. (2026); RCS (2026) | Phung y Singh trabajan en cursos de **programación para ciencia de datos**; RCS revisa sistemáticamente IA generativa en la enseñanza de matemáticas y programación. Respalda que el alumnado de datos es audiencia real de este tipo de diseño. |
+| **Contexto regional** | CEPAL (2024); Digital Education Council (2026); Gonçalves et al. (2025); Neves & Oliveira (2024) | Competencias digitales en América Latina y el Caribe; adopción de IA en educación superior LATAM; revisión sistemática de enseñanza de programación en Brasil; informática K-12 en Portugal. |
+| **Accesibilidad sostenida en tercer curso** | Fisseler (2024); Batista & Baluz (2025); Correa et al. (2025) | La accesibilidad no se agota en Frontend I: Correa documenta que los fallos persisten *"even after 20 years of eMAG"* en un sistema usado por **39 instituciones**; Batista halla ausencia de textos alternativos y contraste insuficiente en webs universitarias. Justifica mantener aserciones automáticas de accesibilidad en la suite de pruebas (Unidad 5). |
+| **Rango curricular** | CS2023 | Legitimidad para tratar plataformas web como área de conocimiento. |
+
+**Dónde el vault NO respalda el diseño — y por qué eso es el argumento, no la debilidad.**
+
+Los bloques que definen la identidad de Frontend II **no tienen respaldo en el vault**:
+
+- **Bloque 1 (metaframeworks, Astro, islas):** ninguna fuente sobre pedagogía de metaframeworks o arquitecturas de renderizado.
+- **Bloque 2 (PWA/offline):** ninguna fuente.
+- **Bloque 4 (rendimiento):** ninguna fuente sobre enseñanza de ingeniería de rendimiento, ni sobre coste energético del código.
+- **Bloque 5 (3D, R3F, shaders):** ninguna fuente sobre pedagogía de 3D web.
+- **Bloque 6 (IoT/robótica, interfaces respaldadas por Python):** ninguna fuente sobre la capa de interfaz en estos contextos.
+
+Esto coincide con el diagnóstico de `profield-frontend-pedagogy.md`, donde estos temas figuran como `[UNVERIFIED-GAP]`: ausencias reales del campo, no de esta búsqueda. **Frontend II se declara, por tanto, como asignatura piloto**: propone una secuenciación donde la literatura aún no ofrece ninguna, y lo hace explícito ante el alumnado y ante el departamento en lugar de simular respaldo. Las decisiones de estos bloques se sostienen en práctica profesional y en el eje `interface` del marco de investigación propio, no en evidencia empírica publicada.
+
+**Referencias (todas leídas del vault):** CS2023 (DOI `10.1145/3664191`) · Batista & Baluz (2025), iSys 18(1) · CEPAL/ECLAC (2024) · Correa, Vitoriano & Llanos (2025), Informatics 12(3), 63 · Digital Education Council (2026), *AI in Higher Education LATAM Survey* · Fisseler (2024), ASSETS 2024 Workshop · Garcia (2025), *Self-Coded Digital Portfolios* · Gonçalves et al. (2025) · González-Videgaray et al. (2026), FIGURAS 7(2) · Kazemitabaar et al. (2024), CHI · Liu, Fan & Pan (2026), Int. J. STEM Ed. 13:10 · Neves & Oliveira (2024) · Phung et al. (2025), AIED · RCS (2026) · Singh et al. (2026) · *Teaching Digital Accessibility… Views of Educators in India* (ICER '24).
