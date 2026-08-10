@@ -27,6 +27,15 @@
 		{
 			"path": "../../../../../src/ttod",
 		},
+		{
+			"path": "../../../../../src/unicrawler",
+		},
+		{
+			"path": "../../../../../src/MSCA",
+		},
+		{
+			"path": "../../../../../src",
+		},
 	],
 	"settings": {
 		"liveServer.settings.port": 5501,

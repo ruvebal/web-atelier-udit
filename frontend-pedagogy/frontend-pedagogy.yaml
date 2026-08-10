@@ -1,28 +1,246 @@
 # Profield FieldSpec — public keywords only.
 # Never add project internals here: the confidentiality gate blocks export on any hit.
-id: frontend-pedagogy
-title: Front-end development pedagogy and didactics in higher education
+
+id: frontend-interface-pedagogy
+
+title: Front-end and interface-layer development pedagogy in higher education
+
+scope_statement: >
+  This field maps the pedagogy and didactics of front-end development understood as the
+  human-facing interaction layer of digital systems. Web technologies remain the primary
+  teaching substrate because they are open, inspectable, accessible, cross-platform, and
+  professionally central; however, the field also covers transferable front-end concepts
+  for application interfaces, dashboards, IoT/robotics control panels, data tools, creative
+  coding environments, and 3D/immersive interfaces.
+
 keywords:
+  # Core field
+  - front-end development education
+  - front-end pedagogy in higher education
+  - interface-layer development education
+  - user-interface development pedagogy
+  - human-facing software layers
+  - web interfaces for interactive systems
+
+  # Web substrate
   - front-end web development education
-  - computing curriculum for the web (HTML/CSS/JS)
+  - web development pedagogy
+  - HTML CSS JavaScript education
+  - semantic HTML and CSS pedagogy
+  - JavaScript programming education
+  - DOM and browser APIs education
+  - computing curriculum for web platforms
+  - web standards literacy
+
+  # Fundamentals vs frameworks
+  - fundamentals-before-frameworks pedagogy
+  - framework literacy in front-end education
+  - React education in higher education
+  - JavaScript framework teaching
+  - component-based UI pedagogy
+  - skill half-life in computing education
+  - technical volatility in web curricula
+
+  # Cross-platform interface layer
+  - application interface development education
+  - dashboard development pedagogy
+  - data visualization interface education
+  - IoT dashboard education
+  - robotics control interface pedagogy
+  - Python web interface education
+  - local-first application interfaces
+  - creative coding interface pedagogy
+
+  # AI-assisted coding
   - AI-assisted coding in programming education
-  - project-based and studio-based learning
-  - digital accessibility education (WCAG)
-  - assessment in the age of generative AI
-areas: # the analytical lenses every pass must answer per keyword
+  - generative AI in computing education
+  - AI pair programming education
+  - cognitive offloading in programming education
+  - cognitive scaffolding in AI-assisted programming
+  - deferred AI assistance
+  - hint-writing with AI
+  - self-regulated learning in programming
+
+  # Project / studio / portfolio
+  - project-based learning in computing education
+  - studio-based learning in computing education
+  - authentic assessment in web development education
+  - self-coded digital portfolios
+  - process-based assessment in programming
+  - oral code defence
+  - learning journals in computing education
+  - version-history assessment
+
+  # Accessibility
+  - digital accessibility education
+  - WCAG education
+  - accessibility across the computer science curriculum
+  - teaching accessibility
+  - teaching accessibly
+  - inclusive design pedagogy
+  - accessibility-first front-end development
+  - assistive technology literacy
+  - accessibility testing pedagogy
+
+  # Assessment integrity
+  - assessment integrity in the age of generative AI
+  - programming assessment with generative AI
+  - AI-use declarations in education
+  - academic integrity by design
+  - code authorship assessment
+  - explainability of submitted code
+  - formative assessment in AI-assisted programming
+
+  # 3D / immersive web
+  - 3D web development education
+  - WebGL pedagogy
+  - WebXR education
+  - WebGPU education
+  - Three.js education
+  - React Three Fiber pedagogy
+  - immersive web pedagogy
+  - shader literacy education
+  - spatial interaction design education
+
+areas:
+  # The analytical lenses every pass must answer per keyword/theme.
   - state_of_art_2024_2026
   - foundational_canonical
   - open_problems
   - adjacent_terminology
   - critiques_controversies
+  - evidence_strength
+  - curriculum_implications
+  - assessment_implications
+  - transferability_beyond_web
+
 confidentiality: public-keywords-only
-themes: # OA retrieval destinations (Phase 5)
-  - fe-pedagogy-curriculum
-  - fe-pedagogy-ai-tools
-  - fe-pedagogy-accessibility
-  - fe-pedagogy-assessment
+
+themes:
+  # OA retrieval destinations / thematic buckets.
+  - fe-interface-foundations
+  - fe-web-platforms-curriculum
+  - fe-framework-literacy
+  - fe-cross-platform-interfaces
+  - fe-ai-assisted-coding
+  - fe-accessibility
+  - fe-assessment-integrity
+  - fe-project-studio-portfolio
+  - fe-3d-immersive-web
+
+lexicum:
+  durable_core:
+    - semantic substrate
+    - web standards literacy
+    - DOM literacy
+    - browser mental model
+    - accessibility-first front-end
+    - interface-layer thinking
+    - human-facing software layer
+    - operational membrane
+    - progressive enhancement
+    - interaction state
+    - feedback loop
+    - input validation
+    - error-state design
+
+  volatile_layer:
+    - framework literacy
+    - component-based UI
+    - technical volatility
+    - skill half-life
+    - framework churn
+    - meta-frameworks
+    - toolchain literacy
+    - build-system literacy
+
+  ai_learning:
+    - cognitive offloading
+    - cognitive scaffolding
+    - cognitive atrophy
+    - productive struggle
+    - desirable difficulties
+    - deferred assistance
+    - hint-writing
+    - critical engagement
+    - AI pair programming
+    - human-in-the-loop tutoring
+    - false mastery
+
+  assessment:
+    - process-based assessment
+    - authentic assessment
+    - oral code defence
+    - viva
+    - AI-use declaration
+    - version-history evidence
+    - commit narrative
+    - learning journal
+    - authorship transparency
+    - explainability of submitted code
+
+  accessibility:
+    - teaching accessibility
+    - teaching accessibly
+    - digital accessibility literacy
+    - WCAG literacy
+    - inclusive design pedagogy
+    - assistive technology literacy
+    - accessibility testing pedagogy
+    - legal-framework literacy
+
 notes: >
-  Twin mandate: separate load-bearing FUNDAMENTALS (durable, slow-moving) from CUTTING EDGE
-  (fast-moving frontier). This split is the field's central tension and drives the lexicum
-  volatility axis.
+  Twin mandate: distinguish durable FRONT-END FUNDAMENTALS from fast-moving implementation
+  technologies. The field should not collapse front-end development into website production.
+  Web technologies remain the privileged pedagogical substrate, but the conceptual object is
+  broader: the design and implementation of human-facing interface layers for interactive
+  systems, including web apps, application dashboards, data tools, IoT/robotics interfaces,
+  creative coding systems, and 3D/immersive environments.
+
+research_hypotheses:
+  - >
+    Platform fundamentals such as semantic structure, layout, interaction states, browser/DOM
+    literacy, accessibility, version control, and API interaction have a longer curricular
+    half-life than specific frameworks or build tools.
+  - >
+    Web technologies are pedagogically valuable not only because they produce websites, but
+    because the browser is an inspectable, cross-platform laboratory for interface-layer
+    thinking.
+  - >
+    AI-assisted coding increases the need for process-based assessment, explanation,
+    debugging, and authorship verification.
+  - >
+    Accessibility should be treated as a front-end fundamental rather than as a late-stage
+    compliance checklist.
+  - >
+    3D web, IoT dashboards, robotics panels, and Python-backed interfaces are useful boundary
+    cases for preventing students from equating front-end development with static web artefacts.
+
+exclusions:
+  - purely back-end web development
+  - general software engineering without a human-facing interface layer
+  - generic UX research without implementation pedagogy
+  - pure graphic design without computational interface implementation
+  - AI-in-education literature not connected to programming, interfaces, assessment, or computing curricula
+  - robotics or IoT education without an interface/control/visualization layer
+  - 3D graphics education without browser, interface, or front-end relevance
+
+evidence_policy:
+  claim_tags:
+    - ESTABLISHED
+    - EMERGING
+    - UNVERIFIED-GAP # legitimate frontier: absence + adjacent grounding + actionable now
+    - UNVERIFIED-NOISE # reified metaphor / ungrounded synthesis: flag and discard, do not build on it
+  requirements:
+    - cite_real_checkable_sources
+    - prefer_ACM_IEEE_W3C_peer_reviewed_or_curriculum_frameworks
+    - mark_web_specific_blanks_explicitly
+    - do_not_infer_from_general_programming_to_front_end_without_warning
+    - distinguish_practitioner_sources_from_peer_reviewed_sources
+    - distinguish_web_platform_claims_from_cross_platform_interface_claims
+    - triage_every_unverified_claim_as_gap_or_noise_using_the_evidence_tags_heuristic
+    # heuristic (see profield-frontend-pedagogy.md, "Evidence tags" section, for full version):
+    # GAP  = specific named absence + grounded in adjacent established evidence + actionable this term
+    # NOISE = smooth ungrounded synthesis, or a metaphor asserted as a formal construct
+
 cadence_days: 120

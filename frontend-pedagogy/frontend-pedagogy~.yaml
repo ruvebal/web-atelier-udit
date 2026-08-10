@@ -1,0 +1,28 @@
+# Profield FieldSpec — public keywords only.
+# Never add project internals here: the confidentiality gate blocks export on any hit.
+id: frontend-pedagogy
+title: Front-end development pedagogy and didactics in higher education
+keywords:
+  - front-end web development education
+  - computing curriculum for the web (HTML/CSS/JS)
+  - AI-assisted coding in programming education
+  - project-based and studio-based learning
+  - digital accessibility education (WCAG)
+  - assessment in the age of generative AI
+areas: # the analytical lenses every pass must answer per keyword
+  - state_of_art_2024_2026
+  - foundational_canonical
+  - open_problems
+  - adjacent_terminology
+  - critiques_controversies
+confidentiality: public-keywords-only
+themes: # OA retrieval destinations (Phase 5)
+  - fe-pedagogy-curriculum
+  - fe-pedagogy-ai-tools
+  - fe-pedagogy-accessibility
+  - fe-pedagogy-assessment
+notes: >
+  Twin mandate: separate load-bearing FUNDAMENTALS (durable, slow-moving) from CUTTING EDGE
+  (fast-moving frontier). This split is the field's central tension and drives the lexicum
+  volatility axis.
+cadence_days: 120
