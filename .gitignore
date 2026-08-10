@@ -11,6 +11,14 @@ yarn.lock
 Gemfile.lock
 web-foundations/docs/assets/css/tailwind-processed.css
 vendor/
+# Re-include the reveal.js decks' vendored runtime. These are small text assets
+# (reveal.js + reveal.css) that the published decks load at runtime — if they
+# are ignored, GitHub Pages builds without them and every deck renders BLANK.
+# Verified failure mode, not hypothetical. Directory must be un-ignored before
+# its contents can be.
+!web-foundations/docs/tracks/**/vendor/
+!web-foundations/docs/tracks/**/vendor/**
+
 # Exam Forge + course-private material (banks, LMS exports, legacy private/)
 private/
 private/*
@@ -21,3 +29,105 @@ private/*
 # SQLite databases (local/dev artifacts)
 *.db
 *.db-*
+
+# ═══════════════════════════════════════════════════════════════════════════
+# GOLD RULE — no binaries or source documents in this repository, ever.
+# ═══════════════════════════════════════════════════════════════════════════
+# This repo is TEXT: lessons, tracks, data files, configuration, small vendored
+# text runtimes. It is not a document store and not a media library.
+#
+# Rationale:
+#   1. COPYRIGHT — research PDFs, books and papers are licensed to the reader,
+#      not redistributable. A public teaching repo must not host them.
+#   2. PROVENANCE — scholarly sources live in Ahmes vaults
+#      (~/ahmes-library/scholar/documents/<slug>_<hash8>/), which are the
+#      sovereign, citable copy. Duplicating a PDF here creates a second,
+#      unversioned truth.
+#   3. SIZE — git stores binaries badly; every revision is a full new blob.
+#   4. STUDENT DATA — coursework artefacts may contain personal data (RGPD).
+#
+# Anything below requires EXPLICIT human acceptance before being committed.
+# To add one deliberately: `git add -f <path>` and say why in the commit body.
+# Never bypass this with a broad `git add -A`.
+
+# Documents & ebooks
+*.pdf
+*.epub
+*.mobi
+*.azw3
+*.djvu
+*.ps
+
+# Office / authoring formats
+*.doc
+*.docx
+*.odt
+*.rtf
+*.ppt
+*.pptx
+*.odp
+*.key
+*.xls
+*.xlsx
+*.ods
+*.numbers
+*.pages
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.*
+*.tgz
+*.gz
+*.bz2
+*.xz
+
+# Design binaries
+*.psd
+*.ai
+*.indd
+*.sketch
+*.fig
+*.xd
+*.afdesign
+*.afphoto
+
+# Audio / video (host externally; embed by URL)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.mp3
+*.wav
+*.flac
+*.aac
+*.m4a
+
+# Disk images & executables
+*.iso
+*.dmg
+*.pkg
+*.exe
+*.msi
+*.deb
+*.rpm
+*.app/
+
+# Fonts — licensing varies; vet before adding
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.eot
+
+# Zotero / reference-manager attachment dumps
+**/web_design-zotero/files/
+**/zotero/files/
+**/*-zotero/files/
+
+# Local Ahmes / Profield working copies (sovereign copies live outside this repo)
+**/ahmes-library/
+**/.ahmes/
