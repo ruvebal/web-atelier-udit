@@ -206,6 +206,23 @@ const observer = new IntersectionObserver((entries) => {
 
 ## 📊 Performance Budgets
 
+> _"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."_
+> — Tao of Development, `cc-007`
+
+### Why a budget, and not just a score
+
+A Lighthouse score rewards you. A **budget** constrains you — and only a constraint changes what you build.
+
+The reason to accept the constraint is physical, not cosmetic. **Work costs power, and power becomes heat** — in a phone, in a laptop, in a data centre answering your request. That cost does not stop at the device; it lands on a shared climate, and so on everything alive in it. We are technological beings, and the line between what lives and what is built was never clean.
+
+So a budget is one question, asked before you add anything:
+
+> **What does this cost the world it runs in — and who pays?**
+
+Performance asks it about energy. Accessibility asks it about exclusion. **Same question, two currencies.** Neither is optimisation; both are ethics — and the second half of that pairing is well evidenced: Fisseler argues accessibility training must instil "ethical and social responsibility," not merely technique, and Lewthwaite and Sloan frame it as "a socio-technical challenge that is primarily about the problem of teaching empathy" (see §Recommended Reading).
+
+> 🔬 **Scholarly honesty — state this in your defence.** The accessibility half of that claim rests on peer-reviewed evidence. The **energy-and-climate half does not, in this course's own research corpus** (`profield-frontend-pedagogy.md`): the thermodynamics are not in dispute, but no source in our reading establishes the pedagogical or quantitative link between front-end performance work and carbon outcomes. Treat it as a **reasoned commitment, not a cited finding** — and do not invent figures for it. If you want to make the argument quantitatively in your capstone, you must bring your own measurements and sources.
+
 ### Setting Budgets
 
 ```js
@@ -272,10 +289,18 @@ export default defineConfig({
 
 ## 📚 Recommended Reading
 
+**Technique**
+
 - **Core Web Vitals** — https://web.dev/vitals/
 - **Performance Budgets** — https://web.dev/performance-budgets-101/
 - **Bundle Analysis** — https://bundlephobia.com/
 - **Chrome DevTools Performance** — https://developer.chrome.com/docs/devtools/performance/
+
+**The "who pays" argument** — for the ethics framing above, and for your oral defence
+
+- Fisseler, B. (2024). *Digital Accessibility Literacy: A Conceptual Framework for Training on Digital Accessibility.* ASSETS 2024 Workshop, Teaching Accessibility in Different Disciplines. — Accessibility literacy as **encoding *and* decoding**, which "improves technical skills and instills ethical and social responsibility." Cites Lewthwaite and Sloan on accessibility as "a socio-technical challenge that is primarily about the problem of teaching empathy," and reports that **only ~15% of surveyed computing teachers actually teach digital accessibility** — the gap this course is trying not to reproduce.
+- ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023.* DOI: [`10.1145/3664191`](https://doi.org/10.1145/3664191) — curricular standing for treating accessibility and web platforms as core rather than elective.
+- **Spain — Real Decreto 1112/2018** ([BOE-A-2018-12699](https://www.boe.es/buscar/act.php?id=BOE-A-2018-12699)) — accessibility of public-sector websites and mobile applications. In Spain this is **law, not preference**: if your capstone client is public-sector, WCAG conformance is a legal requirement, and "we ran out of time" is not a defence.
 
 ---
 

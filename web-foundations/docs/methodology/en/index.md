@@ -38,6 +38,25 @@ In this context, **web design** becomes a critical medium to think about rhythm,
 > To code critically is to make with awareness
 > — of the tools, the users, and the social space where our work lives.
 
+### Whose better living?
+
+_Critical Coding for a Better Living_ names a subject, and the subject is not only the reader.
+
+Code that does less work draws less power, and power spent becomes heat — in a phone, in a laptop, in a data centre. That cost does not stop at the device: it lands on a shared climate, and so on everything alive in it. We are technological beings; the line between what lives and what is built was never clean. **If you are alive, you are already inside this.**
+
+Two consequences for how we teach:
+
+- **Performance and accessibility are one question in two currencies** — _what does this cost the world it runs in, and who pays?_ One answers in energy, the other in exclusion. Neither is optimisation; neither is compliance.
+- **Efficiency is a form of care, not a metric.** A lighter page is a smaller claim on someone else's battery, bandwidth, attention, and air.
+
+> Subtract until it costs less. That is not minimalism — it is arithmetic with a conscience.
+
+**Where the evidence stands, stated plainly.** The accessibility half is well grounded: Fisseler's *digital accessibility literacy* frames training as spanning "both the creation (encoding) and interpretation (decoding) of accessible digital content," an approach that "improves technical skills and instills ethical and social responsibility" — and reports that only about **15% of surveyed computing teachers actually teach digital accessibility**, which is precisely the gap this methodology exists to close. Lewthwaite and Sloan, cited there, call accessibility "a socio-technical challenge that is primarily about the problem of teaching empathy." In Spain and across Ibero-America the requirement is also legal, not aspirational (Real Decreto 1112/2018; Portugal DL 83/2018; Brazil eMAG; Colombia Res. MinTIC 1519/2020).
+
+The **energy-and-climate half is a reasoned commitment, not a cited finding.** Our research corpus does not contain sources establishing the pedagogical or quantitative link between front-end performance and carbon outcomes. We teach it as a principle we are willing to argue for — and we do not invent figures to dress it as settled. Students are invited to contest it; that is what _critical_ means.
+
+**Sources:** Fisseler, B. (2024), *Digital Accessibility Literacy*, ASSETS 2024 Workshop · ACM/IEEE-CS/AAAI (2023), *Computer Science Curricula 2023*, DOI [`10.1145/3664191`](https://doi.org/10.1145/3664191) · Liu, D., Fan, G., & Pan, L. (2026), *Tool, tutor, or crutch?*, _International Journal of STEM Education_, 13:10, DOI [`10.1186/s40594-025-00592-w`](https://doi.org/10.1186/s40594-025-00592-w) · Spain, [Real Decreto 1112/2018](https://www.boe.es/buscar/act.php?id=BOE-A-2018-12699).
+
 ---
 
 ## Introduction and Rationale
