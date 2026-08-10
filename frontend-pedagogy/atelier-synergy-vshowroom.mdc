@@ -1,0 +1,139 @@
+---
+description: Cross-institutional product brief — the vShowroom as the shared artefact joining FE (UDIT) and Creación Digital (Universidad Europea); scope, architecture, semester choreography, and the two research gaps it sits on
+globs: 'frontend-pedagogy/**'
+alwaysApply: false
+---
+
+# vShowroom — cross-institutional artefact brief
+
+> **L3 · Product logic.** Distinct from teaching (L1) and research (L2) — see [`fe-unit-forge.mdc`](./fe-unit-forge.mdc) §0. This document specifies *the thing being built*. It is not a syllabus and not a grade.
+
+---
+
+## 1. The synergy is already in both official guides
+
+This is not an invented crossover. Both subjects' official `contents` require it:
+
+| | **Creación Digital I–II** (Universidad Europea) | **Front-End I–II** (UDIT) |
+| --- | --- | --- |
+| Degree | Grado en **Comunicación y Gestión de Moda** | Desarrollo Full-Stack · Ciencia de Datos e IA |
+| Placement | **Year 1** — S1 and S2 · 6 ECTS each | FE I **Year 2 annual**; FE II **Year 3 S1** · 6 ECTS each |
+| Relevant official contents | CD I: *"Fundamentos y representación de la forma tridimensional. Volumen."* · CD II: **"Creación de avatares"**, **"Diseño de experiencias de moda digitales"**, **"Maquetación, edición y creación de web y portfolio digital"**, **"Hologramas y R.A"** | FE II: arquitecturas, PWA, testing, rendimiento, **R3F/WebGL**, **shaders**, **IoT/servicios Python** |
+
+**CD II is officially required to produce web and digital portfolio work, and 3D avatars, and AR.** FE II is officially required to teach 3D interfaces on the web. The two curricula already point at the same artefact from opposite sides. The synergy makes each subject *more* compliant with its own guide, not less.
+
+**One professor, two institutions, one methodology:** the same critical, AI-assisted, docs-first paradigm — *another way of the tao, but the tao is one and many*.
+
+---
+
+## 2. The two research gaps this sits on
+
+From the **digital-creativity** field map (`digital-creativity/01/pass1.edited.md` §7.2), both **Pass-2 confirmed**:
+
+> **`[UNVERIFIED-GAP]`** — *"no unified fashion-specific scholarly framework linking portfolio UX, accessibility, responsive design, brand identity and hiring outcomes."* Pass 2 confirms this as **a genuine unresolved gap**.
+
+> **`[UNVERIFIED-GAP]`** — *"limited 2024–2026 peer-reviewed literature testing which web-design characteristics make a fashion-student portfolio educationally or professionally effective."* Narrowed: *"fashion-specific causal studies still thin; adjacent UX importable."*
+
+And a critique that names, precisely, what the FE apparatus already answers:
+
+> **`[EMERGING]` CRITIQUE** — *"generative media complicates the evidentiary function of portfolios. **Process, authorship, iteration and judgement need to be made visible.**"*
+
+**That is the AI-use declaration, the commit narrative, and the oral defence.** The FE methodology is a candidate solution to a stated problem in the fashion field.
+
+**The complementarity, stated once:** fashion supplies *cultural judgement and the artefacts*; front-end supplies *the interface layer and the evidence apparatus*. Each field's documented blank is the other's method.
+
+---
+
+## 3. Product definition
+
+**vShowroom** — a web platform where fashion designs authored in any 3D fashion modeller are exhibited, collected by visitors, and attributed to designers whom visitors can follow. Scoped to the graduates and students of one school, atelier or programme.
+
+**Core loop:** designer publishes a piece → visitor browses the showroom → visitor collects a piece → visitor follows the designer → designer sees their collected work.
+
+**Deliberately out of scope** (v1): commerce, payments, real virtual try-on, user-generated 3D authoring in-browser, recommendation algorithms. The showroom **exhibits and attributes**; it does not sell or personalise.
+
+### Slice map — how it lands on FE II units
+
+| Slice | Unit | Activity type |
+| --- | --- | --- |
+| Astro shell, routing, content collections for designers/pieces | 2–3 | Lab |
+| Offline browsing of a collection; installable | 4 | Lab |
+| Test strategy, CI budget, contract test against the data source | 5 | Lab |
+| AI-reviewed PR workflow on every merge | 6 | Lab (workflow, not a feature) |
+| Performance budget — 3D is heavy, this is where the budget bites | 7 | Lab |
+| **R3F viewer** — load and orbit a garment; state in 3D | **8** | Lab |
+| **Shader/material work** — fabric appearance, post-processing | **9** | Lab |
+| Live data / device or service feed (collections, follows) | 10 | Lab |
+| Integration, release, process evidence | 11 | Lab |
+| Public exhibition + oral defence | 12 | Evaluación |
+
+**One cohort, one repository, one artefact.** FE I keeps *one repo per student* (individual learning). FE II moves to **one repo per cohort** — with n < 15 this is not a compromise, it is the correct scale for team engineering, and it makes Unit 6's AI-reviewed PR workflow real rather than simulated.
+
+---
+
+## 4. Semester choreography — the hard constraint
+
+The calendars do **not** align for live co-teaching:
+
+```
+        S1 (Sep–Jan)                    S2 (Feb–Jun)
+UDIT    FE II  ██████ builds platform
+        FE I   ████████████████████████████████████ (annual — the bridge)
+UEM     CD I   ██████ 2D/3D foundations
+                                        CD II ██████ avatars · web portfolio · AR
+```
+
+**Therefore: asynchronous handoff, not synchronous collaboration.**
+
+| Window | Who | Does |
+| --- | --- | --- |
+| **S1** | FE II | Builds and releases vShowroom **v1** against *seed* content |
+| **S1→S2 boundary** | — | **Handoff:** tagged release, deployed URL, contribution guide, open issues |
+| **S2** | CD II | Populates with real avatars/designs; **files issues as users**, not as clients |
+| **S2** | FE I | Maintains and extends; consumes CD II's issues as authentic backlog |
+
+> **Why this is better than co-teaching:** CD II students become **real users with real content**, and FE I inherits a **live product with real bug reports** — which no invented brief can manufacture. The temporal offset is a feature.
+
+**Seed content for S1:** FE II cannot wait for CD II. Use openly-licensed 3D garment assets or the professor's own, clearly labelled as seed, replaced in S2.
+
+---
+
+## 5. Consent and rights — this is where a fashion crossover gets dangerous
+
+Student design work is **authored creative property**. Nothing here is covered by the FE consent set.
+
+| # | Consent | Whose | Nature |
+| --- | --- | --- | --- |
+| **S1** | Exhibiting a design in vShowroom | CD student | Per-artefact, revocable, licence stated (author retains copyright; platform gets display licence only) |
+| **S2** | Attribution vs. anonymity | CD student | Author's choice; default is attributed, but opt-out must exist |
+| **S3** | Research use of the interaction data | both cohorts | Separate from S1/S2; per [`fe-cohort-case-proposal.mdc`](./fe-cohort-case-proposal.mdc) §6 |
+| **S4** | Cross-institution data flow | UDIT ↔ UEM | **Two institutions, two regimes.** Needs both DPOs. Minimise: the platform should hold no personal data of visitors in v1 |
+
+**Design rule that avoids most of the problem:** v1 stores *pieces and designers*, and "collect/follow" state stays **client-side (localStorage)** unless and until accounts are justified. No accounts, no visitor personal data, no cross-border transfer question.
+
+> If the DPO conversation stalls, **ship v1 with local-only collections.** The product still works and the research still has cohort-level engineering evidence.
+
+---
+
+## 6. What each side gets
+
+**FE students** — a real client with real content, a genuine performance problem (3D assets are heavy), an accessibility problem that matters (can a screen-reader user navigate a 3D showroom?), and a public artefact for their portfolio.
+
+**CD students** — their work exhibited on a platform built to professional standards, and a first encounter with the interface layer as something *made*, not given.
+
+**The professor** — one methodology, two subjects, two institutions, and a single artefact that is simultaneously the teaching deliverable, the research object, and the open-education asset (OEGlobal-nominable, see the proposal §7).
+
+**The fields** — a documented attempt at the fashion-portfolio framework gap, from a cohort that has both halves.
+
+---
+
+## 7. Risks
+
+| Risk | Mitigation |
+| --- | --- |
+| Two institutions, two ethics regimes | Start the DPO conversation at both **before September**; design v1 to need as little as possible (§5) |
+| CD II content arrives after FE II ends | That is the design (§4), not a failure — seed content in S1 |
+| Scope inflation ("add try-on!") | §3 out-of-scope list is binding; VTON is an open research problem, not a student sprint |
+| One repo, n<15, uneven contribution | Rotating roles + individual exercise channel (forge §2) + oral defence |
+| Fashion students' work misused | §5 consents; author retains copyright; revocable |
+| Professor bandwidth across two universities | The artefact is **one** product, not two. That is the whole point of the synergy |

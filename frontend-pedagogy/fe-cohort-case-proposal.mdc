@@ -7,15 +7,15 @@ alwaysApply: false
 # Propuesta — Front-End I / II como caso de estudio de cohorte
 
 **De:** Rubén Vega Balbás, PhD · Prof. Desarrollo Web Front-End I y II · UDIT
-**Para:** IP co-investigadora (sociología) · Coordinación de Grado en Desarrollo Full-Stack · Coordinación de Grado en Ciencia de Datos e IA · Dirección académica
+**Para:** IP co-investigadora (sociología) · Coordinación de Grado en Desarrollo Full-Stack · Coordinación de Grado en Ciencia de Datos e IA · Dirección académica UDIT · **Coordinación del Grado en Comunicación y Gestión de Moda (Universidad Europea)** — para la parte interinstitucional (§2-bis d, §7-bis)
 **Fecha:** 2026-08-10 · **Curso afectado:** 2026-27
-**Documentos hermanos:** [`fe-research-line.mdc`](./fe-research-line.mdc) (diseño de investigación completo) · [`profield-frontend-pedagogy.md`](./profield-frontend-pedagogy.md) (mapa del campo)
+**Documentos hermanos:** [`fe-research-line.mdc`](./fe-research-line.mdc) (diseño de investigación) · [`fe-unit-forge.mdc`](./fe-unit-forge.mdc) (forja de unidades: lección/laboratorio/ejercicios) · [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc) (artefacto interinstitucional) · [`grounding/README.mdc`](./grounding/README.mdc) (matriz de evidencia) · [`profield-frontend-pedagogy.md`](./profield-frontend-pedagogy.md) (mapa global)
 
 ---
 
 ## 1. Petición, en una frase
 
-Autorización para que la docencia de **Front-End I y II durante 2026-27 y 2027-28 constituya un caso de estudio documentado**, con consentimiento informado, custodia externa de datos y salida en congresos y revistas indexadas — **sin modificar la docencia que se impartiría de todos modos**.
+Autorización para que la docencia de **Front-End I y II durante 2026-27 y 2027-28 constituya un caso de estudio documentado** — con consentimiento informado, custodia externa de datos y salida en congresos y revistas indexadas — **sin modificar la docencia que se impartiría de todos modos**; y conformidad para que el artefacto de FE II se construya en **sinergia con Creación Digital (Universidad Europea)**, donde imparte el mismo docente.
 
 ---
 
@@ -42,13 +42,44 @@ El mapa de campo ya etiqueta como `[UNVERIFIED-GAP]` los tamaños de efecto de d
 
 ---
 
+## 2-bis. Alcance revisado (2026-08-10) — leer antes que el resto
+
+Cuatro hechos cambian el diseño y **no son un problema: definen el método correcto.**
+
+**a) Cohortes de menos de 15 estudiantes.** Esto **cierra la puerta a toda inferencia estadística** y la abre a lo que realmente conviene: **estudio de caso longitudinal con método cualitativo dominante**. No se prometerán tamaños de efecto en ningún momento. Con n<15, la profundidad por caso es alcanzable de un modo que una cohorte de 200 nunca permite — se puede conocer cada trayectoria.
+
+**b) El grupo que empieza FE II ya cursó FE I con el mismo docente.** Ventaja real: continuidad y confianza. **Límite explícito:** los datos de ese curso previo **no son utilizables** — se generaron sin consentimiento informado. Sirven como conocimiento contextual del docente y como justificación del diseño, **nunca como dato**. El arco longitudinal consentido empieza en septiembre de 2026.
+
+**c) Un grupo nuevo inicia FE I.** Coexisten por tanto **dos cohortes con funciones distintas**: la continuista (FE II) permite observar transferencia y durabilidad; la entrante (FE I) ofrece una línea base independiente. No se comparan entre sí como grupos equivalentes — no lo son.
+
+**d) Docencia en dos universidades.** El mismo docente imparte **Front-End I y II en UDIT** y **Creación Digital I y II en la Universidad Europea** (Grado en Comunicación y Gestión de Moda). Esto convierte una propuesta de asignatura en una **propuesta interinstitucional** con una sinergia documentada — ver [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc).
+
+### La unidad de análisis cambia
+
+| Asignatura | Repositorio | Unidad de análisis | Tipo de evidencia |
+| --- | --- | --- | --- |
+| **FE I** | uno por estudiante | el **individuo** | aprendizaje individual, línea base |
+| **FE II** | **uno por cohorte** (vShowroom) | la **cohorte** | ingeniería colectiva: PRs, revisión IA, releases |
+
+Con n<15, *"un estudiante, un repositorio"* en FE I y *"una cohorte, un repositorio, un artefacto real"* en FE II no es una concesión: es la escala correcta, y hace que el flujo de revisión de PR asistida por IA de la Unidad 6 sea **real y no simulado**.
+
+**Y la separación individuo/colectivo ya está en la guía oficial**: las **Prácticas de Laboratorio (30 h)** son trabajo de equipo en entorno profesional; la **Resolución de Ejercicios (14 h)** es trabajo individual y descontextualizado. La estructura horaria oficial **separa por diseño** lo que con n<15 no se puede separar por estadística: si el equipo entregó, y si esta persona lo entiende. Ver [`fe-unit-forge.mdc`](./fe-unit-forge.mdc) §2.
+
+### Sinergia interinstitucional — por qué refuerza la propuesta
+
+El mapa de campo de creación digital (`digital-creativity/01/pass1.edited.md` §7.2) registra dos lagunas **confirmadas en Pass 2**: la ausencia de un *"unified fashion-specific scholarly framework linking portfolio UX, accessibility, responsive design, brand identity and hiring outcomes"*, y la escasez de literatura sobre qué características de diseño web hacen efectivo el portafolio de un estudiante de moda. Y una crítica que nombra exactamente lo que el aparato de FE ya produce: *"generative media complicates the evidentiary function of portfolios. **Process, authorship, iteration and judgement need to be made visible.**"*
+
+**Cada campo tiene documentada la laguna que el método del otro cubre.** Moda aporta el juicio cultural y los artefactos; front-end aporta la capa de interfaz y el aparato de evidencia. La sinergia no es un añadido: es la contribución más original de la propuesta.
+
+---
+
 ## 3. Por qué esta docencia, y no otra, puede ser la cohorte
 
 No es voluntarismo. Son cuatro condiciones que **ya existen en el horario**, y que un laboratorio externo no puede construir fácilmente:
 
-1. **Arco longitudinal real.** FE I es anual (2.º curso) y FE II semestral (3.º). El mismo estudiantado atraviesa dos años. Es el diseño natural para la pregunta *"¿qué competencia sobrevive al cambio de framework?"*
+1. **Arco longitudinal real.** FE I es anual (2.º curso) y FE II semestral (3.º). El mismo estudiantado atraviesa dos años. Es el diseño natural para la pregunta *"¿qué competencia sobrevive al cambio de framework?"* — con el límite del §2-bis b: **el tramo consentido empieza en septiembre de 2026**.
 2. **Comparación entre grados, no construida.** La asignatura se imparte a **Full-Stack** y a **Ciencia de Datos e IA**. Es un contraste que responde directamente a la pregunta abierta del campo — la transferibilidad de la capa de interfaz — y que nadie ha ejecutado.
-3. **FE II se estrena en 2026-27.** Piloto limpio, sin arrastre de ediciones previas.
+3. **FE II se estrena en 2026-27.** Piloto limpio *de asignatura* — sin ediciones previas de la materia. Matiz necesario (§2-bis b): **el grupo no es nuevo**, ya cursó FE I con el mismo docente. Eso aporta continuidad, no una línea base ciega.
 4. **La evaluación ya está instrumentada.** Declaración de uso de IA, narrativa de commits, `decisions.md` / `iterations.md`, defensa oral con preguntas sobre el diff. **Los datos ya se producen**; lo que falta es consentimiento, estructura y análisis — no burocracia nueva.
 
 ---
@@ -156,6 +187,27 @@ Hay **cuatro** consentimientos distintos, y conviene no confundirlos porque tien
 | **verano 2027** | Envío del estudio de replicación (RQ1) a revista abierta |
 | **sep 2027 – jun 2028** | **Ciclo 2**: comparación longitudinal disponible |
 | **2028** | **IFE 2028**; objetivo de revista de alto impacto con dos ciclos; propuesta de secuenciación (RQ5) como *design principles* |
+
+---
+
+## 7-bis. Consecuencias interinstitucionales (nuevas)
+
+**Aprobaciones necesarias en DOS instituciones.** UDIT para FE I/II; Universidad Europea para la participación de Creación Digital. Cada una con su regimen de protección de datos.
+
+**Consentimientos añadidos** — la obra de diseño del estudiantado de moda es **propiedad creativa autoral** y no está cubierta por el conjunto de consentimientos del §6:
+
+| # | Consentimiento | Quién | Naturaleza |
+| --- | --- | --- | --- |
+| **S1** | Exhibir un diseño en el vShowroom | estudiante de CD | Por artefacto, revocable. **La autoría permanece en el estudiante**; la plataforma recibe únicamente licencia de exhibición |
+| **S2** | Atribución o anonimato | estudiante de CD | Elección del autor; por defecto atribuido, con opción de retirada |
+| **S3** | Uso investigador de los datos de interacción | ambas cohortes | Independiente de S1/S2 |
+| **S4** | Flujo de datos entre instituciones | UDIT ↔ UEM | **Dos regímenes.** Requiere ambas DPO |
+
+> **Regla de diseño que evita casi todo el problema:** la versión 1 del artefacto **no tiene cuentas de usuario**. Las colecciones y seguimientos viven en `localStorage` del visitante. Sin cuentas no hay datos personales de visitantes, y la cuestión de transferencia entre instituciones desaparece. Si la conversación con protección de datos se atasca, **se publica la v1 con colecciones locales** y la investigación conserva igualmente la evidencia de ingeniería a nivel de cohorte.
+
+**Nueva vía de mérito, sin datos de investigación:** el artefacto es abierto y público. **OEGlobal 2027** premia el activo abierto, no el estudio — no requiere consentimiento ni comité de ética (§7). Es la salida más rápida del calendario.
+
+**Y un destino nuevo que la sinergia habilita:** la laguna de moda (§2-bis) es publicable en venues de diseño/moda además de los de CER — lo que **duplica el alcance de una misma cohorte**. Concretamente, TEEM tiene pista de innovación educativa y García-Peñalvo preside su comité de dirección; el material de moda encaja además en foros de educación en diseño.
 
 ---
 
