@@ -118,46 +118,75 @@ Proyecto individual (no en equipo): una aplicación SSR con React Router v7 Fram
 
 ---
 ---
+---
 
 ## Fundamentación académica de las decisiones curriculares
 
-_Añadido 2026-08-10. Mapea cada decisión de diseño a la evidencia que la respalda. **Fuentes exclusivamente del vault ahmes del proyecto** (`profield/runs/frontend-pedagogy/01/pdfs` y `pdfs-ibero`), leídas en texto completo. No se cita nada fuera del vault, y se declara explícitamente dónde el vault **no** respalda una decisión._
+_Añadido 2026-08-10. Evidencia **exclusivamente de los bundles soberanos Ahmes** del proyecto (manifiestos `fe-main` = `runs/frontend-pedagogy/01/pdfs/.ahmes/batch-manifest.json` y `fe-ibero` = `…/pdfs-ibero/.ahmes/batch-manifest.json`; 17 `content_hash` únicos, deduplicados). Cada afirmación resuelve a `extraction.db` con `node_id` y página. **No se cita desde `REFERENCES-for-refcheck.md`**: es lista de candidatos, no evidencia extraída._
 
-| Decisión curricular | Evidencia (vault) | Qué respalda exactamente |
-| --- | --- | --- |
-| **Módulo 3 — accesibilidad como práctica ética**, no checklist final | Fisseler (2024) | La alfabetización en accesibilidad abarca *"both the creation (encoding) and interpretation (decoding) of accessible digital content"*, y su enseñanza *"improves technical skills and instills ethical and social responsibility"*. Cita a Lewthwaite y Sloan: es *"a socio-technical challenge that is primarily about the problem of teaching empathy"*. |
-| **Módulo 3 — enseñarla es la excepción, no la norma** | Fisseler (2024); Bhatt & Joshi / educadores en India (ICER '24) | Fisseler reporta que solo ~**15%** del profesorado encuestado enseña accesibilidad digital. El estudio en India documenta las perspectivas del profesorado sobre por qué no se enseña. Justifica que este módulo exista y no se delegue. |
-| **Módulo 3 — auditoría WCAG sobre sitios reales** como actividad | Batista & Baluz (2025); Correa, Vitoriano & Llanos (2025) | Batista evalúa webs universitarias brasileñas contra **WCAG 2.1** con la herramienta QualWeb: fallos recurrentes de **textos alternativos ausentes y contraste inadecuado** — exactamente los errores que el alumnado puede detectar y corregir. Correa evalúa **SIGAA, usado por 39 instituciones de educación superior**, y constata que las carencias persisten *"even after 20 years of eMAG"*, con metodología *living lab* junto a estudiantes con discapacidad visual. La auditoría no es un ejercicio ficticio: es el estado real del sector. |
-| **Proyecto integrador — portafolio autocodificado** | Garcia (2025) | **Coincidencia temática directa**: 176 estudiantes de grado en un *"website design and development course"*, con tareas semanales de código que culminan en un **portafolio autocodificado** bajo aprendizaje basado en proyectos. Es el diseño de nuestro proyecto integrador y del lema *"un estudiante, un repositorio, un proyecto"*. |
-| **Semestre 2 — metodología docs-first** (plan antes que código) | Phung et al. (2025) | 102 estudiantes; entre pistas de *planning*, *debugging* y *optimization*, las de **planificación fueron las más solicitadas y se asocian consistentemente con mejores calificaciones**. Respaldo empírico directo de exigir plan antes de implementar. |
-| **Semestre 2 — IA con validación crítica** | Liu, Fan & Pan (2026) | Nombra dos fallos evaluables que este curso combate: *"Trust-but-Can't-Verify"* en principiantes y *"Boilerplate Blindspot"* en avanzados, junto a *"attenuated meta-cognitive calibration — a mismatch between perceived readiness and independent capability"*. Es la justificación de la defensa oral. |
-| **Semestre 2 — asistencia diferida y escritura de pistas** | Singh et al. (2026) | Compara escribir pistas de forma independiente, con IA a demanda y con **IA diferida**; la tarea fuerza depuración, pensamiento crítico y reflexión. Modelo para estructurar el acceso a la IA en evaluación. |
-| **Semestre 2 — despliegue de asistente de IA en aula** | Kazemitabaar et al. (2024), CHI | Despliegue real en aula de un asistente LLM: evidencia de qué ocurre cuando la IA es ambiente, no excepción. |
-| **Declaración de uso de IA e integridad** | González-Videgaray et al. (2026) | En el ámbito hispanohablante: la integridad académica es *"una actitud sustentada en un sistema de valores colectivo que debe formarse, preservarse y fomentarse"* — **formarse**, no solo vigilarse. Respalda declarar y evaluar el uso de IA en lugar de prohibirlo. |
-| **Pertinencia regional del enfoque** | CEPAL (2024); Digital Education Council (2026); Gonçalves et al. (2025); Neves & Oliveira (2024); RCS (2026) | Competencias digitales en América Latina y el Caribe; encuesta sobre IA en educación superior en LATAM; revisión sistemática de la enseñanza de programación en Brasil; experiencia de informática K-12 en Portugal; revisión sistemática sobre IA generativa en la enseñanza de matemáticas y programación. Sitúan las decisiones en el espacio iberoamericano, no solo anglosajón. |
-| **Rango curricular** (web y accesibilidad como núcleo) | CS2023 | Legitimidad curricular internacional para tratar plataformas web y accesibilidad como área de conocimiento, no como optativa. |
+**Convención de cita:** `⟨coat⟩ · nodo ⟨node_id⟩ · p. ⟨página⟩`, donde *coat* es el directorio en `~/ahmes-library/scholar/documents/`. Duplicados resueltos: se usa `liu_fan_pan…dc2bd27d` (no `tool_tutor…`, mismo hash) y `digital_accessibility_literacy…91241359` (no `fisseler…`, mismo hash). `correction_to_tool_tutor…4429a07e` no se cita: es erratum.
 
-**Dónde el vault NO respalda el diseño — declarado, no rellenado.**
+### Decisiones respaldadas
 
-- **Módulos 1 y 2 (CSS3 avanzado, JavaScript y asincronía):** el vault no contiene investigación educativa sobre enseñanza de CSS moderno, layout o asincronía en JavaScript. Estos módulos se sostienen en la práctica profesional y en documentación de plataforma (MDN), no en evidencia empírica. Es una laguna real del campo, no un descuido de esta guía.
-- **Coste energético y climático del código** (véase *Fundamento Pedagógico*): el vault no contiene ninguna fuente sobre energía o huella de carbono de la computación. Se mantiene como **compromiso razonado, no como hallazgo citado**, y no se acompaña de cifras inventadas.
-- **Marco legal de accesibilidad** (RD 1112/2018 y equivalentes): no hay instrumentos legales en el vault. El único apoyo disponible es indirecto — Correa et al. discuten **eMAG** (Brasil) como marco normativo. Si esta guía va a invocar obligación legal española, requiere una pasada de corpus propia.
+**1 · Proyecto integrador y "un estudiante, un repositorio, un proyecto"**
+`garcia_self_coded…8fef58f2` · nodo `ba2fa258` · p. 0 — Portafolios digitales como evaluación en ABP; el estudio parte de que *"students exert minimal effort in creating digital portfolios because they find the writing component unchallenging"*, y propone en su lugar el portafolio **autocodificado**. Contexto (nodo `7cac84dd` · p. 3): FEU Institute of Technology, Manila (Filipinas), programa de TI de cuatro años.
+> **Es la única fuente del vault cuya cohorte es un curso de diseño y desarrollo web.** Todo lo demás es programación general o ciencia de datos. Coincidencia temática directa con nuestro proyecto integrador.
 
-**Referencias (todas leídas del vault)**
+**2 · Metodología docs-first (plan antes que código) — con matiz importante**
+`phung_et_al…ea8cf54c` · nodo `bdd21a1f` · p. 0 y nodo `cc62b45e` · p. 5 — Sistema de pistas organizado en fases metacognitivas (planificación, monitorización, evaluación). El dato preciso de resultados: *"debugging hints being requested the most, followed by planning hints, while optimization hints were rarely used"*.
+> ⚠️ **Corrección de una lectura previa de esta guía.** Una pasada anterior afirmó que las pistas de planificación eran las más solicitadas. El nodo de resultados dice que **las más solicitadas son las de depuración**, seguidas de planificación. Lo que sí sostiene la fuente es que la planificación recibe mayor tiempo de contemplación y que la **optimización casi no se solicita nunca** — de ahí que el rendimiento deba imponerse curricularmente (Frontend II, Bloque 4) y no esperarse.
 
-- ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023.* DOI: `10.1145/3664191`
-- Batista, H. E. N., & Baluz, R. A. R. S. (2025). *Evaluation of Higher Education Institution Websites According to WCAG 2.1… Brazil.* iSys, 18(1).
-- Correa, M., Vitoriano, M. A., & Llanos, C. H. (2025). *Web Accessibility in an Academic Management System in Brazil.* Informatics, 12(3), 63.
-- CEPAL/ECLAC (2024). *Digital competences in Latin America and the Caribbean.*
-- Digital Education Council (2026). *AI in Higher Education — LATAM Survey 2026.*
-- Fisseler, B. (2024). *Digital Accessibility Literacy.* ASSETS 2024 Workshop.
-- Garcia, M. B. (2025). *Self-Coded Digital Portfolios as an Authentic Project-Based Learning Assessment in Computing Education.*
-- Gonçalves, S. C. L., et al. (2025). *Programming in Brazilian Higher Education and High School: A Systematic Literature Review.*
-- González-Videgaray, M. del C., et al. (2026). *Integridad académica y plagio en la educación superior: disrupción de la IA generativa.* FIGURAS, 7(2).
-- Kazemitabaar, M., et al. (2024). *CodeAid: Evaluating a Classroom Deployment of an LLM-based Programming Assistant.* CHI 2024.
-- Liu, D., Fan, G., & Pan, L. (2026). *Tool, tutor, or crutch?* Int. J. STEM Education, 13:10.
-- Neves, F. L., & Oliveira, J. N. (2024). *First Steps towards K-12 Computer Science Education in Portugal.*
-- Phung, et al. (2025). *Plan More, Debug Less.* AIED 2025.
-- RCS (2026). *IA generativa para la enseñanza de matemáticas y programación en educación superior: revisión sistemática.*
-- Singh, et al. (2026). *Hint-Writing with Deferred AI Assistance.*
-- *Teaching Digital Accessibility in Computing Education: Views of Educators in India* (ICER '24).
+**3 · IA con validación crítica y defensa oral**
+`liu_fan_pan…dc2bd27d` · nodo `1db27080` · p. 1 — La pregunta que estructura el curso: *"do they reflect genuine learning facilitated by effective scaffolding, or do they co-occur with superficial dependency enabled by cognitive offloading?"*, en marco vygotskiano.
+Voz estudiantil (`verbatim_quote`), nodo `c3157096` · p. 12:
+> *"I got good grades on all the projects, but now I have the final exam next week without Copilot… and honestly, I'm terrified. I'm not sure what I actually know."*
+
+Y la presión de plazo, nodo `674ecb42` · p. 8: *"when it's 2 AM and the project is due at 9 AM… I'm not trying to learn anymore, I'm just trying to finish."*
+> Justificación empírica de la **defensa oral**: sin ella, la calificación mide entrega, no comprensión — y el propio alumnado lo sabe.
+
+**4 · Acceso escalonado a la IA en evaluación**
+`singh_et_al…37173a2a` · nodo `56059570` · p. 0 (*"Hint-Writing with Deferred AI Assistance: Fostering Critical Engagement"*) y nodo `95f7d0fa` · p. 5, que analiza si el alumnado **detecta errores omitidos por la pista de GPT** o **descarta la pista**. Modelo directo para estructurar el acceso a IA en pruebas.
+
+**5 · La IA asiste sin resolver**
+`kazemitabaar…23259ff1` · nodo `c2a108d2` · p. 0 — *"LLM-powered tools like ChatGPT offer instant support, but reveal direct answers with code, which may hinder deep conceptual engagement"*; CodeAid entrega ayuda **sin revelar la solución**. Respalda enseñar la IA como andamiaje, no como oráculo.
+
+**6 · Accesibilidad como alfabetización, no checklist**
+`digital_accessibility_literacy…91241359` · nodo `89cdb78b` · p. 1 — *"Central to literacy concepts is the individual's ability to encode and decode… a person should be able to read (decoding) and write (encoding)"*, trasladado a la accesibilidad. Nodo `af211774` · p. 2: la alfabetización integra *"awareness raising, technical standards, inclusive design practices, and the consideration of user feedback"* de forma continua. Nodo `0832db64` · p. 0 diagnostica que *"a discourse on a pedagogical culture for teaching digital literacy is still lacking"*.
+
+**7 · El profesorado es el cuello de botella — y discrepa**
+`teaching_digital_accessibility…d57634a5` (Parthasarathy & Joshi, 2024, ICER, DOI `10.1145/3632620.3671122`), voces docentes:
+- nodo `5c396979` · p. 7 — *"As a computer science teacher… I [should] also know what should be taught"* (P7): el profesorado pide formarse primero.
+- nodo `49ac62fd` · p. 6 — *"lack of awareness, people who are designing need to have an idea about accessibility… inclusive design is not practiced"* (P12).
+- nodo `b2fc2c85` · p. 6 — **contraargumento explícito**: parte del profesorado considera que la empatía *"is not an appropriate learning outcome for CS courses"*.
+> Se cita el desacuerdo a propósito. Esta guía adopta la posición ética-y-empática, pero el alumnado debe saber que **está en disputa dentro del propio campo**; eso es enseñar críticamente y no doctrina.
+
+**8 · La auditoría WCAG es trabajo de campo real, no simulacro**
+`batista_baluz…0d28c6a5` · nodo `301dc884` · p. 0 — webs universitarias brasileñas frente a WCAG 2.1, con *"the absence of alternative text"* y contraste inadecuado como fallos recurrentes.
+`correa_vitoriano_llanos…ac71e73e` · nodo `0b8e3a74` · p. 0 — SIGAA y el modelo **eMAG**; el estudio investiga por qué persisten las carencias pese al marco normativo.
+> Los errores que el alumnado detecta y corrige en clase son exactamente los que el sector sigue cometiendo.
+
+**9 · Declaración de uso de IA: integridad que se forma**
+`gonzalez_videgaray…078b0a6a` · nodo `fbe705f2` · p. 6 — el uso legítimo de la IA generativa entendido como *"asistencia situada dentro de la Zona de Desarrollo Próximo propuesta por Vygotsky"*, actuando como *"par más capaz"*. Nodo `d22a81d1` · p. 4 para la definición operativa de plagio.
+> Enlaza con Liu (vygotskiano): un mismo marco teórico sostiene el andamiaje y la integridad. La declaración de IA es formación, no vigilancia.
+
+**10 · Rango curricular de la web**
+`3664191_da20f30d` (CS2023) · nodo `ae35ed39` · **p. 265** — la unidad existe como *"SPD-Web: Web Platforms (2 hours)"*.
+> Dato con filo: el currículo internacional de referencia dedica **2 horas** a plataformas web dentro de *Specialized Platform Development*. Legitima el área **y** justifica que una titulación de desarrollo web necesite asignaturas propias: 2 horas no forman a nadie.
+
+**11 · Contexto iberoamericano**
+`digital_education_council…20489b0b` · nodo `b15014c1` · p. 2 — *"A clear majority of students (65%) worry about AI leading to shallow learning and an absence of fairness in assessment (56%)"*.
+> El alumnado **pide** evaluación justa ante la IA. La defensa oral y la declaración de uso responden a una demanda estudiantil documentada, no solo a una preocupación docente.
+Respaldo regional adicional: `cepal…48ba6c8d` · nodo `769a6e2c` (competencias digitales en América Latina y el Caribe) · `goncalves…2fab894b` · nodo `718bf891` (revisión sistemática de enseñanza de programación en Brasil) · `neves_oliveira…68dbfea1` · nodo `ca72455e` (informática K-12 en Portugal) · `rcs…91103623` · nodo `9fabe333` (revisión sistemática sobre IA generativa en enseñanza de matemáticas y programación).
+
+### Disciplina de alcance (declarada, no disimulada)
+
+- **Solo Garcia** tiene cohorte de **diseño y desarrollo web**; en Filipinas, no en España.
+- **Phung, Singh, Kazemitabaar y Liu** son de **programación general o ciencia de datos**, no de front-end. Su transferencia a este contexto es una decisión razonada, no un hallazgo replicado.
+- **Parthasarathy & Joshi** recoge percepciones docentes en **India**; **Batista, Correa** son de **Brasil**. No hay evidencia extraída de cohortes españolas en el vault.
+
+### Lagunas del vault (declaradas, no rellenadas)
+
+- **Módulos 1 y 2 (CSS3 avanzado, JavaScript, asincronía):** ninguna fuente extraída sobre su enseñanza. Se sostienen en práctica profesional y documentación de plataforma.
+- **Coste energético y climático del código:** ninguna fuente en el vault. Compromiso razonado, no hallazgo citado; sin cifras inventadas.
+- **Marco legal español (RD 1112/2018 y equivalentes):** **no ingerido**. El único apoyo normativo extraído es indirecto — eMAG (Brasil) vía Correa. Invocar obligación legal española exige una pasada de corpus propia.
+- **Calidad bibliográfica desigual:** los coats de Liu (`TI - Abstract`), Phung y Singh (`TI - 1 Introduction`) y CodeAid (`TI - Paul Denny`) tienen metadatos imperfectos. Se citan por coat y nodo, y **no se han fabricado citas más limpias de lo que RIS/`metadata` sostienen**. Coats con metadatos completos: Garcia (DOI `10.3390/educsci15091150`), Parthasarathy & Joshi (DOI `10.1145/3632620.3671122`), CS2023 (Kumar, Eaton et al.).

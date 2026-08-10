@@ -88,31 +88,65 @@ _Nota de alcance (2026-08-09):_ esta guía sustituye la versión anterior (Módu
 
 ---
 
+---
+
 ## Fundamentación académica de las decisiones curriculares
 
-_Añadido 2026-08-10. **Fuentes exclusivamente del vault ahmes del proyecto** (`profield/runs/frontend-pedagogy/01`), leídas en texto completo. El resultado es deliberadamente desigual y esa desigualdad es informativa: **Frontend II opera en la frontera del campo**, donde la evidencia pedagógica todavía no existe._
+_Añadido 2026-08-10. Evidencia **exclusivamente de los bundles soberanos Ahmes** (manifiestos `fe-main` y `fe-ibero`; 17 `content_hash` únicos, deduplicados). Cada afirmación resuelve a `extraction.db` con `node_id` y página. Convención: `⟨coat⟩ · nodo ⟨id⟩ · p. ⟨n⟩`. Duplicados resueltos a favor de `liu_fan_pan…dc2bd27d` y `digital_accessibility_literacy…91241359`; el erratum `correction_to_tool_tutor…4429a07e` no se cita._
 
-| Bloque | Evidencia (vault) | Qué respalda |
+**El resultado es deliberadamente desigual, y esa desigualdad es el argumento:** los bloques que dan identidad a Frontend II carecen de respaldo porque **el campo aún no lo ha producido**.
+
+### Bloques respaldados
+
+**Bloque 3 · Revisión de código asistida por IA (Unidad 6)**
+`liu_fan_pan…dc2bd27d` · nodo `1db27080` · p. 1 — la pregunta central: *"do they reflect genuine learning facilitated by effective scaffolding, or do they co-occur with superficial dependency enabled by cognitive offloading?"*
+Voz estudiantil, nodo `c3157096` · p. 12: *"I got good grades on all the projects, but now I have the final exam next week without Copilot… and honestly, I'm terrified. I'm not sure what I actually know."*
+`kazemitabaar…23259ff1` · nodo `c2a108d2` · p. 0 — asistentes que *"reveal direct answers with code, which may hinder deep conceptual engagement"*; CodeAid entrega ayuda sin revelar la solución.
+> Fundamenta el flujo *human-in-the-loop* y, sobre todo, que se evalúe el **rechazo razonado** de sugerencias: el registro de decisiones ACCEPT/REJECT es la contramedida directa al testimonio anterior.
+
+**Bloque 4 · Rendimiento como restricción impuesta**
+`phung_et_al…ea8cf54c` · nodo `cc62b45e` · p. 5 — *"debugging hints being requested the most, followed by planning hints, while **optimization hints were rarely used**"*.
+> Hallazgo con consecuencia curricular directa: **la optimización no se demanda espontáneamente**. Si el rendimiento no se impone como presupuesto evaluable, no ocurre. Es la justificación empírica del *performance budget* de la Unidad 7 — no la parte climática, que sigue sin respaldo (véase lagunas).
+
+**Bloque 3 · Acceso escalonado a la IA**
+`singh_et_al…37173a2a` · nodo `95f7d0fa` · p. 5 — analiza si el alumnado detecta errores **omitidos** por la pista de GPT o si **descarta** la pista. Modelo para diseñar pruebas con IA diferida.
+
+**Bloque 7 · Capstone, evidencia de proceso y defensa oral**
+`garcia_self_coded…8fef58f2` · nodo `ba2fa258` · p. 0 — portafolio autocodificado como evaluación auténtica de ABP (única cohorte de desarrollo web del vault; FEU, Manila — nodo `7cac84dd` · p. 3).
+`gonzalez_videgaray…078b0a6a` · nodo `fbe705f2` · p. 6 — la IA generativa como *"asistencia situada dentro de la Zona de Desarrollo Próximo"*, actuando como *"par más capaz"*.
+`digital_education_council…20489b0b` · nodo `b15014c1` · p. 2 — *"A clear majority of students (65%) worry about AI leading to shallow learning and an absence of fairness in assessment (56%)"*.
+> La defensa oral responde a una **demanda estudiantil documentada** en América Latina, no solo a una inquietud del profesorado.
+
+**Bloque 6 · Legibilidad para Ciencia de Datos e IA**
+`phung_et_al…ea8cf54c` y `singh_et_al…37173a2a` operan en cursos de **programación para ciencia de datos**; `rcs…91103623` · nodo `9fabe333` revisa sistemáticamente la IA generativa en enseñanza de matemáticas y programación.
+> Respalda que el alumnado de datos es audiencia real de este diseño — aunque **ninguna** de estas fuentes trata la capa de interfaz, que es justamente lo que aporta la Unidad 10.
+
+**Accesibilidad sostenida en tercer curso (Unidad 5)**
+`batista_baluz…0d28c6a5` · nodo `301dc884` · p. 0 (ausencia de textos alternativos y contraste insuficiente en webs universitarias) y `correa_vitoriano_llanos…ac71e73e` · nodo `0b8e3a74` · p. 0 (SIGAA y eMAG). `digital_accessibility_literacy…91241359` · nodo `89cdb78b` · p. 1 para la accesibilidad como alfabetización (codificar y descodificar). `teaching_digital_accessibility…d57634a5` · nodo `b2fc2c85` · p. 6 recoge además el **contraargumento** de parte del profesorado: la empatía *"is not an appropriate learning outcome for CS courses"*.
+> Justifica mantener aserciones automáticas de accesibilidad en la suite de pruebas: el sector sigue fallando en lo básico.
+
+**Rango curricular**
+`3664191_da20f30d` (CS2023) · nodo `ae35ed39` · p. 265 — *"SPD-Web: Web Platforms (2 hours)"*.
+> Dos horas en el currículo internacional de referencia. Legitima el área y, a la vez, evidencia por qué una titulación de desarrollo web necesita asignaturas propias.
+
+### Bloques SIN respaldo en el vault — el argumento del piloto
+
+Ninguna fuente extraída sostiene la pedagogía de:
+
+| Bloque | Contenido | Estado |
 | --- | --- | --- |
-| **Bloque 3 — revisión de código asistida por IA** (Unidad 6) | Liu, Fan & Pan (2026); Kazemitabaar et al. (2024) | Liu et al. nombran los fallos que el flujo *human-in-the-loop* combate: *"Trust-but-Can't-Verify"* en principiantes y *"Boilerplate Blindspot"* en avanzados, más una *"attenuated meta-cognitive calibration"* entre competencia percibida y real. Kazemitabaar aporta evidencia de despliegue real de un asistente LLM en aula. Justifica evaluar **el rechazo razonado** de sugerencias, no solo su aceptación. |
-| **Bloque 3 — planificar antes de implementar** | Phung et al. (2025) | Las pistas de planificación fueron **las más solicitadas y se asocian con mejores calificaciones**; las de optimización, casi nunca pedidas. Respalda el orden docs-first y advierte que la optimización no se demanda sola: hay que exigirla (Bloque 4). |
-| **Bloque 3 — acceso escalonado a la IA en evaluación** | Singh et al. (2026) | Diseños comparados de asistencia independiente, a demanda y **diferida** para escritura de pistas. Modelo para estructurar el acceso a IA en pruebas. |
-| **Bloque 7 — capstone, evidencia de proceso y defensa** | Garcia (2025); González-Videgaray et al. (2026) | Garcia valida el portafolio autocodificado como evaluación auténtica de ABP en un curso de desarrollo web (176 estudiantes). González-Videgaray sostiene que la integridad *"debe formarse, preservarse y fomentarse"*: la declaración de uso de IA es formación, no vigilancia. |
-| **Legibilidad para el Grado en Ciencia de Datos e IA** (Bloque 6) | Phung et al. (2025); Singh et al. (2026); RCS (2026) | Phung y Singh trabajan en cursos de **programación para ciencia de datos**; RCS revisa sistemáticamente IA generativa en la enseñanza de matemáticas y programación. Respalda que el alumnado de datos es audiencia real de este tipo de diseño. |
-| **Contexto regional** | CEPAL (2024); Digital Education Council (2026); Gonçalves et al. (2025); Neves & Oliveira (2024) | Competencias digitales en América Latina y el Caribe; adopción de IA en educación superior LATAM; revisión sistemática de enseñanza de programación en Brasil; informática K-12 en Portugal. |
-| **Accesibilidad sostenida en tercer curso** | Fisseler (2024); Batista & Baluz (2025); Correa et al. (2025) | La accesibilidad no se agota en Frontend I: Correa documenta que los fallos persisten *"even after 20 years of eMAG"* en un sistema usado por **39 instituciones**; Batista halla ausencia de textos alternativos y contraste insuficiente en webs universitarias. Justifica mantener aserciones automáticas de accesibilidad en la suite de pruebas (Unidad 5). |
-| **Rango curricular** | CS2023 | Legitimidad para tratar plataformas web como área de conocimiento. |
+| **1** | Metaframeworks, Astro, arquitectura de islas, SSR/SSG, micro-frontends | sin evidencia en el vault |
+| **2** | PWA, service workers, resiliencia offline | sin evidencia en el vault |
+| **4** | Pedagogía de la ingeniería de rendimiento (más allá del hallazgo de Phung sobre demanda) | sin evidencia en el vault |
+| **5** | 3D web, React Three Fiber, alfabetización en shaders | sin evidencia en el vault |
+| **6** | Capa de interfaz para IoT/robótica y servicios Python | sin evidencia en el vault |
 
-**Dónde el vault NO respalda el diseño — y por qué eso es el argumento, no la debilidad.**
+Coincide con el diagnóstico de [`profield-frontend-pedagogy.md`](../profield-frontend-pedagogy.md), donde estos temas figuran como **`[UNVERIFIED-GAP]`**: ausencias reales del campo, no de esta búsqueda.
 
-Los bloques que definen la identidad de Frontend II **no tienen respaldo en el vault**:
+> **Frontend II se declara asignatura piloto.** Propone una secuenciación donde la literatura no ofrece ninguna, y lo hace explícito ante el alumnado y ante el departamento. No se rellena con normativa no ingerida ni con fuentes ajenas al vault. La honestidad sobre la laguna es parte del contenido: el alumnado de tercero debe ver cómo se trabaja en la frontera de un campo, no creer que todo currículo descansa sobre evidencia consolidada.
 
-- **Bloque 1 (metaframeworks, Astro, islas):** ninguna fuente sobre pedagogía de metaframeworks o arquitecturas de renderizado.
-- **Bloque 2 (PWA/offline):** ninguna fuente.
-- **Bloque 4 (rendimiento):** ninguna fuente sobre enseñanza de ingeniería de rendimiento, ni sobre coste energético del código.
-- **Bloque 5 (3D, R3F, shaders):** ninguna fuente sobre pedagogía de 3D web.
-- **Bloque 6 (IoT/robótica, interfaces respaldadas por Python):** ninguna fuente sobre la capa de interfaz en estos contextos.
+### Disciplina de alcance
 
-Esto coincide con el diagnóstico de `profield-frontend-pedagogy.md`, donde estos temas figuran como `[UNVERIFIED-GAP]`: ausencias reales del campo, no de esta búsqueda. **Frontend II se declara, por tanto, como asignatura piloto**: propone una secuenciación donde la literatura aún no ofrece ninguna, y lo hace explícito ante el alumnado y ante el departamento en lugar de simular respaldo. Las decisiones de estos bloques se sostienen en práctica profesional y en el eje `interface` del marco de investigación propio, no en evidencia empírica publicada.
-
-**Referencias (todas leídas del vault):** CS2023 (DOI `10.1145/3664191`) · Batista & Baluz (2025), iSys 18(1) · CEPAL/ECLAC (2024) · Correa, Vitoriano & Llanos (2025), Informatics 12(3), 63 · Digital Education Council (2026), *AI in Higher Education LATAM Survey* · Fisseler (2024), ASSETS 2024 Workshop · Garcia (2025), *Self-Coded Digital Portfolios* · Gonçalves et al. (2025) · González-Videgaray et al. (2026), FIGURAS 7(2) · Kazemitabaar et al. (2024), CHI · Liu, Fan & Pan (2026), Int. J. STEM Ed. 13:10 · Neves & Oliveira (2024) · Phung et al. (2025), AIED · RCS (2026) · Singh et al. (2026) · *Teaching Digital Accessibility… Views of Educators in India* (ICER '24).
+- **Garcia** es la única cohorte de desarrollo web (Filipinas). **Phung, Singh, Kazemitabaar, Liu** son de programación general o ciencia de datos. **Parthasarathy & Joshi** (India), **Batista** y **Correa** (Brasil). **Ninguna cohorte española** en el vault.
+- **Calidad bibliográfica desigual:** coats de Liu (`TI - Abstract`), Phung y Singh (`TI - 1 Introduction`) y CodeAid (`TI - Paul Denny`) con metadatos imperfectos; se citan por coat y nodo sin fabricar citas más limpias de lo que RIS/`metadata` sostienen. Completos: Garcia (DOI `10.3390/educsci15091150`), Parthasarathy & Joshi (DOI `10.1145/3632620.3671122`), CS2023.
+- **Vault de creatividad digital / moda: fuera de alcance** para estas guías; no se ha citado.
