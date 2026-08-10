@@ -1,5 +1,9 @@
 # Omnibus Research Landscape Map
 
+> **This file is the GLOBAL layer only.** Two further grounding layers live in [`grounding/`](./grounding/) and are required reading before authoring curriculum: the **Ibero-American layer** ([`grounding/profield-ibero-layer.md`](./grounding/profield-ibero-layer.md) — Spain, Portugal, Brazil, Mexico) and the **authorities directory** ([`grounding/profield-authorities-directory.md`](./grounding/profield-authorities-directory.md) — venues, standards, centres, awards). See [`grounding/README.mdc`](./grounding/README.mdc) for which layer is canonical where, and for the **per-unit evidence matrix** governing the remaining FE II lessons.
+>
+> Sync note (2026-08-10): **this file is ahead of `profield/runs/frontend-pedagogy/01/pass1.edited.md`** (pass-2/3, no Ahmes dressing). Do not overwrite it from that source.
+
 ## Front-end and Interface-Layer Development Pedagogy in Higher Education
 
 _Last updated: 2026-08-10_ (pass-5 Ahmes dressing: seven unique PDFs from `profield/runs/frontend-pedagogy/01/pdfs/.ahmes` matched to field arguments via fission nodes + `anchor_semantic` / `verbatim_quote` tags; verbatim student/faculty quotes and abstract-level claims inserted under §4–§6; new §16 documents how Ahmes improves perspective without changing claim tags. Prior pass-4: field renamed to interface-layer pedagogy; durable-core/volatile-layer axis, cross-platform transferability, AI-assessment axes; accessibility as durable core; five 2026 AI sources; Park & Wiedenbeck DOI correction — §14 item 10)

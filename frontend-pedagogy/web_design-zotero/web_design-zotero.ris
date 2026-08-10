@@ -1,0 +1,1426 @@
+TY  - BOOK
+TI  - Don't make me think, revisited: a common sense approach to Web [and mobile] usability
+AU  - Krug, Steve
+CY  - Berkley
+DA  - 2014///
+PY  - 2014
+DP  - K10plus ISBN
+ET  - third edition
+SP  - 200
+LA  - eng
+PB  - New Riders
+SN  - 978-0-321-96551-6
+ST  - Don't make me think, revisited
+L1  - files/2757/Krug - 2014 - Don't make me think, revisited a common sense app.pdf
+N1  - Previous ed.: 2006. - Includes bibliographical references and index
+ER  - 
+
+TY  - BOOK
+TI  - Designing with CSS Grid Layout
+AU  - SitePoint Team
+DA  - 2017/07/14/
+PY  - 2017
+PB  - SitePoint
+UR  - https://www.sitepoint.com/premium/books/designing-with-css-grid-layout/
+ER  - 
+
+TY  - BOOK
+TI  - High performance images$nshrink, load, and deliver images for speed
+AU  - Bendell, Colin
+AU  - Kadlec, Tim
+AU  - Weiss, Yoav
+AU  - Podjarny, Guy
+AU  - Doyle, Nick
+AU  - McCall, Mike
+CY  - Beijing Boston Farnham
+DA  - 2016///
+PY  - 2016
+DP  - K10plus ISBN
+ET  - First edition
+SP  - 331
+LA  - eng
+PB  - O'Reilly
+SN  - 978-1-4919-2580-5
+N1  - Hier auch später erschienene, unveränderte Nachdrucke
+N1  - The case for performance -- Part I. Image files and formats -- The theory behind digital images -- Lossless image formats -- JPEG -- Browser-specific formats -- SVG and vector images -- Part II. Image loading -- Browser image loading -- Lazy loading -- Image processing -- Image consolidation (for network and cache efficiencies) -- Responsive images -- Client hits -- Image delivery -- Operationalizing your image workflow -- Summary -- Raster image formates -- Common tools -- Evolution of <img>
+ER  - 
+
+TY  - BOOK
+TI  - Generative design: visualize, program, and create with JavaScript in p5.js
+AU  - Bohnacker, Hartmut
+AU  - Gross, Benedikt
+AU  - Laub, Julia
+AU  - Lazzeroni, Claudius
+A4  - Frohling, Marie
+AB  - Generative design, once known to insiders as a revolutionary method of creating artwork, models, and animations with programmed algorithms, has in recent years become a popular tool for designers. By using simple languages such as JavaScript in p5.js, artists and makers can create everything from interactive typography and textiles to 3D-printed furniture to complex and elegant infographics-- Provided by publisher
+CY  - Hudson, New York
+DA  - 2018///
+PY  - 2018
+DP  - Open WorldCat
+ET  - Revised and updated edition
+LA  - eng
+PB  - Princeton Architectural Press
+SN  - 978-1-61689-758-1
+ST  - Generative design
+ER  - 
+
+TY  - BOOK
+TI  - Designing your new work life: how to thrive and change and find happiness - and a new freedom - at work
+AU  - Burnett, Bill
+AU  - Evans, Dave
+AB  - "A book that shows how to find meaning and satisfaction in your work life."-- Provided by publisher
+CY  - New York
+DA  - 2021///
+PY  - 2021
+DP  - Open WorldCat
+ET  - First Vintage Books edition
+LA  - eng
+PB  - Vintage Books, a division of Penguin Random House LLC
+SN  - 978-0-593-46745-9
+ST  - Designing your new work life
+ER  - 
+
+TY  - COMP
+TI  - Web Audio API
+AU  - Smus, Boris
+AB  - This is the master repo for http://webaudioapi.com.
+UR  - https://github.com/borismus/webaudioapi.com
+ER  - 
+
+TY  - BOOK
+TI  - Grid layout in CSS: interface layout for the web
+AU  - Meyer, Eric A.
+AB  - CSS has had a layout-shaped hole at its center since the beginning. Designers have bent features such as float and clear to help fill that hole, but nothing has quite done the job. Now that's about to change. With this concise guide, you'll learn how to use CSS grid layout, a generalized system that lets you lay out pieces of your design independent of their document source order and with full awareness of the overall design. Short and deep, this book is an excerpt from the upcoming fourth edition of CSS: The Definitive Guide. When you purchase either the print or the ebook edition of Grid L
+CY  - Sebastopol, CA
+DA  - 2016///
+PY  - 2016
+DP  - Open WorldCat
+ET  - First edition
+LA  - eng
+PB  - O'Reilly Media, Inc.
+SN  - 978-1-4919-3018-2
+ST  - Grid layout in CSS
+ER  - 
+
+TY  - BOOK
+TI  - Designing and prototyping interfaces with Figma: learn essential UX/UI design principles by creating interactive prototypes for mobile, tablet, and desktop
+AU  - Staiano, Fabio
+AB  - Discover user experience and user interface design best practices while mastering a wide array of tools across Figma and FigJam with this full-color guide Key Features Learn the basics of user experience research, result organization, and analysis in FigJam Create mockups, interactive animations, and high-fidelity prototypes using this platform-independent web application tool Collaborate with a team in real-time and create, share, and test your designs Book Description A driving force of the design tools market, Figma makes it easy to work with classic design features while enabling unique innovations and opening up real-time collaboration possibilities. It comes as no surprise that many designers decide to switch from other tools to Figma. In this book, you'll be challenged to design a user interface for a responsive mobile application having researched and understood user needs. You'll become well-versed with the process in a step-by-step manner by exploring the theory first and gradually moving on to practice. You'll begin your learning journey by covering the basics of user experience research with FigJam and the process of creating a complete design using Figma tools such as Components, Variants, Auto Layout, and much more. You'll also learn how to prototype your design and explore the potential of community resources such as templates and plugins. By the end of this Figma book, you'll have a solid understanding of the user interface workflow, managing essential Figma tools, and organizing your workflow. What you will learn Explore FigJam and how to use it to collect data in the research phase Wireframe the future interface with shape tools and vectors Define grids, typography, colors, and effect styles that can be reused in your work Get to grips with Auto Layout and the constraints to create complex layouts Create flexible components using styles and variants Make your user interface interactive with prototyping and smart animate Share your work with others by exporting assets and preparing development resources Discover templates and plugins from the community Who this book is for This book is for aspiring UX/UI designers who want to get started with Figma as well as established designers who want to migrate to Figma from other design tools. This guide will take you through the entire process of creating a full-fledged prototype for a responsive interface using all the tools and features that Figma has to offer. As a result, this Figma design book is suitable for both UX and UI designers, product and graphic designers, and anyone who wants to explore the complete design process from scratch
+CY  - Birmingham
+DA  - 2022///
+PY  - 2022
+DP  - Open WorldCat
+LA  - eng
+PB  - Packt Publishing, Limited
+SN  - 978-1-80056-192-2
+ST  - Designing and prototyping interfaces with Figma
+ER  - 
+
+TY  - BOOK
+TI  - Real-time 3D graphics with WebGL 2: build interactive 3D applications with JavaScript and WebGL 2 (OpenGL ES 3.0)
+AU  - Ghayour, Farhad
+AU  - Cantor, Diego
+CY  - Birmingham Mumbai
+DA  - 2018///
+PY  - 2018
+DP  - K10plus ISBN
+ET  - Second edition
+SP  - 480
+LA  - eng
+PB  - Packt
+SN  - 978-1-78862-969-0
+ST  - Real-time 3D graphics with WebGL 2
+L1  - files/2769/Ghayour and Cantor - 2018 - Real-time 3D graphics with WebGL 2 build interact.pdf
+ER  - 
+
+TY  - BOOK
+TI  - SVG animations: from common UX implementations to complex responsive animation
+AU  - Drasner, Sarah
+AB  - SVG is extremely powerful, with its reduced HTTP requests and crispness on any display. It becomes increasingly more interesting as you explore its capabilities for responsive animation and performance boons. When you animate SVG, you must be aware of normal image traits like composition, color, implementation, and optimization. But when you animate, it increases the complexity of each of these factors exponentially.This practical book takes a deep dive into how you can to solve these problems with stability, performance, and creativity in mind.Learn how to make SVG cross-browser compatible, backwards compatible, optimized, and responsivePlan and debug animationMake a complex animation responsive, as many sites are responsiveProfile each animation technique in terms of performance so that you know what you're getting in to with each library or native technology
+CY  - Beijing Boston Farnham Sebastopol Tokyo
+DA  - 2017///
+PY  - 2017
+DP  - K10plus ISBN
+ET  - First edition
+SP  - 224
+LA  - eng
+PB  - O'Reilly
+SN  - 978-1-4919-3970-3
+ST  - SVG animations
+L1  - files/2772/Drasner - 2017 - SVG animations from common UX implementations to .pdf
+N1  - The anatomy of an SVG -- Animating with CSS -- CSS animation and hand-drawn SVG sprites -- Creating a responsive SVG sprite -- UI/UX animations with no external libraries -- Animating data visualizations -- A comparison of web animation technologies -- Animating with GreenSock -- GreenSock's timeline -- MorphSVG and motion along a path -- Stagger effects, tweening HSL, and SplitText for text animation -- DrawSVG and draggable -- Mo.js -- React-motion -- Animating the unanimatable: motion with attributes and bare-metal implementations -- Responsive animation -- Designing, prototyping, and animation in component libraries
+ER  - 
+
+TY  - BOOK
+TI  - Sprint: how to solve big problems and test new ideas in just five days
+AU  - Knapp, Jake
+AU  - Zeratsky, John
+AU  - Kowitz, Braden
+AB  - From three design partners at Google Ventures, a unique five-day process--called the sprint--for solving tough problems using design, prototyping, and testing ideas with customers
+CY  - New York London Toronto Sydney New Delhi
+DA  - 2016///
+PY  - 2016
+DP  - K10plus ISBN
+ET  - First Simon & Schuster hardcover edition
+SP  - 274
+LA  - eng
+PB  - Simon & Schuster
+SN  - 978-1-5011-2174-6
+ST  - Sprint
+UR  - https://www.thesprintbook.com/book
+N1  - Includes index
+N1  - Set the stage. Challenge ; Team ; Time and space Monday. Start at the end ; Map ; Ask the experts ; Target Tuesday. Remix and improve ; Sketch Wednesday. Decide ; Rumble ; Storyboard Thursday. Fake it ; Prototype Friday. Small data ; Interview ; Learn Liftoff Checklists
+ER  - 
+
+TY  - BOOK
+TI  - On Web Typography
+CY  - New York
+DA  - 2014///
+PY  - 2014
+DP  - Open WorldCat
+LA  - eng
+PB  - Book Apart
+SN  - 978-1-937557-07-2
+ER  - 
+
+TY  - BOOK
+TI  - Coding art: a guide to unlocking your creativity with the processing language and p5.js in four simple steps
+AU  - Funk, Mathias
+AU  - Zhang, Yu
+AB  - Finally, a book on creative programming, written directly for artists and designers! This second edition offers expanded and updated content incorporating the latest advancements and trends in the field of creative programming, also for creatives who want to work directly with P5.js and online. It delves deeper into the intricacies of computational art. It includes fresh case studies that explore real-world applications of coding art, inspiring readers to think beyond traditional boundaries. Rather than following a computer science curriculum, this book is aimed at creatives who are working in the intersection of design, art, and education. Following a real-world use case of computation art, you'll see how it relates back to the four key pillars, and addresses potential pitfalls and challenges in the creative process. All code examples are presented in a fully integrated Processing example library, making it easy for readers to get started. This unique and finely balanced approach between skill acquisition and development makes Coding Art, Second Edition the ideal reference book for both creative programming and the creative process for professors and students alike
+CY  - Berkeley, CA
+DA  - 2024///
+PY  - 2024
+DP  - Open WorldCat
+ET  - Second edition
+LA  - eng
+PB  - Apress
+SN  - 978-1-4842-9780-3
+ST  - Coding art
+ER  - 
+
+TY  - BOOK
+TI  - UX and Ui Strategy: A Step by Step Guide on UX and Ui Design
+AU  - Deacon, Pamala B
+AB  - A step by step Guide on UX and UI design This book analyzes how Don Norman originated the word “User Experience Design” in the 1990s and it means a person’s perception or feeling towards using a product, service, website or software. Steps on how to develop user experience includes: User interface (UI) is the process by which users (people) interact with a product or service. The UI includes hardware and software components. User interface exists for various processes and provides a means of input and output. The following are the basic procedural steps of user interface design. The steps are namely. • Study the idea of the products and design requirements • Do research on potential end-users, study and analyze them • Locate a group of people matching end users • Create use cases and test the cases • Create paper demonstration What a user feels would depend on the way an organization has designed its user experience to fit the user’s needs and expectation, an organization looks at the patterns, habits and behavior of users to make their experience better. UX design is all encompassing in the sense that it covers various fields such as psychology, computer science, statistics, and graphic design. A great user experience has to be useful, usable and desirable. Essential rules for UX Design such as design for users, provide absolute clarity, give users control, predict, then adapt etc. The design thinking process such as: • User centricity and empathy • Collaboration • Ideation • Experimentation and Iteration • A bias towards action The roles of UX designers as well as the misconceptions of UI and UX. UI is actually a subset of UX, UX goes beyond designing to ensure organizations fit into the shoes of consumers or users by carrying out surveys and interviews to know their needs in order to design what will solve their problem and meet their needs.
+DA  - 2020///
+PY  - 2020
+SP  - 89
+PB  - Pamala B. Deacon
+SN  - 979-8-5802-3418-2
+ER  - 
+
+TY  - BOOK
+TI  - Modern CSS and Sass Mastery: Flexbox, Grid, Animations, and Beyond: Become a CSS Expert: Build Responsive, Interactive Websites with Modern Techniques
+AU  - Parvin, R
+AB  - Modern CSS and Sass Mastery: Flexbox, Grid, Animations, and Beyond
+Become a CSS Expert: Build Responsive, Interactive Websites with Modern Techniques
+
+Are you ready to elevate your web design skills and create visually stunning, responsive, and interactive websites? Look no further! "Modern CSS and Sass Mastery" is your comprehensive guide to mastering the latest CSS techniques and the powerful Sass preprocessor.
+
+What's Inside:
+
+    Section I: Foundations for Mastery: Build a rock-solid understanding of CSS fundamentals, from its evolution to modern tooling and architecture principles. Discover how to create responsive and accessible designs that work seamlessly across all devices.
+    Section II: Mastering Layout with Flexbox: Unleash the power of Flexbox for creating flexible and adaptable one-dimensional layouts. Learn how to align, order, and distribute elements with ease, and explore practical examples of Flexbox in action.
+    Section III: Grid: Layout's Future: Dive into the revolutionary CSS Grid layout system and discover how to create complex, two-dimensional layouts with unprecedented control and flexibility. Learn advanced techniques like template areas, auto-placement, and responsive grid design.
+    Section IV: Animations and Transitions: Breathe life into your designs with smooth transitions and eye-catching animations. Master the art of choreographing complex motion, optimize for performance, and explore practical animation examples.
+    Section V: Beyond the Basics: Venture into advanced CSS techniques like custom properties, shapes, filters, writing modes, and the cutting-edge Houdini API. These tools will empower you to create truly unique and engaging web experiences.
+    Section VI: Sass Mastery: Supercharge your CSS workflow with the Sass preprocessor. Learn how to write cleaner, more maintainable code with nesting, variables, mixins, functions, and control flow. Explore advanced Sass techniques for building scalable and modular stylesheets.
+    Section VII: Real-World Projects: Put your newfound knowledge into practice by building a portfolio website, an e-commerce product page, and an animated data dashboard. These projects will solidify your understanding and showcase the practical applications of modern CSS and Sass.
+
+-
+
+Who Should Read This Book:
+
+    Beginner to Intermediate Web Developers: If you're just starting your CSS journey or looking to level up your existing skills, this book provides a step-by-step guide to mastering modern CSS techniques.
+    Designers: If you're a designer who wants to bring your creative visions to life on the web, this book will give you the CSS expertise you need to translate your designs into reality.
+    Experienced Developers: Even seasoned developers will find valuable insights and advanced techniques to enhance their CSS workflow and stay ahead of the curve.
+
+-
+
+Take Your CSS Skills to the Next Level
+
+"Modern CSS and Sass Mastery" is your essential guide to becoming a CSS expert. With practical examples, clear explanations, and a focus on real-world application, this book will equip you with the knowledge and skills you need to build beautiful, responsive, and interactive websites that stand out from the crowd.
+ET  - 20 Jun. 2024
+SP  - 323
+PB  - Independently published
+SN  - 979-8-3290-3420-2
+ER  - 
+
+TY  - BOOK
+TI  - Inclusive design for a digital world: designing with accessibility in mind
+AU  - Gilbert, Regine M.
+AB  - What is inclusive design? It is simple. It means that your product has been created with the intention of being accessible to as many different users as possible. For a long time, the concept of accessibility has been limited in terms of only defining physical spaces. However, change is afoot: personal technology now plays a part in the everyday lives of most of us, and thus it is a responsibility for designers of apps, web pages, and more public-facing tech products to make them accessible to all. Our digital era brings progressive ideas and paradigm shifts - but they are only truly progressive if everybody can participate. In Inclusive Design for a Digital World, multiple crucial aspects of technological accessibility are confronted, followed by step-by-step solutions from User Experience Design professor and author Regine Gilbert. Think about every potential user who could be using your product. Could they be visually impaired? Have limited motor skills? Be deaf or hard of hearing? This book addresses a plethora of web accessibility issues that people with disabilities face. Your app might be blocking out an entire sector of the population without you ever intending or realizing it. For example, is your instructional text full of animated words and Emoji icons? This makes it difficult for a user with vision impairment to use an assistive reading device, such as a speech synthesizer, along with your app correctly. In Inclusive Design for a Digital World, Gilbert covers the Web Content Accessibility Guidelines (WCAG) 2.1 requirements, emerging technologies such as VR and AR, best practices for web development, and more. As a creator in the modern digital era, your aim should be to make products that are inclusive of all people. Technology has, overall, increased connection and information equality around the world. To continue its impact, access and usability of such technology must be made a priority, and there is no better place to get started than Inclusive Design for a Digital World
+CY  - Berkeley, CA
+DA  - 2019///
+PY  - 2019
+DP  - Open WorldCat
+LA  - eng
+PB  - Apress L.P.
+SN  - 978-1-4842-5016-7
+ST  - Inclusive design for a digital world
+ER  - 
+
+TY  - BOOK
+TI  - Working with the Web Audio API
+AU  - Reiss, Joshua D.
+AB  - "Working with the Web Audio API is the definitive and instructive guide to understanding and using the Web Audio API. The Web Audio API provides a powerful and versatile system for controlling audio on the Web. It allows developers to generate sounds, select sources, add effects, create visualizations and render audio scenes in an immersive environment. This book covers all essential features, with easy to implement code examples for every aspect. All the theory behind it is explained, so that one can understand the design choices as well as the core audio processing concepts. Advanced concepts are also covered, so that the reader will gain the skills to build complex audio applications running in the browser. Aimed at a wide audience of potential students, researchers and coders, this is a comprehensive guide to the functionality of this industry-standard tool for creating audio applications for the web"--
+CN  - TK7881.4 .R455 2022
+CY  - Abingdon, Oxon ; New York, NY
+DA  - 2022///
+PY  - 2022
+DP  - Library of Congress ISBN
+PB  - Routledge
+SN  - 978-1-032-11868-0 978-1-032-11867-3
+N1  - Introducing the Web Audio API -- Oscillators -- Audio buffer sources -- The constant source node -- Scheduling and setting parameters -- Connecting audio parameters and modulation -- Analysis and visualization -- Loading, playing and recording -- OfflineAudioContext -- Delay -- Filtering -- Waveshaper -- Dynamic range compression -- Reverberation -- Mixing audio -- Stereo panning -- Spatialized sound -- Working with AudioWorklets -- The wonders of audio worklets
+KW  - Sound
+KW  - Handbooks, manuals, etc
+KW  - Application program interfaces (Computer software)
+KW  - Computer sound processing
+KW  - Design and construction
+KW  - JavaScript (Computer program language)
+KW  - Recording and reproducing Digital techniques
+KW  - Web applications
+ER  - 
+
+TY  - BOOK
+TI  - Mastering SVG
+AU  - Larsen, Rob
+CY  - Birmingham
+DA  - 2018///
+PY  - 2018
+DP  - Open WorldCat
+LA  - eng
+PB  - Packt Publishing
+SN  - 978-1-78862-674-3
+ER  - 
+
+TY  - BOOK
+TI  - Refactoring UI
+AU  - Wathan, Adam
+AU  - Schoger, Steve
+DA  - 2018///
+PY  - 2018
+PB  - Independently published
+UR  - https://www.refactoringui.com/
+ER  - 
+
+TY  - BOOK
+TI  - Articulating design decisions: communicate with Stakeholders, keep your sanity, and deliver the best user experience
+AU  - Greever, Tom
+CY  - Beijing Boston Farnham Sebastopol Tokyo
+DA  - 2020///
+PY  - 2020
+DP  - K10plus ISBN
+ET  - Second Edition
+SP  - 217
+LA  - eng
+PB  - O'Reilly
+SN  - 978-1-4920-7922-4
+ST  - Articulating design decisions
+L1  - files/2792/Greever - 2020 - Articulating design decisions communicate with St.pdf
+ER  - 
+
+TY  - BOOK
+TI  - Programming 3D applications with HTML5 and WebGL
+AU  - Parisi, Tony
+CN  - T385 .P3693 2014
+CY  - Beijing
+DA  - 2014///
+PY  - 2014
+DP  - Library of Congress ISBN
+ET  - First edition
+SP  - 384
+PB  - O'Reilly
+SN  - 978-1-4493-6296-6
+N1  - Introduction -- WebGL: real-time 3D rendering -- Three.js-a javascript 3D engine -- Graphics and rendering in three.js -- 3D animation -- CSS3: advanced page effects -- Canvas: universal 2D drawing -- The 3D content pipeline -- 3D engines and frameworks -- Developing a simple 3D application -- Developing a 3D environment -- Developing mobile 3D applications
+KW  - Computer graphics
+KW  - HTML (Document markup language)
+KW  - Three-dimensional imaging
+KW  - WebGL (Computer program language)
+ER  - 
+
+TY  - BOOK
+TI  - Designing interface animation: meaningful motion for user experience
+AU  - Head, Val
+CY  - Brooklyn, New York
+DA  - 2016///
+PY  - 2016
+DP  - K10plus ISBN
+SP  - 222
+LA  - eng
+PB  - Rosenfeld Media
+SN  - 978-1-933820-32-3
+ST  - Designing interface animation
+ER  - 
+
+TY  - BOOK
+TI  - JavaScript for sound artists: learn to code with the Web Audio API
+AU  - Turner, William
+A3  - Leonard, Steve
+CY  - Boca Raton, FL
+DA  - 2023///
+PY  - 2023
+DP  - Open WorldCat
+ET  - Second edition
+LA  - eng
+PB  - CRC Press, Taylor & Francis Group
+SN  - 978-1-003-20149-6
+ST  - JavaScript for sound artists
+ER  - 
+
+TY  - BOOK
+TI  - Storytelling for user experience: crafting stories for better design
+AU  - Quesenbery, Whitney
+AU  - Brooks, Kevin
+AB  - "We all tell stories. It's one of the most natural ways to share information, as old as the human race. This book is not about a new technique, but how to use something we already know in a new way. Stories help us gather and communicate user research, put a human face on analytic data, communicate design ideas, encourage collaboration and innovation, and create a sense of shared history and purpose. This book looks across the full spectrum of user experience design to discover when and how to use stories to improve our products. Whether you are a researcher, designer, analyst or manager, you will find ideas and techniques you can put to use in your practice"--Provided by publisher
+CY  - Brooklyn, New York
+DA  - 2010///
+PY  - 2010
+DP  - Open WorldCat
+LA  - eng
+PB  - Rosenfeld Media
+SN  - 978-1-4571-0236-3
+ST  - Storytelling for user experience
+ER  - 
+
+TY  - BOOK
+TI  - Mastering responsive web design with HTML5 and CSS3: become a master in RWD with this practical and engaging guide
+AU  - Zea, Ricardo
+AB  - Push your HTML and CSS skills to the limit and build professional grade, responsive websites About This Book Take your RWD skills to the next level with HTML5 and CSS3 best practices that will give you a solid foundation to build out from Harness the power of the CSS pre-processor Sass to speed up the creation of your CSS Each chapter dives deep in to different aspects of RWD and is designed to get you up to speed with the latest developments in professional web design Who This Book Is For If you're already building responsive designs and are looking to level up your skills, then Mastering Responsive Web Design is the book for you. Regardless of whether you're a web designer, or web developer, you'll find something here to help you in your responsive design journey. What You Will Learn Install and use Sass with SCSS syntax to create your CSS Use HTML5 tags the right way, for the right type of content Enhance the experience of users with assistive technology with ARIA roles Design with a desktop-first approach, but implement with mobile-first methodology Master your layouts by creating your own scalable CSS grid, or using Flexbox for total layout?flexibility' Retrofit your old web sites with your new responsive design skills Deal with legacy browsers, and learn how to keep your designs consistent Implement widely used responsive patterns, such as the?drawer navigation?, the?off-canvas? and the?flexbox-based? navigation patterns Find the best way to serve the right type of image and how to make videos responsive Build custom responsive emails to ensure the message gets across regardless of the device In Detail Building powerful and accessible websites and apps using HTML5 and CSS3 is a must if we want to create memorable experiences for our users. In the ever-changing world of web design and development, being proficient in responsive web design is no longer an option: it is mandatory. Each chapter will take you one step closer to becoming an expert in RWD. Right from the start your skills will be pushed as we introduce you to the power of Sass, the CSS preprocessor, to increase the speed of writing repetitive CSS tasks. We'll then use simple but meaningful HTML examples, and add ARIA roles to increase accessibility. We'll also cover when desktop-first or mobile-first approaches are ideal, and strategies to implement a mobile-first approach in your HTML builds. After this we will learn how to use an easily scalable CSS grid or, if you prefer ..
+CY  - Birmingham, UK
+DA  - 2015///
+PY  - 2015
+DP  - Open WorldCat
+LA  - eng
+PB  - Packt Publishing
+SN  - 978-1-78355-024-1
+ST  - Mastering responsive web design with HTML5 and CSS3
+ER  - 
+
+TY  - BOOK
+TI  - Semantic web technologies: research and applications
+T2  - Computational intelligence in engineering problem solving
+A3  - Patel, Archana
+A3  - Debnath, Narayan C.
+A3  - Bhushan, Bharat
+AB  - "Semantic web technologies (SWTs) offer the richest machine-interpretable (rather than just machine-processable) and explicit semantics that are being extensively used in various domains and industries. This book provides a roadmap for Semantic Web Technologies (SWTs) and highlights their role in wide range of domains including Cloud Computing, Internet of Things, Big data, Sensor Network, and so forth. It also explores the prospects of these technologies including different data interchange formats, query languages, ontologies, Linked Data, and notations. The role of SWTs in 'Epidemic Covid-19', 'E-Learning platforms and systems', 'Block chain', 'Open online courses', and 'Visual analytics in Healthcare' is described as well. Explores all the critical aspects of semantic web technologies (SWT) Discusses impact of SWTs on cloud computing, Internet of things, big data, and sensor network Offers a comprehensive examination of the emerging research in the areas of SWTs and their related domains Provides a template to develop a wide range of smart and intelligent applications Includes latest applications and examples with real data This book is aimed at Researchers and graduate students in Computer Science, Informatics, Web Technology, Cloud Computing, and Internet of Things"--
+CY  - Boca Raton London New York
+DA  - 2023///
+PY  - 2023
+DP  - K10plus ISBN
+ET  - First edition
+SP  - 386
+LA  - eng
+PB  - CRC Press
+SN  - 978-1-003-30942-0 978-1-032-31369-6 978-1-032-31370-2
+ST  - Semantic web technologies
+L1  - files/2803/Patel et al. - 2023 - Semantic web technologies research and applicatio.pdf
+N1  - Includes bibliographical references and index
+N1  - Semantic web technologies / Esingbemi P. Ebietomere & Godspower O. Ekuobase -- Leveraging semantic web technologies for veracity assessment of big biodiversity data / Zaenal Akbar, Yulia A. Kartika, Dadan R. Saleh, Hani F. Mustika, Lindung P. Manik, Foni A. Setiawan & Ika A. Satya -- Semantic web technologies : latest industrial applications / Michael DeBellis -- Latest applications of semantic web technologies for service industry / Godspower Osaretin Ekuobase & Esingbemi Princewill Ebietomere -- Semantic web ontology centred university course recommendation scheme / Gina George & Anisha M. Lal -- Exploring reasoning for utilizing the full potential of semantic web / Ayesha Ameen, Khaleel Ur Rahman Khan & B.Padmaja Rani -- Ontology modeling : an overview of semantic web ontology formalisms and engineering approaches with editorial tools / Olaide N. Oyelade -- Semantic annotation of objects of interest in digitized herbarium specimens for fine-grained object classification / Zaenal Akbar, Wita Wardani, Taufik Mahendra, Yulia A. Kartika, Ariani Indrawati, Tutie Djarwaningsih, Lindung P. Manik & Aris Yaman -- UpONto : strategic conceptual ontology modelling for unit operations in chemical industries and their retrieval using firefly algorithm / Ayush Kumar A & Gerard Deepak -- Ontologies for knowledge representation : tools and techniques for building ontologies / Ayesha Banu -- Data science and ontologies : an exploratory study / Prashant Kumar Sinha & Shiva Shankar Mahato -- Ontology application to constructing the GMDH-based inductive modeling tools / Halyna Pidnebesna & Volodymyr Stepashko -- Exploring the contemporary area of ontology research : FAIR ontology / Prashant Kumar Sinha -- Analysis of ontology based semantic association rule mining / G.Jeyakodi & P.Shanthi Bala -- Visualizing chat-bot knowledge graph using RDF / Noman Islam, Darakhshan Syed, Mariz Zafar & Asif Raza -- Towards data integration in the era of big data : role of ontologies / Houda El Bouhissi, Archana Patel & Narayan C. Debnath
+ER  - 
+
+TY  - BOOK
+TI  - Semantic Web Technologies and Applications in Artificial Intelligence of Things:
+T2  - Advances in Web Technologies and Engineering
+A2  - Alkhatib, Ghazi
+A2  - Rine, David
+A3  - Ortiz-Rodriguez, Fernando
+A3  - Leyva-Mederos, Amed
+A3  - Tiwari, Sanju
+A3  - Hernandez-Quintana, Ania R.
+A3  - Martinez-Rodriguez, Jose L.
+DA  - 2024/05/16/
+PY  - 2024
+DO  - 10.4018/979-8-3693-1487-6
+DP  - DOI.org (Crossref)
+PB  - IGI Global
+SN  - 979-8-3693-1487-6 979-8-3693-1488-3
+ST  - Semantic Web Technologies and Applications in Artificial Intelligence of Things
+UR  - https://services.igi-global.com/resolvedoi/resolve.aspx?doi=10.4018/979-8-3693-1487-6
+Y2  - 2024/09/02/10:41:55
+ER  - 
+
+TY  - BOOK
+TI  - Build your UX and UI design skills
+AU  - Harris, Christopher
+AB  - This book teaches the importance of UX and UI designers and introduces the practices of good software design, all while stimulating readers with unique, engaging activities
+CY  - New York, New York
+DA  - 2020///
+PY  - 2020
+DP  - Open WorldCat
+LA  - eng
+PB  - Enslow Publishing
+SN  - 978-1-9785-1072-2
+ER  - 
+
+TY  - CONF
+TI  - Analysis of flow phenoma in virtual environments : benefits, challenges and solutions
+AU  - Kuhlen, Torsten
+AU  - Gerndt, Andreas
+AU  - Assenmacher, Ingo
+AU  - Hentschel, Bernd
+AU  - Schirski, Marc
+AU  - Wolter, Marc
+AU  - Bischof, Christian
+C1  - Mahwah, N.J. [u.a.]
+C3  - HCI International 2005 : 11th International Conference on Human-Computer Interaction ; July 22 - 27, 2005, Caesars Palace, Las Vegas, Nevada, USA / [Gavriel Salvendy Hrsg.]
+DA  - 2005/07/22/
+PY  - 2005
+PB  - Lawrence Erlbaum
+UR  - https://publications.rwth-aachen.de/record/107348
+N1  - <p>1 CD-ROM</p>
+N1  - <p>HCI International 2005 : 11th International Conference on Human-Computer Interaction ; July 22 - 27, 2005, Caesars Palace, Las Vegas, Nevada, USA / [Gavriel Salvendy Hrsg.]</p>
+ER  - 
+
+TY  - BOOK
+TI  - CSS grid layout: 5 practical projects
+AU  - Bodrov, Ilya
+AU  - Mainardi, Giulio
+AU  - Bouchefra, Ahmed
+AU  - Souza, Diogo
+AU  - Buckler, Craig
+AB  - CSS has grown from a language for formatting documents into a robust language for designing web applications. Its syntax is easy to learn, making CSS a great entry point for those new to programming. Indeed, it's often the second language that developers learn, right behind HTML. One of CSS's new features is the Grid Layout Module, which enables complex layout designs that previously would have been very difficult to achieve. In this book, we'll examine five projects that use grid layout. It contains: - Redesigning a Site to Use CSS Grid Layout by Ilya Bodrov - Redesigning a Card-based Tumblr Layout with CSS Grid by Giulio Mainardi - Easy and Responsive Modern CSS Grid Layout by Ahmed Bouchefra - Progressively Enhanced CSS Layouts from Floats to Flexbox to Grid by Diogo Souza - Make Forms Great with CSS Grid by Craig Buckler This book is suitable for developers with some CSS experience
+CY  - Collingwood VIC Australia
+DA  - 2018///
+PY  - 2018
+DP  - Open WorldCat
+LA  - eng
+PB  - SitePoint Pty.
+SN  - 978-1-4920-6993-5
+ST  - CSS grid layout
+ER  - 
+
+TY  - BOOK
+TI  - The principles of beautiful Web design
+AU  - Beaird, Jason
+AU  - Walker, Alex
+AB  - The Principles of Beautiful Web Design is the ideal book for anyone who wants to design stunning websites that provide a great user experience. Perhaps you're a developer who wants to understand how to make your applications more visually appealing, or you're a novice who wants to start on the path to becoming a designer. This book will teach you how to: Understand what makes "good design," from discovery through to implementation Use color effectively, develop color schemes, and create a palette Create pleasing layouts using grids, the rule of thirds, and symmetry Employ textures: lines, points, shapes, volumes, and depth Apply typography to make ordinary designs look great Choose, edit, and position effective imagery This easy-to-follow guide is illustrated with beautiful, full-color examples, and will lead you through the process of creating great designs from start to finish. The fourth edition of this bestselling book has been greatly revised and now features: Updated and expanded coverage responsive web design techniques A new sample project New sections on pattern libraries and how design fits on modern app development workflows Common user-interface patterns and resources. -- Provided by publisher
+CY  - Collingwood
+DA  - 2020///
+PY  - 2020
+DP  - Open WorldCat
+ET  - Fourth edition
+LA  - eng
+PB  - SitePoint
+SN  - 978-1-925836-36-3
+ER  - 
+
+TY  - BOOK
+TI  - Responsive typography
+AU  - Pamental, Jason
+CN  - MLCM 2018/46452 (T)
+CY  - Beijing
+DA  - 2014///
+PY  - 2014
+DP  - Library of Congress ISBN
+ET  - First edition
+SP  - 86
+PB  - O'Reilly
+SN  - 978-1-4919-0709-2
+N1  - Includes index Minimal Level Cataloging Plus
+KW  - Design
+KW  - Web sites
+KW  - Web site development
+KW  - Web typography
+ER  - 
+
+TY  - BOOK
+TI  - Responsive web design with HTML5 and CSS: build future-proof responsive websites using the latest HTML5 and CSS techniques
+AU  - Frain, Ben
+CY  - Birmingham Mumbai
+DA  - 2022///
+PY  - 2022
+DP  - K10plus ISBN
+ET  - Fourth edition
+SP  - 468
+LA  - eng
+PB  - Packt
+SN  - 978-1-80324-271-2
+ST  - Responsive web design with HTML5 and CSS
+N1  - Print on demand edition
+ER  - 
+
+TY  - BOOK
+TI  - Web development with Node and Express: leveraging the JavaScript stack
+AU  - Brown, Ethan
+CY  - Beijing Köln
+DA  - 2014///
+PY  - 2014
+DP  - K10plus ISBN
+ET  - 1st ed
+SP  - 306
+LA  - eng
+PB  - O'Reilly
+SN  - 978-1-4919-4930-6
+ST  - Web development with Node and Express
+ER  - 
+
+TY  - BOOK
+TI  - Responsible design, implementation and use of information and communication technology. Part 2
+T2  - Lecture notes in computer science Information Systems and Applications, incl. Internet/Web, and HCI
+A3  - Hattingh, Marié
+A3  - Matthee, Machdel
+A3  - Smuts, Hanlie
+A3  - Pappas, Ilias O.
+A3  - Dwivedi, Yogesh K.
+A3  - Mäntymäki, Matti
+CY  - Cham
+DA  - 2020///
+PY  - 2020
+DP  - K10plus ISBN
+SP  - 467
+LA  - eng
+M1  - 12067
+PB  - Springer
+SN  - 978-3-030-45002-1 978-3-030-45001-4
+L1  - files/2818/Hattingh et al. - 2020 - Responsible design, implementation and use of info.pdf
+N1  - Literaturangaben Titelaufnahme entstanden auf Grundlage der Online-Ausgabe
+ER  - 
+
+TY  - BOOK
+TI  - New web typography: create a visual hierarchy with responsive web design
+AU  - Teague, Jason Cranford
+AU  - Boss, Stephen
+AB  - Einstieg in die Typografie für Webdesigner. "This book is not just an overview on web typography; it contains practical tips and examples on how to improve the design of pages." Digitale Typografie
+CY  - Boca Raton
+DA  - 2016///
+PY  - 2016
+DP  - K10plus ISBN
+SP  - 244
+LA  - eng
+PB  - Taylor & Francis Group
+SN  - 978-1-138-78139-9
+ST  - New web typography
+ER  - 
+
+TY  - BOOK
+TI  - Building the Web of Things: with examples in Node.js and Raspberry Pi
+AU  - Guinard, Dominique
+AU  - Trifa, Vlad M.
+AB  - "A guide to using cutting-edge web technologies to build the IoT. This step-by-step book teaches you how to use web protocols to connect real-world devices to the web, including the Semantic and Social Webs. Along the way you'll gain vital concepts as you follow instructions for making Web of Things devices. By the end, you'll have the practical skills you need to implement your own web-connected products and services"--amazon.com website
+CY  - Shelter Island, NY
+DA  - 2016///
+PY  - 2016
+DP  - K10plus ISBN
+SP  - 320
+LA  - eng
+PB  - Manning
+SN  - 978-1-61729-268-2
+ST  - Building the Web of Things
+N1  - Part 1. Basics of the IoT and the WoT. From the Internet of Things to the Web of Things ; Hello, World Wide Web of things ; Node.js for the Web of Things ; Getting started with embedded systems ; Building networks of things -- Part 2. Building the WoT. Access : web APIs for Things ; Implementing web Things ; Find : describe and discover web Things ; Share : securing and sharing web Things ; Compose : physical mashups
+ER  - 
+
+TY  - BOOK
+TI  - The design of everyday things
+AU  - Norman, Donald A.
+AB  - "Even the smartest among us can feel inept as we fail to figure out which light switch or oven burner to turn on, or whether to push, pull, or slide a door. The fault, argues this ingenious-even liberating-book, lies not in ourselves, but in product design that ignores the needs of users and the principles of cognitive psychology. The problems range from ambiguous and hidden controls to arbitrary relationships between controls and functions, coupled with a lack of feedback or other assistance and unreasonable demands on memorization. The Design of Everyday Things shows that good, usable design is possible. The rules are simple: make things visible, exploit natural relationships that couple function and control, and make intelligent use of constraints. The goal: guide the user effortlessly to the right action on the right control at the right time. In this entertaining and insightful analysis, cognitive scientist Don Norman hails excellence of design as the most important key to regaining the competitive edge in influencing consumer behavior. Now fully expanded and updated, with a new introduction by the author, The Design of Everyday Things is a powerful primer on how-and why-some products satisfy customers while others only frustrate them. "--
+CN  - TS171.4 .N67 2013
+CY  - New York, New York
+DA  - 2013///
+PY  - 2013
+DP  - Library of Congress ISBN
+ET  - Revised and expanded edition
+SP  - 347
+PB  - Basic Books
+SN  - 978-0-465-05065-9
+KW  - Psychological aspects
+KW  - BUSINESS & ECONOMICS / Industries / Retailing
+KW  - DESIGN / Product
+KW  - Human engineering
+KW  - Industrial design
+KW  - PSYCHOLOGY / Applied Psychology
+ER  - 
+
+TY  - BOOK
+TI  - HTTP: the definitive guide
+AU  - Gourley, David
+AU  - Totty, Brian
+CN  - QA76.76.H94 G695 2002
+CY  - Beijing ; Sebastopol, CA
+DA  - 2002///
+PY  - 2002
+DP  - Library of Congress ISBN
+ET  - 1st ed
+SP  - 635
+PB  - O'Reilly
+SN  - 978-1-56592-509-0
+ST  - HTTP
+KW  - HTTP (Computer network protocol)
+KW  - Hypertext systems
+ER  - 
+
+TY  - BOOK
+TI  - Keep going: 10 ways to stay creative in good times and bad
+AU  - Kleon, Austin
+AB  - The creative life is not a linear journey to a finish line, it's a loop. Kleon offers ten simple rules for how to stay creative, focused, and true to yourself-- for life. The timeless, practical, and ethical principles in this book are for anyone trying to sustain a meaningful and productive life
+CY  - New York
+DA  - 2019///
+PY  - 2019
+DP  - Open WorldCat
+LA  - eng
+PB  - Workman Publishing Company, Incorporated
+SN  - 978-1-5235-0786-3
+ST  - Keep going
+ER  - 
+
+TY  - BOOK
+TI  - Meggs' history of graphic design
+AU  - Meggs, Philip B.
+AU  - Purvis, Alston W.
+AB  - "In addition to classic topics such as the invention of writing and alphabets, the origins of printing and typography, and postmodern design, the new Fifth Edition presents new information on current trends and technologies sweeping the graphic design landscape, such as the web, multimedia, interactive design, and private presses, ..."--Book jacket
+CY  - Hoboken, NJ
+DA  - 2012///
+PY  - 2012
+DP  - K10plus ISBN
+ET  - 5. ed
+SP  - 603
+LA  - eng
+PB  - Wiley
+SN  - 978-1-118-01776-0 978-0-470-16873-8
+N1  - Part I. The prologue to graphic design : 1. The invention of writing -- 2. Alphabets -- 3. The Asian contribution -- 4. Illuminated manuscripts -- Part II. A graphic renaissance : 5. Printing comes to Europe -- 6. The German illustrated book -- 7. Renaissance graphic design -- 8. An epoch of typographic genius -- Part III. The bridge to the twentieth century : 9. Graphic design and the Industrial Revolution -- 10. The Arts and Crafts Movement and its heritage -- 11. Art Nouveau -- 12. The genesis of twentieth century design -- Part IV. The modernist era : 13. The influence of modern art -- 14. Pictorial modernism -- 15. A new language of form -- 16. The Bauhaus and the new typography -- The modern movement in America -- Part V. The age of information : 18. The international typographic style -- 19. The New York school -- 20. Corporate identity and visual systems -- 21. The conceptual image -- 22. Postmodern design -- National visions within a global dialogue -- 24. The digital revolution and beyond
+N1  - Rev. ed. of: A history of graphic design. c1998. - Includes bibliographical references (p. [574]-581) and index
+ER  - 
+
+TY  - BOOK
+TI  - CSS: the missing manual
+AU  - McFarland, David Sawyer
+T2  - The missing manual
+CN  - TK5105.888 .M3767 2015
+CY  - Beijing ; Sebastopol, CA
+DA  - 2015///
+PY  - 2015
+DP  - Library of Congress ISBN
+ET  - Fourth edition
+SP  - 693
+PB  - O'Reilly
+SN  - 978-1-4919-1805-0
+ST  - CSS
+N1  - "The book that should have been in the box."
+KW  - Design
+KW  - Web sites
+KW  - Cascading style sheets
+ER  - 
+
+TY  - BOOK
+TI  - The Pocket Universal Principles of Design: 150 Essential Tools for Architects, Artists, Designers, Developers, Engineers, Inventors, and Makers
+AU  - Lidwell, William
+AB  - This should be every designer's secret weapon. Portable and condensed, this reference guide covers everything from museum exhibits to video games
+CY  - Laguna Hills
+DA  - 2015///
+PY  - 2015
+DP  - Open WorldCat
+LA  - eng
+PB  - Rockport Publishers
+SN  - 978-1-62788-366-5
+ST  - The Pocket Universal Principles of Design
+ER  - 
+
+TY  - BOOK
+TI  - Pro HTML5 and CSS3 Design Patterns
+AU  - Bowers, Michael
+AU  - Synodinos, Dionysios
+AU  - Sumne, Victor
+CY  - Berkeley, CA
+DA  - 2011///
+PY  - 2011
+DP  - BnF ISBN
+LA  - eng
+PB  - Apress
+SN  - 978-1-4302-3781-5
+ER  - 
+
+TY  - BOOK
+TI  - Learning Web Design: a beginner's guide to HTML, CSS, Javascript, and Web Graphics
+AU  - Niederst Robbins, Jennifer
+CN  - TK5105.888 .N489 2018
+CY  - Beijing ; Sebastopol, CA
+DA  - 2018///
+PY  - 2018
+DP  - Library of Congress ISBN
+ET  - Fifth Edition
+SP  - 790
+PB  - O'Reilly
+SN  - 978-1-4919-6020-2
+ST  - Learning Web Design
+KW  - Design
+KW  - Handbooks, manuals, etc
+KW  - JavaScript (Computer program language)
+KW  - Web sites
+KW  - Computer graphics
+KW  - HTML (Document markup language)
+KW  - Cascading style sheets
+KW  - Authoring programs
+ER  - 
+
+TY  - BOOK
+TI  - Lessons in SEO 2024
+AU  - Noil, Karen
+DA  - 2023///
+PY  - 2023
+ER  - 
+
+TY  - BOOK
+TI  - The elements of user experience: user-centered design for the web and beyond
+AU  - Garrett, Jesse James
+CY  - Berkeley, Calif
+DA  - 2011///
+PY  - 2011
+DP  - K10plus ISBN
+ET  - 2nd ed
+SP  - 172
+LA  - eng
+PB  - New Riders
+SN  - 978-0-321-68368-7
+ST  - The elements of user experience
+L1  - files/2840/Garrett - 2011 - The elements of user experience user-centered des.pdf
+N1  - Chapter 1. User Experience and Why It Matters -- Chapter 2. Meet the Elements -- Chapter 3. The Strategy Plane Product Objectives and User Needs -- Chapter 4. The Scope Plane Functional Specifications and Content Requirements -- Chapter 5. The Structure Plane Interaction Design and Information Architecture -- Chapter 6. The Skeleton Plane Interface Design, Navigation Design, and Information Design -- Chapter 7. The Surface Plane Sensory Design -- Chapter 8. The Elements Applied -- Index
+N1  - Provides an overview of the complexities of interactive Web design for non-designers, explaining the processes, methods, and vocabulary of user experience design Provides an overview of the complexities of interactive Web design for non-designers, explaining the processes, methods, and vocabulary of user experience design
+ER  - 
+
+TY  - BOOK
+TI  - The design of sites: patterns, principles, and processes for crafting a customer-centered Web experience
+AU  - Van Duyne, Douglas K.
+AU  - Landay, James A.
+AU  - Hong, Jason I.
+CY  - Boston, Mass. Munich
+DA  - 2005///
+PY  - 2005
+DP  - K10plus ISBN
+ET  - 6. printing
+SP  - 762
+LA  - eng
+PB  - Addison-Wesley
+SN  - 978-0-201-72149-2
+ST  - The design of sites
+N1  - Includes bibliographical references and index
+ER  - 
+
+TY  - BOOK
+TI  - Eyetracking web usability
+AU  - Nielsen, Jakob
+AU  - Pernice, Kara
+AB  - Based on one of the largest studies of eyetracking usability in existence used rigorous methodology and eyetracking technology to analyze 1.5 million instances where users look at Web sites. Their findings will help designers, software developers, writers, editors, product managers, and advertisers understand how the human eyes interact with Web sites and what will significantly improve user experience.-- Publisher info
+CY  - Berkeley, Calif
+DA  - 2010///
+PY  - 2010
+DP  - K10plus ISBN
+SP  - 437
+LA  - eng
+PB  - New Riders
+SN  - 978-0-321-49836-6
+L1  - files/2844/Nielsen and Pernice - 2010 - Eyetracking web usability.pdf
+ER  - 
+
+TY  - BOOK
+TI  - UX research and design
+T2  - Design, user experience, and usability : 10th international conference, DUXU 2021, held as part of the 23rd HCI International Conference, HCII 2021, virtual event, July 24-29, 2021 : proceedings / Marcelo M. Soares, Elizabeth Rosenzweig, Aaron Marcus (eds.)
+A3  - Soares, Marcelo M.
+A3  - Marcus, Aaron
+A3  - Rosenzweig, Elizabeth
+CY  - Cham
+DA  - 2021///
+PY  - 2021
+DP  - K10plus ISBN
+SP  - 670
+LA  - eng
+M1  - Part 1
+PB  - Springer
+SN  - 978-3-030-78221-4 978-3-030-78220-7
+L1  - files/2846/Soares et al. - 2021 - UX research and design.pdf
+ER  - 
+
+TY  - BOOK
+TI  - Learn Python visually: creative coding with processing.py
+AU  - Bunn, Tristan
+CY  - San Francisco
+DA  - 2021///
+PY  - 2021
+DP  - K10plus ISBN
+SP  - 270
+LA  - eng
+PB  - no starch press
+SN  - 978-1-7185-0097-6 978-1-7185-0096-9
+ST  - Learn Python visually
+L1  - files/2849/Bunn - 2021 - Learn Python visually creative coding with proces.pdf
+N1  - Includes bibliographical references and index
+ER  - 
+
+TY  - BOOK
+TI  - Smashing UX design: foundations for designing online user experiences
+AU  - Allen, Jesmond
+AU  - Chudley, James
+T2  - Smashing magazine book series
+AB  - The authors first provide an overview of UX and chart its rise to becoming a valuable and necessary practice for narrowing the gap between Web sites, applications, and users in order to make a user's experience a happy, easy, and successful one--
+CN  - QA76.9.U83 A515 2012
+CY  - Chichester, West Sussex, UK
+DA  - 2012///
+PY  - 2012
+DP  - Library of Congress ISBN
+SP  - 416
+PB  - John Wiley & Sons
+SN  - 978-0-470-66685-2
+ST  - Smashing UX design
+N1  - "Smashing magazine"--Cover
+KW  - User-centered system design
+ER  - 
+
+TY  - BOOK
+TI  - The non-designer's design book: design and typographic principles for the visual novice
+AU  - Williams, Robin
+AB  - Overview: For nearly 20 years, designers and non-designers alike have been introduced to the fundamental principles of great design by author Robin Williams. Through her straightforward and light-hearted style, Robin has taught hundreds of thousands of people how to make their designs look professional using four surprisingly simple principles. Now in its fourth edition, The Non-Designer's Design Book offers even more practical design advice, including a new chapter on the fundamentals of typography, more quizzes and exercises to train your Designer Eye, updated projects for you to try, and new visual and typographic examples to inspire your creativity. Whether you're a Mac user or a Windows user, a type novice, or an aspiring graphic designer, you will find the instruction and inspiration to approach any design project with confidence
+CY  - San Francisco, California
+DA  - 2015///
+PY  - 2015
+DP  - K10plus ISBN
+ET  - Fourth edition
+SP  - 239
+LA  - eng
+PB  - Peachpit Press
+SN  - 978-0-13-396615-2
+ST  - The non-designer's design book
+L1  - files/2854/Williams - 2015 - The non-designer's design book design and typogra.pdf
+N1  - Deutsche Ausgabe unter dem Titel: Williams, Robin: Design & Typografie
+ER  - 
+
+TY  - BOOK
+TI  - CSS3 for web designers
+AU  - Cederholm, Dan
+AU  - Zeldman, Jeffrey
+CY  - New York
+DA  - 2015///
+PY  - 2015
+DP  - Open WorldCat
+ET  - Second edition
+LA  - eng
+PB  - Book Apart
+ER  - 
+
+TY  - BOOK
+TI  - Mobile design pattern gallery: UI patterns for spartphone apps
+AU  - Neil, Theresa
+A3  - Treseler, Mary
+AB  - When you're under pressure to produce a well-designed, easy-to-navigate mobile app, there's no time to reinvent the wheel-and no need to. This handy reference provides more than 90 mobile app design patterns, illustrated by 1,000 screenshots from current Android, iOS, and Windows Phone apps. Much has changed since this book's first edition. Mobile OSes have become increasingly different, driving their own design conventions and patterns, and many designers have embraced mobile-centric thinking. In this edition, user experience professional Theresa Neil walks product managers, designers, and developers through design patterns in 11 categories: Navigation: get patterns for primary and secondary navigation Forms: break industry-wide habits of bad form design Tables: display only the most important information Search, sort, and filter: make these functions easy to use Tools: create the illusion of direct interaction Charts: learn best practices for basic chart design Tutorials & Invitations: invite users to get started and discover features Social: help users connect and become part of the group Feedback & Affordance: provide users with timely feedback Help: integrate help pages into a smaller form factor Anti-Patterns: what not to do when designing a mobile app
+CY  - Sebastopol, California
+DA  - 2014///
+PY  - 2014
+DP  - Open WorldCat
+ET  - Second edition
+LA  - eng
+PB  - O'Reilly
+SN  - 978-1-4493-6861-6
+ST  - Mobile design pattern gallery
+ER  - 
+
+TY  - BOOK
+TI  - Web form design: filling in the blanks
+AU  - Wroblewski, Luke
+CY  - Brooklyn, NY
+DA  - 2008///
+PY  - 2008
+DP  - K10plus ISBN
+SP  - 226
+LA  - eng
+PB  - Rosenfeld Media
+SN  - 978-1-933820-24-8
+ST  - Web form design
+N1  - Includes bibliographical references and index
+ER  - 
+
+TY  - BOOK
+TI  - Designing interfaces: patterns for effective interaction design
+AU  - Tidwell, Jenifer
+AU  - Brewer, Charles
+AU  - Valencia, Aynne
+AB  - "Designing good application interfaces isn't easy now that companies need to create compelling, seamless user experiences across an exploding number of channels, screens, and contexts. In this updated third edition, you'll learn how to navigate through the maze of design options. By capturing UI best practices as design patterns, this best-selling book provides solutions to common design problems. You'll learn patterns for mobile apps, web applications, and desktop software. Each pattern contains full-color examples and practical design advice you can apply immediately. Experienced designers can use this guide as an idea sourcebook, and novices will find a road map to the world of interface and interaction design."--Amazon.com
+CY  - Beijing Boston Farnham Sebastopol Tokyo
+DA  - 2020///
+PY  - 2020
+DP  - K10plus ISBN
+ET  - Third edition
+SP  - 579
+LA  - eng
+PB  - O'Reilly
+SN  - 978-1-4920-5196-1
+ST  - Designing interfaces
+L1  - files/2862/Tidwell et al. - 2020 - Designing interfaces patterns for effective inter.pdf
+N1  - Designing for people -- Organizing the content: information architecture and application structure -- Getting around: navigation, signposts, and wayfinding -- Layout of screen elements -- Visual style and aesthetics -- Mobile interfaces -- Lists of things -- Doing things: actions and commands -- Showing complex data -- Getting input from users: forms and controls -- User interface systems and atomic design -- Beyond and behind the screen
+N1  - Includes index (page 561-579) Includes bibliographical references and index
+ER  - 
+
+TY  - BOOK
+TI  - Designing for interaction: creating innovative applications and devices
+AU  - Saffer, Dan
+T2  - Voices that matter
+CY  - Berkeley, Calif
+DA  - 2010///
+PY  - 2010
+DP  - K10plus ISBN
+ET  - 2nd edition
+SP  - 223
+LA  - eng
+PB  - New Riders
+SN  - 978-0-321-64339-1
+ST  - Designing for interaction
+L1  - files/2865/Saffer - 2010 - Designing for interaction creating innovative app.pdf
+N1  - Literaturangaben
+ER  - 
+
+TY  - BOOK
+TI  - Designing for interaction: creating innovative applications and devices
+AU  - Saffer, Dan
+T2  - Voices that matter
+CY  - Berkeley, Calif
+DA  - 2010///
+PY  - 2010
+DP  - K10plus ISBN
+ET  - 2nd edition
+SP  - 223
+LA  - eng
+PB  - New Riders
+SN  - 978-0-321-64339-1
+ST  - Designing for interaction
+L1  - files/2968/Saffer - 2010 - Designing for interaction creating innovative app.pdf
+N1  - Literaturangaben
+ER  - 
+
+TY  - BOOK
+TI  - Web application architecture: principles, protocols and practices
+AU  - Shklar, Leon
+AU  - Rosen, Rich
+CY  - Chichester
+DA  - 2012///
+PY  - 2012
+DP  - K10plus ISBN
+ET  - 2. ed., reprinted
+SP  - 422
+LA  - eng
+PB  - Wiley
+SN  - 978-0-470-51860-1
+ST  - Web application architecture
+N1  - Literaturangaben
+ER  - 
+
+TY  - CHAP
+TI  - Introduction to VR and WebVR
+AU  - Neelakantam, Srushtika
+AU  - Pant, Tanay
+T2  - Learning Web-based Virtual Reality
+C2  - Neelakantam, Srushtika
+C2  - Pant, Tanay
+CY  - Berkeley, CA
+DA  - 2017///
+PY  - 2017
+DO  - 10.1007/978-1-4842-2710-7_1
+DP  - DOI.org (Crossref)
+SP  - 1
+EP  - 4
+LA  - en
+PB  - Apress
+SN  - 978-1-4842-2709-1 978-1-4842-2710-7
+UR  - http://link.springer.com/10.1007/978-1-4842-2710-7_1
+Y2  - 2024/09/08/10:42:56
+ER  - 
+
+TY  - BOOK
+TI  - Learning progressive web apps: building modern web apps using service workers
+AU  - Wargo, John M.
+T2  - Learning series
+AB  - "An introduction to modern web app development that shows how to build apps that are reliable, fast, engaging, and take advantage of the latest Web APIs to combine the best of web and mobile apps. Essentially, these apps are websites built using JavaScript and other web technologies that run under HTTPS, include a Web App Manifest, and implement a service worker--but act and feel like a native app. The book introduces core concepts, then illustrates the implementation of each capability by progressively enhancing a simple web application with each capability as the reader works through the book. Readers start with a simple web app, and finish with a fully functional app that takes advantage of service workers and other technologies that are now standard in all major browsers including Safari and Edge"--
+CY  - Boston
+DA  - 2020///
+PY  - 2020
+DP  - Library of Congress ISBN
+ET  - First edition
+PB  - Addison-Wesley
+SN  - 978-0-13-648422-6
+ST  - Learning progressive web apps
+ER  - 
+
+TY  - BOOK
+TI  - Progressive web apps
+AU  - Hume, Dean Alan
+AU  - Osmani, Addy
+AB  - Offline websites that work. Near-instant load times. Smooth transitions between high/low/no bandwidth. Fantasy, right? Not with progressive web applications. PWAs use modern browser features like push notifications, smart caching, and Service Workers to manage data, minimize server usage, and allow for unstable connections, giving you better control and happier customers. Better still, all you need to build PWAs are JavaScript, HTML, and the easy-to-master techniques you'll find in this book
+CY  - Shelter Island, NY
+DA  - 2018///
+PY  - 2018
+DP  - K10plus ISBN
+SP  - 173
+LA  - eng
+PB  - Manning
+SN  - 978-1-61729-458-7
+L1  - files/2981/Hume and Osmani - 2018 - Progressive web apps.pdf
+N1  - Defining progressive web apps -- Faster web apps -- Engaging web apps -- Resilient web applications -- The future of progressive web apps
+N1  - Includes ebook access
+ER  - 
+
+TY  - CHAP
+TI  - Introduction to RESTful APIs
+AU  - Selvaraj, Sivaraj
+T2  - Mastering REST APIs
+C2  - Selvaraj, Sivaraj
+CY  - Berkeley, CA
+DA  - 2024///
+PY  - 2024
+DO  - 10.1007/979-8-8688-0309-3_1
+DP  - DOI.org (Crossref)
+SP  - 1
+EP  - 18
+LA  - en
+PB  - Apress
+SN  - 979-8-8688-0308-6 979-8-8688-0309-3
+UR  - https://link.springer.com/10.1007/979-8-8688-0309-3_1
+Y2  - 2024/09/08/11:45:27
+ER  - 
+
+TY  - BOOK
+TI  - The Illustrated Network
+DA  - 2017///
+PY  - 2017
+DP  - BnF ISBN
+LA  - eng
+PB  - Elsevier
+SN  - 978-0-12-811027-0
+ER  - 
+
+TY  - BOOK
+TI  - Networking All-in-One For Dummies, 8th edition
+AU  - Lowe, Doug
+CY  - Indianapolis
+DA  - 2021///
+PY  - 2021
+DP  - Library of Congress ISBN
+ET  - 8
+PB  - John Wiley & Sons Inc
+SN  - 978-1-119-68901-0
+ER  - 
+
+TY  - BOOK
+TI  - Network protocols handbook
+CY  - Saratoga, CA
+DA  - 2007///
+PY  - 2007
+DP  - K10plus ISBN
+ET  - 4. ed
+SP  - 363
+LA  - eng
+PB  - Javvin Technologies
+SN  - 978-1-60267-002-0
+ER  - 
+
+TY  - BOOK
+TI  - HTML5 for web designers
+AU  - Keith, Jeremy
+CY  - New York, New York
+DA  - 2016///
+PY  - 2016
+DP  - Open WorldCat
+ET  - Second edition
+LA  - eng
+PB  - A Book Apart
+SN  - 978-1-4920-1789-9
+ER  - 
+
+TY  - BOOK
+TI  - Current trends in semantic web technologies: theory and practice
+AU  - Alor-Hernández, Giner
+T2  - Studies in computational intelligence
+A3  - Sánchez-Cervantes, José Luis
+A3  - Rodríguez-González, Alejandro
+A3  - Valencia-García, Rafael
+CY  - Cham
+DA  - 2019///
+PY  - 2019
+DP  - K10plus ISBN
+SP  - 292
+LA  - eng
+M1  - volume 815
+PB  - Springer
+SN  - 978-3-030-06149-4 978-3-030-06148-7
+ST  - Current trends in semantic web technologies
+L1  - files/2988/Alor-Hernández - 2019 - Current trends in semantic web technologies theor.pdf
+ER  - 
+
+TY  - BOOK
+TI  - Linguistic modeling of information and markup languages: contributions to language technology
+AU  - Witt, Andreas
+AU  - Metzing, Dieter
+AU  - Witt, Andreas
+T2  - Text, speech and language technology
+CN  - 006.35
+CY  - Dordrecht London
+DA  - 2009///
+PY  - 2009
+DP  - BnF ISBN
+LA  - eng
+M1  - 40
+PB  - Springer
+SN  - 978-90-481-3331-4
+ST  - Linguistic modeling of information and markup languages
+ER  - 
+
+TY  - CHAP
+TI  - Big Change: Web 3.0 Era
+AU  - Cheng, Shenghui
+T2  - Web 3.0: Concept, Content and Context
+C2  - Cheng, Shenghui
+CY  - Singapore
+DA  - 2024///
+PY  - 2024
+DO  - 10.1007/978-981-99-6319-5_1
+DP  - DOI.org (Crossref)
+SP  - 1
+EP  - 29
+LA  - en
+PB  - Springer Nature Singapore
+SN  - 978-981-99-6318-8 978-981-99-6319-5
+ST  - Big Change
+UR  - https://link.springer.com/10.1007/978-981-99-6319-5_1
+Y2  - 2024/09/09/12:38:49
+ER  - 
+
+TY  - BOOK
+TI  - Learning Git: a hands-on and visual guide to the basics of Git
+AU  - Skoulikari, Anna
+CY  - Beijing Boston Farnham Sebastopol Tokyo
+DA  - 2023///
+PY  - 2023
+DP  - K10plus ISBN
+ET  - First edition
+SP  - 296
+LA  - eng
+PB  - O'Reilly
+SN  - 978-1-0981-3391-7
+ST  - Learning Git
+UR  - https://www.oreilly.com/library/view/learning-git/9781098133900/
+ER  - 
+
+TY  - BOOK
+TI  - Communicating design: developing web site documentation for design and planning
+AU  - Brown, Daniel M.
+CN  - QA76.9.D6 B755 2011
+CY  - Berkeley, CA
+DA  - 2011///
+PY  - 2011
+DP  - Library of Congress ISBN
+ET  - 2nd ed
+SP  - 299
+PB  - New Riders
+SN  - 978-0-321-71246-2
+ST  - Communicating design
+N1  - Includes index
+KW  - Web site development
+KW  - Electronic data processing documentation
+ER  - 
+
+TY  - BOOK
+TI  - Typography for Screen: Type in Motion
+A3  - Wang, Shaoqiang
+AB  - Typografie am Bildschirm - web typography - Webtypgrafie - digitale Typografie - Schriften im Webdesign. Motion - Webpage - Experimental
+CY  - Barcelona
+DA  - 2019///
+PY  - 2019
+DP  - K10plus ISBN
+ET  - 1. Auflage
+SP  - 239
+LA  - eng
+PB  - HOAKI BOOKS
+SN  - 978-84-17084-13-4
+ST  - Typography for Screen
+ER  - 
+
+TY  - BOOK
+TI  - Better web typography for a better web
+AU  - Latin, Matej
+A3  - Jones, Nick
+DA  - 2017///
+PY  - 2017
+DP  - K10plus ISBN
+SP  - 221
+LA  - eng
+PB  - Matej Latin
+SN  - 978-1-9998095-2-2
+UR  - https://betterwebtype.com/
+ER  - 
+
+TY  - BOOK
+TI  - CSS Fonts: web typography possibilities
+AU  - Meyer, Eric A.
+CY  - Beijing
+DA  - 2013///
+PY  - 2013
+DP  - K10plus ISBN
+SP  - 60
+LA  - eng
+PB  - O'Reilly
+SN  - 978-1-4493-7149-4
+ST  - CSS Fonts
+L1  - files/3015/Meyer - 2013 - CSS Fonts web typography possibilities.pdf
+N1  - From custom fonts to ad-hoc font families you assemble out of a variety of individual faces, CSS3 gives you more typographic options than ever before. This concise guide shows you how to use CSS properties to gain a fine-grained and wide-ranging influence over how you display fonts on the Web"--Page 4 of cover From custom fonts to ad-hoc font families you assemble out of a variety of individual faces, CSS3 gives you more typographic options than ever before. This concise guide shows you how to use CSS properties to gain a fine-grained and wide-ranging influence over how you display fonts on the Web"--Page 4 of cover
+ER  - 
+
+TY  - GEN
+TI  - Architecture of the World Wide Web, Volume One
+A2  - Jacobs, Ian
+A2  - Walsh, Norman
+DA  - 2004/12/15/
+PY  - 2004
+PB  - W3C Technical Architecture Group
+UR  - https://www.w3.org/TR/webarch/
+ER  - 
+
+TY  - BOOK
+TI  - Web application architecture: principles, protocols and practices
+AU  - Shklar, Leon
+AU  - Rosen, Rich
+CY  - Chichester
+DA  - 2012///
+PY  - 2012
+DP  - K10plus ISBN
+ET  - 2. ed., reprinted
+SP  - 422
+LA  - eng
+PB  - Wiley
+SN  - 978-0-470-51860-1
+ST  - Web application architecture
+N1  - Literaturangaben
+ER  - 
+
+TY  - BOOK
+TI  - Computer networks
+AU  - Tanenbaum, Andrew S.
+AU  - Feamster, Nick
+AU  - Wetherall, David
+AB  - For coursesin Business Data Communication and Networking.Anintroduction to computer networking grounded in real-world examplesIn Computer Networks,Tanenbaum et al. explain how networks work from the inside out. They start withthe physical layer of networking, computer hardware and transmission systems,then work their way up to network applications. Each chapter follows aconsistent approach: The book presents key principles, then illustrates themutilizing real-world example networks that run through the entire book theInternet, and wireless networks, including Wireless LANs, broadband wireless,and Bluetooth. The 6th Edition is updated throughout to reflect the mostcurrent technologies, and the chapter on network security is rewritten to focuson modern security principles and actions
+CY  - Harlow, United Kingdom
+DA  - 2021///
+PY  - 2021
+DP  - K10plus ISBN
+ET  - Sixth edition, Global Edition
+SP  - 1
+LA  - eng
+PB  - Pearson
+SN  - 978-1-292-37401-7
+L1  - files/3025/Tanenbaum et al. - 2021 - Computer networks.pdf
+N1  - Authorized adaption from the United States edition, 6th edition, ISBN 978-0-13-676405-2, published by Pearson Education 2020 ; Druckleiste: 1 2020
+ER  - 
+
+TY  - BOOK
+TI  - Eloquent JavaScript, 4th Edition
+AU  - Haverbeke, Marijn
+CY  - New York
+DA  - 2024///
+PY  - 2024
+DP  - K10plus ISBN
+ET  - 1st ed
+SP  - 1
+LA  - eng
+PB  - No Starch Press
+SN  - 978-1-7185-0411-0
+N1  - Description based on publisher supplied metadata and other sources
+ER  - 
+
+TY  - CONF
+TI  - Experiences and insights from using Github Classroom to support Project-Based Courses
+AU  - Nelson, Maria Augusta
+AU  - Ponciano, Lesandro
+AB  - This work presents an approach for using GitHub classroom as a shared, structured, and persistent repository to support project-based courses at the Software Engineering Undergraduate program at PUC Minas, in Brazil. We discuss the needs of the different stakeholders that guided the development of the approach. Results on the perceptions of professors and students show that the approach brings benefits. Besides the lessons learned, we present insights on improving the education of the next generation of software engineers by employing metrics to monitor skill development, verifying student work portfolios, and employing tooling support in project-based courses.
+C3  - 2021 Third International Workshop on Software Engineering Education for the Next Generation (SEENG)
+DA  - 2021/05//
+PY  - 2021
+DO  - 10.1109/SEENG53126.2021.00013
+DP  - arXiv.org
+SP  - 31
+EP  - 35
+UR  - http://arxiv.org/abs/2103.07242
+Y2  - 2025/08/08/14:09:58
+L1  - files/3057/Nelson and Ponciano - 2021 - Experiences and insights from using Github Classroom to support Project-Based Courses.pdf
+L2  - files/3058/2103.html
+N1  - Comment: 5 pages, 6 figures, position paper accepted to the Third International Workshop on Software Engineering Education for the Next Generation (SEENG workshop)
+KW  - Computer Science - Software Engineering
+ER  - 
+
+TY  - BOOK
+TI  - Mass effect: art and the internet in the twenty-first century
+AU  - Cornell, Lauren
+AU  - Halter, Ed
+T2  - Critical anthologies in art and culture
+CN  - 776
+CY  - Cambridge
+DA  - 2015///
+PY  - 2015
+DP  - K10plus ISBN
+LA  - eng
+PB  - The MIT Press
+SN  - 978-0-262-02926-1
+ST  - Mass effect
+ER  - 
+
+TY  - BOOK
+TI  - Expanded internet art: twenty-first century artistic practice and the informational milieu
+AU  - Moss, Ceci
+T2  - International Texts in Critical Media Aesthetics
+AB  - Introduction : active agents -- No center, no object, just networks : expanded internet art -- Milieux, then and now -- Resistance in the domain of all inputs, all outputs : Jean-François Lyotard and Thierry Chaput's Les immatériaux -- Parsing attention : image circulation and affect -- Conclusion : breaking presence
+CY  - New York, NY
+DA  - 2019///
+PY  - 2019
+DP  - Open WorldCat
+SP  - 1
+LA  - eng
+M1  - vol. 13
+PB  - Bloomsbury Academic, Bloomsbury Publishing Inc
+SN  - 978-1-5013-4778-8 978-1-5013-4779-5
+ST  - Expanded internet art
+N1  - Includes bibliographical references and index
+ER  - 
+
+TY  - BOOK
+TI  - Clean code: a handbook of agile software craftsmanship
+AU  - Martin, Robert C.
+T2  - Robert C. Martin series
+CY  - Upper Saddle River, NJ Munich
+DA  - 2012///
+PY  - 2012
+DP  - Open WorldCat
+ET  - Repr.
+SP  - 431
+LA  - eng
+PB  - Prentice Hall
+SN  - 978-0-13-235088-4
+ST  - Clean code
+ER  - 
+
+TY  - BOOK
+TI  - Handbook of semantic web technologies
+T2  - Springer reference
+A3  - Domingue, John
+CY  - Berlin
+DA  - 2011///
+PY  - 2011
+DP  - Open WorldCat
+LA  - ger
+PB  - Springer
+SN  - 978-3-540-92914-7 978-3-540-92912-3
+ER  - 
+
+TY  - BOOK
+TI  - Linguistic Modeling of Information and Markup Languages: Contributions to Language Technology
+AU  - Witt, Andreas
+AU  - Metzing, Dieter W.
+T2  - Text, Speech and Language Technology
+CY  - Dordrecht
+DA  - 2010///
+PY  - 2010
+DO  - 10.1007/978-90-481-3331-4
+DP  - K10plus ISBN
+SP  - 262
+LA  - eng
+M1  - 41
+PB  - Springer Science+Business Media B.V
+SN  - 978-90-481-3331-4
+ST  - Linguistic Modeling of Information and Markup Languages
+N1  - Includes bibliographical references
+N1  - This book covers recent developments in the field, from multi-layered mark-up and standards to theoretical formalisms to applications. It presents results from international research in text technology, computational linguistics, hypertext modeling and more This book addresses the interests of a large community of researchers in the fields of XML-based annotation techniques and corpus-based language technology. It covers the most significant recent developments in this field, from multi-layered mark-up and standards to theoretical formalisms to applications. The contributions are based on research projects at international level in text technology, computational linguistics, hypertext modeling and in the domain of standards and tools for language resources. Core topics are: strategies for multi-layered document modeling and processing, mark-up at different levels for textual resources, and text-technological information modeling. The sections of the book offer an exhaustive coverage of many of the current topics in the fields concerned, especially: Multi-layered Markup, Markup Languages and Language Resources, Markup and Text Types, Markup Languages and Hypertext, Markup and Formalization. The book may be seen as a contribution to very ambitious goals, connected to the development of an 'Annotation Science' (a term recently coined by Nancy Ide), as for example the interoperability of different types of linguistic and textual resources, of corpora and processing tools, as well as the development of methods and annotation techniques applicable to multiple modalities and languages
+ER  - 
+

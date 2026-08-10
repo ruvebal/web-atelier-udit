@@ -1,0 +1,74 @@
+---
+description: Which grounding file is canonical for what, and the per-unit evidence matrix that must be consulted before authoring any remaining FE II lesson
+globs: 'frontend-pedagogy/**'
+alwaysApply: false
+---
+
+# Grounding set — what is canonical for what
+
+Synced 2026-08-10. Three layers ground this curriculum. **They are not interchangeable, and one of them is not in this repo.**
+
+| Layer | Canonical location | Covers | Status |
+| --- | --- | --- | --- |
+| **Global map** | [`../profield-frontend-pedagogy.md`](../profield-frontend-pedagogy.md) — **in this repo** | Durable core/volatile layer, curriculum guidance, AI-assisted coding, accessibility, signature pedagogy, 3D, transferability. Pass-5, **Ahmes-dressed** | ✅ canonical **here** |
+| **Ibero layer** | [`profield-ibero-layer.md`](./profield-ibero-layer.md) — synced copy | Spain · Portugal · Brazil · Mexico; regional diagnosis, legal frames, regional sources | 🔄 synced from profield |
+| **Authorities** | [`profield-authorities-directory.md`](./profield-authorities-directory.md) — synced copy | Journals, conferences, standards bodies, key authors, research centres, awards — with `[V]`/`[L]`/`[U]`/`[I]` verification tags | 🔄 synced from profield |
+| **Source vaults** | `~/ahmes-library/scholar/documents/` — **outside this repo, by design** | The 18 extracted documents actually citable | ⛔ never copied here (gold rule) |
+
+## Sync direction — settled 2026-08-10
+
+Do not assume profield is always upstream. It is not:
+
+- **Global layer: this repo is AHEAD.** `profield-frontend-pedagogy.md` is pass-5 (2026-08-10) with Ahmes dressing and §16. `profield/runs/.../pass1.edited.md` is pass-2/3 (2026-07-29) with **no Ahmes content**. *Do not overwrite this repo's map from `pass1.edited.md` — you would lose the dressing.*
+- **Ibero + authorities: profield is upstream.** Both were absent here entirely and have been synced in. Re-sync by copying over and restoring the provenance banner.
+
+## 🔴 The finding that prompted this sync
+
+**The curriculum had outrun its own field map.**
+
+The guías curriculares cite **18 Ahmes coats**, of which **8 are Ibero-American** (Batista, Correa, González-Videgaray, CEPAL, Digital Education Council, Gonçalves, Neves, RCS) — and the global map contained **zero** Ibero content. The venue ladder in [`../fe-research-line.mdc`](../fe-research-line.mdc) and the proposal in [`../fe-cohort-case-proposal.mdc`](../fe-cohort-case-proposal.mdc) were built from an authorities directory that **did not exist in this repository**.
+
+Claims were traceable to vault nodes, so nothing was fabricated — but a reader of this repo alone could not reconstruct *why those sources*. That is now fixed.
+
+**Rule going forward:** if a guía or lesson cites a layer, that layer must be present here. Curriculum may not cite grounding the repo does not carry.
+
+---
+
+# Evidence matrix — read before authoring any remaining FE II unit
+
+Ten of twelve FE II units are still scaffold prose. Units 5 and 6 are the reference standard. **Before writing any of the remaining ten, look up its row here**: it tells you what evidence exists, what must be declared a gap, and which grounding section to cite.
+
+| Unit | CONTENIDOS anchor | Vault evidence available | Grounding section | Authoring instruction |
+| --- | --- | --- | --- | --- |
+| **1** Kickoff | — | Liu `dc2bd27d` (scaffolding vs offloading framing) | Global §1 durable/volatile; §4 AI | Frame the year. Cite Liu's central question. **No technical claims to ground.** |
+| **2–3** Astro / architecture | Arquitecturas front-end | **NONE** | Global §2 (frameworks as volatile layer) | ⚠️ **Declare gap.** Ground the *pedagogical rationale* (second paradigm, framework literacy) in §2; ground Astro facts in vendor docs, dated. Never imply research support for meta-framework sequencing. |
+| **4** PWA / offline | Desarrollo de PWA, offline | **NONE** | Global §1 (durable core: resilience) | ⚠️ **Declare gap.** Same discipline as 2–3. |
+| **5** Testing strategy | Testeo | Phung `ea8cf54c` (optimisation never demanded) | Global §4; §6 process assessment | ✅ **Done** — reference standard. |
+| **6** AI code review | Testeo (automatización) | Liu `dc2bd27d`, Kazemitabaar `23259ff1`, Singh `37173a2a`, Oliveira (ledger) | Global §4 AI-assisted coding | ✅ **Done** — reference standard. |
+| **7** Performance | Optimización de rendimiento | Phung `ea8cf54c` (imposed vs demanded); accessibility cluster for the "who pays" pairing | Global §5 accessibility as durable core | ⚠️ Partial. Performance *pedagogy* unsupported; **energy/climate claim has no vault source** — keep as reasoned commitment, no invented figures. |
+| **8** React Three Fiber | *(frontier)* | **NONE** | Global §8 3D/immersive — explicitly `[UNVERIFIED-GAP]` | ⚠️ **Declare pilot.** Cite the gap itself as the reason for proposing a sequence. |
+| **9** Shader literacy | *(frontier)* | **NONE** | Global §8 | ⚠️ **Declare pilot.** |
+| **10** IoT / Python-backed | *(frontier)* | **NONE** for the interface layer; RCS `91103623`, Phung, Singh for the data-science audience | Global §9 transferability `[UNVERIFIED-GAP]`; **Ibero** for regional data-science context | ⚠️ **Declare pilot** + name the data source (still placeholder pending Back-End II synergy sheet). |
+| **11** Capstone integration | Proyecto integrador | Garcia `8fef58f2` (artefact), **Nelson & Ponciano `f1031131`** (repository infrastructure), González-Videgaray `078b0a6a` (integrity formed) | Global §6 signature pedagogy; **Ibero** (integrity, LATAM) | ✅ **Well supported** — strongest evidence base after 5–6. |
+| **12** Oral defence | Evaluación | Liu `dc2bd27d` p.12 verbatim; DEC LATAM `20489b0b` p.2 (65% shallow learning, 56% fairness) | Global §6; **Ibero** §GenAI integrity | ✅ **Well supported.** Student demand for assessment fairness is documented — use it. |
+
+**Accessibility is cross-cutting**, not a unit: Fisseler `91241359`, Parthasarathy & Joshi `d57634a5`, Batista `0d28c6a5`, Correa `ac71e73e`. Any unit touching WCAG draws here.
+
+## Authoring rules for the remaining ten
+
+1. **Look up the row first.** If the row says NONE, the lesson must *say so* — the declared-gap paragraph is part of the content, exactly as in Unit 5's scholarly-honesty note.
+2. **Never let a vendor doc pose as research.** Astro/R3F/Workbox documentation grounds *how*, never *why this sequence teaches well*.
+3. **Follow the Unit 5/6 standard**: labelled code blocks, TTOD quote by ID, `relative_url` links, dated version pins, `{% raw %}` on any fence containing `{{`.
+4. **Cite by coat·node·page.** No citation without a node — see [`.cursor/rules/lesson-publishing-integrity.mdc`](../../.cursor/rules/lesson-publishing-integrity.mdc).
+5. **The gaps are the FE II thesis.** Six of twelve units have no pedagogical evidence. That is not a weakness to hide — it is what makes FE II a declared pilot and a research site ([`../fe-research-line.mdc`](../fe-research-line.mdc)).
+
+## Still outstanding for teaching
+
+| Item | State |
+| --- | --- |
+| Units 1–4, 7–12 at Unit 5/6 depth | 10 units pending |
+| reveal.js deck per unit (Phase 2 Tier B) | 0 of 12 built |
+| Spanish versions of FE II material | none — decision pending |
+| Unit 10 real data source | placeholder pending Back-End II synergy sheet |
+
+**Suggested order:** Units 11–12 first (best-supported, and they define the assessment students meet), then 8–10 (Entrega 2 frontier, where the pilot declaration does the work), then 1–4. Decks after the prose they summarise is settled.
