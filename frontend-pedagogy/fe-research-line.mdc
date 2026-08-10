@@ -1,0 +1,204 @@
+---
+description: Research line design for FE I/FE II as a CER field site — episteme, objectives, methodology, venue ladder, and the consequences for the guías curriculares
+globs: 'frontend-pedagogy/**'
+alwaysApply: false
+---
+
+# FE I / FE II as a Research Line — design & career projection
+
+> Author: Rubén Vega Balbás, PhD (drafted with Claude) · 2026-08-10
+> Evidence base: Ahmes vaults `fe-main` + `fe-ibero`; [`profield-frontend-pedagogy.md`](./profield-frontend-pedagogy.md); authorities directory `profield/runs/frontend-pedagogy/01/pass1c.raw.authorities_directory.md`
+> Verification discipline inherited from the authorities directory: `[V]` confirmed · `[L]` lead · `[U]` unverified · `[I]` interpretive
+
+---
+
+## 0. Is there a real gap? Yes — and it is unusually well-specified
+
+Not "nobody has studied web development." Something sharper, which the vault establishes by **absence**:
+
+> **Mechanisms validated in general programming and data-science education have never been tested in a front-end / interface-layer cohort.**
+
+The evidence for that claim is the vault itself:
+
+| Vault source | Cohort studied | Front-end? |
+| --- | --- | --- |
+| Garcia 2025 | 176 undergraduates, *web design and development course* (FEU, Manila) | ✅ **the only one** |
+| Phung 2025 | 102 students, introductory **data science** programming | ❌ |
+| Singh 2026 | **data science** education | ❌ |
+| Kazemitabaar 2024 (CodeAid) | programming course, LLM assistant deployment | ❌ general |
+| Liu, Fan & Pan 2026 | programming education, grounded theory | ❌ general |
+| Parthasarathy & Joshi 2024 | **faculty** perceptions, India | ❌ not students |
+| Batista 2025 · Correa 2025 | **websites** audited, not learners | ❌ not cohorts |
+
+And `profield-frontend-pedagogy.md` already carries the matching tags: web-specific cognitive-offloading effect sizes `[UNVERIFIED-GAP]`; no settled sequencing model for 3D web in HE `[UNVERIFIED-GAP]`; no HE pedagogy source for the IoT/robotics *interface* layer `[UNVERIFIED-GAP]`; Python-backed interfaces `[UNVERIFIED-GAP]`.
+
+**There is also no Spanish cohort anywhere in either vault.** Not one.
+
+So the gap is not a hunch. It is a documented, queryable empty set — and you are already standing in it, teaching.
+
+---
+
+## 1. Asset inventory — why *you*, and why now
+
+Be honest about the advantage, because it is real but specific. You will not out-RCT a CER lab. You have something they cannot easily get:
+
+| Asset | Why it is research-grade |
+| --- | --- |
+| **FE I annual (2nd yr) + FE II semester (3rd yr)** | A **longitudinal arc with the same students across two years** — rare, and the natural design for "what survives the framework." |
+| **Two degrees share the subject** (Full-Stack + Ciencia de Datos e IA) | A **naturally occurring cross-group comparison** you did not have to construct. Directly tests interface-layer *transferability* — the field's open question. |
+| **FE II is brand new** | A clean **pilot with no prior-year contamination**, and a legitimate design-based-research site. |
+| **Assessment already instrumented** | AI-use declarations, commit narratives, decision/iteration logs, oral-defence rubric. **You are already generating the data**; it is simply not yet consented, structured, or analysed. |
+| **Published, versioned curriculum** | The Web Atelier site + git history is a **reproducibility artefact** most practitioner papers cannot offer. |
+| **Profield + Ahmes** | A systematic-review and provenance capability that is, frankly, ahead of the median CER practitioner paper. |
+| **Sociologist collaborator** | Instrument design, qualitative rigour, and — critically — **an independent data custodian** (see §5). |
+
+**Interpretive `[I]`:** the combination of (longitudinal + cross-degree + new-course pilot + already-instrumented process evidence + sovereign source vault) is unusual enough to be the pitch itself.
+
+---
+
+## 2. Research episteme
+
+**Not** positivist effect-hunting. Your n will not support it, and it would contradict your own pedagogy.
+
+**Design-Based Research (DBR)** as the frame — iterative design of a learning environment, studied in situ, producing *design principles* rather than universal effects — combined with **critical technical practice**: the interface layer treated as a site where technical choices carry social consequence.
+
+Two lineages you can claim rather than invent:
+
+- **Studio-based learning in computing.** ATELIER is not a private metaphor: Hundhausen's studio-based instructional models are an established CER strand, and he appears in the authorities directory `[V]` (Oregon State; TOCE EiC 2015–2021). **Frame ATELIER as a studio-based model applied to front-end**, and you inherit a citable tradition.
+- **Authentic / process-based assessment.** Garcia 2025 is your closest precedent and your only web cohort.
+
+**Epistemic commitment worth stating in every paper:** claims are tagged by evidence strength, absences are reported, and the vault is disclosable. That is unusual and it is a differentiator — reviewers notice.
+
+---
+
+## 3. Objectives — five research questions, ordered by feasibility
+
+**RQ1 — Transfer (the flagship).**
+Do mechanisms validated in general programming education behave the same in a front-end cohort? Specifically: **deferred AI assistance** (Singh), **metacognitive planning scaffolds** (Phung), **in-workflow AI code review** (Oliveira, via profield).
+*Why it wins:* it is a **replication in a documented blank**. Reviewers understand replication; it is publishable even when results are null, and null results here are themselves a finding.
+
+**RQ2 — Cross-degree legibility.**
+Does interface-layer framing produce different engagement/outcomes between Full-Stack and Data Science & AI students?
+*Why it wins:* the comparison exists naturally in your timetable; nobody has run it.
+
+**RQ3 — Longitudinal durability.**
+Across FE I → FE II, which competences persist when the framework changes (React → Astro → WebGL → device APIs)? This is the **durable-core/volatile-layer axis tested empirically** rather than asserted.
+
+**RQ4 — Authorship and agency under ambient AI** *(sociologist-led).*
+How do students narrate authorship, competence, and responsibility in their AI declarations? Liu's *"I'm terrified. I'm not sure what I actually know"* is a hypothesis generator, not a conclusion.
+*Why it wins:* discourse analysis of a **corpus you already collect**, and it is the half a CS-only author cannot do well.
+
+**RQ5 — Frontier sequencing** *(the pilot payoff).*
+Can a defensible teaching sequence for 3D/interface and IoT/Python-backed interfaces be proposed and evaluated? Output = **design principles**, explicitly labelled as a first proposal in a field with none.
+
+---
+
+## 4. Methodology
+
+**Design:** DBR across two macro-cycles (2026-27, 2027-28), each cycle = one FE I annual run + one FE II semester run.
+
+**Data you already produce** (needs consent + structure, not new bureaucracy):
+
+| Instrument | Already exists? | Research use |
+| --- | --- | --- |
+| AI Use Declaration | ✅ (Phase 3 rubric) | RQ1, RQ4 — corpus for discourse analysis |
+| Commit narrative / git history | ✅ | RQ1, RQ3 — process trace, iteration density |
+| `decisions.md` / `iterations.md` | ✅ (Unit 11) | RQ1, RQ5 |
+| Oral defence + diff questions | ✅ (Unit 12) | RQ1, RQ3 — the *corrective competence* measure |
+| `docs/testing-strategy.md`, AI review log | ✅ (Units 5–6) | RQ1 — accept/reject reasoning as evidence of evaluative judgement |
+
+**Data to add** (sociologist's design):
+
+- Entry/exit **survey** per course — validated scales where they exist; do not invent psychometrics.
+- **Semi-structured interviews** (purposive sample, ~8–12 per cohort), transcribed.
+- **Focus group** at FE II capstone.
+- Optional **think-aloud** on one AI-assisted task (small n, high value for RQ4).
+
+**Analysis:** qualitative-dominant mixed methods. Thematic/grounded analysis of declarations and interviews (sociologist); descriptive quantitative on process traces and rubric scores; **no causal language**.
+
+**The measure that matters most:** the oral defence already operationalises *"can you explain and modify this on the spot"* — i.e. Sankaranarayanan's corrective competence. **Score it consistently from day one** and it becomes your primary construct.
+
+---
+
+## 5. Risk register — read this before anything else
+
+| Risk | Severity | Mitigation |
+| --- | --- | --- |
+| **Teacher–researcher conflict of interest** — you grade the people you study | 🔴 high | Consent **collected by the sociologist**, not you. Data pseudonymised and **withheld from analysis until final grades are filed**. State this in every paper's ethics note. |
+| **Coercion risk** — students may feel participation affects marks | 🔴 high | Explicit opt-in/opt-out with **zero grade consequence**; opting out must be invisible to you until after grading. |
+| **RGPD/GDPR** — commit histories, declarations and recordings are personal data | 🔴 high | Legal basis, retention period, pseudonymisation at ingest, UDIT data-protection officer sign-off **before** September. |
+| **Institutional ethics approval** | 🟠 | Check whether UDIT has an ethics committee; if not, adopt an external protocol (e.g. ACM SIGCHI ethics guidance) and say so. |
+| **Small n** | 🟠 | Do not promise inference. Frame as DBR / experience report / qualitative study. Null results are publishable in a blank. |
+| **"Innovación docente" ≠ research merit** in Spanish accreditation | 🟠 | Aim at **indexed CER venues** (§6), not internal teaching-innovation calls, for the merit-bearing outputs. |
+| **Novelty overclaim** | 🟡 | You are replicating known mechanisms in a new cohort. That is the honest and defensible claim. |
+
+> **If you take one thing from this document:** consent and data governance must be in place **before the first class of 2026-27**, or the year's data is unusable. That is the single hard deadline.
+
+---
+
+## 6. Venue ladder & timeline
+
+**Reality check on dates (today 2026-08-10):** ITiCSE 2026 (Madrid, URJC, 13–15 Jul 2026) `[V]` and JENUI 2026 (Barcelona, UPC, 8–10 Jul 2026) `[V]` have **already happened**. ASSETS 2026 (Porto/Vila Nova de Gaia, 25–28 Oct 2026) `[V]` is upcoming but its submission window is past. **2026-27 is the data year; 2027 is the output year.** Plan accordingly — this is normal, not a setback.
+
+### Ladder (low barrier → high merit)
+
+| Tier | Venue | Fit | Note |
+| --- | --- | --- | --- |
+| **Entry / Spanish** | **JENUI 2027** (AENUI) `[V]` | University CS teaching, Spanish-language | Also hosts **Premio AENUI a la Calidad e Innovación Docente** `[U]` — a named merit |
+| **Entry / regional** | **SIIE 2027** (ADIE) `[V]`; **CLEI** `[V]` (Educación en Informática track `[U]`) | Informática educativa | Iberoamerican visibility |
+| **Mid / international** | **ITiCSE 2027** `[V]` | ACM CER, European | **ITiCSE 2026 was in Madrid** — the Spanish CER network is local to you; cultivate it now |
+| **Mid / thematic** | **ASSETS 2027** `[V]` — **experience reports track** exists `[V]` | Accessibility-in-teaching strand | Natural home for the FE I accessibility-audit work |
+| **High / methodological** | **ICER** `[V]` | Rigorous CER | Aim here in cycle 2, with real qualitative depth |
+| **Journal / open** | **Education Sciences** (MDPI) `[V-prior]` | Published Garcia — your direct precedent | Fast, open access; check current indexing before committing |
+| **Journal / prestige** | **ACM TOCE** `[V]` (EiC Amy J. Ko), **Computer Science Education** (T&F) `[V]`, **IEEE ToE** `[V]` | Merit-bearing | Target with the longitudinal 2-cycle dataset |
+| **Journal / Spanish** | **RIED** `[V]` (AIESAD), **IE Comunicaciones** `[V]` | Spanish-language indexed | Useful for accreditation breadth |
+
+### Three-year projection
+
+**2026-27 — instrument & collect.** Ethics + consent in place before September. Run FE I and FE II with instruments live. FE II *is* the pilot. Deliverable: a clean dataset and a design narrative. **Write nothing for review yet except one experience report.**
+
+**2027 — first outputs.** JENUI 2027 (Spanish, accessible, prize-eligible) + ASSETS 2027 experience report (accessibility strand) + submit the replication study (RQ1) to *Education Sciences* or ITiCSE 2027.
+
+**2027-28 — cycle 2 & consolidation.** Second DBR cycle; longitudinal RQ3 becomes answerable. Target ICER or TOCE with the two-cycle dataset. Propose the RQ5 sequencing paper as design principles.
+
+**Collaboration `[L]`:** **GRIAL / Francisco José García-Peñalvo (Universidad de Salamanca)** `[V]` is the obvious Spanish anchor — an established, indexed, interdisciplinary edtech group. A co-authored replication with a GRIAL member converts a solo practitioner paper into a networked one. Approach after you have data, not before.
+
+---
+
+## 7. Consequences for the guías curriculares — act before September
+
+This is where the research line touches the CVs. **The guías become research instruments, and that changes their text.**
+
+1. **Add a participation/consent clause** to both *Fundamentación* sections: the course generates process evidence; research use is **separately consented, opt-in, grade-neutral, and administered by a third party**. Students must read this in the guía, not discover it later.
+2. **Freeze the instruments now.** A rubric that changes mid-year destroys comparability. The oral-defence rubric and AI-declaration template must be **versioned and dated** — treat them as measurement instruments from 2026-27 cycle 1.
+3. **Add a research-line paragraph** to both guías stating that the subject is a documented CER field site and that FE II is a declared **pilot** — this converts the `[UNVERIFIED-GAP]` honesty already written there from a caveat into a **stated research contribution**.
+4. **Keep the `Fundamentación académica` vault discipline.** It is already your methodological signature; it will read as rigour to a reviewer.
+5. **Do not change the pedagogy to suit the study.** DBR studies the design you would run anyway. If a measurement demand distorts teaching, drop the measurement.
+
+**Concretely, in the repo:**
+
+- `frontend-pedagogy/cv/*.md` → consent clause + research-line paragraph
+- `web-foundations/docs/evaluation/shared/ai-declaration-oral-defence-rubric/` → add `version:` + `frozen:` date to frontmatter
+- new `frontend-pedagogy/research-line/` → protocol, consent form (sociologist-drafted), instrument versions, ethics correspondence
+
+---
+
+## 8. What not to claim
+
+- **Not** "we prove AI harms/helps learning." You cannot, at this n, with this design.
+- **Not** a validated framework. You are proposing design principles from a pilot.
+- **Not** that ATELIER is novel — it is a studio-based model **applied to a new domain**. The application is the contribution.
+- **Not** effect sizes. Ever, at this n.
+- **Not** Spanish legal-accessibility claims until those norms are ingested into a vault (still outstanding).
+
+---
+
+## 9. Honest verdict
+
+**Is it a good idea?** Yes — with one condition. The gap is real and documented, your position is genuinely unusual, and your sociologist collaborator supplies exactly the competence the design needs. The condition is **§5**: without consent and data governance in place before September 2026, the year produces teaching, not research.
+
+**Is it merit-bearing?** Yes, if you aim at indexed CER venues (§6) rather than internal teaching-innovation calls. The ladder is realistic: Spanish conference → international conference → indexed journal, over three years, with a two-cycle longitudinal dataset as the eventual differentiator.
+
+**The strongest single framing** — the one that fits both your pedagogy and the evidence:
+
+> Mechanisms for teaching under ambient AI have been validated in general programming and data-science cohorts, and never tested where the artefact is a human-facing interface. This work reports a two-year, two-degree replication in a front-end cohort — and publishes what it did not find.
