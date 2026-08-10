@@ -23,7 +23,7 @@ status: complete
 
 ---
 
-> _"Critical coding for a better living for all humans and machines."_
+> _"Critical coding for a better living."_
 
 > **AI Assistance Disclosure:** This track integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout the process. Pedagogy is grounded in classroom experience and critical reflection on AI's role in education.
 
@@ -40,7 +40,7 @@ Our pedagogy rests on four pillars:
 - **Performance as Respect** — Core Web Vitals, performance budgets, and optimization are not optional features but baseline expectations for professional development.
 - **Interface-Layer Thinking** — The interface layer extends beyond the browser to spatial interfaces (3D), physical devices (IoT/robotics), and backend services (Python). The component model stays the same; the deployment context changes.
 
-The "for machines" half of our vision includes not just browser engines but also GPU pipelines, device APIs, and backend services. Performance engineering and accessibility are two sides of the same coin: respect for the computational resources and human attention our work consumes.
+A better living is not only the reader's. In this course the systems we engineer for widen beyond browser engines to GPU pipelines, device APIs, and backend services. Performance engineering and accessibility are two sides of the same coin: respect for the computational resources and the human attention our work consumes.
 
 ---
 

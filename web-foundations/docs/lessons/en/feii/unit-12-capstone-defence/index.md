@@ -214,7 +214,7 @@ FE II has taken you from building interfaces to building systems of interfaces:
 
 The component model you learned in FE I — props, state, hooks, composition — remains the same. What changed is the deployment context: from single-page apps to distributed systems, from REST APIs to WebSocket streams, from 2D DOM to WebGL 3D.
 
-**Critical coding for a better living for all humans and machines.**
+**Critical coding for a better living.**
 
 ---
 

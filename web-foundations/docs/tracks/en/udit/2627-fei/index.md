@@ -23,7 +23,7 @@ status: complete
 
 ---
 
-> _"Critical coding for a better living for all humans and machines."_
+> _"Critical coding for a better living."_
 
 > **AI Assistance Disclosure:** This track integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout the process. Pedagogy is grounded in classroom experience and critical reflection on AI's role in education.
 
@@ -40,7 +40,7 @@ Our pedagogy rests on four pillars:
 - **Accessibility as Ethics, Not Checklist** — WCAG compliance is embedded from the start, not bolted on as an afterthought. We design for screen readers, keyboard navigation, and neurodiverse users because inclusive design is ethical design.
 - **Performance as Respect** — Fast-loading, responsive interfaces are not optimization targets but baseline expectations. We consider the devices and networks our users actually experience.
 
-The "for machines" half of our vision extends beyond human audiences: we engineer for the systems that render our code — browser engines, GPU pipelines, and assistive technologies. Performance engineering and accessibility are two sides of the same coin: respect for the computational resources and human attention our work consumes.
+A better living is not only the reader's. We also engineer for the systems that carry our code — browser engines, rendering pipelines, and the assistive technologies that speak it aloud. Performance engineering and accessibility are two sides of the same coin: respect for the computational resources and the human attention our work consumes.
 
 ---
 

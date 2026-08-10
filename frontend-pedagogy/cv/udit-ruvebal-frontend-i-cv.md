@@ -11,7 +11,7 @@ Este primer curso se enfoca en consolidar bases avanzadas de desarrollo front-en
 
 ## Fundamento Pedagógico
 
-> _Critical Coding for a Better Living — for all humans and machines._
+> _Critical Coding for a Better Living._
 
 El desarrollo front-end se entiende aquí no como "producción de páginas web", sino como el diseño de la **capa de interacción humana** de los sistemas digitales: el puente entre las personas y el software que usan. La asignatura separa un **núcleo duradero** (semántica HTML, fundamentos CSS, principios JavaScript, accesibilidad) de una **capa volátil** (frameworks, herramientas de build, plataformas de despliegue) — se enseñan los fundamentos primero porque sobreviven al framework de turno, y los frameworks se enseñan como capas reemplazables, no como destino final. El desarrollo asistido por IA se practica de forma **transparente, documentada y verificada** (metodología docs-first: plan antes que implementación, prompts documentados, código revisado con criterio humano) — no se esconde ni se prohíbe, se enseña como competencia profesional real. La evaluación prioriza la **evidencia de proceso** (historial de commits, declaraciones de uso de IA, defensa oral — Técnica 40% / Reflexión y Documentación 35% / Comprensión Conceptual 25%) sobre el pulido del producto final, porque lo que se examina es la comprensión, no solo el resultado. Y la accesibilidad se trata como **práctica ética**, no como checklist de última hora — en este primer curso, donde se sientan los fundamentos, esto significa que WCAG, navegación por teclado y contraste de color se enseñan desde el Módulo 1, no se añaden al final.
 

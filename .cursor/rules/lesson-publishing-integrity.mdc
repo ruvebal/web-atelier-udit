@@ -166,7 +166,7 @@ Sections: `images`, `architecture`, `code-craft`, `qa-tooling`, `wisdom`, `remot
 
 > ⚠️ `web-foundations/docs/_data/ttod.yml` is a **stale copy** (176 quotes vs 213 upstream). Quote statically in Markdown; don't rely on `site.data.ttod` for newer IDs until it's re-synced.
 
-The site tagline is **"Critical Coding for a Better Living"** — it is real, pre-existing site identity (homepage, footer, methodology). Extending it (`"…for all humans and machines"`) is established practice, not invention.
+**The site tagline is exactly "Critical Coding for a Better Living" — never extend it.** It is pre-existing site identity (homepage, footer, `methodology/en/index.md`). An earlier pass appended *"…for all humans and machines"* on the track pages and in a unit; Rubén reverted it (2026-08-10). Quote the tagline verbatim or not at all — and never write prose that quotes a *half* of it (`The "for machines" half of our vision…`), since that breaks the moment the wording is corrected. Express the idea in your own words instead.
 
 ---
 
