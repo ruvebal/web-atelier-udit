@@ -113,6 +113,7 @@ Voz estudiantil, nodo `c3157096` · p. 12: *"I got good grades on all the projec
 
 **Bloque 7 · Capstone, evidencia de proceso y defensa oral**
 `garcia_self_coded…8fef58f2` · nodo `ba2fa258` · p. 0 — portafolio autocodificado como evaluación auténtica de ABP (única cohorte de desarrollo web del vault; FEU, Manila — nodo `7cac84dd` · p. 3).
+`nelson_and_ponciano_2021…f1031131` · nodo `ed82afbb` · p. 0 — GitHub Classroom como *"shared, structured, and persistent repository to support project-based courses"* (Ingeniería del Software, PUC Minas). Respalda que la **evidencia de proceso del capstone** (historial de commits, `decisions.md`, `iterations.md`) descanse en infraestructura de repositorio y no en entregas sueltas.
 `gonzalez_videgaray…078b0a6a` · nodo `fbe705f2` · p. 6 — la IA generativa como *"asistencia situada dentro de la Zona de Desarrollo Próximo"*, actuando como *"par más capaz"*.
 `digital_education_council…20489b0b` · nodo `b15014c1` · p. 2 — *"A clear majority of students (65%) worry about AI leading to shallow learning and an absence of fairness in assessment (56%)"*.
 > La defensa oral responde a una **demanda estudiantil documentada** en América Latina, no solo a una inquietud del profesorado.

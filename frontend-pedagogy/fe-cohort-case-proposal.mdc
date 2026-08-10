@@ -1,0 +1,178 @@
+---
+description: Proposal to IP (co-investigadora, sociología) and UDIT department coordination — FE I/FE II as a documented CER cohort case study; gap, evidence, artefacts, consents, venues and output calendar
+globs: 'frontend-pedagogy/**'
+alwaysApply: false
+---
+
+# Propuesta — Front-End I / II como caso de estudio de cohorte
+
+**De:** Rubén Vega Balbás, PhD · Prof. Desarrollo Web Front-End I y II · UDIT
+**Para:** IP co-investigadora (sociología) · Coordinación de Grado en Desarrollo Full-Stack · Coordinación de Grado en Ciencia de Datos e IA · Dirección académica
+**Fecha:** 2026-08-10 · **Curso afectado:** 2026-27
+**Documentos hermanos:** [`fe-research-line.mdc`](./fe-research-line.mdc) (diseño de investigación completo) · [`profield-frontend-pedagogy.md`](./profield-frontend-pedagogy.md) (mapa del campo)
+
+---
+
+## 1. Petición, en una frase
+
+Autorización para que la docencia de **Front-End I y II durante 2026-27 y 2027-28 constituya un caso de estudio documentado**, con consentimiento informado, custodia externa de datos y salida en congresos y revistas indexadas — **sin modificar la docencia que se impartiría de todos modos**.
+
+---
+
+## 2. La laguna: no es una intuición, es un conjunto vacío verificable
+
+El proyecto mantiene un corpus soberano de literatura extraída (Ahmes) sobre pedagogía del front-end. Su lectura arroja una ausencia **específica**:
+
+> Los mecanismos validados para enseñar bajo IA ambiental — asistencia diferida, andamiaje metacognitivo, revisión de código asistida por IA — **se han validado en programación general y ciencia de datos, nunca en una cohorte de front-end / capa de interfaz.**
+
+| Fuente del corpus | Cohorte estudiada | ¿Front-end? |
+| --- | --- | --- |
+| Garcia (2025) · `garcia…8fef58f2` | 176 estudiantes, *curso de diseño y desarrollo web* (FEU, Manila) | ✅ **la única** |
+| Nelson & Ponciano (2021) · `nelson_and_ponciano…f1031131` | Ingeniería del Software, PUC Minas (n=58 encuesta) | ⚠️ ABP y repositorio, no front-end |
+| Phung (2025) · Singh (2026) | programación para **ciencia de datos** | ❌ |
+| Kazemitabaar (2024) · Liu, Fan & Pan (2026) | programación general | ❌ |
+| Parthasarathy & Joshi (2024) | **profesorado**, India | ❌ no estudiantado |
+| Batista (2025) · Correa (2025) | **sitios web** auditados | ❌ no cohortes |
+
+Y **no existe ninguna cohorte española** en el corpus. Ninguna.
+
+El mapa de campo ya etiqueta como `[UNVERIFIED-GAP]` los tamaños de efecto de descarga cognitiva específicos de web, la secuenciación del 3D web en educación superior y la pedagogía de la capa de interfaz para IoT/robótica.
+
+**Conclusión:** la laguna está documentada y es consultable. No pedimos permiso para buscar un hueco; pedimos permiso para ocupar uno ya descrito.
+
+---
+
+## 3. Por qué esta docencia, y no otra, puede ser la cohorte
+
+No es voluntarismo. Son cuatro condiciones que **ya existen en el horario**, y que un laboratorio externo no puede construir fácilmente:
+
+1. **Arco longitudinal real.** FE I es anual (2.º curso) y FE II semestral (3.º). El mismo estudiantado atraviesa dos años. Es el diseño natural para la pregunta *"¿qué competencia sobrevive al cambio de framework?"*
+2. **Comparación entre grados, no construida.** La asignatura se imparte a **Full-Stack** y a **Ciencia de Datos e IA**. Es un contraste que responde directamente a la pregunta abierta del campo — la transferibilidad de la capa de interfaz — y que nadie ha ejecutado.
+3. **FE II se estrena en 2026-27.** Piloto limpio, sin arrastre de ediciones previas.
+4. **La evaluación ya está instrumentada.** Declaración de uso de IA, narrativa de commits, `decisions.md` / `iterations.md`, defensa oral con preguntas sobre el diff. **Los datos ya se producen**; lo que falta es consentimiento, estructura y análisis — no burocracia nueva.
+
+---
+
+## 4. Los artefactos ya son públicos y auditables
+
+A diferencia de la mayoría de propuestas de innovación docente, aquí el objeto de estudio **ya está publicado y versionado**, con historial de cambios en git:
+
+| Artefacto | URL |
+| --- | --- |
+| Hub de itinerarios | `https://ruvebal.github.io/web-atelier-udit/tracks/` |
+| **Front-End I** — itinerario anual | `…/tracks/fei/` |
+| FE I — cómo se aprueba (deck) | `…/tracks/fei/how-to-pass-this-track/` |
+| Secuencia React (2.º semestre, 15 lecciones) | `…/lessons/en/react/` |
+| **Front-End II** — itinerario semestral | `…/tracks/feii/` |
+| FE II — cómo se aprueba (deck) | `…/tracks/feii/how-to-pass-this-track/` |
+| FE II — secuencia canónica de 12 unidades | `…/lessons/en/feii/` |
+| Rúbrica compartida — declaración de IA y defensa oral | `…/evaluation/shared/ai-declaration-oral-defence-rubric/` |
+| Metodología ATELIER y *critical coding* | `…/methodology/en/` |
+
+_(Publicación pendiente del `git push` de las últimas revisiones; todas las rutas construyen y resuelven localmente.)_
+
+**Esto tiene tres consecuencias para la coordinación:** la propuesta es **verificable antes de aprobarse**; el diseño docente es **reproducible** por terceros; y el material es **licencia abierta (CC BY-NC-SA)**, lo que abre una vía de mérito adicional (§7, OEGlobal).
+
+---
+
+## 5. Qué se pide a cada parte
+
+**A la IP co-investigadora (sociología) — el papel es sustantivo, no de acompañamiento:**
+
+- Diseño y validación de instrumentos (encuesta de entrada/salida, guion de entrevista semiestructurada, grupo focal).
+- Análisis cualitativo: análisis temático del corpus de **declaraciones de uso de IA** — cómo narra el estudiantado autoría, competencia y responsabilidad bajo IA ambiental. Es la línea que un autor solo de informática no ejecuta bien.
+- **Custodia independiente de los datos** y administración del consentimiento (§6). Esta función es la que resuelve el conflicto de interés y no puede recaer en el docente.
+
+**A la coordinación de grado:**
+
+- Conformidad para que la asignatura opere como caso de estudio con consentimiento informado.
+- Interlocución con la figura de protección de datos de UDIT.
+- Reconocimiento del tiempo de investigación asociado.
+
+**Lo que explícitamente NO se pide:** ni cambiar el temario, ni añadir carga al estudiantado, ni condicionar calificación alguna a la participación.
+
+---
+
+## 6. Consentimientos: de qué naturaleza, exactamente
+
+Hay **cuatro** consentimientos distintos, y conviene no confundirlos porque tienen bases legales y riesgos diferentes.
+
+| # | Consentimiento | Objeto | Naturaleza y salvaguarda |
+| --- | --- | --- | --- |
+| **C1** | **Uso secundario de evidencia docente ya existente** | Commits, `decisions.md`, `iterations.md`, declaraciones de IA, puntuaciones de rúbrica | Opt-in explícito. Los artefactos se producen **de todos modos** para evaluar; el consentimiento cubre su **reutilización con fines de investigación**, seudonimizada. |
+| **C2** | **Instrumentos nuevos** (encuestas, entrevistas, grupo focal) | Datos generados solo para la investigación | Opt-in independiente de C1. Participación voluntaria, sin efecto en la calificación, revocable. |
+| **C3** | **Grabación** (defensa oral, entrevistas, think-aloud) | Voz e imagen — categoría sensible | Consentimiento separado y más estricto; posibilidad de participar sin ser grabado; plazo de conservación explícito. |
+| **C4** | **Difusión de artefactos estudiantiles** (capturas de repositorios, extractos de código, citas literales) | Obra del estudiantado | Consentimiento por artefacto, con opción de atribución o anonimato. La autoría es suya, no del curso. |
+
+**Salvaguardas transversales, no negociables:**
+
+- **Administración por la IP, no por el docente.** El profesorado **no sabe quién participa** hasta que las actas están cerradas.
+- **Ceguera temporal:** ningún dato se analiza antes del cierre de calificaciones del curso correspondiente.
+- **Seudonimización en origen**, con la tabla de correspondencia bajo custodia de la IP.
+- **Revocabilidad** en cualquier momento, sin justificación y sin consecuencia académica.
+- **RGPD:** base jurídica, minimización, plazo de conservación y derechos del interesado, con visto bueno de protección de datos **antes de septiembre de 2026**.
+- **Menores / estudiantado vulnerable:** verificar si procede alguna salvaguarda adicional según la composición del grupo.
+
+> **El riesgo real que estas medidas neutralizan** es la **coerción percibida**: quien te califica te pide datos. Si la coordinación solo revisa un punto de esta propuesta, que sea éste.
+
+---
+
+## 7. Oportunidades y calendario
+
+**Realidad de fechas a 2026-08-10 — todas las ventanas de 2026 están cerradas:**
+
+| Convocatoria | Fecha límite 2026 | Estado |
+| --- | --- | --- |
+| TEEM 2026 (Porto, 20–23 oct) | envío 5 jun 2026 | ❌ cerrada |
+| IFE Conference 2027 (Monterrey, 26–28 ene 2027) | convocatoria hasta 15 jul 2026 | ❌ cerrada |
+| OEGlobal Awards 2026 | nominaciones hasta 22 jun 2026 | ❌ cerrada |
+| ITiCSE 2026 (Madrid) · JENUI 2026 (Barcelona) | celebrados en julio 2026 | ❌ pasados |
+| ASSETS 2026 (Porto, oct) | envío cerrado | ❌ cerrada |
+
+**Esto no es un contratiempo: define el calendario.** **2026-27 es el año de datos; 2027 es el año de salidas.**
+
+### Destinos, por orden de accesibilidad
+
+| Destino | Encaje | Indexación / mérito |
+| --- | --- | --- |
+| **TEEM 2027** (teemconference.eu) | Alta afinidad: pista *"Engineering Education: Redefining Skills, Pedagogy, and Ethics in the AI Era"*. **García-Peñalvo (GRIAL, Salamanca) preside el Steering Committee** — es también la vía natural de colaboración española | **Springer, indexado en Scopus y WoS** |
+| **IFE Conference 2028** (tec.mx) | Innovación educativa, iberoamericano, orientado a IA y factor humano | Springer *Lecture Notes in Educational Technology*, Scopus |
+| **JENUI 2027** (AENUI) | Enseñanza universitaria de la informática, en español | Ámbito nacional; incluye **Premio AENUI a la Calidad e Innovación Docente** |
+| **ASSETS 2027** — pista *experience reports* | Accesibilidad: encaja el trabajo de auditoría WCAG de FE I | ACM SIGACCESS |
+| **ITiCSE 2027** | CER internacional europeo | ACM |
+| **OEGlobal Awards 2027** | **No requiere datos de investigación:** premia el *artefacto abierto* ya publicado (§4). Vía de mérito más rápida | Reconocimiento internacional en educación abierta |
+| **Education Sciences** (MDPI) | Publicó a Garcia — precedente directo | Revista abierta indexada |
+| **ACM TOCE** · **Computer Science Education** · **IEEE ToE** | Objetivo de ciclo 2, con el conjunto longitudinal | Alto impacto |
+
+### Calendario de salidas esperadas
+
+| Momento | Hito |
+| --- | --- |
+| **ago–sep 2026** | Consentimientos y RGPD cerrados · instrumentos congelados y versionados · **prerrequisito de todo lo demás** |
+| **sep 2026 – jun 2027** | **Ciclo 1**: docencia FE I + FE II con instrumentos activos. Sin escritura para revisión |
+| **ene–mar 2027** | Redacción del *experience report* (FE II como piloto) |
+| **primavera 2027** | Nominación **OEGlobal 2027** del artefacto abierto (no depende de datos) |
+| **mar–jun 2027** | Envíos: **JENUI 2027**, **ASSETS 2027** (experience report), **TEEM 2027** |
+| **verano 2027** | Envío del estudio de replicación (RQ1) a revista abierta |
+| **sep 2027 – jun 2028** | **Ciclo 2**: comparación longitudinal disponible |
+| **2028** | **IFE 2028**; objetivo de revista de alto impacto con dos ciclos; propuesta de secuenciación (RQ5) como *design principles* |
+
+---
+
+## 8. Qué se afirmará — y qué no
+
+**Se afirmará:** una replicación de mecanismos conocidos en una cohorte no estudiada; principios de diseño desde un piloto declarado; un corpus documental soberano y consultable.
+
+**No se afirmará:** tamaños de efecto, causalidad, ni un marco validado. La n no lo soporta y el diseño no lo pretende. **Los resultados nulos se publicarán igual** — en una laguna documentada, un resultado nulo también es hallazgo.
+
+---
+
+## 9. Nota final sobre la carga docente
+
+Esta propuesta **no debe retrasar la docencia**. El calendario del §7 está construido justamente para que 2026-27 sea un año de *impartir y recoger*, no de escribir. Lo pendiente antes de septiembre es corto y acotado: **consentimientos, RGPD y congelar los instrumentos**.
+
+En paralelo y con prioridad docente, sigue pendiente de producción el material de aula: **profundizar diez de las doce unidades de FE II al nivel de referencia ya fijado por las unidades 5 y 6**, y **los decks reveal.js por unidad**. Ese material es, además, el objeto de estudio: sin él no hay caso. **La docencia va primero; la investigación se monta encima de ella, no al revés.**
+
+---
+
+**Anexo — verificabilidad.** Toda cita de este documento y de las guías curriculares resuelve a un nodo concreto de un `extraction.db` del corpus Ahmes (`~/ahmes-library/scholar/documents/…`), con página. El corpus, los manifiestos y el mapa de campo están disponibles para auditoría por parte de la coordinación o de cualquier revisor.
