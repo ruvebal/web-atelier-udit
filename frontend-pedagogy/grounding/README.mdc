@@ -12,7 +12,8 @@ Synced 2026-08-10. Three layers ground this curriculum. **They are not interchan
 | --- | --- | --- | --- |
 | **Global map** | [`../profield-frontend-pedagogy.md`](../profield-frontend-pedagogy.md) — **in this repo** | Durable core/volatile layer, curriculum guidance, AI-assisted coding, accessibility, signature pedagogy, 3D, transferability. Pass-5, **Ahmes-dressed** | ✅ canonical **here** |
 | **Ibero layer** | [`profield-ibero-layer.md`](./profield-ibero-layer.md) — synced copy | Spain · Portugal · Brazil · Mexico; regional diagnosis, legal frames, regional sources | 🔄 synced from profield |
-| **Authorities** | [`profield-authorities-directory.md`](./profield-authorities-directory.md) — synced copy | Journals, conferences, standards bodies, key authors, research centres, awards — with `[V]`/`[L]`/`[U]`/`[I]` verification tags | 🔄 synced from profield |
+| **Authorities (FE / CER)** | [`profield-authorities-directory.md`](./profield-authorities-directory.md) — synced copy | Journals, conferences, standards bodies, key authors, research centres, awards — with `[V]`/`[L]`/`[U]`/`[I]` verification tags | 🔄 synced from profield |
+| **Authorities (fashion / digital creativity)** | `~/projects/…/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/grounding/` — **emancipated teaching-repo authority** (upstream: `profield/runs/digital-creativity/`) | FACTUM, IJFDTE, Cuadernos, FAIREE, awards — used by synergy §7 and Ladder B | ✅ cite from CD repo; re-sync from profield |
 | **Source vaults** | `~/ahmes-library/scholar/documents/` — **outside this repo, by design** | The 18 extracted documents actually citable | ⛔ never copied here (gold rule) |
 
 ## Sync direction — settled 2026-08-10
@@ -51,6 +52,21 @@ Ten of twelve FE II units are still scaffold prose. Units 5 and 6 are the refere
 | **10** IoT / Python-backed | *(frontier)* | **NONE** for the interface layer; RCS `91103623`, Phung, Singh for the data-science audience | Global §9 transferability `[UNVERIFIED-GAP]`; **Ibero** for regional data-science context | ⚠️ **Declare pilot** + name the data source (still placeholder pending Back-End II synergy sheet). |
 | **11** Capstone integration | Proyecto integrador | Garcia `8fef58f2` (artefact), **Nelson & Ponciano `f1031131`** (repository infrastructure), González-Videgaray `078b0a6a` (integrity formed) | Global §6 signature pedagogy; **Ibero** (integrity, LATAM) | ✅ **Well supported** — strongest evidence base after 5–6. |
 | **12** Oral defence | Evaluación | Liu `dc2bd27d` p.12 verbatim; DEC LATAM `20489b0b` p.2 (65% shallow learning, 56% fairness) | Global §6; **Ibero** §GenAI integrity | ✅ **Well supported.** Student demand for assessment fairness is documented — use it. |
+
+### 🆕 Six sources added to `fe-main` (2026-08-11) — what each does and does NOT ground
+
+| Coat | Work | Grounds | Does **not** ground |
+| --- | --- | --- | --- |
+| `20250403_121123…b851e30c` | **O'Toole (2013), *Sustainable Web Ecosystem Design*** (Springer, DOI `10.1007/978-1-4614-7714-3`) · 881 nodes | The **web-as-ecosystem** framing: node `36270129` p.32 places the ecosystem *"as an atmospheric environment between the brain of the individual user and society"* | 🔴 **NOT the energy/carbon claim.** "Sustainable" here is **socio-technical**, not ecological. Jevons Paradox appears **only as a bibliography entry** (node `77241a2d` p.118, Alcott 2005), not as argument. The Unit 7 / methodology gap **stays declared** |
+| `2106_12166v1…e472eb4e` | **Neumann, *Agile Methods in Higher Education: eduScrum with Real World Projects*** (arXiv `2106.12166`) · node `86bd504a` p.0 | ✅ **The FE II team-lab and one-cohort-one-repo design** — previously an ungrounded choice | Not front-end; not a controlled study |
+| `39005…3a9560e8` | **Vega, C. et al., *Implementing an Incremental Project-Based Learning Solution for CS1/CS2*** · node `08cdfb05` p.0; keywords node `333afee9` p.0: *"Student-centred Learning, Active Learning, **Incremental Learning**, Project-based Learning"* | ✅ **"Un estudiante, un repositorio" as *incremental* PBL** — the weekly-commit spine, previously carried by Garcia alone | CS1/CS2, not front-end |
+| `47294_eng…8e2de13e` | **Burgos, D. (UNIR, Spain), *What are the actual concerns of university professors about AI in education?*** · **674 professors, 17 workshops, 4 continents incl. Spain**, Oct 2024–Nov 2025, focus groups | ✅ **Ethics-first AI framing**, and ✅ **focus groups as validated method** for the research design. **First Spain-inclusive source in the vault** | Faculty concerns, **not student outcomes** |
+| `srushtika_neelakantam…964c117c` | **Neelakantam & Pant (2017), *Learning Web-based Virtual Reality*** (Apress) · 752 nodes | HOW for Units 8–9 (WebVR/3D technique) | 🔴 **Practitioner book — grounds technique, never pedagogy.** Units 8–9 stay `[UNVERIFIED-GAP]`; 2017 vintage, verify against current WebXR |
+| `2082_1054_pb…969e7999` | **RIED — Revista Iberoamericana de Educación a Distancia** issue · 4348 nodes | Ibero venue context (RIED is `[V]` in the authorities directory) | Not a single study — an issue; cite constituent articles, not "RIED" |
+
+> **The discipline this batch tested, and passed:** a title containing *"Sustainable"* is not evidence for a sustainability claim. O'Toole's sense is socio-technical. **Homonyms are not citations** — the same rule as "vendor docs ground HOW, never WHY".
+
+**Matrix updates:** Unit 8–9 gain a *technique* source but keep their declared pedagogical gap. Unit 11 gains Neumann + Vega. Unit 7 is **unchanged** — the energy claim remains a reasoned commitment.
 
 **Accessibility is cross-cutting**, not a unit: Fisseler `91241359`, Parthasarathy & Joshi `d57634a5`, Batista `0d28c6a5`, Correa `ac71e73e`. Any unit touching WCAG draws here.
 

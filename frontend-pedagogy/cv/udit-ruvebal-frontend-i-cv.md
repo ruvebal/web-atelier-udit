@@ -137,6 +137,16 @@ _Añadido 2026-08-10. Evidencia **exclusivamente de los bundles soberanos Ahmes*
 > Respalda la **infraestructura** del lema *"un estudiante, un repositorio, un proyecto"* — repositorio persistente y estructurado como soporte del curso por proyectos — donde Garcia respalda el **artefacto** (portafolio autocodificado). Ambas piezas son complementarias: una da la evidencia del entregable, la otra la del andamiaje que lo sostiene.
 > **Alcance:** cohorte de Ingeniería del Software, no de desarrollo web; n=58 en la encuesta de percepción. Es un informe de experiencia, no un estudio causal.
 
+**1-ter · El proyecto integrador es *incremental*, no un entregable final**
+`39005…3a9560e8` · nodo `08cdfb05` · p. 0 — *Implementing an Incremental Project-Based Learning Solution for CS1/CS2 Courses*; palabras clave (nodo `333afee9` · p. 0): *"Student-centred Learning, Active Learning, **Incremental Learning**, Project-based Learning, Programming"*.
+> Respalda la tercera pata del lema: no basta con un repositorio (Nelson) y un artefacto autocodificado (Garcia) — el aprendizaje se organiza **incrementalmente**, semana a semana, que es exactamente el ritmo de commit semanal de la metodología ATELIER.
+> **Alcance:** cohortes CS1/CS2, no front-end.
+
+**1-quater · La ética como primera preocupación docente, no como apéndice**
+`47294_eng…8e2de13e` — Burgos (UNIR, España), *What are the actual concerns of university professors about AI in education?*: **674 profesores universitarios**, 17 talleres de cuatro horas, cuatro continentes **incluida España**, entre octubre de 2024 y noviembre de 2025, con metodología de *focus groups*. Resultado: *"regardless of culture and categorisation by demographic or professional groups, **ethics emerged as the primary concern**"*.
+> **Primera fuente del vault que incluye contexto español.** Respalda que la declaración de uso de IA y la defensa oral se presenten como **cuestión ética**, no como control antifraude — y que el enfoque sea *human-centred*, como sostiene la fuente.
+> **Alcance:** preocupaciones del **profesorado**, no resultados del estudiantado.
+
 **2 · Metodología docs-first (plan antes que código) — con matiz importante**
 `phung_et_al…ea8cf54c` · nodo `bdd21a1f` · p. 0 y nodo `cc62b45e` · p. 5 — Sistema de pistas organizado en fases metacognitivas (planificación, monitorización, evaluación). El dato preciso de resultados: *"debugging hints being requested the most, followed by planning hints, while optimization hints were rarely used"*.
 > ⚠️ **Corrección de una lectura previa de esta guía.** Una pasada anterior afirmó que las pistas de planificación eran las más solicitadas. El nodo de resultados dice que **las más solicitadas son las de depuración**, seguidas de planificación. Lo que sí sostiene la fuente es que la planificación recibe mayor tiempo de contemplación y que la **optimización casi no se solicita nunca** — de ahí que el rendimiento deba imponerse curricularmente (Frontend II, Bloque 4) y no esperarse.

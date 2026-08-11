@@ -1,5 +1,4 @@
 ---
-description: Master prompt — forge one FE unit as the three officially-defined activity types (Lección Magistral · Prácticas de Laboratorio · Resolución de Ejercicios), grounded in the vault and instrumented for the cohort study
 globs: 'web-foundations/docs/lessons/**'
 alwaysApply: false
 ---
@@ -15,11 +14,11 @@ alwaysApply: false
 
 A product-owner separation. Blurring these is the failure mode this document exists to prevent.
 
-| Logic | Owns | Unit of work | Never |
-| --- | --- | --- | --- |
-| **L1 · Teaching** | Lesson, lab, exercises; hours; assessment | The **unit** | Bent to suit a measurement |
-| **L2 · Research** | Consent, instruments, data custody, analysis | The **cohort** | Allowed to change what is taught |
-| **L3 · Product** | The shared artefact (vShowroom) — backlog, architecture, releases | The **repository** | Confused with a grade |
+| Logic             | Owns                                                              | Unit of work       | Never                            |
+| ----------------- | ----------------------------------------------------------------- | ------------------ | -------------------------------- |
+| **L1 · Teaching** | Lesson, lab, exercises; hours; assessment                         | The **unit**       | Bent to suit a measurement       |
+| **L2 · Research** | Consent, instruments, data custody, analysis                      | The **cohort**     | Allowed to change what is taught |
+| **L3 · Product**  | The shared artefact (vShowroom) — backlog, architecture, releases | The **repository** | Confused with a grade            |
 
 **Dependency direction is one-way:** L1 produces evidence → L2 observes it → L3 is where L1's lab hours land. **L2 never reaches back into L1.**
 
@@ -29,13 +28,13 @@ A product-owner separation. Blurring these is the failure mode this document exi
 
 From the official Guía Docente (`desarrollo-web-front-end-i-2025-2026.json`, `formative_activities`), quoted because the distinctions are load-bearing:
 
-| Type | Hours | Official definition (abridged) | Forge output |
-| --- | --- | --- | --- |
-| **Lección Magistral** | **10 h** | *"Sesiones donde el profesor de forma expositiva presenta un contenido concreto… Tras la exposición suele haber un período de explicación de dudas o debate"* | **Deck** (reveal.js) + the conceptual half of the lesson page |
-| **Prácticas de Laboratorio** | **30 h** | *"…problemas de resolución práctica… por grupos o de forma individual… ejercicios prácticos en un **entorno similar al laboral**"* | **Lab brief** — team work on the shared repo |
-| **Resolución de Ejercicios** | **14 h** | *"…problemas… **no necesariamente contextualizados al ámbito profesional**… adquisición y aplicación de estrategias de resolución"* | **Exercise set** — individual, decontextualised drills |
-| *Estudio autónomo* | 94 h | student's own study | reading list + self-check |
-| *Evaluación* | 2 h | the exam moment | — |
+| Type                         | Hours    | Official definition (abridged)                                                                                                                                | Forge output                                                  |
+| ---------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **Lección Magistral**        | **10 h** | _"Sesiones donde el profesor de forma expositiva presenta un contenido concreto… Tras la exposición suele haber un período de explicación de dudas o debate"_ | **Deck** (reveal.js) + the conceptual half of the lesson page |
+| **Prácticas de Laboratorio** | **30 h** | _"…problemas de resolución práctica… por grupos o de forma individual… ejercicios prácticos en un **entorno similar al laboral**"_                            | **Lab brief** — team work on the shared repo                  |
+| **Resolución de Ejercicios** | **14 h** | _"…problemas… **no necesariamente contextualizados al ámbito profesional**… adquisición y aplicación de estrategias de resolución"_                           | **Exercise set** — individual, decontextualised drills        |
+| _Estudio autónomo_           | 94 h     | student's own study                                                                                                                                           | reading list + self-check                                     |
+| _Evaluación_                 | 2 h      | the exam moment                                                                                                                                               | —                                                             |
 
 **The distinction the official text makes, and the forge must honour:** the **lab is workplace-like and contextualised**; the **exercises are deliberately not**. One rehearses professional practice, the other isolates a strategy. They are not interchangeable, and a unit that only has lab work is out of compliance.
 
@@ -47,10 +46,10 @@ From the official Guía Docente (`desarrollo-web-front-end-i-2025-2026.json`, `f
 
 This is the elegant part, and it is not a coincidence — the official categories already separate the two things a small-cohort study must distinguish:
 
-| Activity | Work mode | Evidence produced | Answers |
-| --- | --- | --- | --- |
-| **Laboratorio** | **Team**, on the shared repo | commits, PRs, AI-review accept/reject logs, release tags | *Did the cohort ship, and how did it work?* |
-| **Ejercicios** | **Individual**, decontextualised | worked solutions, strategy traces | *Does this person understand it unaided?* |
+| Activity        | Work mode                        | Evidence produced                                        | Answers                                     |
+| --------------- | -------------------------------- | -------------------------------------------------------- | ------------------------------------------- |
+| **Laboratorio** | **Team**, on the shared repo     | commits, PRs, AI-review accept/reject logs, release tags | _Did the cohort ship, and how did it work?_ |
+| **Ejercicios**  | **Individual**, decontextualised | worked solutions, strategy traces                        | _Does this person understand it unaided?_   |
 
 With **n < 15** you cannot separate "the team delivered" from "this student learned" by statistics. **The hour structure separates them by design.** Lab evidence is cohort-level; exercise evidence is individual-level; the oral defence (Unit 12) triangulates the two.
 
@@ -60,10 +59,11 @@ With **n < 15** you cannot separate "the team delivered" from "this student lear
 
 Copy from here. Fill the six `INPUT` slots. Do not skip step A.
 
-````markdown
+```markdown
 # FORGE FE UNIT — <COURSE> Unit <N>: <TITLE>
 
 ## INPUT
+
 - COURSE: <FE I | FE II>
 - UNIT: <n> of 12
 - CONTENIDOS anchor: <official contents phrase, verbatim, or "frontier — none">
@@ -72,6 +72,7 @@ Copy from here. Fill the six `INPUT` slots. Do not skip step A.
 - COHORT: <continuing | new> · n ≈ <number>
 
 ## STEP A — GROUND BEFORE WRITING (mandatory, do not skip)
+
 1. Open `frontend-pedagogy/grounding/README.mdc` and read THIS UNIT'S ROW of the
    evidence matrix. It is authoritative over your priors.
 2. If the row says vault evidence exists: query the coat, get `node_id` + page.
@@ -80,11 +81,12 @@ Copy from here. Fill the six `INPUT` slots. Do not skip step A.
    in the register of Unit 5's "Scholarly honesty" note. Do not paper over it.
    Vendor documentation grounds HOW, never WHY THIS SEQUENCE TEACHES WELL.
 4. Check library versions by search, not memory. Pin and date them.
-5. Pick TTOD quotes by ID from ~/src/ttod/ttod.yml. Never improvise an aphorism.
+5. Pick TTOD quotes by ID from ~/src/ttod/ttod.yml. If you need to improvise an aphorism that does not exist, add it to the cue in ~/src/ttod/
 
 ## STEP B — EMIT THREE ARTEFACTS
 
 ### B1 · LECCIÓN MAGISTRAL (<h> h) → lesson page, conceptual half + deck
+
 - The claim of the unit in ONE sentence, then why it is not obvious.
 - Position in the journey: what FE I owns, what this adds, what comes next.
 - The conceptual model — diagram in prose or ASCII; no code yet.
@@ -94,7 +96,9 @@ Copy from here. Fill the six `INPUT` slots. Do not skip step A.
   Slides carry claims, not paragraphs.
 
 ### B2 · PRÁCTICAS DE LABORATORIO (<h> h) → lab brief, TEAM, on the shared repo
+
 Workplace-like and contextualised. Must specify:
+
 - **Issue(s)** the team picks up from the artefact backlog — real, not invented.
 - **Definition of done**: tests pass, CI green, PR reviewed by a human after AI
   review (Unit 6 workflow), deployed.
@@ -103,13 +107,16 @@ Workplace-like and contextualised. Must specify:
 - Code blocks labelled CodeSandbox-ready / Excerpt / Template.
 
 ### B3 · RESOLUCIÓN DE EJERCICIOS (<h> h) → exercise set, INDIVIDUAL, decontextualised
+
 Deliberately NOT the product. 3–5 short problems that isolate the strategy:
+
 - state the problem, the constraint, and what a correct answer must demonstrate;
 - at least one **diagnostic** exercise (broken code → explain and repair);
 - at least one exercise solvable **without AI**, declared as such;
 - an expected-answer sketch for the professor, not for the student handout.
 
 ## STEP C — WIRE IT
+
 - `tracks.yml`: session entry with duration, `labHours`, `magistralHours`,
   `ejerciciosHours`. Totals across 12 units must close at 10 / 30 / 14.
 - Link from `/lessons/en/feii/` index; internal links via `relative_url`.
@@ -117,15 +124,17 @@ Deliberately NOT the product. 3–5 short problems that isolate the strategy:
 - Wrap any fence containing `{{` or `${{` in {% raw %}.
 
 ## STEP D — VERIFY BEFORE CLAIMING DONE
+
 - `cd web-foundations && npm run build 2>&1 | grep -i "liquid warning"` → empty.
 - Every cited node resolves in its extraction.db.
 - Read the built HTML: code blocks survived intact.
 - Hour totals still close.
 
 ## OUTPUT CONTRACT
+
 lesson page · deck · lab brief · exercise set · tracks.yml patch · one-line
 statement of what evidence this unit does NOT have.
-````
+```
 
 ---
 
@@ -133,25 +142,25 @@ statement of what evidence this unit does NOT have.
 
 Not unit order — **evidence order**, so the best-supported units set the standard and the frontier units inherit it.
 
-| Wave | Units | Why first | Artefact role |
-| --- | --- | --- | --- |
-| **1** | **11 · 12** | Best-supported (Garcia, Nelson & Ponciano, González-Videgaray, Liu verbatim, DEC LATAM). They define the assessment students meet | Release + defence ritual |
-| **2** | **8 · 9 · 10** | Entrega 2 frontier; the pilot declaration does real work; **carries the vShowroom's 3D core** | 3D viewer, shaders, live data |
-| **3** | **2 · 3 · 4 · 7** | Architecture, PWA, performance — the platform beneath the frontier | Astro shell, offline, budgets |
-| **4** | **1** | Kickoff last: it must promise exactly what the other eleven deliver | Orientation |
-| **5** | decks ×12 | After prose settles. A deck for a lesson still in flux is waste | — |
+| Wave  | Units             | Why first                                                                                                                         | Artefact role                 |
+| ----- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| **1** | **11 · 12**       | Best-supported (Garcia, Nelson & Ponciano, González-Videgaray, Liu verbatim, DEC LATAM). They define the assessment students meet | Release + defence ritual      |
+| **2** | **8 · 9 · 10**    | Entrega 2 frontier; the pilot declaration does real work; **carries the vShowroom's 3D core**                                     | 3D viewer, shaders, live data |
+| **3** | **2 · 3 · 4 · 7** | Architecture, PWA, performance — the platform beneath the frontier                                                                | Astro shell, offline, budgets |
+| **4** | **1**             | Kickoff last: it must promise exactly what the other eleven deliver                                                               | Orientation                   |
+| **5** | decks ×12         | After prose settles. A deck for a lesson still in flux is waste                                                                   | —                             |
 
 ---
 
 ## 5. Amendments to the existing phase cascade
 
-| Phase | Amendment |
-| --- | --- |
-| **IGNITOR rule 2b** | Extend beyond `labHours`: sessions must also carry `magistralHours` and `ejerciciosHours`, closing at 10 / 30 / 14. Rule 2b as written is **incomplete**, not wrong. |
-| **Phase 2 (FE II build)** | Tier A redefined: a unit is done when **all three** activity artefacts exist, not when the lesson page exists. Tier B (decks) becomes wave 5 above. |
-| **Phase 3 (assessment)** | Add the lab/exercise split to the rubric: cohort-level lab evidence and individual-level exercise evidence are weighted separately, so a strong team cannot mask an individual gap. |
-| **Phase 5 (institutional)** | TEMARIO derives from the forged unit list; the `ACTIVIDADES FORMATIVAS` table can now be filled **truthfully per session**, which was rule 2b's original purpose. |
-| **New — Phase 7** | Cross-institutional synergy — see [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc). |
+| Phase                       | Amendment                                                                                                                                                                                                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **IGNITOR rule 2b**         | Extend beyond `labHours`: sessions must also carry `magistralHours` and `ejerciciosHours`, closing at 10 / 30 / 14. Rule 2b as written is **incomplete**, not wrong.                                                                                                          |
+| **Phase 2 (FE II build)**   | Tier A redefined: a unit is done when **all three** activity artefacts exist, not when the lesson page exists. Tier B (decks) becomes wave 5 above.                                                                                                                           |
+| **Phase 3 (assessment)**    | Add the lab/exercise split to the rubric: cohort-level lab evidence and individual-level exercise evidence are weighted separately, so a strong team cannot mask an individual gap.                                                                                           |
+| **Phase 5 (institutional)** | TEMARIO derives from the forged unit list; the `ACTIVIDADES FORMATIVAS` table can now be filled **truthfully per session**, which was rule 2b's original purpose.                                                                                                             |
+| **New — Phase 7**           | Triangular synergy (FE · Creación Digital · Diseño de Moda/CLO) — see [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc). CD teaching site emancipated at `universidadeuropea/digital-creativity-uem` (own Pages + `digital-creativity-pedagogy/grounding/`). |
 
 ---
 

@@ -111,6 +111,11 @@ Voz estudiantil, nodo `c3157096` · p. 12: *"I got good grades on all the projec
 **Bloque 3 · Acceso escalonado a la IA**
 `singh_et_al…37173a2a` · nodo `95f7d0fa` · p. 5 — analiza si el alumnado detecta errores **omitidos** por la pista de GPT o si **descarta** la pista. Modelo para diseñar pruebas con IA diferida.
 
+**Bloques 2–11 · "Una cohorte, un repositorio" como decisión metodológica fundada**
+`2106_12166v1…e472eb4e` · nodo `86bd504a` · p. 0 — Neumann, *Agile Methods in Higher Education: Adapting and Using eduScrum with Real World Projects*; términos indexados (nodo `37bb7aae` · p. 0): *"Agile education, eduscrum, agile methods, class room, project management"*.
+> Hasta ahora, el paso de *un repositorio por estudiante* (FE I) a *un repositorio por cohorte* (FE II) era una decisión razonada **sin respaldo**. eduScrum documenta la adaptación de métodos ágiles a aula universitaria **con proyectos reales**, que es exactamente el régimen de las Prácticas de Laboratorio de esta asignatura.
+> **Alcance:** no es front-end ni estudio controlado; es adaptación metodológica documentada.
+
 **Bloque 7 · Capstone, evidencia de proceso y defensa oral**
 `garcia_self_coded…8fef58f2` · nodo `ba2fa258` · p. 0 — portafolio autocodificado como evaluación auténtica de ABP (única cohorte de desarrollo web del vault; FEU, Manila — nodo `7cac84dd` · p. 3).
 `nelson_and_ponciano_2021…f1031131` · nodo `ed82afbb` · p. 0 — GitHub Classroom como *"shared, structured, and persistent repository to support project-based courses"* (Ingeniería del Software, PUC Minas). Respalda que la **evidencia de proceso del capstone** (historial de commits, `decisions.md`, `iterations.md`) descanse en infraestructura de repositorio y no en entregas sueltas.

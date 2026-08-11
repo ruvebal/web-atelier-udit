@@ -8,6 +8,7 @@ alwaysApply: false
 
 > Author: Rubén Vega Balbás, PhD (drafted with Claude) · 2026-08-10
 > Evidence base: Ahmes vaults `fe-main` + `fe-ibero`; [`profield-frontend-pedagogy.md`](./profield-frontend-pedagogy.md); authorities directory `profield/runs/frontend-pedagogy/01/pass1c.raw.authorities_directory.md`
+> Fashion / digital-creativity companion: **emancipated authority home** `~/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/grounding/` (synced from `profield/runs/digital-creativity/`) · product brief [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc) · teaching site `digital-creativity-uem` (own GitHub Pages)
 > Verification discipline inherited from the authorities directory: `[V]` confirmed · `[L]` lead · `[U]` unverified · `[I]` interpretive
 
 ---
@@ -51,8 +52,9 @@ Be honest about the advantage, because it is real but specific. You will not out
 | **Published, versioned curriculum** | The Web Atelier site + git history is a **reproducibility artefact** most practitioner papers cannot offer. |
 | **Profield + Ahmes** | A systematic-review and provenance capability that is, frankly, ahead of the median CER practitioner paper. |
 | **Sociologist collaborator** | Instrument design, qualitative rigour, and — critically — **an independent data custodian** (see §5). |
+| **Cross-institutional + same-campus fashion** | FE + Creación Digital (UEM) taught by the same professor; **Diseño de Moda (UDIT, RUCT 2504586)** authors in **CLO 3D** — supplies the garment half of the documented fashion-portfolio gap. |
 
-**Interpretive `[I]`:** the combination of (longitudinal + cross-degree + new-course pilot + already-instrumented process evidence + sovereign source vault) is unusual enough to be the pitch itself.
+**Interpretive `[I]`:** the combination of (longitudinal + cross-degree + new-course pilot + already-instrumented process evidence + sovereign source vault + CLO content stream) is unusual enough to be the pitch itself.
 
 ---
 
@@ -71,7 +73,7 @@ Two lineages you can claim rather than invent:
 
 ---
 
-## 3. Objectives — five research questions, ordered by feasibility
+## 3. Objectives — six research questions, ordered by feasibility
 
 **RQ1 — Transfer (the flagship).**
 Do mechanisms validated in general programming education behave the same in a front-end cohort? Specifically: **deferred AI assistance** (Singh), **metacognitive planning scaffolds** (Phung), **in-workflow AI code review** (Oliveira, via profield).
@@ -90,6 +92,10 @@ How do students narrate authorship, competence, and responsibility in their AI d
 
 **RQ5 — Frontier sequencing** *(the pilot payoff).*
 Can a defensible teaching sequence for 3D/interface and IoT/Python-backed interfaces be proposed and evaluated? Output = **design principles**, explicitly labelled as a first proposal in a field with none.
+
+**RQ6 — Fashion-portfolio interface** *(synergy payoff; digital-creativity gaps).*
+Does making process, authorship and judgement *visible* in a web showroom of CLO 3D / digital-fashion work address the field's stated portfolio-UX and GenAI-evidentiary gaps — as educational design, not as causal proof?
+*Why it wins:* Pass-2 confirmed blanks in `digital-creativity` §7.2; FACTUM / *IJFDTE* / *Cuadernos* are natural homes; the FE evidence apparatus is already the candidate answer. Details and calendar: [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc) §2, §7.
 
 ---
 
@@ -138,30 +144,53 @@ Can a defensible teaching sequence for 3D/interface and IoT/Python-backed interf
 
 ## 6. Venue ladder & timeline
 
-**Reality check on dates (today 2026-08-10):** ITiCSE 2026 (Madrid, URJC, 13–15 Jul 2026) `[V]` and JENUI 2026 (Barcelona, UPC, 8–10 Jul 2026) `[V]` have **already happened**. ASSETS 2026 (Porto/Vila Nova de Gaia, 25–28 Oct 2026) `[V]` is upcoming but its submission window is past. **2026-27 is the data year; 2027 is the output year.** Plan accordingly — this is normal, not a setback.
+**Reality check on dates (today 2026-08-10):** ITiCSE 2026 (Madrid, URJC, 13–15 Jul 2026) `[V]` and JENUI 2026 (Barcelona, UPC, 8–10 Jul 2026) `[V]` have **already happened**. ASSETS 2026 (Porto/Vila Nova de Gaia, 25–28 Oct 2026) `[V]` is upcoming but its submission window is past. LCF/FAIREE AI-in-Fashion symposium 2026 (11–12 Jun) `[V]` is past. **Exception — still open:** **FACTUM 27** papers due **30 Nov 2026** (Beijing, 30 Jun – 2 Jul 2027; Springer OA, Scopus) `[V]` — https://digitalfashion.ch/factum27/. **2026-27 is the data year + FACTUM research-note year; 2027 is the CER/OE output year.**
 
-### Ladder (low barrier → high merit)
+### Ladder A — CER / open education (low barrier → high merit)
 
 | Tier | Venue | Fit | Note |
 | --- | --- | --- | --- |
 | **Entry / Spanish** | **JENUI 2027** (AENUI) `[V]` | University CS teaching, Spanish-language | Also hosts **Premio AENUI a la Calidad e Innovación Docente** `[U]` — a named merit |
 | **Entry / regional** | **SIIE 2027** (ADIE) `[V]`; **CLEI** `[V]` (Educación en Informática track `[U]`) | Informática educativa | Iberoamerican visibility |
 | **Mid / international** | **ITiCSE 2027** `[V]` | ACM CER, European | **ITiCSE 2026 was in Madrid** — the Spanish CER network is local to you; cultivate it now |
-| **Mid / thematic** | **ASSETS 2027** `[V]` — **experience reports track** exists `[V]` | Accessibility-in-teaching strand | Natural home for the FE I accessibility-audit work |
+| **Mid / thematic** | **ASSETS 2027** `[V]` — **experience reports track** exists `[V]` | Accessibility-in-teaching strand | Natural home for the FE I accessibility-audit work **and** 3D-showroom a11y |
 | **High / methodological** | **ICER** `[V]` | Rigorous CER | Aim here in cycle 2, with real qualitative depth |
+| **Open artefact** | **OEGlobal Awards 2027** `[L]` | Nominates the published curriculum / vShowroom | **No research data required** — typical window May–Jun (2026 closed 22 Jun) |
 | **Journal / open** | **Education Sciences** (MDPI) `[V-prior]` | Published Garcia — your direct precedent | Fast, open access; check current indexing before committing |
 | **Journal / prestige** | **ACM TOCE** `[V]` (EiC Amy J. Ko), **Computer Science Education** (T&F) `[V]`, **IEEE ToE** `[V]` | Merit-bearing | Target with the longitudinal 2-cycle dataset |
 | **Journal / Spanish** | **RIED** `[V]` (AIESAD), **IE Comunicaciones** `[V]` | Spanish-language indexed | Useful for accreditation breadth |
 
+### Ladder B — fashion communication / design education *(enabled by the synergy)*
+
+Source: `digital-creativity/01/pass1c.raw.authorities_directory.md`. Do not mix with Ladder A when claiming ANECA merit.
+
+| Tier | Venue | Fit | Note |
+| --- | --- | --- | --- |
+| **Immediate / field home** | **FACTUM 27** `[V]` | Fashion communication in the digital age — HCI/UX, AI, digital fashion innovation | **Research Note ≤6 pp by 30 Nov 2026**; full papers later / FACTUM 29. Program committee includes **Barbara Castillo (UDIT)** `[V]` |
+| **Journal / fashion+tech education** | ***International Journal of Fashion Design, Technology and Education*** `[V]` | Portfolio, digital design education, CLO→web | Post cycle-1 |
+| **Journal / Ibero design** | ***Cuadernos del CEDyC*** (Universidad de Palermo) `[V]` | Design/fashion education research | Spanish/Portuguese parallel track |
+| **Journal / GenAI + fashion process** | ***Frontiers in Education*** · ***European Journal of Cultural Management and Policy*** `[V]` | GenAI curriculum / studio GenAI precedents (Balasubramanian; Rizzi & Bertola) | After first teaching cycle |
+| **Design-education congress** | **Semana / Coloquio Internacional de Investigadores en Diseño (Palermo)** `[V]` | Teaching/practice reports; institutional recognitions | Annual — watch CfP |
+| **Next fashion-AI symposium** | **FAIREE / LCF AI-in-Fashion** `[V]` | Fashion-AI education & ethics | **2026 closed** — target next edition |
+| **Spanish communication** | **AE-IC** (post Pontevedra 2026) `[V]` | Fashion/branding panels recur | Biennial |
+
+### Ladder C — student / industry visibility *(not research merit)*
+
+For **Diseño de Moda** (and CD) artefacts amplified by vShowroom — never cite these as CER outputs:
+
+- **AI Fashion Week** Season 3 `[L]` Q4 2026 · **Digital Fashion Week** / **"Touch Grass"** digital-garment contest `[V]`
+- Emerging-designer prizes: **LVMH Prize**, **ANDAM**, **International Woolmark Prize**, **Redress Design Award**, **Global Change Award** `[V]` / `[L]`
+- No dedicated Ibero-American *digital-fashion* award identified in the authorities pass — phrase as “none identified,” not as established absence `[U]`
+
 ### Three-year projection
 
-**2026-27 — instrument & collect.** Ethics + consent in place before September. Run FE I and FE II with instruments live. FE II *is* the pilot. Deliverable: a clean dataset and a design narrative. **Write nothing for review yet except one experience report.**
+**2026-27 — instrument, collect, and FACTUM note.** Ethics + consent (UDIT FE + UEM CD + UDIT Fashion Design CLO exports) before September. Run FE I and FE II with instruments live. FE II *is* the pilot; CLO pieces seed the showroom. **Write one FACTUM 27 Research Note by 30 Nov 2026** (design of the three-leg synergy + evidence apparatus — not graded outcomes). Deliverable: clean dataset, design narrative, public v1.
 
-**2027 — first outputs.** JENUI 2027 (Spanish, accessible, prize-eligible) + ASSETS 2027 experience report (accessibility strand) + submit the replication study (RQ1) to *Education Sciences* or ITiCSE 2027.
+**2027 — first outputs.** FACTUM 27 (if accepted) · OEGlobal 2027 nomination · JENUI 2027 (+ AENUI prize track) · ASSETS 2027 experience report · TEEM 2027 · ITiCSE 2027 · submit RQ1 replication to *Education Sciences* · open fashion-education journal draft (RQ6).
 
-**2027-28 — cycle 2 & consolidation.** Second DBR cycle; longitudinal RQ3 becomes answerable. Target ICER or TOCE with the two-cycle dataset. Propose the RQ5 sequencing paper as design principles.
+**2027-28 — cycle 2 & consolidation.** Second DBR cycle; longitudinal RQ3 becomes answerable. Target ICER or TOCE with the two-cycle dataset. Propose RQ5 sequencing + RQ6 portfolio-interface as design principles. Watch FAIREE next edition and FACTUM 29.
 
-**Collaboration `[L]`:** **GRIAL / Francisco José García-Peñalvo (Universidad de Salamanca)** `[V]` is the obvious Spanish anchor — an established, indexed, interdisciplinary edtech group. A co-authored replication with a GRIAL member converts a solo practitioner paper into a networked one. Approach after you have data, not before.
+**Collaboration `[L]`:** **GRIAL / Francisco José García-Peñalvo (Universidad de Salamanca)** `[V]` — Spanish CER anchor. **FACTUM / USI Digital Fashion Communication** network `[V]` — fashion-communication anchor; approach Castillo (UDIT, FACTUM 27 PC) after a draft exists. Co-authorship converts solo practitioner papers into networked ones — approach after you have a note or data, not before.
 
 ---
 
@@ -201,4 +230,4 @@ This is where the research line touches the CVs. **The guías become research in
 
 **The strongest single framing** — the one that fits both your pedagogy and the evidence:
 
-> Mechanisms for teaching under ambient AI have been validated in general programming and data-science cohorts, and never tested where the artefact is a human-facing interface. This work reports a two-year, two-degree replication in a front-end cohort — and publishes what it did not find.
+> Mechanisms for teaching under ambient AI have been validated in general programming and data-science cohorts, and never tested where the artefact is a human-facing interface. This work reports a two-year, two-degree replication in a front-end cohort — and publishes what it did not find. A parallel, same-campus CLO 3D fashion-design stream makes the documented fashion-portfolio gap (UX, accessibility, authorship under generative media) empirically addressable without inventing a client.

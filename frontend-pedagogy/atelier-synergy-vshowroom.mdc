@@ -1,5 +1,5 @@
 ---
-description: Cross-institutional product brief — the vShowroom as the shared artefact joining FE (UDIT) and Creación Digital (Universidad Europea); scope, architecture, semester choreography, and the two research gaps it sits on
+description: Cross-institutional product brief — the vShowroom as the shared artefact joining FE (UDIT), Creación Digital (Universidad Europea), and Diseño de Moda (UDIT / CLO 3D); semester choreography, research gaps, and award/visibility calendar
 globs: 'frontend-pedagogy/**'
 alwaysApply: false
 ---
@@ -8,25 +8,28 @@ alwaysApply: false
 
 > **L3 · Product logic.** Distinct from teaching (L1) and research (L2) — see [`fe-unit-forge.mdc`](./fe-unit-forge.mdc) §0. This document specifies *the thing being built*. It is not a syllabus and not a grade.
 
----
-
-## 1. The synergy is already in both official guides
-
-This is not an invented crossover. Both subjects' official `contents` require it:
-
-| | **Creación Digital I–II** (Universidad Europea) | **Front-End I–II** (UDIT) |
-| --- | --- | --- |
-| Degree | Grado en **Comunicación y Gestión de Moda** | Desarrollo Full-Stack · Ciencia de Datos e IA |
-| Placement | **Year 1** — S1 and S2 · 6 ECTS each | FE I **Year 2 annual**; FE II **Year 3 S1** · 6 ECTS each |
-| Relevant official contents | CD I: *"Fundamentos y representación de la forma tridimensional. Volumen."* · CD II: **"Creación de avatares"**, **"Diseño de experiencias de moda digitales"**, **"Maquetación, edición y creación de web y portfolio digital"**, **"Hologramas y R.A"** | FE II: arquitecturas, PWA, testing, rendimiento, **R3F/WebGL**, **shaders**, **IoT/servicios Python** |
-
-**CD II is officially required to produce web and digital portfolio work, and 3D avatars, and AR.** FE II is officially required to teach 3D interfaces on the web. The two curricula already point at the same artefact from opposite sides. The synergy makes each subject *more* compliant with its own guide, not less.
-
-**One professor, two institutions, one methodology:** the same critical, AI-assisted, docs-first paradigm — *another way of the tao, but the tao is one and many*.
+**Sibling docs:** [`fe-research-line.mdc`](./fe-research-line.mdc) · [`fe-cohort-case-proposal.mdc`](./fe-cohort-case-proposal.mdc) · **authority home (emancipated):** `/Users/ruvebal/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/grounding/` · teaching site `digital-creativity-uem` · upstream pipeline `profield/runs/digital-creativity/`
 
 ---
 
-## 2. The two research gaps this sits on
+## 1. Three official guides already point at the same artefact
+
+This is not an invented crossover. **Three** curricula already converge on a digital fashion showroom — from opposite sides of the stack:
+
+| | **Creación Digital I–II** (Universidad Europea) | **Front-End I–II** (UDIT) | **Diseño de Moda** (UDIT) |
+| --- | --- | --- | --- |
+| Degree | Grado en **Comunicación y Gestión de Moda** | Desarrollo Full-Stack · Ciencia de Datos e IA | **Graduado/a en Diseño de Moda / Bachelor in Fashion Design** (RUCT `2504586`, BOE-A-2024-1046) |
+| Placement | **Year 1** — S1 and S2 · 6 ECTS each | FE I **Year 2 annual**; FE II **Year 3 S1** · 6 ECTS each | Full 4-year design degree; digital + project spine below |
+| Relevant official contents | CD I: *"Fundamentos y representación de la forma tridimensional. Volumen."* · CD II: **"Creación de avatares"**, **"Diseño de experiencias de moda digitales"**, **"Maquetación, edición y creación de web y portfolio digital"**, **"Hologramas y R.A"** | FE II: arquitecturas, PWA, testing, rendimiento, **R3F/WebGL**, **shaders**, **IoT/servicios Python** | **Diseño digital I–II** (Y2) · **Proyectos I–IV** (annual) · **Tecnología Textil I–IV** · **Portfolio** (Y4 S1, 3 ECTS) · **Estilismo y Dirección Artística** · **Comunicación y Crítica** · TFG |
+| Authoring tool in studio practice | avatars / digital experiences (guide-level) | the web runtime | **CLO 3D** — institutional studio practice for garment authoring (not named in the BOE subject list; treat as first-hand practice knowledge, same epistemic status as the Back-End II synergy sheet) |
+
+**CD II is officially required to produce web and digital portfolio work, and 3D avatars, and AR.** FE II is officially required to teach 3D interfaces on the web. **Diseño de Moda** already runs a digital-design + proyectos + portfolio spine whose studio output is authored in CLO 3D. The three curricula point at the same artefact from *communication*, *interface engineering*, and *garment design*. The synergy makes each subject *more* compliant with its own guide, not less.
+
+**One methodology across the triangle:** the same critical, AI-assisted, docs-first paradigm — *another way of the tao, but the tao is one and many*. The professor owns FE + CD; Fashion Design joins as **content authors and co-users** under their own degree coordination (not as a second teaching load for the same professor).
+
+---
+
+## 2. The research gaps this sits on
 
 From the **digital-creativity** field map (`digital-creativity/01/pass1.edited.md` §7.2), both **Pass-2 confirmed**:
 
@@ -38,19 +41,41 @@ And a critique that names, precisely, what the FE apparatus already answers:
 
 > **`[EMERGING]` CRITIQUE** — *"generative media complicates the evidentiary function of portfolios. **Process, authorship, iteration and judgement need to be made visible.**"*
 
+From the same field's authorities directory (`pass1c.raw.authorities_directory.md` §7), confirmed open blanks include: **authorship/process visibility in GenAI education**, **robust evaluation of immersive-fashion UX**, garment fidelity / fit / multi-view consistency (VTON research — *out of product scope*, but useful as the problem the showroom *does not pretend to solve*).
+
 **That is the AI-use declaration, the commit narrative, and the oral defence.** The FE methodology is a candidate solution to a stated problem in the fashion field.
 
-**The complementarity, stated once:** fashion supplies *cultural judgement and the artefacts*; front-end supplies *the interface layer and the evidence apparatus*. Each field's documented blank is the other's method.
+**The complementarity, stated once:**
+
+| Side | Supplies |
+| --- | --- |
+| **Diseño de Moda (UDIT) + CLO 3D** | garment artefacts, cultural judgement, portfolio stakes |
+| **Creación Digital (UEM)** | avatars, digital fashion experiences, AR/web-portfolio literacy |
+| **Front-End (UDIT)** | the interface layer, performance/a11y engineering, and the **evidence apparatus** |
+
+Each field's documented blank is another field's method. Adding Fashion Design does not dilute the FE CER case — it **grounds the fashion-portfolio gap in a same-campus CLO cohort**, which UEM CD alone cannot supply.
 
 ---
 
 ## 3. Product definition
 
-**vShowroom** — a web platform where fashion designs authored in any 3D fashion modeller are exhibited, collected by visitors, and attributed to designers whom visitors can follow. Scoped to the graduates and students of one school, atelier or programme.
+**vShowroom** — a web platform where fashion designs authored in **CLO 3D** (and any compatible 3D fashion modeller) are exhibited, collected by visitors, and attributed to designers whom visitors can follow. Scoped to the graduates and students of one school, atelier or programme — here: **UDIT Diseño de Moda + UEM Creación Digital**, served by an FE-built runtime.
 
 **Core loop:** designer publishes a piece → visitor browses the showroom → visitor collects a piece → visitor follows the designer → designer sees their collected work.
 
-**Deliberately out of scope** (v1): commerce, payments, real virtual try-on, user-generated 3D authoring in-browser, recommendation algorithms. The showroom **exhibits and attributes**; it does not sell or personalise.
+**Authoring → exhibition pipeline (v1):**
+
+```
+CLO 3D (Fashion Design)  ──export──▶  glTF / USDZ / baked stills
+         │
+         ▼
+   vShowroom ingest (FE II)  ──R3F viewer──▶  public piece page + designer attribution
+         │
+         ▲
+CD II avatars / digital looks  ──same ingest contract──┘
+```
+
+**Deliberately out of scope** (v1): commerce, payments, real virtual try-on, user-generated 3D authoring in-browser, recommendation algorithms. The showroom **exhibits and attributes**; it does not sell, fit, or personalise. VTON remains an open research problem (IDM-VTON, VTON 360, etc. — authorities §7); students do not "sprint" it.
 
 ### Slice map — how it lands on FE II units
 
@@ -67,18 +92,19 @@ And a critique that names, precisely, what the FE apparatus already answers:
 | Integration, release, process evidence | 11 | Lab |
 | Public exhibition + oral defence | 12 | Evaluación |
 
-**One cohort, one repository, one artefact.** FE I keeps *one repo per student* (individual learning). FE II moves to **one repo per cohort** — with n < 15 this is not a compromise, it is the correct scale for team engineering, and it makes Unit 6's AI-reviewed PR workflow real rather than simulated.
+**One FE II cohort, one repository, one artefact.** FE I keeps *one repo per student* (individual learning). FE II moves to **one repo per cohort** — with n < 15 this is not a compromise, it is the correct scale for team engineering, and it makes Unit 6's AI-reviewed PR workflow real rather than simulated.
 
 ---
 
-## 4. Semester choreography — the hard constraint
+## 4. Semester choreography — three legs, asynchronous handoff
 
-The calendars do **not** align for live co-teaching:
+The calendars do **not** align for live three-way co-teaching:
 
 ```
         S1 (Sep–Jan)                    S2 (Feb–Jun)
 UDIT    FE II  ██████ builds platform
         FE I   ████████████████████████████████████ (annual — the bridge)
+UDIT    Fashion Design ████ CLO + Proyectos / Portfolio feed (year-round studio)
 UEM     CD I   ██████ 2D/3D foundations
                                         CD II ██████ avatars · web portfolio · AR
 ```
@@ -87,27 +113,32 @@ UEM     CD I   ██████ 2D/3D foundations
 
 | Window | Who | Does |
 | --- | --- | --- |
-| **S1** | FE II | Builds and releases vShowroom **v1** against *seed* content |
-| **S1→S2 boundary** | — | **Handoff:** tagged release, deployed URL, contribution guide, open issues |
+| **S1** | FE II | Builds and releases vShowroom **v1** against *seed* content + any early Fashion Design exports under consent |
+| **S1 (parallel)** | Diseño de Moda | Authors garments in **CLO 3D** (Proyectos / digital design spine); volunteers pieces under S1 consent; Y4 **Portfolio** students are the natural first cohort |
+| **S1→S2 boundary** | — | **Handoff:** tagged release, deployed URL, contribution guide, open issues, **export contract** (CLO → glTF/stills) |
 | **S2** | CD II | Populates with real avatars/designs; **files issues as users**, not as clients |
-| **S2** | FE I | Maintains and extends; consumes CD II's issues as authentic backlog |
+| **S2** | FE I | Maintains and extends; consumes CD II + Fashion Design issues as authentic backlog |
+| **S2+** | Diseño de Moda | Continues feeding pieces; Portfolio / TFG students can treat the live URL as exhibition evidence |
 
-> **Why this is better than co-teaching:** CD II students become **real users with real content**, and FE I inherits a **live product with real bug reports** — which no invented brief can manufacture. The temporal offset is a feature.
+> **Why this is better than co-teaching:** Fashion Design and CD II students become **real users with real CLO/avatar content**, and FE I inherits a **live product with real bug reports** — which no invented brief can manufacture. The temporal offset is a feature.
 
-**Seed content for S1:** FE II cannot wait for CD II. Use openly-licensed 3D garment assets or the professor's own, clearly labelled as seed, replaced in S2.
+**Seed content for S1:** FE II cannot wait for CD II. Prefer (in order): (1) consented UDIT Fashion Design CLO exports, (2) the professor's own labelled seed, (3) openly-licensed 3D garment assets. Always label seed vs. cohort content.
+
+**Coordination needed inside UDIT:** Grado en Diseño de Moda coordination — not another teaching assignment for the FE professor. The ask is: *export pathway + consents + optional Portfolio alignment*, not a shared syllabus rewrite.
 
 ---
 
 ## 5. Consent and rights — this is where a fashion crossover gets dangerous
 
-Student design work is **authored creative property**. Nothing here is covered by the FE consent set.
+Student design work is **authored creative property**. Nothing here is covered by the FE consent set alone. Fashion Design (CLO) and CD students need the same rights regime.
 
 | # | Consent | Whose | Nature |
 | --- | --- | --- | --- |
-| **S1** | Exhibiting a design in vShowroom | CD student | Per-artefact, revocable, licence stated (author retains copyright; platform gets display licence only) |
-| **S2** | Attribution vs. anonymity | CD student | Author's choice; default is attributed, but opt-out must exist |
-| **S3** | Research use of the interaction data | both cohorts | Separate from S1/S2; per [`fe-cohort-case-proposal.mdc`](./fe-cohort-case-proposal.mdc) §6 |
+| **S1** | Exhibiting a design in vShowroom | CD **and** Diseño de Moda student | Per-artefact, revocable, licence stated (author retains copyright; platform gets display licence only) |
+| **S2** | Attribution vs. anonymity | same | Author's choice; default is attributed, but opt-out must exist |
+| **S3** | Research use of the interaction / process data | FE + participating fashion cohorts | Separate from S1/S2; per [`fe-cohort-case-proposal.mdc`](./fe-cohort-case-proposal.mdc) §6 |
 | **S4** | Cross-institution data flow | UDIT ↔ UEM | **Two institutions, two regimes.** Needs both DPOs. Minimise: the platform should hold no personal data of visitors in v1 |
+| **S5** | CLO asset derivatives (renders, glTF, stills) | Diseño de Moda student | Export formats are still the author's work; state what derivatives the platform may generate |
 
 **Design rule that avoids most of the problem:** v1 stores *pieces and designers*, and "collect/follow" state stays **client-side (localStorage)** unless and until accounts are justified. No accounts, no visitor personal data, no cross-border transfer question.
 
@@ -117,23 +148,116 @@ Student design work is **authored creative property**. Nothing here is covered b
 
 ## 6. What each side gets
 
-**FE students** — a real client with real content, a genuine performance problem (3D assets are heavy), an accessibility problem that matters (can a screen-reader user navigate a 3D showroom?), and a public artefact for their portfolio.
+**FE students** — a real client with real CLO/avatar content, a genuine performance problem (3D assets are heavy), an accessibility problem that matters (can a screen-reader user navigate a 3D showroom?), and a public artefact for their portfolio.
 
-**CD students** — their work exhibited on a platform built to professional standards, and a first encounter with the interface layer as something *made*, not given.
+**Diseño de Moda students (UDIT)** — a browser-native exhibition of **CLO 3D** work without depending on proprietary viewers alone; Portfolio / TFG evidence that is live and shareable; a first encounter with the interface layer as something *made*.
 
-**The professor** — one methodology, two subjects, two institutions, and a single artefact that is simultaneously the teaching deliverable, the research object, and the open-education asset (OEGlobal-nominable, see the proposal §7).
+**CD students (UEM)** — their avatars and digital looks exhibited on a platform built to professional standards; authentic user role toward FE.
 
-**The fields** — a documented attempt at the fashion-portfolio framework gap, from a cohort that has both halves.
+**The professor** — one methodology spanning FE + CD, one shared artefact, and a same-campus fashion-design content stream that makes the fashion-portfolio research gap *empirical* rather than speculative.
+
+**The fields** — a documented attempt at the fashion-portfolio framework gap, from a cohort that has garment authoring (CLO), digital-fashion communication (CD), and interface engineering (FE).
 
 ---
 
-## 7. Risks
+## 7. Visibility, awards, and merit — traced calendar
+
+Sources: digital-creativity authorities directory (`pass1c.raw.authorities_directory.md` §§1–2, 6) · FE authorities / venue ladder in [`fe-research-line.mdc`](./fe-research-line.mdc) · live CFP pages cited below. Tags: `[V]` confirmed · `[L]` lead / typical window · `[U]` unverified exact date.
+
+### 7.1 Reality check (today 2026-08-10)
+
+| Window | Status |
+| --- | --- |
+| LCF / FAIREE **International Symposium on AI in Fashion 2026** (11–12 Jun 2026) | ❌ submission closed (official abstract deadline 5 May 2026) — **watch 2027/28 cycle** |
+| OEGlobal Awards **2026** | ❌ nominations closed 22 Jun 2026 |
+| TEEM / IFE / ITiCSE / JENUI / ASSETS **2026** | ❌ closed or past (see proposal §7) |
+| **FACTUM 27** CFP | ✅ **OPEN** — papers due **30 Nov 2026** · conference Beijing **30 Jun – 2 Jul 2027** · Springer OA proceedings, **Scopus** · https://digitalfashion.ch/factum27/ |
+| AI Fashion Week Season 3 | `[L]` expected **Q4 2026** (authorities §2) — practice/exhibition visibility, not CER merit |
+| Digital Fashion Week | `[V]` recurring phygital/AR runway (Sept editions attested) — practice visibility |
+
+**Institutional hook `[V]`:** FACTUM 27 program committee includes **Barbara Castillo — University of Design, Innovation and Technology (UDIT), Spain**. Same-campus fashion-communication expertise exists; approach for advice *after* a draft research note exists, not as a cold abstract.
+
+### 7.2 What kind of merit each window buys
+
+| Track | What it rewards | Needs research data? | Primary beneficiaries |
+| --- | --- | --- | --- |
+| **A · CER / open education** | pedagogy, process evidence, open artefacts | varies | professor + FE cohort |
+| **B · Fashion communication scholarship** | digital fashion UX, portfolio, AI authorship visibility | research note can be design-first | professor + all three legs |
+| **C · Student / industry visibility** | garments, collections, emerging-designer contests | no — needs *work*, not papers | Fashion Design (+ CD) students |
+| **D · Design-education recognition** | teaching/practice reports in design schools | light | professor + Fashion Design coordination |
+
+Do **not** conflate C with A/B. LVMH / ANDAM / Woolmark / Redress are **not** research merits for the FE case; they are **visibility windows** the showroom can amplify for Fashion Design students.
+
+### 7.3 Master calendar — practice → research → merit
+
+```
+2026
+Aug–Sep   Ethics/DPO both institutions · freeze instruments · Fashion Design coordination ask
+Sep–Nov   FE II builds v1 · CLO export contract · early consented pieces
+**30 Nov  FACTUM 27 paper / research-note deadline**  ← design-of-synergy + process-evidence framing
+Q4        AI Fashion Week S3 `[L]` · Digital Fashion Week-type events — student exhibition if v1 live
+2027
+Jan–Mar   Experience report draft (FE II pilot) · FACTUM camera-ready (1 Mar) if accepted
+primavera OEGlobal Awards 2027 nomination `[L]` (2026 pattern: May open → mid-Jun close)
+mar–jun   JENUI 2027 · ASSETS 2027 experience report · TEEM 2027 · ITiCSE 2027
+30 Jun–2 Jul  FACTUM 27 (Beijing) if accepted
+S2 2027   CD II + Fashion Design populate live platform · FE I maintenance
+2027–28   Cycle 2 data · journal targets (IJFDTE, Cuadernos CEDyC, Education Sciences, Frontiers in Education)
+2028      IFE 2028 · high-impact CER journal with two cycles · watch FAIREE / FACTUM29
+```
+
+### 7.4 Destination sheet (fashion + CER)
+
+| Destination | Track | Fit to this synergy | Merit / indexing | Timing note |
+| --- | --- | --- | --- | --- |
+| **FACTUM 27** | B | HCI/UX in fashion, digital media, AI & fashion communication, innovation in digital fashion — **exact topical home** for vShowroom + CLO→web + authorship visibility | Springer OA proceedings, **Scopus** `[V]` | **Submit by 30 Nov 2026** (Research Note ≤6 pp is legitimate for in-progress pedagogy) |
+| **OEGlobal Awards 2027** | A | Open Web Atelier + public vShowroom as OER | International open-education recognition | Nominate when artefact is public; **no research data required** |
+| **TEEM 2027** | A | AI-era engineering education track; García-Peñalvo / GRIAL network | Springer, Scopus + WoS | Spring 2027 submissions (typical) |
+| **JENUI 2027** (+ **Premio AENUI**) | A | Spanish CS teaching; prize = named teaching merit `[U]` exact cycle | National | Spring 2027 |
+| **ASSETS 2027** experience reports | A | WCAG + 3D showroom accessibility | ACM SIGACCESS | Spring 2027 |
+| **ITiCSE 2027** | A | CER European | ACM | Cycle-1 report |
+| ***International Journal of Fashion Design, Technology and Education*** | B | Fashion + digital/tech design education | Taylor & Francis `[V]` | Post cycle-1 |
+| ***Cuadernos del CEDyC*** (Universidad de Palermo) | B/D | Ibero design/fashion education venue | Indexed design research `[V]` | Parallel Spanish/Portuguese track |
+| ***Frontiers in Education*** · ***European Journal of Cultural Management and Policy*** | B | GenAI curriculum / GenAI in fashion design process (Balasubramanian; Rizzi & Bertola precedents) | Open / Frontiers `[V]` | After first teaching cycle |
+| **Semana / Coloquio Palermo** | D | Design-education congress cluster; best-paper/poster style recognitions | Institutional, Ibero visibility `[V]` | Annual — watch CfP |
+| **AE-IC** (next after Pontevedra 2026) | B | Spanish communication research; fashion/branding panels recur | National communication | Biennial — after 2026 ed. |
+| **AI Fashion Week / Digital Fashion Week "Touch Grass"** | C | Digital-garment exhibition & contests `[V]` | Visibility, not accreditation merit | Align student releases to event calendars |
+| **LVMH Prize · ANDAM · Woolmark · Redress · Global Change Award** | C | Emerging / sustainable designer prizes `[V]` | Industry prestige for **Fashion Design students** | Portfolio students only; showroom as amplification, never as eligibility substitute |
+| **FAIREE / LCF AI-in-Fashion symposium** | B | Fashion-AI education & ethics `[V]` | Peer-reviewed symposium proceedings | **2026 closed** — target next edition |
+
+### 7.5 What to write for FACTUM 27 *this autumn* (actionable)
+
+Because the deadline falls **during** cycle-1 teaching, do **not** wait for graded outcomes. Submit a **Research Note** (≤6 pages) framed as:
+
+1. Documented gaps (portfolio UX / process visibility under GenAI).
+2. Three-leg educational design (FE runtime · CD digital looks · UDIT CLO garments).
+3. Evidence apparatus already instrumented (AI declaration, commits, oral defence).
+4. Export/ingest contract CLO → web; out-of-scope VTON honesty.
+5. Consent architecture (S1–S5) as a contribution to authorship visibility.
+
+Full empirical papers wait for **2028 journals** or **FACTUM 29** (series is biennial: 19→21→23→25→27).
+
+---
+
+## 8. Risks
 
 | Risk | Mitigation |
 | --- | --- |
-| Two institutions, two ethics regimes | Start the DPO conversation at both **before September**; design v1 to need as little as possible (§5) |
-| CD II content arrives after FE II ends | That is the design (§4), not a failure — seed content in S1 |
+| Two institutions, two ethics regimes (+ third degree inside UDIT) | Start DPO at UDIT **and** UEM **before September**; Fashion Design coordination for S1/S5 consents in parallel; design v1 to need as little as possible (§5) |
+| CLO export friction / proprietary formats | Freeze a minimal ingest contract early (glTF + hero still + metadata); document CLO steps for Fashion Design students |
+| CD II content arrives after FE II ends | That is the design (§4), not a failure — seed + Fashion Design in S1 |
 | Scope inflation ("add try-on!") | §3 out-of-scope list is binding; VTON is an open research problem, not a student sprint |
 | One repo, n<15, uneven contribution | Rotating roles + individual exercise channel (forge §2) + oral defence |
 | Fashion students' work misused | §5 consents; author retains copyright; revocable |
-| Professor bandwidth across two universities | The artefact is **one** product, not two. That is the whole point of the synergy |
+| Conflating industry prizes with research merit | Keep tracks A/B vs C separate in every proposal (§7.2) |
+| Professor bandwidth | FE + CD are one methodology; Fashion Design is **coordination + content**, not a third taught subject for the same load |
+| FACTUM deadline mid-semester | Research Note from design, not from results (§7.5) |
+
+---
+
+## 9. Immediate asks (before / at September 2026)
+
+1. **UDIT Diseño de Moda coordination** — agree CLO export pathway, Portfolio optional alignment, S1/S5 consent text.
+2. **Both DPOs** — UDIT + UEM; localStorage-first v1 as the fallback.
+3. **FACTUM 27 Research Note outline** — draft in Sep–Oct; submit by **30 Nov 2026**.
+4. **Seed CLO pieces** — identify 3–5 consented garments or labelled professor seed before FE II Unit 8.

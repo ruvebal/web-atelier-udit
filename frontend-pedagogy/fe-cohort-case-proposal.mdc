@@ -7,15 +7,15 @@ alwaysApply: false
 # Propuesta — Front-End I / II como caso de estudio de cohorte
 
 **De:** Rubén Vega Balbás, PhD · Prof. Desarrollo Web Front-End I y II · UDIT
-**Para:** IP co-investigadora (sociología) · Coordinación de Grado en Desarrollo Full-Stack · Coordinación de Grado en Ciencia de Datos e IA · Dirección académica UDIT · **Coordinación del Grado en Comunicación y Gestión de Moda (Universidad Europea)** — para la parte interinstitucional (§2-bis d, §7-bis)
+**Para:** IP co-investigadora (sociología) · Coordinación de Grado en Desarrollo Full-Stack · Coordinación de Grado en Ciencia de Datos e IA · **Coordinación del Grado en Diseño de Moda (UDIT, RUCT 2504586)** — contenido CLO 3D / Portfolio · Dirección académica UDIT · **Coordinación del Grado en Comunicación y Gestión de Moda (Universidad Europea)** — Creación Digital (§2-bis d, §7-bis)
 **Fecha:** 2026-08-10 · **Curso afectado:** 2026-27
-**Documentos hermanos:** [`fe-research-line.mdc`](./fe-research-line.mdc) (diseño de investigación) · [`fe-unit-forge.mdc`](./fe-unit-forge.mdc) (forja de unidades: lección/laboratorio/ejercicios) · [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc) (artefacto interinstitucional) · [`grounding/README.mdc`](./grounding/README.mdc) (matriz de evidencia) · [`profield-frontend-pedagogy.md`](./profield-frontend-pedagogy.md) (mapa global)
+**Documentos hermanos:** [`fe-research-line.mdc`](./fe-research-line.mdc) · [`fe-unit-forge.mdc`](./fe-unit-forge.mdc) · [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc) · **sitio emancipado CD:** `~/projects/…/universidadeuropea/digital-creativity-uem/` (Pages propias + `digital-creativity-pedagogy/grounding/`) · [`grounding/README.mdc`](./grounding/README.mdc) · [`profield-frontend-pedagogy.md`](./profield-frontend-pedagogy.md)
 
 ---
 
 ## 1. Petición, en una frase
 
-Autorización para que la docencia de **Front-End I y II durante 2026-27 y 2027-28 constituya un caso de estudio documentado** — con consentimiento informado, custodia externa de datos y salida en congresos y revistas indexadas — **sin modificar la docencia que se impartiría de todos modos**; y conformidad para que el artefacto de FE II se construya en **sinergia con Creación Digital (Universidad Europea)**, donde imparte el mismo docente.
+Autorización para que la docencia de **Front-End I y II durante 2026-27 y 2027-28 constituya un caso de estudio documentado** — con consentimiento informado, custodia externa de datos y salida en congresos y revistas indexadas — **sin modificar la docencia que se impartiría de todos modos**; y conformidad para que el artefacto de FE II (**vShowroom**) se construya en **sinergia triangular** con **Creación Digital (Universidad Europea)** — mismo docente — y con **Diseño de Moda (UDIT)**, cuyos estudiantes autoran prendas en **CLO 3D** y pueden alimentar el showroom (Proyectos / Portfolio / TFG) bajo consentimiento propio.
 
 ---
 
@@ -52,7 +52,7 @@ Cuatro hechos cambian el diseño y **no son un problema: definen el método corr
 
 **c) Un grupo nuevo inicia FE I.** Coexisten por tanto **dos cohortes con funciones distintas**: la continuista (FE II) permite observar transferencia y durabilidad; la entrante (FE I) ofrece una línea base independiente. No se comparan entre sí como grupos equivalentes — no lo son.
 
-**d) Docencia en dos universidades.** El mismo docente imparte **Front-End I y II en UDIT** y **Creación Digital I y II en la Universidad Europea** (Grado en Comunicación y Gestión de Moda). Esto convierte una propuesta de asignatura en una **propuesta interinstitucional** con una sinergia documentada — ver [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc).
+**d) Docencia en dos universidades + un tercer grado en el mismo campus.** El mismo docente imparte **Front-End I y II en UDIT** y **Creación Digital I y II en la Universidad Europea** (Grado en Comunicación y Gestión de Moda). En paralelo, el **Grado en Diseño de Moda (UDIT, RUCT 2504586)** — BOE-A-2024-1046 — ya incluye *Diseño digital I–II*, *Proyectos I–IV*, *Tecnología Textil*, *Portfolio* (4.º S1) y TFG; en la práctica de taller los estudiantes autoran en **CLO 3D** (conocimiento de primera mano; el BOE no nombra la herramienta). Esto convierte la propuesta en una **sinergia triangular** (FE · CD · Diseño de Moda) — ver [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc).
 
 ### La unidad de análisis cambia
 
@@ -69,7 +69,7 @@ Con n<15, *"un estudiante, un repositorio"* en FE I y *"una cohorte, un reposito
 
 El mapa de campo de creación digital (`digital-creativity/01/pass1.edited.md` §7.2) registra dos lagunas **confirmadas en Pass 2**: la ausencia de un *"unified fashion-specific scholarly framework linking portfolio UX, accessibility, responsive design, brand identity and hiring outcomes"*, y la escasez de literatura sobre qué características de diseño web hacen efectivo el portafolio de un estudiante de moda. Y una crítica que nombra exactamente lo que el aparato de FE ya produce: *"generative media complicates the evidentiary function of portfolios. **Process, authorship, iteration and judgement need to be made visible.**"*
 
-**Cada campo tiene documentada la laguna que el método del otro cubre.** Moda aporta el juicio cultural y los artefactos; front-end aporta la capa de interfaz y el aparato de evidencia. La sinergia no es un añadido: es la contribución más original de la propuesta.
+**Cada campo tiene documentada la laguna que el método del otro cubre.** Diseño de Moda (CLO) aporta la prenda y el juicio cultural; Creación Digital aporta avatares / experiencias digitales / AR; front-end aporta la capa de interfaz y el aparato de evidencia. La sinergia no es un añadido: es la contribución más original de la propuesta — y al situar CLO en el **mismo campus UDIT** que FE, la laguna del portafolio de moda deja de ser especulativa.
 
 ---
 
@@ -114,13 +114,19 @@ _(Publicación pendiente del `git push` de las últimas revisiones; todas las ru
 - Análisis cualitativo: análisis temático del corpus de **declaraciones de uso de IA** — cómo narra el estudiantado autoría, competencia y responsabilidad bajo IA ambiental. Es la línea que un autor solo de informática no ejecuta bien.
 - **Custodia independiente de los datos** y administración del consentimiento (§6). Esta función es la que resuelve el conflicto de interés y no puede recaer en el docente.
 
-**A la coordinación de grado:**
+**A la coordinación de grado (Full-Stack / Ciencia de Datos e IA):**
 
 - Conformidad para que la asignatura opere como caso de estudio con consentimiento informado.
 - Interlocución con la figura de protección de datos de UDIT.
 - Reconocimiento del tiempo de investigación asociado.
 
-**Lo que explícitamente NO se pide:** ni cambiar el temario, ni añadir carga al estudiantado, ni condicionar calificación alguna a la participación.
+**A la coordinación del Grado en Diseño de Moda (UDIT):**
+
+- Conformidad para que estudiantes voluntarios exporten piezas CLO 3D al vShowroom bajo consentimiento por artefacto (S1/S5 del brief).
+- Alineación opcional con **Portfolio** (4.º S1) / Proyectos / TFG — no reescritura de guía; vía de exhibición adicional.
+- Interlocución con el mismo DPO UDIT (mismo campus, otro grado).
+
+**Lo que explícitamente NO se pide:** ni cambiar el temario de FE ni el de Diseño de Moda, ni añadir carga obligatoria al estudiantado de moda, ni condicionar calificación alguna a la participación.
 
 ---
 
@@ -150,64 +156,74 @@ Hay **cuatro** consentimientos distintos, y conviene no confundirlos porque tien
 
 ## 7. Oportunidades y calendario
 
-**Realidad de fechas a 2026-08-10 — todas las ventanas de 2026 están cerradas:**
+**Realidad de fechas a 2026-08-10 — las ventanas CER/OE de 2026 están cerradas, pero FACTUM 27 está abierta:**
 
-| Convocatoria | Fecha límite 2026 | Estado |
+| Convocatoria | Fecha límite / evento | Estado |
 | --- | --- | --- |
-| TEEM 2026 (Porto, 20–23 oct) | envío 5 jun 2026 | ❌ cerrada |
-| IFE Conference 2027 (Monterrey, 26–28 ene 2027) | convocatoria hasta 15 jul 2026 | ❌ cerrada |
-| OEGlobal Awards 2026 | nominaciones hasta 22 jun 2026 | ❌ cerrada |
-| ITiCSE 2026 (Madrid) · JENUI 2026 (Barcelona) | celebrados en julio 2026 | ❌ pasados |
-| ASSETS 2026 (Porto, oct) | envío cerrado | ❌ cerrada |
+| TEEM 2026 · IFE 2027 CFP · OEGlobal Awards 2026 · ITiCSE/JENUI 2026 · ASSETS 2026 | 2026 | ❌ cerradas / pasadas |
+| LCF / FAIREE *International Symposium on AI in Fashion 2026* | abstracts hasta 5 may 2026 · evento 11–12 jun 2026 | ❌ cerrada — vigilar ciclo siguiente |
+| **FACTUM 27** (Fashion Communication in the Digital Age) | **papers ≤ 30 nov 2026** · Beijing **30 jun – 2 jul 2027** | ✅ **ABIERTA** — https://digitalfashion.ch/factum27/ |
+| AI Fashion Week Season 3 · Digital Fashion Week | Q4 2026 / ediciones recurrentes (sept.) | `[L]` visibilidad de práctica para estudiantes de moda |
 
-**Esto no es un contratiempo: define el calendario.** **2026-27 es el año de datos; 2027 es el año de salidas.**
+**Esto define el calendario.** **2026-27 es el año de datos y del Research Note de FACTUM; 2027 es el año de salidas CER + OEGlobal; 2028 consolida revistas.** Detalle de pistas A/B/C/D (CER · moda académica · visibilidad estudiantil · educación en diseño): [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc) §7.
 
 ### Destinos, por orden de accesibilidad
 
 | Destino | Encaje | Indexación / mérito |
 | --- | --- | --- |
-| **TEEM 2027** (teemconference.eu) | Alta afinidad: pista *"Engineering Education: Redefining Skills, Pedagogy, and Ethics in the AI Era"*. **García-Peñalvo (GRIAL, Salamanca) preside el Steering Committee** — es también la vía natural de colaboración española | **Springer, indexado en Scopus y WoS** |
-| **IFE Conference 2028** (tec.mx) | Innovación educativa, iberoamericano, orientado a IA y factor humano | Springer *Lecture Notes in Educational Technology*, Scopus |
-| **JENUI 2027** (AENUI) | Enseñanza universitaria de la informática, en español | Ámbito nacional; incluye **Premio AENUI a la Calidad e Innovación Docente** |
-| **ASSETS 2027** — pista *experience reports* | Accesibilidad: encaja el trabajo de auditoría WCAG de FE I | ACM SIGACCESS |
-| **ITiCSE 2027** | CER internacional europeo | ACM |
+| **FACTUM 27** | Hogar temático de la sinergia: HCI/UX in fashion, AI & fashion communication, innovation in digital fashion. **Research Note ≤6 pp** válido para pedagogía en curso. En el comité: **Barbara Castillo (UDIT)** | Springer OA proceedings, **Scopus** |
 | **OEGlobal Awards 2027** | **No requiere datos de investigación:** premia el *artefacto abierto* ya publicado (§4). Vía de mérito más rápida | Reconocimiento internacional en educación abierta |
-| **Education Sciences** (MDPI) | Publicó a Garcia — precedente directo | Revista abierta indexada |
-| **ACM TOCE** · **Computer Science Education** · **IEEE ToE** | Objetivo de ciclo 2, con el conjunto longitudinal | Alto impacto |
+| **TEEM 2027** (teemconference.eu) | Pista *"Engineering Education… AI Era"*. **García-Peñalvo (GRIAL)** en Steering Committee | **Springer, Scopus y WoS** |
+| **JENUI 2027** (AENUI) | Enseñanza universitaria de la informática, en español | Nacional; **Premio AENUI a la Calidad e Innovación Docente** |
+| **ASSETS 2027** — *experience reports* | Accesibilidad: auditoría WCAG FE I + showroom 3D | ACM SIGACCESS |
+| **ITiCSE 2027** | CER internacional europeo | ACM |
+| ***Int. Journal of Fashion Design, Technology and Education*** | Pedagogía moda + tech; puente CLO→web | Taylor & Francis |
+| ***Cuadernos del CEDyC*** (Palermo) · Coloquio Palermo | Vía iberoamericana de diseño/moda educación | Diseño indexado / reconocimiento institucional |
+| **Education Sciences** (MDPI) | Publicó a Garcia — precedente CER web | Revista abierta indexada |
+| **ACM TOCE** · **Computer Science Education** · **IEEE ToE** | Objetivo de ciclo 2 | Alto impacto |
+| **IFE Conference 2028** (tec.mx) | Innovación educativa iberoamericana | Springer LNET, Scopus |
+| **LVMH / ANDAM / Woolmark / Redress / DFW "Touch Grass"** | **No son mérito investigador del caso FE** — ventanas de visibilidad para piezas CLO de Diseño de Moda amplificadas por el showroom | Industria / contest |
 
 ### Calendario de salidas esperadas
 
 | Momento | Hito |
 | --- | --- |
-| **ago–sep 2026** | Consentimientos y RGPD cerrados · instrumentos congelados y versionados · **prerrequisito de todo lo demás** |
-| **sep 2026 – jun 2027** | **Ciclo 1**: docencia FE I + FE II con instrumentos activos. Sin escritura para revisión |
-| **ene–mar 2027** | Redacción del *experience report* (FE II como piloto) |
+| **ago–sep 2026** | Consentimientos y RGPD (UDIT + UEM) · instrumentos congelados · **acuerdo con coordinación Diseño de Moda (export CLO + S1/S5)** · prerrequisito de todo lo demás |
+| **sep–nov 2026** | FE II construye v1 · piezas CLO consentidas / seed · **redacción Research Note FACTUM 27** |
+| **30 nov 2026** | **Envío FACTUM 27** (design-first; no esperar calificaciones) |
+| **sep 2026 – jun 2027** | **Ciclo 1**: docencia FE I + FE II con instrumentos activos · Q4: ventanas de visibilidad estudiantil si v1 está viva |
+| **ene–mar 2027** | *Experience report* (FE II piloto) · camera-ready FACTUM si aceptado (1 mar 2027) |
 | **primavera 2027** | Nominación **OEGlobal 2027** del artefacto abierto (no depende de datos) |
-| **mar–jun 2027** | Envíos: **JENUI 2027**, **ASSETS 2027** (experience report), **TEEM 2027** |
-| **verano 2027** | Envío del estudio de replicación (RQ1) a revista abierta |
-| **sep 2027 – jun 2028** | **Ciclo 2**: comparación longitudinal disponible |
-| **2028** | **IFE 2028**; objetivo de revista de alto impacto con dos ciclos; propuesta de secuenciación (RQ5) como *design principles* |
+| **mar–jun 2027** | Envíos: **JENUI 2027**, **ASSETS 2027**, **TEEM 2027**, **ITiCSE 2027** |
+| **30 jun – 2 jul 2027** | FACTUM 27 (Beijing) si aceptado |
+| **verano 2027** | Envío replicación (RQ1) a revista abierta · primera vía moda (*IJFDTE* / *Cuadernos*) |
+| **sep 2027 – jun 2028** | **Ciclo 2**: comparación longitudinal · CD II + Fashion Design alimentan plataforma viva |
+| **2028** | **IFE 2028**; revista alto impacto con dos ciclos; RQ5 *design principles*; vigilar FAIREE / FACTUM 29 |
 
 ---
 
-## 7-bis. Consecuencias interinstitucionales (nuevas)
+## 7-bis. Consecuencias interinstitucionales (actualizado — triángulo)
 
-**Aprobaciones necesarias en DOS instituciones.** UDIT para FE I/II; Universidad Europea para la participación de Creación Digital. Cada una con su regimen de protección de datos.
+**Aprobaciones necesarias en DOS instituciones y TRES grados.** UDIT: FE I/II **y** Diseño de Moda (contenido CLO); Universidad Europea: Creación Digital. Cada institución con su régimen de protección de datos; Diseño de Moda comparte DPO UDIT pero necesita conformidad de su coordinación.
 
-**Consentimientos añadidos** — la obra de diseño del estudiantado de moda es **propiedad creativa autoral** y no está cubierta por el conjunto de consentimientos del §6:
+**Consentimientos añadidos** — la obra de diseño (CLO / avatar) es **propiedad creativa autoral** y no está cubierta por el conjunto del §6:
 
 | # | Consentimiento | Quién | Naturaleza |
 | --- | --- | --- | --- |
-| **S1** | Exhibir un diseño en el vShowroom | estudiante de CD | Por artefacto, revocable. **La autoría permanece en el estudiante**; la plataforma recibe únicamente licencia de exhibición |
-| **S2** | Atribución o anonimato | estudiante de CD | Elección del autor; por defecto atribuido, con opción de retirada |
-| **S3** | Uso investigador de los datos de interacción | ambas cohortes | Independiente de S1/S2 |
+| **S1** | Exhibir un diseño en el vShowroom | estudiante de **CD** y/o **Diseño de Moda** | Por artefacto, revocable. **La autoría permanece en el estudiante**; la plataforma recibe únicamente licencia de exhibición |
+| **S2** | Atribución o anonimato | mismo | Elección del autor; por defecto atribuido, con opción de retirada |
+| **S3** | Uso investigador de los datos de interacción / proceso | cohortes FE + participantes de moda | Independiente de S1/S2 |
 | **S4** | Flujo de datos entre instituciones | UDIT ↔ UEM | **Dos regímenes.** Requiere ambas DPO |
+| **S5** | Derivados de export CLO (glTF, stills, renders) | estudiante de Diseño de Moda | Los formatos de exhibición siguen siendo obra del autor; declarar qué derivados puede generar la plataforma |
 
 > **Regla de diseño que evita casi todo el problema:** la versión 1 del artefacto **no tiene cuentas de usuario**. Las colecciones y seguimientos viven en `localStorage` del visitante. Sin cuentas no hay datos personales de visitantes, y la cuestión de transferencia entre instituciones desaparece. Si la conversación con protección de datos se atasca, **se publica la v1 con colecciones locales** y la investigación conserva igualmente la evidencia de ingeniería a nivel de cohorte.
 
-**Nueva vía de mérito, sin datos de investigación:** el artefacto es abierto y público. **OEGlobal 2027** premia el activo abierto, no el estudio — no requiere consentimiento ni comité de ética (§7). Es la salida más rápida del calendario.
+**Vías de mérito sin (o con pocos) datos de investigación:**
 
-**Y un destino nuevo que la sinergia habilita:** la laguna de moda (§2-bis) es publicable en venues de diseño/moda además de los de CER — lo que **duplica el alcance de una misma cohorte**. Concretamente, TEEM tiene pista de innovación educativa y García-Peñalvo preside su comité de dirección; el material de moda encaja además en foros de educación en diseño.
+1. **FACTUM 27 Research Note** — diseño de la sinergia + aparato de evidencia; plazo **30 nov 2026**.
+2. **OEGlobal 2027** — premia el activo abierto, no el estudio (§7).
+
+**Alcance duplicado:** la laguna de moda (§2-bis) es publicable en venues de diseño/moda (**FACTUM**, *IJFDTE*, *Cuadernos*) **además** de los de CER (TEEM, JENUI, ASSETS, ITiCSE) — una misma cohorte, dos campos. Las ventanas LVMH/ANDAM/Woolmark/Redress son **visibilidad estudiantil**, no mérito ANECA del caso FE; no confundirlas en la redacción a coordinación.
 
 ---
 
@@ -221,7 +237,7 @@ Hay **cuatro** consentimientos distintos, y conviene no confundirlos porque tien
 
 ## 9. Nota final sobre la carga docente
 
-Esta propuesta **no debe retrasar la docencia**. El calendario del §7 está construido justamente para que 2026-27 sea un año de *impartir y recoger*, no de escribir. Lo pendiente antes de septiembre es corto y acotado: **consentimientos, RGPD y congelar los instrumentos**.
+Esta propuesta **no debe retrasar la docencia**. El calendario del §7 está construido para que 2026-27 sea un año de *impartir y recoger*, con **una sola excepción de escritura temprana**: el **Research Note de FACTUM 27 (≤ 30 nov 2026)**, que se redacta desde el *diseño* de la sinergia, no desde resultados de calificación. Lo pendiente antes de septiembre es corto y acotado: **consentimientos, RGPD, acuerdo Diseño de Moda (CLO), y congelar los instrumentos**.
 
 En paralelo y con prioridad docente, sigue pendiente de producción el material de aula: **profundizar diez de las doce unidades de FE II al nivel de referencia ya fijado por las unidades 5 y 6**, y **los decks reveal.js por unidad**. Ese material es, además, el objeto de estudio: sin él no hay caso. **La docencia va primero; la investigación se monta encima de ella, no al revés.**
 
