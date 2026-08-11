@@ -1,0 +1,105 @@
+---
+description: Honest readiness assessment for teaching FE I/FE II in 2026-27 — what exists, what blocks the first class, and the ordered path to ready
+globs: 'frontend-pedagogy/**'
+alwaysApply: false
+---
+
+# Teaching readiness — FE I / FE II, curso 2026-27
+
+**Audited 2026-08-11** against the built site and `_data/tracks.yml`. Every figure below is measured, not estimated.
+
+---
+
+## 0. Straight answer
+
+**FE I: yes, teachable.** Semester 1 and the 15-lesson React sequence are built, published and sequenced. Two compliance defects to fix (§2), neither blocking week 1.
+
+**FE II: no — not yet teachable beyond Units 5–6.** Ten of twelve units are lesson *prose* with no lab brief, no exercise set, no labelled code, and no deck. You could teach Unit 5 and Unit 6 tomorrow. You could not teach Unit 2 next month without building it first.
+
+**Research layer: instrumented on paper, not consented.** Nothing may be collected as research data in September without §4.
+
+---
+
+## 1. Measured state
+
+| Unit | Lines | Labelled code blocks | Lab brief | Exercise set | Deck |
+| --- | ---: | ---: | :---: | :---: | :---: |
+| 1 Kickoff | 146 | 0 | ✗ | ✗ | ✗ |
+| 2 Astro fundamentals | 278 | 1 | ✗ | ✗ | ✗ |
+| 3 Astro advanced | 300 | 0 | ✗ | ✗ | ✗ |
+| 4 PWA / offline | 309 | 0 | ✗ | ✗ | ✗ |
+| **5 Testing strategy** | **531** | **11** | ✅ | ✗ | ✗ |
+| **6 AI code review** | **324** | **8** | ✅ | ✗ | ✗ |
+| 7 Performance | 329 | 0 | ✗ | ✗ | ✗ |
+| 8 R3F | 282 | 0 | ✗ | ✗ | ✗ |
+| 9 Shaders | 302 | 0 | ✗ | ✗ | ✗ |
+| 10 IoT / Python | 290 | 0 | ✗ | ✗ | ✗ |
+| 11 Capstone integration | 234 | 0 | ✗ | ✗ | ✗ |
+| 12 Capstone defence | 221 | 0 | ✗ | ✗ | ✗ |
+
+**Totals:** 2 of 12 units at standard · **0 of 12 exercise sets** · 2 of 12 lab briefs · **0 of 12 decks**.
+
+Length is not the gap — most units are 280–330 lines. **Nature is the gap:** they are essays. A unit with zero labelled code blocks cannot be taught from, because a student cannot tell what is runnable.
+
+---
+
+## 2. 🔴 Two compliance defects (fix before the guías are filed)
+
+**a) FE I lab hours do not close.** `tracks.yml` `fei:` sums `labHours` to **32.0 h** across 29 sessions. The official allocation is **30 h**. Phase 1's gate recorded this as passing; it does not. **2 h must come out** — a pedagogical decision, so I have not redistributed them silently. FE II is correct at 30.0 h.
+
+**b) Two of three activity types are unallocated, in both courses.** `magistralHours` and `ejerciciosHours` appear **zero times**. The official split is **Lección Magistral 10 h / Prácticas de Laboratorio 30 h / Resolución de Ejercicios 14 h**. Only the middle one exists in data.
+
+> This is what makes the `ACTIVIDADES FORMATIVAS` table unfillable truthfully — the original purpose of IGNITOR rule 2b, which covered lab hours only. Until fixed, any per-session hour claim to the department is unsupported.
+
+---
+
+## 3. Path to ready — ordered by what unblocks teaching
+
+**Wave 0 — before any teaching (≈ half a day)**
+1. Resolve the FE I 32 → 30 h discrepancy (your call which sessions).
+2. Add `magistralHours` + `ejerciciosHours` to every session in both tracks; totals must close at 10 / 14.
+3. Freeze and version the oral-defence rubric and AI-declaration template (also a research prerequisite, §4).
+
+**Wave 1 — Units 11 + 12 (best evidenced; they define the assessment students meet)**
+Forge per [`fe-unit-forge.mdc`](./fe-unit-forge.mdc): lesson + lab brief + exercise set. Evidence is ready — Garcia, Nelson & Ponciano, Vega (incremental PBL), González-Videgaray, Liu p.12 verbatim, DEC LATAM 65 %/56 %, Neumann (eduScrum) for the team-repo model.
+
+**Wave 2 — Units 2 + 3 + 4** — the platform the frontier needs. All three **declare a gap**; ground technique in dated vendor docs only.
+
+**Wave 3 — Units 8 + 9 + 10** — the frontier. Declare pilot. Neelakantam & Pant grounds *technique* for 8–9 only.
+
+**Wave 4 — Units 1 + 7** — kickoff last (it must promise what the other eleven deliver); Unit 7 already has its ethics section, needs lab + exercises.
+
+**Wave 5 — 12 decks.** After prose settles. A deck for a lesson still in flux is waste.
+
+**Minimum viable to start the semester:** Wave 0 + Wave 1 + Unit 2. Weeks 3–4 of teaching can run one wave ahead of delivery if necessary — but not more, and the exercise sets cannot be the thing that slips, because they are the individual-evidence channel (§4).
+
+---
+
+## 4. Research layer — status against the vaults
+
+**Grounding is current.** All vaults are registered and classed in [`grounding/README.mdc`](./grounding/README.mdc): `fe-main` (18 coats), `fe-ibero` (8), and four cross-project SVCM vaults with explicit *"never use for"* rules. The **discover-in-vectors / cite-from-nodes** rule is recorded. 21 strict coat·node citations across the guías resolve, including the UNESCO coat.
+
+**Recent movement:** three gaps closed (eduScrum → team repo; Vega → incremental PBL; Burgos → ethics-first, first Spain-inclusive source), one reclassified (energy → normative via UNESCO), two refused (O'Toole homonym; WebVR-as-pedagogy).
+
+**Still open, deliberately:** six FE II units unevidenced (the pilot thesis); the empirical energy claim; Spanish legal instruments not ingested; Taylor's archive/repertoire cited nowhere pending a definitional node.
+
+**🔴 What is NOT ready:** the human layer.
+
+| Prerequisite | State |
+| --- | --- |
+| Consent set C1–C4 drafted and IP-administered | ✗ not started |
+| RGPD basis + DPO sign-off (UDIT) | ✗ not started |
+| Second-institution approval (UEM, for the synergy) | ✗ not started |
+| Instruments frozen and versioned | ✗ not done (Wave 0.3) |
+
+**Consequence, stated plainly:** teaching can begin without any of these. **Research data cannot be collected without them.** If September starts unconsented, 2026-27 yields a taught course and no usable dataset — the arc restarts in 2027-28.
+
+---
+
+## 5. What would change my answer to "ready"
+
+- FE II: Wave 0 + Wave 1 complete, Unit 2 forged, hours closing at 10/30/14 in both courses.
+- Research: consent administered by the IP, DPO sign-off in hand, rubric frozen.
+- Publishing: `git push` — nine commits are unpushed, so **nothing above is live for students yet**.
+
+That last one is a one-command gap and the cheapest win on this page.

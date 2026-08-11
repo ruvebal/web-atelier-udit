@@ -39,6 +39,25 @@ So the gap is not a hunch. It is a documented, queryable empty set — and you a
 
 ---
 
+## 0-bis. Estado del corpus (2026-08-11) — qué cambió y qué sigue abierto
+
+**Cerrado desde el diseño inicial:**
+
+| Antes | Ahora | Fuente |
+| --- | --- | --- |
+| "una cohorte, un repositorio" — decisión razonada **sin respaldo** | respaldada | Neumann, eduScrum (`2106_12166v1…e472eb4e` · nodo `86bd504a`) |
+| ritmo incremental semanal — solo práctica de la casa | respaldado | Vega et al., *Incremental PBL for CS1/CS2* (`39005…3a9560e8` · nodo `08cdfb05`) |
+| declaración de IA como control antifraude | reencuadrada como **cuestión ética** | Burgos, UNIR — 674 profesores, 4 continentes **incluida España**, *focus groups*, la ética como primera preocupación (`47294_eng…8e2de13e`). **Primera fuente del corpus con contexto español**, y valida el método de grupos focales del §4 |
+| coste energético — compromiso razonado sin fuente | **cerrado a nivel normativo** | UNESCO, *Recommendation on the Ethics of AI* (`381137eng` · nodos `630c7152` p.29, `17ccc7a8` p.30) |
+
+**Rechazado, y el rechazo importa tanto como las adquisiciones:** O'Toole, *Sustainable Web Ecosystem Design* — el título coincide, el contenido es socio-técnico, no ecológico. Neelakantam & Pant (WebVR) respalda **técnica**, nunca pedagogía: las Unidades 8–9 conservan su `[UNVERIFIED-GAP]`.
+
+**Sigue abierto, deliberadamente:** el nivel **empírico** del coste energético (nadie cuantifica el efecto en carbono de una decisión front-end); seis unidades de FE II sin evidencia pedagógica (la tesis del piloto); instrumentos legales españoles sin ingerir; Taylor (*archive/repertoire*) sin nodo definicional localizado — **lead, no cita**.
+
+**Regla de capas, ya durable:** descubrir en vectores, **citar desde nodos**. Ver [`grounding/README.mdc`](./grounding/README.mdc).
+
+---
+
 ## 1. Asset inventory — why *you*, and why now
 
 Be honest about the advantage, because it is real but specific. You will not out-RCT a CER lab. You have something they cannot easily get:
