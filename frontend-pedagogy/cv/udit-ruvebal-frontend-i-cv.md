@@ -199,9 +199,14 @@ Respaldo regional adicional: `cepal…48ba6c8d` · nodo `769a6e2c` (competencias
 - **Phung, Singh, Kazemitabaar y Liu** son de **programación general o ciencia de datos**, no de front-end. Su transferencia a este contexto es una decisión razonada, no un hallazgo replicado.
 - **Parthasarathy & Joshi** recoge percepciones docentes en **India**; **Batista, Correa** son de **Brasil**. No hay evidencia extraída de cohortes españolas en el vault.
 
+**Eficiencia como obligación ética — respaldo normativo (no empírico)**
+`381137eng` (vault SVCM/unesco) — **Recomendación de la UNESCO sobre la Ética de la Inteligencia Artificial**, adoptada por los Estados Miembros · nodo `630c7152` · p. 29: obliga a evaluar *"the direct and indirect environmental impact throughout the AI system life cycle, including… its **carbon footprint, energy consumption** and the environmental impact of raw material extraction"* · nodo `17ccc7a8` · p. 30: *"favour **data, energy and resource-efficient AI methods**"*.
+> Convierte la eficiencia de **compromiso razonado** en **obligación con mandato internacional**: es la base normativa del binomio rendimiento/accesibilidad como ética y no como optimización.
+> ⚠️ **Clase de fuente:** instrumento **normativo**, no estudio. **Obliga, no mide.** Ninguna fuente del corpus cuantifica el efecto en carbono de una decisión de ingeniería front-end, y su objeto son los **sistemas de IA** — cubre el método asistido por IA de esta asignatura, no autoriza una afirmación directa front-end→carbono. **Sin cifras inventadas.**
+
 ### Lagunas del vault (declaradas, no rellenadas)
 
 - **Módulos 1 y 2 (CSS3 avanzado, JavaScript, asincronía):** ninguna fuente extraída sobre su enseñanza. Se sostienen en práctica profesional y documentación de plataforma.
-- **Coste energético y climático del código:** ninguna fuente en el vault. Compromiso razonado, no hallazgo citado; sin cifras inventadas.
+- **Coste energético y climático del código:** ✅ **cerrado a nivel normativo** (UNESCO, arriba); permanece abierto a nivel **empírico** — nadie cuantifica el efecto en carbono de decisiones front-end.
 - **Marco legal español (RD 1112/2018 y equivalentes):** **no ingerido**. El único apoyo normativo extraído es indirecto — eMAG (Brasil) vía Correa. Invocar obligación legal española exige una pasada de corpus propia.
 - **Calidad bibliográfica desigual:** los coats de Liu (`TI - Abstract`), Phung y Singh (`TI - 1 Introduction`) y CodeAid (`TI - Paul Denny`) tienen metadatos imperfectos. Se citan por coat y nodo, y **no se han fabricado citas más limpias de lo que RIS/`metadata` sostienen**. Coats con metadatos completos: Garcia (DOI `10.3390/educsci15091150`), Parthasarathy & Joshi (DOI `10.1145/3632620.3671122`), CS2023 (Kumar, Eaton et al.).

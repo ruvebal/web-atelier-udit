@@ -135,6 +135,11 @@ Voz estudiantil, nodo `c3157096` · p. 12: *"I got good grades on all the projec
 `3664191_da20f30d` (CS2023) · nodo `ae35ed39` · p. 265 — *"SPD-Web: Web Platforms (2 hours)"*.
 > Dos horas en el currículo internacional de referencia. Legitima el área y, a la vez, evidencia por qué una titulación de desarrollo web necesita asignaturas propias.
 
+**Eficiencia como obligación ética — respaldo normativo (no empírico)**
+`381137eng` (vault SVCM/unesco) — **Recomendación de la UNESCO sobre la Ética de la Inteligencia Artificial**, adoptada por los Estados Miembros · nodo `630c7152` · p. 29: obliga a evaluar *"the direct and indirect environmental impact throughout the AI system life cycle, including… its **carbon footprint, energy consumption** and the environmental impact of raw material extraction"* · nodo `17ccc7a8` · p. 30: *"favour **data, energy and resource-efficient AI methods**"*.
+> Convierte la eficiencia de **compromiso razonado** en **obligación con mandato internacional**: es la base normativa del binomio rendimiento/accesibilidad como ética y no como optimización.
+> ⚠️ **Clase de fuente:** instrumento **normativo**, no estudio. **Obliga, no mide.** Ninguna fuente del corpus cuantifica el efecto en carbono de una decisión de ingeniería front-end, y su objeto son los **sistemas de IA** — cubre el método asistido por IA de esta asignatura, no autoriza una afirmación directa front-end→carbono. **Sin cifras inventadas.**
+
 ### Bloques SIN respaldo en el vault — el argumento del piloto
 
 Ninguna fuente extraída sostiene la pedagogía de:

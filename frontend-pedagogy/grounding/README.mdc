@@ -23,6 +23,22 @@ Do not assume profield is always upstream. It is not:
 - **Global layer: this repo is AHEAD.** `profield-frontend-pedagogy.md` is pass-5 (2026-08-10) with Ahmes dressing and §16. `profield/runs/.../pass1.edited.md` is pass-2/3 (2026-07-29) with **no Ahmes content**. *Do not overwrite this repo's map from `pass1.edited.md` — you would lose the dressing.*
 - **Ibero + authorities: profield is upstream.** Both were absent here entirely and have been synced in. Re-sync by copying over and restoring the provenance banner.
 
+## Retrieval vs. citation — the durable rule (2026-08-11)
+
+Three layers, and **only one of them may be cited**:
+
+| Layer | Role | May a guía cite it? |
+| --- | --- | --- |
+| **Ahmes vault** — `extraction.db` node + page | **Authoritative.** The claim is checkable against extracted text | ✅ **Yes — the only citable layer** |
+| **DevIAC vectors** — `search_knowledge`, `project_slug=profield-frontend-pedagogy` | **Discovery.** Semantic retrieval across 16 ingested vaults; finds candidates fast | ❌ **Never cite a vector snippet.** Use it to locate, then open the node |
+| **Athanor inject** | Field-grade collective search layer | ❌ infrastructure, not evidence |
+
+**Discover in vectors, cite from nodes.** A snippet is a pointer, not a source: it has no stable page, it may be chunk-truncated mid-argument, and it cannot show you what the surrounding text qualifies. Every citation in the guías resolves to coat · node · page precisely so a reviewer can reopen it.
+
+> **Session caveat worth knowing:** MCP tool availability is **per session**, not global. An agent reporting that `search_knowledge` is unavailable is describing *its own registry*, not the DevIAC server's health. Diagnose at the level you can observe, and say which level you mean. If discovery is unavailable, the fallback — enumerate the manifest, query the DBs directly — is slower but **loses nothing citable**.
+
+---
+
 ## 🔴 The finding that prompted this sync
 
 **The curriculum had outrun its own field map.**
@@ -32,6 +48,34 @@ The guías curriculares cite **18 Ahmes coats**, of which **8 are Ibero-American
 Claims were traceable to vault nodes, so nothing was fabricated — but a reader of this repo alone could not reconstruct *why those sources*. That is now fixed.
 
 **Rule going forward:** if a guía or lesson cites a layer, that layer must be present here. Curriculum may not cite grounding the repo does not carry.
+
+---
+
+## Cross-project vaults (2026-08-11) — usable, with scope rules
+
+Beyond `fe-main` / `fe-ibero`, four MSCA/SVCM vaults are now in scope. **They are different evidence classes and must be labelled as such.**
+
+| Vault | Class | Use for | Never use for |
+| --- | --- | --- | --- |
+| `MSCA/SVCM/reference/unesco` | **Normative instrument** (intergovernmental) | The **ethical obligation** to favour energy- and resource-efficient computing — see the energy note below | Empirical effect sizes; it measures nothing |
+| `MSCA/SVCM/reference/horizon-europe` | **Funding/policy instrument** | Framing the *research proposal* (MSCA fellowship shape, evaluation criteria) | Curriculum evidence — it is not pedagogy research |
+| `MSCA/SVCM/research/creative-practice` | Performance/archive theory + digital-heritage practice | The **vShowroom's conceptual layer**: what an archive of creative work is, and metadata for exhibiting it | FE pedagogy claims |
+| `MSCA/SVCM/research/graphrag` | Technical KG/RAG literature | **The graph design itself** (TTOD visualisation, DevIAC architecture) | Any teaching or pedagogy claim |
+
+### 🟢 The energy/climate gap is now grounded — normatively, not empirically
+
+Declared open since 2026-08-10 and **closed at the right level** by the **UNESCO Recommendation on the Ethics of Artificial Intelligence** (`381137eng` coat, 307 nodes):
+
+- node `630c7152` · p. 29 — Member States and enterprises *"should assess the direct and indirect environmental impact throughout the AI system life cycle, including, but not limited to, its **carbon footprint, energy consumption** and the environmental impact of raw material extraction"*
+- node `17ccc7a8` · p. 30 — *"given the potential data-intensive or resource-intensive character of some of them… favour **data, energy and resource-efficient AI methods**"*
+- node `7a02b8a9` · p. 18 — reduce environmental impact, precaution, ecosystem protection and restoration
+- node `57481c7a` · p. 20 — AI *"can either benefit sustainability objectives or hinder their realization"*
+
+**What changes:** the claim moves from *"reasoned commitment, no source"* to **"normatively grounded in an adopted international instrument."**
+
+**What does NOT change:** UNESCO is a **Recommendation**, not a study. It supplies **obligation, not measurement**. There is still no vault source quantifying the carbon effect of front-end engineering choices, and its scope is **AI systems** — which covers this course's AI-assisted method and resource-intensive computing generally, **not** a direct front-end-to-carbon claim. **Invent no figures.**
+
+> This is the O'Toole lesson applied in reverse. There, a title said *"Sustainable"* and the content was socio-technical — rejected. Here the content genuinely addresses energy and carbon, but the **document type** is normative — so it is accepted *as a norm*, not as evidence. Match the claim to the class of source.
 
 ---
 

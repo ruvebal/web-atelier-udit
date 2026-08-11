@@ -221,7 +221,13 @@ So a budget is one question, asked before you add anything:
 
 Performance asks it about energy. Accessibility asks it about exclusion. **Same question, two currencies.** Neither is optimisation; both are ethics — and the second half of that pairing is well evidenced: Fisseler argues accessibility training must instil "ethical and social responsibility," not merely technique, and Lewthwaite and Sloan frame it as "a socio-technical challenge that is primarily about the problem of teaching empathy" (see §Recommended Reading).
 
-> 🔬 **Scholarly honesty — state this in your defence.** The accessibility half of that claim rests on peer-reviewed evidence. The **energy-and-climate half does not, in this course's own research corpus** (`profield-frontend-pedagogy.md`): the thermodynamics are not in dispute, but no source in our reading establishes the pedagogical or quantitative link between front-end performance work and carbon outcomes. Treat it as a **reasoned commitment, not a cited finding** — and do not invent figures for it. If you want to make the argument quantitatively in your capstone, you must bring your own measurements and sources.
+> 🔬 **Scholarly honesty — state this in your defence, and state it precisely.** The two halves of that claim rest on **different kinds of source**, and conflating them is the error to avoid.
+>
+> **Accessibility** rests on peer-reviewed evidence (see Recommended Reading).
+>
+> **Energy and resources** now rest on a **normative instrument**: the **UNESCO Recommendation on the Ethics of Artificial Intelligence**, adopted by Member States. It requires assessing *"the direct and indirect environmental impact throughout the AI system life cycle, including… its carbon footprint, energy consumption and the environmental impact of raw material extraction"*, and instructs actors to *"favour data, energy and resource-efficient AI methods"* given the *"data-intensive or resource-intensive character"* of some of them.
+>
+> **What that does and does not license.** It establishes an **obligation** — efficiency is an ethical requirement in computing, not a matter of taste. It does **not** measure anything: there is still no study in this course's corpus quantifying the carbon effect of a front-end engineering choice, and UNESCO's scope is **AI systems** — which covers the AI-assisted method this course teaches, but is not a direct front-end-to-carbon claim. **Do not invent figures.** If you want to argue this quantitatively in your capstone, bring your own measurements and sources.
 
 ### Setting Budgets
 
@@ -302,6 +308,7 @@ export default defineConfig({
 - Correa, M., Vitoriano, M. A., & Llanos, C. H. (2025). *Web Accessibility in an Academic Management System in Brazil.* Informatics, 12(3), 63. — SIGAA, in use at **39 higher-education institutions**, still shows accessibility gaps *"even after 20 years of eMAG"*, evidenced through living-lab testing with visually impaired students. Standards do not enforce themselves; someone has to build to them, which is the point of the budget.
 - Batista, H. E. N., & Baluz, R. A. R. S. (2025). *Evaluation of Higher Education Institution Websites According to WCAG 2.1 — Brazil.* iSys, 18(1). — Recurring failures across university sites are **missing alternative text and inadequate contrast**: cheap to fix, routinely unfixed.
 - ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023.* DOI: [`10.1145/3664191`](https://doi.org/10.1145/3664191) — curricular standing for treating accessibility and web platforms as core rather than elective.
+- **UNESCO (2021). *Recommendation on the Ethics of Artificial Intelligence.*** — the normative basis for the "who pays" framing above. Read §§ on environmental impact assessment and resource-efficient methods; note that it obliges rather than measures.
 
 ---
 
