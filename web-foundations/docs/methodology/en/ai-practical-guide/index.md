@@ -3,12 +3,12 @@ layout: lesson
 title: 'AI-Assisted Development: A Practical Guide'
 title_alt: 'Desarrollo Asistido por IA: Guía Práctica'
 slug: ai-practical-guide
-date: 2026-01-03
+date: 2026-08-13
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /methodology/en/ai-practical-guide/
-description: 'Comprehensive guide for ethical, intentional AI-assisted development: docs-first methodology, prompt architecture, implementation reports, and critical considerations.'
-tags: [ai, methodology, ethics, prompts, mcp, documentation]
+description: 'Classroom protocol: when to plan, how to disclose, and what you must be able to defend when AI helps you build.'
+tags: [ai, methodology, ethics, docs-first, disclosure]
 ---
 
 <!-- prettier-ignore-start -->
@@ -21,42 +21,27 @@ tags: [ai, methodology, ethics, prompts, mcp, documentation]
 
 <!-- prettier-ignore-end -->
 
+> _"Code is not written in text—it is written in understanding. The text is just the shadow of the understanding."_
+> — Tao of Development, `wis-005`
+
+**For:** an FE I or FE II student (or CD student under the same covenant) who may use an AI assistant on coursework and must still own every line they submit.
+
+**Not for:** the public manifesto, the architecture primer, the Tao chapter, or a journalist. Those have their own pages — see [Where to go next](#where-to-go-next).
+
+**Goal:** when AI helps you build, you still own the code. This page says when to plan, how to disclose, and what you must be able to defend.
+
+These instructions exist to be **followed**, then **tested** in the oral defence. Completeness is not the test; whether you can act from this page is. `[studio-guides, 82b3b541-0cf2-5f0a-adb9-7470db8f8a71]` — bibliographic identity of that axis is in the studio RIS (`[BIBLIO-GAP]` on the Ahmes coat).
+
 ---
 
-> _"AI is not the destination. AI is the compass that helps us navigate toward human flourishing."_
+## The covenant (required)
 
-> **AI Assistance Disclosure:** This guide was developed using the docs-first methodology it describes. Plans, prompts, and implementation reports were documented throughout. The pedagogy is grounded in classroom experience and critical reflection on AI's role in education.
-
----
-
-## Philosophy: AI for Human Better Living
-
-### The Core Principle
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                                                          │
-│   AI exists to AMPLIFY human intent, not replace it.     │
-│                                                          │
-│   Every AI interaction should answer:                    │
-│   → Does this help me understand more?                   │
-│   → Does this help me create something of value?         │
-│   → Does this free me to focus on what matters?          │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
-### The Tao Developer's AI Relationship
-
-| Mindset              | Practice                                                |
-| -------------------- | ------------------------------------------------------- |
-| **AI as Apprentice** | You are the master; AI proposes, you decide             |
-| **AI as Mirror**     | Use AI to reflect on your own thinking                  |
-| **AI as Amplifier**  | Let AI handle the mechanical; you handle the meaningful |
-| **AI as Teacher**    | Ask AI to explain, not just do                          |
-| **AI as Pair**       | Collaborate, critique, iterate together                 |
-
-> **Scholarly precedent:** The "AI as Mirror" and "AI as Amplifier" mindsets echo *extended cognition* in digital scholarly editing — tools outside the mind that participate in its process (Van Hulle, 2016). Van Hulle (2019) distinguishes *imitatio* (style mimicry from published texts) from *aemulatio* (simulating revision itself) as the threshold of "artificial imagination" — a useful vocabulary for generative AI in creative work.
+| Rule | Why it is required |
+| --- | --- |
+| **Understand every line** | You defend it orally. Code you cannot explain is not yours. |
+| **Disclose AI use** | README + commit. Undeclared AI is an integrity review. Disclosure is also the law in this classroom. |
+| **No secrets in prompts** | Keys, passwords, personal data, and client files do not go into a chat. |
+| **Verify before commit** | The checklist below is what the defence will ask. |
 
 ### The Human Flourishing Test
 
@@ -172,9 +157,9 @@ The Recommendation's broader principles (summarized):
 
 Article 4 makes AI literacy a **binding legal requirement** in the EU — not merely good pedagogy. This course is a working example of that obligation.
 
-**Ethics Guidelines for Trustworthy AI (Horizon Europe / European Commission):**
+<!--**Ethics Guidelines for Trustworthy AI (Horizon Europe / European Commission):**
 
-MSCA fellows complete ethics self-assessments against this framework. Its seven requirements include: human agency and oversight; privacy and data governance; societal and environmental well-being; and accountability — requiring that developers and operators explain how and why a system produces particular outcomes (European Commission, *How to complete your ethics self-assessment*, §8).
+ Note: MSCA fellows are required to conduct ethics self-assessments using this framework. The seven requirements emphasize key principles such as human agency and oversight, privacy and data governance, societal and environmental well-being, and accountability—including the duty for developers and operators to explain system outcomes (see European Commission, *How to complete your ethics self-assessment*, §8).
 
 **MSCA-NET Policy Brief: Artificial Intelligence (2025):**
 
@@ -192,751 +177,155 @@ I hold students to the same standard my own funding network holds me to.
 >
 > "Accountability for the research from idea to publication, for its management and organisation, for training, supervision and mentoring, and for its wider societal impacts. This includes responsibility for all output that a researcher produces, underpinned by the notion of human agency and oversight."
 
-> 📚 **References:**
+**ICMJE Recommendations (2025)** — scholarly publishing, the same disclosure duty as this course's README:
+
+> "At submission, the journal should require authors to disclose whether they used Artificial Intelligence (AI)-assisted technologies... Chatbots (such as ChatGPT) should not be listed as authors because they cannot be responsible for the accuracy, integrity, and originality of the work... Authors should be able to assert that there is no plagiarism in their paper, including in text and images produced by the AI. Humans must ensure there is appropriate attribution of all quoted material, including full citations."
+
+> **References:**
 >
 > - [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
 > - [UNESCO Recommendation on AI Ethics](https://www.unesco.org/en/artificial-intelligence/recommendation-ethics)
 > - [EU AI Act (Regulation (EU) 2024/1689)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 > - [Ethics Guidelines for Trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)
 > - [ERA Living Guidelines on Generative AI in Research](https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en?filename=ec_rtd_ai-guidelines.pdf)
+> - [ICMJE Recommendations](https://www.icmje.org/recommendations/)
 
 ---
 
-## The Docs-First Methodology
+## When a plan is required
 
-### The Two-Phase Approach (Non-Negotiable)
+| Trivial — no plan | Non-trivial — plan required |
+| --- | --- |
+| Fix a typo | Add a feature |
+| Adjust a colour | Refactor a module |
+| Update a dependency | Authentication, routing, data shape |
+| Add a comment | New component that other files import |
+| One-line CSS | Change how data is stored or fetched |
 
-For **any non-trivial task**, AI interactions must follow:
+**Rule of thumb:** more than about 15 minutes, or more than one file → write a plan first.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│           THE TWO-PHASE APPROACH                         │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│  PHASE 1: PLANNING                                       │
-│  ─────────────────                                       │
-│  → Request AI to generate a development plan             │
-│  → Document in ./docs/plan1.md, plan2.md, etc.           │
-│  → Review and approve before proceeding                  │
-│                                                          │
-│  PHASE 2: IMPLEMENTATION                                 │
-│  ───────────────────────                                 │
-│  → Only after plan is documented                         │
-│  → AI implements according to plan                       │
-│  → Generate implementation report                        │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
+**Required** for non-trivial work. **Optional:** prompt libraries, MCP servers, mastery ladders — those live in lessons, not here.
 
-**Why this matters:**
+---
 
-- **Intentional architecture**: Prevents aimless code generation
-- **Consciousness**: Forces you to think before coding
-- **Audit trail**: Documents decisions for future reference
-- **Learning**: Planning teaches you to break down problems
-- **Debugging**: At 2 AM, you'll thank yourself for the documentation
+## Docs-first loop (required for non-trivial work)
 
-### What Counts as "Non-Trivial"?
-
-| Trivial (no plan needed) | Non-trivial (plan required) |
-| ------------------------ | --------------------------- |
-| Fix a typo               | Add a new feature           |
-| Adjust a color value     | Refactor a module           |
-| Update a dependency      | Implement authentication    |
-| Add a comment            | Create a new component      |
-| Simple CSS adjustment    | Change data architecture    |
-
-**Rule of thumb**: If it takes more than 15 minutes or touches multiple files, create a plan.
-
-### The Complete Workflow
+1. **Plan** — `docs/plans/plan-[feature].md`. What, why, success criteria. No code yet.
+2. **Implement** — only after you have approved the plan. AI proposes; you decide.
+3. **Report** — what changed, what you rejected, what you still cannot explain.
+4. **Human commit** — you write the message. You push. You own the diff.
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│           THE DOCS-FIRST WORKFLOW                        │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│  1. CREATE THE PLAN (docs/plan-feature-name.md)          │
-│     └── Confluence-style implementation plan             │
-│     └── Phases, outcomes, success criteria               │
-│                                                          │
-│  2. GENERATE PROMPTS (one per phase)                     │
-│     └── Each phase gets a tailored prompt                │
-│     └── Prompt includes context, constraints, output     │
-│                                                          │
-│  3. EXECUTE WITH REPORTS                                 │
-│     └── AI generates implementation                      │
-│     └── AI generates implementation report               │
-│     └── Human reviews, approves, commits                 │
-│                                                          │
-│  4. ITERATE & DOCUMENT                                   │
-│     └── Update plan with learnings                       │
-│     └── Build knowledge base for future projects         │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
+plan → implement → report → human commit
 ```
 
-### Plan Document Template
-
-**Location**: `docs/plan-[feature-name].md`
+### Plan (keep it short)
 
 ```markdown
-# Implementation Plan: [Feature Name]
+# Plan: [feature]
 
-> **Created**: [Date] > **Status**: Draft | In Progress | Complete
-> **AI Model**: Claude/GPT-4/Copilot
+**Status:** Draft | Approved | Done
 
----
+## Objective
+[One sentence.]
 
-## 1. Overview
+## Success
+- [ ] [criterion]
+- [ ] [criterion]
 
-### Objective
-
-[What are we building and why?]
-
-### Success Criteria
-
-- [ ] Criterion 1
-- [ ] Criterion 2
-- [ ] Criterion 3
-
-### Constraints
-
-- Time: [X days/weeks]
-- Tech: [Required stack]
-- Dependencies: [External systems]
-
----
-
-## 2. Phases
-
-### Phase 1: [Name]
-
-**Goal**: [Single sentence]
-**Deliverables**:
-
-- [ ] Deliverable 1
-- [ ] Deliverable 2
-
-**Prompt for this phase**:
-
-> [To be generated]
-
-**Implementation Report**:
-
-> [To be filled after execution]
-
----
-
-## 3. Architecture Decisions
-
-| Decision | Rationale | Alternatives Considered |
-| -------- | --------- | ----------------------- |
-| [Choice] | [Why]     | [Other options]         |
-
----
-
-## 4. Learnings & Retrospective
-
-[Fill after completion]
+## Out of scope
+[What this plan will not do.]
 ```
 
----
-
-## The Prompt Architecture
-
-### Prompt Anatomy
-
-A well-structured prompt has **layers**:
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ LAYER 1: ROLE & CONTEXT                                  │
-│ "You are a senior React developer helping me build..."   │
-├─────────────────────────────────────────────────────────┤
-│ LAYER 2: KNOWLEDGE                                       │
-│ "Here is the current codebase structure: [tree]"         │
-│ "Here are relevant files: [contents]"                    │
-├─────────────────────────────────────────────────────────┤
-│ LAYER 3: TASK                                            │
-│ "Implement [specific feature] following [pattern]"       │
-├─────────────────────────────────────────────────────────┤
-│ LAYER 4: CONSTRAINTS                                     │
-│ "Must use TypeScript, must not break existing tests"     │
-├─────────────────────────────────────────────────────────┤
-│ LAYER 5: OUTPUT FORMAT                                   │
-│ "Provide: 1) Code, 2) Explanation, 3) Report"            │
-└─────────────────────────────────────────────────────────┘
-```
-
-### Prompt Patterns Library
-
-#### 1. The Explainer Prompt
-
-**Purpose**: Understand existing code or concepts
+### After the session (keep it shorter)
 
 ```markdown
-Explain [concept/code] as if teaching a junior developer.
-Include:
+# Report: [feature] — [date]
 
-1. What it does
-2. Why it exists
-3. How it works step by step
-4. Common pitfalls
-5. Best practices
-```
+**Files:** `src/…`
+**AI used:** [tool]. **Human verified:** yes / not yet.
 
-#### 2. The Architect Prompt
+## What changed
+[Two sentences.]
 
-**Purpose**: Design before implementing
+## What I rejected, and why
+[If nothing, say so.]
 
-```markdown
-I need to implement [feature].
-
-Before writing code, please:
-
-1. Propose 2-3 architectural approaches
-2. Compare trade-offs of each
-3. Recommend one with rationale
-4. Outline the implementation steps
-
-Do not write code yet—I want to understand the design first.
-```
-
-#### 3. The Reviewer Prompt
-
-**Purpose**: Critical analysis of code
-
-```markdown
-Review this code critically:
-[paste code]
-
-Analyze for:
-
-1. Correctness
-2. Security vulnerabilities
-3. Performance issues
-4. Maintainability concerns
-5. Suggested improvements
-
-Be harsh but constructive.
-```
-
-#### 4. The Rubber Duck Prompt
-
-**Purpose**: Debug by explaining
-
-```markdown
-I have a bug. Let me explain what I expect vs. what happens:
-
-Expected: [description]
-Actual: [description]
-Code: [paste]
-
-Don't give me the answer immediately.
-Ask me questions that help ME discover the bug.
-```
-
-#### 5. The Report Generator Prompt
-
-**Purpose**: Document completed work
-
-```markdown
-Based on the changes we just made:
-
-Generate an implementation report including:
-
-1. Summary of what was implemented
-2. Files changed and why
-3. Key decisions made
-4. Potential issues or tech debt
-5. Testing recommendations
-6. Handoff notes for the next developer/phase
+## Still cannot explain
+[If this list is not empty, do not commit.]
 ```
 
 ---
 
-## Implementation Reports
+## README disclosure (required)
 
-### Why Reports Matter
-
-Every AI-assisted implementation should produce a **human-readable report** documenting:
-
-1. **What happened** — Concrete changes made
-2. **Why it happened** — Decisions and rationale
-3. **What was learned** — Insights for future
-4. **What's next** — Handoff information
-
-### The Report Cycle
-
-```
-┌───────────────────┐
-│   ASK AI TO DO    │
-│    something      │
-└────────┬──────────┘
-         │
-         ▼
-┌───────────────────┐
-│  AI IMPLEMENTS +  │
-│  GENERATES REPORT │
-└────────┬──────────┘
-         │
-         ▼
-┌───────────────────┐
-│  HUMAN REVIEWS    │
-│  code + report    │
-└────────┬──────────┘
-         │
-    ┌────┴────┐
-    │         │
-    ▼         ▼
-APPROVE    REQUEST
-& COMMIT   CHANGES
-    │         │
-    │         └──► (iterate)
-    │
-    ▼
-┌───────────────────┐
-│  UPDATE PLAN DOC  │
-│  with learnings   │
-└───────────────────┘
-```
-
-### Report Templates
-
-#### Quick Report (for small changes)
+Every repo that used AI **must** show this in `README.md`. Repositories with AI-shaped diffs and no disclosure can be flagged for integrity review.
 
 ```markdown
-## Change: [Brief description]
+## AI Assistance Disclosure
 
-**Files**: `src/component.tsx`, `src/utils.ts`
-**Type**: Feature | Bugfix | Refactor
-**Tested**: [ ] Manual [ ] Unit [ ] Integration
-
-**Summary**: [1-2 sentences]
-
-**AI-Assisted**: Yes/No
-**Human Verified**: Yes/Pending
-```
-
-#### Full Report (for phases/features)
-
-```markdown
-## Implementation Report: [Feature Name]
-
-### 1. Summary
-
-[2-3 sentences describing what was accomplished]
-
-### 2. Changes Made
-
-| File      | Type     | Description           |
-| --------- | -------- | --------------------- |
-| `src/...` | Added    | New component for...  |
-| `src/...` | Modified | Updated to support... |
-
-### 3. Architecture Decisions
-
-| Decision     | Why                               | Alternatives   |
-| ------------ | --------------------------------- | -------------- |
-| Used Zustand | Simpler than Redux for this scale | Context, Redux |
-
-### 4. How It Works
-
-[Brief explanation of the implementation]
-
-### 5. Testing
-
-- [x] Manual testing in browser
-- [x] Unit tests for utilities
-- [ ] E2E test (TODO)
-
-### 6. Known Issues / Tech Debt
-
-- [ ] Need to add error boundary
-- [ ] Performance optimization for list
-
-### 7. Next Steps
-
-1. Wire to backend API
-2. Add loading states
-3. Write E2E test
-
-### 8. Learning Notes
-
-[What did I learn from this implementation?]
-```
-
----
-
-## MCP: The New Standard
-
-### What is MCP (Model Context Protocol)?
-
-MCP is an **open standard** for connecting AI models to external tools and data sources.
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                    MCP ARCHITECTURE                      │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│   [AI Model] ◄──JSON-RPC──► [MCP Server]                │
-│       │                          │                       │
-│       │                          ├── Tools (write ops)   │
-│       │                          ├── Resources (read)    │
-│       │                          └── Prompts (templates) │
-│       │                                                  │
-│       └── Makes requests like:                          │
-│           "read file X"                                 │
-│           "run command Y"                               │
-│           "query database Z"                            │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
-### MCP Concepts
-
-| Concept      | Description                | Example                       |
-| ------------ | -------------------------- | ----------------------------- |
-| **Server**   | Exposes capabilities to AI | filesystem, database, API     |
-| **Tool**     | Write operation            | `create_file`, `run_command`  |
-| **Resource** | Read operation             | `read_file`, `list_directory` |
-| **Root**     | Permission boundary        | `/project` directory only     |
-| **Prompt**   | Reusable template          | "code review", "explain"      |
-
-### Why MCP Matters for You
-
-1. **Standardization** — One protocol, many tools
-2. **Control** — Define exactly what AI can access
-3. **Auditability** — All tool calls are logged
-4. **Security** — Capability-based permissions
-
-### MCP in Your Workflow
-
-```
-Traditional workflow:
-   Copy code → Paste into AI → Copy response → Paste back
-   ❌ Context loss, manual effort, no audit trail
-
-MCP workflow:
-   AI reads your files directly → Proposes changes → You approve
-   ✅ Full context, automated, auditable, controlled
-```
-
-### Setting Up MCP (Claude Desktop Example)
-
-```json
-// ~/.config/claude/claude_desktop_config.json
-{
-	"mcpServers": {
-		"filesystem": {
-			"command": "npx",
-			"args": ["-y", "@anthropic/mcp-server-filesystem", "/path/to/project"]
-		}
-	}
-}
-```
-
-### MCP Best Practices
-
-| Practice                        | Rationale                               |
-| ------------------------------- | --------------------------------------- |
-| **Scope roots narrowly**        | Only give access to project directories |
-| **Prefer resources over tools** | Read-only is safer than write           |
-| **Audit tool calls**            | Log what AI does in your codebase       |
-| **Approve destructive ops**     | Never auto-run deletes or deploys       |
-
----
-
-## Practical Workflows
-
-### Workflow 1: New Feature Development
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ WORKFLOW: New Feature                                    │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│ 1. CREATE PLAN                                           │
-│    └── docs/plan-feature-name.md                         │
-│    └── Define phases, success criteria                   │
-│                                                          │
-│ 2. ASK AI TO REVIEW PLAN                                 │
-│    └── "Review this plan for gaps or risks"              │
-│    └── Iterate until solid                               │
-│                                                          │
-│ 3. FOR EACH PHASE:                                       │
-│    └── Generate phase prompt                             │
-│    └── AI implements + reports                           │
-│    └── Human reviews, tests, approves                    │
-│    └── Commit with descriptive message                   │
-│                                                          │
-│ 4. RETROSPECTIVE                                         │
-│    └── Update plan with learnings                        │
-│    └── Note patterns for reuse                           │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
-### Workflow 2: Bug Investigation
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ WORKFLOW: Bug Investigation                              │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│ 1. DESCRIBE THE BUG                                      │
-│    └── Expected vs. actual behavior                      │
-│    └── Steps to reproduce                                │
-│                                                          │
-│ 2. ASK AI TO HELP INVESTIGATE (not fix)                  │
-│    └── "What could cause this? Ask me questions."        │
-│    └── Let AI guide your debugging                       │
-│                                                          │
-│ 3. IDENTIFY ROOT CAUSE (together)                        │
-│    └── You confirm the hypothesis                        │
-│    └── You understand WHY it happens                     │
-│                                                          │
-│ 4. IMPLEMENT FIX                                         │
-│    └── AI proposes fix                                   │
-│    └── You verify it addresses root cause                │
-│    └── AI generates report                               │
-│                                                          │
-│ 5. DOCUMENT                                              │
-│    └── Add to knowledge base                             │
-│    └── Prevent similar bugs                              │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
-### Workflow 3: Learning a New Concept
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ WORKFLOW: Learning                                       │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│ 1. STATE WHAT YOU WANT TO LEARN                          │
-│    └── "I want to understand [concept]"                  │
-│                                                          │
-│ 2. ASK FOR EXPLANATION                                   │
-│    └── "Explain like I'm a junior developer"             │
-│    └── "What are the common misconceptions?"             │
-│                                                          │
-│ 3. ASK FOR MINIMAL EXAMPLE                               │
-│    └── "Show me the smallest working example"            │
-│    └── Type it yourself (no copy-paste)                  │
-│                                                          │
-│ 4. BREAK IT                                              │
-│    └── "What happens if I do X wrong?"                   │
-│    └── Deliberately cause errors                         │
-│                                                          │
-│ 5. TEACH BACK                                            │
-│    └── Explain the concept to AI                         │
-│    └── "Is my understanding correct?"                    │
-│                                                          │
-│ 6. DOCUMENT                                              │
-│    └── Write notes in your own words                     │
-│    └── Add to personal knowledge base                    │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
----
-
-## The AI Ethics Protocol
-
-> _"What do gatekeepers expect of contributors regarding AI use?"_ — Chigwada & Ngulube (2026) ask this of publishers and author guidelines; instructors ask the same of students in the classroom (instructor : student :: publisher : author).
-
-### The Non-Negotiables
-
-| Rule                      | Why It Matters                      |
-| ------------------------- | ----------------------------------- |
-| **Understand every line** | You are responsible for your code   |
-| **Document AI usage**     | Transparency builds trust           |
-| **No secrets in prompts** | API keys, passwords, personal data  |
-| **Verify security**       | AI doesn't know your threat model   |
-| **Cite in deliverables**  | Academic and professional integrity |
-
-### ⚠️ README AI Disclosure Requirement
-
-Scholarly publishing norms require the same transparency. The ICMJE (2025) states:
-
-> "At submission, the journal should require authors to disclose whether they used Artificial Intelligence (AI)-assisted technologies... Chatbots (such as ChatGPT) should not be listed as authors because they cannot be responsible for the accuracy, integrity, and originality of the work... Authors should be able to assert that there is no plagiarism in their paper, including in text and images produced by the AI. Humans must ensure there is appropriate attribution of all quoted material, including full citations."
-
-> **MANDATORY**: Every repository using AI assistance **MUST** include a visible AI usage disclosure in the `README.md` file.
-
-```markdown
-## 🤖 AI Assistance Disclosure
-
-This project was developed with AI assistance (Claude/GPT-4/Copilot).
+This project was developed with AI assistance ([tool]).
 
 **AI was used for:**
-
-- [List specific uses: code generation, debugging, documentation, etc.]
+- [generation / debugging / docs — be specific]
 
 **Human verification:**
-
-- All code has been reviewed and understood by the author
-- Security implications have been assessed
-- The author takes full responsibility for the final implementation
-
-**Methodology:** [Link to docs-first plans if applicable]
+- I can explain every line I submitted
+- I take full responsibility for the implementation
 ```
 
-**Why this matters:**
+Commit message pattern:
 
-1. **Academic integrity**: Transparent disclosure prevents plagiarism accusations
-2. **Professional ethics**: Future employers and collaborators deserve honesty
-3. **Learning accountability**: You must understand what you submit
-4. **Legal clarity**: AI-generated code has complex IP implications
-
-> 🚨 **Repositories without AI disclosure that contain AI-generated code may be flagged for academic integrity review.**
-
-### Who Owns What You Build With AI
-
-Portfolio work often includes AI-generated code, images, or layout suggestions. The U.S. Copyright Office (2023) applies a practical test: copyright requires human authorship — the work must be "basically one of human authorship, with the computer merely being an assisting instrument," not "conceived and executed not by man but by a machine." For grading and professional claims, treat AI as an assisting instrument: you own what you understand, integrate, and can defend — not raw model output you cannot explain.
-
-### The Documentation Standard
-
-```javascript
-// ✅ Good AI documentation
-/**
- * Formats price in cents to currency string.
- * @ai-assisted Claude suggested using Intl.NumberFormat
- *              for i18n support. Verified against MDN.
- */
-function formatPrice(cents: number): string {
-	return new Intl.NumberFormat('en-US', {
-		style: 'currency',
-		currency: 'USD',
-	}).format(cents / 100);
-}
-
-// ❌ Bad: No indication of AI assistance
-function formatPrice(cents) {
-	return new Intl.NumberFormat('en-US', {
-		style: 'currency',
-		currency: 'USD',
-	}).format(cents / 100);
-}
+```text
+feat: add auth flow (AI-assisted: Cursor)
 ```
-
-### The Verification Checklist
-
-Before accepting AI-generated code:
-
-- [ ] I can explain what this code does
-- [ ] I understand WHY it's written this way
-- [ ] I have tested it manually
-- [ ] I have checked for security issues
-- [ ] I have verified edge cases
-- [ ] I have considered accessibility
-- [ ] I have documented the AI assistance
 
 ---
 
-## Quick Reference
+## Verification checklist (required)
 
-### Directory Structure for AI-Assisted Projects
+This is the oral-defence surface. If you cannot tick it, do not commit.
 
-```
-project/
-├── docs/
-│   ├── plans/               # Implementation plans
-│   │   ├── plan-auth.md
-│   │   └── plan-cart.md
-│   ├── reports/             # Implementation reports
-│   │   ├── 2025-01-15-auth-phase1.md
-│   │   └── 2025-01-16-auth-phase2.md
-│   ├── prompts/             # Reusable prompts
-│   │   ├── code-review.md
-│   │   └── explain-code.md
-│   └── learnings/           # Knowledge base
-│       ├── react-patterns.md
-│       └── security-notes.md
-├── src/                     # Your code
-└── tests/
-```
-
-### The Essential Commands
-
-```bash
-# Create plan document
-touch docs/plans/$(date +%Y-%m-%d)-feature-name.md
-
-# Create report after AI session
-touch docs/reports/$(date +%Y-%m-%d)-phase-name.md
-
-# Git commit with AI disclosure
-git commit -m "feat: add auth flow (AI-assisted: Claude)"
-```
-
-### The Essential Prompts
-
-**Start a session**:
-
-> "I'm working on [project]. Here's my plan in docs/plan.md. Let's implement Phase [N]."
-
-**Request a report**:
-
-> "Generate an implementation report for what we just did."
-
-**End a session**:
-
-> "Summarize what we accomplished and what's next."
+- [ ] I can explain what this code does, line by line if asked
+- [ ] I know why it is written this way (not only that it runs)
+- [ ] I ran it (browser, test, or both)
+- [ ] I looked for secrets, XSS, and missing auth
+- [ ] I considered empty, error, and keyboard/accessible paths
+- [ ] README disclosure matches what I actually used
+- [ ] The commit message names the tool if AI helped
 
 ---
 
-## Mastery Progression
+## Where to go next
 
-### Level 1: Apprentice
+| Need | Page |
+| --- | --- |
+| One-sentence frame | [Manifesto]({{ '/methodology/en/ai-assisted-development-foundations/' | relative_url }}) |
+| Architecture cluster | [AI-assisted development]({{ '/lessons/en/ai-assisted-development/' | relative_url }}) |
+| RPC, RAG, MVC as discipline | [Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }}) |
+| Apply the stack in React | [AI Theory & Architecture for React]({{ '/lessons/en/react/ai-assisted-development-foundations/' | relative_url }}) |
+| Craftsman's Oath | [Tao of AI Development]({{ '/methodology/en/tao-of-ai-development/' | relative_url }}) |
+| How you are graded | [AI Use Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}) |
+| Course pedagogy | [Methodology hub]({{ '/methodology/en/' | relative_url }}) |
+| FE I / FE II | [How to pass FE I]({{ '/tracks/fei/how-to-pass-this-track/' | relative_url }}) · [How to pass FE II]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }}) |
 
-- Use AI for explanations and simple code generation
-- Copy-paste workflow
-- Learning to ask good questions
-
-### Level 2: Practitioner
-
-- Docs-first methodology
-- Structured prompts with context
-- Request and review implementation reports
-- Beginning MCP integration
-
-### Level 3: Craftsperson
-
-- Full MCP workflow with tool integration
-- Build reusable prompt libraries
-- Teach others your methodology
-- Contribute to open source AI tooling
-
-### Level 4: Master
-
-- Design AI-augmented systems
-- Create organizational AI policies
-- Mentor other developers
-- Shape the ethics of AI in development
+Prompt patterns and MCP setup are **optional**. They are taught in the architecture lesson and the React sprint, not on this page.
 
 ---
 
-## 🔗 Related Resources
+## Risks this course has already seen
 
-| Resource                                                                                                    | Description                                                                                       |
-| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| [**The Tao of AI Development**]({{ site.url }}{{ site.baseurl }}/methodology/en/tao-of-ai-development/)     | 道 Philosophical addendum on ethics, craftsmanship, and the eternal struggle against garbage code |
-| [Web Atelier Methodology]({{ site.url }}{{ site.baseurl }}/methodology/en/)                                 | Core pedagogy and course structure                                                                |
-| [Atelier Prompt Collection]({{ site.url }}{{ site.baseurl }}/lessons/en/atelier-prompts/)                   | Curated prompts for web development                                                               |
-| [Portfolio Template Brief]({{ site.url }}{{ site.baseurl }}/lessons/en/portfolio-template-brief/challenge/) | Example project using this methodology                                                            |
-| [ACM Code of Ethics](https://www.acm.org/code-of-ethics)                                                    | Professional ethics guidelines                                                                    |
-| [UNESCO AI Ethics](https://www.unesco.org/en/artificial-intelligence/recommendation-ethics)                 | International framework for AI ethics                                                               |
-| [EU AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)                                                 | Binding AI literacy obligation (Art. 4)                                                             |
-| [ERA Living Guidelines](https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en?filename=ec_rtd_ai-guidelines.pdf) | EU framework for responsible generative AI in research                                              |
-| [Regulatory Grounding Proposal]({{ site.url }}{{ site.baseurl }}/methodology/en/ai-regulatory-grounding-proposal/) | Evidence audit with Ahmes Tri-Anchor provenance                                                     |
+| What happened | Harm | Control |
+| --- | --- | --- |
+| Paste a whole feature, undeclared | Integrity review; you cannot claim the work | README + commit disclosure |
+| Ship a diff you cannot walk through | Fail oral defence | Verification checklist before commit |
+| API keys or personal data in chat | Credential leak; GDPR problem | Never paste secrets |
+| Treat the model as author | You do not own the submission | Human authorship: own what you can defend |
 
 ---
 
-> _"The goal is not to replace your thinking with AI, but to amplify your thinking through AI—so that you may build things that matter for a better human living."_
-
----
+> _"Write code for humans first, computers second; the Tao lies in balancing both."_
+> — Tao of Development, `cc-001`
 
 **Authorship:** Rubén Vega Balbás, PhD (UDIT) · ORCID: [0000-0001-6862-9081](https://orcid.org/0000-0001-6862-9081)
 **License:** Content CC BY-NC-SA 4.0

@@ -13,6 +13,7 @@ Synced 2026-08-10. Three layers ground this curriculum. **They are not interchan
 | **Global map** | [`../profield-frontend-pedagogy.md`](../profield-frontend-pedagogy.md) — **in this repo** | Durable core/volatile layer, curriculum guidance, AI-assisted coding, accessibility, signature pedagogy, 3D, transferability. Pass-5, **Ahmes-dressed** | ✅ canonical **here** |
 | **Ibero layer** | [`profield-ibero-layer.md`](./profield-ibero-layer.md) — synced copy | Spain · Portugal · Brazil · Mexico; regional diagnosis, legal frames, regional sources | 🔄 synced from profield |
 | **Authorities (FE / CER)** | [`profield-authorities-directory.md`](./profield-authorities-directory.md) — synced copy | Journals, conferences, standards bodies, key authors, research centres, awards — with `[V]`/`[L]`/`[U]`/`[I]` verification tags | 🔄 synced from profield |
+| **Temario Contidos research** | [`TEMARIO-PROSPECTION.md`](./TEMARIO-PROSPECTION.md) · [`temario/`](./temario/) (`*.edited.md`) · prompts in [`../02-temario-contenidos/`](../02-temario-contenidos/) + [`../03-temario-critica/`](../03-temario-critica/) · twin `profield/runs/frontend-pedagogy/` | Three-pass DOI/ISBN bibliography for FE I–II Contidos | 🟢 T1–T3 Pass-3 promoted + harvested; C1–C3 pending; refcheck/retrieve/Ahmes next |
 | **Authorities (fashion / digital creativity)** | `~/projects/…/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/grounding/` — **emancipated teaching-repo authority** (upstream: `profield/runs/digital-creativity/`) | FACTUM, IJFDTE, Cuadernos, FAIREE, awards — used by synergy §7 and Ladder B | ✅ cite from CD repo; re-sync from profield |
 | **Source vaults** | `~/ahmes-library/scholar/documents/` — **outside this repo, by design** | The 18 extracted documents actually citable | ⛔ never copied here (gold rule) |
 
@@ -34,6 +35,10 @@ Three layers, and **only one of them may be cited**:
 | **Athanor inject** | Field-grade collective search layer | ❌ infrastructure, not evidence |
 
 **Discover in vectors, cite from nodes.** A snippet is a pointer, not a source: it has no stable page, it may be chunk-truncated mid-argument, and it cannot show you what the surrounding text qualifies. Every citation in the guías resolves to coat · node · page precisely so a reviewer can reopen it.
+
+**A sibling rule, for technical facts rather than scholarly claims:** vendor/framework documentation (Astro docs, MDN, web.dev, W3C specs) is never a bibliography source, DOI/ISBN or not — it goes into the lesson as a labelled **platform note**, never as `(Author Year)`. This table above governs *how you find and cite research*; [`PLATFORM-NOTES-POLICY.mdc`](./PLATFORM-NOTES-POLICY.mdc) governs *how you use accurate technical facts without pretending they are research*. Written 2026-08-13 after an agent applied this repo's looser summary and had to be corrected against the stricter precedent already sitting in `temario/T3-....edited.md`'s Quarantine section.
+
+**Cross-field harvest:** Cursor skill `provenance-layer` (`~/.cursor/skills/provenance-layer/`) — profile `frontend-pedagogy` in `profiles.md`. Same contract as CD: Athanor indexes · Ahmes cites.
 
 > **Session caveat worth knowing:** MCP tool availability is **per session**, not global. An agent reporting that `search_knowledge` is unavailable is describing *its own registry*, not the DevIAC server's health. Diagnose at the level you can observe, and say which level you mean. If discovery is unavailable, the fallback — enumerate the manifest, query the DBs directly — is slower but **loses nothing citable**.
 
@@ -61,6 +66,7 @@ Beyond `fe-main` / `fe-ibero`, four MSCA/SVCM vaults are now in scope. **They ar
 | `MSCA/SVCM/reference/horizon-europe` | **Funding/policy instrument** | Framing the *research proposal* (MSCA fellowship shape, evaluation criteria) | Curriculum evidence — it is not pedagogy research |
 | `MSCA/SVCM/research/creative-practice` | Performance/archive theory + digital-heritage practice | The **vShowroom's conceptual layer**: what an archive of creative work is, and metadata for exhibiting it | FE pedagogy claims |
 | `MSCA/SVCM/research/graphrag` | Technical KG/RAG literature | **The graph design itself** (TTOD visualisation, DevIAC architecture) | Any teaching or pedagogy claim |
+| `MSCA/SVCM/research/computational-authorship` — Göbels et al. 2026, *Aligning AI with human values* (added 2026-08-13) | Peer-reviewed design-principles paper (Procedia CIRP, CIRP Design 2026) | **AI-assisted-coding pedagogy's design/ethics framing** (Unit 6) — human-centered AI design principles as the *why* behind ACCEPT/REJECT review discipline | A claim about front-end-specific outcomes — it's general HCI/AI-design, not web-specific |
 
 ### 🟢 The energy/climate gap is now grounded — normatively, not empirically
 
@@ -90,7 +96,7 @@ Ten of twelve FE II units are still scaffold prose. Units 5 and 6 are the refere
 | **4** PWA / offline | Desarrollo de PWA, offline | **NONE** | Global §1 (durable core: resilience) | ⚠️ **Declare gap.** Same discipline as 2–3. |
 | **5** Testing strategy | Testeo | Phung `ea8cf54c` (optimisation never demanded) | Global §4; §6 process assessment | ✅ **Done** — reference standard. |
 | **6** AI code review | Testeo (automatización) | Liu `dc2bd27d`, Kazemitabaar `23259ff1`, Singh `37173a2a`, Oliveira (ledger) | Global §4 AI-assisted coding | ✅ **Done** — reference standard. |
-| **7** Performance | Optimización de rendimiento | Phung `ea8cf54c` (imposed vs demanded); accessibility cluster for the "who pays" pairing | Global §5 accessibility as durable core | ⚠️ Partial. Performance *pedagogy* unsupported; **energy/climate claim has no vault source** — keep as reasoned commitment, no invented figures. |
+| **7** Performance | Optimización de rendimiento | Phung `ea8cf54c` (imposed vs demanded); accessibility cluster for the "who pays" pairing | Global §5 accessibility as durable core; UNESCO Rec. AI Ethics `381137eng` (normative energy) | ⚠️ Partial. Performance *pedagogy* unsupported. Energy/climate is **normatively grounded** (nodes `630c7152` p.29, `17ccc7a8` p.30) — obligation, not measurement. Still no empirical front-end-to-carbon source. Invent no figures. |
 | **8** React Three Fiber | *(frontier)* | **NONE** | Global §8 3D/immersive — explicitly `[UNVERIFIED-GAP]` | ⚠️ **Declare pilot.** Cite the gap itself as the reason for proposing a sequence. |
 | **9** Shader literacy | *(frontier)* | **NONE** | Global §8 | ⚠️ **Declare pilot.** |
 | **10** IoT / Python-backed | *(frontier)* | **NONE** for the interface layer; RCS `91103623`, Phung, Singh for the data-science audience | Global §9 transferability `[UNVERIFIED-GAP]`; **Ibero** for regional data-science context | ⚠️ **Declare pilot** + name the data source (still placeholder pending Back-End II synergy sheet). |
@@ -110,7 +116,7 @@ Ten of twelve FE II units are still scaffold prose. Units 5 and 6 are the refere
 
 > **The discipline this batch tested, and passed:** a title containing *"Sustainable"* is not evidence for a sustainability claim. O'Toole's sense is socio-technical. **Homonyms are not citations** — the same rule as "vendor docs ground HOW, never WHY".
 
-**Matrix updates:** Unit 8–9 gain a *technique* source but keep their declared pedagogical gap. Unit 11 gains Neumann + Vega. Unit 7 is **unchanged** — the energy claim remains a reasoned commitment.
+**Matrix updates:** Unit 8–9 gain a *technique* source but keep their declared pedagogical gap. Unit 11 gains Neumann + Vega. Unit 7 energy/climate is **normatively** closed (UNESCO Rec., this file § above); performance *pedagogy* and empirical front-end-to-carbon remain open.
 
 **Accessibility is cross-cutting**, not a unit: Fisseler `91241359`, Parthasarathy & Joshi `d57634a5`, Batista `0d28c6a5`, Correa `ac71e73e`. Any unit touching WCAG draws here.
 

@@ -1,8 +1,19 @@
-# Cómo usar la IA: requiere descripción de specs y arquitectura
+---
+layout: lesson
+title: 'Cómo usar la IA: specs y arquitectura'
+title_alt: 'How to use AI: specs and architecture'
+slug: uso-ia-specs-arquitectura
+date: 2026-08-13
+author: 'Rubén Vega Balbás, PhD'
+lang: es
+permalink: /methodology/es/uso-ia-specs-arquitectura/
+description: 'Nota breve: specs y arquitectura en el prompt para que la IA no invente el sistema.'
+tags: [ia, metodología, prompts]
+---
 
 **Nota breve:** Los asistentes de IA (Cursor, Copilot, etc.) rinden cuando el contexto es explícito. Sin especificaciones ni descripción de la arquitectura, las respuestas son genéricas, inconsistentes o desalineadas con tu proyecto.
 
-> **Ámbito de este documento:** Guía práctica de prompt (specs + arquitectura). **No** duplica el marco teórico completo ni el contenido regulatorio reciente (UNESCO, Ley de IA, Directrices ERA). Para la pila de fundamentos (contratos, descomposición, seguridad, observabilidad, MVC/MVVM), ver [Fundamentos de desarrollo asistido por IA](../ai-assisted-development-foundations/). Para marcos éticos con citas textuales de fuentes, ver [Guía práctica — Marcos Éticos](../ai-practical-guide/).
+> **Ámbito de este documento:** Guía práctica de prompt (specs + arquitectura). **No** duplica el manifiesto ni el protocolo de aula. Para el giro de una frase, ver [Fundamentos de desarrollo asistido por IA]({{ '/methodology/es/ai-assisted-development-foundations/' | relative_url }}). Para el primer de arquitectura, ver [Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }}). Para contratos y verificación en el sprint de React, ver [Teoría y arquitectura de IA]({{ '/lessons/en/react/ai-assisted-development-foundations/' | relative_url }}). Para el protocolo de declaración, ver [Guía práctica]({{ '/methodology/es/ai-practical-guide/' | relative_url }}).
 
 ---
 
@@ -75,7 +86,7 @@ Así la IA recibe **specs** (requisitos y entregable) y **arquitectura** (dónde
 
 ## Relación con la metodología docs-first
 
-Esta nota encaja con la [Guía práctica de desarrollo asistido por IA](../ai-practical-guide/):
+Esta nota encaja con la [Guía práctica de desarrollo asistido por IA]({{ '/methodology/es/ai-practical-guide/' | relative_url }}):
 
 - **Docs-first:** El plan o brief existe antes del prompt; la IA ejecuta sobre ese documento.
 - **Archivos de contexto:** Ver [Ejemplo: metodología archivos de contexto](../../../../../student-project-template/docs/ejemplo-contexto-archivos.md): adjuntar `project-brief.md`, planes y archivos a modificar en lugar de duplicar información en el prompt.

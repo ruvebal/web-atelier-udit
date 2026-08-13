@@ -36,6 +36,9 @@
 		{
 			"path": "../../../../../src",
 		},
+		{
+			"path": "../../universidadeuropea/digital-creativity-uem",
+		},
 	],
 	"settings": {
 		"liveServer.settings.port": 5501,

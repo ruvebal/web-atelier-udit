@@ -710,7 +710,7 @@ _Traducción: Un solo estado / evita mil conjeturas / paz en el render_
 
 | Anterior | Actual | Siguiente |
 | --- | --- | --- |
-| [Fundamentos de desarrollo asistido por IA](/methodology/es/ai-assisted-development-foundations/) | **Estado e IU** | [Fundamentos de programación en React](../react-fundamentals/) |
+| [Teoría y arquitectura de IA]({{ '/lessons/en/react/ai-assisted-development-foundations/' | relative_url }}) | **Estado e IU** | [Fundamentos de programación en React](../react-fundamentals/) |
 
 ---
 

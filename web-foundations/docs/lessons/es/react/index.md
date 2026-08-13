@@ -134,7 +134,7 @@ Esta secuencia didáctica guía al alumnado desde los fundamentos filosóficos h
 
 ### Lección 4: Fundamentos de desarrollo asistido por IA
 
-**Archivo**: [`ai-assisted-development-foundations`](/methodology/es/ai-assisted-development-foundations/)
+**Archivo**: [`ai-assisted-development-foundations`]({{ '/lessons/en/react/ai-assisted-development-foundations/' | relative_url }}) (sprint de arquitectura, EN). El manifiesto público es [`/methodology/es/ai-assisted-development-foundations/`]({{ '/methodology/es/ai-assisted-development-foundations/' | relative_url }}).
 
 | Aspecto          | Detalles                                                  |
 | ---------------- | -------------------------------------------------------- |
@@ -142,12 +142,13 @@ Esta secuencia didáctica guía al alumnado desde los fundamentos filosóficos h
 | **Concepto núcleo** | IA como colaboradora, no sustituta                    |
 | **Resultados clave** | Mapear IA a patrones de arquitectura, entender modelos de confianza |
 
-**Qué aprende el alumnado**:
+**Qué aprende el alumnado** (sprint React):
 
-- LLMs como motores de razonamiento probabilístico
-- Arquitectura clásica (contratos, descomposición, seguridad)
-- Conectar IA con patrones MVC/MVVM
-- Observabilidad y diseño human-in-the-loop
+- Contratos, descomposición y bucles de verificación en React Router
+- MCP como frontera, no como magia
+- Lo que la IA genera mal (useEffect para datos, auth omitida)
+
+**Lectura previa (primer de arquitectura, EN):** [Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }})
 
 **Conexión con la siguiente fase**: Con los fundamentos sólidos, construimos fluidez en React.
 
@@ -465,7 +466,8 @@ Al final de esta lección, podrás:
 
 ### 📘 Guías de referencia
 
-- [x] `ai-practical-guide.md` — **Metodología Docs-First** (prompts, informes, MCP, workflows)
+- [x] [Guía práctica]({{ '/methodology/es/ai-practical-guide/' | relative_url }}) — protocolo de aula (planificar, declarar, defender)
+- [x] [Cluster de arquitectura]({{ '/lessons/en/ai-assisted-development/' | relative_url }}) — primer + aplicación React
 
 ### Fase 2-4: React + Integración (Esqueleto listo para iterar)
 

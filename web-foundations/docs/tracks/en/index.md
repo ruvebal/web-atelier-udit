@@ -52,6 +52,7 @@ Spanish-language tracks — including _Ilustración Aplicada_ and _HELIOS DECK_ 
 - **Follow the ATELIER methodology** — Exploration → Conceptualization → Production → Exhibition → Reflection
 - **Connect theory and practice** through real, published projects
 - **Declare AI assistance** openly, following the [AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})
+- **Architecture primer** (not nested under React): [AI-assisted development]({{ '/lessons/en/ai-assisted-development/' | relative_url }})
 
 ---
 

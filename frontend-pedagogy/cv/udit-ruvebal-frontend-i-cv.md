@@ -159,6 +159,24 @@ Voz estudiantil (`verbatim_quote`), nodo `c3157096` · p. 12:
 Y la presión de plazo, nodo `674ecb42` · p. 8: *"when it's 2 AM and the project is due at 9 AM… I'm not trying to learn anymore, I'm just trying to finish."*
 > Justificación empírica de la **defensa oral**: sin ella, la calificación mide entrega, no comprensión — y el propio alumnado lo sabe.
 
+**3-bis · La asistencia de IA como diseño human-centred, no como atajo**
+
+> La IA asistida debe seguir siendo inspeccionable, discutible y subordinada al juicio del estudiante. Göbels et al. organizan el diseño human-centred alrededor de requisitos de percepción del usuario, funcionales y éticos, y los traducen en principios accionables y gobernanza *human-in-the-loop*. La transferencia a Frontend I es deliberada: fundamenta que el estudiante inspeccione, adapte, rechace y explique la salida de la IA, sin presentarla como evidencia de resultados específicos en front-end.
+> — **[BIBLIO-GAP]** Göbels et al., *Aligning AI with human values: Design principles for human-centered AI* (2026), *Procedia CIRP* / CIRP Design, abstract/conclusión (pp. 1, 5)
+> Ahmes anchor: `research/computational-authorship/11-extraction-db/scholar/documents/aligning_ai_with_human_values_design_principles_for_human_c_2026_procedia_c_6bcffa72/` · nodos `8c205585-33ae-5016-bec7-3af2bb49a457`, `616c81b4-4b67-544f-800f-a5150cabc4b1` · `evaluator_safe=no` (metadatos bibliográficos derivados del slug)
+
+> Un capítulo de educación superior ofrece un respaldo paralelo: trata las consideraciones éticas como parte del diseño de sistemas de e-learning estandarizados y seguros. Sirve para justificar que el uso de IA se enseñe como práctica guiada de aprendizaje, no como una capa de productividad invisible.
+> — Ortiz-Rodriguez et al., *Semantic Web Technologies and Applications in Artificial Intelligence of Things* (2024), panorama del capítulo 8 (pp. 5, 13)
+> Ahmes anchor: `research/cultural-infrastructure/11-extraction-db/scholar/documents/premier_reference_source_ortiz_rodriguez_fernando_semantic_web_technologies_and_applications_in_artificial_intelligence_of_things_engineering_science_reference_2024_c74fad0e/` · nodos `9c2e1288-f13b-5f95-86e4-d26283c7c189`, `d92b2aa7-33a5-50ee-af3b-ea9fc33ff297` · `(Ortiz-Rodriguez 2024, 5/13)`, `evaluator_safe=yes`
+
+> La guía de Horizon Europe permite usar IA generativa junto con cautela, revisión y validación exhaustivas, responsabilidad humana sobre el resultado y transparencia sobre las herramientas empleadas. La transferencia a Frontend I es acotada: el estudiante sigue respondiendo por el artefacto y debe explicar qué aportó la herramienta; la guía no es evidencia de resultados específicos de aprendizaje en front-end.
+> — **[BIBLIO-GAP]** European Commission, *Standard briefing slides for experts: Horizon Europe* (2026), orientación sobre uso de IA (pp. 23–24)
+> Ahmes anchor: `svcm/documents/standard_briefing_slides_for_experts_he_en_9af85191/` · nodos `5db6cdbe-a497-5c30-82dc-fa275855a567`, `8e1627d8-ff7e-5b36-a6bc-b27f36967119`, `1ef2552c-0c8c-56d6-95dc-154c7e48643a`, `655b1064-6e2a-526d-98ca-2f1bc5093859` · `evaluator_safe=no` (año ausente / desajuste en metadatos de portada)
+
+> La obligación legal de transparencia del AI Act cubre, entre otros supuestos, el texto generado o manipulado por IA que se publica para informar al público sobre asuntos de interés público (art. 50(4), aplicable desde el 2 de agosto de 2026). Frontend I adopta una regla docente más amplia: toda contribución material de IA al trabajo entregado se declara junto con la herramienta, la contribución y la verificación humana.
+> — European Parliament and Council, *Regulation (EU) 2024/1689* (2024), art. 50(4); aplicación art. 113
+> Official legal anchor: [EUR-Lex, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=en)
+
 **4 · Acceso escalonado a la IA en evaluación**
 `singh_et_al…37173a2a` · nodo `56059570` · p. 0 (*"Hint-Writing with Deferred AI Assistance: Fostering Critical Engagement"*) y nodo `95f7d0fa` · p. 5, que analiza si el alumnado **detecta errores omitidos por la pista de GPT** o **descarta la pista**. Modelo directo para estructurar el acceso a IA en pruebas.
 

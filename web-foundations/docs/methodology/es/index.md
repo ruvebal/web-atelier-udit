@@ -22,7 +22,11 @@ permalink: /methodology/es/
 
 > Declaración sobre Asistencia de IA: Partes de esta metodología y materiales relacionados fueron iterados con herramientas de IA (_ChatGPT GPT‑4/GPT‑5_, _Copilot/Codex_, _Cursor/Claude_). Las iteraciones siguieron un ciclo investigación–práctica–investigación y fueron revisadas por el autor. La pedagogía se fundamenta principalmente en la experiencia en el aula enseñando desarrollo web desde septiembre de 2024.
 
-> 📘 **Guía Completa de IA**: Para flujos de trabajo detallados, patrones de prompts y marcos éticos, consulta la **[Guía Práctica de Desarrollo Asistido por IA]({{ site.url }}{{ site.baseurl }}/methodology/es/ai-practical-guide/)**.
+> 🧭 **Manifiesto**: El giro de una frase — **[Fundamentos de desarrollo asistido por IA]({{ '/methodology/es/ai-assisted-development-foundations/' | relative_url }})**.
+>
+> 📘 **Protocolo de aula**: Cuándo planificar, cómo declarar, qué debes defender. **[Guía práctica]({{ '/methodology/es/ai-practical-guide/' | relative_url }})**.
+>
+> 🏗 **Cluster de arquitectura**: RPC, RAG, MVC como disciplina, luego el sprint de React. **[AI-assisted development]({{ '/lessons/en/ai-assisted-development/' | relative_url }})**.
 
 ## Introducción y Fundamento
 
@@ -100,9 +104,13 @@ Respecto al **miedo de codificar y herramientas de línea de comandos** (ej. usa
 
 ## Integrando IA como Ayuda, No Atajo
 
-> 📘 **Guía Completa**: Para flujos de trabajo detallados, patrones de prompts y marcos éticos, consulta la **[Desarrollo Asistido por IA: Guía Práctica]({{ site.url }}{{ site.baseurl }}/methodology/es/ai-practical-guide/)**.
+> 🧭 **Manifiesto**: El giro de una frase — los LLM son motores probabilísticos dentro de sistemas. **[Fundamentos de desarrollo asistido por IA]({{ '/methodology/es/ai-assisted-development-foundations/' | relative_url }})**.
 >
-> 道 **Addendum Filosófico**: Para sabiduría ancestral sobre ética, artesanía y la lucha eterna contra el código basura, consulta **[El Tao del Desarrollo con IA]({{ site.url }}{{ site.baseurl }}/methodology/es/tao-of-ai-development/)**.
+> 📘 **Protocolo de aula**: Cuándo planificar, cómo declarar, qué debes defender. **[Guía práctica]({{ '/methodology/es/ai-practical-guide/' | relative_url }})**.
+>
+> 🏗 **Cluster de arquitectura**: RPC, RAG, MVC como disciplina, luego el sprint de React. **[AI-assisted development]({{ '/lessons/en/ai-assisted-development/' | relative_url }})**.
+>
+> 道 **Addendum Filosófico**: Para sabiduría ancestral sobre ética, artesanía y la lucha eterna contra el código basura, consulta **[El Tao del Desarrollo con IA]({{ '/methodology/es/tao-of-ai-development/' | relative_url }})**.
 
 La [Carta Europea del Investigador](https://euraxess.ec.europa.eu/jobs/charter) (Comisión Europea, 2005) recoge lo que la UE exige de los investigadores financiados: evitar el plagio, respetar la propiedad intelectual, rendir cuentas del trabajo delegado. Exijo de mis estudiantes el mismo estándar que mi propia red de financiación exige de mí:
 

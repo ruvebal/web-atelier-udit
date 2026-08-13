@@ -163,9 +163,13 @@ We also openly address the “tendency to rely on templates” issue. Many desig
 
 ## Integrating AI as an Aid, Not a Shortcut
 
-> 📘 **Comprehensive Guide**: For detailed workflows, prompt patterns, and ethical frameworks, see the **[AI-Assisted Development: A Practical Guide]({{ site.url }}{{ site.baseurl }}/methodology/en/ai-practical-guide/)**.
+> 🧭 **Manifesto**: The one shift — LLMs are probabilistic engines inside systems. **[AI-Assisted Development Foundations]({{ '/methodology/en/ai-assisted-development-foundations/' | relative_url }})**.
 >
-> 道 **Philosophical Addendum**: For ancestral wisdom on ethics, craftsmanship, and the eternal struggle against garbage code, see **[The Tao of AI Development]({{ site.url }}{{ site.baseurl }}/methodology/en/tao-of-ai-development/)**.
+> 📘 **Classroom protocol**: When to plan, how to disclose, what you must defend. **[Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})**.
+>
+> 🏗 **Architecture cluster**: RPC, RAG, MVC as discipline, then the React sprint. **[AI-assisted development]({{ '/lessons/en/ai-assisted-development/' | relative_url }})**.
+>
+> 道 **Philosophical Addendum**: Craftsman's Oath and the chapter in TTOD. **[The Tao of AI Development]({{ '/methodology/en/tao-of-ai-development/' | relative_url }})**.
 
 The [European Charter for Researchers](https://euraxess.ec.europa.eu/jobs/charter) (European Commission, 2005) states what the EU expects of funded researchers — avoid plagiarism, respect intellectual property, remain accountable for delegated work. I hold students to the same standard my own funding network holds me to:
 
@@ -179,6 +183,38 @@ This pedagogical mirror is grounded in international policy, not instructor pref
 
 > "Member States should encourage research initiatives on the responsible and ethical use of AI technologies in teaching, teacher training and e-learning, among other issues... Member States should also ensure that AI technologies empower students and teachers and enhance their experience, bearing in mind that relational and social aspects and the value of traditional forms of education are vital in teacher-student and student-student relationships... AI should support the learning process without reducing cognitive abilities and without extracting sensitive information, in compliance with relevant personal data protection standards."
 > — UNESCO, *Recommendation on the Ethics of Artificial Intelligence* (2021), §104
+
+That principle also has a design implication: AI assistance should remain inspectable, contestable, and subordinate to the learner's judgment. Göbels et al. frame human-centred AI through user-perception, functional, and ethical requirements, then translate those requirements into actionable design principles and human-in-the-loop governance. The transfer to this course is deliberate: it grounds the expectation that students inspect, adapt, reject, and explain AI output, without claiming that this study measured front-end learning outcomes.
+
+> Human-centred AI can be operationalised through research-derived design principles that connect human values to transparent, accountable, and human-in-the-loop decisions.
+> — **[BIBLIO-GAP]** Göbels et al., *Aligning AI with human values: Design principles for human-centered AI* (2026), *Procedia CIRP* / CIRP Design, abstract/conclusion (pp. 1, 5)
+> Ahmes anchor: `research/computational-authorship/11-extraction-db/scholar/documents/aligning_ai_with_human_values_design_principles_for_human_c_2026_procedia_c_6bcffa72/` · nodes `8c205585-33ae-5016-bec7-3af2bb49a457`, `616c81b4-4b67-544f-800f-a5150cabc4b1` · `evaluator_safe=no` (slug-derived bibliographic metadata)
+
+An adjacent higher-education source makes the same ethical boundary concrete in e-learning: it describes ethical considerations as part of building standardised and safe learning systems. That is a useful corroborating frame for treating AI use as a guided learning practice rather than an invisible productivity layer, while UNESCO remains the normative authority for this section.
+
+> Ethical considerations belong in the design of higher-education e-learning systems when the aim is to make them standardised and safe.
+> — Ortiz-Rodriguez et al., *Semantic Web Technologies and Applications in Artificial Intelligence of Things* (2024), chapter 8 overview (pp. 5, 13)
+> Ahmes anchor: `research/cultural-infrastructure/11-extraction-db/scholar/documents/premier_reference_source_ortiz_rodriguez_fernando_semantic_web_technologies_and_applications_in_artificial_intelligence_of_things_engineering_science_reference_2024_c74fad0e/` · nodes `9c2e1288-f13b-5f95-86e4-d26283c7c189`, `d92b2aa7-33a5-50ee-af3b-ea9fc33ff297` · `(Ortiz-Rodriguez 2024, 5/13)`, `evaluator_safe=yes`
+
+The Horizon Europe guidance supplies a procedural corollary for this boundary. It permits generative AI in proposal preparation only alongside caution, thorough review and validation, human responsibility for the resulting text, and transparent disclosure of the tools used. The transfer to coursework is limited but useful: students remain accountable for the artifact and must be able to explain what the tool contributed; this policy is not evidence of front-end learning outcomes.
+
+> AI assistance does not become delegated judgment when the responsible human reviews and validates its output, remains accountable for the result, and discloses how the tool was used.
+> — **[BIBLIO-GAP]** European Commission, *Standard briefing slides for experts: Horizon Europe* (2026), AI-use guidance (pp. 23–24)
+> Ahmes anchor: `svcm/documents/standard_briefing_slides_for_experts_he_en_9af85191/` · nodes `5db6cdbe-a497-5c30-82dc-fa275855a567`, `8e1627d8-ff7e-5b36-a6bc-b27f36967119`, `1ef2552c-0c8c-56d6-95dc-154c7e48643a`, `655b1064-6e2a-526d-98ca-2f1bc5093859` · `evaluator_safe=no` (missing year / front-matter metadata mismatch)
+
+The same programme guidance frames trustworthy AI as a design and governance obligation: identify and prevent risks, require safe and responsible operation, test robustness and accuracy, report failures, and provide explanations where decisions have significant effects. For this course, that supports requiring students to test and justify AI-assisted code rather than treating generated output as self-validating.
+
+> Trustworthy AI use requires due diligence, safe and responsible operation, explicit risk prevention, technical robustness, accuracy, reproducibility, and suitable explanation.
+> — **[BIBLIO-GAP]** European Commission, *Horizon Europe Programme Guide* (2025), AI trustworthiness guidance (p. 61)
+> Ahmes anchor: `svcm/documents/programme_guide_horizon_en_8e30ac6c/` · nodes `da19cc64-d199-54ba-9a8a-986ad4611916`, `f4502e66-c79c-58f7-b0af-bea17d1e4dec`, `2eb4a49f-3495-5bd6-8bd1-9d397ec038a2` · `(FAIRsharing portal 2025, 61)`, `evaluator_safe=no` (Ahmes organization/title mismatch)
+
+There is also a legal minimum, distinct from an ethics recommendation. Article 50(4) of the EU AI Act requires disclosure when AI-generated or AI-manipulated text is published to inform the public on matters of public interest; the Regulation applies from 2 August 2026. That provision is not a blanket command to label every line of student code or every private assignment. Our course rule is intentionally broader: students must declare any material AI contribution in the submission and commit documentation, including the tool and what it contributed.
+
+> “shall disclose that the text has been artificially generated or manipulated.”
+> — European Parliament and Council, *Regulation (EU) 2024/1689* (2024), art. 50(4); application art. 113 (2 August 2026)
+> Official legal anchor: [EUR-Lex, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=en)
+
+**Student rule:** if AI materially contributes to submitted work, declare the tool, the contribution, and the human verification in the README or commit log.
 
 Given the rise of generative AI, an important modern consideration is how to incorporate AI tools into the web design curriculum. Students today have access to systems like ChatGPT and GitHub Copilot which can produce code snippets or design suggestions. Completely banning these would be counterproductive – these tools are becoming part of professional workflows – but uncritical use can undermine learning. Our approach is to **integrate AI as a learning aid while maintaining academic integrity**.
 

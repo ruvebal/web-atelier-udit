@@ -48,7 +48,7 @@ By the end of this lesson, you will:
 
 | Concept | Where It's Covered | Why It Matters Here |
 | --- | --- | --- |
-| Docs-First Methodology | [`/methodology/en/ai-assisted-development-foundations/`](../../../methodology/en/ai-assisted-development-foundations/index.md) | Required to understand the AI protocols introduced in this lesson |
+| Docs-First Methodology | [`/methodology/en/ai-practical-guide/`]({{ '/methodology/en/ai-practical-guide/' | relative_url }}) | Required to understand the AI protocols introduced in this lesson |
 | Modern frontend landscape overview | `/lessons/en/react/frameworks-comparative/` | Provides context for the historical evolution (MVC → MVVM → React) |
 
 ---
@@ -302,7 +302,7 @@ When using AI in this course, you **must** follow the **Docs-First Methodology**
 | **Never paste secrets** | No API keys, passwords, or personal data into AI prompts |
 | **Cite in monograph** | Include a section on how AI was used and what you learned |
 
-> 📖 **Full Guide**: See [`ai-practical-guide.md`](./ai-practical-guide.md) for complete workflows, prompt templates, MCP setup, and the report format.
+> 📖 **Classroom protocol**: [Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }}) — when to plan, how to disclose, what you must defend. Architecture tables: [Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }}).
 
 ### ⚠️ Warning: The Skill Gap Trap
 

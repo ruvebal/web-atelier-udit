@@ -133,9 +133,11 @@ This teaching sequence guides students from philosophical foundations through Re
 
 ---
 
-### Lesson 4: AI-Assisted Development Foundations
+### Lesson 4: AI Theory & Architecture for React
 
-**File**: [`ai-assisted-development-foundations`](./ai-assisted-development-foundations/)
+**Required reading (not this file):** [Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }}) — RPC, contracts, RAG, MVC/MVVM as discipline.
+
+**File (this sprint):** [`ai-assisted-development-foundations`](./ai-assisted-development-foundations/)
 
 | Aspect           | Details                                                  |
 | ---------------- | -------------------------------------------------------- |
@@ -143,12 +145,13 @@ This teaching sequence guides students from philosophical foundations through Re
 | **Core Concept** | AI as collaborator, not replacement                      |
 | **Key Outcomes** | Map AI to architecture patterns, understand trust models |
 
-**What Students Learn**:
+**What Students Learn** (this React sprint):
 
-- LLMs as probabilistic reasoning engines
-- Classical architecture (contracts, decomposition, security)
-- Connecting AI to MVC/MVVM patterns
-- Observability and human-in-the-loop design
+- Contracts, decomposition, and verification loops in React Router
+- MCP as a boundary, not magic
+- What AI gets wrong (useEffect for data, missing auth)
+
+**Prior reading (architecture primer):** [Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }})
 
 **Connection to Next Phase**: With foundations solid, we now build fluency in React itself.
 
@@ -514,7 +517,8 @@ By the end of this lesson, you will be able to:
 
 ### 📘 Reference Guides
 
-- [x] `ai-practical-guide.md` — **The Docs-First Methodology** (prompts, reports, MCP, workflows)
+- [x] [Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }}) — classroom protocol (plan, disclose, defend)
+- [x] [Architecture cluster]({{ '/lessons/en/ai-assisted-development/' | relative_url }}) — primer + React application
 
 ### Phase 2-4: React + Integration (Skeletons Ready for Iteration)
 

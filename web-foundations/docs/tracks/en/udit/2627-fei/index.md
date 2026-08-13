@@ -210,7 +210,8 @@ AI assistance is integrated following the **[AI Practical Guide]({{ '/methodolog
 - **[Portfolio Template Brief]({{ '/lessons/en/portfolio-template-brief/plan/' | relative_url }})** — Semester 1 project specifications
 - **[Geophysical Aggregator Project]({{ '/lessons/en/react/geophysical-aggregator-project/' | relative_url }})** — Semester 2 individual project brief
 - **[Front-End II track]({{ '/tracks/feii/' | relative_url }})** — where this course continues in year 3
-- **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — Methodology for AI-assisted development
+- **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — when to plan, how to disclose, what you must defend
+- **[Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }})** — RPC, RAG, MVC as discipline
 - **[Official Syllabus](https://udit.es)** — UDIT course documentation (Spanish)
 
 ---

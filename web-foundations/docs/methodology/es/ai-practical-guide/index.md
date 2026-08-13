@@ -3,12 +3,12 @@ layout: lesson
 title: 'Desarrollo Asistido por IA: Guía Práctica'
 title_alt: 'AI-Assisted Development: A Practical Guide'
 slug: ai-practical-guide
-date: 2026-01-03
+date: 2026-08-13
 author: 'Rubén Vega Balbás, PhD'
 lang: es
 permalink: /methodology/es/ai-practical-guide/
-description: 'Guía completa para el desarrollo asistido por IA de forma ética e intencional: metodología docs-first, arquitectura de prompts, informes de implementación y consideraciones críticas.'
-tags: [ia, metodología, ética, prompts, mcp, documentación]
+description: 'Protocolo de aula: cuándo planificar, cómo declarar y qué debes poder defender cuando la IA te ayuda a construir.'
+tags: [ia, metodología, ética, docs-first, declaración]
 ---
 
 <!-- prettier-ignore-start -->
@@ -21,124 +21,37 @@ tags: [ia, metodología, ética, prompts, mcp, documentación]
 
 <!-- prettier-ignore-end -->
 
----
+> _"Code is not written in text—it is written in understanding. The text is just the shadow of the understanding."_
+> — Tao of Development, `wis-005`
 
-> _"La IA no es el destino. La IA es la brújula que nos ayuda a navegar hacia el florecimiento humano."_
+**Para:** un estudiante de FE I o FE II (o de CD bajo el mismo pacto) que puede usar un asistente de IA en el trabajo de curso y aun así debe poseer cada línea que entrega.
 
-> **Declaración de Asistencia IA:** Esta guía fue desarrollada usando la metodología docs-first que describe. Los planes, prompts e informes de implementación fueron documentados a lo largo del proceso. La pedagogía se fundamenta en la experiencia de aula y la reflexión crítica sobre el rol de la IA en la educación.
+**No es:** el manifiesto público, el primer de arquitectura, el capítulo del Tao, ni un artículo de tribuna. Esas páginas están en [Adónde ir después](#donde-ir-despues).
 
----
+**Objetivo:** cuando la IA te ayuda a construir, el código sigue siendo tuyo. Esta página dice cuándo planificar, cómo declarar y qué debes poder defender.
 
-## Filosofía: IA para una Mejor Vida Humana
-
-### El Principio Fundamental
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                                                          │
-│   La IA existe para AMPLIFICAR la intención humana,     │
-│   no para reemplazarla.                                  │
-│                                                          │
-│   Cada interacción con IA debe responder:               │
-│   → ¿Me ayuda esto a entender más?                      │
-│   → ¿Me ayuda a crear algo de valor?                    │
-│   → ¿Me libera para enfocarme en lo que importa?        │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
-### La Relación del Desarrollador Tao con la IA
-
-| Mentalidad               | Práctica                                                       |
-| ------------------------ | -------------------------------------------------------------- |
-| **IA como Aprendiz**     | Tú eres el maestro; la IA propone, tú decides                  |
-| **IA como Espejo**       | Usa la IA para reflexionar sobre tu propio pensamiento         |
-| **IA como Amplificador** | Deja que la IA maneje lo mecánico; tú manejas lo significativo |
-| **IA como Profesor**     | Pide a la IA que explique, no solo que haga                    |
-| **IA como Par**          | Colabora, critica, itera juntos                                |
-
-> **Precedente académico:** Las mentalidades «IA como Espejo» e «IA como Amplificador» evocan la *cognición extendida* en la edición académica digital: herramientas fuera de la mente que participan en su proceso (Van Hulle, 2016). Van Hulle (2019) distingue *imitatio* (mimetismo estilístico a partir de textos publicados) de *aemulatio* (simular el propio proceso de revisión) como umbral de la «artificial imagination» — un vocabulario útil para la IA generativa en trabajo creativo.
-
-### El Test del Florecimiento Humano
-
-Antes de cada proyecto asistido por IA, pregunta:
-
-> 1. ¿Esta aplicación **reducirá el sufrimiento** o **aumentará la alegría**?
-> 2. ¿Estoy **aprendiendo** a través de este proceso, o solo **copiando**?
-> 3. ¿El yo-del-futuro me **agradecerá** por este trabajo?
-
-La [Declaración Europea sobre los Derechos Digitales y los Principios para el Decenio Digital](https://digital-strategy.ec.europa.eu/en/library/european-declaration-digital-rights-and-principles) (Comisión Europea, 2022) formula el mismo principio en registro normativo: la inteligencia artificial debe servir como herramienta para las personas, con el objetivo último de aumentar el bienestar humano, y todas las personas deben poder tomar decisiones informadas en el entorno digital estando protegidas frente a riesgos y daños.
+Estas instrucciones existen para **seguirse** y luego **comprobarse** en la defensa oral. Lo completo no es el test; si puedes actuar desde esta página, sí. `[studio-guides, 82b3b541-0cf2-5f0a-adb9-7470db8f8a71]` — la identidad bibliográfica de ese eje está en el RIS del estudio (`[BIBLIO-GAP]` en el coat de Ahmes).
 
 ---
 
-## Consideraciones Críticas: El Impacto Más Amplio de la IA
+## El pacto (obligatorio)
 
-### Entendiendo lo que Usas
+| Regla | Por qué es obligatoria |
+| --- | --- |
+| **Entiende cada línea** | La defiendes en oral. El código que no puedes explicar no es tuyo. |
+| **Declara el uso de IA** | README + commit. IA no declarada es revisión de integridad. En este aula, declarar también es la ley. |
+| **Nada de secretos en el prompt** | Claves, contraseñas, datos personales y archivos de cliente no van al chat. |
+| **Verifica antes del commit** | La lista de abajo es lo que preguntará la defensa. |
 
-Antes de aprovechar los asistentes de IA, comprende los fundamentos:
+> Platform note (comprobado agosto 2026): Cursor, Copilot y Claude Code son herramientas de este curso. Cómo las configuras es opcional. Lo que entregas no lo es.
 
-**Cómo Funcionan los LLM (Large Language Models / Modelos de Lenguaje Grande):**
+---
 
-- Entrenados con corpus masivos de texto de internet
-- Predicen tokens siguientes basándose en patrones estadísticos
-- No tienen comprensión, razonamiento o consciencia real
-- Pueden alucinar (generar información plausible pero falsa)
-- Reflejan los sesgos presentes en los datos de entrenamiento
+<!-- KEEP: ## Marcos éticos is load-bearing. Do not strip, shorten, or move to the tribune. -->
 
-**Panorama Tecnológico Actual:**
+## Marcos éticos
 
-- Modelos: GPT-4, Claude, Gemini, Llama, Mistral
-- Interfaces: Chat (ChatGPT, Claude.ai), integración IDE (Copilot, Cursor), APIs
-- Protocolos: MCP (Model Context Protocol) para integración de herramientas
-
-### Impacto Ambiental
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ 🌍 CONSIDERACIONES CLIMÁTICAS                            │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│  Entrenar GPT-4 ≈ 50.000 kg CO₂ (≈ 5 vuelos             │
-│  transatlánticos por pasajero)                           │
-│                                                          │
-│  Cada consulta consume energía. Pregunta intencionalmente│
-│                                                          │
-│  Considera:                                              │
-│  → ¿Es necesaria esta consulta?                          │
-│  → ¿Podría encontrar esto en la documentación?           │
-│  → ¿Estoy usando IA para aprender o por pereza?          │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
-### Privacidad de Datos y Seguridad
-
-| Riesgo                           | Mitigación                                                             |
-| -------------------------------- | ---------------------------------------------------------------------- |
-| **Fuga de datos**                | Nunca pegues claves API, contraseñas, datos personales                 |
-| **Exposición de código**         | Asume que los prompts pueden ser registrados/usados para entrenamiento |
-| **Confidencialidad del cliente** | Anonimiza la lógica de negocio sensible                                |
-| **Leyes RGPD/Privacidad**        | No proceses datos personales a través de IA                            |
-
-### Concentración de la Industria Tecnológica
-
-Sé consciente de las **dinámicas monopolísticas** en IA:
-
-- **Fabricación de chips**: NVIDIA domina el mercado de GPUs; TSMC fabrica la mayoría de chips avanzados
-- **Infraestructura cloud**: AWS, Azure, GCP controlan el cómputo de IA
-- **Desarrollo de modelos**: Concentrado en pocas empresas bien financiadas
-- **Datos**: El entrenamiento requiere datasets masivos, favoreciendo a los incumbentes
-
-**Por qué esto importa para desarrolladores:**
-
-- Riesgos de vendor lock-in
-- Dependencia de sistemas propietarios
-- Implicaciones éticas de apoyar la concentración
-- Considera alternativas open-source (Llama, Mistral, modelos locales)
-
-### Marcos Éticos
-
-Nuestro uso de IA se alinea con marcos éticos establecidos a nivel internacional, europeo y profesional:
+El pacto de arriba es **obligatorio en este curso**. Las fuentes de abajo son el porqué — internacional, europeo y profesional.
 
 **Código de Ética ACM (Association for Computing Machinery):**
 
@@ -193,751 +106,157 @@ Exijo de mis estudiantes el mismo estándar que mi propia red de financiación e
 >
 > "Accountability for the research from idea to publication, for its management and organisation, for training, supervision and mentoring, and for its wider societal impacts. This includes responsibility for all output that a researcher produces, underpinned by the notion of human agency and oversight."
 
-> 📚 **Referencias:**
+**Recomendaciones ICMJE (2025)** — publicación académica, el mismo deber de declaración que el README de este curso:
+
+> "At submission, the journal should require authors to disclose whether they used Artificial Intelligence (AI)-assisted technologies... Chatbots (such as ChatGPT) should not be listed as authors because they cannot be responsible for the accuracy, integrity, and originality of the work... Authors should be able to assert that there is no plagiarism in their paper, including in text and images produced by the AI. Humans must ensure there is appropriate attribution of all quoted material, including full citations."
+
+> **Referencias:**
 >
 > - [Código de Ética ACM](https://www.acm.org/code-of-ethics)
 > - [Recomendación UNESCO sobre Ética de la IA](https://www.unesco.org/es/artificial-intelligence/recommendation-ethics)
 > - [Ley de IA de la UE (Reglamento (UE) 2024/1689)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 > - [Directrices de Ética para una IA Fiable](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)
 > - [Directrices Vivas ERA sobre IA Generativa en la Investigación](https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en?filename=ec_rtd_ai-guidelines.pdf)
+> - [Recomendaciones ICMJE](https://www.icmje.org/recommendations/)
 
 ---
 
-## La Metodología Docs-First
+## Cuándo hace falta un plan
 
-### El Enfoque de Dos Fases (No Negociable)
+| Trivial — sin plan | No trivial — plan obligatorio |
+| --- | --- |
+| Corregir un typo | Añadir una feature |
+| Ajustar un color | Refactorizar un módulo |
+| Actualizar una dependencia | Autenticación, routing, forma de los datos |
+| Añadir un comentario | Componente nuevo que otros archivos importan |
+| Una línea de CSS | Cambiar cómo se guarda o se pide el dato |
 
-Para **cualquier tarea no trivial**, las interacciones con IA deben seguir:
+**Regla práctica:** más de unos 15 minutos, o más de un archivo → escribe el plan primero.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│           EL ENFOQUE DE DOS FASES                        │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│  FASE 1: PLANIFICACIÓN                                   │
-│  ─────────────────────                                   │
-│  → Solicita a la IA que genere un plan de desarrollo     │
-│  → Documenta en ./docs/plan1.md, plan2.md, etc.          │
-│  → Revisa y aprueba antes de proceder                    │
-│                                                          │
-│  FASE 2: IMPLEMENTACIÓN                                  │
-│  ──────────────────────                                  │
-│  → Solo después de documentar el plan                    │
-│  → La IA implementa según el plan                        │
-│  → Genera informe de implementación                      │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
+**Obligatorio** para trabajo no trivial. **Opcional:** bibliotecas de prompts, servidores MCP, escalas de maestría — viven en las lecciones, no aquí.
 
-**Por qué esto importa:**
+---
 
-- **Arquitectura intencional**: Previene la generación de código sin rumbo
-- **Consciencia**: Te obliga a pensar antes de codificar
-- **Rastro de auditoría**: Documenta decisiones para referencia futura
-- **Aprendizaje**: Planificar te enseña a descomponer problemas
-- **Debugging**: A las 2 AM, te agradecerás por la documentación
+## Bucle docs-first (obligatorio si no es trivial)
 
-### ¿Qué Cuenta como "No Trivial"?
-
-| Trivial (sin plan necesario) | No trivial (plan requerido)    |
-| ---------------------------- | ------------------------------ |
-| Corregir un typo             | Añadir una nueva funcionalidad |
-| Ajustar un valor de color    | Refactorizar un módulo         |
-| Actualizar una dependencia   | Implementar autenticación      |
-| Añadir un comentario         | Crear un nuevo componente      |
-| Ajuste CSS simple            | Cambiar arquitectura de datos  |
-
-**Regla general**: Si toma más de 15 minutos o toca múltiples archivos, crea un plan.
-
-### El Flujo de Trabajo Completo
+1. **Plan** — `docs/plans/plan-[feature].md`. Qué, por qué, criterios de éxito. Aún no hay código.
+2. **Implementar** — solo cuando hayas aprobado el plan. La IA propone; tú decides.
+3. **Informe** — qué cambió, qué rechazaste, qué aún no puedes explicar.
+4. **Commit humano** — tú escribes el mensaje. Tú haces push. El diff es tuyo.
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│           EL FLUJO DOCS-FIRST                            │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│  1. CREAR EL PLAN (docs/plan-nombre-feature.md)          │
-│     └── Plan de implementación estilo Confluence         │
-│     └── Fases, resultados, criterios de éxito            │
-│                                                          │
-│  2. GENERAR PROMPTS (uno por fase)                       │
-│     └── Cada fase tiene un prompt adaptado               │
-│     └── El prompt incluye contexto, restricciones, salida│
-│                                                          │
-│  3. EJECUTAR CON INFORMES                                │
-│     └── La IA genera la implementación                   │
-│     └── La IA genera informe de implementación           │
-│     └── Humano revisa, aprueba, hace commit              │
-│                                                          │
-│  4. ITERAR Y DOCUMENTAR                                  │
-│     └── Actualizar plan con aprendizajes                 │
-│     └── Construir base de conocimiento para el futuro    │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
+plan → implementar → informe → commit humano
 ```
 
-### Plantilla de Documento de Plan
-
-**Ubicación**: `docs/plan-[nombre-feature].md`
+### Plan (corto)
 
 ```markdown
-# Plan de Implementación: [Nombre del Feature]
+# Plan: [feature]
 
-> **Creado**: [Fecha] > **Estado**: Borrador | En Progreso | Completo
-> **Modelo IA**: Claude/GPT-4/Copilot
+**Estado:** Borrador | Aprobado | Hecho
 
----
+## Objetivo
+[Una frase.]
 
-## 1. Visión General
+## Éxito
+- [ ] [criterio]
+- [ ] [criterio]
 
-### Objetivo
-
-[¿Qué estamos construyendo y por qué?]
-
-### Criterios de Éxito
-
-- [ ] Criterio 1
-- [ ] Criterio 2
-- [ ] Criterio 3
-
-### Restricciones
-
-- Tiempo: [X días/semanas]
-- Tech: [Stack requerido]
-- Dependencias: [Sistemas externos]
-
----
-
-## 2. Fases
-
-### Fase 1: [Nombre]
-
-**Meta**: [Una oración]
-**Entregables**:
-
-- [ ] Entregable 1
-- [ ] Entregable 2
-
-**Prompt para esta fase**:
-
-> [A generar]
-
-**Informe de Implementación**:
-
-> [A completar después de la ejecución]
-
----
-
-## 3. Decisiones de Arquitectura
-
-| Decisión   | Justificación | Alternativas Consideradas |
-| ---------- | ------------- | ------------------------- |
-| [Elección] | [Por qué]     | [Otras opciones]          |
-
----
-
-## 4. Aprendizajes y Retrospectiva
-
-[Completar después de finalizar]
+## Fuera de alcance
+[Lo que este plan no hará.]
 ```
 
----
-
-## Arquitectura de Prompts
-
-### Anatomía de un Prompt
-
-Un prompt bien estructurado tiene **capas**:
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ CAPA 1: ROL Y CONTEXTO                                   │
-│ "Eres un desarrollador senior React ayudándome a..."     │
-├─────────────────────────────────────────────────────────┤
-│ CAPA 2: CONOCIMIENTO                                     │
-│ "Aquí está la estructura actual del código: [tree]"      │
-│ "Aquí están los archivos relevantes: [contenidos]"       │
-├─────────────────────────────────────────────────────────┤
-│ CAPA 3: TAREA                                            │
-│ "Implementa [feature específico] siguiendo [patrón]"     │
-├─────────────────────────────────────────────────────────┤
-│ CAPA 4: RESTRICCIONES                                    │
-│ "Debe usar TypeScript, no debe romper tests existentes"  │
-├─────────────────────────────────────────────────────────┤
-│ CAPA 5: FORMATO DE SALIDA                                │
-│ "Proporciona: 1) Código, 2) Explicación, 3) Informe"     │
-└─────────────────────────────────────────────────────────┘
-```
-
-### Biblioteca de Patrones de Prompts
-
-#### 1. El Prompt Explicador
-
-**Propósito**: Entender código existente o conceptos
+### Después de la sesión (más corto)
 
 ```markdown
-Explica [concepto/código] como si enseñaras a un desarrollador junior.
-Incluye:
+# Informe: [feature] — [fecha]
 
-1. Qué hace
-2. Por qué existe
-3. Cómo funciona paso a paso
-4. Errores comunes
-5. Mejores prácticas
-```
+**Archivos:** `src/…`
+**IA usada:** [herramienta]. **Verificado por humano:** sí / aún no.
 
-#### 2. El Prompt Arquitecto
+## Qué cambió
+[Dos frases.]
 
-**Propósito**: Diseñar antes de implementar
+## Qué rechacé, y por qué
+[Si nada, dilo.]
 
-```markdown
-Necesito implementar [feature].
-
-Antes de escribir código, por favor:
-
-1. Propón 2-3 enfoques arquitectónicos
-2. Compara trade-offs de cada uno
-3. Recomienda uno con justificación
-4. Esboza los pasos de implementación
-
-No escribas código aún—quiero entender el diseño primero.
-```
-
-#### 3. El Prompt Revisor
-
-**Propósito**: Análisis crítico de código
-
-```markdown
-Revisa este código críticamente:
-[pegar código]
-
-Analiza:
-
-1. Corrección
-2. Vulnerabilidades de seguridad
-3. Problemas de rendimiento
-4. Preocupaciones de mantenibilidad
-5. Mejoras sugeridas
-
-Sé duro pero constructivo.
-```
-
-#### 4. El Prompt Rubber Duck
-
-**Propósito**: Depurar explicando
-
-```markdown
-Tengo un bug. Déjame explicar qué espero vs. qué sucede:
-
-Esperado: [descripción]
-Actual: [descripción]
-Código: [pegar]
-
-No me des la respuesta inmediatamente.
-Hazme preguntas que me ayuden a MÍ a descubrir el bug.
-```
-
-#### 5. El Prompt Generador de Informes
-
-**Propósito**: Documentar trabajo completado
-
-```markdown
-Basándote en los cambios que acabamos de hacer:
-
-Genera un informe de implementación incluyendo:
-
-1. Resumen de lo implementado
-2. Archivos cambiados y por qué
-3. Decisiones clave tomadas
-4. Posibles problemas o deuda técnica
-5. Recomendaciones de testing
-6. Notas de handoff para el siguiente desarrollador/fase
+## Aún no puedo explicar
+[Si esta lista no está vacía, no hagas commit.]
 ```
 
 ---
 
-## Informes de Implementación
+## Declaración en el README (obligatorio)
 
-### Por Qué Importan los Informes
-
-Cada implementación asistida por IA debe producir un **informe legible por humanos** documentando:
-
-1. **Qué pasó** — Cambios concretos realizados
-2. **Por qué pasó** — Decisiones y justificación
-3. **Qué se aprendió** — Insights para el futuro
-4. **Qué sigue** — Información de handoff
-
-### El Ciclo de Informes
-
-```
-┌───────────────────┐
-│   PEDIR A IA QUE  │
-│   haga algo       │
-└────────┬──────────┘
-         │
-         ▼
-┌───────────────────┐
-│  IA IMPLEMENTA +  │
-│  GENERA INFORME   │
-└────────┬──────────┘
-         │
-         ▼
-┌───────────────────┐
-│  HUMANO REVISA    │
-│  código + informe │
-└────────┬──────────┘
-         │
-    ┌────┴────┐
-    │         │
-    ▼         ▼
-APROBAR    SOLICITAR
-& COMMIT   CAMBIOS
-    │         │
-    │         └──► (iterar)
-    │
-    ▼
-┌───────────────────┐
-│  ACTUALIZAR DOC   │
-│  con aprendizajes │
-└───────────────────┘
-```
-
-### Plantillas de Informes
-
-#### Informe Rápido (para cambios pequeños)
+Todo repo que haya usado IA **debe** mostrar esto en `README.md`. Un diff con forma de IA y sin declaración puede ir a revisión de integridad.
 
 ```markdown
-## Cambio: [Descripción breve]
+## Declaración de asistencia de IA
 
-**Archivos**: `src/component.tsx`, `src/utils.ts`
-**Tipo**: Feature | Bugfix | Refactor
-**Testeado**: [ ] Manual [ ] Unit [ ] Integration
-
-**Resumen**: [1-2 oraciones]
-
-**Asistido por IA**: Sí/No
-**Verificado por Humano**: Sí/Pendiente
-```
-
-#### Informe Completo (para fases/features)
-
-```markdown
-## Informe de Implementación: [Nombre del Feature]
-
-### 1. Resumen
-
-[2-3 oraciones describiendo lo logrado]
-
-### 2. Cambios Realizados
-
-| Archivo   | Tipo       | Descripción                  |
-| --------- | ---------- | ---------------------------- |
-| `src/...` | Añadido    | Nuevo componente para...     |
-| `src/...` | Modificado | Actualizado para soportar... |
-
-### 3. Decisiones de Arquitectura
-
-| Decisión     | Por qué                               | Alternativas   |
-| ------------ | ------------------------------------- | -------------- |
-| Usar Zustand | Más simple que Redux para esta escala | Context, Redux |
-
-### 4. Cómo Funciona
-
-[Explicación breve de la implementación]
-
-### 5. Testing
-
-- [x] Testing manual en navegador
-- [x] Tests unitarios para utilidades
-- [ ] Test E2E (TODO)
-
-### 6. Problemas Conocidos / Deuda Técnica
-
-- [ ] Necesita añadir error boundary
-- [ ] Optimización de rendimiento para lista
-
-### 7. Próximos Pasos
-
-1. Conectar a API backend
-2. Añadir estados de carga
-3. Escribir test E2E
-
-### 8. Notas de Aprendizaje
-
-[¿Qué aprendí de esta implementación?]
-```
-
----
-
-## MCP: El Nuevo Estándar
-
-### ¿Qué es MCP (Model Context Protocol)?
-
-MCP es un **estándar abierto** para conectar modelos de IA con herramientas externas y fuentes de datos.
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                    ARQUITECTURA MCP                      │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│   [Modelo IA] ◄──JSON-RPC──► [Servidor MCP]             │
-│       │                          │                       │
-│       │                          ├── Tools (ops escritura)│
-│       │                          ├── Resources (lectura) │
-│       │                          └── Prompts (plantillas)│
-│       │                                                  │
-│       └── Hace peticiones como:                         │
-│           "leer archivo X"                              │
-│           "ejecutar comando Y"                          │
-│           "consultar base de datos Z"                   │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
-### Conceptos MCP
-
-| Concepto     | Descripción             | Ejemplo                       |
-| ------------ | ----------------------- | ----------------------------- |
-| **Server**   | Expone capacidades a IA | filesystem, database, API     |
-| **Tool**     | Operación de escritura  | `create_file`, `run_command`  |
-| **Resource** | Operación de lectura    | `read_file`, `list_directory` |
-| **Root**     | Límite de permisos      | Solo directorio `/project`    |
-| **Prompt**   | Plantilla reutilizable  | "code review", "explain"      |
-
-### Por Qué MCP Importa para Ti
-
-1. **Estandarización** — Un protocolo, muchas herramientas
-2. **Control** — Define exactamente qué puede acceder la IA
-3. **Auditabilidad** — Todas las llamadas a tools se registran
-4. **Seguridad** — Permisos basados en capacidades
-
-### MCP en Tu Flujo de Trabajo
-
-```
-Flujo tradicional:
-   Copiar código → Pegar en IA → Copiar respuesta → Pegar de vuelta
-   ❌ Pérdida de contexto, esfuerzo manual, sin rastro de auditoría
-
-Flujo MCP:
-   IA lee tus archivos directamente → Propone cambios → Tú apruebas
-   ✅ Contexto completo, automatizado, auditable, controlado
-```
-
-### Configuración de MCP (Ejemplo con Claude Desktop)
-
-```json
-// ~/.config/claude/claude_desktop_config.json
-{
-	"mcpServers": {
-		"filesystem": {
-			"command": "npx",
-			"args": ["-y", "@anthropic/mcp-server-filesystem", "/path/to/project"]
-		}
-	}
-}
-```
-
-### Mejores Prácticas MCP
-
-| Práctica                           | Justificación                             |
-| ---------------------------------- | ----------------------------------------- |
-| **Limita roots estrictamente**     | Solo da acceso a directorios del proyecto |
-| **Prefiere resources sobre tools** | Solo-lectura es más seguro que escritura  |
-| **Audita llamadas a tools**        | Registra lo que la IA hace en tu código   |
-| **Aprueba ops destructivas**       | Nunca auto-ejecutes deletes o deploys     |
-
----
-
-## Flujos de Trabajo Prácticos
-
-### Flujo 1: Desarrollo de Nueva Funcionalidad
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ FLUJO: Nueva Funcionalidad                               │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│ 1. CREAR PLAN                                            │
-│    └── docs/plan-nombre-feature.md                       │
-│    └── Definir fases, criterios de éxito                 │
-│                                                          │
-│ 2. PEDIR A IA QUE REVISE EL PLAN                         │
-│    └── "Revisa este plan por gaps o riesgos"             │
-│    └── Iterar hasta que esté sólido                      │
-│                                                          │
-│ 3. PARA CADA FASE:                                       │
-│    └── Generar prompt de fase                            │
-│    └── IA implementa + reporta                           │
-│    └── Humano revisa, testea, aprueba                    │
-│    └── Commit con mensaje descriptivo                    │
-│                                                          │
-│ 4. RETROSPECTIVA                                         │
-│    └── Actualizar plan con aprendizajes                  │
-│    └── Notar patrones para reusar                        │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
-### Flujo 2: Investigación de Bugs
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ FLUJO: Investigación de Bugs                             │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│ 1. DESCRIBIR EL BUG                                      │
-│    └── Comportamiento esperado vs. actual                │
-│    └── Pasos para reproducir                             │
-│                                                          │
-│ 2. PEDIR A IA QUE AYUDE A INVESTIGAR (no arreglar)       │
-│    └── "¿Qué podría causar esto? Hazme preguntas."       │
-│    └── Deja que IA guíe tu debugging                     │
-│                                                          │
-│ 3. IDENTIFICAR CAUSA RAÍZ (juntos)                       │
-│    └── Tú confirmas la hipótesis                         │
-│    └── Tú entiendes POR QUÉ sucede                       │
-│                                                          │
-│ 4. IMPLEMENTAR ARREGLO                                   │
-│    └── IA propone fix                                    │
-│    └── Tú verificas que aborda la causa raíz             │
-│    └── IA genera informe                                 │
-│                                                          │
-│ 5. DOCUMENTAR                                            │
-│    └── Añadir a base de conocimiento                     │
-│    └── Prevenir bugs similares                           │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
-### Flujo 3: Aprender un Nuevo Concepto
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ FLUJO: Aprendizaje                                       │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│ 1. DECLARAR QUÉ QUIERES APRENDER                         │
-│    └── "Quiero entender [concepto]"                      │
-│                                                          │
-│ 2. PEDIR EXPLICACIÓN                                     │
-│    └── "Explica como si fuera un desarrollador junior"   │
-│    └── "¿Cuáles son los malentendidos comunes?"          │
-│                                                          │
-│ 3. PEDIR EJEMPLO MÍNIMO                                  │
-│    └── "Muéstrame el ejemplo funcional más pequeño"      │
-│    └── Escríbelo tú mismo (no copy-paste)                │
-│                                                          │
-│ 4. ROMPERLO                                              │
-│    └── "¿Qué pasa si hago X mal?"                        │
-│    └── Causa errores deliberadamente                     │
-│                                                          │
-│ 5. ENSEÑAR DE VUELTA                                     │
-│    └── Explica el concepto a la IA                       │
-│    └── "¿Es correcto mi entendimiento?"                  │
-│                                                          │
-│ 6. DOCUMENTAR                                            │
-│    └── Escribe notas en tus propias palabras             │
-│    └── Añade a tu base de conocimiento personal          │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
-
----
-
-## El Protocolo de Ética IA
-
-> _«¿Qué esperan los guardianes de los contribuyentes respecto al uso de la IA?»_ — Chigwada y Ngulube (2026) plantean esta pregunta sobre editoriales y guías para autores; en el aula, el docente la formula a sus estudiantes (docente : estudiante :: editorial : autor).
-
-### Los No Negociables
-
-| Regla                       | Por Qué Importa                           |
-| --------------------------- | ----------------------------------------- |
-| **Entiende cada línea**     | Tú eres responsable de tu código          |
-| **Documenta el uso de IA**  | La transparencia construye confianza      |
-| **Sin secretos en prompts** | Claves API, contraseñas, datos personales |
-| **Verifica seguridad**      | La IA no conoce tu modelo de amenazas     |
-| **Cita en entregables**     | Integridad académica y profesional        |
-
-### ⚠️ Requisito de Declaración de IA en README
-
-Las normas de publicación académica exigen la misma transparencia. La ICMJE (2025) establece:
-
-> "At submission, the journal should require authors to disclose whether they used Artificial Intelligence (AI)-assisted technologies... Chatbots (such as ChatGPT) should not be listed as authors because they cannot be responsible for the accuracy, integrity, and originality of the work... Authors should be able to assert that there is no plagiarism in their paper, including in text and images produced by the AI. Humans must ensure there is appropriate attribution of all quoted material, including full citations."
-
-> **OBLIGATORIO**: Todo repositorio que use asistencia de IA **DEBE** incluir una declaración visible de uso de IA en el archivo `README.md`.
-
-```markdown
-## 🤖 Declaración de Asistencia IA
-
-Este proyecto fue desarrollado con asistencia de IA (Claude/GPT-4/Copilot).
+Este proyecto se desarrolló con asistencia de IA ([herramienta]).
 
 **La IA se usó para:**
-- [Lista usos específicos: generación de código, debugging, documentación, etc.]
+- [generación / depuración / docs — sé concreto]
 
 **Verificación humana:**
-- Todo el código ha sido revisado y comprendido por el autor
-- Las implicaciones de seguridad han sido evaluadas
-- El autor asume total responsabilidad por la implementación final
-
-**Metodología:** [Enlace a planes docs-first si aplica]
+- Puedo explicar cada línea que he entregado
+- Asumo la responsabilidad completa de la implementación
 ```
 
-**Por qué esto importa:**
+Patrón de mensaje de commit:
 
-1. **Integridad académica**: La declaración transparente previene acusaciones de plagio
-2. **Ética profesional**: Futuros empleadores y colaboradores merecen honestidad
-3. **Responsabilidad de aprendizaje**: Debes entender lo que entregas
-4. **Claridad legal**: El código generado por IA tiene implicaciones de PI complejas
-
-> 🚨 **Los repositorios sin declaración de IA que contengan código generado por IA pueden ser marcados para revisión de integridad académica.**
-
-### ¿De quién es lo que construyes con IA?
-
-El trabajo de portafolio suele incluir código, imágenes o sugerencias de maquetación generados por IA. La Oficina de Copyright de EE. UU. (2023) aplica una prueba práctica: el copyright exige autoría humana — la obra debe ser «basically one of human authorship, with the computer merely being an assisting instrument», no «conceived and executed not by man but by a machine». Para la evaluación y las reivindicaciones profesionales, trata la IA como instrumento auxiliar: te pertenece lo que comprendes, integras y puedes defender — no la salida cruda del modelo que no sabes explicar.
-
-### El Estándar de Documentación
-
-```javascript
-// ✅ Buena documentación de IA
-/**
- * Formatea precio en centavos a string de moneda.
- * @ai-assisted Claude sugirió usar Intl.NumberFormat
- *              para soporte i18n. Verificado contra MDN.
- */
-function formatPrice(cents: number): string {
-	return new Intl.NumberFormat('es-ES', {
-		style: 'currency',
-		currency: 'EUR',
-	}).format(cents / 100);
-}
-
-// ❌ Malo: Sin indicación de asistencia IA
-function formatPrice(cents) {
-	return new Intl.NumberFormat('es-ES', {
-		style: 'currency',
-		currency: 'EUR',
-	}).format(cents / 100);
-}
+```text
+feat: add auth flow (AI-assisted: Cursor)
 ```
-
-### La Lista de Verificación
-
-Antes de aceptar código generado por IA:
-
-- [ ] Puedo explicar qué hace este código
-- [ ] Entiendo POR QUÉ está escrito así
-- [ ] Lo he testeado manualmente
-- [ ] He verificado problemas de seguridad
-- [ ] He verificado casos límite
-- [ ] He considerado accesibilidad
-- [ ] He documentado la asistencia IA
 
 ---
 
-## Referencia Rápida
+## Lista de verificación (obligatorio)
 
-### Estructura de Directorios para Proyectos Asistidos por IA
+Esta es la superficie de la defensa oral. Si no puedes marcarla, no hagas commit.
 
-```
-proyecto/
-├── docs/
-│   ├── plans/               # Planes de implementación
-│   │   ├── plan-auth.md
-│   │   └── plan-cart.md
-│   ├── reports/             # Informes de implementación
-│   │   ├── 2025-01-15-auth-fase1.md
-│   │   └── 2025-01-16-auth-fase2.md
-│   ├── prompts/             # Prompts reutilizables
-│   │   ├── code-review.md
-│   │   └── explain-code.md
-│   └── learnings/           # Base de conocimiento
-│       ├── react-patterns.md
-│       └── security-notes.md
-├── src/                     # Tu código
-└── tests/
-```
-
-### Los Comandos Esenciales
-
-```bash
-# Crear documento de plan
-touch docs/plans/$(date +%Y-%m-%d)-nombre-feature.md
-
-# Crear informe después de sesión IA
-touch docs/reports/$(date +%Y-%m-%d)-nombre-fase.md
-
-# Git commit con declaración de IA
-git commit -m "feat: añadir flujo auth (IA-asistido: Claude)"
-```
-
-### Los Prompts Esenciales
-
-**Iniciar una sesión**:
-
-> "Estoy trabajando en [proyecto]. Aquí está mi plan en docs/plan.md. Implementemos la Fase [N]."
-
-**Solicitar un informe**:
-
-> "Genera un informe de implementación de lo que acabamos de hacer."
-
-**Terminar una sesión**:
-
-> "Resume lo que logramos y qué sigue."
+- [ ] Puedo explicar qué hace este código, línea a línea si me lo piden
+- [ ] Sé por qué está escrito así (no solo que funciona)
+- [ ] Lo he ejecutado (navegador, test, o ambos)
+- [ ] He buscado secretos, XSS y auth faltante
+- [ ] He pensado en vacío, error y teclado / accesibilidad
+- [ ] La declaración del README coincide con lo que usé
+- [ ] El mensaje de commit nombra la herramienta si la IA ayudó
 
 ---
 
-## Progresión de Maestría
+## Adónde ir después
+{: #donde-ir-despues }
 
-### Nivel 1: Aprendiz
+| Necesidad | Página |
+| --- | --- |
+| El giro de una frase | [Manifiesto]({{ '/methodology/es/ai-assisted-development-foundations/' | relative_url }}) |
+| Cluster de arquitectura | [AI-assisted development]({{ '/lessons/en/ai-assisted-development/' | relative_url }}) |
+| RPC, RAG, MVC como disciplina | [Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }}) |
+| Aplicar la pila en React | [Teoría y arquitectura de IA para React]({{ '/lessons/en/react/ai-assisted-development-foundations/' | relative_url }}) |
+| Juramento del artesano | [Tao del desarrollo con IA]({{ '/methodology/es/tao-of-ai-development/' | relative_url }}) |
+| Cómo te evalúan | [Rúbrica de declaración y defensa oral]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}) |
+| Pedagogía del curso | [Hub de metodología]({{ '/methodology/es/' | relative_url }}) |
+| Specs en el prompt | [Uso de la IA: specs y arquitectura]({{ '/methodology/es/uso-ia-specs-arquitectura/' | relative_url }}) |
+| FE I / FE II | [Cómo aprobar FE I]({{ '/tracks/fei/how-to-pass-this-track/' | relative_url }}) · [Cómo aprobar FE II]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }}) |
 
-- Usa IA para explicaciones y generación de código simple
-- Flujo de copy-paste
-- Aprendiendo a hacer buenas preguntas
-
-### Nivel 2: Practicante
-
-- Metodología docs-first
-- Prompts estructurados con contexto
-- Solicita y revisa informes de implementación
-- Comenzando integración MCP
-
-### Nivel 3: Artesano
-
-- Flujo MCP completo con integración de herramientas
-- Construye bibliotecas de prompts reutilizables
-- Enseña tu metodología a otros
-- Contribuye a tooling IA open source
-
-### Nivel 4: Maestro
-
-- Diseña sistemas aumentados por IA
-- Crea políticas organizacionales de IA
-- Mentoriza a otros desarrolladores
-- Da forma a la ética de la IA en desarrollo
+Los patrones de prompt y la configuración MCP son **opcionales**. Se enseñan en la lección de arquitectura y en el sprint de React, no en esta página.
 
 ---
 
-## 🔗 Recursos Relacionados
+## Riesgos que este curso ya ha visto
 
-| Recurso                                                                                                         | Descripción                              |
-| --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| [**Fundamentos de desarrollo asistido por IA**](ai-assisted-development-foundations/index.md)                   | Marco teórico: contratos, descomposición, seguridad, observabilidad, RAG, MVC/MVVM |
-| [**Uso de la IA: specs y arquitectura**](../uso-ia-specs-arquitectura/)                                        | Nota breve: specs + arquitectura en el prompt para resultados coherentes |
-| [**El Tao del Desarrollo con IA**]({{ site.url }}{{ site.baseurl }}/methodology/es/tao-of-ai-development/) | 道 Addendum filosófico sobre ética, artesanía y la lucha eterna contra el código basura |
-| [Metodología Web Atelier]({{ site.url }}{{ site.baseurl }}/methodology/es/)                                     | Pedagogía central y estructura del curso |
-| [Colección de Prompts del Atelier]({{ site.url }}{{ site.baseurl }}/lessons/en/atelier-prompts/)                | Prompts curados para desarrollo web      |
-| [Brief de Plantilla Portfolio]({{ site.url }}{{ site.baseurl }}/lessons/en/portfolio-template-brief/challenge/) | Proyecto ejemplo usando esta metodología |
-| [Código de Ética ACM](https://www.acm.org/code-of-ethics)                                                       | Guías de ética profesional               |
-| [Ética IA UNESCO](https://www.unesco.org/es/artificial-intelligence/recommendation-ethics)                      | Marco internacional para ética de IA     |
-| [Ley de IA de la UE](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)                                           | Obligación legal de alfabetización en IA (Art. 4) |
-| [Directrices Vivas ERA](https://research-and-innovation.ec.europa.eu/document/download/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en?filename=ec_rtd_ai-guidelines.pdf) | Marco de la UE para IA generativa en investigación |
-| [Propuesta de fundamentación regulatoria]({{ site.url }}{{ site.baseurl }}/methodology/en/ai-regulatory-grounding-proposal/) | Auditoría de evidencia con proveniencia Ahmes Tri-Anchor (inglés) |
+| Qué pasó | Daño | Control |
+| --- | --- | --- |
+| Pegar una feature entera, sin declarar | Revisión de integridad; no puedes reclamar el trabajo | README + commit |
+| Entregar un diff que no puedes recorrer | Suspender la defensa oral | Lista de verificación antes del commit |
+| Claves o datos personales en el chat | Fuga de credenciales; problema GDPR | Nunca pegues secretos |
+| Tratar al modelo como autor | No posees la entrega | Autoría humana: defiende lo que es tuyo |
 
 ---
 
-> _"El objetivo no es reemplazar tu pensamiento con IA, sino amplificar tu pensamiento a través de IA—para que puedas construir cosas que importen para una mejor vida humana."_
-
----
+> _"Write code for humans first, computers second; the Tao lies in balancing both."_
+> — Tao of Development, `cc-001`
 
 **Autoría:** Rubén Vega Balbás, PhD (UDIT) · ORCID: [0000-0001-6862-9081](https://orcid.org/0000-0001-6862-9081)
 **Licencia:** Contenido CC BY-NC-SA 4.0

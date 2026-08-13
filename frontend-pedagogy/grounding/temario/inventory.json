@@ -1,0 +1,233 @@
+{
+  "date": "2026-08-11",
+  "files": [
+    "T1-durable-core-css-js-a11y.edited.md",
+    "T2-react-ai-assisted-modern.edited.md",
+    "T3-production-frontier-astro-pwa-3d-iot.edited.md"
+  ],
+  "entry_count": 22,
+  "doi_count": 19,
+  "isbn_only_count": 3,
+  "entries": [
+    {
+      "cluster": "T1-durable-core-css-js-a11y",
+      "tag": "ESTABLISHED",
+      "claim": "El análisis de errores reales de estudiantes muestra que HTML y CSS presentan dificultades sintácticas y conceptuales específicas, lo que justifica enseñar explícitamente el modelo subyacente del lenguaje.",
+      "cite": "Thomas H. Park, Brian Dorn, and Andrea Forte, *An Analysis of HTML and CSS Syntax Errors in a Web Development Course*, 2015, *ACM Transactions on Computing Education*",
+      "doi": "10.1145/2700514",
+      "isbn": "",
+      "label_en": "Analysis of HTML/CSS syntax errors in web education",
+      "source_file": "T1-durable-core-css-js-a11y.edited.md"
+    },
+    {
+      "cluster": "T1-durable-core-css-js-a11y",
+      "tag": "ESTABLISHED",
+      "claim": "Un diseño de curso basado en producción de artefactos y reflexión puede mejorar las competencias de diseño web de estudiantes universitarios.",
+      "cite": "Chun-Yen Tsai, Wen-Ling Shih, Fu-Pei Hsieh, Yun-An Chen, and Chia-Ling Lin, *Applying the Design-Based Learning Model to Foster Undergraduates' Web Design Skills: The Role of Knowledge Integration*, 2022, *International Journal of Educational Technology in Higher Education*",
+      "doi": "10.1186/s41239-021-00308-4",
+      "isbn": "",
+      "label_en": "Design-based learning for web-design skills",
+      "source_file": "T1-durable-core-css-js-a11y.edited.md"
+    },
+    {
+      "cluster": "T1-durable-core-css-js-a11y",
+      "tag": "ESTABLISHED",
+      "claim": "El diseño web centrado en usuario relaciona atributos concretos de la interfaz con usabilidad y satisfacción observadas.",
+      "cite": "Iman Dianat, Pari Adeli, Mohammad Asgari Jafarabadi, and Mohammad Ali Karimi, *User-centred Web Design, Usability and User Satisfaction: The Case of Online Banking Websites in Iran*, 2019, *Applied Ergonomics*",
+      "doi": "10.1016/j.apergo.2019.102892",
+      "isbn": "",
+      "label_en": "User-centred web design, usability, and satisfaction",
+      "source_file": "T1-durable-core-css-js-a11y.edited.md"
+    },
+    {
+      "cluster": "T1-durable-core-css-js-a11y",
+      "tag": "ESTABLISHED",
+      "claim": "Las convenciones de lectura escaneada, jerarquía visual, navegación clara y reducción de carga cognitiva son principios clásicos de usabilidad web.",
+      "cite": "Steve Krug, *Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability, 3rd Edition*, 2014, New Riders",
+      "doi": "",
+      "isbn": "978-0-321-96551-6",
+      "label_en": "Web usability and cognitive load",
+      "source_file": "T1-durable-core-css-js-a11y.edited.md"
+    },
+    {
+      "cluster": "T1-durable-core-css-js-a11y",
+      "tag": "ESTABLISHED",
+      "claim": "La evaluación heurística ofrece un marco canónico para identificar problemas de usabilidad mediante principios generales y múltiples evaluadores.",
+      "cite": "Jakob Nielsen and Rolf Molich, *Heuristic Evaluation of User Interfaces*, 1990, *Proceedings of CHI '90*",
+      "doi": "10.1145/97243.97281",
+      "isbn": "",
+      "label_en": "Heuristic evaluation of interfaces",
+      "source_file": "T1-durable-core-css-js-a11y.edited.md"
+    },
+    {
+      "cluster": "T1-durable-core-css-js-a11y",
+      "tag": "ESTABLISHED",
+      "claim": "La accesibilidad digital puede formularse como cuestión de exclusión, derechos y política organizativa además de como problema técnico de conformidad.",
+      "cite": "Jonathan Lazar, Daniel F. Goldstein, and Anne Taylor, *Ensuring Digital Accessibility through Process and Policy*, 2015, Morgan Kaufmann/Elsevier",
+      "doi": "",
+      "isbn": "978-0-12-800646-7",
+      "label_en": "Digital accessibility as process and policy",
+      "source_file": "T1-durable-core-css-js-a11y.edited.md"
+    },
+    {
+      "cluster": "T1-durable-core-css-js-a11y",
+      "tag": "ESTABLISHED",
+      "claim": "El diseño inclusivo interpreta muchos fallos de accesibilidad como desajustes producidos por decisiones de diseño.",
+      "cite": "Kat Holmes, *Mismatch: How Inclusion Shapes Design*, 2018, MIT Press",
+      "doi": "",
+      "isbn": "978-0-262-03888-1",
+      "label_en": "Inclusive design and mismatch",
+      "source_file": "T1-durable-core-css-js-a11y.edited.md"
+    },
+    {
+      "cluster": "T2-react-ai-assisted-modern",
+      "tag": "ESTABLISHED",
+      "claim": "Un currículo moderno de informática debe distinguir principios duraderos de tecnologías concretas y enseñar diseño de software, interacción y desarrollo web como conocimientos transferibles.",
+      "cite": "ACM/IEEE-CS/AAAI Joint Task Force, *Computer Science Curricula 2023: Curriculum Guidelines for Undergraduate Degree Programs in Computer Science*, 2024, ACM",
+      "doi": "10.1145/3664191",
+      "isbn": "979-8-4007-1033-9",
+      "label_en": "Durable curriculum principles versus volatile technologies",
+      "source_file": "T2-react-ai-assisted-modern.edited.md"
+    },
+    {
+      "cluster": "T2-react-ai-assisted-modern",
+      "tag": "EMERGING",
+      "claim": "La investigación contemporánea sobre componentes de UI trata el componente reutilizable como unidad arquitectónica independiente de React, Vue o Angular.",
+      "cite": "Priyan Vaithilingam, Alan Leung, Jeffrey Nichols, and Titus Barik, *The Way We Notice, That’s What Really Matters: Instantiating UI Components with Distinguishing Variations*, 2026, CHI Conference on Human Factors in Computing Systems",
+      "doi": "10.1145/3772318.3790621",
+      "isbn": "",
+      "label_en": "Distinguishing variations in UI components",
+      "source_file": "T2-react-ai-assisted-modern.edited.md"
+    },
+    {
+      "cluster": "T2-react-ai-assisted-modern",
+      "tag": "ESTABLISHED",
+      "claim": "La literatura sobre desarrollo multiplataforma muestra que los frameworks deben compararse por arquitectura, mecanismos de ejecución y trade-offs.",
+      "cite": "Andreas Biørn-Hansen, Tim A. Majchrzak, Tor-Morten Grønli, *Progressive Web Apps: The Possible Web-native Unifier for Mobile Development*, 2017, *Proceedings of the 13th International Conference on Web Information Systems and Technologies (WEBIST 2017)*",
+      "doi": "10.5220/0006353703440351",
+      "isbn": "978-989-758-246-2",
+      "label_en": "Architectural comparison of progressive web applications",
+      "source_file": "T2-react-ai-assisted-modern.edited.md"
+    },
+    {
+      "cluster": "T2-react-ai-assisted-modern",
+      "tag": "ESTABLISHED",
+      "claim": "Los asistentes de código pueden completar tareas, pero su comportamiento no constituye evidencia de comprensión del alumno.",
+      "cite": "James Prather et al., *“It’s Weird That it Knows What I Want”: Usability and Interactions with Copilot for Novice Programmers*, 2023, *ACM Transactions on Computer-Human Interaction*",
+      "doi": "10.1145/3617367",
+      "isbn": "",
+      "label_en": "Copilot, usability, and novice programmers’ understanding",
+      "source_file": "T2-react-ai-assisted-modern.edited.md"
+    },
+    {
+      "cluster": "T2-react-ai-assisted-modern",
+      "tag": "EMERGING",
+      "claim": "Los agentes de coding pueden producir suites con exceso de mocking, por lo que los tests generados por IA deben revisarse contra comportamiento real.",
+      "cite": "Andre Hora and Romain Robbes, *Are Coding Agents Generating Over-Mocked Tests? An Empirical Study*, 2026, *23rd International Conference on Mining Software Repositories (MSR ’26)*",
+      "doi": "10.1145/3793302.3793362",
+      "isbn": "",
+      "label_en": "Over-mocking in agent-generated tests",
+      "source_file": "T2-react-ai-assisted-modern.edited.md"
+    },
+    {
+      "cluster": "T2-react-ai-assisted-modern",
+      "tag": "ESTABLISHED",
+      "claim": "El aprendizaje basado en proyectos gana fuerza cuando el producto se acompaña de oportunidades para explicar decisiones, revisar progresivamente el trabajo y demostrar conocimiento individual.",
+      "cite": "Andrés Lara et al., *A Project-based Learning Experience in a Compilers Course*, 2019, *SIGCSE Technical Symposium on Computer Science Education*",
+      "doi": "10.1145/3300115.3309502",
+      "isbn": "",
+      "label_en": "Project assessment with explanation and progressive review",
+      "source_file": "T2-react-ai-assisted-modern.edited.md"
+    },
+    {
+      "cluster": "T2-react-ai-assisted-modern",
+      "tag": "EMERGING",
+      "claim": "La evaluación de proyectos web universitarios está estudiando cómo GenAI debilita la equivalencia entre aplicación terminada y comprensión demostrada.",
+      "cite": "Francesca Russo, Juan Pablo Saenz, and Luigi De Russis, *Investigating Web Project Assessment in an AI World*, 2026, *CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA ’26)*",
+      "doi": "10.1145/3772363.3798887",
+      "isbn": "",
+      "label_en": "Web-project assessment in a GenAI context",
+      "source_file": "T2-react-ai-assisted-modern.edited.md"
+    },
+    {
+      "cluster": "T2-react-ai-assisted-modern",
+      "tag": "ESTABLISHED",
+      "claim": "La autorregulación distingue planificación, monitorización y evaluación del propio desempeño, proporcionando una base para workflows con IA.",
+      "cite": "Barry J. Zimmerman, *Attaining Self-Regulation: A Social Cognitive Perspective*, 2000, *Handbook of Self-Regulation*, Academic Press",
+      "doi": "10.1016/B978-012109890-2/50031-7",
+      "isbn": "",
+      "label_en": "Self-regulated learning in AI-supported workflows",
+      "source_file": "T2-react-ai-assisted-modern.edited.md"
+    },
+    {
+      "cluster": "T2-react-ai-assisted-modern",
+      "tag": "ESTABLISHED",
+      "claim": "La carga cognitiva durante la resolución de problemas depende del trabajo mental que recae sobre procesos todavía no automatizados.",
+      "cite": "John Sweller, *Cognitive Load During Problem Solving: Effects on Learning*, 1988, *Cognitive Science*",
+      "doi": "10.1207/s15516709cog1202_4",
+      "isbn": "",
+      "label_en": "Cognitive load and limits of assistance",
+      "source_file": "T2-react-ai-assisted-modern.edited.md"
+    },
+    {
+      "cluster": "T2-react-ai-assisted-modern",
+      "tag": "ESTABLISHED",
+      "claim": "GenAI puede ampliar diferencias entre novatos al beneficiar especialmente a quienes ya pueden evaluar y corregir sus respuestas.",
+      "cite": "James Prather, Brent N. Reeves, Juho Leinonen, Stephen MacNeil, Arisoa S. Randrianasolo, Brett A. Becker, Bailey Kimmel, Jared Wright, and Ben Briggs, *The Widening Gap: The Benefits and Harms of Generative AI for Novice Programmers*, 2024, *ACM Conference on International Computing Education Research*",
+      "doi": "10.1145/3632620.3671116",
+      "isbn": "",
+      "label_en": "Benefits and harms of GenAI for novice programmers",
+      "source_file": "T2-react-ai-assisted-modern.edited.md"
+    },
+    {
+      "cluster": "T3-production-frontier-astro-pwa-3d-iot",
+      "tag": "ESTABLISHED",
+      "claim": "La arquitectura de micro-frontends tiene beneficios y costes recurrentes —autonomía, despliegue independiente, duplicación, payload y complejidad operativa— y debe enseñarse como decisión contextual.",
+      "cite": "Severi Peltonen, Luca Mezzalira, and Davide Taibi, *Motivations, Benefits, and Issues for Adopting Micro-Frontends: A Multivocal Literature Review*, 2021, *Information and Software Technology* 136",
+      "doi": "10.1016/j.infsof.2021.106571",
+      "isbn": "",
+      "label_en": "Micro-frontends: motivations, benefits, costs, and adoption",
+      "source_file": "T3-production-frontier-astro-pwa-3d-iot.edited.md"
+    },
+    {
+      "cluster": "T3-production-frontier-astro-pwa-3d-iot",
+      "tag": "EMERGING",
+      "claim": "Las arquitecturas de islas recuperan HTML generado fuera del cliente y limitan JavaScript/hidratación a regiones interactivas.",
+      "cite": "Juho Vepsäläinen, Arto Hellas, and Petri Vuorimaa, *The Rise of Disappearing Frameworks in Web Development*, 2023, *Web Engineering: 23rd International Conference (ICWE 2023)*, Springer LNCS 13893",
+      "doi": "10.1007/978-3-031-34444-2_23",
+      "isbn": "978-3-031-34444-2",
+      "label_en": "Islands architecture, partial hydration, and disappearing frameworks",
+      "source_file": "T3-production-frontier-astro-pwa-3d-iot.edited.md"
+    },
+    {
+      "cluster": "T3-production-frontier-astro-pwa-3d-iot",
+      "tag": "EMERGING",
+      "claim": "La eficiencia energética del front-end puede variar materialmente con compresión de imágenes, lazy loading y minificación, por lo que el presupuesto de rendimiento también puede justificarse como restricción ambiental.",
+      "cite": "Jerin Anan Proma, Fatema Tuz Zannat, Mohammed Shawqi Aftab, Tahura Akter Tripty, M. Saddam Hossain Khan, Raihan Ul Islam, and Rashedul Amin Tuhin, *Energy-Efficient Web Design: Measuring Impact of Front-end Optimizations*, 2025, *Proceedings of the 12th International Conference on Next Generation Computing, Communication, Systems and Security (NSysS ’25)*",
+      "doi": "10.1145/3777555.3777561",
+      "isbn": "",
+      "label_en": "Front-end performance and energy efficiency",
+      "source_file": "T3-production-frontier-astro-pwa-3d-iot.edited.md"
+    },
+    {
+      "cluster": "T3-production-frontier-astro-pwa-3d-iot",
+      "tag": "EMERGING",
+      "claim": "La medición directa del consumo de aplicaciones web está madurando como línea de ingeniería de software sostenible, sin equivalencia simple entre performance score y consumo energético.",
+      "cite": "L. Khrouf, M. Shatnawi, A. Thiam Niang, and A. Verhaeghe, *On the Energy Consumption of Web Applications: An Empirical Study of their Design Solutions*, 2025, *GREENS@ICSE 2025*",
+      "doi": "10.1109/GREENS66463.2025.00012",
+      "isbn": "",
+      "label_en": "Measured energy cost of web applications",
+      "source_file": "T3-production-frontier-astro-pwa-3d-iot.edited.md"
+    },
+    {
+      "cluster": "T3-production-frontier-astro-pwa-3d-iot",
+      "tag": "ESTABLISHED",
+      "claim": "La revisión automática debe enseñarse como señal falible que exige inspección humana, porque incluso herramientas consolidadas producen falsos positivos.",
+      "cite": "Zhaoqiang Guo, Tingting Tan, Shiran Liu, Xutong Liu, Wei Lai, Yibiao Yang, Yanhui Li, Lin Chen, Wei Dong, and Yuming Zhou, *Mitigating False Positive Static Analysis Warnings: Progress, Challenges, and Opportunities*, 2023, *IEEE Transactions on Software Engineering*",
+      "doi": "10.1109/TSE.2023.3329667",
+      "isbn": "",
+      "label_en": "False positives, triage, and reviewer responsibility",
+      "source_file": "T3-production-frontier-astro-pwa-3d-iot.edited.md"
+    }
+  ]
+}

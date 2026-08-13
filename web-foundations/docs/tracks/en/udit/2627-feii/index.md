@@ -179,7 +179,8 @@ AI assistance is integrated following the **[AI Practical Guide]({{ '/methodolog
 - **[How to Pass This Track]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }})** — Evaluation criteria, deliverable specifications, and grading rubric
 - **[AI Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }})** — Shared rubric for AI use declarations and oral defences
 - **[Front-End I track]({{ '/tracks/fei/' | relative_url }})** — the prerequisite course; FE II opens where it closes
-- **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — Methodology for AI-assisted development
+- **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — when to plan, how to disclose, what you must defend
+- **[Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }})** — RPC, RAG, MVC as discipline
 - **[Official Syllabus](https://udit.es)** — UDIT course documentation (Spanish)
 
 ---

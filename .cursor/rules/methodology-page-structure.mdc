@@ -15,15 +15,14 @@ methodology/
   en/
     index.md                                    ← language hub only
     ai-practical-guide/index.md
-    ai-assisted-development-foundations/index.md
-    ai-regulatory-grounding-proposal/index.md
-    tao-of-ai-development/index.md
+    ai-assisted-development-foundations/index.md  ← public manifesto; architecture primer is lessons/en/ai-assisted-development/foundations/
+    tao-of-ai-development/index.md   ← permalink stub; full chapter in ~/src/ttod/sources/tao-of-ai-development/
   es/
     index.md
     ai-practical-guide/index.md
-    ai-assisted-development-foundations/index.md
+    ai-assisted-development-foundations/index.md  ← mismo manifiesto (ES)
     uso-ia-specs-arquitectura/index.md
-    ai-practical-guide/tao-of-ai-development/index.md
+    ai-practical-guide/tao-of-ai-development/index.md   ← stub; same TTOD home
 ```
 
 ## Rules when creating or renaming

@@ -844,6 +844,30 @@
   phase: 1
   sprint: 3
 
+- slug: ai-assisted-development
+  title:
+   en: 'AI-Assisted Development'
+  path:
+   en: /lessons/en/ai-assisted-development/
+  file:
+   en: lessons/en/ai-assisted-development/index.md
+  status:
+   en: draft
+  category: ai-assisted-development
+  tags: [ai, architecture, curriculum]
+
+- slug: ai-ad-foundations
+  title:
+   en: 'AI-Assisted Development: Architecture Foundations'
+  path:
+   en: /lessons/en/ai-assisted-development/foundations/
+  file:
+   en: lessons/en/ai-assisted-development/foundations/index.md
+  status:
+   en: draft
+  category: ai-assisted-development
+  tags: [ai, architecture, contracts, rpc, rag, mcp, mvc]
+
 - slug: ai-assisted-development-foundations
   title:
    es: 'Teoría y arquitectura de IA para React: contratos, descomposición y verificación'

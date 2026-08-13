@@ -197,6 +197,8 @@ This rubric aligns with the Web Atelier evaluation rationale (Technical 40% / Re
 This rubric is referenced by:
 - `/tracks/fei/how-to-pass-this-track/` — FE I evaluation
 - `/tracks/feii/how-to-pass-this-track/` — FE II evaluation
+- [AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }}) — the classroom protocol this rubric tests
+- [Architecture cluster]({{ '/lessons/en/ai-assisted-development/' | relative_url }}) — the primer the defence can ask about
 - Future Web Atelier tracks (as needed)
 
 Both tracks link to this shared component rather than duplicating rubric content.

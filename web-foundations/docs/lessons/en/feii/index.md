@@ -153,7 +153,8 @@ Behind those institutional weights sits the Atelier rubric — **Technical 40 % 
 - **[Front-End II track]({{ '/tracks/feii/' | relative_url }})** — course framing, objectives, methodology
 - **[Front-End I track]({{ '/tracks/fei/' | relative_url }})** — the prerequisite year
 - **[React Teaching Sequence]({{ '/lessons/en/react/' | relative_url }})** — FE I semester 2, the foundation this builds on
-- **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — docs-first methodology
+- **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — when to plan, how to disclose, what you must defend
+- **[Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }})** — RPC, RAG, MVC as discipline
 - **[All lessons]({{ '/lessons/en/' | relative_url }})** — the full canonical library
 
 ---

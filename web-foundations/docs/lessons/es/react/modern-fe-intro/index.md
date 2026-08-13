@@ -48,7 +48,7 @@ Al finalizar esta lección, serás capaz de:
 
 | Concepto | Dónde se cubre | Por qué importa aquí |
 | --- | --- | --- |
-| Metodología Docs-First | [`/methodology/es/ai-assisted-development-foundations/`](../../../methodology/es/ai-assisted-development-foundations/index.md) | Es necesaria para comprender los protocolos de IA introducidos en esta lección |
+| Metodología Docs-First | [`/methodology/es/ai-practical-guide/`]({{ '/methodology/es/ai-practical-guide/' | relative_url }}) | Es necesaria para comprender los protocolos de IA introducidos en esta lección |
 | Panorama del frontend moderno | `/lessons/es/react/frameworks-comparative/` | Aporta contexto para la evolución histórica (MVC → MVVM → React) |
 
 ---
@@ -303,7 +303,7 @@ Cuando uses IA en este curso, **debes** seguir la **metodología Docs-First**:
 | **No pegar secretos** | No API keys, contraseñas ni datos personales en prompts |
 | **Citar en la monografía** | Incluye una sección explicando cómo se usó la IA y qué aprendiste |
 
-> 📖 **Guía completa**: ver [`ai-practical-guide.md`](./ai-practical-guide.md) para workflows, plantillas de prompt, configuración MCP y formato de informe.
+> 📖 **Protocolo de aula**: [Guía práctica]({{ '/methodology/es/ai-practical-guide/' | relative_url }}) — cuándo planificar, cómo declarar, qué debes defender. Tablas de arquitectura: [Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }}).
 
 ### ⚠️ Advertencia: la trampa de la brecha de habilidades
 

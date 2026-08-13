@@ -1,0 +1,49 @@
+---
+description: When vendor/technical documentation (framework docs, MDN, web.dev, W3C specs) may be used in a lesson and when it may not — the rule that was previously only precedent, now stated once
+globs: 'frontend-pedagogy/**'
+alwaysApply: false
+---
+
+# Platform notes vs. bibliography — the rule, stated once
+
+This was never written down as a rule — it existed only as precedent, buried in one file's
+Quarantine section (`grounding/temario/T3-production-frontier-astro-pwa-3d-iot.edited.md`,
+lines 53 and 150–151). An agent reading `grounding/README.mdc`'s looser summary table alone
+would reasonably conclude vendor docs are just citable sources with an extra adjective
+("dated"). They found that in practice, then had to be corrected by an agent — this file exists
+so the next one doesn't repeat the trip.
+
+## The rule
+
+**Every claim in a guía or lesson is one of two kinds, and they are never interchangeable:**
+
+| Kind | Gate | Where it goes | Example |
+|---|---|---|---|
+| **Scholarly / pedagogical claim** | Ahmes `extraction.db` node, DOI or ISBN resolved (`pass2-audit.prompt.md`'s check) | Bibliography, cited `(Author Year)` with a coat·node·page | *"Cognitive offloading shifts effort, it does not remove it" (Liu, `dc2bd27d`)* |
+| **Technical / platform fact** | None required — but **never enters the bibliography** | **Platform notes** — a labelled, non-citation block in the lesson | *"Astro ships zero client JS unless a component opts in (islands architecture, Astro Docs, checked 2026-08-13)"* |
+
+**Why the gate exists at all, not just for scholarly claims:** a DOI/ISBN is a *stable, third-party-verifiable* identity — the claim survives the source page changing or disappearing. Vendor documentation has neither: `docs.astro.build` can rewrite a paragraph next release with no version history a reader can check against your citation. That is not a defect in vendor docs — it is simply a different kind of fact, one that is *true right now, of this tool*, not *established, checkable against a fixed text*. Mixing the two kinds in one bibliography quietly lowers the evidential bar of every citation next to it.
+
+## What this means in practice
+
+1. **Never write a vendor URL as `(Author Year)` in a bibliography**, even with a real author name and date — a blog post or docs page is not a DOI/ISBN source no matter how well-dated.
+2. **Do** put technical facts in the lesson body as clearly labelled **platform notes**: a callout, a footnote style distinct from citations, or a `> Platform note:` blockquote. State the source and the date checked — currency matters for platform facts precisely because they have no fixed text to anchor to.
+3. **A platform note never substitutes for a declared pedagogical gap.** If a unit has no verified source for *how to teach* something (Astro pedagogy: `T3` line 158, confirmed gap), a platform note about *how the tool works* does not close that gap — it only lets you describe the tool accurately while still declaring the pedagogy unsupported. Both statements can and should appear in the same unit.
+4. **Tool/MCP output follows the same rule, one level down.** An MCP server (e.g. the official `withastro/docs-mcp`) is a *retrieval* mechanism, exactly like DevIAC vectors — useful for finding the current platform fact fast, never a citation source itself. Same discipline as the durable rule above: *discover with it, write the platform note from what you find, never cite the tool call.*
+
+## Precedent this generalises
+
+`T3-production-frontier-astro-pwa-3d-iot.edited.md`, Quarantine section: Service Workers 1,
+Web Application Manifest (W3C), and web.dev pages were considered and explicitly kept out of
+the bibliography for having no DOI/ISBN — retained only as "platform notes" in that file's own
+words. This document takes that one decision and states it as the rule it always was.
+
+## What this does NOT change
+
+- The DOI/ISBN gate itself — unchanged, still enforced by `pass2-audit.prompt.md`.
+- Digital Creativity's parallel rule (`oficial-guia-framework.mdc`: "No citation without an
+  Ahmes node") — same shape, different repo; not rewritten here, cross-referencing only.
+- Nothing here authorises citing an MCP tool call, a web search result, or a vendor blog as
+  bibliography under any framing. If a technical fact needs to be load-bearing for a pedagogical
+  argument rather than a platform note, the correct move is sourcing and Ahmes-extracting a real
+  scholarly treatment of it — not relabelling the vendor page.

@@ -37,9 +37,15 @@ You will also understand the **tool landscape** (Claude Code, Cursor, MCP, shadc
 
 ## Canonical Reading (Required)
 
-This lesson is React-focused, but it builds on the canonical methodology:
+The public manifesto is the frame only (one shift, eight rungs as names, the ladder):
 
-- [`/methodology/en/ai-assisted-development-foundations/`](/methodology/en/ai-assisted-development-foundations/)
+- [AI-Assisted Development Foundations]({{ '/methodology/en/ai-assisted-development-foundations/' | relative_url }})
+
+The architecture primer (RPC, RAG, MVC/MVVM tables) lives in the AI-assisted-development cluster, not in this React sprint:
+
+- [Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }})
+
+This lesson applies that stack to React — contracts, MCP as a boundary, verification. Do not expect the manifesto to teach the tables.
 
 ---
 

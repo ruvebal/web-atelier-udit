@@ -104,6 +104,18 @@ Voz estudiantil, nodo `c3157096` · p. 12: *"I got good grades on all the projec
 `kazemitabaar…23259ff1` · nodo `c2a108d2` · p. 0 — asistentes que *"reveal direct answers with code, which may hinder deep conceptual engagement"*; CodeAid entrega ayuda sin revelar la solución.
 > Fundamenta el flujo *human-in-the-loop* y, sobre todo, que se evalúe el **rechazo razonado** de sugerencias: el registro de decisiones ACCEPT/REJECT es la contramedida directa al testimonio anterior.
 
+> El diseño *human-centred* de la asistencia de IA debe traducir valores humanos en requisitos perceptibles por el usuario, funcionales y éticos, junto con principios accionables y gobernanza *human-in-the-loop*. En Frontend II, la transferencia es concreta: revisar, adaptar, rechazar y explicar una sugerencia forma parte del aprendizaje evaluable; el estudio no se presenta como evidencia de resultados específicos en front-end.
+> — **[BIBLIO-GAP]** Göbels et al., *Aligning AI with human values: Design principles for human-centered AI* (2026), *Procedia CIRP* / CIRP Design, abstract/conclusión (pp. 1, 5)
+> Ahmes anchor: `research/computational-authorship/11-extraction-db/scholar/documents/aligning_ai_with_human_values_design_principles_for_human_c_2026_procedia_c_6bcffa72/` · nodos `8c205585-33ae-5016-bec7-3af2bb49a457`, `616c81b4-4b67-544f-800f-a5150cabc4b1` · `evaluator_safe=no` (metadatos bibliográficos derivados del slug)
+
+> La guía de Horizon Europe permite usar IA generativa junto con cautela, revisión y validación exhaustivas, responsabilidad humana sobre el resultado y transparencia sobre las herramientas empleadas. En Frontend II, esto refuerza que la revisión de código asistida por IA deje rastro de qué se aceptó, qué se rechazó y por qué; la guía no es evidencia de resultados específicos de aprendizaje en front-end.
+> — **[BIBLIO-GAP]** European Commission, *Standard briefing slides for experts: Horizon Europe* (2026), orientación sobre uso de IA (pp. 23–24)
+> Ahmes anchor: `svcm/documents/standard_briefing_slides_for_experts_he_en_9af85191/` · nodos `5db6cdbe-a497-5c30-82dc-fa275855a567`, `8e1627d8-ff7e-5b36-a6bc-b27f36967119`, `1ef2552c-0c8c-56d6-95dc-154c7e48643a`, `655b1064-6e2a-526d-98ca-2f1bc5093859` · `evaluator_safe=no` (año ausente / desajuste en metadatos de portada)
+
+> La obligación legal de transparencia del AI Act cubre, entre otros supuestos, el texto generado o manipulado por IA que se publica para informar al público sobre asuntos de interés público (art. 50(4), aplicable desde el 2 de agosto de 2026). Frontend II adopta una regla docente más amplia: toda contribución material de IA al código o documentación entregados se declara junto con la herramienta, la contribución y la verificación humana.
+> — European Parliament and Council, *Regulation (EU) 2024/1689* (2024), art. 50(4); aplicación art. 113
+> Official legal anchor: [EUR-Lex, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=en)
+
 **Bloque 4 · Rendimiento como restricción impuesta**
 `phung_et_al…ea8cf54c` · nodo `cc62b45e` · p. 5 — *"debugging hints being requested the most, followed by planning hints, while **optimization hints were rarely used**"*.
 > Hallazgo con consecuencia curricular directa: **la optimización no se demanda espontáneamente**. Si el rendimiento no se impone como presupuesto evaluable, no ocurre. Es la justificación empírica del *performance budget* de la Unidad 7 — no la parte climática, que sigue sin respaldo (véase lagunas).

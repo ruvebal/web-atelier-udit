@@ -1,0 +1,412 @@
+## CSS avanzado y diseño responsive / Advanced CSS and responsive design
+
+### A · Técnico / Technical
+
+* [UNVERIFIED] CSS Grid está definido por el W3C como un sistema bidimensional de layout para interfaces, por lo que es una referencia primaria para distinguir Grid de modelos unidimensionales como Flexbox. ([W3C][1])
+
+  * cite: W3C CSS Working Group, *CSS Grid Layout Module Level 1*, 2025, World Wide Web Consortium
+  * doi: none
+  * isbn: none
+  * identifier: [https://www.w3.org/TR/css-grid-1/](https://www.w3.org/TR/css-grid-1/)
+  * status: no-doi-no-isbn
+  * ES: CSS Grid Layout Module Level 1
+  * EN: CSS Grid Layout Module Level 1
+  * fit_ES: Sirve como especificación primaria para enseñar Grid como sistema bidimensional de composición y separar la semántica del estándar de las abstracciones de frameworks.
+  * fit_EN: It serves as the primary specification for teaching Grid as a two-dimensional layout system while separating the web standard from framework abstractions.
+  * scope: web-platform
+
+* [UNVERIFIED] El *CSS Snapshot 2022* consolida módulos interoperables del lenguaje, incluidos Grid, transitions y animations, y permite presentar CSS como plataforma estandarizada antes que como colección de librerías. ([W3C][2])
+
+  * cite: W3C CSS Working Group, *CSS Snapshot 2022*, 2022, World Wide Web Consortium
+  * doi: none
+  * isbn: none
+  * identifier: [https://www.w3.org/TR/css-2022/](https://www.w3.org/TR/css-2022/)
+  * status: no-doi-no-isbn
+  * ES: CSS Snapshot 2022
+  * EN: CSS Snapshot 2022
+  * fit_ES: Es una fuente normativa de orientación para situar layout, transiciones y animaciones dentro del núcleo evolutivo de CSS y no dentro de toolchains concretas.
+  * fit_EN: It provides a standards-level frame for locating layout, transitions, and animation within CSS itself rather than within particular toolchains.
+  * scope: web-platform
+
+* [ESTABLISHED] Un manual técnico contemporáneo de CSS puede cubrir cascade, Grid, layout y mecanismos avanzados directamente sobre la plataforma sin convertir un framework CSS en prerrequisito. ([O'Reilly Media][3])
+
+  * cite: Eric A. Meyer and Estelle Weyl, *CSS: The Definitive Guide, 5th Edition*, 2023, O'Reilly Media
+  * doi: none
+  * isbn: 9781098117603
+  * ES: CSS: The Definitive Guide, 5.ª ed.
+  * EN: CSS: The Definitive Guide, 5th Edition
+  * fit_ES: Funciona como referencia técnica extensa para cascade, layout y CSS moderno cuando se quiere enseñar primero la gramática durable del lenguaje.
+  * fit_EN: It is a substantial technical reference for cascade, layout, and modern CSS when the durable language itself is taught first.
+  * scope: web-platform
+
+### B · Canónico-teórico / Canonical-theoretical
+
+* [ESTABLISHED] El responsive web design puede enseñarse como una relación entre contenido, estructura, dispositivos y adaptación progresiva, no simplemente como una colección de breakpoints. ([O'Reilly Media][4])
+
+  * cite: Jennifer Niederst Robbins, *Learning Web Design: A Beginner's Guide to HTML, CSS, JavaScript, and Web Graphics, 5th Edition*, 2018, O'Reilly Media
+  * doi: none
+  * isbn: 9781491960196
+  * ES: Learning Web Design, 5.ª ed.
+  * EN: Learning Web Design, 5th Edition
+  * fit_ES: Su tratamiento conjunto de estándares, responsive design, accesibilidad, Flexbox, Grid, transiciones y animación permite conectar técnica CSS con decisiones de interfaz.
+  * fit_EN: Its integrated treatment of standards, responsive design, accessibility, Flexbox, Grid, transitions, and animation connects CSS technique with interface decisions.
+  * scope: interface-layer
+
+### C · Académico / Academic
+
+* [ESTABLISHED] El análisis de errores reales de estudiantes muestra que HTML y CSS presentan dificultades sintácticas y conceptuales específicas, lo que justifica enseñar explícitamente el modelo subyacente del lenguaje en lugar de ocultarlo tras abstracciones. ([ACM Digital Library][5])
+
+  * cite: Thomas H. Park, Brian Dorn, and Andrea Forte, *An Analysis of HTML and CSS Syntax Errors in a Web Development Course*, 2015, ACM Transactions on Computing Education
+  * doi: 10.1145/2700514
+  * isbn: none
+  * ES: Análisis de errores de sintaxis HTML y CSS en un curso de desarrollo web
+  * EN: An Analysis of HTML and CSS Syntax Errors in a Web Development Course
+  * fit_ES: Aunque anterior a 2018, sigue siendo una referencia FE-específica útil para fundamentar la enseñanza explícita de sintaxis, selectores y modelos mentales de HTML/CSS.
+  * fit_EN: Although pre-2018, it remains a useful front-end-specific study supporting explicit instruction in HTML/CSS syntax, selectors, and mental models.
+  * scope: web-platform
+
+* [ESTABLISHED] Un diseño de curso basado en producción de artefactos y reflexión puede mejorar las competencias de diseño web de estudiantes universitarios, especialmente entre quienes comienzan con menor dominio. ([Springer][6])
+
+  * cite: Chun-Yen Tsai, Wen-Ling Shih, Fu-Pei Hsieh, Yun-An Chen, et al., *Applying the Design-Based Learning Model to Foster Undergraduates' Web Design Skills: The Role of Knowledge Integration*, 2022, International Journal of Educational Technology in Higher Education
+  * doi: 10.1186/s41239-021-00308-4
+  * isbn: none
+  * ES: Aprendizaje basado en diseño para desarrollar competencias de diseño web universitarias
+  * EN: Design-Based Learning for Undergraduate Web Design Skills
+  * fit_ES: Apoya una docencia donde el aprendizaje de HTML/CSS culmina en artefactos iterativos y evidencia de proceso, aunque no prueba específicamente una secuencia “sin frameworks”.
+  * fit_EN: It supports teaching HTML/CSS through iterative artifact production and process evidence, although it does not specifically test a framework-free sequence.
+  * scope: interface-layer
+
+## JavaScript moderno en el navegador / Modern JavaScript in the browser
+
+### A · Técnico / Technical
+
+* [UNVERIFIED] El HTML Living Standard define APIs y mecanismos fundamentales del entorno de ejecución del navegador, incluidos eventos y la integración entre documentos, scripts y recursos. ([HTML Living Standard][7])
+
+  * cite: WHATWG, *HTML: The Living Standard*, 2026, WHATWG
+  * doi: none
+  * isbn: none
+  * identifier: [https://html.spec.whatwg.org/](https://html.spec.whatwg.org/)
+  * status: no-doi-no-isbn
+  * ES: HTML Living Standard — APIs de aplicación web
+  * EN: HTML Living Standard — Web Application APIs
+  * fit_ES: Permite anclar DOM, eventos, carga de recursos y ejecución de scripts en la plataforma real del navegador antes de introducir abstracciones de frameworks.
+  * fit_EN: It anchors DOM, events, resource loading, and script execution in the browser platform itself before framework abstractions are introduced.
+  * scope: web-platform
+
+* [UNVERIFIED] El DOM Standard formaliza el modelo de objetos utilizado para acceder y modificar documentos, base conceptual de manipulación DOM y propagación de eventos. ([DOM Standard][8])
+
+  * cite: WHATWG, *DOM Standard*, 2026, WHATWG
+  * doi: none
+  * isbn: none
+  * identifier: [https://dom.spec.whatwg.org/](https://dom.spec.whatwg.org/)
+  * status: no-doi-no-isbn
+  * ES: DOM Standard
+  * EN: DOM Standard
+  * fit_ES: Es la referencia primaria para enseñar que la manipulación del documento y los eventos pertenecen a APIs estandarizadas independientes de React, Vue u otros frameworks.
+  * fit_EN: It is the primary reference for teaching document manipulation and events as standardized APIs independent of React, Vue, or other frameworks.
+  * scope: web-platform
+
+* [ESTABLISHED] Una referencia contemporánea de JavaScript puede tratar módulos, Promises, `async`/`await`, JSON y APIs del navegador desde el propio lenguaje antes de abordar frameworks. ([O'Reilly Media][9])
+
+  * cite: David Flanagan, *JavaScript: The Definitive Guide, 7th Edition*, 2020, O'Reilly Media
+  * doi: none
+  * isbn: 9781491952016
+  * ES: JavaScript: The Definitive Guide, 7.ª ed.
+  * EN: JavaScript: The Definitive Guide, 7th Edition
+  * fit_ES: Cubre directamente módulos ES, asincronía y plataforma web, por lo que encaja con una secuencia donde JavaScript del navegador precede a librerías y frameworks.
+  * fit_EN: It directly covers ES modules, asynchronous programming, and the web platform, fitting a sequence where browser JavaScript precedes libraries and frameworks.
+  * scope: web-platform
+
+### B · Canónico-teórico / Canonical-theoretical
+
+* [ESTABLISHED] La enseñanza explícita de JavaScript y de su entorno de ejecución conserva valor formativo porque permite comprender mecanismos que los toolchains modernos normalmente abstraen.
+
+  * cite: David Flanagan, *JavaScript: The Definitive Guide, 7th Edition*, 2020, O'Reilly Media
+  * doi: none
+  * isbn: 9781491952016
+  * ES: Fundamentos del lenguaje JavaScript y de la plataforma web
+  * EN: JavaScript Language and Web-Platform Fundamentals
+  * fit_ES: Sirve como referencia durable de lenguaje para razonar sobre módulos, callbacks, Promises y asincronía sin hacer depender esos conceptos de una API de framework.
+  * fit_EN: It provides a durable language-level reference for reasoning about modules, callbacks, Promises, and asynchrony without tying those concepts to a framework API.
+  * scope: programming-general
+
+### C · Académico / Academic
+
+* [ESTABLISHED] En cursos universitarios de desarrollo web, una pedagogía sociocultural basada en participación guiada y práctica colaborativa produjo mejores resultados y satisfacción que la condición de comparación estudiada durante seis semestres. ([Springer][10])
+
+  * cite: Montathar Faraon, Kari Rönkkö, Mikael Wiberg, Robert Ramberg, et al., *Learning by Coding: A Sociocultural Approach to Teaching Web Development in Higher Education*, 2020, Education and Information Technologies
+  * doi: 10.1007/s10639-019-10037-x
+  * isbn: none
+  * ES: Aprender programando: enfoque sociocultural para enseñar desarrollo web en educación superior
+  * EN: Learning by Coding: A Sociocultural Approach to Teaching Web Development in Higher Education
+  * fit_ES: Es evidencia directa de educación superior en desarrollo web y respalda práctica guiada, interacción y producción de código frente a una enseñanza reducida a demostraciones.
+  * fit_EN: It is direct higher-education web-development evidence supporting guided practice, interaction, and code production rather than demonstration-only teaching.
+  * scope: interface-layer
+
+## Fundamentos UX/UI para desarrolladores / UX/UI foundations for developers
+
+### A · Técnico / Technical
+
+* [ESTABLISHED] El diseño web centrado en usuario relaciona atributos concretos de la interfaz —estructura, navegación, layout, búsqueda y rendimiento— con usabilidad y satisfacción observadas. ([PubMed][11])
+
+  * cite: Iman Dianat, Pari Adeli, Mohammad Asgari Jafarabadi, and Mohammad Ali Karimi, *User-centred Web Design, Usability and User Satisfaction: The Case of Online Banking Websites in Iran*, 2019, Applied Ergonomics
+  * doi: 10.1016/j.apergo.2019.102892
+  * isbn: none
+  * ES: Diseño web centrado en usuario, usabilidad y satisfacción
+  * EN: User-centred Web Design, Usability and User Satisfaction
+  * fit_ES: Permite traducir UX a variables observables de interfaces web y evitar que jerarquía, navegación o rendimiento se enseñen únicamente como decisiones estéticas.
+  * fit_EN: It translates UX into observable web-interface attributes and prevents hierarchy, navigation, or performance from being taught merely as aesthetic choices.
+  * scope: interface-layer
+
+### B · Canónico-teórico / Canonical-theoretical
+
+* [ESTABLISHED] La evaluación heurística ofrece un marco canónico para identificar problemas de usabilidad en una interfaz mediante principios generales y múltiples evaluadores. ([ACM Digital Library][12])
+
+  * cite: Jakob Nielsen and Rolf Molich, *Heuristic Evaluation of User Interfaces*, 1990, Proceedings of CHI '90
+  * doi: 10.1145/97243.97281
+  * isbn: none
+  * ES: Evaluación heurística de interfaces de usuario
+  * EN: Heuristic Evaluation of User Interfaces
+  * fit_ES: Es el anclaje académico más directo para introducir heurísticas de usabilidad como herramienta crítica aplicada a interfaces estudiantiles.
+  * fit_EN: It is the most direct academic anchor for introducing usability heuristics as a critical tool applied to student interfaces.
+  * scope: interface-layer
+
+* [ESTABLISHED] Los principios de diseño centrado en personas de Norman siguen siendo una base canónica para feedback, affordances/signifiers, mapping, constraints y comprensión de errores. ([Hachette Book Group][13])
+
+  * cite: Don Norman, *The Design of Everyday Things: Revised and Expanded Edition*, 2013, Basic Books
+  * doi: none
+  * isbn: 9780465050659
+  * ES: El diseño de los objetos cotidianos
+  * EN: The Design of Everyday Things
+  * fit_ES: Proporciona vocabulario conceptual durable para analizar controles, feedback, errores y modelos mentales que se trasladan directamente al diseño de interfaces web.
+  * fit_EN: It supplies durable conceptual vocabulary for controls, feedback, errors, and mental models that transfers directly to web-interface design.
+  * scope: interface-layer
+
+* [ESTABLISHED] Las convenciones de lectura escaneada, jerarquía visual, navegación clara y reducción de carga cognitiva son principios clásicos de usabilidad web, no rasgos propios de un framework. ([Pearson][14])
+
+  * cite: Steve Krug, *Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability, 3rd Edition*, 2014, New Riders
+  * doi: none
+  * isbn: 9780321965516
+  * ES: Don't Make Me Think, Revisited
+  * EN: Don't Make Me Think, Revisited
+  * fit_ES: Es particularmente útil para conectar jerarquía, escaneabilidad, navegación y prioridad de contenido con decisiones concretas de implementación front-end.
+  * fit_EN: It is particularly useful for connecting hierarchy, scanability, navigation, and content priority to concrete front-end implementation decisions.
+  * scope: interface-layer
+
+### C · Académico / Academic
+
+* [ESTABLISHED] En educación superior, el aprendizaje basado en diseño que integra planificación, construcción de artefactos y feedback puede mejorar competencias de diseño web. ([Springer][6])
+
+  * cite: Chun-Yen Tsai, Wen-Ling Shih, Fu-Pei Hsieh, Yun-An Chen, et al., *Applying the Design-Based Learning Model to Foster Undergraduates' Web Design Skills: The Role of Knowledge Integration*, 2022, International Journal of Educational Technology in Higher Education
+  * doi: 10.1186/s41239-021-00308-4
+  * isbn: none
+  * ES: Aprendizaje basado en diseño y competencias de diseño web
+  * EN: Design-Based Learning and Undergraduate Web Design Skills
+  * fit_ES: Vincula explícitamente diseño web, usabilidad, programación y producción iterativa de artefactos en un entorno universitario.
+  * fit_EN: It explicitly links web design, usability, programming, and iterative artifact production in a university setting.
+  * scope: interface-layer
+
+## Fundamentos de accesibilidad web (WCAG) / Web accessibility foundations (WCAG)
+
+### A · Técnico / Technical
+
+* [UNVERIFIED] WCAG 2.2 organiza la accesibilidad en los cuatro principios perceivable, operable, understandable y robust, con criterios de conformidad verificables en niveles A, AA y AAA. ([W3C][15])
+
+  * cite: W3C Accessibility Guidelines Working Group, *Web Content Accessibility Guidelines (WCAG) 2.2*, 2023/2024, World Wide Web Consortium
+  * doi: none
+  * isbn: none
+  * identifier: [https://www.w3.org/TR/WCAG22/](https://www.w3.org/TR/WCAG22/)
+  * status: no-doi-no-isbn
+  * ES: Pautas de Accesibilidad para el Contenido Web (WCAG) 2.2
+  * EN: Web Content Accessibility Guidelines (WCAG) 2.2
+  * fit_ES: Debe funcionar como referencia normativa desde el inicio para contraste, texto alternativo, teclado, foco, formularios y robustez semántica.
+  * fit_EN: It should function as the normative reference from the outset for contrast, alternative text, keyboard access, focus, forms, and semantic robustness.
+  * scope: web-platform
+
+* [UNVERIFIED] La documentación WAI distingue correctamente los criterios normativos de WCAG de los documentos explicativos y técnicas informativas, evitando confundir guía pedagógica con requisito de conformidad. ([W3C][16])
+
+  * cite: W3C Web Accessibility Initiative, *Understanding WCAG 2.2*, 2024, World Wide Web Consortium
+  * doi: none
+  * isbn: none
+  * identifier: [https://www.w3.org/WAI/WCAG22/Understanding/](https://www.w3.org/WAI/WCAG22/Understanding/)
+  * status: no-doi-no-isbn
+  * ES: Comprender WCAG 2.2
+  * EN: Understanding WCAG 2.2
+  * fit_ES: Facilita convertir requisitos abstractos en razonamiento de diseño y código sin reducir accesibilidad a pasar un validador automático.
+  * fit_EN: It helps translate abstract requirements into design and coding reasoning without reducing accessibility to automated validation.
+  * scope: practitioner
+
+### B · Canónico-teórico / Canonical-theoretical
+
+* [ESTABLISHED] La accesibilidad digital puede formularse como cuestión de exclusión, derechos y política organizativa además de como problema técnico de conformidad. ([Elsevier Shop][17])
+
+  * cite: Jonathan Lazar, Daniel F. Goldstein, and Anne Taylor, *Ensuring Digital Accessibility through Process and Policy*, 2015, Morgan Kaufmann/Elsevier
+  * doi: none
+  * isbn: 9780128006467
+  * ES: Garantizar la accesibilidad digital mediante procesos y políticas
+  * EN: Ensuring Digital Accessibility through Process and Policy
+  * fit_ES: Es un anclaje sólido para enseñar accesibilidad como responsabilidad social, institucional y técnica, no como auditoría cosmética al final del proyecto.
+  * fit_EN: It is a strong anchor for teaching accessibility as a social, institutional, and technical responsibility rather than a cosmetic end-stage audit.
+  * scope: accessibility-ed
+
+* [ESTABLISHED] El diseño inclusivo interpreta muchos fallos de accesibilidad como desajustes producidos por decisiones de diseño y no como excepciones atribuibles al usuario. ([MIT Press][18])
+
+  * cite: Kat Holmes, *Mismatch: How Inclusion Shapes Design*, 2018, MIT Press
+  * doi: none
+  * isbn: 9780262349635
+  * ES: Mismatch: cómo la inclusión da forma al diseño
+  * EN: Mismatch: How Inclusion Shapes Design
+  * fit_ES: Aporta un marco ético directamente compatible con enseñar exclusión, diversidad de capacidades y diseño desde los márgenes antes de introducir ARIA como reparación.
+  * fit_EN: It provides an ethical frame compatible with teaching exclusion, ability diversity, and design from the margins before treating ARIA as a repair mechanism.
+  * scope: accessibility-ed
+
+### C · Académico / Academic
+
+* [ESTABLISHED] La enseñanza explícita de accesibilidad en educación superior puede integrarse en módulos multidisciplinares y analizarse a partir de la experiencia del alumnado, en lugar de reservarse a especialistas. ([ACM Digital Library][19])
+
+  * cite: Pauliina Baltzar, Tero Avellan, Idastiina Valtasalmi, Anne Ketola, Mirkka Forssell, Timo Keskinen, and Markku Turunen, *Online Accessibility Education in Higher Education: Experiences from a Multidisciplinary Module*, 2024, Proceedings of the 27th International Academic Mindtrek Conference
+  * doi: 10.1145/3681716.3689448
+  * isbn: none
+  * ES: Educación en accesibilidad digital en educación superior: experiencia de un módulo multidisciplinar
+  * EN: Online Accessibility Education in Higher Education: Experiences from a Multidisciplinary Module
+  * fit_ES: Es una referencia reciente y directamente pedagógica para justificar que la alfabetización en accesibilidad atraviese la formación universitaria y no quede confinada a una unidad final.
+  * fit_EN: It is a recent, directly pedagogical source supporting accessibility literacy across higher education rather than confining it to a final unit.
+  * scope: accessibility-ed
+
+* [ESTABLISHED] Enseñar desarrollo web directamente a usuarios de lectores de pantalla revela barreras de herramientas, técnicas y pedagogía que permanecen invisibles en cursos diseñados exclusivamente para estudiantes videntes. ([ACM Digital Library][20])
+
+  * cite: Claire Kearney-Volpe, Chancey Fleet, Keita Ohshiro, Veronica Alfaro Arias, Eric Hao Xu, and Amy Hurst, *Tangible Progress: Tools, Techniques, and Impacts of Teaching Web Development to Screen Reader Users*, 2023, ACM Transactions on Accessible Computing
+  * doi: 10.1145/3585315
+  * isbn: none
+  * ES: Enseñanza del desarrollo web a usuarios de lectores de pantalla
+  * EN: Teaching Web Development to Screen Reader Users
+  * fit_ES: Es especialmente valiosa para convertir accesibilidad de “contenido sobre usuarios” en conocimiento situado sobre cómo herramientas y prácticas de programación pueden excluir a quienes programan.
+  * fit_EN: It is especially valuable for moving accessibility from “content about users” to situated evidence about how programming tools and practices can exclude developers themselves.
+  * scope: accessibility-ed
+
+* [ESTABLISHED] La investigación sobre desarrollo web accesible con lectores de pantalla identifica oportunidades de mejora tanto en la educación como en la práctica profesional del desarrollo web. ([ACM Digital Library][21])
+
+  * cite: Claire Kearney-Volpe and Amy Hurst, *Accessible Web Development: Opportunities to Improve the Education and Practice of Web Development with a Screen Reader*, 2021, ACM Transactions on Accessible Computing
+  * doi: 10.1145/3458024
+  * isbn: none
+  * ES: Desarrollo web accesible: oportunidades para mejorar educación y práctica con lectores de pantalla
+  * EN: Accessible Web Development: Opportunities to Improve the Education and Practice of Web Development with a Screen Reader
+  * fit_ES: Fundamenta una enseñanza donde herramientas, ejemplos, depuración y documentación deben ser accesibles además del producto final.
+  * fit_EN: It supports teaching in which tools, examples, debugging practices, and documentation must themselves be accessible, not only the finished product.
+  * scope: accessibility-ed
+
+## Cross-cut · Durable core vs volatile tooling
+
+### A · Técnico / Technical
+
+* [ESTABLISHED] CS2023 formula la educación informática universitaria en términos de áreas de conocimiento y competencias transferibles, ofreciendo un marco curricular más durable que la enumeración de herramientas concretas. ([ACM Digital Library][22])
+
+  * cite: ACM/IEEE-CS/AAAI Joint Task Force, *Computer Science Curricula 2023: Curriculum Guidelines for Undergraduate Degree Programs in Computer Science*, 2024, ACM
+  * doi: 10.1145/3664191
+  * isbn: none
+  * ES: Computer Science Curricula 2023
+  * EN: Computer Science Curricula 2023
+  * fit_ES: No prescribe una doctrina “vanilla-first”, pero sí permite justificar resultados de aprendizaje y competencias por encima de dependencias efímeras de un framework específico.
+  * fit_EN: It does not prescribe a “vanilla-first” doctrine, but it does support organizing learning around competencies rather than transient framework dependencies.
+  * scope: programming-general
+
+* [UNVERIFIED] Los estándares vivos de HTML, DOM, CSS y WCAG constituyen una capa de plataforma con ciclos de evolución distintos de los de librerías y frameworks de aplicación. ([HTML Living Standard][23])
+
+  * cite: WHATWG and W3C, *HTML Living Standard; DOM Standard; CSS Snapshot 2022; WCAG 2.2*, 2022–2026, WHATWG/W3C
+  * doi: none
+  * isbn: none
+  * identifier: [https://html.spec.whatwg.org/](https://html.spec.whatwg.org/)
+  * status: no-doi-no-isbn
+  * ES: Estándares fundamentales de la plataforma web
+  * EN: Core Web Platform Standards
+  * fit_ES: En conjunto son la evidencia documental más fuerte para distinguir alfabetización de plataforma de alfabetización sobre herramientas concretas, aunque no constituyen por sí solos evidencia pedagógica experimental de “fundamentals first”.
+  * fit_EN: Together they provide the strongest documentary basis for distinguishing platform literacy from tool literacy, although they are not experimental evidence for a “fundamentals first” pedagogy.
+  * scope: web-platform
+
+### B · Canónico-teórico / Canonical-theoretical
+
+* [ESTABLISHED] Enseñar primero conceptos de interacción, modelos mentales y feedback conserva utilidad aunque cambien las implementaciones concretas de interfaz. ([Hachette Book Group][13])
+
+  * cite: Don Norman, *The Design of Everyday Things: Revised and Expanded Edition*, 2013, Basic Books
+  * doi: none
+  * isbn: 9780465050659
+  * ES: Principios durables de interacción y modelos mentales
+  * EN: Durable Interaction Principles and Mental Models
+  * fit_ES: Sirve de contrapunto conceptual a la volatilidad del tooling: feedback, mapping, constraints y errores siguen siendo problemas de interfaz independientemente de la librería utilizada.
+  * fit_EN: It provides a conceptual counterweight to tooling volatility: feedback, mapping, constraints, and error remain interface problems regardless of the library used.
+  * scope: interface-layer
+
+* [ESTABLISHED] Una referencia general de desarrollo web puede tratar estándares, progressive enhancement, responsive design, accesibilidad y rendimiento como fundamentos previos a la adopción de stacks específicos. ([O'Reilly Media][4])
+
+  * cite: Jennifer Niederst Robbins, *Learning Web Design: A Beginner's Guide to HTML, CSS, JavaScript, and Web Graphics, 5th Edition*, 2018, O'Reilly Media
+  * doi: none
+  * isbn: 9781491960196
+  * ES: Fundamentos de desarrollo web antes de frameworks
+  * EN: Web Development Fundamentals Before Frameworks
+  * fit_ES: Es una referencia docente coherente con una progresión desde estándares y capacidades nativas hacia tooling posterior, aunque no demuestra comparativamente que esa secuencia sea superior.
+  * fit_EN: It is a teaching reference consistent with progression from standards and native capabilities toward later tooling, although it does not experimentally prove that sequence superior.
+  * scope: interface-layer
+
+### C · Académico / Academic
+
+* [ESTABLISHED] Existe evidencia universitaria específica de que enseñar desarrollo web mediante práctica guiada y participación sostenida es pedagógicamente viable sin que la contribución dependa de un framework concreto. ([Springer][10])
+
+  * cite: Montathar Faraon, Kari Rönkkö, Mikael Wiberg, Robert Ramberg, et al., *Learning by Coding: A Sociocultural Approach to Teaching Web Development in Higher Education*, 2020, Education and Information Technologies
+  * doi: 10.1007/s10639-019-10037-x
+  * isbn: none
+  * ES: Aprender programando en desarrollo web universitario
+  * EN: Learning by Coding in Higher-Education Web Development
+  * fit_ES: Refuerza una pedagogía centrada en escribir, discutir y revisar código, pero no constituye una comparación experimental entre JavaScript nativo y frameworks SPA.
+  * fit_EN: It reinforces a pedagogy centered on writing, discussing, and reviewing code, but it is not an experimental comparison between native JavaScript and SPA frameworks.
+  * scope: interface-layer
+
+* [ESTABLISHED] La literatura curricular reconoce que el desarrollo web cambia con rapidez y que la prominencia de frameworks JavaScript plantea problemas de selección y actualización de contenidos. ([ACM Digital Library][24])
+
+  * cite: David Carter, *Where Is Communication in Web Development?*, 2020, Proceedings of SIGDOC '20
+  * doi: 10.1145/3380851.3416736
+  * isbn: none
+  * ES: ¿Dónde está la comunicación en el desarrollo web?
+  * EN: Where Is Communication in Web Development?
+  * fit_ES: Es útil para documentar la tensión curricular entre conocimientos de desarrollo web y la creciente centralidad de frameworks, sin convertir esa tensión en una afirmación no probada sobre su “vida media”.
+  * fit_EN: It documents curricular tension between web-development knowledge and the growing prominence of frameworks without turning that tension into an unsupported formal “half-life” claim.
+  * scope: interface-layer
+
+## Gaps
+
+* **Advanced CSS / class B:** hay buenas referencias técnicas y de diseño web, pero falta una obra canónica académica claramente centrada en la teoría del cascade, responsive layout o CSS como sistema de diseño; no conviene forzar una referencia HCI general para cubrir ese hueco.
+* **Modern JavaScript / class B:** la literatura canónica verificable es mayoritariamente técnica o de programming-language design; falta un anclaje teórico de educación superior específicamente sobre módulos, DOM, Fetch y asincronía del navegador.
+* **Modern JavaScript / class C:** existe investigación sobre enseñanza de desarrollo web, pero es escasa la evidencia reciente que compare explícitamente secuencias `plain JavaScript → framework` frente a `framework-first`.
+* **UX/UI / class C:** hay abundante HCI y usabilidad empírica, pero menos estudios recientes centrados específicamente en cómo enseñar visual hierarchy, typography y mobile-first a estudiantes de desarrollo front-end.
+* **Accessibility:** es el anchor con mejor cobertura académica reciente. La literatura ya permite defender integración curricular y accesibilidad de las propias herramientas de desarrollo, no solamente conformidad del producto final. ([Tampere University Research Portal][25])
+* **ARIA pedagogy:** no se localizó en esta pasada una referencia académica fuerte que demuestre específicamente cómo enseñar “native semantics first, ARIA only when necessary”; la norma y WAI sostienen la práctica técnica, pero la evidencia pedagógica FE-específica sigue siendo un hueco.
+* **Process evidence / version history:** no se localizó una fuente FE-específica suficientemente fuerte para afirmar que historial Git/versionado sea superior a evaluar únicamente el artefacto final; conviene reservar este argumento para otro cluster de assessment/programming education.
+* **Critical cost of interfaces:** atención, energía y exclusión son líneas relevantes, pero las dos primeras necesitan bibliografía crítica propia y no deberían inferirse a partir de WCAG o manuales de UX.
+* **Durable core vs volatile tooling:** no se encontró una construcción académica consolidada llamada formalmente “skill half-life” aplicable a front-end. La volatilidad de frameworks puede documentarse, pero convertirla en una tasa o semivida cuantificada sería sobreafirmar la literatura disponible.
+* **Framework-first comparison:** no se encontró evidencia suficientemente sólida para afirmar como hecho establecido que enseñar CSS/JavaScript sin frameworks primero produzca mejores resultados de aprendizaje. La estrategia está bien apoyada indirectamente por estándares, literatura de fundamentos y estudios generales de web pedagogy, pero sigue siendo una **decisión curricular razonada**, no una conclusión experimental establecida.
+* **`no-doi-no-isbn` count:** 6 items.
+
+[1]: https://www.w3.org/TR/css-grid-1/?utm_source=chatgpt.com "CSS Grid Layout Module Level 1"
+[2]: https://www.w3.org/TR/css-2022/?utm_source=chatgpt.com "CSS Snapshot 2022"
+[3]: https://www.oreilly.com/library/view/css-the-definitive/9781098117603/?utm_source=chatgpt.com "CSS: The Definitive Guide, 5th Edition [Book]"
+[4]: https://www.oreilly.com/library/view/learning-web-design/9781491960196/?utm_source=chatgpt.com "Learning Web Design, 5th Edition [Book]"
+[5]: https://dl.acm.org/doi/pdf/10.1145/2700514?utm_source=chatgpt.com "An Analysis of HTML and CSS Syntax Errors in a Web ..."
+[6]: https://link.springer.com/article/10.1186/s41239-021-00308-4 "Applying the design-based learning model to foster undergraduates’ web design skills: the role of knowledge integration | International Journal of Educational Technology in Higher Education | Springer Nature Link"
+[7]: https://html.spec.whatwg.org/multipage/webappapis.html?utm_source=chatgpt.com "event loop processing model"
+[8]: https://dom.spec.whatwg.org/?utm_source=chatgpt.com "DOM Standard"
+[9]: https://www.oreilly.com/library/view/javascript-the-definitive/9781491952016/?utm_source=chatgpt.com "JavaScript: The Definitive Guide, 7th Edition [Book]"
+[10]: https://link.springer.com/article/10.1007/s10639-019-10037-x "Learning by coding: A sociocultural approach to teaching web development in higher education | Education and Information Technologies | Springer Nature Link"
+[11]: https://pubmed.ncbi.nlm.nih.gov/31422242/?utm_source=chatgpt.com "User-centred web design, usability and user satisfaction"
+[12]: https://dl.acm.org/doi/10.1145/97243.97281?utm_source=chatgpt.com "Heuristic evaluation of user interfaces"
+[13]: https://www.basicbooks.com/titles/don-norman/the-design-of-everyday-things/9780465050659/?utm_source=chatgpt.com "The Design of Everyday Things by Don Norman"
+[14]: https://www.pearson.com/en-au/subject-catalog/p/dont-make-me-think-revisited-a-common-sense-approach-to-web-usability/P200000000385/9780133597264?srsltid=AfmBOoriodU_-rccXGViD24eyUsNAYVjlP3bitYGHjmaQj4CQHLMf7Gk&utm_source=chatgpt.com "A Common Sense Approach to Web Usability - Pearson"
+[15]: https://www.w3.org/TR/WCAG22/?utm_source=chatgpt.com "Web Content Accessibility Guidelines (WCAG) 2.2"
+[16]: https://www.w3.org/WAI/WCAG22/Understanding/?utm_source=chatgpt.com "Understanding WCAG 2.2 | WAI"
+[17]: https://shop.elsevier.com/books/ensuring-digital-accessibility-through-process-and-policy/lazar/978-0-12-800646-7?utm_source=chatgpt.com "Ensuring Digital Accessibility through Process and Policy"
+[18]: https://mitpress.mit.edu/9780262539487/mismatch/?utm_source=chatgpt.com "Mismatch"
+[19]: https://dl.acm.org/doi/10.1145/3681716.3689448?utm_source=chatgpt.com "Online Accessibility Education in Higher Education"
+[20]: https://dl.acm.org/doi/full/10.1145/3585315?utm_source=chatgpt.com "Tools, Techniques, and Impacts of Teaching Web ..."
+[21]: https://dl.acm.org/doi/fullHtml/10.1145/3458024?utm_source=chatgpt.com "Opportunities to Improve the Education and Practice of web ..."
+[22]: https://dl.acm.org/doi/book/10.1145/3664191?utm_source=chatgpt.com "Computer Science Curricula 2023 | ACM Other Books"
+[23]: https://html.spec.whatwg.org/dev/introduction.html?utm_source=chatgpt.com "HTML: The Living Standard"
+[24]: https://dl.acm.org/doi/10.1145/3380851.3416736?utm_source=chatgpt.com "Where Is Communication in Web Development?"
+[25]: https://researchportal.tuni.fi/en/publications/online-accessibility-education-in-higher-education-experiences-fr/?utm_source=chatgpt.com "Online Accessibility Education in Higher Education"
