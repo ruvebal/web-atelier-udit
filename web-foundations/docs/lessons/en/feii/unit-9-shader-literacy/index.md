@@ -3,11 +3,11 @@ layout: lesson
 title: 'Unit 9: Shader Literacy & Cutting-Edge Interface Aesthetics'
 title_alt: 'Unidad 9: Alfabetización en Shaders y Estéticas de Interfaz de Vanguardia'
 slug: feii-unit-9-shader-literacy
-date: 2026-08-08
+date: 2026-08-14
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /lessons/en/feii/unit-9-shader-literacy/
-description: 'Shader literacy fundamentals: GLSL basics, custom shaders in R3F, post-processing effects, and cutting-edge interface aesthetics.'
+description: 'Minimum-viable GLSL in R3F: one understood shader, uniforms and UV space, optional post-processing cost, merge log — not a graphics degree.'
 tags:
   [
     feii,
@@ -19,7 +19,7 @@ tags:
     r3f,
     webgl,
   ]
-status: complete
+status: draft
 ---
 
 <!-- prettier-ignore-start -->
@@ -33,9 +33,36 @@ status: complete
 
 ---
 
-> _"Shaders are not black magic. They're programs that run on the GPU, pixel by pixel."_
+> _"Code without quality checks is like a ship without a compass: it moves, but who knows where."_
+> — Tao of Development, `qa-009`
 
-> **AI Assistance Disclosure:** This unit integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout the process.
+> **AI Assistance Disclosure:** Models draft GLSL fluently and often wrongly. Literacy means you can explain *your* shader. Read the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) and keep the Unit 6 ACCEPT / REJECT log on every shader diff.
+
+**Code in this unit:** **Excerpt** unless labelled — GLSL fragments and R3F snippets assume the Unit 8 canvas. They are not CodeSandbox-ready files.
+
+---
+
+## Scholarly honesty — minimum viable GLSL is a classroom contract
+
+There is **no** Ahmes node for “this GLSL syllabus works in higher education.” Bloque 5 remains **`[UNVERIFIED-GAP]`**. The checklist below is what this cohort will defend, not a finding.
+
+Adjacent, not a substitute:
+
+- Mixed-initiative visual selection can *create* shaders without teaching programming (AI Co-Artist; coat `2512_08951_ai_co_artist_b431f6a4` · nodo `777b3e26-2775-5cc3-ade3-96fec7239cd9` · p. 2) — **[BIBLIO-GAP]**. That is the **failure mode** this unit refuses: output without literacy. <!-- provenance: re-checked live 2026-08-20, not assumed from the 2026-08-14 label — `ahmes status` still reports `Citation preview: [BIBLIO-GAP]` (reason: missing year, LLM-only metadata at confidence ≤0.85). `ahmes enrich --meta --online` was attempted this session: result "Host registry mismatch — identifiers only," 0 nodes enriched — the online registry's title disagrees with this PDF's own heading, so Ahmes correctly refused a silent override. This is a genuine content gap, not a pipeline-lag fix; the label stands unchanged. -->
+- Render-then-judge pipelines exist in other graphics domains (SGP-GenBench) — they do not grade your Entrega. **You** judge; the browser is the verifier.
+
+**Platform notes** (npm, checked 2026-08-20 — unchanged from the 2026-08-14 pin): `three@0.185.1` · `@react-three/fiber@9.7.0` · `@react-three/drei@10.7.8` · `@react-three/postprocessing@3.0.5` (optional; every extra pass is a mobile tax — Unit 7).
+
+### Minimum viable GLSL checklist (graded)
+
+You can point at your shader and name:
+
+1. **Vertex vs fragment** — who moves vertices, who colours pixels.
+2. **One uniform** you set from React (`uTime` or equivalent) and why it is a uniform, not a constant.
+3. **Coordinate space** — `uv` / `vUv` vs `gl_FragCoord` vs object space; which one you used.
+4. **Precision** — you did not ignore `mediump` on mobile (or you justified `highp`).
+5. **One effect** you intended (band, fresnel, dissolve, distortion) — not a paste of the lesson excerpt.
+6. **Post-pass cost** — bloom / chromatic aberration are **optional**. If you add a composer pass, state the `renderer.info` delta. Default: **zero** extra passes on mobile.
 
 ---
 
@@ -44,10 +71,9 @@ status: complete
 By the end of this unit, you will be able to:
 
 - **Understand shader basics** — Vertex and fragment shaders, GLSL syntax, and the GPU pipeline
-- **Write custom shaders** — GLSL in R3F, uniform inputs, and time-based animation
-- **Implement post-processing** — Bloom, distortion, chromatic aberration, and other effects
-- **Explore cutting-edge aesthetics** — Generative patterns, noise-based effects, and spatial UI
-- **Balance aesthetics with performance** — When to use shaders vs. standard materials
+- **Write one custom shader you can explain** — GLSL in R3F, one uniform, UV space
+- **Treat post-processing as a cost** — Bloom and CA are optional; measure or omit
+- **Refuse creation-without-literacy** — a generated look you cannot narrate fails the unit
 
 ---
 
@@ -71,7 +97,7 @@ Shaders are programs that run on the GPU:
 
 ### Vertex Shader
 
-Processes each vertex (position, normal, UV):
+Processes each vertex (position, normal, UV) — **Excerpt**:
 
 ```glsl
 void main() {
@@ -167,11 +193,11 @@ function AnimatedBox() {
 
 ---
 
-## 🌈 Post-Processing Effects
+## 🌈 Post-Processing Effects (optional)
 
-Post-processing applies effects after the scene is rendered:
+Post-processing runs **after** the scene. Each pass is extra GPU work. Do not add bloom and chromatic aberration by default — that is a look, not literacy. If you use a composer, record the `renderer.info` change (Unit 8 caps still apply).
 
-### Bloom Effect
+### Bloom Effect — **Excerpt** (optional)
 
 ```jsx
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
@@ -218,7 +244,9 @@ const CustomPass = shaderMaterial(
 
 ---
 
-## 🎯 Cutting-Edge Aesthetics
+## 🎯 Cutting-Edge Aesthetics (stretch, not the grade)
+
+These snippets are **Excerpt** — undefined components, missing fonts. They illustrate a look. The grade is the MV GLSL checklist, not a generative collage.
 
 ### Noise-Based Patterns
 
@@ -261,42 +289,42 @@ import { Text } from '@react-three/drei';
 
 ---
 
-## 🎯 Practice Exercise
+## Lab (team) — workplace-like · 3 h
 
-**Time:** 3 hours
+On the **same** Entrega 2 repo as Unit 8:
 
-1. **Write a vertex shader** — Transform vertices with time-based distortion
-2. **Write a fragment shader** — Create a generative pattern using noise
-3. **Implement post-processing** — Add bloom and chromatic aberration to a scene
-4. **Build a cutting-edge UI** — Combine 3D elements with spatial typography
-5. **Optimize performance** — Measure GPU usage, reduce shader complexity if needed
-6. **Document your aesthetic choices** — Why these effects? What mood do they create?
+1. Author **one** `shaderMaterial` (or equivalent) that is not a copy of the excerpt above.
+2. Drive **one uniform** from `useFrame` (`uTime` or a user control).
+3. Write a 8–12 line explanation in `docs/` covering the MV GLSL checklist.
+4. Log every AI shader diff ACCEPT / REJECT ([covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }})). At least one REJECT, or an explicit finding.
+5. Post-processing: omit, **or** add one pass and show the budget delta.
 
-**Deliverable:** R3F project with custom shaders + post-processing + aesthetic documentation
-
----
-
-## 📚 Recommended Reading
-
-- **The Book of Shaders** — https://thebookofshaders.com/
-- **Shader Toy** — https://www.shadertoy.com/ (inspiration gallery)
-- **GLSL Documentation** — https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language
-- **Post-Processing in R3F** — https://docs.pmnd.rs/react-postprocessing
+**Deliverable:** understood shader + explanation + merge log. A generated aesthetic without the paragraph fails.
 
 ---
 
-## ✅ Session Outcome
+## Exercises (individual) — decontextualised · ~1 h
 
-By the end of this unit, you should:
-
-- Understand the GPU pipeline and shader types (vertex/fragment)
-- Be able to write custom GLSL shaders in R3F
-- Implement post-processing effects for visual polish
-- Explore cutting-edge aesthetics through generative patterns and spatial UI
-- Balance visual impact with performance considerations
-
-Units 8–9 complete the **3D / cutting-edge interface aesthetics** frontier unit. This is explicitly an interface-layer transfer exercise — the same component/state model as React, applied to spatial interfaces. The Entrega 2 seed project can now be built using R3F and shader literacy.
+1. On paper or a gist: write a fragment shader that tints `vUv.x` without looking at this page.
+2. Name three reasons a uniform is not a JavaScript closure inside the shader.
+3. Given a mobile cap of 80 draw calls: would you add bloom? One sentence.
 
 ---
 
-> _"Aesthetics is not decoration. It's how the interface communicates."_
+## 📚 Platform notes (HOW, not bibliography)
+
+- The Book of Shaders — https://thebookofshaders.com/
+- Shadertoy (inspiration, not a submission) — https://www.shadertoy.com/
+- Khronos GLSL wiki — https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language
+- r3f postprocessing — https://docs.pmnd.rs/react-postprocessing
+
+---
+
+## Session outcome
+
+You can explain one authored shader and decide whether a post pass is worth its cost. Units 8–9 seed Entrega 2. [Unit 10]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) adds live data. Tool shopping is still not a learning outcome.
+
+---
+
+> _"Before fixing, understand. Before understanding, observe. Before observing, breathe."_
+> — Tao of Development, `wis-002`

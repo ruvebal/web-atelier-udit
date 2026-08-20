@@ -3,11 +3,11 @@ layout: lesson
 title: 'Unit 8: React Three Fiber — 3D Interfaces with React Patterns'
 title_alt: 'Unidad 8: React Three Fiber — Interfaces 3D con Patrones React'
 slug: feii-unit-8-r3f-fundamentals
-date: 2026-08-08
+date: 2026-08-14
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /lessons/en/feii/unit-8-r3f-fundamentals/
-description: 'React Three Fiber fundamentals: declarative 3D components, state management, animation, and interface-layer transfer from React.'
+description: 'React Three Fiber as interface-layer transfer: declarative 3D, raycasting, renderer.info budgets, and the AI merge log — not an MCP toolchain.'
 tags:
   [
     feii,
@@ -19,7 +19,7 @@ tags:
     interface-layer,
     shader-literacy,
   ]
-status: complete
+status: draft
 ---
 
 <!-- prettier-ignore-start -->
@@ -33,9 +33,27 @@ status: complete
 
 ---
 
-> _"3D on the web is not a different paradigm. It's the same component model, extended to the spatial dimension."_
+> _"The module that knows its boundaries serves the whole. The module that knows no boundaries becomes the whole—and collapses under its own weight."_
+> — Tao of Development, `arch-001`
 
-> **AI Assistance Disclosure:** This unit integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout the process.
+> **AI Assistance Disclosure:** Assistants may draft R3F JSX. You remain responsible for API truth, dispose, and the merge log. Read the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) before the first prompt. Same ACCEPT / REJECT discipline as [Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}).
+
+**Code in this unit:** every fence is an **Excerpt** unless labelled otherwise — paste into a Vite + React sandbox you already have; these snippets are not a routed CodeSandbox lesson.
+
+---
+
+## Scholarly honesty — this block is a declared pilot
+
+Bloque 5 (R3F *as a taught sequence*) has **no** peer-reviewed pedagogy coat in the course vault. That is an explicit **`[UNVERIFIED-GAP]`**, not a footnote. Neelakantam & Pant (2017) and current R3F docs ground *how* the renderer works. They do not prove that this syllabus teaches well.
+
+Adjacent CS-education findings still bind the *gates*, not the graphics claim:
+
+- Copilot-class tools can raise speed while students **accept suggestions without reflecting** (Shihab et al. 2025; coat `2506_10051_copilot_brownfield_29f3d2f5` · nodo `1d671902-3c68-5ad4-9b08-198236f1d5e5` · p. 9) — `(Shihab 2025, 9)`. <!-- provenance: re-verified live 2026-08-20 via `ahmes query --cite --require-evaluator-safe`; labelled [BIBLIO-GAP] on 2026-08-14 per AUDIT-GROUNDED.md, the bibliographic-metadata cascade has since resolved it — confidence 0.95, evaluator_safe=yes. Epistemic boundary unchanged: still an adjacent CS-education finding, not R3F pedagogy evidence. -->
+- GenAI exposure is linked to **design fixation** (Wadinambiarachchi et al. 2024; coat `2403_11164_design_fixation_de51c7ac` · nodo `770815a4-c3b9-5d3e-ab71-5c009548393f` · p. 1) — `(Wadinambiarachchi 2024, 1)`. <!-- provenance: re-verified live 2026-08-20, same status change as the Shihab node above; was [BIBLIO-GAP] 2026-08-14, now evaluator_safe=yes. -->
+
+You are inside the gap: Entrega 2 is evidence. MCP catalogues, Stitch, and corpus-to-boilerplate are **instructor demos**, not homework.
+
+**Platform notes** (npm, checked 2026-08-20 — re-verify before a new cohort; unchanged from the 2026-08-14 pin): `three@0.185.1` · `@react-three/fiber@9.7.0` (React 19) · `@react-three/drei@10.7.8`. Vendor docs are HOW, not bibliography.
 
 ---
 
@@ -46,8 +64,9 @@ By the end of this unit, you will be able to:
 - **Understand React Three Fiber** — Declarative 3D components using React patterns
 - **Bridge React to 3D** — Apply hooks, state, and composition to WebGL scenes
 - **Build interactive 3D interfaces** — Events, raycasting, and responsive 3D components
-- **Optimize 3D performance** — Instancing, culling, and efficient rendering
+- **Optimize 3D performance** — Instancing, culling, and a graded `renderer.info` snapshot (desktop ≤ 200 draw calls / mobile ≤ 80)
 - **See the interface-layer transfer** — Same component model, different rendering target
+- **Merge with judgment** — Log ACCEPT / REJECT on any AI-assisted scene diff (covenant)
 
 ---
 
@@ -75,9 +94,12 @@ React Three Fiber (R3F) is a React renderer for Three.js:
 
 **Key insight:** You already know React. R3F just gives you a new rendering target.
 
+Raw WebGL rewards this abstraction: "with the various WebVR frameworks that have been developed, the complexity of leveraging WebGL efficiently and writing h[igh-performance code]…" is the standing problem declarative renderers like R3F exist to manage (Neelakantam & Pant 2017; coat `srushtika_neelakantam…964c117c` · nodo `c84d51ae-c108-5d94-ade0-7ead0dc88c48` · p. 15 — `(Neelakantam 2017, 15)`). <!-- provenance: node resolved live 2026-08-20 via `ahmes query --cite --require-evaluator-safe`, evaluator_safe=yes. This is the matrix's named technique-only source for Units 8–9 (grounds HOW WebGL abstraction works, never that this teaching sequence works well — that gap stays declared above). -->
+
 ### Declarative vs. Imperative
 
-Three.js (imperative):
+Three.js (imperative) — **Excerpt**:
+
 ```js
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
@@ -88,7 +110,8 @@ const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 ```
 
-R3F (declarative):
+R3F (declarative) — **Excerpt**:
+
 ```jsx
 <Canvas>
   <mesh>
@@ -103,6 +126,8 @@ R3F (declarative):
 ## 🏗️ R3F Project Setup
 
 ### Installation
+
+**Excerpt** — install the pinned versions from the scholarly-honesty note (or the current npm majors if you re-verified):
 
 ```bash
 npm install three @react-three/fiber @react-three/drei
@@ -237,46 +262,65 @@ function InstancedCubes({ count = 1000 }) {
 
 ### Automatic Culling
 
-R3F automatically culls objects outside the camera view — no manual optimization needed.
+R3F frustum-culls meshes that leave the camera — useful, not a substitute for a draw-call budget.
+
+### Graded budget — `renderer.info`
+
+**Excerpt** — call from a `useFrame` (throttle: once per second) or a debug overlay. Paste the numbers into the Entrega, with the device class.
+
+```jsx
+useFrame(({ gl }) => {
+  const { render, memory } = gl.info;
+  // render.calls, render.triangles, memory.geometries, memory.textures
+});
+```
+
+| Class | Draw-call cap | Fail if |
+| --- | --- | --- |
+| Desktop | ≤ 200 | Uninstanced grids, lights-as-meshes, forgotten helpers |
+| Mobile | ≤ 80 | Default DPR 2 + post stack + uninstanced clutter |
+
+Unit 7's lesson still holds: an unmeasured "it's fine" is not an optimization.
 
 ---
 
-## 🎯 Practice Exercise
+## Lab (team) — workplace-like · 3 h
 
-**Time:** 3 hours
+Shared capstone / vShowroom seed. Do this **together** on the repo you will defend.
 
-1. **Set up an R3F project** — Install Three.js and R3F dependencies
-2. **Build a basic scene** — Canvas, lights, camera, and a simple mesh
-3. **Add interactivity** — Click events, hover states, and raycasting
-4. **Implement animation** — Use `useFrame` for continuous animation
-5. **Optimize performance** — Use instancing for multiple objects
-6. **Compare to 2D React** — Note how the same hooks and state patterns apply
+1. Canvas + lights + one composed mesh tree (not a single tutorial cube).
+2. Pointer events: hover + click that change **React state** (raycasting is the 3D `onClick`).
+3. One `useFrame` animation that does **not** allocate geometry.
+4. `renderer.info` snapshot in `docs/` — before/after or a threshold you accepted.
+5. Merge log: at least one AI diff with ACCEPT or REJECT ([covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }})).
 
-**Deliverable:** R3F project with interactive 3D interface + performance analysis
-
----
-
-## 📚 Recommended Reading
-
-- **R3F Documentation** — https://docs.pmnd.rs/react-three-fiber
-- **Three.js Documentation** — https://threejs.org/docs/
-- **@react-three/drei** — https://github.com/pmndrs/drei (helper components)
-- **R3F Examples** — https://docs.pmnd.rs/react-three-fiber/getting-started/examples
+**Deliverable:** branch on the shared repo + `docs/ai-3d-merge-log.md` + `renderer.info` note.
 
 ---
 
-## ✅ Session Outcome
+## Exercises (individual) — decontextualised · ~1 h
 
-By the end of this unit, you should:
+Not the showroom. Isolate the strategy:
 
-- Understand React Three Fiber as a React renderer for WebGL
-- Be able to build declarative 3D components using React patterns
-- Implement interactivity and animation using React hooks
-- Optimize 3D performance with instancing and culling
-- See the interface-layer transfer — same component model, different rendering target
-
-This unit introduces 3D as an interface-layer frontier — not a graphics course, but an application of React patterns to spatial interfaces. The next unit will dive deeper into shader literacy and cutting-edge aesthetics.
+1. Rewrite the imperative Three.js snippet above as R3F JSX without looking at the answer.
+2. Add `onPointerOver` / `onPointerOut` to a mesh you did not use in the lab.
+3. Write two sentences: what is the same as 2D React, and what is GPU-specific.
 
 ---
 
-> _"The interface layer is not bound to 2D. Spatial interfaces are the next frontier."_
+## 📚 Platform notes (HOW, not bibliography)
+
+- R3F docs — https://docs.pmnd.rs/react-three-fiber
+- three.js docs — https://threejs.org/docs/
+- drei — https://github.com/pmndrs/drei
+
+---
+
+## Session outcome
+
+You can transfer the React component model onto a WebGL canvas, interact with meshes, and **show a budget**. Shader literacy is [Unit 9]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}). MCP shopping is not a learning outcome.
+
+---
+
+> _"Before fixing, understand. Before understanding, observe. Before observing, breathe."_
+> — Tao of Development, `wis-002`

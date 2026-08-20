@@ -1197,6 +1197,17 @@
    en: draft
   category: feii
   tags: [feii, performance, core-web-vitals, bundle-optimization]
+- slug: feii-ai-assisted-3d-covenant
+  title:
+   en: 'AI-Assisted 3D Covenant — Entrega 2 Bar (Units 8–9)'
+  path:
+   en: /lessons/en/feii/ai-assisted-3d-covenant/
+  file:
+   en: lessons/en/feii/ai-assisted-3d-covenant/index.md
+  status:
+   en: complete
+  category: feii
+  tags: [feii, r3f, shaders, human-in-the-loop, ai-declaration, entrega-2]
 - slug: feii-unit-8-r3f-fundamentals
   title:
    en: 'Unit 8: React Three Fiber — 3D Interfaces with React Patterns'
@@ -1274,3 +1285,14 @@
   status:
    en: complete
   type: track
+- slug: 3d-web-corpus
+  title:
+   en: '3D Web — Corpus & Syllabus'
+  path:
+   en: /lessons/en/3d/
+  file:
+   en: lessons/en/3d/index.md
+  status:
+   en: complete
+  category: 3d
+  tags: [3d, r3f, webgl, corpus]

@@ -134,78 +134,104 @@ tracks:
      description: 'Configurar entorno de desarrollo: VS Code, Git/GitHub, extensiones, y flujos de trabajo básicos.'
      duration: '2 horas'
      labHours: 1
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [setup, git, vscode, environment]
    - title: 'First Steps: Git & GitHub Flow'
      slug: 's2-first-steps'
      description: 'Primeros commits, ramas básicas, pull requests simples, y publicación inicial en GitHub Pages.'
      duration: '2 horas'
      labHours: 1
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [git, github, workflow, collaboration]
    - title: 'HTML Semantic + CSS Fundamentals'
      slug: 's3-html-css-basics'
      description: 'Estructura HTML5 semántica, selectores CSS, modelo de caja, y tipografía básica. Landing page inicial.'
      duration: '3 horas'
      labHours: 1.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [html, css, semantic, layout]
    - title: 'Typography & Color Systems'
      slug: 's4-typography-color'
      description: 'Sistemas tipográficos fluidos con clamp(), paletas de color accesibles, y jerarquía visual.'
      duration: '2 horas'
      labHours: 1
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [typography, color, design, accessibility]
    - title: 'Intrinsic Web Design: Container Queries'
      slug: 's5-intrinsic-web-design'
      description: 'Container queries, subgrid, y diseño responsivo basado en contexto no solo viewport.'
      duration: '2 horas'
      labHours: 1
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [css, responsive, container-queries, subgrid]
    - title: 'Pseudo-Elements & State-Based Styling'
      slug: 's6-pseudo-elements-state'
      description: 'Pseudo-clases (:hover, :focus-visible), pseudo-elements (::before, ::after), y patrones de interacción accesibles.'
      duration: '2 horas'
      labHours: 1
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [css, pseudo-elements, state, accessibility]
    - title: 'JavaScript Introduction'
      slug: 's7-js-intro'
      description: 'Fundamentos JS: tipos, control flow, funciones, comparación con C++/PHP, y modelo de eventos.'
      duration: '3 horas'
      labHours: 1.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [javascript, fundamentals, events, dom]
    - title: 'DOM Manipulation: Strings, APIs, Templates'
      slug: 's8-js-dom-manipulation'
      description: 'Manipulación del DOM: innerHTML vs APIs nativas, seguridad XSS, y patrones de actualización.'
      duration: '3 horas'
      labHours: 1
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [javascript, dom, security, manipulation]
    - title: 'JavaScript Modules: ES6 Modularity'
      slug: 's9-js-modules'
      description: 'Historia de la modularidad (IIFE → CommonJS → ES6), import/export, y arquitectura modular.'
      duration: '2 horas'
      labHours: 1
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [javascript, modules, es6, architecture]
    - title: 'Linting & Formatting: Professional Standards'
      slug: 's10-linting-formatting'
      description: 'Prettier, ESLint, Stylelint, HTMLHint: configuración y automatización de calidad de código.'
      duration: '1.5 horas'
      labHours: 0.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [tooling, linting, formatting, quality]
    - title: 'GSAP: Typography & SVG Animation'
      slug: 's11-gsap-animation'
      description: 'GSAP para animación de tipografía y SVG: timelines, stagger, easing, y ScrollTrigger.'
      duration: '3 horas'
      labHours: 1.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [animation, gsap, svg, typography]
    - title: 'Modern Web Design Trends'
      slug: 's12-design-trends'
      description: 'Parallax, glassmorphism, neumorphism, dark mode, y tendencias contemporáneas con demos interactivas.'
      duration: '2 horas'
      labHours: 1
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [design, trends, ui, animation]
    - title: 'Portfolio Template Brief (Semester 1 Project)'
      slug: 's13-portfolio-template'
      description: 'Proyecto integrador semestral: portfolio template en tres niveles (vanilla, Bootstrap+GSAP, Tailwind+Vite).'
      duration: '4 horas'
      labHours: 1.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [project, portfolio, integration, deployment]
 
    # ═══════════════════════════════════════════════════════════════════════
@@ -216,90 +242,120 @@ tracks:
      description: 'Tao Developer mindset, Five Pillars, y filosofía de "Critical Coding for a Better Living".'
      duration: '3 horas'
      labHours: 1
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [philosophy, pedagogy, mindset, ai-assisted]
    - title: 'Framework Fundamentals & Comparison'
      slug: 's15-frameworks-comparative'
      description: 'React vs Vue vs Vanilla: comparativa práctica, decisión tecnológica, y setup con Vite.'
      duration: '4 horas'
      labHours: 1.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [frameworks, comparison, react, vue, vanilla]
    - title: 'State & UI: Finite State Machines'
      slug: 's16-state-ui'
      description: 'Modelado de estado como FSM, taxonomía de estado (UI, form, server, URL, shared), y antipatrones.'
      duration: '3 horas'
      labHours: 1.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [state, fsm, ui, architecture]
    - title: 'AI-Assisted Development Foundations'
      slug: 's17-ai-assisted-foundations'
      description: 'LLMs como motores de razonamiento probabilístico, contratos arquitectónicos, y patrones de observabilidad.'
      duration: '2 horas'
      labHours: 0.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [ai, llm, architecture, observability]
    - title: 'React Fundamentals: Components & JSX'
      slug: 's18-react-fundamentals'
      description: 'Modelo de componentes funcionales, JSX sintaxis, props, eventos, y renderizado condicional/listas.'
      duration: '3 horas'
      labHours: 1.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [react, components, jsx, props]
    - title: 'Hooks Mastery: useState, useEffect, Custom Hooks'
      slug: 's19-react-hooks'
      description: 'useState, useEffect, useRef, useMemo/useCallback, y custom hooks reutilizables.'
      duration: '3 horas'
      labHours: 1.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [react, hooks, state, effects]
    - title: 'State Architecture: useReducer, Context, External Libraries'
      slug: 's20-state-architecture'
      description: 'useReducer para lógica compleja, Context API para estado global, y Zustand/Redux Toolkit.'
      duration: '3 horas'
      labHours: 1.5
+     magistralHours: 0.5
+     ejerciciosHours: 0.5
      tags: [react, state, context, redux, zustand]
    - title: 'Routing & Navigation: React Router v7'
      slug: 's21-react-routing'
      description: 'React Router v6/v7, rutas dinámicas, nested routes, layouts, y protected routes con auth.'
      duration: '3 horas'
      labHours: 1.5
+     magistralHours: 0
+     ejerciciosHours: 0.5
      tags: [react, routing, navigation, auth]
    - title: 'Backend Integration: Fetch, React Query, GraphQL'
      slug: 's22-backend-integration'
      description: 'Fetch API, patrones async, React Query para caching/mutations, y GraphQL opcional.'
      duration: '3 horas'
      labHours: 1.5
+     magistralHours: 0
+     ejerciciosHours: 0.5
      tags: [react, api, fetch, react-query, graphql]
    - title: 'Authentication: JWT, Sessions, Security'
      slug: 's23-authentication'
      description: 'Conceptos de auth (JWT, sessions, OAuth), implementación segura, httpOnly cookies, y prevención XSS.'
      duration: '3 horas'
-     labHours: 1.5
+     labHours: 0.5
+     magistralHours: 0
+     ejerciciosHours: 0.5
      tags: [react, auth, jwt, security, sessions]
    - title: 'Framework Mode + SSR Auth + i18n (Advanced)'
      slug: 's24-framework-mode-ssr'
      description: 'React Router v7 Framework Mode, SSR con routes.js, auth server-side, i18n con :locale, y deployment PM2+nginx.'
      duration: '3 horas'
      labHours: 1
+     magistralHours: 0
+     ejerciciosHours: 0.5
      tags: [react, ssr, framework-mode, auth, i18n, deployment]
    - title: 'Testing: Vitest, RTL, Cypress'
      slug: 's25-testing'
      description: 'Unit testing con Vitest, component testing con React Testing Library, y E2E con Cypress.'
      duration: '2 horas'
      labHours: 1
+     magistralHours: 0
+     ejerciciosHours: 0.5
      tags: [react, testing, vitest, rtl, cypress]
    - title: 'Performance: Memoization, Code Splitting, Bundle Analysis'
      slug: 's26-performance'
      description: 'React DevTools Profiler, React.memo, useMemo/useCallback, lazy() + Suspense, y análisis de bundle.'
      duration: '2 horas'
      labHours: 1
+     magistralHours: 0
+     ejerciciosHours: 0.5
      tags: [react, performance, optimization, profiling]
    - title: 'Deployment: Vercel, Netlify, CI/CD'
      slug: 's27-deployment'
      description: 'Build production de Vite, deployment a Vercel/Netlify desde GitHub, variables de entorno, y GitHub Actions.'
      duration: '2 horas'
-     labHours: 1
+     labHours: 0
+     magistralHours: 0
+     ejerciciosHours: 0.5
      tags: [react, deployment, vercel, netlify, ci-cd]
    - title: 'Individual Project: Geophysical Aggregator'
      slug: 's28-geophysical-project'
      description: 'Proyecto individual integrador: app SSR con React Query, dos APIs geofísicas públicas, i18n, auth, y deployment público.'
      duration: '3 semanas (individual, fuera de clase)'
      labHours: 0
+     magistralHours: 0
+     ejerciciosHours: 0.5
      tags: [project, integration, api, deployment, individual]
    - title: 'Final Presentation & Monograph'
      slug: 's29-final-presentation'
@@ -346,72 +402,96 @@ tracks:
      description: 'Orientación: transición de React FE I a arquitectura de producción, reframe de la capa de interfaz como sistemas de interfaces.'
      duration: '2 horas'
      labHours: 0
+     magistralHours: 1
+     ejerciciosHours: 2
      tags: [orientation, architecture, interface-layer, systems-thinking]
    - title: 'Astro Meta-Framework — Islands Architecture & SSR'
      slug: 'unit-2-astro-fundamentals'
      description: 'Astro fundamentals: content-first philosophy, islands architecture, SSR vs SSG, and multi-framework integration.'
      duration: '3 horas'
      labHours: 2
+     magistralHours: 1
+     ejerciciosHours: 2
      tags: [astro, meta-framework, ssr, islands-architecture, multi-framework]
    - title: 'Advanced Astro Architecture & Multi-Framework Integration'
      slug: 'unit-3-astro-advanced'
      description: 'Advanced Astro patterns: content collections, data fetching, multi-framework islands, and micro-frontend architecture.'
      duration: '3 horas'
      labHours: 2
+     magistralHours: 1
+     ejerciciosHours: 2
      tags: [astro, advanced-architecture, content-collections, multi-framework, micro-frontends]
    - title: 'Progressive Web Apps & Offline Capabilities'
      slug: 'unit-4-pwa-offline'
      description: 'PWA fundamentals: service workers, caching strategies, web app manifest, and offline-first UX patterns.'
      duration: '2 horas'
      labHours: 2
+     magistralHours: 1
+     ejerciciosHours: 2
      tags: [pwa, service-workers, offline-first, caching-strategies, installability]
    - title: 'Testing Strategy — Diseñar una Suite Que Justifique Su Coste'
      slug: 'unit-5-testing-strategy'
      description: 'El testeo como decisión de ingeniería, no como tutorial de herramientas: qué NO testear, flakiness y determinismo, migración Cypress→Playwright, presupuestos de tiempo en CI, y contract testing contra el backend. Hereda el Testing Trophy de FE I en lugar de contradecirlo.'
      duration: '3 horas'
      labHours: 3
+     magistralHours: 1
+     ejerciciosHours: 2
      tags: [testing, testing-strategy, vitest, playwright, flakiness, ci-cd, contract-testing, test-design]
    - title: 'AI-Assisted Code Review — Human-in-the-Loop y Evaluada Como Tal'
      slug: 'unit-6-ai-code-review'
      description: 'Revisión de código asistida por IA como técnica enseñada: integración en PRs de GitHub, diseño de prompts de revisión, y defensa de las sugerencias aceptadas y rechazadas. Basada en Oliveira et al. 2026 (arXiv 2604.23251, ICSE SEET).'
      duration: '3 horas'
      labHours: 3
+     magistralHours: 1
+     ejerciciosHours: 2
      tags: [ai-code-review, human-in-the-loop, github-pr, self-regulated-learning, ai-declaration]
    - title: 'Performance Engineering — Core Web Vitals & Optimization'
      slug: 'unit-7-performance'
      description: 'Performance engineering fundamentals: Core Web Vitals, performance budgets, bundle optimization, and runtime performance optimization.'
      duration: '2 horas'
      labHours: 2
+     magistralHours: 1
+     ejerciciosHours: 2
      tags: [performance, core-web-vitals, performance-budgets, bundle-optimization, runtime-optimization]
    - title: 'React Three Fiber — 3D Interfaces with React Patterns'
      slug: 'unit-8-r3f-fundamentals'
-     description: 'React Three Fiber fundamentals: declarative 3D components, state management, animation, and interface-layer transfer from React.'
+     description: 'Interface-layer transfer onto R3F: state, raycasting, renderer.info budgets, AI merge log. Student covenant — no MCP shopping. Declared pedagogical pilot.'
      duration: '3 horas'
+     magistralHours: 1
      labHours: 3
+     ejerciciosHours: 0
      tags: [r3f, react-three-fiber, 3d, webgl, three-js, interface-layer]
    - title: 'Shader Literacy & Cutting-Edge Interface Aesthetics'
      slug: 'unit-9-shader-literacy'
-     description: 'Shader literacy fundamentals: GLSL basics, custom shaders in R3F, post-processing effects, and cutting-edge interface aesthetics.'
+     description: 'Minimum-viable GLSL: one understood shader, uniforms, UV space, optional post-processing cost. Merge log parity with Unit 6. Declared pedagogical pilot.'
      duration: '3 horas'
+     magistralHours: 0.5
      labHours: 3
+     ejerciciosHours: 0
      tags: [shaders, glsl, post-processing, aesthetics, cutting-edge, r3f, webgl]
    - title: 'IoT/Robotics Control-Panel & Python-Backed Interface'
      slug: 'unit-10-iot-python-backend'
      description: 'IoT/robotics control-panel development: device APIs, WebSocket real-time data, Python-backed interfaces, and the component model beyond REST/GraphQL.'
      duration: '2 horas'
      labHours: 4
+     magistralHours: 0.5
+     ejerciciosHours: 0
      tags: [iot, robotics, websockets, python-backend, real-time, control-panel]
    - title: 'Capstone Integration — Process Evidence & AI Use Declaration'
      slug: 'unit-11-capstone-integration'
      description: 'Capstone project integration: process evidence documentation, AI use declaration, and the verify/narrate axes from the profield methodology.'
      duration: '3 horas'
      labHours: 3
+     magistralHours: 1
+     ejerciciosHours: 1
      tags: [capstone, process-evidence, ai-declaration, verify-axis, narrate-axis]
    - title: 'Capstone Oral Defence & Final Evaluation'
      slug: 'unit-12-capstone-defence'
      description: 'Capstone oral defence: presentation structure, evaluation criteria, diff-based questions, and final assessment.'
      duration: '2 horas'
      labHours: 3
+     magistralHours: 1
+     ejerciciosHours: 1
      tags: [capstone, oral-defence, final-evaluation, presentation, evaluation-criteria]
   objectives:
    - 'Dominar arquitecturas de producción: meta-frameworks (Astro), SSR/SSG, y micro-frontends.'

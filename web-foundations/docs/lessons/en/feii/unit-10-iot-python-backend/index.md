@@ -3,11 +3,11 @@ layout: lesson
 title: 'Unit 10: IoT/Robotics Control-Panel & Python-Backed Interface'
 title_alt: 'Unidad 10: Panel de Control IoT/Robótica e Interfaz con Backend Python'
 slug: feii-unit-10-iot-python-backend
-date: 2026-08-08
+date: 2026-08-20
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /lessons/en/feii/unit-10-iot-python-backend/
-description: 'IoT/robotics control-panel development: device APIs, WebSocket real-time data, Python-backed interfaces, and the component model beyond REST/GraphQL.'
+description: 'IoT/robotics control-panel development: WebSocket real-time data, device APIs, Python-backed interfaces, and the component model beyond REST/GraphQL — a declared pedagogical pilot.'
 tags:
   [
     feii,
@@ -19,7 +19,7 @@ tags:
     control-panel,
     interface-layer,
   ]
-status: complete
+status: draft
 ---
 
 <!-- prettier-ignore-start -->
@@ -33,9 +33,33 @@ status: complete
 
 ---
 
-> _"The interface layer doesn't end at REST APIs. It extends to devices, sensors, and Python services."_
+> _"Optimize not for the device you hold, but for the connection you cannot see."_
+> — Tao of Development, `img-032`
 
-> **AI Assistance Disclosure:** This unit integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout the process.
+> **AI Assistance Disclosure:** Assistants draft WebSocket hooks and FastAPI endpoints fluently. You remain responsible for connection lifecycle (open/reconnect/close) and the merge log. Same ACCEPT / REJECT discipline as [Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}) and the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) (device/network state is a different failure surface than a 3D scene, same review habit applies).
+
+**Code in this unit:** every fence is an **Excerpt** unless labelled otherwise — illustrative device-control and WebSocket patterns, not a routed CodeSandbox lesson. The data-source specification near the end is a **Template**: values must be replaced once the Back-End II synergy sheet (Phase 5) lands.
+
+---
+
+## Scholarly honesty — this block is a declared pilot
+
+Interface-*transfer* pedagogy for WebSocket/IoT/Python-backend interfaces has **no** peer-reviewed coat in the course vault. That is an explicit **`[UNVERIFIED-GAP]`**, not a footnote — same status as Units 8–9.
+
+Two IoT-education-specific coats are named in the grounding matrix and were checked live this session, not assumed from a prior pass:
+
+- Abichandani et al. (2022), *Internet-of-Things Curriculum, Pedagogy, and Assessment* — coat `10_1109_access_2022_3164709_08eb5ba5`. `ahmes status` reports `evaluator_safe: no` (confidence 0.70, LLM-extracted). `ahmes enrich --meta --online` was attempted this session: result **"Host registry mismatch — identifiers only,"** 0 nodes enriched — the online registry's title disagrees with this PDF's own heading, so Ahmes correctly refused a silent override rather than force a match. **Genuine content gap — `[BIBLIO-GAP]`.**
+- Ciungan et al. (2025), *Enhancing IoT Education Through Hybrid Robotic Arm Integration* — coat `applsci_15_10537_26eedf9b`. Same check: `evaluator_safe: no` (confidence 0.70). `ahmes enrich --meta --online` attempted: 0 nodes enriched, no online registry match found. **Genuine content gap — `[BIBLIO-GAP]`.**
+
+Neither is cited as evidence below. What *is* cited grounds vocabulary and technique, never "this sequence teaches interface transfer well":
+
+- Real-time bidirectional web communication is a measured, adopted pattern, not a course convenience (Murley, Ma, Mason, Bailey & Kharraz 2021, *WebSocket Adoption and the Landscape of the Real-Time Web*, WWW'21; DOI `10.1145/3442381.3450063`; coat `3442381_3450063_3ee00512` · nodo `40a6fdfe-be41-575f-a1d0-5c2964feaa60` · p. 1) — `(Murley 2021, 1)`. <!-- provenance: resolved live 2026-08-20 via `ahmes query --cite --require-evaluator-safe`, evaluator_safe=yes, confidence 0.95 (crossref). -->
+- IoT data streams and dashboards carry an accessibility dimension from the start — semantic HTML5 and WAI-ARIA over raw sensor values, not an afterthought (Stelea, Sangeorzan & Enache-David 2025, *Accessible IoT Dashboard Design with AI-Enhanced Descriptions for Visually Impaired Users*; DOI `10.3390/fi17070274`; coat `futureinternet_17_00274_v2_c91a8b55` · nodo `bef656b5-408d-5961-aadf-bce6ddef958b` · p. 1) — `(Stelea 2025, 1)`. <!-- provenance: resolved live 2026-08-20, evaluator_safe=yes, confidence 0.95 (crossref). Cross-links the grounding matrix's cross-cutting accessibility rule. -->
+- Copilot-class tools raise speed while students **accept suggestions without reflecting** — the same gate as Units 8–9, reused here for the AI-declaration framing on any generated WebSocket/FastAPI code, not as new IoT evidence (Shihab et al. 2025; coat `2506_10051_copilot_brownfield_29f3d2f5` · nodo `1d671902-3c68-5ad4-9b08-198236f1d5e5` · p. 9) — `(Shihab 2025, 9)`. <!-- provenance: re-verified live 2026-08-20, evaluator_safe=yes; matrix row 10 names this node explicitly as "evaluator_safe=yes for AI oral." -->
+
+You are inside the gap: connection-lifetime discipline and the human-machine-interface membrane are what this unit teaches as primitives, not a validated finding that this teaching sequence works.
+
+**Platform notes** (checked 2026-08-20): `fastapi@0.121` (Python ≥3.10) · WebSocket API is a browser standard (no npm version to pin) · React `useEffect`/`useState` as already taught in FE I. Vendor/spec docs are HOW, not bibliography.
 
 ---
 
@@ -43,17 +67,17 @@ status: complete
 
 By the end of this unit, you will be able to:
 
-- **Understand IoT/robotics APIs** — Device control, sensor data, and real-time streams
-- **Implement WebSocket connections** — Real-time data flow without polling
-- **Build control-panel interfaces** — React/Astro components for device control
-- **Consume Python-backed services** — REST and WebSocket endpoints from Python backends
-- **See the component model transfer** — Same state/props pattern, different data source
+- **See the data-source transfer** — Same component model (props, state, hooks); the data source's *shape* changes from stateless request/response to a stateful, bidirectional connection.
+- **Implement WebSocket connections with a full lifecycle** — Connect, reconnect, and **close** — not just `onmessage`.
+- **Build a control-panel interface** — React components driven by live device/sensor state.
+- **Consume a Python-backed service** — REST and WebSocket endpoints from a FastAPI backend.
+- **Declare AI assistance** — Log ACCEPT / REJECT on any AI-drafted hook or endpoint (same discipline as Units 6, 8, 9).
 
 ---
 
 ## 📖 Beyond REST/GraphQL
 
-Most interfaces consume REST or GraphQL APIs. IoT/robotics requires different patterns:
+Most interfaces consume REST or GraphQL. IoT/robotics needs a different shape:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -73,17 +97,19 @@ Most interfaces consume REST or GraphQL APIs. IoT/robotics requires different pa
 └─────────────────────────────────────────────────────────┘
 ```
 
-**Key insight:** The component model stays the same. Only the data source changes.
+**Key insight:** The component model stays the same. Only the data source's shape changes — and a stateful connection has a lifecycle a stateless request never had (Murley 2021, above): it opens, it can drop, it must be closed. That lifecycle is this unit's real subject.
 
 ---
 
-## 🤖 IoT/Robotics APIs
+## 🤖 IoT/Robotics APIs — Excerpt
 
-### Device Control APIs
+Illustrative, not runnable as-is — no `robot-api.local` exists.
 
-```typescript
-// Example: Robotic arm control
-async function moveArm(x: number, y: number, z: number) {
+### Device Control API
+
+```js
+// Example: robotic arm control — Excerpt
+async function moveArm(x, y, z) {
   const response = await fetch('http://robot-api.local/move', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -93,86 +119,86 @@ async function moveArm(x: number, y: number, z: number) {
 }
 ```
 
-### Sensor Data Streams
+### Sensor Data Stream (one-shot poll)
 
-```typescript
-// Example: Temperature sensor
+```js
+// Example: temperature sensor — Excerpt
 async function getSensorData() {
   const response = await fetch('http://sensor-api.local/temperature');
   return response.json(); // { temperature: 23.5, humidity: 45 }
 }
 ```
 
-### WebSocket Real-Time Data
-
-```typescript
-const ws = new WebSocket('ws://device-api.local/stream');
-
-ws.onmessage = (event) => {
-  const data = JSON.parse(event.data);
-  // { temperature: 23.5, timestamp: 1691551234567 }
-};
-```
+A one-shot poll is the REST shape applied to a device — it works, but it does not scale to a continuous stream. That is what WebSocket is for.
 
 ---
 
-## 🔄 WebSocket Integration in React
+## 🔄 WebSocket — the full connection lifecycle (not just `onmessage`)
 
-### WebSocket Hook
+**Excerpt.** Most WebSocket tutorials show only `onmessage` and skip what makes a real interface: reconnect and cleanup.
 
-```typescript
-function useWebSocket(url: string) {
+```js
+function useDeviceStream(url) {
   const [data, setData] = useState(null);
   const [connected, setConnected] = useState(false);
-  
+
   useEffect(() => {
-    const ws = new WebSocket(url);
-    
-    ws.onopen = () => setConnected(true);
-    ws.onclose = () => setConnected(false);
-    ws.onmessage = (event) => setData(JSON.parse(event.data));
-    
-    return () => ws.close();
+    let socket;
+    let reconnectTimer;
+
+    function connect() {
+      socket = new WebSocket(url);
+
+      socket.onopen = () => setConnected(true);
+      socket.onmessage = (event) => setData(JSON.parse(event.data));
+      socket.onclose = () => {
+        setConnected(false);
+        // reconnect after a delay — the "connection you cannot see" failing gracefully
+        reconnectTimer = setTimeout(connect, 2000);
+      };
+    }
+
+    connect();
+
+    // cleanup: without this, navigating away leaks a live socket
+    return () => {
+      clearTimeout(reconnectTimer);
+      if (socket) socket.close();
+    };
   }, [url]);
-  
+
   return { data, connected };
 }
 ```
 
 ### Control Panel Component
 
-```typescript
-function RobotControlPanel() {
-  const { data: sensorData, connected } = useWebSocket('ws://robot-api.local/sensors');
+```jsx
+function DeviceControlPanel() {
+  const { data: sensorData, connected } = useDeviceStream(
+    'ws://localhost:8000/device-stream',
+  );
   const [position, setPosition] = useState({ x: 0, y: 0, z: 0 });
-  
+
   const handleMove = async () => {
     await moveArm(position.x, position.y, position.z);
   };
-  
+
   return (
     <div className="control-panel">
-      <h2>Robot Control</h2>
-      <p>Status: {connected ? 'Connected' : 'Disconnected'}</p>
-      <p>Temperature: {sensorData?.temperature}°C</p>
-      
+      <h2>Device Control</h2>
+      <p>Status: {connected ? 'Connected' : 'Reconnecting…'}</p>
+      <p>Reading: {sensorData?.value}</p>
+
       <div className="controls">
-        <input 
-          type="number" 
-          value={position.x} 
-          onChange={(e) => setPosition({ ...position, x: Number(e.target.value) })}
+        <input
+          type="number"
+          value={position.x}
+          onChange={(e) =>
+            setPosition({ ...position, x: Number(e.target.value) })
+          }
         />
-        <input 
-          type="number" 
-          value={position.y} 
-          onChange={(e) => setPosition({ ...position, y: Number(e.target.value) })}
-        />
-        <input 
-          type="number" 
-          value={position.z} 
-          onChange={(e) => setPosition({ ...position, z: Number(e.target.value) })}
-        />
-        <button onClick={handleMove}>Move Arm</button>
+        <button onClick={handleMove}>Move</button>
       </div>
     </div>
   );
@@ -181,14 +207,15 @@ function RobotControlPanel() {
 
 ---
 
-## 🐍 Python-Backed Services
+## 🐍 Python-Backed Services — Excerpt
 
-### FastAPI Example
+### FastAPI
 
 ```python
-# main.py
+# main.py — Excerpt
 from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
+import asyncio
 
 app = FastAPI()
 
@@ -199,92 +226,85 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/move")
-async def move_arm(x: float, y: float, z: float):
-    # Control physical robot here
-    return {"status": "success", "position": {"x": x, "y": y, "z": z}}
+@app.post("/device-control")
+async def device_control(deviceId: str, command: str, params: dict):
+    # Control physical device or simulator here
+    return {"status": "success", "deviceId": deviceId, "command": command}
 
-@app.websocket("/stream")
-async def websocket_endpoint(websocket: WebSocket):
+@app.websocket("/device-stream")
+async def device_stream(websocket: WebSocket):
     await websocket.accept()
-    while True:
-        # Stream sensor data
-        data = {"temperature": read_temperature_sensor()}
-        await websocket.send_json(data)
-        await asyncio.sleep(1)
+    try:
+        while True:
+            data = {"value": read_sensor(), "timestamp": now_ms()}
+            await websocket.send_json(data)
+            await asyncio.sleep(1)
+    except Exception:
+        # a dropped client raises here — the server side of "connection you cannot see"
+        pass
 ```
 
-### React/FastAPI Integration
+Pinned as of **August 2026**, re-verify before the term starts:
 
-```typescript
-// Consume FastAPI endpoints
-async function moveArm(x: number, y: number, z: number) {
-  const response = await fetch('http://localhost:8000/move', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ x, y, z }),
-  });
-  return response.json();
-}
-
-const ws = new WebSocket('ws://localhost:8000/stream');
-```
+| Package | Version | Note |
+| --- | --- | --- |
+| `fastapi` | `0.121` | Python ≥ 3.10 |
+| `uvicorn` | `^0.34` | ASGI server to run the app above |
 
 ---
 
-## 🎯 Data Source Specification
+## 🎯 Data Source Specification — Template
 
-**NOTE:** This unit requires coordination with the Back-End II synergy sheet (Phase 5). The specific data source below is a placeholder pending that synergy sheet.
+**NOTE:** This unit requires coordination with the Back-End II synergy sheet (Phase 5). The specific data source below is a placeholder pending that synergy sheet — **replace every value below, do not ship the placeholder to Entrega 2.**
 
-### Placeholder Data Source
-
-- **Type:** Mock WebSocket service (simulating IoT device)
-- **Endpoint:** `ws://localhost:8000/device-stream`
-- **Data Schema:** `{ deviceId: string, sensorType: string, value: number, timestamp: number }`
-- **Control API:** `POST http://localhost:8000/device-control` with `{ deviceId, command, params }`
-
-**Phase 5 Action:** Replace this placeholder with the actual Back-End II service endpoint once the synergy sheet is executed.
+- **Type:** Mock WebSocket service (simulating an IoT device) — *replace with the real Back-End II endpoint*
+- **Endpoint:** `ws://localhost:8000/device-stream` — *replace with the synergy-sheet URL*
+- **Data Schema:** `{ deviceId: string, sensorType: string, value: number, timestamp: number }` — *confirm against the actual service's schema*
+- **Control API:** `POST http://localhost:8000/device-control` with `{ deviceId, command, params }` — *confirm against the actual service's contract*
 
 ---
 
-## 🎯 Practice Exercise
+## Lab (team) — workplace-like · 4 h
 
-**Time:** 4 hours
+On the shared Entrega 2 repo, alongside Units 8–9's 3D core:
 
-1. **Set up a Python FastAPI service** — Create endpoints for device control and sensor streaming
-2. **Implement WebSocket streaming** — Real-time sensor data flow
-3. **Build a React control panel** — Component with device state and control inputs
-4. **Integrate WebSocket in React** — Custom hook for real-time data
-5. **Test with simulated device** — Mock device API if physical hardware unavailable
-6. **Document the data contract** — API schema, WebSocket protocol, error handling
+1. Wire the placeholder mock WebSocket stream above into the project as a live-data panel, **or** stand up the FastAPI control-panel skeleton if your seed needs device-control state rather than a stream — pick the one your team's backlog issue actually needs.
+2. Implement the **full connection lifecycle**: connect, reconnect on drop, and `close()` on unmount. A hook that never closes is not done.
+3. Write a short release note: which reconnect strategy you chose (fixed delay, backoff, none) and why.
+4. Log every AI-assisted diff ACCEPT / REJECT ([Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}) workflow).
+5. Human review after any AI review; CI green.
 
-**Deliverable:** Control panel interface + Python FastAPI service + data contract documentation
-
----
-
-## 📚 Recommended Reading
-
-- **FastAPI Documentation** — https://fastapi.tiangolo.com/
-- **WebSocket API** — https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
-- **IoT Web Integration** — https://www.oreilly.com/library/view/designing-the-internet/9781449337032/
-- **Real-Time Web Apps** — https://www.oreilly.com/library/view/real-time-web/9781449366307/
+**Deliverable:** branch on the shared repo + `docs/ai-declaration-log.md` row + the release note above.
 
 ---
 
-## ✅ Session Outcome
+## Exercises (individual) — decontextualised · ~1 h
 
-By the end of this unit, you should:
+Not the showroom. Isolate the strategy:
 
-- Understand IoT/robotics APIs and how they differ from REST/GraphQL
-- Be able to implement WebSocket connections for real-time data
-- Build control-panel interfaces using the same component model as web apps
-- Consume Python-backed services via FastAPI
-- See the interface-layer transfer — same patterns, different data sources
+1. **Diagnostic:** given a `useDeviceStream` hook whose `useEffect` never returns a cleanup function, explain what leaks when the component unmounts and fix it.
+2. **Solvable without AI, declared as such:** for three data-shape descriptions — (a) a one-shot "turn on the light" command, (b) a continuous temperature stream, (c) an occasional "device is alive" ping — decide REST, WebSocket, or polling for each, one sentence of justification each.
+3. Write two sentences: what is the same as consuming a REST API in React, and what is genuinely new about a stateful connection.
 
-This unit is **load-bearing** — it's the direct payoff of teaching both Full-Stack and Data-Science students. Full-Stack students learn to build the Python backend; Data-Science students learn to consume it. The Entrega 2 project can now be built using this pattern.
-
-**Phase 5 Dependency:** The specific data source will be defined in the Back-End II synergy sheet. Replace the placeholder with the actual service endpoint once Phase 5 is executed.
+<!-- Professor answer sketch, not the student handout: (1) missing `socket.close()` in the cleanup return — the old socket keeps receiving/reconnecting after the component is gone, duplicating state updates or throwing on a stale closure. (2) a=REST (one-shot, fire-and-forget), b=WebSocket (continuous, low-latency, bidirectional not required but the shape fits), c=polling or a lightweight heartbeat WebSocket message, not a fresh REST call per ping. -->
 
 ---
 
-> _"The interface layer extends beyond the browser. It reaches into the physical world."_
+## 📚 Platform notes (HOW, not bibliography)
+
+- FastAPI — https://fastapi.tiangolo.com/
+- WebSocket API (MDN) — https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
+- WHATWG WebSocket protocol — https://websockets.spec.whatwg.org/
+
+---
+
+## Session outcome
+
+You can consume a stateful, bidirectional data source with the same component model FE I taught for REST — and you know the lifecycle a stateless request never had. This unit is **load-bearing** for the Full-Stack ↔ Data-Science synergy: Full-Stack students build the Python backend, Data-Science students consume it. Units 8–10 together seed Entrega 2; [Unit 11]({{ '/lessons/en/feii/unit-11-capstone-integration/' | relative_url }}) integrates all three.
+
+**Phase 5 dependency:** the placeholder data source above is not the Entrega 2 deliverable — replace it once the Back-End II synergy sheet lands.
+
+---
+
+> _"Ship the module when it works alone. Ship the system when the modules work together. Ship the platform when the systems work together."_
+> — Tao of Development, `arch-007`

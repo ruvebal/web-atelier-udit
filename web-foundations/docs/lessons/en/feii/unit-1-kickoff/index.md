@@ -9,7 +9,7 @@ lang: en
 permalink: /lessons/en/feii/unit-1-kickoff/
 description: 'Orientation session bridging FE I React foundations to FE II production architecture, interface-layer thinking, and systems of interfaces.'
 tags: [feii, orientation, architecture, interface-layer, production, systems-thinking]
-status: complete
+status: draft
 ---
 
 <!-- prettier-ignore-start -->
@@ -23,9 +23,12 @@ status: complete
 
 ---
 
-> _"You already built interfaces. Now you build systems of them."_
+> _"Before the first line of code, prepare the forge. Before the first query, load the memory. Documentation is not an afterthought — it is the first act of architecture."_
+> — Tao of Development, `wis-014`
 
 > **AI Assistance Disclosure:** This unit integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout the process.
+
+> 📐 **Code block convention for this sequence:** every code block in FE II carries one of three labels — **CodeSandbox-ready** (paste and run), **Excerpt** (partial pattern, illustrative, does not run as-is), or **Template** (copy and replace bracketed values). Unit 1 has no code this session — see [§ Conventions used across these lessons]({{ '/lessons/en/feii/' | relative_url }}#-conventions-used-across-these-lessons) on the index page for the full policy.
 
 ---
 
@@ -78,6 +81,20 @@ The component model stays the same — you still use props, state, and lifecycle
 
 ---
 
+## 🔬 Scholarly honesty — why this course opens with a declaration discipline, not a promise of speed
+
+This orientation session has **no CONTENIDOS anchor and no technical claim to ground** — the matrix entry for Unit 1 is explicit about that, and this page will not pretend otherwise. What it does need to frame, before Unit 2 starts, is *why* FE II asks you to declare AI assistance rather than simply use it.
+
+A 2025 grounded-theory study of AI-assisted programming education (Liu, Fan & Pan — Ahmes node `25fa0a93-6808-5ccd-acc7-54b67523897e`) opens with exactly this tension, quoted here **with an evidence gap left visible rather than papered over**:
+
+> _"The integration of generative AI into programming education has produced a widely reported tension between performance and learning. We distinguish immediate task performance from genuine learning: durable, transferable conceptual understanding and evaluative skill, and examine how AI support shapes learning processes, not merely outcomes. While many studies document improved speed, accuracy, and affect with AI support, questions remain about the quality of underlying learning."_
+
+<!-- provenance: Ahmes coat dc2bd27d (Liu, Fan & Pan, "Tool, tutor, or crutch?"), node 25fa0a93-6808-5ccd-acc7-54b67523897e, page_index 0 ("Motivation"); resolved live this session via `ahmes query --cite --require-evaluator-safe` -> evaluator_safe=no, exit 2, reason "missing year"; a live `ahmes enrich --meta --online` attempt this session enriched 0 nodes across all three library duplicates of this coat -->
+
+**`[BIBLIO-GAP]` — declared, not forced.** This node is **not** evaluator-safe: `ahmes status` reports the citation preview as `[BIBLIO-GAP]` (missing year) even after a fresh `ahmes enrich --meta --online` attempt run live this session enriched zero nodes — a genuine, re-confirmed gap, not a pipeline lag waiting to resolve. The passage is quoted here for its *framing*, not asserted as `(Author Year)` peer-reviewed proof, and it does not enter this course's citable bibliography. What it grounds honestly: the distinction between "AI made this faster" and "I understand this better" is a real, actively-studied tension in the field — which is exactly why every unit from here forward asks you to disclose AI assistance rather than simply demonstrate speed.
+
+---
+
 ## 🏗️ The FE II Arc
 
 This course builds on your React foundation with 12 units organized around production architecture and interface-layer expansion:
@@ -123,12 +140,30 @@ The AI is a collaborator in system design, not a shortcut around learning archit
 
 ---
 
+## Lab (team) — 0 h this unit, and that is the honest allocation
+
+Unit 1 carries **0 lab hours** in `tracks.yml`, and this is stated as content, not omitted as an oversight: a team lab needs a real shared-repo artefact to work from, and at kickoff none exists yet. The first team lab arrives in Unit 2, once Astro scaffolding gives the cohort something to hold in common. Filling this section with a placeholder task would misrepresent what "lab" means for the rest of the course — workplace-like work on the shared repo, per `fe-unit-forge.mdc` §1 — so it stays empty by design.
+
+## Exercises (individual) — decontextualised · 2 h
+
+Not the studio piece — three short problems isolating the reframe itself, before any CONTENIDOS anchor exists to drill:
+
+1. **Diagnostic.** Given a short FE I-style project description (a single React app, one deploy target), identify which specific claims in it would need to change to describe an FE II "system of interfaces," and which would stay exactly as they are.
+2. Given the Liu Motivation-node tension quoted above, write two sentences distinguishing what an AI tool speeding up *your* task proves, and does not prove, about what you understand. **Solvable without AI — declared as such.**
+3. Read the 12-unit table above and, without looking ahead, predict in one sentence each what Units 2 and 8 will need from this unit's "systems lens." This is a self-check the professor compares against the actual units once submitted — not a graded content question, since Unit 1 has no technical content to grade against.
+
+Professor expected-answer sketch: kept in `exercises.md`, not this page.
+
+---
+
 ## 📚 Recommended Reading
 
 - **Astro Documentation** — Get familiar with islands architecture before unit 2
 - **PWA Specification** — Preview unit 4 concepts (Progressive Web Apps fundamentals)
 - **Testing Pyramid** — Martin Fowler's testing strategy (context for units 5–6)
 - **Performance Budgets** — Performance budgets and Core Web Vitals (context for unit 7)
+
+**Missing evidence — stated plainly:** this unit has no CONTENIDOS anchor and no technical claim to ground. Liu, Fan & Pan (2025) frames the performance-vs-learning tension that motivates the course's AI-declaration discipline but remains `[BIBLIO-GAP]` (missing year, re-confirmed live this session) — quoted for its framing, not cited as settled evidence.
 
 ---
 
@@ -143,4 +178,5 @@ By the end of this orientation, you should:
 
 ---
 
-> _"The interface layer expands beyond the browser. Your code should too."_
+> _"A monorepo is not a monolith. A monolith is not modular. A modular system need not be distributed."_
+> — Tao of Development, `arch-006`

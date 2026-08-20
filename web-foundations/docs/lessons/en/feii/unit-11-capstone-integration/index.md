@@ -19,7 +19,7 @@ tags:
     documentation,
     project-integration,
   ]
-status: complete
+status: draft
 ---
 
 <!-- prettier-ignore-start -->
@@ -232,3 +232,33 @@ This unit prepares you for the capstone oral defence. The next unit will cover t
 ---
 
 > _"Evidence is not optional. It's how you prove you did the work."_
+
+## B1 · Lección magistral — 1 h
+
+**Claim:** A capstone is assessable when its decisions and verification trail are reconstructable, not merely when its interface looks finished.
+
+The lecture positions Units 5–10 as the technical journey, Unit 11 as the release/evidence ritual, and Unit 12 as the individual defence. The distinction is grounded in the repository-as-structured-learning infrastructure described by Nelson & Ponciano (Ahmes node `ed82afbb`, p. 0) and the process/integrity emphasis in the FE evidence matrix. These sources support the design rationale; they do not establish a causal learning effect.
+
+**Speaker outline:** 1) product versus evidence, 2) verify/narrate model, 3) decision log, 4) iteration log, 5) AI declaration, 6) release evidence, 7) individual accountability, 8) hand-off to the defence.
+
+## B2 · Prácticas de laboratorio — 3 h · team
+
+Pick a real open issue from the cohort repository backlog. Rotate facilitator, implementer, verifier, and narrator roles. The definition of done is: branch and PR exist; tests and CI are green; a human reviews any AI review; `decisions.md`, `iterations.md`, and `AI_USE_DECLARATION.md` are updated; a release note names the change; and the tagged artifact is reproducible.
+
+Evidence to submit: issue link, branch, PR, before/after verification, AI accept/reject log, human review, release tag, and a two-minute hand-off note. This is workplace-like team evidence; it is not individual proof of learning.
+
+## B3 · Resolución de ejercicios — 1 h · individual
+
+1. Repair a broken `decisions.md` entry by separating decision, rationale, rejected alternative, and constraint.
+2. Given a diff and a green test report, identify what is verified and what is merely narrated.
+3. Complete a minimal AI declaration for one generated suggestion, including tool, contribution, files, and human verification.
+4. **No-AI diagnostic:** explain why a passing test suite cannot by itself establish accessibility or performance quality.
+
+Professor answer sketches belong in the instructor copy, not the public handout. These exercises intentionally remain decontextualised from the team product.
+
+## Provenance and evidence gate
+
+- Neumann, *Agile Methods in Higher Education*, Ahmes node `86bd504a`, p. 0 — team/project learning infrastructure; discovery resolved to the cited node.
+- Nelson & Ponciano, Ahmes node `ed82afbb`, p. 0 — structured repository evidence.
+- González-Videgaray and Garcia remain matrix-controlled sources; cite only their resolved Ahmes node/page in the instructor release.
+- **Missing evidence:** this unit does not prove that process documentation causes better learning outcomes. Research collection remains off without consent, DPO, and institutional administration.

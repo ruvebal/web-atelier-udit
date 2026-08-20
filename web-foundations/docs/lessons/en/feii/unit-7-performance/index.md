@@ -18,7 +18,7 @@ tags:
     runtime-optimization,
     web-performance,
   ]
-status: complete
+status: draft
 ---
 
 <!-- prettier-ignore-start -->
@@ -32,9 +32,12 @@ status: complete
 
 ---
 
-> _"Performance is not an optimization target. It's a baseline expectation."_
+> _"The student said: 'My images look beautiful!' The master checked the Network tab and said: 'Your users have left before seeing them.'"_
+> — Tao of Development, `img-051`
 
 > **AI Assistance Disclosure:** This unit integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout the process.
+
+> 📐 **Code block convention for this sequence:** every code block below is labelled **CodeSandbox-ready**, **Excerpt**, or **Template**, per the policy on the [FE II index]({{ '/lessons/en/feii/' | relative_url }}#-conventions-used-across-these-lessons). All performance snippets in this unit are **Excerpt** — partial patterns that rely on a surrounding build config (Vite/Astro) and are illustrative, not paste-and-run.
 
 ---
 
@@ -60,7 +63,7 @@ Core Web Vitals are the essential metrics for a good user experience:
 2. **INP (Interaction to Next Paint)** — Time from user interaction to visual response (≤ 200ms)
 3. **CLS (Cumulative Layout Shift)** — Visual stability during page load (≤ 0.1)
 
-### Measuring Core Web Vitals
+### Measuring Core Web Vitals — Excerpt
 
 ```bash
 # Lighthouse CLI
@@ -70,7 +73,7 @@ npx lighthouse https://example.com --view
 # Install from Chrome Web Store
 ```
 
-### Real User Monitoring (RUM)
+### Real User Monitoring (RUM) — Excerpt
 
 ```js
 // web-vitals library
@@ -85,7 +88,7 @@ onLCP(console.log);
 
 ## 📦 Bundle Optimization
 
-### Code Splitting
+### Code Splitting — Excerpt
 
 ```js
 // Lazy load routes
@@ -104,7 +107,7 @@ function App() {
 }
 ```
 
-### Tree Shaking
+### Tree Shaking — Excerpt
 
 ```js
 // Bundle analysis
@@ -119,7 +122,7 @@ export default defineConfig({
 });
 ```
 
-### Dependency Pruning
+### Dependency Pruning — Excerpt
 
 ```js
 // Replace heavy libraries with lighter alternatives
@@ -131,7 +134,7 @@ export default defineConfig({
 
 ## 🖼️ Asset Optimization
 
-### Image Optimization
+### Image Optimization — Excerpt
 
 ```js
 // next/image (Next.js) or astro/image (Astro)
@@ -147,7 +150,7 @@ import myImage from './my-image.png';
 - Lazy load below-the-fold images
 - Compress images automatically
 
-### Font Loading
+### Font Loading — Excerpt
 
 ```html
 <!-- Preload critical fonts -->
@@ -167,7 +170,7 @@ import myImage from './my-image.png';
 
 ## 🎨 Critical CSS & Rendering Optimization
 
-### Critical CSS Extraction
+### Critical CSS Extraction — Excerpt
 
 ```js
 // vite-plugin-critical (Vite)
@@ -185,7 +188,7 @@ export default defineConfig({
 });
 ```
 
-### Reduce JavaScript Execution
+### Reduce JavaScript Execution — Excerpt
 
 ```js
 // Defer non-critical JS
@@ -227,9 +230,20 @@ Performance asks it about energy. Accessibility asks it about exclusion. **Same 
 >
 > **Energy and resources** now rest on a **normative instrument**: the **UNESCO Recommendation on the Ethics of Artificial Intelligence**, adopted by Member States. It requires assessing *"the direct and indirect environmental impact throughout the AI system life cycle, including… its carbon footprint, energy consumption and the environmental impact of raw material extraction"*, and instructs actors to *"favour data, energy and resource-efficient AI methods"* given the *"data-intensive or resource-intensive character"* of some of them.
 >
-> **What that does and does not license.** It establishes an **obligation** — efficiency is an ethical requirement in computing, not a matter of taste. It does **not** measure anything: there is still no study in this course's corpus quantifying the carbon effect of a front-end engineering choice, and UNESCO's scope is **AI systems** — which covers the AI-assisted method this course teaches, but is not a direct front-end-to-carbon claim. **Do not invent figures.** If you want to argue this quantitatively in your capstone, bring your own measurements and sources.
+> **What that does and does not license.** It establishes an **obligation** — efficiency is an ethical requirement in computing, not a matter of taste. It does **not** measure anything: UNESCO's scope is **AI systems** — which covers the AI-assisted method this course teaches, but is not a direct front-end-to-carbon claim. **Do not invent figures.** If you want to argue this quantitatively in your capstone, bring your own measurements and sources.
 
-### Setting Budgets
+### A real measurement — narrow, but real
+
+Since the last pass on this page, one genuine empirical (not merely normative) source has resolved in this course's citation library: **Mahoney, Terras, Lee & Zeller (2025), "The growing environmental impact of COP websites,"** *PLOS Climate*, DOI [`10.1371/journal.pclm.0000767`](https://doi.org/10.1371/journal.pclm.0000767) — Ahmes node `0e9f7882-ac52-57c3-bbec-b745ab2987f0`, p.1, `(Mahoney 2025, 1)`, `evaluator_safe=yes` (confidence 0.95, crossref-verified, re-checked live this session). <!-- provenance: coat 03bab1df; ahmes query --cite --require-evaluator-safe run live this session against the extraction.db, exit 0; matrix's own row 7 previously flagged this coat "[BIBLIO-GAP] until host-title fix" — that fix has since landed (host_registry_match: true), a genuine pipeline-lag closure, not forced this session -->
+
+The study archived every UNFCCC COP host-country website from COP1 (1995) to COP30 (2025) via the Internet Archive's Wayback Machine and measured page weight against modelled emissions. The real, unflattering numbers, quoted rather than summarised away:
+
+> _"Our analysis reveals an exponential increase in website size, with average emissions rising over 13,000%, and many recent COP pages emitting roughly ten times the global average of approximately 0.36g of CO₂e per pageview. In-session participant homepage views drove emissions up by 83,400%, from 0.14 kg of CO₂e at COP3 (1997)… to 116.85 kg of CO₂e at COP29 (2024)… This dramatic growth is largely driven by richer media content and scripts."_
+> <!-- provenance: same coat, same node 0e9f7882-ac52-57c3-bbec-b745ab2987f0, p.1 (abstract); ahmes query --cite re-confirmed evaluator_safe=yes live -->
+
+**What this does and does not license.** This is a real, quantified page-weight-to-emissions relationship — the first of its kind in this course's corpus — and its own stated driver ("richer media content and scripts") is precisely the bundle/asset discipline this unit teaches. It does **not** license a general "front-end performance work reduces carbon" law: the dataset is one institution's websites over 30 years, not a controlled study of optimisation technique, and the study measures *outcome* (page weight → modelled emissions), not *which engineering practices* caused which website to grow. Cite the COP figures as a real-world stakes example, not as proof that this unit's specific techniques (code splitting, tree shaking, image optimisation) have been measured to reduce emissions by any amount.
+
+### Setting Budgets — Excerpt
 
 ```js
 // vite.config.ts
@@ -257,7 +271,7 @@ export default defineConfig({
 });
 ```
 
-### Budget.json
+### Budget.json — Template (replace the `path`/`limit` values for your own repo's bundles)
 
 ```json
 {
@@ -278,18 +292,26 @@ export default defineConfig({
 
 ---
 
-## 🎯 Practice Exercise
+## Lab (team) — workplace-like · 2 h
 
-**Time:** 2 hours
+Pick up (or open, if none exists) a performance-budget issue on the shared repo's backlog.
 
-1. **Audit an existing app** with Lighthouse — Measure LCP, INP, CLS
-2. **Optimize bundles** — Implement code splitting and tree shaking
-3. **Optimize images** — Convert to WebP, implement lazy loading
-4. **Optimize fonts** — Implement font-display: swap and preload critical fonts
-5. **Set performance budgets** — Define budgets for bundle size and load time
-6. **Re-audit** — Measure improvement in Core Web Vitals
+- **Issue:** set real `budget.json` limits for the repo's actual bundle (not the placeholder numbers above — measure first), and wire a CI step that fails the build when a budget is exceeded.
+- **Definition of done:** CI budget check green, or a documented and justified budget exception; PR reviewed by a human after AI review (Unit 6 workflow); a real before/after Lighthouse pair recorded — including any metric that got **worse**, not only the ones that improved.
+- **Roles rotate:** bundle-analysis owner, CI-config owner, before/after-measurement owner. Nobody owns the same layer they owned in a prior lab.
+- **Evidence emitted:** branch, PR, AI-review log rows, `budget.json` diff, before/after Lighthouse report.
 
-**Deliverable:** Before/after Lighthouse scores + optimization changes documented
+The `budget.json` and `vite.config` snippets above are reused here — **Template** and **Excerpt** respectively, per the labels already on them.
+
+## Exercises (individual) — decontextualised · 2 h
+
+Not the team lab's deliverable — three short problems that isolate the strategy:
+
+1. **Diagnostic.** Given a Lighthouse report showing LCP 4.1 s and a 2.8 MB main bundle with three unused large dependencies listed, name the two highest-leverage fixes and justify the order. "Fix everything" is not an answer.
+2. Given the Mahoney et al. (2025) figures above, write one paragraph stating what they license you to claim in a capstone defence about *this repo's* performance choices, and what they do not. **Solvable without AI — declared as such**: this is a scope-boundary exercise, not a research-retrieval one.
+3. Given a `budget.json` with a limit and a build that exceeds it by 4 KB, write the one-sentence PR description that either fixes it or honestly justifies the exception. The professor checks for honesty of framing, not a specific number.
+
+Professor expected-answer sketch: kept in `exercises.md`, not this page.
 
 ---
 
@@ -309,6 +331,9 @@ export default defineConfig({
 - Batista, H. E. N., & Baluz, R. A. R. S. (2025). *Evaluation of Higher Education Institution Websites According to WCAG 2.1 — Brazil.* iSys, 18(1). — Recurring failures across university sites are **missing alternative text and inadequate contrast**: cheap to fix, routinely unfixed.
 - ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023.* DOI: [`10.1145/3664191`](https://doi.org/10.1145/3664191) — curricular standing for treating accessibility and web platforms as core rather than elective.
 - **UNESCO (2021). *Recommendation on the Ethics of Artificial Intelligence.*** — the normative basis for the "who pays" framing above. Read §§ on environmental impact assessment and resource-efficient methods; note that it obliges rather than measures.
+- **Mahoney, D., Terras, M., Lee, J., & Zeller, F. (2025). *The growing environmental impact of COP websites: An analysis of UNFCCC COP host country websites (1995–2025).*** PLOS Climate. DOI: [`10.1371/journal.pclm.0000767`](https://doi.org/10.1371/journal.pclm.0000767) — Ahmes node `0e9f7882-ac52-57c3-bbec-b745ab2987f0`, p.1, `evaluator_safe=yes`. The **real, measured** page-weight-to-emissions example behind the "narrow, but real" subsection above; scope stays one institution's websites, not a general claim.
+
+**Missing evidence — stated plainly, per this course's own discipline.** Performance-engineering *pedagogy* (which teaching sequence best develops budget discipline) remains `[UNVERIFIED-GAP]` — nothing in this course's corpus validates that this unit's specific sequence teaches performance judgement better than an alternative. Phung `ea8cf54c` is named in the evidence matrix as adjacent grounding for "optimisation never demanded" but is **not currently cited anywhere in this unit's or Unit 5's published text** — flagged here as an inconsistency between the matrix and the published pages, not fixed in this pass (out of this wave's two-unit scope). UNESCO grounds an *obligation*, not a measurement. Mahoney et al. (2025) grounds one *real, quantified* page-weight-to-carbon relationship, scoped to one dataset. None of the three is evidence that this specific 12-slide, 2-hour sequence produces better performance judgement in students than any other sequence would.
 
 ---
 
@@ -319,11 +344,13 @@ By the end of this unit, you should:
 - Understand Core Web Vitals and how to measure them
 - Be able to optimize bundles through code splitting, tree shaking, and dependency pruning
 - Implement image and font optimization techniques
-- Set and enforce performance budgets
+- Set and enforce performance budgets, and defend a real one on the shared repo
 - Debug performance issues using Chrome DevTools
+- State, precisely, what UNESCO obliges, what Mahoney et al. (2025) measures, and what neither one proves about this course's teaching method
 
 This unit covers the **Optimización de rendimiento** official CONTENIDOS requirement. Performance optimization applies to all future projects, whether using Astro, React, or vanilla JS.
 
 ---
 
-> _"Fast is a feature. Slow is a bug."_
+> _"The master writes `<img srcset="…" sizes="…" />`. The novice writes `<img src="huge-image.jpg" />`. The user pays the price."_
+> — Tao of Development, `img-045`

@@ -17,7 +17,7 @@ tags:
     caching-strategies,
     installability,
   ]
-status: complete
+status: draft
 ---
 
 <!-- prettier-ignore-start -->
@@ -34,6 +34,16 @@ status: complete
 > _"The best web app is the one that works even when the network doesn't."_
 
 > **AI Assistance Disclosure:** This unit integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout the process.
+
+---
+
+## Code conventions in this unit
+
+Same vocabulary as Units 2–3 and FE II Unit 5 — check the label before you paste:
+
+- **CodeSandbox-ready** — complete file, copy-paste, runs once the sandbox scaffold is in place.
+- **Excerpt** — partial pattern, illustrative. Does **not** run as-is. The three caching-strategy fetch handlers below are Excerpts.
+- **Template** — copy and replace placeholder values before use. The manifest JSON below is a Template — `name`, colors, and icon paths are this lesson's examples, not yours.
 
 ---
 
@@ -307,3 +317,42 @@ This unit covers the **Desarrollo de PWA, funcionalidades offline** official CON
 ---
 
 > _"Offline is not a bug. It's a feature of the distributed web."_
+
+> _"Deploy in haste, repent in downtime."_
+> — Tao of Development, `ops-001`
+
+## B1 · Lección magistral — 1 h
+
+**Claim:** offline-first is an architectural decision made before the network fails, not a fallback bolted on after the fact.
+
+An educational-systems architecture study lists "connectivity independent" as a first-class requirement, met by service workers, alongside a stated distinction between features that must survive offline (points, badges, progress tracking) and features that legitimately require connectivity (leaderboards, social interaction) — "enhanced with service workers to function offline or on low-quality networks" (Fibrian et al. 2026, 2 — Ahmes coat `483a966a`, node `00b4388d-211a-5715-8504-64973d1a8eb7`).
+
+**Read this citation carefully.** The source is a study of a *gamified learning system's* software architecture, not a study of how to teach front-end development. It grounds the vocabulary and design requirement — which features can degrade gracefully, which cannot — never the claim that this unit's teaching sequence works pedagogically.
+
+**Declared gap:** the grounding matrix names an HE precedent (Case 2020) for offline-failure-mode pedagogy that is **not yet in the vault** — it is not cited here, and no substitute is offered. No source establishes that this unit's PWA/offline teaching sequence produces measurably better learning outcomes than an alternative.
+
+**Speaker outline:** see `deck-outline.md`.
+
+## B2 · Prácticas de laboratorio — 2 h · team
+
+Real backlog issue: add an offline fallback to the team's own Astro project from Units 2–3 — a cached app shell or an explicit offline page — choosing **cache-first** for static assets and **network-first or stale-while-revalidate** for any dynamic route, decided per route rather than blanket.
+
+Definition of done: a Lighthouse PWA audit score is recorded before and after; the manifest makes the app installable; CI is green; a human reviews any AI-generated suggestion; a release note states which caching strategy covers which route and why.
+
+Roles rotate; do not repeat a role already owned in Units 2–3's labs.
+
+Evidence: branch, PR, Lighthouse score delta, AI accept/reject log row if AI assistance was used.
+
+## B3 · Resolución de ejercicios — 2 h · individual
+
+1. **Diagnostic:** a service worker caches an API response with cache-first and never invalidates it. Describe the staleness bug a user will see, and name the caching strategy that fixes it.
+2. **No-AI (declared):** for four feature descriptions (a saved-draft editor, a live chat widget, a static help page, a payment form), decide "must work offline," "may degrade gracefully," or "must fail loudly offline," and justify each in one sentence, without AI assistance.
+3. Explain why service-worker registration failing silently in a browser that doesn't support it is a progressive-enhancement success, not a bug — and what the app must never assume as a result.
+
+Professor answer sketches belong in the instructor copy, not the public handout. These exercises are intentionally decontextualised from the team's product.
+
+## Provenance and evidence gate
+
+- Fibrian, I. D., Utomo, T. P., Lukmana, I. &amp; Muttaqin, Z. (2026). *Architectural Consideration for Gamified Learning Systems: An Exploration of Offline-First Progressive Web Application.* Register: Jurnal Ilmiah Teknologi Sistem Informasi 11(2), 139–150. `10.26594/register.v11i2.5087`. Ahmes coat `483a966a`, node `00b4388d-211a-5715-8504-64973d1a8eb7`, p.2. Resolved via `ahmes query --cite`, `evaluator_safe=yes`.
+  <!-- provenance: located by grep over extract/index.md for "enhanced with service workers" inside coat 483a966a (matrix-named as the adjacent architecture coat for Unit 4), node/page resolved via sqlite3 join fission_node × anchor_spatial, cite confirmed via `ahmes query --cite <db>:<node_id> --require-evaluator-safe` -->
+- **Missing evidence:** this unit does not establish that teaching offline-first PWA architecture produces measurably better learning outcomes for front-end students than an alternative sequence. The cited source studies a learning system's own offline-first design, not the teaching of that design — the pedagogy gap named in the FE II grounding matrix row for Unit 4 stays open. The HE precedent named in the matrix (Case 2020) remains outside the vault and is not cited.

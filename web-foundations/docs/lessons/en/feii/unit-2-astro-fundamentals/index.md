@@ -17,7 +17,7 @@ tags:
     islands-architecture,
     multi-framework,
   ]
-status: complete
+status: draft
 ---
 
 <!-- prettier-ignore-start -->
@@ -34,6 +34,18 @@ status: complete
 > _"Astro is not just another framework. It's a different paradigm for composing interfaces."_
 
 > **AI Assistance Disclosure:** This unit integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout the process.
+
+---
+
+## Code conventions in this unit
+
+Same vocabulary as the Front-End I React lessons and FE II Unit 5 — check the label before you paste:
+
+- **CodeSandbox-ready** — complete file, copy-paste, runs once the sandbox scaffold is in place.
+- **Excerpt** — partial pattern, illustrative. Does **not** run as-is.
+- **Template** — copy and replace placeholder values before use.
+
+Most blocks below are **Excerpt**: they assume a scaffolded Astro project and are not complete pasteable files. The CLI scaffolding block is a runnable shell command, not app code.
 
 ---
 
@@ -276,3 +288,42 @@ This unit prepares you for unit 3, where we'll dive deeper into Astro architectu
 ---
 
 > _"The best interface is the one you don't notice because it just works. Astro gets you closer to that ideal."_
+
+> _"Dependencies flow inward like water seeking the center. Let nothing in the center know the shape of the shore."_
+> — Tao of Development, `arch-004`
+
+## B1 · Lección magistral — 1 h
+
+**Claim:** the islands boundary — not the framework choice — is what changes a page's performance and SEO characteristics.
+
+FE I shipped one SPA paradigm: React, hydrate everything. This unit adds a second: static-by-default, hydrate only the islands that need interactivity. Unit 3 goes deeper into composing multiple frameworks on that boundary; Unit 4 pushes the same static-first instinct into offline resilience.
+
+Islands architecture is defined, independent of any one framework's marketing, as a way for developers to "defer and potentially even avoid the cost of loading content" by wrapping dynamic portions of a page while leaving the rest static (Vepsäläinen 2025, 3 — Ahmes coat `68c7da35`, node `797a702c-0538-5577-adc4-c3450c511608`).
+
+**Declared gap:** that source, and the resumability paper cited in Unit 3, establish what the islands primitive *is* and what problem it solves technically. **Neither establishes that teaching islands architecture produces better learning outcomes for this cohort.** No vault source grounds the pedagogy of this sequence — only the technique. Astro's own documentation is a platform note (how the `client:*` API works), never a citation for why this is a good way to teach front-end architecture.
+
+**Speaker outline:** see `deck-outline.md`.
+
+## B2 · Prácticas de laboratorio — 2 h · team
+
+Pick a real issue from the team's Entrega 1 backlog that needs one interactive element — a filter, a counter, a form — added to an otherwise static page. Do not invent a greenfield exercise.
+
+Definition of done: the PR adds the island using an explicit `client:*` directive with a one-line justification for that directive (not just `client:load` by default); CI is green; a human reviews any AI-generated suggestion (Unit 6 workflow, taught prospectively here); a release note names the change and its measured effect.
+
+Roles rotate: facilitator, implementer, verifier, narrator — nobody owns the same layer twice across units.
+
+Evidence to submit: issue link, branch, PR, a before/after bundle-size or Lighthouse delta, and an AI accept/reject log row if AI assistance was used.
+
+## B3 · Resolución de ejercicios — 2 h · individual
+
+1. A component is mounted with `client:load` but its interactive handler never fires until the user scrolls it into view three screens down. Name the wasted cost and the correct directive.
+2. Given five one-paragraph component descriptions (a footer, a live search box, a hero image, a checkout form, a cookie banner), assign each the correct `client:*` directive or "no hydration" and justify in one sentence.
+3. **No-AI diagnostic (declared):** without AI assistance, explain in your own words why an island's JavaScript bundle is isolated from the rest of the page's bundle, and what would break that isolation.
+
+Professor answer sketches belong in the instructor copy, not the public handout. These exercises are intentionally decontextualised from the team's product.
+
+## Provenance and evidence gate
+
+- Vepsäläinen, J. (2025). *The Potential of Serverless Edge-powered Islands for Web Development.* `10.13052/jwe1540-9589.2411`. Ahmes coat `68c7da35`, node `797a702c-0538-5577-adc4-c3450c511608`, p.3. Resolved via `ahmes query --cite`, `evaluator_safe=yes`.
+  <!-- provenance: located by grep over extract/index.md for "Islands architecture is a recent" inside coat 68c7da35 (matrix-named), node/page resolved via sqlite3 join fission_node × anchor_spatial, cite confirmed via `ahmes query --cite <db>:<node_id> --require-evaluator-safe` -->
+- **Missing evidence:** this unit does not establish that teaching islands architecture as a first meta-framework primitive produces measurably better learning outcomes than an alternative sequence. The technique is well documented; the pedagogy of teaching it here is a declared gap, consistent with the FE II grounding matrix row for Units 2–3.

@@ -18,7 +18,7 @@ tags:
     evaluation-criteria,
     project-completion,
   ]
-status: complete
+status: draft
 ---
 
 <!-- prettier-ignore-start -->
@@ -35,6 +35,33 @@ status: complete
 > _"The oral defence is not a performance. It's a conversation about your work."_
 
 > **AI Assistance Disclosure:** This unit requires live presentation without AI assistance. AI may be used for practice slides, but the actual defence must be human-driven.
+
+## B1 · Lección magistral — 1 h
+
+**Claim:** The oral defence measures corrective competence on the student’s own diff, not slide theatre.
+
+The lecture follows Unit 11’s tagged evidence package. Students learn to answer from the implementation, distinguish a verified result from a plausible story, and disclose AI assistance without outsourcing judgement. Liu’s assessment/offloading discussion (Ahmes node `dc2bd27d`, p. 12) and the DEC LATAM fairness/shallow-learning evidence (Ahmes node `b15014c1`, p. 2) ground the assessment concern; neither is treated as proof that this particular defence format produces learning.
+
+**Speaker outline:** 1) purpose of defence, 2) evidence contract, 3) problem/context, 4) architecture, 5) diff, 6) tests and limits, 7) AI decisions, 8) fairness and individual accountability, 9) live demo, 10) Q&A.
+
+## B2 · Prácticas de laboratorio — 3 h · team
+
+Freeze the Unit 11 release tag. Assign each member one layer to explain, rehearse one accepted and one rejected AI suggestion from the log, and run the tagged build. The team definition of done is: green release, defence roster, evidence links, and no new features introduced during rehearsal.
+
+## B3 · Resolución de ejercicios — 1 h · individual
+
+1. **No-AI diagnostic:** read an unfamiliar diff and name one behavioural change, one risk, and one test that would discriminate them.
+2. Repair an oral answer that confuses “the test passed” with “the design is accessible”.
+3. Given an AI-generated patch, write the accept/reject decision and the human verification evidence.
+4. Answer a fairness probe: identify which part of a team release an individual student can defend unaided.
+
+Professor answer sketches remain private. The defence itself is teaching and assessment, not a research instrument.
+
+## Provenance and evidence gate
+
+- Liu, Ahmes node `dc2bd27d`, p. 12 — assessment/offloading discussion; cite the resolved page, not a vector snippet.
+- Digital Education Council LATAM, Ahmes node `b15014c1`, p. 2 — student concern about shallow learning and assessment fairness.
+- **Missing evidence:** this unit does not establish a causal validity claim for the rubric. It requires reproducible student evidence and a human review; it does not authorize research-data collection or public recording.
 
 ---
 
