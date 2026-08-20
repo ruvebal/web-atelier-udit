@@ -1,0 +1,57 @@
+---
+description: CV design hypothesis for Web Audio / AI-assisted audio in Frontend II — paired with Profield field ai-assisted-audio-web
+globs: 'frontend-pedagogy/**'
+alwaysApply: false
+---
+
+# FE II · Web Audio / AI-assisted audio — CV design (draft)
+
+**Status:** design-in-research · field `ai-assisted-audio-web` · Pass 1 not yet run  
+**Date:** 2026-08-15  
+**Rule:** no lesson forge until Pass 1–3 + hours close at 10 / 30 / 14.
+
+## Why it belongs in FE II at all
+
+The durable thesis of the guía is **interface-layer transfer**: same component/state
+model, volatile destination (DOM → WebGL → device APIs). Web Audio is another
+destination — React hooks drive `AudioParam` / MessagePort to an AudioWorklet —
+not a music degree. Dual AI matches existing Unit 6 discipline:
+
+| Axis | Meaning in this module |
+| --- | --- |
+| AI for **generation** | Models emit MIDI/PCM/latent scores the browser plays |
+| AI for **development** | Copilots draft graphs/worklets; students ACCEPT/REJECT |
+
+## Schedule facts (do not invent hours)
+
+Current FE II lab allocation in `tracks.yml` already sums to **30 h**. Units 8–9 are
+3+3 lab; Unit 10 is **4 h** lab with a **placeholder** IoT WebSocket. Adding a
+13th unit without cutting is **out of compliance**.
+
+## Design options (ranked for this research loop)
+
+| Rank | Option | CV edit | Lab | Verdict |
+| ---: | --- | --- | --- | --- |
+| 1 | **Unit 10 modality fork** | Bloque 6: “device / realtime APIs” — IoT WebSocket *or* Web Audio sonification of a stream (mock OK while synergy pending) | Keep 4 h | Best honesty fit; serves Full-Stack + Data Science |
+| 2 | **Entrega 2 choice** | Rubric: one of {R3F, audio-reactive UI, IoT panel}; second optional | No new hours | Fastest to teach; uneven skills |
+| 3 | **Bloque 5 trim** | Unit 8 (2.5) + Unit 9 shaders (2) + Unit 9b audio (1.5) | Steal from 8–9 | Only if Pass 3 shows audio > shader contact time |
+| 4 | **New Unit 7.5** | After performance budgets | Needs reallocation | Premature until field digest |
+
+**Working hypothesis for Pass 1:** Option 1. Prospect literature that supports
+*sonification + Web Audio in undergrad CS/web* and *generative audio in-browser*
+without claiming R3F-level contact hours yet.
+
+## Entrega 2 sketch (if Option 1)
+
+Minimum bar (parallel to 3D covenant, not a copy):
+
+1. Understood `AudioContext` graph (or Tone.js with ability to explain the underlying nodes).
+2. One AudioWorklet *or* explicit justification why a main-thread node is enough.
+3. AI log: generation source + development ACCEPT/REJECT (Unit 6 vocabulary).
+4. Latency / autoplay / permission note (platform literacy).
+
+## Open until Pass 3
+
+- Is there HE evidence for Web Audio in *front-end* degrees, or only music-tech?
+- Magenta.js (2018) vs 2024–2026 ONNX/WebGPU browser inference — what is classroom-viable?
+- Does Option 1 weaken Bloque 6’s Data Science story or strengthen it (sonify the stream)?

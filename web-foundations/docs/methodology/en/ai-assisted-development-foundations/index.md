@@ -67,6 +67,42 @@ If you skip architecture, AI behaves like a god. If you respect it, AI behaves l
 
 ---
 
+## A live example: verify the server, not just the prompt
+
+Point 5 above — capability-based security and blast radius — is not
+abstract. On 2026-08-20, two separate MCP tooling recommendations were
+checked against their real sources before adoption. Both contained
+fabricated claims a plausible-sounding writeup had smoothed over: a
+security-audit attribution to an organization that had never evaluated
+the software, and a package name sitting unclaimed inside a real vendor's
+trusted npm scope — precisely the shape of a supply-chain attack, not a
+hypothetical one.
+
+> Supply chain adversaries can publish MCP servers to public registries
+> (npm, PyPI, GitHub), modify previously-trusted servers after adoption
+> (rugpull attacks), embed malicious logic in tool implementations, inject
+> harmful instructions in tool descriptions or responses, and execute
+> arbitrary code on user machines when their server runs.
+> — **[BIBLIO-GAP]** Errico, H., Sojan, S., & Ngiam, J., *Securing the
+> Model Context Protocol (MCP): Risks, Controls, and Governance* (2025),
+> arXiv:2511.20920v1
+> Ahmes anchor: `scholar/documents/2511_20920v1_43fed367/extract/extraction.db`
+> · nodo `33f6f8e1-e1d7-5805-8f0e-c0ff3ec907df` · p. 3 · `evaluator_safe=no`
+
+> The second major threat category arises from the challenge of
+> evaluating which MCP servers to trust. Unlike traditional APIs, which
+> undergo developer security review before integration, MCP servers can
+> be installed directly by end users who may lack security expertise.
+> — same document, nodo `170c5680-e021-50cf-906a-b264284d0a2f` · p. 4
+
+**The lesson isn't "don't use MCP."** It's that an MCP server is a tool
+you're granting execution capability to — the same discipline point 5
+already asks of any interface: what can this actually do, and who
+verified that. A model recommending a server is not verification. A
+plausible README is not verification. Checking the registry, the
+maintainer, and the actual dependency list is the minimum — and it is
+exactly as necessary when the recommender is an AI as when it's a person.
+
 ## Where the rest lives
 
 | Need | Page |

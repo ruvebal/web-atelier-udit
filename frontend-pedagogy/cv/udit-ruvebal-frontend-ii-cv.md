@@ -4,21 +4,35 @@ A continuación se detallan los **objetivos de aprendizaje**, el contenido organ
 
 ## **Objetivos de Aprendizaje**
 
+> **Nota editorial (2026-08-18):** esta sección describía hasta ahora la
+> redacción de Frontend I casi palabra por palabra (`CN03`, `HB02`, `HB05`,
+> `HB06`, `CM01` — comparar con `desarrollo-web-front-end-i-2025-2026.json`),
+> heredada porque **no existe guía oficial de Frontend II** en el portal
+> público de UDIT (`unicrawler` probe, 2026-07-28: *"Subject 'Desarrollo Web:
+> Front-End II' not found in UDIT portal study"*) — un vacío institucional
+> distinto del error de TEMARIO/bibliografía ya detectado y en curso de
+> corrección (`2026-27-syllabus-renewal-plan.md` §1), no el mismo. Siguiendo
+> la misma decisión ya tomada allí (autorar el contenido correcto en vez de
+> señalar-y-esperar), los códigos se mantienen — probablemente pertenecen al
+> catálogo de competencias del título, compartido entre asignaturas — pero la
+> redacción bajo cada código ahora describe lo que Frontend II realmente
+> enseña (Bloques 1–7 abajo), no una copia de los fundamentos de Frontend I.
+
 **Conocimientos (CN):**
 
-- **CN03:** Identificar los fundamentos del **diseño** y la **programación** de aplicaciones web y móviles, incluyendo principios de UX/UI, arquitectura front-end y herramientas modernas.
+- **CN03:** Aplicar los fundamentos de **diseño** y **programación** de aplicaciones web ya adquiridos en Frontend I a **sistemas de interfaz en producción**: arquitectura de renderizado (SSR/SSG/islas con Astro), resiliencia offline (PWA), y la extensión de la capa de interfaz más allá del navegador (3D, dispositivos IoT respaldados por Python).
 
 **Habilidades (HB):**
 
-- **HB02:** Utilizar herramientas y tecnologías de desarrollo web actuales para crear programas o aplicaciones tanto en dispositivos móviles como en computadoras (frameworks, librerías, bundlers, etc.).
+- **HB02:** Utilizar metaframeworks, herramientas de testing (Vitest, React Testing Library, Playwright) y pipelines CI/CD para construir y verificar aplicaciones web de nivel de producción, incluyendo la integración multi-framework (React/Vue/Svelte) dentro de un mismo proyecto.
 
-- **HB05:** Valorar y aplicar recursos que combinen **estética, diseño y funcionalidad** en el desarrollo de aplicaciones web, asegurando interfaces atractivas y usables.
+- **HB05:** Valorar y aplicar el **rendimiento** (Core Web Vitals, presupuestos de rendimiento) y la **estética de vanguardia** (shaders, escenas 3D con React Three Fiber) como restricciones de diseño desde el inicio del proyecto, no como auditorías o efectos añadidos al final.
 
-- **HB06:** Determinar las **herramientas de software**, **lenguajes de programación** y **entornos de desarrollo** más apropiados para solucionar un problema web dado, tomando decisiones informadas sobre qué framework, librería o técnica utilizar en cada caso.
+- **HB06:** Determinar, con criterio informado, la estrategia de renderizado (SSR frente a SSG, isla frente a hidratación completa), el metaframework y las técnicas de revisión de código asistida por IA más apropiadas para un problema de arquitectura front-end dado.
 
 **Competencias (CM):**
 
-- **CM01:** Diseñar **interfaces persona-computador** (UI) garantizando **accesibilidad** y **usabilidad** según estándares de experiencia de usuario vigentes en la industria del software. Esto implica crear interfaces responsivas, inclusivas (cumpliendo WCAG) y centradas en el usuario, asegurando una experiencia consistente en diferentes dispositivos.
+- **CM01:** Diseñar **interfaces persona-computador** que se sostengan a escala de producción — accesibles, usables y resilientes sin conexión — y que extiendan el modelo de interacción a fuentes de datos con estado (WebSocket, dispositivos IoT/robótica) y a superficies no tradicionales (3D, shaders), garantizando los mismos estándares de accesibilidad y usabilidad que Frontend I estableció como base.
 
 ## Fundamento Pedagógico
 
@@ -96,6 +110,8 @@ _Añadido 2026-08-10. Evidencia **exclusivamente de los bundles soberanos Ahmes*
 
 **El resultado es deliberadamente desigual, y esa desigualdad es el argumento:** los bloques que dan identidad a Frontend II carecen de respaldo porque **el campo aún no lo ha producido**.
 
+**Capa crítica transversal — fuentes centrales del corpus (añadido 2026-08-18):** Postman (*Technopoly*, 1992), Orrange (*The Corporate State*, 2020) y Anderson & Krathwohl (revisión de Bloom, 2001) se incorporaron a la Bibliografía oficial de esta guía (ver `cv/guides/desarrollo-web-front-end-ii-2026-2027.json`) por ser, verificado con `scripts/corpus_centrality.py` (`grounding-graph`), las fuentes de mayor centralidad ponderada de `profield-didactics` — no solo por ajuste temático. Postman se comparte con Frontend I por diseño (`curriculum-forger` SKILL.md §4A es transversal a ambas). No cierran las lagunas de Bloques 2/5/6 abajo — ninguna trata PWA, 3D o IoT — y no se presentan como si lo hicieran.
+
 ### Bloques respaldados
 
 **Bloque 3 · Revisión de código asistida por IA (Unidad 6)**
@@ -135,6 +151,47 @@ Voz estudiantil, nodo `c3157096` · p. 12: *"I got good grades on all the projec
 `digital_education_council…20489b0b` · nodo `b15014c1` · p. 2 — *"A clear majority of students (65%) worry about AI leading to shallow learning and an absence of fairness in assessment (56%)"*.
 > La defensa oral responde a una **demanda estudiantil documentada** en América Latina, no solo a una inquietud del profesorado.
 
+**Bloque 5 · Técnica avanzada opcional — MCPs oficiales en el flujo 3D/shader (Unidades 8–9)**
+_Añadido 2026-08-20. Grounding acotado: esta entrada respalda únicamente la
+**técnica opcional** (qué servidor MCP usar, si se usa alguno), no la
+pedagogía central de R3F/shaders de Unidades 8–9, que sigue **sin
+evidencia en el vault** (tabla abajo)._
+
+Verificación directa (no descrita en un vault, comprobada contra el
+registro npm/GitHub real el mismo día): de seis servidores MCP propuestos
+para Three.js/Astro/Tailwind/GSAP, solo uno (`threejs-devtools-mcp`)
+funcionaba como se describía, y **uno de los nombres reclamados
+(`@astrojs/mcp-server`) ocupa el espacio de nombres npm oficial de Astro
+sin publicación real** — exactamente el patrón de riesgo que la
+literatura de seguridad de MCP nombra formalmente:
+
+> Capabilities: Supply chain adversaries can publish MCP servers to public registries (npm, PyPI, GitHub), modify previously-trusted servers after adoption (rugpull attacks), embed malicious logic in tool implementations, inject harmful instructions in tool descriptions or responses, and execute arbitrary code on user machines when their server runs.
+> — **[BIBLIO-GAP]** Errico, H., Sojan, S., & Ngiam, J., *Securing the Model Context Protocol (MCP): Risks, Controls, and Governance* (2025), arXiv:2511.20920v1, "2.2.2. Adversary Type 2: Supply Chain Adversaries"
+> Ahmes anchor: `scholar/documents/2511_20920v1_43fed367/extract/extraction.db` · nodo `33f6f8e1-e1d7-5805-8f0e-c0ff3ec907df` · p. 3 · `evaluator_safe=no` (arXiv preprint, cascada de metadatos aún sin resolver)
+
+> The second major threat category arises from the challenge of evaluating which MCP servers to trust. Unlike traditional APIs, which undergo developer security review before integration, MCP servers can be installed directly by end users who may lack security expertise.
+> — **[BIBLIO-GAP]** mismo documento, nodo `170c5680-e021-50cf-906a-b264284d0a2f` · p. 4 · `evaluator_safe=no`
+
+**Regla de la asignatura, consecuencia directa de lo anterior:** en
+Unidades 8–9, MCP se enseña como **técnica avanzada opcional**, restringida
+a servidores **oficiales del proveedor** — Astro Docs MCP (`withastro`,
+endpoint remoto, sin instalación local), MCP incorporado en la CLI oficial
+de `shadcn` (`npx shadcn@latest mcp`), y las Agent Skills oficiales de
+GSAP (formato skill, no MCP, pero es la vía que el propio proveedor eligió
+en lugar de publicar un MCP). `threejs-devtools-mcp` queda **fuera** del
+currículo oficial por no ser mantenimiento del proveedor (real y
+funcional, pero un solo mantenedor, sin actividad desde hace meses) — se
+menciona solo como ejemplo en la guía de metodología IA (ver
+`ai-assisted-development-foundations`), no como técnica recomendada aquí.
+
+Ganancia de eficiencia real, para quien evalúe adoptar composición de
+servidores conscientes del contexto en el futuro (no una recomendación de
+esta asignatura, solo el estado del arte citado):
+
+> Efficiency: Across both benchmarks, execution time dropped by 67-74% due to reduced reliance on central LLM inference.
+> — **[BIBLIO-GAP]** Jayanti, M. A., & Han, X. Y., *Enhancing Model Context Protocol (MCP) with Context-Aware Server Collaboration* (2026), arXiv:2601.11595v2, §5
+> Ahmes anchor: `scholar/documents/2601_11595v2_b2eb0acf/extract/extraction.db` · nodo `064705e4-e0a2-5ea1-b889-2158566c0d89` · p. 6 · `evaluator_safe=no`
+
 **Bloque 6 · Legibilidad para Ciencia de Datos e IA**
 `phung_et_al…ea8cf54c` y `singh_et_al…37173a2a` operan en cursos de **programación para ciencia de datos**; `rcs…91103623` · nodo `9fabe333` revisa sistemáticamente la IA generativa en enseñanza de matemáticas y programación.
 > Respalda que el alumnado de datos es audiencia real de este diseño — aunque **ninguna** de estas fuentes trata la capa de interfaz, que es justamente lo que aporta la Unidad 10.
@@ -161,7 +218,7 @@ Ninguna fuente extraída sostiene la pedagogía de:
 | **1** | Metaframeworks, Astro, arquitectura de islas, SSR/SSG, micro-frontends | sin evidencia en el vault |
 | **2** | PWA, service workers, resiliencia offline | sin evidencia en el vault |
 | **4** | Pedagogía de la ingeniería de rendimiento (más allá del hallazgo de Phung sobre demanda) | sin evidencia en el vault |
-| **5** | 3D web, React Three Fiber, alfabetización en shaders | sin evidencia en el vault |
+| **5** | 3D web, React Three Fiber, alfabetización en shaders | sin evidencia en el vault — **excepto** la técnica opcional MCP añadida 2026-08-20 (ver "Bloques respaldados"), que sí tiene grounding propio y acotado |
 | **6** | Capa de interfaz para IoT/robótica y servicios Python | sin evidencia en el vault |
 
 Coincide con el diagnóstico de [`profield-frontend-pedagogy.md`](../profield-frontend-pedagogy.md), donde estos temas figuran como **`[UNVERIFIED-GAP]`**: ausencias reales del campo, no de esta búsqueda.
@@ -171,5 +228,5 @@ Coincide con el diagnóstico de [`profield-frontend-pedagogy.md`](../profield-fr
 ### Disciplina de alcance
 
 - **Garcia** es la única cohorte de desarrollo web (Filipinas). **Phung, Singh, Kazemitabaar, Liu** son de programación general o ciencia de datos. **Parthasarathy & Joshi** (India), **Batista** y **Correa** (Brasil). **Ninguna cohorte española** en el vault.
-- **Calidad bibliográfica desigual:** coats de Liu (`TI - Abstract`), Phung y Singh (`TI - 1 Introduction`) y CodeAid (`TI - Paul Denny`) con metadatos imperfectos; se citan por coat y nodo sin fabricar citas más limpias de lo que RIS/`metadata` sostienen. Completos: Garcia (DOI `10.3390/educsci15091150`), Parthasarathy & Joshi (DOI `10.1145/3632620.3671122`), CS2023.
+- **Calidad bibliográfica desigual (host-heading / 12G.4, no “falta de RIS”):** coats de Liu (`TI - Abstract`), Phung y Singh (`TI - 1 Introduction`) y CodeAid (`TI - Paul Denny`) → `host_registry_mismatch` (también tras `--force-meta --online`). Causa: Ahmes **12G.4** (SHIPPED); re-enrich, no inventar AU/TI. Completos: Garcia (DOI `10.3390/educsci15091150`), Parthasarathy & Joshi (DOI `10.1145/3632620.3671122`), CS2023.
 - **Vault de creatividad digital / moda: fuera de alcance** para estas guías; no se ha citado.

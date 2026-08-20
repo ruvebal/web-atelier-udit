@@ -1,0 +1,237 @@
+{
+  "generated_at": "2026-08-16T15:57:04.477128+00:00",
+  "project_slug": "profield-frontend-pedagogy",
+  "library": "scholar",
+  "fields": {
+    "fe-curriculum-gap-harvest": {
+      "n_coats": 14,
+      "coats": [
+        {
+          "source_pdf": "10.1109_ACCESS.2022.3164709__Internet-of-Things_Curriculum_Pedagogy_and_Assessment_for_ST.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_1109_access_2022_3164709_internet_of_things_curriculum_pedagogy_and_assessment_for_st_08eb5ba5",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_1109_access_2022_3164709_internet_of_things_curriculum_pedagogy_and_assessment_for_st_08eb5ba5/extract/extraction.db",
+          "content_hash8": "08eb5ba5"
+        },
+        {
+          "source_pdf": "10.1145_3641235.3664433__The_Future_of_Teaching_Computer_Graphics.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_1145_3641235_3664433_the_future_of_teaching_computer_graphics_e2e9b45c",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_1145_3641235_3664433_the_future_of_teaching_computer_graphics_e2e9b45c/extract/extraction.db",
+          "content_hash8": "e2e9b45c"
+        },
+        {
+          "source_pdf": "10.1145_3657242.3658588__Progressive_Web_Application_for_Storytelling_Therapy_Support.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_1145_3657242_3658588_progressive_web_application_for_storytelling_therapy_support_e1cdfe67",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_1145_3657242_3658588_progressive_web_application_for_storytelling_therapy_support_e1cdfe67/extract/extraction.db",
+          "content_hash8": "e1cdfe67"
+        },
+        {
+          "source_pdf": "10.1145_3702652.3744219__The_Effects_of_GitHub_Copilot_on_Computing_Students_Programm.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_1145_3702652_3744219_the_effects_of_github_copilot_on_computing_students_programm_29f3d2f5",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_1145_3702652_3744219_the_effects_of_github_copilot_on_computing_students_programm_29f3d2f5/extract/extraction.db",
+          "content_hash8": "29f3d2f5"
+        },
+        {
+          "source_pdf": "10.1145_3772318.3790520__How_Well_Can_3D_Accessibility_Guidelines_Support_XR_Developm.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_1145_3772318_3790520_how_well_can_3d_accessibility_guidelines_support_xr_developm_beee65c7",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_1145_3772318_3790520_how_well_can_3d_accessibility_guidelines_support_xr_developm_beee65c7/extract/extraction.db",
+          "content_hash8": "beee65c7"
+        },
+        {
+          "source_pdf": "10.3389_frai.2026.1841682__Designing_AI-resilient_assessment_in_higher_education_a_four.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_3389_frai_2026_1841682_designing_ai_resilient_assessment_in_higher_education_a_four_5a9bceda",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_3389_frai_2026_1841682_designing_ai_resilient_assessment_in_higher_education_a_four_5a9bceda/extract/extraction.db",
+          "content_hash8": "5a9bceda"
+        },
+        {
+          "source_pdf": "3442381.3450063.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "3442381_3450063_3ee00512",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/3442381_3450063_3ee00512/extract/extraction.db",
+          "content_hash8": "3ee00512"
+        },
+        {
+          "source_pdf": "3724363.3729106.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "3724363_3729106_133cc5e4",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/3724363_3729106_133cc5e4/extract/extraction.db",
+          "content_hash8": "133cc5e4"
+        },
+        {
+          "source_pdf": "3769994.3770043.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "3769994_3770043_205390e7",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/3769994_3770043_205390e7/extract/extraction.db",
+          "content_hash8": "205390e7"
+        },
+        {
+          "source_pdf": "3772318.3793207.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "3772318_3793207_eabb6c18",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/3772318_3793207_eabb6c18/extract/extraction.db",
+          "content_hash8": "eabb6c18"
+        },
+        {
+          "source_pdf": "3772363.3798887.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "3772363_3798887_68bbd8f6",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/3772363_3798887_68bbd8f6/extract/extraction.db",
+          "content_hash8": "68bbd8f6"
+        },
+        {
+          "source_pdf": "3706599.3719841.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "3706599_3719841_f58c92e1",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/3706599_3719841_f58c92e1/extract/extraction.db",
+          "content_hash8": "f58c92e1"
+        },
+        {
+          "source_pdf": "3786176.3788337.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "3786176_3788337_4326336e",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/3786176_3788337_4326336e/extract/extraction.db",
+          "content_hash8": "4326336e"
+        },
+        {
+          "source_pdf": "3806980.3806985.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "3806980_3806985_531d545d",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/3806980_3806985_531d545d/extract/extraction.db",
+          "content_hash8": "531d545d"
+        }
+      ],
+      "edited_map": "fe-curriculum-gap-harvest.pass1.edited.md",
+      "run": "~/src/profield/runs/fe-curriculum-gap-harvest/20260815/"
+    },
+    "fe-iot-python-interface-layer": {
+      "n_coats": 3,
+      "coats": [
+        {
+          "source_pdf": "10.1109_ACCESS.2022.3164709__Internet-of-Things_Curriculum_Pedagogy_and_Assessment_for_ST.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_1109_access_2022_3164709_internet_of_things_curriculum_pedagogy_and_assessment_for_st_08eb5ba5",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_1109_access_2022_3164709_internet_of_things_curriculum_pedagogy_and_assessment_for_st_08eb5ba5/extract/extraction.db",
+          "content_hash8": "08eb5ba5"
+        },
+        {
+          "source_pdf": "applsci-15-10537.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "applsci_15_10537_26eedf9b",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/applsci_15_10537_26eedf9b/extract/extraction.db",
+          "content_hash8": "26eedf9b"
+        },
+        {
+          "source_pdf": "futureinternet-17-00274-v2.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "futureinternet_17_00274_v2_c91a8b55",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/futureinternet_17_00274_v2_c91a8b55/extract/extraction.db",
+          "content_hash8": "c91a8b55"
+        }
+      ],
+      "edited_map": "fe-iot-python-interface-layer.pass1.edited.md",
+      "run": "~/src/profield/runs/fe-iot-python-interface-layer/20260815/"
+    },
+    "fe-metaframework-islands-pedagogy": {
+      "n_coats": 2,
+      "coats": [
+        {
+          "source_pdf": "10.1109_ACCESS.2024.3352891__Resumability_A_New_Primitive_for_Developing_Web_Applications.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_1109_access_2024_3352891_resumability_a_new_primitive_for_developing_web_applications_3d09df05",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_1109_access_2024_3352891_resumability_a_new_primitive_for_developing_web_applications_3d09df05/extract/extraction.db",
+          "content_hash8": "3d09df05"
+        },
+        {
+          "source_pdf": "10.13052_jwe1540-9589.2411__Potential_of_Serverless_Edge-powered_Islands_for_Web_Develop.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_13052_jwe1540_9589_2411_potential_of_serverless_edge_powered_islands_for_web_develop_68c7da35",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_13052_jwe1540_9589_2411_potential_of_serverless_edge_powered_islands_for_web_develop_68c7da35/extract/extraction.db",
+          "content_hash8": "68c7da35"
+        }
+      ],
+      "edited_map": "fe-metaframework-islands-pedagogy.pass1.edited.md",
+      "run": "~/src/profield/runs/fe-metaframework-islands-pedagogy/20260815/"
+    },
+    "fe-pwa-offline-pedagogy": {
+      "n_coats": 1,
+      "coats": [
+        {
+          "source_pdf": "10.26594_register.v11i2.5087__Architectural_Consideration_for_Gamified_Learning_Systems_An.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_26594_register_v11i2_5087_architectural_consideration_for_gamified_learning_systems_an_483a966a",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_26594_register_v11i2_5087_architectural_consideration_for_gamified_learning_systems_an_483a966a/extract/extraction.db",
+          "content_hash8": "483a966a"
+        }
+      ],
+      "edited_map": "fe-pwa-offline-pedagogy.pass1.edited.md",
+      "run": "~/src/profield/runs/fe-pwa-offline-pedagogy/20260815/"
+    },
+    "fe-web-performance-pedagogy": {
+      "n_coats": 2,
+      "coats": [
+        {
+          "source_pdf": "10.1371_journal.pclm.0000767__The_growing_environmental_impact_of_COP_websites_An_analysis.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_1371_journal_pclm_0000767_the_growing_environmental_impact_of_cop_websites_an_analysis_03bab1df",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_1371_journal_pclm_0000767_the_growing_environmental_impact_of_cop_websites_an_analysis_03bab1df/extract/extraction.db",
+          "content_hash8": "03bab1df"
+        },
+        {
+          "source_pdf": "_01_Juho.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "01_juho_68c7da35",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/01_juho_68c7da35/extract/extraction.db",
+          "content_hash8": "68c7da35"
+        }
+      ],
+      "edited_map": "fe-web-performance-pedagogy.pass1.edited.md",
+      "run": "~/src/profield/runs/fe-web-performance-pedagogy/20260815/"
+    },
+    "fe-websocket-realtime-ui": {
+      "n_coats": 1,
+      "coats": [
+        {
+          "source_pdf": "10.1145_3702652.3744219__The_Effects_of_GitHub_Copilot_on_Computing_Students_Programm.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "10_1145_3702652_3744219_the_effects_of_github_copilot_on_computing_students_programm_29f3d2f5",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/10_1145_3702652_3744219_the_effects_of_github_copilot_on_computing_students_programm_29f3d2f5/extract/extraction.db",
+          "content_hash8": "29f3d2f5"
+        }
+      ],
+      "edited_map": "fe-websocket-realtime-ui.pass1.edited.md",
+      "run": "~/src/profield/runs/fe-websocket-realtime-ui/20260815/"
+    },
+    "paradigm-curriculum-as-code": {
+      "n_coats": 1,
+      "role": "index-level paradigm (not a unit FieldSpec)",
+      "card": "~/src/profield/runs/PARADIGM-CURRICULUM-AS-CODE-20260816.md",
+      "athanor_project_slug": "profield-frontend-pedagogy",
+      "cite_gate": "BIBLIO-GAP",
+      "best_match": {
+        "nodo": "bfbd5af4-c4e8-5de2-876a-10ab9520b877",
+        "page": 1,
+        "lens": "formalization of instructional authoring processes"
+      },
+      "also_wired": [
+        {"nodo": "ee69fc1f-5aa6-54c4-b251-f76650e0ac91", "page": 3},
+        {"nodo": "08e38518-6cc4-50cf-8def-f3b9659ac743", "page": 2},
+        {"nodo": "abf864aa-bc8d-540b-99c5-66a5407dd7fe", "page": 7}
+      ],
+      "coats": [
+        {
+          "source_pdf": "2608.07364v1-paiva-curriculum-as-code.pdf",
+          "status": "PROCESSED_OK",
+          "coat": "2608_07364v1_paiva_curriculum_as_code_749851aa",
+          "extraction_db": "/Users/ruvebal/ahmes-library/scholar/documents/2608_07364v1_paiva_curriculum_as_code_749851aa/extract/extraction.db",
+          "content_hash8": "749851aa",
+          "doi": "10.48550/arXiv.2608.07364"
+        }
+      ]
+    }
+  }
+}

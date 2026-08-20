@@ -43,13 +43,13 @@ Length is not the gap — most units are 280–330 lines. **Nature is the gap:**
 
 ---
 
-## 2. 🔴 Two compliance defects (fix before the guías are filed)
+## 2. ✅ Hour-contract remediation completed; teaching-content gates remain
 
-**a) FE I lab hours do not close.** `tracks.yml` `fei:` sums `labHours` to **32.0 h** across 29 sessions. The official allocation is **30 h**. Phase 1's gate recorded this as passing; it does not. **2 h must come out** — a pedagogical decision, so I have not redistributed them silently. FE II is correct at 30.0 h.
+**a) FE I lab hours now close.** `tracks.yml` `fei:` sums `labHours` to **30.0 h** across 29 sessions. FE II also closes at **30.0 h**. The remediation allocated the official 10/30/14 activity split in both tracks.
 
-**b) Two of three activity types are unallocated, in both courses.** `magistralHours` and `ejerciciosHours` appear **zero times**. The official split is **Lección Magistral 10 h / Prácticas de Laboratorio 30 h / Resolución de Ejercicios 14 h**. Only the middle one exists in data.
+**b) Activity keys are now explicit and closed.** Both tracks sum to **10 h magistral / 30 h laboratory / 14 h exercises**. This closes the official activity accounting; it does not make every unit’s lesson pack complete.
 
-> This is what makes the `ACTIVIDADES FORMATIVAS` table unfillable truthfully — the original purpose of IGNITOR rule 2b, which covered lab hours only. Until fixed, any per-session hour claim to the department is unsupported.
+> The `ACTIVIDADES FORMATIVAS` table is now structurally fillable from the session data. Remaining readiness work is pedagogical production: labs, exercise sets, code, accessibility checks, and decks.
 
 ---
 
@@ -61,7 +61,7 @@ Length is not the gap — most units are 280–330 lines. **Nature is the gap:**
 3. Freeze and version the oral-defence rubric and AI-declaration template (also a research prerequisite, §4).
 
 **Wave 1 — Units 11 + 12 (best evidenced; they define the assessment students meet)**
-Forge per [`fe-unit-forge.mdc`](./fe-unit-forge.mdc): lesson + lab brief + exercise set. Evidence is ready — Garcia, Nelson & Ponciano, Vega (incremental PBL), González-Videgaray, Liu p.12 verbatim, DEC LATAM 65 %/56 %, Neumann (eduScrum) for the team-repo model.
+Paste [`forge/FE-II-WAVE-1.execute.md`](./forge/FE-II-WAVE-1.execute.md) (procedure: [`fe-unit-forge.mdc`](./fe-unit-forge.mdc)). Evidence is ready — Garcia, Nelson & Ponciano, Vega (incremental PBL), González-Videgaray, Liu p.12 verbatim, DEC LATAM 65 %/56 %, Neumann (eduScrum) for the team-repo model.
 
 **Wave 2 — Units 2 + 3 + 4** — the platform the frontier needs. All three **declare a gap**; ground technique in dated vendor docs only.
 

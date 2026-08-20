@@ -1,3 +1,11 @@
+---
+layout: lesson
+title: '3D Web — Corpus & Syllabus'
+lang: en
+permalink: /lessons/en/3d/
+description: 'Structured 3D-web corpus. FE II students: Phase 7 graded path is the AI-Assisted 3D covenant plus Units 8–9, not MCP shopping.'
+---
+
 # 3D Web — Corpus & Syllabus
 
 > *"The screen is a window. The GPU is a furnace. Your job is to make the light believable before the furnace melts."*
@@ -96,14 +104,15 @@ A senior frontend developer (or an ambitious intermediate) who wants to:
 
 > *"The AI writes the boilerplate. You write the taste."*
 
-| # | Lesson | What you learn | Directory |
-|---|--------|----------------|-----------|
-| 7.0 | **AI + 3D Web Overview** | Philosophy, what AI can/cannot do for 3D, prompt engineering for shaders and scenes | [ai-assisted-3d/](ai-assisted-3d/) |
-| 7.1 | **Cursor Rules for 3D** | `.cursor/rules/*.mdc` for R3F projects, texture pipeline rules, performance guard rules | [ai-assisted-3d/cursor-rules/](ai-assisted-3d/cursor-rules/) |
-| 7.2 | **Claude Workflows** | `CLAUDE.md`, subagents for asset processing, skills for shader generation, MCP integrations | [ai-assisted-3d/claude-workflows/](ai-assisted-3d/claude-workflows/) |
-| 7.3 | **Windsurf Configuration** | `.windsurfrules` for 3D projects, cascade conventions, memory persistence | [ai-assisted-3d/windsurf-config/](ai-assisted-3d/windsurf-config/) |
-| 7.4 | **Corpus to Boilerplate Prompt** | Master prompt-in-a-file: transforms the 3D corpus into a runnable scaffold with SSR streaming, i18n, theme system, modular CSS, shadcn/ui overlay, DESIGN.md, and MCP-aware execution. Includes preflight.sh for automated system verification. | [ai-assisted-3d/corpus-to-boilerplate/](ai-assisted-3d/corpus-to-boilerplate/) |
-| 7.5 | **MCP Preflight for the 3D Stack** | Concrete MCP stack: Stitch, 21st.dev, Nano Banana 2, DevIAC Gateway, UI UX Pro Max skill — setup, matrix, and preflight checklist | [ai-assisted-3d/mcp-preflight/](ai-assisted-3d/mcp-preflight/) |
+**FE II students:** do not treat this corpus Phase 7 as homework. Graded path is the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}), [Unit 8]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}), and [Unit 9]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}). No MCP shopping.
+
+| # | Lesson | Audience | Notes |
+|---|--------|----------|--------|
+| 7.0 | Philosophy, merge rubric, perf prompts | **Student** (distilled in the covenant) | Full instructor text stays in the private studio module |
+| 7.1 | Cursor rules for R3F / shaders / perf budgets | **Student** (copy numeric caps into the project) | Desktop ≤ 200 / mobile ≤ 80 draw calls |
+| 7.2–7.3 | Claude / Windsurf workflow mirrors | Optional, same Unit 6 AI rules | Not a second toolchain to install |
+| 7.4 | Corpus-to-boilerplate master prompt | **Instructor / prospector only** | Not assessed; not a public URL |
+| 7.5 | MCP preflight (Stitch, 21st.dev, …) | **Instructor demo once per term** | Browser MCP as verification, not a grade |
 
 ---
 
@@ -166,11 +175,11 @@ Each lesson follows a consistent structure:
 
 ## Recommended reading order
 
-**If you have 1 week:** 0.1 → 1.1 → 1.3 → 2.1 → 5.1 → 7.0
+**If you have 1 week:** 0.1 → 1.1 → 1.3 → 2.1 → 5.1 → FE II covenant + Units 8–9
 
-**If you have 1 month:** All of Phase 1 → Phase 2 → 3.3 → 4.2 → 5.1 → 7.0–7.1
+**If you have 1 month:** All of Phase 1 → Phase 2 → 3.3 → 4.2 → 5.1 → FE II Units 8–9
 
-**Full curriculum:** Follow the phase numbers in order. Phase 7 can be studied in parallel with any phase.
+**Full curriculum:** Follow the phase numbers in order. Phase 7 instructor demos can run in parallel; **student assessment is Units 8–9**, not 7.4–7.5.
 
 ---
 

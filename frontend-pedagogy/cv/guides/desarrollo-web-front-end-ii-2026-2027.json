@@ -1,0 +1,199 @@
+{
+  "subject_name": "Desarrollo Web: Front-End II",
+  "official_title_name": "Grado En Desarrollo Full-Stack",
+  "school_or_faculty": null,
+  "year": 3,
+  "ects": 6.0,
+  "module_type": "Obligatoria",
+  "languages": [
+    "Castellano"
+  ],
+  "modality": "Presencial",
+  "semester": "3er curso, 1er semestre",
+  "academic_year": "2026/2027",
+  "coordinating_professor": "Rubén Vega Balbás",
+  "coordinating_professor_email": "TODO — official @udit.es address, do not invent (PDF has placeholder XXXX@udit.es)",
+  "presentation": null,
+  "presentation_note": "No PRESENTACIÓN section exists in the source PDF for this subject (unlike Front-End I) — left null rather than invented. First offering of this course; may be added when the department formalizes the guide.",
+  "competencies": [
+    "CN03 - Aplicar los fundamentos de diseño y programación de aplicaciones web ya adquiridos en Frontend I a sistemas de interfaz en producción: arquitectura de renderizado (SSR/SSG/islas con Astro), resiliencia offline (PWA), y la extensión de la capa de interfaz más allá del navegador (3D, dispositivos IoT respaldados por Python).",
+    "HB02 - Utilizar metaframeworks, herramientas de testing (Vitest, React Testing Library, Playwright) y pipelines CI/CD para construir y verificar aplicaciones web de nivel de producción, incluyendo la integración multi-framework (React/Vue/Svelte) dentro de un mismo proyecto.",
+    "HB05 - Valorar y aplicar el rendimiento (Core Web Vitals, presupuestos de rendimiento) y la estética de vanguardia (shaders, escenas 3D con React Three Fiber) como restricciones de diseño desde el inicio del proyecto, no como auditorías o efectos añadidos al final.",
+    "HB06 - Determinar, con criterio informado, la estrategia de renderizado (SSR frente a SSG, isla frente a hidratación completa), el metaframework y las técnicas de revisión de código asistida por IA más apropiadas para un problema de arquitectura front-end dado.",
+    "CM01 - Diseñar interfaces persona-computador que se sostengan a escala de producción — accesibles, usables y resilientes sin conexión — y que extiendan el modelo de interacción a fuentes de datos con estado (WebSocket, dispositivos IoT/robótica) y a superficies no tradicionales (3D, shaders), garantizando los mismos estándares de accesibilidad y usabilidad que Frontend I estableció como base."
+  ],
+  "competencies_note": "Corrected 2026-08-18 — the source PDF's competency text was Frontend I's wording, copied in verbatim (no official Front-End II guide has ever existed to draw its own from; course has never been taught). Codes (CN03/HB02/HB05/HB06/CM01) kept as-is — likely a degree-level catalog shared across subjects, unconfirmed without an official source; only the descriptions were rewritten to describe this course's actual content.",
+  "learning_outcomes": [
+    "Verificar un desarrollo web mediante las pruebas de testeo más apropiadas atendiendo a su diseño.",
+    "Aplicar estrategias que posibiliten mejoras de rendimiento en el diseño de sitios y aplicaciones web.",
+    "Seleccionar las herramientas profesionales más adecuadas para el diseño y desarrollo de sitios web en Internet, en base a sus principales características y funcionalidades.",
+    "Desarrollar aplicaciones web manejando herramientas y entornos de desarrollo de uso profesional para dicho propósito."
+  ],
+  "learning_outcomes_note": "Verbatim from the source PDF's RESULTADOS DE APRENDIZAJE DE LA ASIGNATURA section — confirmed correct/on-topic, not touched.",
+  "contents": "Frameworks de uso profesional en el desarrollo front-end. Componentes y directivas. Enrutamiento. Gestión de URLs y rutas de páginas. Librerías y paquetes. Arquitecturas para el desarrollo de aplicaciones front-end. Desarrollo de Aplicaciones Web Progresivas o PWA (Progressive Web Apps). Funcionalidades offline. Testeo en desarrollo front-end. Herramientas. Diseño de pruebas de validación. Automatización de pruebas. Optimización de rendimiento en aplicaciones Web. Estrategias para mejorar la velocidad de carga. Herramientas de análisis de rendimiento.",
+  "contents_note": "Verbatim from the source PDF's CONTENIDOS section — confirmed correct/on-topic (2026-27-syllabus-renewal-plan.md §1), not touched. Distinct from `temario` below, which is the numbered-topics field the PDF also has, separately, and which WAS wrong (copy-pasted from an unrelated figure-drawing subject).",
+  "temario": [
+    "Arquitectura de renderizado en producción: metaframeworks y arquitectura de islas (Astro).",
+    "Integración multi-framework (React/Vue/Svelte) y content collections tipadas.",
+    "Estrategias de renderizado (SSR/SSG) y arquitectura de micro-frontends.",
+    "Aplicaciones Web Progresivas (PWA): service workers, estrategias de caché y manifiesto de aplicación web.",
+    "Estrategia de testing: pruebas unitarias, pruebas de componentes y end-to-end, integradas en CI/CD.",
+    "Revisión de código asistida por IA (human-in-the-loop) como técnica evaluable del flujo de desarrollo.",
+    "Ingeniería de rendimiento: Core Web Vitals y presupuestos de rendimiento como restricción de diseño.",
+    "Interfaces 3D declarativas: React Three Fiber, raycasting y eventos, optimización en WebGL.",
+    "Alfabetización en shaders: fundamentos de GLSL, shaders personalizados y efectos de post-procesado.",
+    "Interfaces respaldadas por IoT/Python: integración de WebSocket con estado y consumo de servicios FastAPI.",
+    "Integración del proyecto: arquitectura, resiliencia, testing, 3D e IoT combinados con evidencia de proceso documentada.",
+    "Defensa oral del proyecto integrador: preguntas basadas en el diff del propio código."
+  ],
+  "temario_note": "NEW — authored 2026-08-18, replacing the source PDF's copy-pasted figure-drawing TEMARIO (observational drawing, chiaroscuro, human figure, character design, sketchbook — belongs to an unrelated subject). Derived directly from the syllabus renewal's final 12-unit list (frontend-pedagogy/cv/udit-ruvebal-frontend-ii-cv.md Bloques 1-7 / Unidades 1-12), one TEMARIO item per unit, in teaching order. Per 2026-27-syllabus-renewal-plan.md §1's 2026-08-08 decision: authored for department submission, not flagged-and-left.",
+  "methodologies": {
+    "Presencial": [
+      "Metodología clásica (lecciones magistrales): el profesor utiliza la exposición para la enseñanza de conceptos, teorías, …. en el aula.",
+      "Aprendizaje Basado en Problemas: en este caso el profesor plantea un conjunto de problemas que los estudiantes deben resolver.",
+      "Aprendizaje Orientado a Proyectos o Basado en Proyectos: los estudiantes realizan varios proyectos a lo largo de los diferentes cursos académicos. Los proyectos pueden orientarse a la creación de un prototipo o de un producto final, la elaboración de un contenido, el diseño de un programa o la resolución de problemas."
+    ]
+  },
+  "formative_activities": {
+    "Presencial": [
+      {
+        "name": "Lección Magistral: Sesiones donde el profesor de forma expositiva presenta un contenido concreto que puede estar apoyado en la utilización de recursos tecnológicos de presentación. Tras la exposición suele haber un período de explicación de dudas o debate sobre lo expuesto que ayuda a la reflexión sobre el conocimiento trasmitido por el profesor.",
+        "hours": 10.0
+      },
+      {
+        "name": "Prácticas de Laboratorio: El profesor plantea problemas de resolución práctica que deben realizarse por grupos o de forma individual (dependiendo del problema y la actividad programada). Se abordarán ejercicios prácticos en un entorno similar al laboral, que sirvan de aplicación práctica de los conocimientos adquiridos durante las clases teóricas (lecciones magistrales). Estas prácticas se realizan en lugares específicos para ellas como son los laboratorios, diferenciados de los espacios dedicados a las clases magistrales.",
+        "hours": 30.0
+      },
+      {
+        "name": "Resolución de Ejercicios y Problemas: Se plantean diferentes problemas que deben resolverse aplicando conocimientos y destrezas adquiridas en la asignatura. Suelen abordar contenidos concretos no necesariamente contextualizados al ámbito profesional. Generalmente se pretende la adquisición y aplicación de estrategias de resolución (concreción del problema, análisis, selección del procedimiento e interpretación del resultado). Esta actividad formativa podrá realizarse en el aula o en el laboratorio.",
+        "hours": 14.0
+      },
+      {
+        "name": "Estudio autónomo: El alumno de forma individual, trabaja los contenidos de la asignatura o materia. Suele aplicarse a la adquisición de conocimientos concretos que pueden ser teóricos y/o prácticos.",
+        "hours": 94.0
+      },
+      {
+        "name": "Realización de la prueba de evaluación. El estudiante realiza, en el momento indicado, la prueba de evaluación parcial o final.",
+        "hours": 2.0
+      }
+    ]
+  },
+  "formative_activities_note": "Verbatim from source PDF; sums to 150h (10/30/14/94/2), confirmed correct — matches fe-unit-forge.mdc §1's hour scheme, independently.",
+  "evaluation": {
+    "Presencial": [
+      {
+        "name": "Pruebas de evaluación: pruebas orales o escritas",
+        "weight_percent": 30.0
+      },
+      {
+        "name": "Trabajos, entregables y proyectos",
+        "weight_percent": 50.0
+      },
+      {
+        "name": "Portafolio: resolución de problemas.",
+        "weight_percent": 20.0
+      }
+    ]
+  },
+  "evaluation_note": "Source PDF gives ranges (30-50% / 40-60% / 10-20%); specific weights chosen within range, matching cv/udit-ruvebal-frontend-ii-cv.md's already-published Evaluación table (30/50/20, sums to 100%) rather than inventing new ones.",
+  "bibliography_basica": [
+    {
+      "cite": "Tenner, E. (1997). Why Things Bite Back: Technology and the Revenge of Unintended Consequences. Vintage.",
+      "isbn": "978-0679747567",
+      "note": "Critical-STEM-pedagogy monograph (curriculum-forger SKILL.md §4A/§9.9 floor) — already evaluator_safe=yes in profield-didactics. Directly grounds the Fundamento Pedagógico paragraph's own energy/climate framing (\"el código que hace menos trabajo consume menos energía\") in Tenner's revenge-effects argument: an optimization applied without scrutiny can relocate cost rather than remove it — the same caution the course applies to AI-assisted code review (Unidad 6) and performance-as-restriction (Unidad 7), not just to environmental framing."
+    },
+    {
+      "cite": "Postman, N. (1992). Technopoly: The Surrender of Culture to Technology. Knopf Doubleday.",
+      "note": "Corpus-central (weighted degree 107, connects to 15/26 profield-didactics documents — highest in the corpus, verified via scripts/corpus_centrality.py 2026-08-18). Grounds the critical-STEM-pedagogy transversal layer (curriculum-forger SKILL.md §4A Lenses 1+2) shared across both Front-End I and Front-End II — cited in both by design, not duplicated by accident."
+    },
+    {
+      "cite": "Severi Peltonen, Luca Mezzalira, and Davide Taibi, \"Motivations, Benefits, and Issues for Adopting Micro-Frontends: A Multivocal Literature Review\", Information and Software Technology 136 (2021)",
+      "doi": "10.1016/j.infsof.2021.106571",
+      "bloque": 1
+    },
+    {
+      "cite": "Juho Vepsäläinen, Arto Hellas, and Petri Vuorimaa, \"The Rise of Disappearing Frameworks in Web Development\", in Web Engineering: 23rd International Conference (ICWE 2023), Springer LNCS 13893",
+      "doi": "10.1007/978-3-031-34444-2_23",
+      "isbn": "978-3-031-34444-2",
+      "bloque": 1
+    }
+  ],
+  "bibliography_complementaria": [
+    {
+      "cite": "Zhaoqiang Guo et al., \"Mitigating False Positive Static Analysis Warnings: Progress, Challenges, and Opportunities\", IEEE Transactions on Software Engineering (2023)",
+      "doi": "10.1109/TSE.2023.3329667",
+      "bloque": 3
+    },
+    {
+      "cite": "Jerin Anan Proma et al., \"Energy-Efficient Web Design: Measuring Impact of Front-end Optimizations\", Proceedings of NSysS '25",
+      "doi": "10.1145/3777555.3777561",
+      "bloque": 4
+    },
+    {
+      "cite": "L. Khrouf et al., \"On the Energy Consumption of Web Applications: An Empirical Study of their Design Solutions\", GREENS@ICSE 2025",
+      "doi": "10.1109/GREENS66463.2025.00012",
+      "bloque": 4
+    },
+    {
+      "cite": "Orrange, R. M. (2020). The Corporate State: Technopoly, Privatization and Corporate Predation. Routledge.",
+      "note": "Corpus-central (weighted degree 99, connects to 20/26 documents — broadest reach of any document in profield-didactics). Grounds Bloque 1's institutional/production framing (arquitectura de producción as a real organizational context, not just a technical one)."
+    },
+    {
+      "cite": "Anderson, L. W., & Krathwohl, D. R. (Eds.). (2001). A Taxonomy for Learning, Teaching, and Assessing: A Revision of Bloom's Taxonomy of Educational Objectives. Longman.",
+      "note": "Corpus-central (weighted degree 74, connects to 19/26 documents). Already curriculum-forger SKILL.md §4's mandatory Bloom framework for this unit's own STEP A.3 (Bloom-cell placement) — now also named explicitly in the Guía Docente's own bibliography, not just used internally to justify design."
+    }
+  ],
+  "bibliography_note": "Replaces the source PDF's copy-pasted figure-drawing bibliography (Boerboom, Lauricella, Simblet, Arnheim, Gombrich et al. — unrelated subject). All 5 entries are DOI-verified, three-pass adversarially audited (map / independent audit / merge — different model per pass) sources, promoted 2026-08-11 from frontend-pedagogy/02-temario-contenidos/T3-production-frontier-astro-pwa-3d-iot.edited.md. Several candidate sources for PWA, 3D (R3F), and IoT-transfer pedagogy were deliberately NOT promoted — Pass 2 left their DOI/ISBN unverifiable, and per that file's own change log, 'did not invent a Three.js/R3F pedagogy source to fill the gap.' Real gaps in the peer-reviewed literature for those specific topics; not an oversight here.",
+  "webgrafia": [
+    {
+      "name": "Astro Documentation",
+      "url": "https://docs.astro.build"
+    },
+    {
+      "name": "MDN Web Docs — Service Workers API",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API"
+    },
+    {
+      "name": "MDN Web Docs — Web App Manifest",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/Manifest"
+    },
+    {
+      "name": "web.dev — Core Web Vitals",
+      "url": "https://web.dev/articles/vitals"
+    },
+    {
+      "name": "React Three Fiber Documentation",
+      "url": "https://r3f.docs.pmnd.rs"
+    },
+    {
+      "name": "FastAPI Documentation",
+      "url": "https://fastapi.tiangolo.com"
+    },
+    {
+      "name": "Playwright Documentation",
+      "url": "https://playwright.dev"
+    }
+  ],
+  "webgrafia_note": "Official platform/technical documentation for tools actually taught — never presented as bibliografía académica (same platform-note discipline the T3 Quarantine list already applies to Service Workers/Web App Manifest specs).",
+  "source_url": "TODO — no live UDIT portal URL exists yet; course has never been taught (see NOT-FOUND probe, 2026-07-28). Fill once the department assigns one.",
+  "_meta": {
+    "authored_by": "Rubén Vega Balbás, with Claude (drafting assistance) — 2026-08-18",
+    "purpose": "Corrected TEMARIO + bibliography for department submission ahead of the RUC publication deadline (2026-08-26). Replaces copy-pasted figure-drawing content in GDFS-2026-2027-3-Desarrollo Web Front-End II.pdf's TEMARIO and BIBLIOGRAFÍA sections only — all other sections (CONTENIDOS, RESULTADOS DE APRENDIZAJE, ACTIVIDADES FORMATIVAS, SISTEMAS DE EVALUACIÓN) were independently confirmed correct and are reproduced verbatim, not re-authored.",
+    "review_needed": [
+      "coordinating_professor_email",
+      "source_url",
+      "presentation (confirm no section is actually wanted)",
+      "final human review of temario wording before submission"
+    ]
+  },
+  "bibliography_coverage_by_bloque": {
+    "1 (Arquitectura/Astro)": "cited — Peltonen 2021, Vepsäläinen 2023",
+    "2 (PWA)": "sin respaldo en el vault — T3 prospection found no DOI/ISBN-verified source for PWA pedagogy (T3-production-frontier-astro-pwa-3d-iot.edited.md §\"Gaps that remain\"); Service Workers/Manifest specs listed in webgrafia as platform notes only, never as academic bibliography",
+    "3 (Testing/AI-review)": "cited — Guo 2023",
+    "4 (Rendimiento)": "cited — Proma 2025, Khrouf 2025",
+    "5 (3D/shaders)": "sin respaldo en el vault — no verified React Three Fiber or web-3D pedagogy source exists in T3's prospection",
+    "6 (IoT/Python)": "sin respaldo en el vault — no verified React-component-model-transfer-to-IoT source exists in T3's prospection",
+    "7 (Capstone)": "not a technical-bibliography Bloque — grounded separately in the CV's own \"Fundamentación académica\" HE-pedagogy evidence (Garcia 2025, Nelson & Ponciano 2021), not in this Guía Docente's student-facing Bibliografía"
+  },
+  "bibliography_coverage_note": "curriculum-forger SKILL.md §9.9: every Bloque gets a citation or an explicit declared gap, never silent omission or a citation stretched to cover a Bloque it doesn't address. Bloques 2/5/6 are real, already-documented field gaps (T3's own change log: \"did not invent a Three.js/R3F pedagogy source to fill the gap\") — not an oversight in this pass. This mirrors, at the Guía Docente's technical-bibliography layer, exactly what cv/udit-ruvebal-frontend-ii-cv.md's \"Fundamentación académica\" section already does at the pedagogy-research layer. Postman/Orrange/Anderson & Krathwohl added 2026-08-18 per corpus_centrality.py's ranked output (curriculum-forger SKILL.md §6 STEP A check) — all three rank in profield-didactics' top 5 by document-weighted-degree centrality, not picked by topic-fit alone."
+}

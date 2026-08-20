@@ -6,6 +6,29 @@ alwaysApply: false
 
 # vShowroom — cross-institutional artefact brief
 
+> **Forge output rule, added 2026-08-20 — read before generating any student-
+> facing or published content from this brief:**
+>
+> - **DC (Creación Digital) side:** do not name or reference the vShowroom
+>   synergy in DC curriculum content yet. Deferred by the operator's own
+>   call — CD I/II teaching is identical either way, so naming it buys
+>   nothing right now and can be added later once the operator decides to.
+> - **FE side:** the synergy concept (a shared cross-program artefact,
+>   3D/shader work feeding a real showroom) may stay in FE-facing content,
+>   **but without naming any specific institution** — no "UDIT," no "UEM,"
+>   no "Universidad Europea," no RUCT/BOE codes. Say "a sister creative-
+>   technology program" or equivalent, not the real name. Check
+>   `web-foundations/docs/lessons/en/feii/unit-8-r3f-fundamentals/index.md`
+>   for the pattern already in production — it says "Shared capstone /
+>   vShowroom seed" with zero institution naming, which is exactly right;
+>   match that register in anything forged from here.
+> - **This constraint is about forge OUTPUT, not this document.** The
+>   institutional specificity below (UDIT, UEM, RUCT codes, named CFP
+>   committee members) stays as-is — it's load-bearing for real DPO
+>   coordination, FACTUM submission, and cross-institution consent work.
+>   Do not genericize this file itself; genericize what gets generated
+>   *from* it for a public or student-facing surface.
+>
 > **L3 · Product logic.** Distinct from teaching (L1) and research (L2) — see [`fe-unit-forge.mdc`](./fe-unit-forge.mdc) §0. This document specifies *the thing being built*. It is not a syllabus and not a grade.
 
 **Sibling docs:** [`fe-research-line.mdc`](./fe-research-line.mdc) · [`fe-cohort-case-proposal.mdc`](./fe-cohort-case-proposal.mdc) · **authority home (emancipated):** `/Users/ruvebal/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/grounding/` · teaching site `digital-creativity-uem` · upstream pipeline `profield/runs/digital-creativity/`

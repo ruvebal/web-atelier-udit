@@ -84,8 +84,8 @@ Lab hours sum to the official **30 h** `ACTIVIDADES FORMATIVAS` allocation.
 
 | # | Unit | Total | Lab | Focus |
 | --- | --- | --- | --- | --- |
-| 8 | [React Three Fiber — 3D Interfaces with React Patterns]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}) | 3 h | 3 h | The same component/state model, rendered spatially |
-| 9 | [Shader Literacy & Cutting-Edge Aesthetics]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}) | 3 h | 3 h | GLSL, custom materials, post-processing |
+| 8 | [React Three Fiber — 3D Interfaces with React Patterns]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}) | 3 h | 3 h | Interface-layer transfer · `renderer.info` · [3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) |
+| 9 | [Shader Literacy & Cutting-Edge Aesthetics]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}) | 3 h | 3 h | One understood shader · optional post · merge log |
 | 10 | [IoT/Robotics Control-Panel & Python-Backed Interface]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) | 2 h | 4 h | WebSocket + device APIs · **Entrega 2 due** |
 
 ### Block 4 — Capstone (Units 11–12) · **Entrega 3 / Examen Final**

@@ -1,43 +1,64 @@
 {
 	"folders": [
 		{
+			"name": "web-atelier-udit",
 			"path": ".",
 		},
 		{
+			"name": "react-template",
 			"path": "../courses-repos/react-template",
 		},
 		{
+			"name": "deviac",
 			"path": "../../../../../src/deviac",
 		},
 		{
+			"name": "adadi.org",
 			"path": "../../../../adadi/web/adadi.org",
 		},
 		{
+			"name": "website",
 			"path": "../../../website",
 		},
 		{
+			"name": "final",
 			"path": "../25-26/GDFS/FEI/final",
 		},
 		{
+			"name": "hc-app-design",
 			"path": "../../../../../src/hc-app-design",
 		},
 		{
+			"name": "advertising-video_editing-udit",
 			"path": "../advertising-video_editing-udit",
 		},
 		{
+			"name": "ttod",
 			"path": "../../../../../src/ttod",
 		},
 		{
+			"name": "unicrawler",
 			"path": "../../../../../src/unicrawler",
 		},
 		{
+			"name": "MSCA",
 			"path": "../../../../../src/MSCA",
 		},
 		{
+			"name": "src",
 			"path": "../../../../../src",
 		},
 		{
+			"name": "digital-creativity-uem",
 			"path": "../../universidadeuropea/digital-creativity-uem",
+		},
+		{
+			"name": "anthropic-agent-skills",
+			"path": "../../../../../.claude/plugins/marketplaces/anthropic-agent-skills",
+		},
+		{
+			"name": "scholar",
+			"path": "../..",
 		},
 	],
 	"settings": {

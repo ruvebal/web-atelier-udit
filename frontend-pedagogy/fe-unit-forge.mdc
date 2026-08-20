@@ -6,7 +6,7 @@ alwaysApply: false
 # UNIT FORGE — master prompt
 
 > One unit in, three artefacts out. Grounded, hour-allocated, and research-instrumented.
-> Prerequisites: [`grounding/README.mdc`](./grounding/README.mdc) (evidence matrix) · [`.cursor/rules/lesson-publishing-integrity.mdc`](../.cursor/rules/lesson-publishing-integrity.mdc) (publishing rules) · [`fe-cohort-case-proposal.mdc`](./fe-cohort-case-proposal.mdc) (why the instruments exist)
+> Prerequisites: [`grounding/README.mdc`](./grounding/README.mdc) (evidence matrix) · [`.cursor/rules/lesson-publishing-integrity.mdc`](../.cursor/rules/lesson-publishing-integrity.mdc) (publishing rules) · [`fe-cohort-case-proposal.mdc`](./fe-cohort-case-proposal.mdc) (why the instruments exist) · `curriculum-forger` (`~/src/.cursor/skills/curriculum-forger/SKILL.md`, sibling to `user-guide-forger`) — classical-didactics axis, UbD/5E/Bloom/CLT/constructivism grounding for STEP A, cross-institution with CD
 
 ---
 
@@ -57,7 +57,9 @@ With **n < 15** you cannot separate "the team delivered" from "this student lear
 
 ## 3. THE MASTER PROMPT
 
-Copy from here. Fill the six `INPUT` slots. Do not skip step A.
+**Filled run file (Wave 1 — execute this, do not re-fill the template):** [`forge/FE-II-WAVE-1.execute.md`](./forge/FE-II-WAVE-1.execute.md).
+
+Copy from here only for later units. Fill the six `INPUT` slots. Do not skip step A.
 
 ```markdown
 # FORGE FE UNIT — <COURSE> Unit <N>: <TITLE>
@@ -81,7 +83,28 @@ Copy from here. Fill the six `INPUT` slots. Do not skip step A.
    in the register of Unit 5's "Scholarly honesty" note. Do not paper over it.
    Vendor documentation grounds HOW, never WHY THIS SEQUENCE TEACHES WELL.
 4. Check library versions by search, not memory. Pin and date them.
-5. Pick TTOD quotes by ID from ~/src/ttod/ttod.yml. If you need to improvise an aphorism that does not exist, add it to the cue in ~/src/ttod/
+5. Pick TTOD quotes by ID through `~/src/.cursor/skills/ttod-bridge/SKILL.md`
+   — never by hand-parsing `ttod.yml` or hand-appending YAML to it. If the
+   aphorism you need doesn't exist yet, `propose_quote(...)` through the
+   bridge (`origin: blackbox`, `source` naming this unit) stages it in
+   the bridge's own `pending/` for human review — it is never merged or
+   cited as canonical until a human runs TTOD's own `cli.py add`.
+6. **Units 8–9 (and any AI-assisted 3D lesson):** read
+   [`web-foundations/private/ai-assisted-3d/AUDIT-GROUNDED.md`](../web-foundations/private/ai-assisted-3d/AUDIT-GROUNDED.md)
+   **before** writing. It is the instructor/student split contract:
+   - **Student path (graded):** philosophy, merge rubric, `cursor-rules/`
+     numeric budgets, one understood shader, `renderer.info` snapshot,
+     ACCEPT/REJECT log (parity with Unit 6). Publish via
+     [`/lessons/en/feii/ai-assisted-3d-covenant/`](../web-foundations/docs/lessons/en/feii/ai-assisted-3d-covenant/).
+   - **Instructor path (demo once):** `mcp-preflight/`, Stitch, `corpus-to-boilerplate/` —
+     never assign as homework; never put the MCP marketplace in Units 8–9.
+   - Adjacent AI-coding coats in `profield-ai-assisted-3d-web` (Copilot
+     offloading, metacognition, design fixation, AI Co-Artist) **do not**
+     close the R3F-pedagogy `[UNVERIFIED-GAP]`. Cite the node; keep the
+     pilot declaration.
+   - Cross-link Unit 6 human-in-the-loop vocabulary. Optional studio
+     parallel: `~/src/studio-skillopt/docs/MERGE-GATE-PROTOCOL.md`
+     (skill diffs use the same adopt/reject habit).
 
 ## STEP B — EMIT THREE ARTEFACTS
 
@@ -145,7 +168,7 @@ Not unit order — **evidence order**, so the best-supported units set the stand
 | Wave  | Units             | Why first                                                                                                                         | Artefact role                 |
 | ----- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | **1** | **11 · 12**       | Best-supported (Garcia, Nelson & Ponciano, González-Videgaray, Liu verbatim, DEC LATAM). They define the assessment students meet | Release + defence ritual      |
-| **2** | **8 · 9 · 10**    | Entrega 2 frontier; the pilot declaration does real work; **carries the vShowroom's 3D core**                                     | 3D viewer, shaders, live data |
+| **2** | **8 · 9 · 10**    | Entrega 2 frontier; the pilot declaration does real work; **carries the vShowroom's 3D core**. Units 8–9 must honour `AUDIT-GROUNDED.md` (student covenant, no MCP shopping). | 3D viewer, shaders, live data |
 | **3** | **2 · 3 · 4 · 7** | Architecture, PWA, performance — the platform beneath the frontier                                                                | Astro shell, offline, budgets |
 | **4** | **1**             | Kickoff last: it must promise exactly what the other eleven deliver                                                               | Orientation                   |
 | **5** | decks ×12         | After prose settles. A deck for a lesson still in flux is waste                                                                   | —                             |
@@ -160,7 +183,7 @@ Not unit order — **evidence order**, so the best-supported units set the stand
 | **Phase 2 (FE II build)**   | Tier A redefined: a unit is done when **all three** activity artefacts exist, not when the lesson page exists. Tier B (decks) becomes wave 5 above.                                                                                                                           |
 | **Phase 3 (assessment)**    | Add the lab/exercise split to the rubric: cohort-level lab evidence and individual-level exercise evidence are weighted separately, so a strong team cannot mask an individual gap.                                                                                           |
 | **Phase 5 (institutional)** | TEMARIO derives from the forged unit list; the `ACTIVIDADES FORMATIVAS` table can now be filled **truthfully per session**, which was rule 2b's original purpose.                                                                                                             |
-| **New — Phase 7**           | Triangular synergy (FE · Creación Digital · Diseño de Moda/CLO) — see [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc). CD teaching site emancipated at `universidadeuropea/digital-creativity-uem` (own Pages + `digital-creativity-pedagogy/grounding/`). |
+| **New — Phase 7**           | Triangular synergy (FE · Creación Digital · Diseño de Moda/CLO) — see [`atelier-synergy-vshowroom.mdc`](./atelier-synergy-vshowroom.mdc), **and its 2026-08-20 forge-output rule at the top: no institution naming in FE-facing output, no vShowroom reference at all in DC-facing output.** CD teaching site emancipated at `universidadeuropea/digital-creativity-uem` (own Pages + `digital-creativity-pedagogy/grounding/`). |
 
 ---
 

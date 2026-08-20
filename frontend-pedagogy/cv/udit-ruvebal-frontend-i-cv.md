@@ -222,9 +222,27 @@ Respaldo regional adicional: `cepal…48ba6c8d` · nodo `769a6e2c` (competencias
 > Convierte la eficiencia de **compromiso razonado** en **obligación con mandato internacional**: es la base normativa del binomio rendimiento/accesibilidad como ética y no como optimización.
 > ⚠️ **Clase de fuente:** instrumento **normativo**, no estudio. **Obliga, no mide.** Ninguna fuente del corpus cuantifica el efecto en carbono de una decisión de ingeniería front-end, y su objeto son los **sistemas de IA** — cubre el método asistido por IA de esta asignatura, no autoriza una afirmación directa front-end→carbono. **Sin cifras inventadas.**
 
+### Capa crítica transversal — fuentes centrales del corpus (añadido 2026-08-18)
+
+`curriculum-forger` SKILL.md §4A exige esta capa en toda unidad que enseñe
+tecnología — transversal, no una "semana de ética" aparte. Las siguientes
+tres fuentes se seleccionaron con `scripts/corpus_centrality.py`
+(`grounding-graph`), no por ajuste temático solo: son, por conectividad
+ponderada, las fuentes **más centrales de todo el corpus**
+`profield-didactics` (26 documentos) — ver
+`grounding-graph/reports/profield-didactics-centrality.json` para el
+ranking completo, `curriculum-forger` SKILL.md §6 para la disciplina de
+uso.
+
+- Norman, D. A. (2013). *The Design of Everyday Things* (rev. ed.). Basic Books. Nodo `(Norman 2013, 146)` · `evaluator_safe=yes`. Grado ponderado 69, conecta con 16/26 documentos. **Fundamenta CN03/HB05 directamente** (affordances, diseño centrado en el usuario) — la fuente que más de cerca sostiene los fundamentos de UX/UI que esta asignatura declara como resultado de aprendizaje del título.
+- Tenner, E. (1997). *Why Things Bite Back: Technology and the Revenge of Unintended Consequences*. Vintage. Nodo `(Tenner 1997, 182)` · `evaluator_safe=yes`. Grado ponderado 68, conecta con 16/26 documentos. Marco de consecuencias no intencionadas — compartido con Frontend II por diseño, no duplicado por accidente (ambas asignaturas enseñan tecnología con efectos que exceden la intención del desarrollador).
+- Postman, N. (1992). *Technopoly: The Surrender of Culture to Technology*. Knopf Doubleday. Nodo `(Postman 1992, 19)` · `evaluator_safe=yes`. Grado ponderado 107 — **la fuente más central de todo el corpus**, conecta con 15/26 documentos.
+
+**Lo que esto NO cierra:** ninguna de las tres trata la enseñanza específica de CSS3/JavaScript/asincronía (sigue abierto, ver laguna de Módulos 1-2 abajo). Son fundamento de la capa crítica transversal y de UX/diseño, no de la pedagogía de un lenguaje o API concretos — no confundir cobertura transversal con cobertura de contenido técnico específico (SKILL.md §6, regla de no dejar que una capa tape la laguna de otra).
+
 ### Lagunas del vault (declaradas, no rellenadas)
 
 - **Módulos 1 y 2 (CSS3 avanzado, JavaScript, asincronía):** ninguna fuente extraída sobre su enseñanza. Se sostienen en práctica profesional y documentación de plataforma.
 - **Coste energético y climático del código:** ✅ **cerrado a nivel normativo** (UNESCO, arriba); permanece abierto a nivel **empírico** — nadie cuantifica el efecto en carbono de decisiones front-end.
 - **Marco legal español (RD 1112/2018 y equivalentes):** **no ingerido**. El único apoyo normativo extraído es indirecto — eMAG (Brasil) vía Correa. Invocar obligación legal española exige una pasada de corpus propia.
-- **Calidad bibliográfica desigual:** los coats de Liu (`TI - Abstract`), Phung y Singh (`TI - 1 Introduction`) y CodeAid (`TI - Paul Denny`) tienen metadatos imperfectos. Se citan por coat y nodo, y **no se han fabricado citas más limpias de lo que RIS/`metadata` sostienen**. Coats con metadatos completos: Garcia (DOI `10.3390/educsci15091150`), Parthasarathy & Joshi (DOI `10.1145/3632620.3671122`), CS2023 (Kumar, Eaton et al.).
+- **Calidad bibliográfica desigual (host-heading / 12G.4, no “falta de RIS”):** los coats de Liu (`TI - Abstract`), Phung y Singh (`TI - 1 Introduction`) y CodeAid (`TI - Paul Denny`) fallaron el cite gate porque el título host era una etiqueta de sección → Crossref `host_registry_mismatch` (confirmado también con `--force-meta --online`). Eso es Ahmes **12G.4** (SHIPPED 2026-08-16); re-enrich limpia coats, no otra pasada RIS inventada. Se citan por coat y nodo sin fabricar AU/TI. Completos: Garcia (DOI `10.3390/educsci15091150`), Parthasarathy & Joshi (DOI `10.1145/3632620.3671122`), CS2023 (Kumar, Eaton et al.).

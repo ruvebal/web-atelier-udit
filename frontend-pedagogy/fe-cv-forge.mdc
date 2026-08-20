@@ -1,0 +1,133 @@
+---
+description: Forge UDIT guías curriculares / CV drafts for Desarrollo Web Front-End I–II strictly from the official JSON where one exists
+globs: 'frontend-pedagogy/cv/**'
+alwaysApply: false
+---
+
+# CV FORGE — Desarrollo Web Front-End (UDIT)
+
+> Output: markdown guía curricular drafts under `frontend-pedagogy/cv/`.
+> **Authority:** the official Guía Docente JSON (FE I only — see STEP A.0)
+> + `fe-unit-forge.mdc` §1 (hour-type definitions, quoted verbatim there).
+> Scholarly citations: [`grounding/README.mdc`](./grounding/README.mdc).
+> Unit lessons: [`fe-unit-forge.mdc`](./fe-unit-forge.mdc).
+> Classical-didactics grounding + rationale-quoting rule (§4, §7):
+> `curriculum-forger` (`~/src/.cursor/skills/curriculum-forger/SKILL.md`),
+> via its FE bridge
+> [`references/institution-fe.md`](~/src/.cursor/skills/curriculum-forger/references/institution-fe.md)
+> — this file replaces that bridge's §"CV forge — no dedicated
+> `fe-cv-forge.mdc` exists yet" workaround. Structural template: CD's
+> sibling, `digital-creativity-pedagogy/dc-cv-forge.mdc` — same shape,
+> FE's own contract substituted in.
+
+---
+
+## INPUT
+
+- COURSE: `<Front-End I | Front-End II>`
+- GUIDE_JSON: `desarrollo-web-front-end-i-2025-2026.json`
+  (`/Users/ruvebal/src/unicrawler/output/guides/udit/`) — **FE I only**,
+  see STEP A.0 for FE II.
+- OUTPUT: `cv/udit-ruvebal-frontend-{i|ii}-cv.md`
+
+## STEP A — LOAD THE CONTRACT (mandatory)
+
+0. **Check which course you're forging before assuming a JSON exists.**
+   FE I has one. **FE II does not** — `unicrawler`'s portal probe
+   (2026-07-28) returned *"Subject 'Desarrollo Web: Front-End II' not
+   found in UDIT portal study"* (`desarrollo-web-front-end-ii-2025-2026-NOT-FOUND.md`,
+   same directory), an honest negative result, not a parser failure. This
+   is a **separate** institutional gap from the already-tracked FE II PDF
+   `TEMARIO`/bibliography clerical error
+   (`2026-27-syllabus-renewal-plan.md` §1, in progress) — don't conflate
+   the two, and don't assume fixing one fixes the other. For FE II:
+   skip to A.6; there is no JSON to parse in A.1–A.5. State this
+   explicitly in the forged CV's own text (see the editorial-note pattern
+   in `cv/udit-ruvebal-frontend-ii-cv.md`'s Objetivos section, added
+   2026-08-18) — do not silently draft as if a JSON authority exists.
+1. **(FE I only)** Parse GUIDE_JSON. Copy identity fields
+   (`subject_name`, `ects`, `semester`, `academic_year`,
+   `coordinating_professor`, `source_url`) verbatim.
+2. **(FE I only)** Extract `contents` → CONTENIDOS anchor list. Do not
+   drop or reorder silently; show the mapping table if you cluster for
+   pedagogy.
+3. **(FE I only)** List `competencies` exactly as strings in the JSON —
+   `CN03`, `HB02`, `HB05`, `HB06`, `CM01` as of the 2025-2026 guide. **For
+   FE II**, these same codes likely apply (probably a degree-level
+   catalog, shared across subjects — unconfirmed without an official FE II
+   source) but the *descriptions* must describe FE II's own content, not
+   be copied from FE I's. Getting this wrong once already cost a real
+   edit — see the note above.
+4. **(FE I only)** Load `formative_activities` — hours must sum to **150**
+   at the 10/30/14/94/2 split (`fe-unit-forge.mdc` §1's table, quoted
+   verbatim there from the official text — Lección Magistral /
+   Prácticas de Laboratorio / Resolución de Ejercicios / Estudio autónomo
+   / Evaluación). If they don't sum to 150, stop: the clone is stale,
+   re-check the live PDF. **For FE II**, this hour split is still
+   binding (`institution-fe.md`'s hour-scheme table) even without a JSON
+   — it's the one part of the contract independently confirmed correct
+   in the live PDF (`2026-27-syllabus-renewal-plan.md` §1: "`ACTIVIDADES
+   FORMATIVAS` ... are correct, on-topic").
+5. **(FE I only)** Load `evaluation` — weights must match JSON **and** the
+   live PDF. Sum must be 100%. **For FE II**, use the live PDF's
+   evaluation section directly (per §1, it's correct) — do not invent
+   weights, and do not silently reuse FE I's if they differ.
+6. Ground any research/pedagogy claims via the evidence matrix in
+   [`grounding/README.mdc`](./grounding/README.mdc) — read **this unit's
+   row**, authoritative over priors. Only Ahmes `--cite` with
+   `evaluator_safe=yes` may enter published bibliography lines.
+   `[BIBLIO-GAP]` stays labelled, never silently repaired.
+
+## STEP B — EMIT CV SECTIONS
+
+Required section order (matches both existing CVs — audit them against
+this before assuming compliance, `curriculum-forger` SKILL.md §8):
+
+1. **Título + framing paragraph** — what this course covers, in one
+   paragraph, before any structured data.
+2. **Objetivos de Aprendizaje** — Conocimientos (CN) / Habilidades (HB) /
+   Competencias (CM), from JSON where one exists (FE I); authored and
+   explicitly flagged as authored where none exists (FE II, per STEP A.0).
+3. **Fundamento Pedagógico** — the pedagogy paragraph
+   (`curriculum-forger` SKILL.md §7: quote
+   `web-foundations/docs/methodology/en/index.md` verbatim, do not
+   paraphrase; both existing CVs already do this, including the site's
+   real tagline — see `phase-4-cv-reframe.md`'s correction note on that).
+4. **Contenido por bloques/unidades** — mapped to the 12-unit shape
+   (`fe-unit-forge.mdc`), CONTENIDOS anchors from JSON where available.
+5. **Proyecto integrador** — the capstone/culminating deliverable.
+6. **Evaluación** — full weight table; state the sum.
+
+## STEP C — VERIFY
+
+- [ ] **FE I:** every hour row name and weight matches JSON (orthographic
+      cleanup only); hour sum = 150; evaluation sum = 100%.
+- [ ] **FE II:** hour split matches `fe-unit-forge.mdc` §1's table; no
+      claim of a JSON source that doesn't exist.
+- [ ] Competency descriptions (CN/HB/CM) describe *this course's* content
+      — for FE II, re-read them against the actual Bloques/Unidades list,
+      don't assume a prior draft got this right (it didn't, once).
+- [ ] Bibliography lines are `evaluator_safe=yes` only.
+- [ ] **Bibliography coverage** (`curriculum-forger` SKILL.md §9.9): at
+      least one critical-STEM-pedagogy monograph-depth source, and every
+      Bloque either cited or explicitly listed as "sin respaldo en el
+      vault" (see `udit-ruvebal-frontend-ii-cv.md`'s "Fundamentación
+      académica" section for the pattern) — never silently skipped, never
+      a citation stretched to cover a Bloque it doesn't actually address.
+- [ ] No CD hour scheme (10/20/8/14/20/8) anywhere.
+- [ ] No VTON as required deliverable.
+- [ ] If FE II: the "no official JSON" gap is stated in the CV's own text,
+      not just known to whoever forged it.
+
+## Non-negotiables
+
+1. JSON (+ live PDF on conflict) beats taste — for FE I, where a JSON
+   exists. For FE II, the live PDF's `CONTENIDOS`/`ACTIVIDADES
+   FORMATIVAS`/`SISTEMAS DE EVALUACIÓN` beat taste; its `TEMARIO` and
+   bibliography do not (known-defective, see STEP A.0) — use the
+   authored replacement from `2026-27-syllabus-renewal-plan.md` §1
+   instead, once it exists.
+2. Never present FE II content as JSON-sourced when it isn't. An
+   authored competency description, a self-authored `TEMARIO` — say so.
+3. L2 research clauses are additive, never a rewrite of L1 institutional
+   tables (same rule as CD's).

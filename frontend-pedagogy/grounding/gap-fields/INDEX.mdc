@@ -1,0 +1,48 @@
+---
+description: Pass-2 audited FE gap-field maps + Ahmes coat inventory + forge questions for Units 2–4, 7, 10
+globs: 'frontend-pedagogy/**'
+alwaysApply: false
+---
+
+# Gap-field promotion — 20260815 wave
+
+**Promoted:** 2026-08-16  
+**Authority:** Profield runs are the evidence factory; this folder is the curriculum-facing publication head.  
+**Rule:** Athanor/DevIAC = discovery only. Cite Ahmes `⟨coat⟩ · nodo · p.` only when `evaluator_safe=yes`. Otherwise keep the claim and mark `[BIBLIO-GAP]` with the resolver reason (often host-heading pollution — Ahmes **12G.4**, now SHIPPED; re-enrich coats, do not treat as a missing RIS pass).
+
+**Paradigm coat (wired):** Paiva 2026 Curriculum as Code — best Tri-Anchor + also-wired nodes + MSCA contrast on [`../GAP-PROSPECTION-INDEX.mdc`](../GAP-PROSPECTION-INDEX.mdc) · card [`~/src/profield/runs/PARADIGM-CURRICULUM-AS-CODE-20260816.md`](/Users/ruvebal/src/profield/runs/PARADIGM-CURRICULUM-AS-CODE-20260816.md) · inventory `paradigm-curriculum-as-code` in [`COAT-INVENTORY.json`](./COAT-INVENTORY.json).
+
+## Contents
+
+| Artefact | Role |
+| --- | --- |
+| [`FORGE-AVANTGARDE-QUESTIONS.md`](./FORGE-AVANTGARDE-QUESTIONS.md) | Unit forge questions with provenance trail (worked method) |
+| [`PENDING-procurement.md`](./PENDING-procurement.md) | DOIs to acquire (P0 Case 2020 first); lawful OA only |
+| [`PROMPTS-REPLICATE.md`](./PROMPTS-REPLICATE.md) | Copy-paste prompts: gap-fields refresh · FE CV forge · temario∪gap-fields union |
+| [`COAT-INVENTORY.json`](./COAT-INVENTORY.json) | 23 Ahmes coats from the six manifests |
+| `fe-*.pass1.edited.md` | Pass-2 audited field maps (chips stripped; NEEDS CHECK inline) |
+| Upstream ledgers | `~/src/profield/runs/<field>/20260815/pass2.claude.audit.ledger.md` |
+
+## Field → FE unit
+
+| Field | FE target | Pass-2 verdict |
+| --- | --- | --- |
+| `fe-curriculum-gap-harvest` | omnibus blanks | PASS (López-Pernas + Web Audio FPWD already in edited map) |
+| `fe-websocket-realtime-ui` | Unit 10 technique | Merge-ready; 2026 ACM DOIs NEEDS CHECK |
+| `fe-iot-python-interface-layer` | Unit 10 frame | Hold peripherals; Abichandani + Ciungan load-bearing |
+| `fe-metaframework-islands-pedagogy` | Units 2–3 | Merge 1–10/12; hold §11 until da Silva & Brittes |
+| `fe-pwa-offline-pedagogy` | Unit 4 | Merge after §9 unattributed ACM claim downgrade (done) |
+| `fe-web-performance-pedagogy` | Unit 7 | Hold ISO 21031 / Phung % / WSG date NEEDS CHECK |
+
+## Operator sequence used (forge the forge)
+
+```text
+1. Ahmes batch already PROCESSED_OK → extraction.db per PDF
+2. athanor inject --from-manifest … --project-slug profield-frontend-pedagogy --library scholar
+3. Athanor search  → candidate node_ids (never cite snippets)
+4. sqlite / ahmes query <db> --nodes --page N  → read full node
+5. ahmes query --cite <db>:<node_id> --style chicago-author-date
+6. Insert only evaluator_safe=yes; else [BIBLIO-GAP] + still keep coat·node·page for reopen
+```
+
+Many coats still fail the cite gate because host `title` was `Abstract` / `1 INTRODUCTION` / `Keywords` while Crossref has the real work title (`host_registry_mismatch`). That is **12G.4 heading quality** (SHIPPED 2026-08-16 in Ahmes), **not** missing PDFs and **not** a forgotten RIS/`--force-meta` pass (force-meta alone re-selected the bad heading). Do not invent AU/TI. Re-run `enrich --force-meta --online` (or batch `--online`) on coats with a post-12G.4 Ahmes, then re-cite; until then keep explicit `[BIBLIO-GAP]`.

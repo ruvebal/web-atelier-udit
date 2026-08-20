@@ -20,7 +20,9 @@ permalink: /methodology/en/
 
 <!-- prettier-ignore-end -->
 
-> AI Assistance Disclosure: Parts of this methodology and related materials were iterated with AI tools (ChatGPT GPT‑4/GPT‑5, Copilot/Codex, Cursor/Claude). Iterations followed a research–practice–research cycle and were reviewed by the author. The pedagogy is grounded primarily in classroom experience teaching web development since Sept 2024.
+> AI Assistance Disclosure: Parts of this methodology and related materials were iterated with AI tools (ChatGPT GPT‑4/GPT‑5, Copilot/Codex, Cursor/Claude). Iterations followed a research–practice–research cycle and were reviewed by the author. The pedagogy is grounded primarily in classroom experience teaching web development since Sept 2024.
+
+> This page is the lean, practical guide — what to run and how. The critical/theoretical argument behind it (energy and accessibility as one ethical question, the agile/scrum critique, AI epistemology grounded in EU/UNESCO policy) has its own deep treatment; see the closing note at the end of this page.
 
 ## 🎭 Critical Coding Approach
 
@@ -38,27 +40,6 @@ In this context, **web design** becomes a critical medium to think about rhythm,
 > To code critically is to make with awareness
 > — of the tools, the users, and the social space where our work lives.
 
-### Whose better living?
-
-_Critical Coding for a Better Living_ names a subject, and the subject is not only the reader.
-
-Code that does less work draws less power, and power spent becomes heat — in a phone, in a laptop, in a data centre. That cost does not stop at the device: it lands on a shared climate, and so on everything alive in it. We are technological beings; the line between what lives and what is built was never clean. **If you are alive, you are already inside this.**
-
-Two consequences for how we teach:
-
-- **Performance and accessibility are one question in two currencies** — _what does this cost the world it runs in, and who pays?_ One answers in energy, the other in exclusion. Neither is optimisation; neither is compliance.
-- **Efficiency is a form of care, not a metric.** A lighter page is a smaller claim on someone else's battery, bandwidth, attention, and air.
-
-> Subtract until it costs less. That is not minimalism — it is arithmetic with a conscience.
-
-**Where the evidence stands, stated plainly.** The accessibility half is well grounded. Fisseler frames *digital accessibility literacy* as spanning "both the creation (encoding) and interpretation (decoding) of accessible digital content," an approach that "improves technical skills and instills ethical and social responsibility" — and reports that only about **15% of surveyed computing teachers actually teach digital accessibility**, which is precisely the gap this methodology exists to close. Lewthwaite and Sloan, cited there, call accessibility "a socio-technical challenge that is primarily about the problem of teaching empathy." That the gap is structural rather than local is visible in Ibero-American evidence: Correa et al. find persistent failures in an academic system used by **39 higher-education institutions** *"even after 20 years of eMAG"*, and Batista & Baluz find missing alternative text and inadequate contrast recurring across Brazilian university sites.
-
-The **energy-and-resources half is now normatively grounded** — by the **UNESCO Recommendation on the Ethics of Artificial Intelligence**, adopted by Member States, which requires assessing environmental impact across the AI system life cycle *"including… its carbon footprint, energy consumption and the environmental impact of raw material extraction"*, and instructs actors to *"favour data, energy and resource-efficient AI methods."*
-
-That is an **obligation, not a measurement**. UNESCO does not quantify what a lighter page saves, and its object is AI systems rather than front-end engineering as such. So we teach efficiency as an **ethical requirement with an international mandate**, while stating plainly that the causal chain from a smaller bundle to a cooler planet is argued here, not measured. **No invented figures.** Students are invited to contest the argument; that is what _critical_ means.
-
-**Sources** — all read from the project's research corpus (Ahmes vaults; UNESCO from the SVCM reference vault): Fisseler, B. (2024), *Digital Accessibility Literacy*, ASSETS 2024 Workshop · Correa, M., Vitoriano, M. A., & Llanos, C. H. (2025), *Web Accessibility in an Academic Management System in Brazil*, Informatics 12(3), 63 · Batista, H. E. N., & Baluz, R. A. R. S. (2025), *HEI Websites and WCAG 2.1*, iSys 18(1) · ACM/IEEE-CS/AAAI (2023), *Computer Science Curricula 2023*, DOI [`10.1145/3664191`](https://doi.org/10.1145/3664191) · Liu, D., Fan, G., & Pan, L. (2026), *Tool, tutor, or crutch?*, _International Journal of STEM Education_, 13:10, DOI [`10.1186/s40594-025-00592-w`](https://doi.org/10.1186/s40594-025-00592-w) · UNESCO (2021), *Recommendation on the Ethics of Artificial Intelligence*.
-
 ---
 
 ## Introduction and Rationale
@@ -75,19 +56,19 @@ Each class session is structured into three blocks to maximize learning by doing
 - **Guided Practical Exercise:** Students immediately apply the concept in a live-coding session or hands-on tutorial. The instructor walks through an example (such as implementing a responsive navigation bar or using a design system component), and students follow along, ask questions, and tweak the example. This guided practice bridges theory and independent work, building student confidence.
 - **Independent Exercise and Commit:** At the end of the session, students work on a short assignment extending or applying the concept to their own project. This could be creating a new page section, improving usability, or adding an interactive feature related to that week’s topic. By the class’s end, **each student makes a Git commit** in their repository, pushing the updates. The commit message must briefly document what was achieved (e.g. “Added responsive gallery with grid layout and ARIA labels”). This ritual encourages students to reflect on their work and practice professional version-control habits.
 
-Under this model, each week’s lesson is akin to a “sprint” in agile terminology – a short development cycle yielding a concrete increment of the project. By the next week, students have a new piece of a website to show for their effort. Over time, these increments accumulate into a complete project. This design mirrors how real-world software is built iteratively, which helps students **get acclimated to professional workflows** early. The regular cadence of sprints (with weekly deadlines) provides a drumbeat for progress, ensuring the project moves forward steadily rather than via last-minute cramming. It also makes the learning process less overwhelming by dividing it into manageable chunks.
+Each week's lesson is structured as a short, self-contained development cycle yielding a concrete increment of the project. By the next week, students have a new piece of a website to show for their effort. Over time, these increments accumulate into a complete project. This design mirrors how real-world software is built iteratively, which helps students **get acclimated to professional workflows** early. The regular weekly cadence provides a drumbeat for progress, ensuring the project moves forward steadily rather than via last-minute cramming, while dividing the learning process into manageable chunks. Each content module of the course maps to one week's deliverable — for example, a module on accessibility culminates in an accessibility audit and improvements in that week's commit; a module on UX patterns ends with a usability test report on the student's site. If many students struggle with a concept, the next week's material can flex to include additional review or a smaller scope, and we build in an occasional buffer week where students revisit and improve past work without new material.
 
-## Updated Week‑by‑Week Teaching Schedule (First Five Weeks)
+## Updated Week‑by‑Week Teaching Schedule (First Five Weeks)
 
-| Week  | Focus                                       | Git / Repo Task                                                                                   |
+| Week  | Focus                                       | Git / Repo Task                                                                                   |
 | ----- | ------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| **1** | **Setup – VS Code, Git, GitHub**            | Create personal repo from the template, add & push `README.md` with student handle.               |
+| **1** | **Setup – VS Code, Git, GitHub**            | Create personal repo from the template, add & push `README.md` with student handle.               |
 | **2** | **Project Definition Workshop**             | Commit `project‑brief.md` **and** start `project.yaml` (metadata).                                |
-| **3** | **Styling – Typography & Colour**           | Implement brand identity in HTML/CSS; commit first design assets.                                 |
-| **4** | **Publishing & Metadata Submission**        | Enable GitHub Pages; submit PR to `/2025‑fall/students.yaml` _or_ push validated `project.yaml`.  |
-| **5** | **Design‑Trend Analysis & Showroom Launch** | Peer‑review session; CI script builds course showroom from `students.yaml` and live project URLs. |
+| **3** | **Styling – Typography & Colour**           | Implement brand identity in HTML/CSS; commit first design assets.                                 |
+| **4** | **Publishing & Metadata Submission**        | Enable GitHub Pages; submit PR to `/2025‑fall/students.yaml` _or_ push validated `project.yaml`.  |
+| **5** | **Design‑Trend Analysis & Showroom Launch** | Peer‑review session; CI script builds course showroom from `students.yaml` and live project URLs. |
 
-> After Week 5 the course resumes the previously described sprint rhythm (accessibility, interaction, testing, etc.).
+> After Week 5 the course resumes the previously described weekly rhythm (accessibility, interaction, testing, etc.).
 
 ## Incremental Portfolio Development and Its Benefits
 
@@ -101,10 +82,34 @@ Importantly, incremental development addresses the need for **frequent feedback 
 
 Finally, the stage-by-stage project is **evaluable by stages**. Instead of one high-stakes final submission, the project is assessed in parts (formative assessment each week, possibly) and as a whole (summative assessment at the end). This staged evaluation can reduce student anxiety and provide a clearer picture of their development. It also discourages procrastination and academic dishonesty – a student would find it harder to plagiarize or cheat an entire multi-week project, especially since the commit log would reveal sudden unexplained progress. In fact, using a version-control approach with individual repos can help **mitigate cheating**: irregular or last-minute massive code additions stand out in the logs, and some studies have proposed analyzing commit patterns to detect anomalies and ensure academic integrity.
 
+## Repository Architecture and Content Flow
+
+```
+web‑foundations/          ← canonical repo (shared lessons, templates, pedagogy)
+└── docs/
+    ├── lessons/          ← single source of truth, rendered on GH Pages
+    ├── methodology/
+    └── templates/
+
+web‑design/               ← course instance repo
+└── 2025‑fall/
+    ├── lessons/          ← HTML redirectors → web‑foundations/docs/lessons/
+    ├── students.yaml     ← PRs land here in Week 4
+    ├── examples/         ← course‑specific demos
+    └── index.html        ← showroom generated Week 5
+
+student‑project‑template/ ← bare starter each learner forks/clones
+└── project.yaml          ← their metadata (same keys as students.yaml)
+```
+
+- **Lesson re‑use:** Each file in `web‑design/2025‑fall/lessons/` is a minimal HTML auto‑forwarder (meta‑refresh) pointing to the canonical lesson URL. No duplication, no symlinks.
+- **Privacy:** `students.yaml` stores only anonymous handles, repo URL, live URL, emoji icon, and short abstract.
+- **Automation:** A GitHub Action rebuilds the showroom when `students.yaml` changes; it also lints YAML and pings broken live links.
+
 ## Git Summary
 
 | Purpose                        | Repo                    | Method                                   |
-| ------------------------------ | ----------------------- | ---------------------------------------- |
+| ------------------------------ | ----------------------- | ----------------------------------------- |
 | Canonical lessons              | `web-foundations`       | Written in `docs/lessons/` as HTML or MD |
 | Course-specific lesson plan    | `web-design`            | Redirector HTML files (`meta refresh`)   |
 | Shared methodology & templates | `web-foundations/docs/` | Referenced by URL or included if needed  |
@@ -124,27 +129,9 @@ One practical concern is whether a commit-per-class model is sustainable for an 
 
 Using these strategies, the one-commit-per-week per student model becomes much more viable. In fact, similar large-scale implementations of project-based courses report positive outcomes. In a program employing incremental project-based learning for hundreds of students, faculty noted that centralizing work in repositories allowed them to **showcase best projects and monitor all teams** efficiently. At our scale (120 students), with proper tooling and support, reviewing weekly commits is manageable – especially since not every commit demands in-depth critique. The focus can be on identifying patterns: who is falling behind, who might be copying code, and who produces exemplary work that could be highlighted.
 
-## Agile Sprints in the Classroom
+## Weekly Cycle in the Classroom
 
-We borrow terminology from agile methodologies (like “sprints”) to frame each lesson’s work cycle. This alignment with professional practices is intentional: it acculturates students to the iterative rhythm common in industry projects. Each class sprint starts with a “planning” (the introduction of new tasks/concepts), moves through “execution” (guided and independent practice), and ends with a “review” (the commit and possibly a quick show-and-tell or recap). The next class effectively acts as the next sprint, possibly beginning with a brief retrospective (e.g. discussing challenges from last week’s task). Over the semester, students experience a simplified Scrum-like process on an individual scale.
-
-Adopting agile principles in education has documented benefits. Students often **value working with agile frameworks** (like eduScrum) on real projects; it gives them practical experience and shifts the instructor’s role more toward a coach or facilitator. The time-boxed nature of sprints can prevent students from gold-plating or procrastinating, as they have to deliver something functional each week. It also trains them in time management and scoping – skills that are crucial in professional environments.
-
-However, we also **adapt and critique agile practices** to suit an educational context. One must remember that students are in a learning process, not a product delivery environment. For example, in industry agile, not delivering a feature by the end of a sprint is considered a failure of planning, but in a class, it might simply indicate a topic that needs more time to master. We therefore use the sprint structure flexibly: if many students struggle with a concept, the “next sprint” might include additional review or a smaller scope. In other words, we welcome changing requirements – in this case, adjusting to student learning needs – just as the Agile Manifesto suggests responding to change in projects.
-
-We also acknowledge that **design and creative work** sometimes need breathing room beyond strict sprint cycles. In professional Agile teams, one critique (especially from designers) is that the rush of continuous sprints can _“reduce the designer’s autonomy and creativity, leading to stress and lack of fulfillment”_. Rigidly forcing all design ideation, coding, and testing into a one-week cycle can result in shallow work or technical debt, as one industry anecdote vividly described: _“Design was rushed and ill-conceived as a result of time pressure; development was equally rushed... Each Sprint \[ended up] trying to fix the mess from the Sprint before”_. We share such insights with students to critically examine agile methods. Thus, while we emulate sprints for structure, we also **encourage a critical perspective**: students discuss when a methodology like Scrum aids the creative process versus when it might hinder thoughtful design. This critical discourse is part of the course’s learning outcomes, tying into our broader aim of producing reflective practitioners, not just technically competent ones.
-
-Each content module of the course roughly corresponds to a “sprint” deliverable. For example, a module on accessibility might culminate in an accessibility audit and improvements in that week’s commit; a module on UX patterns might end with a usability test report on the student’s site. By mapping content blocks to sprints, we ensure coverage of all key topics in a structured timeline. Yet we remain **conscious of the human aspect** – students’ well-being and creative satisfaction are prioritized over rigid adherence to process. If needed, we build in a buffer week (an “innovation sprint” or a catch-up sprint) where students can revisit and improve past work without new material, simulating the agile idea of an iteration dedicated to refactoring or exploration.
-
-## Critical Reflections on Creativity, Well-Being, and Productivity
-
-An important component of this course design is integrating **critical perspectives on the nature of creative work** in the web industry. We don't want to simply train students to be cogs in the tech industry; we want them to question and understand the context of their work. Throughout the course, we weave in discussions about the broader implications of design and development methodologies. This includes examining how market pressures and the drive for productivity (in “late-stage capitalist” tech environments) can impact personal well-being and creativity.
-
-For instance, when introducing agile workflows, we pair it with a reading on the human side of Agile. Students reflect on arguments that in some companies, **performance metrics and rapid cycles might alienate workers from the creative joy of design**. We discuss Marx’s concept of alienation in the context of design jobs – how designers can feel disconnected from the outcomes of their labor when speed and output are over-emphasized. The goal here is not to reject industry practices wholesale, but to cultivate a nuanced mindset: students learn _how_ to work in sprints, but also _when_ to step back and ensure the work aligns with human-centered values and ethical considerations.
-
-Topics like **ethics in UX/UI, sustainable design, and inclusive design** are thus framed not only as technical or aesthetic topics, but as socio-cultural ones. For example, as students work on making their projects accessible, we delve into why accessibility is a human right and how technology can marginalize people when profit is the only motive. We examine case studies of design decisions driven by profit vs. those driven by social good, and how the resulting user experiences differ. These conversations allow students (and faculty colleagues) to see the course as not just skills training, but also an exploration of the designer’s role in society.
-
-In terms of course mechanics, this critical angle might manifest as a **dedicated seminar-style session** or an online forum where students post short reflections relating course practices to concepts like digital well-being, the attention economy, or open-source collaboration as an alternative to proprietary development. By including a self-contained module on critical perspectives, we signal to both students and fellow educators that productivity and agile efficiency are not the sole aims; creative education should also foster critical thinking about why we create, who benefits, and how to balance innovation with well-being. This critical module is brief yet impactful, helping contextualize the otherwise practice-heavy curriculum in a framework of humane and ethical consideration.
+We use a short, weekly work cycle for each lesson: a brief planning moment (introduction of new tasks/concepts), guided and independent practice, and a review (the commit and possibly a quick show-and-tell or recap). The next class begins with a brief look back at last week's task before moving on. This time-boxed rhythm helps prevent gold-plating or procrastination, since students deliver something functional each week, and it builds time-management and scoping skills.
 
 ## Encouraging Collaboration and Overcoming Barriers
 
@@ -171,56 +158,13 @@ We also openly address the “tendency to rely on templates” issue. Many desig
 >
 > 道 **Philosophical Addendum**: Craftsman's Oath and the chapter in TTOD. **[The Tao of AI Development]({{ '/methodology/en/tao-of-ai-development/' | relative_url }})**.
 
-The [European Charter for Researchers](https://euraxess.ec.europa.eu/jobs/charter) (European Commission, 2005) states what the EU expects of funded researchers — avoid plagiarism, respect intellectual property, remain accountable for delegated work. I hold students to the same standard my own funding network holds me to:
-
-> "Researchers should make every effort to ensure that their research is relevant to society and does not duplicate research previously carried out elsewhere. They must avoid plagiarism of any kind and abide by the principle of intellectual property and joint data ownership..."
->
-> "Researchers need to be aware that they are accountable towards their employers, funders or other related public or private bodies as well as, on more ethical grounds, towards society as a whole..."
-> — *European Charter for Researchers* (European Commission, 2005), "Professional responsibility" (p. 12–13) & "Accountability" (p. 14)
-> Ahmes anchor: `svcm/documents/am509774cee_en_e4_5bcc3da7/`
-
-This pedagogical mirror is grounded in international policy, not instructor preference alone. On AI in teaching specifically, UNESCO recommends:
-
-> "Member States should encourage research initiatives on the responsible and ethical use of AI technologies in teaching, teacher training and e-learning, among other issues... Member States should also ensure that AI technologies empower students and teachers and enhance their experience, bearing in mind that relational and social aspects and the value of traditional forms of education are vital in teacher-student and student-student relationships... AI should support the learning process without reducing cognitive abilities and without extracting sensitive information, in compliance with relevant personal data protection standards."
-> — UNESCO, *Recommendation on the Ethics of Artificial Intelligence* (2021), §104
-
-That principle also has a design implication: AI assistance should remain inspectable, contestable, and subordinate to the learner's judgment. Göbels et al. frame human-centred AI through user-perception, functional, and ethical requirements, then translate those requirements into actionable design principles and human-in-the-loop governance. The transfer to this course is deliberate: it grounds the expectation that students inspect, adapt, reject, and explain AI output, without claiming that this study measured front-end learning outcomes.
-
-> Human-centred AI can be operationalised through research-derived design principles that connect human values to transparent, accountable, and human-in-the-loop decisions.
-> — **[BIBLIO-GAP]** Göbels et al., *Aligning AI with human values: Design principles for human-centered AI* (2026), *Procedia CIRP* / CIRP Design, abstract/conclusion (pp. 1, 5)
-> Ahmes anchor: `research/computational-authorship/11-extraction-db/scholar/documents/aligning_ai_with_human_values_design_principles_for_human_c_2026_procedia_c_6bcffa72/` · nodes `8c205585-33ae-5016-bec7-3af2bb49a457`, `616c81b4-4b67-544f-800f-a5150cabc4b1` · `evaluator_safe=no` (slug-derived bibliographic metadata)
-
-An adjacent higher-education source makes the same ethical boundary concrete in e-learning: it describes ethical considerations as part of building standardised and safe learning systems. That is a useful corroborating frame for treating AI use as a guided learning practice rather than an invisible productivity layer, while UNESCO remains the normative authority for this section.
-
-> Ethical considerations belong in the design of higher-education e-learning systems when the aim is to make them standardised and safe.
-> — Ortiz-Rodriguez et al., *Semantic Web Technologies and Applications in Artificial Intelligence of Things* (2024), chapter 8 overview (pp. 5, 13)
-> Ahmes anchor: `research/cultural-infrastructure/11-extraction-db/scholar/documents/premier_reference_source_ortiz_rodriguez_fernando_semantic_web_technologies_and_applications_in_artificial_intelligence_of_things_engineering_science_reference_2024_c74fad0e/` · nodes `9c2e1288-f13b-5f95-86e4-d26283c7c189`, `d92b2aa7-33a5-50ee-af3b-ea9fc33ff297` · `(Ortiz-Rodriguez 2024, 5/13)`, `evaluator_safe=yes`
-
-The Horizon Europe guidance supplies a procedural corollary for this boundary. It permits generative AI in proposal preparation only alongside caution, thorough review and validation, human responsibility for the resulting text, and transparent disclosure of the tools used. The transfer to coursework is limited but useful: students remain accountable for the artifact and must be able to explain what the tool contributed; this policy is not evidence of front-end learning outcomes.
-
-> AI assistance does not become delegated judgment when the responsible human reviews and validates its output, remains accountable for the result, and discloses how the tool was used.
-> — **[BIBLIO-GAP]** European Commission, *Standard briefing slides for experts: Horizon Europe* (2026), AI-use guidance (pp. 23–24)
-> Ahmes anchor: `svcm/documents/standard_briefing_slides_for_experts_he_en_9af85191/` · nodes `5db6cdbe-a497-5c30-82dc-fa275855a567`, `8e1627d8-ff7e-5b36-a6bc-b27f36967119`, `1ef2552c-0c8c-56d6-95dc-154c7e48643a`, `655b1064-6e2a-526d-98ca-2f1bc5093859` · `evaluator_safe=no` (missing year / front-matter metadata mismatch)
-
-The same programme guidance frames trustworthy AI as a design and governance obligation: identify and prevent risks, require safe and responsible operation, test robustness and accuracy, report failures, and provide explanations where decisions have significant effects. For this course, that supports requiring students to test and justify AI-assisted code rather than treating generated output as self-validating.
-
-> Trustworthy AI use requires due diligence, safe and responsible operation, explicit risk prevention, technical robustness, accuracy, reproducibility, and suitable explanation.
-> — **[BIBLIO-GAP]** European Commission, *Horizon Europe Programme Guide* (2025), AI trustworthiness guidance (p. 61)
-> Ahmes anchor: `svcm/documents/programme_guide_horizon_en_8e30ac6c/` · nodes `da19cc64-d199-54ba-9a8a-986ad4611916`, `f4502e66-c79c-58f7-b0af-bea17d1e4dec`, `2eb4a49f-3495-5bd6-8bd1-9d397ec038a2` · `(FAIRsharing portal 2025, 61)`, `evaluator_safe=no` (Ahmes organization/title mismatch)
-
-There is also a legal minimum, distinct from an ethics recommendation. Article 50(4) of the EU AI Act requires disclosure when AI-generated or AI-manipulated text is published to inform the public on matters of public interest; the Regulation applies from 2 August 2026. That provision is not a blanket command to label every line of student code or every private assignment. Our course rule is intentionally broader: students must declare any material AI contribution in the submission and commit documentation, including the tool and what it contributed.
-
-> “shall disclose that the text has been artificially generated or manipulated.”
-> — European Parliament and Council, *Regulation (EU) 2024/1689* (2024), art. 50(4); application art. 113 (2 August 2026)
-> Official legal anchor: [EUR-Lex, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=en)
-
-**Student rule:** if AI materially contributes to submitted work, declare the tool, the contribution, and the human verification in the README or commit log.
+**Student rule:** if AI materially contributes to submitted work, declare the tool, the contribution, and the human verification in the README or commit log. This mirrors what the EU AI Act (Art. 50(4), applying from 2 August 2026) requires when AI-generated text is published for the public, and what UNESCO and the EU's own research-funding guidance ask of researchers more broadly — the full policy grounding for this rule lives in the deep-argument companion piece linked at the end of this page.
 
 Given the rise of generative AI, an important modern consideration is how to incorporate AI tools into the web design curriculum. Students today have access to systems like ChatGPT and GitHub Copilot which can produce code snippets or design suggestions. Completely banning these would be counterproductive – these tools are becoming part of professional workflows – but uncritical use can undermine learning. Our approach is to **integrate AI as a learning aid while maintaining academic integrity**.
 
 We inform students that they may use AI-based assistants for inspiration, debugging, or to get hints when stuck, much as they would use Google or Stack Overflow. However, they must **cite or acknowledge significant AI-generated contributions** in their commit documentation. For example, a commit message might state, “Used ChatGPT to help refactor the form validation script, then tested and adjusted the output.” This transparency ensures that both the student and instructor are aware of how AI was used. It opens up a dialog about the quality of AI suggestions and the importance of the student’s own critical thinking in accepting or rejecting them.
 
-To keep the focus on learning, we design assignments that are less about arriving at a trivial solution (which an AI could easily provide) and more about the process or customization. Since each student’s project is unique in content and style, an AI might assist with generic code (e.g. a function to filter an array), but the student still has to integrate it into their specific context. This mitigates the scenario of students handing in boilerplate AI-generated websites with no personal touch. This aligns with EU and UNESCO policy on digital and AI literacy: learners and teachers should acquire digital skills, media literacy, and critical thinking to participate actively in society and democratic processes (European Declaration on Digital Rights and Principles, 2022; UNESCO, 2021, pp. 33, 35).
+To keep the focus on learning, we design assignments that are less about arriving at a trivial solution (which an AI could easily provide) and more about the process or customization. Since each student’s project is unique in content and style, an AI might assist with generic code (e.g. a function to filter an array), but the student still has to integrate it into their specific context. This mitigates the scenario of students handing in boilerplate AI-generated websites with no personal touch.
 
 We also highlight the professional reality: AI is a tool that developers use, but over-reliance can lead to skill atrophy. Students read or discuss short pieces on this topic – for instance, the observation that **“college is \[becoming] just how well I can use ChatGPT at this point,”** as one student quipped, noting how common it is for peers to use AI to _“sail through... coding and debugging assignments”_. By acknowledging this trend, we can candidly talk about the ethical and practical implications. Is using AI to do one’s homework fundamentally different from past generations copying code from the internet? How can we ensure our use of AI is augmenting our learning rather than bypassing it?
 
@@ -240,117 +184,40 @@ Our assessment strategy is designed to evaluate not just the final product but t
 
 The results from similar approaches elsewhere are encouraging: for example, an incremental project-based model implemented over several years saw **failure rates drop by 50%, significant increases in student satisfaction, and improved average grades**. Our own iterative course design expects to yield likewise positive outcomes. The weekly sprint format should produce graduates who are not only skilled in web design and front-end coding, but also comfortable with modern workflows, capable of continuous learning, and mindful of the broader context of their work.
 
-## Conclusion
-
-In sum, this practice-oriented, class-by-class methodology for web design education integrates technical skill-building with professional practice and critical reflection. By structuring each lesson as a mini-project sprint (with theory, practice, and a commit), students progressively build a complete web project that serves as a portfolio artifact and learning scaffold. This approach encourages consistent engagement, provides immediate context for theoretical concepts, and mirrors real-world development processes. Through careful management (leveraging tools like GitHub Classroom, CI for feedback, and peer collaboration), the model scales to large classes, making it feasible for an instructor to handle 100+ individual projects without being overwhelmed.
-
-Moreover, the methodology is not adopted uncritically – we blend agile techniques with an understanding of their limitations in creative education. Students are thus not only **trained in industry-standard practices** but also learn to question and adapt those practices for human-centric and creative outcomes. Issues of anxiety around coding and tools are addressed via community support, gradual skill ramp-up, and an ethos that frames coding as a design tool rather than an arcane art. The inclusion of discussions on well-being, ethics, and the political economy of design work ensures that our course speaks to the formation of designers who care about more than just pushing code – they care about the impact of that code on people and society.
-
-By the end of the course, each student has a repository of commits telling the story of their learning journey, a deployed website showcasing their abilities, and a nuanced understanding of how disciplined practice and critical thinking combine to inform good web design. This methodology not only produces competent front-end designers and developers, but also self-reflective practitioners prepared for the collaborative, ever-evolving nature of the web industry. The hope is that our approach can serve as a model for other web design educators seeking to integrate practical skill development with deeper pedagogical goals, thereby aligning educational practice with both professional standards and academic inquiry.
-
-**Sources:**
-
-- Nelson, M. A., & Ponciano, L. (2021). _Experiences and insights from using GitHub Classroom to support Project-Based Courses_. _IEEE Global Engineering Education Conference._ (arXiv preprint)
-- Vega, C., Jiménez, C., & Villalobos, J. (2012). _Implementing an Incremental Project-Based Learning Solution for CS1/CS2 Courses_. _Proc. of CSEDU 2012_. (Cupi2 Project)
-- Bas Wallet (2025). _It’s not you: your UX design job is frustrating and unfulfilling – Marx’s concept of alienation applied to today’s design industry_. _UX Collective, Medium._
-- Colfelt, A. (2010). _Bringing User-Centered Design to the Agile Environment_. _Boxes and Arrows._
-- Ycombinator Discussion (2020). _GitHub Classroom_ – comment by tsumnia on automated feedback with Jenkins.
-- New York Magazine (2023). _Everyone Is Cheating Their Way Through College_ – use of AI by students in assignments.
-- EduScrum case study (2021). _Agile Methods in Higher Education: Adapting and Using eduScrum_.
-- Nelson et al. (2021). _Github Classroom approach_ – student feedback and metrics.
-
----
-
-<!-- Appendix (verbatim patch) -->
-
-# Practice‑Oriented Web Design Education Through Incremental Projects
-
-> **This revision retains the full argumentation of the original article while integrating the newly‑agreed course schedule (Weeks 1–5) and the shared‑repository architecture outlined in our follow‑up discussion.**
-
----
-
-## Introduction and Rationale
-
-_(unchanged text)_
-
-## Class Structure: Theory, Guided Practice, and Commits
-
-_(unchanged text)_
-
-## Updated Week‑by‑Week Teaching Schedule (First Five Weeks)
-
-| Week  | Focus                                       | Git / Repo Task                                                                                   |
-| ----- | ------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| **1** | **Setup – VS Code, Git, GitHub**            | Create personal repo from the template, add & push `README.md` with student handle.               |
-| **2** | **Project Definition Workshop**             | Commit `project‑brief.md` **and** start `project.yaml` (metadata).                                |
-| **3** | **Styling – Typography & Colour**           | Implement brand identity in HTML/CSS; commit first design assets.                                 |
-| **4** | **Publishing & Metadata Submission**        | Enable GitHub Pages; submit PR to `/2025‑fall/students.yaml` _or_ push validated `project.yaml`.  |
-| **5** | **Design‑Trend Analysis & Showroom Launch** | Peer‑review session; CI script builds course showroom from `students.yaml` and live project URLs. |
-
-> After Week 5 the course resumes the previously described sprint rhythm (accessibility, interaction, testing, etc.). All later weeks remain exactly as in the original article.
-
-## Repository Architecture and Content Flow (New Section)
-
-```
-web‑foundations/          ← canonical repo (shared lessons, templates, pedagogy)
-└── docs/
-    ├── lessons/          ← single source of truth, rendered on GH Pages
-    ├── methodology/
-    └── templates/
-
-web‑design/               ← course instance repo
-└── 2025‑fall/
-    ├── lessons/          ← HTML redirectors → web‑foundations/docs/lessons/
-    ├── students.yaml     ← PRs land here in Week 4
-    ├── examples/         ← course‑specific demos
-    └── index.html        ← showroom generated Week 5
-
-student‑project‑template/ ← bare starter each learner forks/clones
-└── project.yaml          ← their metadata (same keys as students.yaml)
-```
-
-- **Lesson re‑use:** Each file in `web‑design/2025‑fall/lessons/` is a minimal HTML auto‑forwarder (meta‑refresh) pointing to the canonical lesson URL. No duplication, no symlinks.
-- **Privacy:** `students.yaml` stores only anonymous handles, repo URL, live URL, emoji icon, and short abstract.
-- **Automation:** A GitHub Action rebuilds the showroom when `students.yaml` changes; it also lints YAML and pings broken live links.
-
-_(All other sections — Benefits, Agile Critique, AI Ethics, Assessment Strategy, Conclusion, and References — remain verbatim from the original article.)_
-
----
-
 ## Key Challenges & Mitigations
 
 | Challenge                              | Why it happens                                 | Mitigation in this course                                                                                                                                            |
-| -------------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Open‑ended brief causes paralysis      | Too many options; weak abstraction skills      | Constrained domains + in‑class **Project Definition Workshop**; provide `project‑brief.md` template, moodboard time, and peer micro‑crit before committing (Week 2). |
-| Fear of coding/CLI                     | Design‑first backgrounds; terminal anxiety     | **GUI‑first Git** (VS Code Source Control / GitHub Desktop) in Week 1; gradual CLI intro; weekly “Git tip”; pair programming on tricky weeks.                        |
-| YAML/metadata errors                   | Indentation/syntax pitfalls; abstract thinking | Provide a **validated template** and an optional web form that **generates YAML**; CI YAML lint; exemplar `project.yaml` in the student template (Weeks 2–4).        |
+| --------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Open‑ended brief causes paralysis      | Too many options; weak abstraction skills      | Constrained domains + in‑class **Project Definition Workshop**; provide `project‑brief.md` template, moodboard time, and peer micro‑crit before committing (Week 2). |
+| Fear of coding/CLI                     | Design‑first backgrounds; terminal anxiety     | **GUI‑first Git** (VS Code Source Control / GitHub Desktop) in Week 1; gradual CLI intro; weekly “Git tip”; pair programming on tricky weeks.                        |
+| YAML/metadata errors                   | Indentation/syntax pitfalls; abstract thinking | Provide a **validated template** and an optional web form that **generates YAML**; CI YAML lint; exemplar `project.yaml` in the student template (Weeks 2–4).        |
 | Irregular commit cadence               | Procrastination; time management               | “**Commit‑after‑class**” policy; CI reminder badges; lightweight dashboard of last‑push timestamps; gentle nudges in lab time.                                       |
 | Over‑reliance on templates/AI          | Shortcut temptation                            | **Attribution & explanation** requirement; code walkthroughs; periodic 5‑minute viva; Moodle exam questions tied to each student’s repo history.                     |
 | Accessibility deprioritized            | Visual polish eclipses usability               | Dedicated **a11y sprint** with automated checks (axe/Pa11y/Lighthouse); rubric points for keyboard nav, contrast, semantics.                                         |
-| Sprint time pressure vs design quality | Creative work needs exploration                | Flexible scope; one **buffer/critique week**; encourage refactoring over feature creep; reflect on agile limits in creative contexts.                                |
-| Tooling/setup friction                 | Diverse machines & configs                     | Full **Setup Week 1** with checklists; lab assistants/office hours; known‑good starter template; fallback instructions.                                              |
-| Deployment failures                    | Pages config, build paths                      | Week 4 **GitHub Pages** walkthrough + CI link checks; documented fallback host; step‑by‑step troubleshooting guide.                                                  |
+| Weekly time pressure vs design quality | Creative work needs exploration                | Flexible scope; one **buffer/critique week**; encourage refactoring over feature creep.                                                                              |
+| Tooling/setup friction                 | Diverse machines & configs                     | Full **Setup Week 1** with checklists; lab assistants/office hours; known‑good starter template; fallback instructions.                                              |
+| Deployment failures                    | Pages config, build paths                      | Week 4 **GitHub Pages** walkthrough + CI link checks; documented fallback host; step‑by‑step troubleshooting guide.                                                  |
 | Large‑cohort feedback load             | 120 students × weekly commits                  | Automate lint/a11y/link tests; **peer review** cycles; **rotating deep‑dives** by instructor/TA; rubricized comments.                                                |
 
 ## Necessary Side Knowledge (Tools & Concepts)
 
 | Area                        | Minimum competency                                                                       | How/when we cover it                                        |
-| --------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| **VS Code**                 | Open folder, use Source Control, integrated terminal, extensions (Prettier, Live Server) | Week 1 setup; tips sprinkled weekly.                        |
-| **Git & GitHub**            | clone/add/commit/push; read diffs; basic branching; open a PR                            | Week 1 (basics), Week 4 (PR); weekly “Git tip.”             |
-| **GitHub Pages**            | Enable Pages; choose branch/folder; understand build timing                              | Week 4 publishing; CI status badge shown in showroom.       |
-| **CLI basics**              | `pwd/ls/cd`; run `npm` scripts; read errors                                              | Week 1 optional CLI; reinforced when running linters/tests. |
-| **Markdown**                | Write README, brief, issues; headings/lists/links                                        | Week 1 README; Week 2 project‑brief; ongoing in PRs.        |
-| **YAML / JSON**             | Key‑value, lists, nesting; common lint rules                                             | Week 2–4 metadata; CI lint with clear error messages.       |
-| **Browser DevTools**        | Inspect, responsive mode, Network, Lighthouse                                            | Week 3 styling; a11y/testing sprints later.                 |
-| **Accessibility**           | Keyboard nav, alt text, landmarks/ARIA basics, contrast                                  | Dedicated a11y sprint (post‑Week 5); rubricized checks.     |
-| **HTML/CSS**                | Semantic structure; box model; responsive layout (flex/grid); typography & color systems | Weeks 2–3 identity & layout; reinforced throughout.         |
-| **JavaScript (light)**      | DOM selection, events; progressive enhancement mindset                                   | Introduced after Week 5; applied to interactions.           |
-| **Linting/Formatting**      | Prettier; (ESLint if JS used)                                                            | Enabled in template; auto‑format on save from Week 1.       |
+| ---------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------- |
+| **VS Code**                 | Open folder, use Source Control, integrated terminal, extensions (Prettier, Live Server) | Week 1 setup; tips sprinkled weekly.                        |
+| **Git & GitHub**            | clone/add/commit/push; read diffs; basic branching; open a PR                            | Week 1 (basics), Week 4 (PR); weekly “Git tip.”             |
+| **GitHub Pages**            | Enable Pages; choose branch/folder; understand build timing                              | Week 4 publishing; CI status badge shown in showroom.       |
+| **CLI basics**              | `pwd/ls/cd`; run `npm` scripts; read errors                                              | Week 1 optional CLI; reinforced when running linters/tests. |
+| **Markdown**                | Write README, brief, issues; headings/lists/links                                        | Week 1 README; Week 2 project‑brief; ongoing in PRs.        |
+| **YAML / JSON**             | Key‑value, lists, nesting; common lint rules                                             | Week 2–4 metadata; CI lint with clear error messages.       |
+| **Browser DevTools**        | Inspect, responsive mode, Network, Lighthouse                                            | Week 3 styling; a11y/testing sprints later.                 |
+| **Accessibility**           | Keyboard nav, alt text, landmarks/ARIA basics, contrast                                  | Dedicated a11y sprint (post‑Week 5); rubricized checks.     |
+| **HTML/CSS**                | Semantic structure; box model; responsive layout (flex/grid); typography & color systems | Weeks 2–3 identity & layout; reinforced throughout.          |
+| **JavaScript (light)**      | DOM selection, events; progressive enhancement mindset                                   | Introduced after Week 5; applied to interactions.            |
+| **Linting/Formatting**      | Prettier; (ESLint if JS used)                                                            | Enabled in template; auto‑format on save from Week 1.       |
 | **Assets & Performance**    | Image compression (Squoosh), SVG hygiene, basic perf budgeting                           | Ongoing; checklist before final submission.                 |
-| **CI/CD basics**            | What a workflow is; reading job logs; fixing failing checks                              | Week 4 onward; students see Actions on showroom PRs.        |
-| **Licensing & Attribution** | CC licenses; citing libraries/templates/AI assistance                                    | Stated in syllabus; required in README and commits.         |
-| **Academic integrity & AI** | Disclosure norms; limits; reflective justification                                       | Policy in Week 1; enforced via viva + Moodle exam.          |
+| **CI/CD basics**            | What a workflow is; reading job logs; fixing failing checks                              | Week 4 onward; students see Actions on showroom PRs.        |
+| **Licensing & Attribution** | CC licenses; citing libraries/templates/AI assistance                                    | Stated in syllabus; required in README and commits.          |
+| **Academic integrity & AI** | Disclosure norms; limits; reflective justification                                       | Policy in Week 1; enforced via viva + Moodle exam.           |
 
 ---
 
@@ -609,6 +476,25 @@ console.log('Wrote .pa11yci.json with', urls.length, 'urls');
 ```
 
 This appendix can be dropped into the course repo as-is. Replace `YOUR-ORG` with your namespace and adjust the semester path.
+
+---
+
+## Conclusion
+
+In sum, this practice-oriented, class-by-class methodology for web design education integrates technical skill-building with professional practice. By structuring each lesson as a mini-project cycle (with theory, practice, and a commit), students progressively build a complete web project that serves as a portfolio artifact and learning scaffold. This approach encourages consistent engagement, provides immediate context for theoretical concepts, and mirrors real-world development processes. Through careful management (leveraging tools like GitHub Classroom, CI for feedback, and peer collaboration), the model scales to large classes, making it feasible for an instructor to handle 100+ individual projects without being overwhelmed.
+
+By the end of the course, each student has a repository of commits telling the story of their learning journey, a deployed website showcasing their abilities, and a working understanding of how disciplined practice combines with critical thinking to inform good web design. This methodology aims to produce not only competent front-end designers and developers, but self-reflective practitioners prepared for the collaborative, ever-evolving nature of the web industry.
+
+**The deeper argument** — why energy and accessibility are one ethical question, why we adapt and critique agile/scrum rather than adopt it wholesale, and the full EU/UNESCO policy grounding for our AI-integration stance — is deliberately kept off this practical page. It lives in its own piece, currently in progress as a public-writing tribune (`~/src/profield/runs/tribune-craft/atelier-methodology/` for anyone with repo access); this page will link to it once published.
+
+**Sources:**
+
+- Nelson, M. A., & Ponciano, L. (2021). _Experiences and insights from using GitHub Classroom to support Project-Based Courses_. _IEEE Global Engineering Education Conference._ (arXiv preprint)
+- Vega, C., Jiménez, C., & Villalobos, J. (2012). _Implementing an Incremental Project-Based Learning Solution for CS1/CS2 Courses_. _Proc. of CSEDU 2012_. (Cupi2 Project)
+- Colfelt, A. (2010). _Bringing User-Centered Design to the Agile Environment_. _Boxes and Arrows._
+- Ycombinator Discussion (2020). _GitHub Classroom_ – comment by tsumnia on automated feedback with Jenkins.
+- New York Magazine (2023). _Everyone Is Cheating Their Way Through College_ – use of AI by students in assignments.
+- EduScrum case study (2021). _Agile Methods in Higher Education: Adapting and Using eduScrum_.
 
 ---
 

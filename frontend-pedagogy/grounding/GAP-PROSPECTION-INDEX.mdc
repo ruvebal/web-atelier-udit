@@ -1,0 +1,83 @@
+---
+description: Gap-harvest index — which FE I/II topics lack vault evidence and which Profield fields to run before unit forgery
+globs: 'frontend-pedagogy/**'
+alwaysApply: false
+---
+
+# FE curriculum gap prospection — index
+
+**Date:** 2026-08-15 · **Pass-2 promoted:** 2026-08-16  
+**Source of truth for gaps:** [`profield-frontend-pedagogy.md`](./profield-frontend-pedagogy.md) + evidence matrix in [`README.mdc`](./README.mdc)  
+**Promoted audited maps:** [`gap-fields/`](./gap-fields/) · forge questions [`gap-fields/FORGE-AVANTGARDE-QUESTIONS.md`](./gap-fields/FORGE-AVANTGARDE-QUESTIONS.md)  
+**Rule:** run Pass 1–3 + Ahmes/DevIAC ingest **before** forging Units that still say NONE / pilot. Do not invent pedagogy from vendor docs. Athanor = discovery; Ahmes coat·node·page = cite.
+
+## Paradigm coat — Curriculum as Code (wired)
+
+**Card (all matches + MSCA contrast):** [`~/src/profield/runs/PARADIGM-CURRICULUM-AS-CODE-20260816.md`](/Users/ruvebal/src/profield/runs/PARADIGM-CURRICULUM-AS-CODE-20260816.md)  
+**Coat:** ⟨`2608_07364v1_paiva_curriculum_as_code_749851aa`⟩ · Athanor `profield-frontend-pedagogy` · `[BIBLIO-GAP]` (`evaluator_safe=no`)
+
+**Best match (this index):** formalize instructional *authoring* before ad-hoc GenAI forge.
+
+> There is a noticeable gap regarding the formalization of instructional authoring processes. Specifically, there is little attention given to AI-assisted workflows that can systematically enforce pedagogical coherence, maintain institutional visual identity, and guarantee mathematical and technical reproducibility across an entire curriculum.
+
+⟨`2608_07364v1_paiva_curriculum_as_code_749851aa`⟩ · nodo `bfbd5af4-c4e8-5de2-876a-10ab9520b877` · p. 1 · (Paiva, 2026)
+
+| Also wired | nodo | p. |
+| --- | --- | ---: |
+| Ad-hoc → repeatable engineering process | `ee69fc1f-5aa6-54c4-b251-f76650e0ac91` | 3 |
+| Multi-phase pipeline + pedagogical constraints gap | `08e38518-6cc4-50cf-8def-f3b9659ac743` | 2 |
+| Architecture over prompt engineering | `abf864aa-bc8d-540b-99c5-66a5407dd7fe` | 7 |
+
+**Contrast — MSCA / WPL:** same “formalize the process” impulse, different object — *provenance of derivation / agent responsibility* (Moreau foundations; Domingue process chain; PROV agent), not STEM lesson-material authoring. Do not cite this FE coat in Part B. See paradigm card § MSCA.
+
+## Already covered (do not duplicate)
+
+| FieldSpec | Covers |
+| --- | --- |
+| `frontend-pedagogy` | Omnibus map (this file’s parent) — AI, accessibility, assessment, signature pedagogy |
+| `ai-assisted-3d-web` | Bloque 5 / Units 8–9 adjacent |
+| `ai-assisted-audio-web` | Proposed Unit 10 audio fork / Web Audio |
+| `agent-skill-optimization` | Studio skills loop — not FE lesson content |
+
+## Forge-blocking gaps → dedicated fields (Pass-2 status)
+
+| Priority | FE target | Gap in map / matrix | FieldSpec | Pass-2 / coats |
+| ---: | --- | --- | --- | --- |
+| **P0** | **Unit 10** WebSocket / realtime UI | §9 IoT–Python; matrix Unit 10 | `fe-websocket-realtime-ui` | Audited map promoted; Murley + Shihab coats; pedagogy still gap |
+| **P0** | **Unit 10** IoT / Python *interface* | §9 structural blank | `fe-iot-python-interface-layer` | Audited; Abichandani + Ciungan + Stelea coats; transfer pedagogy UNVERIFIED-GAP |
+| **P1** | **Units 2–3** Astro / islands | Matrix NONE | `fe-metaframework-islands-pedagogy` | Audited; resumability + islands coats; HE pedagogy NONE; hold §11 |
+| **P1** | **Unit 4** PWA / offline | Matrix NONE | `fe-pwa-offline-pedagogy` | Audited; adjacent architecture coat; acquire Case 2020 for HE precedent |
+| **P1** | **Unit 7** Performance *pedagogy* | Phung demand gap only | `fe-web-performance-pedagogy` | Audited; Mahoney coat; ISO/Phung-%/WSG date NEEDS CHECK |
+| **P2** | **All remaining blanks** | §8–9, §11 | `fe-curriculum-gap-harvest` | PASS (López-Pernas + Web Audio FPWD); 14 coats injected |
+
+## Also gap-tagged but secondary for this forge wave
+
+| Topic | Map locus | Action |
+| --- | --- | --- |
+| Web-specific AI offloading effect sizes | §4, §11 #4 | Gap-harvest coats (Isa, López-Pernas, Shihab, Russo) — cite only `evaluator_safe=yes` |
+| Immersive / 3D accessibility | §5.3, §8.3 | Killough coat in gap-harvest; fold into `ai-assisted-3d-web` |
+| Progressive enhancement vs SPA-first | §11 #2 | Metaframework field + gap-harvest |
+| FE I React / component pedagogy depth | FE I CV Sem 2 | Gap-harvest keywords; forge FE I only if Pass 3 finds HE React studies |
+
+## Recommended run order (status)
+
+```
+1. fe-curriculum-gap-harvest     ✅ Pass-2 edited + 14 coats Ahmes + Athanor inject
+2. fe-websocket-realtime-ui      ✅ Pass-2 edited + inject
+3. fe-iot-python-interface-layer ✅ Pass-2 edited + inject
+4. fe-metaframework-islands-pedagogy ✅ Pass-2 edited + inject
+5. fe-pwa-offline-pedagogy       ✅ Pass-2 edited + inject
+6. fe-web-performance-pedagogy   ✅ Pass-2 edited + inject
+# Cite gate: host-heading pollution (Abstract / 1 INTRODUCTION / Keywords) = 12G.4 SHIPPED — re-enrich coats; not a missing RIS pass. Many coats still BIBLIO-GAP until re-run.
+# already queued: ai-assisted-audio-web (Unit 10 fork)
+# already running: ai-assisted-3d-web (Units 8–9)
+```
+
+After Pass-3 + cite-safe coats: update the evidence matrix row, then forge using [`gap-fields/FORGE-AVANTGARDE-QUESTIONS.md`](./gap-fields/FORGE-AVANTGARDE-QUESTIONS.md).
+
+## Operator paths
+
+Fields: `~/src/profield/fields/`.  
+Runs: `~/src/profield/runs/<field-id>/20260815/`.  
+Promoted maps: [`gap-fields/`](./gap-fields/).  
+CV audio fork: [`../cv/AUDIO-WEB-CV-DESIGN.mdc`](../cv/AUDIO-WEB-CV-DESIGN.mdc).

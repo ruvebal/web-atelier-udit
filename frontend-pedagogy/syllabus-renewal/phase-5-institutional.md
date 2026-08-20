@@ -1,6 +1,22 @@
 # Phase 5 — Institutional cleanup (real deliverables, not a flag-and-wait)
 
-**Status: not started.**
+**Status: item 1 (FE II) DONE 2026-08-18 — deadline-driven, department needs
+this by 2026-08-26 for RUC publication.** Items 2 (Back-End II synergy
+sheet) and 3 (UX/UI boundary note) and the FE I `TEMARIO`-vs-`CONTENIDOS`
+check still not started.
+
+**FE II deliverable:** `../cv/guides/desarrollo-web-front-end-ii-2026-2027.json`
+(the corrected JSON, matching FE I's schema plus a new `temario` field) and
+`../cv/guides/FE-II-TEMARIO-BIBLIOGRAFIA-submission.md` (the ready-to-paste
+TEMARIO + BIBLIOGRAFÍA text for department submission — only those two
+sections; `CONTENIDOS`/`RESULTADOS DE APRENDIZAJE`/`ACTIVIDADES
+FORMATIVAS`/`SISTEMAS DE EVALUACIÓN` were independently confirmed correct
+and are not touched). TEMARIO's 12 entries map 1:1 to
+`cv/udit-ruvebal-frontend-ii-cv.md`'s Bloques 1–7 / Unidades 1–12.
+Bibliography reuses `02-temario-contenidos/T3-production-frontier-astro-pwa-3d-iot.edited.md`'s
+5 already-DOI-verified, three-pass-audited sources — no new prospection
+run. **Human review still needed before submission** — see the submission
+doc's own checklist (professor email, final wording sign-off).
 
 ## Context (self-contained)
 

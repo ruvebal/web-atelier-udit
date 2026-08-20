@@ -14,8 +14,10 @@ Synced 2026-08-10. Three layers ground this curriculum. **They are not interchan
 | **Ibero layer** | [`profield-ibero-layer.md`](./profield-ibero-layer.md) — synced copy | Spain · Portugal · Brazil · Mexico; regional diagnosis, legal frames, regional sources | 🔄 synced from profield |
 | **Authorities (FE / CER)** | [`profield-authorities-directory.md`](./profield-authorities-directory.md) — synced copy | Journals, conferences, standards bodies, key authors, research centres, awards — with `[V]`/`[L]`/`[U]`/`[I]` verification tags | 🔄 synced from profield |
 | **Temario Contidos research** | [`TEMARIO-PROSPECTION.md`](./TEMARIO-PROSPECTION.md) · [`temario/`](./temario/) (`*.edited.md`) · prompts in [`../02-temario-contenidos/`](../02-temario-contenidos/) + [`../03-temario-critica/`](../03-temario-critica/) · twin `profield/runs/frontend-pedagogy/` | Three-pass DOI/ISBN bibliography for FE I–II Contidos | 🟢 T1–T3 Pass-3 promoted + harvested; C1–C3 pending; refcheck/retrieve/Ahmes next |
+| **Gap-field Pass-2 wave (20260815)** | [`gap-fields/`](./gap-fields/) · [`GAP-PROSPECTION-INDEX.mdc`](./GAP-PROSPECTION-INDEX.mdc) | WebSocket, IoT/Python interface, metaframeworks, PWA, performance, omnibus harvest — audited maps + forge questions | 🟢 Pass-2 promoted 2026-08-16; 23 coats Ahmes+Athanor; cite gate often BIBLIO-GAP (12G.4) |
 | **Authorities (fashion / digital creativity)** | `~/projects/…/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/grounding/` — **emancipated teaching-repo authority** (upstream: `profield/runs/digital-creativity/`) | FACTUM, IJFDTE, Cuadernos, FAIREE, awards — used by synergy §7 and Ladder B | ✅ cite from CD repo; re-sync from profield |
 | **Source vaults** | `~/ahmes-library/scholar/documents/` — **outside this repo, by design** | The 18 extracted documents actually citable | ⛔ never copied here (gold rule) |
+| **AI Edge guardrail studio prompt** | [`AI-EDGE-ONTOLOGY-GUARDRAIL-PEDAGOGY-PROMPT.md`](./AI-EDGE-ONTOLOGY-GUARDRAIL-PEDAGOGY-PROMPT.md) | Coyle/Codesupreme-inspired ontology, validation, provenance, and human-review exercise | 🟢 design frame; not evaluator evidence |
 
 ## Sync direction — settled 2026-08-10
 
@@ -39,6 +41,13 @@ Three layers, and **only one of them may be cited**:
 **A sibling rule, for technical facts rather than scholarly claims:** vendor/framework documentation (Astro docs, MDN, web.dev, W3C specs) is never a bibliography source, DOI/ISBN or not — it goes into the lesson as a labelled **platform note**, never as `(Author Year)`. This table above governs *how you find and cite research*; [`PLATFORM-NOTES-POLICY.mdc`](./PLATFORM-NOTES-POLICY.mdc) governs *how you use accurate technical facts without pretending they are research*. Written 2026-08-13 after an agent applied this repo's looser summary and had to be corrected against the stricter precedent already sitting in `temario/T3-....edited.md`'s Quarantine section.
 
 **Cross-field harvest:** Cursor skill `provenance-layer` (`~/.cursor/skills/provenance-layer/`) — profile `frontend-pedagogy` in `profiles.md`. Same contract as CD: Athanor indexes · Ahmes cites.
+
+**Classical-didactics axis (new, 2026-08-16):** unit/CV design claims about
+*how people learn* (backward design, inquiry flow, Bloom's taxonomy,
+cognitive load, scaffolding) resolve against a separate field,
+`profield-didactics` (`project_slug=profield-didactics`) — **never** blended
+with this repo's own domain-evidence rows above. Skill: `curriculum-forger` (`~/src/.cursor/skills/curriculum-forger/SKILL.md`,
+sibling to `user-guide-forger`), shared with CD.
 
 > **Session caveat worth knowing:** MCP tool availability is **per session**, not global. An agent reporting that `search_knowledge` is unavailable is describing *its own registry*, not the DevIAC server's health. Diagnose at the level you can observe, and say which level you mean. If discovery is unavailable, the fallback — enumerate the manifest, query the DBs directly — is slower but **loses nothing citable**.
 
@@ -92,14 +101,14 @@ Ten of twelve FE II units are still scaffold prose. Units 5 and 6 are the refere
 | Unit | CONTENIDOS anchor | Vault evidence available | Grounding section | Authoring instruction |
 | --- | --- | --- | --- | --- |
 | **1** Kickoff | — | Liu `dc2bd27d` (scaffolding vs offloading framing) | Global §1 durable/volatile; §4 AI | Frame the year. Cite Liu's central question. **No technical claims to ground.** |
-| **2–3** Astro / architecture | Arquitecturas front-end | **NONE** | Global §2 (frameworks as volatile layer) | ⚠️ **Declare gap.** Ground the *pedagogical rationale* (second paradigm, framework literacy) in §2; ground Astro facts in vendor docs, dated. Never imply research support for meta-framework sequencing. |
-| **4** PWA / offline | Desarrollo de PWA, offline | **NONE** | Global §1 (durable core: resilience) | ⚠️ **Declare gap.** Same discipline as 2–3. |
+| **2–3** Astro / architecture | Arquitecturas front-end | **Technique coats** (resumability `…3d09df05`; islands `…68c7da35`) — HE pedagogy still **NONE** | Global §2 · [`gap-fields/FORGE-AVANTGARDE-QUESTIONS.md`](./gap-fields/FORGE-AVANTGARDE-QUESTIONS.md) Q2.1–2.2 · `fe-metaframework-islands-pedagogy.pass1.edited.md` | ⚠️ **Declare pedagogy gap.** Teach hydration/resumability/islands as primitives; Astro docs = HOW only. Many coats `[BIBLIO-GAP]` until Ahmes 12G.4. |
+| **4** PWA / offline | Desarrollo de PWA, offline | Adjacent architecture coat `…483a966a`; HE precedent Case 2020 **not yet in vault** | Global §1 · gap-fields Q4.1 · `fe-pwa-offline-pedagogy.pass1.edited.md` | ⚠️ **Declare gap.** Offline failure-mode lab; do not pretend PWA checklist = learning evidence. |
 | **5** Testing strategy | Testeo | Phung `ea8cf54c` (optimisation never demanded) | Global §4; §6 process assessment | ✅ **Done** — reference standard. |
 | **6** AI code review | Testeo (automatización) | Liu `dc2bd27d`, Kazemitabaar `23259ff1`, Singh `37173a2a`, Oliveira (ledger) | Global §4 AI-assisted coding | ✅ **Done** — reference standard. |
-| **7** Performance | Optimización de rendimiento | Phung `ea8cf54c` (imposed vs demanded); accessibility cluster for the "who pays" pairing | Global §5 accessibility as durable core; UNESCO Rec. AI Ethics `381137eng` (normative energy) | ⚠️ Partial. Performance *pedagogy* unsupported. Energy/climate is **normatively grounded** (nodes `630c7152` p.29, `17ccc7a8` p.30) — obligation, not measurement. Still no empirical front-end-to-carbon source. Invent no figures. |
-| **8** React Three Fiber | *(frontier)* | **NONE** | Global §8 3D/immersive — explicitly `[UNVERIFIED-GAP]` | ⚠️ **Declare pilot.** Cite the gap itself as the reason for proposing a sequence. |
-| **9** Shader literacy | *(frontier)* | **NONE** | Global §8 | ⚠️ **Declare pilot.** |
-| **10** IoT / Python-backed | *(frontier)* | **NONE** for the interface layer; RCS `91103623`, Phung, Singh for the data-science audience | Global §9 transferability `[UNVERIFIED-GAP]`; **Ibero** for regional data-science context | ⚠️ **Declare pilot** + name the data source (still placeholder pending Back-End II synergy sheet). |
+| **7** Performance | Optimización de rendimiento | Phung `ea8cf54c` (demand gap); UNESCO `381137eng` (norm); + Mahoney COP/web impact coat `…03bab1df` (vocabulary) | Global §5; UNESCO nodes `630c7152`/`17ccc7a8`; gap-fields Q7.1 · `fe-web-performance-pedagogy.pass1.edited.md` | ⚠️ Partial. Pedagogy still unsupported. UNESCO = obligation; Mahoney/WSG = sector measurement language (`[BIBLIO-GAP]` until host-title fix). ISO 21031 / Phung % / WSG date = Pass-2 **NEEDS CHECK**. Invent no figures. |
+| **8** React Three Fiber | *(frontier)* | **NONE** for R3F *pedagogy*. Adjacent AI-coding coats in `profield-ai-assisted-3d-web` (Shihab Copilot offloading `2506_10051…`; Ma metacognition `2511_04144…`; Wadinambiarachchi design fixation `2403_11164…`) ground **human-in-the-loop merge gates**, not “R3F teaches well.” Neelakantam & Pant `964c117c` still HOW-only. | Global §8 3D/immersive — `[UNVERIFIED-GAP]` · instructor/student split: [`private/ai-assisted-3d/AUDIT-GROUNDED.md`](../../web-foundations/private/ai-assisted-3d/AUDIT-GROUNDED.md) | ⚠️ **Declare pilot.** Do **not** put MCP/Stitch/corpus-to-boilerplate on the student path. Grade merge rubric + `renderer.info`. Student covenant: `/lessons/en/feii/ai-assisted-3d-covenant/`. |
+| **9** Shader literacy | *(frontier)* | **NONE** for GLSL *syllabus*. AI Co-Artist `2512_08951…` (mixed-initiative visual selection) and SGP-GenBench `2509_05208…` (render-verified programs) are **technique/adjacent** — they do not prove a minimum-viable GLSL curriculum. | Global §8 · same AUDIT | ⚠️ **Declare pilot.** Minimum Viable GLSL checklist is classroom contract, not research. Student must **explain** one authored shader; AI Co-Artist shows creation-without-literacy is the failure mode to refuse. |
+| **10** IoT / Python-backed | *(frontier)* | Abichandani `…08eb5ba5`; Ciungan `…26eedf9b`; Murley `…3ee00512`; Stelea `…c91a8b55`; Shihab `…29f3d2f5` (**evaluator_safe=yes** for AI oral) — **interface-transfer pedagogy still NONE** | Global §9 `[UNVERIFIED-GAP]`; gap-fields Q10.1–10.3 · IoT + WebSocket edited maps | ⚠️ **Declare pilot.** Teach connection-lifetime + HMI membrane; do not claim HE transfer evidence. Prefer Shihab safe nodes for GenAI oral defence. |
 | **11** Capstone integration | Proyecto integrador | Garcia `8fef58f2` (artefact), **Nelson & Ponciano `f1031131`** (repository infrastructure), González-Videgaray `078b0a6a` (integrity formed) | Global §6 signature pedagogy; **Ibero** (integrity, LATAM) | ✅ **Well supported** — strongest evidence base after 5–6. |
 | **12** Oral defence | Evaluación | Liu `dc2bd27d` p.12 verbatim; DEC LATAM `20489b0b` p.2 (65% shallow learning, 56% fairness) | Global §6; **Ibero** §GenAI integrity | ✅ **Well supported.** Student demand for assessment fairness is documented — use it. |
 
@@ -132,9 +141,12 @@ Ten of twelve FE II units are still scaffold prose. Units 5 and 6 are the refere
 
 | Item | State |
 | --- | --- |
-| Units 1–4, 7–12 at Unit 5/6 depth | 10 units pending |
+| Units 1–4, 7, 10–12 at Unit 5/6 depth | 8 units pending (8–9 student path covenanted 2026-08-14) |
+| Units 8–9 student covenant + lab/ejercicios split | ✅ covenant + merge log + `renderer.info` / MV GLSL; decks still wave 5 |
 | reveal.js deck per unit (Phase 2 Tier B) | 0 of 12 built |
 | Spanish versions of FE II material | none — decision pending |
 | Unit 10 real data source | placeholder pending Back-End II synergy sheet |
 
-**Suggested order:** Units 11–12 first (best-supported, and they define the assessment students meet), then 8–10 (Entrega 2 frontier, where the pilot declaration does the work), then 1–4. Decks after the prose they summarise is settled.
+**Suggested order:** Units 11–12 first (best-supported, and they define the assessment students meet), then 8–10 (Entrega 2 frontier — student path is the covenant, not the private MCP module), then 1–4. Decks after the prose they summarise is settled.
+
+**Before forging NONE/pilot units:** use Pass-2 promoted maps + questions in [`gap-fields/`](./gap-fields/) (see [`GAP-PROSPECTION-INDEX.mdc`](./GAP-PROSPECTION-INDEX.mdc)). Upstream runs: `~/src/profield/runs/fe-*/20260815/`.
