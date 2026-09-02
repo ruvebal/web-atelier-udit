@@ -18,6 +18,7 @@
     <span class="pass-track-art__description">${escapeHtml(figure.formulae[0].basic_explanation)}</span>
     <span class="pass-track-art__source">${escapeHtml(figure.formulae[0].citation.inline)} ${escapeHtml(release.caption.source)}</span>
     <span class="pass-track-art__credit">${escapeHtml(figure.authorship.name)} · ${escapeHtml(figure.created_at.slice(0, 10))} · #${escapeHtml(figure.fractal_hash256)}</span>
+    <span class="pass-track-art__forge">${escapeHtml(release.caption.credit)}</span>
   `;
 
   const renderLangSwitchHtml = () => {
@@ -106,7 +107,6 @@
       if (releases.some((item) => !item.figcaption_manifest)) throw new Error('No figcaption manifest is indexed for this art release.');
 
       const figuresBySvg = new Map();
-      const combinedAssets = [];
       for (const release of releases) {
         const figcaptionResponse = await fetch(`${body.dataset.artBase}/${release.figcaption_manifest}`);
         if (!figcaptionResponse.ok) throw new Error(`Figcaption data returned ${figcaptionResponse.status}`);
@@ -114,8 +114,17 @@
         for (const figure of figcaptionData.figures) {
           figuresBySvg.set(figure.delivery.svg, figure);
         }
-        for (const asset of release.assets) {
-          combinedAssets.push({ asset, release });
+      }
+      // Round-robin across releases (one pass-index per round) instead of
+      // grouping all of one formula's passes together, so a deck showcases
+      // every current technique before any repeats — this pass-track is the
+      // demo surface for "what the fractal skill can currently do."
+      const combinedAssets = [];
+      const maxPassCount = Math.max(...releases.map((release) => release.assets.length));
+      for (let passIndex = 0; passIndex < maxPassCount; passIndex += 1) {
+        for (const release of releases) {
+          const asset = release.assets[passIndex];
+          if (asset) combinedAssets.push({ asset, release });
         }
       }
 
