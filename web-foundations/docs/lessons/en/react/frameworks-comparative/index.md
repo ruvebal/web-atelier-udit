@@ -14,6 +14,14 @@ permalink: /lessons/en/react/frameworks-comparative/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Choose an abstraction by the problem and its trade-offs.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** framework literacy follows web-platform fundamentals. **Frontier signal:** React, Vue, meta-frameworks, and server-first approaches remain volatile.</p>
+</aside>
+>
+> **Studio test:** Build the same small interaction twice and compare costs.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -25,6 +33,7 @@ status: draft
 
 > *"All codebases beat at different tempos. Some in allegro, some in adagio, some in panic."*
 > — The Tao of Development
+{: .tao-development-quote }
 
 ---
 
@@ -278,6 +287,13 @@ Each team presents (3 min):
 | Maximum control | Vanilla JS |
 | Massive ecosystem | React |
 | Gentle learning curve | Vue |
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Key Takeaways"
+  visual-grammar: "abstraction-tradeoff-field — framework choices occupying different positions across control, cost, convention, and fit"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

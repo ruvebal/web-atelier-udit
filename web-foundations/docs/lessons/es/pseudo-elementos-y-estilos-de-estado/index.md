@@ -11,6 +11,14 @@ tags: [css, pseudo-clases, pseudo-elementos, accesibilidad, gestión-de-estado, 
 status: complete
 ---
 
+<aside class="lesson-framing" aria-label="Idea maestra y lente de campo">
+<p><strong>Idea maestra:</strong> Los estados de interacción son feedback semántico, no decoración.</p>
+<p><strong>Lente de campo:</strong> **Ancla de práctica:** focus, hover, active y reduced-motion comunican estado. **Señal de frontera:** selectores de estado nativos y media queries de preferencia amplían el vocabulario.</p>
+</aside>
+
+> **Prueba de estudio:** Prueba cada estado con teclado y ofrece fallback sin movimiento.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Tabla de Contenidos
@@ -19,6 +27,71 @@ status: complete
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Para quién es / Para quién no
+
+**Para:** Front-End I **Sesión 6** — pseudo-clases y pseudo-elementos en tu landing: focus, hover, decoración sin DOM extra.
+
+**No para:** máquinas de estado JavaScript (React semestre 2) ni librerías de animación (Sesión 11 GSAP).
+
+**Al terminar esta sesión tendrás:** estilos `:focus-visible` accesibles, al menos un patrón `::before`/`::after` con propósito y notas de mejora progresiva documentadas.
+
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Base CSS Sesiones 3–5 en el repo | Sí |
+| Teclado para pruebas (Tab por la página) | Sí |
+| Conocer `prefers-reduced-motion` | Recomendado |
+
+**Tiempo oficial:** 2 h de clase + 1 h de laboratorio.
+
+---
+
+## Sigue este camino
+
+| Paso | Acción | Sección |
+| --- | --- | --- |
+| 1 | Auditar nav + botones solo con Tab | Objetivos / mapa |
+| 2 | Añadir anillos `:focus-visible` (no solo `:focus` con ratón) | Pseudo-clases |
+| 3 | Añadir un `::after` o `::before` decorativo (no crítico para contenido) | Pseudo-elementos |
+| 4 | Comprobar que `:hover` no oculta focus para teclado | Accesibilidad |
+| 5 | Commit + nota sobre un selector rechazado por rendimiento | Entrega |
+
+---
+
+## Comprueba antes de salir
+
+- [ ] Cada interactivo muestra focus visible por teclado
+- [ ] Ninguna información existe **solo** en pseudo-elemento (lectores de pantalla necesitan texto real)
+- [ ] Estilos `:hover` tienen equivalente `:focus-visible` donde haga falta
+- [ ] Considerado `@media (prefers-reduced-motion: reduce)` en transiciones
+- [ ] Commit subido
+
+---
+
+## Fallos frecuentes
+
+| Síntoma | Causa probable | Qué hacer |
+| --- | --- | --- |
+| Focus invisible | `outline: none` sin reemplazo | `:focus-visible` + anillo custom |
+| Usuario teclado no ve hover | Feedback solo en hover | Duplicar feedback crítico en `:focus-visible` |
+| Icono decorativo ausente para SR | Contenido solo en `::before` | Texto en HTML; pseudo-elemento solo decora |
+| Salto de layout en hover | padding/border añadidos en `:hover` | Reservar espacio o usar `transform` |
+| Guerras de especificidad | Cadenas de selector largas | Acortar; evitar profundidad `#id .nav ul li a:hover` |
+
+---
+
+## Entrega (evidencia Sesión 6)
+
+- URL repo + commit que describa trabajo de estado/pseudo
+- Nota breve: un patrón pseudo elegido y uno rechazado (accesibilidad o rendimiento)
+
+---
 
 Al finalizar esta lección, podrás:
 

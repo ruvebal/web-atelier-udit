@@ -15,7 +15,7 @@ tags:
   i18n,
   localization,
   tailwind,
-  helios-deck,
+  capstone,
  ]
 week: 11
 phase: 3
@@ -27,6 +27,14 @@ permalink: /lessons/en/react/react-framework-mode-auth-i18n/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Rendering location is an architectural choice with consequences for data, identity, and language.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** SSR, route data, authentication boundaries, and locale-aware URLs. **Frontier signal:** edge/server-first rendering and partial hydration keep moving the boundary.</p>
+</aside>
+>
+> **Studio test:** Write a decision memo for render location and locale ownership.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -169,8 +177,8 @@ The setup mirrors the routing lesson's Act 2 word-for-word; we summarise here. I
 ### 2.1 Create the project
 
 ```bash
-npx create-react-router@latest helios-deck-fw
-cd helios-deck-fw
+npx create-react-router@latest capstone-fw
+cd capstone-fw
 npm install
 ```
 
@@ -470,7 +478,7 @@ if (!sessionSecret) {
 
 const storage = createCookieSessionStorage({
 	cookie: {
-		name: 'helios_session',
+		name: 'capstone_session',
 		secrets: [sessionSecret],
 		httpOnly: true, // browser JS cannot read this cookie
 		secure: process.env.NODE_ENV === 'production',
@@ -1044,8 +1052,8 @@ Run `npm run dev`. Then, in order:
 
 1. Visit `http://localhost:3000/en/deck` — you should be redirected to `/en/login?from=/en/deck`.
 2. Submit the form with `emilys / emilyspass` — you land on `/en/deck`. The page is **server-rendered with your name already in it** (View Source shows the HTML, not a spinner).
-3. Open DevTools → Application → Cookies. You see `helios_session` with `HttpOnly` ticked. **Try to read it from JS**: `document.cookie` does not include it.
-4. Open DevTools → Network. **Throw your access token away** (we will simulate this in §10's exercise) and reload. The loader hits `/auth/me`, gets 401, hits `/auth/refresh`, retries `/auth/me`, succeeds — **the user never sees a flash**. Then open **Application → Cookies** and confirm whether `helios_session` changed on **this** response or only after **another** click (see §1.3 / §5.7 caveat — (a) vs (b)).
+3. Open DevTools → Application → Cookies. You see `capstone_session` with `HttpOnly` ticked. **Try to read it from JS**: `document.cookie` does not include it.
+4. Open DevTools → Network. **Throw your access token away** (we will simulate this in §10's exercise) and reload. The loader hits `/auth/me`, gets 401, hits `/auth/refresh`, retries `/auth/me`, succeeds — **the user never sees a flash**. Then open **Application → Cookies** and confirm whether `capstone_session` changed on **this** response or only after **another** click (see §1.3 / §5.7 caveat — (a) vs (b)).
 5. Visit `/en/admin` as `emilys` → success. Logout, sign in as `michaelw` / `michaelwpass`, visit `/en/admin` → 403 page (text-only — production would render an `ErrorBoundary`).
 6. Click logout. Cookie is cleared. `/en/deck` redirects to login again.
 
@@ -1128,7 +1136,7 @@ This is a **port** of ADADI's `i18n.server.ts`, simplified to JS and to two loca
 //
 // Resolution order:
 //   1. URL :locale param (only if it is in SUPPORTED)
-//   2. helios_locale cookie (set when the user clicks LocaleSwitch)
+//   2. capstone_locale cookie (set when the user clicks LocaleSwitch)
 //   3. Accept-Language request header (best-effort match)
 //   4. DEFAULT
 //
@@ -1148,7 +1156,7 @@ export async function resolveLocale({ request, params }) {
 	}
 
 	const cookieHeader = request.headers.get('Cookie') ?? '';
-	const cookieLocale = parseCookie(cookieHeader, 'helios_locale');
+	const cookieLocale = parseCookie(cookieHeader, 'capstone_locale');
 	if (cookieLocale && SUPPORTED.includes(cookieLocale)) {
 		return cookieLocale;
 	}
@@ -1169,7 +1177,7 @@ export async function tFor(locale) {
 export function buildLocaleCookie(locale) {
 	if (!SUPPORTED.includes(locale)) return null;
 	const oneYear = 60 * 60 * 24 * 365;
-	return `helios_locale=${locale}; Path=/; Max-Age=${oneYear}; SameSite=Lax`;
+	return `capstone_locale=${locale}; Path=/; Max-Age=${oneYear}; SameSite=Lax`;
 }
 
 function parseCookie(header, name) {
@@ -1300,7 +1308,7 @@ export default function Home({ loaderData }) {
 	const { t, locale } = loaderData;
 	return (
 		<main className="max-w-2xl mx-auto p-8">
-			<h1 className="text-3xl font-bold mb-4">HELIOS DECK · {locale.toUpperCase()}</h1>
+			<h1 className="text-3xl font-bold mb-4">Course Capstone · {locale.toUpperCase()}</h1>
 			<ul className="space-y-2 text-indigo-700">
 				<li><Link to={`/${locale}/login`} className="hover:underline">→ {t.loginTitle}</Link></li>
 				<li><Link to={`/${locale}/deck`} className="hover:underline">→ {t.deckTitle}</Link></li>
@@ -1406,7 +1414,7 @@ PORT=3000
 ```js
 module.exports = {
 	apps: [{
-		name: 'helios-deck-fw',
+		name: 'capstone-fw',
 		script: 'npm',
 		args: 'run start',
 		env: { NODE_ENV: 'production', PORT: 3000 },
@@ -1416,12 +1424,12 @@ module.exports = {
 };
 ```
 
-**Template** — `/etc/nginx/sites-available/helios.conf` (nginx).
+**Template** — `/etc/nginx/sites-available/capstone.conf` (nginx).
 
 ```nginx
 server {
 	listen 80;
-	server_name [HELIOS_DOMAIN];
+	server_name [CAPSTONE_DOMAIN];
 
 	location / {
 		proxy_pass http://127.0.0.1:3000;
@@ -1437,8 +1445,8 @@ Build, upload, run:
 
 ```bash
 npm run build
-rsync -av build/ user@host:/srv/helios-deck-fw/build/
-ssh user@host 'cd /srv/helios-deck-fw && pm2 restart helios-deck-fw'
+rsync -av build/ user@host:/srv/capstone-fw/build/
+ssh user@host 'cd /srv/capstone-fw && pm2 restart capstone-fw'
 ```
 
 > This is a **pedagogical sketch** — production needs HTTPS (acme.sh + Let's Encrypt), log rotation, and a Postgres-backed session store for multi-instance setups. ADADI's `infra/deploy/` is the canonical reference.
@@ -1521,3 +1529,10 @@ Both fit the patterns you already wrote.
 > _"Authentication that lives in the browser is hospitable. Authentication that lives on the server is sovereign."_
 
 You ported a working sandbox into a working SSR application. The user does not see the difference. The XSS attacker does. The clever student does. Ship it.
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "12 — Closing"
+  visual-grammar: "server-render-boundary — rendering, identity, and language decisions crossing a server-controlled boundary"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}

@@ -128,5 +128,38 @@
   ],
   "unresolved": [
     "FE units still require wave-by-wave lesson/lab/exercise/deck build and Ahmes cite gates."
-  ]
+  ],
+  "fe_track_audit_2026_08_23": {
+    "kind": "manual student-facing curriculum integrity audit",
+    "fieldspec_supplied": false,
+    "registry_verification": "not performed; not needed for the structural and source-gate corrections in this pass",
+    "discovery": {
+      "engine": "local Athanor with Ollama",
+      "project_slug": "profield-frontend-pedagogy",
+      "queries": [
+        "front-end curriculum durable core accessibility progressive enhancement",
+        "AI-assisted code review human-in-the-loop student learning",
+        "IoT Python interface WebSocket front-end education",
+        "testing strategy frontend programming education"
+      ],
+      "rule": "vector hits were opened as Ahmes candidates; no vector result was cited"
+    },
+    "citation_gate": {
+      "unit_6_in_workflow_code_review": "[BIBLIO-GAP] — no evaluator-safe Ahmes node for the identified experience report; numerical claims removed",
+      "unit_10_interface_transfer_pedagogy": "[UNVERIFIED-GAP] retained; the lab contract is a course artefact, not evidence that the sequence improves learning"
+    },
+    "structural_repairs": [
+      "FE I session declaration reconciled from 25 to 29 and every published table entry linked to its student lesson",
+      "Both tracks now close at 10 lecture / 30 laboratory / 14 individual exercise / 2 evaluation hours",
+      "Units 5 and 6 now have student-facing individual exercises and companion deck/exercise notes",
+      "Unit 10 no longer depends on a future Phase 5 endpoint; it publishes a versioned local FastAPI/WebSocket v1 contract and Unit 5 tests it",
+      "Units 8–10 label their extra individual drills as autonomous self-checks rather than unallocated formal exercise hours"
+    ],
+    "validation": {
+      "command": "cd web-foundations && npm run build",
+      "result": "passed; 180 HTML files generated; mark-broken-links reported no broken URLs",
+      "note": "Repository-wide href-tester cannot validate external URLs in this sandbox; its generated caches were restored and are not part of this release."
+    },
+    "release_decision": "student-facing structure and reproducible lesson contracts are complete for this pass; declared pedagogical and bibliographic gaps remain visible rather than inferred closed"
+  }
 }

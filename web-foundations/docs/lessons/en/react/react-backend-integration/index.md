@@ -14,6 +14,14 @@ permalink: /lessons/en/react/react-backend-integration/
 status: published
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> An API boundary is a failure boundary.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** loading, error, empty, validation, caching, and cancellation states. **Frontier signal:** server components, edge APIs, and streaming alter where data work occurs.</p>
+</aside>
+>
+> **Studio test:** Write the contract and design one failure state before the happy path.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -1182,6 +1190,13 @@ export async function apiPost(url, body) {
 > 💭 _"Why might GraphQL be a worse choice than REST for your specific project? Name one case."_
 
 > 💭 _"React Query caches data between page navigations. Does this change how users perceive your app's speed? Does it create any risks?"_
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "10 — Atelier Reflections"
+  visual-grammar: "api-failure-channel — requests and mutations crossing an interface boundary with visible success, delay, and failure paths"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

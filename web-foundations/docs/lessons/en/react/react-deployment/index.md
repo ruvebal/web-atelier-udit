@@ -14,6 +14,14 @@ permalink: /lessons/en/react/react-deployment/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Deployment is part of the product's reproducibility.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** build, environment configuration, CI, release, and rollback are engineering work. **Frontier signal:** managed edge platforms abstract infrastructure while increasing platform dependence.</p>
+</aside>
+>
+> **Studio test:** Add a release checklist and a rollback path.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -172,6 +180,13 @@ VITE_HYGRAPH_URL=https://api-us-west.hygraph.com/v2/xxx/master
 - [ ] **GitHub Actions** running tests before deploy
 - [ ] **README** with live link and deploy status badge
 - [ ] **Reflection**: What did you learn about production?
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "📝 Sprint Deliverables"
+  visual-grammar: "reproducible-release-ladder — one source revision climbing through build, configuration, deployment, and verification"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

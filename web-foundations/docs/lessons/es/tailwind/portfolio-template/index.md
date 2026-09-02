@@ -16,6 +16,7 @@ tags: [tailwindcss, spa, arquitectura, routing, gsap]
 
 > _"La desarrolladora maestra escribe código que se explica solo, pero documenta el **por qué** de sus decisiones."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 Esta guía explica la arquitectura de nuestro portafolio como **Single Page Application (SPA)**, cubriendo cuatro sistemas interconectados: **estilos con Tailwind CSS**, **ruteo basado en hash**, **animaciones con GSAP** y **gestión del ciclo de vida**.
 
@@ -35,6 +36,7 @@ Esta guía explica la arquitectura de nuestro portafolio como **Single Page Appl
 
 > _"Mil clases utilitarias, pero fluyen como un solo río. La desarrolladora sabia nombra las cosas por su propósito, no por su apariencia."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ### 1.1 ¿Qué es Tailwind CSS?
 
@@ -80,6 +82,7 @@ src/styles/
 
 > _"Separa lo que cambia por razones diferentes. Los colores cambian con la marca. La tipografía cambia por cuestiones de legibilidad. Deben vivir separados."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 #### El punto de entrada (`index.css`)
 
@@ -154,6 +157,7 @@ document.documentElement.classList.toggle('dark');
 
 > _"El sistema sabio cambia muchas cosas cambiando una sola cosa."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ---
 
@@ -161,6 +165,7 @@ document.documentElement.classList.toggle('dark');
 
 > _"La URL es un contrato con la persona usuaria. Si lo rompes, no podrá volver a donde estaba."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ### 2.1 ¿Qué es el ruteo basado en hash?
 
@@ -280,6 +285,7 @@ async handleRoute() {
 
 > _"Cuando dos sistemas deben coexistir, encuentra la costura donde pueden comunicarse."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ---
 
@@ -287,6 +293,7 @@ async handleRoute() {
 
 > _"La animación sin propósito es decoración. La animación con propósito es comunicación."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ### 3.1 ¿Qué es GSAP?
 
@@ -419,6 +426,7 @@ initProjectCards(container) {
 
 > _"El stagger es el ritmo. Demasiado rápido se siente caótico. Demasiado lento se siente pesado. Encuentra la respiración entre cada golpe."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ### 3.6 Respetar las preferencias de la persona usuaria
 
@@ -451,6 +459,7 @@ init(container) {
 
 > _"Todo recurso adquirido debe ser liberado. Todo listener añadido debe ser eliminado. Así evitamos pérdidas de memoria."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ### 4.1 El problema
 
@@ -543,6 +552,7 @@ const navigation = {
 
 > _"La persona principiante añade listeners. Quien está en el camino los elimina. La maestra los registra desde el momento de su creación."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ---
 
@@ -550,6 +560,7 @@ const navigation = {
 
 > _"Automatiza lo tedioso. El pipeline debe ser invisible hasta que falle."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ### 5.1 El pipeline de despliegue
 
@@ -606,6 +617,7 @@ Como nuestro router carga plantillas HTML dinámicamente, debemos asegurarnos de
 
 > _"La ruta que funciona en desarrollo también debe funcionar en producción. Prueba el build localmente antes de desplegar."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ### 5.5 Por qué `npm ci` en CI/CD
 
@@ -638,6 +650,7 @@ jobs:
 
 > _"El pipeline que es fácil de entender es fácil de arreglar."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 **Para instrucciones completas de despliegue, consulta:** [`docs/DEPLOYMENT_PLAN.md`](./DEPLOYMENT_PLAN.md)
 
@@ -739,6 +752,7 @@ element.addEventListener('click', () => {
 
 > _"Cinco corrientes, un solo río. Los estilos pintan la interfaz. El router guía a la persona usuaria. La animación dirige la atención. El ciclo de vida mantiene la armonía. El despliegue automatiza la salida. Juntos crean la experiencia."_
 > — El Tao de la Desarrolladora
+{: .tao-development-quote }
 
 ---
 
@@ -756,4 +770,3 @@ element.addEventListener('click', () => {
 ---
 
 _Documento creado con fines educativos. Que el código te acompañe._ 🙏
-

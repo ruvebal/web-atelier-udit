@@ -11,6 +11,14 @@ description: 'Brief final de proyecto para construir una plantilla de portfolio 
 tags: [final-project, portfolio, deployment, responsive, web-standards]
 ---
 
+<aside class="lesson-framing" aria-label="Idea maestra y lente de campo">
+<p><strong>Idea maestra:</strong> Un portfolio es evidencia de proceso y autoría, no una galería.</p>
+<p><strong>Lente de campo:</strong> **Ancla de práctica:** trabajo auténtico integra decisiones de diseño y técnica. **Señal de frontera:** evaluación resiliente a IA exige checkpoints, reflexión y defensa.</p>
+</aside>
+
+> **Prueba de estudio:** Mantén commits semanales, notas de decisión y una declaración final de trade-offs.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Tabla de Contenidos
@@ -19,6 +27,70 @@ tags: [final-project, portfolio, deployment, responsive, web-standards]
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Para quién es / Para quién no
+
+**Para:** Front-End I **Sesión 13** e **integrador del semestre 1** — lee este brief, elige nivel (Vanilla / Bootstrap+GSAP / Tailwind+Vite) y planifica el portfolio en tres niveles con IA docs-first donde aplique.
+
+**No para:** empezar React (semestre 2), saltarse evidencia del Nivel 1, ni entregar una plantilla que no puedas defender.
+
+**Al terminar esta sesión tendrás:** plan escrito (`docs/plan*.md`), checklist de hitos, estructura de repo alineada con el brief y primer entregable del Nivel 1 acotado.
+
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Sesiones 1–12 completas (o plan de carencias con el profesor) | Sí |
+| Repo GitHub + URL Pages | Sí |
+| Briefs SOW y hackathon 404 leídos | Recomendado |
+
+**Tiempo oficial:** 4 h de clase + 1,5 h de lab (sesión del brief); el proyecto continúa el resto del semestre 1.
+
+---
+
+## Sigue este camino
+
+| Paso | Acción | Sección |
+| --- | --- | --- |
+| 1 | Lee brief vivo + regla IA en dos fases | Documento vivo / Uso IA |
+| 2 | Elige progresión Nivel 1 → 2 → 3 a tu ritmo | Niveles en el brief |
+| 3 | Escribe `docs/plan1.md` antes de codear Nivel 1 | Uso de IA |
+| 4 | Mapea requisitos a commits/hitos | Secciones de requisitos |
+| 5 | Checklist en README para defensa | Entregables |
+| 6 | Empieza implementación Nivel 1 (vanilla) | Producción |
+
+---
+
+## Comprueba antes de salir
+
+- [ ] Existe `docs/plan1.md` antes del código nuevo de esta semana
+- [ ] README lista URL Pages, nivel objetivo y declaración IA
+- [ ] Alcance Nivel 1 escrito (páginas, secciones, mínimo accesibilidad)
+- [ ] Puedes explicar un trade-off (CDN vs npm) en voz alta
+- [ ] Primer commit de hito subido
+
+---
+
+## Fallos frecuentes
+
+| Síntoma | Causa probable | Qué hacer |
+| --- | --- | --- |
+| Saltaste a Tailwind sin Nivel 1 | Integrador omitido | Completa evidencia vanilla |
+| Sin planes en repo | Código IA directo | Para; escribe `docs/plan1.md` |
+| Plantilla genérica | Bootcamp clonado | Contenido propio + insights SOW |
+| Defensa falla en autoría | No explicas commits | Documenta decisiones ATELIER |
+| Niveles mezclados | Sin progresión clara | Rama o tag por nivel |
+
+---
+
+## Entrega (evidencia Sesión 13)
+
+- URL repo + enlace a `docs/plan1.md`
+- Sección README: nivel objetivo este mes + fecha del próximo hito
 
 ---
 

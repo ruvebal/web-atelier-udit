@@ -9,6 +9,14 @@ lang: es
 permalink: /lessons/es/html-css-basics/
 ---
 
+<aside class="lesson-framing" aria-label="Idea maestra y lente de campo">
+<p><strong>Idea maestra:</strong> La semántica es el contrato durable de la interfaz.</p>
+<p><strong>Lente de campo:</strong> **Ancla de práctica:** estructura semántica y accesibilidad pertenecen al sustrato. **Señal de frontera:** la enseñanza platform-first resiste ocultar el contrato del documento detrás de frameworks.</p>
+</aside>
+
+> **Prueba de estudio:** Inspecciona la página con teclado y con JavaScript desactivado.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Tabla de Contenidos
@@ -17,6 +25,62 @@ permalink: /lessons/es/html-css-basics/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Sesión 2 completada (repo + URL GitHub Pages) | Sí |
+| VS Code + Live Server | Sí |
+| `index.html` + `assets/css/index.css` del template | Sí |
+
+**Tiempo oficial:** 3 h de clase + 1,5 h de laboratorio (90 min de actividades núcleo + tiempo de extensión).
+
+---
+
+## Sigue este camino
+
+| Paso | Acción | Sección |
+| --- | --- | --- |
+| 1 | Inspeccionar estructura del template en DevTools | Explorar y observar |
+| 2 | Construir secciones semánticas (header → footer) | Intervenir: landing semántico |
+| 3 | Aplicar fundamentos CSS en `index.css` | Estilos CSS |
+| 4 | Añadir comentario reflexión ATELIER | Reflexión |
+| 5 | Commit + push | Entrega |
+
+---
+
+## Comprueba antes de salir
+
+- [ ] Un solo `<main>`; secciones con `<section>` / `<article>` donde toque
+- [ ] Teclado alcanza enlaces de nav y controles del formulario
+- [ ] Página legible con CSS activo (jerarquía visual clara)
+- [ ] Comentario reflexión ATELIER en `index.html`
+- [ ] Commit en GitHub; Pages sigue cargando
+
+---
+
+## Fallos frecuentes
+
+| Síntoma | Causa probable | Qué hacer |
+| --- | --- | --- |
+| Todo son `<div>` | Etiquetas semánticas omitidas | Usar `<header>`, `<main>`, `<section>`, `<footer>` |
+| Enlaces nav no llevan a sitio | Falta `id` en secciones | Emparejar `href="#about"` con `id="about"` |
+| Estilos no aplican | Ruta CSS incorrecta o sin enlace | `<link rel="stylesheet" href="assets/css/index.css">` |
+| Live Server muestra archivo viejo | Caché o carpeta incorrecta | Abrir raíz del repo; refresco forzado |
+| Copilot añade markup no semántico | Sugerencia aceptada sin revisar | Releer Nota crítica; corregir etiquetas a mano |
+
+---
+
+## Entrega (evidencia Sesión 3)
+
+- URL del repo GitHub + URL Pages
+- Mensaje de commit que documente el landing semántico
+- Opcional: captura del árbol de accesibilidad en DevTools
+
+---
 
 ## ⏰ Duración estimada
 

@@ -1,22 +1,31 @@
 # Phase 5 — Institutional cleanup (real deliverables, not a flag-and-wait)
 
-**Status: item 1 (FE II) DONE 2026-08-18 — deadline-driven, department needs
-this by 2026-08-26 for RUC publication.** Items 2 (Back-End II synergy
-sheet) and 3 (UX/UI boundary note) and the FE I `TEMARIO`-vs-`CONTENIDOS`
-check still not started.
+**Status: item 1 (TEMARIO + BIBLIOGRAFÍA for department submission) DONE
+2026-09-01.** Ready-to-paste Markdown for both courses, addressed to the
+department head. Items 2 (Back-End II synergy sheet) and 3 (UX/UI boundary
+note) still not started.
 
-**FE II deliverable:** `../cv/guides/desarrollo-web-front-end-ii-2026-2027.json`
-(the corrected JSON, matching FE I's schema plus a new `temario` field) and
-`../cv/guides/FE-II-TEMARIO-BIBLIOGRAFIA-submission.md` (the ready-to-paste
-TEMARIO + BIBLIOGRAFÍA text for department submission — only those two
-sections; `CONTENIDOS`/`RESULTADOS DE APRENDIZAJE`/`ACTIVIDADES
-FORMATIVAS`/`SISTEMAS DE EVALUACIÓN` were independently confirmed correct
-and are not touched). TEMARIO's 12 entries map 1:1 to
-`cv/udit-ruvebal-frontend-ii-cv.md`'s Bloques 1–7 / Unidades 1–12.
-Bibliography reuses `02-temario-contenidos/T3-production-frontier-astro-pwa-3d-iot.edited.md`'s
-5 already-DOI-verified, three-pass-audited sources — no new prospection
-run. **Human review still needed before submission** — see the submission
-doc's own checklist (professor email, final wording sign-off).
+**Deliverables — copy/paste into Word / guías docentes:**
+
+| Course | File | TEMARIO entries | Source |
+| --- | --- | --- | --- |
+| **FE II** | `../cv/guides/FE-II-TEMARIO-BIBLIOGRAFIA-submission.md` | 12 (Unidades 1–12) | `tracks.yml` `feii:` + `cv/udit-ruvebal-frontend-ii-cv.md` |
+| **FE I** | `../cv/guides/FE-I-TEMARIO-BIBLIOGRAFIA-submission.md` | 24 (29 sessions grouped) | `tracks.yml` `fei:` + `cv/udit-ruvebal-frontend-i-cv.md` |
+
+Both documents include **Bibliografía básica** (curriculum-grounded,
+DOI/ISBN-verified from T1/T2/T3 temario passes), **Bibliografía
+complementaria** (critical-STEM layer: Postman, Tenner, Norman, Anderson &
+Krathwohl, GenAI assessment sources), and **Webgrafía** (platform docs only).
+Only `TEMARIO` + `BIBLIOGRAFÍA` are authored here — `CONTENIDOS`,
+`RESULTADOS DE APRENDIZAJE`, `ACTIVIDADES FORMATIVAS` and `SISTEMAS DE
+EVALUACIÓN` stay as in the official PDF/JSON.
+
+**FE II JSON (machine-readable mirror):**
+`../cv/guides/desarrollo-web-front-end-ii-2026-2027.json` — includes
+`temario` + `bibliography_*` fields matching the submission MD.
+
+**Human review still needed before submission** — see each submission doc's
+checklist (TEMARIO granularity, professor email, final wording sign-off).
 
 ## Context (self-contained)
 
@@ -42,8 +51,8 @@ Phase 2/3 content is stable enough to summarize (a final unit list exists for FE
 
 ## Gate
 
-- [ ] FE II `TEMARIO` + bibliography drafted, matching Phase 2's final unit list exactly.
-- [ ] FE I `TEMARIO` checked for the same gap; drafted if needed.
+- [x] FE II `TEMARIO` + bibliography drafted, matching Phase 2's final unit list exactly.
+- [x] FE I `TEMARIO` checked for the same gap; drafted from Phase 1's confirmed lesson clusters (`tracks.yml` `fei:`).
 - [ ] Back-End II synergy sheet exists and has been shared with that professor (not just drafted unilaterally).
 - [ ] UX/UI boundary note exists as a standalone, citable artifact (not just a passing mention inside Phase 1's file).
 

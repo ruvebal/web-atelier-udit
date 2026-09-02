@@ -1,13 +1,23 @@
 ---
+layout: lesson
 title: 'Modern Web Design Trends: Practical Guide for Students'
 title_alt: 'Modern Web Design Trends: Practical Guide for Students'
+slug: modern-web-design-trends
 description: 'A hands-on exploration of key web design trends like parallax, glassmorphism, typography, dark mode, minimalism vs. maximalism, scrollytelling, and 3D effects. Simplified for beginners with active exercises and critical reflections.'
 date: 2025-10-14
-author: 'Atelier Team'
-lang: 'en'
-locale: 'en'
+author: 'Rubén Vega Balbás, PhD'
+lang: en
+permalink: /lessons/en/modern-web-design-trends/
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> A trend is a design hypothesis, not a requirement.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** trends must serve communication, usability, and context. **Frontier signal:** immersive, AI-shaped, and 3D aesthetics are active but pedagogically unsettled.</p>
+</aside>
+
+> **Studio test:** Choose two trends, state the user goal, and record what you refused.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -16,6 +26,71 @@ locale: 'en'
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## For / Not for
+
+**For:** Front-End I **Session 12** — critically sample 2–3 trends from this guide and implement **one** on your portfolio with a stated user goal (not trend stacking).
+
+**Not for:** copying award sites wholesale, trends that break accessibility, or skipping the “what I refused” reflection.
+
+**When you finish this session you will have:** one trend implemented with plain CSS/JS, a short critique of another trend you rejected, and a commit.
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Sessions 3–11 complete (CSS + JS + optional GSAP) | Yes |
+| Portfolio repo deployed to GitHub Pages | Yes |
+| `prefers-reduced-motion` and contrast basics from prior sessions | Yes |
+
+**Official time:** 2 h class + 1 h lab.
+
+---
+
+## Follow this path
+
+| Step | Action | Section |
+| --- | --- | --- |
+| 1 | Pick two modules to read (e.g. parallax + dark mode) | Modules below |
+| 2 | State user goal before coding | Studio test |
+| 3 | Implement **one** trend on your portfolio | Production |
+| 4 | Document one trend you refused and why | Reflection |
+| 5 | Commit | Submit below |
+
+---
+
+## Verify before you leave
+
+- [ ] Implemented trend serves a clear communication goal (not decoration only)
+- [ ] Contrast and keyboard use still pass your Session 3–6 checks
+- [ ] Reduced-motion or static fallback considered
+- [ ] Written note: trend adopted + trend rejected
+- [ ] Commit pushed
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| Site unreadable | Glassmorphism without contrast | Test WCAG; add solid fallback |
+| Scroll jank | Heavy parallax on mobile | Reduce layers; respect `prefers-reduced-motion` |
+| Dark mode breaks images | Inverted colors only | Use CSS variables; test media assets |
+| Trend soup | Implemented five effects at once | Ship one; queue others for Level 2/3 |
+| Demo works, portfolio doesn’t | Copied CodePen in isolation | Integrate with your design tokens |
+
+---
+
+## Submit (Session 12 evidence)
+
+- Commit with one trend integrated
+- Two bullets: goal served + trend consciously rejected
+
+---
 
 # Modern Web Design Trends: Practical Guide for Students
 
@@ -1215,6 +1290,13 @@ You've explored 8 trends! Web design is about communication: trends help you "sp
 - "Could I achieve the same goal with simpler techniques?"
 
 **Key Takeaway:** Trends are tools—use them thoughtfully. Experiment, reflect, and iterate!
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Conclusion and Final Project"
+  visual-grammar: "trend-hypothesis-filter — visual trends filtered by audience purpose, usability, access, and deliberate refusal"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ## References
 

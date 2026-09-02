@@ -26,7 +26,6 @@ Este repositorio es el **punto de partida para el proyecto personal de cada estu
 ### GitHub Actions
 
 - Se incluyen flujos CI opcionales:
-
   - **Critical CI (Estudiante):** verifica enlaces, peso de página y accesibilidad.
 
 - Se recomienda su uso: así los estudiantes aprenden cómo los profesionales automatizan controles de calidad.
@@ -99,4 +98,4 @@ student-project-template/
 - Introducción YAML – [https://learnxinyminutes.com/docs/yaml/](https://learnxinyminutes.com/docs/yaml/)
 - Schema.org / JSON-LD – [https://schema.org](https://schema.org)
 
-© 2025 Rubén Vega Balbás, PhD — WEB ATELIER (UDIT) · ORCID: <https://orcid.org/0000-0001-6862-9081>
+© 2025 Rubén Vega Balbás, PhD — WEB ATELIER · ORCID: <https://orcid.org/0000-0001-6862-9081>

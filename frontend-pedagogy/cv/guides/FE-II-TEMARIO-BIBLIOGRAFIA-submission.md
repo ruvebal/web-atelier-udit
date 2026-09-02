@@ -6,10 +6,13 @@ Deadline: department needs this by 2026-08-26 (RUC publication).
 Source of truth: desarrollo-web-front-end-ii-2026-2027.json (same directory)
 -->
 
-# Desarrollo Web: Front-End II — corrección de TEMARIO y BIBLIOGRAFÍA
+# Desarrollo Web: Front-End II — corrección de TEMARIO y BIBLIOGRAFÍA (2026/2027)
 
-**Para:** program coordination / academic affairs, UDIT — Grado en
-Desarrollo Full-Stack.
+**Para:** Jefe/a de Departamento — Grado en Desarrollo Full-Stack (y cohortes compartidas con Ciencia de Datos e IA).
+
+**De:** Rubén Vega Balbás, PhD — Profesor de la asignatura (`ruben.vega@udit.es`).
+
+**Asunto:** Corrección de las secciones `TEMARIO` y `BIBLIOGRAFÍA / WEBGRAFÍA` de la Guía Docente de *Desarrollo Web: Front-End II* (6 ECTS, semestral, 150 h). Primera impartición de la asignatura.
 
 **Qué corrige esto:** únicamente las secciones `TEMARIO` y
 `BIBLIOGRAFÍA / WEBGRAFÍA` de `GDFS-2026-2027-3-Desarrollo Web Front-End
@@ -29,18 +32,92 @@ la planificación curricular ya cerrada
 
 ## TEMARIO
 
-1. Arquitectura de renderizado en producción: metaframeworks y arquitectura de islas (Astro).
-2. Integración multi-framework (React/Vue/Svelte) y content collections tipadas.
-3. Estrategias de renderizado (SSR/SSG) y arquitectura de micro-frontends.
-4. Aplicaciones Web Progresivas (PWA): service workers, estrategias de caché y manifiesto de aplicación web.
-5. Estrategia de testing: pruebas unitarias, pruebas de componentes y end-to-end, integradas en CI/CD.
-6. Revisión de código asistida por IA (human-in-the-loop) como técnica evaluable del flujo de desarrollo.
-7. Ingeniería de rendimiento: Core Web Vitals y presupuestos de rendimiento como restricción de diseño.
-8. Interfaces 3D declarativas: React Three Fiber, raycasting y eventos, optimización en WebGL.
-9. Alfabetización en shaders: fundamentos de GLSL, shaders personalizados y efectos de post-procesado.
-10. Interfaces respaldadas por IoT/Python: integración de WebSocket con estado y consumo de servicios FastAPI.
-11. Integración del proyecto: arquitectura, resiliencia, testing, 3D e IoT combinados con evidencia de proceso documentada.
-12. Defensa oral del proyecto integrador: preguntas basadas en el diff del propio código.
+*(Formato desarrollado — bloque temático + subtemas. Primera impartición; parte de donde Front-End I termina y no lo repite.)*
+
+---
+
+De React a arquitectura de producción: sistemas de interfaces.
+
+    Transición explícita: de interfaces sueltas a sistemas de interfaces en producción.
+    Segundo paradigma de renderizado: HTML/CSS por defecto, JavaScript solo donde se necesita (arquitectura de islas).
+    Metaframework elegido: Astro (content-first, islas React/Vue/Svelte sobre océano estático).
+    Núcleo duradero (modelo de componentes) frente a capa volátil (destino de renderizado: DOM, WebGL, WebSocket).
+
+Arquitecturas de aplicaciones front-end.
+
+    Astro: filosofía content-first, routing, layouts y obtención de datos en build time.
+    Arquitectura de islas: hidratación selectiva, coste de JavaScript medido por página.
+    Estrategias de renderizado: SSR frente a SSG; criterios de elección según tipo de contenido y datos.
+    Content collections tipadas y validación de esquemas en el build.
+    Integración multi-framework: React, Vue y Svelte conviviendo en el mismo proyecto.
+    Arquitectura de micro-frontends: composición, autonomía de equipos y trade-offs de despliegue.
+
+Aplicaciones Web Progresivas (PWA) y resiliencia offline.
+
+    Service workers: registro, ciclo de vida y alcance.
+    Estrategias de caché: cache-first, network-first, stale-while-revalidate.
+    Web App Manifest: aplicaciones instalables, iconos y pantalla de inicio.
+    Patrones offline-first: indicadores de conectividad, sincronización diferida y UX sin red.
+    De SPA a aplicación que sobrevive a la pérdida de conexión.
+
+Estrategia de testing y automatización en CI/CD.
+
+    El testeo como decisión de ingeniería: qué testear, qué no testear y coste de mantenimiento.
+    Pruebas unitarias con Vitest; pruebas de componentes con React Testing Library.
+    End-to-end con Playwright: determinismo, flakiness y migración desde Cypress.
+    Integración en pipeline CI/CD: presupuestos de tiempo, contract testing contra backend.
+    Continuidad con Front-End I: hereda el Testing Trophy; no contradice Vitest/RTL ya enseñados.
+
+Revisión de código asistida por IA (human-in-the-loop).
+
+    IA integrada en pull requests de GitHub como técnica enseñada y evaluable.
+    Diseño de prompts de revisión efectivos; filtrado de falsos positivos.
+    Registro documentado de sugerencias aceptadas, rechazadas y justificadas (ACCEPT/REJECT).
+    La persona decide y es responsable: la IA sugiere, no sustituye el juicio profesional.
+    Declaración de uso de IA alineada con el AI Act (transparencia ampliada respecto al mínimo legal).
+
+Ingeniería de rendimiento web.
+
+    Core Web Vitals (LCP, INP, CLS) como objetivos medibles, no como cifras abstractas.
+    Presupuestos de rendimiento (performance budgets) como restricción de diseño desde el inicio.
+    Optimización de bundles, assets, CSS crítico y renderizado.
+    Coste energético del front-end como dimensión ética (consecuencias no intencionadas de la optimización).
+    Herramientas de medición: Lighthouse, web.dev, análisis de red en DevTools.
+
+Interfaces 3D declarativas (React Three Fiber).
+
+    Transferencia del modelo de componentes React a escenas 3D declarativas (no curso de gráficos aislado).
+    Escena, cámara, luces, meshes y el canvas como superficie de interfaz.
+    Estado y hooks en R3F; raycasting y eventos de puntero en 3D.
+    Optimización WebGL: renderer.info, presupuestos de draw calls y reconciliación con React.
+    Puente desde la semilla 3D de Front-End I hacia producción con R3F.
+
+Alfabetización en shaders y estética de interfaz de vanguardia.
+
+    Fundamentos mínimos de GLSL: un shader entendido, no una librería de efectos a ciegas.
+    Uniforms, espacio UV y manipulación de vértices/fragmentos dentro de R3F.
+    Efectos de post-procesado: bloom, aberración cromática y coste de renderizado.
+    Estética de vanguardia como código legible, no como preset opaco.
+    Declaración de uso de IA en shaders (misma disciplina de merge log que en revisión de código).
+
+Interfaces respaldadas por IoT, robótica y servicios Python (FastAPI).
+
+    El modelo de componentes no cambia: props, estado, hooks; cambia la fuente de datos.
+    WebSocket bidireccional y con estado frente a REST/GraphQL sin estado.
+    Panel de control para dispositivos IoT/robótica: telemetría en tiempo real y comandos.
+    Consumo de servicios respaldados por Python (FastAPI): contrato versionado, esquema de mensajes.
+    Relevancia para Full-Stack y Ciencia de Datos e IA: misma asignatura, distintos perfiles de backend.
+    Coordinación con Back-End II (contrato de servicio compartido cuando esté disponible).
+
+Proyecto integrador: integración, evidencia de proceso y defensa oral.
+
+    Integración de arquitectura Astro, PWA, testing con CI/CD, interfaz 3D o shaders, y panel IoT/Python.
+    Evidencia de proceso: decisions.md, iterations.md, historial de commits, declaración de IA por unidad.
+    Ejes verify/narrate: demostrar comprensión, no solo entregar artefacto pulido.
+    Defensa oral de 15 minutos: preguntas basadas en el diff del propio código.
+    Capacidad de explicar y modificar en el momento; evaluación alineada con Front-End I (Técnica 40% / Reflexión 35% / Comprensión 25%).
+
+---
 
 ## BIBLIOGRAFÍA / WEBGRAFÍA
 
@@ -91,6 +168,6 @@ descuido de esta pasada.
 ## Antes de enviar — verificación humana pendiente
 
 - [x] `PROFESORADO`: el PDF actual tiene `ruben.vega@udit.es` como placeholder — confirmar nombre/email institucional exacto (no inventado aquí).
-- [x] Confirmar que las 12 entradas del TEMARIO, en este orden, son las que quieres presentar — se derivan 1:1 de las Unidades 1–12 ya publicadas en la CV, no de una fuente oficial adicional.
+- [x] Confirmar que el TEMARIO desarrollado (10 bloques temáticos / 12 unidades) refleja la planificación publicada en `/tracks/feii/`.
 - [x] Los 5 registros bibliográficos son DOI-verificados vía un proceso de tres pasadas adversariales (mapa → auditoría independiente → fusión, modelos distintos por pasada) — ver `frontend-pedagogy/02-temario-contenidos/T3-production-frontier-astro-pwa-3d-iot.edited.md` si quieres el historial completo, incluidas las fuentes candidatas descartadas por no verificarse.
 - [x] `source_url`: no existe URL del portal UDIT todavía (la asignatura nunca se ha impartido) — se rellenará cuando el departamento la asigne. De momento los cursos serán publicados CD/CI en https://ruvebal.github.io/web-atelier-udit/tracks/$locale/ 

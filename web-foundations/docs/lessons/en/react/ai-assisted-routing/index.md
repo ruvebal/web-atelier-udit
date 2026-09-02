@@ -133,7 +133,7 @@ Create a React Router v7 route module using Framework Mode (explicit config):
 - Layout must include <Outlet /> for child widget routes
 - Include an index route for default dashboard content
 - Use action() for any mutations (widget CRUD)
-- Follow HELIOS DECK routing conventions (explicit routes.js, no file-based routing)
+- Follow course capstone routing conventions (explicit routes.js, no file-based routing)
 ```
 
 ### The rule
@@ -299,11 +299,11 @@ export function ErrorBoundary() {
 
 ## 10 — Deliverable: project rules for AI agents
 
-Add `.cursor/rules/react-router-patterns.mdc` to your HELIOS repo:
+Add `.cursor/rules/react-router-patterns.mdc` to your capstone repo:
 
 ```markdown
 ---
-description: React Router v7 explicit config conventions for HELIOS DECK
+description: React Router v7 explicit config conventions for course capstone
 globs: ['app/routes.js', 'app/routes/**/*.jsx']
 ---
 

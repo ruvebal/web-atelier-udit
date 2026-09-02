@@ -14,6 +14,14 @@ permalink: /lessons/en/react/ai-assisted-development-foundations/
 status: in progress
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> A generated answer is a hypothesis until verified.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** planning, decomposition, documentation, and tests remain human responsibilities. **Frontier signal:** deferred assistance, metacognitive scripting, and solution withholding aim to preserve productive struggle.</p>
+</aside>
+>
+> **Studio test:** Plan first, ask second, verify third, and log the decision.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## Table of Contents
@@ -221,7 +229,7 @@ Generate a React Router v7 route module:
 - Data: loader reads from SQLite via better-sqlite3 (raw SQL, no ORM)
 - Auth: [public | protected — requireUser(request) first in loader]
 - Mutations: action() + <Form method="post"> + redirect on success
-- Conventions: HELIOS DECK project (see CLAUDE.md for full context)
+- Conventions: course capstone project (see CLAUDE.md for full context)
 
 Include: loader, default component, ErrorBoundary.
 Do NOT use useEffect for data fetching.
@@ -270,10 +278,10 @@ Students trust AI too early. This section trains skepticism.
 
 A `CLAUDE.md` file at the repo root gives Claude Code persistent context about your project. It is read at the start of every session.
 
-**Excerpt** — minimal CLAUDE.md for HELIOS DECK:
+**Excerpt** — minimal CLAUDE.md for course capstone:
 
 ```markdown
-# HELIOS DECK
+# course capstone
 
 Space weather dashboard. React Router v7 Framework Mode (SSR).
 
@@ -303,7 +311,7 @@ Rules files (`.mdc`) constrain Cursor's agent to your project conventions:
 
 ```markdown
 ---
-description: Data fetching conventions for HELIOS DECK
+description: Data fetching conventions for course capstone
 globs: ['app/routes/**/*.jsx']
 ---
 
@@ -355,7 +363,7 @@ The agent amplifies whatever you give it — including your mistakes.
 
 ## 9 — Hands-on: apply the method to one feature
 
-Pick one feature from HELIOS DECK (or your own project) and produce:
+Pick one feature from course capstone (or your own project) and produce:
 
 ### Decomposition (5–10 components/hooks/modules, named)
 
@@ -453,6 +461,13 @@ export default function Signals() {
 > _You asked Claude Code to add a new feature. It produced 8 files. How do you decide which to keep, which to modify, and which to discard?_
 
 > _An AI agent generates code faster than you can review it. What process ensures you don't merge unreviewed code?_
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "11 — Reflection questions (Atelier)"
+  visual-grammar: "generated-hypothesis-verification-loop — a generated proposal cycling through inspection, testing, correction, and owned acceptance"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

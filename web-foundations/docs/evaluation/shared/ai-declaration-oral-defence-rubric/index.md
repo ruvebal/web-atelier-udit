@@ -3,23 +3,28 @@ layout: lesson
 title: 'AI Use Declaration & Oral Defence Rubric'
 title_alt: 'Declaración de Uso de IA y Rúbrica de Defensa Oral'
 slug: ai-declaration-oral-defence-rubric
-date: 2026-08-08
+date: 2026-09-01
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /evaluation/shared/ai-declaration-oral-defence-rubric/
-description: 'Shared rubric for AI use declarations and oral defences across Web Atelier tracks, grounded in profield methodology axes (verify, narrate, defer, critique).'
+description: 'Shared 0–10 rubric for AI use declarations and oral defences — FE I and FE II. Grades process and corrective competence, not polish alone.'
 tags:
   [
     evaluation,
     ai-declaration,
     oral-defence,
     rubric,
-    profield,
     verify-axis,
     narrate-axis,
+    defer-axis,
+    critique-axis,
     assessment,
+    fei,
+    feii,
   ]
 status: complete
+version: '2.0.3'
+frozen: '2026-09-01'
 ---
 
 <!-- prettier-ignore-start -->
@@ -33,176 +38,160 @@ status: complete
 
 ---
 
-## 🎯 Purpose
+> **Version 2.0.3 · frozen 2026-09-01** · Scores use **0–10** bands below.
 
-This shared rubric provides consistent evaluation criteria for AI use declarations and oral defences across all Web Atelier tracks (FE I, FE II, and future courses). It is grounded in the profield methodology's operational axes (`verify`, `narrate`, `defer`, `critique`) and the Web Atelier evaluation philosophy (Technical 40% / Reflection 35% / Conceptual 25%).
+## Who this is for
 
----
+**For:** FE I and FE II students submitting AI-assisted deliverables or defending a capstone/final project.
 
-## 📖 Profield Operational Axes
+**Not for:** Written exams (see your track’s How to Pass deck) or lesson-by-lesson formative checks — those use other instruments.
 
-### Verify Axis
+This page is the grading contract for **transparent AI use** and **oral defence**. It implements what [How to Pass FE I]({{ '/tracks/fei/how-to-pass-this-track/' | relative_url }}) and [How to Pass FE II]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }}) already require: documented process and a defence of your own diff — not a polished artefact alone. Under GenAI, web-project assessment is moving from final product toward process and explanation <a class="citation-ref" href="#ref-russo-2026">(Russo et al. 2026)</a>, this rubric follows that shift using a four-pillar AI-resilient design that is **conceptual**, not yet validated as a whole instrument <a class="citation-ref" href="#ref-nikolic-2026">(Nikolić and Basta Nikolić 2026)</a>. Follow the [AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }}) first; this page is how that protocol is scored.
 
-**Definition:** Tests whether the learner can debug, justify, modify, and explain submitted code under AI-assisted conditions.
+| Track | When graded | Weight (institutional) |
+| --- | --- | --- |
+| FE I | Individual React capstone, Final Presentation, any AI-assisted project | Final Presentation **5%**; portfolio/process **10%** |
+| FE II | Units 11–12 capstone + Entrega 3 | Entrega 3 **10%**; portfolio **10%** |
 
-**Evidence Requirements:**
-- Code functions as intended (tests pass, demo works)
-- Student can explain key implementation decisions
-- Student can debug and modify code on demand
-- Evidence is reproducible (setup instructions, dependencies specified)
+**Atelier split** (all rows on this page): Technical **40%** · Reflection & documentation **35%** · Conceptual **25%**. See [Evaluation Rationale]({{ '/evaluation/en/' | relative_url }}) for the wider philosophy.
 
-**Rubric Criteria:**
-- **Excellent (4):** Code works flawlessly, student can explain and modify any section, debugging is systematic
-- **Good (3):** Code works with minor issues, student can explain most sections, basic debugging demonstrated
-- **Satisfactory (2):** Code works with known issues, student can explain some sections, debugging is trial-and-error
-- **Needs Improvement (1):** Code has major issues, student cannot explain implementation, no debugging demonstrated
-
-### Narrate Axis
-
-**Definition:** Requires students to expose process, rationale, authorship, version history, and explanation rather than only final product.
-
-**Evidence Requirements:**
-- Decision log (decisions.md) documenting architectural choices
-- Iteration log (iterations.md) showing problem-solving process
-- Commit history with meaningful messages
-- Rationale for trade-offs and alternatives considered
-
-**Rubric Criteria:**
-- **Excellent (4):** Complete decision and iteration logs, clear rationale for all major choices, commit history tells a coherent story
-- **Good (3):** Most decisions documented, rationale is clear for key choices, commit history is adequate
-- **Satisfactory (2):** Some decisions documented, rationale is partial, commit history exists but lacks clarity
-- **Needs Improvement (1):** Minimal or no process documentation, rationale absent, commit history is unclear
-
-### Defer Axis
-
-**Definition:** Treats delayed or staged AI access as a scaffold to preserve productive struggle, planning, and metacognition.
-
-**Evidence Requirements:**
-- AI assistance used after initial planning (not as first step)
-- Plans precede implementation (docs-first methodology)
-- Student can explain what AI generated vs. what they authored
-- Metacognitive reflection on AI assistance effectiveness
-
-**Rubric Criteria:**
-- **Excellent (4):** AI used only after thorough planning, clear distinction between AI-generated and authored code, deep reflection on AI assistance
-- **Good (3):** AI used after some planning, reasonable distinction between AI and authorship, some reflection
-- **Satisfactory (2):** AI used with minimal planning, partial distinction between AI and authorship, minimal reflection
-- **Needs Improvement (1):** AI used as first step, no distinction between AI and authorship, no reflection
-
-### Critique Axis
-
-**Definition:** Uses peer, instructor, and AI-assisted review as explicit learning evidence.
-
-**Evidence Requirements:**
-- Peer review participation and feedback given
-- Response to instructor/peer feedback in revisions
-- AI-assisted code review documented with human validation
-- Evidence of iterative improvement based on critique
-
-**Rubric Criteria:**
-- **Excellent (4):** Active peer review participation, detailed response to all feedback, AI review thoroughly validated, clear iteration
-- **Good (3):** Peer review participation, response to most feedback, AI review mostly validated, some iteration
-- **Satisfactory (2):** Limited peer review, response to some feedback, AI review partially validated, minimal iteration
-- **Needs Improvement (1):** No peer review, no response to feedback, AI review unvalidated, no iteration
+<figure class="rubric-allegory">
+<img src="{{ '/assets/images/evaluation-rubric-allegory/rubric-allegory-theory-practice-reflection.svg' | relative_url }}" width="1200" height="640" alt="Allegorical fractal echo: Theory, Practice, and Reflection as nested triangular pillars" loading="lazy" />
+<figcaption>
+<p><strong>Theory · Practice · Reflection</strong> — the methodology arc this rubric grades. Nested echoes = the same idea at deliverable, portfolio, and defence scales.</p>
+<p class="image-credit">visual-forger · Julia recurrence <em>p<sub>c</sub>(z)=z²+c</em></p>
+</figcaption>
+</figure>
 
 ---
 
-## 🤖 AI Use Declaration Requirements
+## Scoring bands (0–10)
 
-Every deliverable that uses AI assistance must include an `AI_USE_DECLARATION.md` file with the following sections:
+Every criterion uses the same bands, aligned with UDIT ordinary evaluation (pass average **5.0**; any component below **4.5** suspends the subject).
 
-### Required Sections
+| Band | Score | What it means |
+| --- | --- | --- |
+| Insufficient | **0–5** | Missing evidence, undeclared AI, or cannot explain/modify your work |
+| Minimum pass | **5–6** | Required artefacts present; basic explanation |
+| Competent | **7–8** | Complete process evidence; confident diff walkthrough |
+| Excellent | **9–10** | Reproducible setup; live modification; deep reflection |
 
-1. **AI Assistance Summary**
-   - List all AI tools used (Cursor AI, Ollama, GitHub Copilot, etc.)
-   - Specify the scope of AI assistance (architecture, code generation, testing, etc.)
+Weighted section scores round to one decimal, then map to this table.
 
-2. **AI Use by Unit/Task**
-   - For each unit or task, document:
-     - Prompts used
-     - AI-generated output
-     - Human verification steps
-     - Accountability statement (who approved the AI suggestions)
+The institutional percentages decide how much a deliverable counts in the subject grade; they do not change the scoring scale. Every rubric row remains a **0–10** score for Campus compatibility.
 
-3. **Files with AI Assistance**
-   - List all files touched by AI
-   - Specify the type of assistance (scaffold, generation, review, etc.)
-
-4. **Accountability Statement**
-   - Explicit statement that all AI-generated code was reviewed, tested, and approved by a human
-   - Confirmation that human judgment remains final
-
-### Evaluation Criteria
-
-| Criterion | Weight | Description |
-|-----------|--------|-------------|
-| Completeness | 40% | All required sections present and complete |
-| Transparency | 30% | Clear distinction between AI-generated and authored code |
-| Verification | 20% | Evidence of human review and testing |
-| Accountability | 10% | Explicit human responsibility statement |
+<figure class="rubric-allegory">
+<img src="{{ '/assets/images/evaluation-rubric-allegory/rubric-allegory-scores.svg' | relative_url }}" width="1200" height="640" alt="Allegorical fractal echo: rubric bands 0-5, 5-6, 7-8, 9-10 and Atelier split 40-35-25" loading="lazy" />
+<figcaption>
+<p>Same **0–10** geometry for every row — institutional 5.0 / 4.5 rules apply to the course average, not to skipping this rubric.</p>
+<p class="image-credit">visual-forger · pass-track threshold family, zoomed</p>
+</figcaption>
+</figure>
 
 ---
 
-## 🎤 Oral Defence Rubric
+## What to submit
 
-### Structure (15 minutes)
+Self-coded portfolios treat **process** as assessable evidence <a class="citation-ref" href="#ref-garcia-2025">(Garcia 2025)</a>, web-design cohort in the Philippines; supports the model, not every criterion here. The one-student-one-repo pattern makes that evidence inspectable <a class="citation-ref" href="#ref-nelson-2021">(Nelson and Ponciano 2021)</a>.
 
-- **0-2 min:** Problem statement and context
-- **2-5 min:** Approach and architecture
-- **5-10 min:** Implementation walkthrough (the diff)
-- **10-12 min:** Verify/narrate evidence
-- **12-15 min:** Live demo and conclusion
-- **15-20 min:** Q&A
+| Artefact | FE I | FE II | Why |
+| --- | :---: | :---: | --- |
+| `AI_USE_DECLARATION.md` | ✓ | ✓ | Transparency <a class="citation-ref" href="#ref-nikolic-2026">(Nikolić and Basta Nikolić 2026)</a> |
+| `decisions.md` + `iterations.md` | Final project | Capstone | Narrate axis |
+| `docs/plans/` + `docs/reports/` | Sem. 2 | All units | Defer axis — plan before implementation |
+| Meaningful **commits** | ✓ | ✓ | Authorship trail |
+| **ACCEPT/REJECT log** | Optional | Unit 6+ | Critique axis |
+| **Release tag** + green CI | — | Units 11–12 | Verify axis |
 
-### Evaluation Criteria
+Missing a required row for your deliverable caps **Reflection & documentation** at **5.0** until fixed.
 
-| Criterion | Weight | Description |
-|-----------|--------|-------------|
-| Technical Excellence | 40% | Code quality, architecture, implementation correctness |
-| Process Evidence | 30% | Documentation, AI declaration, decision logs |
-| Presentation Quality | 20% | Clear structure, time management, visual aids |
-| Q&A Performance | 10% | Ability to answer technical questions accurately |
-
-### Q&A Expectations
-
-Expect diff-based questions focused on the actual code:
-- "Why did you choose this architecture pattern?"
-- "How does your error handling cover edge cases?"
-- "What happens if the connection drops?"
-- "Which AI suggestion did you reject? Why?"
+<figure class="rubric-allegory">
+<img src="{{ '/assets/images/evaluation-rubric-allegory/rubric-allegory-human-ai.svg' | relative_url }}" width="1200" height="640" alt="Allegorical fractal echo: human accountability versus AI assistance" loading="lazy" />
+<figcaption>
+<p><strong>Human</strong> plan · verify · defend — <strong>AI</strong> assist · suggest · review. Accountability stays on your side of the boundary.</p>
+<p class="image-credit">visual-forger · defer axis allegory</p>
+</figcaption>
+</figure>
 
 ---
 
-## 📊 Alignment with Web Atelier Evaluation Philosophy
+## How the four axes are scored
 
-This rubric aligns with the Web Atelier evaluation rationale (Technical 40% / Reflection 35% / Conceptual 25%):
+Each axis is **0–10** using the bands above.
 
-- **Technical Excellence (40%)** → Verify axis + oral defence technical criteria
-- **Reflection & Documentation (35%)** → Narrate axis + AI declaration completeness
-- **Conceptual Understanding (25%)** → Defer axis + Q&A conceptual questions
+**Verify (Technical 40%)** — Corrective competence: the work runs and **you** can explain and change it without AI in the room. Copilot can speed brownfield tasks while comprehension may lag <a class="citation-ref" href="#ref-shihab-2025">(Shihab et al. 2025)</a>, unrestricted AI use risks “fragile experts” who ship but cannot correct <a class="citation-ref" href="#ref-sankaranarayanan-2026">(Sankaranarayanan 2026)</a>. *9–10:* live edit + reproducible setup. *0–5:* broken demo or cannot discuss the diff.
 
----
+**Narrate (Reflection 35%)** — Process is as gradable as the product <a class="citation-ref" href="#ref-garcia-2025">(Garcia 2025)</a>. Commits, `decisions.md`, and `iterations.md` must tell a coherent story of **your** choices. *9–10:* complete logs and trade-offs. *0–5:* absent or inconsistent with claimed authorship.
 
-## 📚 Grounding References
+**Defer (Conceptual 25%)** — Plan before you prompt. Deferred assistance and metacognitive friction preserve productive struggle <a class="citation-ref" href="#ref-sankaranarayanan-2026">(Sankaranarayanan 2026)</a>, the gap between AI completion and student validation is widening <a class="citation-ref" href="#ref-prather-2024">(Prather et al. 2024)</a>. Self-regulated workflows matter here <a class="citation-ref" href="#ref-zimmerman-2000">(Zimmerman 2000)</a>. *9–10:* plans precede AI; clear human vs AI authorship. *0–5:* AI first, or undeclared use.
 
-- **Sankaranarayanan 2026** — "Mitigating 'Epistemic Debt'" — corrective competence framework
-- **Oliveira et al. 2026** — AI-assisted code review as scaffold for code quality
-- **Web Atelier Evaluation Rationale** — docs/evaluation/en/index.md
-- **Profield Front-End Pedagogy** — §12.7 operational axes
+**Critique (Reflection + Technical)** — Review counts only if **you** record accept/reject decisions. In-workflow AI review in related software-engineering capstones saw follow-up commits in ~32–33% of reviewed PRs <a class="citation-ref" href="#ref-oliveira-2026">(Oliveira et al. 2026)</a>, report the number honestly; it is not a target grade. *9–10:* ACCEPT/REJECT log with rationale and revision commits. *0–5:* AI output merged without judgment.
 
----
-
-## ✅ Usage
-
-This rubric is referenced by:
-- `/tracks/fei/how-to-pass-this-track/` — FE I evaluation
-- `/tracks/feii/how-to-pass-this-track/` — FE II evaluation
-- [AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }}) — the classroom protocol this rubric tests
-- [Architecture cluster]({{ '/lessons/en/ai-assisted-development/' | relative_url }}) — the primer the defence can ask about
-- Future Web Atelier tracks (as needed)
-
-Both tracks link to this shared component rather than duplicating rubric content.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+LESSON-SAUCE-FE-I-II.md — Garcia, Shihab, Nikolić evaluator_safe=yes; profield-frontend-pedagogy.md §12.7 operational axes.
+-->
+{% endif %}
 
 ---
 
-> _"AI assists, but humans decide. The difference is accountability."_
+## AI Use Declaration
+
+File: **`AI_USE_DECLARATION.md`** in the project root.
+
+**Required sections:** (1) tools and scope, (2) per-unit/task prompts + verification + accountable reviewer, (3) file list with type of help, (4) signed accountability statement.
+
+| Criterion | Weight | 9–10 | 5–6 | 0–5 |
+| --- | ---: | --- | --- | --- |
+| Completeness | 40% | Every section, every task | Most sections | Missing or false |
+| Transparency | 30% | AI vs human clear | Mostly clear | Omitted / misleading |
+| Verification | 20% | Tests and checks cited | Some named | None |
+| Accountability | 10% | Matches repo | Generic | Absent / contradicted |
+
+**Integrity gate:** undeclared AI discovered in review → **0** on the declaration.
+
+---
+
+## Oral defence
+
+**FE I:** Final Presentation (individual React capstone). **FE II:** Entrega 3 (Units 11–12). Oral explanation of one’s own implementation is established in project-based CS courses <a class="citation-ref" href="#ref-lara-2019">(Lara et al. 2019)</a>, compilers cohort; method transfer, not a Spanish FE effect-size study; here it tests corrective competence because slides cannot substitute for the diff <a class="citation-ref" href="#ref-sankaranarayanan-2026">(Sankaranarayanan 2026)</a>.
+
+**15 + 5 min:** problem (0–2) → architecture (2–5) → **diff walkthrough** (5–10) → evidence from logs/tests (10–12) → live demo (12–15) → Q&A (15–20). **Live defence is human-only** — AI may help you prepare, not answer.
+
+| Criterion | Weight | 9–10 | 5–6 | 0–5 |
+| --- | ---: | --- | --- | --- |
+| Technical | 40% | Deployed; modifies code if asked | Demo works; weak on edges | Broken / cannot discuss |
+| Process evidence | 30% | Cites logs, commits, declaration | Vague | Absent / contradicts repo |
+| Presentation | 20% | Clear; on time; diff legible | Understandable | Slide theatre |
+| Q&A | 10% | Honest about limits and rejected AI advice | Partial | Cannot answer on own code |
+
+**Expect:** “Why this pattern?”, “Which AI suggestion did you reject?”, “Change this line — what breaks?”
+
+---
+
+## References
+
+<p id="ref-garcia-2025" class="reference-entry">Garcia, M. 2025. “Self-Coded Digital Portfolios as Authentic Assessment in Project-Based Learning.” <em>Education Sciences</em> 15 (9): 1150. https://doi.org/10.3390/educsci15091150.</p>
+
+<p id="ref-lara-2019" class="reference-entry">Lara, A., et al. 2019. “A Project-based Learning Experience in a Compilers Course.” In <em>Proceedings of SIGCSE '19</em>. https://doi.org/10.1145/3300115.3309502.</p>
+
+<p id="ref-nelson-2021" class="reference-entry">Nelson, M. A., and L. Ponciano. 2021. “Experiences and Insights from Using GitHub Classroom to Support Project-Based Courses.” In <em>Proceedings of SEENG</em>. https://doi.org/10.1109/SEENG53126.2021.00013.</p>
+
+<p id="ref-nikolic-2026" class="reference-entry">Nikolić, M., and S. Basta Nikolić. 2026. “Designing AI-Resilient Assessment in Higher Education: A Four-Pillar Conceptual Framework.” <em>Frontiers in Artificial Intelligence</em>. https://doi.org/10.3389/frai.2026.1841682.</p>
+
+<p id="ref-oliveira-2026" class="reference-entry">Oliveira, E., M. Fu, P. Thongtanunam, S. López-Pernas, and M. Saqr. 2026. “AI-Assisted Code Review as a Scaffold for Code Quality and Self-Regulated Learning: An Experience Report.” arXiv:2604.23251.</p>
+
+<p id="ref-prather-2024" class="reference-entry">Prather, J., B. N. Reeves, J. Leinonen, S. MacNeil, A. S. Randrianasolo, B. A. Becker, B. Kimmel, J. Wright, and B. Briggs. 2024. “The Widening Gap: The Benefits and Harms of Generative AI for Novice Programmers.” In <em>Proceedings of ICER 2024</em>. https://doi.org/10.1145/3632620.3671116.</p>
+
+<p id="ref-russo-2026" class="reference-entry">Russo, F., J. P. Sáenz, and L. De Russis. 2026. “Investigating Web Project Assessment in an AI World.” In <em>CHI EA '26</em>. https://doi.org/10.1145/3772363.3798887.</p>
+
+<p id="ref-sankaranarayanan-2026" class="reference-entry">Sankaranarayanan, S. 2026. “Mitigating ‘Epistemic Debt’ in Generative AI-Scaffolded Novice Programming Using Metacognitive Scripts.” arXiv:2602.20206.</p>
+
+<p id="ref-shihab-2025" class="reference-entry">Shihab, M. I. H., et al. 2025. “The Effects of GitHub Copilot on Computing Students' Programming Effectiveness, Efficiency, and Processes in Brownfield Programming Tasks.” In <em>Proceedings of ICER 2025</em>. https://doi.org/10.1145/3702652.3744219.</p>
+
+<p id="ref-zimmerman-2000" class="reference-entry">Zimmerman, B. J. 2000. “Attaining Self-Regulation: A Social Cognitive Perspective.” In <em>Handbook of Self-Regulation</em>, 13–39. Academic Press. https://doi.org/10.1016/B978-012109890-2/50031-7.</p>
+
+---
+
+> _"The honest AI engineer does not lie to herself about her tools. She knows what they can and cannot do, and she designs her workflow to amplify their strengths."_
+> — Tao of Development, `arch-037`

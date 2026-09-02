@@ -1,10 +1,16 @@
 ---
 unit: unit-9-shader-literacy
-status: pilot
-evidence_state: declared pilot; technique not pedagogy
+status: ready-to-upgrade
+evidence_state: graphics-pedagogy precedent; shader-literacy teaching pilot
 ---
 
 # Minimum viable GLSL — production teaching pack
+
+## Gap-pass update — 2026-08-23
+
+- Angel & Shreiner (2024) grounds concept-first graphics teaching across WebGL/WebGPU and shader/render-function continuity: Ahmes coat `e2e9b45c`, nodes `348bd016-3aee-5eb3-ae93-b3d422e137df` and `92a534c1-6aff-5d5e-b1e5-2a7d2e2c65a9`, `evaluator_safe=yes`.
+- Three.js TSL, WebGPURenderer, MDN WebGPU, and W3C WGSL are current platform/specification notes; they are not learning-outcome evidence.
+- Keep minimum GLSL as a **shader-literacy pilot**. Require prediction, explanation, and one cross-API translation; do not claim that the sequence is validated.
 
 ## Forge contract
 

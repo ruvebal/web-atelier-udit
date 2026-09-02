@@ -17,6 +17,73 @@ permalink: /lessons/es/entorno-de-desarrollo/
 
 <!-- prettier-ignore-end -->
 
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Portátil con permiso para instalar software | Sí |
+| Cuenta en GitHub | Sí |
+| Orientación previa del curso | Asumida |
+| Node.js | Opcional (§8) |
+| Cuenta ImageKit.io | Opcional (§7) |
+
+**Tiempo oficial:** 2 h de clase + 1 h de laboratorio (véase el índice del track).
+
+---
+
+## Sigue este camino
+
+Completa los pasos **obligatorios** en orden. Deja los **opcionales** para cuando el camino obligatorio funcione.
+
+| Paso | Qué hacer | Sección |
+| --- | --- | --- |
+| 1 | Instalar VS Code + Live Server + GitLens | §1 abajo |
+| 2 | Instalar Git + configurar `user.name` / `user.email` | §2 abajo |
+| 3 | Partir de `student-project-template` → tu repo | §3 (ruta principiante) |
+| 4 | Explorar la estructura; editar título en `index.html` | §4 |
+| 5 | Previsualizar con Live Server (`127.0.0.1:5500`) | §5 |
+| 6 | Commit, push, activar GitHub Pages | §6 |
+| 7 | Ejecutar una vez el flujo diario (pull → edit → commit → push) | Flujo diario |
+| 8 | Entregar evidencia | Entrega abajo |
+
+**Opcional (esta semana o después):** ImageKit CDN (§7) · Node/npm (§8) · apéndice WSL2 · apéndice Homebrew.
+
+---
+
+## Comprueba antes de salir
+
+- [ ] `git --version` muestra una versión en la terminal
+- [ ] Live Server abre tu `index.html` en local
+- [ ] La URL de GitHub Pages carga en el navegador (puede tardar 1–2 min la primera vez)
+- [ ] `README.md` incluye la URL de Pages y cómo ejecutar el proyecto
+- [ ] El último commit usa el formato de mensaje del curso (véase Entrega)
+
+---
+
+## Fallos frecuentes
+
+| Lo que ves | Causa probable | Qué hacer |
+| --- | --- | --- |
+| Pages devuelve 404 | Rama o carpeta incorrecta en Ajustes → Pages | Usar `main` + `/ (root)` |
+| `git push` falla | Remoto ausente o autenticación | Revisar `git remote -v`; HTTPS + PAT o SSH |
+| Live Server muestra otro sitio | Carpeta incorrecta en VS Code | Archivo → Abrir carpeta → raíz del proyecto |
+| Repo enorme / clone lento | Binarios grandes en Git | Fotos en CDN (§7); solo assets pequeños en Git |
+| La contraseña no se ve al escribir | Comportamiento normal del terminal | Escribe igual; no aparece nada — es esperado |
+
+---
+
+## Entrega (evidencia Sesión 1)
+
+```bash
+git commit -m "chore: environment set up · repo + index.html + pages live"
+```
+
+**Rúbrica rápida (0–2):** **0** — sin commit o Pages roto · **1** — commit pero README incompleto · **2** — commit + README completo + URL de Pages operativa.
+
+---
+
 ## Objetivos
 
 - **Configurar herramientas básicas**: Tener VS Code + Git operativos con extensiones esenciales.

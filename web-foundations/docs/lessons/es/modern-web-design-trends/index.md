@@ -1,12 +1,23 @@
 ---
+layout: lesson
 title: 'Tendencias de Diseño Web Moderno: Guía Práctica para Estudiantes'
 title_alt: 'Modern Web Design Trends: Practical Guide for Students'
+slug: modern-web-design-trends
 description: 'Una exploración práctica de tendencias clave en diseño web como parallax, glassmorphism, tipografía, modo oscuro, minimalismo vs. maximalismo, narrativas basadas en scroll y efectos 3D. Simplificada para principiantes con ejercicios activos y reflexiones críticas.'
 date: 2025-10-14
 author: 'Rubén Vega Balbás, PhD'
-lang: 'es'
-locale: 'es'
+lang: es
+permalink: /lessons/es/modern-web-design-trends/
 ---
+
+<aside class="lesson-framing" aria-label="Idea maestra y lente de campo">
+<p><strong>Idea maestra:</strong> Una tendencia es una hipótesis de diseño, no un requisito.</p>
+<p><strong>Lente de campo:</strong> **Ancla de práctica:** las tendencias deben servir comunicación, usabilidad y contexto. **Señal de frontera:** estéticas inmersivas, con IA y 3D están activas pero pedagógicamente inestables.</p>
+</aside>
+
+> **Prueba de estudio:** Elige dos tendencias, declara el objetivo de usuario y anota qué rechazaste.
+
+{% include lesson-semantic-graphic.html %}
 
 # Tendencias de Diseño Web Moderno: Guía Práctica para Estudiantes
 
@@ -18,6 +29,71 @@ locale: 'es'
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Para quién es / Para quién no
+
+**Para:** Front-End I **Sesión 12** — muestrear críticamente 2–3 tendencias e implementar **una** en tu portfolio con un objetivo de usuario declarado.
+
+**No para:** copiar sitios premiados enteros, tendencias que rompen accesibilidad, ni omitir la reflexión «qué rechacé».
+
+**Al terminar esta sesión tendrás:** una tendencia con CSS/JS plano, una crítica de otra rechazada y un commit.
+
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Sesiones 3–11 completas | Sí |
+| Repo desplegado en GitHub Pages | Sí |
+| Bases de `prefers-reduced-motion` y contraste | Sí |
+
+**Tiempo oficial:** 2 h de clase + 1 h de laboratorio.
+
+---
+
+## Sigue este camino
+
+| Paso | Acción | Sección |
+| --- | --- | --- |
+| 1 | Lee dos módulos (p. ej. parallax + modo oscuro) | Módulos abajo |
+| 2 | Declara objetivo de usuario antes de codear | Prueba de estudio |
+| 3 | Implementa **una** tendencia en tu portfolio | Producción |
+| 4 | Documenta una tendencia rechazada y por qué | Reflexión |
+| 5 | Commit | Entrega |
+
+---
+
+## Comprueba antes de salir
+
+- [ ] La tendencia sirve a un objetivo de comunicación claro
+- [ ] Contraste y teclado siguen pasando tus comprobaciones de S3–S6
+- [ ] Considerado fallback con reduced-motion
+- [ ] Nota escrita: tendencia adoptada + rechazada
+- [ ] Commit subido
+
+---
+
+## Fallos frecuentes
+
+| Síntoma | Causa probable | Qué hacer |
+| --- | --- | --- |
+| Sitio ilegible | Glassmorphism sin contraste | Prueba WCAG; fallback sólido |
+| Scroll entrecortado | Parallax pesado en móvil | Menos capas; `prefers-reduced-motion` |
+| Modo oscuro rompe imágenes | Solo invertir colores | Variables CSS |
+| Sopa de tendencias | Cinco efectos a la vez | Entrega uno |
+| Demo OK, portfolio no | CodePen aislado | Integra con tus tokens |
+
+---
+
+## Entrega (evidencia Sesión 12)
+
+- Commit con una tendencia integrada
+- Dos viñetas: objetivo servido + tendencia rechazada
+
+---
 
 ¡Bienvenido a esta guía práctica sobre tendencias modernas en diseño web! Exploraremos tendencias que hacen que los sitios web sean más atractivos y comunicativos. Cada tendencia se divide en módulos cortos y simples. Aprenderás el "por qué" y el "cómo" a través de analogías, demos interactivos y reflexiones.
 

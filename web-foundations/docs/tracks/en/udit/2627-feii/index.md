@@ -2,12 +2,12 @@
 layout: lesson
 title: 'Front-End II — Desarrollo Web: Front-End II'
 title_alt: 'Front-End II — Desarrollo Web: Front-End II'
-slug: feii
+slug: feii-track
 date: 2026-08-08
 author: 'Rubén Vega Balbás, PhD'
 lang: en
-permalink: /tracks/feii/
-description: 'Semester track for Full-Stack and Data-Science & AI degrees (UDIT). Production architecture, PWA, testing, performance, 3D, and IoT/robotics. 6 ECTS, 150h total (30h lab).'
+permalink: /tracks/en/feii/
+description: 'Semester track for Full-Stack degree(UDIT). Production architecture, PWA, testing, performance, 3D, and IoT/robotics. 6 ECTS, 150h total (30h lab).'
 tags: [frontend, astro, pwa, testing, performance, r3f, iot, python, udit, production-architecture, annual]
 status: complete
 ---
@@ -29,7 +29,23 @@ status: complete
 
 ---
 
+{% include track-lang-switch.html track='feii' %}
+
+## Pass This Track
+
+**Start here for grading, deliverables, calendar checks, and resubmission rules:** [How to Pass Front-End II]({{ '/tracks/en/feii/how-to-pass-this-track/' | relative_url }}).
+
+---
+
 ## 🎯 Pedagogical Vision
+
+<figure class="track-curriculum-figure">
+<img src="{{ '/assets/images/track-curriculum/feii-pedagogical-vision-628a179fe8d0.svg' | relative_url }}" alt="Abstract diagram of Front-End II pedagogical vision: interface layer expanding from browser to 3D and IoT, with four pillars for durable core, volatile layer, performance, and docs-first AI." width="1200" height="640" loading="lazy" aria-describedby="feii-pedagogical-vision-caption">
+<figcaption id="feii-pedagogical-vision-caption">
+<p>System-first pedagogy — the component model stays stable while the deployment context expands to spatial interfaces, devices, and Python-backed services.</p>
+<p class="image-credit">Formula-led figure · Julia recurrence backdrop · @ruvebal · visual-forger 1.1.0</p>
+</figcaption>
+</figure>
 
 Front-End II is the transition from building interfaces to building systems of interfaces. Where FE I taught you to think component-first, FE II teaches you to think system-first — production architecture, offline resilience, automated testing, performance engineering, and the interface-layer frontier beyond the browser (3D, IoT/robotics, Python-backed services).
 
@@ -48,11 +64,11 @@ Front-End II raises the stakes, because everything this course adds is expensive
 
 ## 📖 Track Overview
 
-**Front-End II** is UDIT's semester 6-ECTS course (150h total, 30h lab) for the Full-Stack and Data-Science & AI degrees. The track spans 12 units organized around production architecture and interface-layer expansion:
+**Front-End II** is UDIT's semester 6-ECTS course (150h total, 30h lab) for the Full-Stack and Data-Science & AI degrees. The formal workload is **10 h lección magistral + 30 h laboratory + 14 h individual exercises + 94 h autonomous study + 2 h assessment**. The track spans 12 units organized around production architecture and interface-layer expansion:
 
 - **Units 1–3** — Production architecture with Astro meta-framework (SSR, islands architecture, micro-frontends)
 - **Unit 4** — PWA/offline capabilities (service workers, caching strategies)
-- **Units 5–6** — Testing strategy and AI-assisted code review (testing pyramid, CI/CD, human-in-the-loop workflows)
+- **Units 5–6** — Testing strategy and AI-assisted code review (Testing Trophy, CI/CD, human-in-the-loop workflows)
 - **Unit 7** — Performance engineering (Core Web Vitals, performance budgets, bundle optimization)
 - **Units 8–9** — 3D/cutting-edge interface aesthetics (React Three Fiber, shader literacy, post-processing)
 - **Unit 10** — IoT/robotics control-panel with Python-backed interface (WebSocket, device APIs)
@@ -60,39 +76,45 @@ Front-End II raises the stakes, because everything this course adds is expensive
 
 ### Semester Arc
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                    FE II PRODUCTION ARCHITECTURE          │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│  Kickoff → Astro → PWA → Testing → Performance         │
-│  → 3D/Shaders → IoT/Python → Capstone → Defence          │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
+<figure class="track-curriculum-figure">
+<img src="{{ '/assets/images/track-curriculum/feii-semester-arc-0d22fb4d25eb.svg' | relative_url }}" alt="Semester arc diagram for Front-End II: Kickoff through Astro, PWA, testing, performance, 3D, IoT, capstone, and oral defence across twelve units." width="1200" height="640" loading="lazy" aria-describedby="feii-semester-arc-caption">
+<figcaption id="feii-semester-arc-caption">
+<p>Twelve-unit arc — Kickoff → Astro → PWA → Testing → Performance → 3D/Shaders → IoT/Python → Capstone → Defence.</p>
+<p class="image-credit">Formula-led figure · Julia recurrence backdrop · @ruvebal · visual-forger 1.1.0</p>
+</figcaption>
+</figure>
 
 ---
 
 ## 📚 Session Sequence
 
-This track follows the canonical sequence defined in `web-foundations/docs/_data/tracks.yml`. The table below renders the `feii:` entry — 12 sessions across the semester, with explicit `labHours` allocation summing to the official 30h laboratory requirement.
+This track follows the canonical curriculum sequence: 12 sessions across the semester, with explicit laboratory allocation summing to the official 30 h requirement. The listed session windows guide sequencing; do not add them to the formal activity allocations above.
+
+{% if site.publication.publish_internal_metadata %}
+
+<!-- curriculum-internal:
+Sequence source: `web-foundations/docs/_data/tracks.yml`, key `feii`.
+-->
+
+{% endif %}
 
 ### FE II Production Architecture & Interface-Layer Frontier (12 sessions)
 
-| #   | Session                                                      | Duration | Lab Hours | Description                                                    |
-| --- | ------------------------------------------------------------ | -------- | --------- | -------------------------------------------------------------- |
-| U1  | Kickoff: From FE I React to Production Architecture          | 2h       | 0h        | Orientation: interface layer reframe, systems of interfaces    |
-| U2  | Astro Meta-Framework — Islands Architecture & SSR            | 3h       | 2h        | Astro fundamentals, content-first, SSR vs SSG, multi-framework |
-| U3  | Advanced Astro Architecture & Multi-Framework Integration    | 3h       | 2h        | Content collections, data fetching, micro-frontends            |
-| U4  | Progressive Web Apps & Offline Capabilities                  | 2h       | 2h        | Service workers, caching strategies, web app manifest          |
-| U5  | Testing Strategy — Designing a Suite That Earns Its Cost     | 3h       | 3h        | What *not* to test, flakiness, CI budgets, contract testing    |
-| U6  | AI-Assisted Code Review — Human-in-the-Loop, Graded As Such  | 3h       | 3h        | GitHub PR integration, Oliveira et al. 2026 (arXiv 2604.23251) |
-| U7  | Performance Engineering — Core Web Vitals & Optimization     | 2h       | 2h        | Core Web Vitals, performance budgets, bundle optimization      |
-| U8  | React Three Fiber — 3D Interfaces with React Patterns        | 3h       | 3h        | Declarative 3D components, state in 3D, raycasting             |
-| U9  | Shader Literacy & Cutting-Edge Interface Aesthetics          | 3h       | 3h        | GLSL basics, custom shaders, post-processing effects           |
-| U10 | IoT/Robotics Control-Panel & Python-Backed Interface         | 2h       | 4h        | Device APIs, WebSocket, Python FastAPI integration             |
-| U11 | Capstone Integration — Process Evidence & AI Use Declaration | 3h       | 3h        | Process documentation, AI declaration, verify/narrate axes     |
-| U12 | Capstone Oral Defence & Final Evaluation                     | 2h       | 3h        | Presentation structure, evaluation criteria, Q&A               |
+| #   | Session                                                                                                            | Duration | Lab Hours | Description |
+| --- | ------------------------------------------------------------------------------------------------------------------ | -------- | --------- | ----------- |
+| U1  | [Kickoff: From FE I React to Production Architecture]({{ '/lessons/en/feii/unit-1-kickoff/'                        | relative_url }}) | 2h        | 0h          | Distributed interface system: edge, four-pillar vector, frontier signal |
+| U2  | [Astro Meta-Framework — Islands Architecture & SSR]({{ '/lessons/en/feii/unit-2-astro-fundamentals/'               | relative_url }}) | 3h        | 2h          | Astro fundamentals, content-first, SSR vs SSG, multi-framework    |
+| U3  | [Advanced Astro Architecture & Multi-Framework Integration]({{ '/lessons/en/feii/unit-3-astro-advanced/'           | relative_url }}) | 3h        | 2h          | Content collections, i18n routing (mandatory), data fetching, micro-frontends |
+| U4  | [Progressive Web Apps & Offline Capabilities]({{ '/lessons/en/feii/unit-4-pwa-offline/'                            | relative_url }}) | 2h        | 2h          | Service workers, caching strategies, web app manifest             |
+| U5  | [Testing Strategy — Designing a Suite That Earns Its Cost]({{ '/lessons/en/feii/unit-5-testing-strategy/'          | relative_url }}) | 3h        | 3h          | What _not_ to test, flakiness, CI budgets, contract testing       |
+| U6  | [AI-Assisted Code Review — Human-in-the-Loop, Graded As Such]({{ '/lessons/en/feii/unit-6-ai-code-review/'         | relative_url }}) | 3h        | 3h          | GitHub PR integration, accept/reject/escalate log, human approval |
+| U7  | [Performance Engineering — Core Web Vitals & Optimization]({{ '/lessons/en/feii/unit-7-performance/'               | relative_url }}) | 2h        | 2h          | Core Web Vitals, performance budgets, bundle optimization         |
+| U8  | [React Three Fiber — 3D Interfaces with React Patterns]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/'             | relative_url }}) | 3h        | 3h          | Declarative 3D components, state in 3D, raycasting                |
+| U9  | [Shader Literacy & Cutting-Edge Interface Aesthetics]({{ '/lessons/en/feii/unit-9-shader-literacy/'                | relative_url }}) | 3h        | 3h          | GLSL basics, custom shaders, post-processing effects              |
+| U10 | [IoT/Robotics Control-Panel & Python-Backed Interface]({{ '/lessons/en/feii/unit-10-iot-python-backend/'           | relative_url }}) | 2h        | 4h          | Device APIs, WebSocket, Python FastAPI integration                |
+| U11 | [Capstone Integration — Process Evidence & AI Use Declaration]({{ '/lessons/en/feii/unit-11-capstone-integration/' | relative_url }}) | 3h        | 3h          | Process documentation, AI declaration, verify/narrate axes        |
+| U12 | [Capstone Oral Defence & Final Evaluation]({{ '/lessons/en/feii/unit-12-capstone-defence/'                         | relative_url }}) | 2h       | 3h        | Presentation structure, evaluation criteria, Q&A                  |
+{: .track-session-table}
 
 **Total Lab Hours:** 30h (matching official `ACTIVIDADES FORMATIVAS` allocation)
 
@@ -104,7 +126,7 @@ By completing this track, students will be able to:
 
 - **Master production architecture** — Meta-frameworks (Astro), SSR/SSG, micro-frontends, and islands architecture
 - **Build PWA applications** — Service workers, offline capabilities, and installable web apps
-- **Apply professional testing strategies** — Testing pyramid, CI/CD integration, and AI-assisted code review
+- **Apply professional testing strategies** — Testing Trophy decision-making, CI/CD integration, and AI-assisted code review
 - **Engineer performance** — Core Web Vitals, performance budgets, and bundle optimization
 - **Extend to 3D interfaces** — React Three Fiber, shader literacy, and post-processing effects
 - **Consume IoT/robotics and Python services** — WebSocket real-time data, device APIs, and backend integration
@@ -117,7 +139,7 @@ By completing this track, students will be able to:
 
 ### Entrega 1 (Units 2–6)
 
-- **Astro Architectural Project** — Content collections, islands architecture, multi-framework integration
+- **Astro Architectural Project** — Content collections, **Astro i18n routing (es + en, mandatory)**, islands architecture, multi-framework integration
 - **Testing Strategy** — Unit tests (Vitest), component tests (RTL), E2E tests (Playwright), CI/CD pipeline
 - **AI-Assisted Code Review** — GitHub Actions workflow with AI review tools, human-in-the-loop process
 
@@ -137,13 +159,14 @@ By completing this track, students will be able to:
 
 ## 📊 Evaluation
 
-**FE II weights** (selected within official range):
+**FE II weights** (reconciled with `desarrollo-web-front-end-i-2025-2026.json` and Phase 3):
 
-| Component                                    | Weight |
-| -------------------------------------------- | ------ |
-| Pruebas (Tests)                              | 30%    |
-| Trabajos, entregables y proyectos (Projects) | 50%    |
-| Portafolio (Problem-solving portfolio)       | 20%    |
+| Component                                    | %   |
+| -------------------------------------------- | --- |
+| Pruebas (Tests)                              | 30% |
+| Trabajos, entregables y proyectos (Projects) | 60% |
+| Portafolio (Problem-solving portfolio)       | 10% |
+{: .track-evaluation-table}
 
 **Track-level breakdown** (aligned with institutional weights and evaluation philosophy):
 
@@ -176,9 +199,8 @@ AI assistance is integrated following the **[AI Practical Guide]({{ '/methodolog
 
 ## 🔗 Related Resources
 
-- **[How to Pass This Track]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }})** — Evaluation criteria, deliverable specifications, and grading rubric
 - **[AI Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }})** — Shared rubric for AI use declarations and oral defences
-- **[Front-End I track]({{ '/tracks/fei/' | relative_url }})** — the prerequisite course; FE II opens where it closes
+- **[Front-End I track]({{ '/tracks/en/fei/' | relative_url }})** — the prerequisite course; FE II opens where it closes
 - **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — when to plan, how to disclose, what you must defend
 - **[Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }})** — RPC, RAG, MVC as discipline
 - **[Official Syllabus](https://udit.es)** — UDIT course documentation (Spanish)
@@ -189,9 +211,9 @@ AI assistance is integrated following the **[AI Practical Guide]({{ '/methodolog
 
 - **Meta-framework Decision** — Astro selected as the meta-framework for units 2–3 based on content-first philosophy and islands architecture. This decision was made at the start of Phase 2.
 - **3D as Interface-Layer Transfer** — Units 8–9 explicitly teach 3D as an interface-layer transfer exercise — the same component/state model as React, applied to spatial interfaces. This is not a graphics course but an application of React patterns to WebGL.
-- **IoT/Robotics Load-Bearing** — Unit 10 is load-bearing — it's the direct payoff of teaching both Full-Stack and Data-Science students. The data source placeholder will be replaced with the actual Back-End II service endpoint once Phase 5 synergy sheet is executed.
+- **IoT/Robotics Load-Bearing** — Unit 10 is load-bearing — it is the direct payoff of teaching both Full-Stack and Data-Science students. Entrega 2 uses the published, versioned lab contract first; any later Back-End II integration must remain contract-compatible or arrive as a documented versioned change.
 - **Zero FE I Overlap** — No React fundamentals, hooks, routing, or basic deployment content is repeated from FE I. All content is either new (Astro, PWA, testing, performance, 3D, IoT) or advanced extensions of FE I patterns.
-- **Phase 5 Dependency** — Unit 10 IoT/robotics data source will be defined in the Back-End II synergy sheet. Replace the placeholder with the actual service endpoint once Phase 5 is executed.
+- **Evidence Boundary** — The interface-transfer teaching sequence in Units 8–10 is a declared pilot. The course supplies a runnable lab contract; it does not claim that the still-unverified pedagogy has already been empirically validated for this cohort.
 
 ---
 

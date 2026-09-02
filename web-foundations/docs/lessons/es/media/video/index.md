@@ -77,6 +77,7 @@ Esta lección cubre el panorama completo del video web—desde fundamentos HTML5
 # 🎬 El Tao de la Imagen en Movimiento: Sabiduría Revelada
 
 > _"En los antiguos pergaminos del desarrollo web, existe un texto sagrado conocido como 'El Tao del Desarrollador'—una colección de sabiduría paradójica transmitida a través de generaciones de guerreros del código. Este capítulo, dedicado al arte del movimiento y el tiempo, revela las verdades eternas sobre el video en el reino digital."_
+{: .tao-development-quote }
 
 Estas palabras provienen de **"El Tao del Desarrollador"**, una guía filosófica del arte del desarrollo web. Esta colección particular de sabiduría se enfoca en el camino sagrado de las imágenes en movimiento en el diseño web—un tema que ha confundido a muchos desarrolladores y deleitado a muchos usuarios cuando se hace con maestría.
 
@@ -296,4 +297,3 @@ _Nota: Esta es una versión resumida en español. El contenido completo incluir�
 
 **Licencia**: Contenido CC BY-NC-SA 4.0 · Código MIT
 **Autor**: Rubén Vega Balbás, PhD · [UDIT](https://www.udit.es)
-

@@ -1,0 +1,2213 @@
+{
+  "/bibliography/en/": {
+    "asset": "page-bibliography-en",
+    "title": "Bibliography",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/bibliography/es/": {
+    "asset": "page-bibliography-es",
+    "title": "Bibliografía",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/evaluation/en/": {
+    "asset": "page-evaluation-en",
+    "title": "Web Atelier Evaluation Rationale",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/evaluation/es/": {
+    "asset": "page-evaluation-es",
+    "title": "Razonamiento de Evaluación Web Atelier",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/evaluation/": {
+    "asset": "page-evaluation",
+    "title": "Evaluation & Assessment Hub",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/evaluation/shared/ai-declaration-oral-defence-rubric/": {
+    "asset": "page-evaluation-shared-ai-declaration-oral-defence-rubric",
+    "title": "AI Use Declaration & Oral Defence Rubric",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/first-steps/": {
+    "asset": "page-lessons-en-first-steps",
+    "title": "Web Development with HTML – Organization and Best Practices",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/3d/": {
+    "asset": "page-lessons-en-3d",
+    "title": "3D Web — Corpus & Syllabus",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/404/hackathon/": {
+    "asset": "page-lessons-en-404-hackathon",
+    "title": "Hackathon Challenge Brief: \"404s to Mars\"",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/ai-assisted-development/foundations/": {
+    "asset": "page-lessons-en-ai-assisted-development-foundations",
+    "title": "AI-Assisted Development: Architecture Foundations",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/ai-assisted-development/": {
+    "asset": "page-lessons-en-ai-assisted-development",
+    "title": "AI-Assisted Development",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/astro/": {
+    "asset": "page-lessons-en-astro",
+    "title": "Astro Teaching Sequence — Islands, SSR & Agentic Docs",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/atelier-prompts/": {
+    "asset": "page-lessons-en-atelier-prompts",
+    "title": "Atelier Prompt Collection — Modern Web Development",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/bootstrap/components-navbar-cards/": {
+    "asset": "page-lessons-en-bootstrap-components-navbar-cards",
+    "title": "Bootstrap CSS: Components & UI Patterns — Reusable Component Library",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/bootstrap/css-customization-sass/": {
+    "asset": "page-lessons-en-bootstrap-css-customization-sass",
+    "title": "Bootstrap CSS: CSS Customization & Sass — Design System Theming",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/bootstrap/final-project-deployment/": {
+    "asset": "page-lessons-en-bootstrap-final-project-deployment",
+    "title": "Bootstrap CSS: Build & Deploy — Production-Ready Portfolio",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/bootstrap/": {
+    "asset": "page-lessons-en-bootstrap",
+    "title": "Bootstrap CSS Learning Path — Complete Roadmap",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/bootstrap/interactivity-js-components/": {
+    "asset": "page-lessons-en-bootstrap-interactivity-js-components",
+    "title": "Bootstrap CSS: Interactivity & JavaScript — Dynamic User Experiences",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/bootstrap/layout-grid-containers/": {
+    "asset": "page-lessons-en-bootstrap-layout-grid-containers",
+    "title": "Bootstrap CSS: Layout Grid & Containers — Responsive Layout Architecture",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/bootstrap/modern-web-design-trends/": {
+    "asset": "page-lessons-en-bootstrap-modern-web-design-trends",
+    "title": "Modern Web Design Trends: Practical Guide for Students",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/bootstrap/roadmap/": {
+    "asset": "page-lessons-en-bootstrap-roadmap",
+    "title": "Modern Responsive Web Design with Bootstrap: 6-Session Guide",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/bootstrap/setup-and-fundamentals/": {
+    "asset": "page-lessons-en-bootstrap-setup-and-fundamentals",
+    "title": "Bootstrap CSS: Setup & Fundamentals — PWA-Ready Development",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/development-environment/": {
+    "asset": "page-lessons-en-development-environment",
+    "title": "Development Environment",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/ai-assisted-3d-covenant/": {
+    "asset": "page-lessons-en-feii-ai-assisted-3d-covenant",
+    "title": "AI-Assisted 3D Covenant — Entrega 2 Bar (Units 8–9)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/": {
+    "asset": "page-lessons-en-feii",
+    "title": "Front-End II: Production Architecture & the Interface-Layer Frontier",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-1-kickoff/": {
+    "asset": "page-lessons-en-feii-unit-1-kickoff",
+    "title": "Unit 1: Kickoff — From FE I React to Production Architecture",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-10-iot-python-backend/": {
+    "asset": "page-lessons-en-feii-unit-10-iot-python-backend",
+    "title": "Unit 10: IoT/Robotics Control-Panel & Python-Backed Interface",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-11-capstone-integration/": {
+    "asset": "page-lessons-en-feii-unit-11-capstone-integration",
+    "title": "Unit 11: Capstone Integration — Process Evidence & AI Use Declaration",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-12-capstone-defence/": {
+    "asset": "page-lessons-en-feii-unit-12-capstone-defence",
+    "title": "Unit 12: Capstone Oral Defence & Final Evaluation",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-2-astro-fundamentals/": {
+    "asset": "page-lessons-en-feii-unit-2-astro-fundamentals",
+    "title": "Unit 2: Astro Meta-Framework — Islands Architecture & SSR",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-3-astro-advanced/": {
+    "asset": "page-lessons-en-feii-unit-3-astro-advanced",
+    "title": "Unit 3: Advanced Astro Architecture & Multi-Framework Integration",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-4-pwa-offline/": {
+    "asset": "page-lessons-en-feii-unit-4-pwa-offline",
+    "title": "Unit 4: Progressive Web Apps & Offline Capabilities",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-5-testing-strategy/": {
+    "asset": "page-lessons-en-feii-unit-5-testing-strategy",
+    "title": "Unit 5: Testing Strategy — Designing a Suite That Earns Its Cost",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-6-ai-code-review/": {
+    "asset": "page-lessons-en-feii-unit-6-ai-code-review",
+    "title": "Unit 6: AI-Assisted Code Review — Human-in-the-Loop, and Graded as Such",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-7-performance/": {
+    "asset": "page-lessons-en-feii-unit-7-performance",
+    "title": "Unit 7: Performance Engineering — Core Web Vitals & Optimization",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-8-r3f-fundamentals/": {
+    "asset": "page-lessons-en-feii-unit-8-r3f-fundamentals",
+    "title": "Unit 8: React Three Fiber — 3D Interfaces with React Patterns",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/feii/unit-9-shader-literacy/": {
+    "asset": "page-lessons-en-feii-unit-9-shader-literacy",
+    "title": "Unit 9: Shader Literacy & Cutting-Edge Interface Aesthetics",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/gsap/bootstrap/": {
+    "asset": "page-lessons-en-gsap-bootstrap",
+    "title": "GSAP for Designers: Typography & SVG Animation Mastery",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/gsap/overview/": {
+    "asset": "page-lessons-en-gsap-overview",
+    "title": "GSAP for Designers: Typography & SVG Animation Mastery",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/gsap/tailwind/": {
+    "asset": "page-lessons-en-gsap-tailwind",
+    "title": "GSAP for Designers: Typography & SVG Animation Mastery",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/html-css-basics/": {
+    "asset": "page-lessons-en-html-css-basics",
+    "title": "Practice: Semantic HTML + CSS Fundamentals",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/inspiration-kickoff/": {
+    "asset": "page-lessons-en-inspiration-kickoff",
+    "title": "Inspiration & Kickoff",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/intrinsic-web-design/": {
+    "asset": "page-lessons-en-intrinsic-web-design",
+    "title": "Intrinsic Web Design: Container Queries & Subgrid",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/js-dom-manipulation/": {
+    "asset": "page-lessons-en-js-dom-manipulation",
+    "title": "DOM Manipulation in the Browser: Strings, DOM API, Templates, and the Virtual DOM",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/js-intro/": {
+    "asset": "page-lessons-en-js-intro",
+    "title": "Introduction to JS",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/js-modules/": {
+    "asset": "page-lessons-en-js-modules",
+    "title": "JavaScript Modules: From Chaos to Modularity",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/linting-and-formatting/": {
+    "asset": "page-lessons-en-linting-and-formatting",
+    "title": "The Purpose of Formatting and Linting in Development",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/media/images/the-tao-of-web-images/": {
+    "asset": "page-lessons-en-media-images-the-tao-of-web-images",
+    "title": "The Tao of Web Images",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/media/print/the-tao-of-web-to-print/": {
+    "asset": "page-lessons-en-media-print-the-tao-of-web-to-print",
+    "title": "The Tao of Web-to-Print",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/media/video/": {
+    "asset": "page-lessons-en-media-video",
+    "title": "Video on the Web – From HTML5 to Production-Ready Experiences",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/media/video/the-tao-of-moving-images/": {
+    "asset": "page-lessons-en-media-video-the-tao-of-moving-images",
+    "title": "The Tao of the Moving Image",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/metadata-visual-identity-web/": {
+    "asset": "page-lessons-en-metadata-visual-identity-web",
+    "title": "Metadata and Visual Identity in Web Documentation",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/modals/demo/01-css-modal.html": {
+    "asset": "page-lessons-en-modals-demo-01-css-modal-html",
+    "title": "/lessons/en/modals/demo/01-css-modal.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/modals/demo/02-vanilla-modal.html": {
+    "asset": "page-lessons-en-modals-demo-02-vanilla-modal-html",
+    "title": "/lessons/en/modals/demo/02-vanilla-modal.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/modals/demo/03-dialog-element.html": {
+    "asset": "page-lessons-en-modals-demo-03-dialog-element-html",
+    "title": "/lessons/en/modals/demo/03-dialog-element.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/modals/demo/04-project-grid.html": {
+    "asset": "page-lessons-en-modals-demo-04-project-grid-html",
+    "title": "/lessons/en/modals/demo/04-project-grid.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/modals/": {
+    "asset": "page-lessons-en-modals",
+    "title": "Modals & Navigation Patterns – New Page vs. Modal Dialogs",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/modern-web-design-trends/": {
+    "asset": "page-lessons-en-modern-web-design-trends",
+    "title": "Modern Web Design Trends: Theory and Practice",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/portfolio-template-brief/challenge/": {
+    "asset": "page-lessons-en-portfolio-template-brief-challenge",
+    "title": "Final Course Project: Professional Portfolio Template",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/portfolio-template-brief/challenge/phase-2/": {
+    "asset": "page-lessons-en-portfolio-template-brief-challenge-phase-2",
+    "title": "Phase 2: Responsive Layout & Scroll Architecture",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/portfolio-template-brief/site/plan/": {
+    "asset": "page-lessons-en-portfolio-template-brief-site-plan",
+    "title": "Development Plan: Portfolio Template Brief Showcase",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/pseudo-elements-and-state-styling/demo/dropdown.html": {
+    "asset": "page-lessons-en-pseudo-elements-and-state-styling-demo-dropdown-html",
+    "title": "/lessons/en/pseudo-elements-and-state-styling/demo/dropdown.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/pseudo-elements-and-state-styling/demo/exercises.html": {
+    "asset": "page-lessons-en-pseudo-elements-and-state-styling-demo-exercises-html",
+    "title": "/lessons/en/pseudo-elements-and-state-styling/demo/exercises.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/pseudo-elements-and-state-styling/demo/tooltip.html": {
+    "asset": "page-lessons-en-pseudo-elements-and-state-styling-demo-tooltip-html",
+    "title": "/lessons/en/pseudo-elements-and-state-styling/demo/tooltip.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/pseudo-elements-and-state-styling/demo/typography.html": {
+    "asset": "page-lessons-en-pseudo-elements-and-state-styling-demo-typography-html",
+    "title": "/lessons/en/pseudo-elements-and-state-styling/demo/typography.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/pseudo-elements-and-state-styling/": {
+    "asset": "page-lessons-en-pseudo-elements-and-state-styling",
+    "title": "Pseudo-Elements and State-Based Styling: Critical Approaches to Dynamic CSS",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/ai-assisted-development-foundations/": {
+    "asset": "page-lessons-en-react-ai-assisted-development-foundations",
+    "title": "AI Theory & Architecture for React: Contracts, Decomposition, Verification",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/ai-assisted-routing/": {
+    "asset": "page-lessons-en-react-ai-assisted-routing",
+    "title": "AI-Assisted Routing: From Architect to Auditor",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/final-presentation/": {
+    "asset": "page-lessons-en-react-final-presentation",
+    "title": "Final Presentation: Demo Day & Monograph",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/frameworks-comparative/": {
+    "asset": "page-lessons-en-react-frameworks-comparative",
+    "title": "Framework Fundamentals: A Critical Comparison",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/geophysical-aggregator-project/": {
+    "asset": "page-lessons-en-react-geophysical-aggregator-project",
+    "title": "Individual React Capstone Project",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/": {
+    "asset": "page-lessons-en-react",
+    "title": "Modern Frontend Development: React Teaching Sequence",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/modern-fe-intro/": {
+    "asset": "page-lessons-en-react-modern-fe-intro",
+    "title": "Philosophy & Pedagogical Vision: The Tao Developer",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-authentication/": {
+    "asset": "page-lessons-en-react-react-authentication",
+    "title": "Authentication: From Mock to Real, Without a New Sandbox",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-backend-integration/": {
+    "asset": "page-lessons-en-react-react-backend-integration",
+    "title": "Backend Integration: React Query, Mutations & GraphQL",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-deployment/": {
+    "asset": "page-lessons-en-react-react-deployment",
+    "title": "Deployment: Shipping to the World",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-framework-mode-auth-i18n/": {
+    "asset": "page-lessons-en-react-react-framework-mode-auth-i18n",
+    "title": "Framework Mode in practice: SSR auth & i18n with React Router v7",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-fundamentals/": {
+    "asset": "page-lessons-en-react-react-fundamentals",
+    "title": "React Fundamentals: Building Blocks of Modern UI",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-fundamentals-simplified/": {
+    "asset": "page-lessons-en-react-react-fundamentals-simplified",
+    "title": "React Fundamentals: Your First Interactive App",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-hooks/": {
+    "asset": "page-lessons-en-react-react-hooks",
+    "title": "Hooks Mastery: The Engine of Interactivity",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-performance/": {
+    "asset": "page-lessons-en-react-react-performance",
+    "title": "Performance: Speed as a Feature",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-routing/": {
+    "asset": "page-lessons-en-react-react-routing",
+    "title": "Routing & Navigation: The Multi-Page SPA",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-state-architecture/": {
+    "asset": "page-lessons-en-react-react-state-architecture",
+    "title": "State Architecture: Scaling Beyond Components",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/react-testing/": {
+    "asset": "page-lessons-en-react-react-testing",
+    "title": "Testing: Building Confidence in Your Code",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/react/state-and-ui/": {
+    "asset": "page-lessons-en-react-state-and-ui",
+    "title": "State & UI: The Memory of Interaction",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/responsive/": {
+    "asset": "page-lessons-en-responsive",
+    "title": "Web Design: Responsive, Fluid and Intrinsic",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/accessibility-performance/": {
+    "asset": "page-lessons-en-tailwind-accessibility-performance",
+    "title": "Tailwind CSS: Accessibility & Performance — Inclusive & Optimized Design",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/build-deploy/": {
+    "asset": "page-lessons-en-tailwind-build-deploy",
+    "title": "Tailwind CSS: Build & Deploy — Production-Ready PWA",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/components-design-system/": {
+    "asset": "page-lessons-en-tailwind-components-design-system",
+    "title": "Tailwind CSS: Components & Design System — Building Reusable Patterns",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/dark-mode/": {
+    "asset": "page-lessons-en-tailwind-dark-mode",
+    "title": "Tailwind CSS: Dark Mode Implementation Guide — Critical Coding Approach",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/design-tokens/": {
+    "asset": "page-lessons-en-tailwind-design-tokens",
+    "title": "Tailwind CSS: Design Tokens & style.css — Quick Guide",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/": {
+    "asset": "page-lessons-en-tailwind",
+    "title": "Tailwind CSS Learning Path — Complete Roadmap",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/portfolio-template/": {
+    "asset": "page-lessons-en-tailwind-portfolio-template",
+    "title": "Tailwind Portfolio SPA — Architecture Guide",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/roadmap/": {
+    "asset": "page-lessons-en-tailwind-roadmap",
+    "title": "Tailwind CSS Teaching Roadmap",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/routing-and-shared-layout/html-template/": {
+    "asset": "page-lessons-en-tailwind-routing-and-shared-layout-html-template",
+    "title": "Tailwind CSS: SPA Routing with HTML &lt;template&gt; — Clean, Safe Rendering",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/routing-and-shared-layout/string-templates/": {
+    "asset": "page-lessons-en-tailwind-routing-and-shared-layout-string-templates",
+    "title": "Tailwind CSS: SPA Routing with String Templates",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/setup-and-fundamentals/": {
+    "asset": "page-lessons-en-tailwind-setup-and-fundamentals",
+    "title": "Tailwind CSS: Setup & Fundamentals — PWA-Ready Development",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/tailwind/state-interactivity/": {
+    "asset": "page-lessons-en-tailwind-state-interactivity",
+    "title": "Tailwind CSS: State & Interactivity — Modifiers that bring UI to life",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/typography-color/": {
+    "asset": "page-lessons-en-typography-color",
+    "title": "Typography & Color",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/web-analysis/": {
+    "asset": "page-lessons-en-web-analysis",
+    "title": "Web Analysis Guide",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/web-analysis/practice/": {
+    "asset": "page-lessons-en-web-analysis-practice",
+    "title": "Practice: Report on Outstanding Websites Analysis (SOW)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/web-animations/css/": {
+    "asset": "page-lessons-en-web-animations-css",
+    "title": "Web Animations with CSS – From Basics to Advanced Techniques",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/web-animations/examples/button.html": {
+    "asset": "page-lessons-en-web-animations-examples-button-html",
+    "title": "/lessons/en/web-animations/examples/button.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/web-animations/examples/svg-draw.html": {
+    "asset": "page-lessons-en-web-animations-examples-svg-draw-html",
+    "title": "/lessons/en/web-animations/examples/svg-draw.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/web-animations/gsap/": {
+    "asset": "page-lessons-en-web-animations-gsap",
+    "title": "GSAP Animation Mastery – From Zero to Production",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/web-animations/": {
+    "asset": "page-lessons-en-web-animations",
+    "title": "Web Animations: From Motion to Meaning",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/web-basics-diagnosis/": {
+    "asset": "page-lessons-en-web-basics-diagnosis",
+    "title": "Basic Web Ecosystem",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/en/web-design-tools/": {
+    "asset": "page-lessons-en-web-design-tools",
+    "title": "Classic and Modern Web Design Tools (2025)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/analisis-web/": {
+    "asset": "page-lessons-es-analisis-web",
+    "title": "Guía para el Análisis Web",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/analisis-web/practica/": {
+    "asset": "page-lessons-es-analisis-web-practica",
+    "title": "Práctica: Informe de Análisis de Sitios Web Sobresalientes (SOW)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/bootstrap/components-navbar-cards/": {
+    "asset": "page-lessons-es-bootstrap-components-navbar-cards",
+    "title": "Bootstrap CSS: Componentes y Patrones de UI — Biblioteca de Componentes Reutilizables",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/bootstrap/css-customization-sass/": {
+    "asset": "page-lessons-es-bootstrap-css-customization-sass",
+    "title": "Bootstrap CSS: Personalización CSS y Sass — Sistema de Diseño y Temas",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/bootstrap/final-project-deployment/": {
+    "asset": "page-lessons-es-bootstrap-final-project-deployment",
+    "title": "Bootstrap CSS: Construcción y Despliegue — Portafolio Listo para Producción",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/bootstrap/": {
+    "asset": "page-lessons-es-bootstrap",
+    "title": "Ruta de Aprendizaje de Bootstrap CSS — Hoja de Ruta Completa",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/bootstrap/interactivity-js-components/": {
+    "asset": "page-lessons-es-bootstrap-interactivity-js-components",
+    "title": "Bootstrap CSS: Interactividad y Componentes JavaScript — Experiencias de Usuario Dinámicas",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/bootstrap/layout-grid-containers/": {
+    "asset": "page-lessons-es-bootstrap-layout-grid-containers",
+    "title": "Bootstrap CSS: Sistema de Rejilla y Contenedores — Arquitectura de Diseño Responsivo",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/bootstrap/modern-web-design-trends/": {
+    "asset": "page-lessons-es-bootstrap-modern-web-design-trends",
+    "title": "Tendencias de Diseño Web Moderno con Bootstrap: Guía Práctica para Estudiantes",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/bootstrap/setup-and-fundamentals/": {
+    "asset": "page-lessons-es-bootstrap-setup-and-fundamentals",
+    "title": "Bootstrap CSS: Configuración y Fundamentos — Desarrollo PWA-Ready",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/entorno-de-desarrollo/": {
+    "asset": "page-lessons-es-entorno-de-desarrollo",
+    "title": "Guía para Configurar un Entorno de Desarrollo Web",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/html-css-basics/": {
+    "asset": "page-lessons-es-html-css-basics",
+    "title": "Práctica: HTML semántico + Fundamentos de CSS",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/inicio-inspiracion/": {
+    "asset": "page-lessons-es-inicio-inspiracion",
+    "title": "Inspiración & Inicio",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/intrinsic-web-design/": {
+    "asset": "page-lessons-es-intrinsic-web-design",
+    "title": "Diseño Web Intrínseco: Container Queries y Subgrid",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/js-dom-manipulation/": {
+    "asset": "page-lessons-es-js-dom-manipulation",
+    "title": "Manipulación del DOM en el Navegador: Cadenas, API del DOM, Plantillas y DOM Virtual",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/js-intro/": {
+    "asset": "page-lessons-es-js-intro",
+    "title": "Introducción a JS",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/js-modules/": {
+    "asset": "page-lessons-es-js-modules",
+    "title": "Módulos JavaScript: Del Caos a la Modularidad",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/linting-and-formatting/": {
+    "asset": "page-lessons-es-linting-and-formatting",
+    "title": "El Propósito del Formateo y Linting en el Desarrollo",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/media/video/": {
+    "asset": "page-lessons-es-media-video",
+    "title": "Video en la Web – De HTML5 a Experiencias Listas para Producción",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/media/video/the-tao-of-moving-images/": {
+    "asset": "page-lessons-es-media-video-the-tao-of-moving-images",
+    "title": "El Tao de la Imagen en Movimiento",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/metadata-visual-identity-web/": {
+    "asset": "page-lessons-es-metadata-visual-identity-web",
+    "title": "Metadatos e identidad visual en la documentación Web",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/modern-web-design-trends/": {
+    "asset": "page-lessons-es-modern-web-design-trends",
+    "title": "Tendencias de Diseño Web Moderno: Guía Práctica para Estudiantes",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/portfolio-template-brief/challenge/": {
+    "asset": "page-lessons-es-portfolio-template-brief-challenge",
+    "title": "Proyecto Final del Curso: Plantilla Profesional de Portfolio",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/portfolio-template-brief/challenge/phase-2/": {
+    "asset": "page-lessons-es-portfolio-template-brief-challenge-phase-2",
+    "title": "Fase 2: Diseño Responsivo y Arquitectura de Scroll",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/portfolio-template-brief/site/": {
+    "asset": "page-lessons-es-portfolio-template-brief-site",
+    "title": "Plantilla de Portfolio: Showcase y Recursos",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/portfolio-template-brief/site/plan/": {
+    "asset": "page-lessons-es-portfolio-template-brief-site-plan",
+    "title": "Plan de desarrollo: Showcase del brief de plantilla de portfolio",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/primeros-pasos/": {
+    "asset": "page-lessons-es-primeros-pasos",
+    "title": "Desarrollo Web con HTML – Organización y Buenas Prácticas",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/dropdown.html": {
+    "asset": "page-lessons-es-pseudo-elementos-y-estilos-de-estado-demo-dropdown-html",
+    "title": "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/dropdown.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/exercises.html": {
+    "asset": "page-lessons-es-pseudo-elementos-y-estilos-de-estado-demo-exercises-html",
+    "title": "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/exercises.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/tooltip.html": {
+    "asset": "page-lessons-es-pseudo-elementos-y-estilos-de-estado-demo-tooltip-html",
+    "title": "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/tooltip.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/typography.html": {
+    "asset": "page-lessons-es-pseudo-elementos-y-estilos-de-estado-demo-typography-html",
+    "title": "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/typography.html",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/pseudo-elementos-y-estilos-de-estado/": {
+    "asset": "page-lessons-es-pseudo-elementos-y-estilos-de-estado",
+    "title": "Pseudo-Elementos y Estilos Basados en Estado: Enfoques Críticos para CSS Dinámico",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/frameworks-comparative/": {
+    "asset": "page-lessons-es-react-frameworks-comparative",
+    "title": "Fundamentos de frameworks: una comparativa crítica",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/": {
+    "asset": "page-lessons-es-react",
+    "title": "Desarrollo Frontend Moderno: Secuencia Didáctica de React",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/modern-fe-intro/": {
+    "asset": "page-lessons-es-react-modern-fe-intro",
+    "title": "Filosofía y visión pedagógica: El Tao Developer",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/react-authentication/": {
+    "asset": "page-lessons-es-react-react-authentication",
+    "title": "Autenticación: asegurar tu aplicación",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/react-backend-integration/": {
+    "asset": "page-lessons-es-react-react-backend-integration",
+    "title": "Integración con backend: conectando con el mundo real",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/react-deployment/": {
+    "asset": "page-lessons-es-react-react-deployment",
+    "title": "Deployment: enviar al mundo",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/react-fundamentals/index-old": {
+    "asset": "page-lessons-es-react-react-fundamentals-index-old",
+    "title": "Fundamentos de React: bloques de construcción de UI moderna",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/react-fundamentals/": {
+    "asset": "page-lessons-es-react-react-fundamentals",
+    "title": "Fundamentos de React: bloques de construcción de UI moderna",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/react-hooks/": {
+    "asset": "page-lessons-es-react-react-hooks",
+    "title": "Dominio de hooks: el motor de la interactividad",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/react-performance/": {
+    "asset": "page-lessons-es-react-react-performance",
+    "title": "Performance: la velocidad como feature",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/react-routing/": {
+    "asset": "page-lessons-es-react-react-routing",
+    "title": "Routing y navegación: la SPA multipágina",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/react-state-architecture/": {
+    "asset": "page-lessons-es-react-react-state-architecture",
+    "title": "Arquitectura de estado: escalar más allá de los componentes",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/react-testing/": {
+    "asset": "page-lessons-es-react-react-testing",
+    "title": "Testing: construir confianza en tu código",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/react/state-and-ui/": {
+    "asset": "page-lessons-es-react-state-and-ui",
+    "title": "Estado e IU: la memoria de la interacción",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/readings/": {
+    "asset": "page-lessons-es-readings",
+    "title": "Lecturas",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/responsive/": {
+    "asset": "page-lessons-es-responsive",
+    "title": "Diseño Web: Responsive, Fluido e Intrínseco",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/accessibility-performance/": {
+    "asset": "page-lessons-es-tailwind-accessibility-performance",
+    "title": "Tailwind CSS: Accesibilidad y Rendimiento — Diseño Inclusivo y Optimizado",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/build-deploy/": {
+    "asset": "page-lessons-es-tailwind-build-deploy",
+    "title": "Tailwind CSS: Build y Deploy — PWA Lista para Producción",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/components-design-system/": {
+    "asset": "page-lessons-es-tailwind-components-design-system",
+    "title": "Tailwind CSS: Componentes y Sistema de Diseño — Construyendo Patrones Reutilizables",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/components-inline/": {
+    "asset": "page-lessons-es-tailwind-components-inline",
+    "title": "Tailwind CSS: Componentes Inline en Vistas — Ruta A (sin componentización)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/dark-mode/": {
+    "asset": "page-lessons-es-tailwind-dark-mode",
+    "title": "Tailwind CSS: Guía de Implementación de Modo Oscuro — Enfoque de Codificación Crítica",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/design-tokens/": {
+    "asset": "page-lessons-es-tailwind-design-tokens",
+    "title": "Tailwind CSS: Design Tokens & style.css — Guía rápida",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/": {
+    "asset": "page-lessons-es-tailwind",
+    "title": "Ruta de Aprendizaje de Tailwind CSS — Hoja de Ruta Completa",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/portfolio-template/": {
+    "asset": "page-lessons-es-tailwind-portfolio-template",
+    "title": "Portfolio SPA con Tailwind — Guía de Arquitectura",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/roadmap/": {
+    "asset": "page-lessons-es-tailwind-roadmap",
+    "title": "Hoja de Ruta de Enseñanza de Tailwind CSS",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/routing-and-shared-layout/html-template/": {
+    "asset": "page-lessons-es-tailwind-routing-and-shared-layout-html-template",
+    "title": "Tailwind CSS: Ruteo SPA con HTML &lt;template&gt; — Renderizado Limpio y Seguro",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/routing-and-shared-layout/": {
+    "asset": "page-lessons-es-tailwind-routing-and-shared-layout",
+    "title": "Tailwind CSS: Ruteo SPA y Layout Compartido — Construyendo Experiencias Interactivas",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/routing-and-shared-layout/string-templates/": {
+    "asset": "page-lessons-es-tailwind-routing-and-shared-layout-string-templates",
+    "title": "Tailwind CSS: Ruteo SPA con String Templates — Vistas Modulares y Navegación",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/setup-and-fundamentals/": {
+    "asset": "page-lessons-es-tailwind-setup-and-fundamentals",
+    "title": "Tailwind CSS: Configuración y Fundamentos — Desarrollo PWA-Ready",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tailwind/state-interactivity/": {
+    "asset": "page-lessons-es-tailwind-state-interactivity",
+    "title": "Tailwind CSS: Estado e Interactividad — Modificadores que dan vida",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/tipografia-color/": {
+    "asset": "page-lessons-es-tipografia-color",
+    "title": "Tipografía y Color",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/web-animations/css/": {
+    "asset": "page-lessons-es-web-animations-css",
+    "title": "Animaciones Web con CSS – De lo Básico a lo Avanzado",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/web-animations/gsap/": {
+    "asset": "page-lessons-es-web-animations-gsap",
+    "title": "Dominio de Animaciones GSAP – De Cero a Producción",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/web-animations/": {
+    "asset": "page-lessons-es-web-animations",
+    "title": "Animaciones Web: Del Movimiento al Significado",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/web-basics-diagnosis/": {
+    "asset": "page-lessons-es-web-basics-diagnosis",
+    "title": "Conocimientos Básicos Ecosistema Web",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/web-design-tools/": {
+    "asset": "page-lessons-es-web-design-tools",
+    "title": "Herramientas de Diseño Web Clásicas y Modernas (2025)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/web-design-trends/": {
+    "asset": "page-lessons-es-web-design-trends",
+    "title": "Tendencias de diseño web moderno: teoría y práctica",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/methodology/en/ai-assisted-development-foundations/": {
+    "asset": "page-methodology-en-ai-assisted-development-foundations",
+    "title": "AI-Assisted Development Foundations",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/methodology/en/ai-practical-guide/": {
+    "asset": "page-methodology-en-ai-practical-guide",
+    "title": "AI-Assisted Development: A Practical Guide",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/methodology/en/tao-of-ai-development/": {
+    "asset": "page-methodology-en-tao-of-ai-development",
+    "title": "The Tao of AI Development",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/methodology/es/ai-assisted-development-foundations/": {
+    "asset": "page-methodology-es-ai-assisted-development-foundations",
+    "title": "Fundamentos de Desarrollo Asistido por IA",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/methodology/es/ai-practical-guide/": {
+    "asset": "page-methodology-es-ai-practical-guide",
+    "title": "Desarrollo Asistido por IA: Guía Práctica",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/methodology/es/tao-of-ai-development/": {
+    "asset": "page-methodology-es-tao-of-ai-development",
+    "title": "El Tao del Desarrollo con IA",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/methodology/es/uso-ia-specs-arquitectura/": {
+    "asset": "page-methodology-es-uso-ia-specs-arquitectura",
+    "title": "Cómo usar la IA: specs y arquitectura",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/references/en/errors.html": {
+    "asset": "page-references-en-errors-html",
+    "title": "Link Errors (EN)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/references/en/graph.html": {
+    "asset": "page-references-en-graph-html",
+    "title": "Reference Graph (EN)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/references/en/": {
+    "asset": "page-references-en",
+    "title": "External References (EN)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/references/es/errors.html": {
+    "asset": "page-references-es-errors-html",
+    "title": "Errores de Enlaces (ES)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/references/es/graph.html": {
+    "asset": "page-references-es-graph-html",
+    "title": "Mapa de Referencias (ES)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/references/es/": {
+    "asset": "page-references-es",
+    "title": "Referencias Externas (ES)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/templates/": {
+    "asset": "page-templates",
+    "title": "Project Templates & Standards",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/es/geo-physical-aggregator/arch/": {
+    "asset": "page-tracks-es-geo-physical-aggregator-arch",
+    "title": "Course Capstone — Arquitectura del Sistema",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/es/geo-physical-aggregator/": {
+    "asset": "page-tracks-es-geo-physical-aggregator",
+    "title": "Course Capstone — Observatorio Cósmico de Datos Geofísicos",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/es/geo-physical-aggregator/pitch/": {
+    "asset": "page-tracks-es-geo-physical-aggregator-pitch",
+    "title": "Course Capstone — Pitch del Proyecto",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/es/geo-physical-aggregator/roadmap/": {
+    "asset": "page-tracks-es-geo-physical-aggregator-roadmap",
+    "title": "Course Capstone — Roadmap de Desarrollo",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/es/ilustracion-webapp/": {
+    "asset": "page-tracks-es-ilustracion-webapp",
+    "title": "Ilustración Aplicada: Productos Digitales Web-App",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/es/ilustracion-webapp/portfolio-challenge/": {
+    "asset": "page-tracks-es-ilustracion-webapp-portfolio-challenge",
+    "title": "Proyecto Final: Portfolio de Ilustración con Scrollytelling",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/es/ilustracion-webapp/s1-introduccion-ecosistema-y-proyecto/": {
+    "asset": "page-tracks-es-ilustracion-webapp-s1-introduccion-ecosistema-y-proyecto",
+    "title": "La web como lienzo + planteamiento del proyecto",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/es/ilustracion-webapp/s2-galerias-layouts-media/": {
+    "asset": "page-tracks-es-ilustracion-webapp-s2-galerias-layouts-media",
+    "title": "Galerías y layouts para tu arte",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/es/ilustracion-webapp/s3-maquetacion-responsive-frameworks/": {
+    "asset": "page-tracks-es-ilustracion-webapp-s3-maquetacion-responsive-frameworks",
+    "title": "Personalización del Portfolio Scrollytelling",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/": {
+    "asset": "page-tracks-es-ilustracion-webapp-s4-interactividad-ux-ui",
+    "title": "Galería de Proyectos y Lanzamiento",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  }
+}

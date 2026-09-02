@@ -25,6 +25,7 @@ status: draft
 
 > *"Todos los codebases laten a tempos diferentes. Algunos en allegro, otros en adagio, otros en pánico."*
 > — The Tao of Development
+{: .tao-development-quote }
 
 ---
 

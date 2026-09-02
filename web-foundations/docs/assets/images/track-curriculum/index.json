@@ -1,0 +1,50 @@
+{
+  "generator": "generate-track-curriculum-figures.mjs",
+  "generator_version": "1.1.0",
+  "brand": "udit",
+  "current_release": "track-curriculum-c4108e92",
+  "releases": [
+    {
+      "release_id": "track-curriculum-76cad156",
+      "created_at": "2026-09-02T16:09:04.192Z",
+      "assets": [
+        {
+          "id": "fei-annual-arc",
+          "svg": "fei-annual-arc-c4108e9214d6.svg",
+          "png": "fei-annual-arc-c4108e9214d6.png",
+          "title": "Front-End I annual arc",
+          "description": "Two-semester progression from vanilla foundations to React capstone",
+          "content_hash": "c4108e9214d6"
+        },
+        {
+          "id": "fei-pedagogical-vision",
+          "svg": "fei-pedagogical-vision-93720dab0138.svg",
+          "png": "fei-pedagogical-vision-93720dab0138.png",
+          "title": "Front-End I pedagogical vision",
+          "description": "Four pillars orbiting the human-facing interaction bridge",
+          "content_hash": "93720dab0138"
+        },
+        {
+          "id": "feii-semester-arc",
+          "svg": "feii-semester-arc-0d22fb4d25eb.svg",
+          "png": "feii-semester-arc-0d22fb4d25eb.png",
+          "title": "Front-End II semester arc",
+          "description": "Production architecture path across twelve units",
+          "content_hash": "0d22fb4d25eb"
+        },
+        {
+          "id": "feii-pedagogical-vision",
+          "svg": "feii-pedagogical-vision-628a179fe8d0.svg",
+          "png": "feii-pedagogical-vision-628a179fe8d0.png",
+          "title": "Front-End II pedagogical vision",
+          "description": "Interface layer expansion with four pedagogical pillars",
+          "content_hash": "628a179fe8d0"
+        }
+      ],
+      "caption": {
+        "source": "Nebula shader field — curriculum diagram backdrop",
+        "credit": "Image by @ruvebal with visual-forger 1.1.0 and generate-track-curriculum-figures 1.1.0."
+      }
+    }
+  ]
+}

@@ -18,6 +18,84 @@ permalink: /lessons/es/primeros-pasos/
 
 <!-- prettier-ignore-end -->
 
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Sesión 1 completada (repo + URL GitHub Pages) | Sí |
+| VS Code + Live Server operativos | Sí |
+| `student-project-template` clonado en tu repo | Sí |
+| Copilot / asistente IA | Opcional |
+
+**Tiempo oficial:** 2 h de clase + 1 h de laboratorio.
+
+---
+
+## Sigue este camino
+
+### Parte A — Git y flujo GitHub (obligatorio)
+
+| Paso | Acción | Detalle |
+| --- | --- | --- |
+| A1 | Crear rama | `git checkout -b session-02-estructura-html` |
+| A2 | Edición visible | Cambiar el texto del `<h1>` en `index.html` |
+| A3 | Commit | `git commit -m "feat: improve index.html structure · session 2"` |
+| A4 | Push de la rama | `git push -u origin session-02-estructura-html` |
+| A5 | Abrir pull request | GitHub → Compare & pull request → describe el cambio |
+| A6 | Fusionar (o pedir revisión) | Merge a `main`; borrar rama si la política lo permite |
+| A7 | Sincronizar en local | `git checkout main && git pull` |
+
+### Parte B — Estructura HTML en el template (obligatorio)
+
+| Paso | Acción | Sección abajo |
+| --- | --- | --- |
+| B1 | Leer árbol del template y roles de archivos | Student Project Template |
+| B2 | Añadir regiones semánticas en `<body>` | §4 El `<body>` y estructura semántica |
+| B3 | Meta tags SEO en `<head>` | §3 Meta Tags para SEO |
+| B4 | Enlazar CSS de entrada (`css/index.css` + reset) | §6 Estructura CSS |
+| B5 | Previsualizar con Live Server; nuevo commit | Metodología ATELIER |
+
+### Parte C — Enriquecimientos opcionales
+
+Paquete favicon (§7) · apéndice Copilot · imágenes remotas ImageKit (§5.2) · medios locales (§5.1).
+
+---
+
+## Comprueba antes de salir
+
+- [ ] Pull request fusionado (o aprobado) en GitHub
+- [ ] La rama `main` muestra tus cambios HTML en Pages
+- [ ] `<html lang="…">` correcto (usa `es` o `en` de forma coherente)
+- [ ] Landmarks semánticos: `header`, `main`, `footer` (y `nav` si aplica)
+- [ ] `project-brief.md` actualizado con una línea de reflexión ATELIER
+
+---
+
+## Fallos frecuentes
+
+| Síntoma | Causa probable | Solución |
+| --- | --- | --- |
+| PR con archivos ajenos | Commit desde carpeta incorrecta | `git status`; reset o stash |
+| Conflicto de merge | Editaste `main` con rama abierta | `git pull origin main` en la rama, resolver, push |
+| Estilos no cargan | Ruta incorrecta en `<link rel="stylesheet">` | Revisar árbol (`assets/css/` vs `css/`) |
+| Copilot sugiere HTML inválido | Aceptar sin leer | Verificar con MDN; el markup es tuyo |
+
+---
+
+## Entrega (evidencia Sesión 2)
+
+Segundo commit en `main` tras el merge:
+
+```bash
+git commit -m "docs: session 2 reflection · semantic HTML + PR merged"
+```
+
+En `project-brief.md`: una frase sobre qué cambió el PR y qué verificaste en el navegador.
+
+---
+
 ## Objetivos
 
 - Comprender la estructura básica de un proyecto web moderno.

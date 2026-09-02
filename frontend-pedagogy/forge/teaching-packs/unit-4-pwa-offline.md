@@ -1,10 +1,16 @@
 ---
 unit: unit-4-pwa-offline
-status: pilot
-evidence_state: pedagogy gap; MDN/W3C HOW only
+status: ready-to-upgrade
+evidence_state: offline-first architecture grounded; failure-mode teaching pilot; direct FE/HE comparison gap
 ---
 
 # Offline failure modes — production teaching pack
+
+## Gap-pass update — 2026-08-23
+
+- Fibrian et al. (2026) is now confirmed evaluator-safe in Ahmes for offline-first architecture, service workers, caching, UI trade-offs, and prototype limits: coat `483a966a`, nodes `0b798a69-350e-518d-b48b-5f6869217adf`, `5f2f1897-0d07-5516-bd4b-4ad44d0903f0`, and `81557067-5e47-5df1-b1c5-5a8c98a1a206`.
+- MDN's current guidance supplies the platform boundary: feature detection, fallback behavior, worker lifetime, and bounded background retries.
+- The 2026 web-only school case is a research lead, not an Ahmes lesson citation. Keep the unit's outcome claim as a **failure-mode teaching pilot**, with process traces and verification tests rather than product-only grading.
 
 ## Forge contract
 

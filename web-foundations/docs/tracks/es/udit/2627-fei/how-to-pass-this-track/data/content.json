@@ -1,0 +1,69 @@
+---
+# Frontmatter present so Jekyll/Liquid resolves relative_url below.
+# Stripped at build time; served output is valid JSON.
+---
+{
+	"title": "Cómo aprobar Front-End I — UDIT 2026-27",
+	"slides": [
+		{
+			"content": "<h1>Cómo aprobar Front-End I</h1><h2>UDIT 2026-27 · Grado en Desarrollo Full-Stack</h2><p><strong>Rubén Vega Balbás, PhD</strong> · ruben.vega@udit.es</p><p><em>6 ECTS · 150 h totales · 10 h magistral · 30 h laboratorio · 14 h ejercicios · Anual</em></p>"
+		},
+		{
+			"content": "<h2>Información de la asignatura</h2><table><tr><th>Curso académico</th><td>2026-27</td></tr><tr><th>Semestre</th><td>Anual (ambos semestres)</td></tr><tr><th>ECTS</th><td>6</td></tr><tr><th>Profesor</th><td>Rubén Vega Balbás, PhD</td></tr><tr><th>Email</th><td>ruben.vega@udit.es</td></tr></table><p>Este documento detalla los entregables, pruebas de evaluación y requisitos para superar Front-End I. Las fechas de entrega pueden variar respecto a las fechas indicativas aquí mostradas.</p>"
+		},
+		{
+			"content": "<h2>Estructura de evaluación</h2><table><tr><th>Componente</th><th>Peso</th></tr><tr><td>Pruebas</td><td class=\"weight-highlight\">30%</td></tr><tr><td>Trabajos, entregables y proyectos</td><td class=\"weight-highlight\">60%</td></tr><tr><td>Portafolio (resolución de problemas)</td><td class=\"weight-highlight\">10%</td></tr></table><p><strong>Total:</strong> 100% · <strong>Nota mínima de aprobado:</strong> 5,0 de media</p><p><em>El bloque Trabajos (60%) incluye los entregables obligatorios del Semestre 1 (SOW, Hackathon 404, plantilla de portafolio) más capstone React y presentación final del Semestre 2.</em></p>"
+		},
+		{
+			"content": "<h2>Entregable Sem. 1 · Análisis SOW</h2><table><tr><th>Nombre</th><td>Análisis de sitios destacados (SOW)</td></tr><tr><th>Descripción</th><td>Análisis crítico de al menos cuatro sitios premiados; página <code>/sow/</code> en tu repo; metodología ATELIER; pitch oral ~10 min</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Mitad del Semestre 1 (noviembre–diciembre 2026)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">Obligatorio · califica en Trabajos (60%)</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Cuatro análisis publicados, enlace en README, pitch en clase</td></tr></table><p><strong>Brief:</strong> <a href=\"{{ '/lessons/es/analisis-web/practica/' | relative_url }}\">Práctica SOW</a> · <a href=\"{{ '/lessons/es/analisis-web/' | relative_url }}\">Metodología de análisis web</a></p>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Entregable Sem. 1 · Hackathon 404</h2><table><tr><th>Nombre</th><td>Hackathon «404s to Mars»</td></tr><tr><th>Descripción</th><td>Sprint en equipo: página 404 temática Marte; despliegue en GitHub Pages; 2 h en clase + ventana de refinamiento (~10 días)</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Sesión en clase + refinamiento (diciembre 2026)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">Obligatorio · califica en Trabajos (60%)</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Repo de equipo, URL pública, criterios innovación/diseño/código del brief</td></tr></table><p><strong>Brief:</strong> <a href=\"{{ '/lessons/en/404/hackathon/' | relative_url }}\">404s to Mars — hackathon brief</a> (EN)</p>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Entregable 1: Plantilla de portafolio</h2><table><tr><th>Nombre</th><td>Plantilla de portafolio (Semestre 1)</td></tr><tr><th>Descripción</th><td>Implementación progresiva en tres niveles: vanilla → Bootstrap+GSAP → Tailwind+Vite. Integra aprendizajes del SOW y una página 404 personalizada (puede reutilizar el hackathon).</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Final del Semestre 1 (enero 2027)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">25%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Completar los tres niveles con despliegue en GitHub; README con URL en vivo; historial Git limpio</td></tr></table><p><strong>Brief:</strong> <a href=\"{{ '/lessons/es/portfolio-template-brief/challenge/' | relative_url }}\">Plantilla de portafolio</a></p>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Entregable 2: capstone React individual</h2><table><tr><th>Nombre</th><td>Proyecto Capstone React Individual (Semestre 2)</td></tr><tr><th>Descripción</th><td>Aplicación individual con React Router v7 Framework Mode, APIs públicas, i18n, autenticación y despliegue</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Semanas 14-15 (mayo 2027)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">30%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Cumplir todos los requisitos obligatorios: React Query, dos APIs, UI bilingüe, auth httpOnly</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Entregable 3: Presentación final</h2><table><tr><th>Nombre</th><td>Presentación final y monografía</td></tr><tr><th>Descripción</th><td>Demo en vivo del capstone React individual + presentación técnica + monografía reflexiva</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Periodo de exámenes finales (3-13 mayo 2027)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">5%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Presentar la aplicación funcional con documentación y reflexión</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Prueba 1: Examen parcial</h2><table><tr><th>Nombre</th><td>Prueba escrita parcial</td></tr><tr><th>Descripción</th><td>Teoría y práctica del Semestre 1 (fundamentos HTML/CSS/JS)</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Mitad del Semestre 1 (noviembre 2026)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">15%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Sin prerrequisito · Cubre sesiones S1-S10</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Prueba 2: Examen final</h2><table><tr><th>Nombre</th><td>Prueba escrita final</td></tr><tr><th>Descripción</th><td>Teoría y práctica de todo el curso anual (enfoque React)</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Periodo de exámenes finales (3-13 mayo 2027)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">15%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Deben estar presentados previamente los Entregables 1, 2 y 3</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Componente portafolio</h2><table><tr><th>Nombre</th><td>Portafolio de resolución de problemas</td></tr><tr><th>Descripción</th><td>Resolución de ejercicios, evidencia de resolución de problemas y reflexiones de sesión</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Continuo a lo largo del curso</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">10%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Evidencia en commits por sesión con reflexiones ATELIER</td></tr></table>"
+		},
+		{
+			"content": "<h2>Criterios de evaluación ordinaria</h2><ul><li>La media de todos los componentes evaluados debe alcanzar <span class=\"pass-grade\">5,0</span> para considerar aprobada la asignatura.</li><li>Si algún entregable o prueba obtiene menos de <span class=\"fail-grade\">4,5</span>, la asignatura quedará suspendida y el estudiante deberá presentarse a la evaluación extraordinaria.</li><li>Todos los componentes deben completarse para calcular la media final.</li></ul>"
+		},
+		{
+			"content": "<h2>Periodo de recuperación</h2><table><tr><th>Ventana</th><td class=\"deadline\">7-11 de junio de 2027</td></tr><tr><th>Alcance</th><td>Recuperación de entregables, pruebas o evidencia de portafolio suspensos — confirmar franjas exactas con el calendario académico y el profesor.</td></tr><tr><th>Idioma administrativo</th><td>Español (convocatoria de recuperación).</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Evaluación extraordinaria</h2><ul><li>Los estudiantes que no superen la evaluación ordinaria podrán presentarse a la evaluación extraordinaria.</li><li>Condiciones: deben completar los entregables suspendidos (SOW, Hackathon 404, plantilla de portafolio, capstone React y/o presentación final) y/o repetir las pruebas suspendidas (parcial, final).</li><li>Tipo de prueba: examen escrito sobre las áreas de contenido suspendidas.</li><li>Puede solicitarse revisión de la evidencia del portafolio.</li></ul>"
+		},
+		{
+			"content": "<h2>Notas importantes</h2><ul><li><strong>Declaración de IA:</strong> Todo trabajo asistido por IA debe seguir la metodología docs-first con planes documentados e informes de implementación. Ver <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">Rúbrica de declaración de uso de IA</a>.</li><li><strong>Defensa oral:</strong> La presentación final incluye recorrido del diff y Q&amp;A. Ver <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">Rúbrica de defensa oral</a>.</li><li><strong>Calidad de código:</strong> Los proyectos deben incluir linting, formateo y estándares profesionales.</li><li><strong>Accesibilidad:</strong> Cumplimiento WCAG 2.2 AA obligatorio en todos los proyectos.</li><li><strong>Despliegue:</strong> Todos los proyectos deben estar desplegados públicamente con URLs funcionales.</li></ul>"
+		},
+		{
+			"content": "<h2>Resumen de fechas clave</h2><ul><li><strong>Noviembre 2026:</strong> Prueba parcial (15%)</li><li><strong>Noviembre–diciembre 2026:</strong> Entregable SOW (pitch ~10 min)</li><li><strong>Diciembre 2026:</strong> Hackathon 404 «404s to Mars» (2 h en clase + refinamiento)</li><li><strong>14-22 diciembre 2026:</strong> Periodo de exámenes ordinarios del Semestre 1</li><li><strong>Enero 2027:</strong> Entregable Plantilla de portafolio (25%)</li><li><strong>Mayo 2027:</strong> Entregable capstone React individual (30%)</li><li><strong>3-13 mayo 2027:</strong> Periodo de exámenes ordinarios del Semestre 2; Prueba final (15%) + Presentación final (5%)</li><li><strong>7-11 junio 2027:</strong> Periodo de recuperación</li><li><strong>Continuo:</strong> Portafolio de resolución de problemas (10%)</li></ul>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>¿Preguntas?</h2><p>Para aclaraciones sobre entregables, criterios de evaluación o requisitos técnicos:</p><ul><li>Email: <a href=\"mailto:ruben.vega@udit.es\">ruben.vega@udit.es</a></li><li>Track del curso: <a href=\"{{ '/tracks/fei/' | relative_url }}\">/tracks/fei/</a></li><li>GitHub: repositorio del curso (proporcionado en clase)</li><li><strong>Rúbricas:</strong> <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">Rúbrica de declaración de IA y defensa oral</a></li></ul><p><em>¡Mucha suerte — código crítico para una vida mejor!</em></p>"
+		}
+	]
+}

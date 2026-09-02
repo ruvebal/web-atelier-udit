@@ -278,7 +278,7 @@ This template **links to** [Web Foundations](https://ruvebal.github.io/web-ateli
 | Code (HTML, CSS, JS, configs) | MIT – see [LICENSE-CODE](LICENSE-CODE)                   |
 | Content (text, images, docs)  | CC BY-NC-SA 4.0 – see [LICENSE-CONTENT](LICENSE-CONTENT) |
 
-© 2025 Rubén Vega Balbás, PhD — WEB ATELIER (UDIT)
+© 2025 Rubén Vega Balbás, PhD — WEB ATELIER
 
 ---
 

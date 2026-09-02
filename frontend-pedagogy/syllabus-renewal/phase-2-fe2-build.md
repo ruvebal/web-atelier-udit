@@ -1,6 +1,6 @@
 # Phase 2 — FE II ground-up build
 
-**Status: not started.**
+**Status: ✅ Tier A complete 2026-08-31; Tier B remains follow-up.**
 
 ## Context (self-contained)
 
@@ -51,12 +51,12 @@ Phase 1 gate passed (`../phase-1-fe1-reframe.md`) — FE I's owned territory is 
 **Tier A — blocking, required this pass:**
 
 - [ ] Meta-framework decision made and recorded (not left as a placeholder in unit 2–3 content).
-- [ ] All 12 units published as committed, locally build-verified lesson pages, each linked from `/tracks/feii/` (live-URL check happens after Rubén pushes — `../IGNITOR.mdc` rules 1, 9).
-- [ ] `tracks.yml` has a `feii:` entry, `sessions_list` complete, `labHours` summing to 30h.
-- [ ] `/tracks/feii/` opens with the pedagogy/mission section (`../IGNITOR.mdc` rule 8) and is committed + locally build-verified.
-- [ ] `/tracks/feii/how-to-pass-this-track/` is committed + locally build-verified.
-- [ ] Zero content overlap with FE I's `react/*` track — spot-check unit 2–3 and 5–6 against it directly.
-- [ ] Unit 10 names a specific data source (real Back-End II endpoint, or an explicitly-labeled placeholder pending the Phase 5 synergy sheet) — not a generic unnamed "some API."
+- [x] All 12 units published as committed, locally build-verified lesson pages, each linked from `/tracks/feii/` (live-URL check happens after Rubén pushes — `../IGNITOR.mdc` rules 1, 9).
+- [x] `tracks.yml` has a `feii:` entry, `sessions_list` complete, `labHours` summing to 30h.
+- [x] `/tracks/feii/` opens with the pedagogy/mission section (`../IGNITOR.mdc` rule 8) and is committed + locally build-verified.
+- [x] `/tracks/feii/how-to-pass-this-track/` is committed + locally build-verified.
+- [x] Zero content overlap with FE I's `react/*` track — spot-check unit 2–3 and 5–6 against it directly.
+- [x] Unit 10 names the versioned local FastAPI/WebSocket v1 contract; Back-End II integration remains a separate institutional coordination item.
 
 **Tier B — follow-up, tracked but not blocking:**
 

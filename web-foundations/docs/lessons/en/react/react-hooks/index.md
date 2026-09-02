@@ -14,6 +14,14 @@ permalink: /lessons/en/react/react-hooks/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Effects represent synchronization with external systems; they are not a hiding place for logic.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** hook ownership, lifecycle, cleanup, and derived data. **Frontier signal:** compiler-assisted optimisation and new async/rendering APIs may change implementation patterns.</p>
+</aside>
+>
+> **Studio test:** Annotate every effect with the external system it synchronizes.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -489,6 +497,13 @@ It’s not that “JavaScript is just like that”: React chose an **explicit** 
 - [ ] **Reflection entry** addressing at least 3 critical questions above
 - [ ] **Dependency array audit** - document why each dependency is needed
 - [ ] **Peer code review** focusing on hook patterns and potential bugs
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "📝 Sprint Deliverables"
+  visual-grammar: "external-system-synchronization — component state synchronizing with an external system through a controlled effect lifecycle"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

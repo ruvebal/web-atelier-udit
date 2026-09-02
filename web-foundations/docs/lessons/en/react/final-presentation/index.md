@@ -14,6 +14,14 @@ permalink: /lessons/en/react/final-presentation/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Defence turns an artefact into accountable knowledge.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** explanation, demonstration, questioning, and reflection test understanding beyond polish. **Frontier signal:** AI-resilient assessment uses oral defence and transparent AI-use evidence.</p>
+</aside>
+>
+> **Studio test:** Explain one line, one trade-off, one failure, and one rejected suggestion.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -147,9 +155,15 @@ Write **exactly** what AI did and did not do:
 
 > 💭 _What did AI make easier—and what did it make riskier?_
 
+{% comment %}
+outcome-graphic-selection:
+  source-section: "💭 Reflection Questions"
+  visual-grammar: "accountable-defence-stage — an artefact, its process evidence, and live explanation meeting on an accountable defence stage"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
+
 ---
 
 ## 🧘 Koan
 
 > _"When the demo breaks, do not blame the projector. Study the code you did not understand."_
-

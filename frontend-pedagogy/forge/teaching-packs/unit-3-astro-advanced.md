@@ -1,10 +1,16 @@
 ---
 unit: unit-3-astro-advanced
-status: pilot
-evidence_state: pedagogy gap; technique only
+status: ready-to-upgrade
+evidence_state: current technical evidence; transfer-informed pilot; direct multi-framework HE pedagogy gap
 ---
 
 # Multi-framework architecture — production teaching pack
+
+## Gap-pass update — 2026-08-23
+
+- Ahmes retains evaluator-safe resumability/islands sources for execution and composition trade-offs; Astro's current server-island documentation is a dated platform note.
+- The teaching object is now the boundary decision: content schema, data location, framework island, server island, and deployment target must be mapped before implementation.
+- Keep the direct learning-outcome claim open. The lab and individual diagnostic test rendering-boundary reasoning, not a proven advantage of multi-framework teaching.
 
 ## Forge contract
 

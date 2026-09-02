@@ -10,6 +10,14 @@ permalink: /lessons/es/intrinsic-web-design/
 week: 3
 ---
 
+<aside class="lesson-framing" aria-label="Idea maestra y lente de campo">
+<p><strong>Idea maestra:</strong> El layout responsivo es consciente de relaciones, no de dispositivos.</p>
+<p><strong>Lente de campo:</strong> **Ancla de práctica:** el diseño responsivo adapta contenido al espacio disponible. **Señal de frontera:** container queries y subgrid mueven la respuesta del viewport al contexto del componente.</p>
+</aside>
+
+> **Prueba de estudio:** Prueba el mismo componente dentro de tres anchos de contenedor padre.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Tabla de Contenidos
@@ -18,6 +26,71 @@ week: 3
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Para quién es / Para quién no
+
+**Para:** Front-End I **Sesión 5** — container queries + subgrid sobre tu landing portfolio (base CSS Sesiones 3–4).
+
+**No para:** librerías JS de layout ni frameworks grid completos — esta sesión es diseño intrínseco CSS nativo.
+
+**Al terminar esta sesión tendrás:** galería (o grid de tarjetas) con `@container` y/o `subgrid`, probada en tres anchos de padre, más commit + reflexión crítica.
+
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Landing Sesiones 3–4 con tokens CSS | Sí |
+| Navegador moderno (Chrome/Edge/Firefox actual) | Sí |
+| Flujo Git de Sesión 2 | Sí |
+
+**Tiempo oficial:** 2 h de clase + 1 h de laboratorio.
+
+---
+
+## Sigue este camino
+
+| Paso | Acción | Sección |
+| --- | --- | --- |
+| 1 | Leer distinción container vs media query | De media queries a container queries |
+| 2 | Marcar padre con `container-type: inline-size` | Secciones prácticas |
+| 3 | Construir galería/tarjetas que refluyan por ancho del **contenedor** | Práctica / galería |
+| 4 | Probar mismo componente en sidebar estrecho + main ancho | Prueba de estudio |
+| 5 | Commit + reflexión crítica 3–5 frases | Commit y reflexión crítica |
+
+---
+
+## Comprueba antes de salir
+
+- [ ] El layout del componente cambia cuando cambia el ancho del **padre**, no solo del viewport
+- [ ] Foco de teclado visible en ítems interactivos de la galería
+- [ ] Sin scroll horizontal a 320px de ancho de contenedor
+- [ ] Fallback `@supports` o degradación documentada en navegadores antiguos
+- [ ] Commit subido con mensaje que mencione container queries / subgrid
+
+---
+
+## Fallos frecuentes
+
+| Síntoma | Causa probable | Qué hacer |
+| --- | --- | --- |
+| Container query no dispara | Falta `container-type` en ancestro | Fijar en wrapper padre directo |
+| Mismo comportamiento que media query | Query usa viewport no `@container` | Usar `@container (min-width: …)` |
+| Líneas subgrid desalineadas | Padre no es grid o sin `subgrid` | Padre `display: grid`; hijo `grid-template-columns: subgrid` |
+| Galería rota en Safari | Feature sin fallback | Revisar `@supports`; simplificar layout |
+| Sin commit | Olvidada reflexión | Completar sección Commit y reflexión crítica |
+
+---
+
+## Entrega (evidencia Sesión 5)
+
+- URL repo + commit `feat: responsive gallery · container queries…`
+- Reflexión crítica 3–5 frases (Critical Coding for a Better Living)
+
+---
 
 # Objetivo de la sesión
 

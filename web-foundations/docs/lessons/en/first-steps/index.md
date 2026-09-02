@@ -9,6 +9,14 @@ lang: en
 permalink: /lessons/en/first-steps/
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Version history is part of the interface's evidence.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** commits, branches, review, and rollback support collaboration. **Frontier signal:** repository history is increasingly part of authorship and process evidence under GenAI.</p>
+</aside>
+
+> **Studio test:** Write one commit narrative and demonstrate a reversible change.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -18,6 +26,84 @@ permalink: /lessons/en/first-steps/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Session 1 complete (repo + GitHub Pages URL) | Yes |
+| VS Code + Live Server working | Yes |
+| `student-project-template` cloned to your repo | Yes |
+| Copilot / AI assistant | Optional |
+
+**Official time:** 2 h class + 1 h lab.
+
+---
+
+## Follow this path
+
+### Part A — Git & GitHub flow (required)
+
+| Step | Action | Details |
+| --- | --- | --- |
+| A1 | Create branch | `git checkout -b session-02-html-structure` |
+| A2 | Make a small visible edit | Change `<h1>` text in `index.html` |
+| A3 | Commit with message | `git commit -m "feat: improve index.html structure · session 2"` |
+| A4 | Push branch | `git push -u origin session-02-html-structure` |
+| A5 | Open pull request | GitHub → Compare & pull request → describe change |
+| A6 | Merge (or ask reviewer) | Merge to `main`; delete branch if policy allows |
+| A7 | Sync locally | `git checkout main && git pull` |
+
+### Part B — HTML structure in the template (required)
+
+| Step | Action | Section below |
+| --- | --- | --- |
+| B1 | Read template tree + file roles | Student Project Template |
+| B2 | Add semantic regions to `<body>` | §4 The `<body>` and semantic structure |
+| B3 | Add SEO meta tags in `<head>` | §3 Meta Tags for SEO |
+| B4 | Link CSS entry (`css/index.css` + reset) | §6 CSS structure |
+| B5 | Preview with Live Server; commit again | ATELIER methodology |
+
+### Part C — Optional enrichments
+
+Favicon package (§7) · Copilot appendix · ImageKit remote images (§5.2) · local media (§5.1).
+
+---
+
+## Verify before you leave
+
+- [ ] Pull request merged (or approved) on GitHub
+- [ ] `main` branch shows your HTML changes on Pages
+- [ ] `<html lang="…">` set correctly (use `es` or `en` consistently)
+- [ ] Semantic landmarks present: `header`, `main`, `footer` (and `nav` if applicable)
+- [ ] `project-brief.md` updated with one ATELIER reflection line
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| PR shows unrelated files | Committed from wrong folder | `git status`; reset or stash noise |
+| Merge conflict | Edited `main` while branch open | `git pull origin main` on branch, resolve, push |
+| Styles not loading | Wrong path in `<link rel="stylesheet">` | Match folder tree (`assets/css/` vs `css/`) |
+| Copilot suggests invalid HTML | Accepting without reading | Verify against MDN; you own the markup |
+
+---
+
+## Submit (Session 2 evidence)
+
+Second commit on `main` after merge:
+
+```bash
+git commit -m "docs: session 2 reflection · semantic HTML + PR merged"
+```
+
+Include in `project-brief.md`: one sentence on what the PR changed and what you verified in the browser.
+
+---
 
 ## 🎯 Session Objectives
 
@@ -163,6 +249,13 @@ flowchart TD
 - **Intervene**: Change a color in `index.css`, add a `console.log()` in `main.js`. See the immediate effect in the browser.
 - **Reflect**: Write in the `project-brief.md` what you learned from each change.
 - **Share**: Make a commit in your repo to document the progress.
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "📂 Student Project Template – Project Structure"
+  visual-grammar: "inspectable-project-scaffold — a project scaffold whose folders, entry page, styles, media, and history remain inspectable"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

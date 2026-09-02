@@ -485,7 +485,12 @@ In sum, this practice-oriented, class-by-class methodology for web design educat
 
 By the end of the course, each student has a repository of commits telling the story of their learning journey, a deployed website showcasing their abilities, and a working understanding of how disciplined practice combines with critical thinking to inform good web design. This methodology aims to produce not only competent front-end designers and developers, but self-reflective practitioners prepared for the collaborative, ever-evolving nature of the web industry.
 
-**The deeper argument** — why energy and accessibility are one ethical question, why we adapt and critique agile/scrum rather than adopt it wholesale, and the full EU/UNESCO policy grounding for our AI-integration stance — is deliberately kept off this practical page. It lives in its own piece, currently in progress as a public-writing tribune (`~/src/profield/runs/tribune-craft/atelier-methodology/` for anyone with repo access); this page will link to it once published.
+**The deeper argument** — why energy and accessibility are one ethical question, why we adapt and critique agile/scrum rather than adopt it wholesale, and the full EU/UNESCO policy grounding for our AI-integration stance — is deliberately kept off this practical page. It lives in a separate piece in progress; this page will link to it once published.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+Private draft path: ~/src/profield/runs/tribune-craft/atelier-methodology/
+-->
+{% endif %}
 
 **Sources:**
 

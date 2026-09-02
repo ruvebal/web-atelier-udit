@@ -14,6 +14,14 @@ permalink: /lessons/en/react/state-and-ui/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> State is a model of what can be true; UI renders that model.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** state taxonomy and finite-state thinking reduce contradictory UI. **Frontier signal:** server, URL, shared, and optimistic state stretch the model across boundaries.</p>
+</aside>
+>
+> **Studio test:** Draw states and transitions before writing components.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -632,6 +640,13 @@ Questions to answer:
 - What is local UI state?
 
 Draw boundaries clearly before coding.
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Hands-On Activities"
+  visual-grammar: "explicit-state-machine — a finite set of interface states connected only by explicit valid transitions"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

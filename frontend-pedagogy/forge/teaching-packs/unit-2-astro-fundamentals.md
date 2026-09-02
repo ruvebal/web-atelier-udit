@@ -1,10 +1,16 @@
 ---
 unit: unit-2-astro-fundamentals
-status: pilot
-evidence_state: pedagogy gap; technique only
+status: ready-to-upgrade
+evidence_state: current technical evidence; transfer-informed pilot; direct Astro HE pedagogy gap
 ---
 
 # Islands and SSR — production teaching pack
+
+## Gap-pass update — 2026-08-23
+
+- Ahmes retains Vepsäläinen's evaluator-safe islands/resumability sources for the technical object; current Astro documentation is a dated platform note, not pedagogy evidence.
+- Transfer framing is now explicit: students map React/SPA assumptions to static HTML, selective hydration, and server/client boundaries, then defend the cost of the boundary.
+- The unit may claim a **transfer-informed pilot**, not a validated Astro teaching effect. Use the `client:*` cost comparison and individual explanation as the pilot's evidence, subject to consent/DPO approval before research collection.
 
 ## Forge contract
 

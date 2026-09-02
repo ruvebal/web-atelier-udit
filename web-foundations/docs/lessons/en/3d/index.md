@@ -159,7 +159,12 @@ Each lesson follows a consistent structure:
 | Build | Vite | Fast HMR, plugin ecosystem |
 | Deploy | Cloudflare Workers / Vercel / Fly.io | Edge delivery for assets + SSR |
 | AI | Cursor + Claude + Windsurf | Rules-driven, context-aware AI coding |
-| AI MCPs | Stitch, 21st.dev Magic, Nano Banana 2, DevIAC Gateway | UI generation, component library, visual refs, knowledge RAG |
+| AI MCPs | Stitch, 21st.dev Magic, Nano Banana 2, course knowledge gateway | UI generation, component library, visual refs, knowledge RAG |
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+The course knowledge gateway in the row above is implemented by DevIAC Gateway.
+-->
+{% endif %}
 | AI Skills | UI UX Pro Max | Design intelligence: palettes, font pairings, UX reasoning |
 
 ---

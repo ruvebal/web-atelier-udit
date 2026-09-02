@@ -1,0 +1,61 @@
+---
+# Frontmatter present so Jekyll/Liquid resolves relative_url below.
+# Stripped at build time; served output is valid JSON.
+---
+{
+	"title": "Cómo aprobar Front-End II — UDIT 2026-27",
+	"slides": [
+		{
+			"content": "<h1>Cómo aprobar Front-End II</h1><h2>UDIT 2026-27 · Grado en Desarrollo Full-Stack</h2><p><strong>Rubén Vega Balbás, PhD</strong> · ruvebal@crea-comm.net</p><p><em>6 ECTS · 150 h totales · 30 h laboratorio · Semestral</em></p>"
+		},
+		{
+			"content": "<h2>Información de la asignatura</h2><table><tr><th>Curso académico</th><td>2026-27</td></tr><tr><th>Semestre</th><td>Semestre 2 (asignatura anual)</td></tr><tr><th>ECTS</th><td>6</td></tr><tr><th>Profesor</th><td>Rubén Vega Balbás, PhD</td></tr><tr><th>Email</th><td>ruvebal@crea-comm.net</td></tr></table><p>Este documento detalla los entregables, pruebas de evaluación y requisitos para superar Front-End II. Las fechas de entrega pueden variar respecto a las fechas indicativas aquí mostradas.</p>"
+		},
+		{
+			"content": "<h2>Estructura de evaluación</h2><table><tr><th>Componente</th><th>Peso</th></tr><tr><td>Pruebas</td><td class=\"weight-highlight\">30%</td></tr><tr><td>Trabajos, entregables y proyectos</td><td class=\"weight-highlight\">60%</td></tr><tr><td>Portafolio (resolución de problemas)</td><td class=\"weight-highlight\">10%</td></tr></table><p><strong>Total:</strong> 100% · <strong>Nota mínima de aprobado:</strong> 5,0 de media</p><p><em>Reconciliado con la guía docente y la fuente de evaluación de la Fase 3: Pruebas 30% / Trabajos 60% / Portafolio 10%.</em></p>"
+		},
+		{
+			"content": "<h2>Entregable 1: Proyecto arquitectónico Astro</h2><table><tr><th>Nombre</th><td>Entrega 1 — Arquitectura Astro (Unidades 2-6)</td></tr><tr><th>Descripción</th><td>Proyecto Astro con content collections, routing i18n de Astro (es + en), arquitectura islands, integración multi-framework, estrategia de testing y CI/CD</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Semana 7 (octubre 2026)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">25%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Configuración Astro completa con routing i18n obligatorio (locales es + en), suite de testing (Vitest + RTL + Playwright) y flujo de code review asistido por IA</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Entregable 2: Interfaz 3D y panel de control IoT</h2><table><tr><th>Nombre</th><td>Entrega 2 — Integración 3D/IoT (Unidades 8-10)</td></tr><tr><th>Descripción</th><td>Interfaz 3D con R3F y efectos shader + panel de control IoT/robótica consumiendo servicio WebSocket con backend Python</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Semana 11 (noviembre 2026)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">25%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Componentes 3D interactivos R3F, shaders GLSL personalizados, datos en tiempo real por WebSocket, backend Python FastAPI</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Entregable 3: Proyecto capstone y defensa oral</h2><table><tr><th>Nombre</th><td>Entrega 3 / Examen final — Capstone (Unidades 11-12)</td></tr><tr><th>Descripción</th><td>Integración del proyecto capstone con evidencia de proceso, declaración de uso de IA y presentación de defensa oral</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Periodo de exámenes finales (14-22 diciembre 2026)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">10%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Evidencia de proceso completa (decisions.md, iterations.md, AI_USE_DECLARATION.md), verificar/narrar ejes, defensa oral de 15 minutos</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Prueba 1: Examen parcial</h2><table><tr><th>Nombre</th><td>Prueba escrita parcial</td></tr><tr><th>Descripción</th><td>Teoría y práctica de las unidades 1-7 (Astro, PWA, testing, performance)</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Semana 7 (octubre 2026)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">15%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Sin prerrequisito · Cubre sesiones U1-U7</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Prueba 2: Examen final</h2><table><tr><th>Nombre</th><td>Prueba escrita final</td></tr><tr><th>Descripción</th><td>Teoría y práctica de todo el temario (3D, IoT, conceptos capstone)</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Periodo de exámenes finales (14-22 diciembre 2026)</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">15%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Deben estar presentados previamente los Entregables 1, 2 y 3</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Componente portafolio</h2><table><tr><th>Nombre</th><td>Portafolio de resolución de problemas</td></tr><tr><th>Descripción</th><td>Resolución de ejercicios, evidencia de resolución de problemas, reflexiones de sesión y documentación de proceso</td></tr><tr><th>Fecha indicativa</th><td class=\"deadline\">Continuo a lo largo del semestre</td></tr><tr><th>% Evaluación</th><td class=\"weight-highlight\">10%</td></tr><tr><th>Requisitos</th><td class=\"requirement\">Evidencia en commits por sesión con reflexiones ATELIER, registros de decisiones y documentación de iteraciones</td></tr></table>"
+		},
+		{
+			"content": "<h2>Criterios de evaluación ordinaria</h2><ul><li>La media de todos los componentes evaluados debe alcanzar <span class=\"pass-grade\">5,0</span> para considerar aprobada la asignatura.</li><li>Si algún entregable o prueba obtiene menos de <span class=\"fail-grade\">4,5</span>, la asignatura quedará suspendida y el estudiante deberá presentarse a la evaluación extraordinaria.</li><li>Todos los componentes deben completarse para calcular la media final.</li></ul>"
+		},
+		{
+			"content": "<h2>Periodo de recuperación</h2><table><tr><th>Ventana</th><td class=\"deadline\">7-11 de junio de 2027</td></tr><tr><th>Alcance</th><td>Recuperación de entregables, pruebas o evidencia de portafolio suspensos — confirmar franjas exactas con el calendario académico y el profesor.</td></tr><tr><th>Idioma administrativo</th><td>Español (convocatoria de recuperación).</td></tr></table>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>Evaluación extraordinaria</h2><ul><li>Los estudiantes que no superen la evaluación ordinaria podrán presentarse a la evaluación extraordinaria.</li><li>Condiciones: deben completar los entregables suspendidos (1, 2 o 3) y/o repetir las pruebas suspendidas (parcial, final).</li><li>Tipo de prueba: examen escrito sobre las áreas de contenido suspendidas.</li><li>Puede solicitarse revisión de la evidencia del portafolio.</li></ul>"
+		},
+		{
+			"content": "<h2>Notas importantes</h2><ul><li><strong>Declaración de IA:</strong> Todo trabajo asistido por IA debe seguir la metodología docs-first con planes documentados e informes de implementación. Ver <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">Rúbrica de declaración de uso de IA</a>.</li><li><strong>Defensa oral:</strong> Las unidades 11-12 requieren una presentación de 15 minutos con recorrido del diff y Q&amp;A. Ver <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">Rúbrica de defensa oral</a>.</li><li><strong>Evidencia de proceso:</strong> Todos los proyectos capstone deben incluir decisions.md, iterations.md y AI_USE_DECLARATION.md.</li><li><strong>Contrato Unidad 10:</strong> La Entrega 2 usa el contrato publicado local FastAPI/WebSocket v1. Una integración posterior con Back-End II debe preservar ese contrato o documentar una migración versionada.</li></ul>"
+		},
+		{
+			"content": "<h2>Resumen de fechas clave</h2><ul><li><strong>Octubre 2026:</strong> Prueba parcial (15%) + Entrega 1 (25%)</li><li><strong>Noviembre 2026:</strong> Entrega 2 (25%)</li><li><strong>14-22 diciembre 2026:</strong> Prueba final (15%) + Entrega 3 / Defensa oral (10%)</li><li><strong>7-11 junio 2027:</strong> Periodo de recuperación</li><li><strong>Continuo:</strong> Portafolio de resolución de problemas (10%)</li></ul>",
+			"calendar_note": true
+		},
+		{
+			"content": "<h2>¿Preguntas?</h2><p>Para aclaraciones sobre entregables, criterios de evaluación o requisitos técnicos:</p><ul><li>Email: <a href=\"mailto:ruvebal@crea-comm.net\">ruvebal@crea-comm.net</a></li><li>Track del curso: <a href=\"{{ '/tracks/feii/' | relative_url }}\">/tracks/feii/</a></li><li>GitHub: repositorio del curso (proporcionado en clase)</li><li><strong>Rúbricas:</strong> <a href=\"{{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}\">Rúbrica de declaración de IA y defensa oral</a></li></ul><p><em>¡Mucha suerte — código crítico para una vida mejor!</em></p>"
+		}
+	]
+}

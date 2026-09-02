@@ -1,0 +1,7 @@
+{% assign semantic_cover_key = page.slug | default: page.title | slugify %}
+{% assign semantic_cover = site.data.lesson_covers[semantic_cover_key] %}
+{% if semantic_cover %}
+<figure class="lesson-semantic lesson-semantic--{{ semantic_cover.family }}" data-semantic-mode="{{ semantic_cover.mode }}" markdown="0">
+<img src="{{ '/assets/images/lesson-covers/' | append: semantic_cover.asset | append: '-semantic.svg' | relative_url }}" width="1600" height="560" alt="{% if page.lang == 'es' and semantic_cover.semantic_alt_es %}{{ semantic_cover.semantic_alt_es | escape }}{% elsif semantic_cover.semantic_alt_en %}{{ semantic_cover.semantic_alt_en | escape }}{% else %}{{ semantic_cover.master_idea | escape }}{% endif %}" />
+</figure>
+{% endif %}

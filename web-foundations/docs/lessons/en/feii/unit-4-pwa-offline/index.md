@@ -17,9 +17,17 @@ tags:
     caching-strategies,
     installability,
   ]
-status: draft
+status: complete
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Offline is a product promise designed as a failure mode.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** service workers, caching, manifests, and recovery states. **Frontier signal:** local-first data, sync/conflict resolution, and browser-sensitive background work continue to evolve. **Pedagogy status:** offline-first architecture is grounded; this FE failure-mode sequence remains a pilot.</p>
+</aside>
+
+> **Studio test:** Test offline, stale, reconnect, and data-conflict states.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -28,6 +36,67 @@ status: draft
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Team Astro project from Units 2–3 (HTTPS or localhost) | Yes |
+| `npm run build` green on main branch | Yes |
+| Chrome or Edge DevTools (Application + Lighthouse tabs) | Yes |
+| Team backlog issue for offline fallback | For B2 lab |
+
+**Official time:** 1 h magistral (B1) + 2 h lab (team, B2) + 2 h exercise resolution (individual, B3).
+
+> Service workers require **HTTPS** in production. `localhost` is exempt for development.
+
+---
+
+## Follow this path
+
+| Phase | Who | Action | Section |
+| --- | --- | --- | --- |
+| 1 | Individual | List which routes/features must survive offline vs may degrade | Master idea + What is a PWA |
+| 2 | Individual | Add `manifest.json` + link tags; verify icons load | Web App Manifest |
+| 3 | Individual | Register `sw.js`; confirm in DevTools → Application | Service Workers |
+| 4 | Individual | Assign cache-first / network-first / stale-while-revalidate **per route** | Caching Strategies |
+| 5 | Individual | Offline test: load online → DevTools Offline → refresh | Practice Exercise |
+| 6 | Team | Ship offline fallback on real backlog issue; record Lighthouse delta (B2) | B2 · Lab |
+| 7 | Individual | Complete B3; item 2 declared no-AI | B3 · Exercises |
+
+---
+
+## Verify before you leave
+
+- [ ] Manifest validates in DevTools → Application → Manifest (no missing icons)
+- [ ] Service worker status is **activated**; update flow documented if you changed `sw.js`
+- [ ] Offline refresh loads shell or explicit offline page (not a blank error)
+- [ ] Lighthouse PWA section scored before **and** after (screenshot or CI artifact)
+- [ ] Release note maps each route to a caching strategy and why
+- [ ] B3 item 2 completed without AI assistance (declared)
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| SW never activates | Syntax error in `sw.js`; registration promise rejected | Check Console; fix register path (`/sw.js` at site root) |
+| Old assets after deploy | Cache name unchanged; no `activate` cleanup | Bump cache version; delete old caches in `activate` handler |
+| API data never updates | Cache-first on dynamic JSON | Switch route to network-first or stale-while-revalidate |
+| Install prompt missing | Invalid manifest, missing icons, or not HTTPS | Fix manifest errors in DevTools; test on localhost or HTTPS |
+| Offline = white screen | Shell not precached; only network routes | Precache `/`, CSS, JS, offline fallback HTML |
+| “Works in dev, not prod” | SW blocked on HTTP origin | Deploy with HTTPS |
+| Team lab blocked | No backlog issue | Use professor seed issue |
+
+---
+
+## Submit (Unit 4 evidence)
+
+- **Individual:** B3 answers + offline test notes (what broke, what you fixed)
+- **Team:** issue link, PR link, Lighthouse before/after, caching-strategy release note
 
 ---
 
@@ -108,8 +177,10 @@ A service worker is a JavaScript file that runs separately from your main thread
 
 ### Service Worker Lifecycle
 
+**Excerpt** — add `skipWaiting` / cache cleanup in `activate` when you iterate in lab:
+
 ```js
-// sw.js
+// sw.js — Excerpt
 self.addEventListener('install', (event) => {
   // Cache assets during install
   event.waitUntil(
@@ -136,8 +207,10 @@ self.addEventListener('fetch', (event) => {
 
 ### Registering a Service Worker
 
+**Excerpt** — call after page load; SW file must be served from site root scope:
+
 ```js
-// main.js
+// main.js — Excerpt
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
     .then((registration) => {
@@ -275,7 +348,7 @@ The manifest makes your app installable:
 
 **Time:** 2 hours
 
-1. **Create a simple Astro project** with a few pages
+1. **Use your team Astro project** from Units 2–3 (do not start a new repo)
 2. **Add a service worker** with cache-first strategy for static assets
 3. **Create a web app manifest** with icons and display settings
 4. **Test offline functionality**:
@@ -320,16 +393,33 @@ This unit covers the **Desarrollo de PWA, funcionalidades offline** official CON
 
 > _"Deploy in haste, repent in downtime."_
 > — Tao of Development, `ops-001`
+{: .tao-development-quote }
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "✅ Session Outcome"
+  visual-grammar: "offline-resilience-path — a network request moving between online, cached, stale, and recoverable offline states"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ## B1 · Lección magistral — 1 h
 
 **Claim:** offline-first is an architectural decision made before the network fails, not a fallback bolted on after the fact.
 
+An educational-systems architecture study lists "connectivity independent" as a first-class requirement, met by service workers, alongside a stated distinction between features that must survive offline (points, badges, progress tracking) and features that legitimately require connectivity (leaderboards, social interaction) — "enhanced with service workers to function offline or on low-quality networks" (Fibrian et al. 2026, 2).
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 An educational-systems architecture study lists "connectivity independent" as a first-class requirement, met by service workers, alongside a stated distinction between features that must survive offline (points, badges, progress tracking) and features that legitimately require connectivity (leaderboards, social interaction) — "enhanced with service workers to function offline or on low-quality networks" (Fibrian et al. 2026, 2 — Ahmes coat `483a966a`, node `00b4388d-211a-5715-8504-64973d1a8eb7`).
+-->
+{% endif %}
 
 **Read this citation carefully.** The source is a study of a *gamified learning system's* software architecture, not a study of how to teach front-end development. It grounds the vocabulary and design requirement — which features can degrade gracefully, which cannot — never the claim that this unit's teaching sequence works pedagogically.
 
-**Declared gap:** the grounding matrix names an HE precedent (Case 2020) for offline-failure-mode pedagogy that is **not yet in the vault** — it is not cited here, and no substitute is offered. No source establishes that this unit's PWA/offline teaching sequence produces measurably better learning outcomes than an alternative.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+**Evidence update (2026-08-23):** Fibrian et al. is now confirmed evaluator-safe in Ahmes for offline-first architecture, service workers, caching, UI trade-offs, and prototype limits. A separate 2026 school study is retained as a web-only research lead in the dated FE II gap-pass record in the research repository copy, not as a student-facing Ahmes citation. The HE precedent named in the matrix (Case 2020) remains outside the vault. **No source establishes that this unit's PWA/offline teaching sequence produces measurably better learning outcomes than an alternative.**
+-->
+{% endif %}
 
 **Speaker outline:** see `deck-outline.md`.
 
@@ -351,8 +441,17 @@ Evidence: branch, PR, Lighthouse score delta, AI accept/reject log row if AI ass
 
 Professor answer sketches belong in the instructor copy, not the public handout. These exercises are intentionally decontextualised from the team's product.
 
-## Provenance and evidence gate
+## References
 
-- Fibrian, I. D., Utomo, T. P., Lukmana, I. &amp; Muttaqin, Z. (2026). *Architectural Consideration for Gamified Learning Systems: An Exploration of Offline-First Progressive Web Application.* Register: Jurnal Ilmiah Teknologi Sistem Informasi 11(2), 139–150. `10.26594/register.v11i2.5087`. Ahmes coat `483a966a`, node `00b4388d-211a-5715-8504-64973d1a8eb7`, p.2. Resolved via `ahmes query --cite`, `evaluator_safe=yes`.
-  <!-- provenance: located by grep over extract/index.md for "enhanced with service workers" inside coat 483a966a (matrix-named as the adjacent architecture coat for Unit 4), node/page resolved via sqlite3 join fission_node × anchor_spatial, cite confirmed via `ahmes query --cite <db>:<node_id> --require-evaluator-safe` -->
-- **Missing evidence:** this unit does not establish that teaching offline-first PWA architecture produces measurably better learning outcomes for front-end students than an alternative sequence. The cited source studies a learning system's own offline-first design, not the teaching of that design — the pedagogy gap named in the FE II grounding matrix row for Unit 4 stays open. The HE precedent named in the matrix (Case 2020) remains outside the vault and is not cited.
+- Fibrian, I. D., T. P. Utomo, I. Lukmana, and Z. Muttaqin. 2026. “Architectural Consideration for Gamified Learning Systems: An Exploration of Offline-First Progressive Web Application.” *Register: Jurnal Ilmiah Teknologi Sistem Informasi* 11 (2): 139–150. https://doi.org/10.26594/register.v11i2.5087.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+- Fibrian, I. D., Utomo, T. P., Lukmana, I. &amp; Muttaqin, Z. (2026). *Architectural Consideration for Gamified Learning Systems: An Exploration of Offline-First Progressive Web Application.* Register: Jurnal Ilmiah Teknologi Sistem Informasi 11(2), 139–150. `10.26594/register.v11i2.5087`. Ahmes coat `483a966a`, node `00b4388d-211a-5715-8504-64973d1a8eb7`, p.2. Resolved via `ahmes query &#45;&#45;cite`, `evaluator_safe=yes`.
+-->
+{% endif %}
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+located by grep over extract/index.md for "enhanced with service workers" inside coat 483a966a (matrix-named as the adjacent architecture coat for Unit 4), node/page resolved via sqlite3 join fission_node × anchor_spatial, cite confirmed via `ahmes query &#45;&#45;cite <db>:<node_id> &#45;&#45;require-evaluator-safe`
+-->
+{% endif %}
+- **Remaining evidence boundary:** this unit does not establish that teaching offline-first PWA architecture produces measurably better learning outcomes for front-end students than an alternative sequence. The cited source studies a learning system's own offline-first design; the unit therefore remains a failure-mode teaching pilot with process traces and verification tests.

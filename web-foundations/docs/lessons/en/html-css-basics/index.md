@@ -9,6 +9,14 @@ lang: en
 permalink: /lessons/en/html-css-basics/
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Semantics are the interface's durable contract.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** semantic structure and accessibility belong in the substrate. **Frontier signal:** platform-first teaching resists hiding the document contract behind frameworks.</p>
+</aside>
+
+> **Studio test:** Inspect the page with a keyboard and with JavaScript disabled.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -18,6 +26,62 @@ permalink: /lessons/en/html-css-basics/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Session 2 complete (repo + GitHub Pages URL) | Yes |
+| VS Code + Live Server | Yes |
+| `index.html` + `assets/css/index.css` from template | Yes |
+
+**Official time:** 3 h class + 1.5 h lab (90 min core activities below + extension time).
+
+---
+
+## Follow this path
+
+| Step | Action | Section |
+| --- | --- | --- |
+| 1 | Inspect template structure in DevTools | Explore and Observe |
+| 2 | Build semantic sections (header → footer) | Intervene: Semantic Landing |
+| 3 | Apply CSS fundamentals in `index.css` | CSS Styles |
+| 4 | Add ATELIER reflection comment | Reflection |
+| 5 | Commit + push | Deliverable |
+
+---
+
+## Verify before you leave
+
+- [ ] One `<main>`; sections use `<section>` / `<article>` where appropriate
+- [ ] Keyboard can reach all nav links and form controls
+- [ ] Page is readable with CSS enabled (visual hierarchy visible)
+- [ ] ATELIER reflection comment present in `index.html`
+- [ ] Commit pushed to GitHub; Pages still loads
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| Everything in `<div>` soup | Skipped semantic tags | Use `<header>`, `<main>`, `<section>`, `<footer>` |
+| Nav links jump but no target | Missing `id` on sections | Match `href="#about"` to `id="about"` |
+| Styles not applying | Wrong CSS path or not linked | `<link rel="stylesheet" href="assets/css/index.css">` |
+| Live Server shows old file | Cache or wrong folder open | Open repo root; hard refresh |
+| Copilot adds non-semantic markup | Accepted suggestion blindly | Re-read Critical Note; fix tags manually |
+
+---
+
+## Submit (Session 3 evidence)
+
+- GitHub repo URL + Pages URL
+- Commit message documents semantic landing work
+- Optional: screenshot of DevTools accessibility tree
+
+---
 
 ## ⏰ Estimated Duration
 
@@ -269,3 +333,10 @@ git add index.html assets/css/index.css
 git commit -m "Populate semantic landing page with CSS fundamentals"
 git push
 ```
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "✅ Deliverable"
+  visual-grammar: "semantic-interface-contract — semantic content layers becoming a durable styled interface contract"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}

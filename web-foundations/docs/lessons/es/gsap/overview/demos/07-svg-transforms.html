@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 - SVG Transforms</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #fafafa;
+      padding: 2rem;
+    }
+    
+    .container {
+      text-align: center;
+      max-width: 1000px;
+    }
+    
+    h1 {
+      font-size: 1rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 3rem;
+    }
+    
+    .svg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .svg-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .svg-item h3 {
+      font-size: 0.875rem;
+      color: #666;
+      font-weight: 400;
+    }
+    
+    .svg-item svg {
+      width: 120px;
+      height: 120px;
+    }
+    
+    /* Shape styles */
+    .shape {
+      fill: #3b82f6;
+      cursor: pointer;
+      transition: filter 0.3s;
+    }
+    
+    .shape:hover {
+      filter: brightness(1.2);
+    }
+    
+    .shape-stroke {
+      fill: none;
+      stroke: #8b5cf6;
+      stroke-width: 3;
+    }
+    
+    .shape-gradient {
+      fill: url(#gradient1);
+    }
+    
+    .controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: #3b82f6;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+    
+    /* Code panel */
+    .code-panel {
+      margin-top: 3rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: left;
+    }
+    
+    .code-panel pre {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: #a0a0a0;
+      overflow-x: auto;
+    }
+    
+    .code-panel .comment { color: #6a737d; }
+    .code-panel .string { color: #a5d6ff; }
+    .code-panel .number { color: #79c0ff; }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .shape {
+        animation: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SVG Transform Animations</h1>
+    
+    <div class="svg-grid">
+      <!-- Scale -->
+      <div class="svg-item">
+        <h3>Scale</h3>
+        <svg viewBox="0 0 100 100">
+          <circle class="shape scale-shape" cx="50" cy="50" r="30"/>
+        </svg>
+      </div>
+      
+      <!-- Rotate -->
+      <div class="svg-item">
+        <h3>Rotate</h3>
+        <svg viewBox="0 0 100 100">
+          <rect class="shape rotate-shape" x="25" y="25" width="50" height="50" rx="4"/>
+        </svg>
+      </div>
+      
+      <!-- Translate -->
+      <div class="svg-item">
+        <h3>Translate</h3>
+        <svg viewBox="0 0 100 100">
+          <polygon class="shape translate-shape" points="50,15 85,85 15,85"/>
+        </svg>
+      </div>
+      
+      <!-- Combined -->
+      <div class="svg-item">
+        <h3>Combined</h3>
+        <svg viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#667eea"/>
+              <stop offset="100%" style="stop-color:#f093fb"/>
+            </linearGradient>
+          </defs>
+          <circle class="shape shape-gradient combined-shape" cx="50" cy="50" r="25"/>
+        </svg>
+      </div>
+      
+      <!-- Stroke animation -->
+      <div class="svg-item">
+        <h3>Stroke</h3>
+        <svg viewBox="0 0 100 100">
+          <circle class="shape-stroke stroke-shape" cx="50" cy="50" r="35"/>
+        </svg>
+      </div>
+      
+      <!-- Yoyo -->
+      <div class="svg-item">
+        <h3>Yoyo Loop</h3>
+        <svg viewBox="0 0 100 100">
+          <ellipse class="shape yoyo-shape" cx="50" cy="50" rx="35" ry="20"/>
+        </svg>
+      </div>
+    </div>
+    
+    <div class="controls">
+      <button class="btn" onclick="playAll()">Play All</button>
+      <button class="btn" onclick="resetAll()">Reset</button>
+    </div>
+    
+    <div class="code-panel">
+      <pre><span class="comment">// Basic SVG transforms with GSAP</span>
+gsap.to(<span class="string">'.circle'</span>, {
+  scale: <span class="number">1.5</span>,
+  rotation: <span class="number">360</span>,
+  transformOrigin: <span class="string">'50% 50%'</span>,  <span class="comment">// Center of element</span>
+  duration: <span class="number">2</span>,
+  ease: <span class="string">'elastic.out(1, 0.3)'</span>,
+  repeat: <span class="number">-1</span>,       <span class="comment">// Infinite loop</span>
+  yoyo: <span class="number">true</span>        <span class="comment">// Play forward then backward</span>
+});</pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Store all animations for control
+    let animations = [];
+    
+    function playAll() {
+      if (prefersReducedMotion) return;
+      
+      // Kill existing animations
+      animations.forEach(anim => anim.kill());
+      animations = [];
+      
+      // Scale animation
+      animations.push(
+        gsap.to('.scale-shape', {
+          scale: 1.4,
+          duration: 1,
+          ease: 'elastic.out(1, 0.3)',
+          repeat: -1,
+          yoyo: true,
+          transformOrigin: '50% 50%'
+        })
+      );
+      
+      // Rotate animation
+      animations.push(
+        gsap.to('.rotate-shape', {
+          rotation: 360,
+          duration: 2,
+          ease: 'power1.inOut',
+          repeat: -1,
+          transformOrigin: '50% 50%'
+        })
+      );
+      
+      // Translate animation
+      animations.push(
+        gsap.to('.translate-shape', {
+          y: -15,
+          duration: 0.8,
+          ease: 'power2.inOut',
+          repeat: -1,
+          yoyo: true
+        })
+      );
+      
+      // Combined animation
+      const combinedTl = gsap.timeline({ repeat: -1 });
+      combinedTl
+        .to('.combined-shape', {
+          scale: 1.3,
+          duration: 0.5,
+          ease: 'power2.out',
+          transformOrigin: '50% 50%'
+        })
+        .to('.combined-shape', {
+          rotation: 180,
+          duration: 0.8,
+          ease: 'power2.inOut',
+          transformOrigin: '50% 50%'
+        })
+        .to('.combined-shape', {
+          scale: 1,
+          rotation: 360,
+          duration: 0.5,
+          ease: 'power2.in',
+          transformOrigin: '50% 50%'
+        });
+      animations.push(combinedTl);
+      
+      // Stroke animation
+      const strokePath = document.querySelector('.stroke-shape');
+      const length = strokePath.getTotalLength ? strokePath.getTotalLength() : 220;
+      
+      gsap.set(strokePath, {
+        strokeDasharray: length,
+        strokeDashoffset: length
+      });
+      
+      animations.push(
+        gsap.to('.stroke-shape', {
+          strokeDashoffset: 0,
+          duration: 2,
+          ease: 'power2.inOut',
+          repeat: -1,
+          yoyo: true
+        })
+      );
+      
+      // Yoyo shape
+      animations.push(
+        gsap.to('.yoyo-shape', {
+          scaleX: 0.6,
+          scaleY: 1.4,
+          duration: 0.6,
+          ease: 'power2.inOut',
+          repeat: -1,
+          yoyo: true,
+          transformOrigin: '50% 50%'
+        })
+      );
+    }
+    
+    function resetAll() {
+      animations.forEach(anim => anim.kill());
+      animations = [];
+      
+      gsap.set(['.scale-shape', '.rotate-shape', '.translate-shape', '.combined-shape', '.yoyo-shape'], {
+        scale: 1,
+        rotation: 0,
+        x: 0,
+        y: 0,
+        scaleX: 1,
+        scaleY: 1
+      });
+      
+      gsap.set('.stroke-shape', {
+        strokeDashoffset: 0
+      });
+    }
+    
+    // Click individual shapes to animate
+    document.querySelectorAll('.svg-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const shape = item.querySelector('.shape, .shape-stroke');
+        if (!shape || prefersReducedMotion) return;
+        
+        gsap.to(shape, {
+          scale: 1.2,
+          duration: 0.2,
+          yoyo: true,
+          repeat: 1,
+          transformOrigin: '50% 50%'
+        });
+      });
+    });
+    
+    // Auto-play on load
+    if (!prefersReducedMotion) {
+      setTimeout(playAll, 500);
+    }
+  </script>
+</body>
+</html>

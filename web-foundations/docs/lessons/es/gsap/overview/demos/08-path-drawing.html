@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 - SVG Path Drawing</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+    }
+    
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-size: 1rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 3rem;
+    }
+    
+    .svg-container {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .demo-item h2 {
+      font-size: 0.875rem;
+      color: #666;
+      font-weight: 400;
+    }
+    
+    svg {
+      overflow: visible;
+    }
+    
+    .logo-path {
+      stroke: #fafafa;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    
+    .signature-path {
+      stroke: #3b82f6;
+      stroke-width: 2;
+      stroke-linecap: round;
+      fill: none;
+    }
+    
+    .geometric-path {
+      stroke: #f59e0b;
+      stroke-width: 2;
+      fill: none;
+    }
+    
+    .controls {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    
+    .btn {
+      padding: 0.875rem 1.75rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: #3b82f6;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+    
+    /* Code panel */
+    .code-panel {
+      margin-top: 4rem;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: left;
+      max-width: 550px;
+    }
+    
+    .code-panel pre {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: #a0a0a0;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+    
+    .code-panel .comment { color: #6a737d; }
+    .code-panel .keyword { color: #ff7b72; }
+    .code-panel .string { color: #a5d6ff; }
+    .code-panel .number { color: #79c0ff; }
+    .code-panel .function { color: #d2a8ff; }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .logo-path, .signature-path, .geometric-path {
+        stroke-dashoffset: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SVG Path Drawing Animation</h1>
+    
+    <div class="svg-container">
+      <!-- Simple wave path -->
+      <div class="demo-item">
+        <h2>Wave Path</h2>
+        <svg viewBox="0 0 400 100" width="400" height="100">
+          <path class="logo-path wave-path" 
+                d="M 20 50 Q 70 10 120 50 T 220 50 T 320 50 T 380 50"/>
+        </svg>
+      </div>
+      
+      <!-- Signature style -->
+      <div class="demo-item">
+        <h2>Signature Style</h2>
+        <svg viewBox="0 0 300 100" width="300" height="100">
+          <path class="signature-path" 
+                d="M 20 80 C 40 20 60 20 80 50 S 120 80 140 50 C 160 20 180 30 200 50 Q 220 70 240 50 L 280 50"/>
+        </svg>
+      </div>
+      
+      <!-- Geometric shape -->
+      <div class="demo-item">
+        <h2>Geometric Logo</h2>
+        <svg viewBox="0 0 200 200" width="200" height="200">
+          <path class="geometric-path geo-1" d="M 100 20 L 180 80 L 150 170 L 50 170 L 20 80 Z"/>
+          <path class="geometric-path geo-2" d="M 100 50 L 140 90 L 120 140 L 80 140 L 60 90 Z"/>
+          <circle class="geometric-path geo-3" cx="100" cy="100" r="15"/>
+        </svg>
+      </div>
+      
+      <!-- Text path -->
+      <div class="demo-item">
+        <h2>Letter Drawing</h2>
+        <svg viewBox="0 0 300 120" width="300" height="120">
+          <!-- Letter G -->
+          <path class="logo-path letter-g" 
+                d="M 80 30 C 30 30 20 60 20 70 C 20 100 50 110 80 110 C 110 110 120 90 120 70 L 80 70"/>
+          <!-- Letter S -->
+          <path class="logo-path letter-s" 
+                d="M 180 35 C 150 30 130 45 130 55 C 130 70 160 75 170 80 C 185 88 185 105 160 110 C 140 115 125 105 125 105"/>
+          <!-- Letter A -->
+          <path class="logo-path letter-a" 
+                d="M 200 110 L 230 30 L 260 110 M 210 80 L 250 80"/>
+          <!-- Letter P -->
+          <path class="logo-path letter-p" 
+                d="M 275 110 L 275 30 C 275 30 310 30 310 55 C 310 75 275 75 275 75"/>
+        </svg>
+      </div>
+    </div>
+    
+    <div class="controls">
+      <button class="btn" onclick="replayAll()">Replay All</button>
+    </div>
+    
+    <div class="code-panel">
+      <pre><span class="comment">// Get the total length of the path</span>
+<span class="keyword">const</span> path = document.<span class="function">querySelector</span>(<span class="string">'.logo-path'</span>);
+<span class="keyword">const</span> length = path.<span class="function">getTotalLength</span>();
+
+<span class="comment">// Set up the starting state</span>
+gsap.<span class="function">set</span>(path, {
+  strokeDasharray: length,
+  strokeDashoffset: length
+});
+
+<span class="comment">// Animate the drawing</span>
+gsap.<span class="function">to</span>(path, {
+  strokeDashoffset: <span class="number">0</span>,
+  duration: <span class="number">2</span>,
+  ease: <span class="string">'power2.inOut'</span>
+});</pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Setup path for drawing animation
+    function setupPath(path) {
+      const length = path.getTotalLength();
+      gsap.set(path, {
+        strokeDasharray: length,
+        strokeDashoffset: length
+      });
+      return length;
+    }
+    
+    // Animate a single path
+    function drawPath(path, duration = 2, delay = 0, ease = 'power2.inOut') {
+      if (prefersReducedMotion) {
+        gsap.set(path, { strokeDashoffset: 0 });
+        return;
+      }
+      
+      const length = setupPath(path);
+      
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        duration: duration,
+        delay: delay,
+        ease: ease
+      });
+    }
+    
+    // Animate all paths
+    function animateAll() {
+      // Wave path
+      drawPath(document.querySelector('.wave-path'), 1.5, 0);
+      
+      // Signature
+      drawPath(document.querySelector('.signature-path'), 2, 0.3, 'power1.inOut');
+      
+      // Geometric - staggered
+      const geoPaths = document.querySelectorAll('.geometric-path');
+      geoPaths.forEach((path, i) => {
+        drawPath(path, 1, 0.5 + (i * 0.3), 'power2.out');
+      });
+      
+      // Letters - sequential
+      const letters = ['.letter-g', '.letter-s', '.letter-a', '.letter-p'];
+      letters.forEach((selector, i) => {
+        const path = document.querySelector(selector);
+        if (path) {
+          drawPath(path, 0.8, 1.5 + (i * 0.2), 'power1.inOut');
+        }
+      });
+    }
+    
+    // Replay all animations
+    function replayAll() {
+      // Reset all paths
+      document.querySelectorAll('.logo-path, .signature-path, .geometric-path').forEach(path => {
+        const length = path.getTotalLength();
+        gsap.set(path, {
+          strokeDasharray: length,
+          strokeDashoffset: length
+        });
+      });
+      
+      // Replay
+      setTimeout(animateAll, 100);
+    }
+    
+    // Initialize
+    animateAll();
+  </script>
+</body>
+</html>

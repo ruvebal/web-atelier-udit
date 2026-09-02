@@ -18,8 +18,8 @@ consolidated into one doc, so any future forge tooling that expects
 `teaching-packs/*.md` shaped input works identically for both courses.
 
 **Two semesters, 20 units.** S1 = vanilla JS/CSS/Tailwind track ending in
-a portfolio capstone. S2 = React track ending in the geo-physical-
-aggregator capstone. Exam events are folded into the pack of the
+a portfolio capstone. S2 = React track ending in an individual React
+capstone. Exam events are folded into the pack of the
 deliverable they test, not split into separate files — an exam isn't a
 2-hour taught unit with its own live URL the way the lessons are.
 

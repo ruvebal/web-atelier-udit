@@ -11,6 +11,14 @@ tags: [javascript, dom, security, history, pedagogy]
 description: 'A critical, practice-oriented overview of DOM manipulation approaches: template strings, native DOM APIs, <template>, and the Virtual DOM — with history, caveats, and exercises.'
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Rendering is a trust boundary.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** DOM APIs, templates, text insertion, and XSS awareness. **Frontier signal:** component and virtual-DOM abstractions do not remove security or accessibility responsibility.</p>
+</aside>
+
+> **Studio test:** Compare string, native, and template rendering with untrusted input.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -19,6 +27,71 @@ description: 'A critical, practice-oriented overview of DOM manipulation approac
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## For / Not for
+
+**For:** Front-End I **Session 8** — compare string, native DOM, and `<template>` rendering on your repo; practice XSS-safe updates.
+
+**Not for:** React/Virtual DOM implementation (conceptual bridge only), or npm build tooling (Session 10+).
+
+**When you finish this session you will have:** the same UI fragment rendered two ways (string vs API/template), a documented XSS caveat, and a commit.
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Session 7 complete (`main.js` + events working) | Yes |
+| Portfolio repo with semantic HTML | Yes |
+| Sample untrusted string for XSS demo (e.g. `<img onerror=…>`) | Provided in lesson |
+
+**Official time:** 3 h class + 1 h lab.
+
+---
+
+## Follow this path
+
+| Step | Action | Section |
+| --- | --- | --- |
+| 1 | Skim history — why `innerHTML` became common and risky | Short History |
+| 2 | Render a card with template literals; note XSS risk | String-based |
+| 3 | Rebuild the same card with `createElement` + `textContent` | Native DOM API |
+| 4 | Optional: clone from `<template>` | HTML template |
+| 5 | Write ATELIER note: which approach you will default to | Reflection |
+| 6 | Commit | Submit below |
+
+---
+
+## Verify before you leave
+
+- [ ] Untrusted input demo fails safely with `textContent` (or sanitized path documented)
+- [ ] Same visual outcome achievable without `innerHTML` for user-supplied text
+- [ ] You can name one XSS vector and one mitigation from this session
+- [ ] Commit pushed
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| Script injection runs | `innerHTML` with user input | Use `textContent` or trusted sanitizer |
+| Empty node after append | Forgot `appendChild` or wrong parent | Log parent and child in Console |
+| Template inert | Cloning `<template>` without `.content` | `template.content.cloneNode(true)` |
+| Duplicate listeners | Re-rendering by re-attaching nodes | Update text only, or replace one container |
+| “Works in CodePen, not repo” | Different file paths or CSP | Match repo structure; check Console |
+
+---
+
+## Submit (Session 8 evidence)
+
+- Commit showing both rendering approaches (or template variant)
+- Short note: default pattern for your portfolio and why
+
+---
 
 ## 🎯 Learning Objectives
 
@@ -36,7 +109,7 @@ description: 'A critical, practice-oriented overview of DOM manipulation approac
 - 2000s: Browsers exposed `innerHTML` — string-based updates became common (fast but risky)
 - 2006: **jQuery** popularized ergonomic selection/events/manipulation
 - 2009–2012: Logic-in-strings templating (Mustache/Handlebars, Underscore templates)
-- 2013: **React** introduced the Virtual DOM and **JSX** (compiled to `createElement` calls)
+- 2013: **React** introduced the Virtual DOM and **[JSX](https://www.typescriptlang.org/docs/handbook/jsx.html)** (compiled to `createElement` calls)
 - 2014+: `<template>` element shipped; Web Components matured
 - 2018+: Tagged template libraries (lit-html, htm) refined string safety/ergonomics
 
@@ -494,7 +567,7 @@ Reflect: How does `<template>` improve readability and reusability?
 
 ### Exercise 4 — A Tiny Hyperscript Helper (React’s lineage)
 
-Goal: This is your first glimpse of how JSX (a popular JavaScript syntax used in React) actually turns into regular JavaScript function calls—like this simple `h()` helper. We'll see that what looks like HTML inside JavaScript is really just calling a function for each element!
+Goal: This is your first glimpse of how [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) (a popular JavaScript syntax used in React) actually turns into regular JavaScript function calls—like this simple `h()` helper. We'll see that what looks like HTML inside JavaScript is really just calling a function for each element!
 
 ```html
 <!-- demo/04-hyperscript.html -->
@@ -571,7 +644,7 @@ function App() {
 document.getElementById('app').appendChild(App());
 ```
 
-Reflect: JSX is syntactic sugar for calls like `h(type, props, ...children)`. React adds a Virtual DOM diff to update efficiently.
+Reflect: [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) is syntactic sugar for calls like `h(type, props, ...children)`. React adds a Virtual DOM diff to update efficiently.
 
 ---
 
@@ -614,6 +687,7 @@ Reflect: JSX is syntactic sugar for calls like `h(type, props, ...children)`. Re
 - MDN — HTML `<template>`
 - OWASP — Cross-Site Scripting (XSS)
 - Google — Trusted Types (advanced)
+- [TypeScript Handbook — JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) — language-level syntax reference (first read before React S18)
 - React docs — Rendering elements; JSX in depth
 - lit.dev — Lit and `html` tagged templates
 
@@ -625,3 +699,10 @@ Reflect: JSX is syntactic sugar for calls like `h(type, props, ...children)`. Re
 - Why React’s approach emerged from earlier techniques
 - How to avoid XSS and write secure UI code
 - How to choose the right tool for the job and evolve your codebase over time
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "✅ What You Should Now Understand"
+  visual-grammar: "rendering-trust-boundary — untrusted input crossing a guarded rendering boundary into a safe document surface"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}

@@ -27,9 +27,12 @@ tags: [ia, tao, filosofía, ética, artesanía, sabiduría]
 
 El capítulo completo — Juramento del artesano, Peso de los tokens, pacto del README, koans — se movió el **2026-08-13** a **The Tao of Development**, la base de sabiduría del estudio.
 
-Fuente canónica (pendiente de fusión en `ttod.yml`):
-
-`~/src/ttod/sources/tao-of-ai-development/`
+La fuente canónica permanece privada mientras está pendiente de fusión en `ttod.yml`.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+Ruta canónica: ~/src/ttod/sources/tao-of-ai-development/
+-->
+{% endif %}
 
 Hasta que las citas tengan ID de TTOD, las páginas docentes no deben volver a pegar el capítulo. Tras la fusión, citar solo por ID.
 

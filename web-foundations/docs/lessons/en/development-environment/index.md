@@ -9,6 +9,14 @@ lang: en
 permalink: /lessons/en/development-environment/
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> A professional interface is a reproducible system, not a personal folder.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** version control, readable setup, and repeatable workflows make change inspectable. **Frontier signal:** AI-assisted setup increases the need for provenance and verification.</p>
+</aside>
+
+> **Studio test:** Commit a reproducible setup and a short environment note.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -18,6 +26,73 @@ permalink: /lessons/en/development-environment/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Laptop with permission to install software | Yes |
+| GitHub account | Yes |
+| Completed Session 0 / orientation | Assumed |
+| Node.js | Optional (§8) |
+| ImageKit.io account | Optional (§7) |
+
+**Official time:** 2 h class + 1 h lab (see track index).
+
+---
+
+## Follow this path
+
+Do the **Required** steps in order. Skip **Optional** blocks until the required path works.
+
+| Step | What | Section |
+| --- | --- | --- |
+| 1 | Install VS Code + Live Server + GitLens | §1 below |
+| 2 | Install Git + set `user.name` / `user.email` | §2 below |
+| 3 | Scaffold from `student-project-template` → your repo | §3 (beginner path) |
+| 4 | Open project structure; edit title in `index.html` | §4 |
+| 5 | Preview with Live Server (`127.0.0.1:5500`) | §5 |
+| 6 | Commit, push, enable GitHub Pages | §6 |
+| 7 | Run the daily workflow once (pull → edit → commit → push) | Daily workflow |
+| 8 | Submit evidence | Submit below |
+
+**Optional (same week or later):** ImageKit CDN (§7) · Node/npm (§8) · WSL2 appendix · Homebrew appendix.
+
+---
+
+## Verify before you leave
+
+- [ ] `git --version` prints a version in your terminal
+- [ ] Live Server opens your `index.html` locally
+- [ ] GitHub Pages URL loads in a browser (may take 1–2 min after first enable)
+- [ ] `README.md` includes your Pages URL and how to run the project
+- [ ] Latest commit uses the course message format (see Submit)
+
+---
+
+## Common failures
+
+| What you see | Likely cause | What to do |
+| --- | --- | --- |
+| Pages shows 404 | Wrong branch or folder in repo Settings → Pages | Use `main` + `/ (root)` |
+| `git push` fails | Remote missing or auth | Check `git remote -v`; use HTTPS + PAT or SSH |
+| Live Server shows wrong site | Wrong folder opened in VS Code | File → Open Folder → your project root |
+| Repo huge / clone slow | Large binaries committed | Keep photos on CDN (§7); tiny assets only in Git |
+| Password invisible while typing Git | Normal terminal behaviour | Type anyway; nothing appears — that is expected |
+
+---
+
+## Submit (Session 1 evidence)
+
+```bash
+git commit -m "chore: environment set up · repo + index.html + pages live"
+```
+
+**Quick rubric (0–2):** **0** — no commit or Pages broken · **1** — commit present but README incomplete · **2** — commit + complete README + working Pages URL.
+
+---
 
 ## Objectives
 
@@ -272,9 +347,6 @@ Next actions:
 2. Go to the **Network** tab.
 3. Check **Disable Cache** to ensure the browser always loads the most recent version of your project.
 4. Watch changes in real time as you update your code.
-5. Open your project in VS Code.
-6. Right-click the `index.html` file and select **Open with Live Server**.
-7. Open the browser and navigate to `http://127.0.0.1:5500`.
 
 ---
 
@@ -445,6 +517,13 @@ Accessibility notes:
 
 6. **Check your site on GitHub Pages** (if enabled).
    - Make sure the changes are reflected correctly.
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Daily workflow"
+  visual-grammar: "reproducible-work-loop — a repeatable local edit, preview, commit, sync, and published-check loop"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

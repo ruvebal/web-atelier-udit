@@ -9,6 +9,14 @@ lang: es
 permalink: /lessons/es/linting-and-formatting/
 ---
 
+<aside class="lesson-framing" aria-label="Idea maestra y lente de campo">
+<p><strong>Idea maestra:</strong> Las herramientas de calidad codifican decisiones de equipo; no sustituyen el criterio.</p>
+<p><strong>Lente de campo:</strong> **Ancla de práctica:** formateo, linting y comprobaciones automáticas mejoran la legibilidad compartida. **Señal de frontera:** autofix y revisión con IA escalan comprobaciones y también la falsa confianza.</p>
+</aside>
+
+> **Prueba de estudio:** Rechaza o revisa una regla con una justificación escrita.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Tabla de Contenidos
@@ -17,6 +25,70 @@ permalink: /lessons/es/linting-and-formatting/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Para quién es / Para quién no
+
+**Para:** Front-End I **Sesión 10** — añadir Prettier + ESLint (y opcionalmente Stylelint/HTMLHint) a tu repo para formateo y comprobaciones básicas de JS.
+
+**No para:** imponer debates de estilo sin acuerdo, ni sustituir revisión humana por lint verde.
+
+**Al terminar esta sesión tendrás:** archivos de config en el repo, un fix de lint documentado y format-on-save (o script npm) funcionando.
+
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Sesión 9 completa (módulos ES) | Sí |
+| Node.js instalado | Sí |
+| VS Code con extensiones ESLint + Prettier | Recomendado |
+
+**Tiempo oficial:** 1,5 h de clase + 0,5 h de laboratorio.
+
+---
+
+## Sigue este camino
+
+| Paso | Acción | Sección |
+| --- | --- | --- |
+| 1 | Lee por qué formateo ≠ linting | Propósito (abajo) |
+| 2 | Elige Ruta A (solo VS Code) o B (npm) | Elige tu camino |
+| 3 | Añade `.editorconfig` + Prettier | Guía paso a paso |
+| 4 | Añade ESLint; corrige un warning con justificación | Prompts críticos |
+| 5 | Ejecuta format/lint antes del commit | Inicio rápido |
+| 6 | Commit | Entrega |
+
+---
+
+## Comprueba antes de salir
+
+- [ ] `npm run lint` o panel ESLint sin errores de config
+- [ ] Prettier formatea un archivo desordenado de forma consistente
+- [ ] Entiendes al menos una regla ESLint (no desactivada a ciegas)
+- [ ] Configs commiteadas; sin secretos
+- [ ] Commit subido
+
+---
+
+## Fallos frecuentes
+
+| Síntoma | Causa probable | Qué hacer |
+| --- | --- | --- |
+| ESLint vs Prettier en conflicto | Falta `eslint-config-prettier` | Instala el resolvedor de la guía |
+| No formatea al guardar | Formateador por defecto incorrecto | Prettier como formateador en VS Code |
+| `npm` no encontrado | Node no instalado | Instala Node LTS |
+| Miles de warnings | Lint sobre plantilla legacy | Lint solo `assets/js/` al principio |
+| Reglas todas desactivadas | Evitar aprender | Rehabilita; documenta una excepción |
+
+---
+
+## Entrega (evidencia Sesión 10)
+
+- Commit con `.prettierrc` / `eslint.config.*`
+- Nota: una regla que mantuviste, una que ajustaste y por qué
 
 ---
 

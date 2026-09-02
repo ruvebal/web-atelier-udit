@@ -236,7 +236,7 @@
    en: lessons/en/typography-color/index.md
   status:
    es: complete
-   en: stub
+   en: complete
 - slug: web-analysis
   title:
    es: Guía para el Análisis Web
@@ -290,6 +290,18 @@
   status:
    es: complete
    en: complete
+
+- slug: 404-hackathon
+  title:
+   en: 'Hackathon Challenge Brief: "404s to Mars"'
+  path:
+   en: /lessons/en/404/hackathon/
+  file:
+   en: lessons/en/404/hackathon/index.md
+  status:
+   en: complete
+  category: fei
+  tags: [hackathon, 404, semester-1, fei]
 
 - slug: responsive
   title:
@@ -787,6 +799,19 @@
   category: react
   type: overview
 
+- slug: astro
+  title:
+   en: 'Astro Teaching Sequence — Islands, SSR & Agentic Docs'
+  path:
+   en: /lessons/en/astro/
+  file:
+   en: lessons/en/astro/index.md
+  status:
+   en: draft
+  category: astro
+  type: overview
+  tags: [astro, curriculum, mcp, islands-architecture, feii]
+
 - slug: modern-fe-intro
   title:
    es: 'Filosofía y visión pedagógica: El Tao Developer'
@@ -1075,8 +1100,8 @@
 
 - slug: geophysical-aggregator-project
   title:
-   es: 'Proyecto Individual: Agregador Geofísico'
-   en: 'Individual Project: Geophysical Aggregator'
+   es: 'Proyecto capstone React individual'
+   en: 'Individual React Capstone Project'
   path:
    en: /lessons/en/react/geophysical-aggregator-project/
   file:
@@ -1084,7 +1109,21 @@
   status:
    en: draft
   category: react
-  tags: [react, react-router, declarative-mode, framework-mode, ssr, react-query, i18n, authentication, geophysics, public-api, deployment, individual-project]
+  tags:
+   [
+    react,
+    react-router,
+    declarative-mode,
+    framework-mode,
+    ssr,
+    react-query,
+    i18n,
+    authentication,
+    capstone,
+    public-api,
+    deployment,
+    individual-project,
+   ]
   week: 12
   phase: 4
   sprint: 13
@@ -1122,46 +1161,62 @@
   tags: [feii, curriculum, overview]
 - slug: feii-unit-1-kickoff
   title:
+   es: 'Unidad 1: Lanzamiento — De React FE I a arquitectura de producción'
    en: 'Unit 1: Kickoff — From FE I React to Production Architecture'
   path:
+   es: /lessons/es/feii/unit-1-kickoff/
    en: /lessons/en/feii/unit-1-kickoff/
   file:
+   es: lessons/es/feii/unit-1-kickoff/index.md
    en: lessons/en/feii/unit-1-kickoff/index.md
   status:
+   es: complete
    en: draft
   category: feii
   tags: [feii, kickoff, interface-layer, production-architecture]
 - slug: feii-unit-2-astro-fundamentals
   title:
+   es: 'Unidad 2: Astro meta-framework — Arquitectura de islas y SSR'
    en: 'Unit 2: Astro Meta-Framework — Islands Architecture & SSR'
   path:
+   es: /lessons/es/feii/unit-2-astro-fundamentals/
    en: /lessons/en/feii/unit-2-astro-fundamentals/
   file:
+   es: lessons/es/feii/unit-2-astro-fundamentals/index.md
    en: lessons/en/feii/unit-2-astro-fundamentals/index.md
   status:
+   es: complete
    en: draft
   category: feii
-  tags: [feii, astro, islands-architecture, ssr, meta-framework]
+  tags: [feii, astro, islands-architecture, ssr, meta-framework, mcp]
 - slug: feii-unit-3-astro-advanced
   title:
+   es: 'Unidad 3: Astro avanzado e integración multi-framework'
    en: 'Unit 3: Advanced Astro Architecture & Multi-Framework Integration'
   path:
+   es: /lessons/es/feii/unit-3-astro-advanced/
    en: /lessons/en/feii/unit-3-astro-advanced/
   file:
+   es: lessons/es/feii/unit-3-astro-advanced/index.md
    en: lessons/en/feii/unit-3-astro-advanced/index.md
   status:
-   en: draft
+   es: complete
+   en: complete
   category: feii
   tags: [feii, astro, content-collections, micro-frontends]
 - slug: feii-unit-4-pwa-offline
   title:
+   es: 'Unidad 4: PWA y capacidades offline'
    en: 'Unit 4: Progressive Web Apps & Offline Capabilities'
   path:
+   es: /lessons/es/feii/unit-4-pwa-offline/
    en: /lessons/en/feii/unit-4-pwa-offline/
   file:
+   es: lessons/es/feii/unit-4-pwa-offline/index.md
    en: lessons/en/feii/unit-4-pwa-offline/index.md
   status:
-   en: draft
+   es: complete
+   en: complete
   category: feii
   tags: [feii, pwa, service-workers, offline-first, caching]
 - slug: feii-unit-5-testing-strategy
@@ -1267,23 +1322,31 @@
 # ── UDIT course tracks ──
 - slug: fei
   title:
-   en: 'Front-End I — Desarrollo Web: Front-End I (Track)'
+   en: 'Desarrollo Web: Front-End I (Track)'
+   es: 'Desarrollo Web: Front-End I (Índice del curso)'
   path:
-   en: /tracks/fei/
+   en: /tracks/en/fei/
+   es: /tracks/fei/
   file:
    en: tracks/en/udit/2627-fei/index.md
+   es: tracks/es/udit/2627-fei/index.md
   status:
    en: complete
+   es: complete
   type: track
 - slug: feii-track
   title:
    en: 'Front-End II — Desarrollo Web: Front-End II (Track)'
+   es: 'Front-End II — Desarrollo Web: Front-End II (Índice del curso)'
   path:
-   en: /tracks/feii/
+   en: /tracks/en/feii/
+   es: /tracks/feii/
   file:
    en: tracks/en/udit/2627-feii/index.md
+   es: tracks/es/udit/2627-feii/index.md
   status:
    en: complete
+   es: complete
   type: track
 - slug: 3d-web-corpus
   title:

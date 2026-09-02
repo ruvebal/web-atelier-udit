@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 - Typewriter Text Effect</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #fafafa;
+    }
+    
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 800px;
+    }
+    
+    .typewriter-text {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      line-height: 1.5;
+      min-height: 3em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00ff88;
+      text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    }
+    
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.2em;
+      background: #00ff88;
+      margin-left: 2px;
+      animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    
+    .controls {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: transparent;
+      border: 2px solid #00ff88;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+    
+    .btn:hover {
+      background: #00ff88;
+      color: #0a0a0a;
+      transform: translateY(-2px);
+    }
+    
+    .speed-control {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .speed-slider {
+      width: 200px;
+      height: 4px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #333;
+      outline: none;
+      border-radius: 2px;
+    }
+    
+    .speed-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #00ff88;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    
+    .speed-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #00ff88;
+      cursor: pointer;
+      border-radius: 50%;
+      border: none;
+    }
+    
+    .code-panel {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      right: 2rem;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1.5rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.875rem;
+      color: #a0a0a0;
+      max-width: 600px;
+    }
+    
+    .code-panel code {
+      color: #00ff88;
+    }
+    
+    .code-panel .comment {
+      color: #6a737d;
+    }
+    
+    .code-panel .string {
+      color: #a5d6ff;
+    }
+    
+    .code-panel .number {
+      color: #79c0ff;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .cursor {
+        animation: none;
+      }
+      .typewriter-text {
+        color: #fafafa;
+        text-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="typewriter-text">
+      <span id="typewriter"></span>
+      <span class="cursor"></span>
+    </div>
+    
+    <div class="controls">
+      <button class="btn" onclick="typeMessage('Hello, GSAP!')">Simple Message</button>
+      <button class="btn" onclick="typeMessage('The quick brown fox jumps over the lazy dog.')">Pangram</button>
+      <button class="btn" onclick="typeMessage('Welcome to the world of web animation, where creativity meets technology.')">Complex Message</button>
+      <button class="btn" onclick="clearText()">Clear</button>
+    </div>
+    
+    <div class="speed-control">
+      <label>Speed:</label>
+      <input type="range" class="speed-slider" id="speedSlider" min="10" max="100" value="50">
+      <span id="speedValue">50ms</span>
+    </div>
+  </div>
+  
+  <div class="code-panel">
+    <span class="comment">// Typewriter effect with GSAP TextPlugin</span><br>
+    gsap.<code>to</code>(<span class="string">'#typewriter'</span>, {<br>
+    &nbsp;&nbsp;text: <span class="string">message</span>,<br>
+    &nbsp;&nbsp;duration: <span class="number">2</span>,<br>
+    &nbsp;&nbsp;ease: <span class="string">'none'</span>,<br>
+    &nbsp;&nbsp;onUpdate: <span class="string">updateCursor</span><br>
+    });
+  </div>
+
+  <!-- GSAP Core + TextPlugin -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+  
+  <script>
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    let currentTween = null;
+    let typingSpeed = 50;
+    
+    // Speed slider
+    const speedSlider = document.getElementById('speedSlider');
+    const speedValue = document.getElementById('speedValue');
+    
+    speedSlider.addEventListener('input', (e) => {
+      typingSpeed = parseInt(e.target.value);
+      speedValue.textContent = `${typingSpeed}ms`;
+    });
+    
+    function typeMessage(message) {
+      if (prefersReducedMotion || !window.gsap) {
+        // Fallback for reduced motion or no GSAP
+        document.getElementById('typewriter').textContent = message;
+        return;
+      }
+      
+      // Kill any existing animation
+      if (currentTween) {
+        currentTween.kill();
+      }
+      
+      // Calculate duration based on message length and speed
+      const duration = (message.length * typingSpeed) / 1000;
+      
+      // Create typewriter effect
+      currentTween = gsap.to('#typewriter', {
+        text: message,
+        duration: duration,
+        ease: 'none',
+        onStart: () => {
+          // Show cursor during typing
+          document.querySelector('.cursor').style.display = 'inline-block';
+        }
+      });
+    }
+    
+    function clearText() {
+      if (currentTween) {
+        currentTween.kill();
+      }
+      
+      if (window.gsap) {
+        gsap.to('#typewriter', {
+          text: '',
+          duration: 0.3,
+          ease: 'power2.in'
+        });
+      } else {
+        document.getElementById('typewriter').textContent = '';
+      }
+    }
+    
+    // Initial message
+    window.addEventListener('load', () => {
+      typeMessage('Hello, GSAP!');
+    });
+  </script>
+</body>
+</html>

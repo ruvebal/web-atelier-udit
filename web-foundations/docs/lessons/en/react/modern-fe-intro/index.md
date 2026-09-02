@@ -14,6 +14,14 @@ permalink: /lessons/en/react/modern-fe-intro/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Tools should enlarge judgment, not replace it.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** durable core versus volatile layer is a useful curriculum spine. **Frontier signal:** AI coding creates a performance–learning tension and a Domain Mastery/Tool Mastery split.</p>
+</aside>
+>
+> **Studio test:** Label each activity as domain learning, tool learning, or both.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -1267,6 +1275,13 @@ For each major technical decision, document:
 ### Relevant Principles (ACM Code of Ethics)
 [Which principles apply?]
 ```
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Critical Research and Reflection"
+  visual-grammar: "tool-judgment-compass — competing tool directions held around a stable centre of human judgment"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

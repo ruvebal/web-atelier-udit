@@ -18,9 +18,17 @@ tags:
     runtime-optimization,
     web-performance,
   ]
-status: draft
+status: complete
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Performance engineering chooses what work to do, where, and when.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** budgets, measurement, loading strategy, and runtime diagnosis. **Frontier signal:** islands, resumability, edge delivery, and adaptive work scheduling are active. **Pedagogy gap:** current evidence supports the primitives, not this sequence.</p>
+</aside>
+>
+> **Studio test:** Compare a baseline with one intervention and report the cost.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -34,6 +42,7 @@ status: draft
 
 > _"The student said: 'My images look beautiful!' The master checked the Network tab and said: 'Your users have left before seeing them.'"_
 > — Tao of Development, `img-051`
+{: .tao-development-quote }
 
 > **AI Assistance Disclosure:** This unit integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout the process.
 
@@ -211,6 +220,7 @@ const observer = new IntersectionObserver((entries) => {
 
 > _"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."_
 > — Tao of Development, `cc-007`
+{: .tao-development-quote }
 
 ### Why a budget, and not just a score
 
@@ -234,14 +244,25 @@ Performance asks it about energy. Accessibility asks it about exclusion. **Same 
 
 ### A real measurement — narrow, but real
 
-Since the last pass on this page, one genuine empirical (not merely normative) source has resolved in this course's citation library: **Mahoney, Terras, Lee & Zeller (2025), "The growing environmental impact of COP websites,"** *PLOS Climate*, DOI [`10.1371/journal.pclm.0000767`](https://doi.org/10.1371/journal.pclm.0000767) — Ahmes node `0e9f7882-ac52-57c3-bbec-b745ab2987f0`, p.1, `(Mahoney 2025, 1)`, `evaluator_safe=yes` (confidence 0.95, crossref-verified, re-checked live this session). <!-- provenance: coat 03bab1df; ahmes query --cite --require-evaluator-safe run live this session against the extraction.db, exit 0; matrix's own row 7 previously flagged this coat "[BIBLIO-GAP] until host-title fix" — that fix has since landed (host_registry_match: true), a genuine pipeline-lag closure, not forced this session -->
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+Since the last pass on this page, one genuine empirical (not merely normative) source has resolved in this course's citation library: **Mahoney, Terras, Lee & Zeller (2025), "The growing environmental impact of COP websites,"** *PLOS Climate*, DOI [`10.1371/journal.pclm.0000767`](https://doi.org/10.1371/journal.pclm.0000767) — Ahmes node `0e9f7882-ac52-57c3-bbec-b745ab2987f0`, p.1, `(Mahoney 2025, 1)`, `evaluator_safe=yes` (confidence 0.95, crossref-verified, re-checked live this session). <!&#45;&#45; provenance: coat 03bab1df; ahmes query &#45;&#45;cite &#45;&#45;require-evaluator-safe run live this session against the extraction.db, exit 0; matrix's own row 7 previously flagged this coat "[BIBLIO-GAP] until host-title fix" — that fix has since landed (host_registry_match: true), a genuine pipeline-lag closure, not forced this session
+-->
+{% endif %}
 
 The study archived every UNFCCC COP host-country website from COP1 (1995) to COP30 (2025) via the Internet Archive's Wayback Machine and measured page weight against modelled emissions. The real, unflattering numbers, quoted rather than summarised away:
 
 > _"Our analysis reveals an exponential increase in website size, with average emissions rising over 13,000%, and many recent COP pages emitting roughly ten times the global average of approximately 0.36g of CO₂e per pageview. In-session participant homepage views drove emissions up by 83,400%, from 0.14 kg of CO₂e at COP3 (1997)… to 116.85 kg of CO₂e at COP29 (2024)… This dramatic growth is largely driven by richer media content and scripts."_
-> <!-- provenance: same coat, same node 0e9f7882-ac52-57c3-bbec-b745ab2987f0, p.1 (abstract); ahmes query --cite re-confirmed evaluator_safe=yes live -->
+>
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+> <!&#45;&#45; provenance: same coat, same node 0e9f7882-ac52-57c3-bbec-b745ab2987f0, p.1 (abstract); ahmes query &#45;&#45;cite re-confirmed evaluator_safe=yes live
+-->
+{% endif %}
 
-**What this does and does not license.** This is a real, quantified page-weight-to-emissions relationship — the first of its kind in this course's corpus — and its own stated driver ("richer media content and scripts") is precisely the bundle/asset discipline this unit teaches. It does **not** license a general "front-end performance work reduces carbon" law: the dataset is one institution's websites over 30 years, not a controlled study of optimisation technique, and the study measures *outcome* (page weight → modelled emissions), not *which engineering practices* caused which website to grow. Cite the COP figures as a real-world stakes example, not as proof that this unit's specific techniques (code splitting, tree shaking, image optimisation) have been measured to reduce emissions by any amount.
+(Mahoney et al. 2025, 1)
+
+**What this does and does not license.** This is a real, quantified page-weight-to-emissions relationship — the first such study used in this course — and its own stated driver ("richer media content and scripts") is precisely the bundle/asset discipline this unit teaches. It does **not** license a general "front-end performance work reduces carbon" law: the dataset is one institution's websites over 30 years, not a controlled study of optimisation technique, and the study measures *outcome* (page weight → modelled emissions), not *which engineering practices* caused which website to grow. Cite the COP figures as a real-world stakes example, not as proof that this unit's specific techniques (code splitting, tree shaking, image optimisation) have been measured to reduce emissions by any amount.
 
 ### Setting Budgets — Excerpt
 
@@ -324,16 +345,18 @@ Professor expected-answer sketch: kept in `exercises.md`, not this page.
 - **Bundle Analysis** — https://bundlephobia.com/
 - **Chrome DevTools Performance** — https://developer.chrome.com/docs/devtools/performance/
 
-**The "who pays" argument** — for the ethics framing above, and for your oral defence
-
-- Fisseler, B. (2024). *Digital Accessibility Literacy: A Conceptual Framework for Training on Digital Accessibility.* ASSETS 2024 Workshop, Teaching Accessibility in Different Disciplines. — Accessibility literacy as **encoding *and* decoding**, which "improves technical skills and instills ethical and social responsibility." Cites Lewthwaite and Sloan on accessibility as "a socio-technical challenge that is primarily about the problem of teaching empathy," and reports that **only ~15% of surveyed computing teachers actually teach digital accessibility** — the gap this course is trying not to reproduce.
-- Correa, M., Vitoriano, M. A., & Llanos, C. H. (2025). *Web Accessibility in an Academic Management System in Brazil.* Informatics, 12(3), 63. — SIGAA, in use at **39 higher-education institutions**, still shows accessibility gaps *"even after 20 years of eMAG"*, evidenced through living-lab testing with visually impaired students. Standards do not enforce themselves; someone has to build to them, which is the point of the budget.
-- Batista, H. E. N., & Baluz, R. A. R. S. (2025). *Evaluation of Higher Education Institution Websites According to WCAG 2.1 — Brazil.* iSys, 18(1). — Recurring failures across university sites are **missing alternative text and inadequate contrast**: cheap to fix, routinely unfixed.
-- ACM/IEEE-CS/AAAI (2023). *Computer Science Curricula 2023.* DOI: [`10.1145/3664191`](https://doi.org/10.1145/3664191) — curricular standing for treating accessibility and web platforms as core rather than elective.
-- **UNESCO (2021). *Recommendation on the Ethics of Artificial Intelligence.*** — the normative basis for the "who pays" framing above. Read §§ on environmental impact assessment and resource-efficient methods; note that it obliges rather than measures.
+**The “who pays” argument** — the research and normative sources cited above are listed in the final References section.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 - **Mahoney, D., Terras, M., Lee, J., & Zeller, F. (2025). *The growing environmental impact of COP websites: An analysis of UNFCCC COP host country websites (1995–2025).*** PLOS Climate. DOI: [`10.1371/journal.pclm.0000767`](https://doi.org/10.1371/journal.pclm.0000767) — Ahmes node `0e9f7882-ac52-57c3-bbec-b745ab2987f0`, p.1, `evaluator_safe=yes`. The **real, measured** page-weight-to-emissions example behind the "narrow, but real" subsection above; scope stays one institution's websites, not a general claim.
+-->
+{% endif %}
 
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 **Missing evidence — stated plainly, per this course's own discipline.** Performance-engineering *pedagogy* (which teaching sequence best develops budget discipline) remains `[UNVERIFIED-GAP]` — nothing in this course's corpus validates that this unit's specific sequence teaches performance judgement better than an alternative. Phung `ea8cf54c` is named in the evidence matrix as adjacent grounding for "optimisation never demanded" but is **not currently cited anywhere in this unit's or Unit 5's published text** — flagged here as an inconsistency between the matrix and the published pages, not fixed in this pass (out of this wave's two-unit scope). UNESCO grounds an *obligation*, not a measurement. Mahoney et al. (2025) grounds one *real, quantified* page-weight-to-carbon relationship, scoped to one dataset. None of the three is evidence that this specific 12-slide, 2-hour sequence produces better performance judgement in students than any other sequence would.
+-->
+{% endif %}
 
 ---
 
@@ -354,3 +377,20 @@ This unit covers the **Optimización de rendimiento** official CONTENIDOS requir
 
 > _"The master writes `<img srcset="…" sizes="…" />`. The novice writes `<img src="huge-image.jpg" />`. The user pays the price."_
 > — Tao of Development, `img-045`
+{: .tao-development-quote }
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "✅ Session Outcome"
+  visual-grammar: "scheduled-performance-work — browser work redistributed across time until interaction and rendering fit a defended budget"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
+
+## References
+
+- ACM, IEEE Computer Society, and AAAI. 2023. *Computer Science Curricula 2023*. https://doi.org/10.1145/3664191.
+- Batista, H. E. N., and R. A. R. S. Baluz. 2025. “Evaluation of Higher Education Institution Websites According to WCAG 2.1—Brazil.” *iSys* 18 (1).
+- Correa, M., M. A. Vitoriano, and C. H. Llanos. 2025. “Web Accessibility in an Academic Management System in Brazil.” *Informatics* 12 (3): 63.
+- Fisseler, B. 2024. “Digital Accessibility Literacy: A Conceptual Framework for Training on Digital Accessibility.” In *Teaching Accessibility in Different Disciplines: ASSETS 2024 Workshop*.
+- Mahoney, D., M. Terras, J. Lee, and F. Zeller. 2025. “The Growing Environmental Impact of COP Websites: An Analysis of UNFCCC COP Host Country Websites (1995–2025).” *PLOS Climate*. https://doi.org/10.1371/journal.pclm.0000767.
+- UNESCO. 2021. *Recommendation on the Ethics of Artificial Intelligence*.

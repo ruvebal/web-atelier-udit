@@ -13,7 +13,7 @@ tags:
   spa,
   tailwind,
   codesandbox,
-  helios-deck,
+  capstone-app,
   explicit-config,
   framework-mode,
  ]
@@ -27,6 +27,14 @@ permalink: /lessons/en/react/react-routing/
 status: published
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> A URL is a public state contract.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** deep links, nested routes, navigation, and access control. **Frontier signal:** data routers, SSR, and edge rendering move more work across the route boundary.</p>
+</aside>
+>
+> **Studio test:** Make a route/state matrix including refresh, error, and unauthorised states.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -162,7 +170,7 @@ app/routes/
 
 This course uses explicit config because:
 
-1. **It is what production looks like.** Your professor's production site ([adadi.org](https://adadi.org)) and your final project (HELIOS DECK) both use it. You will read and write real code, not an analogy.
+1. **It is what production looks like.** Your professor's production site ([adadi.org](https://adadi.org)) and your final project (course capstone) both use it. You will read and write real code, not an analogy.
 2. **One file = full picture.** A junior developer joining a project can read `routes.js` and understand the entire URL structure in minutes. With file conventions, they must traverse a directory tree.
 3. **AI tools work better.** When you give an agent `routes.js`, it has complete routing context in a single artifact. File trees require recursive scanning.
 4. **You will eventually hit its limits.** When your project grows to bilingual URLs, admin vs member portals, or tenant-scoped routes, explicit config is the only sane path. Learning it first means you never have to unlearn conventions.
@@ -176,8 +184,8 @@ This lesson has three acts, each with its own environment:
 | Act   | Environment      | Mode                                 | What you learn                                         |
 | ----- | ---------------- | ------------------------------------ | ------------------------------------------------------ |
 | **1** | CodeSandbox      | **Declarative** (`react-router-dom`) | Core concepts: Link, params, Outlet, URL state, guards |
-| **2** | Local project    | **Framework** (explicit `routes.js`) | Loaders, route modules, ADADI reference, HELIOS seed   |
-| **3** | Your HELIOS repo | **Framework** (in progress)          | AI tooling, Cursor rules, shadcn skills                |
+| **2** | Local project    | **Framework** (explicit `routes.js`) | Loaders, route modules, ADADI reference, capstone seed   |
+| **3** | Your capstone repo | **Framework** (in progress)          | AI tooling, Cursor rules, shadcn skills                |
 
 - **CodeSandbox-ready** — complete, copy-paste file. Works once the Act 1 scaffold is in place.
 - **Excerpt** — partial pattern, illustrative only. Does not run as-is.
@@ -192,7 +200,7 @@ src/
   main.jsx                         ← BrowserRouter + MockAuthProvider + CSS
   App.jsx                          ← NavBar + Routes (all examples pre-wired)
   data/
-    signals.js                     ← Mock HELIOS-style signals (no network)
+    signals.js                     ← Mock capstone-style signals (no network)
   context/
     MockAuthContext.jsx            ← Fake login for Example 5 only
   components/
@@ -272,7 +280,7 @@ By the end of this lesson, you will:
 - [ ] Build **nested layouts** with a parent route and **`<Outlet>`**
 - [ ] Implement a **route guard** for protected pages (mock auth in the sandbox; real sessions in the next lesson)
 - [ ] Read a production **`routes.js`** file (ADADI) and map its patterns to the concepts above
-- [ ] Scaffold a HELIOS DECK seed with **explicit config** in Framework Mode
+- [ ] Scaffold a capstone seed with **explicit config** in Framework Mode
 
 ---
 
@@ -350,8 +358,8 @@ Create every file below **before** Example 1. After this, you only ever _add_ or
 
 ```js
 // src/data/signals.js
-// Mock HELIOS DECK–style signals — no fetch, so routing stays the focus.
-// Shape mirrors the normalized "signal" object from the HELIOS track (conceptual).
+// Mock course capstone–style signals — no fetch, so routing stays the focus.
+// Shape mirrors the normalized "signal" object from the capstone track (conceptual).
 
 export const SIGNALS = [
 	{
@@ -718,7 +726,7 @@ export default function Home() {
 		<div>
 			<h1 className="text-2xl font-bold mb-2">Routing &amp; Navigation — Act 1</h1>
 			<p className="text-slate-500 mb-2 text-sm">
-				Signal Browser (mock data) — foreshadows the HELIOS DECK final project without network noise.
+				Signal Browser (mock data) — foreshadows the course capstone project without network noise.
 			</p>
 			<p className="text-xs text-slate-400 mb-8">Act 2 (Framework Mode + explicit config) follows in the lesson below.</p>
 			<ul className="space-y-3">
@@ -926,7 +934,7 @@ export default function Ex3Layout() {
 			<p className="text-sm text-slate-500 mb-4">The shell below stays mounted; only the outlet swaps.</p>
 
 			<div className="rounded-xl border border-slate-200 overflow-hidden">
-				<div className="bg-slate-900 text-slate-100 px-4 py-2 text-xs font-mono">HELIOS / signals</div>
+				<div className="bg-slate-900 text-slate-100 px-4 py-2 text-xs font-mono">capstone / signals</div>
 				<div className="p-4 bg-white space-y-4">
 					<div className="flex flex-wrap gap-2">
 						{SIGNALS.map((s) => (
@@ -1142,7 +1150,7 @@ export default function Ex5Deck() {
 		<div>
 			<h1 className="text-2xl font-bold mb-2">Mission deck (protected)</h1>
 			<p className="text-sm text-slate-600 mb-4">
-				You passed the guard. In HELIOS DECK this route will load widgets from SQLite via a server{' '}
+				You passed the guard. In course capstone this route will load widgets from SQLite via a server{' '}
 				<code className="bg-slate-100 px-1 rounded">loader</code>.
 			</p>
 			<div className="flex gap-3">
@@ -1883,33 +1891,33 @@ export function getRecentSignals(signal, { limit = 20 } = {}) {
 
 ---
 
-## 12 — HELIOS DECK seed — explicit config scaffold
+## 12 — capstone seed — explicit config scaffold
 
 > _type three commands —_
 > _a server is born from seed._
 > _now make it yours._
 
-**Template** — Run locally; replace `helios-deck` with your folder name.
+**Template** — Run locally; replace `capstone-app` with your folder name.
 
 ```bash
 # Node 20+ required
-npx create-react-router@latest helios-deck --template remix-run/react-router-templates/javascript
-cd helios-deck
+npx create-react-router@latest capstone-app --template remix-run/react-router-templates/javascript
+cd capstone-app
 npm install
 npm run dev
 ```
 
 > **`remix-run` org — not Remix.** The CLI is `create-react-router` and the package it scaffolds is React Router v7. The templates live in the `remix-run` GitHub organisation because React Router v7 Framework Mode is the direct successor to Remix (the same team, same codebase, new name). `create-remix` and Remix v2 are the old tool. Use `create-react-router` and the `react-router-templates` repo for everything in this course.
 
-The `javascript` template scaffolds the app with explicit config (`app/routes.js`) and no TypeScript — exactly the stack this lesson and the HELIOS DECK track use.
+The `javascript` template scaffolds the app with explicit config (`app/routes.js`) and no TypeScript — exactly the stack this lesson and the course capstone use.
 
 ### Scaffold: `app/routes.js` (Sprint 1 seed, JS)
 
-**Template** — This is the starting route table for HELIOS DECK. Signal routes will grow as you implement each fetcher in the subsequent sprints.
+**Template** — This is the starting route table for course capstone. Signal routes will grow as you implement each fetcher in the subsequent sprints.
 
 ```js
 // app/routes.js
-// HELIOS DECK — Sprint 1 route table
+// course capstone — Sprint 1 route table
 // Explicit config. All routes listed here; route modules live in app/routes/.
 
 import { index, route } from '@react-router/dev/routes';
@@ -1993,7 +2001,7 @@ export default function SolarActivity() {
 }
 ```
 
-> **Cross-links:** Track hub → [HELIOS DECK (ES)]({{ '/tracks/es/geo-physical-aggregator/' | relative_url }}) · Architecture → [SSR + SQLite + loaders]({{ '/tracks/es/geo-physical-aggregator/arch/' | relative_url }})
+> **Cross-links:** Capstone brief → [Individual React Capstone Project]({{ '/lessons/en/react/geophysical-aggregator-project/' | relative_url }})
 
 ---
 
@@ -2014,7 +2022,7 @@ export default function SolarActivity() {
 | ✅  | Nested layout + `<Outlet>`                            | 1   |
 | ✅  | Query-string filters (`useSearchParams`)              | 1   |
 | ✅  | Protected route with mock guard                       | 1   |
-| ✅  | HELIOS seed running locally (`npm run dev`)           | 2   |
+| ✅  | capstone seed running locally (`npm run dev`)           | 2   |
 | ✅  | `app/routes.js` with explicit config (Sprint 1 shape) | 2   |
 | ✅  | One loader returning mock data, visible in browser    | 2   |
 | ✅  | `.cursor/rules/react-router-patterns.mdc`             | AI  |
@@ -2025,11 +2033,18 @@ export default function SolarActivity() {
 
 > _Read ADADI's route config cold. Before the explanation, count how many of the seven patterns you can identify. What did you miss?_
 
-> _Which part of your HELIOS DECK URL structure cannot be expressed with file naming conventions? Prove it._
+> _Which part of your course capstone URL structure cannot be expressed with file naming conventions? Prove it._
 
 > _Explain to a classmate, without code, what happens between the browser typing `/en/members/abc-123` and the page appearing. Use the 4 rules._
 
-> _If you add French to HELIOS DECK tomorrow, which files change and which don't?_
+> _If you add French to course capstone tomorrow, which files change and which don't?_
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "14 — Atelier reflections"
+  visual-grammar: "url-public-state-map — a public URL state branching into nested routes, parameters, and recoverable navigation"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

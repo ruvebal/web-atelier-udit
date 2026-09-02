@@ -11,6 +11,14 @@ tags: [javascript, dom, security, history, pedagogy]
 description: 'Una visión general crítica y orientada a la práctica de enfoques de manipulación del DOM: cadenas de plantilla, APIs del DOM nativas, <template>, y el DOM Virtual — con historia, advertencias y ejercicios.'
 ---
 
+<aside class="lesson-framing" aria-label="Idea maestra y lente de campo">
+<p><strong>Idea maestra:</strong> El renderizado es una frontera de confianza.</p>
+<p><strong>Lente de campo:</strong> **Ancla de práctica:** APIs del DOM, plantillas, inserción de texto y conciencia XSS. **Señal de frontera:** abstracciones de componentes y DOM virtual no eliminan responsabilidad de seguridad ni accesibilidad.</p>
+</aside>
+
+> **Prueba de estudio:** Compara renderizado por cadenas, nativo y plantilla con input no confiable.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Tabla de Contenidos
@@ -19,6 +27,71 @@ description: 'Una visión general crítica y orientada a la práctica de enfoque
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Para quién es / Para quién no
+
+**Para:** Front-End I **Sesión 8** — comparar renderizado por cadenas, API nativa y `<template>` en tu repo; practicar actualizaciones seguras frente a XSS.
+
+**No para:** implementar React/DOM virtual (solo puente conceptual) ni tooling npm (Sesión 10+).
+
+**Al terminar esta sesión tendrás:** el mismo fragmento de UI renderizado de dos formas, una advertencia XSS documentada y un commit.
+
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Sesión 7 completa (`main.js` + eventos) | Sí |
+| Repo portfolio con HTML semántico | Sí |
+| Cadena no confiable para demo XSS | Incluida en la lección |
+
+**Tiempo oficial:** 3 h de clase + 1 h de laboratorio.
+
+---
+
+## Sigue este camino
+
+| Paso | Acción | Sección |
+| --- | --- | --- |
+| 1 | Repasa la historia — por qué `innerHTML` es riesgoso | Breve Historia |
+| 2 | Renderiza una tarjeta con template literals | Basado en cadenas |
+| 3 | Reconstruye con `createElement` + `textContent` | API nativa |
+| 4 | Opcional: clona desde `<template>` | Plantilla HTML |
+| 5 | Nota ATELIER: patrón por defecto | Reflexión |
+| 6 | Commit | Entrega |
+
+---
+
+## Comprueba antes de salir
+
+- [ ] Input no confiable falla de forma segura con `textContent`
+- [ ] Mismo resultado visual sin `innerHTML` para texto de usuario
+- [ ] Puedes nombrar un vector XSS y una mitigación
+- [ ] Commit subido
+
+---
+
+## Fallos frecuentes
+
+| Síntoma | Causa probable | Qué hacer |
+| --- | --- | --- |
+| Se ejecuta script inyectado | `innerHTML` con input de usuario | Usa `textContent` o sanitizador |
+| Nodo vacío tras append | Falta `appendChild` | Registra parent e hijo en Consola |
+| Plantilla inerte | Clon sin `.content` | `template.content.cloneNode(true)` |
+| Listeners duplicados | Re-render completo del árbol | Actualiza solo el contenedor |
+| Funciona en CodePen, no en repo | Rutas distintas | Iguala estructura del repo |
+
+---
+
+## Entrega (evidencia Sesión 8)
+
+- Commit con ambos enfoques de renderizado
+- Nota breve: patrón por defecto en tu portfolio y por qué
+
+---
 
 ## 🎯 Objetivos de Aprendizaje
 
@@ -36,7 +109,7 @@ description: 'Una visión general crítica y orientada a la práctica de enfoque
 - 2000s: Los navegadores expusieron `innerHTML` — las actualizaciones basadas en cadenas se volvieron comunes (rápidas pero arriesgadas)
 - 2006: **jQuery** popularizó la selección/eventos/manipulación ergonómica
 - 2009–2012: Templating de lógica-en-cadenas (Mustache/Handlebars, plantillas Underscore)
-- 2013: **React** introdujo el DOM Virtual y **JSX** (compilado a llamadas `createElement`)
+- 2013: **React** introdujo el DOM Virtual y **[JSX](https://www.typescriptlang.org/docs/handbook/jsx.html)** (compilado a llamadas `createElement`)
 - 2014+: El elemento `<template>` se envió; Los Componentes Web maduraron
 - 2018+: Bibliotecas de plantillas etiquetadas (lit-html, htm) refinaron seguridad/ergonomía de cadenas
 
@@ -496,7 +569,7 @@ Reflexiona: ¿Cómo mejora `<template>` la legibilidad y reutilizabilidad?
 
 ### Ejercicio 4 — Un Pequeño Helper Hyperscript (Linaje de React)
 
-Objetivo: Este es tu primer vistazo de cómo JSX (una sintaxis popular de JavaScript usada en React) realmente se convierte en llamadas de función JavaScript regulares—como este simple helper `h()`. ¡Veremos que lo que parece HTML dentro de JavaScript es realmente solo llamar una función para cada elemento!
+Objetivo: Este es tu primer vistazo de cómo [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) (una sintaxis popular de JavaScript usada en React) realmente se convierte en llamadas de función JavaScript regulares—como este simple helper `h()`. ¡Veremos que lo que parece HTML dentro de JavaScript es realmente solo llamar una función para cada elemento!
 
 ```html
 <!-- demo/04-hyperscript.html -->
@@ -573,7 +646,7 @@ function App() {
 document.getElementById('app').appendChild(App());
 ```
 
-Reflexiona: JSX es azúcar sintáctica para llamadas como `h(type, props, ...children)`. React añade un diff de DOM Virtual para actualizar eficientemente.
+Reflexiona: [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) es azúcar sintáctica para llamadas como `h(type, props, ...children)`. React añade un diff de DOM Virtual para actualizar eficientemente.
 
 ---
 
@@ -616,6 +689,7 @@ Reflexiona: JSX es azúcar sintáctica para llamadas como `h(type, props, ...chi
 - MDN — HTML `<template>`
 - OWASP — Cross-Site Scripting (XSS)
 - Google — Tipos Confiables (avanzado)
+- [TypeScript Handbook — JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) — referencia de sintaxis a nivel de lenguaje (primera lectura antes de React S18)
 - Docs de React — Renderizando elementos; JSX en profundidad
 - lit.dev — Lit y plantillas etiquetadas `html`
 

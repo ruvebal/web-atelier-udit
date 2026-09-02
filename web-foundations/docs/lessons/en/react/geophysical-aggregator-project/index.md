@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: 'Individual Project: Geophysical Aggregator'
+title: 'Individual Project: Individual React Capstone'
 slug: geophysical-aggregator-project
 category: react
 tags:
@@ -28,6 +28,14 @@ permalink: /lessons/en/react/geophysical-aggregator-project/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> An integrator is a claim about systems, evidenced by trade-offs and failure handling.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** authentic project work joins APIs, state, security, i18n, performance, and deployment. **Frontier signal:** AI-assisted implementation makes process evidence and corrective competence more important.</p>
+</aside>
+>
+> **Studio test:** Maintain decisions, iterations, verification evidence, and rejected alternatives.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -39,16 +47,16 @@ status: draft
 
 <!-- prettier-ignore-end -->
 
-> _"Data without a frame is noise. A good interface is the lens through which the Earth speaks to the user."_
+> _"Data without a frame is noise. A good interface is the lens through which a domain becomes usable."_
 > — Tao of the Webapp Master
 
 ---
 
 ## Overview
 
-This is an **individual project assignment** that synthesises the React curriculum into a single deployable application. You will build a **Geophysical Aggregator** — a web app that fetches, displays, and contextualises real-time or near-real-time data from public geophysical APIs.
+This is an **individual project assignment** that synthesises the React curriculum into a single deployable application. You will build an **individual React capstone** — a web app that fetches, displays, and contextualises real-time or near-real-time data from public APIs aligned with the current brief.
 
-The project is framed as a realistic professional brief: a small dashboard product a field scientist or emergency manager might use to monitor geophysical activity. You are both the engineer and the designer of its architecture.
+The project is framed as a realistic professional brief for the current course edition. The exact domain may change from year to year; the stable requirement is that you design, build, verify, and defend a deployable React application with real data, clear architecture, and documented decisions.
 
 **You choose one of two implementation tracks.** Both tracks share the same data requirements, AI usage policy, and evaluation rubric. They differ in architecture — one is a client-side SPA, the other is a server-rendered app. Pick the track that matches your current confidence and the lessons you have completed.
 
@@ -62,7 +70,7 @@ The project is framed as a realistic professional brief: a small dashboard produ
 | **Auth pattern** | JWT + `localStorage` / `sessionStorage`; `AuthContext` + `useAuth`; client-side `ProtectedRoute` | httpOnly cookie session; `createCookieSessionStorage`; `requireUser` in loader |
 | **Data loading** | React Query for all fetching; no server-side loaders | SSR loader for first paint; React Query for polling and user-triggered refresh |
 | **i18n** | Client-side locale state (URL param or context) | Server-resolved locale from `:locale` URL segment |
-| **Departure point** | The `react-auth-sprint-10` sandbox from [Authentication](../react-authentication/) | The `helios-deck-fw` app from [Framework Mode in practice](../react-framework-mode-auth-i18n/) |
+| **Departure point** | The `react-auth-sprint-10` sandbox from [Authentication](../react-authentication/) | The `capstone-fw` app from [Framework Mode in practice](../react-framework-mode-auth-i18n/) |
 | **Prerequisite lessons** | Routing (L8) + Authentication (L9) | Routing (L8) + Auth (L9) + Framework Mode Auth & i18n (L10b) |
 | **Deployment** | Any static host (Netlify, Vercel, GitHub Pages) or Node host | Node.js process required (Railway, Render, Fly.io, Vercel with adapter) |
 
@@ -82,7 +90,7 @@ Your starting point is the **`react-auth-sprint-10`** sandbox built in the [Auth
 - Token refresh on 401 in the fetch interceptor
 - Tailwind v4 styling
 
-You will **extend** that sandbox — wiring in React Query, adding geophysical data pages, replacing dummyjson data calls with real public APIs, and adding a visualisation layer.
+You will **extend** that sandbox — wiring in React Query, adding domain data pages, replacing dummyjson data calls with real public APIs, and adding a visualisation layer.
 
 > You do **not** need to rebuild the auth plumbing. Fork your repo from the lesson sandbox, then build on top of it.
 
@@ -93,7 +101,7 @@ You will **extend** that sandbox — wiring in React Query, adding geophysical d
 | Requirement | Notes |
 |---|---|
 | React Router v7 **Declarative mode** | `BrowserRouter` or `createBrowserRouter`; routes declared in JSX or config |
-| At least **two public geophysical APIs** | One must return time-series or event-list data; one must return geographic coordinates suitable for a map or chart |
+| At least **two public APIs aligned with the current capstone brief** | One must return time-series or event-list data; one must return geographic coordinates suitable for a map or chart |
 | **React Query** for all data fetching | At least one `useQuery` with meaningful `staleTime`; at least one cache key that changes with user input |
 | **Client-side i18n** in at least two languages | Locale in URL param or context; all UI strings translated; language switch without page reload |
 | **JWT authentication** on at least one route | `AuthContext`; httpOnly-equivalent protection via token; `ProtectedRoute` guards at least one page |
@@ -112,21 +120,21 @@ src/
     AuthContext.jsx                 ← login, logout, user, isLoading
   services/
     authApi.js                      ← login/logout/me against dummyjson
-    earthquakesApi.js               ← USGS or other geophysical API
-    weatherApi.js                   ← Open-Meteo or similar
+    primaryApi.js                   ← first public API for the current brief
+    secondaryApi.js                 ← second public API for comparison or enrichment
   hooks/
-    useEarthquakes.js               ← useQuery wrapper; exported for reuse
-    useWeather.js
+    usePrimaryData.js               ← useQuery wrapper; exported for reuse
+    useSecondaryData.js
   pages/
     Home.jsx                        ← dashboard landing
     Login.jsx
     Dashboard.jsx                   ← protected; React Query data
-    Earthquakes.jsx
-    [YourSecondApi].jsx
+    PrimaryData.jsx
+    SecondaryData.jsx
   components/
     ProtectedRoute.jsx              ← from auth lesson; unchanged
-    EarthquakeList.jsx
-    MagnitudeChart.jsx
+    PrimaryDataList.jsx
+    DataChart.jsx
     NavBar.jsx
   locales/
     en.json
@@ -136,27 +144,27 @@ src/
 
 #### Where React Query fits in Track A
 
-In declarative mode, React Query is the **only** data layer — there are no server-side loaders. Every page that shows geophysical data must use `useQuery`. The auth state comes from `AuthContext`, not from a loader.
+In declarative mode, React Query is the **only** data layer — there are no server-side loaders. Every page that shows domain data must use `useQuery`. The auth state comes from `AuthContext`, not from a loader.
 
 ```js
 // Excerpt — Track A: React Query in a protected page
-// src/pages/Earthquakes.jsx
+// src/pages/PrimaryData.jsx
 
 import { useQuery } from '@tanstack/react-query';
-import { getRecentEarthquakes } from '../services/earthquakesApi';
+import { getPrimaryData } from '../services/primary-dataApi';
 import { useAuth } from '../contexts/AuthContext';
 
-export default function Earthquakes() {
+export default function PrimaryData() {
 	const { user } = useAuth();
 
 	const { data, isLoading, isError } = useQuery({
-		queryKey: ['earthquakes', { minMagnitude: 5, days: 7 }],
-		queryFn: () => getRecentEarthquakes({ minMagnitude: 5, days: 7 }),
+		queryKey: ['primary-data', { minMagnitude: 5, days: 7 }],
+		queryFn: () => getPrimaryData({ minMagnitude: 5, days: 7 }),
 		staleTime: 5 * 60 * 1000,
 		refetchInterval: 5 * 60 * 1000,
 	});
 
-	if (isLoading) return <p>Loading earthquakes…</p>;
+	if (isLoading) return <p>Loading primary-data…</p>;
 	if (isError) return <p>Failed to load data. Try again later.</p>;
 
 	return (/* render data.features */);
@@ -192,7 +200,7 @@ export const useTranslation = () => useContext(I18nContext);
 
 {% endraw %}
 
-Reflect the locale in the URL so links are shareable: `/en/earthquakes`, `/es/earthquakes`. Use a `/:lang/*` route segment and sync it to the context on navigation.
+Reflect the locale in the URL so links are shareable: `/en/primary-data`, `/es/primary-data`. Use a `/:lang/*` route segment and sync it to the context on navigation.
 
 ---
 
@@ -200,7 +208,7 @@ Reflect the locale in the URL so links are shareable: `/en/earthquakes`, `/es/ea
 
 ### Departure point
 
-Your starting point is the **`helios-deck-fw`** app built in the [Framework Mode in practice: SSR auth & i18n](../react-framework-mode-auth-i18n/) lesson. It already provides:
+Your starting point is the **`capstone-fw`** app built in the [Framework Mode in practice: SSR auth & i18n](../react-framework-mode-auth-i18n/) lesson. It already provides:
 
 - React Router v7 Framework Mode with SSR enabled
 - `createCookieSessionStorage` with httpOnly cookie session
@@ -220,7 +228,7 @@ You will **extend** that scaffold — renaming the app, wiring in React Query, r
 | Requirement | Notes |
 |---|---|
 | React Router v7 **Framework Mode** | `react-router.config.js` with `ssr: true`; routes defined in `routes.js` |
-| At least **two public geophysical APIs** | One must return time-series or event-list data; one must return geographic coordinates suitable for a map or chart |
+| At least **two public APIs aligned with the current capstone brief** | One must return time-series or event-list data; one must return geographic coordinates suitable for a map or chart |
 | **React Query** for client-side data management | At least one `useQuery` with meaningful `staleTime`; at least one cache key that changes with user input |
 | **Server-side i18n** in at least two languages | Server-resolved locale from URL param; all UI strings translated |
 | **httpOnly cookie authentication** on at least one route | `createCookieSessionStorage`; `requireUser` or equivalent in the loader |
@@ -239,7 +247,7 @@ app/
     session.server.js           ← cookie read/write + requireUser/requireRole
     i18n.server.js              ← locale resolution + tFor(locale)
     authApi.server.js           ← login, refresh, verifyOrRefresh
-    earthquakesApi.server.js    ← (or whichever APIs you choose)
+    primary-dataApi.server.js    ← (or whichever APIs you choose)
     weatherApi.server.js
   locales/
     en.json
@@ -249,15 +257,15 @@ app/
       _index.jsx                ← dashboard home; links to all features
       login.jsx                 ← loader + action
       dashboard.jsx             ← protected; calls ≥1 API service in loader
-      earthquakes.jsx           ← public or protected; data page
+      primary-data.jsx           ← public or protected; data page
       [your-second-api].jsx
     logout.js
     api/
       healthz.js
       [optional proxy routes]
   components/
-    EarthquakeList.jsx
-    MagnitudeChart.jsx
+    PrimaryDataList.jsx
+    DataChart.jsx
     [your components]
 ```
 
@@ -267,20 +275,20 @@ React Router loaders handle **initial SSR data** (critical for first paint, SEO,
 
 ```js
 // Excerpt — Track B: mixing loader data and React Query
-// app/routes/$locale/earthquakes.jsx
+// app/routes/$locale/primary-data.jsx
 
 export async function loader({ request, params }) {
 	const user = await getOptionalUser(request);
-	const initial = await getRecentEarthquakes({ minMagnitude: 5, days: 7 });
+	const initial = await getPrimaryData({ minMagnitude: 5, days: 7 });
 	return { initial, user, locale: params.locale };
 }
 
-export default function Earthquakes({ loaderData }) {
+export default function PrimaryData({ loaderData }) {
 	const { initial, locale } = loaderData;
 
 	const { data, isRefetching } = useQuery({
-		queryKey: ['earthquakes', 5, 7],
-		queryFn: () => fetch('/api/earthquakes?min=5&days=7').then(r => r.json()),
+		queryKey: ['primary-data', 5, 7],
+		queryFn: () => fetch('/api/primary-data?min=5&days=7').then(r => r.json()),
 		initialData: initial,
 		staleTime: 5 * 60 * 1000,
 		refetchInterval: 5 * 60 * 1000,
@@ -290,7 +298,7 @@ export default function Earthquakes({ loaderData }) {
 }
 ```
 
-The `/api/earthquakes` route is a **resource route** in `routes.js` that returns JSON — the client calls it; the loader hydrates the first render.
+The `/api/primary-data` route is a **resource route** in `routes.js` that returns JSON — the client calls it; the loader hydrates the first render.
 
 ---
 
@@ -298,7 +306,7 @@ The `/api/earthquakes` route is a **resource route** in `routes.js` that returns
 
 The following requirements are identical regardless of which track you choose.
 
-### Geophysical APIs
+### Public APIs
 
 You must integrate **at least two public APIs from different domains** (seismology, meteorology, oceanography, volcanology, air quality). Both tracks can use the same APIs.
 
@@ -339,8 +347,8 @@ All APIs listed here are public and free — most require no API key for moderat
 Base URL: `https://earthquake.usgs.gov/fdsnws/event/1/`
 
 ```js
-// Excerpt — earthquakesApi (Track A: src/services/earthquakesApi.js | Track B: app/utils/earthquakesApi.server.js)
-export async function getRecentEarthquakes({ minMagnitude = 4.5, days = 7 } = {}) {
+// Excerpt — primary-dataApi (Track A: src/services/primaryApi.js | Track B: app/utils/primary-dataApi.server.js)
+export async function getPrimaryData({ minMagnitude = 4.5, days = 7 } = {}) {
 	const endtime = new Date().toISOString().slice(0, 10);
 	const starttime = new Date(Date.now() - days * 86400_000).toISOString().slice(0, 10);
 	const url = new URL('https://earthquake.usgs.gov/fdsnws/event/1/query');
@@ -374,7 +382,7 @@ Same FDSN protocol as USGS — you can swap the base URL. Useful for older catal
 Base URL: `https://api.open-meteo.com/v1/forecast`
 
 ```js
-// Excerpt — weatherApi (Track A: src/services/weatherApi.js | Track B: app/utils/weatherApi.server.js)
+// Excerpt — weatherApi (Track A: src/services/secondaryApi.js | Track B: app/utils/weatherApi.server.js)
 export async function getForecast({ lat, lon, days = 7 }) {
 	const url = new URL('https://api.open-meteo.com/v1/forecast');
 	url.searchParams.set('latitude', String(lat));
@@ -394,7 +402,7 @@ Returned `daily` arrays are perfect for a line/area chart. Pair with USGS events
 
 **OpenWeatherMap Current & Forecast** (free tier, API key required)
 
-Register at openweathermap.org. Free tier includes current conditions, 5-day forecast, and air quality index. Useful if you want a richer weather widget alongside geophysical data.
+Register at openweathermap.org. Free tier includes current conditions, 5-day forecast, and air quality index. Useful if you want a richer weather widget alongside domain data.
 
 ---
 
@@ -443,7 +451,7 @@ export async function getVolcanicAlerts() {
 	return res.json();
 }
 
-export async function getNZEarthquakes({ pastHours = 48 } = {}) {
+export async function getNZPrimaryData({ pastHours = 48 } = {}) {
 	const res = await fetch(`https://api.geonet.org.nz/quake?MMI=3`);
 	if (!res.ok) throw new Error(`GeoNet quakes ${res.status}`);
 	return res.json();
@@ -475,10 +483,10 @@ export async function getLatestMeasurements({ locationId }) {
 
 | Pairing | Teaching value |
 |---|---|
-| USGS Earthquakes + Open-Meteo | Time series + event map; two different temporal resolutions |
-| USGS Earthquakes + GeoNet Volcanic Alerts | Event list + status board; contrasting data shapes |
+| USGS PrimaryData + Open-Meteo | Time series + event map; two different temporal resolutions |
+| USGS PrimaryData + GeoNet Volcanic Alerts | Event list + status board; contrasting data shapes |
 | NOAA Tides + Open-Meteo | Continuous time series from two independent sources |
-| GeoNet Earthquakes + OpenAQ | Geographic filtering; real-time vs. periodic polling |
+| GeoNet PrimaryData + OpenAQ | Geographic filtering; real-time vs. periodic polling |
 
 ---
 
@@ -675,7 +683,7 @@ Track A produces a static bundle (`dist/`) that can be served from any static ho
 
 ### Deploying Track A to GitHub Pages — the refresh problem
 
-GitHub Pages serves static files from `dist/`. When a user navigates directly to `https://yourname.github.io/your-repo/earthquakes` or refreshes that page, GitHub Pages looks for a file at `dist/earthquakes/index.html`, finds nothing, and returns a **404**.
+GitHub Pages serves static files from `dist/`. When a user navigates directly to `https://yourname.github.io/your-repo/primary-data` or refreshes that page, GitHub Pages looks for a file at `dist/primary-data/index.html`, finds nothing, and returns a **404**.
 
 This is not a bug in your code — it is a fundamental mismatch between client-side routing and a static file server that has no concept of "send `index.html` for every path."
 
@@ -685,7 +693,7 @@ This is not a bug in your code — it is a fundamental mismatch between client-s
 
 Swap `BrowserRouter` for `HashRouter`. All routes move behind a `#`:
 
-- `/earthquakes` → `/#/earthquakes`
+- `/primary-data` → `/#/primary-data`
 - `/en/dashboard` → `/#/en/dashboard`
 
 ```js
@@ -712,13 +720,13 @@ createRoot(document.getElementById('root')).render(
 
 No other changes needed — `<Routes>`, `<Route>`, `<Link>`, `useNavigate` all work identically.
 
-**Trade-off:** URLs contain `#`. Shareable links work; the fragment is never sent to the server so refreshes always land on `index.html`. Locale URL segments (`/#/en/earthquakes`) still work.
+**Trade-off:** URLs contain `#`. Shareable links work; the fragment is never sent to the server so refreshes always land on `index.html`. Locale URL segments (`/#/en/primary-data`) still work.
 
 ---
 
 #### Option 2 — 404.html redirect (clean URLs, more config)
 
-GitHub Pages serves `404.html` for any unknown path. A script in that file encodes the full URL into a query string, redirects to `index.html`, and a matching script in `index.html` reconstructs the original URL before React Router boots. Clean `/en/earthquakes` URLs survive refresh.
+GitHub Pages serves `404.html` for any unknown path. A script in that file encodes the full URL into a query string, redirects to `index.html`, and a matching script in `index.html` reconstructs the original URL before React Router boots. Clean `/en/primary-data` URLs survive refresh.
 
 **Step 1** — Create `public/404.html`:
 
@@ -894,7 +902,7 @@ Document all required variables in `.env.example`. A grader who cannot run `cp .
 ```markdown
 # [YOUR APP NAME]
 
-> [One sentence describing the application and the geophysical domain it covers.]
+> [One sentence describing the application and the application domain it covers.]
 
 ## Track
 
@@ -951,7 +959,7 @@ The same rubric applies to both tracks. Track-specific notes appear in parenthes
 |---|---|---|---|---|
 | **React Router usage** — correct mode, routing, data flow | 20% | Wrong mode; no separation between routing and data | Routes correctly configured for chosen mode; data loaded via loaders (B) or query hooks (A) | Full route tree; nested layouts; auth guard at route level; (B) resource routes for API |
 | **React Query integration** | 15% | No React Query; raw `useEffect` for fetching | `useQuery` in at least one page; `staleTime` configured | Multiple queries; cache keys change with filters; (B) `initialData` from SSR loader |
-| **Public geophysical APIs** — two distinct sources | 15% | Fewer than two APIs; mock data | Two APIs integrated, data visible in UI | Two APIs with meaningful cross-domain presentation; data shapes documented |
+| **Public APIs aligned with the current brief** — two distinct sources | 15% | Fewer than two APIs; mock data | Two APIs integrated, data visible in UI | Two APIs with meaningful cross-domain presentation; data shapes documented |
 | **Authentication** — track-appropriate pattern | 15% | No auth; or client-side guard with no server backup | (A) JWT in storage + `ProtectedRoute`; (B) httpOnly cookie + `requireUser` | (A) Token refresh on 401; role guard; (B) `Set-Cookie` on login/logout; `?from=` redirect; session verified per request |
 | **i18n** — bilingual UI, locale routing | 10% | Hardcoded strings; no locale routing | (A) Locale in URL param; `en.json` / `es.json`; switch works; (B) Server-resolved `:locale`; `tFor` in loaders | All strings translated; locale persists; switch without reload |
 | **Deployment** — public URL, working build | 10% | No deployment or local-only | App at public URL; build passes locally | HTTPS; no exposed secrets; (B) one-command redeploy or CI/CD |
@@ -1015,11 +1023,18 @@ No — this is an individual assignment. Commit history must reflect individual 
 
 You are not building a toy. You are building the kind of product a scientist opens at 6 a.m. when the seismograph wakes them. Choose your track deliberately. Make it honest. Make it fast. Make it work. Then make it live.
 
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Closing"
+  visual-grammar: "multi-source-system-confluence — heterogeneous data streams joining into one defensible interface claim"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
+
 ---
 
 ## Resumen de la práctica (en español)
 
-### Agregador Geofísico — Proyecto Individual
+### Capstone React Individual — Proyecto Individual
 
 Construirás una aplicación web que consuma **APIs públicas de datos geofísicos** (sismología, meteorología, oceanografía, vulcanología...) y los presente en un dashboard funcional, desplegado y accesible desde cualquier navegador.
 
@@ -1047,7 +1062,7 @@ Construirás una aplicación web que consuma **APIs públicas de datos geofísic
 
 ### Itinerario B — SSR con Framework Mode
 
-**Punto de partida:** la app `helios-deck-fw` de la lección [Framework Mode en práctica](../react-framework-mode-auth-i18n/). Ya tienes SSR activado, sesiones con cookie httpOnly, rutas bilingües y Tailwind v4.
+**Punto de partida:** la app `capstone-fw` de la lección [Framework Mode en práctica](../react-framework-mode-auth-i18n/). Ya tienes SSR activado, sesiones con cookie httpOnly, rutas bilingües y Tailwind v4.
 
 **Requisitos obligatorios (Itinerario B):**
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-labelledby="feii-pedagogical-vision-title feii-pedagogical-vision-desc">
+  <title id="feii-pedagogical-vision-title">Front-End II pedagogical vision</title>
+  <desc id="feii-pedagogical-vision-desc">Interface layer expansion with four pedagogical pillars</desc>
+  <defs>
+    <radialGradient id="feii-pedagogical-vision-neb-a" cx="18%" cy="34%" r="62%"><stop offset="0" stop-color="#3b82f6" stop-opacity="0.48"/><stop offset="1" stop-color="#0f172a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="feii-pedagogical-vision-neb-b" cx="82%" cy="68%" r="56%"><stop offset="0" stop-color="#10b981" stop-opacity="0.42"/><stop offset="1" stop-color="#0f172a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="feii-pedagogical-vision-neb-c" cx="54%" cy="12%" r="48%"><stop offset="0" stop-color="#8b5cf6" stop-opacity="0.34"/><stop offset="1" stop-color="#0f172a" stop-opacity="0"/></radialGradient>
+    <filter id="feii-pedagogical-vision-nebula" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.01" numOctaves="4" seed="628" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0.14  0 0 0 0 0.1  0 0 0 0 0.28  0 0 0 0.9 0" result="cloud"/>
+      <feGaussianBlur in="cloud" stdDeviation="11" result="blur"/>
+      <feBlend in="SourceGraphic" in2="blur" mode="screen"/>
+    </filter>
+    <linearGradient id="feii-pedagogical-vision-veil" x1="0" x2="1"><stop offset="0" stop-color="#0f172a" stop-opacity="0.08"/><stop offset="0.55" stop-color="#0f172a" stop-opacity="0.42"/><stop offset="1" stop-color="#0f172a" stop-opacity="0.78"/></linearGradient>
+    <filter id="feii-pedagogical-vision-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="feii-pedagogical-vision-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#10b981"/></marker>
+  </defs>
+  <rect width="1200" height="640" fill="#0f172a"/>
+  <rect width="1200" height="640" fill="url(#feii-pedagogical-vision-neb-a)"/>
+  <rect width="1200" height="640" fill="url(#feii-pedagogical-vision-neb-b)"/>
+  <rect width="1200" height="640" fill="url(#feii-pedagogical-vision-neb-c)"/>
+  <rect width="1200" height="640" filter="url(#feii-pedagogical-vision-nebula)" opacity="0.58"/>
+  
+  <rect x="80" y="250" width="1040" height="120" rx="16" fill="#0f172a" fill-opacity="0.55" stroke="#3b82f6" stroke-opacity="0.4"/>
+  <text x="600" y="292" text-anchor="middle" fill="#3b82f6" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="500">Browser</text>
+  <text x="600" y="322" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400">component model · DOM</text>
+  <rect x="180" y="120" width="840" height="88" rx="14" fill="#0f172a" fill-opacity="0.5" stroke="#8b5cf6" stroke-opacity="0.45"/>
+  <text x="600" y="162" text-anchor="middle" fill="#8b5cf6" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="500">Interface layer expands</text>
+  <text x="600" y="188" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400">3D · WebGL · shaders · spatial UI</text>
+  <rect x="180" y="412" width="840" height="88" rx="14" fill="#0f172a" fill-opacity="0.5" stroke="#10b981" stroke-opacity="0.45"/>
+  <text x="600" y="454" text-anchor="middle" fill="#10b981" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="500">Physical &amp; service layer</text>
+  <text x="600" y="480" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400">IoT · WebSocket · Python backends</text>
+  
+  <g filter="url(#feii-pedagogical-vision-glow)">
+    <rect x="82" y="292" width="176" height="56" rx="12" fill="#0f172a" fill-opacity="0.72" stroke="#3b82f6" stroke-opacity="0.65"/>
+    <text x="170" y="318" text-anchor="middle" fill="#e2e8f0" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500">Durable core</text>
+    <text x="170" y="338" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400">hooks · props</text>
+  </g>
+  
+  <g filter="url(#feii-pedagogical-vision-glow)">
+    <rect x="942" y="292" width="176" height="56" rx="12" fill="#0f172a" fill-opacity="0.72" stroke="#8b5cf6" stroke-opacity="0.65"/>
+    <text x="1030" y="318" text-anchor="middle" fill="#e2e8f0" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500">Volatile layer</text>
+    <text x="1030" y="338" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400">targets change</text>
+  </g>
+  
+  <g filter="url(#feii-pedagogical-vision-glow)">
+    <rect x="82" y="492" width="176" height="56" rx="12" fill="#0f172a" fill-opacity="0.72" stroke="#10b981" stroke-opacity="0.65"/>
+    <text x="170" y="518" text-anchor="middle" fill="#e2e8f0" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500">Performance</text>
+    <text x="170" y="538" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400">respect</text>
+  </g>
+  
+  <g filter="url(#feii-pedagogical-vision-glow)">
+    <rect x="942" y="492" width="176" height="56" rx="12" fill="#0f172a" fill-opacity="0.72" stroke="#C44536" stroke-opacity="0.65"/>
+    <text x="1030" y="518" text-anchor="middle" fill="#e2e8f0" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500">Docs-first AI</text>
+    <text x="1030" y="538" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400">verified</text>
+  </g>
+  <text x="600" y="610" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" font-style="italic">System-first pedagogy — same component grammar, wider deployment context</text>
+</svg>

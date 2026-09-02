@@ -12,6 +12,26 @@ Bienvenido a los cursos de WEB ATELIER. Aquí encontrarás rutas de aprendizaje 
 
 ## 📚 Cursos Disponibles
 
+### Desarrollo Web: Front-End I
+
+**Duración:** anual, 6 ECTS (150 h · 30 h laboratorio)
+**Público:** Grado en Desarrollo Full-Stack y Grado en Ciencia de Datos e IA
+**Objetivo:** Construir la base durable del front-end: HTML, CSS, JavaScript, React, accesibilidad, rendimiento y proyecto publicado
+
+[Ver track →]({{ '/tracks/fei/' | relative_url }}) · [Cómo aprobar →]({{ '/tracks/fei/how-to-pass-this-track/' | relative_url }}) · [EN →]({{ '/tracks/en/fei/' | relative_url }})
+
+---
+
+### Front-End II — Desarrollo Web: Front-End II
+
+**Duración:** semestral, 6 ECTS (150 h · 30 h laboratorio)
+**Público:** Grado en Desarrollo Full-Stack y Grado en Ciencia de Datos e IA
+**Objetivo:** Pasar de interfaces a sistemas de interfaces: Astro, PWA, testing, performance, R3F, shaders e IoT/Python
+
+[Ver track →]({{ '/tracks/feii/' | relative_url }}) · [Cómo aprobar →]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }}) · [EN →]({{ '/tracks/en/feii/' | relative_url }})
+
+---
+
 ### 🎨 Ilustración Aplicada: Productos Digitales Web-App
 
 **Duración:** 4 sesiones (16 horas)

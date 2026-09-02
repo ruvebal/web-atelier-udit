@@ -9,6 +9,14 @@ lang: es
 permalink: /lessons/es/js-intro/
 ---
 
+<aside class="lesson-framing" aria-label="Idea maestra y lente de campo">
+<p><strong>Idea maestra:</strong> JavaScript es un modelo de navegador/runtime, no solo sintaxis.</p>
+<p><strong>Lente de campo:</strong> **Ancla de práctica:** eventos, DOM, tipos, control de flujo y ejecución en el navegador. **Señal de frontera:** las APIs del navegador y la interacción asíncrona amplían la frontera del runtime.</p>
+</aside>
+
+> **Prueba de estudio:** Dibuja el bucle evento → DOM → feedback al usuario antes de programar.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Tabla de Contenidos
@@ -17,6 +25,72 @@ permalink: /lessons/es/js-intro/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Para quién es / Para quién no
+
+**Para:** Front-End I **Sesión 7** — fundamentos de JavaScript, DOM y modelo de eventos en `assets/js/main.js` de tu repo (después de las Sesiones 3–6 de CSS).
+
+**No para:** módulos ES (Sesión 9), linting (Sesión 10) ni React (semestre 2).
+
+**Al terminar esta sesión tendrás:** JS funcionando en `main.js`, al menos una actualización del DOM por input del usuario y notas de consola en tu reflexión ATELIER.
+
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Sesiones 3–6 completas (HTML semántico + CSS en el repo) | Sí |
+| `assets/js/main.js` enlazado desde `index.html` | Sí |
+| Chrome o Edge con DevTools | Sí |
+
+**Tiempo oficial:** 3 h de clase + 1,5 h de laboratorio.
+
+---
+
+## Sigue este camino
+
+| Paso | Acción | Sección |
+| --- | --- | --- |
+| 1 | Lee la línea temporal y compara con C++/PHP | Línea del Tiempo / Comparación |
+| 2 | Abre DevTools → Consola; ejecuta primeras expresiones | Práctica con DevTools |
+| 3 | Selecciona nodos DOM; actualiza texto con JS | El DOM |
+| 4 | Conecta un botón o formulario a un listener | Eventos |
+| 5 | Completa ejercicios progresivos en `main.js` | Guía detallada |
+| 6 | Commit + reflexión breve evento → DOM → feedback | Entrega |
+
+---
+
+## Comprueba antes de salir
+
+- [ ] `main.js` carga sin errores en la URL de Pages
+- [ ] Al menos una acción del usuario cambia contenido visible
+- [ ] Puedes explicar `addEventListener` vs `onclick` inline en una frase
+- [ ] Usaste el panel Elements para inspeccionar un nodo modificado
+- [ ] Commit subido a GitHub
+
+---
+
+## Fallos frecuentes
+
+| Síntoma | Causa probable | Qué hacer |
+| --- | --- | --- |
+| `main.js` no corre | Script sin enlace o ruta incorrecta | `<script src="assets/js/main.js" defer></script>` antes de `</body>` |
+| `null` al consultar DOM | Script antes del HTML | Usa `defer` o `DOMContentLoaded` |
+| Cambios invisibles | Selector incorrecto | Registra `document.querySelector(...)` en Consola |
+| Botón sin efecto | Listener en nodo equivocado | Inspecciona el target del evento |
+| Copilot inserta framework | Sugerencia aceptada a ciegas | Quédate en vanilla esta semana |
+
+---
+
+## Entrega (evidencia Sesión 7)
+
+- URL del repo + commit que toque `assets/js/main.js`
+- Nota de una línea: qué evento manejaste y qué feedback ve el usuario
+
+---
 
 ## 🎯 Objetivos
 

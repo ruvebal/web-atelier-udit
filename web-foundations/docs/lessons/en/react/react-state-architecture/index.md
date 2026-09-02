@@ -14,6 +14,14 @@ permalink: /lessons/en/react/react-state-architecture/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Scale state by ownership and lifecycle, not by library fashion.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** local, server, URL, and shared state need different ownership rules. **Frontier signal:** external stores, signals, and server caches are competing volatile layers.</p>
+</aside>
+>
+> **Studio test:** Complete a decision table before selecting a library.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -150,6 +158,13 @@ Is this state...
 - [ ] **State architecture diagram** in your README
 - [ ] **Persistence** to localStorage for at least one store
 - [ ] **Reflection**: What patterns emerged? What would you change?
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "📝 Sprint Deliverables"
+  visual-grammar: "state-ownership-zones — state placed into distinct ownership and lifecycle zones with deliberate connections"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

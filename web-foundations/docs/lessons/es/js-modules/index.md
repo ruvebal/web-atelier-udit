@@ -9,6 +9,14 @@ lang: es
 permalink: /lessons/es/js-modules/
 ---
 
+<aside class="lesson-framing" aria-label="Idea maestra y lente de campo">
+<p><strong>Idea maestra:</strong> La modularidad mantiene el cambio local.</p>
+<p><strong>Lente de campo:</strong> **Ancla de práctica:** imports/exports explícitos y límites de dependencia. **Señal de frontera:** ESM, grafos de paquetes y tooling de build siguen evolucionando.</p>
+</aside>
+
+> **Prueba de estudio:** Produce un grafo de imports y explica un límite de módulo.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Tabla de Contenidos
@@ -18,6 +26,71 @@ permalink: /lessons/es/js-modules/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Para quién es / Para quién no
+
+**Para:** Front-End I **Sesión 9** — dividir `main.js` en módulos ES con `import`/`export` en tu portfolio vanilla (`type="module"` en el navegador).
+
+**No para:** bundlers (Vite en Nivel 3), CommonJS/`require` en producción, ni módulos React (semestre 2).
+
+**Al terminar esta sesión tendrás:** al menos dos archivos `.js` con exports explícitos, `index.html` con `type="module"` y un esbozo del grafo de imports.
+
+---
+
+## Antes de empezar
+
+| Requisito | ¿Obligatorio? |
+| --- | --- |
+| Sesión 8 completa | Sí |
+| Live Server u otro servidor HTTP (no `file://`) | Sí |
+| Historial Git de Sesiones 7–8 | Recomendado |
+
+**Tiempo oficial:** 2 h de clase + 1 h de laboratorio.
+
+---
+
+## Sigue este camino
+
+| Paso | Acción | Sección |
+| --- | --- | --- |
+| 1 | Lee evolución IIFE → ES modules | Evolución |
+| 2 | Extrae utilidad a `utils.js` con export nombrado | Sintaxis export |
+| 3 | Impórtala en `main.js`; `type="module"` en script | Sintaxis import |
+| 4 | Dibuja el grafo de imports | Prueba de estudio |
+| 5 | Commit | Entrega |
+
+---
+
+## Comprueba antes de salir
+
+- [ ] Página carga por `http://127.0.0.1:…`
+- [ ] Sin errores `CORS` ni `Cannot use import`
+- [ ] Al menos un export nombrado e import en archivos separados
+- [ ] Explicas default vs named export en una frase
+- [ ] Commit subido
+
+---
+
+## Fallos frecuentes
+
+| Síntoma | Causa probable | Qué hacer |
+| --- | --- | --- |
+| `Cannot use import statement` | Falta `type="module"` | `<script type="module" src="…">` |
+| 404 en módulo | Ruta relativa incorrecta | Rutas relativas a la URL de la página |
+| Error CORS en `file://` | HTML abierto directamente | Usa Live Server |
+| Import circular undefined | Dos archivos se importan | Extrae código compartido |
+| Todo sigue global | Un solo archivo | Separa responsabilidades |
+
+---
+
+## Entrega (evidencia Sesión 9)
+
+- Commit con split modular + `type="module"`
+- Grafo de imports en README o comentario de reflexión
+
+---
 
 ## 🎯 Objetivos de Aprendizaje
 

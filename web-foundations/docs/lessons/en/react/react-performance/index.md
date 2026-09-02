@@ -14,6 +14,14 @@ permalink: /lessons/en/react/react-performance/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Performance is a user and resource budget, not a score to chase.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** measure before optimisation; use budgets and user-facing metrics. **Frontier signal:** islands, resumability, edge delivery, and adaptive loading change where work happens.</p>
+</aside>
+>
+> **Studio test:** Set a budget, measure a baseline, and explain one trade-off.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -185,6 +193,13 @@ const MemoizedChild = React.memo(({ data }) => (
 - [ ] **Final Lighthouse score** (aim for 90+ performance)
 - [ ] **Before/after comparison** in README
 - [ ] **Reflection**: What was the biggest win? What was premature?
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "📝 Sprint Deliverables"
+  visual-grammar: "user-resource-budget — scheduled interface work staying inside a visible user and resource budget"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

@@ -1,6 +1,6 @@
 # WEB ATELIER (UDIT) · Web Foundation
 
-**Canonical, localized lessons (es/en) for all ATELIER courses.**  
+**Canonical, localized lessons (es/en) for all ATELIER courses.**
 _Critical Coding for a Better Living._
 
 **Author:** Rubén Vega Balbás, PhD (UDIT, University of Design, Innovation and Technology) — ORCID: <https://orcid.org/0000-0001-6862-9081> · <https://www.udit.es>
@@ -17,7 +17,7 @@ _Critical Coding for a Better Living._
 - **Content:** CC BY-NC-SA 4.0 — see `LICENSE-CONTENT`
   _Unless otherwise indicated._
 
-© 2025 Rubén Vega Balbás, PhD — WEB ATELIER (UDIT)
+© 2025 Rubén Vega Balbás, PhD — WEB ATELIER
 
 ## Introduction
 
@@ -25,9 +25,9 @@ _Critical Coding for a Better Living._
 
 ## Pedagogical Approach: Incremental Projects & Critical Coding
 
-This course is grounded in **critical pedagogy** — not training students to reproduce industry workflows uncritically, but cultivating practitioners who question *why* they build, *for whom*, and *at what social cost*. The published methodology, [_Educación en Diseño Web Orientada a la Práctica a través de Proyectos Incrementales_](https://ruvebal.github.io/web-atelier-udit/methodology/es/) (EN: [methodology/en](https://ruvebal.github.io/web-atelier-udit/methodology/en/)), formalises this approach under the motto **Critical Coding for a Better Living** (*codificación crítica para una vida mejor*).
+This course is grounded in **critical pedagogy** — not training students to reproduce industry workflows uncritically, but cultivating practitioners who question _why_ they build, _for whom_, and _at what social cost_. The published methodology, [_Educación en Diseño Web Orientada a la Práctica a través de Proyectos Incrementales_](https://ruvebal.github.io/web-atelier-udit/methodology/es/) (EN: [methodology/en](https://ruvebal.github.io/web-atelier-udit/methodology/en/)), formalises this approach under the motto **Critical Coding for a Better Living** (_codificación crítica para una vida mejor_).
 
-Each session follows a **critical coding cycle**: hands-on exploration → reflection on what happens behind the code → conceptualisation (design theory, ethics, accessibility) → production → exhibition (deployed, peer-reviewed work). Technical skills (HTML, CSS, JavaScript, React, Git, responsive and accessible UI) are never taught in isolation; they are always tied to **human-centred design**, **inclusive interfaces**, and **socio-cultural critique** — e.g. accessibility as a human right, the alienation of metric-driven UX labour, and AI as learning aid rather than shortcut. The classroom borrows agile *sprints* and version control from professional practice, but adapts them to a learner-centred pace: the process serves education, not product delivery.
+Each session follows a **critical coding cycle**: hands-on exploration → reflection on what happens behind the code → conceptualisation (design theory, ethics, accessibility) → production → exhibition (deployed, peer-reviewed work). Technical skills (HTML, CSS, JavaScript, React, Git, responsive and accessible UI) are never taught in isolation; they are always tied to **human-centred design**, **inclusive interfaces**, and **socio-cultural critique** — e.g. accessibility as a human right, the alienation of metric-driven UX labour, and AI as learning aid rather than shortcut. The classroom borrows agile _sprints_ and version control from professional practice, but adapts them to a learner-centred pace: the process serves education, not product delivery.
 
 **Project-Based, Incremental Learning:** Each student works on a single web project throughout the semester, adding new features or improvements in every session. At the end of each class, the student **commits their work to a personal repository**, with a descriptive message documenting the update. Over time, these commits form a narrative of the project’s evolution, resulting in a fully functional, responsive, and accessible website in the student’s portfolio. This approach integrates theory and practice continuously – new concepts aren’t taught in isolation, but immediately applied to enhance the ongoing project. For example, after a lesson on responsive design, the student that same week adapts their site for mobile devices, reinforcing the relevance of the concept. By semester’s end, each student has not only learned diverse web techniques but also created a tangible product demonstrating their skills.
 
@@ -48,7 +48,6 @@ This repository leverages modern web and DevOps tools to create a seamless teach
 - **Liquid Templating:** We utilize the Liquid templating language (originally by Shopify, and built into Jekyll) to add dynamic content to our static pages. **Liquid** allows including common page elements and injecting data without any client-side scripting. For instance, in the “students’ showroom” page, a Liquid loop goes through each entry in a YAML file to generate a list of student projects automatically. In lesson pages, Liquid placeholders insert metadata like the lesson title, date, or author into the HTML. Jekyll and Liquid together let us maintain content and presentation separately: instructors and students can focus on Markdown content, while the templates ensure everything is formatted nicely. Essentially, Liquid gives us the power of a simple CMS – with tags and filters for content – but the output remains a static site. This means the course site is fast and compatible with GitHub Pages, while still being easy to update.
 
 - **GitHub Actions (CI/CD Workflow):** To manage a class of many sites and submissions, we employ **GitHub Actions** for continuous integration tasks. GitHub Actions is a built-in automation platform that can run scripts in response to repository events (like pushes or pull requests). In this repository and the course-template repository, Actions workflows perform several important functions:
-
   - **Site Builds & Link Checking:** Although GitHub Pages can build Jekyll sites on its own, we use Actions to run additional checks – for example, verifying that the site builds without errors and that all links (especially to student pages) are valid.
   - **YAML Validation:** Actions automatically lint and validate **YAML files** (such as `students.yaml` or `project.yaml` in student repos). This is crucial because a small formatting error in a data file could break a page build. Our CI ensures that when a student submits their project metadata or when the course roster is updated, the YAML syntax is correct and keys like URLs or titles meet expected patterns.
   - **Peer Review Automation:** In Week 4, students submit their project metadata to be included in the course showcase. We use a Pull Request workflow – when a student opens a PR to add their entry to `students.yaml`, a GitHub Action automatically runs to check the submission and even builds a preview of the updated showcase.

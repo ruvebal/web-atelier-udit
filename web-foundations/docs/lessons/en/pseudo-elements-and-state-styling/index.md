@@ -11,6 +11,80 @@ tags: [css, pseudo-classes, pseudo-elements, accessibility, state-management, in
 status: complete
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Interaction states are semantic feedback, not decoration.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** focus, hover, active, and reduced-motion states communicate status. **Frontier signal:** native CSS state selectors and preference media queries expand the state vocabulary.</p>
+</aside>
+
+> **Studio test:** Keyboard-test every state and provide a non-motion fallback.
+
+{% include lesson-semantic-graphic.html %}
+
+---
+
+## For / Not for
+
+**For:** Front-End I **Session 6** — pseudo-classes and pseudo-elements on your landing: focus, hover, decoration without extra DOM.
+
+**Not for:** JavaScript state machines (React semester 2) or animation libraries (Session 11 GSAP).
+
+**When you finish this session you will have:** accessible `:focus-visible` styles, at least one purposeful `::before`/`::after` pattern, and documented progressive-enhancement notes.
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Sessions 3–5 CSS foundation on repo | Yes |
+| Keyboard available for testing (Tab through page) | Yes |
+| `prefers-reduced-motion` awareness | Recommended |
+
+**Official time:** 2 h class + 1 h lab.
+
+---
+
+## Follow this path
+
+| Step | Action | Section |
+| --- | --- | --- |
+| 1 | Audit nav + buttons with Tab only | Learning Objectives / map |
+| 2 | Add `:focus-visible` rings (not `:focus` alone on mouse) | Pseudo-classes |
+| 3 | Add one decorative `::after` or `::before` (not content-critical) | Pseudo-elements |
+| 4 | Test `:hover` does not hide focus for keyboard users | Accessibility |
+| 5 | Commit + note one selector you rejected for performance | Submit |
+
+---
+
+## Verify before you leave
+
+- [ ] Every interactive element shows visible focus via keyboard
+- [ ] No information exists **only** in a pseudo-element (screen readers must get real text)
+- [ ] `:hover` styles have `:focus-visible` equivalent where needed
+- [ ] `@media (prefers-reduced-motion: reduce)` considered for transitions
+- [ ] Commit pushed
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| Focus invisible | `outline: none` without replacement | Use `:focus-visible` + custom ring |
+| Keyboard user can't see hover styles | Hover-only feedback | Mirror critical feedback on `:focus-visible` |
+| Decorative icon missing for SR | Content only in `::before` | Put text in HTML; pseudo-element decorates only |
+| Layout shift on hover | Padding/border added on `:hover` | Reserve space or use `transform` |
+| Specificity wars | Over-long selector chains | Shorten; avoid `#id .nav ul li a:hover` depth |
+
+---
+
+## Submit (Session 6 evidence)
+
+- Repo URL + commit describing state/pseudo work
+- Short note: one pseudo pattern you chose and one you rejected (accessibility or performance reason)
+
+---
+
 # Pseudo-Elements and State-Based Styling: Critical Approaches to Dynamic CSS
 
 ## 🎯 Learning Objectives
@@ -270,3 +344,10 @@ trigger.addEventListener('click', () => {
 Pseudo-classes and pseudo-elements extend CSS so interfaces can react without abandoning semantic HTML. Combine them with accessible patterns and performance measurements to ship components that scale gracefully.
 
 Now take these techniques to your **GitHub repositories**, experiment with styling variants, and share your results by shipping an accessible dropdown, capturing two design decisions in the README, and posting a screenshot or GIF of the final behavior.
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Conclusion"
+  visual-grammar: "semantic-state-feedback — interaction states transforming a stable element while preserving meaning and feedback"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}

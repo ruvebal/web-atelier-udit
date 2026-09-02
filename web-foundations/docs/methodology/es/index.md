@@ -118,7 +118,11 @@ La [Carta Europea del Investigador](https://euraxess.ec.europa.eu/jobs/charter) 
 >
 > "Researchers need to be aware that they are accountable towards their employers, funders or other related public or private bodies as well as, on more ethical grounds, towards society as a whole..."
 > — *European Charter for Researchers* (European Commission, 2005), "Professional responsibility" (p. 12–13) & "Accountability" (p. 14)
-> Ancla Ahmes: `svcm/documents/am509774cee_en_e4_5bcc3da7/`
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+Ancla Ahmes: svcm/documents/am509774cee_en_e4_5bcc3da7/
+-->
+{% endif %}
 
 Este espejo pedagógico se apoya en política internacional, no solo en la preferencia del docente. Sobre IA en la enseñanza, la UNESCO recomienda:
 

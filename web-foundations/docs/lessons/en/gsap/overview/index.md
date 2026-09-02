@@ -9,6 +9,14 @@ lang: en
 permalink: /lessons/en/gsap/overview/
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Motion is a temporal communication layer with cost.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** timing, easing, hierarchy, feedback, and performance-aware animation. **Frontier signal:** scroll-driven and 3D/GPU motion expand the expressive layer.</p>
+</aside>
+
+> **Studio test:** Add reduced-motion behaviour and record one performance observation.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -18,6 +26,70 @@ permalink: /lessons/en/gsap/overview/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## For / Not for
+
+**For:** Front-End I **Session 11** — GSAP via CDN on your portfolio: one typography motion, one SVG or scroll-driven demo, with `prefers-reduced-motion` respected.
+
+**Not for:** npm/GSAP Club plugins beyond lesson scope, React animation libraries (semester 2), or motion that hides content from keyboard users.
+
+**When you finish this session you will have:** GSAP loaded on your site, at least one timeline or tween committed, and reduced-motion fallback documented.
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Sessions 7–10 complete (JS + modules + linting) | Yes |
+| Portfolio with semantic HTML + CSS tokens | Yes |
+| Text or SVG target in your page to animate | Yes |
+
+**Official time:** 3 h class + 1.5 h lab.
+
+---
+
+## Follow this path
+
+| Step | Action | Section |
+| --- | --- | --- |
+| 1 | Read Tao of Motion + accessibility framing | Tao of Motion / Part VII |
+| 2 | Add GSAP CDN; run Demo 01 locally | Part I |
+| 3 | Animate headline or word split on your portfolio | Part II |
+| 4 | Add one SVG or ScrollTrigger accent (optional depth) | Part III or VI |
+| 5 | Add `@media (prefers-reduced-motion: reduce)` override | Accessibility |
+| 6 | Commit + performance note (one DevTools observation) | Submit below |
+
+---
+
+## Verify before you leave
+
+- [ ] Animation runs on GitHub Pages (CDN scripts load over HTTPS)
+- [ ] Content readable when animation disabled or reduced-motion on
+- [ ] No seizure-scale flashing; durations feel intentional
+- [ ] Keyboard focus not trapped or hidden by motion
+- [ ] Commit pushed
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| `gsap is not defined` | Script order or blocked CDN | Load GSAP before your init script |
+| Layout shift on load | Animating width/height without reserve | Prefer `transform` and `opacity` |
+| ScrollTrigger never fires | Missing plugin registration or wrong trigger | Follow Part VI setup exactly |
+| Motion makes users sick | Ignored reduced-motion | Gate timelines with `matchMedia` |
+| Copied demo never fits brand | Pasted Awwwards snippet wholesale | Adapt timing to your type scale |
+
+---
+
+## Submit (Session 11 evidence)
+
+- Commit with GSAP integration on portfolio
+- One sentence: user goal the motion serves + one thing you refused to animate
 
 ---
 
@@ -995,6 +1067,13 @@ Need animation?
 
 > _"In shipping, there is learning. In learning, there is growth. In growth, there is the Tao."_
 > — The Tao of the Developer
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "🎯 Key Takeaways"
+  visual-grammar: "temporal-communication-score — motion paths sequenced by timing, easing, attention, and reduced-motion responsibility"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

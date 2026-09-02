@@ -14,6 +14,14 @@ permalink: /lessons/en/react/react-testing/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> A test suite is a portfolio of risk decisions.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** tests target behaviour, failure modes, and regressions—not line counts. **Frontier signal:** AI-generated tests and contract testing increase volume without guaranteeing relevance.</p>
+</aside>
+>
+> **Studio test:** Map each test to a risk and delete one low-value test.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -142,6 +150,13 @@ Avoid: Testing implementation details
 - [ ] **GitHub Actions** workflow running tests on push
 - [ ] **Test coverage report** (aim for 60%+ on core code)
 - [ ] **Reflection**: What did tests reveal about your code?
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "📝 Sprint Deliverables"
+  visual-grammar: "risk-portfolio-testing — different product risks receiving proportionate tests instead of uniform coverage"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

@@ -1,0 +1,11 @@
+{% comment %}
+Bilingual switcher for FE I / FE II track index pages.
+Usage: {% include track-lang-switch.html track='fei' %}
+Expects page.lang to be 'en' or 'es'.
+Output MUST stay flush-left (no leading tabs/spaces) — Kramdown escapes indented HTML.
+{% endcomment %}
+{% assign track_slug = include.track %}
+{% assign en_url = '/tracks/en/' | append: track_slug | append: '/' %}
+{% assign es_url = '/tracks/' | append: track_slug | append: '/' %}
+{% if page.lang == 'es' %}{% assign switch_label = 'Idioma del índice del curso' %}{% else %}{% assign switch_label = 'Track index language' %}{% endif %}
+<div class="track-index-lang-switch" markdown="0"><nav class="track-lang-switch" aria-label="{{ switch_label }}"><a href="{{ en_url | relative_url }}"{% if page.lang == 'en' %} aria-current="page"{% endif %} lang="en" hreflang="en">EN</a><span class="track-lang-switch__sep" aria-hidden="true">·</span><a href="{{ es_url | relative_url }}"{% if page.lang == 'es' %} aria-current="page"{% endif %} lang="es" hreflang="es">ES</a></nav></div>

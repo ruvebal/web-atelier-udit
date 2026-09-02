@@ -3,7 +3,7 @@ layout: lesson
 title: 'Authentication: From Mock to Real, Without a New Sandbox'
 slug: react-authentication
 category: react
-tags: [react, authentication, jwt, refresh-tokens, security, oauth, tailwind, react-router, helios-deck]
+tags: [react, authentication, jwt, refresh-tokens, security, oauth, tailwind, react-router, capstone]
 week: 9
 phase: 3
 sprint: 10
@@ -14,6 +14,14 @@ permalink: /lessons/en/react/react-authentication/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Identity flows are interaction design under adversarial conditions.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** session security, cookies, XSS awareness, and clear error states. **Frontier signal:** passkeys, token rotation, and zero-trust service boundaries are changing the surface.</p>
+</aside>
+>
+> **Studio test:** Add a threat model and an accessible recovery path.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -1559,6 +1567,13 @@ In `AuthContext`, add a `register` function that mirrors `login`. Add a `Registe
 
 > _"The provider's promise to its consumers is unchanged. The consumers do not need to know the truth has become real. That is the discipline."_
 > — Tao of the Webapp Master
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "11 — Atelier reflections"
+  visual-grammar: "adversarial-identity-gate — identity claims passing through verification, expiry, refresh, and authorization gates"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

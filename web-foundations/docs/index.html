@@ -6,9 +6,9 @@ lang: es
 ---
 
 <section
-	class="hero-section bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-neutral-900 dark:to-neutral-800"
+	class="hero-section hero-section--archive"
 	aria-labelledby="hero-title">
-	<div class="max-w-4xl mx-auto text-center">
+	<div class="max-w-4xl mx-auto text-center hero-section__inner">
 		<div class="flex flex-col items-center justify-center gap-6 mb-6">
 			<img
 				src="{{ '/assets/icons/favicon.svg' | relative_url }}"
@@ -16,17 +16,17 @@ lang: es
 				class="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
 				aria-hidden="true" />
 			<div class="text-center">
-				<h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-neutral-100 mb-2">
+				<h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
 					<span class="block">WEB ATELIER</span>
-					<span class="text-2xl md:text-3xl lg:text-4xl font-normal text-gray-700 dark:text-neutral-300">(UDIT)</span>
+					<span class="text-2xl md:text-3xl lg:text-4xl font-normal opacity-90">(UDIT)</span>
 				</h1>
-				<p class="text-xl md:text-2xl font-semibold text-gray-800 dark:text-neutral-200 mb-2">
+				<p class="text-xl md:text-2xl font-semibold mb-2">
 					Learning by doing, with theory, practice and shared reflection
 				</p>
-				<p class="text-lg md:text-xl italic text-gray-600 dark:text-neutral-400 mb-4">
+				<p class="text-lg md:text-xl italic opacity-80 mb-4">
 					Critical Coding for a Better Living
 				</p>
-				<p class="text-base text-gray-600 dark:text-neutral-400">
+				<p class="text-base opacity-80">
 					<a href="https://orcid.org/0000-0001-6862-9081" target="_blank" rel="noopener" class="hover:underline">
 						Rubén Vega Balbás, PhD
 					</a>
@@ -38,7 +38,7 @@ lang: es
 			</div>
 		</div>
 		<div class="max-w-2xl mx-auto">
-			<p class="text-lg md:text-xl text-gray-700 dark:text-neutral-300 leading-relaxed">
+			<p class="text-lg md:text-xl leading-relaxed opacity-90">
 				Bienvenidos al portal de
 				<strong>ATELIER UDIT</strong>
 				, un marco pedagógico innovador para la enseñanza del diseño web que integra práctica continua, reflexión crítica y
@@ -173,6 +173,80 @@ lang: es
 					<span class="sr-only">HELIOS DECK — Observatorio Cósmico</span>
 				</a>
 				<div id="helios-curso-desc" class="sr-only">Accede al track HELIOS DECK para construir un dashboard de clima espacial fullstack</div>
+			</div>
+
+			<div
+				class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 hover:shadow-xl transition-shadow p-8">
+				<div class="mb-4">
+					<div class="flex items-start justify-between mb-2">
+						<span class="inline-flex items-center justify-center w-12 h-12 bg-sky-100 dark:bg-sky-900 rounded-lg">
+							<span aria-hidden="true" class="text-2xl">FE</span>
+						</span>
+						<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+							✓ Completo
+						</span>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-2">
+						Front-End I
+					</h3>
+					<p class="text-sm text-gray-500 dark:text-neutral-400 uppercase tracking-wider font-medium mb-4">
+						29 sesiones · 6 ECTS · UDIT
+					</p>
+				</div>
+				<p class="text-gray-700 dark:text-neutral-300 mb-6 leading-relaxed">
+					De HTML/CSS/JavaScript durable a React moderno con proyecto individual, accesibilidad, rendimiento y uso crítico de IA.
+				</p>
+				<ul class="text-sm text-gray-600 dark:text-neutral-400 mb-6 space-y-2">
+					<li>✓ Vanilla JS/CSS</li>
+					<li>✓ React moderno</li>
+					<li>✓ Portfolio y proyecto integrador</li>
+					<li>✓ Evidencia de proceso</li>
+				</ul>
+				<a
+					href="{{ '/tracks/fei/' | relative_url }}"
+					class="inline-block bg-sky-700 hover:bg-sky-800 dark:bg-sky-500 dark:hover:bg-sky-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+					aria-describedby="fei-curso-desc">
+					Ver Track
+					<span class="sr-only">Front-End I</span>
+				</a>
+				<div id="fei-curso-desc" class="sr-only">Accede al track Front-End I con enlaces a las lecciones del curso</div>
+			</div>
+
+			<div
+				class="bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900 hover:shadow-xl transition-shadow p-8">
+				<div class="mb-4">
+					<div class="flex items-start justify-between mb-2">
+						<span class="inline-flex items-center justify-center w-12 h-12 bg-emerald-100 dark:bg-emerald-900 rounded-lg">
+							<span aria-hidden="true" class="text-2xl">II</span>
+						</span>
+						<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+							✓ Completo
+						</span>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 dark:text-neutral-100 mb-2">
+						Front-End II
+					</h3>
+					<p class="text-sm text-gray-500 dark:text-neutral-400 uppercase tracking-wider font-medium mb-4">
+						12 unidades · 6 ECTS · UDIT
+					</p>
+				</div>
+				<p class="text-gray-700 dark:text-neutral-300 mb-6 leading-relaxed">
+					Arquitectura de producción, Astro, PWA, testing, performance, R3F, shaders e interfaces IoT/Python.
+				</p>
+				<ul class="text-sm text-gray-600 dark:text-neutral-400 mb-6 space-y-2">
+					<li>✓ Astro + PWA</li>
+					<li>✓ Testing y revisión asistida</li>
+					<li>✓ 3D, shaders e IoT</li>
+					<li>✓ Defensa de capstone</li>
+				</ul>
+				<a
+					href="{{ '/tracks/feii/' | relative_url }}"
+					class="inline-block bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+					aria-describedby="feii-curso-desc">
+					Ver Track
+					<span class="sr-only">Front-End II</span>
+				</a>
+				<div id="feii-curso-desc" class="sr-only">Accede al track Front-End II con enlaces a las unidades del curso</div>
 			</div>
 
 			<!-- Placeholder for future cursos -->

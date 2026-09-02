@@ -1,0 +1,822 @@
+{
+  "development-environment": {
+    "asset": "fe-i-01-reproducible-system",
+    "course": "FE I",
+    "index": 1,
+    "family": "fe-i",
+    "master_idea": "A professional interface is a reproducible system",
+    "alt_en": "Abstract hexagonal field representing a reproducible development system; no people or products are depicted.",
+    "mode": "lattice",
+    "seed": 2101,
+    "density": 13,
+    "energy": 0.44,
+    "field_lens": "System grid",
+    "outcome": {
+      "asset": "fe-i-01-reproducible-system-outcome",
+      "section": "## Daily workflow",
+      "grammar": "reproducible-work-loop",
+      "form": "loop",
+      "alt_en": "Text-free abstract illustration of a repeatable local edit, preview, commit, sync, and published-check loop."
+    }
+  },
+  "first-steps": {
+    "asset": "fe-i-02-history-evidence",
+    "course": "FE I",
+    "index": 2,
+    "family": "fe-i",
+    "master_idea": "Version history is part of interface evidence",
+    "alt_en": "Abstract hexagonal field representing version history, collaboration, and reversible change; no people or products are depicted.",
+    "mode": "archive",
+    "seed": 2102,
+    "density": 16,
+    "energy": 0.53,
+    "field_lens": "Provenance field",
+    "outcome": {
+      "asset": "fe-i-02-history-evidence-outcome",
+      "section": "## 📂 Student Project Template – Project Structure",
+      "grammar": "inspectable-project-scaffold",
+      "form": "structure",
+      "alt_en": "Text-free abstract illustration of a project scaffold whose folders, entry page, styles, media, and history remain inspectable."
+    }
+  },
+  "html-css-basics": {
+    "asset": "fe-i-03-semantic-contract",
+    "course": "FE I",
+    "index": 3,
+    "family": "fe-i",
+    "master_idea": "Semantics are the interface durable contract",
+    "alt_en": "Abstract hexagonal field representing semantic structure and an accessible interface contract; no people or products are depicted.",
+    "mode": "contract",
+    "seed": 2103,
+    "density": 14,
+    "energy": 0.48,
+    "field_lens": "Learning contract",
+    "outcome": {
+      "asset": "fe-i-03-semantic-contract-outcome",
+      "section": "## ✅ Deliverable",
+      "grammar": "semantic-interface-contract",
+      "form": "structure",
+      "alt_en": "Text-free abstract illustration of semantic content layers becoming a durable styled interface contract."
+    }
+  },
+  "typography-color": {
+    "asset": "fe-i-04-visual-system",
+    "course": "FE I",
+    "index": 4,
+    "family": "fe-i",
+    "master_idea": "Visual style is a communication system",
+    "alt_en": "Abstract hexagonal field representing hierarchy, contrast, and a visual communication system; no people or products are depicted.",
+    "mode": "spectrum",
+    "seed": 2104,
+    "density": 22,
+    "energy": 0.76,
+    "field_lens": "Perceptual code",
+    "outcome": {
+      "asset": "fe-i-04-visual-system-outcome",
+      "section": "__EOF__",
+      "grammar": "contrast-and-hierarchy-system",
+      "form": "field",
+      "alt_en": "Text-free abstract illustration of a visual token field balancing contrast, hierarchy, scale, and accessible rhythm."
+    }
+  },
+  "intrinsic-web-design": {
+    "asset": "fe-i-05-relational-layout",
+    "course": "FE I",
+    "index": 5,
+    "family": "fe-i",
+    "master_idea": "Responsive layout is relationship-aware",
+    "alt_en": "Abstract hexagonal field representing responsive relationships across changing spaces; no people or products are depicted.",
+    "mode": "space",
+    "seed": 2105,
+    "density": 18,
+    "energy": 0.63,
+    "field_lens": "Spatial literacy",
+    "outcome": {
+      "asset": "fe-i-05-relational-layout-outcome",
+      "section": "## Commit & critical reflection",
+      "grammar": "relationship-aware-layout",
+      "form": "field",
+      "alt_en": "Text-free abstract illustration of layout regions adapting through intrinsic relationships rather than device-specific breakpoints."
+    }
+  },
+  "pseudo-elements-and-state-styling": {
+    "asset": "fe-i-06-state-feedback",
+    "course": "FE I",
+    "index": 6,
+    "family": "fe-i",
+    "master_idea": "Interaction states are semantic feedback",
+    "alt_en": "Abstract hexagonal field representing interaction states, feedback, and access; no people or products are depicted.",
+    "mode": "state",
+    "seed": 2106,
+    "density": 17,
+    "energy": 0.64,
+    "field_lens": "State model",
+    "outcome": {
+      "asset": "fe-i-06-state-feedback-outcome",
+      "section": "## Conclusion",
+      "grammar": "semantic-state-feedback",
+      "form": "state",
+      "alt_en": "Text-free abstract illustration of interaction states transforming a stable element while preserving meaning and feedback."
+    }
+  },
+  "js-intro": {
+    "asset": "fe-i-07-browser-runtime",
+    "course": "FE I",
+    "index": 7,
+    "family": "fe-i",
+    "master_idea": "JavaScript is a browser runtime model",
+    "alt_en": "Abstract hexagonal field representing events, runtime, and user feedback; no people or products are depicted.",
+    "mode": "signal",
+    "seed": 2107,
+    "density": 21,
+    "energy": 0.78,
+    "field_lens": "Signal flow",
+    "outcome": {
+      "asset": "fe-i-07-browser-runtime-outcome",
+      "section": "### 📌 Final summary",
+      "grammar": "browser-event-runtime",
+      "form": "motion",
+      "alt_en": "Text-free abstract illustration of browser events moving through runtime, state, and document response."
+    }
+  },
+  "js-dom-manipulation": {
+    "asset": "fe-i-08-rendering-trust",
+    "course": "FE I",
+    "index": 8,
+    "family": "fe-i",
+    "master_idea": "Rendering is a trust boundary",
+    "alt_en": "Abstract hexagonal field representing a rendering boundary and careful transformation of input; no people or products are depicted.",
+    "mode": "boundary",
+    "seed": 2108,
+    "density": 16,
+    "energy": 0.57,
+    "field_lens": "Boundary condition",
+    "outcome": {
+      "asset": "fe-i-08-rendering-trust-outcome",
+      "section": "## ✅ What You Should Now Understand",
+      "grammar": "rendering-trust-boundary",
+      "form": "gate",
+      "alt_en": "Text-free abstract illustration of untrusted input crossing a guarded rendering boundary into a safe document surface."
+    }
+  },
+  "js-modules": {
+    "asset": "fe-i-09-local-change",
+    "course": "FE I",
+    "index": 9,
+    "family": "fe-i",
+    "master_idea": "Modularity keeps change local",
+    "alt_en": "Abstract hexagonal field representing modules, dependency boundaries, and local change; no people or products are depicted.",
+    "mode": "lattice",
+    "seed": 2109,
+    "density": 15,
+    "energy": 0.5,
+    "field_lens": "System grid",
+    "outcome": {
+      "asset": "fe-i-09-local-change-outcome",
+      "section": "## 🎓 Atelier Reflection: What You've Learned",
+      "grammar": "local-change-module-graph",
+      "form": "network",
+      "alt_en": "Text-free abstract illustration of small modules connected through explicit imports so change remains local."
+    }
+  },
+  "linting-and-formatting": {
+    "asset": "fe-i-10-quality-judgment",
+    "course": "FE I",
+    "index": 10,
+    "family": "fe-i",
+    "master_idea": "Quality tools encode team decisions",
+    "alt_en": "Abstract hexagonal field representing quality rules and accountable human judgment; no people or products are depicted.",
+    "mode": "review",
+    "seed": 2110,
+    "density": 12,
+    "energy": 0.42,
+    "field_lens": "Accountability loop",
+    "outcome": {
+      "asset": "fe-i-10-quality-judgment-outcome",
+      "section": "## Critical Coding Prompts (Atelier)",
+      "grammar": "team-quality-gate",
+      "form": "gate",
+      "alt_en": "Text-free abstract illustration of code variations passing through shared quality decisions into one coherent baseline."
+    }
+  },
+  "gsap-overview": {
+    "asset": "fe-i-11-motion-meaning",
+    "course": "FE I",
+    "index": 11,
+    "family": "fe-i",
+    "master_idea": "Motion is a temporal communication layer",
+    "alt_en": "Abstract hexagonal field representing timing, feedback, motion, and cost; no people or products are depicted.",
+    "mode": "motion",
+    "seed": 2111,
+    "density": 24,
+    "energy": 0.88,
+    "field_lens": "Temporal rhythm",
+    "outcome": {
+      "asset": "fe-i-11-motion-meaning-outcome",
+      "section": "## 🎯 Key Takeaways",
+      "grammar": "temporal-communication-score",
+      "form": "motion",
+      "alt_en": "Text-free abstract illustration of motion paths sequenced by timing, easing, attention, and reduced-motion responsibility."
+    }
+  },
+  "modern-web-design-trends-practical-guide-for-students": {
+    "asset": "fe-i-12-trend-hypothesis",
+    "course": "FE I",
+    "index": 12,
+    "family": "fe-i",
+    "master_idea": "A trend is a design hypothesis",
+    "alt_en": "Abstract hexagonal field representing a design hypothesis tested against context and use; no people or products are depicted.",
+    "mode": "transform",
+    "seed": 2112,
+    "density": 20,
+    "energy": 0.71,
+    "field_lens": "Semantic transformation",
+    "outcome": {
+      "asset": "fe-i-12-trend-hypothesis-outcome",
+      "section": "## Conclusion and Final Project",
+      "grammar": "trend-hypothesis-filter",
+      "form": "gate",
+      "alt_en": "Text-free abstract illustration of visual trends filtered by audience purpose, usability, access, and deliberate refusal."
+    }
+  },
+  "portfolio-template-brief": {
+    "asset": "fe-i-13-portfolio-process",
+    "course": "FE I",
+    "index": 13,
+    "family": "fe-i",
+    "master_idea": "A portfolio is evidence of process and authorship",
+    "alt_en": "Abstract hexagonal field representing authorship, checkpoints, and a visible creative process; no people or products are depicted.",
+    "mode": "evidence",
+    "seed": 2113,
+    "density": 14,
+    "energy": 0.51,
+    "field_lens": "Inspectable evidence",
+    "outcome": {
+      "asset": "fe-i-13-portfolio-process-outcome",
+      "section": "## Conclusion",
+      "grammar": "portfolio-process-evidence",
+      "form": "evidence",
+      "alt_en": "Text-free abstract illustration of process fragments converging into an inspectable portfolio page with visible authorship."
+    }
+  },
+  "modern-fe-intro": {
+    "asset": "fe-i-14-tool-judgment",
+    "course": "FE I",
+    "index": 14,
+    "family": "fe-i",
+    "master_idea": "Tools should enlarge judgment not replace it",
+    "alt_en": "Abstract hexagonal field representing the balance between tools, knowledge, and judgment; no people or products are depicted.",
+    "mode": "judgment",
+    "seed": 2114,
+    "density": 16,
+    "energy": 0.55,
+    "field_lens": "Critical judgment",
+    "outcome": {
+      "asset": "fe-i-14-tool-judgment-outcome",
+      "section": "## Critical Research and Reflection",
+      "grammar": "tool-judgment-compass",
+      "form": "field",
+      "alt_en": "Text-free abstract illustration of competing tool directions held around a stable centre of human judgment."
+    }
+  },
+  "frameworks-comparative": {
+    "asset": "fe-i-15-abstraction-tradeoffs",
+    "course": "FE I",
+    "index": 15,
+    "family": "fe-i",
+    "master_idea": "Choose abstraction by problem and trade-offs",
+    "alt_en": "Abstract hexagonal field representing alternative abstractions and their trade-offs; no people or products are depicted.",
+    "mode": "boundary",
+    "seed": 2115,
+    "density": 18,
+    "energy": 0.67,
+    "field_lens": "Boundary condition",
+    "outcome": {
+      "asset": "fe-i-15-abstraction-tradeoffs-outcome",
+      "section": "## Key Takeaways",
+      "grammar": "abstraction-tradeoff-field",
+      "form": "field",
+      "alt_en": "Text-free abstract illustration of framework choices occupying different positions across control, cost, convention, and fit."
+    }
+  },
+  "state-and-ui": {
+    "asset": "fe-i-16-state-model",
+    "course": "FE I",
+    "index": 16,
+    "family": "fe-i",
+    "master_idea": "State models what can be true",
+    "alt_en": "Abstract hexagonal field representing valid states, transitions, and rendered interface conditions; no people or products are depicted.",
+    "mode": "state",
+    "seed": 2116,
+    "density": 19,
+    "energy": 0.73,
+    "field_lens": "State model",
+    "outcome": {
+      "asset": "fe-i-16-state-model-outcome",
+      "section": "## Hands-On Activities",
+      "grammar": "explicit-state-machine",
+      "form": "state",
+      "alt_en": "Text-free abstract illustration of a finite set of interface states connected only by explicit valid transitions."
+    }
+  },
+  "ai-assisted-development-foundations": {
+    "asset": "fe-i-17-verified-hypothesis",
+    "course": "FE I",
+    "index": 17,
+    "family": "fe-i",
+    "master_idea": "A generated answer is a hypothesis until verified",
+    "alt_en": "Abstract hexagonal field representing a generated hypothesis being checked through human verification; no people or products are depicted.",
+    "mode": "review",
+    "seed": 2117,
+    "density": 15,
+    "energy": 0.57,
+    "field_lens": "Accountability loop",
+    "outcome": {
+      "asset": "fe-i-17-verified-hypothesis-outcome",
+      "section": "## 11 — Reflection questions (Atelier)",
+      "grammar": "generated-hypothesis-verification-loop",
+      "form": "loop",
+      "alt_en": "Text-free abstract illustration of a generated proposal cycling through inspection, testing, correction, and owned acceptance."
+    }
+  },
+  "react-fundamentals-simplified": {
+    "asset": "fe-i-18-component-contract",
+    "course": "FE I",
+    "index": 18,
+    "family": "fe-i",
+    "master_idea": "Components are interface boundary contracts",
+    "alt_en": "Abstract hexagonal field representing component inputs, outputs, and interface contracts; no people or products are depicted.",
+    "mode": "contract",
+    "seed": 2118,
+    "density": 17,
+    "energy": 0.62,
+    "field_lens": "Learning contract",
+    "outcome": {
+      "asset": "fe-i-18-component-contract-outcome",
+      "section": "## 📚 Key Takeaways",
+      "grammar": "component-boundary-tree",
+      "form": "structure",
+      "alt_en": "Text-free abstract illustration of small component boundaries composing a visible interface without losing data ownership."
+    }
+  },
+  "react-hooks": {
+    "asset": "fe-i-19-external-sync",
+    "course": "FE I",
+    "index": 19,
+    "family": "fe-i",
+    "master_idea": "Effects synchronize with external systems",
+    "alt_en": "Abstract hexagonal field representing synchronization, ownership, and external systems; no people or products are depicted.",
+    "mode": "signal",
+    "seed": 2119,
+    "density": 20,
+    "energy": 0.75,
+    "field_lens": "Signal flow",
+    "outcome": {
+      "asset": "fe-i-19-external-sync-outcome",
+      "section": "## 📝 Sprint Deliverables",
+      "grammar": "external-system-synchronization",
+      "form": "loop",
+      "alt_en": "Text-free abstract illustration of component state synchronizing with an external system through a controlled effect lifecycle."
+    }
+  },
+  "react-state-architecture": {
+    "asset": "fe-i-20-state-ownership",
+    "course": "FE I",
+    "index": 20,
+    "family": "fe-i",
+    "master_idea": "Scale state by ownership and lifecycle",
+    "alt_en": "Abstract hexagonal field representing local, shared, URL, and server state ownership; no people or products are depicted.",
+    "mode": "lattice",
+    "seed": 2120,
+    "density": 18,
+    "energy": 0.66,
+    "field_lens": "System grid",
+    "outcome": {
+      "asset": "fe-i-20-state-ownership-outcome",
+      "section": "## 📝 Sprint Deliverables",
+      "grammar": "state-ownership-zones",
+      "form": "network",
+      "alt_en": "Text-free abstract illustration of state placed into distinct ownership and lifecycle zones with deliberate connections."
+    }
+  },
+  "react-routing": {
+    "asset": "fe-i-21-url-contract",
+    "course": "FE I",
+    "index": 21,
+    "family": "fe-i",
+    "master_idea": "A URL is a public state contract",
+    "alt_en": "Abstract hexagonal field representing public routes, access, and recoverable navigation states; no people or products are depicted.",
+    "mode": "path",
+    "seed": 2121,
+    "density": 21,
+    "energy": 0.76,
+    "field_lens": "Audience journey",
+    "outcome": {
+      "asset": "fe-i-21-url-contract-outcome",
+      "section": "## 14 — Atelier reflections",
+      "grammar": "url-public-state-map",
+      "form": "network",
+      "alt_en": "Text-free abstract illustration of a public URL state branching into nested routes, parameters, and recoverable navigation."
+    }
+  },
+  "react-backend-integration": {
+    "asset": "fe-i-22-api-failure-boundary",
+    "course": "FE I",
+    "index": 22,
+    "family": "fe-i",
+    "master_idea": "An API boundary is a failure boundary",
+    "alt_en": "Abstract hexagonal field representing service boundaries, data states, and useful failure feedback; no people or products are depicted.",
+    "mode": "risk",
+    "seed": 2122,
+    "density": 19,
+    "energy": 0.74,
+    "field_lens": "Risk surface",
+    "outcome": {
+      "asset": "fe-i-22-api-failure-boundary-outcome",
+      "section": "## 10 — Atelier Reflections",
+      "grammar": "api-failure-channel",
+      "form": "membrane",
+      "alt_en": "Text-free abstract illustration of requests and mutations crossing an interface boundary with visible success, delay, and failure paths."
+    }
+  },
+  "react-authentication": {
+    "asset": "fe-i-23-identity-threat",
+    "course": "FE I",
+    "index": 23,
+    "family": "fe-i",
+    "master_idea": "Identity flows are adversarial interaction design",
+    "alt_en": "Abstract hexagonal field representing identity flows, threats, and accessible recovery; no people or products are depicted.",
+    "mode": "identity",
+    "seed": 2123,
+    "density": 16,
+    "energy": 0.61,
+    "field_lens": "Representation system",
+    "outcome": {
+      "asset": "fe-i-23-identity-threat-outcome",
+      "section": "## 11 — Atelier reflections",
+      "grammar": "adversarial-identity-gate",
+      "form": "gate",
+      "alt_en": "Text-free abstract illustration of identity claims passing through verification, expiry, refresh, and authorization gates."
+    }
+  },
+  "react-framework-mode-auth-i18n": {
+    "asset": "fe-i-24-render-boundary",
+    "course": "FE I",
+    "index": 24,
+    "family": "fe-i",
+    "master_idea": "Rendering location is an architectural choice",
+    "alt_en": "Abstract hexagonal field representing rendering, data, identity, and language boundaries; no people or products are depicted.",
+    "mode": "boundary",
+    "seed": 2124,
+    "density": 20,
+    "energy": 0.72,
+    "field_lens": "Boundary condition",
+    "outcome": {
+      "asset": "fe-i-24-render-boundary-outcome",
+      "section": "## 12 — Closing",
+      "grammar": "server-render-boundary",
+      "form": "gate",
+      "alt_en": "Text-free abstract illustration of rendering, identity, and language decisions crossing a server-controlled boundary."
+    }
+  },
+  "react-testing": {
+    "asset": "fe-i-25-risk-portfolio",
+    "course": "FE I",
+    "index": 25,
+    "family": "fe-i",
+    "master_idea": "A test suite is a portfolio of risk decisions",
+    "alt_en": "Abstract hexagonal field representing risk, confidence, and selective verification; no people or products are depicted.",
+    "mode": "risk",
+    "seed": 2125,
+    "density": 14,
+    "energy": 0.49,
+    "field_lens": "Risk surface",
+    "outcome": {
+      "asset": "fe-i-25-risk-portfolio-outcome",
+      "section": "## 📝 Sprint Deliverables",
+      "grammar": "risk-portfolio-testing",
+      "form": "gate",
+      "alt_en": "Text-free abstract illustration of different product risks receiving proportionate tests instead of uniform coverage."
+    }
+  },
+  "react-performance": {
+    "asset": "fe-i-26-user-resource-budget",
+    "course": "FE I",
+    "index": 26,
+    "family": "fe-i",
+    "master_idea": "Performance is a user and resource budget",
+    "alt_en": "Abstract hexagonal field representing a measured budget for user time and computational resources; no people or products are depicted.",
+    "mode": "budget",
+    "seed": 2126,
+    "density": 13,
+    "energy": 0.46,
+    "field_lens": "Cost budget",
+    "outcome": {
+      "asset": "fe-i-26-user-resource-budget-outcome",
+      "section": "## 📝 Sprint Deliverables",
+      "grammar": "user-resource-budget",
+      "form": "budget",
+      "alt_en": "Text-free abstract illustration of scheduled interface work staying inside a visible user and resource budget."
+    }
+  },
+  "react-deployment": {
+    "asset": "fe-i-27-release-reproducibility",
+    "course": "FE I",
+    "index": 27,
+    "family": "fe-i",
+    "master_idea": "Deployment is product reproducibility",
+    "alt_en": "Abstract hexagonal field representing build, release, rollback, and reproducible delivery; no people or products are depicted.",
+    "mode": "sequence",
+    "seed": 2127,
+    "density": 17,
+    "energy": 0.6,
+    "field_lens": "Narrative sequence",
+    "outcome": {
+      "asset": "fe-i-27-release-reproducibility-outcome",
+      "section": "## 📝 Sprint Deliverables",
+      "grammar": "reproducible-release-ladder",
+      "form": "sequence",
+      "alt_en": "Text-free abstract illustration of one source revision climbing through build, configuration, deployment, and verification."
+    }
+  },
+  "geophysical-aggregator-project": {
+    "asset": "fe-i-28-system-claim",
+    "course": "FE I",
+    "index": 28,
+    "family": "fe-i",
+    "master_idea": "An integrator is a claim about systems",
+    "alt_en": "Abstract hexagonal field representing systems integration, trade-offs, and failure handling; no people or products are depicted.",
+    "mode": "field",
+    "seed": 2128,
+    "density": 25,
+    "energy": 0.89,
+    "field_lens": "Practice field",
+    "outcome": {
+      "asset": "fe-i-28-system-claim-outcome",
+      "section": "## Closing",
+      "grammar": "multi-source-system-confluence",
+      "form": "confluence",
+      "alt_en": "Text-free abstract illustration of heterogeneous data streams joining into one defensible interface claim."
+    }
+  },
+  "final-presentation": {
+    "asset": "fe-i-29-accountable-defence",
+    "course": "FE I",
+    "index": 29,
+    "family": "fe-i",
+    "master_idea": "Defence turns an artefact into accountable knowledge",
+    "alt_en": "Abstract hexagonal field representing explanation, questioning, and accountable knowledge; no people or products are depicted.",
+    "mode": "defence",
+    "seed": 2129,
+    "density": 15,
+    "energy": 0.58,
+    "field_lens": "Defensible decision",
+    "outcome": {
+      "asset": "fe-i-29-accountable-defence-outcome",
+      "section": "## 💭 Reflection Questions",
+      "grammar": "accountable-defence-stage",
+      "form": "defence",
+      "alt_en": "Text-free abstract illustration of an artefact, its process evidence, and live explanation meeting on an accountable defence stage."
+    }
+  },
+  "feii-unit-1-kickoff": {
+    "asset": "fe-ii-01-production-surfaces",
+    "course": "FE II",
+    "index": 1,
+    "family": "fe-ii",
+    "master_idea": "Production front-end is a system of interfaces",
+    "alt_en": "Abstract hexagonal field representing browser, service, deployment, and user interfaces; no people or products are depicted.",
+    "mode": "field",
+    "seed": 3101,
+    "density": 18,
+    "energy": 0.65,
+    "field_lens": "Practice field",
+    "outcome": {
+      "asset": "fe-ii-01-production-surfaces-outcome",
+      "section": "## ✅ Session Outcome",
+      "grammar": "production-interface-surfaces",
+      "form": "network",
+      "alt_en": "Text-free abstract illustration of multiple production interface surfaces connected as one durable system."
+    }
+  },
+  "feii-unit-2-astro-fundamentals": {
+    "asset": "fe-ii-02-hydration-cost",
+    "course": "FE II",
+    "index": 2,
+    "family": "fe-ii",
+    "master_idea": "Hydration is a cost model",
+    "alt_en": "Abstract hexagonal field representing selective interactivity and the cost of hydration; no people or products are depicted.",
+    "mode": "budget",
+    "seed": 3102,
+    "density": 15,
+    "energy": 0.54,
+    "field_lens": "Cost budget",
+    "outcome": {
+      "asset": "fe-ii-02-hydration-cost-outcome",
+      "section": "## ✅ Session Outcome",
+      "grammar": "selective-hydration-islands",
+      "form": "islands",
+      "alt_en": "Text-free abstract illustration of interactive islands activated selectively inside a mostly static content surface."
+    }
+  },
+  "feii-unit-3-astro-advanced": {
+    "asset": "fe-ii-03-architecture-boundaries",
+    "course": "FE II",
+    "index": 3,
+    "family": "fe-ii",
+    "master_idea": "Architecture coordinates explicit boundaries",
+    "alt_en": "Abstract hexagonal field representing boundaries between content, data, framework, and deployment; no people or products are depicted.",
+    "mode": "boundary",
+    "seed": 3103,
+    "density": 19,
+    "energy": 0.7,
+    "field_lens": "Boundary condition",
+    "outcome": {
+      "asset": "fe-ii-03-architecture-boundaries-outcome",
+      "section": "## ✅ Session Outcome",
+      "grammar": "typed-composition-boundaries",
+      "form": "confluence",
+      "alt_en": "Text-free abstract illustration of typed content collections and framework islands converging through explicit composition boundaries."
+    }
+  },
+  "feii-unit-4-pwa-offline": {
+    "asset": "fe-ii-04-offline-promise",
+    "course": "FE II",
+    "index": 4,
+    "family": "fe-ii",
+    "master_idea": "Offline is a product promise and failure mode",
+    "alt_en": "Abstract hexagonal field representing offline, stale, reconnecting, and recovery states; no people or products are depicted.",
+    "mode": "state",
+    "seed": 3104,
+    "density": 20,
+    "energy": 0.73,
+    "field_lens": "State model",
+    "outcome": {
+      "asset": "fe-ii-04-offline-promise-outcome",
+      "section": "## ✅ Session Outcome",
+      "grammar": "offline-resilience-path",
+      "form": "state",
+      "alt_en": "Text-free abstract illustration of a network request moving between online, cached, stale, and recoverable offline states."
+    }
+  },
+  "feii-unit-5-testing-strategy": {
+    "asset": "fe-ii-05-confidence-budget",
+    "course": "FE II",
+    "index": 5,
+    "family": "fe-ii",
+    "master_idea": "Testing strategy buys confidence under a budget",
+    "alt_en": "Abstract hexagonal field representing risk, confidence, and maintenance cost; no people or products are depicted.",
+    "mode": "risk",
+    "seed": 3105,
+    "density": 14,
+    "energy": 0.47,
+    "field_lens": "Risk surface",
+    "outcome": {
+      "asset": "fe-ii-05-confidence-budget-outcome",
+      "section": "## ✅ Session Outcome",
+      "grammar": "confidence-under-budget",
+      "form": "budget",
+      "alt_en": "Text-free abstract illustration of testing effort distributed across product risks while staying inside a confidence and time budget."
+    }
+  },
+  "feii-unit-6-ai-code-review": {
+    "asset": "fe-ii-06-human-review",
+    "course": "FE II",
+    "index": 6,
+    "family": "fe-ii",
+    "master_idea": "AI review is a second opinion",
+    "alt_en": "Abstract hexagonal field representing accountable acceptance, rejection, and human review; no people or products are depicted.",
+    "mode": "review",
+    "seed": 3106,
+    "density": 16,
+    "energy": 0.59,
+    "field_lens": "Accountability loop",
+    "outcome": {
+      "asset": "fe-ii-06-human-review-outcome",
+      "section": "## ✅ Session Outcome",
+      "grammar": "human-review-correction-loop",
+      "form": "loop",
+      "alt_en": "Text-free abstract illustration of automated review suggestions cycling through human inspection, rejection, correction, and evidence."
+    }
+  },
+  "feii-unit-7-performance": {
+    "asset": "fe-ii-07-scheduled-work",
+    "course": "FE II",
+    "index": 7,
+    "family": "fe-ii",
+    "master_idea": "Performance chooses work where and when",
+    "alt_en": "Abstract hexagonal field representing measurement, loading strategy, and scheduled runtime work; no people or products are depicted.",
+    "mode": "signal",
+    "seed": 3107,
+    "density": 22,
+    "energy": 0.82,
+    "field_lens": "Signal flow",
+    "outcome": {
+      "asset": "fe-ii-07-scheduled-work-outcome",
+      "section": "## ✅ Session Outcome",
+      "grammar": "scheduled-performance-work",
+      "form": "budget",
+      "alt_en": "Text-free abstract illustration of browser work redistributed across time until interaction and rendering fit a defended budget."
+    }
+  },
+  "feii-unit-8-r3f-fundamentals": {
+    "asset": "fe-ii-08-understood-scene",
+    "course": "FE II",
+    "index": 8,
+    "family": "fe-ii",
+    "master_idea": "Three-dimensional literacy begins with explanation",
+    "alt_en": "Abstract hexagonal field representing scene structure, renderer evidence, and spatial explanation; no people or products are depicted.",
+    "mode": "scene",
+    "seed": 3108,
+    "density": 23,
+    "energy": 0.86,
+    "field_lens": "Experience staging",
+    "outcome": {
+      "asset": "fe-ii-08-understood-scene-outcome",
+      "section": "## Session outcome",
+      "grammar": "understood-scene-graph",
+      "form": "scene",
+      "alt_en": "Text-free abstract illustration of a React component hierarchy becoming an inspectable three-dimensional scene with a visible cost budget."
+    }
+  },
+  "feii-unit-9-shader-literacy": {
+    "asset": "fe-ii-09-data-to-appearance",
+    "course": "FE II",
+    "index": 9,
+    "family": "fe-ii",
+    "master_idea": "A shader transforms data into appearance",
+    "alt_en": "Abstract hexagonal field representing coordinates, uniforms, and controlled shader experimentation; no people or products are depicted.",
+    "mode": "shader",
+    "seed": 3109,
+    "density": 26,
+    "energy": 0.92,
+    "field_lens": "Per-frame aesthetics",
+    "outcome": {
+      "asset": "fe-ii-09-data-to-appearance-outcome",
+      "section": "## Session outcome",
+      "grammar": "data-to-pixel-appearance",
+      "form": "shader",
+      "alt_en": "Text-free abstract illustration of uniform and vertex data flowing through a shader into per-pixel appearance and a measured post-process decision."
+    }
+  },
+  "feii-unit-10-iot-python-backend": {
+    "asset": "fe-ii-10-operational-membrane",
+    "course": "FE II",
+    "index": 10,
+    "family": "fe-ii",
+    "master_idea": "A control panel is an operational membrane",
+    "alt_en": "Abstract hexagonal field representing live systems, human decisions, and safe status feedback; no people or products are depicted.",
+    "mode": "membrane",
+    "seed": 3110,
+    "density": 21,
+    "energy": 0.79,
+    "field_lens": "Interface membrane",
+    "outcome": {
+      "asset": "fe-ii-10-operational-membrane-outcome",
+      "section": "## Session outcome",
+      "grammar": "live-operational-membrane",
+      "form": "membrane",
+      "alt_en": "Text-free abstract illustration of bidirectional live data crossing a reconnecting control-panel membrane with safe stale-state handling."
+    }
+  },
+  "feii-unit-11-capstone-integration": {
+    "asset": "fe-ii-11-inspectable-process",
+    "course": "FE II",
+    "index": 11,
+    "family": "fe-ii",
+    "master_idea": "Process evidence makes competence inspectable",
+    "alt_en": "Abstract hexagonal field representing decisions, iterations, verification, and visible process; no people or products are depicted.",
+    "mode": "evidence",
+    "seed": 3111,
+    "density": 17,
+    "energy": 0.63,
+    "field_lens": "Inspectable evidence",
+    "outcome": {
+      "asset": "fe-ii-11-inspectable-process-outcome",
+      "section": "## ✅ Session Outcome",
+      "grammar": "inspectable-process-assembly",
+      "form": "evidence",
+      "alt_en": "Text-free abstract illustration of decisions, iterations, tests, and assistance records assembling into inspectable process evidence."
+    }
+  },
+  "feii-unit-12-capstone-defence": {
+    "asset": "fe-ii-12-corrective-competence",
+    "course": "FE II",
+    "index": 12,
+    "family": "fe-ii",
+    "master_idea": "A defence tests corrective competence and authorship",
+    "alt_en": "Abstract hexagonal field representing explanation, live modification, critique, and authorship; no people or products are depicted.",
+    "mode": "defence",
+    "seed": 3112,
+    "density": 18,
+    "energy": 0.68,
+    "field_lens": "Defensible decision",
+    "outcome": {
+      "asset": "fe-ii-12-corrective-competence-outcome",
+      "section": "## ✅ Session Outcome",
+      "grammar": "corrective-competence-defence",
+      "form": "defence",
+      "alt_en": "Text-free abstract illustration of implementation, evidence, explanation, and live correction converging in a final defence."
+    }
+  }
+}

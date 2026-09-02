@@ -9,6 +9,14 @@ lang: en
 permalink: /lessons/en/js-intro/
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> JavaScript is a browser/runtime model, not just syntax.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** events, DOM, types, control flow, and browser execution. **Frontier signal:** browser APIs and asynchronous interaction keep expanding the runtime boundary.</p>
+</aside>
+
+> **Studio test:** Draw the event → DOM → user-feedback loop before coding.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -18,6 +26,72 @@ permalink: /lessons/en/js-intro/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## For / Not for
+
+**For:** Front-End I **Session 7** — JavaScript fundamentals, the DOM, and the event model in `assets/js/main.js` on your portfolio repo (after Sessions 3–6 CSS).
+
+**Not for:** ES modules (Session 9), linting setup (Session 10), or React (semester 2).
+
+**When you finish this session you will have:** working JS in `main.js`, at least one DOM update driven by user input, and DevTools console notes in your ATELIER reflection.
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Sessions 3–6 complete (semantic HTML + CSS on repo) | Yes |
+| `assets/js/main.js` linked from `index.html` | Yes |
+| Chrome or Edge with DevTools | Yes |
+
+**Official time:** 3 h class + 1.5 h lab.
+
+---
+
+## Follow this path
+
+| Step | Action | Section |
+| --- | --- | --- |
+| 1 | Read timeline + compare with C++/PHP mental models | Timeline / Comparison |
+| 2 | Open DevTools → Console; run first expressions | Practice with DevTools |
+| 3 | Select DOM nodes; update text with JS (no framework) | The DOM |
+| 4 | Wire one button or form to an event listener | Events |
+| 5 | Complete progressive exercises in `main.js` | Detailed Guide |
+| 6 | Commit + short reflection on event → DOM → feedback | Submit below |
+
+---
+
+## Verify before you leave
+
+- [ ] `main.js` loads without console errors on your Pages URL
+- [ ] At least one user action changes visible page content
+- [ ] You can explain `addEventListener` vs inline `onclick` in one sentence
+- [ ] DevTools Elements panel used to inspect a node you changed from JS
+- [ ] Commit pushed to GitHub
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| `main.js` never runs | Script not linked or wrong path | `<script src="assets/js/main.js" defer></script>` before `</body>` |
+| `null` when querying DOM | Script runs before HTML exists | Use `defer`, or wrap in `DOMContentLoaded` |
+| Changes invisible | Updated wrong element or typo in selector | Log `document.querySelector(...)` in Console |
+| Button does nothing | Listener on wrong node or missing `preventDefault` on forms | Inspect event target in DevTools |
+| Copilot pastes framework code | Accepted suggestion blindly | Stay vanilla; reject imports and JSX this week |
+
+---
+
+## Submit (Session 7 evidence)
+
+- GitHub repo URL + commit touching `assets/js/main.js`
+- One-line note: which event you handled and what DOM feedback the user sees
+
+---
 
 ## 🎯 Objectives
 
@@ -691,6 +765,13 @@ After the 3 commits your `main.js` should:
 1. Show a message in console and modify the DOM (Commit 1).
 2. Respond to a click on a button with an event (Commit 2).
 3. Dynamically change the style of an element with scroll (Commit 3).
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "📌 Final summary"
+  visual-grammar: "browser-event-runtime — browser events moving through runtime, state, and document response"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

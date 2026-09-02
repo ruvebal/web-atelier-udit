@@ -19,9 +19,17 @@ tags:
     documentation,
     project-integration,
   ]
-status: draft
+status: complete
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Process evidence makes a claim about competence inspectable.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** decision logs, iteration history, verification, and narration. **Frontier signal:** AI-resilient process evidence and transparent use declarations are design instruments, not validated guarantees.</p>
+</aside>
+>
+> **Studio test:** Assemble verify/narrate evidence before polishing the final artefact.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -233,11 +241,22 @@ This unit prepares you for the capstone oral defence. The next unit will cover t
 
 > _"Evidence is not optional. It's how you prove you did the work."_
 
+{% comment %}
+outcome-graphic-selection:
+  source-section: "✅ Session Outcome"
+  visual-grammar: "inspectable-process-assembly — decisions, iterations, tests, and assistance records assembling into inspectable process evidence"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
+
 ## B1 · Lección magistral — 1 h
 
 **Claim:** A capstone is assessable when its decisions and verification trail are reconstructable, not merely when its interface looks finished.
 
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 The lecture positions Units 5–10 as the technical journey, Unit 11 as the release/evidence ritual, and Unit 12 as the individual defence. The distinction is grounded in the repository-as-structured-learning infrastructure described by Nelson & Ponciano (Ahmes node `ed82afbb`, p. 0) and the process/integrity emphasis in the FE evidence matrix. These sources support the design rationale; they do not establish a causal learning effect.
+-->
+{% endif %}
 
 **Speaker outline:** 1) product versus evidence, 2) verify/narrate model, 3) decision log, 4) iteration log, 5) AI declaration, 6) release evidence, 7) individual accountability, 8) hand-off to the defence.
 
@@ -256,9 +275,21 @@ Evidence to submit: issue link, branch, PR, before/after verification, AI accept
 
 Professor answer sketches belong in the instructor copy, not the public handout. These exercises intentionally remain decontextualised from the team product.
 
-## Provenance and evidence gate
+## Research boundary
 
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 - Neumann, *Agile Methods in Higher Education*, Ahmes node `86bd504a`, p. 0 — team/project learning infrastructure; discovery resolved to the cited node.
+-->
+{% endif %}
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 - Nelson & Ponciano, Ahmes node `ed82afbb`, p. 0 — structured repository evidence.
+-->
+{% endif %}
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 - González-Videgaray and Garcia remain matrix-controlled sources; cite only their resolved Ahmes node/page in the instructor release.
+-->
+{% endif %}
 - **Missing evidence:** this unit does not prove that process documentation causes better learning outcomes. Research collection remains off without consent, DPO, and institutional administration.

@@ -78,10 +78,15 @@ Copy from here only for later units. Fill the six `INPUT` slots. Do not skip ste
 1. Open `frontend-pedagogy/grounding/README.mdc` and read THIS UNIT'S ROW of the
    evidence matrix. It is authoritative over your priors.
 2. If the row says vault evidence exists: query the coat, get `node_id` + page.
-   Cite as ⟨coat⟩ · nodo ⟨id⟩ · p. ⟨n⟩. No citation without a node.
-3. If the row says NONE: you MUST write a declared-gap paragraph in the lesson,
-   in the register of Unit 5's "Scholarly honesty" note. Do not paper over it.
-   Vendor documentation grounds HOW, never WHY THIS SEQUENCE TEACHES WELL.
+   Use it as private provenance. Student prose cites Chicago
+   `(Author Year, page)` and ends with a complete References entry. Keep the
+   coat/node/resolver trail only in the switch-gated `curriculum-internal`
+   source comment required by the publishing rules. No citation without a
+   node; no node metadata in student HTML.
+3. If the row says NONE or unresolved: retain the complete status/reason in the
+   source-only gated comment. In visible prose, state the useful limit or open
+   question without internal labels and without inventing a citation. Vendor
+   documentation grounds HOW, never WHY THIS SEQUENCE TEACHES WELL.
 4. Check library versions by search, not memory. Pin and date them.
 5. Pick TTOD quotes by ID through `~/src/.cursor/skills/ttod-bridge/SKILL.md`
    — never by hand-parsing `ttod.yml` or hand-appending YAML to it. If the
@@ -89,7 +94,16 @@ Copy from here only for later units. Fill the six `INPUT` slots. Do not skip ste
    bridge (`origin: blackbox`, `source` naming this unit) stages it in
    the bridge's own `pending/` for human review — it is never merged or
    cited as canonical until a human runs TTOD's own `cli.py add`.
-6. **Units 8–9 (and any AI-assisted 3D lesson):** read
+6. Every visible TTOD epigraph must receive the Tao quote visual treatment:
+   use the visual-forger grammar as a transparent, low-contrast nebula shader
+   field. Do not use partial/cropped geometry, heavy ornamental shapes, dark
+   blue-purple title-card grounds, embedded quote text, Ahmes/Athanor/DevIAC
+   metadata, node IDs, or local paths inside the artwork. The current site
+   implementation applies this through `.tao-development-quote` in
+   `web-foundations/docs/assets/css/site.css` and the lesson layout enhancer;
+   future forks may replace the asset, but must preserve transparency,
+   readable text, and source/visual separation.
+7. **Units 8–9 (and any AI-assisted 3D lesson):** read
    [`web-foundations/private/ai-assisted-3d/AUDIT-GROUNDED.md`](../web-foundations/private/ai-assisted-3d/AUDIT-GROUNDED.md)
    **before** writing. It is the instructor/student split contract:
    - **Student path (graded):** philosophy, merge rubric, `cursor-rules/`
@@ -151,6 +165,8 @@ Deliberately NOT the product. 3–5 short problems that isolate the strategy:
 - `cd web-foundations && npm run build 2>&1 | grep -i "liquid warning"` → empty.
 - Every cited node resolves in its extraction.db.
 - Read the built HTML: code blocks survived intact.
+- Run the publication and citation gates: no internal corpus/local-architecture
+  metadata in output; Chicago inline citations and final References sections.
 - Hour totals still close.
 
 ## OUTPUT CONTRACT

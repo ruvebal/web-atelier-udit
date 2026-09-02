@@ -8,7 +8,7 @@
 6. Accessibility is not an afterthought for a data stream (Stelea 2025)
 7. FastAPI as the Python-backed service
 8. The AI declaration log — reused from Units 6, 8, 9
-9. The Phase 5 placeholder — what must be replaced before Entrega 2
+9. The versioned lab contract — build and test now; propose a versioned change later
 10. Handoff to Unit 11 — capstone integration
 
 Speaker claims only; no unsupported learning-outcome claim.

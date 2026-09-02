@@ -42,6 +42,7 @@ By the end of this lesson, you will be able to:
 
 > _"The best interface is no interface."_
 > — The Tao of Development (ux-002)
+{: .tao-development-quote }
 
 Your students ask an excellent question: When users click on project cards in a portfolio grid, should they:
 
@@ -82,6 +83,7 @@ The answer, like most in design, is: **it depends**.
 
 > _"Design is not just what it looks like and feels like. Design is how it works."_
 > — The Tao of Development (ux-003)
+{: .tao-development-quote }
 
 Consider a **hybrid approach**:
 
@@ -181,6 +183,7 @@ The `:target` pseudo-class matches an element whose `id` matches the URL fragmen
 
 > _"Simplicity is prerequisite for reliability."_
 > — The Tao of Development (cc-008)
+{: .tao-development-quote }
 
 **Use when:** Lightweight previews, image lightboxes, progressive enhancement base.
 
@@ -305,6 +308,7 @@ class Modal {
 
 > _"Accessibility is not an afterthought. It is architecture."_
 > — The Tao of Development (a11y-001)
+{: .tao-development-quote }
 
 ---
 
@@ -380,6 +384,7 @@ dialog[open] {
 
 > _"Reuse proven patterns; avoid reinventing the wheel."_
 > — The Tao of Development (cc-008)
+{: .tao-development-quote }
 
 **Browser Support:** All modern browsers (Chrome, Firefox, Safari, Edge). Consider polyfill for older browsers.
 
@@ -498,6 +503,7 @@ Before shipping modals to production, verify:
 
 > _"The wise developer does not add more code. They remove conflict."_
 > — The Tao of Development (cc-006)
+{: .tao-development-quote }
 
 ### Lazy Loading Modal Content
 
@@ -602,6 +608,7 @@ Is the content substantial (case study, multiple sections)?
 
 > _"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."_
 > — The Tao of Development (cc-007)
+{: .tao-development-quote }
 
 Choose the simplest solution that meets all requirements. A well-implemented CSS modal beats a broken JavaScript one. A native `<dialog>` beats a custom implementation with the same features.
 

@@ -15,7 +15,7 @@ Thematic learning paths that group canonical lessons into complete, structured e
 
 Taught in the **Grado en Desarrollo Full-Stack** and the **Grado en Ciencia de Datos e IA**.
 
-### Front-End I — Desarrollo Web: Front-End I
+### Desarrollo Web: Front-End I
 
 **Duration:** annual, 6 ECTS (150 h · 30 h lab)
 **Year:** 2nd
@@ -23,7 +23,7 @@ Taught in the **Grado en Desarrollo Full-Stack** and the **Grado en Ciencia de D
 
 Front-end fundamentals as the human-facing interaction layer: semantic structure, the DOM, state, accessibility, and API interaction — taught twice, once framework-free and once with React, so the durable concepts are visibly independent of the framework.
 
-[View track →]({{ '/tracks/fei/' | relative_url }}) · [How to pass it →]({{ '/tracks/fei/how-to-pass-this-track/' | relative_url }}) · [React sequence →]({{ '/lessons/en/react/' | relative_url }})
+[View track →]({{ '/tracks/en/fei/' | relative_url }}) · [Índice ES →]({{ '/tracks/fei/' | relative_url }}) · [How to pass it →]({{ '/tracks/en/fei/how-to-pass-this-track/' | relative_url }}) · [React sequence →]({{ '/lessons/en/react/' | relative_url }})
 
 ---
 
@@ -35,7 +35,7 @@ Front-end fundamentals as the human-facing interaction layer: semantic structure
 
 Where Front-End I closes. Meta-framework architecture (Astro islands), PWA/offline, testing strategy and AI-assisted code review, performance engineering, and the frontier where "front-end = website" stops being true: 3D/WebGL interfaces, IoT/robotics control panels, and Python-backed services.
 
-[View track →]({{ '/tracks/feii/' | relative_url }}) · [How to pass it →]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }}) · [12-unit sequence →]({{ '/lessons/en/feii/' | relative_url }})
+[View track →]({{ '/tracks/en/feii/' | relative_url }}) · [Índice ES →]({{ '/tracks/feii/' | relative_url }}) · [How to pass it →]({{ '/tracks/en/feii/how-to-pass-this-track/' | relative_url }}) · [12-unit sequence →]({{ '/lessons/en/feii/' | relative_url }})
 
 ---
 

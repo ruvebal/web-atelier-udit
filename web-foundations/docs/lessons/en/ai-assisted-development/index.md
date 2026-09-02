@@ -32,7 +32,7 @@ This cluster is the **architecture sequence** for AI-assisted web work. It is no
 | Page | What it is |
 | --- | --- |
 | [Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }}) | RPC, contracts, RAG-before-RAG, MVC/MVVM as discipline |
-| [Apply in React]({{ '/lessons/en/react/ai-assisted-development-foundations/' | relative_url }}) | Same stack, in the FE I React sprint (loaders, verification, HELIOS) |
+| [Apply in React]({{ '/lessons/en/react/ai-assisted-development-foundations/' | relative_url }}) | Same stack, in the FE I React sprint (loaders, verification, capstone) |
 | [Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }}) | When to plan, how to disclose, what you must defend |
 | [Oral-defence rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}) | How disclosure and defence are graded |
 

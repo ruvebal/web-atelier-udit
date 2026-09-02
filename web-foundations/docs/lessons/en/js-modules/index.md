@@ -9,6 +9,14 @@ lang: en
 permalink: /lessons/en/js-modules/
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Modularity keeps change local.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** explicit imports/exports and dependency boundaries reduce accidental coupling. **Frontier signal:** ESM, package graphs, and build tooling continue to evolve.</p>
+</aside>
+
+> **Studio test:** Produce an import graph and explain one boundary.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -18,6 +26,71 @@ permalink: /lessons/en/js-modules/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## For / Not for
+
+**For:** Front-End I **Session 9** — split `main.js` into ES modules with `import`/`export` on your vanilla portfolio (CDN or native ESM in browser).
+
+**Not for:** bundlers (Vite comes in portfolio Level 3), CommonJS/Node `require` in production code, or React modules (semester 2).
+
+**When you finish this session you will have:** at least two `.js` files with explicit exports, `index.html` loading `type="module"`, and a import graph sketch in your README or ATELIER note.
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Session 8 complete (DOM updates in repo) | Yes |
+| Live Server or static server (ES modules need HTTP, not `file://`) | Yes |
+| Git commit history from Sessions 7–8 | Recommended |
+
+**Official time:** 2 h class + 1 h lab.
+
+---
+
+## Follow this path
+
+| Step | Action | Section |
+| --- | --- | --- |
+| 1 | Read evolution IIFE → ES modules (context only) | Evolution |
+| 2 | Extract one utility function to `utils.js` with named export | Export syntax |
+| 3 | Import it in `main.js`; add `type="module"` on script tag | Import syntax |
+| 4 | Draw import graph (which file imports which) | Studio test |
+| 5 | Commit | Submit below |
+
+---
+
+## Verify before you leave
+
+- [ ] Page loads over `http://127.0.0.1:…` (not double-clicked `file://`)
+- [ ] Console shows no `CORS` or `Cannot use import` errors
+- [ ] At least one named export and one import in separate files
+- [ ] You can explain default vs named export in one sentence
+- [ ] Commit pushed
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| `Cannot use import statement` | Missing `type="module"` | `<script type="module" src="…">` |
+| 404 on module file | Wrong relative path from HTML | Paths relative to page URL |
+| `file://` CORS error | Opened HTML directly | Use Live Server |
+| Circular import undefined | Two files import each other | Extract shared code to third file |
+| Global pollution returns | Everything still in one file | Enforce one responsibility per module |
+
+---
+
+## Submit (Session 9 evidence)
+
+- Commit with module split + `type="module"` script tag
+- Import graph (ASCII or bullet list) in README or reflection comment
+
+---
 
 ## 🎯 Learning Objectives
 
@@ -1159,6 +1232,13 @@ By completing this lesson, you've mastered:
 6. ✅ **Professional Mindset** - Understanding trade-offs and evolution
 
 > "You are now equipped to build scalable, maintainable web applications. Use this power wisely —organize your code as if the next person to maintain it is a homicidal maniac who knows where you live." — Anonymous (but wise) Developer
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "🎓 Atelier Reflection: What You've Learned"
+  visual-grammar: "local-change-module-graph — small modules connected through explicit imports so change remains local"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

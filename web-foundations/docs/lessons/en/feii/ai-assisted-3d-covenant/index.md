@@ -25,8 +25,9 @@ status: complete
 
 > _"The module that knows its boundaries serves the whole. The module that knows no boundaries becomes the whole—and collapses under its own weight."_
 > — Tao of Development, `arch-001`
+{: .tao-development-quote }
 
-This page is the **student path** for AI in Units 8–9. It is not a tool catalogue. MCP marketplaces, Stitch, corpus-to-boilerplate, and editor-plugin shopping are **out of scope** for Entrega 2.
+This page is the **student path** for AI in Units 8–9. It is not a tool catalogue. Tool marketplaces, generated boilerplates, and editor-plugin shopping are **out of scope** for Entrega 2.
 
 Read it before you open an assistant on a scene or a shader. The same human-in-the-loop habit as [Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}) — inspect, then merge.
 
@@ -71,7 +72,7 @@ At least **two REJECT** rows across Units 8–9, or an explicit finding that not
 
 ## What this course does not grade
 
-- Installing Browser MCP, Stitch, 21st.dev, Nano Banana, or a "2026 MCP matrix"
+- Installing extra assistant servers, design generators, or editor plugins
 - Generating a full studio scaffold (SSR, i18n, CMS stub, Gaussian splats)
 - Delegating palette and camera taste to a design model without a written human choice
 
@@ -81,7 +82,15 @@ Those exist for **instructor demonstration**. Your job is transfer, literacy, bu
 
 ## Scholarly honesty (why the log exists)
 
-Bloque 5 (R3F / GLSL *as a taught sequence*) is a declared **`[UNVERIFIED-GAP]`** in this course's research vault — there is no peer-reviewed finding that this syllabus is the right one. Adjacent CS-education work still motivates the gates:
+No peer-reviewed study reviewed for this course establishes that this exact
+R3F/GLSL sequence is the best syllabus. Treat it as a transparent studio pilot:
+the adjacent computing-education research motivates the review gates, while
+student evidence must come from the implementation, tests, and defence.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+Bloque 5 (R3F / GLSL as a taught sequence) is [UNVERIFIED-GAP] in the course research vault; no peer-reviewed finding validates this syllabus.
+-->
+{% endif %}
 
 - Assistants can raise speed while students **accept suggestions without reflecting** (cognitive offloading). That is why an unexplained shader fails.
 - Generative design can induce **fixation** (fewer alternatives, more homogenization). That is why you write the palette / camera rationale yourself.

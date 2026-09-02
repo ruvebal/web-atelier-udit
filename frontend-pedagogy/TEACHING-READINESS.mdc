@@ -1,105 +1,151 @@
 ---
-description: Honest readiness assessment for teaching FE I/FE II in 2026-27 — what exists, what blocks the first class, and the ordered path to ready
+description: Honest readiness and executable remaining-work queue for teaching FE I/FE II in 2026-27
 globs: 'frontend-pedagogy/**'
 alwaysApply: false
 ---
 
 # Teaching readiness — FE I / FE II, curso 2026-27
 
-**Audited 2026-08-11** against the built site and `_data/tracks.yml`. Every figure below is measured, not estimated.
+**Re-audited 2026-08-28** against the current lesson sources, track registry, gap pass, fresh local build, generated-asset operations, and Ahmes 12H formula-readiness reports.
 
----
+## 0. Current verdict
 
-## 0. Straight answer
+**FE I: curriculum-ready; delivery sign-off remains.** The 29-session sequence is indexed, its official 10/30/14 activity allocation closes, and its canonical lessons are publicly navigable in the local build.
 
-**FE I: yes, teachable.** Semester 1 and the 15-lesson React sequence are built, published and sequenced. Two compliance defects to fix (§2), neither blocking week 1.
+**FE II: no longer an essay-only scaffold.** All 12 units now have a student lesson, individual-exercise file, deck outline, master-idea/field-lens framing, semantic graphic, outcome illustration, and a session outcome. Ten code-bearing units contain 77 labelled code fences in total. Units 1 and 12 intentionally have no runnable code because they are orientation and oral-defence units.
 
-**FE II: no — not yet teachable beyond Units 5–6.** Ten of twelve units are lesson *prose* with no lab brief, no exercise set, no labelled code, and no deck. You could teach Unit 5 and Unit 6 tomorrow. You could not teach Unit 2 next month without building it first.
+**FE II teaching: ready for instructor technical rehearsal, not automatic release.** The remaining teaching risk is runtime verification, lab-machine access, assessment freezing, and delivery logistics—not missing lesson prose.
 
-**Research layer: instrumented on paper, not consented.** Nothing may be collected as research data in September without §4.
+**Research: blocked.** The assessment traces exist, but consent, DPO approval, independent administration, retention rules, and frozen instrument versions do not.
 
----
+**Pilot status remains real.** Astro/islands, PWA failure-mode teaching, performance pedagogy, R3F, minimum GLSL, and FE-to-device transfer have bounded precedents but no direct validation of these exact sequences.
 
-## 1. Measured state
+## 1. Measured repository state
 
-| Unit | Lines | Labelled code blocks | Lab brief | Exercise set | Deck |
-| --- | ---: | ---: | :---: | :---: | :---: |
-| 1 Kickoff | 146 | 0 | ✗ | ✗ | ✗ |
-| 2 Astro fundamentals | 278 | 1 | ✗ | ✗ | ✗ |
-| 3 Astro advanced | 300 | 0 | ✗ | ✗ | ✗ |
-| 4 PWA / offline | 309 | 0 | ✗ | ✗ | ✗ |
-| **5 Testing strategy** | **531** | **11** | ✅ | ✗ | ✗ |
-| **6 AI code review** | **324** | **8** | ✅ | ✗ | ✗ |
-| 7 Performance | 329 | 0 | ✗ | ✗ | ✗ |
-| 8 R3F | 282 | 0 | ✗ | ✗ | ✗ |
-| 9 Shaders | 302 | 0 | ✗ | ✗ | ✗ |
-| 10 IoT / Python | 290 | 0 | ✗ | ✗ | ✗ |
-| 11 Capstone integration | 234 | 0 | ✗ | ✗ | ✗ |
-| 12 Capstone defence | 221 | 0 | ✗ | ✗ | ✗ |
-
-**Totals:** 2 of 12 units at standard · **0 of 12 exercise sets** · 2 of 12 lab briefs · **0 of 12 decks**.
-
-Length is not the gap — most units are 280–330 lines. **Nature is the gap:** they are essays. A unit with zero labelled code blocks cannot be taught from, because a student cannot tell what is runnable.
-
----
-
-## 2. ✅ Hour-contract remediation completed; teaching-content gates remain
-
-**a) FE I lab hours now close.** `tracks.yml` `fei:` sums `labHours` to **30.0 h** across 29 sessions. FE II also closes at **30.0 h**. The remediation allocated the official 10/30/14 activity split in both tracks.
-
-**b) Activity keys are now explicit and closed.** Both tracks sum to **10 h magistral / 30 h laboratory / 14 h exercises**. This closes the official activity accounting; it does not make every unit’s lesson pack complete.
-
-> The `ACTIVIDADES FORMATIVAS` table is now structurally fillable from the session data. Remaining readiness work is pedagogical production: labs, exercise sets, code, accessibility checks, and decks.
-
----
-
-## 3. Path to ready — ordered by what unblocks teaching
-
-**Wave 0 — before any teaching (≈ half a day)**
-1. Resolve the FE I 32 → 30 h discrepancy (your call which sessions).
-2. Add `magistralHours` + `ejerciciosHours` to every session in both tracks; totals must close at 10 / 14.
-3. Freeze and version the oral-defence rubric and AI-declaration template (also a research prerequisite, §4).
-
-**Wave 1 — Units 11 + 12 (best evidenced; they define the assessment students meet)**
-Paste [`forge/FE-II-WAVE-1.execute.md`](./forge/FE-II-WAVE-1.execute.md) (procedure: [`fe-unit-forge.mdc`](./fe-unit-forge.mdc)). Evidence is ready — Garcia, Nelson & Ponciano, Vega (incremental PBL), González-Videgaray, Liu p.12 verbatim, DEC LATAM 65 %/56 %, Neumann (eduScrum) for the team-repo model.
-
-**Wave 2 — Units 2 + 3 + 4** — the platform the frontier needs. All three **declare a gap**; ground technique in dated vendor docs only.
-
-**Wave 3 — Units 8 + 9 + 10** — the frontier. Declare pilot. Neelakantam & Pant grounds *technique* for 8–9 only.
-
-**Wave 4 — Units 1 + 7** — kickoff last (it must promise what the other eleven deliver); Unit 7 already has its ethics section, needs lab + exercises.
-
-**Wave 5 — 12 decks.** After prose settles. A deck for a lesson still in flux is waste.
-
-**Minimum viable to start the semester:** Wave 0 + Wave 1 + Unit 2. Weeks 3–4 of teaching can run one wave ahead of delivery if necessary — but not more, and the exercise sets cannot be the thing that slips, because they are the individual-evidence channel (§4).
-
----
-
-## 4. Research layer — status against the vaults
-
-**Grounding is current.** All vaults are registered and classed in [`grounding/README.mdc`](./grounding/README.mdc): `fe-main` (18 coats), `fe-ibero` (8), and four cross-project SVCM vaults with explicit *"never use for"* rules. The **discover-in-vectors / cite-from-nodes** rule is recorded. 21 strict coat·node citations across the guías resolve, including the UNESCO coat.
-
-**Recent movement:** three gaps closed (eduScrum → team repo; Vega → incremental PBL; Burgos → ethics-first, first Spain-inclusive source), one reclassified (energy → normative via UNESCO), two refused (O'Toole homonym; WebVR-as-pedagogy).
-
-**Still open, deliberately:** six FE II units unevidenced (the pilot thesis); the empirical energy claim; Spanish legal instruments not ingested; Taylor's archive/repertoire cited nowhere pending a definitional node.
-
-**🔴 What is NOT ready:** the human layer.
-
-| Prerequisite | State |
+| Surface | State |
 | --- | --- |
-| Consent set C1–C4 drafted and IP-administered | ✗ not started |
-| RGPD basis + DPO sign-off (UDIT) | ✗ not started |
-| Second-institution approval (UEM, for the synergy) | ✗ not started |
-| Instruments frozen and versioned | ✗ not done (Wave 0.3) |
+| FE I sequence | ✅ 29 sessions |
+| FE II sequence | ✅ 12 sessions |
+| Official activity allocation | ✅ FE I 10/30/14 · FE II 10/30/14 |
+| FE II lesson indexes | ✅ 12/12 |
+| FE II individual-exercise files | ✅ 12/12 |
+| FE II deck outlines | ✅ 12/12 |
+| Actual rendered slide decks | ◻ 0/12; outlines only |
+| How-to-pass track decks | ✅ FE I/II use content-addressed UDIT-only SVG/PNG releases, a public append-only index, semantic glass `<figcaption>` provenance, and back-to-track navigation |
+| FE II labelled code fences | ✅ 77 across the 10 code-bearing units |
+| Session outcome | ✅ 12/12 |
+| Canonical FE lessons with semantic + outcome graphics | ✅ 41/41 |
+| Generated visual-asset regeneration safety | ✅ lesson-cover generation in the curriculum stack archives previous SVG/PNG/manifest targets before overwriting |
+| Formula-driven visual grounding | ✅ verified Julia LaTeX/MathML is consumed through the complex-quadratic adapter; private page/crop proof remains unpublished |
+| Fractal-art release traceability | ✅ image bytes are immutable; superseded mutable assets/indexes are archived; private receipts retain tool versions, hashes, and Git commits where available |
+| Public track and lesson links | ✅ rendered and indexed |
+| Public citation style | ✅ Chicago author-date gate passes |
+| Publication firewall | ✅ internal corpus/resolver/local-path metadata blocked |
+| Clean local build | ✅ publication, citation, and broken-link checks pass |
+| Standalone exercise handouts | ⚠ 8 files are three-line pointers to B3 in the lesson; valid online, thin when printed alone |
+| Runtime/code verification on student machines | ✗ still to perform |
+| Oral-defence rubric + AI declaration frozen for 2026-27 | ✗ not version-frozen |
+| Consent/DPO/research protocol | ✗ not started |
 
-**Consequence, stated plainly:** teaching can begin without any of these. **Research data cannot be collected without them.** If September starts unconsented, 2026-27 yields a taught course and no usable dataset — the arc restarts in 2027-28.
+## 2. Work queue — do in this order
 
----
+### P0 — before the first class
 
-## 5. What would change my answer to "ready"
+- [ ] **Instructor sequence sign-off:** read FE I and FE II as tracks, not isolated lessons. Confirm that every assessed deliverable has an earlier practice opportunity and a named individual-evidence channel.
+- [ ] **Freeze scope:** record the package/runtime versions used for 2026-27 demonstrations. Separate version-dependent HOW from the durable master idea.
+- [ ] **Run the technical smoke matrix below** on a clean student account or lab machine.
+- [x] **Freeze assessment instruments:** add a version and frozen date to [`docs/evaluation/shared/ai-declaration-oral-defence-rubric/index.md`](../web-foundations/docs/evaluation/shared/ai-declaration-oral-defence-rubric/index.md). Keep the grading version stable for the cohort.
+- [ ] **Campus Virtual delivery data:** enter actual dates, groups, submission links, deadlines, recovery procedure, and communication channels in the institutional system.
+- [ ] **Accessibility route:** verify keyboard, focus, captions/transcripts, reduced motion, colour/contrast, non-WebGL fallback, offline failure messaging, and accessible live status.
+- [ ] **First-session rehearsal:** time Unit 1, verify the AI-declaration explanation, and confirm that its 0 h lab allocation is communicated rather than accidentally filled.
+- [ ] **Release checkpoint:** commit/deploy the selected version and inspect `/tracks/fei/`, `/tracks/feii/`, and at least Units 2, 8, and 10 on the public URL.
 
-- FE II: Wave 0 + Wave 1 complete, Unit 2 forged, hours closing at 10/30/14 in both courses.
-- Research: consent administered by the IP, DPO sign-off in hand, rubric frozen.
-- Publishing: `git push` — nine commits are unpushed, so **nothing above is live for students yet**.
+#### Technical smoke matrix
 
-That last one is a one-command gap and the cheapest win on this page.
+| Unit | Required rehearsal before delivery | Pass condition |
+| --- | --- | --- |
+| 2–3 Astro | Fresh install, build, SSG/SSR path, one hydrated island, content/data boundary | Student can run the example and explain what crosses the boundary |
+| 4 PWA | Installability, first load, offline reload, stale cache, update, reconnect | Failure and recovery states are visible; “installable” is not mistaken for “offline” |
+| 5 Testing | Test commands, deterministic fixture, CI timing, contract mock, accessibility floor | Commands run as written; no timeout-based flake masking |
+| 6 AI review | PR permissions, prompt inputs, accept/reject/escalate log, secret-safe workflow | No private code/token leak; human decision remains assessable |
+| 7 Performance | Repeatable measurement, bundle/asset budget, before/after record | Student reports observed evidence, not a single magic score |
+| 8 R3F | Scene, camera, interaction, render loop, `renderer.info`, non-WebGL fallback | Scene works on lab hardware and student can explain the render model |
+| 9 Shaders | GLSL compile, uniforms, one authored change, failure diagnostics | Generated appearance without explanation does not pass |
+| 10 IoT/Python | Mock sensor, WebSocket open/reconnect/close, stale state, safe command, FastAPI shape | Works without physical hardware; unsafe/stale action is blocked and announced |
+| 11 Integration | Decision/iteration logs and AI declaration integrated into a sample repository | Required evidence is inspectable from the repository |
+| 12 Defence | Timed mock defence and diff-based corrective question | Rubric can be applied consistently by two reviewers |
+
+**P0 definition of done:** every required command and interaction has been run on the delivery environment; students know what to submit, when, how it is assessed, and what fallback exists.
+
+### P1 — teaching-pack polish
+
+- [ ] Before any FE visual reforge, run the shared lesson-cover/fractal generation only from a clean intentional state and confirm the previous generated set has been archived.
+- [x] Formula-backed track-orientation backgrounds regenerate with `npm run generate:pass-track-art`; the previous UDIT SVG/PNG set is archived under `frontend-pedagogy/archives/fractal-pass-track/<timestamp>/`.
+- [ ] Expand the eight three-line `exercises.md` pointers if you want printable standalone handouts. Each handout should contain prompt, time, input, output, submission route, AI rule, and acceptance criteria.
+- [ ] Add private expected-answer sketches for the thin sidecars. Do not place answer keys in published lesson directories.
+- [ ] Decide whether deck outlines are enough. If slides are required, produce them after runtime rehearsal; do not duplicate the full lesson page into slides.
+- [ ] Create or pin one clean starter repository for each technical cluster: Astro/PWA, testing/review, R3F/shaders, and IoT/interface.
+- [ ] Add one controlled failure to every lab so recovery—not only the happy path—is rehearsed.
+- [ ] Dry-run the FE I → FE II transfer claims with an FE I-level student solution. Remove any prerequisite the previous track does not actually teach.
+- [ ] Review the semantic and outcome graphics at mobile width and with forced-colours/reduced-motion settings.
+
+### P2 — scholarly gaps; keep the pilot honest
+
+These gaps do **not** block teaching after P0. They block stronger claims.
+
+| Unit(s) | Current boundary | Next evidence work | Allowed claim now |
+| --- | --- | --- | --- |
+| 2–3 Astro/islands | Safe rendering/architecture technique; no direct HE comparison of Astro/islands sequences | Search comparative metaframework teaching or transfer studies | Transfer-informed pilot; assess boundary decisions |
+| 4 PWA/offline | Safe offline-first architecture; adjacent school case only | Seek FE/HE intervention evidence with recovery-state tasks | Failure-mode pilot; no checklist-as-learning claim |
+| 7 Performance | Normative responsibility and sector vocabulary; performance pedagogy and empirical front-end-to-carbon effect remain open | Resolve source metadata and seek measured pedagogy/energy work | Evidence-based measurement practice, not carbon-effect proof |
+| 8 R3F | Safe concept-first graphics precedent; no R3F-specific pedagogy | Seek API-transfer or declarative-graphics teaching studies | Graphics-grounded pilot |
+| 9 Shaders | Safe graphics/API-churn precedent; no validated minimum-GLSL sequence | Seek shader literacy and transfer assessment studies | Classroom contract, not validated syllabus |
+| 10 IoT/interface | Safe IoT curriculum/interface-layer review; no FE component/state → Python/device transfer study | Seek transfer studies that isolate the interface layer | Transfer pilot; assess telemetry-to-decision reasoning |
+| FE I React | Strong curriculum content; secondary gap in direct HE component-pedagogy depth | Run only if making comparative learning-effect claims | Teach the established sequence without causal claim |
+
+For every evidence upgrade:
+
+1. Use `profield-frontend-pedagogy` or the named specialty field for discovery.
+2. Treat vector results and current vendor docs as leads/HOW, not scholarly evidence.
+3. Read the complete Ahmes node and page context.
+4. Require `evaluator_safe=yes` before adding a public Chicago citation.
+5. Keep unresolved Ciungan, AI Co-Artist, MCP/preprint, host-title, and other records quarantined as `[BIBLIO-GAP]`; never repair them by inference.
+6. Update the evidence matrix, lesson boundary, References section, and this readiness table together.
+
+### P0-R — research/data governance
+
+Teaching may proceed without this section. Research data collection may not.
+
+- [ ] Create `frontend-pedagogy/research-line/` with protocol, consent forms, instrument versions, data dictionary, retention schedule, and ethics correspondence.
+- [ ] Name the controller, processors/storage, lawful basis, retention period, withdrawal route, deletion deadline, and pseudonymisation boundary.
+- [ ] Obtain UDIT DPO sign-off and clarify whether institutional ethics review is required.
+- [ ] Add UEM approval only if the cross-institutional synergy/data stream is in the protocol.
+- [ ] Have the sociologist/independent custodian administer consent; participation must be grade-neutral and hidden from the instructor until final grades are filed.
+- [ ] Freeze and date the AI-use declaration, oral-defence rubric, decision log, iteration log, and review-log schema before collection.
+- [ ] Decide the minimum dataset. Do not collect repository history, declarations, recordings, surveys, or interviews merely because they exist.
+- [ ] Validate entry/exit survey scales; do not invent psychometrics.
+- [ ] Define interview/focus-group sampling, recording, transcription, access, and deletion procedures.
+- [ ] Record the “no consent, no research dataset” fallback before teaching begins.
+
+If P0-R is incomplete when the course starts, run the course as teaching only. Do not retroactively convert graded work into research data.
+
+## 3. Release acceptance checklist
+
+- [ ] `npm run build` performs a clean build and passes publication/citation checks.
+- [ ] If generated graphics were refreshed, the previous SVG/PNG/manifest set remains recoverable from the archive folder.
+- [ ] Formula-driven artwork uses only exportable Ahmes formula glossary records, not vector snippets or unverified `normalized_text`.
+- [ ] FE I and FE II track pages expose every intended lesson link.
+- [ ] Every canonical lesson has exactly one semantic and one outcome figure.
+- [ ] No internal corpus name, resolver status, node/coat ID, local path, or source-only comment appears in `_site`.
+- [ ] Public author-date citations have a final References section.
+- [ ] Runtime examples pass the technical smoke matrix on the teaching environment.
+- [ ] Assessment instrument version and release/tag are recorded in the Campus Virtual.
+- [ ] Public pages make pilot boundaries explicit and contain no promised learning effect unsupported by evidence.
+
+## 4. Meaning of “done”
+
+- **Ready to teach FE I:** P0 complete for the FE I delivery environment.
+- **Ready to teach FE II:** P0 plus the technical smoke matrix complete.
+- **Ready as a polished pack:** selected P1 handouts/decks/starters complete.
+- **Ready to study:** every P0-R item complete before collection.
+- **Evidence-complete:** not required; the declared frontier is part of the curriculum, provided its claims remain bounded.

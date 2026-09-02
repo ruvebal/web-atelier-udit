@@ -10,9 +10,17 @@ permalink: /lessons/en/feii/unit-6-ai-code-review/
 description: 'AI code review as a taught technique, not a shortcut: what the research actually shows, wiring an LLM reviewer into GitHub PRs, designing review prompts, and defending the review decisions you kept and rejected.'
 tags:
   [feii, ai-code-review, human-in-the-loop, github-actions, pull-request, self-regulated-learning, ai-declaration]
-status: draft
+status: complete
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> AI review is a second opinion; human review is the learning evidence.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** code review requires context, criteria, and accountable acceptance/rejection. **Frontier signal:** PR-integrated AI review is active practice; front-end learning outcomes remain a gap.</p>
+</aside>
+>
+> **Studio test:** Keep an ACCEPT/REJECT log and defend two decisions orally.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -26,6 +34,7 @@ status: draft
 
 > _"Write code for humans first, computers second; the Tao lies in balancing both."_
 > — Tao of Development, `cc-001`
+{: .tao-development-quote }
 
 > **AI Assistance Disclosure:** This unit is about AI assistance itself. Everything you produce here is disclosed under the shared [AI Use Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}) — including the AI reviewer you configure.
 
@@ -41,6 +50,7 @@ The grading target is not "did the AI find bugs". It is: **can you defend which 
 
 > _"Before fixing, understand. Before understanding, observe. Before observing, breathe."_
 > — Tao of Development, `wis-002`
+{: .tao-development-quote }
 
 ---
 
@@ -58,7 +68,7 @@ Most of this unit is **Template**: your reviewer configuration depends on your r
 
 By the end of this unit, you will be able to:
 
-- [ ] Summarise what the research **actually** shows about in-workflow AI code review — including its limits
+- [ ] State the evidence boundary for in-workflow AI review and distinguish a research claim from this course's assessment contract
 - [ ] Wire an LLM reviewer into your GitHub pull-request workflow
 - [ ] Write a **review prompt** that produces useful criticism instead of flattery
 - [ ] Classify AI review output into accept / reject / escalate, and justify each
@@ -71,29 +81,31 @@ By the end of this unit, you will be able to:
 
 > _"Not every problem is a bug. Sometimes the problem is expectation."_
 > — Tao of Development, `arch-020`
+{: .tao-development-quote }
 
-The primary source for this unit is:
+### Evidence boundary — keep the gap visible
 
-> **Oliveira, E.; Fu, M.; Thongtanunam, P.; López-Pernas, S.; Saqr, M.** — "AI-Assisted Code Review as a Scaffold for Code Quality and Self-Regulated Learning: An Experience Report." arXiv `2604.23251`, 2026. Accepted at **ICSE 2026 (SEET track)**.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+The course vault currently contains a discovery candidate for in-workflow AI code review, but **no evaluator-safe Ahmes node for that study is available in this publication pass**. Its reported cohort counts and response rates are therefore not reproduced here.
+-->
+{% endif %}
 
-**What the study did:** deployed an in-workflow, **GitHub-PR-integrated LLM reviewer** across two cohorts (>100 students, 2023–2024) in software-engineering capstone courses.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+> **`[BIBLIO-GAP]` — in-workflow AI-code-review outcomes.** A relevant 2026 experience report has been identified, but it is not yet page-addressably resolved through the course's citation gate. It must not be used as proof that this workflow improves learning, code quality, or front-end outcomes.
+-->
+{% endif %}
 
-**What it found, precisely:**
-
-- Iterative activity roughly **doubled cohort-over-cohort** — 581 → 1176 pull requests.
-- Student **responsiveness stayed stable** at roughly **32–33%** of successfully reviewed PRs being followed by a subsequent commit.
-
-Read that second number carefully, because it is the honest one: **about two-thirds of AI reviews produced no follow-up commit at all.** In-workflow AI review is a scaffold that increases iteration. It is not a mechanism that makes students act on feedback most of the time.
+The human-in-the-loop workflow below is consequently a **transparent course and assessment contract**, not a settled empirical conclusion: the model may comment; you must make, explain, and record the decision; a human reviewer approves the merge.
 
 ### The limits you must state in your defence
 
-> **Scope caveat.** The cohort was *software-engineering capstone*, not front-end. Whether these results transfer to HTML/CSS/JS/React work is, in the research field this course is built on, an explicit **`[UNVERIFIED-GAP]`** — a documented blank, not a settled finding.
+> **Scope caveat.** The course does not claim that AI review transfers learning to HTML/CSS/JS/React, nor that accepting more suggestions means a student understands more. Your evidence is your own decision log, implementation diff, tests, and oral explanation.
 
 That gap is not a footnote. It is the intellectual position of this unit:
 
-> **You are inside the gap.** This course applies a mechanism validated in general software engineering to a front-end cohort, and asks you to report honestly on whether it helped. Your Entrega is evidence in a question the literature has not answered.
-
-This is what it means to be taught by research rather than by tutorials — and it is a legitimate thing to say out loud in Unit 12's oral defence.
+> **You are inside the gap.** The course tests a disciplined professional workflow with a front-end cohort and asks you to report honestly on whether it helped. Your Entrega is evidence for a question the current cited literature has not yet answered for this setting.
 
 ---
 
@@ -113,6 +125,7 @@ Calibrate before you configure. An LLM reviewer is not a uniformly capable revie
 
 > _"Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it."_
 > — Tao of Development, `dbg-003`
+{: .tao-development-quote }
 
 ---
 
@@ -167,7 +180,7 @@ RULES:
 
 ## 4 — Wiring the reviewer into GitHub
 
-The point of *in-workflow* review (Oliveira et al.'s core design) is that feedback arrives **where the work already is** — the pull request — not in a chat window you have to remember to open.
+The point of *in-workflow* review is that feedback arrives **where the work already is** — the pull request — not in a chat window you have to remember to open.
 
 **Template** — `.github/workflows/ai-review.yml`. Requires a model API key in repository secrets.
 
@@ -221,6 +234,7 @@ jobs:
 
 > _"Code is not written in text — it is written in understanding. The text is just the shadow of the understanding."_
 > — Tao of Development, `wis-005`
+{: .tao-development-quote }
 
 The workflow you are graded on:
 
@@ -240,7 +254,7 @@ The workflow you are graded on:
 7. Merge
 ```
 
-**Step 5 is the assessment.** Accepting good advice is easy. **Rejecting bad advice with a stated reason is the demonstration of competence** — it is the "corrective competence" that the profield research (Sankaranarayanan, 2026) identifies as what's actually at risk when AI is used unreflectively.
+**Step 5 is the assessment.** Accepting good advice is easy. **Rejecting bad advice with a stated reason is the demonstration of competence.** The course assesses that corrective judgement directly; it does not infer it from the model's output.
 
 **Template** — `docs/ai-review-log.md`. One row per AI suggestion, for every PR in Entrega 1.
 
@@ -258,6 +272,7 @@ The workflow you are graded on:
 
 > _"A dependency added is a dependency maintained. Choose wisely."_
 > — Tao of Development, `qa-006`
+{: .tao-development-quote }
 
 ---
 
@@ -268,6 +283,7 @@ Entrega 1 covers **Units 2–6**: the Astro architecture (U2–U3), PWA behaviou
 Submit, in the repository:
 
 - [ ] Working Astro project with your islands architecture
+- [ ] Astro [i18n routing](https://docs.astro.build/en/guides/internationalization/) with at least `es` and `en` locales and working locale-prefixed routes (mandatory)
 - [ ] `docs/testing-strategy.md` — from [Unit 5]({{ '/lessons/en/feii/unit-5-testing-strategy/' | relative_url }})
 - [ ] Green CI within the stated wall-clock budget, with the measurement recorded
 - [ ] `.github/workflows/ai-review.yml` running on your PRs
@@ -279,6 +295,7 @@ Submit, in the repository:
 
 > _"The wise instructor grades with consistency. The enlightened instructor grades with compassion."_
 > — Tao of Development, `qa-012`
+{: .tao-development-quote }
 
 ---
 
@@ -291,14 +308,39 @@ Submit, in the repository:
 3. **Break it deliberately (30 min).** Introduce a real accessibility failure and a real missing-await bug in a branch. Does your reviewer catch them? Record what it missed — misses are data.
 4. **Run the loop (60 min).** Work normally for the rest of the session. Every AI suggestion goes in `docs/ai-review-log.md` with a decision and a reason.
 
-**Deliverable:** the AI review log, plus a 150-word reflection answering: *did in-workflow review change how you wrote code, or only how you documented it?* — the honest answer to the research question in §1.
+**Deliverable:** the AI review log, plus a 150-word reflection answering: *did in-workflow review change how you wrote code, or only how you documented it?* State what your own evidence can show and what it cannot establish beyond this project.
+
+---
+
+## B3 · Individual exercises — decontextualised · 2 h
+
+These are distinct from the team workflow. Submit your own judgement record;
+Exercise 1 is explicitly no-AI.
+
+1. **No-AI diagnostic.** Read the weak and strong review prompts in §3. Name
+   three constraints in the strong prompt that make a review more auditable.
+2. For each suggestion, write ACCEPT, REJECT, or ESCALATE and give the smallest
+   defensible reason: “replace map with for for speed” without a measurement;
+   “add an accessible name to the icon-only button”; “add a new date library.”
+3. A model says “no blockers found.” Write the next human verification step
+   before merge and explain why the statement itself is not approval evidence.
+
+Professor expected-answer sketches are in the companion exercise sheet.
+
+### Companion materials
+
+- [Session deck outline](./deck-outline.md)
+- [Individual exercise sheet](./exercises.md)
 
 ---
 
 ## 📚 Recommended Reading
 
-- Oliveira, Fu, Thongtanunam, López-Pernas & Saqr — "AI-Assisted Code Review as a Scaffold for Code Quality and Self-Regulated Learning," arXiv [`2604.23251`](https://arxiv.org/abs/2604.23251), ICSE 2026 SEET
-- Sankaranarayanan — "Mitigating 'Epistemic Debt' in Generative AI-Scaffolded Novice Programming using Metacognitive Scripts," arXiv [`2602.20206`](https://arxiv.org/abs/2602.20206), L@S '26 — the "fragile expert" framing behind §5
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+- **Evidence status:** the relevant in-workflow code-review study remains **`[BIBLIO-GAP]`** until it has an evaluator-safe Ahmes page/node. It is not a student citation and no numerical finding from it is asserted in this lesson.
+-->
+{% endif %}
 - [Web Atelier AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }}) — the docs-first methodology this unit operationalises
 - [AI Use Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}) — how this is graded
 
@@ -308,7 +350,7 @@ Submit, in the repository:
 
 You should now be able to:
 
-- State what the evidence for AI code review actually supports — and where it stops
+- State the evidence boundary for AI code review — and where it stops
 - Run an in-workflow reviewer on your own pull requests
 - Write a review prompt that produces criticism rather than agreement
 - Defend a rejection of AI advice on technical grounds
@@ -322,3 +364,11 @@ Next: [Unit 7 — Performance Engineering]({{ '/lessons/en/feii/unit-7-performan
 
 > _"The wise instructor automates what repeats. The foolish instructor repeats what should be automated."_
 > — Tao of Development, `qa-001`
+{: .tao-development-quote }
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "✅ Session Outcome"
+  visual-grammar: "human-review-correction-loop — automated review suggestions cycling through human inspection, rejection, correction, and evidence"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}

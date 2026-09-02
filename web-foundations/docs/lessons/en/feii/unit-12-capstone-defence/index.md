@@ -18,9 +18,17 @@ tags:
     evaluation-criteria,
     project-completion,
   ]
-status: draft
+status: complete
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> A defence tests corrective competence and authorship under questions.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** demonstration, explanation, modification, and reflection. **Frontier signal:** oral defence plus transparent AI policy is an AI-resilient design instrument, not a validated guarantee.</p>
+</aside>
+>
+> **Studio test:** Prepare to explain, alter, and critique the submitted system live.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -36,11 +44,15 @@ status: draft
 
 > **AI Assistance Disclosure:** This unit requires live presentation without AI assistance. AI may be used for practice slides, but the actual defence must be human-driven.
 
-## B1 · Lección magistral — 1 h
+## B1 · Defence briefing — assessment preparation
 
 **Claim:** The oral defence measures corrective competence on the student’s own diff, not slide theatre.
 
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 The lecture follows Unit 11’s tagged evidence package. Students learn to answer from the implementation, distinguish a verified result from a plausible story, and disclose AI assistance without outsourcing judgement. Liu’s assessment/offloading discussion (Ahmes node `dc2bd27d`, p. 12) and the DEC LATAM fairness/shallow-learning evidence (Ahmes node `b15014c1`, p. 2) ground the assessment concern; neither is treated as proof that this particular defence format produces learning.
+-->
+{% endif %}
 
 **Speaker outline:** 1) purpose of defence, 2) evidence contract, 3) problem/context, 4) architecture, 5) diff, 6) tests and limits, 7) AI decisions, 8) fairness and individual accountability, 9) live demo, 10) Q&A.
 
@@ -57,10 +69,18 @@ Freeze the Unit 11 release tag. Assign each member one layer to explain, rehears
 
 Professor answer sketches remain private. The defence itself is teaching and assessment, not a research instrument.
 
-## Provenance and evidence gate
+## Research boundary
 
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 - Liu, Ahmes node `dc2bd27d`, p. 12 — assessment/offloading discussion; cite the resolved page, not a vector snippet.
+-->
+{% endif %}
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 - Digital Education Council LATAM, Ahmes node `b15014c1`, p. 2 — student concern about shallow learning and assessment fairness.
+-->
+{% endif %}
 - **Missing evidence:** this unit does not establish a causal validity claim for the rubric. It requires reproducible student evidence and a human review; it does not authorize research-data collection or public recording.
 
 ---
@@ -223,6 +243,13 @@ By the end of this unit, you should:
 - Have all process evidence complete and verified
 
 This unit completes the FE II capstone. Units 11-12 together constitute the **Proyecto integrador** deliverable with oral defence.
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "✅ Session Outcome"
+  visual-grammar: "corrective-competence-defence — implementation, evidence, explanation, and live correction converging in a final defence"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

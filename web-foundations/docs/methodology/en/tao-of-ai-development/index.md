@@ -27,9 +27,12 @@ tags: [ai, tao, philosophy, ethics, craftsmanship, wisdom]
 
 The full chapter — Craftsman's Oath, Weight of Tokens, README covenant, koans — moved on **2026-08-13** to **The Tao of Development**, the studio wisdom database.
 
-Canonical source (pending merge into `ttod.yml`):
-
-`~/src/ttod/sources/tao-of-ai-development/`
+The canonical source remains private while it is pending merge into `ttod.yml`.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+Canonical source path: ~/src/ttod/sources/tao-of-ai-development/
+-->
+{% endif %}
 
 Until quotes are assigned TTOD IDs, teaching pages must not paste the chapter back in. After merge, cite by ID only.
 

@@ -1,3 +1,15 @@
+---
+layout: lesson
+title: 'Hackathon Challenge Brief: "404s to Mars"'
+slug: 404-hackathon
+date: 2025-11-11
+author: 'Rubén Vega Balbás, PhD'
+lang: en
+permalink: /lessons/en/404/hackathon/
+tags: [hackathon, 404, semester-1, fei]
+status: complete
+---
+
 # Hackathon Challenge Brief: "404s to Mars"
 
 ## Executive Summary 🚀

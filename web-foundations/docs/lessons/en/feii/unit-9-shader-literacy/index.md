@@ -19,9 +19,17 @@ tags:
     r3f,
     webgl,
   ]
-status: draft
+status: complete
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> A shader is a small program that transforms data into appearance.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** GPU pipeline, coordinates, uniforms, and controlled experimentation. **Frontier signal:** TSL/WGSL, WebGPU, and generative shader tools expand the frontier. **Pedagogy status:** graphics education supports concept-first sequencing; this minimum-GLSL sequence remains a pilot.</p>
+</aside>
+>
+> **Studio test:** Author or modify one shader and explain each input/output.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -35,6 +43,7 @@ status: draft
 
 > _"Code without quality checks is like a ship without a compass: it moves, but who knows where."_
 > — Tao of Development, `qa-009`
+{: .tao-development-quote }
 
 > **AI Assistance Disclosure:** Models draft GLSL fluently and often wrongly. Literacy means you can explain *your* shader. Read the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) and keep the Unit 6 ACCEPT / REJECT log on every shader diff.
 
@@ -42,16 +51,35 @@ status: draft
 
 ---
 
-## Scholarly honesty — minimum viable GLSL is a classroom contract
+## Scholarly honesty — minimum viable GLSL is a graphics-grounded pilot
 
-There is **no** Ahmes node for “this GLSL syllabus works in higher education.” Bloque 5 remains **`[UNVERIFIED-GAP]`**. The checklist below is what this cohort will defend, not a finding.
+No peer-reviewed study validates this exact GLSL syllabus. Angel and Shreiner provide a graphics-education precedent for teaching pipeline and shader concepts across API change; the checklist below is what this cohort will defend, not a finding about R3F or GLSL outcomes (Angel and Shreiner 2024, 1–2).
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+There is no Ahmes node for “this exact GLSL syllabus works in higher education.” Angel &amp; Shreiner (2024) do provide an evaluator-safe graphics-education precedent for teaching the pipeline and shader concepts across API change (Angel 2024, 1–2). The checklist below is what this cohort will defend, not a finding about R3F or GLSL outcomes.
+-->
+{% endif %}
 
 Adjacent, not a substitute:
 
-- Mixed-initiative visual selection can *create* shaders without teaching programming (AI Co-Artist; coat `2512_08951_ai_co_artist_b431f6a4` · nodo `777b3e26-2775-5cc3-ade3-96fec7239cd9` · p. 2) — **[BIBLIO-GAP]**. That is the **failure mode** this unit refuses: output without literacy. <!-- provenance: re-checked live 2026-08-20, not assumed from the 2026-08-14 label — `ahmes status` still reports `Citation preview: [BIBLIO-GAP]` (reason: missing year, LLM-only metadata at confidence ≤0.85). `ahmes enrich --meta --online` was attempted this session: result "Host registry mismatch — identifiers only," 0 nodes enriched — the online registry's title disagrees with this PDF's own heading, so Ahmes correctly refused a silent override. This is a genuine content gap, not a pipeline-lag fix; the label stands unchanged. -->
-- Render-then-judge pipelines exist in other graphics domains (SGP-GenBench) — they do not grade your Entrega. **You** judge; the browser is the verifier.
+- The course rule is therefore explicit: a generated look without an explanation fails the unit. This is an assessment decision, not a claim borrowed from an unresolved bibliography record.
+- Render-then-judge pipelines exist in other graphics domains — they do not grade your Entrega. **You** judge; the browser is the verifier.
 
 **Platform notes** (npm, checked 2026-08-20 — unchanged from the 2026-08-14 pin): `three@0.185.1` · `@react-three/fiber@9.7.0` · `@react-three/drei@10.7.8` · `@react-three/postprocessing@3.0.5` (optional; every extra pass is a mobile tax — Unit 7).
+
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+**Evidence update (2026-08-23):** keep WebGL as the reliable baseline; treat TSL/WGSL/WebGPU as a capability branch and require one concept translation across representations. See the dated FE II gap-pass record in the research repository copy.
+-->
+{% endif %}
+
+## Research boundary
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+- Angel, E. &amp; Shreiner, D. (2024). *The Future of Teaching Computer Graphics.* SIGGRAPH Educators Forum '24. DOI `10.1145/3641235.3664433`. Ahmes coat `e2e9b45c`, nodes `348bd016-3aee-5eb3-ae93-b3d422e137df` p.1 and `92a534c1-6aff-5d5e-b1e5-2a7d2e2c65a9` p.2. Resolved via `ahmes query &#45;&#45;cite`, `evaluator_safe=yes`.
+-->
+{% endif %}
+- The source supports concept-first graphics teaching and API transfer, not a validated minimum-GLSL or R3F sequence.
 
 ### Minimum viable GLSL checklist (graded)
 
@@ -303,7 +331,10 @@ On the **same** Entrega 2 repo as Unit 8:
 
 ---
 
-## Exercises (individual) — decontextualised · ~1 h
+## Independent self-check — autonomous study
+
+This is an individual self-check, not part of the formal 14-hour
+Resolución de Ejercicios allocation.
 
 1. On paper or a gist: write a fragment shader that tints `vUv.x` without looking at this page.
 2. Name three reasons a uniform is not a JavaScript closure inside the shader.
@@ -328,3 +359,15 @@ You can explain one authored shader and decide whether a post pass is worth its 
 
 > _"Before fixing, understand. Before understanding, observe. Before observing, breathe."_
 > — Tao of Development, `wis-002`
+{: .tao-development-quote }
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Session outcome"
+  visual-grammar: "data-to-pixel-appearance — uniform and vertex data flowing through a shader into per-pixel appearance and a measured post-process decision"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
+
+## References
+
+- Angel, Edward, and Dave Shreiner. 2024. “The Future of Teaching Computer Graphics.” *SIGGRAPH Educators Forum ’24*. https://doi.org/10.1145/3641235.3664433.

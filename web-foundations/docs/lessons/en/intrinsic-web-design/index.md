@@ -10,6 +10,14 @@ permalink: /lessons/en/intrinsic-web-design/
 week: 3
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Responsive layout is relationship-aware, not device-shaped.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** responsive design adapts content to available space. **Frontier signal:** container queries and subgrid move responsiveness from viewport recipes to component context.</p>
+</aside>
+
+> **Studio test:** Test the same component inside three parent widths.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -19,6 +27,71 @@ week: 3
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## For / Not for
+
+**For:** Front-End I **Session 5** — container queries + subgrid on your portfolio landing (Sessions 3–4 CSS foundation).
+
+**Not for:** JavaScript layout libraries or full grid frameworks — this session is native CSS intrinsic design.
+
+**When you finish this session you will have:** a responsive gallery (or card grid) using `@container` and/or `subgrid`, tested at three parent widths, plus commit + critical reflection.
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Sessions 3–4 landing with CSS tokens | Yes |
+| Modern browser (Chrome/Edge/Firefox current) | Yes |
+| Git workflow from Session 2 | Yes |
+
+**Official time:** 2 h class + 1 h lab.
+
+---
+
+## Follow this path
+
+| Step | Action | Section |
+| --- | --- | --- |
+| 1 | Read container vs media query distinction | From Media Queries to Container Queries |
+| 2 | Mark a parent `container-type: inline-size` | Practical guide sections |
+| 3 | Build gallery/cards that reflow by **container** width | Practice / gallery build |
+| 4 | Test same component in narrow sidebar + wide main | Studio test |
+| 5 | Commit + 3–5 sentence critical reflection | Commit & critical reflection |
+
+---
+
+## Verify before you leave
+
+- [ ] Component layout changes when **parent** width changes, not only viewport
+- [ ] Keyboard focus visible on interactive gallery items
+- [ ] No horizontal scroll at 320px container width
+- [ ] `@supports` fallback or documented degradation for older browsers
+- [ ] Commit pushed with message referencing container queries / subgrid
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| Container query never fires | Missing `container-type` on ancestor | Set on direct parent wrapper |
+| Same as media query behavior | Query uses viewport not `@container` | Use `@container (min-width: …)` |
+| Subgrid lines misaligned | Parent not a grid or no `subgrid` | Parent `display: grid`; child `grid-template-columns: subgrid` |
+| Gallery breaks in Safari | Unsupported feature without fallback | Check `@supports`; simplify layout |
+| No commit | Forgot reflection block | Complete Commit & critical reflection section |
+
+---
+
+## Submit (Session 5 evidence)
+
+- Repo URL + commit `feat: responsive gallery · container queries…`
+- 3–5 sentence critical reflection (Critical Coding for a Better Living)
+
+---
 
 > **Session Objective (2h)**
 >
@@ -208,6 +281,13 @@ git push
 Write 3–5 sentences on how your decisions (alignment, density, contrast) improve care, inclusion, and sustainable attention, aligned with **Critical Coding for a Better Living**.
 
 ---
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Commit & critical reflection"
+  visual-grammar: "relationship-aware-layout — layout regions adapting through intrinsic relationships rather than device-specific breakpoints"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

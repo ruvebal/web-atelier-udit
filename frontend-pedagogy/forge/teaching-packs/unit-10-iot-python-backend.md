@@ -1,10 +1,16 @@
 ---
 unit: unit-10-iot-python-backend
-status: pilot
-evidence_state: interface-transfer gap
+status: ready-to-upgrade
+evidence_state: IoT interface-layer curriculum grounded; FE-to-device transfer pilot
 ---
 
 # Realtime Python interface — production teaching pack
+
+## Gap-pass update — 2026-08-23
+
+- Abichandani et al. (2022) is now confirmed evaluator-safe in Ahmes for interface-layer curriculum, UI/UX planning, human factors, testing, dashboards, JavaScript/Python tooling, and active learning: coat `08eb5ba5`, nodes `ed35202e-baa9-59d9-b12b-73134e0b5127`, `0b94a031-2b3c-5dd5-83d7-6fb593ddc68f`, `cc6fa3cc-85e3-5eda-8622-380b11e830e5`, and `0ea742b2-67e3-54a4-af0a-cebef3ef1c7f`.
+- Current web studies on ESP32 dashboards and undergraduate IoT P2BL are research-watch leads, not Ahmes lesson citations and not evidence of FE transfer.
+- Teach the chain `sensor → transport → service/state → interface → human decision`; assess live/stale/offline/reconnect/error states, safe commands, accessibility, and an individual transfer explanation. The causal learning claim remains a pilot.
 
 ## Forge contract
 

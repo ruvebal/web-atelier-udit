@@ -30,7 +30,12 @@ tags: [ia, metodología, ética, docs-first, declaración]
 
 **Objetivo:** cuando la IA te ayuda a construir, el código sigue siendo tuyo. Esta página dice cuándo planificar, cómo declarar y qué debes poder defender.
 
-Estas instrucciones existen para **seguirse** y luego **comprobarse** en la defensa oral. Lo completo no es el test; si puedes actuar desde esta página, sí. `[studio-guides, 82b3b541-0cf2-5f0a-adb9-7470db8f8a71]` — la identidad bibliográfica de ese eje está en el RIS del estudio (`[BIBLIO-GAP]` en el coat de Ahmes).
+Estas instrucciones existen para **seguirse** y luego **comprobarse** en la defensa oral. Lo completo no es el test; si puedes actuar desde esta página, sí.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+Nodo de guía de estudio 82b3b541-0cf2-5f0a-adb9-7470db8f8a71; la identidad bibliográfica permanece [BIBLIO-GAP] en el coat de Ahmes y se conserva en el RIS del estudio.
+-->
+{% endif %}
 
 ---
 

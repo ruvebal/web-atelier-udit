@@ -9,7 +9,7 @@ date: 2026-08-09
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /lessons/en/feii/
-status: draft
+status: complete
 ---
 
 <!-- prettier-ignore-start -->
@@ -25,6 +25,7 @@ status: draft
 
 > _"Ship the module when it works alone. Ship the system when the modules work together. Ship the platform when the systems compose without speaking."_
 > — Tao of Development, `arch-007`
+{: .tao-development-quote }
 
 > **AI Assistance Disclosure:** This sequence integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout, and Unit 6 makes AI review itself a graded technique.
 
@@ -32,9 +33,9 @@ status: draft
 
 ## 🎯 What this sequence is
 
-The **canonical lesson sequence** for UDIT's _Desarrollo Web: Front-End II_ — 12 units, one semester, 6 ECTS (150 h total, of which **30 h Prácticas de Laboratorio**). Taught to both the **Full-Stack** and **Data Science & AI** degrees.
+The **canonical lesson sequence** for UDIT's _Desarrollo Web: Front-End II_ — 12 units, one semester, 6 ECTS (150 h total). The formal allocation is **10 h lección magistral + 30 h Prácticas de Laboratorio + 14 h Resolución de Ejercicios + 94 h autonomous study + 2 h assessment**. Taught to both the **Full-Stack** and **Data Science & AI** degrees.
 
-This page is the lesson index. For the course framing — objectives, deliverables, evaluation weights, methodology — see the **[Front-End II track]({{ '/tracks/feii/' | relative_url }})**; for how you are graded, see **[How to Pass This Track]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }})**.
+This page is the lesson index. For the course framing — objectives, deliverables, evaluation weights, methodology — see the **[Front-End II track]({{ '/tracks/en/feii/' | relative_url }})**; for how you are graded, see **[How to Pass This Track]({{ '/tracks/en/feii/how-to-pass-this-track/' | relative_url }})**.
 
 ### The one-sentence premise
 
@@ -61,19 +62,19 @@ This sequence deliberately does **not** re-teach the [React track]({{ '/lessons/
 
 ## 📚 The 12 units
 
-Lab hours sum to the official **30 h** `ACTIVIDADES FORMATIVAS` allocation.
+Lab hours sum to the official **30 h** `ACTIVIDADES FORMATIVAS` allocation. The 2–3 h values below are unit windows for sequence planning, not a second workload total to add to the formal allocation.
 
 ### Block 1 — Production architecture (Units 1–3)
 
-| # | Unit | Total | Lab | Focus |
+| # | Unit | Unit window | Lab | Focus |
 | --- | --- | --- | --- | --- |
 | 1 | [Kickoff: From FE I React to Production Architecture]({{ '/lessons/en/feii/unit-1-kickoff/' | relative_url }}) | 2 h | 0 h | The interface-layer reframe; what changes in year 3 |
-| 2 | [Astro Meta-Framework — Islands Architecture & SSR]({{ '/lessons/en/feii/unit-2-astro-fundamentals/' | relative_url }}) | 3 h | 2 h | A **second** rendering paradigm beside React |
-| 3 | [Advanced Astro & Multi-Framework Integration]({{ '/lessons/en/feii/unit-3-astro-advanced/' | relative_url }}) | 3 h | 2 h | Content collections, data patterns, micro-frontends |
+| 2 | [Astro Meta-Framework — Islands Architecture & SSR]({{ '/lessons/en/feii/unit-2-astro-fundamentals/' | relative_url }}) `astro` | 3 h | 2 h | A **second** rendering paradigm beside React · Astro Docs MCP |
+| 3 | [Advanced Astro & Multi-Framework Integration]({{ '/lessons/en/feii/unit-3-astro-advanced/' | relative_url }}) `astro` | 3 h | 2 h | Content collections, data patterns, micro-frontends |
 
 ### Block 2 — Resilience & quality (Units 4–7) · **Entrega 1**
 
-| # | Unit | Total | Lab | Focus |
+| # | Unit | Unit window | Lab | Focus |
 | --- | --- | --- | --- | --- |
 | 4 | [Progressive Web Apps & Offline Capabilities]({{ '/lessons/en/feii/unit-4-pwa-offline/' | relative_url }}) | 2 h | 2 h | Service workers, caching strategies, installability |
 | 5 | [Testing Strategy — Designing a Suite That Earns Its Cost]({{ '/lessons/en/feii/unit-5-testing-strategy/' | relative_url }}) | 3 h | 3 h | What **not** to test; flakiness; CI time budgets; contracts |
@@ -82,7 +83,7 @@ Lab hours sum to the official **30 h** `ACTIVIDADES FORMATIVAS` allocation.
 
 ### Block 3 — The interface-layer frontier (Units 8–10) · **Entrega 2**
 
-| # | Unit | Total | Lab | Focus |
+| # | Unit | Unit window | Lab | Focus |
 | --- | --- | --- | --- | --- |
 | 8 | [React Three Fiber — 3D Interfaces with React Patterns]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}) | 3 h | 3 h | Interface-layer transfer · `renderer.info` · [3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) |
 | 9 | [Shader Literacy & Cutting-Edge Aesthetics]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}) | 3 h | 3 h | One understood shader · optional post · merge log |
@@ -90,7 +91,7 @@ Lab hours sum to the official **30 h** `ACTIVIDADES FORMATIVAS` allocation.
 
 ### Block 4 — Capstone (Units 11–12) · **Entrega 3 / Examen Final**
 
-| # | Unit | Total | Lab | Focus |
+| # | Unit | Unit window | Lab | Focus |
 | --- | --- | --- | --- | --- |
 | 11 | [Capstone Integration — Process Evidence & AI Declaration]({{ '/lessons/en/feii/unit-11-capstone-integration/' | relative_url }}) | 3 h | 3 h | `verify` / `narrate`: decisions, iterations, disclosure |
 | 12 | [Capstone Oral Defence & Final Evaluation]({{ '/lessons/en/feii/unit-12-capstone-defence/' | relative_url }}) | 2 h | 3 h | Defending the diff, not the demo |
@@ -133,6 +134,7 @@ Library versions are **pinned and dated** in each unit. The web moves faster tha
 
 > _"A dependency added is a dependency maintained. Choose wisely."_
 > — Tao of Development, `qa-006`
+{: .tao-development-quote }
 
 ---
 
@@ -144,15 +146,16 @@ Library versions are **pinned and dated** in each unit. The web moves faster tha
 | Trabajos, entregables y proyectos | 50 % |
 | Portafolio (resolución de problemas) | 20 % |
 
-Behind those institutional weights sits the Atelier rubric — **Technical 40 % / Reflection & Documentation 35 % / Conceptual 25 %** — evidenced through commits, AI-use declarations, and oral defence. Full detail: **[How to Pass This Track]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }})** and the shared **[AI Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }})**.
+Behind those institutional weights sits the Atelier rubric — **Technical 40 % / Reflection & Documentation 35 % / Conceptual 25 %** — evidenced through commits, AI-use declarations, and oral defence. Full detail: **[How to Pass This Track]({{ '/tracks/en/feii/how-to-pass-this-track/' | relative_url }})** and the shared **[AI Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }})**.
 
 ---
 
 ## 🔗 Related
 
-- **[Front-End II track]({{ '/tracks/feii/' | relative_url }})** — course framing, objectives, methodology
-- **[Front-End I track]({{ '/tracks/fei/' | relative_url }})** — the prerequisite year
+- **[Front-End II track]({{ '/tracks/en/feii/' | relative_url }})** — course framing, objectives, methodology
+- **[Front-End I track]({{ '/tracks/en/fei/' | relative_url }})** — the prerequisite year
 - **[React Teaching Sequence]({{ '/lessons/en/react/' | relative_url }})** — FE I semester 2, the foundation this builds on
+- **[Astro Teaching Sequence]({{ '/lessons/en/astro/' | relative_url }})** — FE II units 2–3, islands architecture, Astro Docs MCP
 - **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — when to plan, how to disclose, what you must defend
 - **[Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }})** — RPC, RAG, MVC as discipline
 - **[All lessons]({{ '/lessons/en/' | relative_url }})** — the full canonical library
@@ -161,3 +164,4 @@ Behind those institutional weights sits the Atelier rubric — **Technical 40 % 
 
 > _"To fractalize is human. To know when to stop fractalizing is wisdom."_
 > — Tao of Development, `arch-002`
+{: .tao-development-quote }

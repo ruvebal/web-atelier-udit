@@ -1,0 +1,74 @@
+{
+	"/": {
+		"asset": "archive-home",
+		"title": "WEB ATELIER (UDIT)",
+		"family": "fe-i",
+		"mode": "archive"
+	},
+	"/lessons/en/": {
+		"asset": "archive-lessons-en",
+		"title": "Lessons (EN)",
+		"family": "fe-i",
+		"mode": "archive"
+	},
+	"/lessons/es/": {
+		"asset": "archive-lessons-es",
+		"title": "Lecciones (ES)",
+		"family": "fe-i",
+		"mode": "archive"
+	},
+	"/tracks/": {
+		"asset": "archive-tracks",
+		"title": "Learning Tracks",
+		"family": "fe-ii",
+		"mode": "archive"
+	},
+	"/tracks/en/": {
+		"asset": "archive-tracks-en",
+		"title": "Learning Tracks (EN)",
+		"family": "fe-ii",
+		"mode": "archive"
+	},
+	"/tracks/es/": {
+		"asset": "archive-tracks-es",
+		"title": "Cursos de Aprendizaje (ES)",
+		"family": "fe-ii",
+		"mode": "archive"
+	},
+	"/tracks/fei/": {
+		"asset": "archive-fei",
+		"title": "Front-End I",
+		"family": "fe-i",
+		"mode": "archive"
+	},
+	"/tracks/feii/": {
+		"asset": "archive-feii",
+		"title": "Front-End II",
+		"family": "fe-ii",
+		"mode": "archive"
+	},
+	"/tracks/en/udit/2627-fei/": {
+		"asset": "archive-2627-fei",
+		"title": "Front-End I · 2026–27",
+		"family": "fe-i",
+		"mode": "archive"
+	},
+	"/tracks/en/udit/2627-feii/": {
+		"asset": "archive-2627-feii",
+		"title": "Front-End II · 2026–27",
+		"family": "fe-ii",
+		"mode": "archive"
+	},
+	"/methodology/en/": {
+		"asset": "archive-methodology-en",
+		"title": "Methodology (EN)",
+		"family": "fe-ii",
+		"mode": "archive"
+	},
+	"/methodology/es/": {
+		"asset": "archive-methodology-es",
+		"title": "Metodología (ES)",
+		"family": "fe-ii",
+		"mode": "archive"
+	}
+}

@@ -10,9 +10,17 @@ permalink: /lessons/en/feii/unit-5-testing-strategy/
 description: 'Testing as an engineering decision, not a tool tutorial: what not to test, flakiness and determinism, Cypress→Playwright migration, CI time budgets, and contract testing against a real backend.'
 tags:
   [feii, testing, testing-strategy, vitest, playwright, flakiness, ci-cd, contract-testing, test-design]
-status: draft
+status: complete
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Testing strategy buys confidence under a budget.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** behavioural tests, deterministic fixtures, failure modes, and reliability. **Frontier signal:** contract testing, Playwright migration, and flake triage reshape the suite.</p>
+</aside>
+>
+> **Studio test:** Attach every test to risk, confidence, and maintenance cost.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -26,6 +34,7 @@ status: draft
 
 > _"Code without quality checks is like a ship without a compass: it moves, but who knows where."_
 > — Tao of Development, `qa-009`
+{: .tao-development-quote }
 
 > **AI Assistance Disclosure:** This unit integrates AI-assisted development following the docs-first methodology. Plans, prompts, and implementation reports are documented throughout. Unit 6 makes the AI itself a reviewer of the suite you build here.
 
@@ -45,6 +54,7 @@ A test suite is not free. It costs authoring time, CI minutes, and — most expe
 
 > _"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."_
 > — Tao of Development, `cc-007`
+{: .tao-development-quote }
 
 ---
 
@@ -89,6 +99,7 @@ By the end of this unit, you will be able to:
 
 > _"Not every problem is a bug. Sometimes the problem is expectation."_
 > — Tao of Development, `arch-020`
+{: .tao-development-quote }
 
 FE I taught you the **Testing Trophy** (Kent C. Dodds). You may meet the older **Testing Pyramid** (Mike Cohn) in interviews and in backend teams. They disagree about where the bulk of your tests belong, and the disagreement is not academic:
 
@@ -111,6 +122,7 @@ Front-end code is mostly **glue**: this component reads that context, calls that
 
 > _"A dependency added is a dependency maintained. Choose wisely."_
 > — Tao of Development, `qa-006`
+{: .tao-development-quote }
 
 Every test is a dependency on your own code's shape. Test the wrong thing and every refactor breaks your suite while the app still works — the fastest way to teach a team to distrust its own tests.
 
@@ -144,6 +156,7 @@ Before writing a test, place it:
 
 > _"The debugger who debugs wisely, debugs only once; for each bug fixed in understanding will not return in code."_
 > — Tao of Development, `dbg-005`
+{: .tao-development-quote }
 
 **Do not test:**
 
@@ -169,6 +182,7 @@ expect(await screen.findByRole('status')).toHaveTextContent(/loading/i);
 
 > _"Every bug is a question your code could not answer."_
 > — Tao of Development, `dbg-004`
+{: .tao-development-quote }
 
 A **flaky** test passes and fails on the same code. It is worse than no test, because it trains the team to re-run CI until it goes green — at which point a real failure is invisible.
 
@@ -233,6 +247,7 @@ process.on('unhandledRejection', (reason) => {
 
 > _"Extract when the boundary is clear. Inline when the boundary was premature. Know the difference by the friction of change."_
 > — Tao of Development, `arch-010`
+{: .tao-development-quote }
 
 FE I used **Cypress**. This unit moves to **Playwright**. You must be able to defend that — "the new one is newer" is not an engineering argument.
 
@@ -301,12 +316,30 @@ export default defineConfig({
 });
 ```
 
+**CodeSandbox-ready** — Create `vitest.contract.config.js` for the separate
+real-service contract suite. Keeping this configuration separate prevents
+nightly network checks from entering the fast unit/component suite.
+
+```js
+// vitest.contract.config.js
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+	test: {
+		environment: 'node',
+		include: ['src/services/**/__tests__/contract.test.{js,jsx}'],
+		setupFiles: [],
+	},
+});
+```
+
 ---
 
 ## 5 — CI economics: the wall-clock budget
 
 > _"The wise instructor automates what repeats. The foolish instructor repeats what should be automated."_
 > — Tao of Development, `qa-001`
+{: .tao-development-quote }
 
 A suite nobody waits for is a suite nobody runs. **The budget for this course: pull-request feedback in under 5 minutes.** That is a design constraint on your tests, exactly like a performance budget (Unit 7) is a design constraint on your bundle.
 
@@ -392,6 +425,7 @@ jobs:
 
 > _"One source of truth. One place to change. One mind at peace."_
 > — Tao of Development, `arch-013`
+{: .tao-development-quote }
 
 Mocks are a lie you agree to tell yourself. MSW (FE I) makes your component tests fast and deterministic — and completely unable to notice when the backend renames a field.
 
@@ -407,36 +441,41 @@ A **contract test** is a small, separate suite that hits the *real* API and asse
 // Values change constantly; shape changing is a breaking change someone forgot to announce.
 //
 // Run nightly / on demand, NOT on every PR:
-//   npx vitest run --project contract
+//   npx vitest run --config vitest.contract.config.js
 
 import { describe, expect, it } from 'vitest';
 
-const API = process.env.VITE_API_URL ?? 'https://dummyjson.com';
+const API = process.env.CONTRACT_API_URL;
+const DEVICE_ID = 'lab-01';
 
 describe('backend contract', () => {
-	it('GET /products/1 returns the fields the UI depends on', async () => {
-		const res = await fetch(`${API}/products/1`);
+	it('GET /v1/devices/lab-01 returns the fields the panel depends on', async () => {
+		expect(API, 'CONTRACT_API_URL must name a running contract service').toBeTruthy();
+
+		const res = await fetch(`${API}/v1/devices/${DEVICE_ID}`);
 		expect(res.ok).toBe(true);
 
 		const body = await res.json();
 
 		// Assert the CONTRACT: field presence and type. Not the value.
 		expect(body).toMatchObject({
-			id: expect.any(Number),
-			title: expect.any(String),
-			price: expect.any(Number),
+			deviceId: DEVICE_ID,
+			online: expect.any(Boolean),
+			readings: {
+				temperatureC: expect.any(Number),
+			},
 		});
 
-		// Guard the exact failure that mocks cannot catch: a renamed field.
-		expect(body.title).toBeDefined();
-		expect(body.product_name).toBeUndefined(); // snake_case would mean a breaking rename
+		// Guard the exact failure that mocks cannot catch: a silently renamed field.
+		expect(body.readings.temperatureC).toBeDefined();
+		expect(body.readings.temperature_c).toBeUndefined();
 	});
 });
 ```
 
-> **Coordination note (and a real deliverable).** Unit 10 consumes a Back-End II service. The contract test above is the artefact that keeps that integration honest — it is the thing you send the backend team when their change breaks your build. Agreeing on the shape *before* either side builds is the whole point.
->
-> ✅ **Open item for the professor:** the concrete endpoint here is a placeholder (`dummyjson.com`) until the Back-End II synergy sheet fixes the real contract. See the note at the end of this unit.
+Run it against the local Unit 10 service with `CONTRACT_API_URL=http://localhost:8000 npx vitest run --config vitest.contract.config.js`. In CI, point `CONTRACT_API_URL` at the deployed contract environment; no third-party demo API belongs in this test.
+
+> **Coordination note (and a real deliverable).** Unit 10 publishes the initial versioned laboratory contract. The contract test above is the artefact that keeps any later Back-End II implementation honest: compatible changes keep `v1` green; breaking changes require a documented `v2` proposal, a frontend migration, and an updated test. Agreeing on the shape *before* either side builds is the whole point.
 
 ---
 
@@ -444,17 +483,18 @@ describe('backend contract', () => {
 
 > _"Accessibility is not a feature. It is the foundation upon which all features rest."_
 > — Tao of Development, `a11y-001`
+{: .tao-development-quote }
 
 An accessibility audit you run once before submission is a checklist. An accessibility **assertion** that runs on every PR is a standard. FE I taught WCAG in practice; FE II makes it automatic.
 
-Automated checks catch roughly **30–40% of WCAG issues** — they find missing labels and contrast failures, and cannot tell you whether your focus order makes sense. Use them as a floor, never as proof.
+Automated checks catch only a **subset** of accessibility issues: they can find missing labels and some contrast failures, but cannot tell you whether your focus order makes sense. Use them as a floor, never as proof.
 
 **CodeSandbox-ready** — Create `e2e/a11y.spec.js`. Requires `npm i -D @axe-core/playwright`.
 
 ```js
 // e2e/a11y.spec.js
 // Automated axe scan on critical pages. A floor, not a ceiling:
-// axe catches ~30-40% of WCAG issues. Keyboard + screen-reader passes stay manual.
+// keyboard and screen-reader passes stay manual.
 
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
@@ -498,6 +538,31 @@ Work on your own capstone project. Each step produces evidence for the Entrega.
 
 > _"Practice in the dojo, perform in the arena."_
 > — Tao of Development, `wis-013`
+{: .tao-development-quote }
+
+---
+
+## B3 · Individual exercises — decontextualised · 2 h
+
+These are separate from the shared-repository lab. Submit your own reasoning;
+use no AI for Exercise 1 and declare any AI assistance used for Exercises 2–3.
+
+1. **No-AI diagnostic.** Classify each proposed test as Trophy-oriented,
+   Pyramid-oriented, or not worth writing: a currency converter, a login form
+   that retries after an error, a snapshot of a static heading, and a checkout
+   flow. Give one sentence of cost/confidence reasoning for each.
+2. A test passes alone but fails in the full suite. Name the most likely flake
+   class, the first observation you would make, and a structural fix.
+3. A backend changes a field from temperatureC to temperature_c. Explain why an
+   MSW-backed component test can remain green and which contract assertion
+   should fail.
+
+Professor expected-answer sketches are in the companion exercise sheet.
+
+### Companion materials
+
+- [Session deck outline](./deck-outline.md)
+- [Individual exercise sheet](./exercises.md)
 
 ---
 
@@ -507,7 +572,7 @@ Work on your own capstone project. Each step produces evidence for the Entrega.
 - Martin Fowler — [The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid/) (the counter-position; read it to argue with it)
 - [Vitest 4 migration guide](https://vitest.dev/guide/migration.html) — the volatile layer, documented
 - [Playwright: sharding](https://playwright.dev/docs/test-sharding) and [test parallelism](https://playwright.dev/docs/test-parallel)
-- [Deque axe-core rule descriptions](https://dequeuniversity.com/rules/axe/) — what the automated 30–40% actually covers
+- [Deque axe-core rule descriptions](https://dequeuniversity.com/rules/axe/) — platform notes for what each automated rule can and cannot report
 
 ---
 
@@ -529,3 +594,11 @@ Next: [Unit 6 — AI-Assisted Code Review]({{ '/lessons/en/feii/unit-6-ai-code-r
 
 > _"The wise engineer makes danger optional."_
 > — Tao of Development, `wis-012`
+{: .tao-development-quote }
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "✅ Session Outcome"
+  visual-grammar: "confidence-under-budget — testing effort distributed across product risks while staying inside a confidence and time budget"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}

@@ -4,6 +4,11 @@ url: 'https://ruvebal.github.io'
 baseurl: '/web-atelier-udit'
 repository: 'ruvebal/web-atelier-udit'
 source: docs
+
+# Fail closed for student-facing builds. Only an explicit private-debug switch
+# may emit the gated provenance comments retained in lesson Markdown.
+publication:
+ publish_internal_metadata: false
 markdown: kramdown
 kramdown:
  input: GFM
@@ -52,7 +57,6 @@ permalink: /:categories/:path/
 include:
  - lessons
  - assets
- - _data
  - _plugins
 
 # Exclude CI and dev artifacts

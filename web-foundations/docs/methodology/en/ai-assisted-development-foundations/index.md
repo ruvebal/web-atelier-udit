@@ -78,22 +78,17 @@ the software, and a package name sitting unclaimed inside a real vendor's
 trusted npm scope — precisely the shape of a supply-chain attack, not a
 hypothetical one.
 
-> Supply chain adversaries can publish MCP servers to public registries
-> (npm, PyPI, GitHub), modify previously-trusted servers after adoption
-> (rugpull attacks), embed malicious logic in tool implementations, inject
-> harmful instructions in tool descriptions or responses, and execute
-> arbitrary code on user machines when their server runs.
-> — **[BIBLIO-GAP]** Errico, H., Sojan, S., & Ngiam, J., *Securing the
-> Model Context Protocol (MCP): Risks, Controls, and Governance* (2025),
-> arXiv:2511.20920v1
-> Ahmes anchor: `scholar/documents/2511_20920v1_43fed367/extract/extraction.db`
-> · nodo `33f6f8e1-e1d7-5805-8f0e-c0ff3ec907df` · p. 3 · `evaluator_safe=no`
+Treat an MCP server like executable supply-chain code, not like a passive
+prompt: verify the publisher, inspect the capabilities it requests, pin the
+version, and assume that an end-user installation may bypass the review an API
+integration would normally receive. This is a course security rule pending a
+fully resolved scholarly citation; it is not presented as a research finding.
 
-> The second major threat category arises from the challenge of
-> evaluating which MCP servers to trust. Unlike traditional APIs, which
-> undergo developer security review before integration, MCP servers can
-> be installed directly by end users who may lack security expertise.
-> — same document, nodo `170c5680-e021-50cf-906a-b264284d0a2f` · p. 4
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+[BIBLIO-GAP] Errico, H., Sojan, S., and Ngiam, J. Securing the Model Context Protocol (MCP): Risks, Controls, and Governance (2025), arXiv:2511.20920v1. Ahmes anchor: scholar/documents/2511_20920v1_43fed367/extract/extraction.db; node 33f6f8e1-e1d7-5805-8f0e-c0ff3ec907df, p. 3; node 170c5680-e021-50cf-906a-b264284d0a2f, p. 4; evaluator_safe=no. Original quotations retained in the extraction and intentionally not published here.
+-->
+{% endif %}
 
 **The lesson isn't "don't use MCP."** It's that an MCP server is a tool
 you're granting execution capability to — the same discipline point 5

@@ -49,6 +49,23 @@ cd web-foundations && npm run build 2>&1 | grep "Liquid Warning"
 
 ---
 
+## 1b. Liquid includes must emit flush-left HTML
+
+Kramdown treats **indented** HTML as a fenced code block. After Liquid expands an `{% include %}`, any line that begins with a tab or four spaces can publish as escaped markup (`&lt;nav…&gt;`) instead of a live element — the lang switcher looked like raw source on the page.
+
+**Rule:** includes that emit block HTML (`<nav>`, `<figure>`, `<div>`, …) must output **every line at column 0**. No tab-indented children. Prefer a single compact line in the include file. When `_config.yml` sets `parse_block_html: true`, add **`markdown="0"`** on the outermost wrapper so Kramdown does not re-parse inner tags as Markdown (symptom: `&lt;/nav&gt;&lt;/div&gt;` visible on the page and the rest of the lesson nested inside an unclosed element).
+
+**Verify after building:**
+
+```bash
+grep -A2 'track-lang-switch' web-foundations/docs/_site/tracks/fei/index.html
+# Must show <nav class="track-lang-switch"> — not <pre><code>&lt;nav
+```
+
+Applies to track lang switchers, curriculum figures inlined via include, and any future `_includes/*.html` dropped into Markdown lessons.
+
+---
+
 ## 2. `permalink:` moves the HTML — it does **not** move sibling assets
 
 A page with `permalink: /tracks/feii/how-to-pass-this-track/` is written to that path. Its sibling `vendor/`, `data/`, `design/`, and image folders are **static files that stay at their source path**.
@@ -151,6 +168,35 @@ An FE II unit shipped **five fabricated "Key Findings"** attributed to a real pa
 - `[UNVERIFIED-NOISE]` claims are excluded from lesson design entirely.
 - **Never invent a URL** — sandbox links, DOIs, endpoints. If it must exist and you cannot create it, mark it clearly and escalate to the professor.
 
+### 6.1 Publish the citation, keep the machinery in source
+
+Student pages use Chicago author-date by default: `(Author Year, page)`. A
+direct quotation requires a page. Every lesson with research citations ends
+with `## References` or `## Referencias`, containing complete Chicago entries.
+
+Do not publish local research architecture: Ahmes/Athanor/DevIAC names,
+`[BIBLIO-GAP]`, `evaluator_safe`, coat/node IDs, extraction database/schema
+names, project keys, vector-search notes, or local paths. Preserve all of it in
+the lesson Markdown beside the relevant claim, but behind the fail-closed
+switch:
+
+```liquid
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+[BIBLIO-GAP or VERIFIED]
+Ahmes anchor: <db>; node: <id>; page: <n>; evaluator_safe=<yes|no>
+discovery/transfer notes: <complete audit trail>
+-->
+{% endif %}
+```
+
+`publication.publish_internal_metadata` defaults to `false`; absence also
+means false. Enabling it is an explicit private-debug operation. The normal
+build must fail if any forbidden metadata reaches rendered HTML or assets.
+An unresolved source never receives a polished author-date citation: retain
+the audit privately, and either omit the claim or teach it as an open question
+without the internal status label.
+
 ---
 
 ## 7. Quotes come from TTOD, with their ID
@@ -219,5 +265,8 @@ Then confirm, against the **built output** in `_site/`:
 - [ ] Code blocks survived — strip tags and read the code back, especially any `{{ }}`.
 - [ ] The lesson is registered in `_data/lessons.yml`.
 - [ ] Sequence tables (`_data/tracks.yml`, track index, lesson index) agree on titles and hours. **Renaming a unit means updating all three.**
+- [ ] Publication/citation gates pass: internal grounding metadata is absent
+      from built output; cited lessons have Chicago inline forms and final
+      References/Referencias entries.
 
 Local build verification and *published* are different checkboxes. Publishing is the professor's `git push`.

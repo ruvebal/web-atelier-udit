@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16 - Magnetic Buttons</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+      gap: 4rem;
+      padding: 4rem 2rem;
+    }
+    
+    h1 {
+      font-size: 1rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+    
+    .buttons-container {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    /* Magnetic button base */
+    .magnetic-btn {
+      position: relative;
+      padding: 1.25rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: transparent;
+      border: 2px solid #fafafa;
+      border-radius: 50px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: color 0.3s;
+    }
+    
+    .magnetic-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fafafa;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: -1;
+    }
+    
+    .magnetic-btn:hover {
+      color: #0a0a0a;
+    }
+    
+    .magnetic-btn:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
+    .magnetic-btn span {
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Variant: Filled */
+    .magnetic-btn.filled {
+      background: #3b82f6;
+      border-color: #3b82f6;
+    }
+    
+    .magnetic-btn.filled::before {
+      background: #2563eb;
+    }
+    
+    .magnetic-btn.filled:hover {
+      color: #fafafa;
+    }
+    
+    /* Variant: Gradient */
+    .magnetic-btn.gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      padding: 1.35rem 2.6rem;
+    }
+    
+    .magnetic-btn.gradient::before {
+      background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+    }
+    
+    .magnetic-btn.gradient:hover {
+      color: #fafafa;
+    }
+    
+    /* Variant: Icon button */
+    .magnetic-btn.icon-btn {
+      width: 60px;
+      height: 60px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .magnetic-btn.icon-btn svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s;
+    }
+    
+    .magnetic-btn.icon-btn:hover svg {
+      transform: scale(1.1);
+    }
+    
+    /* Large CTA */
+    .magnetic-btn.large {
+      padding: 1.5rem 4rem;
+      font-size: 1.25rem;
+    }
+    
+    /* Info text */
+    .info {
+      text-align: center;
+      max-width: 500px;
+    }
+    
+    .info p {
+      color: #666;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    
+    /* Code panel */
+    .code-panel {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 550px;
+      width: 100%;
+    }
+    
+    .code-panel pre {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.7rem;
+      color: #a0a0a0;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+    
+    .code-panel .comment { color: #6a737d; }
+    .code-panel .keyword { color: #ff7b72; }
+    .code-panel .string { color: #a5d6ff; }
+    .code-panel .number { color: #79c0ff; }
+    .code-panel .function { color: #d2a8ff; }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .magnetic-btn {
+        transform: none !important;
+      }
+      .magnetic-btn span {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Magnetic Buttons</h1>
+  
+  <div class="buttons-container">
+    <button class="magnetic-btn">
+      <span>Hover Me</span>
+    </button>
+    
+    <button class="magnetic-btn filled">
+      <span>Get Started</span>
+    </button>
+    
+    <button class="magnetic-btn gradient">
+      <span>Explore</span>
+    </button>
+  </div>
+  
+  <div class="buttons-container">
+    <button class="magnetic-btn icon-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </button>
+    
+    <button class="magnetic-btn icon-btn filled">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+    </button>
+    
+    <button class="magnetic-btn icon-btn gradient">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </svg>
+    </button>
+  </div>
+  
+  <button class="magnetic-btn large gradient">
+    <span>Start Your Journey</span>
+  </button>
+  
+  <div class="info">
+    <p>Move your cursor over the buttons. They follow your mouse with a magnetic effect, creating an engaging and playful interaction.</p>
+  </div>
+  
+  <div class="code-panel">
+    <pre><span class="comment">// Magnetic button effect</span>
+<span class="keyword">const</span> buttons = gsap.utils.<span class="function">toArray</span>(<span class="string">'.magnetic-btn'</span>);
+
+buttons.<span class="function">forEach</span>(btn => {
+  btn.<span class="function">addEventListener</span>(<span class="string">'mousemove'</span>, (e) => {
+    <span class="keyword">const</span> rect = btn.<span class="function">getBoundingClientRect</span>();
+    <span class="keyword">const</span> x = e.clientX - rect.left - rect.width / <span class="number">2</span>;
+    <span class="keyword">const</span> y = e.clientY - rect.top - rect.height / <span class="number">2</span>;
+    
+    gsap.<span class="function">to</span>(btn, {
+      x: x * <span class="number">0.3</span>,
+      y: y * <span class="number">0.3</span>,
+      duration: <span class="number">0.3</span>,
+      ease: <span class="string">'power2.out'</span>
+    });
+  });
+  
+  btn.<span class="function">addEventListener</span>(<span class="string">'mouseleave'</span>, () => {
+    gsap.<span class="function">to</span>(btn, {
+      x: <span class="number">0</span>,
+      y: <span class="number">0</span>,
+      duration: <span class="number">0.5</span>,
+      ease: <span class="string">'elastic.out(1, 0.3)'</span>
+    });
+  });
+});</pre>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (!prefersReducedMotion) {
+      const buttons = gsap.utils.toArray('.magnetic-btn');
+      
+      buttons.forEach(btn => {
+        const span = btn.querySelector('span');
+        const svg = btn.querySelector('svg');
+        const innerElement = span || svg;
+        
+        // Mouse move - magnetic pull
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          
+          // Move button
+          gsap.to(btn, {
+            x: x * 0.3,
+            y: y * 0.3,
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+          
+          // Move inner content slightly more for parallax effect
+          if (innerElement) {
+            gsap.to(innerElement, {
+              x: x * 0.15,
+              y: y * 0.15,
+              duration: 0.3,
+              ease: 'power2.out'
+            });
+          }
+        });
+        
+        // Mouse leave - spring back
+        btn.addEventListener('mouseleave', () => {
+          gsap.to(btn, {
+            x: 0,
+            y: 0,
+            duration: 0.5,
+            ease: 'elastic.out(1, 0.3)'
+          });
+          
+          if (innerElement) {
+            gsap.to(innerElement, {
+              x: 0,
+              y: 0,
+              duration: 0.5,
+              ease: 'elastic.out(1, 0.3)'
+            });
+          }
+        });
+        
+        // Click effect
+        btn.addEventListener('click', () => {
+          gsap.to(btn, {
+            scale: 0.95,
+            duration: 0.1,
+            yoyo: true,
+            repeat: 1
+          });
+        });
+      });
+      
+      // Entrance animation
+      gsap.from('.magnetic-btn', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.1
+      });
+    }
+  </script>
+</body>
+</html>

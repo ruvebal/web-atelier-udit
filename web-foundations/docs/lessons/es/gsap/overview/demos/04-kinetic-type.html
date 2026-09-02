@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 - Kinetic Typography</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+      overflow: hidden;
+    }
+    
+    .kinetic-container {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .kinetic-text {
+      font-size: clamp(4rem, 15vw, 12rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      cursor: default;
+    }
+    
+    .char {
+      display: inline-block;
+      transition: color 0.1s;
+      will-change: transform;
+    }
+    
+    .instruction {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 3rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    
+    /* Magnetic effect area */
+    .magnetic-area {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    
+    /* Second example */
+    .example-2 {
+      margin-top: 4rem;
+      padding-top: 4rem;
+      border-top: 1px solid #222;
+    }
+    
+    .wave-text {
+      font-size: clamp(2rem, 8vw, 5rem);
+      font-weight: 700;
+      color: #3b82f6;
+    }
+    
+    .wave-text .char {
+      animation: wave 2s ease-in-out infinite;
+      animation-delay: calc(var(--i) * 0.1s);
+    }
+    
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    /* Third example - color shift */
+    .color-shift {
+      margin-top: 3rem;
+    }
+    
+    .color-text {
+      font-size: clamp(2rem, 8vw, 5rem);
+      font-weight: 700;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .char {
+        animation: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="kinetic-container">
+    <h1 class="kinetic-text">INTERACT</h1>
+    <p class="instruction">Move your mouse over the letters</p>
+    
+    <div class="example-2">
+      <h2 class="wave-text">WAVE MOTION</h2>
+    </div>
+    
+    <div class="color-shift">
+      <h2 class="color-text">RAINBOW</h2>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Split all text elements
+    function splitAllText() {
+      document.querySelectorAll('.kinetic-text, .wave-text, .color-text').forEach(el => {
+        const text = el.textContent;
+        const chars = text.split('');
+        el.innerHTML = chars.map((char, i) => 
+          `<span class="char" style="--i: ${i}">${char === ' ' ? '&nbsp;' : char}</span>`
+        ).join('');
+      });
+    }
+    
+    // Kinetic hover effect
+    function setupKineticEffect() {
+      if (prefersReducedMotion) return;
+      
+      const chars = document.querySelectorAll('.kinetic-text .char');
+      
+      chars.forEach((char, i) => {
+        // Mouse enter - pop up
+        char.addEventListener('mouseenter', () => {
+          gsap.to(char, {
+            y: -25,
+            scale: 1.3,
+            color: getRandomColor(),
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+          
+          // Affect neighbors
+          const prev = chars[i - 1];
+          const next = chars[i + 1];
+          
+          if (prev) {
+            gsap.to(prev, {
+              y: -10,
+              scale: 1.1,
+              duration: 0.3,
+              ease: 'power2.out'
+            });
+          }
+          if (next) {
+            gsap.to(next, {
+              y: -10,
+              scale: 1.1,
+              duration: 0.3,
+              ease: 'power2.out'
+            });
+          }
+        });
+        
+        // Mouse leave - return
+        char.addEventListener('mouseleave', () => {
+          gsap.to(char, {
+            y: 0,
+            scale: 1,
+            color: '#fafafa',
+            duration: 0.6,
+            ease: 'elastic.out(1, 0.3)'
+          });
+          
+          // Reset neighbors
+          const prev = chars[i - 1];
+          const next = chars[i + 1];
+          
+          if (prev) {
+            gsap.to(prev, {
+              y: 0,
+              scale: 1,
+              duration: 0.6,
+              ease: 'elastic.out(1, 0.3)'
+            });
+          }
+          if (next) {
+            gsap.to(next, {
+              y: 0,
+              scale: 1,
+              duration: 0.6,
+              ease: 'elastic.out(1, 0.3)'
+            });
+          }
+        });
+      });
+    }
+    
+    // Rainbow color animation
+    function setupRainbowEffect() {
+      if (prefersReducedMotion) return;
+      
+      const chars = document.querySelectorAll('.color-text .char');
+      const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff', '#5f27cd'];
+      
+      chars.forEach((char, i) => {
+        // Initial color
+        char.style.color = colors[i % colors.length];
+        
+        // Animate color shift
+        gsap.to(char, {
+          color: colors[(i + 3) % colors.length],
+          duration: 2,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          delay: i * 0.1
+        });
+        
+        // Hover effect
+        char.addEventListener('mouseenter', () => {
+          gsap.to(char, {
+            scale: 1.5,
+            rotation: gsap.utils.random(-20, 20),
+            duration: 0.3,
+            ease: 'back.out(2)'
+          });
+        });
+        
+        char.addEventListener('mouseleave', () => {
+          gsap.to(char, {
+            scale: 1,
+            rotation: 0,
+            duration: 0.5,
+            ease: 'elastic.out(1, 0.3)'
+          });
+        });
+      });
+    }
+    
+    // Utility: Random color
+    function getRandomColor() {
+      const colors = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    
+    // Initial animation
+    function playEntrance() {
+      if (prefersReducedMotion) return;
+      
+      gsap.from('.kinetic-text .char', {
+        y: 100,
+        opacity: 0,
+        rotation: gsap.utils.random(-30, 30),
+        duration: 0.8,
+        ease: 'back.out(1.7)',
+        stagger: 0.05
+      });
+      
+      gsap.from('.wave-text .char', {
+        scale: 0,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'back.out(2)',
+        stagger: 0.03,
+        delay: 0.5
+      });
+      
+      gsap.from('.color-text .char', {
+        x: -50,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+        stagger: 0.04,
+        delay: 0.8
+      });
+    }
+    
+    // Initialize
+    splitAllText();
+    setupKineticEffect();
+    setupRainbowEffect();
+    playEntrance();
+  </script>
+</body>
+</html>

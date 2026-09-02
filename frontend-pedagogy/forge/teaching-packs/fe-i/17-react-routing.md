@@ -11,7 +11,7 @@ semester: 2
 ## What this is
 
 Multi-view React apps — precedes unit 18 (authentication), both feeding
-into the geo-physical-aggregator capstone (units 19–20). Already-
+into the individual React capstone (units 19–20). Already-
 delivered, not a forge target for new content.
 
 ## Grounding boundary

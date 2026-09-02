@@ -9,6 +9,14 @@ lang: en
 permalink: /lessons/en/linting-and-formatting/
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Quality tools encode team decisions; they do not supply judgment.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** formatting, linting, and automated checks improve shared readability. **Frontier signal:** AI autofix and AI review can scale checks while also scaling false confidence.</p>
+</aside>
+
+> **Studio test:** Reject or revise one rule with a written rationale.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -17,6 +25,70 @@ permalink: /lessons/en/linting-and-formatting/
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## For / Not for
+
+**For:** Front-End I **Session 10** — add Prettier + ESLint (and optional Stylelint/HTMLHint) to your portfolio repo so formatting and basic JS checks run on save or in CI.
+
+**Not for:** enforcing style debates without team agreement, or replacing code review with green lint badges.
+
+**When you finish this session you will have:** config files committed, one intentional lint fix documented, and format-on-save (or documented npm script) working locally.
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Session 9 complete (ES modules in repo) | Yes |
+| Node.js installed (required this session) | Yes |
+| VS Code with ESLint + Prettier extensions | Recommended |
+
+**Official time:** 1.5 h class + 0.5 h lab.
+
+---
+
+## Follow this path
+
+| Step | Action | Section |
+| --- | --- | --- |
+| 1 | Read why formatting ≠ linting | Purpose (below) |
+| 2 | Choose Path A (VS Code only) or Path B (npm scripts) | Choose Your Path |
+| 3 | Add `.editorconfig` + Prettier config | Step-by-Step Guide |
+| 4 | Add ESLint; fix one real warning with a written rationale | Critical Coding Prompts |
+| 5 | Run format/lint once before commit | Quick Start |
+| 6 | Commit configs + fixed files | Submit below |
+
+---
+
+## Verify before you leave
+
+- [ ] `npm run lint` or VS Code ESLint panel runs without config errors
+- [ ] Prettier reformats a deliberately messy file consistently
+- [ ] At least one ESLint rule understood (not blindly disabled)
+- [ ] Config files committed; no secrets in repo
+- [ ] Commit pushed
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| ESLint fights Prettier | Missing `eslint-config-prettier` | Install conflict resolver from guide |
+| Nothing formats on save | Wrong default formatter | Set Prettier as default formatter in VS Code |
+| `npm` command not found | Node not installed or wrong shell | Install Node LTS; restart terminal |
+| Thousands of warnings | Linting legacy template code | Lint `assets/js/` only first; expand gradually |
+| Disabled every rule | Avoidance instead of learning | Re-enable; fix or document one exception |
+
+---
+
+## Submit (Session 10 evidence)
+
+- Commit adding `.prettierrc` / `eslint.config.*` (or equivalent)
+- Note: one rule you kept, one you adjusted, and why
 
 ---
 
@@ -558,6 +630,13 @@ Use these to reflect on why we format and lint – not just how.
 - **Conceptualization**: How do formatting and linting shape collaboration and authorship in a team? What values do these tools encode (e.g., consistency over personal style)?
 - **Production**: Document your chosen rules (.prettierrc, linters). What trade‑offs did you make (e.g., line length, quote style)?
 - **Exhibition**: Before publishing, run `npm run format:check && npm run lint`. What issues remain and what would you prioritize fixing for your audience?
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Critical Coding Prompts (Atelier)"
+  visual-grammar: "team-quality-gate — code variations passing through shared quality decisions into one coherent baseline"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

@@ -24,6 +24,7 @@ tags: [fase-2, responsive, scroll, parallax, css, gsap, tailwind]
 
 > **El Tao del Desarrollador:**
 > _"El scroll revela lo que la paciencia oculta. No construyas para el viewport que ves, sino para el viaje que el usuario recorre."_
+{: .tao-development-quote }
 
 ---
 
@@ -53,6 +54,7 @@ Estudia estos ejemplos funcionales antes de implementar. **Mira el código fuent
 
 > **El Tao del Desarrollador:**
 > _"Copiar código enseña por un día. Entender código construye para toda la vida."_
+{: .tao-development-quote }
 
 ---
 
@@ -90,6 +92,7 @@ Antes de los efectos de scroll, establece tu escala tipográfica. **Ninguna anim
 
 > **El Tao del Desarrollador:**
 > _"Tres caminos llevan a la misma montaña. El desarrollador sabio elige el camino que coincide con sus herramientas, no con su ego."_
+{: .tao-development-quote }
 
 ### Comprendiendo las Técnicas de Scroll
 
@@ -233,6 +236,7 @@ document.querySelectorAll('[data-reveal]').forEach((el) => {
 
 > **El Tao del Desarrollador:**
 > _"El poder sin mesura es caos. GSAP te da la espada; la sabiduría te dice cuándo envainarla."_
+{: .tao-development-quote }
 
 ### 2.3 Configuración de GSAP ScrollTrigger
 
@@ -450,6 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 > **El Tao del Desarrollador:**
 > _"El maestro no pregunta '¿Qué puedo animar?' sino '¿Qué merece movimiento?' La quietud también tiene valor."_
+{: .tao-development-quote }
 
 ### Efectos de Scroll Recomendados por Sección
 
@@ -507,6 +512,7 @@ if (!prefersReducedMotion) {
 
 > **El Tao del Desarrollador:**
 > _"La accesibilidad no es una característica. Es respeto hecho manifiesto en código."_
+{: .tao-development-quote }
 
 ---
 
@@ -618,6 +624,7 @@ Antes de pasar a la Fase 3, verifica:
 
 > **El Tao del Desarrollador:**
 > _"El scroll es una conversación entre usuario e interfaz. Habla claro. Escucha su ritmo. Nunca grites."_
+{: .tao-development-quote }
 
 Tu entregable de la Fase 2: Un **diseño completamente responsivo** donde el scroll revela contenido con propósito y mesura. El usuario debe sentirse guiado, no asaltado.
 

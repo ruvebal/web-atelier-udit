@@ -14,6 +14,14 @@ permalink: /lessons/en/react/react-fundamentals-simplified/
 status: draft
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Components are contracts at the interface boundary.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** props, events, composition, and semantic output are durable component ideas. **Frontier signal:** server components and new rendering models are volatile extensions.</p>
+</aside>
+>
+> **Studio test:** Test a component as a contract: inputs, output, states, and access.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -606,6 +614,13 @@ Save tasks to `localStorage` so they survive page refresh.
 - Props flow down (parent → child)
 - Events flow up (child calls parent function)
 - State lives in common ancestor
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "📚 Key Takeaways"
+  visual-grammar: "component-boundary-tree — small component boundaries composing a visible interface without losing data ownership"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 

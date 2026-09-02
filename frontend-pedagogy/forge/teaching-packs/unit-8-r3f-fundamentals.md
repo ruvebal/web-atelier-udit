@@ -1,10 +1,16 @@
 ---
 unit: unit-8-r3f-fundamentals
-status: pilot
-evidence_state: declared pilot; no R3F pedagogy evidence
+status: ready-to-upgrade
+evidence_state: graphics-pedagogy precedent; R3F-specific teaching pilot
 ---
 
 # 3D interface layer — production teaching pack
+
+## Gap-pass update — 2026-08-23
+
+- Angel & Shreiner (2024) now supplies an evaluator-safe graphics-education precedent: teach the pipeline and shader concepts so that learners can move across evolving APIs. Ahmes coat `e2e9b45c`, nodes `348bd016-3aee-5eb3-ae93-b3d422e137df` and `92a534c1-6aff-5d5e-b1e5-2a7d2e2c65a9`.
+- Current R3F documentation is a platform note for scene setup and demand rendering; it does not establish R3F pedagogy.
+- The unit is therefore a **graphics-grounded R3F pilot**. Grade scene explanation, renderer evidence, and cross-API transfer—not visual novelty.
 
 ## Forge contract
 

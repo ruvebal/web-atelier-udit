@@ -11,6 +11,14 @@ description: 'Comprehensive final project brief for building a production-ready,
 tags: [final-project, portfolio, deployment, responsive, web-standards]
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> A portfolio is evidence of process and authorship, not a gallery.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** authentic, self-coded project work integrates design and technical decisions. **Frontier signal:** AI-resilient assessment shifts attention toward checkpoints, reflection, and defence.</p>
+</aside>
+
+> **Studio test:** Keep weekly commits, decision notes, and a final trade-off statement.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -19,6 +27,70 @@ tags: [final-project, portfolio, deployment, responsive, web-standards]
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## For / Not for
+
+**For:** Front-End I **Session 13** and the **semester 1 integrator** — read this brief, choose your grade level (Vanilla / Bootstrap+GSAP / Tailwind+Vite), and plan the three-level portfolio with docs-first AI use where applicable.
+
+**Not for:** starting React (semester 2), skipping Level 1 evidence, or submitting a template you cannot explain in defence.
+
+**When you finish this session you will have:** a written plan (`docs/plan*.md`), milestone checklist, repo structure aligned with the brief, and first Level 1 deliverable scoped.
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Sessions 1–12 complete (or explicit gap plan with instructor) | Yes |
+| GitHub repo + Pages URL | Yes |
+| SOW analysis and 404 hackathon briefs read | Recommended |
+
+**Official time:** 4 h class + 1.5 h lab (brief session); project continues across remaining semester 1 weeks.
+
+---
+
+## Follow this path
+
+| Step | Action | Section |
+| --- | --- | --- |
+| 1 | Read live brief + AI two-phase rule | Live Document / AI Usage |
+| 2 | Choose Level 1 → 2 → 3 progression for **your** pace | Grade levels in brief |
+| 3 | Write `docs/plan1.md` before Level 1 coding | AI Usage |
+| 4 | Map requirements to commits/milestones | Requirements sections |
+| 5 | Open issue or README checklist for defence evidence | Deliverables |
+| 6 | Begin Level 1 implementation (vanilla) | Production |
+
+---
+
+## Verify before you leave
+
+- [ ] `docs/plan1.md` exists before new feature code this week
+- [ ] README lists Pages URL, level target, and AI declaration pointer
+- [ ] Level 1 scope written (pages, sections, accessibility minimum)
+- [ ] You can explain one trade-off (e.g. CDN vs npm) aloud
+- [ ] First milestone commit pushed
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| Jumped to Tailwind without Level 1 | Skipped integrator logic | Complete vanilla evidence first |
+| No plans in repo | AI code dumped directly | Stop; write `docs/plan1.md` |
+| Template ≠ portfolio | Generic bootcamp clone | Tie content to your work and SOW insights |
+| Defence fails on authorship | Cannot explain commits | Document decisions per ATELIER |
+| Levels mixed in one branch | No clear progression | Tag or branch per level; README timeline |
+
+---
+
+## Submit (Session 13 evidence)
+
+- Repo URL + `docs/plan1.md` link
+- README section: target level this month + next milestone date
 
 ---
 
@@ -748,8 +820,16 @@ Each sprint is designed to be completable in 1.5-4 hours of focused work. Sprint
    - Personal style in micro-interactions
    - Easter eggs or delightful details (optional but fun)
 
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 5. **Self-Index in Course Repository**
-   - Fork professor's course repository
+-->
+{% endif %}
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+- Fork professor's course repository
+-->
+{% endif %}
    - Add your project to student index
    - Submit pull request with your entry
    - Include: name, project URL, tech stack, brief description
@@ -834,7 +914,11 @@ Each sprint is designed to be completable in 1.5-4 hours of focused work. Sprint
    - Description: Brief release notes (what's included, key features)
    - Publish release
 
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 4. **Self-Index in Course Repository** (Sprint 4 task)
+-->
+{% endif %}
 
    - Your entry helps build a showcase of all student work
    - Creates a collaborative learning resource
@@ -1050,3 +1134,10 @@ Good luck, and happy building. 🚀
 
 **Questions or need clarification?**
 Review the linked lessons, consult the professor during sessions, collaborate with peers, and document your process. See you at the finish line with your `v1.0.0` release.
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Conclusion"
+  visual-grammar: "portfolio-process-evidence — process fragments converging into an inspectable portfolio page with visible authorship"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}

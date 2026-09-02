@@ -17,9 +17,17 @@ tags:
     islands-architecture,
     multi-framework,
   ]
-status: draft
+status: complete
 ---
 
+<aside class="lesson-framing" aria-label="Master idea and field lens">
+<p><strong>Master idea:</strong> Hydration is a cost model; islands are selective interactivity.</p>
+<p><strong>Field lens:</strong> **Practice anchor:** SSR/SSG and selective client work make delivery choices explicit. **Frontier signal:** resumability and server/edge islands challenge mainstream defaults. **Pedagogy status:** direct HE comparison of Astro/islands teaching sequences is absent; this lesson is a transfer-informed pilot.</p>
+</aside>
+
+> **Studio test:** Compare a static region, an island, and their transferred cost.
+
+{% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
 ## 📋 Table of Contents
@@ -28,6 +36,59 @@ status: draft
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+---
+
+## Before you start
+
+| Requirement | Required? |
+| --- | --- |
+| Unit 1 exercises submitted | Yes |
+| Node.js LTS + npm | Yes |
+| Astro Docs MCP configured (see § AI & MCP) | Strongly recommended |
+| Team repo / Entrega 1 backlog issue | For B2 lab |
+
+**Official time:** 3 h magistral + 2 h lab (team) + 2 h exercise resolution (individual, see B3).
+
+---
+
+## Follow this path
+
+| Phase | Who | Action | Section |
+| --- | --- | --- | --- |
+| 1 | Individual | Wire Astro Docs MCP; ask one version-specific API question | AI & MCP |
+| 2 | Individual | Scaffold `feii-astro-demo`; static landing page | Astro Project Setup |
+| 3 | Individual | Add React island + choose `client:*` with one-line justification | Integrating React Islands |
+| 4 | Team | Pick real Entrega 1 issue; PR with island + CI green | B2 · Lab |
+| 5 | Individual | Complete B3 exercises without AI on item 3 | B3 · Exercises |
+
+---
+
+## Verify before you leave
+
+- [ ] Static HTML renders with JS disabled (most of page)
+- [ ] Island hydrates; DevTools shows separate bundle
+- [ ] MCP answer verified against https://docs.astro.build
+- [ ] PR documents `client:*` choice and before/after metric (Lighthouse or bundle size)
+- [ ] AI accept/reject log row if AI assisted (prospective Unit 6 discipline)
+
+---
+
+## Common failures
+
+| Symptom | Likely cause | Fix |
+| --- | --- | --- |
+| Entire page hydrates like SPA | Missing island boundary / wrong integration | Follow `.astro` + `client:load` pattern |
+| `client:load` everywhere | Default without cost analysis | Use B3 exercise 2 decision table |
+| MCP returns stale API | Wrong server or no verification | Cross-check running project |
+| Team lab blocked | No backlog issue | Use professor-provided seed issue |
+
+---
+
+## Submit (Unit 2 evidence)
+
+- **Individual:** exercise answers + Astro demo URL or repo path
+- **Team:** issue link, PR link, release note with measured effect (B2 definition of done)
 
 ---
 
@@ -56,7 +117,7 @@ By the end of this unit, you will be able to:
 - **Understand Astro's core philosophy** — content-first, zero-JS by default, and the islands architecture pattern
 - **Set up an Astro project** — CLI scaffolding, project structure, and configuration
 - **Implement islands architecture** — hydrate specific components with React/Vue/Svelte while keeping the rest static
-- **Choose rendering strategies** — static generation (SSG) vs. server-side rendering (SSR) vs. hybrid
+- **Choose rendering strategies** — static generation (SSG) vs. server-side rendering (SSR) vs. mixed static/dynamic (per-route `prerender`)
 - **Integrate multiple frameworks** — Use React components within Astro, understanding the boundary between server and client
 
 ---
@@ -124,9 +185,10 @@ src/
   pages/           # File-based routing (SSG by default)
   components/      # Astro components (.astro files)
   layouts/         # Page layouts
-  content/         # Markdown/content collections (optional)
-public/           # Static assets
-astro.config.mjs   # Configuration
+  content/         # Markdown files for collections (optional until Unit 3)
+  content.config.ts  # Content collections schema (Unit 3 — `astro:content` + `astro/zod`)
+public/            # Static assets
+astro.config.mjs   # Site config (not collection schemas)
 ```
 
 ### Astro Components (.astro)
@@ -204,8 +266,12 @@ Astro supports multiple rendering modes:
 
 Default for most pages. Build-time HTML, no server needed.
 
+**Excerpt** — site config only; collection schemas belong in `src/content.config.ts` (Unit 3):
+
 ```js
 // astro.config.mjs
+import { defineConfig } from 'astro/config';
+
 export default defineConfig({
   output: 'static', // Default
 });
@@ -217,25 +283,45 @@ export default defineConfig({
 
 Server renders on each request. Requires an adapter.
 
+**Excerpt** — install `@astrojs/node` (or Vercel/Netlify/Cloudflare adapter) first:
+
 ```js
+// astro.config.mjs
+import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
+
 export default defineConfig({
   output: 'server',
-  adapter: node({
-    // Node.js server (or Vercel, Netlify, Cloudflare, etc.)
-  }),
+  adapter: node({ mode: 'standalone' }),
 });
 ```
 
 **Best for:** Dynamic content, user-specific pages, e-commerce
 
-### Hybrid
+### Mixed static + dynamic (formerly `output: 'hybrid'`)
 
-Static for most pages, SSR for specific routes.
+Astro 5+ uses `output: 'server'` with per-route prerender flags instead of a separate `hybrid` mode:
 
 ```js
+// astro.config.mjs — server adapter required (see SSR excerpt above)
 export default defineConfig({
-  output: 'hybrid',
+  output: 'server',
+  adapter: node({ mode: 'standalone' }),
 });
+```
+
+```astro
+---
+// src/pages/mostly-static.astro — prerender at build (default when using static output)
+export const prerender = true;
+---
+```
+
+```astro
+---
+// src/pages/dynamic.astro — render on each request
+export const prerender = false;
+---
 ```
 
 **Best for:** Mostly static sites with a few dynamic sections
@@ -264,6 +350,35 @@ export default defineConfig({
 
 ---
 
+## 🤖 AI & MCP — Astro Docs in your agent
+
+Before you scaffold, wire **Astro Docs MCP** so Cursor, Windsurf, or Claude Desktop reads live API docs — the same boundary pattern you met in FE I ([MCP overview]({{ '/lessons/en/react/ai-assisted-development-foundations/' | relative_url }}#model-context-protocol-mcp)).
+
+| Resource | URL |
+| --- | --- |
+| Remote MCP endpoint | [https://mcp.docs.astro.build/mcp](https://mcp.docs.astro.build/mcp) |
+| Building with AI tools | [docs.astro.build — AI guide](https://docs.astro.build/en/guides/build-with-ai/) |
+| Full sequence index | [Astro teaching sequence]({{ '/lessons/en/astro/' | relative_url }}) |
+
+{% raw %}
+
+```json
+{
+  "mcpServers": {
+    "Astro Docs": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.docs.astro.build/mcp"]
+    }
+  }
+}
+```
+
+{% endraw %}
+
+**Lab check:** ask your agent a version-specific question (e.g. content collections API) and confirm the answer cites current Astro docs — then verify in the running project.
+
+---
+
 ## 📚 Recommended Reading
 
 - **Astro Documentation** — https://docs.astro.build/en/core-concepts/
@@ -280,7 +395,7 @@ By the end of this unit, you should:
 - Understand Astro's content-first philosophy and how it differs from SPA frameworks
 - Be able to scaffold and configure an Astro project
 - Implement islands architecture with React components
-- Choose appropriate rendering strategies (SSG vs. SSR vs. hybrid)
+- Choose appropriate rendering strategies (SSG vs. SSR vs. mixed per-route prerender)
 - See the performance benefits of zero-JS-by-default pages
 
 This unit prepares you for unit 3, where we'll dive deeper into Astro architecture patterns and multi-framework integration.
@@ -291,6 +406,14 @@ This unit prepares you for unit 3, where we'll dive deeper into Astro architectu
 
 > _"Dependencies flow inward like water seeking the center. Let nothing in the center know the shape of the shore."_
 > — Tao of Development, `arch-004`
+{: .tao-development-quote }
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "✅ Session Outcome"
+  visual-grammar: "selective-hydration-islands — interactive islands activated selectively inside a mostly static content surface"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ## B1 · Lección magistral — 1 h
 
@@ -298,9 +421,18 @@ This unit prepares you for unit 3, where we'll dive deeper into Astro architectu
 
 FE I shipped one SPA paradigm: React, hydrate everything. This unit adds a second: static-by-default, hydrate only the islands that need interactivity. Unit 3 goes deeper into composing multiple frameworks on that boundary; Unit 4 pushes the same static-first instinct into offline resilience.
 
+Islands architecture is defined, independent of any one framework's marketing, as a way for developers to "defer and potentially even avoid the cost of loading content" by wrapping dynamic portions of a page while leaving the rest static (Vepsäläinen 2025, 3).
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
 Islands architecture is defined, independent of any one framework's marketing, as a way for developers to "defer and potentially even avoid the cost of loading content" by wrapping dynamic portions of a page while leaving the rest static (Vepsäläinen 2025, 3 — Ahmes coat `68c7da35`, node `797a702c-0538-5577-adc4-c3450c511608`).
+-->
+{% endif %}
 
-**Declared gap:** that source, and the resumability paper cited in Unit 3, establish what the islands primitive *is* and what problem it solves technically. **Neither establishes that teaching islands architecture produces better learning outcomes for this cohort.** No vault source grounds the pedagogy of this sequence — only the technique. Astro's own documentation is a platform note (how the `client:*` API works), never a citation for why this is a good way to teach front-end architecture.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+**Evidence update (2026-08-23):** the Ahmes sources establish what the islands primitive *is* and what problem it solves technically. Transfer-informed teaching is now explicit: map React/SPA assumptions to static HTML, selective hydration, and server/client boundaries, then defend the cost of the boundary. **No Ahmes source establishes that teaching Astro islands produces better learning outcomes for this cohort.** Astro documentation remains a dated platform note, not a pedagogy citation. See the dated FE II gap-pass record in the research repository copy.
+-->
+{% endif %}
 
 **Speaker outline:** see `deck-outline.md`.
 
@@ -322,8 +454,17 @@ Evidence to submit: issue link, branch, PR, a before/after bundle-size or Lighth
 
 Professor answer sketches belong in the instructor copy, not the public handout. These exercises are intentionally decontextualised from the team's product.
 
-## Provenance and evidence gate
+## References
 
-- Vepsäläinen, J. (2025). *The Potential of Serverless Edge-powered Islands for Web Development.* `10.13052/jwe1540-9589.2411`. Ahmes coat `68c7da35`, node `797a702c-0538-5577-adc4-c3450c511608`, p.3. Resolved via `ahmes query --cite`, `evaluator_safe=yes`.
-  <!-- provenance: located by grep over extract/index.md for "Islands architecture is a recent" inside coat 68c7da35 (matrix-named), node/page resolved via sqlite3 join fission_node × anchor_spatial, cite confirmed via `ahmes query --cite <db>:<node_id> --require-evaluator-safe` -->
-- **Missing evidence:** this unit does not establish that teaching islands architecture as a first meta-framework primitive produces measurably better learning outcomes than an alternative sequence. The technique is well documented; the pedagogy of teaching it here is a declared gap, consistent with the FE II grounding matrix row for Units 2–3.
+- Vepsäläinen, Juho. 2025. “The Potential of Serverless Edge-Powered Islands for Web Development.” *Journal of Web Engineering*. https://doi.org/10.13052/jwe1540-9589.2411.
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+- Vepsäläinen, J. (2025). *The Potential of Serverless Edge-powered Islands for Web Development.* `10.13052/jwe1540-9589.2411`. Ahmes coat `68c7da35`, node `797a702c-0538-5577-adc4-c3450c511608`, p.3. Resolved via `ahmes query &#45;&#45;cite`, `evaluator_safe=yes`.
+-->
+{% endif %}
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+located by grep over extract/index.md for "Islands architecture is a recent" inside coat 68c7da35 (matrix-named), node/page resolved via sqlite3 join fission_node × anchor_spatial, cite confirmed via `ahmes query &#45;&#45;cite <db>:<node_id> &#45;&#45;require-evaluator-safe`
+-->
+{% endif %}
+- **Remaining evidence boundary:** this unit does not establish that teaching islands architecture as a first meta-framework primitive produces measurably better learning outcomes than an alternative sequence. The lab is a transfer-informed pilot, not a causal finding.

@@ -24,24 +24,31 @@ tags: [ai, methodology, ethics, docs-first, disclosure]
 > _"Code is not written in text—it is written in understanding. The text is just the shadow of the understanding."_
 > — Tao of Development, `wis-005`
 
-**For:** an FE I or FE II student (or CD student under the same covenant) who may use an AI assistant on coursework and must still own every line they submit.
+**For:** an student who may use an AI assistant on coursework and must still own every line they submit.
 
 **Not for:** the public manifesto, the architecture primer, the Tao chapter, or a journalist. Those have their own pages — see [Where to go next](#where-to-go-next).
 
 **Goal:** when AI helps you build, you still own the code. This page says when to plan, how to disclose, and what you must be able to defend.
 
-These instructions exist to be **followed**, then **tested** in the oral defence. Completeness is not the test; whether you can act from this page is. `[studio-guides, 82b3b541-0cf2-5f0a-adb9-7470db8f8a71]` — bibliographic identity of that axis is in the studio RIS (`[BIBLIO-GAP]` on the Ahmes coat).
+These instructions exist to be **followed**, then **tested** in the oral defence. Completeness is not the test; whether you can act from this page is.
+{% if site.publication.publish_internal_metadata %}
+
+<!-- curriculum-internal:
+Studio guide node 82b3b541-0cf2-5f0a-adb9-7470db8f8a71; bibliographic identity remains [BIBLIO-GAP] on the Ahmes coat and is retained in the studio RIS.
+-->
+
+{% endif %}
 
 ---
 
 ## The covenant (required)
 
-| Rule | Why it is required |
-| --- | --- |
-| **Understand every line** | You defend it orally. Code you cannot explain is not yours. |
-| **Disclose AI use** | README + commit. Undeclared AI is an integrity review. Disclosure is also the law in this classroom. |
-| **No secrets in prompts** | Keys, passwords, personal data, and client files do not go into a chat. |
-| **Verify before commit** | The checklist below is what the defence will ask. |
+| Rule                      | Why it is required                                                                                   |
+| ------------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Understand every line** | You defend it orally. Code you cannot explain is not yours.                                          |
+| **Disclose AI use**       | README + commit. Undeclared AI is an integrity review. Disclosure is also the law in this classroom. |
+| **No secrets in prompts** | Keys, passwords, personal data, and client files do not go into a chat.                              |
+| **Verify before commit**  | The checklist below is what the defence will ask.                                                    |
 
 ### The Human Flourishing Test
 
@@ -78,21 +85,21 @@ Before leveraging AI assistants, understand the fundamentals:
 ### Environmental Impact
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│ 🌍 CLIMATE CONSIDERATIONS                                │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│  Training GPT-4 ≈ 50,000 kg CO₂ (≈ 5 transatlantic      │
-│  flights per passenger)                                  │
-│                                                          │
-│  Each query consumes energy. Ask intentionally.          │
-│                                                          │
-│  Consider:                                               │
-│  → Is this query necessary?                              │
-│  → Could I find this in documentation?                   │
-│  → Am I using AI for learning or laziness?               │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│ CLIMATE CONSIDERATIONS                                    │
+├───────────────────────────────────────────────────────────┤
+│                                                           │
+│  Training GPT-4 ≈ 50,000 kg CO₂ (≈ 5 transatlantic        │
+│  flights per passenger)                                   │
+│                                                           │
+│  Each query consumes energy. Ask intentionally.           │
+│                                                           │
+│  Consider:                                                │
+│  → Is this query necessary?                               │
+│  → Could I find this in documentation?                    │
+│  → Am I using AI for learning or laziness?                │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
 ```
 
 ### Data Privacy & Security
@@ -307,7 +314,7 @@ This is the oral-defence surface. If you cannot tick it, do not commit.
 | Craftsman's Oath | [Tao of AI Development]({{ '/methodology/en/tao-of-ai-development/' | relative_url }}) |
 | How you are graded | [AI Use Declaration & Oral Defence Rubric]({{ '/evaluation/shared/ai-declaration-oral-defence-rubric/' | relative_url }}) |
 | Course pedagogy | [Methodology hub]({{ '/methodology/en/' | relative_url }}) |
-| FE I / FE II | [How to pass FE I]({{ '/tracks/fei/how-to-pass-this-track/' | relative_url }}) · [How to pass FE II]({{ '/tracks/feii/how-to-pass-this-track/' | relative_url }}) |
+| FE I / FE II | [How to pass FE I]({{ '/tracks/en/fei/how-to-pass-this-track/' | relative_url }}) · [How to pass FE II]({{ '/tracks/en/feii/how-to-pass-this-track/' | relative_url }}) |
 
 Prompt patterns and MCP setup are **optional**. They are taught in the architecture lesson and the React sprint, not on this page.
 
