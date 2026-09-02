@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "fractal-architect.figcaption-data",
+  "release_id": "039409afb094981f",
+  "created_at": "2026-09-02T21:53:49.545Z",
+  "authorship": {
+    "name": "Ruvebal",
+    "email": "ruvebal@crea-comm.net"
+  },
+  "formulae": [
+    {
+      "uuid": "97bd92ca-120c-59e7-9cae-de7619b0130c",
+      "fractal_hash256": "90b341c8c2bd1faee358fccdebb7dc95358277f90c170ff3db083c7d13047f5d",
+      "title": "Hénon strange attractor",
+      "display": "H(x,y) = (y+1-ax², bx)",
+      "latex": "H(x,y) = (y+1-ax^2, bx)",
+      "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>H</mi><mo stretchy=\"false\">&#x00028;</mo><mi>x</mi><mo>&#x0002C;</mo><mi>y</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mo stretchy=\"false\">&#x00028;</mo><mi>y</mi><mo>&#x0002B;</mo><mn>1</mn><mo>&#x02212;</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>&#x0002C;</mo><mi>b</mi><mi>x</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+      "basic_explanation": "A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map.",
+      "citation": {
+        "inline": "(Peitgen, Jürgens, and Saupe 2004, 610)",
+        "chicago": "Peitgen, Heinz-Otto, Hartmut Jürgens, and Dietmar Saupe. 2004. Chaos and Fractals: New Frontiers of Science. New York: Springer."
+      }
+    }
+  ],
+  "figures": [
+    {
+      "uuid": "7616ae7d-a67a-58e8-8776-002931d3d840",
+      "title": "Hénon attractor backdrop: structure",
+      "description": "A structure variation of a Hénon-map density field with rhythmic geometric accents.",
+      "figcaption": "Hénon attractor backdrop. H(x,y) = (y+1-ax², bx). A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map. (Peitgen, Jürgens, and Saupe 2004, 610). Verified against the source page, rendered, and confirmed by a human reviewer before promotion — the same evidence loop every formula in this gallery passes through.",
+      "fractal_hash256": "1040e077a0025fa564342e55755ae7e78e329957a0d54f97179af3d1dbfaed9f",
+      "created_at": "2026-09-02T21:53:49.545Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "97bd92ca-120c-59e7-9cae-de7619b0130c",
+          "fractal_hash256": "90b341c8c2bd1faee358fccdebb7dc95358277f90c170ff3db083c7d13047f5d",
+          "title": "Hénon strange attractor",
+          "display": "H(x,y) = (y+1-ax², bx)",
+          "latex": "H(x,y) = (y+1-ax^2, bx)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>H</mi><mo stretchy=\"false\">&#x00028;</mo><mi>x</mi><mo>&#x0002C;</mo><mi>y</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mo stretchy=\"false\">&#x00028;</mo><mi>y</mi><mo>&#x0002B;</mo><mn>1</mn><mo>&#x02212;</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>&#x0002C;</mo><mi>b</mi><mi>x</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map.",
+          "citation": {
+            "inline": "(Peitgen, Jürgens, and Saupe 2004, 610)",
+            "chicago": "Peitgen, Heinz-Otto, Hartmut Jürgens, and Dietmar Saupe. 2004. Chaos and Fractals: New Frontiers of Science. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-henon-pass-01-structure-1040e077a002.svg",
+        "png": "udit-henon-pass-01-structure-1040e077a002.png",
+        "svg_sha256": "1040e077a0025fa564342e55755ae7e78e329957a0d54f97179af3d1dbfaed9f",
+        "png_sha256": "49faefd63808372ddbc844b49745897d88b7c122e4ab1ad6c872f2f0051b75c9"
+      }
+    },
+    {
+      "uuid": "dee170fe-faca-58d4-8df5-dfe0a50c6ef0",
+      "title": "Hénon attractor backdrop: threshold",
+      "description": "A threshold variation of a Hénon-map density field with rhythmic geometric accents.",
+      "figcaption": "Hénon attractor backdrop. H(x,y) = (y+1-ax², bx). A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map. (Peitgen, Jürgens, and Saupe 2004, 610). Verified against the source page, rendered, and confirmed by a human reviewer before promotion — the same evidence loop every formula in this gallery passes through.",
+      "fractal_hash256": "31c68b62070a5599af5e2ff2bedd06a13af45486959c9ce0017a70d69b701ccf",
+      "created_at": "2026-09-02T21:53:49.545Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "97bd92ca-120c-59e7-9cae-de7619b0130c",
+          "fractal_hash256": "90b341c8c2bd1faee358fccdebb7dc95358277f90c170ff3db083c7d13047f5d",
+          "title": "Hénon strange attractor",
+          "display": "H(x,y) = (y+1-ax², bx)",
+          "latex": "H(x,y) = (y+1-ax^2, bx)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>H</mi><mo stretchy=\"false\">&#x00028;</mo><mi>x</mi><mo>&#x0002C;</mo><mi>y</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mo stretchy=\"false\">&#x00028;</mo><mi>y</mi><mo>&#x0002B;</mo><mn>1</mn><mo>&#x02212;</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>&#x0002C;</mo><mi>b</mi><mi>x</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map.",
+          "citation": {
+            "inline": "(Peitgen, Jürgens, and Saupe 2004, 610)",
+            "chicago": "Peitgen, Heinz-Otto, Hartmut Jürgens, and Dietmar Saupe. 2004. Chaos and Fractals: New Frontiers of Science. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-henon-pass-02-threshold-31c68b62070a.svg",
+        "png": "udit-henon-pass-02-threshold-31c68b62070a.png",
+        "svg_sha256": "31c68b62070a5599af5e2ff2bedd06a13af45486959c9ce0017a70d69b701ccf",
+        "png_sha256": "928e6f28f5cfbb8b9bd2dabdee28ca6eb303a7f8ca33d42774e0d93f0905a4f8"
+      }
+    },
+    {
+      "uuid": "51240c1e-3126-5cd8-bcc7-91be7d46c62a",
+      "title": "Hénon attractor backdrop: branching",
+      "description": "A branching variation of a Hénon-map density field with rhythmic geometric accents.",
+      "figcaption": "Hénon attractor backdrop. H(x,y) = (y+1-ax², bx). A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map. (Peitgen, Jürgens, and Saupe 2004, 610). Verified against the source page, rendered, and confirmed by a human reviewer before promotion — the same evidence loop every formula in this gallery passes through.",
+      "fractal_hash256": "90cb5391ae62c6f7c70772ec79482b623e32a00460a00ac01ddaa22f02c1252a",
+      "created_at": "2026-09-02T21:53:49.545Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "97bd92ca-120c-59e7-9cae-de7619b0130c",
+          "fractal_hash256": "90b341c8c2bd1faee358fccdebb7dc95358277f90c170ff3db083c7d13047f5d",
+          "title": "Hénon strange attractor",
+          "display": "H(x,y) = (y+1-ax², bx)",
+          "latex": "H(x,y) = (y+1-ax^2, bx)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>H</mi><mo stretchy=\"false\">&#x00028;</mo><mi>x</mi><mo>&#x0002C;</mo><mi>y</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mo stretchy=\"false\">&#x00028;</mo><mi>y</mi><mo>&#x0002B;</mo><mn>1</mn><mo>&#x02212;</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>&#x0002C;</mo><mi>b</mi><mi>x</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map.",
+          "citation": {
+            "inline": "(Peitgen, Jürgens, and Saupe 2004, 610)",
+            "chicago": "Peitgen, Heinz-Otto, Hartmut Jürgens, and Dietmar Saupe. 2004. Chaos and Fractals: New Frontiers of Science. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-henon-pass-03-branching-90cb5391ae62.svg",
+        "png": "udit-henon-pass-03-branching-90cb5391ae62.png",
+        "svg_sha256": "90cb5391ae62c6f7c70772ec79482b623e32a00460a00ac01ddaa22f02c1252a",
+        "png_sha256": "9b046cdd38a5a5e2c897cf53f257e41d9233b55f5f464c7a03a06775de50d428"
+      }
+    },
+    {
+      "uuid": "3122f611-d51e-52db-a8b0-b7b0255d3bca",
+      "title": "Hénon attractor backdrop: practice",
+      "description": "A practice variation of a Hénon-map density field with rhythmic geometric accents.",
+      "figcaption": "Hénon attractor backdrop. H(x,y) = (y+1-ax², bx). A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map. (Peitgen, Jürgens, and Saupe 2004, 610). Verified against the source page, rendered, and confirmed by a human reviewer before promotion — the same evidence loop every formula in this gallery passes through.",
+      "fractal_hash256": "b6337f5b7ecc3dae8c8c9f43a03c1b34db543d1ec39059138dfb393b0120cfc6",
+      "created_at": "2026-09-02T21:53:49.545Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "97bd92ca-120c-59e7-9cae-de7619b0130c",
+          "fractal_hash256": "90b341c8c2bd1faee358fccdebb7dc95358277f90c170ff3db083c7d13047f5d",
+          "title": "Hénon strange attractor",
+          "display": "H(x,y) = (y+1-ax², bx)",
+          "latex": "H(x,y) = (y+1-ax^2, bx)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>H</mi><mo stretchy=\"false\">&#x00028;</mo><mi>x</mi><mo>&#x0002C;</mo><mi>y</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mo stretchy=\"false\">&#x00028;</mo><mi>y</mi><mo>&#x0002B;</mo><mn>1</mn><mo>&#x02212;</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>&#x0002C;</mo><mi>b</mi><mi>x</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map.",
+          "citation": {
+            "inline": "(Peitgen, Jürgens, and Saupe 2004, 610)",
+            "chicago": "Peitgen, Heinz-Otto, Hartmut Jürgens, and Dietmar Saupe. 2004. Chaos and Fractals: New Frontiers of Science. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-henon-pass-04-practice-b6337f5b7ecc.svg",
+        "png": "udit-henon-pass-04-practice-b6337f5b7ecc.png",
+        "svg_sha256": "b6337f5b7ecc3dae8c8c9f43a03c1b34db543d1ec39059138dfb393b0120cfc6",
+        "png_sha256": "126d760087583ea5a46c6c8131dd0ff8acb71a334d539068a09fd73666e11013"
+      }
+    },
+    {
+      "uuid": "a4028c6a-c8f7-5804-87f0-e6a71bfb40d2",
+      "title": "Hénon attractor backdrop: feedback",
+      "description": "A feedback variation of a Hénon-map density field with rhythmic geometric accents.",
+      "figcaption": "Hénon attractor backdrop. H(x,y) = (y+1-ax², bx). A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map. (Peitgen, Jürgens, and Saupe 2004, 610). Verified against the source page, rendered, and confirmed by a human reviewer before promotion — the same evidence loop every formula in this gallery passes through.",
+      "fractal_hash256": "bf349ee65f37d46e34ddbae73431fed02623358aa22d07e8528bf78227e129d1",
+      "created_at": "2026-09-02T21:53:49.545Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "97bd92ca-120c-59e7-9cae-de7619b0130c",
+          "fractal_hash256": "90b341c8c2bd1faee358fccdebb7dc95358277f90c170ff3db083c7d13047f5d",
+          "title": "Hénon strange attractor",
+          "display": "H(x,y) = (y+1-ax², bx)",
+          "latex": "H(x,y) = (y+1-ax^2, bx)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>H</mi><mo stretchy=\"false\">&#x00028;</mo><mi>x</mi><mo>&#x0002C;</mo><mi>y</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mo stretchy=\"false\">&#x00028;</mo><mi>y</mi><mo>&#x0002B;</mo><mn>1</mn><mo>&#x02212;</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>&#x0002C;</mo><mi>b</mi><mi>x</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map.",
+          "citation": {
+            "inline": "(Peitgen, Jürgens, and Saupe 2004, 610)",
+            "chicago": "Peitgen, Heinz-Otto, Hartmut Jürgens, and Dietmar Saupe. 2004. Chaos and Fractals: New Frontiers of Science. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-henon-pass-05-feedback-bf349ee65f37.svg",
+        "png": "udit-henon-pass-05-feedback-bf349ee65f37.png",
+        "svg_sha256": "bf349ee65f37d46e34ddbae73431fed02623358aa22d07e8528bf78227e129d1",
+        "png_sha256": "1346640ad67757826b4af701885b36418e44587c3ed1ca924ed4b0c12c05e81f"
+      }
+    },
+    {
+      "uuid": "8e045def-4848-5310-b239-dde34219946f",
+      "title": "Hénon attractor backdrop: coherence",
+      "description": "A coherence variation of a Hénon-map density field with rhythmic geometric accents.",
+      "figcaption": "Hénon attractor backdrop. H(x,y) = (y+1-ax², bx). A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map. (Peitgen, Jürgens, and Saupe 2004, 610). Verified against the source page, rendered, and confirmed by a human reviewer before promotion — the same evidence loop every formula in this gallery passes through.",
+      "fractal_hash256": "c85a0e3a6718e56b97d09bf98ebdf9a6a14f860f26c9d627a25cd0a4cc42f98d",
+      "created_at": "2026-09-02T21:53:49.545Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "97bd92ca-120c-59e7-9cae-de7619b0130c",
+          "fractal_hash256": "90b341c8c2bd1faee358fccdebb7dc95358277f90c170ff3db083c7d13047f5d",
+          "title": "Hénon strange attractor",
+          "display": "H(x,y) = (y+1-ax², bx)",
+          "latex": "H(x,y) = (y+1-ax^2, bx)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>H</mi><mo stretchy=\"false\">&#x00028;</mo><mi>x</mi><mo>&#x0002C;</mo><mi>y</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mo stretchy=\"false\">&#x00028;</mo><mi>y</mi><mo>&#x0002B;</mo><mn>1</mn><mo>&#x02212;</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>&#x0002C;</mo><mi>b</mi><mi>x</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "A point orbit under the repeated stretch-fold-reflect map H(x,y)=(y+1-ax², bx) converges onto a strange attractor with a self-similar, Cantor-set-like cross-section — the classic 1.4/0.3-parameter Hénon map.",
+          "citation": {
+            "inline": "(Peitgen, Jürgens, and Saupe 2004, 610)",
+            "chicago": "Peitgen, Heinz-Otto, Hartmut Jürgens, and Dietmar Saupe. 2004. Chaos and Fractals: New Frontiers of Science. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-henon-pass-06-coherence-c85a0e3a6718.svg",
+        "png": "udit-henon-pass-06-coherence-c85a0e3a6718.png",
+        "svg_sha256": "c85a0e3a6718e56b97d09bf98ebdf9a6a14f860f26c9d627a25cd0a4cc42f98d",
+        "png_sha256": "c858b8461c70e49ab31c0ba1c5e05a31613a92d58cc313732e40b783e71afa8e"
+      }
+    }
+  ]
+}

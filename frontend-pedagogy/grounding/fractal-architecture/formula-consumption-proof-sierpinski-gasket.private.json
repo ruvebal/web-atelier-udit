@@ -1,0 +1,227 @@
+{
+  "status": "FORMULA_CONSUMED",
+  "source_export": "formula-glossary.public.json",
+  "source_export_sha256": "fccc2126c42ff78f9e5637d204b430fa20fd2af1ceb53f6db7c158256bc74c45",
+  "formula_contract": {
+    "latex": "\\varphi_1(\\boldsymbol{x}) = \\tfrac{1}{2}\\boldsymbol{x},\\quad \\varphi_2(\\boldsymbol{x}) = \\tfrac{1}{2}\\boldsymbol{x} + \\left(\\tfrac{1}{2}, 0\\right),\\quad \\varphi_3(\\boldsymbol{x}) = \\tfrac{1}{2}\\boldsymbol{x} + \\left(\\tfrac{1}{4}, \\tfrac{\\sqrt{3}}{4}\\right)",
+    "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>&#x003C6;</mi><mn>1</mn></msub><mo stretchy=\"false\">&#x00028;</mo><mrow><mi mathvariant=\"bold-italic\">x</mi></mrow><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow><mi mathvariant=\"bold-italic\">x</mi></mrow><mo>&#x0002C;</mo><mspace width=\"1em\" /><msub><mi>&#x003C6;</mi><mn>2</mn></msub><mo stretchy=\"false\">&#x00028;</mo><mrow><mi mathvariant=\"bold-italic\">x</mi></mrow><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow><mi mathvariant=\"bold-italic\">x</mi></mrow><mo>&#x0002B;</mo><mrow><mo stretchy=\"true\" fence=\"true\" form=\"prefix\">&#x00028;</mo><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mo>&#x0002C;</mo><mn>0</mn><mo stretchy=\"true\" fence=\"true\" form=\"postfix\">&#x00029;</mo></mrow><mo>&#x0002C;</mo><mspace width=\"1em\" /><msub><mi>&#x003C6;</mi><mn>3</mn></msub><mo stretchy=\"false\">&#x00028;</mo><mrow><mi mathvariant=\"bold-italic\">x</mi></mrow><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mstyle><mrow><mi mathvariant=\"bold-italic\">x</mi></mrow><mo>&#x0002B;</mo><mrow><mo stretchy=\"true\" fence=\"true\" form=\"prefix\">&#x00028;</mo><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mfrac><mrow><mn>1</mn></mrow><mrow><mn>4</mn></mrow></mfrac></mstyle><mo>&#x0002C;</mo><mstyle displaystyle=\"false\" scriptlevel=\"0\"><mfrac><mrow><msqrt><mrow><mn>3</mn></mrow></msqrt></mrow><mrow><mn>4</mn></mrow></mfrac></mstyle><mo stretchy=\"true\" fence=\"true\" form=\"postfix\">&#x00029;</mo></mrow></mrow></math>",
+    "fidelity_status": "EXACT",
+    "adapter": "sierpinski-gasket-prefractal-subdivision-v1"
+  },
+  "private_reference_anchor": {
+    "formula_id": "30a074fa-b3d9-54b3-af08-e07eae533abe",
+    "document_id": "5c5b6113-853a-5b45-b059-628fc04152a1",
+    "node_id": "dac05d89-b3e7-5a60-81bb-488c2b5be0b1",
+    "page_index": 163,
+    "printed_page": 134,
+    "crop_relpath": "extract/formula-audit/pages/page-163.png",
+    "crop_sha256": "d84851ed6f9e77bfb840b8e86caa3b112b885c519430e98ab8049f51567654d8",
+    "audit_notes": [
+      "promoted_from_oracle:eq-1"
+    ]
+  },
+  "release_id": "ceb5213b81c113d0",
+  "studio_stack": [
+    {
+      "kind": "skill",
+      "name": "curriculum-forger",
+      "version": "1.1.0",
+      "path": "/Users/ruvebal/src/.cursor/skills/curriculum-forger/SKILL.md",
+      "sha256": "63623c9704c33085d7096216b68235a35a5122069c6ca8d08d68517b575dabd9",
+      "git_commit": null
+    },
+    {
+      "kind": "skill",
+      "name": "visual-forger",
+      "version": "1.1.0",
+      "path": "/Users/ruvebal/src/.cursor/skills/visual-forger/SKILL.md",
+      "sha256": "2ff702c65945aa79855136a4a03d229ddc7d697130f52b4a56ed7d252394d87b",
+      "git_commit": null
+    },
+    {
+      "kind": "skill",
+      "name": "fractal-architect",
+      "version": "1.2.1",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/.cursor/skills/fractal-architect/SKILL.md",
+      "sha256": "6fa0ed5006e4ef483d57a8d703eed6e4b82608bb16148e30a90f545856d16784",
+      "git_commit": "28640dfc3c7ece31e32c17d4f2a9446ab60dbfea"
+    },
+    {
+      "kind": "agent",
+      "name": "fractal-architect",
+      "version": "1.2.0",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/.cursor/agents/fractal-architect.md",
+      "sha256": "f9ecccde85d90b7d7e1fabc4b703f578a8890db3a3d7afd2e1236616c3a7b2c4",
+      "git_commit": "28640dfc3c7ece31e32c17d4f2a9446ab60dbfea"
+    },
+    {
+      "kind": "renderer",
+      "name": "pass-track-backgrounds-sierpinski-gasket",
+      "version": "1.0.0",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/web-foundations/scripts/fractal-architecture/generate-pass-track-backgrounds-sierpinski-gasket.mjs",
+      "sha256": "e22205312d27b09b524720c5b07ef47ebfb41f493622b84660df37fff160abdc",
+      "git_commit": "f0c8544cd0aa2cc4748ae34abe5e0cbce27b5fb8"
+    }
+  ],
+  "original_release_dir": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0",
+  "public_caption_manifest": "caption-manifests/ceb5213b81c113d0.json",
+  "semantic_index": {
+    "provider": "ollama",
+    "status": "ready",
+    "model": "nomic-embed-text:latest",
+    "path": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/grounding/fractal-architecture/fractal-art-semantic-index.private.json"
+  },
+  "public_asset_policy": "No corpus or local-architecture metadata is embedded in SVG/PNG outputs.",
+  "outputs": [
+    {
+      "file": "udit-sierpinski-gasket-pass-01-structure-331f58382656.svg",
+      "png": "udit-sierpinski-gasket-pass-01-structure-331f58382656.png",
+      "sha256": "331f58382656588b9866049413288667eeeda254f4f0cdbc1ae8c66b65593f5b",
+      "brand": "udit",
+      "family": "structure",
+      "seed": 2515539962,
+      "backdrop": "sierpinski-gasket-prefractal-subdivision-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "9ead87417461b82fb3c111c90efae18e15e08418fcb11e9b4e000eff0d29b4c9",
+      "uuid": "cb55a644-7605-5713-b166-728db9c36a6b",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-01-structure-331f58382656.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-01-structure-331f58382656.png"
+      }
+    },
+    {
+      "file": "udit-sierpinski-gasket-pass-02-threshold-d341ea1c3883.svg",
+      "png": "udit-sierpinski-gasket-pass-02-threshold-d341ea1c3883.png",
+      "sha256": "d341ea1c3883bd600a0df1da42727ed73a1ac0a5ec70bf3e443cbdfca85d9c7d",
+      "brand": "udit",
+      "family": "threshold",
+      "seed": 3140322600,
+      "backdrop": "sierpinski-gasket-prefractal-subdivision-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "dc8a88cb74e0f6e1f5a811572a1785dc01b445f22306d12a4f5c1e936b9adac0",
+      "uuid": "395fc6cc-a270-5607-b26a-b08e84cbc67f",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-02-threshold-d341ea1c3883.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-02-threshold-d341ea1c3883.png"
+      }
+    },
+    {
+      "file": "udit-sierpinski-gasket-pass-03-branching-9c3a939bdb5e.svg",
+      "png": "udit-sierpinski-gasket-pass-03-branching-9c3a939bdb5e.png",
+      "sha256": "9c3a939bdb5eef2ce2d7e7230f42c1cbe4602a8084482813de58b6362b94ada2",
+      "brand": "udit",
+      "family": "branching",
+      "seed": 1895797983,
+      "backdrop": "sierpinski-gasket-prefractal-subdivision-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "15874da6d1992fa0e662da81511ac48245d67d56fcb0d2f8849cf7a29caabdaa",
+      "uuid": "59ccf88b-1fda-5d13-a630-c819db6d0e7f",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-03-branching-9c3a939bdb5e.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-03-branching-9c3a939bdb5e.png"
+      }
+    },
+    {
+      "file": "udit-sierpinski-gasket-pass-04-practice-f458c2744ddd.svg",
+      "png": "udit-sierpinski-gasket-pass-04-practice-f458c2744ddd.png",
+      "sha256": "f458c2744dddb8cbde2f48338d16db18f0995648836857ae62af13b00ae6c6fc",
+      "brand": "udit",
+      "family": "practice",
+      "seed": 1706448645,
+      "backdrop": "sierpinski-gasket-prefractal-subdivision-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "775a551e50e840ab7805ec1fd5286e54b597096484593cf5d3158348be084325",
+      "uuid": "5987f95a-c401-5936-ae7d-2e91ce0970ea",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-04-practice-f458c2744ddd.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-04-practice-f458c2744ddd.png"
+      }
+    },
+    {
+      "file": "udit-sierpinski-gasket-pass-05-feedback-104537c56b50.svg",
+      "png": "udit-sierpinski-gasket-pass-05-feedback-104537c56b50.png",
+      "sha256": "104537c56b5035fb9503b20116a48c443fe7583c91cdc6cb4ee3eb0016bdbfb1",
+      "brand": "udit",
+      "family": "feedback",
+      "seed": 2917809438,
+      "backdrop": "sierpinski-gasket-prefractal-subdivision-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "65490432983cd5668bfdcf4f7a6326864f149c794420b3d34b364c45a781255c",
+      "uuid": "7f4d5b1a-d002-5e3d-8dc2-cd9892cefe0e",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-05-feedback-104537c56b50.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-05-feedback-104537c56b50.png"
+      }
+    },
+    {
+      "file": "udit-sierpinski-gasket-pass-06-coherence-f285c2c9cd60.svg",
+      "png": "udit-sierpinski-gasket-pass-06-coherence-f285c2c9cd60.png",
+      "sha256": "f285c2c9cd609a58208255131ee7e26cacae3986d0446f5654125e8c55a4d4e2",
+      "brand": "udit",
+      "family": "coherence",
+      "seed": 2631965786,
+      "backdrop": "sierpinski-gasket-prefractal-subdivision-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "ea8b2e35d7dd88555d101928125e7d4f7b95d5697a547f222399f94c24ac591e",
+      "uuid": "c9067a2f-e0ea-5a9d-837f-d68090b5b34a",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-06-coherence-f285c2c9cd60.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-ceb5213b81c113d0/udit-sierpinski-gasket-pass-06-coherence-f285c2c9cd60.png"
+      }
+    }
+  ]
+}

@@ -653,6 +653,182 @@
           "png_sha256": "78ec40f73401a5e906b19b446c4f44d806466efd4fbd83eec531c2454f239429"
         }
       ]
+    },
+    {
+      "release_id": "039409afb094981f",
+      "created_at": "2026-09-02T21:51:59.951Z",
+      "brand": "udit",
+      "formula": {
+        "text": "H(x,y) = (y+1-ax^2, bx)",
+        "latex": "H(x,y) = (y+1-ax^2, bx)",
+        "fidelity_status": "EXACT"
+      },
+      "caption": {
+        "source": "Peitgen, Heinz-Otto, Hartmut Jürgens, and Dietmar Saupe. 2004. Chaos and Fractals: New Frontiers of Science. New York: Springer.",
+        "source_evaluator_safe": true,
+        "credit": "Image by @ruvebal with curriculum-forger 1.1.0, visual-forger 1.1.0, fractal-architect 1.2.1, and pass-track-backgrounds-henon 1.0.0."
+      },
+      "figcaption_manifest": "caption-manifests/039409afb094981f.json",
+      "studio_stack": [
+        {
+          "kind": "skill",
+          "name": "curriculum-forger",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "skill",
+          "name": "visual-forger",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "agent+skill",
+          "name": "fractal-architect",
+          "version": "1.2.1"
+        },
+        {
+          "kind": "renderer",
+          "name": "pass-track-backgrounds-henon",
+          "version": "1.0.0"
+        }
+      ],
+      "assets": [
+        {
+          "family": "structure",
+          "uuid": "7616ae7d-a67a-58e8-8776-002931d3d840",
+          "svg": "udit-henon-pass-01-structure-1040e077a002.svg",
+          "png": "udit-henon-pass-01-structure-1040e077a002.png",
+          "sha256": "1040e077a0025fa564342e55755ae7e78e329957a0d54f97179af3d1dbfaed9f",
+          "png_sha256": "49faefd63808372ddbc844b49745897d88b7c122e4ab1ad6c872f2f0051b75c9"
+        },
+        {
+          "family": "threshold",
+          "uuid": "dee170fe-faca-58d4-8df5-dfe0a50c6ef0",
+          "svg": "udit-henon-pass-02-threshold-31c68b62070a.svg",
+          "png": "udit-henon-pass-02-threshold-31c68b62070a.png",
+          "sha256": "31c68b62070a5599af5e2ff2bedd06a13af45486959c9ce0017a70d69b701ccf",
+          "png_sha256": "928e6f28f5cfbb8b9bd2dabdee28ca6eb303a7f8ca33d42774e0d93f0905a4f8"
+        },
+        {
+          "family": "branching",
+          "uuid": "51240c1e-3126-5cd8-bcc7-91be7d46c62a",
+          "svg": "udit-henon-pass-03-branching-90cb5391ae62.svg",
+          "png": "udit-henon-pass-03-branching-90cb5391ae62.png",
+          "sha256": "90cb5391ae62c6f7c70772ec79482b623e32a00460a00ac01ddaa22f02c1252a",
+          "png_sha256": "9b046cdd38a5a5e2c897cf53f257e41d9233b55f5f464c7a03a06775de50d428"
+        },
+        {
+          "family": "practice",
+          "uuid": "3122f611-d51e-52db-a8b0-b7b0255d3bca",
+          "svg": "udit-henon-pass-04-practice-b6337f5b7ecc.svg",
+          "png": "udit-henon-pass-04-practice-b6337f5b7ecc.png",
+          "sha256": "b6337f5b7ecc3dae8c8c9f43a03c1b34db543d1ec39059138dfb393b0120cfc6",
+          "png_sha256": "126d760087583ea5a46c6c8131dd0ff8acb71a334d539068a09fd73666e11013"
+        },
+        {
+          "family": "feedback",
+          "uuid": "a4028c6a-c8f7-5804-87f0-e6a71bfb40d2",
+          "svg": "udit-henon-pass-05-feedback-bf349ee65f37.svg",
+          "png": "udit-henon-pass-05-feedback-bf349ee65f37.png",
+          "sha256": "bf349ee65f37d46e34ddbae73431fed02623358aa22d07e8528bf78227e129d1",
+          "png_sha256": "1346640ad67757826b4af701885b36418e44587c3ed1ca924ed4b0c12c05e81f"
+        },
+        {
+          "family": "coherence",
+          "uuid": "8e045def-4848-5310-b239-dde34219946f",
+          "svg": "udit-henon-pass-06-coherence-c85a0e3a6718.svg",
+          "png": "udit-henon-pass-06-coherence-c85a0e3a6718.png",
+          "sha256": "c85a0e3a6718e56b97d09bf98ebdf9a6a14f860f26c9d627a25cd0a4cc42f98d",
+          "png_sha256": "c858b8461c70e49ab31c0ba1c5e05a31613a92d58cc313732e40b783e71afa8e"
+        }
+      ]
+    },
+    {
+      "release_id": "ceb5213b81c113d0",
+      "created_at": "2026-09-02T21:52:02.061Z",
+      "brand": "udit",
+      "formula": {
+        "text": "phi_1(x)=x/2, phi_2(x)=x/2+(1/2,0), phi_3(x)=x/2+(1/4,sqrt3/4)",
+        "latex": "\\varphi_1(\\boldsymbol{x}) = \\tfrac{1}{2}\\boldsymbol{x},\\quad \\varphi_2(\\boldsymbol{x}) = \\tfrac{1}{2}\\boldsymbol{x} + \\left(\\tfrac{1}{2}, 0\\right),\\quad \\varphi_3(\\boldsymbol{x}) = \\tfrac{1}{2}\\boldsymbol{x} + \\left(\\tfrac{1}{4}, \\tfrac{\\sqrt{3}}{4}\\right)",
+        "fidelity_status": "EXACT"
+      },
+      "caption": {
+        "source": "Graduate Studies in Mathematics, Volume 247. An Invitation to Fractal Geometry: Fractal Dimensions, Self-Similarity, and Fractal Curves. Providence, RI: American Mathematical Society.",
+        "source_evaluator_safe": true,
+        "credit": "Image by @ruvebal with curriculum-forger 1.1.0, visual-forger 1.1.0, fractal-architect 1.2.1, and pass-track-backgrounds-sierpinski-gasket 1.0.0."
+      },
+      "figcaption_manifest": "caption-manifests/ceb5213b81c113d0.json",
+      "studio_stack": [
+        {
+          "kind": "skill",
+          "name": "curriculum-forger",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "skill",
+          "name": "visual-forger",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "agent+skill",
+          "name": "fractal-architect",
+          "version": "1.2.1"
+        },
+        {
+          "kind": "renderer",
+          "name": "pass-track-backgrounds-sierpinski-gasket",
+          "version": "1.0.0"
+        }
+      ],
+      "assets": [
+        {
+          "family": "structure",
+          "uuid": "cb55a644-7605-5713-b166-728db9c36a6b",
+          "svg": "udit-sierpinski-gasket-pass-01-structure-331f58382656.svg",
+          "png": "udit-sierpinski-gasket-pass-01-structure-331f58382656.png",
+          "sha256": "331f58382656588b9866049413288667eeeda254f4f0cdbc1ae8c66b65593f5b",
+          "png_sha256": "9ead87417461b82fb3c111c90efae18e15e08418fcb11e9b4e000eff0d29b4c9"
+        },
+        {
+          "family": "threshold",
+          "uuid": "395fc6cc-a270-5607-b26a-b08e84cbc67f",
+          "svg": "udit-sierpinski-gasket-pass-02-threshold-d341ea1c3883.svg",
+          "png": "udit-sierpinski-gasket-pass-02-threshold-d341ea1c3883.png",
+          "sha256": "d341ea1c3883bd600a0df1da42727ed73a1ac0a5ec70bf3e443cbdfca85d9c7d",
+          "png_sha256": "dc8a88cb74e0f6e1f5a811572a1785dc01b445f22306d12a4f5c1e936b9adac0"
+        },
+        {
+          "family": "branching",
+          "uuid": "59ccf88b-1fda-5d13-a630-c819db6d0e7f",
+          "svg": "udit-sierpinski-gasket-pass-03-branching-9c3a939bdb5e.svg",
+          "png": "udit-sierpinski-gasket-pass-03-branching-9c3a939bdb5e.png",
+          "sha256": "9c3a939bdb5eef2ce2d7e7230f42c1cbe4602a8084482813de58b6362b94ada2",
+          "png_sha256": "15874da6d1992fa0e662da81511ac48245d67d56fcb0d2f8849cf7a29caabdaa"
+        },
+        {
+          "family": "practice",
+          "uuid": "5987f95a-c401-5936-ae7d-2e91ce0970ea",
+          "svg": "udit-sierpinski-gasket-pass-04-practice-f458c2744ddd.svg",
+          "png": "udit-sierpinski-gasket-pass-04-practice-f458c2744ddd.png",
+          "sha256": "f458c2744dddb8cbde2f48338d16db18f0995648836857ae62af13b00ae6c6fc",
+          "png_sha256": "775a551e50e840ab7805ec1fd5286e54b597096484593cf5d3158348be084325"
+        },
+        {
+          "family": "feedback",
+          "uuid": "7f4d5b1a-d002-5e3d-8dc2-cd9892cefe0e",
+          "svg": "udit-sierpinski-gasket-pass-05-feedback-104537c56b50.svg",
+          "png": "udit-sierpinski-gasket-pass-05-feedback-104537c56b50.png",
+          "sha256": "104537c56b5035fb9503b20116a48c443fe7583c91cdc6cb4ee3eb0016bdbfb1",
+          "png_sha256": "65490432983cd5668bfdcf4f7a6326864f149c794420b3d34b364c45a781255c"
+        },
+        {
+          "family": "coherence",
+          "uuid": "c9067a2f-e0ea-5a9d-837f-d68090b5b34a",
+          "svg": "udit-sierpinski-gasket-pass-06-coherence-f285c2c9cd60.svg",
+          "png": "udit-sierpinski-gasket-pass-06-coherence-f285c2c9cd60.png",
+          "sha256": "f285c2c9cd609a58208255131ee7e26cacae3986d0446f5654125e8c55a4d4e2",
+          "png_sha256": "ea8b2e35d7dd88555d101928125e7d4f7b95d5697a547f222399f94c24ac591e"
+        }
+      ]
     }
   ]
 }

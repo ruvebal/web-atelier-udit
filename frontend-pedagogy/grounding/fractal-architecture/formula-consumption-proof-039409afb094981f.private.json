@@ -1,0 +1,227 @@
+{
+  "status": "FORMULA_CONSUMED",
+  "source_export": "formula-glossary.public.json",
+  "source_export_sha256": "ecae3f20e61c405bac250d64488fd0aa2acf57af5040452f6f2f84fb0ac708c2",
+  "formula_contract": {
+    "latex": "H(x,y) = (y+1-ax^2, bx)",
+    "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>H</mi><mo stretchy=\"false\">&#x00028;</mo><mi>x</mi><mo>&#x0002C;</mo><mi>y</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><mo stretchy=\"false\">&#x00028;</mo><mi>y</mi><mo>&#x0002B;</mo><mn>1</mn><mo>&#x02212;</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>&#x0002C;</mo><mi>b</mi><mi>x</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+    "fidelity_status": "EXACT",
+    "adapter": "henon-strange-attractor-v1"
+  },
+  "private_reference_anchor": {
+    "formula_id": "97bd92ca-120c-59e7-9cae-de7619b0130c",
+    "document_id": "14a3cade-72c5-5681-bffa-6b5eab7e36cd",
+    "node_id": "311cbf0c-7e8d-5be7-99b6-8f095b3426fc",
+    "page_index": 634,
+    "printed_page": 610,
+    "crop_relpath": "extract/formula-audit/pages/page-634.png",
+    "crop_sha256": "86d0ed4af0b8409e8a2cdb64cca6575feb725f91ecf75895fe76ae3b05fa195f",
+    "audit_notes": [
+      "promoted_from_oracle:eq-1"
+    ]
+  },
+  "release_id": "039409afb094981f",
+  "studio_stack": [
+    {
+      "kind": "skill",
+      "name": "curriculum-forger",
+      "version": "1.1.0",
+      "path": "/Users/ruvebal/src/.cursor/skills/curriculum-forger/SKILL.md",
+      "sha256": "63623c9704c33085d7096216b68235a35a5122069c6ca8d08d68517b575dabd9",
+      "git_commit": null
+    },
+    {
+      "kind": "skill",
+      "name": "visual-forger",
+      "version": "1.1.0",
+      "path": "/Users/ruvebal/src/.cursor/skills/visual-forger/SKILL.md",
+      "sha256": "2ff702c65945aa79855136a4a03d229ddc7d697130f52b4a56ed7d252394d87b",
+      "git_commit": null
+    },
+    {
+      "kind": "skill",
+      "name": "fractal-architect",
+      "version": "1.2.1",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/.cursor/skills/fractal-architect/SKILL.md",
+      "sha256": "6fa0ed5006e4ef483d57a8d703eed6e4b82608bb16148e30a90f545856d16784",
+      "git_commit": "28640dfc3c7ece31e32c17d4f2a9446ab60dbfea"
+    },
+    {
+      "kind": "agent",
+      "name": "fractal-architect",
+      "version": "1.2.0",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/.cursor/agents/fractal-architect.md",
+      "sha256": "f9ecccde85d90b7d7e1fabc4b703f578a8890db3a3d7afd2e1236616c3a7b2c4",
+      "git_commit": "28640dfc3c7ece31e32c17d4f2a9446ab60dbfea"
+    },
+    {
+      "kind": "renderer",
+      "name": "pass-track-backgrounds-henon",
+      "version": "1.0.0",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/web-foundations/scripts/fractal-architecture/generate-pass-track-backgrounds-henon.mjs",
+      "sha256": "0d79e1ab89c9540ac315a6d4b64eb724b081e8912786acbbcedd054efb4db0ba",
+      "git_commit": "f0c8544cd0aa2cc4748ae34abe5e0cbce27b5fb8"
+    }
+  ],
+  "original_release_dir": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f",
+  "public_caption_manifest": "caption-manifests/039409afb094981f.json",
+  "semantic_index": {
+    "provider": "ollama",
+    "status": "ready",
+    "model": "nomic-embed-text:latest",
+    "path": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/grounding/fractal-architecture/fractal-art-semantic-index.private.json"
+  },
+  "public_asset_policy": "No corpus or local-architecture metadata is embedded in SVG/PNG outputs.",
+  "outputs": [
+    {
+      "file": "udit-henon-pass-01-structure-1040e077a002.svg",
+      "png": "udit-henon-pass-01-structure-1040e077a002.png",
+      "sha256": "1040e077a0025fa564342e55755ae7e78e329957a0d54f97179af3d1dbfaed9f",
+      "brand": "udit",
+      "family": "structure",
+      "seed": 3932515057,
+      "backdrop": "henon-strange-attractor-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "49faefd63808372ddbc844b49745897d88b7c122e4ab1ad6c872f2f0051b75c9",
+      "uuid": "7616ae7d-a67a-58e8-8776-002931d3d840",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-01-structure-1040e077a002.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-01-structure-1040e077a002.png"
+      }
+    },
+    {
+      "file": "udit-henon-pass-02-threshold-31c68b62070a.svg",
+      "png": "udit-henon-pass-02-threshold-31c68b62070a.png",
+      "sha256": "31c68b62070a5599af5e2ff2bedd06a13af45486959c9ce0017a70d69b701ccf",
+      "brand": "udit",
+      "family": "threshold",
+      "seed": 4050791986,
+      "backdrop": "henon-strange-attractor-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "928e6f28f5cfbb8b9bd2dabdee28ca6eb303a7f8ca33d42774e0d93f0905a4f8",
+      "uuid": "dee170fe-faca-58d4-8df5-dfe0a50c6ef0",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-02-threshold-31c68b62070a.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-02-threshold-31c68b62070a.png"
+      }
+    },
+    {
+      "file": "udit-henon-pass-03-branching-90cb5391ae62.svg",
+      "png": "udit-henon-pass-03-branching-90cb5391ae62.png",
+      "sha256": "90cb5391ae62c6f7c70772ec79482b623e32a00460a00ac01ddaa22f02c1252a",
+      "brand": "udit",
+      "family": "branching",
+      "seed": 3816396897,
+      "backdrop": "henon-strange-attractor-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "9b046cdd38a5a5e2c897cf53f257e41d9233b55f5f464c7a03a06775de50d428",
+      "uuid": "51240c1e-3126-5cd8-bcc7-91be7d46c62a",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-03-branching-90cb5391ae62.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-03-branching-90cb5391ae62.png"
+      }
+    },
+    {
+      "file": "udit-henon-pass-04-practice-b6337f5b7ecc.svg",
+      "png": "udit-henon-pass-04-practice-b6337f5b7ecc.png",
+      "sha256": "b6337f5b7ecc3dae8c8c9f43a03c1b34db543d1ec39059138dfb393b0120cfc6",
+      "brand": "udit",
+      "family": "practice",
+      "seed": 2244056514,
+      "backdrop": "henon-strange-attractor-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "126d760087583ea5a46c6c8131dd0ff8acb71a334d539068a09fd73666e11013",
+      "uuid": "3122f611-d51e-52db-a8b0-b7b0255d3bca",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-04-practice-b6337f5b7ecc.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-04-practice-b6337f5b7ecc.png"
+      }
+    },
+    {
+      "file": "udit-henon-pass-05-feedback-bf349ee65f37.svg",
+      "png": "udit-henon-pass-05-feedback-bf349ee65f37.png",
+      "sha256": "bf349ee65f37d46e34ddbae73431fed02623358aa22d07e8528bf78227e129d1",
+      "brand": "udit",
+      "family": "feedback",
+      "seed": 1837987187,
+      "backdrop": "henon-strange-attractor-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "1346640ad67757826b4af701885b36418e44587c3ed1ca924ed4b0c12c05e81f",
+      "uuid": "a4028c6a-c8f7-5804-87f0-e6a71bfb40d2",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-05-feedback-bf349ee65f37.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-05-feedback-bf349ee65f37.png"
+      }
+    },
+    {
+      "file": "udit-henon-pass-06-coherence-c85a0e3a6718.svg",
+      "png": "udit-henon-pass-06-coherence-c85a0e3a6718.png",
+      "sha256": "c85a0e3a6718e56b97d09bf98ebdf9a6a14f860f26c9d627a25cd0a4cc42f98d",
+      "brand": "udit",
+      "family": "coherence",
+      "seed": 2883579083,
+      "backdrop": "henon-strange-attractor-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "c858b8461c70e49ab31c0ba1c5e05a31613a92d58cc313732e40b783e71afa8e",
+      "uuid": "8e045def-4848-5310-b239-dde34219946f",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-06-coherence-c85a0e3a6718.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-039409afb094981f/udit-henon-pass-06-coherence-c85a0e3a6718.png"
+      }
+    }
+  ]
+}
