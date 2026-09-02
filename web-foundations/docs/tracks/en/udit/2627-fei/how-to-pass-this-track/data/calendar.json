@@ -1,0 +1,28 @@
+---
+# Frontmatter present so Jekyll/Liquid resolves relative_url below.
+# Stripped at build time; served output is valid JSON.
+---
+{
+	"source_label": "UDIT academic calendar",
+	"source_url": "https://www.udit.es/calendarios-academicos/",
+	"note": "Verify with school calendar for exam periods",
+	"exam_periods": [
+		{
+			"label": "Semester 1 ordinary exams",
+			"value": "14-22 December 2026"
+		},
+		{
+			"label": "Semester 2 ordinary exams",
+			"value": "3-13 May 2027"
+		},
+		{
+			"label": "Resit / recovery period",
+			"value": "7-11 June 2027"
+		}
+	],
+	"data_source": {
+		"adapter": "ttdo-ready static JSON",
+		"owner": "TTDO calendar adapter",
+		"proposal": "Keep institutional calendar facts in this small data file now; later generate the same schema from the private TTDO source so slide templates only consume resolved calendar JSON."
+	}
+}

@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "fractal-architect.figcaption-data",
+  "release_id": "e80ecf151a8917fb",
+  "created_at": "2026-09-02T17:25:51.154Z",
+  "authorship": {
+    "name": "Ruvebal",
+    "email": "ruvebal@crea-comm.net"
+  },
+  "formulae": [
+    {
+      "uuid": "15b9f228-d71a-5ae6-9603-b04a50df131e",
+      "fractal_hash256": "e7e4a37b9391e4f0359b1c3d8f01c88c42eb998e95979b99df1e3b5864ef7efa",
+      "title": "Complex quadratic Julia recurrence",
+      "display": "p_c(z) = z² + c, c ∈ C",
+      "latex": "p_c(z)=z^2+c,\\quad c\\in\\mathbb{C}",
+      "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>p</mi><mi>c</mi></msub><mo stretchy=\"false\">&#x00028;</mo><mi>z</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><msup><mi>z</mi><mn>2</mn></msup><mo>&#x0002B;</mo><mi>c</mi><mo>&#x0002C;</mo><mspace width=\"1em\" /><mi>c</mi><mo>&#x02208;</mo><mi>&#x02102;</mi></mrow></math>",
+      "basic_explanation": "For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field.",
+      "citation": {
+        "inline": "(Drakopoulos 2002, 1)",
+        "chicago": "Drakopoulos, Vasileios. 2002. \"Comparing Rendering Methods for Julia Sets.\" Journal of WSCG 10 (1-2): 155-161."
+      }
+    }
+  ],
+  "figures": [
+    {
+      "uuid": "03704c28-2d5b-5a03-85c6-20175a42f11f",
+      "title": "Julia recurrence backdrop: structure",
+      "description": "A structure variation of a Julia-set field with rhythmic geometric accents.",
+      "figcaption": "Julia recurrence backdrop. p_c(z) = z² + c, c ∈ C. For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field. (Drakopoulos 2002, 1).",
+      "fractal_hash256": "760a7dbae95c20710f36c7a1c7b03bd0b73d1c932e802a74bdacc47bfc3a0621",
+      "created_at": "2026-09-02T17:25:51.154Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "15b9f228-d71a-5ae6-9603-b04a50df131e",
+          "fractal_hash256": "e7e4a37b9391e4f0359b1c3d8f01c88c42eb998e95979b99df1e3b5864ef7efa",
+          "title": "Complex quadratic Julia recurrence",
+          "display": "p_c(z) = z² + c, c ∈ C",
+          "latex": "p_c(z)=z^2+c,\\quad c\\in\\mathbb{C}",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>p</mi><mi>c</mi></msub><mo stretchy=\"false\">&#x00028;</mo><mi>z</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><msup><mi>z</mi><mn>2</mn></msup><mo>&#x0002B;</mo><mi>c</mi><mo>&#x0002C;</mo><mspace width=\"1em\" /><mi>c</mi><mo>&#x02208;</mo><mi>&#x02102;</mi></mrow></math>",
+          "basic_explanation": "For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field.",
+          "citation": {
+            "inline": "(Drakopoulos 2002, 1)",
+            "chicago": "Drakopoulos, Vasileios. 2002. \"Comparing Rendering Methods for Julia Sets.\" Journal of WSCG 10 (1-2): 155-161."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-pass-01-structure-760a7dbae95c.svg",
+        "png": "udit-pass-01-structure-760a7dbae95c.png",
+        "svg_sha256": "760a7dbae95c20710f36c7a1c7b03bd0b73d1c932e802a74bdacc47bfc3a0621",
+        "png_sha256": "cba56fd0fcb734d404dd86fb76a4ba04c2d0bee62997012d6ba7cbbabcf2b74e"
+      }
+    },
+    {
+      "uuid": "ded0b67b-d670-5203-9b5c-88c7bbe7e3e4",
+      "title": "Julia recurrence backdrop: threshold",
+      "description": "A threshold variation of a Julia-set field with rhythmic geometric accents.",
+      "figcaption": "Julia recurrence backdrop. p_c(z) = z² + c, c ∈ C. For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field. (Drakopoulos 2002, 1).",
+      "fractal_hash256": "5d27db77479c72a3b1731a72f94d189913285a67948bc7574b97efc4df2065cf",
+      "created_at": "2026-09-02T17:25:51.154Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "15b9f228-d71a-5ae6-9603-b04a50df131e",
+          "fractal_hash256": "e7e4a37b9391e4f0359b1c3d8f01c88c42eb998e95979b99df1e3b5864ef7efa",
+          "title": "Complex quadratic Julia recurrence",
+          "display": "p_c(z) = z² + c, c ∈ C",
+          "latex": "p_c(z)=z^2+c,\\quad c\\in\\mathbb{C}",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>p</mi><mi>c</mi></msub><mo stretchy=\"false\">&#x00028;</mo><mi>z</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><msup><mi>z</mi><mn>2</mn></msup><mo>&#x0002B;</mo><mi>c</mi><mo>&#x0002C;</mo><mspace width=\"1em\" /><mi>c</mi><mo>&#x02208;</mo><mi>&#x02102;</mi></mrow></math>",
+          "basic_explanation": "For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field.",
+          "citation": {
+            "inline": "(Drakopoulos 2002, 1)",
+            "chicago": "Drakopoulos, Vasileios. 2002. \"Comparing Rendering Methods for Julia Sets.\" Journal of WSCG 10 (1-2): 155-161."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-pass-02-threshold-5d27db77479c.svg",
+        "png": "udit-pass-02-threshold-5d27db77479c.png",
+        "svg_sha256": "5d27db77479c72a3b1731a72f94d189913285a67948bc7574b97efc4df2065cf",
+        "png_sha256": "be67b2e9c7bec0c88f4a85a6e3faf43c01caba9d9d11192157655dc2d42b1ed6"
+      }
+    },
+    {
+      "uuid": "d97f5f71-512e-59ba-a36c-736803e7c712",
+      "title": "Julia recurrence backdrop: branching",
+      "description": "A branching variation of a Julia-set field with rhythmic geometric accents.",
+      "figcaption": "Julia recurrence backdrop. p_c(z) = z² + c, c ∈ C. For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field. (Drakopoulos 2002, 1).",
+      "fractal_hash256": "d95ce78bf3b28d0f533b296f4fe15c2bdf67cbafb5662466005397fc87589e0c",
+      "created_at": "2026-09-02T17:25:51.154Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "15b9f228-d71a-5ae6-9603-b04a50df131e",
+          "fractal_hash256": "e7e4a37b9391e4f0359b1c3d8f01c88c42eb998e95979b99df1e3b5864ef7efa",
+          "title": "Complex quadratic Julia recurrence",
+          "display": "p_c(z) = z² + c, c ∈ C",
+          "latex": "p_c(z)=z^2+c,\\quad c\\in\\mathbb{C}",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>p</mi><mi>c</mi></msub><mo stretchy=\"false\">&#x00028;</mo><mi>z</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><msup><mi>z</mi><mn>2</mn></msup><mo>&#x0002B;</mo><mi>c</mi><mo>&#x0002C;</mo><mspace width=\"1em\" /><mi>c</mi><mo>&#x02208;</mo><mi>&#x02102;</mi></mrow></math>",
+          "basic_explanation": "For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field.",
+          "citation": {
+            "inline": "(Drakopoulos 2002, 1)",
+            "chicago": "Drakopoulos, Vasileios. 2002. \"Comparing Rendering Methods for Julia Sets.\" Journal of WSCG 10 (1-2): 155-161."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-pass-03-branching-d95ce78bf3b2.svg",
+        "png": "udit-pass-03-branching-d95ce78bf3b2.png",
+        "svg_sha256": "d95ce78bf3b28d0f533b296f4fe15c2bdf67cbafb5662466005397fc87589e0c",
+        "png_sha256": "a2b695f1a92d83ba4f32868b72af58e8830813aa9dc5ebae58f1fbcfa7d1699b"
+      }
+    },
+    {
+      "uuid": "6259d50a-fe05-57ee-a206-db3a99f44fa7",
+      "title": "Julia recurrence backdrop: practice",
+      "description": "A practice variation of a Julia-set field with rhythmic geometric accents.",
+      "figcaption": "Julia recurrence backdrop. p_c(z) = z² + c, c ∈ C. For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field. (Drakopoulos 2002, 1).",
+      "fractal_hash256": "770dd5901ed6e92108a792a2ddc598f9bf0557620d8306619faf16bdc61c4c89",
+      "created_at": "2026-09-02T17:25:51.154Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "15b9f228-d71a-5ae6-9603-b04a50df131e",
+          "fractal_hash256": "e7e4a37b9391e4f0359b1c3d8f01c88c42eb998e95979b99df1e3b5864ef7efa",
+          "title": "Complex quadratic Julia recurrence",
+          "display": "p_c(z) = z² + c, c ∈ C",
+          "latex": "p_c(z)=z^2+c,\\quad c\\in\\mathbb{C}",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>p</mi><mi>c</mi></msub><mo stretchy=\"false\">&#x00028;</mo><mi>z</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><msup><mi>z</mi><mn>2</mn></msup><mo>&#x0002B;</mo><mi>c</mi><mo>&#x0002C;</mo><mspace width=\"1em\" /><mi>c</mi><mo>&#x02208;</mo><mi>&#x02102;</mi></mrow></math>",
+          "basic_explanation": "For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field.",
+          "citation": {
+            "inline": "(Drakopoulos 2002, 1)",
+            "chicago": "Drakopoulos, Vasileios. 2002. \"Comparing Rendering Methods for Julia Sets.\" Journal of WSCG 10 (1-2): 155-161."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-pass-04-practice-770dd5901ed6.svg",
+        "png": "udit-pass-04-practice-770dd5901ed6.png",
+        "svg_sha256": "770dd5901ed6e92108a792a2ddc598f9bf0557620d8306619faf16bdc61c4c89",
+        "png_sha256": "d2e591d895ab2abba9dc7c2a374d3e0cae19d30bdb9a86706788d0ed7f94e805"
+      }
+    },
+    {
+      "uuid": "0ca5da8d-c48d-500a-990d-ce925a0cfc6e",
+      "title": "Julia recurrence backdrop: feedback",
+      "description": "A feedback variation of a Julia-set field with rhythmic geometric accents.",
+      "figcaption": "Julia recurrence backdrop. p_c(z) = z² + c, c ∈ C. For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field. (Drakopoulos 2002, 1).",
+      "fractal_hash256": "d002213246f2d5e8f85eed0b7ac80544abd78d04a831f5d72028f099f1a94a5e",
+      "created_at": "2026-09-02T17:25:51.154Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "15b9f228-d71a-5ae6-9603-b04a50df131e",
+          "fractal_hash256": "e7e4a37b9391e4f0359b1c3d8f01c88c42eb998e95979b99df1e3b5864ef7efa",
+          "title": "Complex quadratic Julia recurrence",
+          "display": "p_c(z) = z² + c, c ∈ C",
+          "latex": "p_c(z)=z^2+c,\\quad c\\in\\mathbb{C}",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>p</mi><mi>c</mi></msub><mo stretchy=\"false\">&#x00028;</mo><mi>z</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><msup><mi>z</mi><mn>2</mn></msup><mo>&#x0002B;</mo><mi>c</mi><mo>&#x0002C;</mo><mspace width=\"1em\" /><mi>c</mi><mo>&#x02208;</mo><mi>&#x02102;</mi></mrow></math>",
+          "basic_explanation": "For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field.",
+          "citation": {
+            "inline": "(Drakopoulos 2002, 1)",
+            "chicago": "Drakopoulos, Vasileios. 2002. \"Comparing Rendering Methods for Julia Sets.\" Journal of WSCG 10 (1-2): 155-161."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-pass-05-feedback-d002213246f2.svg",
+        "png": "udit-pass-05-feedback-d002213246f2.png",
+        "svg_sha256": "d002213246f2d5e8f85eed0b7ac80544abd78d04a831f5d72028f099f1a94a5e",
+        "png_sha256": "38c636143176148340733cc3a6dd1a89888b1f3ee52c89c4d73c532143291c87"
+      }
+    },
+    {
+      "uuid": "db7b4905-caf3-575c-a0c3-a935c1619882",
+      "title": "Julia recurrence backdrop: coherence",
+      "description": "A coherence variation of a Julia-set field with rhythmic geometric accents.",
+      "figcaption": "Julia recurrence backdrop. p_c(z) = z² + c, c ∈ C. For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field. (Drakopoulos 2002, 1).",
+      "fractal_hash256": "41d62d890eae5118567a5b5ccb1767ec197b257716b9c1011732f88661b60d1e",
+      "created_at": "2026-09-02T17:25:51.154Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "15b9f228-d71a-5ae6-9603-b04a50df131e",
+          "fractal_hash256": "e7e4a37b9391e4f0359b1c3d8f01c88c42eb998e95979b99df1e3b5864ef7efa",
+          "title": "Complex quadratic Julia recurrence",
+          "display": "p_c(z) = z² + c, c ∈ C",
+          "latex": "p_c(z)=z^2+c,\\quad c\\in\\mathbb{C}",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>p</mi><mi>c</mi></msub><mo stretchy=\"false\">&#x00028;</mo><mi>z</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><msup><mi>z</mi><mn>2</mn></msup><mo>&#x0002B;</mo><mi>c</mi><mo>&#x0002C;</mo><mspace width=\"1em\" /><mi>c</mi><mo>&#x02208;</mo><mi>&#x02102;</mi></mrow></math>",
+          "basic_explanation": "For each pixel, the complex value z is repeatedly squared and shifted by the fixed complex parameter c. Escape speed controls the visible Julia field.",
+          "citation": {
+            "inline": "(Drakopoulos 2002, 1)",
+            "chicago": "Drakopoulos, Vasileios. 2002. \"Comparing Rendering Methods for Julia Sets.\" Journal of WSCG 10 (1-2): 155-161."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-pass-06-coherence-41d62d890eae.svg",
+        "png": "udit-pass-06-coherence-41d62d890eae.png",
+        "svg_sha256": "41d62d890eae5118567a5b5ccb1767ec197b257716b9c1011732f88661b60d1e",
+        "png_sha256": "f89e34b99781ea9a71e32a6a54c29a65d04b30422640912c467c5c85d5b6291b"
+      }
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "status": "FORMULA_CONSUMED",
+  "source_export": "formula-glossary.public.json",
+  "source_export_sha256": "3269e3a6b4ffbf600232b4e00ab1901ed101d77568338780b7abcdc1dd7dd9e8",
+  "formula_contract": {
+    "latex": "p_c(z)=z^2+c,\\quad c\\in\\mathbb{C}",
+    "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><msub><mi>p</mi><mi>c</mi></msub><mo stretchy=\"false\">&#x00028;</mo><mi>z</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0003D;</mo><msup><mi>z</mi><mn>2</mn></msup><mo>&#x0002B;</mo><mi>c</mi><mo>&#x0002C;</mo><mspace width=\"1em\" /><mi>c</mi><mo>&#x02208;</mo><mi>&#x02102;</mi></mrow></math>",
+    "fidelity_status": "EXACT",
+    "adapter": "complex-quadratic-v1"
+  },
+  "private_reference_anchor": {
+    "formula_id": "15b9f228-d71a-5ae6-9603-b04a50df131e",
+    "document_id": "b59659cb-64b3-5984-a9f1-807699c23bf6",
+    "node_id": "8d1b7bda-4ee4-5007-8bd6-739980674cb6",
+    "page_index": 0,
+    "printed_page": 1,
+    "crop_relpath": "extract/formula-audit/pages/page-00.png",
+    "crop_sha256": "b43904459a7f241c933d4a79c6b88a56700d3aaa8644875a68a2d8fc5f44c640",
+    "audit_notes": [
+      "promoted_from_oracle:eq-1"
+    ]
+  },
+  "release_id": "e80ecf151a8917fb",
+  "studio_stack": [
+    {
+      "kind": "skill",
+      "name": "curriculum-forger",
+      "version": "1.1.0",
+      "path": "/Users/ruvebal/src/.cursor/skills/curriculum-forger/SKILL.md",
+      "sha256": "63623c9704c33085d7096216b68235a35a5122069c6ca8d08d68517b575dabd9",
+      "git_commit": null
+    },
+    {
+      "kind": "skill",
+      "name": "visual-forger",
+      "version": "1.1.0",
+      "path": "/Users/ruvebal/src/.cursor/skills/visual-forger/SKILL.md",
+      "sha256": "2ff702c65945aa79855136a4a03d229ddc7d697130f52b4a56ed7d252394d87b",
+      "git_commit": null
+    },
+    {
+      "kind": "skill",
+      "name": "fractal-architect",
+      "version": "1.2.0",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/.cursor/skills/fractal-architect/SKILL.md",
+      "sha256": "164914dbcf41777a4c3a24076a6a58a59599fce6e72e80eb39162f1f0262cdce",
+      "git_commit": "4a5c345251e7fdedfbe6c65db1c5a4e8d770b8bc"
+    },
+    {
+      "kind": "agent",
+      "name": "fractal-architect",
+      "version": "1.2.0",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/.cursor/agents/fractal-architect.md",
+      "sha256": "f9ecccde85d90b7d7e1fabc4b703f578a8890db3a3d7afd2e1236616c3a7b2c4",
+      "git_commit": "4a5c345251e7fdedfbe6c65db1c5a4e8d770b8bc"
+    },
+    {
+      "kind": "renderer",
+      "name": "pass-track-backgrounds",
+      "version": "1.4.0",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/web-foundations/scripts/fractal-architecture/generate-pass-track-backgrounds.mjs",
+      "sha256": "d82b67988d4abfed7a39b36054eadf91329a66b224fec9a5d7ae044500421c9e",
+      "git_commit": "602d7ffd0384a432fa3b3f024d101cd5ebcdfa70"
+    }
+  ],
+  "original_release_dir": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb",
+  "public_caption_manifest": "caption-manifests/e80ecf151a8917fb.json",
+  "semantic_index": {
+    "provider": "ollama",
+    "status": "ready",
+    "model": "nomic-embed-text:latest",
+    "path": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/grounding/fractal-architecture/fractal-art-semantic-index.private.json"
+  },
+  "public_asset_policy": "No corpus or local-architecture metadata is embedded in SVG/PNG outputs.",
+  "outputs": [
+    {
+      "file": "udit-pass-01-structure-760a7dbae95c.svg",
+      "png": "udit-pass-01-structure-760a7dbae95c.png",
+      "sha256": "760a7dbae95c20710f36c7a1c7b03bd0b73d1c932e802a74bdacc47bfc3a0621",
+      "brand": "udit",
+      "family": "structure",
+      "seed": 1369771079,
+      "backdrop": "julia-geometric-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "cba56fd0fcb734d404dd86fb76a4ba04c2d0bee62997012d6ba7cbbabcf2b74e",
+      "uuid": "03704c28-2d5b-5a03-85c6-20175a42f11f",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-01-structure-760a7dbae95c.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-01-structure-760a7dbae95c.png"
+      }
+    },
+    {
+      "file": "udit-pass-02-threshold-5d27db77479c.svg",
+      "png": "udit-pass-02-threshold-5d27db77479c.png",
+      "sha256": "5d27db77479c72a3b1731a72f94d189913285a67948bc7574b97efc4df2065cf",
+      "brand": "udit",
+      "family": "threshold",
+      "seed": 3779770053,
+      "backdrop": "julia-geometric-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "be67b2e9c7bec0c88f4a85a6e3faf43c01caba9d9d11192157655dc2d42b1ed6",
+      "uuid": "ded0b67b-d670-5203-9b5c-88c7bbe7e3e4",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-02-threshold-5d27db77479c.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-02-threshold-5d27db77479c.png"
+      }
+    },
+    {
+      "file": "udit-pass-03-branching-d95ce78bf3b2.svg",
+      "png": "udit-pass-03-branching-d95ce78bf3b2.png",
+      "sha256": "d95ce78bf3b28d0f533b296f4fe15c2bdf67cbafb5662466005397fc87589e0c",
+      "brand": "udit",
+      "family": "branching",
+      "seed": 653424450,
+      "backdrop": "julia-geometric-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "a2b695f1a92d83ba4f32868b72af58e8830813aa9dc5ebae58f1fbcfa7d1699b",
+      "uuid": "d97f5f71-512e-59ba-a36c-736803e7c712",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-03-branching-d95ce78bf3b2.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-03-branching-d95ce78bf3b2.png"
+      }
+    },
+    {
+      "file": "udit-pass-04-practice-770dd5901ed6.svg",
+      "png": "udit-pass-04-practice-770dd5901ed6.png",
+      "sha256": "770dd5901ed6e92108a792a2ddc598f9bf0557620d8306619faf16bdc61c4c89",
+      "brand": "udit",
+      "family": "practice",
+      "seed": 2530642753,
+      "backdrop": "julia-geometric-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "d2e591d895ab2abba9dc7c2a374d3e0cae19d30bdb9a86706788d0ed7f94e805",
+      "uuid": "6259d50a-fe05-57ee-a206-db3a99f44fa7",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-04-practice-770dd5901ed6.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-04-practice-770dd5901ed6.png"
+      }
+    },
+    {
+      "file": "udit-pass-05-feedback-d002213246f2.svg",
+      "png": "udit-pass-05-feedback-d002213246f2.png",
+      "sha256": "d002213246f2d5e8f85eed0b7ac80544abd78d04a831f5d72028f099f1a94a5e",
+      "brand": "udit",
+      "family": "feedback",
+      "seed": 3109703045,
+      "backdrop": "julia-geometric-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "38c636143176148340733cc3a6dd1a89888b1f3ee52c89c4d73c532143291c87",
+      "uuid": "0ca5da8d-c48d-500a-990d-ce925a0cfc6e",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-05-feedback-d002213246f2.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-05-feedback-d002213246f2.png"
+      }
+    },
+    {
+      "file": "udit-pass-06-coherence-41d62d890eae.svg",
+      "png": "udit-pass-06-coherence-41d62d890eae.png",
+      "sha256": "41d62d890eae5118567a5b5ccb1767ec197b257716b9c1011732f88661b60d1e",
+      "brand": "udit",
+      "family": "coherence",
+      "seed": 3873884793,
+      "backdrop": "julia-geometric-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "f89e34b99781ea9a71e32a6a54c29a65d04b30422640912c467c5c85d5b6291b",
+      "uuid": "db7b4905-caf3-575c-a0c3-a935c1619882",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-06-coherence-41d62d890eae.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-e80ecf151a8917fb/udit-pass-06-coherence-41d62d890eae.png"
+      }
+    }
+  ]
+}

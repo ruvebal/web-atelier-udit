@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "fractal-architect.figcaption-data",
+  "release_id": "7b16e502f170cfeb",
+  "created_at": "2026-09-02T18:50:48.370Z",
+  "authorship": {
+    "name": "Ruvebal",
+    "email": "ruvebal@crea-comm.net"
+  },
+  "formulae": [
+    {
+      "uuid": "869968b7-f6e6-50ce-93f0-f251e9efb12f",
+      "fractal_hash256": "0acbd0f17df922f0817841aadd1a26aeeffab42cd1d7d6f74130bb6cca52b043",
+      "title": "Parametric L-system tree production rule",
+      "display": "A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+      "latex": "\\omega: A(1);\\quad p_1: A(s):* \\to F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+      "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>&#x003C9;</mi><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mn>1</mn><mo stretchy=\"false\">&#x00029;</mo><mi>;</mi><mspace width=\"1em\" /><msub><mi>p</mi><mn>1</mn></msub><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>:</mi><mo>&#x0002A;</mo><mo>&#x02192;</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">[</mo><mo>&#x0002B;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mo stretchy=\"false\">[</mo><mo>&#x02212;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+      "basic_explanation": "Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure.",
+      "citation": {
+        "inline": "(Prusinkiewicz and Lindenmayer 2004, 187)",
+        "chicago": "Prusinkiewicz, Przemysław, and Aristid Lindenmayer. 2004. The Algorithmic Beauty of Plants. New York: Springer."
+      }
+    }
+  ],
+  "figures": [
+    {
+      "uuid": "a4fb9c7f-b646-5209-a546-bef9e6a55ee6",
+      "title": "L-system tree backdrop: structure",
+      "description": "A structure variation of a Prusinkiewicz branching-tree turtle graphic with rhythmic geometric accents.",
+      "figcaption": "L-system tree backdrop. A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R). Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure. (Prusinkiewicz and Lindenmayer 2004, 187).",
+      "fractal_hash256": "0e3ce535d5af0d67359894b57597c4cc3d3030f0021730270df61b0ab24a42f4",
+      "created_at": "2026-09-02T18:50:48.370Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "869968b7-f6e6-50ce-93f0-f251e9efb12f",
+          "fractal_hash256": "0acbd0f17df922f0817841aadd1a26aeeffab42cd1d7d6f74130bb6cca52b043",
+          "title": "Parametric L-system tree production rule",
+          "display": "A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "latex": "\\omega: A(1);\\quad p_1: A(s):* \\to F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>&#x003C9;</mi><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mn>1</mn><mo stretchy=\"false\">&#x00029;</mo><mi>;</mi><mspace width=\"1em\" /><msub><mi>p</mi><mn>1</mn></msub><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>:</mi><mo>&#x0002A;</mo><mo>&#x02192;</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">[</mo><mo>&#x0002B;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mo stretchy=\"false\">[</mo><mo>&#x02212;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure.",
+          "citation": {
+            "inline": "(Prusinkiewicz and Lindenmayer 2004, 187)",
+            "chicago": "Prusinkiewicz, Przemysław, and Aristid Lindenmayer. 2004. The Algorithmic Beauty of Plants. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-lsystem-pass-01-structure-0e3ce535d5af.svg",
+        "png": "udit-lsystem-pass-01-structure-0e3ce535d5af.png",
+        "svg_sha256": "0e3ce535d5af0d67359894b57597c4cc3d3030f0021730270df61b0ab24a42f4",
+        "png_sha256": "51d51d7c4b732fe66b4c71ba30c221de6a68adc64147953ff3075cb5ba5ff446"
+      }
+    },
+    {
+      "uuid": "c9a615c8-e4b8-5f00-bf58-ee5795099e1b",
+      "title": "L-system tree backdrop: threshold",
+      "description": "A threshold variation of a Prusinkiewicz branching-tree turtle graphic with rhythmic geometric accents.",
+      "figcaption": "L-system tree backdrop. A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R). Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure. (Prusinkiewicz and Lindenmayer 2004, 187).",
+      "fractal_hash256": "afed51b98ede3086449dee1c4063c277deab7f1cc95d7ae90f300adaac9e9048",
+      "created_at": "2026-09-02T18:50:48.370Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "869968b7-f6e6-50ce-93f0-f251e9efb12f",
+          "fractal_hash256": "0acbd0f17df922f0817841aadd1a26aeeffab42cd1d7d6f74130bb6cca52b043",
+          "title": "Parametric L-system tree production rule",
+          "display": "A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "latex": "\\omega: A(1);\\quad p_1: A(s):* \\to F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>&#x003C9;</mi><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mn>1</mn><mo stretchy=\"false\">&#x00029;</mo><mi>;</mi><mspace width=\"1em\" /><msub><mi>p</mi><mn>1</mn></msub><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>:</mi><mo>&#x0002A;</mo><mo>&#x02192;</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">[</mo><mo>&#x0002B;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mo stretchy=\"false\">[</mo><mo>&#x02212;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure.",
+          "citation": {
+            "inline": "(Prusinkiewicz and Lindenmayer 2004, 187)",
+            "chicago": "Prusinkiewicz, Przemysław, and Aristid Lindenmayer. 2004. The Algorithmic Beauty of Plants. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-lsystem-pass-02-threshold-afed51b98ede.svg",
+        "png": "udit-lsystem-pass-02-threshold-afed51b98ede.png",
+        "svg_sha256": "afed51b98ede3086449dee1c4063c277deab7f1cc95d7ae90f300adaac9e9048",
+        "png_sha256": "e5fc994cdef07aee1b9644b5d76ea1ef4dee0445f1e01777ded8237eb98283d6"
+      }
+    },
+    {
+      "uuid": "1fa4a2e4-d7ee-5513-95fd-6d0ac1c7c70d",
+      "title": "L-system tree backdrop: branching",
+      "description": "A branching variation of a Prusinkiewicz branching-tree turtle graphic with rhythmic geometric accents.",
+      "figcaption": "L-system tree backdrop. A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R). Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure. (Prusinkiewicz and Lindenmayer 2004, 187).",
+      "fractal_hash256": "eafb2b7333d1ee9a0fa96c6a07eb4ef1f27ec4d0f02fe658b5a343a40e610800",
+      "created_at": "2026-09-02T18:50:48.370Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "869968b7-f6e6-50ce-93f0-f251e9efb12f",
+          "fractal_hash256": "0acbd0f17df922f0817841aadd1a26aeeffab42cd1d7d6f74130bb6cca52b043",
+          "title": "Parametric L-system tree production rule",
+          "display": "A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "latex": "\\omega: A(1);\\quad p_1: A(s):* \\to F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>&#x003C9;</mi><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mn>1</mn><mo stretchy=\"false\">&#x00029;</mo><mi>;</mi><mspace width=\"1em\" /><msub><mi>p</mi><mn>1</mn></msub><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>:</mi><mo>&#x0002A;</mo><mo>&#x02192;</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">[</mo><mo>&#x0002B;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mo stretchy=\"false\">[</mo><mo>&#x02212;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure.",
+          "citation": {
+            "inline": "(Prusinkiewicz and Lindenmayer 2004, 187)",
+            "chicago": "Prusinkiewicz, Przemysław, and Aristid Lindenmayer. 2004. The Algorithmic Beauty of Plants. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-lsystem-pass-03-branching-eafb2b7333d1.svg",
+        "png": "udit-lsystem-pass-03-branching-eafb2b7333d1.png",
+        "svg_sha256": "eafb2b7333d1ee9a0fa96c6a07eb4ef1f27ec4d0f02fe658b5a343a40e610800",
+        "png_sha256": "381680328c84e07cedd555a2778dc8eaa27a97f317da73d52f3681df1ec18320"
+      }
+    },
+    {
+      "uuid": "48b963cc-1fe5-5070-85d5-5addbbab9226",
+      "title": "L-system tree backdrop: practice",
+      "description": "A practice variation of a Prusinkiewicz branching-tree turtle graphic with rhythmic geometric accents.",
+      "figcaption": "L-system tree backdrop. A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R). Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure. (Prusinkiewicz and Lindenmayer 2004, 187).",
+      "fractal_hash256": "2920b6d5ef2fea1875b0480956b149559c45cfd282ee19438124cdb901e63a2d",
+      "created_at": "2026-09-02T18:50:48.370Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "869968b7-f6e6-50ce-93f0-f251e9efb12f",
+          "fractal_hash256": "0acbd0f17df922f0817841aadd1a26aeeffab42cd1d7d6f74130bb6cca52b043",
+          "title": "Parametric L-system tree production rule",
+          "display": "A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "latex": "\\omega: A(1);\\quad p_1: A(s):* \\to F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>&#x003C9;</mi><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mn>1</mn><mo stretchy=\"false\">&#x00029;</mo><mi>;</mi><mspace width=\"1em\" /><msub><mi>p</mi><mn>1</mn></msub><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>:</mi><mo>&#x0002A;</mo><mo>&#x02192;</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">[</mo><mo>&#x0002B;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mo stretchy=\"false\">[</mo><mo>&#x02212;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure.",
+          "citation": {
+            "inline": "(Prusinkiewicz and Lindenmayer 2004, 187)",
+            "chicago": "Prusinkiewicz, Przemysław, and Aristid Lindenmayer. 2004. The Algorithmic Beauty of Plants. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-lsystem-pass-04-practice-2920b6d5ef2f.svg",
+        "png": "udit-lsystem-pass-04-practice-2920b6d5ef2f.png",
+        "svg_sha256": "2920b6d5ef2fea1875b0480956b149559c45cfd282ee19438124cdb901e63a2d",
+        "png_sha256": "19e96007cf781482b66aee7af691e1931f91d7c5e2948a6b6e44e1795ac878a6"
+      }
+    },
+    {
+      "uuid": "9c720d90-7991-57aa-9480-bdfbad9f70f4",
+      "title": "L-system tree backdrop: feedback",
+      "description": "A feedback variation of a Prusinkiewicz branching-tree turtle graphic with rhythmic geometric accents.",
+      "figcaption": "L-system tree backdrop. A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R). Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure. (Prusinkiewicz and Lindenmayer 2004, 187).",
+      "fractal_hash256": "b8645ca61d996012d0140f5b6c91e864b516c4b740dd54eb83254c4cc552a792",
+      "created_at": "2026-09-02T18:50:48.370Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "869968b7-f6e6-50ce-93f0-f251e9efb12f",
+          "fractal_hash256": "0acbd0f17df922f0817841aadd1a26aeeffab42cd1d7d6f74130bb6cca52b043",
+          "title": "Parametric L-system tree production rule",
+          "display": "A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "latex": "\\omega: A(1);\\quad p_1: A(s):* \\to F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>&#x003C9;</mi><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mn>1</mn><mo stretchy=\"false\">&#x00029;</mo><mi>;</mi><mspace width=\"1em\" /><msub><mi>p</mi><mn>1</mn></msub><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>:</mi><mo>&#x0002A;</mo><mo>&#x02192;</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">[</mo><mo>&#x0002B;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mo stretchy=\"false\">[</mo><mo>&#x02212;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure.",
+          "citation": {
+            "inline": "(Prusinkiewicz and Lindenmayer 2004, 187)",
+            "chicago": "Prusinkiewicz, Przemysław, and Aristid Lindenmayer. 2004. The Algorithmic Beauty of Plants. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-lsystem-pass-05-feedback-b8645ca61d99.svg",
+        "png": "udit-lsystem-pass-05-feedback-b8645ca61d99.png",
+        "svg_sha256": "b8645ca61d996012d0140f5b6c91e864b516c4b740dd54eb83254c4cc552a792",
+        "png_sha256": "e4925b06dd17edcdff42c41851cfc3693eba2a438ab5c05f241ba4753604a4be"
+      }
+    },
+    {
+      "uuid": "63bdbe8e-f4e7-5519-9fce-06ab3c92f9da",
+      "title": "L-system tree backdrop: coherence",
+      "description": "A coherence variation of a Prusinkiewicz branching-tree turtle graphic with rhythmic geometric accents.",
+      "figcaption": "L-system tree backdrop. A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R). Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure. (Prusinkiewicz and Lindenmayer 2004, 187).",
+      "fractal_hash256": "20d7fc0c6cd83f82e0dd724407cee9141d5a3b911821fd3710656da26c0bc122",
+      "created_at": "2026-09-02T18:50:48.370Z",
+      "authorship": {
+        "name": "Ruvebal",
+        "email": "ruvebal@crea-comm.net"
+      },
+      "formulae": [
+        {
+          "uuid": "869968b7-f6e6-50ce-93f0-f251e9efb12f",
+          "fractal_hash256": "0acbd0f17df922f0817841aadd1a26aeeffab42cd1d7d6f74130bb6cca52b043",
+          "title": "Parametric L-system tree production rule",
+          "display": "A(s) → F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "latex": "\\omega: A(1);\\quad p_1: A(s):* \\to F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
+          "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>&#x003C9;</mi><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mn>1</mn><mo stretchy=\"false\">&#x00029;</mo><mi>;</mi><mspace width=\"1em\" /><msub><mi>p</mi><mn>1</mn></msub><mi>:</mi><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>:</mi><mo>&#x0002A;</mo><mo>&#x02192;</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">[</mo><mo>&#x0002B;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mo stretchy=\"false\">[</mo><mo>&#x02212;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo><mo stretchy=\"false\">]</mo><mi>F</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo stretchy=\"false\">&#x00029;</mo><mi>A</mi><mo stretchy=\"false\">&#x00028;</mo><mi>s</mi><mo>&#x0002F;</mo><mi>R</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+          "basic_explanation": "Each branch segment rewrites into a forward step, two child branches at ±angle with length scaled down by R, and a continuing trunk — a turtle-graphics interpretation of the rewriting rule produces the self-similar branching structure.",
+          "citation": {
+            "inline": "(Prusinkiewicz and Lindenmayer 2004, 187)",
+            "chicago": "Prusinkiewicz, Przemysław, and Aristid Lindenmayer. 2004. The Algorithmic Beauty of Plants. New York: Springer."
+          }
+        }
+      ],
+      "delivery": {
+        "svg": "udit-lsystem-pass-06-coherence-20d7fc0c6cd8.svg",
+        "png": "udit-lsystem-pass-06-coherence-20d7fc0c6cd8.png",
+        "svg_sha256": "20d7fc0c6cd83f82e0dd724407cee9141d5a3b911821fd3710656da26c0bc122",
+        "png_sha256": "079d31aee24d33c405a318decdd6b6266a199118f92a3d4a2835eb3eea331ab8"
+      }
+    }
+  ]
+}

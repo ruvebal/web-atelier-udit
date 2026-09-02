@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "current_release": "ce88a84a17a47e79",
+  "releases": [
+    {
+      "release_id": "77d2a7396c51197f",
+      "created_at": "2026-08-29T12:19:46.995Z",
+      "brand": "udit",
+      "formula": {
+        "text": "p_c(z)=z²+c",
+        "latex": "p_c(z)=z^2+c,\\quad c\\in\\mathbb{C}",
+        "fidelity_status": "EXACT"
+      },
+      "caption": {
+        "source": "Source: Drakopoulos, Vasileios. 2002. \"Comparing Rendering Methods for Julia Sets.\" Journal of WSCG 10 (1-2): 155-161.",
+        "source_evaluator_safe": true,
+        "credit": "Image by @ruvebal with curriculum-forger 1.1.0, visual-forger 1.1.0, fractal-architect 1.1.0, and pass-track-backgrounds 1.1.0."
+      },
+      "studio_stack": [
+        {
+          "kind": "skill",
+          "name": "curriculum-forger",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "skill",
+          "name": "visual-forger",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "agent+skill",
+          "name": "fractal-architect",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "renderer",
+          "name": "pass-track-backgrounds",
+          "version": "1.1.0"
+        }
+      ],
+      "assets": [
+        {
+          "family": "structure",
+          "svg": "udit-pass-01-structure-970c2070cdce.svg",
+          "png": "udit-pass-01-structure-970c2070cdce.png",
+          "sha256": "970c2070cdcee613ee20284839ef322a62c6a62e37ce8d3588732029c9269f8b"
+        },
+        {
+          "family": "threshold",
+          "svg": "udit-pass-02-threshold-f52c4164d050.svg",
+          "png": "udit-pass-02-threshold-f52c4164d050.png",
+          "sha256": "f52c4164d050d415e191e52be11ee55f582e1783b3b0a672ffb352d701cb23f1"
+        },
+        {
+          "family": "branching",
+          "svg": "udit-pass-03-branching-b6e38032ab71.svg",
+          "png": "udit-pass-03-branching-b6e38032ab71.png",
+          "sha256": "b6e38032ab71733994cad5ab39281f7c8571cd1fba48cd2368b4652e824c612b"
+        },
+        {
+          "family": "practice",
+          "svg": "udit-pass-04-practice-ed67d6e04bd2.svg",
+          "png": "udit-pass-04-practice-ed67d6e04bd2.png",
+          "sha256": "ed67d6e04bd29c089a9deb56b469291359adf331bea56d14f8dcd9f085316d5c"
+        },
+        {
+          "family": "feedback",
+          "svg": "udit-pass-05-feedback-10e1a0d8c35e.svg",
+          "png": "udit-pass-05-feedback-10e1a0d8c35e.png",
+          "sha256": "10e1a0d8c35ea6debf4fc77ed52f76d5a61892ef51d32494a84eff8dcf4b3bc8"
+        },
+        {
+          "family": "coherence",
+          "svg": "udit-pass-06-coherence-7a13c9aa57e4.svg",
+          "png": "udit-pass-06-coherence-7a13c9aa57e4.png",
+          "sha256": "7a13c9aa57e4017298933a5bd05206c7a3980ddd3721a7c14438ee600a57367d"
+        }
+      ]
+    },
+    {
+      "release_id": "ce88a84a17a47e79",
+      "created_at": "2026-09-02T16:09:52.306Z",
+      "brand": "udit",
+      "formula": {
+        "text": "p_c(z)=z²+c",
+        "latex": "p_c(z)=z^2+c,\\quad c\\in\\mathbb{C}",
+        "fidelity_status": "EXACT"
+      },
+      "caption": {
+        "source": "Nebula shader field — pass-track deck backdrop",
+        "source_evaluator_safe": true,
+        "credit": "Image by @ruvebal with curriculum-forger 1.1.0, visual-forger 1.1.0, fractal-architect 1.1.0, and pass-track-backgrounds 1.2.0."
+      },
+      "studio_stack": [
+        {
+          "kind": "skill",
+          "name": "curriculum-forger",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "skill",
+          "name": "visual-forger",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "agent+skill",
+          "name": "fractal-architect",
+          "version": "1.1.0"
+        },
+        {
+          "kind": "renderer",
+          "name": "pass-track-backgrounds",
+          "version": "1.2.0"
+        }
+      ],
+      "assets": [
+        {
+          "family": "structure",
+          "svg": "udit-pass-01-structure-6e0fc4ec77d7.svg",
+          "png": "udit-pass-01-structure-6e0fc4ec77d7.png",
+          "sha256": "6e0fc4ec77d7ce2769bc6648368cbf57a02ccccd226437aae79d4918b8964f24"
+        },
+        {
+          "family": "threshold",
+          "svg": "udit-pass-02-threshold-f02bff86a3e9.svg",
+          "png": "udit-pass-02-threshold-f02bff86a3e9.png",
+          "sha256": "f02bff86a3e91e096f4d71f1eec65f30e3810804e599f29057ba7a0163a6fb34"
+        },
+        {
+          "family": "branching",
+          "svg": "udit-pass-03-branching-fc0b55c41ef2.svg",
+          "png": "udit-pass-03-branching-fc0b55c41ef2.png",
+          "sha256": "fc0b55c41ef2b9c4554e6ddda1a6db0c6b0c01834e5b06d62ed8d0885073d8ff"
+        },
+        {
+          "family": "practice",
+          "svg": "udit-pass-04-practice-e5decc1f904f.svg",
+          "png": "udit-pass-04-practice-e5decc1f904f.png",
+          "sha256": "e5decc1f904f2d273f30939fe68802ca204967fa162594a40d34ef7f60240190"
+        },
+        {
+          "family": "feedback",
+          "svg": "udit-pass-05-feedback-8bb88724b744.svg",
+          "png": "udit-pass-05-feedback-8bb88724b744.png",
+          "sha256": "8bb88724b74424365fa2d77084288f095c9ce2f9fcf47067977619d0add7f363"
+        },
+        {
+          "family": "coherence",
+          "svg": "udit-pass-06-coherence-7dec63666f40.svg",
+          "png": "udit-pass-06-coherence-7dec63666f40.png",
+          "sha256": "7dec63666f40479f176508fa67044c6f2c2b7df27a3627c4762b5f59117abfe4"
+        }
+      ]
+    }
+  ]
+}

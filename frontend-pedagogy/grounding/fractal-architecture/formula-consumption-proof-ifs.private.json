@@ -1,0 +1,227 @@
+{
+  "status": "FORMULA_CONSUMED",
+  "source_export": "formula-glossary.public.json",
+  "source_export_sha256": "7ec7ae8464181940fa9c5a86556496291cc8d2ae81c965bee649ad318af57e19",
+  "formula_contract": {
+    "latex": "P = w_1(P) \\cup w_2(P) \\cup \\cdots \\cup w_N(P)",
+    "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>P</mi><mo>&#x0003D;</mo><msub><mi>w</mi><mn>1</mn></msub><mo stretchy=\"false\">&#x00028;</mo><mi>P</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0222A;</mo><msub><mi>w</mi><mn>2</mn></msub><mo stretchy=\"false\">&#x00028;</mo><mi>P</mi><mo stretchy=\"false\">&#x00029;</mo><mo>&#x0222A;</mo><mo>&#x022EF;</mo><mo>&#x0222A;</mo><msub><mi>w</mi><mi>N</mi></msub><mo stretchy=\"false\">&#x00028;</mo><mi>P</mi><mo stretchy=\"false\">&#x00029;</mo></mrow></math>",
+    "fidelity_status": "EXACT",
+    "adapter": "hutchinson-ifs-chaos-game-v1"
+  },
+  "private_reference_anchor": {
+    "formula_id": "88bec2fb-6e89-5ea3-aabc-5191c426607a",
+    "document_id": "3a304b6f-d9e5-5f1e-bcd7-c0e17248ab6b",
+    "node_id": "4ac5d391-be0c-5798-95d7-2e5fbf243e59",
+    "page_index": 239,
+    "printed_page": 225,
+    "crop_relpath": "extract/formula-audit/pages/page-239.png",
+    "crop_sha256": "4f854342f88bf7ee2dbfaba124f7d2585323873f9ad16ca870f2b303663b618a",
+    "audit_notes": [
+      "promoted_from_oracle:eq-1"
+    ]
+  },
+  "release_id": "8186d1015debe655",
+  "studio_stack": [
+    {
+      "kind": "skill",
+      "name": "curriculum-forger",
+      "version": "1.1.0",
+      "path": "/Users/ruvebal/src/.cursor/skills/curriculum-forger/SKILL.md",
+      "sha256": "63623c9704c33085d7096216b68235a35a5122069c6ca8d08d68517b575dabd9",
+      "git_commit": null
+    },
+    {
+      "kind": "skill",
+      "name": "visual-forger",
+      "version": "1.1.0",
+      "path": "/Users/ruvebal/src/.cursor/skills/visual-forger/SKILL.md",
+      "sha256": "2ff702c65945aa79855136a4a03d229ddc7d697130f52b4a56ed7d252394d87b",
+      "git_commit": null
+    },
+    {
+      "kind": "skill",
+      "name": "fractal-architect",
+      "version": "1.2.1",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/.cursor/skills/fractal-architect/SKILL.md",
+      "sha256": "6fa0ed5006e4ef483d57a8d703eed6e4b82608bb16148e30a90f545856d16784",
+      "git_commit": "4a5c345251e7fdedfbe6c65db1c5a4e8d770b8bc"
+    },
+    {
+      "kind": "agent",
+      "name": "fractal-architect",
+      "version": "1.2.0",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/universidadeuropea/digital-creativity-uem/digital-creativity-pedagogy/.cursor/agents/fractal-architect.md",
+      "sha256": "f9ecccde85d90b7d7e1fabc4b703f578a8890db3a3d7afd2e1236616c3a7b2c4",
+      "git_commit": "4a5c345251e7fdedfbe6c65db1c5a4e8d770b8bc"
+    },
+    {
+      "kind": "renderer",
+      "name": "pass-track-backgrounds-ifs",
+      "version": "1.0.0",
+      "path": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/web-foundations/scripts/fractal-architecture/generate-pass-track-backgrounds-ifs.mjs",
+      "sha256": "7404e654e3ac6d6bab662e74e702bc02a64c9a8bb83959f1db7002e03e586242",
+      "git_commit": "602d7ffd0384a432fa3b3f024d101cd5ebcdfa70"
+    }
+  ],
+  "original_release_dir": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655",
+  "public_caption_manifest": "caption-manifests/8186d1015debe655.json",
+  "semantic_index": {
+    "provider": "ollama",
+    "status": "ready",
+    "model": "nomic-embed-text:latest",
+    "path": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/grounding/fractal-architecture/fractal-art-semantic-index.private.json"
+  },
+  "public_asset_policy": "No corpus or local-architecture metadata is embedded in SVG/PNG outputs.",
+  "outputs": [
+    {
+      "file": "udit-ifs-pass-01-structure-204149745a1d.svg",
+      "png": "udit-ifs-pass-01-structure-204149745a1d.png",
+      "sha256": "204149745a1d2a00480ca0f7a183b4622e81363206104cb19a631dc796433352",
+      "brand": "udit",
+      "family": "structure",
+      "seed": 799763898,
+      "backdrop": "hutchinson-ifs-chaos-game-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "8613a81487aadcd911cce09c8e8b147eb2a357890677e927862713ca35d3bcbe",
+      "uuid": "c81ff3f0-47fa-52f3-bdad-a859cc6c6f12",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-01-structure-204149745a1d.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-01-structure-204149745a1d.png"
+      }
+    },
+    {
+      "file": "udit-ifs-pass-02-threshold-06c1fadf29f4.svg",
+      "png": "udit-ifs-pass-02-threshold-06c1fadf29f4.png",
+      "sha256": "06c1fadf29f42dd4d7fa3fc7aeb4d5324f24997755a44dfa7d5b14a605195e7e",
+      "brand": "udit",
+      "family": "threshold",
+      "seed": 1839763264,
+      "backdrop": "hutchinson-ifs-chaos-game-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "5323220edc276bf7aa1fb0c2f3663660893d4538b10d6c02de86425fcdcae2e3",
+      "uuid": "145051d7-45d2-5dcf-a8e9-0dff1f4b4922",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-02-threshold-06c1fadf29f4.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-02-threshold-06c1fadf29f4.png"
+      }
+    },
+    {
+      "file": "udit-ifs-pass-03-branching-f0fcea807666.svg",
+      "png": "udit-ifs-pass-03-branching-f0fcea807666.png",
+      "sha256": "f0fcea807666cd6c148c646db798acf5b0ae4d8b81fc698e8b2a09ddb52aca5b",
+      "brand": "udit",
+      "family": "branching",
+      "seed": 1066016318,
+      "backdrop": "hutchinson-ifs-chaos-game-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "371ddafefee98daa566f63a509b5ac8ffc41f7318bf8e6310737a0cf3c316cf5",
+      "uuid": "6d5d73a1-1650-52b1-bb87-625cb893b097",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-03-branching-f0fcea807666.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-03-branching-f0fcea807666.png"
+      }
+    },
+    {
+      "file": "udit-ifs-pass-04-practice-ff8140bc006d.svg",
+      "png": "udit-ifs-pass-04-practice-ff8140bc006d.png",
+      "sha256": "ff8140bc006d99c440f85cf2b19a39002509ab5860899151014fbf1b0f98bf7d",
+      "brand": "udit",
+      "family": "practice",
+      "seed": 3650225862,
+      "backdrop": "hutchinson-ifs-chaos-game-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "837b3b6eedabe4df27c58ef5280336378cc4796505a9fb8df21b01f1f46804c5",
+      "uuid": "b7ea7df9-db68-5d3a-b54c-6a37dc5a9d47",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-04-practice-ff8140bc006d.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-04-practice-ff8140bc006d.png"
+      }
+    },
+    {
+      "file": "udit-ifs-pass-05-feedback-672bc8c06f79.svg",
+      "png": "udit-ifs-pass-05-feedback-672bc8c06f79.png",
+      "sha256": "672bc8c06f795fac882c0508097aaed6fca9898cfa9ad2671ce053e7352f1e23",
+      "brand": "udit",
+      "family": "feedback",
+      "seed": 2505904507,
+      "backdrop": "hutchinson-ifs-chaos-game-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "001e45293ec37f0d5f3f89c08ee14d1a7327875d765a070cc7ae042c8a1e0368",
+      "uuid": "1202b8c7-d794-56f1-8b1e-b685c4249362",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-05-feedback-672bc8c06f79.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-05-feedback-672bc8c06f79.png"
+      }
+    },
+    {
+      "file": "udit-ifs-pass-06-coherence-5636f2263a4e.svg",
+      "png": "udit-ifs-pass-06-coherence-5636f2263a4e.png",
+      "sha256": "5636f2263a4e5547e810ca5fbc9e2ca0a0605702d4cfc6b979eb9f96f08ff195",
+      "brand": "udit",
+      "family": "coherence",
+      "seed": 3062603919,
+      "backdrop": "hutchinson-ifs-chaos-game-v1",
+      "viewport": [
+        1600,
+        900
+      ],
+      "title_safe_region": {
+        "x": 0,
+        "y": 0,
+        "width": 690,
+        "height": 900
+      },
+      "png_sha256": "dc0e0ba2b7c946d97f57f843a048788106a300fbdab7bbc387c792b3d2bc5eb2",
+      "uuid": "5393c9c0-aa2a-57ae-b365-07b0de337d48",
+      "original_paths": {
+        "svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-06-coherence-5636f2263a4e.svg",
+        "png": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/pass-track/release-8186d1015debe655/udit-ifs-pass-06-coherence-5636f2263a4e.png"
+      }
+    }
+  ]
+}
