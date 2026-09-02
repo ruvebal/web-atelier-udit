@@ -9322,10 +9322,10 @@
       "provider": "ollama",
       "status": "ready",
       "model": "nomic-embed-text:latest",
-      "release_id": "8186d1015debe655",
+      "release_id": "59e1f47d86f1bd19",
       "records": [
         {
-          "figure_uuid": "c81ff3f0-47fa-52f3-bdad-a859cc6c6f12",
+          "figure_uuid": "33a261c7-5148-5849-9aaa-b38919ad3676",
           "text_sha256": "2131d17dd9e884a761fc6050eadc88d9e5067d6264266f938bb539c043a841be",
           "dimensions": 768,
           "vector": [
@@ -10100,7 +10100,7 @@
           ]
         },
         {
-          "figure_uuid": "145051d7-45d2-5dcf-a8e9-0dff1f4b4922",
+          "figure_uuid": "e192cdbb-986d-5667-8f27-73ee54009150",
           "text_sha256": "bd3b3a7bde2f36ebb9fb2315fd711236f4c69d6479d987294a62fed2a41fbbc4",
           "dimensions": 768,
           "vector": [
@@ -10875,7 +10875,7 @@
           ]
         },
         {
-          "figure_uuid": "6d5d73a1-1650-52b1-bb87-625cb893b097",
+          "figure_uuid": "dbff1ccd-4c28-5813-9de1-5ff45950a42c",
           "text_sha256": "a653965036fca442ed1f18d69c2e0a161c46a46b069b50557d204d46df0cc802",
           "dimensions": 768,
           "vector": [
@@ -11650,7 +11650,7 @@
           ]
         },
         {
-          "figure_uuid": "b7ea7df9-db68-5d3a-b54c-6a37dc5a9d47",
+          "figure_uuid": "eceeaf61-daf0-5863-8de3-54637240eebd",
           "text_sha256": "0778a74a605e78cb10737b264c6f2a49f33fabd3660b8b81da326bf1a39aa6bc",
           "dimensions": 768,
           "vector": [
@@ -12425,7 +12425,7 @@
           ]
         },
         {
-          "figure_uuid": "1202b8c7-d794-56f1-8b1e-b685c4249362",
+          "figure_uuid": "6d169423-0171-5a55-9af9-4d90a6d5f5ff",
           "text_sha256": "292bb2a619a68ebf8d481175a02c6565054ee540732d2e5d40cd768c88ff52a0",
           "dimensions": 768,
           "vector": [
@@ -13200,7 +13200,7 @@
           ]
         },
         {
-          "figure_uuid": "5393c9c0-aa2a-57ae-b365-07b0de337d48",
+          "figure_uuid": "339ca956-da40-5cae-a854-03f1c8bd58c5",
           "text_sha256": "16e84d01c0877e38326b07b2793998cbd3916cc9fd77b1fd9f9c7c8d40ea7a17",
           "dimensions": 768,
           "vector": [
@@ -13980,10 +13980,10 @@
       "provider": "ollama",
       "status": "ready",
       "model": "nomic-embed-text:latest",
-      "release_id": "7b16e502f170cfeb",
+      "release_id": "812eb1b06a6c1404",
       "records": [
         {
-          "figure_uuid": "a4fb9c7f-b646-5209-a546-bef9e6a55ee6",
+          "figure_uuid": "0bc37a89-6d4d-524f-ba09-fc8b13df905f",
           "text_sha256": "e1d26d94b8c1f4b4b045b43c6a207877c5c511bbbb504d796b71f14bb66ee52d",
           "dimensions": 768,
           "vector": [
@@ -14758,7 +14758,7 @@
           ]
         },
         {
-          "figure_uuid": "c9a615c8-e4b8-5f00-bf58-ee5795099e1b",
+          "figure_uuid": "1b5509cb-b7b9-5baf-a35e-8888122086a6",
           "text_sha256": "ef426c52fb2bb06d9216886c51bb12bc5aa97e104130d31d27ae6b350ced8a75",
           "dimensions": 768,
           "vector": [
@@ -15533,7 +15533,7 @@
           ]
         },
         {
-          "figure_uuid": "1fa4a2e4-d7ee-5513-95fd-6d0ac1c7c70d",
+          "figure_uuid": "c18618f5-975d-5553-bc3b-8505e66cd2e6",
           "text_sha256": "9261612cef989db7b8b14a3da0cda7c2ebe5c5649ca8e998f9de69a418a3500b",
           "dimensions": 768,
           "vector": [
@@ -16308,7 +16308,7 @@
           ]
         },
         {
-          "figure_uuid": "48b963cc-1fe5-5070-85d5-5addbbab9226",
+          "figure_uuid": "739a47cd-ae33-5d65-bab5-3ddda6cfc076",
           "text_sha256": "5b6d74a2b16b979d5873642d394d18f9b72ae954c28bf56cc5f784eb2c350a47",
           "dimensions": 768,
           "vector": [
@@ -17083,7 +17083,7 @@
           ]
         },
         {
-          "figure_uuid": "9c720d90-7991-57aa-9480-bdfbad9f70f4",
+          "figure_uuid": "dbb06f5e-851c-5322-834b-6c2e997d1b1b",
           "text_sha256": "7bebb2e4f2b93918d07dc435a86b6d7a6a0a0b8d2b084b3e94fcf8c865547302",
           "dimensions": 768,
           "vector": [
@@ -17858,7 +17858,7 @@
           ]
         },
         {
-          "figure_uuid": "63bdbe8e-f4e7-5519-9fce-06ab3c92f9da",
+          "figure_uuid": "fccec579-4b7a-51bf-bdba-496c32cdc950",
           "text_sha256": "b72037e5261e07e04cd2edf9e97a0b5ae7dc589781fcf8107ed55db5f3fb4169",
           "dimensions": 768,
           "vector": [
@@ -18635,6 +18635,6 @@
       ]
     }
   ],
-  "current_release": "7b16e502f170cfeb",
-  "updated_at": "2026-09-02T18:50:48.370Z"
+  "current_release": "812eb1b06a6c1404",
+  "updated_at": "2026-09-02T19:15:44.237Z"
 }

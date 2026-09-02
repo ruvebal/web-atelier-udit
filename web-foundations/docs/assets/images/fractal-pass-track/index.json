@@ -479,8 +479,8 @@
       ]
     },
     {
-      "release_id": "8186d1015debe655",
-      "created_at": "2026-09-02T18:50:42.359Z",
+      "release_id": "59e1f47d86f1bd19",
+      "created_at": "2026-09-02T19:15:38.907Z",
       "brand": "udit",
       "formula": {
         "text": "P = w1(P) ∪ w2(P) ∪ ⋯ ∪ wN(P)",
@@ -492,7 +492,7 @@
         "source_evaluator_safe": true,
         "credit": "Image by @ruvebal with curriculum-forger 1.1.0, visual-forger 1.1.0, fractal-architect 1.2.1, and pass-track-backgrounds-ifs 1.0.0."
       },
-      "figcaption_manifest": "caption-manifests/8186d1015debe655.json",
+      "figcaption_manifest": "caption-manifests/59e1f47d86f1bd19.json",
       "studio_stack": [
         {
           "kind": "skill",
@@ -518,57 +518,57 @@
       "assets": [
         {
           "family": "structure",
-          "uuid": "c81ff3f0-47fa-52f3-bdad-a859cc6c6f12",
-          "svg": "udit-ifs-pass-01-structure-204149745a1d.svg",
-          "png": "udit-ifs-pass-01-structure-204149745a1d.png",
-          "sha256": "204149745a1d2a00480ca0f7a183b4622e81363206104cb19a631dc796433352",
-          "png_sha256": "8613a81487aadcd911cce09c8e8b147eb2a357890677e927862713ca35d3bcbe"
+          "uuid": "33a261c7-5148-5849-9aaa-b38919ad3676",
+          "svg": "udit-ifs-pass-01-structure-2e6f501a3bd2.svg",
+          "png": "udit-ifs-pass-01-structure-2e6f501a3bd2.png",
+          "sha256": "2e6f501a3bd2ce71ea01dd4beed9851f778b0e679f25f7970f7257a7f4338ab2",
+          "png_sha256": "ec47d123041856c2e8649e1e8ad640f74ad4eaab21756419828d819cdd2e6ab0"
         },
         {
           "family": "threshold",
-          "uuid": "145051d7-45d2-5dcf-a8e9-0dff1f4b4922",
-          "svg": "udit-ifs-pass-02-threshold-06c1fadf29f4.svg",
-          "png": "udit-ifs-pass-02-threshold-06c1fadf29f4.png",
-          "sha256": "06c1fadf29f42dd4d7fa3fc7aeb4d5324f24997755a44dfa7d5b14a605195e7e",
-          "png_sha256": "5323220edc276bf7aa1fb0c2f3663660893d4538b10d6c02de86425fcdcae2e3"
+          "uuid": "e192cdbb-986d-5667-8f27-73ee54009150",
+          "svg": "udit-ifs-pass-02-threshold-e027a9c58fb9.svg",
+          "png": "udit-ifs-pass-02-threshold-e027a9c58fb9.png",
+          "sha256": "e027a9c58fb934e291e795054b182baff1a9f7d79025fd16f4b0285146eaf9b3",
+          "png_sha256": "7911ae9fcc0c1e6651b213093d405f9d59e879165bdd42e3597dd0e27ad8af96"
         },
         {
           "family": "branching",
-          "uuid": "6d5d73a1-1650-52b1-bb87-625cb893b097",
-          "svg": "udit-ifs-pass-03-branching-f0fcea807666.svg",
-          "png": "udit-ifs-pass-03-branching-f0fcea807666.png",
-          "sha256": "f0fcea807666cd6c148c646db798acf5b0ae4d8b81fc698e8b2a09ddb52aca5b",
-          "png_sha256": "371ddafefee98daa566f63a509b5ac8ffc41f7318bf8e6310737a0cf3c316cf5"
+          "uuid": "dbff1ccd-4c28-5813-9de1-5ff45950a42c",
+          "svg": "udit-ifs-pass-03-branching-9959a1d2b994.svg",
+          "png": "udit-ifs-pass-03-branching-9959a1d2b994.png",
+          "sha256": "9959a1d2b99437cfc95a1beeee3141a14d00ec6f41e4b147042138f3f0a41e59",
+          "png_sha256": "1755e5e9755f79e46ca23ecda18be8cc409bec467735a8c4c31ce0f0d8b4089c"
         },
         {
           "family": "practice",
-          "uuid": "b7ea7df9-db68-5d3a-b54c-6a37dc5a9d47",
-          "svg": "udit-ifs-pass-04-practice-ff8140bc006d.svg",
-          "png": "udit-ifs-pass-04-practice-ff8140bc006d.png",
-          "sha256": "ff8140bc006d99c440f85cf2b19a39002509ab5860899151014fbf1b0f98bf7d",
-          "png_sha256": "837b3b6eedabe4df27c58ef5280336378cc4796505a9fb8df21b01f1f46804c5"
+          "uuid": "eceeaf61-daf0-5863-8de3-54637240eebd",
+          "svg": "udit-ifs-pass-04-practice-d4881fd86a3e.svg",
+          "png": "udit-ifs-pass-04-practice-d4881fd86a3e.png",
+          "sha256": "d4881fd86a3eab2ebe5265ef31032568b2e6d62c1a3d7d7651a9de1477193954",
+          "png_sha256": "3f46bd392016059d350b06d7138f789ab64c1df21a6fffb61ff7f718f2e51740"
         },
         {
           "family": "feedback",
-          "uuid": "1202b8c7-d794-56f1-8b1e-b685c4249362",
-          "svg": "udit-ifs-pass-05-feedback-672bc8c06f79.svg",
-          "png": "udit-ifs-pass-05-feedback-672bc8c06f79.png",
-          "sha256": "672bc8c06f795fac882c0508097aaed6fca9898cfa9ad2671ce053e7352f1e23",
-          "png_sha256": "001e45293ec37f0d5f3f89c08ee14d1a7327875d765a070cc7ae042c8a1e0368"
+          "uuid": "6d169423-0171-5a55-9af9-4d90a6d5f5ff",
+          "svg": "udit-ifs-pass-05-feedback-7f9691f328c2.svg",
+          "png": "udit-ifs-pass-05-feedback-7f9691f328c2.png",
+          "sha256": "7f9691f328c29fb0e17af10748582ad8031cea03ff05d9dc86e6bec1b6108de3",
+          "png_sha256": "e837a90367ed21e1ee1efedea706eaa7f1595e4b29db8e4263d8d2128474f08c"
         },
         {
           "family": "coherence",
-          "uuid": "5393c9c0-aa2a-57ae-b365-07b0de337d48",
-          "svg": "udit-ifs-pass-06-coherence-5636f2263a4e.svg",
-          "png": "udit-ifs-pass-06-coherence-5636f2263a4e.png",
-          "sha256": "5636f2263a4e5547e810ca5fbc9e2ca0a0605702d4cfc6b979eb9f96f08ff195",
-          "png_sha256": "dc0e0ba2b7c946d97f57f843a048788106a300fbdab7bbc387c792b3d2bc5eb2"
+          "uuid": "339ca956-da40-5cae-a854-03f1c8bd58c5",
+          "svg": "udit-ifs-pass-06-coherence-42e205f11153.svg",
+          "png": "udit-ifs-pass-06-coherence-42e205f11153.png",
+          "sha256": "42e205f111532bb67bf776ffeccc1f13f77ec7844bd70a8b33c2874a154c4efc",
+          "png_sha256": "30e848d11203a311df7bdb6b3bdf1f112f110c04b3deb4ffc890007fe9b4e9a7"
         }
       ]
     },
     {
-      "release_id": "7b16e502f170cfeb",
-      "created_at": "2026-09-02T18:50:48.370Z",
+      "release_id": "812eb1b06a6c1404",
+      "created_at": "2026-09-02T19:15:44.237Z",
       "brand": "udit",
       "formula": {
         "text": "A(s) -> F(s)[+A(s/R)][-A(s/R)]F(s)A(s/R)",
@@ -580,7 +580,7 @@
         "source_evaluator_safe": true,
         "credit": "Image by @ruvebal with curriculum-forger 1.1.0, visual-forger 1.1.0, fractal-architect 1.2.1, and pass-track-backgrounds-lsystem 1.0.0."
       },
-      "figcaption_manifest": "caption-manifests/7b16e502f170cfeb.json",
+      "figcaption_manifest": "caption-manifests/812eb1b06a6c1404.json",
       "studio_stack": [
         {
           "kind": "skill",
@@ -606,51 +606,51 @@
       "assets": [
         {
           "family": "structure",
-          "uuid": "a4fb9c7f-b646-5209-a546-bef9e6a55ee6",
-          "svg": "udit-lsystem-pass-01-structure-0e3ce535d5af.svg",
-          "png": "udit-lsystem-pass-01-structure-0e3ce535d5af.png",
-          "sha256": "0e3ce535d5af0d67359894b57597c4cc3d3030f0021730270df61b0ab24a42f4",
-          "png_sha256": "51d51d7c4b732fe66b4c71ba30c221de6a68adc64147953ff3075cb5ba5ff446"
+          "uuid": "0bc37a89-6d4d-524f-ba09-fc8b13df905f",
+          "svg": "udit-lsystem-pass-01-structure-68e3ab0db248.svg",
+          "png": "udit-lsystem-pass-01-structure-68e3ab0db248.png",
+          "sha256": "68e3ab0db248aa621b11a166295fb9e9a591cc26338abd520321a64012464341",
+          "png_sha256": "8266e30e02184096f9032aa4902dc0978e1f5c046a074e9f8eb4f6ec076683f5"
         },
         {
           "family": "threshold",
-          "uuid": "c9a615c8-e4b8-5f00-bf58-ee5795099e1b",
-          "svg": "udit-lsystem-pass-02-threshold-afed51b98ede.svg",
-          "png": "udit-lsystem-pass-02-threshold-afed51b98ede.png",
-          "sha256": "afed51b98ede3086449dee1c4063c277deab7f1cc95d7ae90f300adaac9e9048",
-          "png_sha256": "e5fc994cdef07aee1b9644b5d76ea1ef4dee0445f1e01777ded8237eb98283d6"
+          "uuid": "1b5509cb-b7b9-5baf-a35e-8888122086a6",
+          "svg": "udit-lsystem-pass-02-threshold-652b9ec8b0e0.svg",
+          "png": "udit-lsystem-pass-02-threshold-652b9ec8b0e0.png",
+          "sha256": "652b9ec8b0e058d41d08940057175351fb3cbb2c703b98402eef04f567bd8451",
+          "png_sha256": "cde8b66e3b7302f4f6b675efeba29812931a58dac13a9be6871634d3655328c5"
         },
         {
           "family": "branching",
-          "uuid": "1fa4a2e4-d7ee-5513-95fd-6d0ac1c7c70d",
-          "svg": "udit-lsystem-pass-03-branching-eafb2b7333d1.svg",
-          "png": "udit-lsystem-pass-03-branching-eafb2b7333d1.png",
-          "sha256": "eafb2b7333d1ee9a0fa96c6a07eb4ef1f27ec4d0f02fe658b5a343a40e610800",
-          "png_sha256": "381680328c84e07cedd555a2778dc8eaa27a97f317da73d52f3681df1ec18320"
+          "uuid": "c18618f5-975d-5553-bc3b-8505e66cd2e6",
+          "svg": "udit-lsystem-pass-03-branching-47ee077623fb.svg",
+          "png": "udit-lsystem-pass-03-branching-47ee077623fb.png",
+          "sha256": "47ee077623fbba62cd3ca9c23c5725a503b3914cf685a99c5da1bbed972f9418",
+          "png_sha256": "8608f37427c6a43288c0f550e14fe3112b6b0284056cc16b27f944bfe98f7aab"
         },
         {
           "family": "practice",
-          "uuid": "48b963cc-1fe5-5070-85d5-5addbbab9226",
-          "svg": "udit-lsystem-pass-04-practice-2920b6d5ef2f.svg",
-          "png": "udit-lsystem-pass-04-practice-2920b6d5ef2f.png",
-          "sha256": "2920b6d5ef2fea1875b0480956b149559c45cfd282ee19438124cdb901e63a2d",
-          "png_sha256": "19e96007cf781482b66aee7af691e1931f91d7c5e2948a6b6e44e1795ac878a6"
+          "uuid": "739a47cd-ae33-5d65-bab5-3ddda6cfc076",
+          "svg": "udit-lsystem-pass-04-practice-6430076cc995.svg",
+          "png": "udit-lsystem-pass-04-practice-6430076cc995.png",
+          "sha256": "6430076cc9951b267ffecd1ae703e484a5133ba110e1b35593f1318d50175398",
+          "png_sha256": "9a32aa9be509662552c1f2bec82bcb91e19470e6a857b5670a4f7052d71dbc64"
         },
         {
           "family": "feedback",
-          "uuid": "9c720d90-7991-57aa-9480-bdfbad9f70f4",
-          "svg": "udit-lsystem-pass-05-feedback-b8645ca61d99.svg",
-          "png": "udit-lsystem-pass-05-feedback-b8645ca61d99.png",
-          "sha256": "b8645ca61d996012d0140f5b6c91e864b516c4b740dd54eb83254c4cc552a792",
-          "png_sha256": "e4925b06dd17edcdff42c41851cfc3693eba2a438ab5c05f241ba4753604a4be"
+          "uuid": "dbb06f5e-851c-5322-834b-6c2e997d1b1b",
+          "svg": "udit-lsystem-pass-05-feedback-f15e8cccf26e.svg",
+          "png": "udit-lsystem-pass-05-feedback-f15e8cccf26e.png",
+          "sha256": "f15e8cccf26e33c2e835d02831567e51adb5ee490a65b2dea3f087203ad259b1",
+          "png_sha256": "bb735d2add99f26fa8788c4324b1f2b5dcba7a82ebd2d6f9f4640e4e57196550"
         },
         {
           "family": "coherence",
-          "uuid": "63bdbe8e-f4e7-5519-9fce-06ab3c92f9da",
-          "svg": "udit-lsystem-pass-06-coherence-20d7fc0c6cd8.svg",
-          "png": "udit-lsystem-pass-06-coherence-20d7fc0c6cd8.png",
-          "sha256": "20d7fc0c6cd83f82e0dd724407cee9141d5a3b911821fd3710656da26c0bc122",
-          "png_sha256": "079d31aee24d33c405a318decdd6b6266a199118f92a3d4a2835eb3eea331ab8"
+          "uuid": "fccec579-4b7a-51bf-bdba-496c32cdc950",
+          "svg": "udit-lsystem-pass-06-coherence-ce589bcf5cc7.svg",
+          "png": "udit-lsystem-pass-06-coherence-ce589bcf5cc7.png",
+          "sha256": "ce589bcf5cc747abe9981f9c84e1587ce6ccd51582be317b9f94d6ceb74cb733",
+          "png_sha256": "78ec40f73401a5e906b19b446c4f44d806466efd4fbd83eec531c2454f239429"
         }
       ]
     }
