@@ -28,6 +28,8 @@ status: complete
 
 > **Prueba de estudio:** Dibuja un mapa de límites y nombra un coste de integración.
 
+> **Caso de estudio de esta unidad:** todos los fragmentos de código marcados **TTOD real** provienen tal cual del repositorio público de [TTOD — 道 The Tao of Development](https://github.com/ruvebal/ttod) (`services/frontend/src/`), un proyecto Astro en producción con content collections, routing i18n, dos islas de framework (React y Svelte) y un backend FastAPI separado. Puedes explorar el código fuente completo y su [documentación pública](https://ruvebal.github.io/ttod/) mientras sigues esta lección.
+
 {% include lesson-semantic-graphic.html %}
 <!-- prettier-ignore-start -->
 
@@ -113,8 +115,9 @@ Mismo vocabulario que la Unidad 2 y la Unidad 5 de FE II — comprueba la etique
 
 - **CodeSandbox-ready** — archivo completo; copiar-pegar; funciona con el scaffold del sandbox.
 - **Excerpt** — patrón parcial, ilustrativo. **No** ejecuta tal cual.
-- **Template** — copiar y sustituir valores marcados antes de usar, sobre todo el esquema Zod y los bloques de content collection, que codifican campos de ejemplo de esta lección, no los tuyos.
-- **Zod en collections** — siempre `import { z } from 'astro/zod'`; nunca `import * as z from "zod"` para esquemas de content collection.
+- **TTOD real** — código tal cual vive hoy en el repo público de [TTOD](https://github.com/ruvebal/ttod), `services/frontend/src/`. No es un ejemplo de juguete: es el proyecto de referencia que vas a estudiar como caso de arquitectura Astro avanzada durante esta unidad.
+- **Template** — copiar y sustituir valores marcados antes de usar, sobre todo el esquema Zod, que codifica campos de ejemplo de esta lección, no los tuyos.
+- **Zod en collections** — en Astro 5, `z` se reexporta desde `astro:content`: `import { defineCollection, z } from 'astro:content';`. TTOD usa exactamente esto (véase abajo) — no necesitas el paquete `zod` como dependencia directa ni `astro/zod`.
 
 ---
 
@@ -137,47 +140,52 @@ Las content collections de Astro ofrecen una forma estructurada de gestionar con
 
 ### Definir una collection
 
-**Template** — la configuración de collections vive en `src/content.config.ts` (Astro 5+; proyectos legacy Astro 4 pueden usar `src/content/config.ts`). Sustituye nombres de campo y rutas por los de tu proyecto.
-
-> **Regla de importación Zod:** usa `import { z } from 'astro/zod'`. **No** uses `import * as z from "zod"` — Astro fija la versión del validador en `astro/zod` para que las comprobaciones en build coincidan con los tipos generados.
+**TTOD real** — la configuración de collections vive en `src/content.config.ts` (Astro 5+; proyectos legacy Astro 4 pueden usar `src/content/config.ts`). Así es exactamente como TTOD define su collection `docs` (documentación docs-first bilingüe, la que estás leyendo tú mismo ahora en modo espejo):
 
 ```ts
-// src/content.config.ts
-import { defineCollection } from 'astro:content';
+// services/frontend/src/content.config.ts — TTOD, tal cual en el repo
+import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { z } from 'astro/zod';
 
-const blog = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
+const docs = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/docs' }),
   schema: z.object({
     title: z.string(),
-    publishDate: z.coerce.date(),
-    tags: z.array(z.string()),
-    image: z.string().optional(),
+    description: z.string(),
+    locale: z.enum(['en', 'es']),
+    order: z.number().int().nonnegative(),
   }),
 });
 
-export const collections = { blog };
+export const collections = { docs };
 ```
 
-El glob `**/*.{md,mdx}` acepta Markdown plano (`.md`) y [MDX](https://mdxjs.com/) (`.mdx`) — Markdown con componentes JSX embebidos.
+El glob `**/*.{md,mdx}` acepta Markdown plano (`.md`) y [MDX](https://mdxjs.com/) (`.mdx`) — Markdown con componentes JSX embebidos. Fíjate en el campo `locale: z.enum(['en', 'es'])`: TTOD no tiene una collection por idioma, sino un único esquema con el idioma como dato validado — la misma decisión que vas a tomar tú en Entrega 1.
 
 ### Usar collections en plantillas
 
+**TTOD real** — la ruta dinámica `src/pages/[locale]/docs/[...slug].astro` consulta la collection filtrando por el `locale` de la URL y renderiza el Markdown con `render()`:
+
 ```astro
 ---
-import { getCollection } from 'astro:content';
-import BlogPost from '../components/BlogPost.astro';
+// services/frontend/src/pages/[locale]/docs/[...slug].astro — TTOD, tal cual en el repo
+import { getCollection, render } from 'astro:content';
+import Page from '../../../layouts/Page.astro';
+import { isLocale, labels } from '../../../content/wisdom';
 
-const allPosts = await getCollection('blog');
-const sortedPosts = allPosts
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-  .slice(0, 10);
+const locale = Astro.params.locale;
+if (!isLocale(locale)) return new Response(null, { status: 404 });
+const slug = Astro.params.slug || 'introduction';
+const entries = await getCollection('docs', ({ data }) => data.locale === locale);
+const entry = entries.find((item) => item.id === `${locale}/${slug}`);
+if (!entry) return new Response(null, { status: 404 });
+const { Content } = await render(entry);
 ---
 
-{sortedPosts.map((post) => (
-  <BlogPost post={post} />
-))}
+<Page lang={locale} title={entry.data.title}>
+  <h1>{entry.data.title}</h1>
+  <Content />
+</Page>
 ```
 
 Esto te da:
@@ -193,51 +201,76 @@ Astro admite varias estrategias de obtención de datos:
 
 ### Carga de datos en servidor (SSR)
 
-**Excerpt** — Astro carga datos en el frontmatter (servidor/tiempo de build), no con `getServerSideProps` al estilo Next.js:
+**TTOD real** — Astro carga datos en el frontmatter (servidor, en cada petición porque `output: 'server'`), no con `getServerSideProps` al estilo Next.js. `src/pages/[locale]/quote.astro` pide una cita en directo al backend FastAPI antes de renderizar:
 
 ```astro
 ---
-const response = await fetch('https://api.example.com/data');
-const data = await response.json();
+// services/frontend/src/pages/[locale]/quote.astro — TTOD, tal cual en el repo
+const backend = import.meta.env.BACKEND_URL ?? 'http://backend:8000';
+const response = await fetch(`${backend}/api/v1/wisdom/sample`, {
+  headers: { accept: 'application/json' }
+});
+if (!response.ok) {
+  throw new Error(`Backend quote request failed (${response.status})`);
+}
+const payload: unknown = await response.json();
+const quote = payload.find((entry) => entry?.lang === locale) ?? payload[0];
 ---
 
-<h1>{data.title}</h1>
+<blockquote>{quote.text}</blockquote>
 ```
+
+Fíjate en el fallo explícito (`throw new Error`) si el backend no responde, en vez de renderizar una página a medias — una decisión de arquitectura que vale la pena justificar en tu propia nota de release.
 
 ### Hidratación en cliente (islas)
 
-**Excerpt** — asume hooks de React importados en el archivo del componente:
+**TTOD real** — la isla `GraphIsland.svelte` no recibe datos por props del `.astro` padre; los pide ella misma en `onMount`, en paralelo, desde el navegador:
 
 ```astro
 ---
-import DataComponent from '../components/DataComponent.jsx';
+// services/frontend/src/pages/[locale]/graph.astro — TTOD, tal cual en el repo
+import GraphIsland from '../../components/graph/GraphIsland.svelte';
 ---
-
-<DataComponent client:load />
+<GraphIsland client:load />
 ```
 
-```jsx
-// DataComponent.jsx — Excerpt
-import { useEffect, useState } from 'react';
+```svelte
+<!-- services/frontend/src/components/graph/GraphIsland.svelte — TTOD, excerpt del onMount -->
+<script lang="ts">
+  import { onMount } from 'svelte';
+  let allNodes = $state([]);
+  let loading = $state(true);
+  let error = $state('');
 
-export default function DataComponent() {
-  const [data, setData] = useState(null);
-  
-  useEffect(() => {
-    fetch('https://api.example.com/data')
-      .then(res => res.json())
-      .then(setData);
-  }, []);
-  
-  if (!data) return <p>Loading...</p>;
-  return <h1>{data.title}</h1>;
-}
+  onMount(() => {
+    void (async () => {
+      try {
+        const [graphResponse, wisdomResponse] = await Promise.all([
+          fetch('/api/v1/graph', { cache: 'no-store' }),
+          fetch('/api/v1/wisdom/sample', { cache: 'no-store' })
+        ]);
+        if (!graphResponse.ok || !wisdomResponse.ok) throw new Error('The live graph is unavailable.');
+        const graph = await graphResponse.json();
+        const wisdom = await wisdomResponse.json();
+        allNodes = joinTags(graph.nodes, wisdom);
+      } catch (reason) {
+        error = reason instanceof Error ? reason.message : 'The live graph is unavailable.';
+      } finally {
+        loading = false;
+      }
+    })();
+  });
+</script>
 ```
 
-### Funciones edge
+Este es Svelte 5 con *runes* (`$state`, `$derived`), no React — pero el patrón (isla se hidrata, isla pide sus propios datos, isla gestiona su propio estado de carga/error) es idéntico al que usarías con `useEffect` + `useState` en React.
 
-```js
-// src/pages/api/data.json.ts
+### Por qué TTOD no usa funciones edge de Astro
+
+TTOD **no** tiene rutas `src/pages/api/*.ts` dentro de Astro. Toda la obtención de datos —SSR en frontmatter o hidratación en isla— llama a un backend FastAPI independiente (`services/backend/`) por HTTP. Es una decisión de arquitectura real, no una omisión: separa el contrato de API (Python/FastAPI, con su propio ciclo de vida y pruebas) de la capa de presentación (Astro). Si tu proyecto de equipo sí necesita una función edge propia de Astro, la sintaxis es:
+
+```ts
+// src/pages/api/data.json.ts — Excerpt genérico, no usado en TTOD
 export async function GET({ request }) {
   const response = await fetch('https://api.example.com/data');
   const data = await response.json();
@@ -248,9 +281,9 @@ export async function GET({ request }) {
 ```
 
 **Elige según:**
-- **SSR** — Contenido necesario para SEO, datos que cambian con frecuencia
-- **Cliente** — Datos específicos de usuario, actualizaciones en tiempo real
-- **Edge** — Contenido personalizado con baja latencia
+- **SSR (frontmatter `.astro`)** — Contenido necesario para SEO, datos que cambian con frecuencia — así lo hace TTOD en `quote.astro`
+- **Cliente (isla)** — Datos específicos de usuario, actualizaciones en tiempo real, o widget que puede fallar/cargar de forma independiente del resto de la página — así lo hace TTOD en `GraphIsland.svelte`
+- **Edge (`src/pages/api/*.ts`)** — Contenido personalizado con baja latencia servido por el propio Astro, sin backend separado — patrón disponible pero no elegido por TTOD
 
 ---
 
@@ -264,40 +297,39 @@ Entrega 1 debe publicar un **sitio Astro bilingüe** usando el [routing i18n int
 - Al menos una página compartida existe en ambos locales (p. ej. home + una ruta interior)
 - Los enlaces de locale usan helpers de Astro — sin cadenas `/en/foo` hard-coded repartidas en componentes
 
-**Template** — sustituye códigos de locale y `prefixDefaultLocale` por la decisión de tu equipo en Entrega 1; documenta la elección en `decisions.md`:
+**TTOD real** — así es la configuración `i18n` de `astro.config.mjs` tal cual vive en el repo (nota `prefixDefaultLocale: true`: TTOD prefija **ambos** locales, incluido el por defecto — `/en/` y `/es/`, nunca una ruta sin prefijo):
 
 ```js
-// astro.config.mjs — Excerpt
+// services/frontend/astro.config.mjs — TTOD, tal cual en el repo
 import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
 
 export default defineConfig({
+  output: 'server',
+  adapter: node({ mode: 'standalone' }),
   i18n: {
-    defaultLocale: 'es',
-    locales: ['es', 'en'],
-    routing: {
-      prefixDefaultLocale: false, // es en /, en en /en/ — o true para /es/ + /en/
-    },
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+    routing: { prefixDefaultLocale: true }
   },
 });
 ```
 
-**Excerpt** — enlace consciente del locale en un layout (ajusta rutas de import):
+**TTOD real (con matiz honesto)** — TTOD **no** usa los helpers `getRelativeLocaleUrl()` / `getAbsoluteLocaleUrl()` de `astro:i18n` que la documentación oficial recomienda. En su lugar, cada página lee `Astro.params.locale` (viene de la carpeta dinámica `src/pages/[locale]/`) y construye las rutas a mano; el selector de idioma en `Page.astro` hace el cambio de locale con una regexp sobre la URL actual:
 
 ```astro
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
-
-const esHome = getRelativeLocaleUrl('es', '/');
-const enHome = getRelativeLocaleUrl('en', '/');
+// services/frontend/src/layouts/Page.astro — TTOD, tal cual en el repo
+const { lang } = Astro.props; // 'en' | 'es'
+const otherLocale = lang === 'en' ? 'es' : 'en';
+const switchPath = '/' + otherLocale + Astro.url.pathname.replace(/^\/(en|es)/, '');
 ---
-
-<nav aria-label="Idioma">
-  <a href={esHome} hreflang="es">ES</a>
-  <a href={enHome} hreflang="en">EN</a>
-</nav>
+<a href={switchPath} lang={otherLocale}>{lang === 'en' ? 'Español' : 'English'}</a>
 ```
 
-Organiza páginas bajo `src/pages/` siguiendo la [estructura de carpetas de la guía i18n de Astro](https://docs.astro.build/es/guides/internationalization/#create-localized-pages) según tu `prefixDefaultLocale`. Ejecuta `npm run build` e inspecciona `dist/` — ambas URLs de entrada de locale deben existir antes de Entrega 1.
+Esto **funciona** — es lo que corre en producción — pero es más frágil que los helpers oficiales: la regexp asume que el locale es siempre el primer segmento y no valida el resultado. Es un ejemplo honesto de deuda técnica real, no un patrón ideal a copiar sin más: en tu propio proyecto, preferir `getRelativeLocaleUrl()` te ahorra mantener esa regexp a mano.
+
+Organiza páginas bajo `src/pages/` siguiendo la [estructura de carpetas de la guía i18n de Astro](https://docs.astro.build/es/guides/internationalization/#create-localized-pages) — TTOD usa el patrón de carpeta dinámica `src/pages/[locale]/` con una comprobación de guarda (`if (locale !== 'en' && locale !== 'es') return new Response(null, { status: 404 })`) en vez de duplicar carpetas `en/` y `es/`. Ejecuta `npm run build` e inspecciona `dist/` — ambas URLs de entrada de locale deben existir antes de Entrega 1.
 
 > **No cuenta para Entrega 1:** un sitio Astro monolingüe con diccionario en cliente y sin rutas con prefijo de locale.
 
@@ -309,38 +341,51 @@ La arquitectura de islas de Astro facilita mezclar frameworks:
 
 ### Configurar varios frameworks
 
-```bash
-npx astro add react vue svelte
+**TTOD real** — la integración de frameworks se declara en `astro.config.mjs` (React y Svelte; TTOD no usa Vue):
+
+```js
+// services/frontend/astro.config.mjs — TTOD, tal cual en el repo
+import mdx from '@astrojs/mdx';
+import react from '@astrojs/react';
+import svelte from '@astrojs/svelte';
+
+export default defineConfig({
+  integrations: [mdx(), react(), svelte()],
+});
 ```
 
-### Usar frameworks juntos
+### Usar frameworks juntos — pero no en la misma página
+
+**TTOD real** — a diferencia del dashboard de ejemplo típico (varios frameworks conviviendo en una sola página), TTOD asigna **un framework por ruta**, cada uno en su propia página `.astro`:
 
 ```astro
 ---
-import ReactCounter from '../components/ReactCounter.jsx';
-import VueChart from '../components/VueChart.vue';
-import SvelteMap from '../components/SvelteMap.svelte';
+// services/frontend/src/pages/[locale]/oracle.astro — TTOD, isla React
+import OracleTerminal from '../../components/oracle/OracleTerminal';
 ---
-
-<h1>Multi-Framework Dashboard</h1>
-
-<div class="dashboard-grid">
-  <ReactCounter client:load />
-  <VueChart client:visible />
-  <SvelteMap client:idle />
-</div>
+<OracleTerminal locale={locale} client:load />
 ```
 
-**Beneficios:**
-- **La herramienta adecuada** — React para estado complejo, Vue para reactividad simple, Svelte para rendimiento
-- **Sin guerras de frameworks** — Equipos trabajan en su framework preferido dentro del mismo proyecto
-- **Bundles aislados** — Cada framework carga solo su código, sin bundle monolítico
+```astro
+---
+// services/frontend/src/pages/[locale]/graph.astro — TTOD, isla Svelte
+import GraphIsland from '../../components/graph/GraphIsland.svelte';
+---
+<GraphIsland client:load />
+```
+
+El Oracle (terminal de streaming SSE, estado de conversación) es React; el grafo de conocimiento (layout radial SVG, animaciones GSAP) es Svelte. Ninguna página carga los dos. Es una frontera de framework **por funcionalidad**, no por conveniencia — más fácil de razonar y de asignar en equipo que una única página con tres islas compitiendo por el mismo DOM.
+
+**Beneficios (según se observan en TTOD):**
+- **La herramienta adecuada** — React para el estado de conversación con múltiples turnos (Oracle); Svelte para animación e interacción directa con SVG (grafo)
+- **Ownership claro por equipo** — quien trabaja el Oracle nunca toca el código Svelte del grafo, y viceversa
+- **Bundles aislados** — cada ruta carga solo el framework que necesita; `/oracle` nunca descarga el runtime de Svelte
 
 ### Cuándo usar multi-framework
 
-- **Equipos con perfiles mixtos** — Desarrolladores React poseen islas React, Vue poseen islas Vue
-- **Migración legacy** — Migrar gradualmente componentes Vue antiguos a un proyecto Astro nuevo
-- **Casos especializados** — Svelte para widgets críticos en rendimiento, React para gestión de estado compleja
+- **Equipos con perfiles mixtos** — Desarrolladores React poseen islas React, Svelte poseen islas Svelte — así reparte TTOD sus dos equipos de isla (Oracle y Grafo)
+- **Migración legacy** — Migrar gradualmente componentes antiguos de un framework a un proyecto Astro nuevo
+- **Casos especializados** — Svelte para widgets críticos en rendimiento (animación SVG), React para gestión de estado compleja (streaming, historial de conversación)
 
 ---
 
@@ -361,14 +406,14 @@ Astro encaja especialmente bien en composición micro-frontend:
 │   └──────────┘  └──────────┘  └──────────┘          │
 │   composición iframe o portal (pesada, lenta)            │
 │                                                          │
-│   Enfoque B: Composición primero (Astro)                  │
+│   Enfoque B: Composición primero (Astro) — así es TTOD     │
 │   ┌──────────────────────────────────────────────┐     │
-│   │ Router Astro                                 │     │
-│   │   ├─ Isla React (widget interactivo)        │     │
-│   │   ├─ Isla Vue (componente formulario)        │     │
-│   │   └─ Isla Svelte (visualización mapa)        │     │
+│   │ Router Astro ([locale] + content collections)│     │
+│   │   ├─ /oracle → Isla React (terminal SSE)     │     │
+│   │   ├─ /graph  → Isla Svelte (grafo SVG+GSAP)  │     │
+│   │   └─ /quote, /wisdom → SSR puro, cero JS      │     │
 │   └──────────────────────────────────────────────┘     │
-│   Routing, estilos y datos compartidos (ligero)        │
+│   Backend FastAPI separado sirve los datos (HTTP)      │
 │                                                          │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -381,24 +426,25 @@ El enfoque composición-primero de Astro te da:
 
 ### Objetivos de build
 
-**Excerpt** — modo de salida del sitio en `astro.config.mjs` (los esquemas de collections siguen en `src/content.config.ts`):
+**TTOD real** — TTOD elige `output: 'server'` (SSR en todas las rutas, no SSG) con el adaptador Node en modo `standalone`, porque `quote.astro` y la ruta `wisdom` necesitan pedir datos frescos al backend en cada petición, no solo en build:
 
 ```js
-// astro.config.mjs
+// services/frontend/astro.config.mjs — TTOD, tal cual en el repo
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel';
+import node from '@astrojs/node';
 
 export default defineConfig({
-  output: 'static', // SSG
-  // output: 'server', // SSR — flags prerender por ruta (véase Unidad 2)
-  adapter: vercel(), // con SSR: Vercel, Netlify, Cloudflare, etc.
+  output: 'server',
+  adapter: node({ mode: 'standalone' }),
 });
 ```
 
+El adaptador Node `standalone` produce un servidor Node.js autocontenido (sin depender de un runtime serverless de terceros) — coherente con el principio del estudio de TTOD de "todo corre en local, sin lock-in de proveedor cloud". Si tu equipo despliega en Vercel/Netlify/Cloudflare, el adaptador cambia pero el resto del código no.
+
 **Elige según:**
-- **Estático** — Sitios de contenido, blogs, documentación (más rápido, más barato)
-- **Servidor** — Contenido dinámico, páginas por usuario (más complejo; usa `export const prerender = false` en rutas dinámicas)
-- **Mixto** — `output: 'server'` con flags `prerender` por ruta (sustituye al legacy `output: 'hybrid'`)
+- **Estático (`output: 'static'`)** — Sitios de contenido, blogs, documentación (más rápido, más barato) — no es lo que hace TTOD, porque necesita datos en vivo
+- **Servidor (`output: 'server'`)** — Contenido dinámico, páginas por usuario — así lo hace TTOD, con `node({ mode: 'standalone' })`
+- **Mixto** — `output: 'server'` con flags `prerender` por ruta para las páginas que sí pueden ser estáticas (sustituye al legacy `output: 'hybrid'`)
 
 ---
 
@@ -424,6 +470,8 @@ export default defineConfig({
 - **Data Fetching** — https://docs.astro.build/es/guides/server-side-rendering/
 - **Multi-Framework Rendering** — https://docs.astro.build/es/guides/framework-components/
 - **Deployment Targets** — https://docs.astro.build/es/guides/deploy/
+- **TTOD — código fuente** — https://github.com/ruvebal/ttod/tree/main/services/frontend/src (todos los ejemplos "TTOD real" de esta unidad)
+- **TTOD — documentación pública y modelo docente** — https://ruvebal.github.io/ttod/es/teaching/tasks/ (tareas asignables detalladas, útil si tu equipo adopta TTOD como referencia para Entrega 1)
 
 ---
 
