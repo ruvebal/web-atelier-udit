@@ -85,14 +85,14 @@ status: complete
 | Síntoma | Causa probable | Qué hacer |
 | --- | --- | --- |
 | Build falla en frontmatter | Desajuste de tipos Zod (fecha vs string, campo ausente) | Alinear esquema en `src/content.config.ts`; leer la línea de error Zod |
-| Importar `z` desde `"zod"` | La versión del paquete npm puede no coincidir con el validador de Astro | Usar `import { z } from 'astro/zod'`, no `import * as z from "zod"` |
+| Importar `z` desde `"zod"` | La versión del paquete npm puede no coincidir con el validador de Astro | Usar `import { z } from 'astro:content'` (así lo hace TTOD), no `import * as z from "zod"` |
 | «Funciona en dev, falla en build» | Fetch SSR solo en servidor de desarrollo | Ejecutar `npm run build` antes de abrir PR |
 | La página fetcha como SPA | Isla cliente donde bastan datos en build | Preferir `fetch` en frontmatter de `.astro` para contenido SEO público |
 | Patrones Next.js en `.astro` | Copiado `getServerSideProps` de docs React | Usar fetch en frontmatter Astro (véase excerpt de obtención de datos) |
 | Hinchazón de bundle multi-framework | Cada isla usa `client:load` | Escalonar con `client:visible` / `client:idle`; justificar cada isla |
 | Lab de equipo bloqueado | Sin issue en backlog | Usar issue semilla del profesor; no inventar funcionalidades ficticias |
 | `/en/…` o `/es/…` devuelve 404 tras build | Falta `i18n` o páginas fuera de carpetas de locale | Configurar `i18n` en `astro.config.mjs`; duplicar rutas según [routing i18n de Astro](https://docs.astro.build/es/guides/internationalization/) |
-| El selector de idioma salta a ruta incorrecta | URLs hard-coded sin prefijo de locale | Usar `getRelativeLocaleUrl()` / `getAbsoluteLocaleUrl()` de `astro:i18n` |
+| El selector de idioma salta a ruta incorrecta | URLs hard-coded sin prefijo de locale | Preferir `getRelativeLocaleUrl()` / `getAbsoluteLocaleUrl()` de `astro:i18n`; TTOD usa una regexp manual sobre `Astro.url.pathname` en su lugar — funciona, pero es más frágil (véase Routing de internacionalización) |
 
 ---
 
