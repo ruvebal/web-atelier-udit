@@ -424,6 +424,8 @@ export default defineConfig({
 - **Data Fetching** — https://docs.astro.build/en/guides/server-side-rendering/
 - **Multi-Framework Rendering** — https://docs.astro.build/en/guides/multi-framework-rendering/
 - **Deployment Targets** — https://docs.astro.build/en/guides/deploy/
+- **Svelte** — https://svelte.dev/ (official docs for the Svelte island above)
+- **Zod** — https://zod.dev/api (schema API reference; remember Astro's own `astro/zod` re-export pins the version — see the import rule above)
 
 ---
 

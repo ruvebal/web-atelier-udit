@@ -226,7 +226,7 @@ if ('serviceWorker' in navigator) {
 
 ## 📦 Caching Strategies
 
-Different caching patterns for different use cases:
+Different caching patterns for different use cases. `caches.match`, `caches.open`, and `cache.put` below are the browser's [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) — read it once so the calls below aren't just copied blind.
 
 ### Cache-First Strategy
 
@@ -370,6 +370,7 @@ The manifest makes your app installable:
 
 - **PWA Checklist** — https://web.dev/progressive-web-apps-checklist/
 - **Service Worker API** — https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+- **Cache API** — https://developer.mozilla.org/en-US/docs/Web/API/Cache (the storage the caching strategies below actually call — `caches.open`, `.match`, `.put`, `.delete`)
 - **Workbox** — https://developer.chrome.com/docs/workbox (service worker library)
 - **Web App Manifest** — https://developer.mozilla.org/en-US/docs/Web/Manifest
 
