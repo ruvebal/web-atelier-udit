@@ -159,13 +159,13 @@ By completing this track, students will be able to:
 
 ## 📊 Evaluation
 
-**FE II weights** (reconciled with `desarrollo-web-front-end-i-2025-2026.json` and Phase 3):
+**FE II weights** (reconciled with `frontend-pedagogy/cv/guides/desarrollo-web-front-end-ii-2026-2027.json`, which itself matches `cv/udit-ruvebal-frontend-ii-cv.md`'s published Evaluación table):
 
 | Component                                    | %   |
 | -------------------------------------------- | --- |
 | Pruebas (Tests)                              | 30% |
-| Trabajos, entregables y proyectos (Projects) | 60% |
-| Portafolio (Problem-solving portfolio)       | 10% |
+| Trabajos, entregables y proyectos (Projects) | 50% |
+| Portafolio (Problem-solving portfolio)       | 20% |
 {: .track-evaluation-table}
 
 **Track-level breakdown** (aligned with institutional weights and evaluation philosophy):
