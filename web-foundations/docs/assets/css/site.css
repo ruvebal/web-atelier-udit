@@ -1936,6 +1936,44 @@ html.dark,
 	font-weight: 600;
 }
 
+/* In-lesson key idea / summary callouts (lighter than .lesson-framing) */
+.lesson-idea {
+	margin: 1.25rem 0;
+	padding: 0.85rem 1.15rem;
+	border-left: 4px solid var(--link);
+	border-radius: 0 0.5rem 0.5rem 0;
+	background: rgb(15 23 42 / 0.035);
+	color: var(--text);
+}
+
+.lesson-idea p {
+	margin: 0;
+}
+
+.lesson-idea p + p {
+	margin-top: 0.5rem;
+}
+
+.lesson-idea strong {
+	font-weight: 600;
+}
+
+.lesson-summary {
+	margin: 1.25rem 0 1.75rem;
+	padding: 1rem 1.25rem;
+	border: 1px dashed rgb(148 163 184 / 0.45);
+	border-radius: 0.75rem;
+	background: rgb(15 23 42 / 0.03);
+}
+
+.lesson-summary > :first-child {
+	margin-top: 0;
+}
+
+.lesson-summary > :last-child {
+	margin-bottom: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.lesson-cover img {
 		transition: none;

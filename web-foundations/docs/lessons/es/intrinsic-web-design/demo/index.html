@@ -1,0 +1,306 @@
+---
+permalink: /lessons/es/intrinsic-web-design/demo/
+layout: null
+---
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Galería intrínseca — demo</title>
+		<style>
+			:root {
+				--surface: #f1f5f9;
+				--card: #ffffff;
+				--content: #0f172a;
+				--muted: #475569;
+				--accent: #2563eb;
+				--border: #e2e8f0;
+				--radius: 0.75rem;
+				--gap: 1rem;
+				--text: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				font-family: system-ui, sans-serif;
+				font-size: var(--text);
+				line-height: 1.5;
+				color: var(--content);
+				background: var(--surface);
+			}
+
+			.intro {
+				max-width: 72rem;
+				margin-inline: auto;
+				padding: 1.25rem var(--gap) 0.5rem;
+			}
+
+			.intro h1 {
+				margin: 0 0 0.35rem;
+				font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+			}
+
+			.intro p {
+				margin: 0;
+				color: var(--muted);
+			}
+
+			/* Página: también intrínseca — sin @media de layout */
+			.page {
+				display: grid;
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax(min(100%, 16rem), 1fr)
+				);
+				gap: var(--gap);
+				padding: var(--gap);
+				max-width: 72rem;
+				margin-inline: auto;
+			}
+
+			.region {
+				container-type: inline-size;
+				container-name: region;
+				min-width: 0;
+				padding: var(--gap);
+				border-radius: var(--radius);
+				background: #e2e8f0;
+			}
+
+			.region--wide {
+				background: transparent;
+				padding: 0;
+			}
+
+			.region h2 {
+				margin: 0 0 0.75rem;
+				font-size: 0.95rem;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+				color: var(--muted);
+			}
+
+			.gallery {
+				display: grid;
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax(min(100%, 13rem), 1fr)
+				);
+				gap: var(--gap);
+			}
+
+			.card {
+				display: flex;
+				flex-direction: column;
+				gap: 0.65rem;
+				padding: 0.85rem;
+				background: var(--card);
+				border: 1px solid var(--border);
+				border-radius: var(--radius);
+				min-width: 0;
+			}
+
+			.card img {
+				display: block;
+				width: 100%;
+				aspect-ratio: 16 / 10;
+				object-fit: cover;
+				border-radius: calc(var(--radius) - 0.25rem);
+				background: #cbd5e1;
+			}
+
+			.card h3 {
+				margin: 0;
+				font-size: 1.05rem;
+			}
+
+			.card p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.95rem;
+				flex: 1;
+			}
+
+			.card a {
+				color: var(--accent);
+			}
+
+			.card a:focus-visible {
+				outline: 3px solid #f59e0b;
+				outline-offset: 2px;
+			}
+
+			/* Misma tarjeta: fila cuando el REGION es ancho */
+			@container region (min-width: 28rem) {
+				.card {
+					flex-direction: row;
+					align-items: stretch;
+				}
+
+				.card img {
+					width: min(42%, 12rem);
+					flex-shrink: 0;
+					aspect-ratio: 1 / 1;
+					height: auto;
+					align-self: stretch;
+				}
+
+				.card-body {
+					display: flex;
+					flex-direction: column;
+					gap: 0.5rem;
+					min-width: 0;
+					flex: 1;
+				}
+			}
+
+			/* Subgrid: alinear título / cuerpo / pie entre columnas */
+			.gallery--aligned {
+				grid-auto-rows: auto;
+			}
+
+			@supports (grid-template-rows: subgrid) {
+				.gallery--aligned {
+					/* cuatro pistas: imagen · título · texto · pie */
+				}
+
+				.gallery--aligned .card {
+					display: grid;
+					grid-template-rows: subgrid;
+					grid-row: span 4;
+					gap: 0.65rem;
+				}
+
+				@container region (min-width: 28rem) {
+					.gallery--aligned .card {
+						display: flex;
+						flex-direction: row;
+					}
+				}
+			}
+
+			.fallback-note {
+				display: none;
+				margin: 1rem;
+				padding: 0.75rem 1rem;
+				background: #fef3c7;
+				border-left: 4px solid #f59e0b;
+			}
+
+			@supports not (container-type: inline-size) {
+				.fallback-note {
+					display: block;
+				}
+			}
+
+			.hint {
+				max-width: 72rem;
+				margin: 0 auto 1.5rem;
+				padding: 0 var(--gap);
+				font-size: 0.9rem;
+				color: var(--muted);
+			}
+
+			code {
+				font-size: 0.88em;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="fallback-note">
+			Tu navegador no soporta container queries. Actualiza Chrome, Firefox,
+			Safari o Edge.
+		</p>
+
+		<header class="intro">
+			<h1>Galería intrínseca</h1>
+			<p>
+				Cero <code>@media (min-width…)</code> de layout. Estrecha la ventana
+				<em>o</em> solo una columna: las tarjetas responden al cajón
+				(<code>@container</code>).
+			</p>
+		</header>
+
+		<div class="page">
+			<aside class="region" aria-label="Sidebar estrecho">
+				<h2>Sidebar (cajón estrecho)</h2>
+				<div class="gallery">
+					<article class="card">
+						<img
+							src="https://picsum.photos/seed/atelier1/640/400"
+							alt=""
+							width="640"
+							height="400"
+						/>
+						<div class="card-body">
+							<h3>Proyecto A</h3>
+							<p>En cajón estrecho la tarjeta se apila.</p>
+							<footer><a href="#">Ver proyecto</a></footer>
+						</div>
+					</article>
+				</div>
+			</aside>
+
+			<main class="region region--wide" aria-label="Contenido principal">
+				<h2>Main (cajón ancho)</h2>
+				<div class="gallery gallery--aligned">
+					<article class="card">
+						<img
+							src="https://picsum.photos/seed/atelier2/640/400"
+							alt=""
+							width="640"
+							height="400"
+						/>
+						<div class="card-body">
+							<h3>Proyecto B</h3>
+							<p>
+								Más texto aquí. En cajón ancho: imagen + cuerpo en fila.
+							</p>
+							<footer><a href="#">Ver proyecto</a></footer>
+						</div>
+					</article>
+					<article class="card">
+						<img
+							src="https://picsum.photos/seed/atelier3/640/400"
+							alt=""
+							width="640"
+							height="400"
+						/>
+						<div class="card-body">
+							<h3>Proyecto C</h3>
+							<p>Descripción breve.</p>
+							<footer><a href="#">Ver proyecto</a></footer>
+						</div>
+					</article>
+					<article class="card">
+						<img
+							src="https://picsum.photos/seed/atelier4/640/400"
+							alt=""
+							width="640"
+							height="400"
+						/>
+						<div class="card-body">
+							<h3>Proyecto D — título largo a propósito</h3>
+							<p>
+								Cuerpo largo: observa alineación entre columnas cuando el
+								grid tiene varias pistas.
+							</p>
+							<footer><a href="#">Ver proyecto</a></footer>
+						</div>
+					</article>
+				</div>
+			</main>
+		</div>
+
+		<p class="hint">
+			Consejo: en DevTools, selecciona <code>.region</code> y restringe su
+			ancho (o redimensiona el panel). El cambio de tarjeta apilada → fila
+			ocurre sin cambiar el viewport global.
+		</p>
+	</body>
+</html>

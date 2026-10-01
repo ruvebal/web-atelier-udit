@@ -8,11 +8,14 @@ author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /lessons/en/intrinsic-web-design/
 week: 3
+description: 'Responsive layout without viewport media queries: fluid grid, @container, and subgrid on your portfolio gallery.'
+tags: [css, container-queries, subgrid, intrinsic-design, responsive]
+status: complete
 ---
 
 <aside class="lesson-framing" aria-label="Master idea and field lens">
 <p><strong>Master idea:</strong> Responsive layout is relationship-aware, not device-shaped.</p>
-<p><strong>Field lens:</strong> **Practice anchor:** responsive design adapts content to available space. **Frontier signal:** container queries and subgrid move responsiveness from viewport recipes to component context.</p>
+<p><strong>Field lens:</strong> <strong>Practice anchor:</strong> responsive design adapts content to available space. <strong>Frontier signal:</strong> container queries and subgrid move responsiveness from viewport recipes to component context.</p>
 </aside>
 
 > **Studio test:** Test the same component inside three parent widths.
@@ -36,7 +39,7 @@ week: 3
 
 **Not for:** JavaScript layout libraries or full grid frameworks — this session is native CSS intrinsic design.
 
-**When you finish this session you will have:** a responsive gallery (or card grid) using `@container` and/or `subgrid`, tested at three parent widths, plus commit + critical reflection.
+**When you finish:** a gallery (or card grid) with fluid grid + `@container` and/or `subgrid`, tested at three parent widths, plus commit + critical reflection.
 
 ---
 
@@ -56,21 +59,23 @@ week: 3
 
 | Step | Action | Section |
 | --- | --- | --- |
-| 1 | Read container vs media query distinction | From Media Queries to Container Queries |
-| 2 | Mark a parent `container-type: inline-size` | Practical guide sections |
-| 3 | Build gallery/cards that reflow by **container** width | Practice / gallery build |
-| 4 | Test same component in narrow sidebar + wide main | Studio test |
-| 5 | Commit + 3–5 sentence critical reflection | Commit & critical reflection |
+| 1 | Internalize the kit without layout `@media` | Why we skip media queries here |
+| 2 | Build fluid grid `auto-fit` + `minmax` | Tool 1 |
+| 3 | Mark a parent with `container-type`; reflow with `@container` | Tool 2 |
+| 4 | Align titles/footers across cards with `subgrid` | Tool 3 |
+| 5 | Test the same component in narrow sidebar + wide main | Demo / Studio test |
+| 6 | Commit + 3–5 sentence critical reflection | Commit & reflection |
 
 ---
 
 ## Verify before you leave
 
 - [ ] Component layout changes when **parent** width changes, not only viewport
-- [ ] Keyboard focus visible on interactive gallery items
-- [ ] No horizontal scroll at 320px container width
-- [ ] `@supports` fallback or documented degradation for older browsers
-- [ ] Commit pushed with message referencing container queries / subgrid
+- [ ] Gallery reflows without layout `@media (min-width: …)`
+- [ ] Keyboard focus visible on interactive items
+- [ ] No horizontal scroll at ~320px container width
+- [ ] `@supports` fallback or documented degradation
+- [ ] Commit pushed mentioning container queries / subgrid
 
 ---
 
@@ -78,11 +83,11 @@ week: 3
 
 | Symptom | Likely cause | Fix |
 | --- | --- | --- |
-| Container query never fires | Missing `container-type` on ancestor | Set on direct parent wrapper |
-| Same as media query behavior | Query uses viewport not `@container` | Use `@container (min-width: …)` |
-| Subgrid lines misaligned | Parent not a grid or no `subgrid` | Parent `display: grid`; child `grid-template-columns: subgrid` |
-| Gallery breaks in Safari | Unsupported feature without fallback | Check `@supports`; simplify layout |
-| No commit | Forgot reflection block | Complete Commit & critical reflection section |
+| Container query never fires | Missing `container-type` on ancestor | Set it on the parent wrapper |
+| Same as media-query behavior | You used `@media` instead of `@container` | `@container (min-width: …)` |
+| Subgrid lines misaligned | Parent not a grid or missing `span` | Parent `display: grid`; child `grid-row: span N` + `subgrid` |
+| Gallery breaks in older Safari | Feature without fallback | `@supports`; simplify layout |
+| No commit | Forgot reflection | Complete Commit & reflection |
 
 ---
 
@@ -93,184 +98,373 @@ week: 3
 
 ---
 
-> **Session Objective (2h)**
->
-> 1. Understand when to use Container Queries and Subgrid.
-> 2. Build a real responsive gallery (mobile-first, progressive).
-> 3. Make a commit with the result and a critical reflection.
+## Code conventions in this session
+
+- **CodeSandbox-ready** — complete HTML+CSS; paste into static HTML, CodePen, or your `index.html` + CSS.
+- **Excerpt** — fragment that assumes the demo or your landing.
+- **Template** — replace copy, colors, and image paths with yours.
+
+Live demo (same page as the full block below): [intrinsic gallery demo]({{ '/lessons/en/intrinsic-web-design/demo/' | relative_url }}).
 
 ---
 
-# Pedagogical Guide: Container Queries and Subgrid in Responsive Design
+## Objectives
 
-## Introduction
+1. Build responsive layout **without viewport media queries** for columns and cards.
+2. Use `@container` when a component’s *internals* must change with its box.
+3. Use `subgrid` to align sections across neighboring cards.
+4. Ship commit + critical reflection.
 
-📌 Simple analogy:
+---
 
-- **Container Queries** = "What should I do given the size of the box I'm in?"
-- **Subgrid** = "How do I align following the lines from the box above?"
+## Why we skip media queries here
 
-Almost every web designer has faced layouts that break when neighboring elements change size; this is usually frustrating[^1]. Fortunately, CSS has incorporated two powerful new tools as part of responsive design evolution: **Container Queries** and **Subgrid**.
+<aside class="lesson-idea" aria-label="Key idea">
+<p><strong>Key idea:</strong> In this session the space that matters is the <em>container</em>, not the device. You do not need a separate media-query lesson to ship a responsive gallery.</p>
+</aside>
 
-These technologies allow page components to adapt their style based on the "container box" size (instead of viewport size) and enable internal grids to align with parent grid lines, respectively. In this guide we'll combine theory and practice (following our course's Atelier methodology) so that, by the end, you can apply these concepts by building a real responsive gallery and committing your design to the project repository.
+| Approach | Question it answers | Use today? |
+| --- | --- | --- |
+| `@media (min-width: …)` | How wide is the **window**? | Not for component layout |
+| Fluid grid (`auto-fit` + `minmax`) | How many columns fit in this slot? | Yes — baseline |
+| `@container` | How wide is the component’s **box**? | Yes — internal structure |
+| `subgrid` | Do I share the parent’s tracks? | Yes — alignment |
+| `@media (prefers-*)` | User preferences? | Yes — accessibility only |
 
-## From Media Queries to Container Queries: responsive evolution
+**In short:** preference media queries (`prefers-reduced-motion`, contrast, color scheme) remain useful. Layout breakpoints (`min-width: 768px` → “tablet mode”) are out of scope for this session — the intrinsic kit replaces them in your portfolio.
 
-Media queries introduced over a decade ago enabled designs adaptable to browser window or device size. However, in more complex interfaces a redundancy problem soon emerged: if a component is inside a container and both need to adjust their design with similar breakpoints, keeping container and component media queries synchronized becomes complicated[^2].
+---
 
-For example, a section wrapping several cards might change layout at a certain screen width, and each card also needs to reorganize at that same width – with only media queries you'd have to duplicate conditions at both levels.
+## Intrinsic kit (three tools)
 
-**Container Queries** arrives to solve this problem. Instead of relying on global viewport size, a container query allows a component to conditionally apply styles based on its parent container's dimensions[^3].
+### 1. Fluid grid — columns without breakpoints
 
-In other words, the component "asks": _"What size is the box I'm in?"_ and adjusts its presentation accordingly. This marks a paradigm shift in responsive design, moving from global (viewport) to contextual per-component designs.
+<aside class="lesson-idea">
+<p><strong>Idea:</strong> <code>repeat(auto-fit, minmax(…))</code> decides how many columns fit. You set a readable minimum; CSS distributes the rest.</p>
+</aside>
 
-According to documentation, "container queries allow you to make more specific adjustments to elements based on the size and state of their superior elements or containers"[^4]. This complements (doesn't totally replace) media queries, providing more granularity: a site can continue defining general styles with media queries for global design, but use container queries for components that must be flexible depending on where they're placed (for example, the same widget on a wide main page versus in a narrow sidebar).
-
-## Subgrid: perfect alignment in nested grids
-
-CSS Grid introduced a robust way to create two-dimensional layouts, but had a limitation: nested (child) grids couldn't share the lines or tracks of the parent grid, making it difficult to consistently align elements across different containers.
-
-Without Subgrid, each internal container acts with its own independent grid, forcing us to handle separate grids and often generating irregular alignments when one element's content is longer than its neighbors'[^5].
-
-In simple terms, grid children don't "inherit" the parent's row/column structure.
-
-**Subgrid** solves this by allowing a child element declared as subgrid to use the row and/or column definitions of its parent container. Thus, grid tracks are shared between parent and nested children[^6], ensuring that, for example, all header rows of a set of cards align perfectly, same for their content sections and card footers.
-
-In documentation words: _"with subgrid, you can share track sizing, templates, and grid names with nested grids"_[^7]. This eliminates those "ragged" designs and achieves clean alignments.
-
-### Define a container
+**Excerpt** — columns that appear and disappear on their own:
 
 ```css
-.container {
-	/* Parent becomes the inline-size (width) query context */
-	container-type: inline-size;
-	/* Optional: name to reference this specific container */
-	container-name: gallery;
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+	gap: 1rem;
 }
 ```
 
-### Query the container
+- `min(100%, 14rem)` prevents overflow in boxes narrower than 14rem.
+- Zero `@media`. Resize the **parent** (not only the window) and watch.
+
+### 2. Container queries — the box, not the window
+
+<aside class="lesson-idea">
+<p><strong>Idea:</strong> First declare the container (<code>container-type: inline-size</code>). Then ask with <code>@container</code>.</p>
+</aside>
+
+**Excerpt:**
 
 ```css
-@container gallery (min-width: 450px) {
-	.my-component {
-		flex-direction: row; /* When container is >= 450px wide */
+.region {
+	container-type: inline-size;
+	container-name: region;
+}
+
+/* Base: stacked card */
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+/* Wide box: image + text in a row */
+@container region (min-width: 28rem) {
+	.card {
+		flex-direction: row;
+		align-items: stretch;
+	}
+
+	.card img {
+		width: 40%;
+		object-fit: cover;
 	}
 }
 ```
 
-Note: Rules within `@container` only affect descendants of the defined container.
+**Studio test:** place the same `.card` in a narrow sidebar and a wide main. With media queries both would match the viewport; with `@container`, each box decides.
 
----
+### 3. Subgrid — alignment across cards
 
-## Subgrid: align nested content
+<aside class="lesson-idea">
+<p><strong>Idea:</strong> Without subgrid, each card sizes its own rows (titles “dance”). With subgrid, cards <em>share</em> the parent’s tracks.</p>
+</aside>
 
-Without Subgrid, each card defines its own internal grid, and titles/descriptions don’t align across cards. With **Subgrid**, a child grid **inherits** parent rows/columns so equivalent content lines up.
+**Excerpt:**
 
 ```css
-/* Parent grid with multiple columns */
 .gallery {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+	grid-auto-rows: auto;
 	gap: 1rem;
 }
 
-/* Each card adopts parent rows */
 .card {
 	display: grid;
 	grid-template-rows: subgrid;
-	grid-row: span 2; /* spans two parent rows */
-}
-
-.card h3 {
-	grid-row: 1;
-}
-.card p {
-	grid-row: 2;
+	grid-row: span 3; /* title · body · footer */
+	gap: inherit;
 }
 ```
 
-Result: homogeneous rows; titles and descriptions align without hacks.
-
 ---
 
-## Practical example: Adaptable gallery
+## Full demo: gallery with no layout media queries
 
-Base HTML:
+**CodeSandbox-ready** — single HTML (or `index.html` + CSS). Also open the [published demo]({{ '/lessons/en/intrinsic-web-design/demo/' | relative_url }}).
+
+{% raw %}
 
 ```html
-<section class="gallery">
-	<article class="card">
-		<img src="image1.jpg" alt="Description 1" />
-		<h3>Title 1</h3>
-		<p>Description of image/article 1.</p>
-	</article>
-	<article class="card">...</article>
-	<article class="card">...</article>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Intrinsic gallery — demo</title>
+		<style>
+			:root {
+				--surface: #f1f5f9;
+				--card: #ffffff;
+				--content: #0f172a;
+				--muted: #475569;
+				--accent: #2563eb;
+				--border: #e2e8f0;
+				--radius: 0.75rem;
+				--gap: 1rem;
+				--text: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				font-family: system-ui, sans-serif;
+				font-size: var(--text);
+				line-height: 1.5;
+				color: var(--content);
+				background: var(--surface);
+			}
+
+			.page {
+				display: grid;
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax(min(100%, 16rem), 1fr)
+				);
+				gap: var(--gap);
+				padding: var(--gap);
+				max-width: 72rem;
+				margin-inline: auto;
+			}
+
+			.region {
+				container-type: inline-size;
+				container-name: region;
+				min-width: 0;
+				padding: var(--gap);
+				border-radius: var(--radius);
+				background: #e2e8f0;
+			}
+
+			.region--wide {
+				background: transparent;
+				padding: 0;
+			}
+
+			.gallery {
+				display: grid;
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax(min(100%, 13rem), 1fr)
+				);
+				gap: var(--gap);
+			}
+
+			.card {
+				display: flex;
+				flex-direction: column;
+				gap: 0.65rem;
+				padding: 0.85rem;
+				background: var(--card);
+				border: 1px solid var(--border);
+				border-radius: var(--radius);
+				min-width: 0;
+			}
+
+			.card img {
+				display: block;
+				width: 100%;
+				aspect-ratio: 16 / 10;
+				object-fit: cover;
+				border-radius: calc(var(--radius) - 0.25rem);
+				background: #cbd5e1;
+			}
+
+			.card h3 {
+				margin: 0;
+				font-size: 1.05rem;
+			}
+
+			.card p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.95rem;
+				flex: 1;
+			}
+
+			.card a:focus-visible {
+				outline: 3px solid #f59e0b;
+				outline-offset: 2px;
+			}
+
+			@container region (min-width: 28rem) {
+				.card {
+					flex-direction: row;
+					align-items: stretch;
+				}
+
+				.card img {
+					width: min(42%, 12rem);
+					flex-shrink: 0;
+					aspect-ratio: 1 / 1;
+					align-self: stretch;
+				}
+
+				.card-body {
+					display: flex;
+					flex-direction: column;
+					gap: 0.5rem;
+					min-width: 0;
+					flex: 1;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page">
+			<aside class="region" aria-label="Narrow sidebar">
+				<div class="gallery">
+					<article class="card">
+						<img
+							src="https://picsum.photos/seed/atelier1/640/400"
+							alt=""
+							width="640"
+							height="400"
+						/>
+						<div class="card-body">
+							<h3>Project A</h3>
+							<p>In a narrow box the card stacks.</p>
+							<footer><a href="#">View</a></footer>
+						</div>
+					</article>
+				</div>
+			</aside>
+
+			<main class="region region--wide" aria-label="Main">
+				<div class="gallery">
+					<article class="card">
+						<img
+							src="https://picsum.photos/seed/atelier2/640/400"
+							alt=""
+							width="640"
+							height="400"
+						/>
+						<div class="card-body">
+							<h3>Project B</h3>
+							<p>Wider box → image + body in a row.</p>
+							<footer><a href="#">View</a></footer>
+						</div>
+					</article>
+					<article class="card">
+						<img
+							src="https://picsum.photos/seed/atelier3/640/400"
+							alt=""
+							width="640"
+							height="400"
+						/>
+						<div class="card-body">
+							<h3>Project C</h3>
+							<p>Short description.</p>
+							<footer><a href="#">View</a></footer>
+						</div>
+					</article>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>
 ```
 
-Container Query (mobile-first → grid when space allows):
+{% endraw %}
+
+<aside class="lesson-summary" aria-label="Demo summary">
+<p><strong>Summary:</strong> the page itself uses fluid <code>auto-fit</code> (no layout media query). Cards switch stacked → row via <code>@container region</code>. In DevTools, constrain only a <code>.region</code> — the card changes without resizing the viewport.</p>
+</aside>
+
+---
+
+## Lab on your portfolio
+
+1. Wrap your projects gallery in a parent with `container-type: inline-size`.
+2. Replace fixed columns or layout media queries with `auto-fit` + `minmax`.
+3. If a card has image + text, switch to a row with `@container`, not `@media`.
+4. Optional: `subgrid` + `grid-row: span N` to align title / body / footer.
+5. Studio test: three parent widths (constrain the container in DevTools, not only the window).
+6. Add `@media (prefers-reduced-motion: reduce)` only if you animate.
+
+**Template** — minimal skeleton for your CSS:
 
 ```css
-/* Base: vertical list (mobile / narrow container) */
-.gallery {
-	display: flex;
-	flex-direction: column;
+.projects {
 	container-type: inline-size;
-	container-name: gallery;
+	container-name: projects;
 }
 
-/* >= 600px: 2 columns */
-@container gallery (min-width: 600px) {
-	.gallery {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1rem;
-	}
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+	gap: 1rem;
 }
 
-/* >= 900px: 3 columns */
-@container gallery (min-width: 900px) {
-	.gallery {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
+.project-card {
+	display: grid;
+	grid-template-rows: subgrid;
+	grid-row: span 3;
+	gap: 0.75rem;
 }
-```
 
-Subgrid to align internal content:
-
-```css
-@container gallery (min-width: 600px) {
-	.card {
-		display: grid;
-		grid-template-rows: subgrid;
-		grid-row: span 2;
-	}
-	.card h3 {
-		grid-row: 1;
-	}
-	.card p {
-		grid-row: 2;
+@container projects (min-width: 28rem) {
+	.project-card {
+		/* adjust internal structure if needed */
 	}
 }
 ```
 
 ---
 
-## Accessibility & performance (apply now)
+## Accessibility (apply now)
 
-- Provide meaningful `alt` or `alt=""` for decorative images.
-- Maintain adequate color contrast (≥ 4.5:1 for body text).
-- Avoid embedding text inside images.
-- Serve optimized images (AVIF/WebP) and consider a CDN (e.g. ImageKit: `?tr=w-800,q-80`).
-- Keyboard navigation: visible focus, logical tab order.
+- Meaningful `alt`, or `alt=""` when decorative next to a visible title.
+- Contrast ≥ 4.5:1 for body text.
+- Visible `:focus-visible` on card links.
+- Motion preference: `@media (prefers-reduced-motion: reduce)` — the only “required” media query this session if you animate.
 
 ---
 
 ## Commit & critical reflection
-
-Recommended commit when closing the session:
 
 ```bash
 git add .
@@ -278,7 +472,7 @@ git commit -m "feat: responsive gallery · container queries + subgrid (+a11y)"
 git push
 ```
 
-Write 3–5 sentences on how your decisions (alignment, density, contrast) improve care, inclusion, and sustainable attention, aligned with **Critical Coding for a Better Living**.
+Write 3–5 sentences on how *component-context* design (not device recipes) improves care, inclusion, or sustainable attention — aligned with **Critical Coding for a Better Living**.
 
 ---
 
@@ -293,16 +487,7 @@ outcome-graphic-selection:
 
 ## References
 
-[^1]: Using CSS Subgrids and Container Queries. LogRocket. https://blog.logrocket.com/using-css-subgrids-container-queries/
-[^2]: Ibid.
-[^3]: Ibid.
-[^4]: Container Queries - Learn CSS. Web.dev. https://web.dev/learn/css/container-queries
-[^5]: Using CSS Subgrids and Container Queries. LogRocket. https://blog.logrocket.com/using-css-subgrids-container-queries/
-[^6]: CSS subgrid. Web.dev. https://web.dev/articles/css-subgrid
-[^7]: Ibid.
-
-### Additional sources
-
-- **Container Queries**: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries
-- **Subgrid**: https://www.freecodecamp.org/news/what-is-css-subgrid/
-- **Browser Support**: https://www.joshwcomeau.com/css/browser-support/
+- [MDN — Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+- [MDN — Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid)
+- [web.dev — Container queries](https://web.dev/learn/css/container-queries)
+- [LogRocket — Subgrid + container queries](https://blog.logrocket.com/using-css-subgrids-container-queries/)

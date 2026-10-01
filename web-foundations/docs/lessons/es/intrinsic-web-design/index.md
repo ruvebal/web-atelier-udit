@@ -8,11 +8,14 @@ author: 'Rubén Vega Balbás, PhD'
 lang: es
 permalink: /lessons/es/intrinsic-web-design/
 week: 3
+description: 'Layout responsivo sin media queries de viewport: grid fluido, @container y subgrid sobre tu galería portfolio.'
+tags: [css, container-queries, subgrid, intrinsic-design, responsive]
+status: complete
 ---
 
 <aside class="lesson-framing" aria-label="Idea maestra y lente de campo">
 <p><strong>Idea maestra:</strong> El layout responsivo es consciente de relaciones, no de dispositivos.</p>
-<p><strong>Lente de campo:</strong> **Ancla de práctica:** el diseño responsivo adapta contenido al espacio disponible. **Señal de frontera:** container queries y subgrid mueven la respuesta del viewport al contexto del componente.</p>
+<p><strong>Lente de campo:</strong> <strong>Ancla de práctica:</strong> el diseño responsivo adapta contenido al espacio disponible. <strong>Señal de frontera:</strong> container queries y subgrid mueven la respuesta del viewport al contexto del componente.</p>
 </aside>
 
 > **Prueba de estudio:** Prueba el mismo componente dentro de tres anchos de contenedor padre.
@@ -33,9 +36,9 @@ week: 3
 
 **Para:** Front-End I **Sesión 5** — container queries + subgrid sobre tu landing portfolio (base CSS Sesiones 3–4).
 
-**No para:** librerías JS de layout ni frameworks grid completos — esta sesión es diseño intrínseco CSS nativo.
+**No para:** librerías JS de layout ni frameworks grid — esta sesión es CSS nativo intrínseco.
 
-**Al terminar esta sesión tendrás:** galería (o grid de tarjetas) con `@container` y/o `subgrid`, probada en tres anchos de padre, más commit + reflexión crítica.
+**Al terminar:** galería (o grid de tarjetas) con grid fluido + `@container` y/o `subgrid`, probada en tres anchos de padre, más commit + reflexión crítica.
 
 ---
 
@@ -55,21 +58,23 @@ week: 3
 
 | Paso | Acción | Sección |
 | --- | --- | --- |
-| 1 | Leer distinción container vs media query | De media queries a container queries |
-| 2 | Marcar padre con `container-type: inline-size` | Secciones prácticas |
-| 3 | Construir galería/tarjetas que refluyan por ancho del **contenedor** | Práctica / galería |
-| 4 | Probar mismo componente en sidebar estrecho + main ancho | Prueba de estudio |
-| 5 | Commit + reflexión crítica 3–5 frases | Commit y reflexión crítica |
+| 1 | Interiorizar el kit sin `@media` de layout | Por qué no enseñamos media queries aquí |
+| 2 | Montar grid fluido `auto-fit` + `minmax` | Herramienta 1 |
+| 3 | Marcar padre con `container-type` y reflujo interno con `@container` | Herramienta 2 |
+| 4 | Alinear títulos/pies entre tarjetas con `subgrid` | Herramienta 3 |
+| 5 | Probar el mismo componente en sidebar estrecho + main ancho | Demo / Prueba de estudio |
+| 6 | Commit + reflexión crítica 3–5 frases | Commit y reflexión |
 
 ---
 
 ## Comprueba antes de salir
 
 - [ ] El layout del componente cambia cuando cambia el ancho del **padre**, no solo del viewport
-- [ ] Foco de teclado visible en ítems interactivos de la galería
-- [ ] Sin scroll horizontal a 320px de ancho de contenedor
-- [ ] Fallback `@supports` o degradación documentada en navegadores antiguos
-- [ ] Commit subido con mensaje que mencione container queries / subgrid
+- [ ] La galería reflujo sin `@media (min-width: …)` de layout
+- [ ] Foco de teclado visible en ítems interactivos
+- [ ] Sin scroll horizontal a ~320px de ancho de contenedor
+- [ ] Fallback `@supports` o degradación documentada
+- [ ] Commit subido mencionando container queries / subgrid
 
 ---
 
@@ -77,11 +82,11 @@ week: 3
 
 | Síntoma | Causa probable | Qué hacer |
 | --- | --- | --- |
-| Container query no dispara | Falta `container-type` en ancestro | Fijar en wrapper padre directo |
-| Mismo comportamiento que media query | Query usa viewport no `@container` | Usar `@container (min-width: …)` |
-| Líneas subgrid desalineadas | Padre no es grid o sin `subgrid` | Padre `display: grid`; hijo `grid-template-columns: subgrid` |
-| Galería rota en Safari | Feature sin fallback | Revisar `@supports`; simplificar layout |
-| Sin commit | Olvidada reflexión | Completar sección Commit y reflexión crítica |
+| Container query no dispara | Falta `container-type` en ancestro | Fijarlo en el wrapper padre |
+| Mismo comportamiento que media query | Usas `@media` en vez de `@container` | `@container (min-width: …)` |
+| Líneas subgrid desalineadas | Padre no es grid o falta `span` | Padre `display: grid`; hijo `grid-row: span N` + `subgrid` |
+| Galería rota en Safari antiguo | Feature sin fallback | `@supports`; simplificar layout |
+| Sin commit | Olvidada reflexión | Completar Commit y reflexión |
 
 ---
 
@@ -92,260 +97,403 @@ week: 3
 
 ---
 
-# Objetivo de la sesión
+## Convenciones de código en esta sesión
 
-- Comprender cuándo usar Container Queries y Subgrid.
-- Construir una galería responsive real (mobile-first, progresiva).
-- Hacer un commit con el resultado y una reflexión crítica.
+- **CodeSandbox-ready** — HTML+CSS completo; pégalo en un HTML estático, CodePen, o en tu `index.html` + CSS.
+- **Excerpt** — fragmento que asume el demo o tu landing.
+- **Template** — sustituye textos, colores y rutas de imagen por los tuyos.
 
----
-
-# Guía Pedagógica: Container Queries y Subgrid en Diseño Responsive
-
-📌 Analogía sencilla:
-
-- **Container Queries** = "¿Qué hago según el tamaño del cajón en el que estoy?"
-- **Subgrid** = "¿Cómo me alineo siguiendo las líneas del cajón de arriba?"
-
-### Introducción: Evolución del Diseño Responsivo
-
-Introducción: Evolución del Diseño Responsivo
-
-El diseño web responsivo (Responsive Web Design, RWD) surgió como respuesta a la proliferación de dispositivos móviles. En 2010, Ethan Marcotte introdujo la idea de diseñar sitios que se adapten a múltiples tamaños de pantalla
-freecodecamp.org
-. Esto llevó al uso extendido de media queries, que permiten aplicar estilos CSS según el ancho del viewport (pantalla) del dispositivo. Durante la década pasada, los media queries fueron la principal herramienta para construir layouts adaptativos a diferentes dispositivos.
-
-Sin embargo, el enfoque tradicional de media queries tiene limitaciones. Son reglas globales basadas en el tamaño de la ventana del navegador; esto funciona a escala de página completa, pero no considera el contexto de cada componente. Por ejemplo, un mismo componente (como una tarjeta de artículo) podría aparecer en una columna ancha o en una barra lateral angosta. Con solo media queries globales, es difícil hacer que ese componente se adapte de forma independiente a cada contexto sin introducir múltiples reglas condicionales o duplicar código CSS.
-
-En los últimos años ha surgido un cambio hacia lo que la experta Jen Simmons denomina Intrinsic Web Design – crear componentes conscientes de su contexto, capaces de adaptarse según el espacio disponible donde se ubiquen
-freecodecamp.org
-. Las nuevas especificaciones de CSS, especialmente Container Queries y Subgrid, hacen posible este enfoque intrínseco al permitir diseños responsive a nivel de componente. Estas características representan el siguiente paso evolutivo del diseño responsivo, solucionando problemas históricos que afrontábamos con hacks o JavaScript.
-
-Metodología Atelier: En nuestro curso adoptamos una metodología tipo Atelier, que enfatiza el aprendizaje práctico, experimental y colaborativo en un entorno creativo
-oakinnovation.com
-. Siguiendo esta filosofía, combinaremos teoría y práctica: primero entenderemos qué son las Container Queries y Subgrid (teoría), y luego las aplicaremos en un proyecto concreto (práctica). Al finalizar, podrás implementar un diseño real usando estas técnicas y hacer un commit de tu trabajo.
-
-Container Queries: "¿Qué hago según el tamaño del cajón en el que estoy?"
-
-Container Queries (consultas de contenedor) permiten que un elemento aplique distintos estilos CSS en función de las características de su contenedor padre, en lugar de basarse únicamente en las dimensiones de la ventana del navegador. En otras palabras, responden a la pregunta: "¿Qué estilo debo tener según el tamaño del cajón (contenedor) en el que estoy?". Esta funcionalidad ha sido muy esperada por desarrolladores web, ya que aborda una limitación de los media queries tradicionales
-freecodecamp.org
-.
-
-En esencia, una container query activa estilos condicionados al ancho/alto (u otras propiedades) del elemento contenedor. Si el contenedor cumple cierta condición de tamaño, entonces los elementos dentro de él se estilizan de cierta forma. Esto nos permite diseñar componentes verdaderamente modulares y reutilizables, que se adaptan a diferentes contextos de diseño automáticamente. De este modo, el estilo de un componente depende de su espacio disponible, no del tamaño global de pantalla
-blog.logrocket.com
-freecodecamp.org
-. Esto elimina la necesidad de sincronizar manualmente breakpoints entre un componente y su contenedor, haciendo el diseño responsivo más sencillo y mantenible
-blog.logrocket.com
-.
-
-Comparación con Media Queries: A diferencia de una media query (que mira el tamaño del viewport), una container query mira el tamaño de un ancestro contenedor específico
-developer.mozilla.org
-. Por ejemplo, con media queries diríamos "si la pantalla mide menos de 600px, tal elemento será 100% ancho". Con container queries podemos decir "si el contenedor .sidebar mide menos de 300px, tal elemento se apila en columna" independientemente de lo que mida la pantalla completa. Esto empodera a cada componente para saber adaptarse según el espacio que le rodea, logrando diseños más contextuales y flexibles
-freecodecamp.org
-freecodecamp.org
-. En la práctica, es común combinar ambos enfoques: las media queries siguen utilizándose para la estructura global de la página, mientras que las container queries manejan variaciones a nivel de componentes específicos.
-
-### Metodología Atelier
-
-En nuestro curso adoptamos la metodología Atelier: aprendizaje práctico, experimental y colaborativo. Por tanto, esta guía combina teoría con un ejercicio práctico para integrar los conceptos en un commit real.
+Demo en vivo (misma página que el bloque completo de abajo): [demo de galería intrínseca]({{ '/lessons/es/intrinsic-web-design/demo/' | relative_url }}).
 
 ---
 
-## Parte 1: Container Queries
+## Objetivos
 
-### ¿Qué son?
+1. Construir layout responsivo **sin media queries de viewport** para columnas y tarjetas.
+2. Usar `@container` cuando el *interior* del componente deba cambiar según el cajón.
+3. Usar `subgrid` para alinear secciones entre tarjetas vecinas.
+4. Entregar commit + reflexión crítica.
 
-Permiten aplicar estilos CSS a un componente según el tamaño de su contenedor padre.
+---
 
-### Sintaxis básica
+## Por qué no enseñamos media queries aquí
+
+<aside class="lesson-idea" aria-label="Idea clave">
+<p><strong>Idea clave:</strong> En esta sesión el espacio que manda es el del <em>contenedor</em>, no el del dispositivo. No necesitas una clase aparte de media queries para sacar una galería responsiva.</p>
+</aside>
+
+| Enfoque | Pregunta que responde | ¿Lo usamos hoy? |
+| --- | --- | --- |
+| `@media (min-width: …)` | ¿Cuánto mide la **ventana**? | No para layout de componentes |
+| Grid fluido (`auto-fit` + `minmax`) | ¿Cuántas columnas caben en este hueco? | Sí — base |
+| `@container` | ¿Cuánto mide el **cajón** del componente? | Sí — estructura interna |
+| `subgrid` | ¿Comparto las líneas del cajón de arriba? | Sí — alineación |
+| `@media (prefers-*)` | ¿Preferencias del usuario? | Sí — solo accesibilidad |
+
+**En resumen:** las media queries de *preferencia* (`prefers-reduced-motion`, contraste, esquema de color) siguen siendo útiles. Las de *breakpoints de layout* (`min-width: 768px` → “modo tablet”) quedan fuera de esta sesión: el kit intrínseco las sustituye en tu portfolio.
+
+---
+
+## Kit intrínseco (tres herramientas)
+
+### 1. Grid fluido — columnas sin breakpoints
+
+<aside class="lesson-idea">
+<p><strong>Idea:</strong> <code>repeat(auto-fit, minmax(…))</code> calcula cuántas columnas caben. Tú fijas el mínimo legible; CSS reparte el resto.</p>
+</aside>
+
+**Excerpt** — columnas que se crean y destruyen solas:
 
 ```css
-.card-list {
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+	gap: 1rem;
+}
+```
+
+- `min(100%, 14rem)` evita overflow en cajones más estrechos que 14rem.
+- Cero `@media`. Redimensiona el padre (no solo la ventana) y observa.
+
+### 2. Container queries — el cajón, no la ventana
+
+<aside class="lesson-idea">
+<p><strong>Idea:</strong> Primero declares el contenedor (<code>container-type: inline-size</code>). Luego preguntas con <code>@container</code>.</p>
+</aside>
+
+**Excerpt:**
+
+```css
+.region {
 	container-type: inline-size;
+	container-name: region;
 }
 
-@container (min-width: 450px) {
+/* Base: tarjeta apilada */
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+/* Si el cajón es ancho: imagen + texto en fila */
+@container region (min-width: 28rem) {
 	.card {
 		flex-direction: row;
+		align-items: stretch;
+	}
+
+	.card img {
+		width: 40%;
+		object-fit: cover;
 	}
 }
 ```
 
-### Ventajas
+**Prueba de estudio:** coloca la misma `.card` dentro de un sidebar estrecho y de un main ancho. Con media queries verías el mismo resultado en ambos; con `@container`, cada cajón decide.
 
-- Adaptabilidad modular.
-- Evita duplicación de media queries globales.
-- Permite componentes verdaderamente reutilizables.
+### 3. Subgrid — alineación entre tarjetas
 
----
+<aside class="lesson-idea">
+<p><strong>Idea:</strong> Sin subgrid, cada tarjeta mide sus filas sola (títulos “bailan”). Con subgrid, las tarjetas <em>comparten</em> las pistas del padre.</p>
+</aside>
 
-## Parte 2: Subgrid
-
-### ¿Qué es?
-
-Otra cuestión clásica del CSS layout: "¿Cómo puedo alinear elementos dentro de un elemento anidado siguiendo la misma cuadrícula del elemento padre?". Subgrid es la respuesta a esta pregunta. Esta funcionalidad, introducida en CSS Grid Layout Nivel 2, permite que una cuadrícula hija (nested grid) herede y utilice las definiciones de filas y/o columnas de su contenedor padre
-developer.mozilla.org
-. En términos sencillos, Subgrid hace que un elemento “se alinee con las líneas del cajón de arriba”, es decir, comparte la misma retícula que su ancestro.
-
-El problema que resuelve Subgrid
-
-Antes de subgrid, si teníamos una rejilla dentro de otra, las celdas internas no estaban realmente alineadas con las externas. Por ejemplo, imagina que diseñas un listado de tarjetas de artículos usando CSS Grid: la rejilla principal coloca varias tarjetas en columnas. A su vez, cada tarjeta es una pequeña rejilla con filas (por ejemplo, título, contenido y pie de tarjeta). Sin subgrid, cada tarjeta define independientemente la altura de sus filas según su propio contenido, lo que provoca desencajes. Si una tarjeta tiene más texto en el contenido, su altura aumenta y sus secciones internas (título, pie) dejan de alinearse con las de las tarjetas vecinas. En otras palabras, las filas equivalentes ya no quedan a la misma altura entre distintas tarjetas, rompiendo la alineación visual uniforme
-blog.logrocket.com
-.
-
-Figura 1: Tres tarjetas en un grid sin utilizar subgrid. La tarjeta central tiene más contenido, lo que hace que su título (sección superior) y su pie (sección inferior) se desplacen hacia abajo, quedando desalineados respecto a las tarjetas de los lados
-blog.logrocket.com
-. Cada tarjeta maneja sus propias filas, de modo que el aumento de contenido en una no afecta a las demás – esto resulta en una visual inconsistente.
-
-Para solucionar esto históricamente se recurría a trucos, como forzar alturas fijas, usar flexbox para igualar alturas, o calcular con JavaScript la alineación. Estas soluciones son subóptimas y difíciles de mantener. Subgrid proporciona una solución nativa: permite que las filas (o columnas) de la grilla hija se sincronicen con las de la grilla padre, de forma que todas las tarjetas compartan la misma estructura de tracks (pistas) sin duplicar definiciones.
-
-Cuando definimos en CSS grid-template-rows: subgrid; (o grid-template-columns: subgrid;) en un contenedor grid hijo, no se crea una nueva estructura de tracks para ese hijo, sino que usará los tracks ya definidos por el grid padre
-developer.mozilla.org
-. En el ejemplo anterior, si la rejilla principal define que cada fila (track) de las tarjetas tiene, digamos, auto de altura, al aplicar subgrid en las filas de cada tarjeta, todas las tarjetas alinearán sus secciones internas exactamente en esas mismas alturas. Así, aunque una tarjeta tenga más contenido en el cuerpo, su sección de título y pie permanecen en la misma línea horizontal que los títulos y pies de las otras tarjetas, ya que comparten la misma rejilla base.
-
-Figura 2: Las mismas tres tarjetas tras aplicar Subgrid en sus filas. Ahora todas las tarjetas utilizan la cuadrícula del contenedor padre: a pesar de que la tarjeta central tiene más contenido, los títulos y pies de todas ellas permanecen perfectamente alineados entre sí
-blog.logrocket.com
-. Subgrid logra que las filas mantengan su posición inicial en la retícula general pese a que el contenido interno varíe, solucionando el problema de alineación.
-
-Algunos detalles importantes de Subgrid:
-
-Puedes aplicar subgrid por separado a columnas, a filas, o a ambas dimensiones. Por ejemplo, grid-template-columns: subgrid; hará que las columnas de la grilla hija coincidan con las del padre (útil para alinear elementos verticalmente en diferentes secciones), mientras que grid-template-rows: subgrid; alinea las filas (útil en casos como las tarjetas para alinear encabezados, pies, etc.). Incluso es posible subgrid en ambas direcciones
-developer.mozilla.org
-.
-
-Para que funcione, el elemento padre (grid contenedor) debe tener definidos explícitamente sus tracks en esa dimensión, ya sea mediante grid-template-rows/columns o mediante grid-auto-rows/columns. El subgrid hijo entonces hereda esas medidas. Las gaps (espacios entre filas/columnas) también se heredan, aunque el subgrid puede sobrescribirlos si necesita un gap distinto
-developer.mozilla.org
-.
-
-Subgrid no reinventa el layout, simplemente sincroniza. Dentro de un subgrid, puedes seguir posicionando los elementos normalmente, usando líneas de la grilla padre. Los nombres de línea también se heredan, lo que facilita posicionar elementos alineados exactamente con ciertas guías definidas en el padre.
-
-Compatibilidad actual: Si bien inicialmente Subgrid solo funcionaba en Firefox, a fecha de 2023 ya está implementado en los navegadores modernos principales (Chrome, Safari, Edge)
-developer.mozilla.org
-. Esto significa que por fin podemos usarlo en producción (asegurándonos de que nuestros usuarios estén en versiones actualizadas de navegador).
-
-En resumen, Subgrid es especialmente útil en diseños complejos y componibles: sistemas de tarjetas, layouts editoriales con múltiples columnas, formularios alineados, etc., donde quieras evitar “descosidos” visuales. Ahora llevaremos todo este conocimiento a la práctica con un ejercicio integrado.
-
-### Sintaxis básica
+**Excerpt:**
 
 ```css
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+	/* Tres pistas verticales que heredarán las tarjetas */
+	grid-auto-rows: auto;
+	gap: 1rem;
+}
+
 .card {
 	display: grid;
 	grid-template-rows: subgrid;
+	grid-row: span 3; /* título · cuerpo · pie */
+	gap: inherit;
 }
 ```
 
-### Ventajas
-
-- Alineación perfecta entre elementos anidados.
-- Soluciona problemas clásicos de layout inconsistentes.
-
 ---
 
-## Parte 3: Ejercicio Práctico
+## Demo completa: galería sin media queries de layout
 
-### Objetivo
+**CodeSandbox-ready** — un solo HTML (o `index.html` + CSS). Abre también el [demo publicado]({{ '/lessons/es/intrinsic-web-design/demo/' | relative_url }}).
 
-Diseñar una galería de tarjetas que se adapte automáticamente a su contenedor y alinee sus secciones internas con Subgrid.
-
-### Estructura HTML
+{% raw %}
 
 ```html
-<section class="gallery-container">
-	<div class="gallery-grid">
-		<article class="card">
-			<h2 class="card-title">Título 1</h2>
-			<p class="card-content">Contenido breve...</p>
-			<footer class="card-footer">Leer más</footer>
-		</article>
-		<!-- Más tarjetas -->
-	</div>
-</section>
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Galería intrínseca — demo</title>
+		<style>
+			:root {
+				--surface: #f1f5f9;
+				--card: #ffffff;
+				--content: #0f172a;
+				--muted: #475569;
+				--accent: #2563eb;
+				--border: #e2e8f0;
+				--radius: 0.75rem;
+				--gap: 1rem;
+				--text: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				font-family: system-ui, sans-serif;
+				font-size: var(--text);
+				line-height: 1.5;
+				color: var(--content);
+				background: var(--surface);
+			}
+
+			/* Página intrínseca: sin @media de layout */
+			.page {
+				display: grid;
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax(min(100%, 16rem), 1fr)
+				);
+				gap: var(--gap);
+				padding: var(--gap);
+				max-width: 72rem;
+				margin-inline: auto;
+			}
+
+			.region {
+				container-type: inline-size;
+				container-name: region;
+				min-width: 0;
+				padding: var(--gap);
+				border-radius: var(--radius);
+				background: #e2e8f0;
+			}
+
+			.region--wide {
+				background: transparent;
+				padding: 0;
+			}
+
+			.gallery {
+				display: grid;
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax(min(100%, 13rem), 1fr)
+				);
+				gap: var(--gap);
+			}
+
+			.card {
+				display: flex;
+				flex-direction: column;
+				gap: 0.65rem;
+				padding: 0.85rem;
+				background: var(--card);
+				border: 1px solid var(--border);
+				border-radius: var(--radius);
+				min-width: 0;
+			}
+
+			.card img {
+				display: block;
+				width: 100%;
+				aspect-ratio: 16 / 10;
+				object-fit: cover;
+				border-radius: calc(var(--radius) - 0.25rem);
+				background: #cbd5e1;
+			}
+
+			.card h3 {
+				margin: 0;
+				font-size: 1.05rem;
+			}
+
+			.card p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.95rem;
+				flex: 1;
+			}
+
+			.card a {
+				color: var(--accent);
+			}
+
+			.card a:focus-visible {
+				outline: 3px solid #f59e0b;
+				outline-offset: 2px;
+			}
+
+			/* Misma tarjeta: fila cuando el REGION es ancho */
+			@container region (min-width: 28rem) {
+				.card {
+					flex-direction: row;
+					align-items: stretch;
+				}
+
+				.card img {
+					width: min(42%, 12rem);
+					flex-shrink: 0;
+					aspect-ratio: 1 / 1;
+					align-self: stretch;
+				}
+
+				.card-body {
+					display: flex;
+					flex-direction: column;
+					gap: 0.5rem;
+					min-width: 0;
+					flex: 1;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page">
+			<aside class="region" aria-label="Sidebar estrecho">
+				<div class="gallery">
+					<article class="card">
+						<img
+							src="https://picsum.photos/seed/atelier1/640/400"
+							alt=""
+							width="640"
+							height="400"
+						/>
+						<div class="card-body">
+							<h3>Proyecto A</h3>
+							<p>En cajón estrecho la tarjeta se apila.</p>
+							<footer><a href="#">Ver</a></footer>
+						</div>
+					</article>
+				</div>
+			</aside>
+
+			<main class="region region--wide" aria-label="Contenido principal">
+				<div class="gallery">
+					<article class="card">
+						<img
+							src="https://picsum.photos/seed/atelier2/640/400"
+							alt=""
+							width="640"
+							height="400"
+						/>
+						<div class="card-body">
+							<h3>Proyecto B</h3>
+							<p>Cajón ancho → imagen + cuerpo en fila.</p>
+							<footer><a href="#">Ver</a></footer>
+						</div>
+					</article>
+					<article class="card">
+						<img
+							src="https://picsum.photos/seed/atelier3/640/400"
+							alt=""
+							width="640"
+							height="400"
+						/>
+						<div class="card-body">
+							<h3>Proyecto C</h3>
+							<p>Descripción breve.</p>
+							<footer><a href="#">Ver</a></footer>
+						</div>
+					</article>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>
 ```
 
-### Estilos CSS
+{% endraw %}
+
+<aside class="lesson-summary" aria-label="Resumen del demo">
+<p><strong>Resumen:</strong> la página usa <code>auto-fit</code> fluido (cero media queries de layout). Las tarjetas pasan de apiladas a fila con <code>@container region</code>. En DevTools, restringe solo un <code>.region</code> — el cambio ocurre <em>sin</em> redimensionar el viewport.</p>
+</aside>
+
+---
+
+## Laboratorio en tu portfolio
+
+1. Envuelve tu galería/proyectos en un padre con `container-type: inline-size`.
+2. Sustituye columnas fijas o media queries de layout por `auto-fit` + `minmax`.
+3. Si la tarjeta tiene imagen + texto, cambia a fila con `@container`, no con `@media`.
+4. Opcional: `subgrid` + `grid-row: span N` para alinear título / cuerpo / pie.
+5. Prueba de estudio: tres anchos de padre (DevTools → restringir el contenedor, no solo la ventana).
+6. Añade `@media (prefers-reduced-motion: reduce)` solo si tienes animaciones.
+
+**Template** — esqueleto mínimo a pegar en tu CSS:
 
 ```css
-.gallery-container {
+.projects {
 	container-type: inline-size;
-	padding: 1rem;
+	container-name: projects;
 }
 
-.gallery-grid {
+.projects-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-auto-rows: auto;
-	gap: 16px;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+	gap: 1rem;
 }
 
-.card {
+.project-card {
 	display: grid;
 	grid-template-rows: subgrid;
-	padding: 1rem;
-	background: #f9f9f9;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-}
-```
-
-### Container Queries aplicadas
-
-```css
-@container (max-width: 399px) {
-	.gallery-grid {
-		grid-template-columns: 1fr !important;
-	}
-	.card {
-		text-align: center;
-	}
+	grid-row: span 3;
+	gap: 0.75rem;
 }
 
-@container (min-width: 400px) and (max-width: 799px) {
-	.gallery-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@container (min-width: 800px) {
-	.gallery-grid {
-		grid-template-columns: repeat(3, 1fr);
+@container projects (min-width: 28rem) {
+	.project-card {
+		/* ajusta estructura interna si hace falta */
 	}
 }
 ```
 
 ---
 
-## Parte 4: Integración Dinámica con JavaScript (opcional)
+## Accesibilidad (aplica ya)
 
-Usar un servicio como ImageKit.io para cargar imágenes dinámicamente. Desde JavaScript, fetch de URLs de imágenes y generación de tarjetas.
-
-### Pasos
-
-1. Crear carpeta pública en ImageKit.
-2. Obtener JSON de imágenes.
-3. Iterar sobre los datos y renderizar `.card` por cada imagen.
+- `alt` significativo, o `alt=""` si la imagen es decorativa junto a un título visible.
+- Contraste ≥ 4.5:1 en texto de cuerpo.
+- `:focus-visible` visible en enlaces de tarjetas.
+- Preferencia de movimiento: `@media (prefers-reduced-motion: reduce)` — la única media query “obligatoria” de esta sesión si animas.
 
 ---
 
-## Parte 5: Reflexión Final y Commit
-
-### Actividades
-
-- Probar el comportamiento en distintos tamaños.
-- Documentar decisiones en el código.
-- Realizar commit con mensaje:
+## Commit y reflexión crítica
 
 ```bash
-git commit -m "Add responsive gallery with container queries and subgrid"
+git add .
+git commit -m "feat: responsive gallery · container queries + subgrid (+a11y)"
+git push
 ```
+
+Escribe 3–5 frases: cómo el diseño por *contexto de componente* (no por dispositivo) mejora cuidado, inclusión o atención sostenible — alineado con **Critical Coding for a Better Living**.
+
+---
+
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Commit y reflexión crítica"
+  visual-grammar: "relationship-aware-layout — layout regions adapting through intrinsic relationships rather than device-specific breakpoints"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
 
 ---
 
 ## Recursos
 
-- [MDN Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
-- [MDN Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid)
-- [LogRocket: Container + Subgrid](https://blog.logrocket.com/using-css-subgrids-container-queries/)
-- [freeCodeCamp: Media vs Container Queries](https://www.freecodecamp.org/news/media-queries-vs-container-queries/)
-- [Atelier Method – OakInnovation](https://www.oakinnovation.com/blog/free-business-theory-advice/the-atelier-method)
-
----
+- [MDN — Container queries](https://developer.mozilla.org/es/docs/Web/CSS/CSS_containment/Container_queries)
+- [MDN — Subgrid](https://developer.mozilla.org/es/docs/Web/CSS/CSS_grid_layout/Subgrid)
+- [web.dev — Container queries](https://web.dev/learn/css/container-queries)
+- [LogRocket — Subgrid + container queries](https://blog.logrocket.com/using-css-subgrids-container-queries/)

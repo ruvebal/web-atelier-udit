@@ -60,6 +60,12 @@
 			"name": "scholar",
 			"path": "../..",
 		},
+		{
+			"path": "../../universidadeuropea/creativity-techniques-uem",
+		},
+		{
+			"path": "../../../../../src/profield",
+		},
 	],
 	"settings": {
 		"liveServer.settings.port": 5501,
