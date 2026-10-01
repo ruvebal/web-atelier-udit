@@ -159,7 +159,7 @@ By completing this track, students will be able to:
 
 ## 📊 Evaluation
 
-**FE II weights** (reconciled with `frontend-pedagogy/cv/guides/desarrollo-web-front-end-ii-2026-2027.json`, which itself matches `cv/udit-ruvebal-frontend-ii-cv.md`'s published Evaluación table):
+**FE II weights** (reconciled with the official course guide Evaluación table):
 
 | Component                                    | %   |
 | -------------------------------------------- | --- |
