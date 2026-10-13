@@ -93,6 +93,19 @@
    es: complete
    en: complete
   week: 3
+- slug: js-fundamentals
+  title:
+   es: 'Fundamentos de JavaScript (trabajo previo de la Sesión 7)'
+   en: 'JavaScript Fundamentals (Session 7 pre-work)'
+  path:
+   es: /lessons/es/js-fundamentals/
+   en: /lessons/en/js-fundamentals/
+  file:
+   es: lessons/es/js-fundamentals/index.md
+   en: lessons/en/js-fundamentals/index.md
+  status:
+   es: complete
+   en: complete
 - slug: js-intro
   title:
    es: Introducción a JavaScript
