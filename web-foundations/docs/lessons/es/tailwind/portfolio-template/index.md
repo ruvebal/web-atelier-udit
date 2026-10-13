@@ -28,7 +28,8 @@ Esta guía explica la arquitectura de nuestro portafolio como **Single Page Appl
 2. [El router: navegación basada en hash](#2-el-router-navegacion-basada-en-hash)
 3. [El motor de animación: GSAP & ScrollTrigger](#3-el-motor-de-animacion-gsap--scrolltrigger)
 4. [El ciclo de vida: hooks de montaje y desmontaje](#4-el-ciclo-de-vida-hooks-de-montaje-y-desmontaje)
-5. [Ejercicios de pensamiento crítico](#5-ejercicios-de-pensamiento-critico)
+5. [Despliegue: CI/CD con GitHub Actions](#5-despliegue-cicd-con-github-actions)
+6. [Ejercicios de pensamiento crítico](#6-ejercicios-de-pensamiento-critico)
 
 ---
 

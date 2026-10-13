@@ -82,7 +82,7 @@ Before scroll effects, establish your typographic scale. **No scroll animation s
 }
 ```
 
-> **Reference:** [Typography & Color Lesson]({{ base_url }}/lessons/en/typography-color/)
+> **Reference:** [Typography & Color Lesson]({{ '/lessons/en/typography-color/' | relative_url }})
 
 ---
 
@@ -225,7 +225,7 @@ document.querySelectorAll('[data-reveal]').forEach((el) => {
 </div>
 ```
 
-> **Reference:** [CSS Animations Lesson]({{ base_url }}/lessons/en/web-animations/css/)
+> **Reference:** [CSS Animations Lesson]({{ '/lessons/en/web-animations/css/' | relative_url }})
 
 ---
 
@@ -328,7 +328,7 @@ ScrollTrigger.batch('.project-card', {
 </section>
 ```
 
-> **Reference:** [GSAP Animations Lesson]({{ base_url }}/lessons/en/web-animations/gsap/)
+> **Reference:** [GSAP Animations Lesson]({{ '/lessons/en/web-animations/gsap/' | relative_url }})
 
 ---
 
@@ -442,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </section>
 ```
 
-> **Reference:** [Tailwind Components & Design System]({{ base_url }}/lessons/en/tailwind/components-design-system/)
+> **Reference:** [Tailwind Components & Design System]({{ '/lessons/en/tailwind/components-design-system/' | relative_url }})
 
 ---
 
@@ -606,11 +606,11 @@ Before moving to Phase 3, verify:
 
 ## 8. Internal Lesson References
 
-- [Responsive Design (Canonical)]({{ base_url }}/lessons/en/responsive/) — Fluid, elastic, intrinsic
-- [CSS Animations]({{ base_url }}/lessons/en/web-animations/css/) — Transitions, keyframes, scroll-driven
-- [GSAP Animations]({{ base_url }}/lessons/en/web-animations/gsap/) — Timeline animations and ScrollTrigger
-- [Typography & Color]({{ base_url }}/lessons/en/typography-color/) — Fluid typography, color systems
-- [JavaScript Modules]({{ base_url }}/lessons/en/js-modules/) — Organize animation code modularly
+- [Responsive Design (Canonical)]({{ '/lessons/en/responsive/' | relative_url }}) — Fluid, elastic, intrinsic
+- [CSS Animations]({{ '/lessons/en/web-animations/css/' | relative_url }}) — Transitions, keyframes, scroll-driven
+- [GSAP Animations]({{ '/lessons/en/web-animations/gsap/' | relative_url }}) — Timeline animations and ScrollTrigger
+- [Typography & Color]({{ '/lessons/en/typography-color/' | relative_url }}) — Fluid typography, color systems
+- [JavaScript Modules]({{ '/lessons/en/js-modules/' | relative_url }}) — Organize animation code modularly
 
 ---
 
@@ -621,7 +621,7 @@ Before moving to Phase 3, verify:
 
 Your Phase 2 deliverable: A **fully responsive layout** where scroll reveals content with purpose and restraint. The user should feel guided, not assaulted.
 
-**Next:** [Phase 3 — Animations & Interactivity]({{ base_url }}/lessons/en/portfolio-template-brief/challenge/phase-3/) (coming soon)
+**Next:** [Phase 3 — Animations & Interactivity]({{ '/lessons/en/portfolio-template-brief/challenge/phase-3/' | relative_url }}) (coming soon)
 
 ---
 

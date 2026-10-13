@@ -439,7 +439,7 @@ Al final de esta lección, podrás:
 
 | Anterior                        | Actual            | Siguiente                                             |
 | ------------------------------ | ---------------- | ---------------------------------------------------- |
-| [Todas las lecciones](/lessons/es/) | **React (visión general)** | [Comparativa de frameworks](./frameworks-comparative/) |
+| [Todas las lecciones]({{ '/lessons/es/' | relative_url }}) | **React (visión general)** | [Comparativa de frameworks](./frameworks-comparative/) |
 
 ---
 

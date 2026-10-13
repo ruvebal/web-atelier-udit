@@ -490,7 +490,7 @@ By the end of this lesson, you will be able to:
 
 | Previous                    | Current            | Next                                                |
 | --------------------------- | ------------------ | --------------------------------------------------- |
-| [All Lessons](/lessons/en/) | **React Overview** | [Frameworks Comparative](./frameworks-comparative/) |
+| [All Lessons]({{ '/lessons/en/' | relative_url }}) | **React Overview** | [Frameworks Comparative](./frameworks-comparative/) |
 
 ---
 

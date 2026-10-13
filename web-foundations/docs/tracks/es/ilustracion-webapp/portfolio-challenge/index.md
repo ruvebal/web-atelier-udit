@@ -34,7 +34,7 @@ tags: [ilustracion, portfolio, scrollytelling, vanilla-js, responsive, web-stand
 >
 > Documenta cada plan en `./docs/plan1.md`, `./docs/plan2.md`, `./docs/plan3.md`, etc., antes de implementar la feature correspondiente. Esto garantiza una arquitectura intencional y evita la generación de código sin rumbo.
 >
-> **Metodología completa:** [Guía de trabajo con agentes de IA](/lessons/es/ai-methodology/)
+> **Metodología completa:** [Guía de trabajo con agentes de IA]({{ '/methodology/es/ai-practical-guide/' | relative_url }})
 >
 > **Nota:** Este documento se creó siguiendo precisamente esta metodología.
 
@@ -167,7 +167,7 @@ Un **portfolio profesional de ilustración** con experiencia de scrollytelling q
 
 ### 4. Diseño responsive (fluido + elástico + intrínseco)
 
-Referencia: [Lección de Diseño Responsive](/lessons/es/responsive/)
+Referencia: [Lección de Diseño Responsive]({{ '/lessons/es/responsive/' | relative_url }})
 
 - Enfoque **mobile-first** con mejora progresiva
 - **Tipografía fluida** usando `clamp()` para una escala suave
@@ -212,7 +212,7 @@ portfolio-ilustracion/
 
 ### 6. Metadatos e identidad visual
 
-Referencia: [Lección de Metadatos e Identidad Visual](/lessons/es/metadata-visual-identity-web/)
+Referencia: [Lección de Metadatos e Identidad Visual]({{ '/lessons/es/metadata-visual-identity-web/' | relative_url }})
 
 - **Metadatos completos en `<head>`**:
   - Título, descripción, palabras clave
@@ -226,7 +226,7 @@ Referencia: [Lección de Metadatos e Identidad Visual](/lessons/es/metadata-visu
 
 ### 7. Calidad de código y estándares
 
-Referencia: [Lección de Linting y Formateo](/lessons/es/linting-and-formatting/)
+Referencia: [Lección de Linting y Formateo]({{ '/lessons/es/linting-and-formatting/' | relative_url }})
 
 - **Prettier** para formato consistente
 - **ESLint** para linting de JavaScript (o JSHint como mínimo)
@@ -339,7 +339,7 @@ Referencia: [Ejemplo de Navegación](/student-project-template/docs/ejemplo-nave
 
 #### Animaciones CSS (obligatorio)
 
-Referencia: [Lección de Animaciones CSS](/lessons/es/web-animations/css/)
+Referencia: [Lección de Animaciones CSS]({{ '/lessons/es/web-animations/css/' | relative_url }})
 
 - **Transiciones** para estados _hover_, interacciones de botones
 - **Animaciones con `@keyframes`** para entrada del hero, estados de carga
@@ -356,7 +356,7 @@ Referencia: [Lección de Animaciones CSS](/lessons/es/web-animations/css/)
 
 ### Tipografía
 
-Referencia: [Lección de Tipografía y Color](/lessons/es/tipografia-color/)
+Referencia: [Lección de Tipografía y Color]({{ '/lessons/es/tipografia-color/' | relative_url }})
 
 - **Sistema tipográfico fluido** con `clamp()`:
 
@@ -376,7 +376,7 @@ Referencia: [Lección de Tipografía y Color](/lessons/es/tipografia-color/)
 
 ### Tendencias de diseño (elige 2–3)
 
-Referencia: [Lección de Tendencias Modernas de Diseño Web](/lessons/es/modern-web-design-trends/)
+Referencia: [Lección de Tendencias Modernas de Diseño Web]({{ '/lessons/es/modern-web-design-trends/' | relative_url }})
 
 - **Glassmorphism**: efecto de vidrio esmerilado con `backdrop-filter: blur()`
 - **Parallax**: diferentes velocidades de scroll para dar profundidad
@@ -828,13 +828,13 @@ git push origin v1.0.0
 
 ### Lecciones esenciales
 
-- [Responsive (canónica)](/lessons/es/responsive/) — Diseño fluido, elástico e intrínseco
-- [Animaciones CSS](/lessons/es/web-animations/css/) — Transiciones, keyframes, scroll‑driven
-- [Tipografía y Color](/lessons/es/tipografia-color/) — Tipografía fluida y sistemas de color
-- [Tendencias Modernas de Diseño Web](/lessons/es/modern-web-design-trends/) — Glassmorphism, parallax, dark mode
-- [Metadatos e Identidad Visual](/lessons/es/metadata-visual-identity-web/) — Guía completa de metadatos
-- [Linting y Formateo](/lessons/es/linting-and-formatting/) — Estándares de calidad de código
-- [Metodología de trabajo con IA](/lessons/es/ai-methodology/) — Flujo en dos fases
+- [Responsive (canónica)]({{ '/lessons/es/responsive/' | relative_url }}) — Diseño fluido, elástico e intrínseco
+- [Animaciones CSS]({{ '/lessons/es/web-animations/css/' | relative_url }}) — Transiciones, keyframes, scroll‑driven
+- [Tipografía y Color]({{ '/lessons/es/tipografia-color/' | relative_url }}) — Tipografía fluida y sistemas de color
+- [Tendencias Modernas de Diseño Web]({{ '/lessons/es/modern-web-design-trends/' | relative_url }}) — Glassmorphism, parallax, dark mode
+- [Metadatos e Identidad Visual]({{ '/lessons/es/metadata-visual-identity-web/' | relative_url }}) — Guía completa de metadatos
+- [Linting y Formateo]({{ '/lessons/es/linting-and-formatting/' | relative_url }}) — Estándares de calidad de código
+- [Metodología de trabajo con IA]({{ '/methodology/es/ai-practical-guide/' | relative_url }}) — Flujo en dos fases
 
 ### Plantillas y ejemplos
 

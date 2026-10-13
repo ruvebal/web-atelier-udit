@@ -27,7 +27,8 @@ This guide explains the architecture of our Single Page Application (SPA) portfo
 2. [The Router: Hash-Based Navigation](#2-the-router-hash-based-navigation)
 3. [The Animation Engine: GSAP & ScrollTrigger](#3-the-animation-engine-gsap--scrolltrigger)
 4. [The Lifecycle: Mount & Unmount Hooks](#4-the-lifecycle-mount--unmount-hooks)
-5. [Critical Thinking Exercises](#5-critical-thinking-exercises)
+5. [Deployment: CI/CD with GitHub Actions](#5-deployment-cicd-with-github-actions)
+6. [Critical Thinking Exercises](#6-critical-thinking-exercises)
 
 ---
 

@@ -554,7 +554,7 @@ Cache the last successful API response with a Workbox-based service worker. When
 
 ## AI usage policy
 
-This project is built under the Web Atelier **docs-first, AI-as-amplifier** methodology described in full at [/methodology/en/ai-practical-guide/](/methodology/en/ai-practical-guide/). The rules below are grading criteria, not suggestions.
+This project is built under the Web Atelier **docs-first, AI-as-amplifier** methodology described in full at [/methodology/en/ai-practical-guide/]({{ '/methodology/en/ai-practical-guide/' | relative_url }}). The rules below are grading criteria, not suggestions.
 
 ### The non-negotiables
 
@@ -1105,7 +1105,7 @@ Un proyecto que alcance el nivel *Satisfactorio* en todos los criterios obtiene 
 
 ### Uso de IA (política obligatoria)
 
-Este proyecto sigue la metodología **docs-first** de Web Atelier descrita en [/methodology/en/ai-practical-guide/](/methodology/en/ai-practical-guide/).
+Este proyecto sigue la metodología **docs-first** de Web Atelier descrita en [/methodology/en/ai-practical-guide/]({{ '/methodology/en/ai-practical-guide/' | relative_url }}).
 
 - **Entiende cada línea que entregas.** Si no puedes explicarla con tus propias palabras, no pertenece a tu repositorio.
 - **Documenta el uso de IA de forma transparente.** Código generado por IA sin declaración es una falta de integridad académica.

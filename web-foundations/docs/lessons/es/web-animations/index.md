@@ -1699,7 +1699,7 @@ _"La animación no es decoración. Es comunicación. Muévete con propósito. De
 
 **Próximos Pasos:**
 
-- Revisa [Módulos JavaScript](/lessons/es/js-modules/) para organizar código de animación modularmente
+- Revisa [Módulos JavaScript]({{ '/lessons/es/js-modules/' | relative_url }}) para organizar código de animación modularmente
 - Estudia las guías de accesibilidad (WCAG 2.1) para movimiento y animación
 - Explora herramientas de optimización de rendimiento (Chrome DevTools, Lighthouse)
 - Practica técnicas de animación SVG para logos e íconos

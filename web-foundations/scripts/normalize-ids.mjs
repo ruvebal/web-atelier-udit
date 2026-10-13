@@ -49,12 +49,22 @@ function processFile(filePath) {
     return match;
   });
   
-  // Normalize all href links to headings
-  newContent = newContent.replace(/href="#([^"]*)"/g, (match, anchor) => {
-    const normalized = normalize(anchor);
+  // Normalize all href links to headings: same-page (#id) and internal cross-page (/path/#id).
+  // Fragments may arrive percent-encoded (#an%C3%A1lisis) — decode before normalizing.
+  // External URLs and hash-router routes (#/about) are left untouched.
+  newContent = newContent.replace(/href="([^"#]*)#([^"]*)"/g, (match, path, anchor) => {
+    if (/^[a-z][a-z0-9+.-]*:/i.test(path) || path.startsWith('//')) return match;
+    if (anchor.startsWith('/')) return match;
+    let decoded = anchor;
+    try {
+      decoded = decodeURIComponent(anchor);
+    } catch {
+      // keep the raw fragment if it is not valid percent-encoding
+    }
+    const normalized = normalize(decoded);
     if (normalized !== anchor) {
       modified = true;
-      return `href="#${normalized}"`;
+      return `href="${path}#${normalized}"`;
     }
     return match;
   });

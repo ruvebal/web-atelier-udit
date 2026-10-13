@@ -84,7 +84,7 @@ Antes de los efectos de scroll, establece tu escala tipográfica. **Ninguna anim
 }
 ```
 
-> **Referencia:** [Lección de Tipografía y Color]({{ base_url }}/lessons/es/tipografia-color/)
+> **Referencia:** [Lección de Tipografía y Color]({{ '/lessons/es/tipografia-color/' | relative_url }})
 
 ---
 
@@ -228,7 +228,7 @@ document.querySelectorAll('[data-reveal]').forEach((el) => {
 </div>
 ```
 
-> **Referencia:** [Lección de Animaciones CSS]({{ base_url }}/lessons/es/web-animations/css/)
+> **Referencia:** [Lección de Animaciones CSS]({{ '/lessons/es/web-animations/css/' | relative_url }})
 
 ---
 
@@ -332,7 +332,7 @@ ScrollTrigger.batch('.project-card', {
 </section>
 ```
 
-> **Referencia:** [Lección de Animaciones GSAP]({{ base_url }}/lessons/es/web-animations/gsap/)
+> **Referencia:** [Lección de Animaciones GSAP]({{ '/lessons/es/web-animations/gsap/' | relative_url }})
 
 ---
 
@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </section>
 ```
 
-> **Referencia:** [Componentes Tailwind y Sistema de Diseño]({{ base_url }}/lessons/es/tailwind/components-design-system/)
+> **Referencia:** [Componentes Tailwind y Sistema de Diseño]({{ '/lessons/es/tailwind/components-design-system/' | relative_url }})
 
 ---
 
@@ -612,11 +612,11 @@ Antes de pasar a la Fase 3, verifica:
 
 ## 8. Referencias a Lecciones Internas
 
-- [Diseño Responsivo (Canónica)]({{ base_url }}/lessons/es/responsive/) — Fluido, elástico, intrínseco
-- [Animaciones CSS]({{ base_url }}/lessons/es/web-animations/css/) — Transiciones, keyframes, scroll-driven
-- [Animaciones GSAP]({{ base_url }}/lessons/es/web-animations/gsap/) — Animaciones timeline y ScrollTrigger
-- [Tipografía y Color]({{ base_url }}/lessons/es/tipografia-color/) — Tipografía fluida, sistemas de color
-- [Módulos JavaScript]({{ base_url }}/lessons/es/js-modules/) — Organizar código de animación modularmente
+- [Diseño Responsivo (Canónica)]({{ '/lessons/es/responsive/' | relative_url }}) — Fluido, elástico, intrínseco
+- [Animaciones CSS]({{ '/lessons/es/web-animations/css/' | relative_url }}) — Transiciones, keyframes, scroll-driven
+- [Animaciones GSAP]({{ '/lessons/es/web-animations/gsap/' | relative_url }}) — Animaciones timeline y ScrollTrigger
+- [Tipografía y Color]({{ '/lessons/es/tipografia-color/' | relative_url }}) — Tipografía fluida, sistemas de color
+- [Módulos JavaScript]({{ '/lessons/es/js-modules/' | relative_url }}) — Organizar código de animación modularmente
 
 ---
 
@@ -628,7 +628,7 @@ Antes de pasar a la Fase 3, verifica:
 
 Tu entregable de la Fase 2: Un **diseño completamente responsivo** donde el scroll revela contenido con propósito y mesura. El usuario debe sentirse guiado, no asaltado.
 
-**Siguiente:** [Fase 3 — Animaciones e Interactividad]({{ base_url }}/lessons/es/portfolio-template-brief/challenge/phase-3/) (próximamente)
+**Siguiente:** [Fase 3 — Animaciones e Interactividad]({{ '/lessons/es/portfolio-template-brief/challenge/phase-3/' | relative_url }}) (próximamente)
 
 ---
 

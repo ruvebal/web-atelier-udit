@@ -424,7 +424,7 @@ Accessibility notes:
 - Prefer modern formats (AVIF/WEBP) when available: `?tr=f-webp`.
 - Keep local `/images` only for tiny assets; use CDN for photos/artwork.
 
-### 8. Taste Node.js locally (optional) {: #taste-node }
+### 8. Taste Node.js locally (optional) {#taste-node}
 
 > One‑time setup to use `npm` scripts in the student template.
 

@@ -300,7 +300,7 @@ Independientemente de tu nivel, todo proyecto debe incluir:
 
 ### 4. Diseño responsive (fluido + elástico + intrínseco)
 
-Referencia: [Lección de Diseño Responsive](/lessons/es/responsive/)
+Referencia: [Lección de Diseño Responsive]({{ '/lessons/es/responsive/' | relative_url }})
 
 - Enfoque **mobile-first** con mejora progresiva
 - **Tipografía fluida** usando `clamp()` para una escala suave
@@ -341,7 +341,7 @@ portfolio-template/
 
 ### 6. Metadatos e identidad visual
 
-Referencia: [Lección de Metadatos e Identidad Visual](/lessons/es/metadata-visual-identity-web/)
+Referencia: [Lección de Metadatos e Identidad Visual]({{ '/lessons/es/metadata-visual-identity-web/' | relative_url }})
 
 - **Metadatos completos en `<head>`**:
   - Título, descripción, palabras clave
@@ -355,7 +355,7 @@ Referencia: [Lección de Metadatos e Identidad Visual](/lessons/es/metadata-visu
 
 ### 7. Calidad de código y estándares
 
-Referencia: [Lección de Linting y Formateo](/lessons/es/linting-and-formatting/)
+Referencia: [Lección de Linting y Formateo]({{ '/lessons/es/linting-and-formatting/' | relative_url }})
 
 - **Prettier** para formato consistente
 - **ESLint** para linting de JavaScript (o JSHint como mínimo)
@@ -385,7 +385,7 @@ Elige las técnicas adecuadas para tu nivel:
 
 #### Animaciones CSS (todos los niveles)
 
-Referencia: [Lección de Animaciones CSS](/lessons/es/web-animations/css/)
+Referencia: [Lección de Animaciones CSS]({{ '/lessons/es/web-animations/css/' | relative_url }})
 
 - **Transiciones** para estados _hover_, interacciones de botones
 - **Animaciones con `@keyframes`** para entrada del hero, estados de carga
@@ -393,7 +393,7 @@ Referencia: [Lección de Animaciones CSS](/lessons/es/web-animations/css/)
 
 #### Animaciones con GSAP (Grados 2 y 3)
 
-Referencia: [Lección de GSAP](/lessons/es/web-animations/gsap/)
+Referencia: [Lección de GSAP]({{ '/lessons/es/web-animations/gsap/' | relative_url }})
 
 - **Timelines** para secuencias complejas
 - **ScrollTrigger** para reveals y efectos de parallax
@@ -401,7 +401,7 @@ Referencia: [Lección de GSAP](/lessons/es/web-animations/gsap/)
 
 ### Tipografía
 
-Referencia: [Lección de Tipografía y Color](/lessons/es/tipografia-color/)
+Referencia: [Lección de Tipografía y Color]({{ '/lessons/es/tipografia-color/' | relative_url }})
 
 - **Sistema tipográfico fluido** con `clamp()`:
 
@@ -420,7 +420,7 @@ Referencia: [Lección de Tipografía y Color](/lessons/es/tipografia-color/)
 
 ### Tendencias de diseño (elige 2–3)
 
-Referencia: [Lección de Tendencias Modernas de Diseño Web](/lessons/es/modern-web-design-trends/)
+Referencia: [Lección de Tendencias Modernas de Diseño Web]({{ '/lessons/es/modern-web-design-trends/' | relative_url }})
 
 - **Glassmorphism**: efecto de vidrio esmerilado con `backdrop-filter: blur()`
 - **Neumorphism**: soft UI con sombras sutiles (usar con moderación)
@@ -1023,23 +1023,23 @@ Luego despliega la carpeta `dist/` a la rama `gh-pages` o configura Pages para s
 
 ### Lecciones esenciales
 
-- [Responsive (canónica)](/lessons/es/responsive/) — Diseño fluido, elástico e intrínseco
-- [Animaciones CSS](/lessons/es/web-animations/css/) — Transiciones, keyframes, scroll‑driven
-- [Animaciones GSAP](/lessons/es/web-animations/gsap/) — Timelines y ScrollTrigger
-- [Tipografía y Color](/lessons/es/tipografia-color/) — Tipografía fluida y sistemas de color
-- [Tendencias Modernas de Diseño Web](/lessons/es/modern-web-design-trends/) — Glassmorphism, parallax, dark mode
-- [Metadatos e Identidad Visual](/lessons/es/metadata-visual-identity-web/) — Guía completa de metadatos
-- [Linting y Formateo](/lessons/es/linting-and-formatting/) — Estándares de calidad de código
+- [Responsive (canónica)]({{ '/lessons/es/responsive/' | relative_url }}) — Diseño fluido, elástico e intrínseco
+- [Animaciones CSS]({{ '/lessons/es/web-animations/css/' | relative_url }}) — Transiciones, keyframes, scroll‑driven
+- [Animaciones GSAP]({{ '/lessons/es/web-animations/gsap/' | relative_url }}) — Timelines y ScrollTrigger
+- [Tipografía y Color]({{ '/lessons/es/tipografia-color/' | relative_url }}) — Tipografía fluida y sistemas de color
+- [Tendencias Modernas de Diseño Web]({{ '/lessons/es/modern-web-design-trends/' | relative_url }}) — Glassmorphism, parallax, dark mode
+- [Metadatos e Identidad Visual]({{ '/lessons/es/metadata-visual-identity-web/' | relative_url }}) — Guía completa de metadatos
+- [Linting y Formateo]({{ '/lessons/es/linting-and-formatting/' | relative_url }}) — Estándares de calidad de código
 
 ### Recursos específicos por nivel
 
 **Bootstrap + GSAP:**
 
-- [Despliegue de proyecto final con Bootstrap](/lessons/es/bootstrap/final-project-deployment/)
+- [Despliegue de proyecto final con Bootstrap]({{ '/lessons/es/bootstrap/final-project-deployment/' | relative_url }})
 
 **Tailwind + Vite:**
 
-- [Tailwind: build y despliegue](/lessons/es/tailwind/build-deploy/)
+- [Tailwind: build y despliegue]({{ '/lessons/es/tailwind/build-deploy/' | relative_url }})
 
 ### Herramientas externas
 

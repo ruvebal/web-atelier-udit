@@ -461,7 +461,7 @@ Notas de accesibilidad:
 - Prefiere formatos modernos (AVIF/WEBP) cuando estén disponibles: `?tr=f-webp`.
 - Deja `/images` local solo para assets pequeños; usa CDN para fotos/arte.
 
-### 9. Probar Node.js localmente (opcional) {: #probar-nodejs-localmente-opcional }
+### 9. Probar Node.js localmente (opcional) {#probar-nodejs-localmente-opcional}
 
 > Configuración rápida para usar scripts de `npm` en la plantilla del estudiante.
 
