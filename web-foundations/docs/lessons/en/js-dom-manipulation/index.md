@@ -130,6 +130,7 @@ The three references this course uses in every JavaScript session:
 | Standard — current reference | [ECMAScript® Language Specification (ECMA-262), Ecma International](https://262.ecma-international.org/) |
 | Recommended documentation | [MDN Web Docs — JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
 | Trademark | [JavaScript at Oracle](https://www.oracle.com/developer/javascript/) — as MDN states: “Both "Java" and "JavaScript" are trademarks or registered trademarks of Oracle in the U.S. and other countries.” |
+| Learning path | [MDN Curriculum — Core 6. JavaScript fundamentals](https://developer.mozilla.org/en-US/curriculum/core/javascript-fundamentals/) — this session covers 6.9 DOM scripting (creating, adding and styling nodes) and uses 6.3 template literals and 6.4 `map()`/`join()`; event delegation (6.10) is an extension. |
 
 Reference pages for this session: [`createElement()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement) · [`textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) · [`DocumentFragment`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) · [`replaceChildren()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/replaceChildren).
 

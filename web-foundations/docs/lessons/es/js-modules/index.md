@@ -129,6 +129,7 @@ Las tres referencias que este curso usa en todas las sesiones de JavaScript:
 | Estándar — referencia vigente | [ECMAScript® Language Specification (ECMA-262), Ecma International](https://262.ecma-international.org/) (en inglés) |
 | Documentación recomendada | [MDN Web Docs — JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) |
 | Marca registrada | [JavaScript en Oracle](https://www.oracle.com/developer/javascript/) (en inglés) — como indica MDN: “Both "Java" and "JavaScript" are trademarks or registered trademarks of Oracle in the U.S. and other countries” (“Java” y “JavaScript” son marcas comerciales o registradas de Oracle en EE. UU. y otros países). |
+| Itinerario de aprendizaje | [MDN Curriculum — Core 6. JavaScript fundamentals](https://developer.mozilla.org/en-US/curriculum/core/javascript-fundamentals/) (en inglés) — esta sesión parte de 6.7 (ámbito global frente a ámbito de función/bloque); los módulos ES van un paso más allá de ese módulo básico. |
 
 Páginas de referencia de esta sesión: [`import`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import) · [`export`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export) · [`import() (dinámico)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) (en inglés) · [`<script type="module">`](https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/script) · [ECMA-262 — Módulos](https://262.ecma-international.org/#sec-modules) (en inglés).
 
@@ -169,6 +170,8 @@ Locator: ahmes cite (Simpson 2020, 119) uses scheme=pdf_order; pdftotext page 11
 Run: ~/src/profield/runs/fe-js-canon/20261013 (pipeline.log, grounding-candidates.json)
 -->
 {% endif %}
+
+En el navegador, ese ámbito compartido es el objeto `window` de la Sesión 7: una `function render()` de nivel superior en un script clásico es accesible como `window.render` desde cualquier otro script. (Las `let`/`const` de nivel superior también comparten el ámbito, pero no se añaden a `window`.)
 
 La comunidad lo esquivó durante veinte años —las **IIFE** envolvían el código en una función para ocultar variables, **CommonJS** (`require`, 2009) dio a los archivos de Node.js su propio ámbito, **AMD** cargaba módulos de forma asíncrona en el navegador— hasta que **ES2015** estandarizó `import`/`export`. Hoy todos los navegadores actuales ejecutan módulos ES de forma nativa, sin ninguna herramienta.
 

@@ -52,6 +52,7 @@ tags: [javascript, fundamentals, events, dom, devtools]
 | `assets/js/main.js` exists (empty is fine) | Yes |
 | Live Server (VS Code) or any static server | Yes |
 | Chrome or Edge with DevTools | Yes |
+| [JavaScript Fundamentals pre-work]({{ '/lessons/en/js-fundamentals/' | relative_url }}) — variables to objects, errors (MDN Core 6.1–6.8) | Yes (≈ 3–4 h self-study) |
 
 **Official time:** 3 h in class (≈ 0.5 h framing · 0.5 h guided exercises · 1.5 h lab).
 
@@ -63,7 +64,7 @@ tags: [javascript, fundamentals, events, dom, devtools]
 | --- | --- | --- |
 | 1 | Sketch the event → DOM → feedback loop on paper | The runtime model |
 | 2 | Open DevTools; run expressions; change a node with `$0` | DevTools first |
-| 3 | Select a node and change its text from JS | The DOM |
+| 3 | Meet `window` and `document`; select a node and change its text from JS | `window` and `document` · The DOM |
 | 4 | Wire one button to a listener that updates the page | Events |
 | 5 | Make the three commits in `main.js` | Lab |
 | 6 | Push + one-line reflection + AI line | Submit below |
@@ -132,8 +133,9 @@ The three references this course uses in every JavaScript session:
 | Standard — current reference | [ECMAScript® Language Specification (ECMA-262), Ecma International](https://262.ecma-international.org/) |
 | Recommended documentation | [MDN Web Docs — JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
 | Trademark | [JavaScript at Oracle](https://www.oracle.com/developer/javascript/) — as MDN states: “Both "Java" and "JavaScript" are trademarks or registered trademarks of Oracle in the U.S. and other countries.” |
+| Learning path | [MDN Curriculum — Core 6. JavaScript fundamentals](https://developer.mozilla.org/en-US/curriculum/core/javascript-fundamentals/) — this session covers 6.9 DOM scripting (`Window`, `Document`, selecting nodes, `classList`), 6.10 Events and 6.15 Debugging. 6.1–6.8 (variables → objects) are in the [pre-work]({{ '/lessons/en/js-fundamentals/' | relative_url }}). |
 
-Reference pages for this session: [`Introduction to the DOM`](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) · [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) · [`textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) · [`classList`](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) · [`addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+Reference pages for this session: [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) · [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) · [`Introduction to the DOM`](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) · [`querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) · [`textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) · [`classList`](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) · [`addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 ---
 
@@ -194,6 +196,30 @@ Mini-challenge: change the text of your `h1` without reloading, then reload — 
 
 ---
 
+## `window` and `document`: where your code starts
+
+Every script on a page starts with two objects already available.
+
+| Object | What it represents | You use it for |
+| --- | --- | --- |
+| [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) | The browser tab — viewport, URL, timers — and the **global object** | `scrollY`, `innerWidth`, `location`; listening for `scroll` / `resize` |
+| [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) | The page loaded in that tab — the entry point to the DOM tree | `querySelector()`, `createElement()`, `title`, `body` |
+
+`document` is itself a property of `window`, so `window.document === document`. Because `window` is the global object, you can write `document` instead of `window.document` and `innerWidth` instead of `window.innerWidth`. In a classic script, top-level `function` and `var` declarations also become `window` properties — the shared global scope that Session 9 replaces with modules.
+
+**Excerpt** — run in the Console, resize the window, then run the last two lines again.
+
+```js
+window.document === document; // true
+document.title;
+window.innerWidth;
+window.location.href;
+```
+
+Rule of thumb: listen on `window` for tab and viewport events (`scroll`, `resize`); listen on elements for what the user does to content (`click`, `input`, `submit`).
+
+---
+
 ## The DOM: select and change
 
 **Excerpt** — assumes `<h1 id="title">Hello</h1>` exists in your HTML.
@@ -249,10 +275,8 @@ Run: ~/src/profield/runs/fe-js-canon/20261013 (pipeline.log, grounding-candidate
 | --- | --- |
 | `click` | Buttons, links, toggles |
 | `input` | Live update while typing |
-| `change` | Select, checkbox, finished input |
 | `submit` | Forms (call `event.preventDefault()` to stay on the page) |
 | `keydown` | Shortcuts; keyboard access |
-| `focus` / `blur` | Field help, validation hints |
 | `scroll` | Header state, progress indicators |
 | `DOMContentLoaded` | Run once the DOM is parsed (not needed with `defer`) |
 
@@ -395,33 +419,6 @@ outcome-graphic-selection:
   visual-grammar: "browser-event-runtime — browser events moving through runtime, state, and document response"
 {% endcomment %}
 {% include lesson-outcome-graphic.html %}
-
----
-
-## Optional deep dive: JavaScript in context
-
-Read after class if you want the background; nothing here is needed for the lab.
-
-**Short history**
-
-- **1995** — Brendan Eich creates JavaScript at Netscape (Mocha → LiveScript → JavaScript).
-- **1997** — ECMAScript standardises the language across browsers.
-- **2000s** — AJAX: pages load data without reloading (Gmail, Google Maps).
-- **2009** — Node.js runs JavaScript on the server.
-- **2015 →** — ES2015 (`let`/`const`, arrow functions, classes, modules, Promises); yearly releases since.
-
-**If you already know C++ or PHP**
-
-| Concept | C++ | JavaScript | PHP / Laravel |
-| --- | --- | --- | --- |
-| Variable | `int x = 10;` | `let x = 10;` / `const x = 10;` | `$x = 10;` |
-| Typing | static, strong | dynamic (type decided at runtime) | dynamic |
-| Function | `int add(int a, int b)` | `const add = (a, b) => a + b;` | `function add($a, $b)` |
-| Object | `struct` / `class` | `{ name: 'Ana' }` / `class` | associative array / `class` |
-| Runs in | compiled native binary | browser engine (or Node.js) | server |
-| Reacts to users | GUI event loop | DOM events, without reload | on request (form submit) |
-
-**Node.js** runs the same language on the server; you meet it as a tool runner in the [development environment lesson]({{ '/lessons/en/development-environment/' | relative_url }}#taste-node) (section 8, "Taste Node.js locally").
 
 ---
 

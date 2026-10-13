@@ -129,6 +129,7 @@ The three references this course uses in every JavaScript session:
 | Standard — current reference | [ECMAScript® Language Specification (ECMA-262), Ecma International](https://262.ecma-international.org/) |
 | Recommended documentation | [MDN Web Docs — JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
 | Trademark | [JavaScript at Oracle](https://www.oracle.com/developer/javascript/) — as MDN states: “Both "Java" and "JavaScript" are trademarks or registered trademarks of Oracle in the U.S. and other countries.” |
+| Learning path | [MDN Curriculum — Core 6. JavaScript fundamentals](https://developer.mozilla.org/en-US/curriculum/core/javascript-fundamentals/) — this session builds on 6.7 (global vs function/block scope); ES modules go one step beyond that core module. |
 
 Reference pages for this session: [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) · [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) · [`import() (dynamic)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) · [`<script type="module">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script) · [ECMA-262 — Modules](https://262.ecma-international.org/#sec-modules).
 
@@ -169,6 +170,8 @@ Locator: ahmes cite (Simpson 2020, 119) uses scheme=pdf_order; pdftotext page 11
 Run: ~/src/profield/runs/fe-js-canon/20261013 (pipeline.log, grounding-candidates.json)
 -->
 {% endif %}
+
+In the browser, that shared scope is the `window` object from Session 7: a top-level `function render()` in a classic script is reachable as `window.render` from any other script. (Top-level `let`/`const` share the scope too, but are not attached to `window`.)
 
 The community worked around it for twenty years — **IIFEs** wrapped code in a function to hide variables, **CommonJS** (`require`, 2009) gave Node.js files their own scope, **AMD** loaded modules asynchronously in browsers — until **ES2015** standardised `import`/`export`. Today every current browser runs ES modules natively, without any tool.
 

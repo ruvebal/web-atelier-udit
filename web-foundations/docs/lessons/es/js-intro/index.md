@@ -52,6 +52,7 @@ tags: [javascript, fundamentals, events, dom, devtools]
 | Existe `assets/js/main.js` (puede estar vacío) | Sí |
 | Live Server (VS Code) o cualquier servidor estático | Sí |
 | Chrome o Edge con DevTools | Sí |
+| [Trabajo previo: Fundamentos de JavaScript]({{ '/lessons/es/js-fundamentals/' | relative_url }}) — de variables a objetos, errores (MDN Core 6.1–6.8) | Sí (≈ 3–4 h autónomas) |
 
 **Tiempo oficial:** 3 h en clase (≈ 0,5 h encuadre · 0,5 h ejercicios guiados · 1,5 h laboratorio).
 
@@ -63,7 +64,7 @@ tags: [javascript, fundamentals, events, dom, devtools]
 | --- | --- | --- |
 | 1 | Dibuja en papel el bucle evento → DOM → feedback | El modelo de ejecución |
 | 2 | Abre DevTools; ejecuta expresiones; cambia un nodo con `$0` | Primero, DevTools |
-| 3 | Selecciona un nodo y cambia su texto desde JS | El DOM |
+| 3 | Conoce `window` y `document`; selecciona un nodo y cambia su texto desde JS | `window` y `document` · El DOM |
 | 4 | Conecta un botón a un listener que actualice la página | Eventos |
 | 5 | Haz los tres commits en `main.js` | Laboratorio |
 | 6 | Push + reflexión de una línea + línea de IA | Entrega |
@@ -132,8 +133,9 @@ Las tres referencias que este curso usa en todas las sesiones de JavaScript:
 | Estándar — referencia vigente | [ECMAScript® Language Specification (ECMA-262), Ecma International](https://262.ecma-international.org/) (en inglés) |
 | Documentación recomendada | [MDN Web Docs — JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) |
 | Marca registrada | [JavaScript en Oracle](https://www.oracle.com/developer/javascript/) (en inglés) — como indica MDN: “Both "Java" and "JavaScript" are trademarks or registered trademarks of Oracle in the U.S. and other countries” (“Java” y “JavaScript” son marcas comerciales o registradas de Oracle en EE. UU. y otros países). |
+| Itinerario de aprendizaje | [MDN Curriculum — Core 6. JavaScript fundamentals](https://developer.mozilla.org/en-US/curriculum/core/javascript-fundamentals/) (en inglés) — esta sesión cubre 6.9 DOM scripting (`Window`, `Document`, seleccionar nodos, `classList`), 6.10 Events y 6.15 Debugging. 6.1–6.8 (de variables a objetos) están en el [trabajo previo]({{ '/lessons/es/js-fundamentals/' | relative_url }}). |
 
-Páginas de referencia de esta sesión: [`Introducción al DOM`](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction) · [`querySelector()`](https://developer.mozilla.org/es/docs/Web/API/Document/querySelector) · [`textContent`](https://developer.mozilla.org/es/docs/Web/API/Node/textContent) · [`classList`](https://developer.mozilla.org/es/docs/Web/API/Element/classList) · [`addEventListener()`](https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener).
+Páginas de referencia de esta sesión: [`Window`](https://developer.mozilla.org/es/docs/Web/API/Window) · [`Document`](https://developer.mozilla.org/es/docs/Web/API/Document) · [`Introducción al DOM`](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction) · [`querySelector()`](https://developer.mozilla.org/es/docs/Web/API/Document/querySelector) · [`textContent`](https://developer.mozilla.org/es/docs/Web/API/Node/textContent) · [`classList`](https://developer.mozilla.org/es/docs/Web/API/Element/classList) · [`addEventListener()`](https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener).
 
 ---
 
@@ -194,6 +196,30 @@ Minirreto: cambia el texto de tu `h1` sin recargar y después recarga: el cambio
 
 ---
 
+## `window` y `document`: donde empieza tu código
+
+Todo script de una página arranca con dos objetos ya disponibles.
+
+| Objeto | Qué representa | Para qué lo usas |
+| --- | --- | --- |
+| [`window`](https://developer.mozilla.org/es/docs/Web/API/Window) | La pestaña del navegador — viewport, URL, temporizadores — y el **objeto global** | `scrollY`, `innerWidth`, `location`; escuchar `scroll` / `resize` |
+| [`document`](https://developer.mozilla.org/es/docs/Web/API/Document) | La página cargada en esa pestaña — la puerta de entrada al árbol DOM | `querySelector()`, `createElement()`, `title`, `body` |
+
+`document` es a su vez una propiedad de `window`, así que `window.document === document`. Como `window` es el objeto global, puedes escribir `document` en lugar de `window.document` e `innerWidth` en lugar de `window.innerWidth`. En un script clásico, las declaraciones `function` y `var` de nivel superior también se convierten en propiedades de `window`: el ámbito global compartido que la Sesión 9 sustituye por módulos.
+
+**Excerpt** — ejecútalo en la Console, redimensiona la ventana y vuelve a ejecutar las dos últimas líneas.
+
+```js
+window.document === document; // true
+document.title;
+window.innerWidth;
+window.location.href;
+```
+
+Regla práctica: escucha en `window` los eventos de pestaña y viewport (`scroll`, `resize`); escucha en los elementos lo que el usuario hace con el contenido (`click`, `input`, `submit`).
+
+---
+
 ## El DOM: seleccionar y cambiar
 
 **Excerpt** — supone que existe `<h1 id="title">Hola</h1>` en tu HTML.
@@ -249,10 +275,8 @@ Run: ~/src/profield/runs/fe-js-canon/20261013 (pipeline.log, grounding-candidate
 | --- | --- |
 | `click` | Botones, enlaces, interruptores |
 | `input` | Actualizar mientras se escribe |
-| `change` | Select, checkbox, campo terminado |
 | `submit` | Formularios (llama a `event.preventDefault()` para quedarte en la página) |
 | `keydown` | Atajos; acceso por teclado |
-| `focus` / `blur` | Ayuda de campos, avisos de validación |
 | `scroll` | Estado del header, indicadores de progreso |
 | `DOMContentLoaded` | Ejecutar cuando el DOM está parseado (innecesario con `defer`) |
 
@@ -395,33 +419,6 @@ outcome-graphic-selection:
   visual-grammar: "browser-event-runtime — browser events moving through runtime, state, and document response"
 {% endcomment %}
 {% include lesson-outcome-graphic.html %}
-
----
-
-## Profundización opcional: JavaScript en contexto
-
-Léelo después de clase si quieres el trasfondo; nada de esto hace falta para el laboratorio.
-
-**Historia breve**
-
-- **1995** — Brendan Eich crea JavaScript en Netscape (Mocha → LiveScript → JavaScript).
-- **1997** — ECMAScript estandariza el lenguaje entre navegadores.
-- **Años 2000** — AJAX: las páginas cargan datos sin recargar (Gmail, Google Maps).
-- **2009** — Node.js ejecuta JavaScript en el servidor.
-- **2015 →** — ES2015 (`let`/`const`, funciones flecha, clases, módulos, Promises); versiones anuales desde entonces.
-
-**Si ya conoces C++ o PHP**
-
-| Concepto | C++ | JavaScript | PHP / Laravel |
-| --- | --- | --- | --- |
-| Variable | `int x = 10;` | `let x = 10;` / `const x = 10;` | `$x = 10;` |
-| Tipado | estático, fuerte | dinámico (el tipo se decide en ejecución) | dinámico |
-| Función | `int add(int a, int b)` | `const add = (a, b) => a + b;` | `function add($a, $b)` |
-| Objeto | `struct` / `class` | `{ name: 'Ana' }` / `class` | array asociativo / `class` |
-| Se ejecuta en | binario nativo compilado | motor del navegador (o Node.js) | servidor |
-| Reacciona al usuario | bucle de eventos de la GUI | eventos del DOM, sin recargar | en cada petición (envío de formulario) |
-
-**Node.js** ejecuta el mismo lenguaje en el servidor; lo conocerás como ejecutor de herramientas en la [lección de entorno de desarrollo]({{ '/lessons/es/entorno-de-desarrollo/' | relative_url }}#probar-nodejs-localmente-opcional) (sección 9, "Probar Node.js localmente").
 
 ---
 
