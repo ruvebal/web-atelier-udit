@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Exercise 1 — Strings</title>
+		<title>Ejercicio 1 — Cadenas</title>
 		<link rel="stylesheet" href="01-strings.css" />
+		<script src="01-strings.js" defer></script>
 	</head>
 	<body>
 		<main class="container">
-			<h1>Products (String Rendering)</h1>
+			<h1>Productos (renderizado con cadenas)</h1>
+			<label class="toggle">
+				<input type="checkbox" id="unsafe" />
+				Modo inseguro: interpolar datos sin escapar
+			</label>
+			<p id="xss-banner" class="banner" hidden>Se ha ejecutado código inyectado en esta página.</p>
 			<div id="list"></div>
 		</main>
-		<script src="01-strings.js" type="module"></script>
 	</body>
 </html>

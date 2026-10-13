@@ -667,6 +667,29 @@ html.dark,
 	margin-top: 0.65rem;
 }
 
+.lesson-key-figure {
+	margin: 1.5rem 0 2rem;
+}
+
+.lesson-key-figure img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 0.5rem;
+	border: 1px solid rgb(17 17 17 / 0.12);
+}
+
+.lesson-key-figure figcaption {
+	margin-top: 0.6rem;
+	font-size: 0.9rem;
+}
+
+.lesson-key-figure .image-credit {
+	display: block;
+	color: var(--muted);
+	font-size: 0.8125rem;
+}
+
 .track-curriculum-figure .image-credit {
 	color: var(--muted);
 	font-size: 0.8125rem;

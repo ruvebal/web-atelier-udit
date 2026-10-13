@@ -1,0 +1,78 @@
+{
+ "generator": "generate-js-key-figures.mjs",
+ "brand": "udit",
+ "current_release": "lesson-figures-c45e341e",
+ "releases": [
+  {
+   "release_id": "lesson-figures-c45e341e",
+   "created_at": "2026-10-13T12:40:42.600Z",
+   "generator_version": "1.0.0",
+   "assets": [
+    {
+     "id": "fe-i-07-event-loop",
+     "lesson": "js-intro",
+     "lang": "en",
+     "svg": "fe-i-07-event-loop-en-77b0b39edeec.svg",
+     "png": "fe-i-07-event-loop-en-77b0b39edeec.png",
+     "title": "Session 7: the browser event loop",
+     "description": "Once at load, main.js registers listeners. Then a loop: the user acts, an event fires, the listener runs, the DOM changes, the browser repaints, and the user perceives feedback.",
+     "content_hash": "77b0b39edeec"
+    },
+    {
+     "id": "fe-i-07-event-loop",
+     "lesson": "js-intro",
+     "lang": "es",
+     "svg": "fe-i-07-event-loop-es-a5fe9fdf650c.svg",
+     "png": "fe-i-07-event-loop-es-a5fe9fdf650c.png",
+     "title": "Sesión 7: el bucle de eventos del navegador",
+     "description": "Una vez, al cargar, main.js registra los listeners. Después, un bucle: el usuario actúa, se dispara un evento, se ejecuta el listener, el DOM cambia, el navegador repinta y el usuario percibe el feedback.",
+     "content_hash": "a5fe9fdf650c"
+    },
+    {
+     "id": "fe-i-08-trust-boundary",
+     "lesson": "js-dom-manipulation",
+     "lang": "en",
+     "svg": "fe-i-08-trust-boundary-en-12f5dac47605.svg",
+     "png": "fe-i-08-trust-boundary-en-12f5dac47605.png",
+     "title": "Session 8: rendering is a trust boundary",
+     "description": "The same untrusted string reaches two sinks. Through innerHTML it is parsed as HTML, an img element is created and its onerror code runs. Through textContent it is stored as text, shown literally, and nothing runs.",
+     "content_hash": "12f5dac47605"
+    },
+    {
+     "id": "fe-i-08-trust-boundary",
+     "lesson": "js-dom-manipulation",
+     "lang": "es",
+     "svg": "fe-i-08-trust-boundary-es-3b0f04f7c7aa.svg",
+     "png": "fe-i-08-trust-boundary-es-3b0f04f7c7aa.png",
+     "title": "Sesión 8: el renderizado es una frontera de confianza",
+     "description": "La misma cadena no confiable llega a dos sumideros. Con innerHTML se interpreta como HTML, se crea un elemento img y su código onerror se ejecuta. Con textContent se guarda como texto, se muestra literal y no se ejecuta nada.",
+     "content_hash": "3b0f04f7c7aa"
+    },
+    {
+     "id": "fe-i-09-import-graph",
+     "lesson": "js-modules",
+     "lang": "en",
+     "svg": "fe-i-09-import-graph-en-1ba094b97a14.svg",
+     "png": "fe-i-09-import-graph-en-1ba094b97a14.png",
+     "title": "Session 9: the lab import graph",
+     "description": "index.html loads main.js with type module. main.js imports utils.js, projects.js and header.js; projects.js also imports utils.js, which still runs once. projects.js is the boundary: it owns the data and how it renders, so a change to card markup stays inside it.",
+     "content_hash": "1ba094b97a14"
+    },
+    {
+     "id": "fe-i-09-import-graph",
+     "lesson": "js-modules",
+     "lang": "es",
+     "svg": "fe-i-09-import-graph-es-0a9b3b065e65.svg",
+     "png": "fe-i-09-import-graph-es-0a9b3b065e65.png",
+     "title": "Sesión 9: el grafo de imports del laboratorio",
+     "description": "index.html carga main.js con type module. main.js importa utils.js, projects.js y header.js; projects.js también importa utils.js, que aun así se ejecuta una vez. projects.js es el límite: es dueño de los datos y de su renderizado, así que un cambio en el marcado de la tarjeta se queda dentro.",
+     "content_hash": "0a9b3b065e65"
+    }
+   ],
+   "caption": {
+    "credit": "Figure by @ruvebal with visual-forger 1.2.0 and generate-js-key-figures.mjs 1.0.0."
+   }
+  }
+ ],
+ "generator_version": "1.0.0"
+}

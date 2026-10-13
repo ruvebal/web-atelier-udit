@@ -20,9 +20,15 @@ function h(type, props = {}, ...children) {
 }
 
 const products = [
-	{ id: 1, name: 'Safe Mug', price: 19.99, description: 'Durable, everyday mug.' },
-	{ id: 2, name: 'Travel Bottle', price: 29.5, description: 'Keeps drinks cold.' },
-	{ id: 3, name: '<img onerror=alert("XSS") src=x>', price: 9.99, description: 'Harden your code!' },
+	{ id: 1, name: 'Taza segura', price: 19.99, description: 'Resistente, para el día a día.' },
+	{ id: 2, name: 'Botella de viaje', price: 29.5, description: 'Mantiene las bebidas frías.' },
+	// El mismo payload no confiable de la demo 1: aquí se queda en texto plano.
+	{
+		id: 3,
+		name: '<img src=x onerror="document.body.style.outline = \'8px solid red\'">Taza del caos',
+		price: 9.99,
+		description: '¡Intenta romper el DOM!',
+	},
 ];
 
 function Card({ id, name, description, price }) {

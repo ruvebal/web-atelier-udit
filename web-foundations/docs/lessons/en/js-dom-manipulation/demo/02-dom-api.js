@@ -1,7 +1,13 @@
 const products = [
 	{ id: 1, name: 'Safe Mug', price: 19.99, description: 'Durable, everyday mug.' },
 	{ id: 2, name: 'Travel Bottle', price: 29.5, description: 'Keeps drinks cold.' },
-	{ id: 3, name: '<img onerror=alert("XSS") src=x>', price: 9.99, description: 'Harden your code!' },
+	// Same untrusted payload as demo 1: here it stays plain text.
+	{
+		id: 3,
+		name: '<img src=x onerror="document.body.style.outline = \'8px solid red\'">Mug of Doom',
+		price: 9.99,
+		description: 'Try to break the DOM!',
+	},
 ];
 
 function createCard(product) {
@@ -10,7 +16,7 @@ function createCard(product) {
 	article.dataset.id = String(product.id);
 
 	const h3 = document.createElement('h3');
-	h3.textContent = product.name;
+	h3.textContent = product.name; // text, never parsed as HTML
 
 	const pDesc = document.createElement('p');
 	pDesc.className = 'desc';
@@ -24,17 +30,7 @@ function createCard(product) {
 	return article;
 }
 
-function render(products) {
-	const list = document.getElementById('list');
-	const grid = document.createElement('div');
-	grid.className = 'grid';
-
-	const frag = document.createDocumentFragment();
-	products.forEach((p) => frag.appendChild(createCard(p)));
-	grid.appendChild(frag);
-
-	list.textContent = '';
-	list.appendChild(grid);
-}
-
-render(products);
+const list = document.getElementById('list');
+const frag = document.createDocumentFragment();
+products.forEach((p) => frag.append(createCard(p)));
+list.replaceChildren(frag); // one insertion, one repaint

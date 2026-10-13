@@ -22,7 +22,13 @@ function h(type, props = {}, ...children) {
 const products = [
 	{ id: 1, name: 'Safe Mug', price: 19.99, description: 'Durable, everyday mug.' },
 	{ id: 2, name: 'Travel Bottle', price: 29.5, description: 'Keeps drinks cold.' },
-	{ id: 3, name: '<img onerror=alert("XSS") src=x>', price: 9.99, description: 'Harden your code!' },
+	// Same untrusted payload as demo 1: here it stays plain text.
+	{
+		id: 3,
+		name: '<img src=x onerror="document.body.style.outline = \'8px solid red\'">Mug of Doom',
+		price: 9.99,
+		description: 'Try to break the DOM!',
+	},
 ];
 
 function Card({ id, name, description, price }) {

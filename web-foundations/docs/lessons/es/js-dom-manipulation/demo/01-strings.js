@@ -1,12 +1,13 @@
 const products = [
-	{ id: 1, name: 'Safe Mug', price: 19.99, description: 'Durable, everyday mug.' },
-	{ id: 2, name: 'Travel Bottle', price: 29.5, description: 'Keeps drinks cold.' },
-	// Simulate a malicious payload coming from user input or external API
+	{ id: 1, name: 'Taza segura', price: 19.99, description: 'Resistente, para el día a día.' },
+	{ id: 2, name: 'Botella de viaje', price: 29.5, description: 'Mantiene las bebidas frías.' },
+	// Entrada no confiable simulada (un campo de formulario, un parámetro de URL, una respuesta de API).
+	// Las etiquetas <script> inyectadas con innerHTML no se ejecutan, pero los atributos de evento sí.
 	{
 		id: 3,
-		name: '<img src=x onerror="alert(`XSS`);document.body.innerHTML=`<h1>Pwned</h1>`">',
+		name: '<img src=x onerror="document.getElementById(\'xss-banner\').hidden = false">Taza del caos',
 		price: 9.99,
-		description: 'Try to break the DOM!',
+		description: '¡Intenta romper el DOM!',
 	},
 ];
 
@@ -19,37 +20,19 @@ function escapeHtml(value) {
 		.replaceAll("'", '&#39;');
 }
 
-function render(products) {
+function render(products, unsafe) {
 	const list = document.getElementById('list');
-	/*
-	We use a "template literal" (also called a template string) in JavaScript, denoted by backticks (`).
-	This allows us to embed variables and expressions directly inside the string using ${...}.
+	const clean = unsafe ? (value) => String(value) : escapeHtml;
 
-	Example:
-
-		const name = "World";
-		console.log(`Hello, ${name}!`); // Output: Hello, World!
-
-	We use the map() method of Array instances "Array.prototype.map" here
-	to transform each product object `p` into an HTML string using the function `(p) => ...`.
-	For every product, we return a string containing its HTML card layout.
-	Using "Array.prototype.map(fn)" creates a new array where each element is the string for one product card.
-	After mapping, we call "Array.prototype.join('')" to combine all of the card strings into one big block of HTML.
-	*/
-	/*
-	Ref. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array for more details.
-	Ref. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach for more details.
-	Ref. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map for more details.
-	Ref. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join for more details.
-	*/
+	// map() convierte cada producto en una cadena HTML; join('') las une en un solo bloque.
 	const html = `
 		<div class="grid">
 			${products
 				.map(
 					(p) => `
 						<article class="card" data-id="${p.id}">
-							<h3>${escapeHtml(p.name)}</h3>
-							<p class="desc">${escapeHtml(p.description)}</p>
+							<h3>${clean(p.name)}</h3>
+							<p class="desc">${clean(p.description)}</p>
 							<p class="price">$${p.price.toFixed(2)}</p>
 						</article>
 					`
@@ -57,6 +40,10 @@ function render(products) {
 				.join('')}
 		</div>
 	`;
+	document.getElementById('xss-banner').hidden = true;
 	list.innerHTML = html;
 }
-render(products);
+
+const toggle = document.getElementById('unsafe');
+toggle.addEventListener('change', () => render(products, toggle.checked));
+render(products, toggle.checked);
