@@ -9,6 +9,9 @@ package-lock.json
 pnpm-lock.yaml
 yarn.lock
 Gemfile.lock
+# The Jekyll site's lockfile is committed so local and CI builds resolve identical gems
+# (Ruby version pinned in web-foundations/.ruby-version).
+!web-foundations/Gemfile.lock
 web-foundations/docs/assets/css/tailwind-processed.css
 vendor/
 # Re-include the reveal.js decks' vendored runtime. These are small text assets

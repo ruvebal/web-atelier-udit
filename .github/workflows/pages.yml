@@ -29,9 +29,11 @@ jobs:
   steps:
    - uses: actions/checkout@v4
 
+   # Ruby version comes from web-foundations/.ruby-version; gems from the committed
+   # web-foundations/Gemfile.lock (bundler-cache installs into vendor/bundle and caches it).
    - uses: ruby/setup-ruby@v1
      with:
-      ruby-version: '3.2'
+      working-directory: web-foundations
       bundler-cache: true
 
    - uses: actions/setup-node@v4
@@ -45,12 +47,6 @@ jobs:
    - name: Install Node.js deps (web-foundations)
      working-directory: web-foundations
      run: pnpm install --frozen-lockfile
-
-   - name: Install Jekyll deps (web-foundations)
-     working-directory: web-foundations
-     run: |
-      bundle config set path 'vendor/bundle'
-      bundle install --jobs 4 --retry 3
 
    - name: Build site (from nested source web-foundations/docs)
      working-directory: web-foundations

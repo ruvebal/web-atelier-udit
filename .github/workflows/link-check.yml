@@ -15,7 +15,8 @@ jobs:
    - name: Set up Ruby
      uses: ruby/setup-ruby@v1
      with:
-      ruby-version: '3.2'
+      working-directory: web-foundations
+      bundler-cache: true
 
    - uses: actions/setup-node@v4
      with:
@@ -28,11 +29,6 @@ jobs:
    - name: Install Node.js dependencies
      working-directory: web-foundations
      run: pnpm install --frozen-lockfile
-
-   - name: Install Jekyll dependencies
-     working-directory: web-foundations
-     run: |
-      bundle install --path vendor/bundle
 
    - name: Build site (Jekyll)
      working-directory: web-foundations
