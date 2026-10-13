@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 360" role="img" aria-labelledby="title-736907079 desc-736907079">
   <title id="title-736907079">Generative page artwork</title>
-  <desc id="desc-736907079">Platonic-solid, fractal, opt-art, glitch, and organic dialogue geometry for Individual Project: Geophysical Aggregator.</desc>
+  <desc id="desc-736907079">Platonic-solid, fractal, opt-art, glitch, and organic dialogue geometry for Individual Project: Individual React Capstone.</desc>
   <defs>
     <filter id="grain-736907079" x="-10%" y="-10%" width="120%" height="120%">
       <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="2" seed="451" result="noise"/>

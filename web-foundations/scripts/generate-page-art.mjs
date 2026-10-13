@@ -196,6 +196,8 @@ for (const file of files) {
 	const text = fs.readFileSync(file, 'utf8');
 	const fm = frontmatter(text);
 	if (!fm || fm.published === 'false' || fm.sitemap === 'false') continue;
+	// Standalone pages (layout: null) never render the site chrome that shows page art.
+	if (fm.layout === 'null') continue;
 	const url = pageUrl(file, fm);
 	if (archiveUrls.has(url)) continue;
 	const seed = hash(url);

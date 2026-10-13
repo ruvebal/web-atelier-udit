@@ -483,6 +483,17 @@
       "organic-dialogue"
     ]
   },
+  "/lessons/en/js-fundamentals/": {
+    "asset": "page-lessons-en-js-fundamentals",
+    "title": "JavaScript Fundamentals (Session 7 pre-work)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
   "/lessons/en/js-intro/": {
     "asset": "page-lessons-en-js-intro",
     "title": "Introduction to JS",
@@ -571,50 +582,6 @@
       "organic-dialogue"
     ]
   },
-  "/lessons/en/modals/demo/01-css-modal.html": {
-    "asset": "page-lessons-en-modals-demo-01-css-modal-html",
-    "title": "/lessons/en/modals/demo/01-css-modal.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/en/modals/demo/02-vanilla-modal.html": {
-    "asset": "page-lessons-en-modals-demo-02-vanilla-modal-html",
-    "title": "/lessons/en/modals/demo/02-vanilla-modal.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/en/modals/demo/03-dialog-element.html": {
-    "asset": "page-lessons-en-modals-demo-03-dialog-element-html",
-    "title": "/lessons/en/modals/demo/03-dialog-element.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/en/modals/demo/04-project-grid.html": {
-    "asset": "page-lessons-en-modals-demo-04-project-grid-html",
-    "title": "/lessons/en/modals/demo/04-project-grid.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
   "/lessons/en/modals/": {
     "asset": "page-lessons-en-modals",
     "title": "Modals & Navigation Patterns – New Page vs. Modal Dialogs",
@@ -662,50 +629,6 @@
   "/lessons/en/portfolio-template-brief/site/plan/": {
     "asset": "page-lessons-en-portfolio-template-brief-site-plan",
     "title": "Development Plan: Portfolio Template Brief Showcase",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/en/pseudo-elements-and-state-styling/demo/dropdown.html": {
-    "asset": "page-lessons-en-pseudo-elements-and-state-styling-demo-dropdown-html",
-    "title": "/lessons/en/pseudo-elements-and-state-styling/demo/dropdown.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/en/pseudo-elements-and-state-styling/demo/exercises.html": {
-    "asset": "page-lessons-en-pseudo-elements-and-state-styling-demo-exercises-html",
-    "title": "/lessons/en/pseudo-elements-and-state-styling/demo/exercises.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/en/pseudo-elements-and-state-styling/demo/tooltip.html": {
-    "asset": "page-lessons-en-pseudo-elements-and-state-styling-demo-tooltip-html",
-    "title": "/lessons/en/pseudo-elements-and-state-styling/demo/tooltip.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/en/pseudo-elements-and-state-styling/demo/typography.html": {
-    "asset": "page-lessons-en-pseudo-elements-and-state-styling-demo-typography-html",
-    "title": "/lessons/en/pseudo-elements-and-state-styling/demo/typography.html",
     "grammar": [
       "platonic-solid",
       "fractal-structure",
@@ -771,7 +694,7 @@
   },
   "/lessons/en/react/geophysical-aggregator-project/": {
     "asset": "page-lessons-en-react-geophysical-aggregator-project",
-    "title": "Individual React Capstone Project",
+    "title": "Individual Project: Individual React Capstone",
     "grammar": [
       "platonic-solid",
       "fractal-structure",
@@ -1121,28 +1044,6 @@
       "organic-dialogue"
     ]
   },
-  "/lessons/en/web-animations/examples/button.html": {
-    "asset": "page-lessons-en-web-animations-examples-button-html",
-    "title": "/lessons/en/web-animations/examples/button.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/en/web-animations/examples/svg-draw.html": {
-    "asset": "page-lessons-en-web-animations-examples-svg-draw-html",
-    "title": "/lessons/en/web-animations/examples/svg-draw.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
   "/lessons/en/web-animations/gsap/": {
     "asset": "page-lessons-en-web-animations-gsap",
     "title": "GSAP Animation Mastery – From Zero to Production",
@@ -1308,6 +1209,61 @@
       "organic-dialogue"
     ]
   },
+  "/lessons/es/feii/unit-1-kickoff/": {
+    "asset": "page-lessons-es-feii-unit-1-kickoff",
+    "title": "Unidad 1: Lanzamiento — De React FE I a arquitectura de producción",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/feii/unit-2-astro-fundamentals/": {
+    "asset": "page-lessons-es-feii-unit-2-astro-fundamentals",
+    "title": "Unidad 2: Astro meta-framework — Arquitectura de islas y SSR",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/feii/unit-3-astro-advanced/": {
+    "asset": "page-lessons-es-feii-unit-3-astro-advanced",
+    "title": "Unidad 3: Astro avanzado e integración multi-framework",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/feii/unit-4-pwa-offline/": {
+    "asset": "page-lessons-es-feii-unit-4-pwa-offline",
+    "title": "Unidad 4: PWA y capacidades offline",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/gsap/overview/": {
+    "asset": "page-lessons-es-gsap-overview",
+    "title": "GSAP para Diseñadores: Dominio de Tipografía y Animación SVG",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
   "/lessons/es/html-css-basics/": {
     "asset": "page-lessons-es-html-css-basics",
     "title": "Práctica: HTML semántico + Fundamentos de CSS",
@@ -1344,6 +1300,17 @@
   "/lessons/es/js-dom-manipulation/": {
     "asset": "page-lessons-es-js-dom-manipulation",
     "title": "Manipulación del DOM en el Navegador: Cadenas, API del DOM, Plantillas y DOM Virtual",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/js-fundamentals/": {
+    "asset": "page-lessons-es-js-fundamentals",
+    "title": "Fundamentos de JavaScript (trabajo previo de la Sesión 7)",
     "grammar": [
       "platonic-solid",
       "fractal-structure",
@@ -1476,50 +1443,6 @@
   "/lessons/es/primeros-pasos/": {
     "asset": "page-lessons-es-primeros-pasos",
     "title": "Desarrollo Web con HTML – Organización y Buenas Prácticas",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/dropdown.html": {
-    "asset": "page-lessons-es-pseudo-elementos-y-estilos-de-estado-demo-dropdown-html",
-    "title": "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/dropdown.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/exercises.html": {
-    "asset": "page-lessons-es-pseudo-elementos-y-estilos-de-estado-demo-exercises-html",
-    "title": "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/exercises.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/tooltip.html": {
-    "asset": "page-lessons-es-pseudo-elementos-y-estilos-de-estado-demo-tooltip-html",
-    "title": "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/tooltip.html",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/typography.html": {
-    "asset": "page-lessons-es-pseudo-elementos-y-estilos-de-estado-demo-typography-html",
-    "title": "/lessons/es/pseudo-elementos-y-estilos-de-estado/demo/typography.html",
     "grammar": [
       "platonic-solid",
       "fractal-structure",
@@ -1871,7 +1794,7 @@
   },
   "/lessons/es/tipografia-color/": {
     "asset": "page-lessons-es-tipografia-color",
-    "title": "Tipografía y Color",
+    "title": "Tipografía y sistemas de color",
     "grammar": [
       "platonic-solid",
       "fractal-structure",
@@ -2100,9 +2023,31 @@
       "organic-dialogue"
     ]
   },
+  "/tracks/en/fei/": {
+    "asset": "page-tracks-en-fei",
+    "title": "Desarrollo Web: Front-End I",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/tracks/en/feii/": {
+    "asset": "page-tracks-en-feii",
+    "title": "Front-End II — Desarrollo Web: Front-End II",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
   "/tracks/es/geo-physical-aggregator/arch/": {
     "asset": "page-tracks-es-geo-physical-aggregator-arch",
-    "title": "Course Capstone — Arquitectura del Sistema",
+    "title": "HELIOS DECK — Arquitectura del Sistema",
     "grammar": [
       "platonic-solid",
       "fractal-structure",
@@ -2113,7 +2058,7 @@
   },
   "/tracks/es/geo-physical-aggregator/": {
     "asset": "page-tracks-es-geo-physical-aggregator",
-    "title": "Course Capstone — Observatorio Cósmico de Datos Geofísicos",
+    "title": "HELIOS DECK — Observatorio Cósmico de Datos Geofísicos",
     "grammar": [
       "platonic-solid",
       "fractal-structure",
@@ -2124,7 +2069,7 @@
   },
   "/tracks/es/geo-physical-aggregator/pitch/": {
     "asset": "page-tracks-es-geo-physical-aggregator-pitch",
-    "title": "Course Capstone — Pitch del Proyecto",
+    "title": "HELIOS DECK — Pitch del Proyecto",
     "grammar": [
       "platonic-solid",
       "fractal-structure",
@@ -2135,7 +2080,7 @@
   },
   "/tracks/es/geo-physical-aggregator/roadmap/": {
     "asset": "page-tracks-es-geo-physical-aggregator-roadmap",
-    "title": "Course Capstone — Roadmap de Desarrollo",
+    "title": "HELIOS DECK — Roadmap de Desarrollo",
     "grammar": [
       "platonic-solid",
       "fractal-structure",
@@ -2202,28 +2147,6 @@
   "/tracks/es/ilustracion-webapp/s4-interactividad-ux-ui/": {
     "asset": "page-tracks-es-ilustracion-webapp-s4-interactividad-ux-ui",
     "title": "Galería de Proyectos y Lanzamiento",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/en/js-fundamentals/": {
-    "asset": "page-lessons-en-js-fundamentals",
-    "title": "JavaScript Fundamentals (Session 7 pre-work)",
-    "grammar": [
-      "platonic-solid",
-      "fractal-structure",
-      "opt-art",
-      "glitch",
-      "organic-dialogue"
-    ]
-  },
-  "/lessons/es/js-fundamentals/": {
-    "asset": "page-lessons-es-js-fundamentals",
-    "title": "Fundamentos de JavaScript (trabajo previo de la Sesión 7)",
     "grammar": [
       "platonic-solid",
       "fractal-structure",
