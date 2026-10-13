@@ -72,6 +72,18 @@
     "outcome_png": "fe-i-06-state-feedback-outcome.png"
   },
   {
+    "id": "js-fundamentals",
+    "asset": "fe-i-07-language-core",
+    "svg": "fe-i-07-language-core.svg",
+    "png": "fe-i-07-language-core.png",
+    "semantic_asset": "fe-i-07-language-core-semantic",
+    "semantic_svg": "fe-i-07-language-core-semantic.svg",
+    "semantic_png": "fe-i-07-language-core-semantic.png",
+    "outcome_asset": "fe-i-07-language-core-outcome",
+    "outcome_svg": "fe-i-07-language-core-outcome.svg",
+    "outcome_png": "fe-i-07-language-core-outcome.png"
+  },
+  {
     "id": "js-intro",
     "asset": "fe-i-07-browser-runtime",
     "svg": "fe-i-07-browser-runtime.svg",

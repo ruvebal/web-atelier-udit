@@ -106,6 +106,7 @@
   status:
    es: complete
    en: complete
+  category: js
 - slug: js-intro
   title:
    es: Introducción a JavaScript
@@ -119,6 +120,7 @@
   status:
    es: complete
    en: complete
+  category: js
 - slug: js-modules
   title:
    es: 'Módulos JavaScript: Del Caos a la Modularidad'
@@ -132,6 +134,7 @@
   status:
    es: complete
    en: complete
+  category: js
 - slug: js-dom-manipulation
   title:
    es: 'Manipulación del DOM en el Navegador: Cadenas, API del DOM, Plantillas y DOM Virtual'
@@ -145,6 +148,7 @@
   status:
    es: complete
    en: complete
+  category: js
 - slug: web-animations
   title:
    es: 'Animaciones Web: Del Movimiento al Significado'

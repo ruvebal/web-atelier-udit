@@ -465,6 +465,15 @@ Contexto, por si te interesa; nada de esto hace falta para la Sesión 7.
 
 ---
 
+{% comment %}
+outcome-graphic-selection:
+  source-section: "Miniproyecto: datos del portfolio en `practice.js`"
+  visual-grammar: "data-decision-flow — a list of values filtered and transformed step by step into a result"
+{% endcomment %}
+{% include lesson-outcome-graphic.html %}
+
+---
+
 ## Lecturas recomendadas
 
 - [MDN Learn — Scripting dinámico con JavaScript](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting): los tutoriales detrás de cada resultado MDN 6.x.

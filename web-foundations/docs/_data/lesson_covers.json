@@ -119,6 +119,26 @@
       "alt_en": "Text-free abstract illustration of interaction states transforming a stable element while preserving meaning and feedback."
     }
   },
+  "js-fundamentals": {
+    "asset": "fe-i-07-language-core",
+    "course": "FE I",
+    "index": "7 · pre-work",
+    "family": "fe-i",
+    "master_idea": "A program is data + decisions",
+    "alt_en": "Abstract hexagonal field representing values, collections, and branching decisions; no people or products are depicted.",
+    "mode": "transform",
+    "seed": 2130,
+    "density": 18,
+    "energy": 0.6,
+    "field_lens": "Data and decisions",
+    "outcome": {
+      "asset": "fe-i-07-language-core-outcome",
+      "section": "## Mini-project: portfolio data in `practice.js`",
+      "grammar": "data-decision-flow",
+      "form": "sequence",
+      "alt_en": "Text-free abstract illustration of a list of values filtered and transformed step by step into a result."
+    }
+  },
   "js-intro": {
     "asset": "fe-i-07-browser-runtime",
     "course": "FE I",
@@ -133,7 +153,7 @@
     "field_lens": "Signal flow",
     "outcome": {
       "asset": "fe-i-07-browser-runtime-outcome",
-      "section": "### 📌 Final summary",
+      "section": "### Summary",
       "grammar": "browser-event-runtime",
       "form": "motion",
       "alt_en": "Text-free abstract illustration of browser events moving through runtime, state, and document response."
@@ -153,7 +173,7 @@
     "field_lens": "Boundary condition",
     "outcome": {
       "asset": "fe-i-08-rendering-trust-outcome",
-      "section": "## ✅ What You Should Now Understand",
+      "section": "## What you should now understand",
       "grammar": "rendering-trust-boundary",
       "form": "gate",
       "alt_en": "Text-free abstract illustration of untrusted input crossing a guarded rendering boundary into a safe document surface."
@@ -173,7 +193,7 @@
     "field_lens": "System grid",
     "outcome": {
       "asset": "fe-i-09-local-change-outcome",
-      "section": "## 🎓 Atelier Reflection: What You've Learned",
+      "section": "## Atelier reflection",
       "grammar": "local-change-module-graph",
       "form": "network",
       "alt_en": "Text-free abstract illustration of small modules connected through explicit imports so change remains local."

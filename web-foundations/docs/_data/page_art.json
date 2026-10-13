@@ -2209,5 +2209,27 @@
       "glitch",
       "organic-dialogue"
     ]
+  },
+  "/lessons/en/js-fundamentals/": {
+    "asset": "page-lessons-en-js-fundamentals",
+    "title": "JavaScript Fundamentals (Session 7 pre-work)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
+  },
+  "/lessons/es/js-fundamentals/": {
+    "asset": "page-lessons-es-js-fundamentals",
+    "title": "Fundamentos de JavaScript (trabajo previo de la Sesión 7)",
+    "grammar": [
+      "platonic-solid",
+      "fractal-structure",
+      "opt-art",
+      "glitch",
+      "organic-dialogue"
+    ]
   }
 }
