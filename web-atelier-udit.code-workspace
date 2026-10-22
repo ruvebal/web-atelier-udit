@@ -61,9 +61,11 @@
 			"path": "../..",
 		},
 		{
+			"name": "creativity-techniques-uem",
 			"path": "../../universidadeuropea/creativity-techniques-uem",
 		},
 		{
+			"name": "profield",
 			"path": "../../../../../src/profield",
 		},
 	],

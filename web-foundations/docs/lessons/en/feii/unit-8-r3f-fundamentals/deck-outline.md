@@ -8,7 +8,7 @@
 6. Instancing and culling — why draw calls are the budget
 7. `renderer.info` — the graded snapshot
 8. The AI merge log — ACCEPT / REJECT, same discipline as Unit 6
-9. What Entrega 2 must show at the end of this unit
+9. The Units 8–9 assignment — what this unit's lab contributes
 10. Handoff to Unit 9 — shader literacy
 
 Speaker claims only; no unsupported learning-outcome claim.

@@ -56,7 +56,7 @@ Apply these before you keep an assistant's patch:
 | **Memory** | Are geometries, materials, and GPU resources owned? | New allocations inside `useFrame` |
 | **Motion** | Is animation frame-budgeted? | Work that should be a uniform, done on the CPU every frame |
 | **UI / canvas** | Is interactive copy in the DOM (or justified `<Html>`)? | Text and controls burned into the WebGL buffer with no a11y story |
-| **Literacy** | Can you explain the shader without reading it back? | "It looks cool" with no `uTime` / `vUv` account |
+| **Literacy** | Can you explain the shader without reading it back? | "It looks cool" with no account of the uniform and the coordinate space |
 
 **Template** — copy into `docs/ai-3d-merge-log.md` in your repo (customize paths and PR numbers).
 
@@ -97,4 +97,4 @@ Bloque 5 (R3F / GLSL as a taught sequence) is [UNVERIFIED-GAP] in the course res
 
 You are inside the gap, as in Unit 6: the Entrega is evidence, not a claim that the literature already settled 3D pedagogy.
 
-Units: [8 — R3F]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}) · [9 — Shader literacy]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}) · [FE II index]({{ '/lessons/en/feii/' | relative_url }})
+Units: [8 — R3F]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}) · [9 — Shader literacy]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}) · [Assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}) · [FE II index]({{ '/lessons/en/feii/' | relative_url }})

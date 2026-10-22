@@ -89,6 +89,8 @@ Lab hours sum to the official **30 h** `ACTIVIDADES FORMATIVAS` allocation. The 
 | 9 | [Shader Literacy & Cutting-Edge Aesthetics]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}) | 3 h | 3 h | One understood shader · optional post · merge log |
 | 10 | [IoT/Robotics Control-Panel & Python-Backed Interface]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) | 2 h | 4 h | WebSocket + device APIs · **Entrega 2 due** |
 
+Units 8 and 9 are one graded scene. The hand-in is the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). Unit 10 stays on its own row.
+
 ### Block 4 — Capstone (Units 11–12) · **Entrega 3 / Examen Final**
 
 | # | Unit | Unit window | Lab | Focus |

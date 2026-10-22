@@ -1302,6 +1302,17 @@
    en: draft
   category: feii
   tags: [feii, shaders, glsl, post-processing, aesthetics]
+- slug: feii-units-8-9-assignment
+  title:
+   en: 'Units 8–9 Assignment — One Scene, One Shader'
+  path:
+   en: /lessons/en/feii/units-8-9-assignment/
+  file:
+   en: lessons/en/feii/units-8-9-assignment/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, r3f, shaders, entrega-2, assignment]
 - slug: feii-unit-10-iot-python-backend
   title:
    en: 'Unit 10: IoT/Robotics Control-Panel & Python-Backed Interface'
