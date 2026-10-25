@@ -2,6 +2,13 @@
 
 **Status:** instructor draft, 22 October 2026, revised the same day after a check against the repository (FE I session table, institutional weights, Jekyll pin, portfolio brief, Strand B ethics package). Decision document. It is not a student brief and not a published track page.
 
+> **Adopted 25 October 2026.** The project proceeds under the cascade pack in
+> this folder—start at [`INDEX.md`](INDEX.md). The exact application is now
+> [`MVP-PRODUCT-SPEC.md`](MVP-PRODUCT-SPEC.md): physical/digital surfaces,
+> bounded inner frame, transformations, save/export and calibrated print.
+> [`MONDRIAN-CASCADE.md`](MONDRIAN-CASCADE.md) §7 lists all points where this
+> pitch is superseded. Everything not listed there stands.
+
 **Course:** Front-End I, semester 1 integrator. Alternative to the portfolio-template assignment (session 13, three grade levels).
 
 **Author:** Rubén Vega Balbás, PhD · `ruvebal@crea-comm.net`

@@ -1,0 +1,82 @@
+{
+  "status": "extracted_injected_evaluator_safe",
+  "source": {
+    "file_name": "spie-2010.pdf",
+    "sha256": "c85b3b9ffc8c0637dc8d21cca4059784334757aade9c9098baf19a98d2c4e7e4",
+    "document_id": "db745f4a-1dea-5727-8f28-19330e20a8e2",
+    "coat": "spie_2010_c85b3b9f",
+    "database": "/Users/ruvebal/ahmes-library/scholar/documents/spie_2010_c85b3b9f/extract/extraction.db"
+  },
+  "extraction": {
+    "nodes": 118,
+    "entities": 202,
+    "relations": 73,
+    "semantic_eligible": 90,
+    "semantic_annotated": 59,
+    "unknown_term_uris_rejected": 7
+  },
+  "bibliography": {
+    "evaluator_safe": true,
+    "doi": "10.1117/12.840558",
+    "year": 2010,
+    "container": "SPIE Proceedings",
+    "confidence": 0.95,
+    "method": "manual-verified-crossref",
+    "apa": "Andrzejewski, D., Stork, D. G., Zhu, X., & Spronk, R. (2010). Inferring compositional style in the neo-plastic paintings of Piet Mondrian by machine learning (D. G. Stork, J. Coddington, & A. Bentkowska-Kafel, Eds.; p. 75310G). https://doi.org/10.1117/12.840558",
+    "citation_result": "(Andrzejewski, 2010, p. 1)"
+  },
+  "athanor": {
+    "project_slug": "profield-frontend-pedagogy",
+    "library": "scholar",
+    "project_id": "723f8d32-efdb-4604-a9a9-4c9812bbec8b",
+    "injection_id": "9a1a8bb5-05ff-4340-88bd-fbc10268a50f",
+    "status": "COMPLETED"
+  },
+  "graphrag": {
+    "status": "blocked",
+    "reason": "The running DevIAC graph service does not expose the scholar library through AHMES_VAULT_DIR.",
+    "fallback": "Athanor vector hits were resolved to complete Ahmes nodes; local relation edges were inspected but not used as citation evidence."
+  },
+  "anchors": [
+    {
+      "node_id": "e44e0d8d-0e0f-5cfb-9c71-dc0fde0e6f46",
+      "pdf_page": 2,
+      "use": "classical analyzer and normalized representation"
+    },
+    {
+      "node_id": "a0530710-719c-577b-b43c-2399694278cf",
+      "pdf_page": 5,
+      "use": "rectangle colour, line thickness and grid-point schema"
+    },
+    {
+      "node_id": "1d5b7216-991c-5a4d-833a-7e3a60c311dd",
+      "pdf_page": 2,
+      "use": "classical corpus scope and exclusions"
+    },
+    {
+      "node_id": "07cd656b-12e0-5604-853c-636078747225",
+      "pdf_page": 4,
+      "use": "material and colour limitations of idealized sketches"
+    },
+    {
+      "node_id": "6939e2a2-5697-5c18-b10a-b29ebe7c0450",
+      "pdf_page": 6,
+      "use": "model is not Mondrian's working process"
+    },
+    {
+      "node_id": "35d78ae8-7871-5810-9f13-c94d45c7202e",
+      "pdf_page": 1,
+      "use": "reported classifier result"
+    },
+    {
+      "node_id": "07107abf-a337-52db-8225-378ae39b0bfe",
+      "pdf_page": 8,
+      "use": "evaluation design and baseline"
+    },
+    {
+      "node_id": "b1e40c2d-741b-5f62-a2bc-0be9e3cbad43",
+      "pdf_page": 10,
+      "use": "generation limitations"
+    }
+  ]
+}

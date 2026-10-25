@@ -25,6 +25,9 @@ vendor/
 # Exam Forge + course-private material (banks, LMS exports, legacy private/)
 private/
 private/*
+# Local correspondence/replies and signed research administration.
+_private/
+_private/*
 # Explicit (covered by private/ above; documented for portability to other repos)
 # private/exams/
 # private/exams-out/
