@@ -46,6 +46,12 @@ Constructivism may be comparative contexts; they are not aliases or one style.
 - Schirillo and Plumhoff, “Mondrian, Eye Movements, and the Oblique Effect,”
   [Perception 2009](https://doi.org/10.1068/p6160) — candidate orientation
   study; small sample, so no general user-preference claim.
+- Doboli, Agha Zahedi and Gholamrezaei, “Inching Towards Automated
+  Understanding of the Meaning of Art: An Application to Computational
+  Analysis of Mondrian's Artwork,”
+  [arXiv:2302.00594](https://arxiv.org/abs/2302.00594) — candidate critical
+  limit on equating low-level visual features with artistic meaning; relevant
+  to `/method/`, not to the geometry schema.
 
 ## Interaction precedents
 
@@ -67,6 +73,25 @@ Constructivism may be comparative contexts; they are not aliases or one style.
   Collection](https://www.vr.tuwien.ac.at/projects/digital-formalism/) —
   institutional precedent for computationally operationalizing formal concepts
   in an archive; not a source for Neo-Plastic rules.
+
+## D-05 source applicability
+
+| Source | Applicable to | Status / decision |
+| --- | --- | --- |
+| Andrzejewski et al. (2010), §3.2 | Canonical points, rectangles, explicit lines, thickness and source/derived separation | **Evaluator-safe; D-05 basis.** The project adds normalization, provenance, uncertainty and CSS derivation. |
+| JSON Schema Draft 2020-12 [Core](https://json-schema.org/draft/2020-12/json-schema-core) and [Validation](https://json-schema.org/draft/2020-12/json-schema-validation) | Structural contract and validation vocabulary | **Normative technical source; M2 basis.** Semantic geometry checks remain code. |
+| [CSS Grid Layout Module Level 2](https://www.w3.org/TR/css-grid-2/) §§6.5, 7.2 | Overlapping grid items, z-order and proportional `fr` tracks | **Normative technical source; renderer basis.** It supports the derived plan, not claims about Mondrian. |
+| Koçer Özgün & Alaçam (2021) | Independent pixel/matrix decoding, colour-area percentages and horizontal/vertical fragmentation | **Applicable but discovery-only.** Ingest before using it to justify analytics or comparison; it does not replace the explicit-line source model. |
+| Park (2020) | Parametric/vector reconstruction and line-segment variables | **Applicable but discovery-only and generation-adjacent.** Use only for later comparison; not needed to freeze M2. |
+| Doboli et al. (2023) | Limits of visual-feature models as accounts of meaning | **Applicable but discovery-only.** Candidate for `/method/` and the research discussion, not schema structure. |
+| Catalogue raisonné / museum object record | Title, date, dimensions, medium and reproduction identity per work | **Still required per work.** A computational paper cannot supply object-level provenance. |
+
+No second scholarly source is required to implement M2: Andrzejewski et al.
+directly specifies the adopted representation, while JSON Schema and CSS Grid
+are the relevant normative implementation authorities. Koçer Özgün & Alaçam is
+the highest-priority missing scholarly extraction because it independently
+addresses matrix-based geometric decoding and colour proportions. It remains a
+M0/M9 bibliographic task, not a blocker for the source contract.
 
 ## M0 decisions this queue must inform
 

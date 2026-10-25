@@ -43,10 +43,13 @@ Implement PHASE-M6 per docs/DEV_PLAN/MONDRIAN/PHASE-M6.md.
 ## Deliver
 1. Implement `Recipe`, `SurfaceSpec` and `CompositionState` from M2. On load,
    the frame is the maximal original-ratio rectangle inside printableArea.
-2. Build the CSS Grid renderer and controls. Only indexes in
-   `Work.lineTracks` receive the measured-baseline multiplier; normalize all
-   resulting axis deltas by their sum so every track remains positive and the
-   grid remains bounded. No borders.
+2. Build the CSS Grid renderer and controls from M2's canonical render plan.
+   Clamp `lineWeightScale` with M2's work-specific function, apply it only to
+   explicit source-line thickness, rederive the plan, and leave black
+   rectangles unchanged. `--line-weight-scale` exposes the applied state but
+   does not scale CSS geometry a second time. Plane items sit below overlapping
+   line items; every derived track remains positive and each axis sums to 1. No
+   borders.
 3. Implement Pointer Events. Frame corners/edges cannot leave printableArea or
    cross minimum size. Offsets move the grid under an overflow clip, not the frame.
 4. Implement explicit transformations. Palette inversion uses the product
@@ -74,9 +77,11 @@ Implement PHASE-M6 per docs/DEV_PLAN/MONDRIAN/PHASE-M6.md.
 - Touch Playwright: drag updates URL; reload reproduces every recipe field
   (including physical/custom surface) and frame geometry within 1 px; second
   pointer is ignored.
-- Every transform changes the export and is reversible. Undo restores prior state.
-- Downloaded SVG parses, has expected cells/viewBox/metadata and no external
-  resources. PNG has selected pixel dimensions.
+- Every transform changes the export and is reversible. Inversion tests prove
+  that explicit lines and black planes both use the current `--black` token and
+  that applying the involution twice restores them. Undo restores prior state.
+- Downloaded SVG parses, has expected planes/lines/viewBox/metadata and no
+  external resources. PNG has selected pixel dimensions.
 - Print test: generated stylesheet contains the selected physical size; real A4
   output's 100 mm calibration rule is measured and variance recorded.
 - All interactive targets ≥ 44×44 CSS px (Playwright bounding-box sweep).

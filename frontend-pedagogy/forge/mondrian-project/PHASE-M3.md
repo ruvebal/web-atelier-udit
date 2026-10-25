@@ -41,8 +41,8 @@ Implement PHASE-M3 per docs/DEV_PLAN/MONDRIAN/PHASE-M3.md.
    collection navigation and base-aware URLs.
    positioned; header, main, footer as landmarks; one h1 per page. Nav from getCollection('works'), current link
    aria-current="page".
-2. Source layout: use the pitch §8 viewport/frame contract, but render semantic
-   HTML cells with CSS Grid. Emit the work as
+2. Source layout: use the pitch §8 viewport/frame contract, but render M2's
+   derived semantic plane/line items with CSS Grid. Emit the canonical work as
    <script type="application/json" id="work-data">{JSON.stringify(work)}</script> — escape "</" as "<\/".
    Set --swatch-* on the <figure> from the work's swatches.
 3. Home: A4 is the first surface; expose physical/digital presets and work
@@ -61,7 +61,7 @@ Implement PHASE-M3 per docs/DEV_PLAN/MONDRIAN/PHASE-M3.md.
 ## Constraints
 - Zero JS on `/method/` and `/about-us/`. `/about/` may ship only the small
   observer fallback; `/gallery/` only the mini-render module.
-- No text on chromatic cells. No image files of paintings.
+- No text on chromatic planes. No image files of paintings.
 - Every URL through the base helper; Playwright's dist link check is the gate.
 ```
 

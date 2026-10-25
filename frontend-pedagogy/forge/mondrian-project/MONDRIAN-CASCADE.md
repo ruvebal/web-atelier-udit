@@ -27,7 +27,7 @@ Each row is an ADR in one line. M0 flips `proposed` to `ratified` or `rejected` 
 | **D-02 Generator** | **Astro 6**, static output, deployed to GitHub Pages by `withastro/action@v6` (Node 24, pnpm). No client UI framework. | Supersedes pitch §9 Jekyll. The monorepo already requires Node, so "no Node" is gone; content collections give `validate(work)` at build time from the same JSON Schema the Python side uses; Ruby/Jekyll-3 setup risk (pitch risk 33) disappears; the cohort meets Astro again in FE II (TTOD Oracle). Astro `.astro` templates are HTML with expressions — closer to the "layout + includes + front matter" the pitch wanted than Liquid, and they ship zero JS. | The department reads "Astro" as a framework forbidden in semester 1 → Jekyll per pitch §9 with the `github-pages` gem; the schema/validator work (M2) is unaffected. |
 | **D-03 Routing** | MPA. No SPA router, no `#` router. State lives in the URL query (`?theta=`, `?frame=`). Cross-document view transitions as enhancement only. | A hash router is a solution to a problem Astro's file routing does not have; it would also break the "every state is a URL" rule the kiosk QR depends on. | Never for this product. |
 | **D-04 Packages** | `pnpm` workspace (≥ 10; 12 acceptable) for JS; **`uv` workspace** for Python, Python pinned **3.12**. pnpm 12's experimental Python support is *not* relied on. | Two mature tools, one each; TensorFlow has no 3.14 wheels (instructor machine is 3.14 today). | pnpm's Python support leaves experimental and the team wants one installer → revisit, do not block. |
-| **D-05 Schema** | One `work.schema.json` (JSON Schema 2020-12) in `packages/works/schema/`; JS validator hand-written in vanilla ESM (teaching), Astro content collection schema mirrors it (zod), Python mirrors it (pydantic). Conformance fixtures (valid + broken) run against all three in CI. | One contract, three validators, one fixture set: the test that catches drift is the test the lanes share. | Never; this is the spine. |
+| **D-05 Schema** | One `work.schema.json` (JSON Schema 2020-12) in `packages/works/schema/`, adapted from Andrzejewski et al.'s grid-point representation: normalized x/y points; coloured rectangles referencing point pairs; black horizontal/vertical lines with centre, extent and relative thickness; white background; method-discriminated provenance, rights and uncertainty. Ajv executes the canonical schema; hand-written vanilla ESM and Python add identical semantic geometry checks; Astro/zod and Python/pydantic mirror the source contract. JS and Python derive the same CSS Grid plan by expanding line edges and rectangle bounds into overlapping plane/line items. | The paper separates planes from superimposed lines and gives the analyzer a research-comparable representation; the derived plan keeps CSS Grid as the visible pedagogy. Four validation paths, two derivations and one fixture set catch drift. Source: [Andrzejewski et al. 2010, §3.2 / pp. 5–6](grounding/ANDRZEJEWSKI-2010.md). | Never for the source/derived separation; amend only if a measured work cannot be represented without loss. |
 | **D-06 Framework ladder** | Bootstrap, Tailwind, Vite are **not** evidenced by the semester-1 integrator. GSAP stays as S11. Communicated to the department in the M0 letter. | Pitch §2 found no semester-1 session teaches them; pretending the integrator covers them would be the dishonest option. | The department wants them → add as session exercises, not into this product. |
 | **D-07 Hue** | Hue rotation in **CSS relative colour syntax** on chromatic roles; JS writes `--theta` and computes Δ for captions. HSL, not OKLCH, for the integrator; OKLCH as a named comparison. | Pitch §7 formula, moved to where it belongs; one custom property makes the editor and attract loop trivially animatable (`@property`). | Relative colour syntax unavailable on a target device → JS fallback, same formula (M3 keeps it). |
 | **D-08 Renderers** | **CSS Grid is the visible editor**, SVG is the canonical vector export/reference, and canvas is used only transiently for PNG. FastAPI emits an HTML/CSS preview with the same semantic contract. | The grid is the pedagogical reason the project exists; canvas would hide CSS from the students. | — |
@@ -54,10 +54,10 @@ Each row is an ADR in one line. M0 flips `proposed` to `ratified` or `rejected` 
 | --- | --- | --- | --- |
 | 0 | [PHASE-M0.md](PHASE-M0.md) | D-01…D-20 decided; Ahmes→Athanor grounding receipt; toolchain probes; private institutional communications; reference works + rights | READY — every D-row decided, grounding anchors recorded, probes have exit codes, downstream assumptions amended |
 | 1 | [PHASE-M1.md](PHASE-M1.md) | Repository from `git init`: monorepo, Astro/CI/Pages, full Git/PR contribution contract, local review tooling, licences, cascade move | BLOCKED — Pages 200; JS/Python checks green; protected main; branch/amend/conflict/AI-log contracts tested; local review is comments-only |
-| 2 | [PHASE-M2.md](PHASE-M2.md) | `Work`, `SurfaceSpec`, `CompositionState`, `Recipe`; matrix/state core; measured reference; conformance | BLOCKED — validators agree; complete recipe round-trips; original frame is maximal and bounded; area shares sum to 1 ± 1e-9 |
+| 2 | [PHASE-M2.md](PHASE-M2.md) | Andrzejewski-compatible `Work` primitives; derived CSS render plan; `SurfaceSpec`, `CompositionState`, `Recipe`; measured reference; three-way conformance | BLOCKED — validators and JS/Python derivations agree; complete recipe round-trips; original frame is maximal and bounded; visible area shares sum to 1 ± 1e-9 |
 | 3 | [PHASE-M3.md](PHASE-M3.md) | Product shell: start, gallery, About scroll story, About Us, method; CSS Grid reference renderer | BLOCKED — no-JS/reduced-motion About is complete; gallery/reference frame pass fit, a11y and base-path tests |
-| 4 | [PHASE-M4.md](PHASE-M4.md) | Classical analyzer: image → `work.yml`, including relative line weights; evaluation; TensorFlow only as extension | BLOCKED — output validates; boundary/line-weight/role errors reported; no neural score in MVP |
-| 5 | [PHASE-M5.md](PHASE-M5.md) | FastAPI analysis service: JSON, HTML/CSS preview, `/analyze`; semantic snapshot against Astro | BLOCKED — cells/roles/tracks/custom properties equal Astro; public build has no API dependency |
+| 4 | [PHASE-M4.md](PHASE-M4.md) | Classical analyzer: image → normalized points, rectangles and explicit lines in `work.yml`; evaluation; TensorFlow only as extension | BLOCKED — output validates; point/rectangle/line errors reported separately; no neural score in MVP |
+| 5 | [PHASE-M5.md](PHASE-M5.md) | FastAPI analysis service: source JSON, derived HTML/CSS preview, `/analyze`; semantic snapshot against Astro | BLOCKED — source primitives and derived tracks/planes/lines/custom properties equal Astro; public build has no API dependency |
 | 6 | [PHASE-M6.md](PHASE-M6.md) | MVP editor: print/digital surfaces, bounded frame, transformations, undo/reset/compare, URL, SVG/PNG, print/calibration | BLOCKED — seven-step MVP journey (§ product spec 9) passes; SVG validates; calibrated A4 printer run recorded |
 | 7 | [PHASE-M7.md](PHASE-M7.md) | Kiosk + PWA: offline, wake, attract/idle, QR state handoff, real touch-device run | BLOCKED — offline reload; idle reset; QR recovers identical state on phone; device/date recorded |
 | 8 | [PHASE-M8.md](PHASE-M8.md) | **Parallel lane from M2:** two remaining references + one measured work per student, `MEASUREMENT.md` each, rights rows, peer-reviewed PRs | BLOCKED — total = cohort size + 3 references (10 for the current cohort), valid in all validators; provenance/rights complete; every student PR has one cross-lane approval |
@@ -99,8 +99,11 @@ The implementer must not self-certify DONE.
 - No cloud AI SDKs anywhere (openai, anthropic, langchain_openai are forbidden imports); local inference only.
 - Numbers come from a named measurement or from the analyzer with provenance. No invented proportions,
   not even in fixtures: the "broken" fixture is the valid fixture with one bound corrupted.
-- work.schema.json is the single contract; zod and pydantic mirror it; a change to any of the three is a
-  change to all three plus the fixtures, in one PR.
+- `work.schema.json` is the single source contract and Ajv executes it; zod and
+  pydantic mirror it, while JS/Python semantic checks share error paths. JS and
+  Python derivations must produce the same canonical render plan. A change to
+  the contract, either mirror/checker, either derivation or fixtures lands in
+  one PR.
 - CSS does the colour; JS writes --theta. Non-colours never rotate.
 - `work.yml` is immutable. Visitor edits live in `CompositionState`; portable
   URLs/exports contain the complete `Recipe`, including `SurfaceSpec`.
@@ -123,9 +126,9 @@ The implementer must not self-certify DONE.
 
 | Layer | Store / artefact | Written by | Read by |
 | --- | --- | --- | --- |
-| **L0 Contract** | `packages/works/schema/work.schema.json`, `packages/matrix/schema/{surface,state}.schema.json`, fixtures | M2 only (later changes via amend) | Everything |
+| **L0 Contract** | `packages/works/schema/work.schema.json`, `packages/matrix/schema/{surface,composition-state,recipe}.schema.json`, fixtures | M2 only (later changes via amend) | Everything |
 | **L1 Corpus** | `packages/works/works/<slug>/work.yml`, `MEASUREMENT.md`, `rights` block | M2 (reference 1), M8 (references 2–3 + student works), M4 (analyzer proposals, `method: analyzer`) | Astro collection (M3, M6), API (M5), analyzer evaluation (M4) |
-| **L2 Matrix/state core** | `packages/matrix/src/{validate,derive,render-grid,state,hue,export-svg,export-png,print}.js` | M2/M6 | M3, M6, M7; M5 semantic snapshot |
+| **L2 Geometry/state core** | `packages/matrix/src/{validate,derive-render-plan,derive-visible-cells,render-grid,state,hue,export-svg,export-png,print}.js` plus Python `mondrian_work_schema/derive.py` | M2/M6 | M3, M6, M7; M5 semantic snapshot |
 | **L3 Site** | `services/web` (Astro) → `dist/` → GitHub Pages | M1 skeleton, M3, M6, M7, M9 | Visitors, kiosk |
 | **L4 Analyzer** | `packages/analyzer` (Python), `evaluation/REPORT.md` | M4 | M5, M8 (as a measuring aid), research |
 | **L5 API** | `services/api` (FastAPI) on LAN host | M5 | Developers, analyzer clients, semantic conformance tests; never the public/kiosk runtime |
@@ -167,6 +170,7 @@ The pitch stays as the 22 Oct record. The cascade changes these points; the pitc
 | §9 Painting logic | Vanilla ES modules, no bundler | Vanilla ES modules in `packages/matrix`, bundled by Astro's Vite at build; students still write plain modules | D-02 |
 | §7 Hue | JS computes `hsl()` fills | CSS relative colour syntax; JS writes `--theta` | D-07 |
 | §8 Responsive | SVG-only study | CSS Grid editor inside a physical/digital surface; SVG is reference/export | D-08, D-16 |
+| §6 Matrix | Dense `role[][]` plus boundary vectors; black cells stand for lines | Andrzejewski-compatible points, coloured rectangles and explicit black lines are canonical; a dense visible-cell plan is derived only for validation/statistics, while overlapping CSS Grid items render planes and lines | D-05 |
 | §9 Tests | Browser-console assertion page | Vitest in `packages/matrix`, pytest in Python, Playwright in `services/web`, three-way conformance | D-05 |
 | §14 risk 44 | "One repository per student" | Cohort monorepo with authorship kept legible | D-01 |
 | §15 item 2 (Jekyll slot) | Open | Closed: Astro components are taught inside M1/M3 by the starter; no Liquid | D-02 |
@@ -174,7 +178,10 @@ The pitch stays as the 22 Oct record. The cascade changes these points; the pitc
 | §4 / §11 game | Hue slider and “find the frame” | Full editor in `MVP-PRODUCT-SPEC.md`: surfaces, bounded frame, palette/reflection/offset/line weight, save and calibrated print | D-16, D-17 |
 | — | No motion decision | No Framer Motion; CSS scroll timelines + `IntersectionObserver` fallback | D-18 |
 
-Everything else in the pitch — the matrix (§6), the hue formula (§7), the frame-fit CSS (§8), the art-historical contract (§5), the exclusions, the rights checklist (§13), the risk register (§14) — stands and is referenced, not repeated.
+Everything else in the pitch — the hue formula (§7), the frame-fit CSS (§8),
+the art-historical contract (§5), the exclusions, the rights checklist (§13)
+and the risk register (§14) — stands and is referenced, not repeated. Pitch §6
+is superseded by D-05 and M2.
 
 ---
 

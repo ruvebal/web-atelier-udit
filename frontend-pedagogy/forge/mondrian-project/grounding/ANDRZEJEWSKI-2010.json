@@ -37,7 +37,78 @@
     "reason": "The running DevIAC graph service does not expose the scholar library through AHMES_VAULT_DIR.",
     "fallback": "Athanor vector hits were resolved to complete Ahmes nodes; local relation edges were inspected but not used as citation evidence."
   },
+  "schema_adoption": {
+    "scope": "Section 3.2 image representation only",
+    "canonical_primitives": [
+      "normalized x/y grid points including 0/1 canvas borders",
+      "colored rectangles referencing point pairs",
+      "black horizontal/vertical lines with center, extent, and perpendicular-axis relative thickness",
+      "implicit white background"
+    ],
+    "project_adaptations": [
+      "normalized coordinates",
+      "method-discriminated provenance, rights, and uncertainty",
+      "single-gray extension",
+      "derived CSS Grid render plan"
+    ],
+    "excluded": [
+      "decision-tree classifier",
+      "maximum-likelihood generator",
+      "authenticity or aesthetic score",
+      "claim about Mondrian's working process"
+    ]
+  },
   "anchors": [
+    {
+      "node_id": "cabc67dc-6c7a-5b58-a988-aa06c9cc269b",
+      "pdf_page": 5,
+      "use": "oriented grid-point primitive"
+    },
+    {
+      "node_id": "2ada1ff9-422e-570b-bde4-691531991161",
+      "pdf_page": 5,
+      "use": "canvas-border grid points"
+    },
+    {
+      "node_id": "7fcf369b-f528-5e22-8a02-935dd4790a1f",
+      "pdf_page": 5,
+      "use": "horizontal-line representation"
+    },
+    {
+      "node_id": "05b10333-3aeb-5288-8403-d747ef5a8474",
+      "pdf_page": 5,
+      "use": "line center point"
+    },
+    {
+      "node_id": "f282bd43-974d-58a4-9dfc-6968e72d504d",
+      "pdf_page": 5,
+      "use": "line extent points"
+    },
+    {
+      "node_id": "610630e8-f370-518b-ac62-a8d0bf42cab8",
+      "pdf_page": 5,
+      "use": "analogous vertical-line representation"
+    },
+    {
+      "node_id": "149d76aa-d296-518c-9de9-16013293dbb3",
+      "pdf_page": 5,
+      "use": "rectangle point-pair bounds"
+    },
+    {
+      "node_id": "a0530710-719c-577b-b43c-2399694278cf",
+      "pdf_page": 5,
+      "use": "color roles, line thickness, and white background"
+    },
+    {
+      "node_id": "6616761f-d24c-5974-b028-697187da655a",
+      "pdf_page": 5,
+      "use": "lines represented over rectangles"
+    },
+    {
+      "node_id": "43d6c900-a5f0-5426-8ca0-4f382480303e",
+      "pdf_page": 6,
+      "use": "enumerated white/red/yellow/blue/black roles"
+    },
     {
       "node_id": "e44e0d8d-0e0f-5cfb-9c71-dc0fde0e6f46",
       "pdf_page": 2,

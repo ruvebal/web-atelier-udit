@@ -44,7 +44,7 @@ Closing: each phase → VERIFYING → `PHASE-Mn-COLD-REVIEW.md` → amend if nee
 | --- | --- | --- |
 | M0 | Decisions ratified, probes, private communications, reference works + rights | READY |
 | M1 | Repo from `git init`, CI/Pages, Git/PR/AI contribution contract | BLOCKED (M0) |
-| M2 | Work/surface/state contracts, matrix core, conformance, reference work | BLOCKED (M1) |
+| M2 | Andrzejewski-compatible work primitives, derived CSS render plan, surface/state contracts, conformance, reference work | BLOCKED (M1) |
 | M3 | Product shell, gallery, About story/About Us/method | BLOCKED (M2) |
 | M4 | Classical analyzer + line weights + evaluation (Python lane) | BLOCKED (M2) |
 | M5 | API JSON + HTML/CSS preview semantic conformance | BLOCKED (M2; M4 for `/analyze`) |

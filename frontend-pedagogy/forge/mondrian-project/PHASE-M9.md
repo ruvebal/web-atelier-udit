@@ -33,7 +33,12 @@ brief). Release the dataset with a citation and draft one congress abstract.
   `scripts/pseudonymise.py` (git log + PR metadata + declarations → `P01…Pn`,
   salted map outside git), with tests on fixtures.
 - `docs/research/CUSTODY.md` template (the signed acceptances live outside git, as in TTOD's `SIGNED-CONSENTS-CUSTODY.md`).
-- Defence: `docs/DEFENCE.md` — three prompts (one bound, one Δ with a wrap, one AI choice), scored with the shared rubric `/evaluation/shared/ai-declaration-oral-defence-rubric/` (v2.0.3) from web-atelier-udit; schedule in S13; structured notes template (I3), no audio/video.
+- Defence: `docs/DEFENCE.md` — three prompts (one measured source primitive
+  through normalization and CSS derivation, one Δ with a wrap, one AI choice),
+  scored with the shared rubric
+  `/evaluation/shared/ai-declaration-oral-defence-rubric/` (v2.0.3) from
+  web-atelier-udit; schedule in S13; structured notes template (I3), no
+  audio/video.
 - Student brief: `docs/brief/BRIEF-EN.md`, `docs/brief/BRIEF-ES.md` — and the
   same two published on the web-atelier-udit course site as the S13 lesson
   (separate PR in that repo; Liquid-safe, routed through lesson-publishing

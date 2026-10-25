@@ -83,7 +83,8 @@ surface              physical paper or digital canvas
 
 The visible editor is semantic HTML + CSS Grid. JavaScript only:
 
-- creates cells from validated work data;
+- validates canonical work primitives and derives the render plan;
+- creates overlapping plane and line grid items;
 - handles Pointer Events and state;
 - writes CSS custom properties;
 - serializes URLs and exports;
@@ -91,11 +92,14 @@ The visible editor is semantic HTML + CSS Grid. JavaScript only:
 
 CSS owns layout and colour:
 
-- boundaries become `fr` track weights;
-- `Work.lineTracks.{columns,rows}` identifies measured line-track indexes;
-  each baseline width is the corresponding boundary delta normalized by the
-  canvas axis. A black plane is not a line unless explicitly indexed;
-- `--line-weight-scale` multiplies their baseline;
+- normalized rectangle bounds, line extents and line edges
+  `center ± thickness/2` become sorted boundaries; adjacent deltas become `fr`
+  track weights;
+- coloured/black rectangles are plane grid items; explicit black lines are
+  higher-z grid items, preserving Andrzejewski et al.'s source distinction;
+- JS clamps `lineWeightScale`, rederives line edges/tracks, and exposes the
+  applied value as `--line-weight-scale`; CSS consumes the resulting tracks but
+  does not multiply thickness again; black planes never change;
 - `--theta` drives relative HSL colour;
 - `transform: scaleX()/scaleY()` reflects the figure;
 - container queries adapt controls to the editor, not the viewport;
@@ -132,8 +136,9 @@ The old `/studies/` route becomes `/gallery/`; `/play/` becomes `/create/`.
 
 The story has seven short scenes, each useful without animation:
 
-1. **A painting is measured** — original canvas and boundary vectors.
-2. **A grid becomes ratios** — absolute measures become normalized deltas.
+1. **A painting is measured** — original canvas, points, rectangles and lines.
+2. **Geometry becomes ratios** — coordinates and perpendicular line thickness
+   become normalized values; derived boundary deltas become CSS tracks.
 3. **Ratios become CSS** — the same deltas become `fr` tracks.
 4. **A frame changes** — container queries reveal what remains and what bends.
 5. **Colour becomes an angle** — HSL wheel, θ, directed Δ, and its perceptual limit.

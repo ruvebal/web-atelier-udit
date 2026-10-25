@@ -21,9 +21,9 @@ A neoplastic composition is a set of ratios: column widths, row heights, the are
 
 | Claim | What makes it true | What makes it false |
 | --- | --- | --- |
-| **Ratio claim.** The original state holds the painting's proportions; subsequent states expose exactly how the visitor departs from them. | Normalized boundary vectors become CSS `fr` tracks; the frame begins at the original aspect ratio; `CompositionState` is separate from immutable `work.yml`; compare/reset returns exactly to source. | Mutating source data; CSS borders standing in for measured bands; a state that cannot be reopened from its URL. |
-| **Hue claim.** Rotating θ changes every chromatic cell's hue by θ and leaves the angular distance between any two swatches unchanged; non-colours do not rotate. | `hsl(from var(--swatch) calc(h + var(--theta)) s l)` on chromatic roles only; Δ computed and shown; a wrap-around case in the defence. | `hsl(θ 100% 50%)`; rotating black; claiming the picture "looks the same" (HSL lightness is not perceived lightness). |
-| **Authorship claim.** Every number on the public site has a named source, and the student who shipped it can point at it. | `work.yml` carries `source`, `measured_by`, `method`; analyzer output carries its version and the reproduction's pixel size; defence asks for one bound. | A matrix that "looks Mondrian"; a JPEG from search with no recorded crop; an AI-drawn grid. |
+| **Ratio claim.** The original state holds the painting's proportions; subsequent states expose exactly how the visitor departs from them. | Measured points, rectangles and explicit line thicknesses are normalized; a derived render plan turns adjacent boundary deltas into CSS `fr` tracks; `CompositionState` is separate from immutable `work.yml`; compare/reset returns exactly to source. | Mutating source data; conflating black planes and lines; CSS borders standing in for measured lines; a state that cannot be reopened from its URL. |
+| **Hue claim.** Rotating θ changes every chromatic plane's hue by θ and leaves the angular distance between any two swatches unchanged; non-colours do not rotate. | `hsl(from var(--swatch) calc(h + var(--theta)) s l)` on chromatic roles only; Δ computed and shown; a wrap-around case in the defence. | `hsl(θ 100% 50%)`; rotating black; claiming the picture "looks the same" (HSL lightness is not perceived lightness). |
+| **Authorship claim.** Every number on the public site has a named source, and the student who shipped it can point at it. | `work.yml` carries an object source, method-discriminated provenance and accepted human review; analyzer output carries its version and reproduction geometry; defence follows one source primitive through normalization and CSS derivation. | Geometry that merely “looks Mondrian”; a JPEG from search with no recorded crop; an AI-drawn grid. |
 | **Print claim.** A screen composition can return to paper at a declared size. | Surface, printable area and frame are distinct; SVG is the canonical export; print uses physical units, `@page`, 100% scaling guidance and a 100 mm calibration sheet. | Calling an uncalibrated browser/printer path millimetre-accurate; exporting a screenshot as the master. |
 
 ---
@@ -78,8 +78,8 @@ The portfolio template taught frameworks. This project teaches the platform the 
 | Renderer | Where | Rule | Teaches |
 | --- | --- | --- | --- |
 | **SVG, faithful** | Study pages | `viewBox` = canvas; uniform scale; letterbox | Aspect ratio, `meet`, the invariance of proportion |
-| **CSS Grid, liquid** | Gallery and editor | `grid-template-columns: <deltas>fr`; measured line tracks multiplied by `--line-weight-scale` | `fr` arithmetic, `minmax`, container queries, what breaks when a frame changes shape |
-| **HTML/CSS preview, server-rendered** | FastAPI development service | A complete accessible figure with the same cells, roles, tracks and custom properties as Astro; semantically compared in tests | Server-side rendering is front-end work; one contract, two producers |
+| **CSS Grid, liquid** | Gallery and editor | `grid-template-columns: <deltas>fr`; plane items below explicit line items; measured line thickness rederived under `--line-weight-scale` | `fr` arithmetic, overlap/z-order, `minmax`, container queries, what breaks when a frame changes shape |
+| **HTML/CSS preview, server-rendered** | FastAPI development service | A complete accessible figure with the same source primitives and derived tracks, planes, lines and custom properties as Astro; semantically compared in tests | Server-side rendering is front-end work; one contract, two producers |
 
 The visible editor is CSS Grid, not canvas. JavaScript validates data, creates
 cells, owns pointer/state/undo/export, and writes custom properties. SVG remains
@@ -184,20 +184,26 @@ gesture the project is about; the same state on a phone is its take-home form.
 The two data-science students build the **analysis backend for a front-end
 product**, and the plan makes that contribution structural rather than rhetorical:
 
-1. **The analyzer produces the front end's data.** Image → rectified canvas → line positions (projection profiles / Hough) → cell roles (colour clustering in Lab) → swatch HSL → a schema-valid `work.yml` with its own provenance (`method: analyzer`, version, reproduction pixel size, crop). The ground truth is the hand-measured works; the analyzer is evaluated against them, in canvas units, per boundary.
+1. **The analyzer produces the front end's data.** Image → rectified canvas →
+   point coordinates and explicit line centre/extent/thickness (projection
+   profiles / Hough) → coloured/black rectangles (Lab clustering) → swatch HSL
+   → a schema-valid primitive `work.yml` with method-specific provenance. The
+   ground truth is the hand-measured works; the analyzer is evaluated per
+   point, rectangle edge/role and line parameter.
 2. **The API returns a web artefact, not only numbers.** `GET /works/{id}` returns
-   the validated matrix as JSON; `GET /works/{id}/preview` returns a self-contained
+   the validated source primitives as JSON; `GET /works/{id}/preview` returns a self-contained
    HTML/CSS `<figure>` using the same data attributes and custom properties as the
    editor. This makes serialization, HTTP, content types and CSS contracts part of
    the data-science students' deliverable without pretending that button styling is
    backend work.
-3. **One contract, two producers, one test.** A semantic snapshot test compares
-   the Astro and FastAPI figures (cells, roles, tracks, custom properties—not byte
-   order). When it passes, two teams have implemented one presentation contract.
+3. **One contract, two producers, one test.** A semantic snapshot compares the
+   Astro and FastAPI figures (source IDs; derived tracks, planes, lines, roles
+   and custom properties—not byte order). When it passes, two teams have
+   implemented one presentation contract.
 
 **Where it runs.** The public site and kiosk are static/offline-capable and never
 depend on the API. The API is a self-hosted development and analysis service.
-Matrices accepted into the corpus are built into the site. This boundary keeps an
+Works accepted into the corpus are built into the site. This boundary keeps an
 exhibition alive when the network disappears.
 
 **Honesty about TensorFlow.** Line and rectangle extraction is a classical

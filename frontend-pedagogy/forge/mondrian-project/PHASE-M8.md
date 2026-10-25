@@ -18,7 +18,10 @@ Grow the corpus from one reference work to one work per student plus the two rem
 
 ## Deliverables
 
-- `packages/works/works/<slug>/{work.yml, MEASUREMENT.md}` for ≥ 7 student works + references 2 and 3; `packages/works/CORPUS.md` index (slug, title, year, canvas, aspect class, measured_by, method, rights, PR link).
+- `packages/works/works/<slug>/{work.yml, MEASUREMENT.md}` for ≥ 7 student works
+  + references 2 and 3; `packages/works/CORPUS.md` index (slug, title, year,
+  canvas, aspect class, provenance method/operator, accepted reviewer, rights,
+  PR link).
 - Issue per work from the `measurement.yml` template (fields: candidate work, catalogue, reproduction record, rights check owner).
 - PR per work with the template filled (plan link, measurement source, reviewer from another lane); `CODEOWNERS` routes `packages/works/works/**` to the whole cohort so anyone can review and the measuring student cannot self-approve.
 - CI step `conformance.sh` over the full corpus + the M3 fit test parametrised over all works + a "no images" check (`git ls-files | grep -Ei '\.(png|jpe?g|webp|tiff?)$'` limited to generated icons under `services/web/public/icons/`).
@@ -31,7 +34,10 @@ Grow the corpus from one reference work to one work per student plus the two rem
 
 ## Scope
 
-**In:** the above; the exclusions of pitch §5 enforced at issue triage (lozenge, coloured-line, *Boogie Woogie*, multi-grey). **Out:** importing external datasets (M4 reports the mapping; a decision record opens an import only if the licence allows and `method: external` is added to the schema via amend).
+**In:** the above; the exclusions of pitch §5 enforced at issue triage
+(lozenge, coloured-line, *Boogie Woogie*, multi-grey). **Out:** importing
+external datasets. M2 already models `method: external`; M4 reports mappings
+and licences, but a separate decision record must authorize any import.
 
 ## Prompt (Implementation Agent / Lane operator)
 
@@ -55,15 +61,19 @@ tooling, triage checks and the report.
 
 ## Constraints
 - A work without a named source is not merged; "looks right" is not a review.
-- Analyzer output is accepted only when the student has checked at least three bounds by hand and says so in
-  MEASUREMENT.md.
+- Analyzer output is accepted only when the student has checked at least three
+  source primitives by hand—one point, one rectangle edge and one line
+  thickness/extent—and says so in `MEASUREMENT.md`.
 - No images committed except generated icons.
 ```
 
 ## Acceptance
 
 - `scripts/conformance.sh packages/works/works` exit 0 over every work; count ≥ cohort size + 3 references.
-- Every `work.yml` has non-empty `source`, `provenance.measured_by`, `rights.eu`, `rights.us` (a `jq`/`yq` sweep in CI).
+- Every `work.yml` has non-empty `id`, `title`, `year`, `source`,
+  method-specific provenance, `provenance.review.status=accepted`,
+  `reviewed_by`, review date, `rights.eu` and `rights.us` (a `jq`/`yq` sweep in
+  CI). Analyzer proposals cannot enter the corpus before this gate.
 - Every merged PR under `packages/works/works/**` has ≥ 1 approval from a different lane than the author (checked with `gh pr list --state merged --json reviews,author` and the lane map).
 - `git ls-files` shows no image files outside `services/web/public/icons/`.
 - Aspect classes: at least one square-ish, one vertical, one horizontal across the corpus (from `corpus-stats.py`).

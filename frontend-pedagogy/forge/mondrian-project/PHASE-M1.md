@@ -102,7 +102,9 @@ Implement PHASE-M1 per docs/DEV_PLAN/MONDRIAN/PHASE-M1.md (source copy in the we
 
 ## Constraints
 - Zero client-side JavaScript shipped by the placeholder pages (check dist for <script>).
-- No dependency beyond astro, vitest, typescript, prettier, eslint, stylelint, ruff, mypy, pytest.
+- During M1, no dependency beyond astro, vitest, typescript, prettier, eslint,
+  stylelint, ruff, mypy and pytest. M2 adds Ajv 8 solely to execute the
+  canonical JSON Schema 2020-12 contract.
 - Do not commit beyond the commits named above without asking; never push without the remote confirmed.
 ```
 

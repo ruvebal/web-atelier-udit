@@ -27,6 +27,11 @@ Python 3.12 pending an actual TensorFlow-wheel probe.
   each retained item passes the same citation gate. Each modeled rule records
   work ID, observed feature, interpretation, implementation and confidence
   (`documented|inferred|computational-hypothesis|visitor-transformation`).
+  Koçer Özgün & Alaçam (2021) is the first missing scholarly extraction to
+  attempt because its pixel/matrix decoding and colour proportions can test the
+  analytics independently; failure to acquire it remains `[BIBLIO-GAP]` and
+  does not block D-05. JSON Schema 2020-12 and CSS Grid Level 2 are recorded as
+  normative technical sources, not scholarly evidence about Mondrian.
 - Local correspondence drafts under gitignored `_private/`: student preflight
   email and `CORREO-DEPARTAMENTO-ECSIT-ES.md` adapted from TTOD for
   department coordination, degree direction and ECSIT IP. Only send dates and
@@ -55,6 +60,10 @@ Implement PHASE-M0 per frontend-pedagogy/forge/mondrian-project/PHASE-M0.md.
    for formal representation; line/rectangle extraction; colour/area ratios; compositional style; faux
    works; authenticity limits. Resolve retained hits to complete Ahmes pages and `ahmes query --cite`.
    Store full UUIDs. Hits are discovery, never citations.
+   Attempt the same acquire/extract/cite gate for Koçer Özgün & Alaçam (2021);
+   if unavailable, retain it as discovery-only and do not delay M2. Record the
+   official JSON Schema 2020-12 Core/Validation and CSS Grid Level 2 URLs in the
+   D-05 source matrix without sending standards through Ahmes.
 2. Decisions. Copy cascade §1 into PHASE-M0-REPORT.md. For each D-row write ratified|rejected + one
    evidence line (a command output, a document, a named conversation with date). D-02 needs a live
    `pnpm create astro@latest` dry run on a throwaway dir (delete it) and a confirmation that
