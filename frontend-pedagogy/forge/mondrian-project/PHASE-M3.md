@@ -6,19 +6,22 @@
 ## Goal
 
 Ship the public shell around the editor. `/` chooses a surface and measured
-composition. `/gallery/` shows the sources as live CSS Grid miniatures.
-`/about/` tells the seven-scene art→measurement→ratio→CSS→colour→transformation→print
-story. `/about-us/` credits the professor's proposition, cohort roles and
-research framing. `/method/` explains the analyzer, uncertainty and rights.
+composition. `/gallery/` shows the sources as live CSS Grid miniatures (same
+plan as the future SVG editor). `/about/` tells the seven-scene
+art→measurement→ratio→CSS-and-SVG→colour→variation→print story. `/about-us/`
+credits the professor's proposition, cohort roles and research framing.
+`/method/` explains the analyzer, catalog build, uncertainty and rights.
+**Do not load the Svelte editor island on these routes.**
 
 ## Deliverables
 
 - Layouts `Base.astro`, `Source.astro`; chrome components; source
   `Frame.astro` and `Caption.astro`; pages `/`, `/gallery/`,
   `/gallery/<slug>/`, `/about/`, `/about-us/`, `/method/`.
-- Seven About scenes from `MVP-PRODUCT-SPEC.md` §6. CSS scroll-driven
-  animation as enhancement; a small `IntersectionObserver` fallback; complete,
-  visible and static without JS or under reduced motion.
+- Seven About scenes from `MVP-PRODUCT-SPEC.md` §6. **GSAP + ScrollTrigger
+  parallax** (D-29): `src/scripts/about-parallax.js`, `data-speed` layers,
+  scrubbed scroll; dynamic-import `gsap` only on `/about/`. Complete, visible
+  and static without JS or under `prefers-reduced-motion` (triggers killed).
 - Styles: `src/styles/{tokens,chrome,study}.css` using `@scope` for the study block, `@container` on the frame, media features for `prefers-reduced-motion` and `prefers-color-scheme`.
 - Client module `src/scripts/source.js` validates and renders CSS Grid. Source
   pages can preview θ but cannot mutate or save the measured work.
@@ -29,7 +32,7 @@ research framing. `/method/` explains the analyzer, uncertainty and rights.
 ## Scope
 
 **In:** the above; the `/about/` and `/method/` prose drafted by the instructor (plain words; citations marked `[BIBLIO-GAP]` until resolved through the evidence harness).
-**Out:** the editor (M6), kiosk (M7), Spanish mirror (M9), any API call.
+**Out:** the Svelte editor island (M6), kiosk (M7), Spanish mirror (M9), any API call, any FastAPI fetch.
 
 ## Prompt (Implementation Agent)
 
@@ -52,16 +55,19 @@ Implement PHASE-M3 per docs/DEV_PLAN/MONDRIAN/PHASE-M3.md.
 4. Caption: derive() output → "N columns, M rows; white x%, black y%, red z%…"; the Δ sentence with the actual
    swatch hues; the disclaimer sentence; the credit "Geometric study after <title> (<year>). Measurements: <source>."
 5. Pages: /, /gallery/ (live mini grids), /gallery/<slug>/, /about/,
-   /about-us/, /method/. About's observer only toggles data attributes.
-6. Tests include no-JS and reduced-motion About completeness; run Playwright
-   headless against `astro preview` with BASE set; run Lighthouse CI once and
-   record scores.
+   /about-us/, /method/. About: implement D-29 parallax (gsap + ScrollTrigger,
+   data-speed layers, matchMedia reduced-motion kill).
+6. Add `gsap` dependency (pin recorded in report). Tests: no-JS About
+   completeness; reduced-motion kills ScrollTrigger; network log shows gsap
+   chunk only on /about/; run Playwright headless against `astro preview`
+   with BASE set; Lighthouse CI once.
 7. Full suite (pnpm -r test/build, uv run pytest) + imports. Hand off for cold review — do NOT mark DONE.
 
 ## Constraints
-- Zero JS on `/method/` and `/about-us/`. `/about/` may ship only the small
-  observer fallback; `/gallery/` only the mini-render module.
-- No text on chromatic planes. No image files of paintings.
+- Zero JS on `/method/` and `/about-us/`. `/about/` may load **gsap +
+  about-parallax.js** only (D-29). `/gallery/` only the mini-render module.
+  No GSAP on `/create/` or `/kiosk/`.
+- No `framer-motion` / `motion`. No text on chromatic planes. No painting photos.
 - Every URL through the base helper; Playwright's dist link check is the gate.
 ```
 
@@ -70,8 +76,10 @@ Implement PHASE-M3 per docs/DEV_PLAN/MONDRIAN/PHASE-M3.md.
 - Playwright: every gallery source fits both viewports; `?theta=banana` yields
   θ 0; at θ 350 the caption Δ equals θ 0.
 - With JavaScript disabled all seven About headings and prose are visible. With
-  reduced motion, zero animations run.
-- `package.json` contains neither `framer-motion` nor `motion`.
+  reduced motion, zero ScrollTrigger instances / no parallax transforms left.
+- With motion allowed, ≥2 layers per scrolled scene move at different scrub rates.
+- `package.json` includes `gsap`; contains neither `framer-motion` nor `motion`.
+- GSAP is not requested from gallery/home/editor routes (Playwright network).
 - axe: 0 critical, 0 serious on `/`, `/gallery/`, one source and `/about/`.
 - Lighthouse a11y = 100 on a gallery source; scores recorded.
 - `grep -rhoE '(href|src)="[^"]+"' services/web/dist | grep -vE '^(href|src)="(/mondrian-project/|https?://|#|mailto:)'` returns nothing.

@@ -1,0 +1,786 @@
+{
+  "current_release_id": "ecaf67cb0ab1c057",
+  "created_at": "2026-10-26T20:15:36.276Z",
+  "count": 41,
+  "assets": [
+    {
+      "filename_svg": "mp-backgrounds-neoplastic-grid-minimal-hero-bg-317bb4597fb0.svg",
+      "filename_png": "mp-backgrounds-neoplastic-grid-minimal-hero-bg-317bb4597fb0.png",
+      "category": "backgrounds",
+      "role": "hero-bg",
+      "grammar": "neoplastic-grid",
+      "density": "minimal",
+      "size": "1600×900",
+      "sha256_svg": "317bb4597fb00b40fb0db90671ec74af3a21c091a8f1c6d8690e05de86de25f3",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/backgrounds/mp-backgrounds-neoplastic-grid-minimal-hero-bg-317bb4597fb0.svg"
+    },
+    {
+      "filename_svg": "mp-figures-neoplastic-grid-minimal-composition-figure-a57f76539539.svg",
+      "filename_png": "mp-figures-neoplastic-grid-minimal-composition-figure-a57f76539539.png",
+      "category": "figures",
+      "role": "composition-figure",
+      "grammar": "neoplastic-grid",
+      "density": "minimal",
+      "size": "900×900",
+      "sha256_svg": "a57f76539539e846bc3e451816302011f794fe55627aec1acb80753bfd201d38",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/figures/mp-figures-neoplastic-grid-minimal-composition-figure-a57f76539539.svg"
+    },
+    {
+      "filename_svg": "mp-fillings-wash-fill-minimal-transparent-wash-dc931228a712.svg",
+      "filename_png": "mp-fillings-wash-fill-minimal-transparent-wash-dc931228a712.png",
+      "category": "fillings",
+      "role": "transparent-wash",
+      "grammar": "wash-fill",
+      "density": "minimal",
+      "size": "1200×800",
+      "sha256_svg": "dc931228a71220b98c3c82e9f983287af018038b791cc966a874f1a473150d7b",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Translucent primary planes for overlays and textures.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/fillings/mp-fillings-wash-fill-minimal-transparent-wash-dc931228a712.svg"
+    },
+    {
+      "filename_svg": "mp-silhouettes-silhouette-minimal-armature-mask-789b6bc248ee.svg",
+      "filename_png": "mp-silhouettes-silhouette-minimal-armature-mask-789b6bc248ee.png",
+      "category": "silhouettes",
+      "role": "armature-mask",
+      "grammar": "silhouette-matrix",
+      "density": "minimal",
+      "size": "900×900",
+      "sha256_svg": "789b6bc248ee47117071ef5c8f01ff89cf6f5a1ee217dde1844dccfc95a06c5f",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature silhouette / mask derived from grid grammar.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/silhouettes/mp-silhouettes-silhouette-minimal-armature-mask-789b6bc248ee.svg"
+    },
+    {
+      "filename_svg": "mp-figures-isometric-minimal-isometric-study-1208acabf543.svg",
+      "filename_png": "mp-figures-isometric-minimal-isometric-study-1208acabf543.png",
+      "category": "figures",
+      "role": "isometric-study",
+      "grammar": "isometric-grid",
+      "density": "minimal",
+      "size": "1200×900",
+      "sha256_svg": "1208acabf5434a13939f65b9556aec3ac1a386d553e8bbbcdedd38e8ae42dc7b",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_spatial_illustration",
+      "note": "Pseudo-isometric projection of planes/lines — teaching figure, not museum view.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/figures/mp-figures-isometric-minimal-isometric-study-1208acabf543.svg"
+    },
+    {
+      "filename_svg": "mp-textures-neoplastic-grid-minimal-tile-texture-607419c823fd.svg",
+      "filename_png": "mp-textures-neoplastic-grid-minimal-tile-texture-607419c823fd.png",
+      "category": "textures",
+      "role": "tile-texture",
+      "grammar": "neoplastic-grid",
+      "density": "minimal",
+      "size": "512×512",
+      "sha256_svg": "607419c823fd429a4510789df54874f1e1e061e89ee7ed97be1c30f95e3b5180",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/textures/mp-textures-neoplastic-grid-minimal-tile-texture-607419c823fd.svg"
+    },
+    {
+      "filename_svg": "mp-backgrounds-tree-branch-minimal-prologue-bg-5f16e5dbae00.svg",
+      "filename_png": "mp-backgrounds-tree-branch-minimal-prologue-bg-5f16e5dbae00.png",
+      "category": "backgrounds",
+      "role": "prologue-bg",
+      "grammar": "mondrian-tree",
+      "density": "minimal",
+      "size": "1600×900",
+      "sha256_svg": "5f16e5dbae002a4502f7df6431cf1a3e921b9c02f4a59732a1cc00c4c2773c9c",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "geometry_only_prologue",
+      "note": "Early-tree prologue the neoplastic matrix refuses.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/backgrounds/mp-backgrounds-tree-branch-minimal-prologue-bg-5f16e5dbae00.svg"
+    },
+    {
+      "filename_svg": "mp-backgrounds-neoplastic-grid-sparse-hero-bg-e6afea322410.svg",
+      "filename_png": "mp-backgrounds-neoplastic-grid-sparse-hero-bg-e6afea322410.png",
+      "category": "backgrounds",
+      "role": "hero-bg",
+      "grammar": "neoplastic-grid",
+      "density": "sparse",
+      "size": "1600×900",
+      "sha256_svg": "e6afea3224106e7a6c19f82bbb748d4cb4758c3082a1ede793072bb35d8e128c",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/backgrounds/mp-backgrounds-neoplastic-grid-sparse-hero-bg-e6afea322410.svg"
+    },
+    {
+      "filename_svg": "mp-figures-neoplastic-grid-sparse-composition-figure-fb33ba315de9.svg",
+      "filename_png": "mp-figures-neoplastic-grid-sparse-composition-figure-fb33ba315de9.png",
+      "category": "figures",
+      "role": "composition-figure",
+      "grammar": "neoplastic-grid",
+      "density": "sparse",
+      "size": "900×900",
+      "sha256_svg": "fb33ba315de94104cd1fba91a6fc920a61283785b7f015b09511926ef8932d6e",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/figures/mp-figures-neoplastic-grid-sparse-composition-figure-fb33ba315de9.svg"
+    },
+    {
+      "filename_svg": "mp-fillings-wash-fill-sparse-transparent-wash-8450123dde8b.svg",
+      "filename_png": "mp-fillings-wash-fill-sparse-transparent-wash-8450123dde8b.png",
+      "category": "fillings",
+      "role": "transparent-wash",
+      "grammar": "wash-fill",
+      "density": "sparse",
+      "size": "1200×800",
+      "sha256_svg": "8450123dde8bc823e298e8e7d9300fe791fa81c827828e0072fee8f36e6b8b76",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Translucent primary planes for overlays and textures.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/fillings/mp-fillings-wash-fill-sparse-transparent-wash-8450123dde8b.svg"
+    },
+    {
+      "filename_svg": "mp-silhouettes-silhouette-sparse-armature-mask-d45a6d5d3c3a.svg",
+      "filename_png": "mp-silhouettes-silhouette-sparse-armature-mask-d45a6d5d3c3a.png",
+      "category": "silhouettes",
+      "role": "armature-mask",
+      "grammar": "silhouette-matrix",
+      "density": "sparse",
+      "size": "900×900",
+      "sha256_svg": "d45a6d5d3c3a83290a0245bc330f2936d8bdbf858f824a3f5e27dfb3b09b2b7c",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature silhouette / mask derived from grid grammar.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/silhouettes/mp-silhouettes-silhouette-sparse-armature-mask-d45a6d5d3c3a.svg"
+    },
+    {
+      "filename_svg": "mp-figures-isometric-sparse-isometric-study-c5ea16718553.svg",
+      "filename_png": "mp-figures-isometric-sparse-isometric-study-c5ea16718553.png",
+      "category": "figures",
+      "role": "isometric-study",
+      "grammar": "isometric-grid",
+      "density": "sparse",
+      "size": "1200×900",
+      "sha256_svg": "c5ea167185538480679f853c13e14bf23395ac0822e7e27c76e53bbedc808c8a",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_spatial_illustration",
+      "note": "Pseudo-isometric projection of planes/lines — teaching figure, not museum view.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/figures/mp-figures-isometric-sparse-isometric-study-c5ea16718553.svg"
+    },
+    {
+      "filename_svg": "mp-textures-neoplastic-grid-sparse-tile-texture-e706793701fd.svg",
+      "filename_png": "mp-textures-neoplastic-grid-sparse-tile-texture-e706793701fd.png",
+      "category": "textures",
+      "role": "tile-texture",
+      "grammar": "neoplastic-grid",
+      "density": "sparse",
+      "size": "512×512",
+      "sha256_svg": "e706793701fdf94e905010653861f394d879e1e4954b92d10888f5d445568792",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/textures/mp-textures-neoplastic-grid-sparse-tile-texture-e706793701fd.svg"
+    },
+    {
+      "filename_svg": "mp-backgrounds-tree-branch-sparse-prologue-bg-c24a5915f6d9.svg",
+      "filename_png": "mp-backgrounds-tree-branch-sparse-prologue-bg-c24a5915f6d9.png",
+      "category": "backgrounds",
+      "role": "prologue-bg",
+      "grammar": "mondrian-tree",
+      "density": "sparse",
+      "size": "1600×900",
+      "sha256_svg": "c24a5915f6d9282b634ef52900b7fac697b661a873fbe700f24e5061b451f101",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "geometry_only_prologue",
+      "note": "Early-tree prologue the neoplastic matrix refuses.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/backgrounds/mp-backgrounds-tree-branch-sparse-prologue-bg-c24a5915f6d9.svg"
+    },
+    {
+      "filename_svg": "mp-backgrounds-neoplastic-grid-balanced-hero-bg-ab8d6357da0b.svg",
+      "filename_png": "mp-backgrounds-neoplastic-grid-balanced-hero-bg-ab8d6357da0b.png",
+      "category": "backgrounds",
+      "role": "hero-bg",
+      "grammar": "neoplastic-grid",
+      "density": "balanced",
+      "size": "1600×900",
+      "sha256_svg": "ab8d6357da0b4c2ca1b3995be0e68ed55e216a3c1de935bd933a71bbf0e47e75",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/backgrounds/mp-backgrounds-neoplastic-grid-balanced-hero-bg-ab8d6357da0b.svg"
+    },
+    {
+      "filename_svg": "mp-figures-neoplastic-grid-balanced-composition-figure-78996a4600d2.svg",
+      "filename_png": "mp-figures-neoplastic-grid-balanced-composition-figure-78996a4600d2.png",
+      "category": "figures",
+      "role": "composition-figure",
+      "grammar": "neoplastic-grid",
+      "density": "balanced",
+      "size": "900×900",
+      "sha256_svg": "78996a4600d25083636f8b4d420dec25750a951cb3d8a1743fa0c9c173a34bd7",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/figures/mp-figures-neoplastic-grid-balanced-composition-figure-78996a4600d2.svg"
+    },
+    {
+      "filename_svg": "mp-fillings-wash-fill-balanced-transparent-wash-90797b4585c7.svg",
+      "filename_png": "mp-fillings-wash-fill-balanced-transparent-wash-90797b4585c7.png",
+      "category": "fillings",
+      "role": "transparent-wash",
+      "grammar": "wash-fill",
+      "density": "balanced",
+      "size": "1200×800",
+      "sha256_svg": "90797b4585c75d6cabe4d20cc6845de6a00909409747bf002379634a1b1bd212",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Translucent primary planes for overlays and textures.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/fillings/mp-fillings-wash-fill-balanced-transparent-wash-90797b4585c7.svg"
+    },
+    {
+      "filename_svg": "mp-silhouettes-silhouette-balanced-armature-mask-296418c851b2.svg",
+      "filename_png": "mp-silhouettes-silhouette-balanced-armature-mask-296418c851b2.png",
+      "category": "silhouettes",
+      "role": "armature-mask",
+      "grammar": "silhouette-matrix",
+      "density": "balanced",
+      "size": "900×900",
+      "sha256_svg": "296418c851b2f7d48b3241b3c2dd526f1ba82fbf20ab7d2b509f3dfba76a3e6b",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature silhouette / mask derived from grid grammar.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/silhouettes/mp-silhouettes-silhouette-balanced-armature-mask-296418c851b2.svg"
+    },
+    {
+      "filename_svg": "mp-figures-isometric-balanced-isometric-study-f8c22bc2b3cb.svg",
+      "filename_png": "mp-figures-isometric-balanced-isometric-study-f8c22bc2b3cb.png",
+      "category": "figures",
+      "role": "isometric-study",
+      "grammar": "isometric-grid",
+      "density": "balanced",
+      "size": "1200×900",
+      "sha256_svg": "f8c22bc2b3cb39795a50757a399ee3adbaba0424e4fe2c247377673d71969e75",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_spatial_illustration",
+      "note": "Pseudo-isometric projection of planes/lines — teaching figure, not museum view.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/figures/mp-figures-isometric-balanced-isometric-study-f8c22bc2b3cb.svg"
+    },
+    {
+      "filename_svg": "mp-textures-neoplastic-grid-balanced-tile-texture-bbe6c69034bb.svg",
+      "filename_png": "mp-textures-neoplastic-grid-balanced-tile-texture-bbe6c69034bb.png",
+      "category": "textures",
+      "role": "tile-texture",
+      "grammar": "neoplastic-grid",
+      "density": "balanced",
+      "size": "512×512",
+      "sha256_svg": "bbe6c69034bb3c65b772b368e2ba08b6908ab98e898891adf383ab2644e5dbb0",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/textures/mp-textures-neoplastic-grid-balanced-tile-texture-bbe6c69034bb.svg"
+    },
+    {
+      "filename_svg": "mp-backgrounds-tree-branch-balanced-prologue-bg-c220d3e2da1a.svg",
+      "filename_png": "mp-backgrounds-tree-branch-balanced-prologue-bg-c220d3e2da1a.png",
+      "category": "backgrounds",
+      "role": "prologue-bg",
+      "grammar": "mondrian-tree",
+      "density": "balanced",
+      "size": "1600×900",
+      "sha256_svg": "c220d3e2da1a13227d75a9b61d906964e6dcde08f437b7a028d183e27920274d",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "geometry_only_prologue",
+      "note": "Early-tree prologue the neoplastic matrix refuses.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/backgrounds/mp-backgrounds-tree-branch-balanced-prologue-bg-c220d3e2da1a.svg"
+    },
+    {
+      "filename_svg": "mp-backgrounds-neoplastic-grid-dense-hero-bg-4dfbd8ae15ba.svg",
+      "filename_png": "mp-backgrounds-neoplastic-grid-dense-hero-bg-4dfbd8ae15ba.png",
+      "category": "backgrounds",
+      "role": "hero-bg",
+      "grammar": "neoplastic-grid",
+      "density": "dense",
+      "size": "1600×900",
+      "sha256_svg": "4dfbd8ae15baa46284452fca6a61b5ab70d26e14957f602543513e142cf97d1f",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/backgrounds/mp-backgrounds-neoplastic-grid-dense-hero-bg-4dfbd8ae15ba.svg"
+    },
+    {
+      "filename_svg": "mp-figures-neoplastic-grid-dense-composition-figure-0e528a6e6e58.svg",
+      "filename_png": "mp-figures-neoplastic-grid-dense-composition-figure-0e528a6e6e58.png",
+      "category": "figures",
+      "role": "composition-figure",
+      "grammar": "neoplastic-grid",
+      "density": "dense",
+      "size": "900×900",
+      "sha256_svg": "0e528a6e6e58b728cdbab7662366336f73b0c4d6079cb38814340d59a489ef5a",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/figures/mp-figures-neoplastic-grid-dense-composition-figure-0e528a6e6e58.svg"
+    },
+    {
+      "filename_svg": "mp-fillings-wash-fill-dense-transparent-wash-c03c7faa0c06.svg",
+      "filename_png": "mp-fillings-wash-fill-dense-transparent-wash-c03c7faa0c06.png",
+      "category": "fillings",
+      "role": "transparent-wash",
+      "grammar": "wash-fill",
+      "density": "dense",
+      "size": "1200×800",
+      "sha256_svg": "c03c7faa0c061a8d1095cad81823acbb7472c1db998d911ea134f0822ae6dfa0",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Translucent primary planes for overlays and textures.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/fillings/mp-fillings-wash-fill-dense-transparent-wash-c03c7faa0c06.svg"
+    },
+    {
+      "filename_svg": "mp-silhouettes-silhouette-dense-armature-mask-e08f8bb558dd.svg",
+      "filename_png": "mp-silhouettes-silhouette-dense-armature-mask-e08f8bb558dd.png",
+      "category": "silhouettes",
+      "role": "armature-mask",
+      "grammar": "silhouette-matrix",
+      "density": "dense",
+      "size": "900×900",
+      "sha256_svg": "e08f8bb558dd1b1dfc8f66a24e10653b09a3c12fcd6f37d8fa3f8a4819413c82",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature silhouette / mask derived from grid grammar.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/silhouettes/mp-silhouettes-silhouette-dense-armature-mask-e08f8bb558dd.svg"
+    },
+    {
+      "filename_svg": "mp-figures-isometric-dense-isometric-study-a27cd9dd686a.svg",
+      "filename_png": "mp-figures-isometric-dense-isometric-study-a27cd9dd686a.png",
+      "category": "figures",
+      "role": "isometric-study",
+      "grammar": "isometric-grid",
+      "density": "dense",
+      "size": "1200×900",
+      "sha256_svg": "a27cd9dd686a57ff38aa591ff5a6b1c862a953e36c75a010b38f48d94667e771",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_spatial_illustration",
+      "note": "Pseudo-isometric projection of planes/lines — teaching figure, not museum view.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/figures/mp-figures-isometric-dense-isometric-study-a27cd9dd686a.svg"
+    },
+    {
+      "filename_svg": "mp-textures-neoplastic-grid-dense-tile-texture-27eefa142156.svg",
+      "filename_png": "mp-textures-neoplastic-grid-dense-tile-texture-27eefa142156.png",
+      "category": "textures",
+      "role": "tile-texture",
+      "grammar": "neoplastic-grid",
+      "density": "dense",
+      "size": "512×512",
+      "sha256_svg": "27eefa142156eae5f53bfb1af35d2d30aa1ca292472508594049830c0c0f6ba6",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/textures/mp-textures-neoplastic-grid-dense-tile-texture-27eefa142156.svg"
+    },
+    {
+      "filename_svg": "mp-backgrounds-tree-branch-dense-prologue-bg-ea38bb06f521.svg",
+      "filename_png": "mp-backgrounds-tree-branch-dense-prologue-bg-ea38bb06f521.png",
+      "category": "backgrounds",
+      "role": "prologue-bg",
+      "grammar": "mondrian-tree",
+      "density": "dense",
+      "size": "1600×900",
+      "sha256_svg": "ea38bb06f521386c81dd01bbb00568fa85f732159654272ef6d1c4dcf5080707",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "geometry_only_prologue",
+      "note": "Early-tree prologue the neoplastic matrix refuses.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/backgrounds/mp-backgrounds-tree-branch-dense-prologue-bg-ea38bb06f521.svg"
+    },
+    {
+      "filename_svg": "mp-backgrounds-neoplastic-grid-baroque-hero-bg-f9ad91571a09.svg",
+      "filename_png": "mp-backgrounds-neoplastic-grid-baroque-hero-bg-f9ad91571a09.png",
+      "category": "backgrounds",
+      "role": "hero-bg",
+      "grammar": "neoplastic-grid",
+      "density": "baroque",
+      "size": "1600×900",
+      "sha256_svg": "f9ad91571a09259548269da216e4edb6275f1f670e506e2a88b3063588c9f392",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/backgrounds/mp-backgrounds-neoplastic-grid-baroque-hero-bg-f9ad91571a09.svg"
+    },
+    {
+      "filename_svg": "mp-figures-neoplastic-grid-baroque-composition-figure-7c7ce126075e.svg",
+      "filename_png": "mp-figures-neoplastic-grid-baroque-composition-figure-7c7ce126075e.png",
+      "category": "figures",
+      "role": "composition-figure",
+      "grammar": "neoplastic-grid",
+      "density": "baroque",
+      "size": "900×900",
+      "sha256_svg": "7c7ce126075e526e6d13b71a2d53d16cae805ba95cca4fff2bd5db240e828f24",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/figures/mp-figures-neoplastic-grid-baroque-composition-figure-7c7ce126075e.svg"
+    },
+    {
+      "filename_svg": "mp-fillings-wash-fill-baroque-transparent-wash-e0ec112db34d.svg",
+      "filename_png": "mp-fillings-wash-fill-baroque-transparent-wash-e0ec112db34d.png",
+      "category": "fillings",
+      "role": "transparent-wash",
+      "grammar": "wash-fill",
+      "density": "baroque",
+      "size": "1200×800",
+      "sha256_svg": "e0ec112db34da24be97377ac0180070897a213cb72fe98c2848b67686cf66d3c",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Translucent primary planes for overlays and textures.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/fillings/mp-fillings-wash-fill-baroque-transparent-wash-e0ec112db34d.svg"
+    },
+    {
+      "filename_svg": "mp-silhouettes-silhouette-baroque-armature-mask-c586adaabd4b.svg",
+      "filename_png": "mp-silhouettes-silhouette-baroque-armature-mask-c586adaabd4b.png",
+      "category": "silhouettes",
+      "role": "armature-mask",
+      "grammar": "silhouette-matrix",
+      "density": "baroque",
+      "size": "900×900",
+      "sha256_svg": "c586adaabd4b92906e59445b0b2116aecbb4ba85778b164e689e8c8e1931a9a0",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature silhouette / mask derived from grid grammar.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/silhouettes/mp-silhouettes-silhouette-baroque-armature-mask-c586adaabd4b.svg"
+    },
+    {
+      "filename_svg": "mp-figures-isometric-baroque-isometric-study-f588f52fa36b.svg",
+      "filename_png": "mp-figures-isometric-baroque-isometric-study-f588f52fa36b.png",
+      "category": "figures",
+      "role": "isometric-study",
+      "grammar": "isometric-grid",
+      "density": "baroque",
+      "size": "1200×900",
+      "sha256_svg": "f588f52fa36b8080b3aa17d6c2d22f6f709f884db5b838877844d8f9c0b5101c",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_spatial_illustration",
+      "note": "Pseudo-isometric projection of planes/lines — teaching figure, not museum view.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/figures/mp-figures-isometric-baroque-isometric-study-f588f52fa36b.svg"
+    },
+    {
+      "filename_svg": "mp-textures-neoplastic-grid-baroque-tile-texture-5d56cb948a03.svg",
+      "filename_png": "mp-textures-neoplastic-grid-baroque-tile-texture-5d56cb948a03.png",
+      "category": "textures",
+      "role": "tile-texture",
+      "grammar": "neoplastic-grid",
+      "density": "baroque",
+      "size": "512×512",
+      "sha256_svg": "5d56cb948a038c1d76653644f8b17f9a14afa088a272313cb8f8560648df2445",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/textures/mp-textures-neoplastic-grid-baroque-tile-texture-5d56cb948a03.svg"
+    },
+    {
+      "filename_svg": "mp-backgrounds-tree-branch-baroque-prologue-bg-650a3b20b04e.svg",
+      "filename_png": "mp-backgrounds-tree-branch-baroque-prologue-bg-650a3b20b04e.png",
+      "category": "backgrounds",
+      "role": "prologue-bg",
+      "grammar": "mondrian-tree",
+      "density": "baroque",
+      "size": "1600×900",
+      "sha256_svg": "650a3b20b04ee8e15cafadc1f17b11b7145802e33285654c5369f4ff40434dcc",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "geometry_only_prologue",
+      "note": "Early-tree prologue the neoplastic matrix refuses.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/backgrounds/mp-backgrounds-tree-branch-baroque-prologue-bg-650a3b20b04e.svg"
+    },
+    {
+      "filename_svg": "mp-favicon-neoplastic-grid-minimal-mark-grid-44fe70d7c44c.svg",
+      "filename_png": "mp-favicon-neoplastic-grid-minimal-mark-grid-44fe70d7c44c.png",
+      "category": "favicon",
+      "role": "mark-grid",
+      "grammar": "neoplastic-grid",
+      "density": "minimal",
+      "size": "64×64",
+      "sha256_svg": "44fe70d7c44cccef8ccd3ca906db28fa37c95899fd5e2cef18814e463b3ee60e",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/favicon/mp-favicon-neoplastic-grid-minimal-mark-grid-44fe70d7c44c.svg"
+    },
+    {
+      "filename_svg": "mp-favicon-silhouette-minimal-mark-silhouette-fa6f18e6a451.svg",
+      "filename_png": "mp-favicon-silhouette-minimal-mark-silhouette-fa6f18e6a451.png",
+      "category": "favicon",
+      "role": "mark-silhouette",
+      "grammar": "silhouette-matrix",
+      "density": "minimal",
+      "size": "64×64",
+      "sha256_svg": "fa6f18e6a451c6167edd72ac45c59ccf65fc7e436ec93803313de56fdc23a756",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature silhouette / mask derived from grid grammar.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/favicon/mp-favicon-silhouette-minimal-mark-silhouette-fa6f18e6a451.svg"
+    },
+    {
+      "filename_svg": "mp-favicon-tree-branch-minimal-mark-tree-9408077ad7b8.svg",
+      "filename_png": "mp-favicon-tree-branch-minimal-mark-tree-9408077ad7b8.png",
+      "category": "favicon",
+      "role": "mark-tree",
+      "grammar": "mondrian-tree",
+      "density": "minimal",
+      "size": "64×64",
+      "sha256_svg": "9408077ad7b8e3e4d2bcd561ce556036a321e942f0bf41fd9119c9a45de3c5ad",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "geometry_only_prologue",
+      "note": "Early-tree prologue the neoplastic matrix refuses.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/favicon/mp-favicon-tree-branch-minimal-mark-tree-9408077ad7b8.svg"
+    },
+    {
+      "filename_svg": "mp-logo-neoplastic-grid-minimal-wordmark-panel-c3c2378d3bf8.svg",
+      "filename_png": "mp-logo-neoplastic-grid-minimal-wordmark-panel-c3c2378d3bf8.png",
+      "category": "logo",
+      "role": "wordmark-panel",
+      "grammar": "neoplastic-grid",
+      "density": "minimal",
+      "size": "640×180",
+      "sha256_svg": "c3c2378d3bf8d2943fdde0083c923cdaef5807fb46954880e8cceaf5396a0a51",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/logo/mp-logo-neoplastic-grid-minimal-wordmark-panel-c3c2378d3bf8.svg"
+    },
+    {
+      "filename_svg": "mp-logo-neoplastic-grid-balanced-wordmark-panel-7bc9289ef2bc.svg",
+      "filename_png": "mp-logo-neoplastic-grid-balanced-wordmark-panel-7bc9289ef2bc.png",
+      "category": "logo",
+      "role": "wordmark-panel",
+      "grammar": "neoplastic-grid",
+      "density": "balanced",
+      "size": "640×180",
+      "sha256_svg": "7bc9289ef2bccfb66ce3d2c2e6bb36ddbfd3430f016a0f4f47fd83583e0408b1",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/logo/mp-logo-neoplastic-grid-balanced-wordmark-panel-7bc9289ef2bc.svg"
+    },
+    {
+      "filename_svg": "mp-logo-neoplastic-grid-baroque-wordmark-panel-cd9515fc9c61.svg",
+      "filename_png": "mp-logo-neoplastic-grid-baroque-wordmark-panel-cd9515fc9c61.png",
+      "category": "logo",
+      "role": "wordmark-panel",
+      "grammar": "neoplastic-grid",
+      "density": "baroque",
+      "size": "640×180",
+      "sha256_svg": "cd9515fc9c6119e3fd9b20c327111a3b07f328263671ccc16939086502a8f064",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Orthogonal points/planes/lines language for the FE I product — not ML authenticity, not a painting facsimile.",
+      "skills": [
+        "visual-forger",
+        "fractal-architect"
+      ],
+      "generator": "mondrian-asset-kit-v1@1.0.0",
+      "path_delivery": "assets/kit/release-ecaf67cb0ab1c057/logo/mp-logo-neoplastic-grid-baroque-wordmark-panel-cd9515fc9c61.svg"
+    }
+  ]
+}

@@ -5,11 +5,15 @@
 
 ## Goal
 
-Turn the editor into an exhibit. `/kiosk/` is the start URL: attract loop → one
+Turn the editor island into an exhibit. `/kiosk/` is the start URL: attract loop → one
 touch → `/create/` in the kiosk profile → idle reset. A4 landscape is the
-initial surface, but all MVP presets remain available. A QR hands the complete
-normalized `Recipe` (surface plus composition state) to a phone. Device
-lockdown is a runbook.
+initial surface, but all MVP presets remain available. A QR encodes the
+**recipe URL** only (~0.15 KB query form — D-26/D-27; not SVG or work JSON).
+The phone opens
+`/create/<slug>/?…` and reconstructs from the offline catalog plus the
+normalized `Recipe` (surface, composition state, `variationId`).
+The service worker precaches the **pattern catalog** and the Svelte island.
+Device lockdown is a runbook. FastAPI is never contacted.
 
 ## Deliverables
 
@@ -18,17 +22,18 @@ lockdown is a runbook.
   `display_override: ["fullscreen", "standalone"]`, base-aware `start_url` and
   `scope`, icons generated from the reference matrix—not a photograph),
   `<link rel=manifest>` through the same URL helper.
-- `src/sw.js` hand-written (precache the build manifest emitted by a small Astro integration or a post-build script; stale-while-revalidate for pages; no runtime caching of the LAN API).
+- `src/sw.js` hand-written (precache the build manifest **and** `public/patterns/**`; stale-while-revalidate for pages; no runtime caching of the LAN API; never fetch FastAPI).
 - `src/scripts/kiosk.js`: wake lock with re-request on `visibilitychange`; idle
   timer (any pointer event resets; 60 s → the base-aware kiosk URL); attract
   loop driven by `@keyframes` on `--theta` (CSS); under
   `prefers-reduced-motion` show one static attract frame with no cycling;
   counts-only session counters stay in
   `sessionStorage` and appear on hidden `/kiosk/stats/`.
-- `ShareQR` enabled; handheld opens the base-aware `/create/<slug>/?…` URL with
-  the complete recipe.
+- `ShareQR` / Copy link: encode `PUBLIC_CANONICAL_ORIGIN` + `/create/<slug>/?…`
+  (complete live Recipe). Never emit `localhost` or LAN origins in the QR
+  even when the kiosk runs offline from PWA cache (D-27 §4.4).
 - `docs/runbooks/kiosk-device.md`: ChromeOS kiosk app / Chrome `--kiosk --app=<url>` on a locked desktop / iPad Guided Access / Android lock-task; HTTPS requirement for wake lock and SW; what to do when the screen goes dark; who holds the device.
-- Playwright: fake timers → idle reset; emulated `display-mode: fullscreen` + coarse pointer → kiosk CSS applies; offline (`context.setOffline(true)`) → `/kiosk/` reloads from cache; no request leaves the Pages origin.
+- Playwright: fake timers → idle reset; emulated `display-mode: fullscreen` + coarse pointer → kiosk CSS applies; offline (`context.setOffline(true)`) → `/kiosk/` reloads from cache **and** a catalog variation still applies; no request leaves the Pages origin.
 - Lighthouse PWA installable check recorded; Lighthouse a11y 100 on `/kiosk/`.
 - `PHASE-M7-COLD-REVIEW.md`, `PHASE-M7-REPORT.md` with the device model, OS, browser version, date, and who ran it.
 
@@ -79,4 +84,5 @@ Implement PHASE-M7 per docs/DEV_PLAN/MONDRIAN/PHASE-M7.md.
 
 - Wake lock refused on battery-saver → documented in the runbook; the device must be on mains.
 - The device browser lacks a Baseline-2026 feature used by M6 → amend-on-surprise: fallback promoted, D-row updated, report says which.
-- The exhibit space has no HTTPS/LAN → Pages origin is HTTPS already; the API is optional; offline cache covers the rest.
+- The exhibit space has no HTTPS/LAN → Pages origin is HTTPS already; the API is optional; offline cache covers the kiosk. Portable QR still needs the public Pages deploy reachable from the visitor’s phone (or Print/HTML as air-gap takeaway).
+- Misconfigured ShareQR using `window.location.origin` on a local kiosk → phones get a dead link; gate tests assert QR host === `PUBLIC_CANONICAL_ORIGIN`.

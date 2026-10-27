@@ -1,20 +1,24 @@
 # PHASE-M0: Preflight — grounding, decisions, probes, letters, corpus
 
 > **Track:** no product code. Grounding, decisions, toolchain probes, institutional communications, reference corpus and rights.
-> **Status:** READY
+> **Status:** VERIFYING
 
 ## Goal
 
 Complete the Ahmes → Athanor extraction/injection/retrieval pass and make a
 fail-closed GraphRAG capability check over the
-Andrzejewski–Stork–Zhu–Spronk paper; turn every `proposed` row in
-`MONDRIAN-CASCADE.md` §1 into `ratified` or `rejected`; prove the toolchain;
-prepare the institutional communications; and fix the reference works and rights
-rows—so that M1 opens on facts.
+Andrzejewski–Stork–Zhu–Spronk paper; confirm the overnight Mondrian voice
+corpus under Athanor slug `mondrian-project` (see
+`grounding/CORPUS-OVERNIGHT.md`) and run the primary-first query bank in
+`grounding/GRAPHRAG-PHASE-QUERIES.md` for pitch §5 / About seeds; turn every
+`proposed` row in `MONDRIAN-CASCADE.md` §1 into `ratified` or `rejected`; prove
+the toolchain; prepare the institutional communications; and fix the reference
+works and rights rows—so that M1 opens on facts.
 
-Live facts already known (25 Oct 2026, instructor machine): Node 22.22, pnpm
-10.30, Python 3.14.7, **uv 0.13.5 installed**. D-04 still pins the product to
-Python 3.12 pending an actual TensorFlow-wheel probe.
+Live facts (amended 27 Oct 2026): instructor Node **v24.22.1** via nvm (D-28;
+Oct 2026 security floor — prior M0 probe was vulnerable 22.22.0). pnpm 10.30,
+Python 3.14.7, **uv 0.13.5**. D-04 still pins the product to Python 3.12
+pending an actual TensorFlow-wheel probe.
 
 ## Deliverables
 
@@ -23,6 +27,12 @@ Python 3.12 pending an actual TensorFlow-wheel probe.
 - `grounding/ANDRZEJEWSKI-2010.{md,json}`: extraction DB, full node IDs,
   pages, cite-gate results, Athanor ingest receipt, GraphRAG queries, retained
   and discarded findings.
+- Voice corpus: confirm [`grounding/CORPUS-OVERNIGHT.md`](grounding/CORPUS-OVERNIGHT.md)
+  is DONE (Athanor `mondrian-project`, 10 coats); use
+  [`grounding/ABOUT-MONDRIAN-VALUE.md`](grounding/ABOUT-MONDRIAN-VALUE.md) and
+  [`grounding/GRAPHRAG-PHASE-QUERIES.md`](grounding/GRAPHRAG-PHASE-QUERIES.md)
+  for pitch §5 / About seeds. Parallel visual work stays in
+  [`WORK-QUEUE.md`](WORK-QUEUE.md) (does not block D-rows).
 - `grounding/PRIOR-ART-DISCOVERY.md` promoted into a source matrix only after
   each retained item passes the same citation gate. Each modeled rule records
   work ID, observed feature, interpretation, implementation and confidence
@@ -72,7 +82,7 @@ Implement PHASE-M0 per frontend-pedagogy/forge/mondrian-project/PHASE-M0.md.
    learned-classifier extension; it is not an MVP gate.
 3. Probes table: node, pnpm, uv, python (3.12 via uv), git, gh; same on one student laptop (ask the
    human; record "not yet" if unavailable — that is a BLOCKED-able fact, not a failure).
-4. Baseline re-check: for each row of rationale §4.1 marked "Check in M0", record the status with the
+4. Baseline re-check: for each row of rationale §4.1 that needed an M0 re-check, record the status with the
    URL consulted and the date. Amend the table if anything moved.
 5. Communications: adapt
    ~/src/ttod/docs/research/institutional/SOLICITUD-AUTORIZACION-PEDAGOGICA-ES.md

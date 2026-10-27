@@ -10,7 +10,8 @@ The classical pipeline—rectification, normalized grid points, coloured
 rectangles, explicit line centres/extents/thicknesses and swatches—is the MVP.
 Its output follows D-05's adaptation of Andrzejewski et al. (2010, §3.2). It
 must distinguish superimposed lines from black planes because the editor scales
-line thickness only. TensorFlow is a non-blocking research extension only after
+line thickness only. Catalog variation emission (`vary`/`catalog`) is M2, not
+this phase. TensorFlow is a non-blocking research extension only after
 enough labelled primitives exist.
 
 ## Deliverables

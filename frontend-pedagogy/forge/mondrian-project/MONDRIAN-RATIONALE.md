@@ -1,6 +1,6 @@
 <!--
 Mondrian Project — product / why face of the cascade pack.
-Author: Rubén Vega Balbás, PhD · 25 October 2026
+Author: Rubén Vega Balbás, PhD · 25 October 2026 · amended 27 October 2026 (D-21…D-25)
 Reader: product owner, department, research group, the instructor six months from now.
 Engineering decisions live in MONDRIAN-CASCADE.md; this file says why they are worth making.
 -->
@@ -13,7 +13,7 @@ Engineering decisions live in MONDRIAN-CASCADE.md; this file says why they are w
 
 ## 1. The why, in one paragraph
 
-A neoplastic composition is a set of ratios: column widths, row heights, the areas each colour occupies, the relative weights of its black bands, and the angular distances between its hues. Those ratios can travel from canvas to data, from data to CSS Grid, and from a responsive screen back to paper. The Mondrian Project makes that round trip visible. Students measure a painting into a matrix; a visitor chooses a physical or digital surface, begins from the original aspect ratio, reshapes an inner frame, transforms grid and colour, then saves and prints a new study. The data-science students own the measurement pipeline; the front-end students own the touch editor, composition system, export and exhibition; one schema joins them. Every visible relation comes from a number someone measured or from a visitor transformation the URL can reproduce.
+A neoplastic composition is a set of ratios: column widths, row heights, the areas each colour occupies, the relative weights of its black bands, and the angular distances between its hues. Those ratios can travel from canvas to data, from data to a shared render plan, into SVG (the live editor) and CSS Grid (the gallery lesson), and from a responsive screen back to paper. The Mondrian Project makes that round trip visible. Students measure a painting into a matrix; a visitor plays the game **texture → format → variations → personal version**: pick a catalog texture, pick a format chip (1∶1, 5∶4, social 4∶5 / 16∶9 / 9∶16, …) that **maximises** inside the print surface (D-31), or corner-drag free aspect; the grid **liquid-fills** the frame (D-30). Variations and colorimetry compose on that fill; URL / print / export take the personal version away. The data-science students own the measurement pipeline; the front-end students own the touch editor, composition system, export and exhibition; one schema joins them. Every visible relation comes from a number someone measured or from a visitor transformation the URL can reproduce.
 
 ---
 
@@ -32,7 +32,7 @@ A neoplastic composition is a set of ratios: column widths, row heights, the are
 
 | Audience | Value | Evidence this cascade produces |
 | --- | --- | --- |
-| **Front-End I students** | A semester integrator where HTML/CSS/vanilla JS are *necessary* rather than assigned; container queries, grid, relative colour, PWA, touch — on a real artefact with a public URL. | Live site, measured work per student, plans, declaration, defence. |
+| **Front-End I students** | A semester integrator where HTML/CSS/vanilla JS are *necessary* rather than assigned; container queries, grid, relative colour, SVG, PWA, touch — on a real artefact with a public URL. The Editor lane also ships one Svelte island, taught by the starter, not by a new session. | Live site, measured work per student, plans, declaration, defence. |
 | **AI & Data Science students (2)** | A measurement pipeline (image → matrix) with an evaluation against hand-measured ground truth, a REST API that renders a front-end artefact, and an ML component judged against a classical baseline. | `packages/analyzer`, `services/api`, evaluation report. |
 | **Pedagogic research (Strand B, FE I form)** | The second cohort for the "learning by doing in an agentic-assisted product" line — a different course, artefact and level, same process-trace instruments. | Pseudonymised traces; congress-first write-up. |
 | **Art education** | Analysis by reconstruction: the "study after" tradition made measurable; an Albers-style colour-relationship exercise as an instrument (hue rotation as a way to *see* intervals). | The editor, gallery studies and captions. |
@@ -49,11 +49,11 @@ its representation shape or explain the difference.
 
 ---
 
-## 4. The pedagogical core: CSS as the engine, JavaScript as the hands
+## 4. The pedagogical core: CSS as the engine, a Svelte island as the hands
 
-The portfolio template taught frameworks. This project teaches the platform the frameworks sit on, at the moment the platform has become capable enough to do the work alone. The rule for the cohort: **if CSS can do it, CSS does it; JavaScript builds DOM from data, writes one custom property, and reads the URL.**
+The portfolio template taught frameworks. This project still teaches the platform those frameworks sit on. The rule for the cohort: **if CSS can do it, CSS does it; `packages/matrix` is vanilla ESM; the editor is one Svelte island that draws SVG from that matrix and writes custom properties.** Gallery and About remain inspectable HTML + CSS Grid so FE I still *sees* `fr` tracks. React is semester 2 and stays out.
 
-### 4.1 Capability table (checked 25 Oct 2026 against web.dev/baseline/2026 and MDN; re-verify in M0)
+### 4.1 Capability table (checked 25 Oct 2026 against web.dev/baseline/2026 and MDN; M0 re-check 26 Oct 2026 — statuses in rows below / `PHASE-M0-REPORT.md` §4)
 
 | Feature | Baseline status | Used for | Fallback |
 | --- | --- | --- | --- |
@@ -68,8 +68,8 @@ The portfolio template taught frameworks. This project teaches the platform the 
 | `contrast-color()` | Newly available 2026 | Legible control labels over chromatic previews | Fixed label background |
 | Anchor positioning | Newly available 2026 | Drag handles and the Δ readout anchored to frame edges | Absolute positioning |
 | `shape()`, `corner-shape` | Newly / limited | Not used — the grid is orthogonal by doctrine | — |
-| View transitions (cross-document) | Check in M0 (Firefox) | Study → study, as enhancement only | Hard navigation |
-| Scroll-driven animations | Check in M0 (Firefox) | Attract loop in kiosk | `@keyframes` on `--theta` |
+| View transitions (cross-document) | Re-checked M0 26 Oct 2026: Chrome/Safari yes; Firefox partial (caniuse `a #2`) | Study → study, as enhancement only | Hard navigation |
+| Scroll-driven animations | Re-checked M0 26 Oct 2026: Firefox 159+ (`animation-timeline`) | Attract loop in kiosk | `@keyframes` on `--theta` |
 | `if()`, `@function` | Limited support | **Not used.** Named so students know they exist and why they are out | — |
 | `field-sizing` | Newly available 2026 | Not needed (no text entry on the kiosk) | — |
 
@@ -77,14 +77,16 @@ The portfolio template taught frameworks. This project teaches the platform the 
 
 | Renderer | Where | Rule | Teaches |
 | --- | --- | --- | --- |
-| **SVG, faithful** | Study pages | `viewBox` = canvas; uniform scale; letterbox | Aspect ratio, `meet`, the invariance of proportion |
-| **CSS Grid, liquid** | Gallery and editor | `grid-template-columns: <deltas>fr`; plane items below explicit line items; measured line thickness rederived under `--line-weight-scale` | `fr` arithmetic, overlap/z-order, `minmax`, container queries, what breaks when a frame changes shape |
-| **HTML/CSS preview, server-rendered** | FastAPI development service | A complete accessible figure with the same source primitives and derived tracks, planes, lines and custom properties as Astro; semantically compared in tests | Server-side rendering is front-end work; one contract, two producers |
+| **SVG, live** | Editor island (`packages/editor`) | Inline SVG from the shared plan; free-aspect corner handles; pattern **liquid-fills** the frame (D-30); internal edges not draggable | Pointer events, SVG as graphic *and* export, rhythm-preserving refactor |
+| **CSS Grid, pedagogical** | Gallery and About | `grid-template-columns: <deltas>fr`; plane items below explicit line items; measured line thickness rederived under `--line-weight-scale` | `fr` arithmetic, overlap/z-order, `minmax` — what the painting *is* as CSS |
+| **HTML/CSS (and SVG) preview** | FastAPI development service (LAN) | Same source primitives and derived plan as Astro; semantically compared in tests; **not** called by the public site | Server-side rendering is front-end work; one contract, two producers |
 
-The visible editor is CSS Grid, not canvas. JavaScript validates data, creates
-cells, owns pointer/state/undo/export, and writes custom properties. SVG remains
-the canonical vector export and the faithful reference view. Canvas is transient
-and used only to rasterize the generated SVG for PNG download.
+The visible editor is **SVG**, not canvas and not a stretched CSS Grid.
+`packages/matrix` validates data and derives the plan; the Svelte island owns
+pointer/state/undo/export on the outer frame and writes custom properties.
+Canvas is transient and used only to rasterize the generated SVG for PNG
+download. Stretching the partition to fill a new frame aspect is Phase 2
+(`refit`), not the default.
 
 ---
 
@@ -107,13 +109,14 @@ Written with *El Tao del Diseño Centrado en las Personas* in hand (`~/src/ttod/
 
 ```text
 /                          Start. Choose surface + composition; create.
-/create/<slug>/            Editor. Physical/digital surface → bounded inner frame → hue, palette,
-                           reflection, position and line weight → compare/reset → save/print.
+/create/<slug>/            Editor island. Physical/digital surface → containing frame (free-aspect
+                           corner-resize, liquid-fill) → catalog variations, hue, line weight → compare/reset
+                           → save/print. No internal node dragging.
 /gallery/                  Measured source compositions; live CSS mini-renders; open in editor.
 /kiosk/                    Kiosk entry. Attract loop → one touch → editor profile → idle reset.
                            Not linked from the public nav; reached by the device's start URL.
-/about/                    Seven-scene scroll: painting → measurement → ratios → CSS Grid →
-                           hue wheel → visitor transformation → print.
+/about/                    Seven-scene scroll: painting → measurement → ratios → CSS Grid and SVG →
+                           hue wheel → visitor variation → print.
 /about-us/                 Professor's proposition, cohort roles/credits, research framing and AI use.
 /method/                   How the numbers were measured: hand method, analyzer, schema, error bars,
                            how to cite the dataset.
@@ -141,11 +144,11 @@ undo and reset always visible; no transformation available only by gesture.
 
 ### 5.4 Motion for the story
 
-No Framer Motion. It is a React library, while this is a vanilla-JS course. The
-framework-independent `motion` package would still be an unneeded dependency.
-The About story uses CSS scroll-driven animation as progressive enhancement and
-a small `IntersectionObserver` fallback that changes `data-visible`. Without
-JavaScript—or with reduced motion—all seven scenes are complete, visible and static.
+No Framer Motion (React) and no `motion` package. The About story is where
+FE I **S11 GSAP** lands in the product: **ScrollTrigger** drives scrubbed
+**parallax** across the seven scenes (D-29). Gallery, method, editor, and
+kiosk stay GSAP-free. Without JavaScript—or with `prefers-reduced-motion`—
+all seven scenes are complete, visible and static (triggers killed).
 
 ---
 
@@ -217,14 +220,17 @@ pinned to 3.12 until M0 verifies the actual TensorFlow wheel.
 
 ## 8. Cohort and coordination
 
-Seven students, two bachelors, one product, one semester.
+Seven students, two bachelors, one product, one semester. Seat-level task
+specs: [`TEAM-ASSIGNMENTS.md`](TEAM-ASSIGNMENTS.md).
 
-| Lane | Who | Owns | Also does (everyone) |
+| Seat | Lane | Owns | Also does (everyone) |
 | --- | --- | --- | --- |
-| **Analyzer & API** | 2 × AI & Data Science | `packages/analyzer`, `services/api`, schema conformance (Python side), evaluation report | Measures one work by hand; writes plans; declares AI use; defends one bound |
-| **Shell & Story** | 2–3 × Full-stack | Astro shell, gallery, About/About Us/method, scroll narrative, source captions, a11y | Same |
-| **Editor, Print & Kiosk** | 2–3 × Full-stack | CSS Grid renderer, frame/state, transformations, export/print, Pointer Events, PWA, kiosk | Same |
-| **Design lead(s)** | The visually mature students, cross-lane | Design tokens, typography, the chrome's visual system, visual QA on every PR, the credit/caption typography | Same |
+| **1** Backend | Analyzer | `packages/analyzer/`, `packages/works/python/` (derive/vary/catalog), evaluation report | Measures one work; plans; AI declaration; defends one bound |
+| **2** Backend | API | `services/api/` (M5 LAN); Phase-2 **last** `POST /patterns/generate` (complexity, density, colorimetry) | Same |
+| **3–5** Storytelling | Shell & Story | `/about/`, `/gallery/`, `/method/`, `/about-us/`, `/declaration/`, ES mirrors, captions, a11y | Same |
+| **6** App UI | Editor | `packages/editor/` (Svelte + SVG); `/create/`, `/kiosk/`; frame handles; variations UI | Same. Do not mix Svelte UI and schema changes in one PR. |
+| **7** App UI + Design | Editor / Design | Export HTML/SVG/CSV/PNG; recipe-URL QR; print; PWA; **`packages/tokens/` barrel**; visual QA | Same |
+| — | Geometry contract (dual) | `packages/works/schema/`, `packages/matrix/` (vanilla ESM — **no Svelte**) | Seats 1–2 ∩ 6–7 review. Schema/derivation PRs land alone. |
 
 Mechanics, all in `/contribute/` and `CONTRIBUTING.md` (indexed from README):
 protected `main`; parseable `lane/<handle>-issue-<n>-<slug>` branches from
@@ -258,7 +264,12 @@ Visitor data on the kiosk: **counts only** (sessions started, rounds completed, 
 ## 10. What this is not
 
 - Not a portfolio. The student's voice lives in the measurement notes, the Δ sentence, the design system, and the defence.
-- Not a Mondrian reproduction site. No photographs in the repository; every study carries the "geometric study after …" credit and the rotation disclaimer.
-- Not a React project. React is semester 2. Astro is a build tool here and ships zero client framework code.
+- Not a Mondrian reproduction site. No photographs in the repository. The public
+  artefact is a **measured SVG geometric study** (construction proportions as
+  planes/lines), not a photo clone — D-32. That avoids photographer/museum
+  reproduction rights on the distributed file; it does **not** erase composition
+  rights for works still in copyright. Every study carries the "geometric study
+  after …" credit and the rotation disclaimer.
+- Not a React project. React is semester 2. Astro is the static host; one Svelte 5 island hydrates the editor routes only; `packages/matrix` ships zero framework code.
 - Not a research project waiting for approval. It is a teaching activity with a research notice, on the four conditions.
 - Not a Bootstrap/Tailwind/Vite ladder. Those are no longer evidenced by the semester-1 integrator; the cascade records that as a decision the department sees (D-06).

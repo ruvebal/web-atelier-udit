@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="t d">
+  <title id="t">Isometric balanced</title>
+  <desc id="d">Pseudo-isometric neoplastic planes.</desc>
+  <rect width="1200" height="900" fill="#0b1220"/>
+  <polygon points="710.97,512.26 853.05,594.29 810.49,618.86 668.42,536.83" fill="#f8fafc" stroke="#0f172a" stroke-width="1.2" opacity="0.813"/><polygon points="544.68,565.94 554.82,571.80 435.99,640.40 425.85,634.54" fill="#94a3b8" stroke="#0f172a" stroke-width="1.2" opacity="0.813"/><polygon points="600.00,351.80 753.20,440.25 636.34,507.73 483.13,419.27" fill="#f8fafc" stroke="#0f172a" stroke-width="1.2" opacity="0.813"/><line x1="753.20" y1="454.81" x2="425.85" y2="643.81" stroke="#0f172a" stroke-width="2"/><line x1="754.19" y1="455.37" x2="426.83" y2="644.37" stroke="#0f172a" stroke-width="2"/><line x1="763.35" y1="460.67" x2="435.99" y2="649.66" stroke="#0f172a" stroke-width="2"/><line x1="785.28" y1="473.33" x2="457.93" y2="662.33" stroke="#0f172a" stroke-width="2"/>
+</svg>

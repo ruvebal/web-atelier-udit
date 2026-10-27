@@ -1,0 +1,72 @@
+{
+  "kind": "fractal-architect.private-receipt",
+  "release_id": "2f46d8a42248a231",
+  "created_at": "2026-10-26T08:16:20.738Z",
+  "queue_id": "Q-FA1",
+  "adapter": "mondrian-tree-geometry-only-v1",
+  "generator_version": "1.0.0",
+  "skill": "fractal-architect@1.3.0",
+  "original_release_dir": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/mondrian-tree/release-2f46d8a42248a231",
+  "delivery": {
+    "course": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/web-foundations/docs/assets/images/mondrian-tree",
+    "pitch": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/forge/mondrian-project/assets/mondrian-tree"
+  },
+  "citation_gate": {
+    "inline": "(Bountis, Fokas, and Psarakis 2017)",
+    "chicago": "Bountis, Tassos, Athanassios S. Fokas, and Emmanouil Psarakis. 2017. “Fractal Analysis of Tree Paintings by Piet Mondrian (1872–1944).” International Journal of Arts and Technology 10 (1). https://doi.org/10.1504/ijart.2017.083902.",
+    "doi": "10.1504/ijart.2017.083902",
+    "evaluator_safe": true,
+    "disposition": "inspiration_limits_geometry_only"
+  },
+  "ahmes_note": "Public manifests omit vault/node IDs; Bountis coat repaired DOI 10.1504/ijart.2017.083902 under mondrian-project.",
+  "assets": [
+    {
+      "uuid": "ebe108b0-2756-5c3e-9156-49697cd4c006",
+      "surface": "pitch",
+      "family": "prologue",
+      "svg_sha256": "af41f94a29059a5dbc6865836e19c132f35d5bd872122b6f2a5737eab9c52636",
+      "png_sha256": "26b09ecc528435676bdb4565ca2820696573f08b4a162da5d4738fcdee26346b",
+      "original_svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/mondrian-tree/release-2f46d8a42248a231/udit-mondrian-tree-pitch-prologue-af41f94a2905.svg"
+    },
+    {
+      "uuid": "1b6d0940-3c7a-51c3-b112-77328b7d7171",
+      "surface": "pitch",
+      "family": "refuse-matrix",
+      "svg_sha256": "dba4c4a87a4aed5434ef66e75cf58691e4ca94451f209aee3daf4fd082aef638",
+      "png_sha256": "2920c25900cd02c44df85b1ecc1805452ed28517595d0107cfe18843f96db364",
+      "original_svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/mondrian-tree/release-2f46d8a42248a231/udit-mondrian-tree-pitch-refuse-matrix-dba4c4a87a4a.svg"
+    },
+    {
+      "uuid": "0d725477-3304-535b-b868-3d085b46eb17",
+      "surface": "pitch",
+      "family": "research-frame",
+      "svg_sha256": "b72178852313d6bc2ca75467d2ccfd648871bb441485861e919c59ba6f0e051a",
+      "png_sha256": "17f20116361a72215513bb9ab9b2f34074136cc4b1067bc55ac9d78634117eac",
+      "original_svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/mondrian-tree/release-2f46d8a42248a231/udit-mondrian-tree-pitch-research-frame-b72178852313.svg"
+    },
+    {
+      "uuid": "b561d8ae-b3ca-5681-bc68-3f7d54ed1a96",
+      "surface": "course",
+      "family": "atmosphere-a",
+      "svg_sha256": "18606096ecfecd754cb37039a6e9bbfdd24f240bec9a83f34c18670935ed2a97",
+      "png_sha256": "547b081b0131c5cbdba2ca2f64376d94bd5bd0cdc4a951279cd394ed4bd89f33",
+      "original_svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/mondrian-tree/release-2f46d8a42248a231/udit-mondrian-tree-course-atmosphere-a-18606096ecfe.svg"
+    },
+    {
+      "uuid": "5bb5a893-eacd-5e02-adc9-cc7a523a65f7",
+      "surface": "course",
+      "family": "atmosphere-b",
+      "svg_sha256": "817297c1712f41075ac949bc051833a58445570b9857a14b8e05a1f9cfb8852a",
+      "png_sha256": "2d30f779764cba741e41eb9eb6372328fddd1efc426eb30dc870e93b9f406fd5",
+      "original_svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/mondrian-tree/release-2f46d8a42248a231/udit-mondrian-tree-course-atmosphere-b-817297c1712f.svg"
+    },
+    {
+      "uuid": "24d8c7e6-b3b5-5f6b-9e26-490eee57ff2e",
+      "surface": "course",
+      "family": "atmosphere-c",
+      "svg_sha256": "3d2616dfa04b65cbb5de124f6495d0b6dab1ed52533abedc57e107e1a9c86414",
+      "png_sha256": "c3d7df0f270603ac8b2cc486a35a6f52dc4c1e789a78e782de560d0632e0ed6c",
+      "original_svg": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/fractal-architecture/originals/mondrian-tree/release-2f46d8a42248a231/udit-mondrian-tree-course-atmosphere-c-3d2616dfa04b.svg"
+    }
+  ]
+}

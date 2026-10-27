@@ -1,0 +1,25 @@
+{
+  "current_release_id": "2f46d8a42248a231",
+  "created_at": "2026-10-26T08:16:20.738Z",
+  "adapter": "mondrian-tree-geometry-only-v1",
+  "surfaces": [
+    {
+      "family": "atmosphere-a",
+      "svg": "udit-mondrian-tree-course-atmosphere-a-18606096ecfe.svg",
+      "png": "udit-mondrian-tree-course-atmosphere-a-18606096ecfe.png",
+      "sha256": "18606096ecfecd754cb37039a6e9bbfdd24f240bec9a83f34c18670935ed2a97"
+    },
+    {
+      "family": "atmosphere-b",
+      "svg": "udit-mondrian-tree-course-atmosphere-b-817297c1712f.svg",
+      "png": "udit-mondrian-tree-course-atmosphere-b-817297c1712f.png",
+      "sha256": "817297c1712f41075ac949bc051833a58445570b9857a14b8e05a1f9cfb8852a"
+    },
+    {
+      "family": "atmosphere-c",
+      "svg": "udit-mondrian-tree-course-atmosphere-c-3d2616dfa04b.svg",
+      "png": "udit-mondrian-tree-course-atmosphere-c-3d2616dfa04b.png",
+      "sha256": "3d2616dfa04b65cbb5de124f6495d0b6dab1ed52533abedc57e107e1a9c86414"
+    }
+  ]
+}

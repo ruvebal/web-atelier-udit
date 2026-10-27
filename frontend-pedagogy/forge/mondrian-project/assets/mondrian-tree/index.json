@@ -1,0 +1,25 @@
+{
+  "current_release_id": "2f46d8a42248a231",
+  "created_at": "2026-10-26T08:16:20.738Z",
+  "adapter": "mondrian-tree-geometry-only-v1",
+  "surfaces": [
+    {
+      "family": "prologue",
+      "svg": "udit-mondrian-tree-pitch-prologue-af41f94a2905.svg",
+      "png": "udit-mondrian-tree-pitch-prologue-af41f94a2905.png",
+      "sha256": "af41f94a29059a5dbc6865836e19c132f35d5bd872122b6f2a5737eab9c52636"
+    },
+    {
+      "family": "refuse-matrix",
+      "svg": "udit-mondrian-tree-pitch-refuse-matrix-dba4c4a87a4a.svg",
+      "png": "udit-mondrian-tree-pitch-refuse-matrix-dba4c4a87a4a.png",
+      "sha256": "dba4c4a87a4aed5434ef66e75cf58691e4ca94451f209aee3daf4fd082aef638"
+    },
+    {
+      "family": "research-frame",
+      "svg": "udit-mondrian-tree-pitch-research-frame-b72178852313.svg",
+      "png": "udit-mondrian-tree-pitch-research-frame-b72178852313.png",
+      "sha256": "b72178852313d6bc2ca75467d2ccfd648871bb441485861e919c59ba6f0e051a"
+    }
+  ]
+}

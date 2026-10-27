@@ -68,8 +68,12 @@
 			"name": "profield",
 			"path": "../../../../../src/profield",
 		},
+		{
+			"path": "../courses-repos/mondrian-project",
+		},
 	],
 	"settings": {
 		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "web-atelier-udit",
 	},
 }

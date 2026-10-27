@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="t d">
+  <title id="t">Wash baroque</title>
+  <desc id="d">Translucent primary fills for overlays.</desc>
+  
+  <rect x="159.60" y="376.00" width="140.40" height="44.00" fill="#f8fafc" opacity="0.120"/><rect x="159.60" y="514.40" width="267.60" height="285.60" fill="#2563eb" opacity="0.200"/><rect x="300.00" y="0.00" width="127.20" height="102.40" fill="#2563eb" opacity="0.280"/><rect x="0.00" y="102.40" width="300.00" height="128.80" fill="#eab308" opacity="0.360"/><rect x="300.00" y="514.40" width="135.60" height="285.60" fill="#eab308" opacity="0.440"/><rect x="796.80" y="481.60" width="104.40" height="318.40" fill="#f8fafc" opacity="0.120"/><rect x="300.00" y="231.20" width="135.60" height="144.80" fill="#eab308" opacity="0.200"/><rect x="0.00" y="0.00" width="300.00" height="170.40" fill="#e11d48" opacity="0.280"/>
+</svg>

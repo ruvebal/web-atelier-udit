@@ -8,6 +8,11 @@
 > bounded inner frame, transformations, save/export and calibrated print.
 > [`MONDRIAN-CASCADE.md`](MONDRIAN-CASCADE.md) §7 lists all points where this
 > pitch is superseded. Everything not listed there stands.
+>
+> **Atmosphere (not the product):** recursive “Mondrian tree” pitch/course
+> backgrounds from Q-FA1 live under [`assets/mondrian-tree/`](assets/mondrian-tree/)
+> (and `web-foundations/docs/assets/images/mondrian-tree/`). They are early-tree
+> prologue studies after Bountis et al. (2017)—not the neoplastic matrix (§5).
 
 **Course:** Front-End I, semester 1 integrator. Alternative to the portfolio-template assignment (session 13, three grade levels).
 

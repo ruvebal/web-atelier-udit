@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="mp-textures-neoplastic-grid-sparse-tile-texture-t mp-textures-neoplastic-grid-sparse-tile-texture-d">
+  <title id="mp-textures-neoplastic-grid-sparse-tile-texture-t">Tile texture — sparse</title>
+  <desc id="mp-textures-neoplastic-grid-sparse-tile-texture-d">Seamless neoplastic tile: full-span armature with primary points at crossings.</desc>
+  <rect x="0.00" y="0.00" width="512.00" height="512.00" fill="#0f172a"/><rect x="237.08" y="0.00" width="5.07" height="512.00" fill="#334155"/><rect x="349.21" y="0.00" width="5.07" height="512.00" fill="#334155"/><rect x="422.94" y="0.00" width="5.07" height="512.00" fill="#334155"/><rect x="0.00" y="186.39" width="512.00" height="5.07" fill="#334155"/><rect x="0.00" y="320.54" width="512.00" height="5.07" fill="#334155"/><rect x="0.00" y="430.62" width="512.00" height="5.07" fill="#334155"/><rect x="235.62" y="184.93" width="8.00" height="8.00" fill="#e11d48" opacity="0.6"/><rect x="347.74" y="319.07" width="8.00" height="8.00" fill="#eab308" opacity="0.6"/><rect x="421.47" y="429.15" width="8.00" height="8.00" fill="#2563eb" opacity="0.6"/>
+</svg>

@@ -1,0 +1,2382 @@
+{
+  "current_release_id": "83a2d71c19ea9786",
+  "created_at": "2026-10-27T11:02:16.772Z",
+  "count": 51,
+  "libraries": {
+    "skills": {
+      "fractal-architect": "1.3.0",
+      "visual-forger": "1.3.0",
+      "mode": "mondrian-tree-mode (geometry_only)",
+      "neoplastic_macro": "neoplastic-macro-fractal-v1",
+      "queue_ids": [
+        "Q-FA1",
+        "Q-FA2",
+        "Q-FA3",
+        "Q-FA4"
+      ]
+    },
+    "modules": {
+      "mondrian-tree-geometry": "1.0.0",
+      "adapter": "mondrian-tree-geometry-only-v1",
+      "formula": {
+        "adapter": "mondrian-tree-geometry-only-v1",
+        "module": "mondrian-tree-geometry@1.0.0",
+        "queue_id": "Q-FA1",
+        "display": "branch(s) → forward(s); ±θ children (s/R); continue (s/R)",
+        "latex": null,
+        "parameters": {
+          "iterations": 6,
+          "scale_r": 1.45,
+          "angle_deg": 26,
+          "base": 0.3,
+          "viewport": {
+            "x_min": -1.05,
+            "x_max": 1.05,
+            "y_min": -0.02,
+            "y_max": 1.75
+          }
+        },
+        "citation": {
+          "inline": "(Bountis, Fokas, and Psarakis 2017)",
+          "chicago": "Bountis, Tassos, Athanassios S. Fokas, and Emmanouil Psarakis. 2017. “Fractal Analysis of Tree Paintings by Piet Mondrian (1872–1944).” International Journal of Arts and Technology 10 (1). https://doi.org/10.1504/ijart.2017.083902.",
+          "doi": "10.1504/ijart.2017.083902"
+        },
+        "disposition": "inspiration_limits_geometry_only"
+      }
+    },
+    "generators": {
+      "kit": "mondrian-asset-kit-qfa2@2.1.0",
+      "twin_of": "mondrian-asset-kit-qfa1@1.0.0",
+      "compare_to_release": "kit-qfa1/release-dd7ac8a068d23bd8"
+    },
+    "runtime": {
+      "node": "v22.22.0",
+      "rsvg-convert": "rsvg-convert version 2.61.4"
+    }
+  },
+  "delta": {
+    "twin": "kit-qfa1/release-dd7ac8a068d23bd8",
+    "identical": [],
+    "changed": [
+      "backgrounds/hero-bg/minimal",
+      "figures/composition-figure/minimal",
+      "fillings/transparent-wash/minimal",
+      "silhouettes/armature-mask/minimal",
+      "figures/isometric-study/minimal",
+      "textures/tile-texture/minimal",
+      "backgrounds/prologue-bg/minimal",
+      "backgrounds/hero-bg/sparse",
+      "figures/composition-figure/sparse",
+      "fillings/transparent-wash/sparse",
+      "silhouettes/armature-mask/sparse",
+      "figures/isometric-study/sparse",
+      "textures/tile-texture/sparse",
+      "backgrounds/prologue-bg/sparse",
+      "backgrounds/hero-bg/balanced",
+      "figures/composition-figure/balanced",
+      "fillings/transparent-wash/balanced",
+      "silhouettes/armature-mask/balanced",
+      "figures/isometric-study/balanced",
+      "textures/tile-texture/balanced",
+      "backgrounds/prologue-bg/balanced",
+      "backgrounds/hero-bg/dense",
+      "figures/composition-figure/dense",
+      "fillings/transparent-wash/dense",
+      "silhouettes/armature-mask/dense",
+      "figures/isometric-study/dense",
+      "textures/tile-texture/dense",
+      "backgrounds/prologue-bg/dense",
+      "backgrounds/hero-bg/baroque",
+      "figures/composition-figure/baroque",
+      "fillings/transparent-wash/baroque",
+      "silhouettes/armature-mask/baroque",
+      "figures/isometric-study/baroque",
+      "textures/tile-texture/baroque",
+      "backgrounds/prologue-bg/baroque",
+      "favicon/mark-grid/minimal",
+      "favicon/mark-silhouette/minimal",
+      "favicon/mark-tree/minimal",
+      "logo/wordmark-panel/minimal",
+      "logo/wordmark-panel/balanced",
+      "logo/wordmark-panel/baroque"
+    ],
+    "added": [
+      "figures/macro-composition/minimal",
+      "backgrounds/macro-hero-bg/minimal",
+      "figures/macro-composition/sparse",
+      "backgrounds/macro-hero-bg/sparse",
+      "figures/macro-composition/balanced",
+      "backgrounds/macro-hero-bg/balanced",
+      "figures/macro-composition/dense",
+      "backgrounds/macro-hero-bg/dense",
+      "figures/macro-composition/baroque",
+      "backgrounds/macro-hero-bg/baroque"
+    ],
+    "removed": []
+  },
+  "assets": [
+    {
+      "key": "backgrounds/hero-bg/minimal",
+      "filename_svg": "mp-backgrounds-neoplastic-grid-minimal-hero-bg-54b570d18ba7.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-neoplastic-grid-minimal-hero-bg-54b570d18ba7.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "0f5c44a767ba26153a737386752a8672300ced5a0800b56f867882de1203ca3e"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "hero-bg",
+      "grammar": "neoplastic-grid",
+      "density": "minimal",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-kit:neo:minimal:v2",
+      "sha256_svg": "54b570d18ba76c22628e9224fc45226c253bd54e1276edad5df984fe4fd282fa",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-grid-minimal-hero-bg-54b570d18ba7.svg"
+    },
+    {
+      "key": "figures/composition-figure/minimal",
+      "filename_svg": "mp-figures-neoplastic-grid-minimal-composition-figure-2547b1e14c67.svg",
+      "png": [
+        {
+          "file": "mp-figures-neoplastic-grid-minimal-composition-figure-2547b1e14c67.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "d9512fc10e8b0d00efdc226b7a3038dbe9ceea3cc9cafba080f783e891dac069"
+        }
+      ],
+      "category": "figures",
+      "role": "composition-figure",
+      "grammar": "neoplastic-grid",
+      "density": "minimal",
+      "theme": "light",
+      "size": "900×900",
+      "seed": "mondrian-kit:neo:minimal:v2",
+      "sha256_svg": "2547b1e14c67bf618c1b04c54116a733a5e95314b77738befcaf0473ff100996",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-grid-minimal-composition-figure-2547b1e14c67.svg"
+    },
+    {
+      "key": "fillings/transparent-wash/minimal",
+      "filename_svg": "mp-fillings-wash-fill-minimal-transparent-wash-4dfcc9e98c58.svg",
+      "png": [
+        {
+          "file": "mp-fillings-wash-fill-minimal-transparent-wash-4dfcc9e98c58.png",
+          "w": 1200,
+          "h": 800,
+          "sha256": "adbd13a8f9d980e5c53e85613941c2dadeae4aa2f46f93e443ecbd1ce9fe63ee"
+        }
+      ],
+      "category": "fillings",
+      "role": "transparent-wash",
+      "grammar": "wash-fill",
+      "density": "minimal",
+      "theme": "transparent",
+      "size": "1200×800",
+      "seed": "mondrian-kit:neo:minimal:v2",
+      "sha256_svg": "4dfcc9e98c58320ccf1f1921aca70a33dbfe1b3acc78ae4abb49ebab989bf2a2",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Translucent, disjoint primary planes for overlays and fills.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/fillings/mp-fillings-wash-fill-minimal-transparent-wash-4dfcc9e98c58.svg"
+    },
+    {
+      "key": "silhouettes/armature-mask/minimal",
+      "filename_svg": "mp-silhouettes-silhouette-minimal-armature-mask-7de7591ab94c.svg",
+      "png": [
+        {
+          "file": "mp-silhouettes-silhouette-minimal-armature-mask-7de7591ab94c.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "b69824f439aa585f87978a334b3122d841e2c3181f426103b6c006d98dbaa143"
+        }
+      ],
+      "category": "silhouettes",
+      "role": "armature-mask",
+      "grammar": "silhouette-matrix",
+      "density": "minimal",
+      "theme": "transparent",
+      "size": "900×900",
+      "seed": "mondrian-kit:neo:minimal:v2",
+      "sha256_svg": "7de7591ab94c8b72a582836a2d3057e2eca4289cc9db3cb0543ec4072c191a94",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/silhouettes/mp-silhouettes-silhouette-minimal-armature-mask-7de7591ab94c.svg"
+    },
+    {
+      "key": "figures/isometric-study/minimal",
+      "filename_svg": "mp-figures-isometric-minimal-isometric-study-da0ba29170b5.svg",
+      "png": [
+        {
+          "file": "mp-figures-isometric-minimal-isometric-study-da0ba29170b5.png",
+          "w": 1200,
+          "h": 900,
+          "sha256": "9356011e25e18db7b5dcd1bee510b51a73da52a09dea7cf4328a6257e769879a"
+        }
+      ],
+      "category": "figures",
+      "role": "isometric-study",
+      "grammar": "isometric-grid",
+      "density": "minimal",
+      "theme": "light",
+      "size": "1200×900",
+      "seed": "mondrian-kit:neo:minimal:v2",
+      "sha256_svg": "da0ba29170b5abb6e06267a9853567f8c4039201d7b02ef1123292df9c3245b6",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_spatial_illustration",
+      "note": "Isometric projection: armature on the floor, planes extruded as blocks — teaching figure, not museum view.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/floor)≥3",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-isometric-minimal-isometric-study-da0ba29170b5.svg"
+    },
+    {
+      "key": "textures/tile-texture/minimal",
+      "filename_svg": "mp-textures-neoplastic-grid-minimal-tile-texture-8ee8948694bf.svg",
+      "png": [
+        {
+          "file": "mp-textures-neoplastic-grid-minimal-tile-texture-8ee8948694bf.png",
+          "w": 512,
+          "h": 512,
+          "sha256": "a212493c5b81a2af94342496b6368553ac18b1ec217094ff99a71f8b3aebc013"
+        }
+      ],
+      "category": "textures",
+      "role": "tile-texture",
+      "grammar": "neoplastic-grid",
+      "density": "minimal",
+      "theme": "dark",
+      "size": "512×512",
+      "seed": "mondrian-kit:neo:minimal:v2",
+      "sha256_svg": "8ee8948694bf9d0fdabbb478bc23d0b114aa65c603fd5bbe6736c5e0b5a82df8",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(line/field (decorative))≥1.4",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/textures/mp-textures-neoplastic-grid-minimal-tile-texture-8ee8948694bf.svg"
+    },
+    {
+      "key": "figures/macro-composition/minimal",
+      "filename_svg": "mp-figures-neoplastic-macro-minimal-macro-composition-1936c0a5c78f.svg",
+      "png": [
+        {
+          "file": "mp-figures-neoplastic-macro-minimal-macro-composition-1936c0a5c78f.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "c05ee78128673d4e96f8bdd6d2d4935754b6c44af25545e3b0a866b71967bd89"
+        }
+      ],
+      "category": "figures",
+      "role": "macro-composition",
+      "grammar": "neoplastic-macro",
+      "density": "minimal",
+      "theme": "light",
+      "size": "900×900",
+      "seed": "mondrian-kit:macro:minimal:v1",
+      "sha256_svg": "1936c0a5c78f720a0531a6ee423c4543d57e9781f724c6e2d212d599cc7ba323",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language_recursive",
+      "note": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": "neoplastic-macro-fractal-v1",
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "neoplastic-macro-fractal-v1"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-macro-minimal-macro-composition-1936c0a5c78f.svg"
+    },
+    {
+      "key": "backgrounds/macro-hero-bg/minimal",
+      "filename_svg": "mp-backgrounds-neoplastic-macro-minimal-macro-hero-bg-c49f25c4a3a3.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-neoplastic-macro-minimal-macro-hero-bg-c49f25c4a3a3.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "f8f667b35a4632b72334687f46e4b14c1cebc6de24c0cd6e0f7a63d579829716"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "macro-hero-bg",
+      "grammar": "neoplastic-macro",
+      "density": "minimal",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-kit:macro:minimal:v1",
+      "sha256_svg": "c49f25c4a3a33834a56fe51b7bdb8ad40d00d3f3c8b22510e4689b58aa8dfd0b",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language_recursive",
+      "note": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": "neoplastic-macro-fractal-v1",
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "neoplastic-macro-fractal-v1"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-macro-minimal-macro-hero-bg-c49f25c4a3a3.svg"
+    },
+    {
+      "key": "backgrounds/prologue-bg/minimal",
+      "filename_svg": "mp-backgrounds-tree-branch-minimal-prologue-bg-3ef692978915.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-tree-branch-minimal-prologue-bg-3ef692978915.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "2269957237ee1f377f28919417d965e2aa2bea04b5436625658af0ddffeb3e7b"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "prologue-bg",
+      "grammar": "mondrian-tree",
+      "density": "minimal",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-tree:kit:minimal",
+      "sha256_svg": "3ef692978915e98cea8ad33b30eee8461510c2a872c7aac2193fde674b4c478e",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "inspiration_limits_geometry_only",
+      "note": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "tree_adapter": "mondrian-tree-geometry-only-v1",
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "mondrian-tree-mode (geometry_only)"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(branch/field)≥3",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-tree-branch-minimal-prologue-bg-3ef692978915.svg"
+    },
+    {
+      "key": "backgrounds/hero-bg/sparse",
+      "filename_svg": "mp-backgrounds-neoplastic-grid-sparse-hero-bg-b3bd9fe0c6ec.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-neoplastic-grid-sparse-hero-bg-b3bd9fe0c6ec.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "44dfc38c4d67c24795cca78eddb412d7025fab19f1b2ecd5fb07d4a15f8142fb"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "hero-bg",
+      "grammar": "neoplastic-grid",
+      "density": "sparse",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-kit:neo:sparse:v2",
+      "sha256_svg": "b3bd9fe0c6ec4ca25b6629660bfad7b23b96490e90f92c469c0ff8fdc6acab0d",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-grid-sparse-hero-bg-b3bd9fe0c6ec.svg"
+    },
+    {
+      "key": "figures/composition-figure/sparse",
+      "filename_svg": "mp-figures-neoplastic-grid-sparse-composition-figure-6762f9285780.svg",
+      "png": [
+        {
+          "file": "mp-figures-neoplastic-grid-sparse-composition-figure-6762f9285780.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "72fc4be00253d781bae1a5483849a4a028a22181c3816917eba9e89595568195"
+        }
+      ],
+      "category": "figures",
+      "role": "composition-figure",
+      "grammar": "neoplastic-grid",
+      "density": "sparse",
+      "theme": "light",
+      "size": "900×900",
+      "seed": "mondrian-kit:neo:sparse:v2",
+      "sha256_svg": "6762f92857800c76988f281b4f9f2a7a174595708cb43939719443690f1977d8",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-grid-sparse-composition-figure-6762f9285780.svg"
+    },
+    {
+      "key": "fillings/transparent-wash/sparse",
+      "filename_svg": "mp-fillings-wash-fill-sparse-transparent-wash-887396431cf6.svg",
+      "png": [
+        {
+          "file": "mp-fillings-wash-fill-sparse-transparent-wash-887396431cf6.png",
+          "w": 1200,
+          "h": 800,
+          "sha256": "1c7eb079fb467a277001873085d20dbeea08c852be7f76f5f3507dd2c81b1e82"
+        }
+      ],
+      "category": "fillings",
+      "role": "transparent-wash",
+      "grammar": "wash-fill",
+      "density": "sparse",
+      "theme": "transparent",
+      "size": "1200×800",
+      "seed": "mondrian-kit:neo:sparse:v2",
+      "sha256_svg": "887396431cf6b4b8e5240ceabf84f5460c6c7d385c1dcabc4a842e950a84789b",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Translucent, disjoint primary planes for overlays and fills.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/fillings/mp-fillings-wash-fill-sparse-transparent-wash-887396431cf6.svg"
+    },
+    {
+      "key": "silhouettes/armature-mask/sparse",
+      "filename_svg": "mp-silhouettes-silhouette-sparse-armature-mask-85ff8dfae4a5.svg",
+      "png": [
+        {
+          "file": "mp-silhouettes-silhouette-sparse-armature-mask-85ff8dfae4a5.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "836582fec138e010b66287b6a87a149b72e8bb0f0f64b7f5314ef3fbe1b92cd3"
+        }
+      ],
+      "category": "silhouettes",
+      "role": "armature-mask",
+      "grammar": "silhouette-matrix",
+      "density": "sparse",
+      "theme": "transparent",
+      "size": "900×900",
+      "seed": "mondrian-kit:neo:sparse:v2",
+      "sha256_svg": "85ff8dfae4a5cf7e70e60430a11f53eaa93d905bde4c4660db36ac2e451fadc3",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/silhouettes/mp-silhouettes-silhouette-sparse-armature-mask-85ff8dfae4a5.svg"
+    },
+    {
+      "key": "figures/isometric-study/sparse",
+      "filename_svg": "mp-figures-isometric-sparse-isometric-study-b4eebefcc890.svg",
+      "png": [
+        {
+          "file": "mp-figures-isometric-sparse-isometric-study-b4eebefcc890.png",
+          "w": 1200,
+          "h": 900,
+          "sha256": "b1ba885f0a7612934d19bae15a2238cc22633c4811bb7664deab132be1d72154"
+        }
+      ],
+      "category": "figures",
+      "role": "isometric-study",
+      "grammar": "isometric-grid",
+      "density": "sparse",
+      "theme": "light",
+      "size": "1200×900",
+      "seed": "mondrian-kit:neo:sparse:v2",
+      "sha256_svg": "b4eebefcc89031166439f32048f94736ee8cbe916647f5d171ff3cb441262cf1",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_spatial_illustration",
+      "note": "Isometric projection: armature on the floor, planes extruded as blocks — teaching figure, not museum view.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/floor)≥3",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-isometric-sparse-isometric-study-b4eebefcc890.svg"
+    },
+    {
+      "key": "textures/tile-texture/sparse",
+      "filename_svg": "mp-textures-neoplastic-grid-sparse-tile-texture-dd3d4c9a932b.svg",
+      "png": [
+        {
+          "file": "mp-textures-neoplastic-grid-sparse-tile-texture-dd3d4c9a932b.png",
+          "w": 512,
+          "h": 512,
+          "sha256": "b8e1e2be0c24446ec941891d6d5f92f7805bd3bbf4a5f035d3cd5763a3537218"
+        }
+      ],
+      "category": "textures",
+      "role": "tile-texture",
+      "grammar": "neoplastic-grid",
+      "density": "sparse",
+      "theme": "dark",
+      "size": "512×512",
+      "seed": "mondrian-kit:neo:sparse:v2",
+      "sha256_svg": "dd3d4c9a932bafffb21f14ec7fb87b3d6591897e9793674e8809c965d8461684",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(line/field (decorative))≥1.4",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/textures/mp-textures-neoplastic-grid-sparse-tile-texture-dd3d4c9a932b.svg"
+    },
+    {
+      "key": "figures/macro-composition/sparse",
+      "filename_svg": "mp-figures-neoplastic-macro-sparse-macro-composition-e4c077072f35.svg",
+      "png": [
+        {
+          "file": "mp-figures-neoplastic-macro-sparse-macro-composition-e4c077072f35.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "db5856d6d3309b8adb13233f05fee36ec69f71425321736653bb7eb0239044a5"
+        }
+      ],
+      "category": "figures",
+      "role": "macro-composition",
+      "grammar": "neoplastic-macro",
+      "density": "sparse",
+      "theme": "light",
+      "size": "900×900",
+      "seed": "mondrian-kit:macro:sparse:v1",
+      "sha256_svg": "e4c077072f35abf6e8f9bb0c894c1c15000cce71cfc31dfb81036456c7142cd0",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language_recursive",
+      "note": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": "neoplastic-macro-fractal-v1",
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "neoplastic-macro-fractal-v1"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-macro-sparse-macro-composition-e4c077072f35.svg"
+    },
+    {
+      "key": "backgrounds/macro-hero-bg/sparse",
+      "filename_svg": "mp-backgrounds-neoplastic-macro-sparse-macro-hero-bg-96c1217661b0.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-neoplastic-macro-sparse-macro-hero-bg-96c1217661b0.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "f317ef68370de75132d358ca3917e4b1011a823221be5356dca04c36acd2012f"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "macro-hero-bg",
+      "grammar": "neoplastic-macro",
+      "density": "sparse",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-kit:macro:sparse:v1",
+      "sha256_svg": "96c1217661b0dba54d935bfba26faa3c0247fa7fd02969a3b58628d69ba21a79",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language_recursive",
+      "note": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": "neoplastic-macro-fractal-v1",
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "neoplastic-macro-fractal-v1"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-macro-sparse-macro-hero-bg-96c1217661b0.svg"
+    },
+    {
+      "key": "backgrounds/prologue-bg/sparse",
+      "filename_svg": "mp-backgrounds-tree-branch-sparse-prologue-bg-6fd011194433.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-tree-branch-sparse-prologue-bg-6fd011194433.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "a8a65136cbc455e07e42ddc867f6db89753c15e79b517629de48c79e68836e70"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "prologue-bg",
+      "grammar": "mondrian-tree",
+      "density": "sparse",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-tree:kit:sparse",
+      "sha256_svg": "6fd0111944333dfc660080580e26614092d8cdc63996fd9780868e3e6fbed03b",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "inspiration_limits_geometry_only",
+      "note": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "tree_adapter": "mondrian-tree-geometry-only-v1",
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "mondrian-tree-mode (geometry_only)"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(branch/field)≥3",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-tree-branch-sparse-prologue-bg-6fd011194433.svg"
+    },
+    {
+      "key": "backgrounds/hero-bg/balanced",
+      "filename_svg": "mp-backgrounds-neoplastic-grid-balanced-hero-bg-a41eeda29a7c.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-neoplastic-grid-balanced-hero-bg-a41eeda29a7c.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "7341874dba3a39d7c2041860d015928e32e41a5bddf095b35589865fb9c9a0c8"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "hero-bg",
+      "grammar": "neoplastic-grid",
+      "density": "balanced",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-kit:neo:balanced:v2",
+      "sha256_svg": "a41eeda29a7cb2b8d95123bda21e2c79280d23a7154a042d8008f3cf210297a1",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-grid-balanced-hero-bg-a41eeda29a7c.svg"
+    },
+    {
+      "key": "figures/composition-figure/balanced",
+      "filename_svg": "mp-figures-neoplastic-grid-balanced-composition-figure-46f47dfe6254.svg",
+      "png": [
+        {
+          "file": "mp-figures-neoplastic-grid-balanced-composition-figure-46f47dfe6254.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "fba83a5ad2518589aa3b675badccce6f27166326640467cfbc1f9bdabcdaf04a"
+        }
+      ],
+      "category": "figures",
+      "role": "composition-figure",
+      "grammar": "neoplastic-grid",
+      "density": "balanced",
+      "theme": "light",
+      "size": "900×900",
+      "seed": "mondrian-kit:neo:balanced:v2",
+      "sha256_svg": "46f47dfe62543832307bcacf279908cdd8d4a59a4105498ebccd7b1b3450f0fa",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-grid-balanced-composition-figure-46f47dfe6254.svg"
+    },
+    {
+      "key": "fillings/transparent-wash/balanced",
+      "filename_svg": "mp-fillings-wash-fill-balanced-transparent-wash-364150af184b.svg",
+      "png": [
+        {
+          "file": "mp-fillings-wash-fill-balanced-transparent-wash-364150af184b.png",
+          "w": 1200,
+          "h": 800,
+          "sha256": "484485191a14814355a92541d9293f15573758d2804099f5d3aa8be004a59eeb"
+        }
+      ],
+      "category": "fillings",
+      "role": "transparent-wash",
+      "grammar": "wash-fill",
+      "density": "balanced",
+      "theme": "transparent",
+      "size": "1200×800",
+      "seed": "mondrian-kit:neo:balanced:v2",
+      "sha256_svg": "364150af184bef6ba218422cef274fdd61482c31c1be3948bd0a2a9734b66a25",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Translucent, disjoint primary planes for overlays and fills.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/fillings/mp-fillings-wash-fill-balanced-transparent-wash-364150af184b.svg"
+    },
+    {
+      "key": "silhouettes/armature-mask/balanced",
+      "filename_svg": "mp-silhouettes-silhouette-balanced-armature-mask-4449563f062d.svg",
+      "png": [
+        {
+          "file": "mp-silhouettes-silhouette-balanced-armature-mask-4449563f062d.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "e5bb07782376f0a356952cf451a2a93116d0f1f4a986c89ad389e726e4ada1d3"
+        }
+      ],
+      "category": "silhouettes",
+      "role": "armature-mask",
+      "grammar": "silhouette-matrix",
+      "density": "balanced",
+      "theme": "transparent",
+      "size": "900×900",
+      "seed": "mondrian-kit:neo:balanced:v2",
+      "sha256_svg": "4449563f062de4f4e15327fe9ace3a64b1080c18b086ddaada0e2ab895bbe04f",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/silhouettes/mp-silhouettes-silhouette-balanced-armature-mask-4449563f062d.svg"
+    },
+    {
+      "key": "figures/isometric-study/balanced",
+      "filename_svg": "mp-figures-isometric-balanced-isometric-study-5e9baf15c44b.svg",
+      "png": [
+        {
+          "file": "mp-figures-isometric-balanced-isometric-study-5e9baf15c44b.png",
+          "w": 1200,
+          "h": 900,
+          "sha256": "18fbcc9641861d68d1911304cc19748ca846a90c2a6d8303639b08317d0eff64"
+        }
+      ],
+      "category": "figures",
+      "role": "isometric-study",
+      "grammar": "isometric-grid",
+      "density": "balanced",
+      "theme": "light",
+      "size": "1200×900",
+      "seed": "mondrian-kit:neo:balanced:v2",
+      "sha256_svg": "5e9baf15c44b86a6fd7c24289fc6f1b43f8e53379f13425969e058ad6402e7b8",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_spatial_illustration",
+      "note": "Isometric projection: armature on the floor, planes extruded as blocks — teaching figure, not museum view.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/floor)≥3",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-isometric-balanced-isometric-study-5e9baf15c44b.svg"
+    },
+    {
+      "key": "textures/tile-texture/balanced",
+      "filename_svg": "mp-textures-neoplastic-grid-balanced-tile-texture-21e40b517853.svg",
+      "png": [
+        {
+          "file": "mp-textures-neoplastic-grid-balanced-tile-texture-21e40b517853.png",
+          "w": 512,
+          "h": 512,
+          "sha256": "3247bce5f5f76b4ed538c420bf1b7641d573bcf27628499949ca3c6498a27a57"
+        }
+      ],
+      "category": "textures",
+      "role": "tile-texture",
+      "grammar": "neoplastic-grid",
+      "density": "balanced",
+      "theme": "dark",
+      "size": "512×512",
+      "seed": "mondrian-kit:neo:balanced:v2",
+      "sha256_svg": "21e40b51785315332ef25ab6aa082d6c8f1046b254edee0808b6c09169807670",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(line/field (decorative))≥1.4",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/textures/mp-textures-neoplastic-grid-balanced-tile-texture-21e40b517853.svg"
+    },
+    {
+      "key": "figures/macro-composition/balanced",
+      "filename_svg": "mp-figures-neoplastic-macro-balanced-macro-composition-6df0d6a78c8c.svg",
+      "png": [
+        {
+          "file": "mp-figures-neoplastic-macro-balanced-macro-composition-6df0d6a78c8c.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "165f56d0438e985b067d9d649603ba313938a3d41e7eb92e881572c8d6a2beca"
+        }
+      ],
+      "category": "figures",
+      "role": "macro-composition",
+      "grammar": "neoplastic-macro",
+      "density": "balanced",
+      "theme": "light",
+      "size": "900×900",
+      "seed": "mondrian-kit:macro:balanced:v1",
+      "sha256_svg": "6df0d6a78c8c2e39969b80ec60d6d2cd1ef82c8bd2ea9aacb747149d76c18ff8",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language_recursive",
+      "note": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": "neoplastic-macro-fractal-v1",
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "neoplastic-macro-fractal-v1"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-macro-balanced-macro-composition-6df0d6a78c8c.svg"
+    },
+    {
+      "key": "backgrounds/macro-hero-bg/balanced",
+      "filename_svg": "mp-backgrounds-neoplastic-macro-balanced-macro-hero-bg-86a499b7cd4f.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-neoplastic-macro-balanced-macro-hero-bg-86a499b7cd4f.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "cab9531581d4aadd86af1d1b5eda3fd40773ad4b42a148adb95850dec096f166"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "macro-hero-bg",
+      "grammar": "neoplastic-macro",
+      "density": "balanced",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-kit:macro:balanced:v1",
+      "sha256_svg": "86a499b7cd4f81865b48fe9ceda3a7b800864baf48dfd6b65c8704947525d3c9",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language_recursive",
+      "note": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": "neoplastic-macro-fractal-v1",
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "neoplastic-macro-fractal-v1"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-macro-balanced-macro-hero-bg-86a499b7cd4f.svg"
+    },
+    {
+      "key": "backgrounds/prologue-bg/balanced",
+      "filename_svg": "mp-backgrounds-tree-branch-balanced-prologue-bg-9536d7ea23a5.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-tree-branch-balanced-prologue-bg-9536d7ea23a5.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "126c73a52963095c95e0a80aa914bc0802795319e0b039bc1ffa42539a6d689e"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "prologue-bg",
+      "grammar": "mondrian-tree",
+      "density": "balanced",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-tree:kit:balanced",
+      "sha256_svg": "9536d7ea23a5923bc9cf4f08ff72e542e24772d7cd680b04e3fe8394ff17a507",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "inspiration_limits_geometry_only",
+      "note": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "tree_adapter": "mondrian-tree-geometry-only-v1",
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "mondrian-tree-mode (geometry_only)"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(branch/field)≥3",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-tree-branch-balanced-prologue-bg-9536d7ea23a5.svg"
+    },
+    {
+      "key": "backgrounds/hero-bg/dense",
+      "filename_svg": "mp-backgrounds-neoplastic-grid-dense-hero-bg-b0e12e297ad5.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-neoplastic-grid-dense-hero-bg-b0e12e297ad5.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "d0cff3514ed71d4deae3829be91afa22c10c82c173a99c9d1493aef14c83ba24"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "hero-bg",
+      "grammar": "neoplastic-grid",
+      "density": "dense",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-kit:neo:dense:v2",
+      "sha256_svg": "b0e12e297ad51cc75154c53d1294a52a8bf502ed9c75ea2504b8b74e1467ae23",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-grid-dense-hero-bg-b0e12e297ad5.svg"
+    },
+    {
+      "key": "figures/composition-figure/dense",
+      "filename_svg": "mp-figures-neoplastic-grid-dense-composition-figure-8d1cefe813ce.svg",
+      "png": [
+        {
+          "file": "mp-figures-neoplastic-grid-dense-composition-figure-8d1cefe813ce.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "0472813cbb2fad00894c97f57a502240c46db4b4bb19b05ba9ac54aabcd1f8a0"
+        }
+      ],
+      "category": "figures",
+      "role": "composition-figure",
+      "grammar": "neoplastic-grid",
+      "density": "dense",
+      "theme": "light",
+      "size": "900×900",
+      "seed": "mondrian-kit:neo:dense:v2",
+      "sha256_svg": "8d1cefe813ceff07f70ae91057042d296cdbc502f6773ccded9af22da3181d0e",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-grid-dense-composition-figure-8d1cefe813ce.svg"
+    },
+    {
+      "key": "fillings/transparent-wash/dense",
+      "filename_svg": "mp-fillings-wash-fill-dense-transparent-wash-00bf6b68f75b.svg",
+      "png": [
+        {
+          "file": "mp-fillings-wash-fill-dense-transparent-wash-00bf6b68f75b.png",
+          "w": 1200,
+          "h": 800,
+          "sha256": "7a6ec562ae8826c2fcc72b62c1b1961d7f3bbb9a1293e7e0998a47cfb4ba1a3c"
+        }
+      ],
+      "category": "fillings",
+      "role": "transparent-wash",
+      "grammar": "wash-fill",
+      "density": "dense",
+      "theme": "transparent",
+      "size": "1200×800",
+      "seed": "mondrian-kit:neo:dense:v2",
+      "sha256_svg": "00bf6b68f75b555593e6937672c9fde13183469d93dd0f437dee667d8c7f98ce",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Translucent, disjoint primary planes for overlays and fills.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/fillings/mp-fillings-wash-fill-dense-transparent-wash-00bf6b68f75b.svg"
+    },
+    {
+      "key": "silhouettes/armature-mask/dense",
+      "filename_svg": "mp-silhouettes-silhouette-dense-armature-mask-c75799918a10.svg",
+      "png": [
+        {
+          "file": "mp-silhouettes-silhouette-dense-armature-mask-c75799918a10.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "2d3da05e68f9f8d31c6b8ebfada7a213099dfdbe4ef8f7d78420b7a100ebe6b2"
+        }
+      ],
+      "category": "silhouettes",
+      "role": "armature-mask",
+      "grammar": "silhouette-matrix",
+      "density": "dense",
+      "theme": "transparent",
+      "size": "900×900",
+      "seed": "mondrian-kit:neo:dense:v2",
+      "sha256_svg": "c75799918a10f237327b0fcea4309a4416eceb22414bf521fa2f5a6da6a39c85",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/silhouettes/mp-silhouettes-silhouette-dense-armature-mask-c75799918a10.svg"
+    },
+    {
+      "key": "figures/isometric-study/dense",
+      "filename_svg": "mp-figures-isometric-dense-isometric-study-93338b99bc1a.svg",
+      "png": [
+        {
+          "file": "mp-figures-isometric-dense-isometric-study-93338b99bc1a.png",
+          "w": 1200,
+          "h": 900,
+          "sha256": "09802af77a51412618f3013cdfadc8fa08a40c83b831c1c255936aa0456f3a72"
+        }
+      ],
+      "category": "figures",
+      "role": "isometric-study",
+      "grammar": "isometric-grid",
+      "density": "dense",
+      "theme": "light",
+      "size": "1200×900",
+      "seed": "mondrian-kit:neo:dense:v2",
+      "sha256_svg": "93338b99bc1a31270e503aa8e5b04859909e5ced47756757c9eb3897c73614a1",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_spatial_illustration",
+      "note": "Isometric projection: armature on the floor, planes extruded as blocks — teaching figure, not museum view.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/floor)≥3",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-isometric-dense-isometric-study-93338b99bc1a.svg"
+    },
+    {
+      "key": "textures/tile-texture/dense",
+      "filename_svg": "mp-textures-neoplastic-grid-dense-tile-texture-3a876508a9ee.svg",
+      "png": [
+        {
+          "file": "mp-textures-neoplastic-grid-dense-tile-texture-3a876508a9ee.png",
+          "w": 512,
+          "h": 512,
+          "sha256": "b568f0ca8fd10f3a5014a285f98a15a1c2c0b0f17b89051b71f4ffc87ff730c6"
+        }
+      ],
+      "category": "textures",
+      "role": "tile-texture",
+      "grammar": "neoplastic-grid",
+      "density": "dense",
+      "theme": "dark",
+      "size": "512×512",
+      "seed": "mondrian-kit:neo:dense:v2",
+      "sha256_svg": "3a876508a9ee795ad1ea9b0350aea039510aa9bac8eb7d0f12065b50478ffad2",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(line/field (decorative))≥1.4",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/textures/mp-textures-neoplastic-grid-dense-tile-texture-3a876508a9ee.svg"
+    },
+    {
+      "key": "figures/macro-composition/dense",
+      "filename_svg": "mp-figures-neoplastic-macro-dense-macro-composition-b21e71fe774e.svg",
+      "png": [
+        {
+          "file": "mp-figures-neoplastic-macro-dense-macro-composition-b21e71fe774e.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "1627b021236d06abe30aa3e9e1e101ab2cf6c21c5ff729655922fc718a9a355e"
+        }
+      ],
+      "category": "figures",
+      "role": "macro-composition",
+      "grammar": "neoplastic-macro",
+      "density": "dense",
+      "theme": "light",
+      "size": "900×900",
+      "seed": "mondrian-kit:macro:dense:v1",
+      "sha256_svg": "b21e71fe774e765778877be5fa4132c27e3543a86b0c3e682a166424512a10e5",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language_recursive",
+      "note": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": "neoplastic-macro-fractal-v1",
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "neoplastic-macro-fractal-v1"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-macro-dense-macro-composition-b21e71fe774e.svg"
+    },
+    {
+      "key": "backgrounds/macro-hero-bg/dense",
+      "filename_svg": "mp-backgrounds-neoplastic-macro-dense-macro-hero-bg-9310c41417c2.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-neoplastic-macro-dense-macro-hero-bg-9310c41417c2.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "3c878d9e6cba00bf07441321976770094a03d8e8f9a5576962cd505d63fa03d4"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "macro-hero-bg",
+      "grammar": "neoplastic-macro",
+      "density": "dense",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-kit:macro:dense:v1",
+      "sha256_svg": "9310c41417c289481302769a8d0f53d960dcbc849a00b0d63d942498e6d281ac",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language_recursive",
+      "note": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": "neoplastic-macro-fractal-v1",
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "neoplastic-macro-fractal-v1"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-macro-dense-macro-hero-bg-9310c41417c2.svg"
+    },
+    {
+      "key": "backgrounds/prologue-bg/dense",
+      "filename_svg": "mp-backgrounds-tree-branch-dense-prologue-bg-9116e0c5059d.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-tree-branch-dense-prologue-bg-9116e0c5059d.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "ad896d96fa6c7b3ee1a4b237777c20c8a70fa1670a2e2b311b0943b71255cbdf"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "prologue-bg",
+      "grammar": "mondrian-tree",
+      "density": "dense",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-tree:kit:dense",
+      "sha256_svg": "9116e0c5059dfc1482419563f36adfc0a7f16c0a6e88e627cf076135c02acefc",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "inspiration_limits_geometry_only",
+      "note": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "tree_adapter": "mondrian-tree-geometry-only-v1",
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "mondrian-tree-mode (geometry_only)"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(branch/field)≥3",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-tree-branch-dense-prologue-bg-9116e0c5059d.svg"
+    },
+    {
+      "key": "backgrounds/hero-bg/baroque",
+      "filename_svg": "mp-backgrounds-neoplastic-grid-baroque-hero-bg-46512cc80c53.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-neoplastic-grid-baroque-hero-bg-46512cc80c53.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "93a3b194f6b778320edd340552479340a09da9f2ccadc4e1dba02b8e5dc540c2"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "hero-bg",
+      "grammar": "neoplastic-grid",
+      "density": "baroque",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-kit:neo:baroque:v2",
+      "sha256_svg": "46512cc80c53529d315efa6b8f2b76326f05abb573cfe92147ffeebcc6d7d4ec",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-grid-baroque-hero-bg-46512cc80c53.svg"
+    },
+    {
+      "key": "figures/composition-figure/baroque",
+      "filename_svg": "mp-figures-neoplastic-grid-baroque-composition-figure-b767f827d739.svg",
+      "png": [
+        {
+          "file": "mp-figures-neoplastic-grid-baroque-composition-figure-b767f827d739.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "022ead81f649fcc918022abb859e8e1642de3e096dab9294dd3a1a99e1595fe3"
+        }
+      ],
+      "category": "figures",
+      "role": "composition-figure",
+      "grammar": "neoplastic-grid",
+      "density": "baroque",
+      "theme": "light",
+      "size": "900×900",
+      "seed": "mondrian-kit:neo:baroque:v2",
+      "sha256_svg": "b767f827d7393308397d25d1f35eb7f1ba29a8f7c8033121b0cb76a941b57cd5",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-grid-baroque-composition-figure-b767f827d739.svg"
+    },
+    {
+      "key": "fillings/transparent-wash/baroque",
+      "filename_svg": "mp-fillings-wash-fill-baroque-transparent-wash-6f1015509b48.svg",
+      "png": [
+        {
+          "file": "mp-fillings-wash-fill-baroque-transparent-wash-6f1015509b48.png",
+          "w": 1200,
+          "h": 800,
+          "sha256": "22a5801322f1c060748860b4e5ef20ac707dab6b1cabdf5d4132036c35bd230f"
+        }
+      ],
+      "category": "fillings",
+      "role": "transparent-wash",
+      "grammar": "wash-fill",
+      "density": "baroque",
+      "theme": "transparent",
+      "size": "1200×800",
+      "seed": "mondrian-kit:neo:baroque:v2",
+      "sha256_svg": "6f1015509b48084357c84e0d3592d4c14ea1ffdd12b34036f7f66b4bed62c330",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Translucent, disjoint primary planes for overlays and fills.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/fillings/mp-fillings-wash-fill-baroque-transparent-wash-6f1015509b48.svg"
+    },
+    {
+      "key": "silhouettes/armature-mask/baroque",
+      "filename_svg": "mp-silhouettes-silhouette-baroque-armature-mask-04bc2f19dba1.svg",
+      "png": [
+        {
+          "file": "mp-silhouettes-silhouette-baroque-armature-mask-04bc2f19dba1.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "94a5e3e78f4d4f64e130c4d3af4b8a9c753df703017378bc3039c855a7e15fd1"
+        }
+      ],
+      "category": "silhouettes",
+      "role": "armature-mask",
+      "grammar": "silhouette-matrix",
+      "density": "baroque",
+      "theme": "transparent",
+      "size": "900×900",
+      "seed": "mondrian-kit:neo:baroque:v2",
+      "sha256_svg": "04bc2f19dba14b5df1d950f97ca62830ec68d70b4505853d4f82c3be5aadc40b",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/silhouettes/mp-silhouettes-silhouette-baroque-armature-mask-04bc2f19dba1.svg"
+    },
+    {
+      "key": "figures/isometric-study/baroque",
+      "filename_svg": "mp-figures-isometric-baroque-isometric-study-1ac15d39f9f2.svg",
+      "png": [
+        {
+          "file": "mp-figures-isometric-baroque-isometric-study-1ac15d39f9f2.png",
+          "w": 1200,
+          "h": 900,
+          "sha256": "abc7f59019f977200c4f1ae6e02b64595960bd265ae4a5f086c9da8dcf5b3c7a"
+        }
+      ],
+      "category": "figures",
+      "role": "isometric-study",
+      "grammar": "isometric-grid",
+      "density": "baroque",
+      "theme": "light",
+      "size": "1200×900",
+      "seed": "mondrian-kit:neo:baroque:v2",
+      "sha256_svg": "1ac15d39f9f2fae6134568ae55d9ed0354a2cf7863b3d4871d7b35451d2d10d5",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_spatial_illustration",
+      "note": "Isometric projection: armature on the floor, planes extruded as blocks — teaching figure, not museum view.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/floor)≥3",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-isometric-baroque-isometric-study-1ac15d39f9f2.svg"
+    },
+    {
+      "key": "textures/tile-texture/baroque",
+      "filename_svg": "mp-textures-neoplastic-grid-baroque-tile-texture-ebfee9b010cb.svg",
+      "png": [
+        {
+          "file": "mp-textures-neoplastic-grid-baroque-tile-texture-ebfee9b010cb.png",
+          "w": 512,
+          "h": 512,
+          "sha256": "3865675ceb40bbe130f008bdb5f021db1f2b64b9a8e996801fd10f4766c02dfd"
+        }
+      ],
+      "category": "textures",
+      "role": "tile-texture",
+      "grammar": "neoplastic-grid",
+      "density": "baroque",
+      "theme": "dark",
+      "size": "512×512",
+      "seed": "mondrian-kit:neo:baroque:v2",
+      "sha256_svg": "ebfee9b010cb1be1485f710a1e1fe2de91f6cf82dc669f897ec45c895889d226",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(line/field (decorative))≥1.4",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/textures/mp-textures-neoplastic-grid-baroque-tile-texture-ebfee9b010cb.svg"
+    },
+    {
+      "key": "figures/macro-composition/baroque",
+      "filename_svg": "mp-figures-neoplastic-macro-baroque-macro-composition-a2b4fc85d7f1.svg",
+      "png": [
+        {
+          "file": "mp-figures-neoplastic-macro-baroque-macro-composition-a2b4fc85d7f1.png",
+          "w": 900,
+          "h": 900,
+          "sha256": "5d8bdc0b24e660a7c3ec1fa735feb8511678ce615788433058fb2dc605917ecd"
+        }
+      ],
+      "category": "figures",
+      "role": "macro-composition",
+      "grammar": "neoplastic-macro",
+      "density": "baroque",
+      "theme": "light",
+      "size": "900×900",
+      "seed": "mondrian-kit:macro:baroque:v1",
+      "sha256_svg": "a2b4fc85d7f1187bb4c8bd552d71909895b6887ed0576d7c902b5157a71fa9b9",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language_recursive",
+      "note": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": "neoplastic-macro-fractal-v1",
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "neoplastic-macro-fractal-v1"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-macro-baroque-macro-composition-a2b4fc85d7f1.svg"
+    },
+    {
+      "key": "backgrounds/macro-hero-bg/baroque",
+      "filename_svg": "mp-backgrounds-neoplastic-macro-baroque-macro-hero-bg-c5690b12eb21.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-neoplastic-macro-baroque-macro-hero-bg-c5690b12eb21.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "ea849d7b578c7641781eff9fda4606669739c05d7136d466613eb1c0be627472"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "macro-hero-bg",
+      "grammar": "neoplastic-macro",
+      "density": "baroque",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-kit:macro:baroque:v1",
+      "sha256_svg": "c5690b12eb21aef71b9ef791d1a8a6b9a4bb012a44d651e181848682ae2ec2df",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language_recursive",
+      "note": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": "neoplastic-macro-fractal-v1",
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "neoplastic-macro-fractal-v1"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-macro-baroque-macro-hero-bg-c5690b12eb21.svg"
+    },
+    {
+      "key": "backgrounds/prologue-bg/baroque",
+      "filename_svg": "mp-backgrounds-tree-branch-baroque-prologue-bg-e864f904900b.svg",
+      "png": [
+        {
+          "file": "mp-backgrounds-tree-branch-baroque-prologue-bg-e864f904900b.png",
+          "w": 1600,
+          "h": 900,
+          "sha256": "42240a0c43dfb6aad331a6b9ce7db8658bdd406a98a70da9b091270ff0cd915d"
+        }
+      ],
+      "category": "backgrounds",
+      "role": "prologue-bg",
+      "grammar": "mondrian-tree",
+      "density": "baroque",
+      "theme": "dark",
+      "size": "1600×900",
+      "seed": "mondrian-tree:kit:baroque",
+      "sha256_svg": "e864f904900be5edc601ee9f8f71b6f3e9bfcfada7e13753e76edfae9bd727ac",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "inspiration_limits_geometry_only",
+      "note": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "tree_adapter": "mondrian-tree-geometry-only-v1",
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "mondrian-tree-mode (geometry_only)"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "title-safe",
+        "contrast(branch/field)≥3",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-tree-branch-baroque-prologue-bg-e864f904900b.svg"
+    },
+    {
+      "key": "favicon/mark-grid/minimal",
+      "filename_svg": "mp-favicon-neoplastic-grid-minimal-mark-grid-728b9f0d99c0.svg",
+      "png": [
+        {
+          "file": "mp-favicon-neoplastic-grid-minimal-mark-grid-728b9f0d99c0.png",
+          "w": 64,
+          "h": 64,
+          "sha256": "e4887c829574f711b5f54dba58434bf691695152f38fe28b6466c814fbebf7de"
+        },
+        {
+          "file": "mp-favicon-neoplastic-grid-minimal-mark-grid-728b9f0d99c0-16px.png",
+          "w": 16,
+          "h": 16,
+          "sha256": "05b73cad001cbdd3f09550629a8feb48c3bf1792ae2b8d1593e150218f302cdc"
+        },
+        {
+          "file": "mp-favicon-neoplastic-grid-minimal-mark-grid-728b9f0d99c0-32px.png",
+          "w": 32,
+          "h": 32,
+          "sha256": "ec920348125909c57a1417cccc600f2a2b3aaf34638a1399dec4760ea4bd8dfa"
+        },
+        {
+          "file": "mp-favicon-neoplastic-grid-minimal-mark-grid-728b9f0d99c0-180px.png",
+          "w": 180,
+          "h": 180,
+          "sha256": "8c9e95afe8cb37e8110064c78705701e940dd308682c1819909aa364072f6391"
+        }
+      ],
+      "category": "favicon",
+      "role": "mark-grid",
+      "grammar": "neoplastic-grid",
+      "density": "minimal",
+      "theme": "light",
+      "size": "64×64",
+      "seed": null,
+      "sha256_svg": "728b9f0d99c055aa3c8287fc58b00fb8570dbec054b5f806e60ada2b52bf8c72",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/favicon/mp-favicon-neoplastic-grid-minimal-mark-grid-728b9f0d99c0.svg"
+    },
+    {
+      "key": "favicon/mark-silhouette/minimal",
+      "filename_svg": "mp-favicon-silhouette-minimal-mark-silhouette-63ab1633212c.svg",
+      "png": [
+        {
+          "file": "mp-favicon-silhouette-minimal-mark-silhouette-63ab1633212c.png",
+          "w": 64,
+          "h": 64,
+          "sha256": "896b538c5e1d4fc656bc8e2b2be7d3948eb5c0c73c09d3738d3c6b00de96c65e"
+        },
+        {
+          "file": "mp-favicon-silhouette-minimal-mark-silhouette-63ab1633212c-16px.png",
+          "w": 16,
+          "h": 16,
+          "sha256": "43240a4689e9b84465e04ff4ac2b7d328bcec3dc87adfb1706163d44e381ce77"
+        },
+        {
+          "file": "mp-favicon-silhouette-minimal-mark-silhouette-63ab1633212c-32px.png",
+          "w": 32,
+          "h": 32,
+          "sha256": "42a6bf3efe8ef8c12ea52e0d6e11f0cb80ff5102e455b8930b595e8dd4371595"
+        },
+        {
+          "file": "mp-favicon-silhouette-minimal-mark-silhouette-63ab1633212c-180px.png",
+          "w": 180,
+          "h": 180,
+          "sha256": "e906ac81b79f8013596b7992ce5e52d44a0216bcfc110ed534db615a77004912"
+        }
+      ],
+      "category": "favicon",
+      "role": "mark-silhouette",
+      "grammar": "silhouette-matrix",
+      "density": "minimal",
+      "theme": "transparent",
+      "size": "64×64",
+      "seed": null,
+      "sha256_svg": "63ab1633212c8854c14b887fcc3554f7c9187ddc9b9b307d2bfc1717932970b1",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_derived",
+      "note": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/favicon/mp-favicon-silhouette-minimal-mark-silhouette-63ab1633212c.svg"
+    },
+    {
+      "key": "favicon/mark-tree/minimal",
+      "filename_svg": "mp-favicon-tree-branch-minimal-mark-tree-a33f70d51a31.svg",
+      "png": [
+        {
+          "file": "mp-favicon-tree-branch-minimal-mark-tree-a33f70d51a31.png",
+          "w": 64,
+          "h": 64,
+          "sha256": "a577c23bf35e93ce84ae91ea0cc27531bfe91d9dca459b5355c42dca5d47fced"
+        },
+        {
+          "file": "mp-favicon-tree-branch-minimal-mark-tree-a33f70d51a31-16px.png",
+          "w": 16,
+          "h": 16,
+          "sha256": "78b63b5c404eb3fda760859193b5392fc02503c598f0b7f80f6327144ddffa12"
+        },
+        {
+          "file": "mp-favicon-tree-branch-minimal-mark-tree-a33f70d51a31-32px.png",
+          "w": 32,
+          "h": 32,
+          "sha256": "119c9f7b6a393a54da478fc98aa12ae55d46eb5d88aa199941e2e5aee1cc1574"
+        },
+        {
+          "file": "mp-favicon-tree-branch-minimal-mark-tree-a33f70d51a31-180px.png",
+          "w": 180,
+          "h": 180,
+          "sha256": "c41eb1ef99282bf6feb10b4ade825e500a56a8690dd4945bae2fb93d71189bae"
+        }
+      ],
+      "category": "favicon",
+      "role": "mark-tree",
+      "grammar": "mondrian-tree",
+      "density": "minimal",
+      "theme": "dark",
+      "size": "64×64",
+      "seed": null,
+      "sha256_svg": "a33f70d51a31f129311ea3276749aebb8024a0bae67be61fbb780af1fe109837",
+      "provenance": "(Bountis, Fokas, and Psarakis 2017)",
+      "disposition": "inspiration_limits_geometry_only",
+      "note": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "tree_adapter": "mondrian-tree-geometry-only-v1",
+      "tree_overrides": {
+        "iterations": 4
+      },
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0",
+        "fractal-architect@1.3.0",
+        "mondrian-tree-mode (geometry_only)"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(trunk/field)≥3",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/favicon/mp-favicon-tree-branch-minimal-mark-tree-a33f70d51a31.svg"
+    },
+    {
+      "key": "logo/wordmark-panel/minimal",
+      "filename_svg": "mp-logo-neoplastic-grid-minimal-wordmark-panel-1adbd9c1b50f.svg",
+      "png": [
+        {
+          "file": "mp-logo-neoplastic-grid-minimal-wordmark-panel-1adbd9c1b50f.png",
+          "w": 640,
+          "h": 180,
+          "sha256": "054c823da799acafb3c6b26467b710f42ad4297789738a9a210c19d93cc7df4f"
+        }
+      ],
+      "category": "logo",
+      "role": "wordmark-panel",
+      "grammar": "neoplastic-grid",
+      "density": "minimal",
+      "theme": "light",
+      "size": "640×180",
+      "seed": "mondrian-kit:logo:minimal:v2",
+      "sha256_svg": "1adbd9c1b50f0414d434ab4ea400b7c00820529331685e7ad40c56fc9dfdc772",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/logo/mp-logo-neoplastic-grid-minimal-wordmark-panel-1adbd9c1b50f.svg"
+    },
+    {
+      "key": "logo/wordmark-panel/balanced",
+      "filename_svg": "mp-logo-neoplastic-grid-balanced-wordmark-panel-1ea3be9674c8.svg",
+      "png": [
+        {
+          "file": "mp-logo-neoplastic-grid-balanced-wordmark-panel-1ea3be9674c8.png",
+          "w": 640,
+          "h": 180,
+          "sha256": "e6eb2483e05b428cc0d5dfb9969e207ca710f331ad11ab68e7c843cc2493747d"
+        }
+      ],
+      "category": "logo",
+      "role": "wordmark-panel",
+      "grammar": "neoplastic-grid",
+      "density": "balanced",
+      "theme": "light",
+      "size": "640×180",
+      "seed": "mondrian-kit:logo:balanced:v2",
+      "sha256_svg": "1ea3be9674c866d0fc2c560001882c2a2bb1ed28f2b7e3d566a1c171670be557",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤58%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/logo/mp-logo-neoplastic-grid-balanced-wordmark-panel-1ea3be9674c8.svg"
+    },
+    {
+      "key": "logo/wordmark-panel/baroque",
+      "filename_svg": "mp-logo-neoplastic-grid-baroque-wordmark-panel-c2632829e873.svg",
+      "png": [
+        {
+          "file": "mp-logo-neoplastic-grid-baroque-wordmark-panel-c2632829e873.png",
+          "w": 640,
+          "h": 180,
+          "sha256": "e5c44fdd5020918e7bb124b83082dc77fe6b356fe465972949311e5024f36a33"
+        }
+      ],
+      "category": "logo",
+      "role": "wordmark-panel",
+      "grammar": "neoplastic-grid",
+      "density": "baroque",
+      "theme": "light",
+      "size": "640×180",
+      "seed": "mondrian-kit:logo:baroque:v2",
+      "sha256_svg": "c2632829e8735ac8ba3a6d8f5f594556d6848f00f80182c0a50c4a21e602140c",
+      "provenance": "(Andrzejewski et al. 2010)",
+      "disposition": "geometry_only_product_language",
+      "note": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "tree_adapter": null,
+      "tree_overrides": null,
+      "macro_mode": null,
+      "skills": [
+        "visual-forger@1.3.0"
+      ],
+      "gates": [
+        "finite",
+        "unique-ids",
+        "contrast(armature/canvas)≥3",
+        "line-gap≥2×line",
+        "planes-disjoint",
+        "planes-disjoint",
+        "colour-primaries",
+        "colour-gray≤40%",
+        "colour-fill≤72%",
+        "size-budget"
+      ],
+      "generator": "mondrian-asset-kit-qfa2@2.1.0",
+      "path_delivery": "assets/kit-qfa2/release-83a2d71c19ea9786/logo/mp-logo-neoplastic-grid-baroque-wordmark-panel-c2632829e873.svg"
+    }
+  ]
+}

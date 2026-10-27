@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mondrian-project.local/schemas/generate_request.schema.json",
+  "title": "MakeYourOwnMondrianRequest",
+  "description": "Phase-2 FastAPI POST /api/v1/patterns/generate body (D-26). Not MVP. Seat 2.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["complexity", "density", "colorimetry"],
+  "properties": {
+    "complexity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Split depth / plane count bias."
+    },
+    "density": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Line weight and minimum cell area bias."
+    },
+    "colorimetry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode"],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["neoplastic-primary", "muted", "high-white"]
+        },
+        "whiteShare": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "seed": {
+      "type": "string",
+      "maxLength": 128,
+      "description": "Optional RNG seed for reproducibility."
+    },
+    "surface": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "unit": { "type": "string", "enum": ["mm", "px"] }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="t d">
+  <title id="t">Isometric minimal</title>
+  <desc id="d">Pseudo-isometric neoplastic planes.</desc>
+  <rect width="1200" height="900" fill="#0b1220"/>
+  <polygon points="710.97,572.36 801.00,624.34 600.00,740.38 509.98,688.41" fill="#e11d48" stroke="#0f172a" stroke-width="1.2" opacity="0.743"/><line x1="726.69" y1="439.50" x2="399.33" y2="628.50" stroke="#0f172a" stroke-width="2"/><line x1="837.33" y1="503.38" x2="509.98" y2="692.38" stroke="#0f172a" stroke-width="2"/>
+</svg>

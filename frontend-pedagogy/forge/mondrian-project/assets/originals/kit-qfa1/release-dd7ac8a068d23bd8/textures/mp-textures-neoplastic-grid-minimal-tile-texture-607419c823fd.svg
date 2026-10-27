@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="t d">
+  <title id="t">Texture minimal</title>
+  <desc id="d">Seamless-ish neoplastic texture tile.</desc>
+  <rect width="512" height="512" fill="#0b1220"/>
+  <circle cx="198.14" cy="197.63" r="6.00" fill="#e11d48" opacity="0.35"/><circle cx="198.14" cy="361.98" r="6.00" fill="#eab308" opacity="0.35"/><circle cx="371.20" cy="197.63" r="6.00" fill="#eab308" opacity="0.35"/><circle cx="371.20" cy="361.98" r="6.00" fill="#2563eb" opacity="0.35"/><rect x="195.84" y="0" width="4.61" height="512" fill="#0f172a" opacity="0.25"/><rect x="368.90" y="0" width="4.61" height="512" fill="#0f172a" opacity="0.25"/><rect x="0" y="195.33" width="512" height="4.61" fill="#0f172a" opacity="0.25"/><rect x="0" y="359.68" width="512" height="4.61" fill="#0f172a" opacity="0.25"/>
+</svg>

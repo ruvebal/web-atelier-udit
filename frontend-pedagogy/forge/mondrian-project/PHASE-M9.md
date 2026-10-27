@@ -34,7 +34,7 @@ brief). Release the dataset with a citation and draft one congress abstract.
   salted map outside git), with tests on fixtures.
 - `docs/research/CUSTODY.md` template (the signed acceptances live outside git, as in TTOD's `SIGNED-CONSENTS-CUSTODY.md`).
 - Defence: `docs/DEFENCE.md` — three prompts (one measured source primitive
-  through normalization and CSS derivation, one Δ with a wrap, one AI choice),
+  through normalization and the shared SVG/CSS-Grid derivation, one Δ with a wrap, one AI choice),
   scored with the shared rubric
   `/evaluation/shared/ai-declaration-oral-defence-rubric/` (v2.0.3) from
   web-atelier-udit; schedule in S13; structured notes template (I3), no

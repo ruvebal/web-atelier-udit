@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="mp-textures-neoplastic-grid-minimal-tile-texture-t mp-textures-neoplastic-grid-minimal-tile-texture-d">
+  <title id="mp-textures-neoplastic-grid-minimal-tile-texture-t">Tile texture — minimal</title>
+  <desc id="mp-textures-neoplastic-grid-minimal-tile-texture-d">Seamless neoplastic tile: full-span armature with primary points at crossings.</desc>
+  <rect x="0.00" y="0.00" width="512.00" height="512.00" fill="#0f172a"/><rect x="246.53" y="0.00" width="4.61" height="512.00" fill="#334155"/><rect x="406.78" y="0.00" width="4.61" height="512.00" fill="#334155"/><rect x="0.00" y="178.43" width="512.00" height="4.61" fill="#334155"/><rect x="0.00" y="444.67" width="512.00" height="4.61" fill="#334155"/><rect x="245.33" y="177.24" width="7.00" height="7.00" fill="#e11d48" opacity="0.6"/><rect x="405.59" y="443.48" width="7.00" height="7.00" fill="#eab308" opacity="0.6"/>
+</svg>

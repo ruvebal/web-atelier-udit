@@ -12,6 +12,7 @@
     "generate:archive-covers": "node scripts/archive-covers/generate-archive-covers.mjs . udit",
     "generate:page-art": "node scripts/generate-page-art.mjs",
     "generate:pass-track-art": "bash scripts/fractal-architecture/generate-pass-track-backgrounds.sh",
+    "generate:mondrian-tree-art": "node scripts/fractal-architecture/generate-mondrian-tree-backgrounds.mjs",
 		"generate:track-curriculum-art": "node scripts/fractal-architecture/generate-track-curriculum-figures.mjs",
 		"generate:lesson-figures": "node scripts/lesson-figures/generate-js-key-figures.mjs",
 		"verify:publication": "node scripts/verify-publication-safety.mjs",

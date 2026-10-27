@@ -1,0 +1,2 @@
+# Product root .npmrc (M1) — refuse installs on unpatched Node (D-28).
+engine-strict=true

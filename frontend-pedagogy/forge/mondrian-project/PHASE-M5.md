@@ -6,10 +6,12 @@
 ## Goal
 
 A FastAPI service exposes the corpus and analyzer and renders a self-contained
-HTML/CSS preview of the same composition contract as Astro. The conformance test
-compares source primitives and the canonical derived plan: track ratios,
-plane/line placements, roles and custom properties—not byte order.
-`POST /analyze` wraps M4. The public site and kiosk never depend on this service.
+HTML/CSS **and SVG** preview of the same composition contract as Astro. The
+conformance test compares source primitives and the canonical derived plan:
+track ratios, plane/line placements, SVG rects, roles and custom
+properties—not byte order. `POST /analyze` wraps M4. The public site and kiosk
+**never** depend on this service (D-23). Preset buttons do not call it.
+`POST /patterns/calculate` is **out of this phase**.
 
 ## Deliverables
 
@@ -18,9 +20,10 @@ plane/line placements, roles and custom properties—not byte order.
   /works/{id}/preview?theta=&lineWeightScale=&paletteMode=&reflectX=&reflectY=`
   (`text/html`); `POST /analyze`; OpenAPI.
 - `render.py`: complete accessible HTML response containing the figure and
-  scoped CSS. It consumes M2's Python render plan, emits overlapping
-  `.plane`/`.line` grid items and uses the same data attributes and custom
-  properties as Astro.
+  scoped CSS, plus an SVG serialisation of the same plan. It consumes M2's
+  Python render plan, emits overlapping `.plane`/`.line` grid items **or**
+  SVG rects/lines, and uses the same data attributes and custom properties as
+  Astro.
 - `scripts/preview-conformance.py`: parse Astro's test figure and the FastAPI
   preview for each work across a small recipe matrix: θ `{0,40,350}`, line
   scale `{0.25,1,max}`, normal/inverted palette and each reflection; compare
@@ -31,7 +34,7 @@ plane/line placements, roles and custom properties—not byte order.
 
 ## Scope
 
-**In:** the above. **Out:** auth, accounts, persistence of uploads, any write to `packages/works`, any call from the public site.
+**In:** the above. **Out:** auth, accounts, persistence of uploads, any write to `packages/works`, any call from the public site, `POST /patterns/calculate`, server PDF jobs, putting Python inside the Astro app.
 
 ## Prompt (Implementation Agent)
 

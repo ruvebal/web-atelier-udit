@@ -1,0 +1,28 @@
+# Copy to .github/CODEOWNERS in the product repo (M1). Replace @handles after seat assignment.
+# Dual-review paths require one Analyzer (1–2) and one Editor (6–7) human approval.
+
+# Seat 1 — Analyzer
+/packages/analyzer/ @HANDLE_SEAT_1
+/packages/works/python/ @HANDLE_SEAT_1
+
+# Seat 2 — API
+/services/api/ @HANDLE_SEAT_2
+
+# Shared geometry (dual)
+/packages/works/schema/ @HANDLE_SEAT_1 @HANDLE_SEAT_2 @HANDLE_SEAT_6 @HANDLE_SEAT_7
+/packages/matrix/ @HANDLE_SEAT_1 @HANDLE_SEAT_2 @HANDLE_SEAT_6 @HANDLE_SEAT_7
+
+# Seats 3–5 — Shell & Story
+/services/web/src/pages/about/ @HANDLE_SEAT_3
+/services/web/src/pages/gallery/ @HANDLE_SEAT_4
+/services/web/src/pages/method/ @HANDLE_SEAT_4
+/services/web/src/pages/about-us/ @HANDLE_SEAT_5
+/services/web/src/pages/declaration/ @HANDLE_SEAT_5
+/services/web/src/pages/contribute/ @HANDLE_SEAT_5
+/services/web/src/pages/es/ @HANDLE_SEAT_5
+
+# Seats 6–7 — Editor / Design
+/packages/editor/ @HANDLE_SEAT_6 @HANDLE_SEAT_7
+/packages/tokens/ @HANDLE_SEAT_7
+/services/web/src/pages/create/ @HANDLE_SEAT_6 @HANDLE_SEAT_7
+/services/web/src/pages/kiosk/ @HANDLE_SEAT_6 @HANDLE_SEAT_7

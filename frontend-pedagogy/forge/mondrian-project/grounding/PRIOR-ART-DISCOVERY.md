@@ -7,6 +7,19 @@ This queue keeps unlike traditions separate. Mondrian/De Stijl/Neo-Plasticism
 is the project's subject. Kandinsky, Malevich/Suprematism and Russian
 Constructivism may be comparative contexts; they are not aliases or one style.
 
+## Overnight local corpus (25 Oct 2026)
+
+Ahmes → biblio coats → Athanor inject under project slug `mondrian-project`.
+Operator plan: [`CORPUS-OVERNIGHT.md`](CORPUS-OVERNIGHT.md). Phase query bank:
+[`GRAPHRAG-PHASE-QUERIES.md`](GRAPHRAG-PHASE-QUERIES.md). About / works value:
+[`ABOUT-MONDRIAN-VALUE.md`](ABOUT-MONDRIAN-VALUE.md). Staging symlinks:
+[`corpus-staging/`](corpus-staging/). Perfect Square PDF excluded until the
+`.part` download completes.
+
+Evidence order for every cascade phase: **primary Mondrian verbatim → specially
+relevant secondary verbatim → classical idea + reference**. Geometry schema
+evidence remains Andrzejewski under `profield-frontend-pedagogy`.
+
 ## Authority and object records
 
 - [The Mondrian Papers](https://edition.mondrianpapers.org/) — RKD/Huygens
@@ -32,13 +45,22 @@ Constructivism may be comparative contexts; they are not aliases or one style.
   [CAADRIA 2020](https://doi.org/10.52842/conf.caadria.2020.2.133) — candidate
   shape-grammar/parametric precedent; a computational hypothesis, not evidence
   that Mondrian painted algorithmically.
-- Koçer Özgün and Alaçam, “Pixel-Based Geometric Decoding of Piet Mondrian's
-  Paintings,” [SIGraDi 2021](https://doi.org/10.5151/sigradi2021-72) —
+- Özgün, Feyza Nur Koçer, and Sema Alaçam, “Pixel-Based Geometric Decoding of
+  Mondrian Compositions,” [SIGraDi 2021](https://www.sigradi.org/sigradi2021/)
+  proceedings (Blucher), DOI [10.5151/sigradi2021-72](https://doi.org/10.5151/sigradi2021-72),
+  pp. 103–114 — Ahmes coat **evaluator_safe** (operator RIS 27 Oct 2026;
+  [`M0-GROUNDING-RECEIPT.md`](M0-GROUNDING-RECEIPT.md) §5) —
   candidate normalized geometry and spatial-relation precedent.
 - Fallahzadeh, Gamache and Araújo, “Equilibrium and Rhythm in the Art of Piet
   Mondrian,” [Cogent Arts & Humanities
   2018](https://doi.org/10.1080/23311983.2018.1525858) — candidate theoretical
   bridge from measurable relations to dynamic equilibrium and living rhythm.
+- Bountis, Fokas and Psarakis, “Fractal analysis of tree paintings by Piet
+  Mondrian (1872–1944),” *International Journal of Arts and Technology*
+  ([doi:10.1504/ijart.2017.083902](https://doi.org/10.1504/ijart.2017.083902)) —
+  Ahmes coat cite-safe; **Q-FA1 DONE** — fractal-architect Mondrian tree mode +
+  pitch/course backgrounds ([`../WORK-QUEUE.md`](../WORK-QUEUE.md)). Prologue /
+  atmosphere only — not the neoplastic MVP schema.
 - Spayd, Reynolds and Lansinger, “Geometric Elements in the Art of Piet
   Mondrian,” [Journal of Humanistic Mathematics
   2019](https://scholarship.claremont.edu/jhm/vol9/iss1/6/) — candidate
@@ -81,7 +103,7 @@ Constructivism may be comparative contexts; they are not aliases or one style.
 | Andrzejewski et al. (2010), §3.2 | Canonical points, rectangles, explicit lines, thickness and source/derived separation | **Evaluator-safe; D-05 basis.** The project adds normalization, provenance, uncertainty and CSS derivation. |
 | JSON Schema Draft 2020-12 [Core](https://json-schema.org/draft/2020-12/json-schema-core) and [Validation](https://json-schema.org/draft/2020-12/json-schema-validation) | Structural contract and validation vocabulary | **Normative technical source; M2 basis.** Semantic geometry checks remain code. |
 | [CSS Grid Layout Module Level 2](https://www.w3.org/TR/css-grid-2/) §§6.5, 7.2 | Overlapping grid items, z-order and proportional `fr` tracks | **Normative technical source; renderer basis.** It supports the derived plan, not claims about Mondrian. |
-| Koçer Özgün & Alaçam (2021) | Independent pixel/matrix decoding, colour-area percentages and horizontal/vertical fragmentation | **Applicable but discovery-only.** Ingest before using it to justify analytics or comparison; it does not replace the explicit-line source model. |
+| Özgün & Alaçam (2021) SIGraDi | Independent pixel/matrix decoding, colour-area percentages and horizontal/vertical fragmentation | **Applicable; coat cite-safe.** Use Ahmes nodes for Chicago cites; does not replace the explicit-line Andrzejewski source model. |
 | Park (2020) | Parametric/vector reconstruction and line-segment variables | **Applicable but discovery-only and generation-adjacent.** Use only for later comparison; not needed to freeze M2. |
 | Doboli et al. (2023) | Limits of visual-feature models as accounts of meaning | **Applicable but discovery-only.** Candidate for `/method/` and the research discussion, not schema structure. |
 | Catalogue raisonné / museum object record | Title, date, dimensions, medium and reproduction identity per work | **Still required per work.** A computational paper cannot supply object-level provenance. |

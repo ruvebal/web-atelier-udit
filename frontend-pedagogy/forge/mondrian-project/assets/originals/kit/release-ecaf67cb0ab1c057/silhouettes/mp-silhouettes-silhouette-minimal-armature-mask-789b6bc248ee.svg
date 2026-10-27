@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900" role="img" aria-labelledby="t d">
+  <title id="t">Silhouette minimal</title>
+  <desc id="d">Black armature silhouette on transparent ground.</desc>
+  
+  <rect x="361.89" y="90.00" width="13.50" height="720.00" fill="#000"/><rect x="605.25" y="90.00" width="13.50" height="720.00" fill="#000"/><rect x="90.00" y="361.17" width="720.00" height="13.50" fill="#000"/><rect x="90.00" y="592.29" width="720.00" height="13.50" fill="#000"/>
+</svg>

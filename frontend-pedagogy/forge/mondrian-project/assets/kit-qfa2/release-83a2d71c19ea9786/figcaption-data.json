@@ -1,0 +1,635 @@
+{
+  "schema_version": "1.1.0",
+  "kind": "mondrian-project.asset-kit.qfa2",
+  "release_id": "83a2d71c19ea9786",
+  "created_at": "2026-10-27T11:02:16.772Z",
+  "authorship": {
+    "name": "Ruvebal",
+    "email": "ruvebal@crea-comm.net"
+  },
+  "libraries": {
+    "skills": {
+      "fractal-architect": "1.3.0",
+      "visual-forger": "1.3.0",
+      "mode": "mondrian-tree-mode (geometry_only)",
+      "neoplastic_macro": "neoplastic-macro-fractal-v1",
+      "queue_ids": [
+        "Q-FA1",
+        "Q-FA2",
+        "Q-FA3",
+        "Q-FA4"
+      ]
+    },
+    "modules": {
+      "mondrian-tree-geometry": "1.0.0",
+      "adapter": "mondrian-tree-geometry-only-v1",
+      "formula": {
+        "adapter": "mondrian-tree-geometry-only-v1",
+        "module": "mondrian-tree-geometry@1.0.0",
+        "queue_id": "Q-FA1",
+        "display": "branch(s) → forward(s); ±θ children (s/R); continue (s/R)",
+        "latex": null,
+        "parameters": {
+          "iterations": 6,
+          "scale_r": 1.45,
+          "angle_deg": 26,
+          "base": 0.3,
+          "viewport": {
+            "x_min": -1.05,
+            "x_max": 1.05,
+            "y_min": -0.02,
+            "y_max": 1.75
+          }
+        },
+        "citation": {
+          "inline": "(Bountis, Fokas, and Psarakis 2017)",
+          "chicago": "Bountis, Tassos, Athanassios S. Fokas, and Emmanouil Psarakis. 2017. “Fractal Analysis of Tree Paintings by Piet Mondrian (1872–1944).” International Journal of Arts and Technology 10 (1). https://doi.org/10.1504/ijart.2017.083902.",
+          "doi": "10.1504/ijart.2017.083902"
+        },
+        "disposition": "inspiration_limits_geometry_only"
+      }
+    },
+    "generators": {
+      "kit": "mondrian-asset-kit-qfa2@2.1.0",
+      "twin_of": "mondrian-asset-kit-qfa1@1.0.0",
+      "compare_to_release": "kit-qfa1/release-dd7ac8a068d23bd8"
+    },
+    "runtime": {
+      "node": "v22.22.0",
+      "rsvg-convert": "rsvg-convert version 2.61.4"
+    }
+  },
+  "collaboration": {
+    "visual_forger": "visual-forger@1.3.0 — neoplastic grid / wash / silhouette / isometric / logo / colour gates",
+    "fractal_architect": "fractal-architect@1.3.0 — mondrian-tree-mode (geometry_only) (trees); neoplastic-macro-fractal-v1 (recursive neoplastic macros)"
+  },
+  "pedagogical_boundary": "Prefer neoplastic + neoplastic-macro for product chrome. Trees = Q-FA1 prologue only (what the matrix refuses). Never authenticity scores or painting facsimiles.",
+  "citations": {
+    "andrzejewski": "Andrzejewski, David, David G. Stork, Xiaojin Zhu, and Ron Spronk. 2010. “Inferring Compositional Style in the Neo-Plastic Paintings of Piet Mondrian by Machine Learning.” In Computer Vision and Image Analysis of Art, edited by David G. Stork, Jim Coddington, and Anna Bentkowska-Kafel, 75310G. Proceedings of SPIE 7531. https://doi.org/10.1117/12.840558.",
+    "bountis": "Bountis, Tassos, Athanassios S. Fokas, and Emmanouil Psarakis. 2017. “Fractal Analysis of Tree Paintings by Piet Mondrian (1872–1944).” International Journal of Arts and Technology 10 (1). https://doi.org/10.1504/ijart.2017.083902."
+  },
+  "figures": [
+    {
+      "uuid": "60c80a8d-7cd2-59a0-acc4-ba2a9e22d097",
+      "title": "backgrounds/hero-bg (minimal)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "54b570d18ba76c22628e9224fc45226c253bd54e1276edad5df984fe4fd282fa",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-grid-minimal-hero-bg-54b570d18ba7.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "083a419e-1901-5649-90b6-72aaefba4898",
+      "title": "figures/composition-figure (minimal)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "2547b1e14c67bf618c1b04c54116a733a5e95314b77738befcaf0473ff100996",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-grid-minimal-composition-figure-2547b1e14c67.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "4f1e1cec-204a-5ea5-a3d6-d33907482bc6",
+      "title": "fillings/transparent-wash (minimal)",
+      "description": "Translucent, disjoint primary planes for overlays and fills.",
+      "figcaption": "wash-fill · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "4dfcc9e98c58320ccf1f1921aca70a33dbfe1b3acc78ae4abb49ebab989bf2a2",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/fillings/mp-fillings-wash-fill-minimal-transparent-wash-4dfcc9e98c58.svg",
+        "category": "fillings"
+      }
+    },
+    {
+      "uuid": "58b2fd7d-ecbf-5254-9753-fd8ed11ae193",
+      "title": "silhouettes/armature-mask (minimal)",
+      "description": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "figcaption": "silhouette-matrix · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "7de7591ab94c8b72a582836a2d3057e2eca4289cc9db3cb0543ec4072c191a94",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/silhouettes/mp-silhouettes-silhouette-minimal-armature-mask-7de7591ab94c.svg",
+        "category": "silhouettes"
+      }
+    },
+    {
+      "uuid": "add53f89-6b2e-54ba-b7ae-0ab3753a4f7d",
+      "title": "figures/isometric-study (minimal)",
+      "description": "Isometric projection: armature on the floor, planes extruded as blocks — teaching figure, not museum view.",
+      "figcaption": "isometric-grid · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "da0ba29170b5abb6e06267a9853567f8c4039201d7b02ef1123292df9c3245b6",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-isometric-minimal-isometric-study-da0ba29170b5.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "40a73722-a78b-5094-b55f-7ad7be9d88ad",
+      "title": "textures/tile-texture (minimal)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "8ee8948694bf9d0fdabbb478bc23d0b114aa65c603fd5bbe6736c5e0b5a82df8",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/textures/mp-textures-neoplastic-grid-minimal-tile-texture-8ee8948694bf.svg",
+        "category": "textures"
+      }
+    },
+    {
+      "uuid": "2ad7ed33-7f45-5a7c-8872-0a0b426772d7",
+      "title": "figures/macro-composition (minimal)",
+      "description": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "figcaption": "neoplastic-macro · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "1936c0a5c78f720a0531a6ee423c4543d57e9781f724c6e2d212d599cc7ba323",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-macro-minimal-macro-composition-1936c0a5c78f.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "3560a104-b84e-53d8-8a37-deb2a2aaa6e8",
+      "title": "backgrounds/macro-hero-bg (minimal)",
+      "description": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "figcaption": "neoplastic-macro · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "c49f25c4a3a33834a56fe51b7bdb8ad40d00d3f3c8b22510e4689b58aa8dfd0b",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-macro-minimal-macro-hero-bg-c49f25c4a3a3.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "4d74cbe1-879a-5c25-8220-42e5d7692268",
+      "title": "backgrounds/prologue-bg (minimal)",
+      "description": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "figcaption": "mondrian-tree · minimal. (Bountis, Fokas, and Psarakis 2017). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "3ef692978915e98cea8ad33b30eee8461510c2a872c7aac2193fde674b4c478e",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-tree-branch-minimal-prologue-bg-3ef692978915.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "18ac3634-0290-5a76-afd5-2557b67af4b1",
+      "title": "backgrounds/hero-bg (sparse)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · sparse. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "b3bd9fe0c6ec4ca25b6629660bfad7b23b96490e90f92c469c0ff8fdc6acab0d",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-grid-sparse-hero-bg-b3bd9fe0c6ec.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "73ca932b-7d89-59ee-9488-2e622b35cf45",
+      "title": "figures/composition-figure (sparse)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · sparse. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "6762f92857800c76988f281b4f9f2a7a174595708cb43939719443690f1977d8",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-grid-sparse-composition-figure-6762f9285780.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "95d8bea2-7394-5814-981e-c73b7d441359",
+      "title": "fillings/transparent-wash (sparse)",
+      "description": "Translucent, disjoint primary planes for overlays and fills.",
+      "figcaption": "wash-fill · sparse. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "887396431cf6b4b8e5240ceabf84f5460c6c7d385c1dcabc4a842e950a84789b",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/fillings/mp-fillings-wash-fill-sparse-transparent-wash-887396431cf6.svg",
+        "category": "fillings"
+      }
+    },
+    {
+      "uuid": "8b4652c7-99e3-52e4-8577-d466e62c0849",
+      "title": "silhouettes/armature-mask (sparse)",
+      "description": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "figcaption": "silhouette-matrix · sparse. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "85ff8dfae4a5cf7e70e60430a11f53eaa93d905bde4c4660db36ac2e451fadc3",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/silhouettes/mp-silhouettes-silhouette-sparse-armature-mask-85ff8dfae4a5.svg",
+        "category": "silhouettes"
+      }
+    },
+    {
+      "uuid": "a53a9eaa-f693-59bd-a90c-337138c926f1",
+      "title": "figures/isometric-study (sparse)",
+      "description": "Isometric projection: armature on the floor, planes extruded as blocks — teaching figure, not museum view.",
+      "figcaption": "isometric-grid · sparse. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "b4eebefcc89031166439f32048f94736ee8cbe916647f5d171ff3cb441262cf1",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-isometric-sparse-isometric-study-b4eebefcc890.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "715939fb-a7c0-539e-ab7c-02ca45664fae",
+      "title": "textures/tile-texture (sparse)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · sparse. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "dd3d4c9a932bafffb21f14ec7fb87b3d6591897e9793674e8809c965d8461684",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/textures/mp-textures-neoplastic-grid-sparse-tile-texture-dd3d4c9a932b.svg",
+        "category": "textures"
+      }
+    },
+    {
+      "uuid": "11f332d0-b1cb-536c-9edf-255f2f91a247",
+      "title": "figures/macro-composition (sparse)",
+      "description": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "figcaption": "neoplastic-macro · sparse. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "e4c077072f35abf6e8f9bb0c894c1c15000cce71cfc31dfb81036456c7142cd0",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-macro-sparse-macro-composition-e4c077072f35.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "d4d51905-05cf-5a18-a8ae-6334076dc0ad",
+      "title": "backgrounds/macro-hero-bg (sparse)",
+      "description": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "figcaption": "neoplastic-macro · sparse. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "96c1217661b0dba54d935bfba26faa3c0247fa7fd02969a3b58628d69ba21a79",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-macro-sparse-macro-hero-bg-96c1217661b0.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "51d1b989-a30b-55ce-870c-48d971f7895c",
+      "title": "backgrounds/prologue-bg (sparse)",
+      "description": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "figcaption": "mondrian-tree · sparse. (Bountis, Fokas, and Psarakis 2017). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "6fd0111944333dfc660080580e26614092d8cdc63996fd9780868e3e6fbed03b",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-tree-branch-sparse-prologue-bg-6fd011194433.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "c4eb895b-a8c0-5588-8236-eed295b8c96d",
+      "title": "backgrounds/hero-bg (balanced)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · balanced. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "a41eeda29a7cb2b8d95123bda21e2c79280d23a7154a042d8008f3cf210297a1",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-grid-balanced-hero-bg-a41eeda29a7c.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "61160472-a147-5d54-bb98-228e3fd59e4c",
+      "title": "figures/composition-figure (balanced)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · balanced. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "46f47dfe62543832307bcacf279908cdd8d4a59a4105498ebccd7b1b3450f0fa",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-grid-balanced-composition-figure-46f47dfe6254.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "182d9d13-57a0-5f56-bdfa-26819ad654ea",
+      "title": "fillings/transparent-wash (balanced)",
+      "description": "Translucent, disjoint primary planes for overlays and fills.",
+      "figcaption": "wash-fill · balanced. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "364150af184bef6ba218422cef274fdd61482c31c1be3948bd0a2a9734b66a25",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/fillings/mp-fillings-wash-fill-balanced-transparent-wash-364150af184b.svg",
+        "category": "fillings"
+      }
+    },
+    {
+      "uuid": "9e7aee84-c4ac-5f34-96f1-23f6b09bd932",
+      "title": "silhouettes/armature-mask (balanced)",
+      "description": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "figcaption": "silhouette-matrix · balanced. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "4449563f062de4f4e15327fe9ace3a64b1080c18b086ddaada0e2ab895bbe04f",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/silhouettes/mp-silhouettes-silhouette-balanced-armature-mask-4449563f062d.svg",
+        "category": "silhouettes"
+      }
+    },
+    {
+      "uuid": "7f45fe39-2740-57a6-aa08-274ae35a45fc",
+      "title": "figures/isometric-study (balanced)",
+      "description": "Isometric projection: armature on the floor, planes extruded as blocks — teaching figure, not museum view.",
+      "figcaption": "isometric-grid · balanced. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "5e9baf15c44b86a6fd7c24289fc6f1b43f8e53379f13425969e058ad6402e7b8",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-isometric-balanced-isometric-study-5e9baf15c44b.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "35d47d51-9d4b-54e1-a3fc-74de6aaad8f7",
+      "title": "textures/tile-texture (balanced)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · balanced. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "21e40b51785315332ef25ab6aa082d6c8f1046b254edee0808b6c09169807670",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/textures/mp-textures-neoplastic-grid-balanced-tile-texture-21e40b517853.svg",
+        "category": "textures"
+      }
+    },
+    {
+      "uuid": "0d7b2d70-77b9-598f-b278-0a365ca1cc0c",
+      "title": "figures/macro-composition (balanced)",
+      "description": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "figcaption": "neoplastic-macro · balanced. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "6df0d6a78c8c2e39969b80ec60d6d2cd1ef82c8bd2ea9aacb747149d76c18ff8",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-macro-balanced-macro-composition-6df0d6a78c8c.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "a74e21d6-35fc-590f-9ec7-9c0c04f79a04",
+      "title": "backgrounds/macro-hero-bg (balanced)",
+      "description": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "figcaption": "neoplastic-macro · balanced. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "86a499b7cd4f81865b48fe9ceda3a7b800864baf48dfd6b65c8704947525d3c9",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-macro-balanced-macro-hero-bg-86a499b7cd4f.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "00a63ced-4a60-5603-8d93-ed2428ec18a7",
+      "title": "backgrounds/prologue-bg (balanced)",
+      "description": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "figcaption": "mondrian-tree · balanced. (Bountis, Fokas, and Psarakis 2017). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "9536d7ea23a5923bc9cf4f08ff72e542e24772d7cd680b04e3fe8394ff17a507",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-tree-branch-balanced-prologue-bg-9536d7ea23a5.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "57bd15b1-1094-54b6-8e01-f4fa7f4d9fcc",
+      "title": "backgrounds/hero-bg (dense)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · dense. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "b0e12e297ad51cc75154c53d1294a52a8bf502ed9c75ea2504b8b74e1467ae23",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-grid-dense-hero-bg-b0e12e297ad5.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "6662cd79-cfe9-5ac8-846a-008eec3387ee",
+      "title": "figures/composition-figure (dense)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · dense. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "8d1cefe813ceff07f70ae91057042d296cdbc502f6773ccded9af22da3181d0e",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-grid-dense-composition-figure-8d1cefe813ce.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "4446cb45-54e3-5d46-859e-75ca712baa4c",
+      "title": "fillings/transparent-wash (dense)",
+      "description": "Translucent, disjoint primary planes for overlays and fills.",
+      "figcaption": "wash-fill · dense. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "00bf6b68f75b555593e6937672c9fde13183469d93dd0f437dee667d8c7f98ce",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/fillings/mp-fillings-wash-fill-dense-transparent-wash-00bf6b68f75b.svg",
+        "category": "fillings"
+      }
+    },
+    {
+      "uuid": "4383aff8-4955-5748-b638-69ede593db43",
+      "title": "silhouettes/armature-mask (dense)",
+      "description": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "figcaption": "silhouette-matrix · dense. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "c75799918a10f237327b0fcea4309a4416eceb22414bf521fa2f5a6da6a39c85",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/silhouettes/mp-silhouettes-silhouette-dense-armature-mask-c75799918a10.svg",
+        "category": "silhouettes"
+      }
+    },
+    {
+      "uuid": "dde4e8c9-1486-52e5-a824-edebf5e4162d",
+      "title": "figures/isometric-study (dense)",
+      "description": "Isometric projection: armature on the floor, planes extruded as blocks — teaching figure, not museum view.",
+      "figcaption": "isometric-grid · dense. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "93338b99bc1a31270e503aa8e5b04859909e5ced47756757c9eb3897c73614a1",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-isometric-dense-isometric-study-93338b99bc1a.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "9110c490-4d24-5d45-830c-28f01904022d",
+      "title": "textures/tile-texture (dense)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · dense. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "3a876508a9ee795ad1ea9b0350aea039510aa9bac8eb7d0f12065b50478ffad2",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/textures/mp-textures-neoplastic-grid-dense-tile-texture-3a876508a9ee.svg",
+        "category": "textures"
+      }
+    },
+    {
+      "uuid": "4ca27a23-dbbd-5e31-8278-def71f914ed6",
+      "title": "figures/macro-composition (dense)",
+      "description": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "figcaption": "neoplastic-macro · dense. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "b21e71fe774e765778877be5fa4132c27e3543a86b0c3e682a166424512a10e5",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-macro-dense-macro-composition-b21e71fe774e.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "21ff1a6d-db29-59b5-9aba-b69d6b38e842",
+      "title": "backgrounds/macro-hero-bg (dense)",
+      "description": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "figcaption": "neoplastic-macro · dense. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "9310c41417c289481302769a8d0f53d960dcbc849a00b0d63d942498e6d281ac",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-macro-dense-macro-hero-bg-9310c41417c2.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "890dbc97-23e1-5c1f-be2c-f49d18089df7",
+      "title": "backgrounds/prologue-bg (dense)",
+      "description": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "figcaption": "mondrian-tree · dense. (Bountis, Fokas, and Psarakis 2017). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "9116e0c5059dfc1482419563f36adfc0a7f16c0a6e88e627cf076135c02acefc",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-tree-branch-dense-prologue-bg-9116e0c5059d.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "63aa4ecc-6c44-5a97-8906-c8d25f2c621b",
+      "title": "backgrounds/hero-bg (baroque)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · baroque. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "46512cc80c53529d315efa6b8f2b76326f05abb573cfe92147ffeebcc6d7d4ec",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-grid-baroque-hero-bg-46512cc80c53.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "6edc0aaf-13a7-5fc2-b69a-ef38e350d567",
+      "title": "figures/composition-figure (baroque)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · baroque. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "b767f827d7393308397d25d1f35eb7f1ba29a8f7c8033121b0cb76a941b57cd5",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-grid-baroque-composition-figure-b767f827d739.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "cc2f3b96-99a4-514e-a01f-1465355aa220",
+      "title": "fillings/transparent-wash (baroque)",
+      "description": "Translucent, disjoint primary planes for overlays and fills.",
+      "figcaption": "wash-fill · baroque. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "6f1015509b48084357c84e0d3592d4c14ea1ffdd12b34036f7f66b4bed62c330",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/fillings/mp-fillings-wash-fill-baroque-transparent-wash-6f1015509b48.svg",
+        "category": "fillings"
+      }
+    },
+    {
+      "uuid": "2bc0d0a1-cde2-5fab-b672-2678cc29ff91",
+      "title": "silhouettes/armature-mask (baroque)",
+      "description": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "figcaption": "silhouette-matrix · baroque. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "04bc2f19dba14b5df1d950f97ca62830ec68d70b4505853d4f82c3be5aadc40b",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/silhouettes/mp-silhouettes-silhouette-baroque-armature-mask-04bc2f19dba1.svg",
+        "category": "silhouettes"
+      }
+    },
+    {
+      "uuid": "5274d780-72a9-560b-ac0a-9f4486f88c52",
+      "title": "figures/isometric-study (baroque)",
+      "description": "Isometric projection: armature on the floor, planes extruded as blocks — teaching figure, not museum view.",
+      "figcaption": "isometric-grid · baroque. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "1ac15d39f9f2fae6134568ae55d9ed0354a2cf7863b3d4871d7b35451d2d10d5",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-isometric-baroque-isometric-study-1ac15d39f9f2.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "8c1afe18-fe7a-5431-bcdd-16b010e74832",
+      "title": "textures/tile-texture (baroque)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · baroque. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "ebfee9b010cb1be1485f710a1e1fe2de91f6cf82dc669f897ec45c895889d226",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/textures/mp-textures-neoplastic-grid-baroque-tile-texture-ebfee9b010cb.svg",
+        "category": "textures"
+      }
+    },
+    {
+      "uuid": "6dfde5a5-e7d6-518a-83c5-3aa0ca093bee",
+      "title": "figures/macro-composition (baroque)",
+      "description": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "figcaption": "neoplastic-macro · baroque. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "a2b4fc85d7f1187bb4c8bd552d71909895b6887ed0576d7c902b5157a71fa9b9",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/figures/mp-figures-neoplastic-macro-baroque-macro-composition-a2b4fc85d7f1.svg",
+        "category": "figures"
+      }
+    },
+    {
+      "uuid": "86ffacc9-8a63-5701-b1e0-72d3e90d11fe",
+      "title": "backgrounds/macro-hero-bg (baroque)",
+      "description": "Fractalizer on neoplastic grammar (neoplastic-macro-fractal-v1): nested orthogonal compositions in macro cells — constructivist density without tree branching.",
+      "figcaption": "neoplastic-macro · baroque. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "c5690b12eb21aef71b9ef791d1a8a6b9a4bb012a44d651e181848682ae2ec2df",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-neoplastic-macro-baroque-macro-hero-bg-c5690b12eb21.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "62e16b46-cbb8-5c6a-8d71-029279e0d2a9",
+      "title": "backgrounds/prologue-bg (baroque)",
+      "description": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "figcaption": "mondrian-tree · baroque. (Bountis, Fokas, and Psarakis 2017). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "e864f904900be5edc601ee9f8f71b6f3e9bfcfada7e13753e76edfae9bd727ac",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/backgrounds/mp-backgrounds-tree-branch-baroque-prologue-bg-e864f904900b.svg",
+        "category": "backgrounds"
+      }
+    },
+    {
+      "uuid": "23771906-7e73-5535-a6bd-4a5ad0fd669e",
+      "title": "favicon/mark-grid (minimal)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "728b9f0d99c055aa3c8287fc58b00fb8570dbec054b5f806e60ada2b52bf8c72",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/favicon/mp-favicon-neoplastic-grid-minimal-mark-grid-728b9f0d99c0.svg",
+        "category": "favicon"
+      }
+    },
+    {
+      "uuid": "dd7cf879-37f2-5f96-9d63-919e286cecda",
+      "title": "favicon/mark-silhouette (minimal)",
+      "description": "Black armature only, transparent ground; registers 1:1 with the composition figure of the same density.",
+      "figcaption": "silhouette-matrix · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "63ab1633212c8854c14b887fcc3554f7c9187ddc9b9b307d2bfc1717932970b1",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/favicon/mp-favicon-silhouette-minimal-mark-silhouette-63ab1633212c.svg",
+        "category": "favicon"
+      }
+    },
+    {
+      "uuid": "69dd1acc-f408-585d-b7b2-dad314f857a1",
+      "title": "favicon/mark-tree (minimal)",
+      "description": "Q-FA1 mondrian-tree-geometry-only-v1 via mondrian-tree-geometry@1.0.0; early-tree prologue the neoplastic matrix refuses.",
+      "figcaption": "mondrian-tree · minimal. (Bountis, Fokas, and Psarakis 2017). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "a33f70d51a31f129311ea3276749aebb8024a0bae67be61fbb780af1fe109837",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/favicon/mp-favicon-tree-branch-minimal-mark-tree-a33f70d51a31.svg",
+        "category": "favicon"
+      }
+    },
+    {
+      "uuid": "5f6c7a83-5682-5bbe-a270-979adcdf2aec",
+      "title": "logo/wordmark-panel (minimal)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · minimal. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "1adbd9c1b50f0414d434ab4ea400b7c00820529331685e7ad40c56fc9dfdc772",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/logo/mp-logo-neoplastic-grid-minimal-wordmark-panel-1adbd9c1b50f.svg",
+        "category": "logo"
+      }
+    },
+    {
+      "uuid": "6d2403cc-0646-5872-96e0-70f56f814689",
+      "title": "logo/wordmark-panel (balanced)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · balanced. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "1ea3be9674c866d0fc2c560001882c2a2bb1ed28f2b7e3d566a1c171670be557",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/logo/mp-logo-neoplastic-grid-balanced-wordmark-panel-1ea3be9674c8.svg",
+        "category": "logo"
+      }
+    },
+    {
+      "uuid": "af34f5b8-9b2b-5262-9c46-89db45dc84eb",
+      "title": "logo/wordmark-panel (baroque)",
+      "description": "Lines (centre + extent) over coloured rectangles on a white ground, after Andrzejewski et al. §3.2 — not ML authenticity, not a painting facsimile.",
+      "figcaption": "neoplastic-grid · baroque. (Andrzejewski et al. 2010). Study for the Mondrian Project — not a painting facsimile.",
+      "fractal_hash256": "c2632829e8735ac8ba3a6d8f5f594556d6848f00f80182c0a50c4a21e602140c",
+      "delivery": {
+        "svg": "assets/kit-qfa2/release-83a2d71c19ea9786/logo/mp-logo-neoplastic-grid-baroque-wordmark-panel-c2632829e873.svg",
+        "category": "logo"
+      }
+    }
+  ],
+  "count": 51
+}

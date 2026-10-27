@@ -1,0 +1,4 @@
+# Overnight artefacts — local machine only
+logs/
+corpus-staging/.ahmes/
+*.pid

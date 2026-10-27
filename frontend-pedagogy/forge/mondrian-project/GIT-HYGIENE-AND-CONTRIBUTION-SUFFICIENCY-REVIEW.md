@@ -6,7 +6,13 @@ Companion to AI-EVALUATION-SUFFICIENCY-REVIEW.md. Not student-facing.
 
 # Git hygiene & contribution surface — Mondrian sufficiency
 
-**Integration status (25 Oct 2026):** accepted into cascade D-19 and PHASE-M1:
+**Integration status (25 Oct 2026):** accepted into cascade D-19 and PHASE-M1.
+**27 Oct 2026:** D-25 adds path-owned CODEOWNERS (Analyzer / Geometry contract /
+Shell / Editor / Design). Schema+matrix remain the dual-review bottleneck;
+Svelte stays in `packages/editor`. See
+[`DECISIONS/D21-D25-2026-10-27-ASTRO-SVELTE-SVG-MVP.md`](DECISIONS/D21-D25-2026-10-27-ASTRO-SVELTE-SVG-MVP.md).
+
+**D-19 remainder (unchanged):**
 parseable branches, student-owned conflicts, no open-PR rename, amend/re-review
 protocol, cross-lane human approval, local comments-only review tooling,
 instructor worktree guide and staged conflict exercise.

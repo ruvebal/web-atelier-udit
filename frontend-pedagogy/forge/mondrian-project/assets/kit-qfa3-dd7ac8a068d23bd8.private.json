@@ -1,0 +1,62 @@
+{
+  "kind": "mondrian-project.asset-kit.qfa1.private",
+  "release_id": "dd7ac8a068d23bd8",
+  "created_at": "2026-10-26T20:23:49.420Z",
+  "original_release_dir": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/forge/mondrian-project/assets/originals/kit-qfa1/release-dd7ac8a068d23bd8",
+  "delivery_dir": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit/frontend-pedagogy/forge/mondrian-project/assets/kit-qfa1/release-dd7ac8a068d23bd8",
+  "generator": "mondrian-asset-kit-qfa1",
+  "generator_version": "1.0.0",
+  "libraries": {
+    "skills": {
+      "fractal-architect": "1.3.0",
+      "visual-forger": "1.3.0",
+      "mode": "mondrian-tree-mode (geometry_only)",
+      "queue_ids": [
+        "Q-FA1",
+        "Q-FA2",
+        "Q-FA3"
+      ]
+    },
+    "modules": {
+      "mondrian-tree-geometry": "1.0.0",
+      "adapter": "mondrian-tree-geometry-only-v1",
+      "formula": {
+        "adapter": "mondrian-tree-geometry-only-v1",
+        "module": "mondrian-tree-geometry@1.0.0",
+        "queue_id": "Q-FA1",
+        "display": "branch(s) → forward(s); ±θ children (s/R); continue (s/R)",
+        "latex": null,
+        "parameters": {
+          "iterations": 6,
+          "scale_r": 1.45,
+          "angle_deg": 26,
+          "base": 0.3,
+          "viewport": {
+            "x_min": -1.05,
+            "x_max": 1.05,
+            "y_min": -0.02,
+            "y_max": 1.75
+          }
+        },
+        "citation": {
+          "inline": "(Bountis, Fokas, and Psarakis 2017)",
+          "chicago": "Bountis, Tassos, Athanassios S. Fokas, and Emmanouil Psarakis. 2017. “Fractal Analysis of Tree Paintings by Piet Mondrian (1872–1944).” International Journal of Arts and Technology 10 (1). https://doi.org/10.1504/ijart.2017.083902.",
+          "doi": "10.1504/ijart.2017.083902"
+        },
+        "disposition": "inspiration_limits_geometry_only"
+      }
+    },
+    "generators": {
+      "kit": "mondrian-asset-kit-qfa1@1.0.0",
+      "twin_of": "mondrian-asset-kit-v1@1.0.0",
+      "compare_to_release": "kit/release-ecaf67cb0ab1c057",
+      "qfa1_backgrounds": "generate-mondrian-tree-backgrounds.mjs@1.0.0"
+    },
+    "runtime": {
+      "node": "v22.22.0",
+      "rsvg-convert": "rsvg-convert version 2.61.4"
+    }
+  },
+  "compare_to": "kit/release-ecaf67cb0ab1c057",
+  "jobs": 41
+}

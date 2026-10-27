@@ -9,10 +9,11 @@ Write immutable `work.schema.json`, mirror it in zod and pydantic, and prove
 the three agree. Its canonical geometry adapts the grid-point, rectangle and
 explicit-line representation in Andrzejewski et al. (2010, §3.2), not the
 paper's classifier or generator. Define separate `surface.schema.json` and
-`composition-state.schema.json` from the MVP spec. Build identical JS/Python
-derivations from source primitives to a CSS Grid render plan. Source
-measurement, derived presentation and visitor customization must never share a
-model.
+`composition-state.schema.json` from the MVP spec (including `variationId`).
+Build identical JS/Python derivations from source primitives to **one** render
+plan that serialises to **SVG and CSS Grid**. Emit the build-time pattern
+catalog (original + named variations). Source measurement, derived
+presentation and visitor customization must never share a model.
 
 ## Deliverables
 
@@ -50,10 +51,12 @@ model.
   variation, brush texture, generation and authenticity are not represented.
 - `packages/matrix/schema/{surface,composition-state,recipe}.schema.json`,
   matching `MVP-PRODUCT-SPEC.md` §3. A `Recipe` contains both surface and
-  composition state. Frame/offset/margins are normalized; physical dimensions,
-  units and orientation remain explicit; enums cover presets/palette/reflections;
-  requested line-weight scale is clamped to the work-specific safe interval
-  `[0.25, min(2, canvasLimit, neighbourLimit)]`.
+  composition state, including `variationId` (default `original`). Frame/margins
+  are normalized; physical dimensions, units and orientation remain explicit;
+  enums cover presets/palette/reflections/variations; requested line-weight
+  scale is clamped to the work-specific safe interval
+  `[0.25, min(2, canvasLimit, neighbourLimit)]`. Fit mode is `liquid-fill`
+  (D-30); fraction-rewriting `refit` is not implemented.
 - `packages/works/fixtures/valid.yml` = the first measured reference work.
   `fixtures/broken/structural/*.yml` and `broken/semantic/*.yml` derive from it
   with exactly one corruption. Structural cases include missing fields, wrong
@@ -67,17 +70,24 @@ model.
 - `packages/matrix/src/`: `validate.js`; `derive-render-plan.js` (union of
   rectangle bounds, line extents and line edges `center ± thickness/2`, sorted
   into positive tracks; planes below explicit line items); `derive-visible-cells.js`
-  (topmost visible role cells and area shares); `surface.js`; `state.js`;
-  `render-grid.js`; `hue.js`; `index.js`. Derived values are never serialized
-  into `work.yml`.
+  (topmost visible role cells and area shares); `render-svg.js` (same plan → SVG
+  element tree / string, no pointer handles); `render-grid.js` (same plan → CSS
+  Grid model); `vary.js` (mirror H/V, rotate 180, invert-contrast involution —
+  pure, must agree with Python); `surface.js`; `state.js`; `hue.js`; `index.js`.
+  Derived values are never serialized into `work.yml`. No `svelte` import.
 - `packages/matrix/styles/matrix.css`: role → colour via custom properties and relative colour syntax; non-colours as constants; `@property --theta`.
 - Vitest: source validation, deterministic render-plan derivation, planes below
   lines, partial-line junctions, visible area shares sum to 1, hue wrap,
   malformed input, every preset frame bounded and URL state round-trip.
 - Python:
   `packages/works/python/src/mondrian_work_schema/models.py` (installable
-  pydantic mirror) plus `derive.py`, producing the same canonical render-plan
-  JSON as JS, and pytest over the same fixtures.
+  pydantic mirror) plus `derive.py`, `vary.py`, `catalog.py`. `derive`
+  produces the same canonical render-plan JSON as JS. `catalog` writes
+  `services/web/public/patterns/<id>.json|.svg` and
+  `<id>--<variation>.json|.svg` for original, mirrors, rotate-180, invert-rank,
+  complement, reciprocal, equalize, invert-contrast. Weight-redistributing
+  variations are Python-only artefacts; JS loads them, it does not re-solve.
+  pytest over the same fixtures plus catalog invariants.
 - Astro: `services/web/src/content.config.ts` zod schema + `works` collection loading `packages/works/works/*/work.yml`.
 - `scripts/conformance.sh`: runs the canonical schema directly with Ajv 8
   (2020-12), then JS semantic validation, zod and pydantic over `fixtures/`;
@@ -93,7 +103,9 @@ model.
 ## Scope
 
 **In:** the above; the hand measurement of reference work 1 (time-box: one afternoon; record the actual time).
-**Out:** pages (M3), the editor (M6), the analyzer (M4), the API (M5), the other two reference works (M8 opens with them).
+**Out:** pages (M3), the Svelte editor island (M6), internal node dragging,
+the analyzer (M4), the API (M5), runtime `POST /patterns/calculate`, the
+other two reference works (M8 opens with them).
 
 ## Prompt (Implementation Agent)
 
@@ -129,11 +141,18 @@ Implement PHASE-M2 per docs/DEV_PLAN/MONDRIAN/PHASE-M2.md.
 4. Surface/state/recipe schemas next. Test A4 portrait and landscape, square,
    story and a custom surface.
    `defaultState(work, surface)` maximizes original ratio inside printable area;
-   `clampFrame` keeps every edge inside. URL serialization is deterministic and
+   `clampFrame` keeps every edge inside; corner-resize is free-aspect and the
+   pattern liquid-fills the frame (D-30). URL serialization is deterministic and
    round-trips the complete recipe, including surface dimensions, unit,
-   orientation and margins.
-5. packages/matrix as plain ESM, no dependencies, JSDoc types. Keep every function under ~40 lines; a student
-   reads these.
+   orientation, margins and `variationId`.
+5. packages/matrix as plain ESM, no dependencies (especially no svelte), JSDoc
+   types. Keep every function under ~40 lines; a student reads these. Add
+   `renderSvg(plan)` and `vary(work, id)` for the cheap variations; Python
+   `catalog` emits all variation artefacts including weight operations.
+   Each weight operation is a closed-form function of measured area shares,
+   documented in the schema README; if it cannot be stated without an
+   aesthetic guess, omit that variation from MVP (cascade: no invented
+   proportions).
 6. matrix.css: `.plane[data-role="red"]` uses relative HSL; `.line` has source
    role `black`, overlaps planes with a higher z-index and renders through the
    current `--black` palette token—not a literal colour. JS exposes the clamped
@@ -141,10 +160,11 @@ Implement PHASE-M2 per docs/DEV_PLAN/MONDRIAN/PHASE-M2.md.
    sole geometric effect; CSS must not multiply thickness a second time. Use
    `--swatch-*`, typed `--theta`, the exact HSL inversion from the product spec
    and reflection transforms. Non-colours are constants. No per-work CSS files.
-7. Python work mirror + derivation + pytest; Astro zod source mirror;
+7. Python work mirror + derive/vary/catalog + pytest; Astro zod source mirror;
    scripts/conformance.sh. It prints four validation columns
-   (`schema|js|zod|py`) and exits 0 only when all agree and JS/Python canonical
-   plans are semantically equal.
+   (`schema|js|zod|py`) and exits 0 only when all agree, JS/Python canonical
+   plans are semantically equal, SVG serialisations match, and catalog
+   variation artefacts satisfy the area invariant.
 8. Full suite: pnpm -r test && pnpm -r build && uv run pytest. Import every module you touched.
 9. Hand off for cold review — do NOT mark DONE yourself.
 
@@ -166,9 +186,14 @@ Implement PHASE-M2 per docs/DEV_PLAN/MONDRIAN/PHASE-M2.md.
   deterministic tracks, line-over-plane stacking, visible-area sum-to-one, the
   wrap-around `mod` case and `?theta=banana → 0`.
 - State tests prove A4 = 210×297 mm; every preset default frame is bounded;
-  source work remains deep-equal after transformations; every state field survives
-  serialize→parse; every custom surface field and orientation survives the
+  source work remains deep-equal after transformations; liquid-fill never
+  mutates source fractions while absolute cells follow the frame; every state
+  field including `variationId`
+  survives serialize→parse; every custom surface field and orientation survives the
   recipe round-trip; malformed/out-of-range input falls back or clamps.
+- Mirror/rotate-180 JS and Python agree within `1e-9`; each catalog variation
+  satisfies Σ area = pattern bbox, no gaps/overlaps; invert-contrast does not
+  move edges. Changing one Python variation makes catalog/conformance fail.
 - Line tests cover a partial line, intersecting horizontal/vertical lines,
   canvas-edge termination and a black rectangle. Scaling changes explicit line
   thickness only; a black plane remains unchanged. Test scale `0.25`, `1`,
