@@ -2,6 +2,7 @@
 Mondrian Project — forge pointer after M1.
 Canonical cascade lives in the product repository.
 Amended 27 Oct 2026: M0 DONE; M1 DONE; M2 READY.
+Amended 28 Oct 2026: flag quote 1920; teach-next 29 Oct.
 -->
 
 # Mondrian Project (forge pointer)
@@ -11,11 +12,14 @@ Amended 27 Oct 2026: M0 DONE; M1 DONE; M2 READY.
 Remote: https://github.com/ruvebal/mondrian-project  
 Live: https://ruvebal.github.io/mondrian-project/
 
-| Programme (27 Oct evening) | Status |
+**Flag:** *La Plastique nouvelle met ses rapports en équilibre esthétique…* — [`grounding/FLAG-QUOTE-1920.md`](grounding/FLAG-QUOTE-1920.md)  
+**Teach next (29 Oct):** open with flag → start **M2** (canonical: product `docs/DEV_PLAN/MONDRIAN/INDEX.md` § Teach next).
+
+| Programme (28 Oct evening) | Status |
 | --- | --- |
 | M0 | **DONE** |
 | M1 | **DONE** |
-| M2 | **READY** |
+| M2 | **READY** (open in class) |
 | M3–M9 | BLOCKED (ordered / parallel lanes per cascade) |
 
 **Kept here for teaching history / assets (not the product contract):**
