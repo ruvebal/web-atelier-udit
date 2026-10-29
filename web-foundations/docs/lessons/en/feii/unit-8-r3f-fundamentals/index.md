@@ -369,7 +369,7 @@ What you should see: a lamp on a plinth, turning slowly. Hover a part, click it,
 - If the visitor has asked for reduced motion, the frame returns before it touches `rotation`. The raycast and the buttons still work.
 - `BudgetProbe` returns `null`. It has to be inside `<Canvas>`: `useFrame` is not available outside it. `useFrame` runs before `gl.render`, so `gl.info` still holds the previous, finished frame.
 - The panel is a grid column, not a layer on top of the canvas. A layer painted over the WebGL view steals the pointer, and the raycast never runs. Part names are HTML, so they stay text and add no texture.
-- `gl={{ alpha: false }}` (via a `GL` constant in the paste below) keeps an opaque clear — a transparent buffer can flash through on some composites and makes automation screenshots look “black empty” even when the probe proves draws are happening.
+- Opaque `gl` clear (`alpha: false` on a `GL` constant in the paste below) — a transparent buffer can flash through on some composites and makes automation screenshots look “black empty” even when the probe proves draws are happening.
 - Clear hover on `onPointerLeave` / `onPointerMissed`. Leaving the canvas mid-hover otherwise leaves cursor and `hovered` stuck.
 - Two directional lights and one ambient light. A light is not a draw call. A shadow map is another pass through the same meshes. This scene leaves shadows off.
 - `dpr` is capped at 1.5 because the unit's mobile failure mode is the default pixel ratio of 2. `WebGLInfo` counts triangles from the draw call, not from the framebuffer, so this snapshot will not catch fill-rate. The cap is still set.
