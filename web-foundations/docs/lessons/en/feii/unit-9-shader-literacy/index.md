@@ -47,7 +47,7 @@ status: complete
 
 > **AI Assistance Disclosure:** Models draft GLSL fluently and often wrongly. Literacy means you can explain *your* shader. Read the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) before the first prompt. Shader diffs go in that covenant's `docs/ai-3d-merge-log.md`, the same ACCEPT / REJECT habit as [Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}).
 
-**Code in this unit:** vocabulary fences are **Excerpts**. They show one idea and do not run alone. The bulb is three **CodeSandbox-ready** files you paste into the Unit 8 sandbox: `src/parts.js`, `src/BulbMaterial.jsx`, `src/Beacon.jsx`. A fourth, a per-frame `src/BudgetProbe.jsx`, is only for a team that adds a post-processing pass. `docs/shader-note.md` is a **Template** — copy it, then fill the six checklist lines from your own shader. One scene, continued from Unit 8, so there is still no route table.
+**Code in this unit:** vocabulary fences are **Excerpts**. They show one idea and do not run alone. The bulb is three **CodeSandbox-ready** files you paste into the Unit 8 sandbox: `src/parts.js`, `src/BulbMaterial.jsx`, `src/Beacon.jsx`. A fourth, a per-frame `src/BudgetProbe.jsx`, is only for a team that adds a post-processing pass — with optional `src/BloomPass.jsx` or `src/ChromaticPass.jsx` so the composer import stays visible. `docs/shader-note.md` is a **Template** — copy it, then fill the six checklist lines from your own shader. Optional `src/StretchText.jsx` is also a **Template** (font paths). One scene, continued from Unit 8, so there is still no route table.
 
 ---
 
@@ -423,18 +423,56 @@ If you try a pass, install both packages. `postprocessing` is a peer. Name it, s
 npm install @react-three/postprocessing@3.0.5 postprocessing@6.39.5
 ```
 
-**Excerpt** — `Bloom` is a child of `EffectComposer`, and both sit inside `Canvas` beside the scene. This is not a file. `Beacon` here has no props.
+**CodeSandbox-ready** — create `src/BloomPass.jsx` only when you measure a pass. Mount it inside the Unit 8 `<Canvas>`, beside `Beacon` and the per-frame `BudgetProbe`.
 
 ```jsx
+// src/BloomPass.jsx
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
-<Canvas>
-  <Beacon />
-  <EffectComposer>
-    <Bloom luminanceThreshold={0.5} intensity={1.5} />
-  </EffectComposer>
-</Canvas>
+export default function BloomPass() {
+  return (
+    <EffectComposer>
+      <Bloom luminanceThreshold={0.5} intensity={1.5} />
+    </EffectComposer>
+  );
+}
 ```
+
+**Excerpt** — wire it into the Unit 8 `src/App.jsx` `Canvas` children. Keep the existing `Beacon` props. Do not invent a second scene.
+
+```jsx
+import BloomPass from './BloomPass.jsx';
+
+// inside <Canvas>, after <Beacon ... /> and before or after <BudgetProbe ... />:
+<BloomPass />
+```
+
+**CodeSandbox-ready** — create `src/ChromaticPass.jsx` the same way if you measure chromatic aberration instead of bloom. Still one pass, still inside `EffectComposer`.
+
+```jsx
+// src/ChromaticPass.jsx
+import { EffectComposer, ChromaticAberration } from '@react-three/postprocessing';
+import { Vector2 } from 'three';
+
+export default function ChromaticPass() {
+  return (
+    <EffectComposer>
+      <ChromaticAberration
+        offset={new Vector2(0.002, 0.002)}
+        radialModulation={false}
+      />
+    </EffectComposer>
+  );
+}
+```
+
+**Imports to notice**
+
+| Import | From | Why |
+| --- | --- | --- |
+| `EffectComposer`, `Bloom` / `ChromaticAberration` | `@react-three/postprocessing` | Composer host + one effect child |
+| `Vector2` | `three` | Chromatic offset is a Three vector, not a bare array on this pin |
+| `BloomPass` / `ChromaticPass` | `./BloomPass.jsx` / `./ChromaticPass.jsx` | Keep the pass out of `App.jsx` so the Unit 8 shell stays readable |
 
 Measured 2026-10-22 on the same beacon, same machine and pins as the Unit 8 table (Apple M4 Max, ANGLE Metal, WebGL 2), with `@react-three/postprocessing@3.0.5`, `postprocessing@6.39.5`, and one `Bloom`. Three resets `calls` and `triangles` at the start of every `gl.render` unless `gl.info.autoReset` is false. It never resets memory.
 
@@ -507,15 +545,17 @@ The reset runs every frame. The report runs once a second. This probe's `useFram
 
 If you keep a pass, change `CEILING` to the row you accept, and put the same row in `docs/renderer-info.md`. Course caps are still the Unit 8 ones: desktop ≤ 200 draw calls, mobile ≤ 80. Twenty-three calls fits the mobile cap. It does not fit this scene's ceiling, and the shader note has to say which of the two you are defending.
 
-`ChromaticAberration` is the same kind of child. It does nothing unless it is inside `EffectComposer`. A fullscreen pass is a different object from `BulbMaterial`, and this unit does not grade one.
+`ChromaticPass.jsx` above is the same pattern as bloom: one effect child inside `EffectComposer`. A fullscreen pass is a different object from `BulbMaterial`, and this unit does not grade one.
 
 ---
 
 ## 🎯 Looks that are not the grade
 
-These three fences are **Excerpts**. Undefined components, a missing font, and a hash named after a noise function. The grade is the checklist.
+Stretch only. The grade is still the checklist on one explained `shaderMaterial`.
 
-### A hash, not simplex noise
+### A hash, not simplex noise — **Excerpt**
+
+Fragment body only. It needs `uniform` declarations and a Three material wrapper (same import pattern as `BulbMaterial.jsx`) before it runs.
 
 ```glsl
 uniform float time;
@@ -534,9 +574,11 @@ void main() {
 
 `fract(sin(dot(...)))` is a hash. Simplex noise is a different function. Shipping this under the name simplex fails the literacy bar even when it compiles.
 
-### Names with no components
+### Names with no components — **Excerpt**
 
 ```jsx
+import { Canvas } from '@react-three/fiber';
+
 function GenerativeInterface() {
   return (
     <Canvas>
@@ -548,19 +590,55 @@ function GenerativeInterface() {
 }
 ```
 
-`BackgroundShader`, `FloatingElements`, and `OverlayUI` are not in this lesson. The fence shows a wish.
+`Canvas` is a real import. `BackgroundShader`, `FloatingElements`, and `OverlayUI` are not in this lesson. The fence shows a wish with one honest import and three missing modules.
 
-### Type in space
+### Type in space — **Template**
+
+`Text` (SDF) needs a font URL you host. `Text3D` needs typeface JSON, not a `.woff`. Replace the font paths. Neither is the grade. Interactive copy stays in the DOM, as in Unit 8.
+
+**Template** — optional `src/StretchText.jsx`. Not wired in the Unit 8 `App.jsx`.
+
+{% raw %}
 
 ```jsx
-import { Text } from '@react-three/drei';
+// src/StretchText.jsx — optional stretch; replace font paths before running
+import { Canvas } from '@react-three/fiber';
+import { Center, OrbitControls, Text, Text3D } from '@react-three/drei';
 
-<Text font="/fonts/example.woff" fontSize={0.2}>
-  Hello
-</Text>
+export default function StretchText() {
+  return (
+    <Canvas camera={{ position: [0, 0, 8], fov: 40 }}>
+      <color attach="background" args={['#161411']} />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[3, 4, 2]} intensity={1.2} />
+
+      <Text
+        position={[0, 1.4, 0]}
+        font="/fonts/example.woff"
+        fontSize={0.45}
+        color="#f6e2bc"
+      >
+        Hello Spatial Web
+      </Text>
+
+      <Center position={[0, -0.4, 0]}>
+        <Text3D
+          font="/fonts/helvetiker_regular.typeface.json"
+          size={0.4}
+          height={0.1}
+        >
+          Entrega 2
+          <meshStandardMaterial color="#e36a2c" />
+        </Text3D>
+      </Center>
+
+      <OrbitControls enablePan={false} />
+    </Canvas>
+  );
+}
 ```
 
-`Text` needs a font file you host. `Text3D` needs a typeface JSON, not a `.woff`. Neither is the grade. Interactive copy stays in the DOM, as in Unit 8.
+{% endraw %}
 
 ---
 
@@ -571,7 +649,7 @@ Same repo as Unit 8. The graded hand-in for both units is the [Units 8–9 assig
 1. Keep the Unit 8 scene, or your own mesh tree, and replace one material with a `shaderMaterial` you can explain. The bulb above is the demonstration. Pasting it unchanged fails checklist item 5.
 2. Drive one uniform from React. `uTime` in `useFrame` counts. A number written into the shader source does not.
 3. Write `docs/shader-note.md` from the template. Eight to twelve lines, all six checklist items.
-4. Leave post-processing off, or add one pass, swap in the per-frame `BudgetProbe`, and record both rows. The Bloom table is why the reference stays at zero passes.
+4. Leave post-processing off, or add one pass (`BloomPass` or `ChromaticPass`), swap in the per-frame `BudgetProbe`, and record both rows. The Bloom table is why the reference stays at zero passes.
 5. One merge log, the covenant's `docs/ai-3d-merge-log.md`, shared with Unit 8. Do not start a second log.
 
 **Deliverable:** the shader on the shared repo, plus `docs/shader-note.md`. The merge log and the budget note are the assignment's, not a second pair of files.
