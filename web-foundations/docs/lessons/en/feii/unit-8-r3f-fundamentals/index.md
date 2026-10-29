@@ -47,7 +47,7 @@ status: complete
 
 > **AI Assistance Disclosure:** Assistants may draft R3F JSX. You remain responsible for API truth, dispose, and the merge log. Read the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) before the first prompt. Same ACCEPT / REJECT discipline as [Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}).
 
-**Code in this unit:** vocabulary fences are **Excerpts**. They show one idea and do not run alone. The capstone files are **CodeSandbox-ready**: paste each one at the path in its label. `docs/renderer-info.md` is a **Template** — copy it, then replace the blank row with the readout from your machine. One scene, so there is no route table.
+**Code in this unit:** vocabulary fences are **Excerpts**. They show one idea and do not run alone. The capstone files are **CodeSandbox-ready**: paste each one at the path in its label. `docs/renderer-info.md` is a **Template** — copy it, then replace the blank row with the readout from your machine. **Student lab:** one scene, no route table. **Instructor demonstration** (`react-template` **1.0.0**): routed `/ex1-beacon` and `/ex2-shader` share `BeaconStage`; that routing is for teaching both units from one repo, not a hand-in requirement.
 
 ---
 
@@ -346,7 +346,7 @@ One object, one state owner, one animation, one budget read. The files below are
 
 ### Sandbox setup
 
-1. Template: CodeSandbox → **React (Vite)**, JavaScript. React 19. No TypeScript, no router, no CSS framework.
+1. Template: CodeSandbox → **React (Vite)**, JavaScript. React 19. No TypeScript, no router, no CSS framework. (The live instructor repo may already include `react-router-dom` for Ex1/Ex2 pages — students still defend **one** scene.)
 2. Dependencies — the Dependency panel, or a terminal in the sandbox:
 
 ```bash
@@ -359,7 +359,7 @@ npm install react@19.3.1 react-dom@19.3.1 three@0.185.1 @react-three/fiber@9.8.2
 
 `App.jsx` imports the other modules. The preview errors until those files exist. Save them first.
 
-What you should see: a lamp on a plinth, turning slowly. Hover a part, click it, or press the matching button. The panel is the same React state either way. About once a second the budget line reads `within ceiling`.
+What you should see: a lamp on a plinth, turning slowly. Hover a part, click it, or press the matching button. The panel is the same React state either way. About once a second the budget line reads `within ceiling`. Reference ceiling (Unit 8 and Unit 9 bulb swap): **calls 6 · triangles 1368 · geometries 6 · textures 1**.
 
 ### Why this shape
 
@@ -369,6 +369,8 @@ What you should see: a lamp on a plinth, turning slowly. Hover a part, click it,
 - If the visitor has asked for reduced motion, the frame returns before it touches `rotation`. The raycast and the buttons still work.
 - `BudgetProbe` returns `null`. It has to be inside `<Canvas>`: `useFrame` is not available outside it. `useFrame` runs before `gl.render`, so `gl.info` still holds the previous, finished frame.
 - The panel is a grid column, not a layer on top of the canvas. A layer painted over the WebGL view steals the pointer, and the raycast never runs. Part names are HTML, so they stay text and add no texture.
+- `gl={{ alpha: false }}` (via a `GL` constant in the paste below) keeps an opaque clear — a transparent buffer can flash through on some composites and makes automation screenshots look “black empty” even when the probe proves draws are happening.
+- Clear hover on `onPointerLeave` / `onPointerMissed`. Leaving the canvas mid-hover otherwise leaves cursor and `hovered` stuck.
 - Two directional lights and one ambient light. A light is not a draw call. A shadow map is another pass through the same meshes. This scene leaves shadows off.
 - `dpr` is capped at 1.5 because the unit's mobile failure mode is the default pixel ratio of 2. `WebGLInfo` counts triangles from the draw call, not from the framebuffer, so this snapshot will not catch fill-rate. The cap is still set.
 - R3F disposes geometries created by JSX when the tree unmounts. The probe stays at 6 geometries while you hover and select, which is the check that interaction is not allocating a new mesh.
@@ -397,6 +399,10 @@ import './index.css';
 import App from './App.jsx';
 
 const root = document.getElementById('root');
+
+if (!root) {
+  throw new Error('Missing #root mount node');
+}
 
 createRoot(root).render(
   <StrictMode>
@@ -429,11 +435,22 @@ body {
   height: 100dvh;
 }
 
+.stage-canvas {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
 .readout {
   padding: 16px;
   background: #161411;
   border-left: 1px solid rgb(244 239 230 / 0.16);
   overflow: auto;
+}
+
+.parts button:focus-visible {
+  outline: 2px solid #f6e2bc;
+  outline-offset: 2px;
 }
 
 @media (max-width: 720px) {
@@ -681,6 +698,8 @@ export default function Beacon({ hovered, selected, reduced, onHover, onSelect }
 
 **CodeSandbox-ready** — replace `src/App.jsx`.
 
+{% raw %}
+
 ```jsx
 import { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
@@ -692,6 +711,8 @@ import { PARTS } from './parts.js';
 const CAMERA = { position: [2.15, 1.35, 2.55], fov: 40 };
 const DPR = [1, 1.5];
 const LOOK_AT = [0, 0.35, 0];
+// Opaque clear — avoids a transparent buffer flashing through on some composites.
+const GL = { alpha: false, antialias: true };
 
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(() =>
@@ -726,21 +747,29 @@ export default function App() {
 
   return (
     <div className="stage">
-      <Canvas camera={CAMERA} dpr={DPR}>
-        <color attach="background" args={['#161411']} />
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[4, 6, 2]} intensity={2.4} />
-        <directionalLight position={[-3, 2.2, -2]} intensity={0.55} />
-        <Beacon
-          hovered={hovered}
-          selected={selected}
-          reduced={reduced}
-          onHover={setHovered}
-          onSelect={setSelected}
-        />
-        <BudgetProbe onSample={setBudget} />
-        <OrbitControls enablePan={false} target={LOOK_AT} />
-      </Canvas>
+      <div className="stage-canvas" role="img" aria-label="Beacon WebGL scene">
+        <Canvas
+          camera={CAMERA}
+          dpr={DPR}
+          gl={GL}
+          onPointerLeave={() => setHovered(null)}
+          onPointerMissed={() => setHovered(null)}
+        >
+          <color attach="background" args={['#161411']} />
+          <ambientLight intensity={0.4} />
+          <directionalLight position={[4, 6, 2]} intensity={2.4} />
+          <directionalLight position={[-3, 2.2, -2]} intensity={0.55} />
+          <Beacon
+            hovered={hovered}
+            selected={selected}
+            reduced={reduced}
+            onHover={setHovered}
+            onSelect={setSelected}
+          />
+          <BudgetProbe onSample={setBudget} />
+          <OrbitControls enablePan={false} target={LOOK_AT} />
+        </Canvas>
+      </div>
       <aside className="readout">
         <h1>Beacon</h1>
         <ul className="parts">
@@ -772,6 +801,8 @@ export default function App() {
   );
 }
 ```
+
+{% endraw %}
 
 ### `docs/renderer-info.md`
 

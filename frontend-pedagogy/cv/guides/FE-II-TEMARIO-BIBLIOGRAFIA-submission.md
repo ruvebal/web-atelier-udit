@@ -94,9 +94,9 @@ Interfaces 3D declarativas (React Three Fiber).
 
 Alfabetización en shaders y estética de interfaz de vanguardia.
 
-    Fundamentos mínimos de GLSL: un shader entendido, no una librería de efectos a ciegas.
-    Uniforms, espacio UV y manipulación de vértices/fragmentos dentro de R3F.
-    Efectos de post-procesado: bloom, aberración cromática y coste de renderizado.
+    Fundamentos mínimos de GLSL: un shader entendido (checklist MV), no una librería de efectos a ciegas.
+    Uniforms desde React, espacio de coordenadas nombrado, precisión; vertex vs fragment en R3F.
+    Post-procesado opcional (bloom / aberración cromática) tratado como coste medido, no como el grado.
     Estética de vanguardia como código legible, no como preset opaco.
     Declaración de uso de IA en shaders (misma disciplina de merge log que en revisión de código).
 
