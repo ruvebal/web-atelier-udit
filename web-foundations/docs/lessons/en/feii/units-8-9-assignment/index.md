@@ -1,14 +1,14 @@
 ---
 layout: lesson
-title: 'Units 8–9 Assignment — One Scene, One Shader'
-title_alt: 'Tarea de las unidades 8–9 — Una escena, un shader'
+title: 'Units 8–9 Assignment — 3D Album Cover'
+title_alt: 'Tarea de las unidades 8–9 — Portada de álbum 3D'
 slug: feii-units-8-9-assignment
-date: 2026-10-22
+date: 2026-11-04
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /lessons/en/feii/units-8-9-assignment/
-description: 'Team hand-in for the 3D slice of Entrega 2: the Unit 8 scene, one shader you can explain, a budget note, and the covenant merge log.'
-tags: [feii, r3f, shaders, entrega-2, assignment]
+description: 'Build a recognisable web 3D version of a named music album cover and hand it in as small, reviewed PRs to your route in the shared gallery.'
+tags: [feii, r3f, shaders, ktx2, album-cover, entrega-2, assignment]
 status: complete
 ---
 
@@ -23,38 +23,103 @@ status: complete
 
 ---
 
-> _"The module that knows its boundaries serves the whole. The module that knows no boundaries becomes the whole—and collapses under its own weight."_
-> — Tao of Development, `arch-001`
+> _“The contributor who reads the style guide is the contributor whose PR gets merged.”_
+> — Tao of Development, `qa-007`
 {: .tao-development-quote }
 
-This is the team hand-in for [Unit 8]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}) and [Unit 9]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}). It is the 3D slice of Entrega 2. [Unit 10]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) is the rest of that entrega and is not part of this file. The four bars live in the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}). This page says what to commit.
+Create a **web 3D version of your favourite music album cover**. The result must be recognisable as a named album, but it must also show your own decisions: a composed R3F scene, one sleeve shader you can explain, and a documented texture-delivery choice.
 
-One repo. One scene. The individual self-checks in each lesson stay individual and are not this submission. The beacon in the lessons is an instructor demonstration. Yours has to be a scene you can defend, with a shader that is not a paste of `BulbMaterial.jsx`.
+This is the team hand-in for [Unit 8]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}) and [Unit 9]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}), the 3D slice of Entrega 2. [Unit 10]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) remains a separate slice. The beacon in `react-template` is the Units 8–9 **lab demonstration**, not the hand-in.
+
+Your work lands in the private class aggregator [`ruvebal/feii-album-covers`](https://github.com/ruvebal/feii-album-covers). You own one student **route**, `/covers/<slug>`, implemented under `covers/<slug>/` plus one object in `covers/registry.json`. Read that repository's [`CONTRIBUTING.md`](https://github.com/ruvebal/feii-album-covers/blob/main/CONTRIBUTING.md) before opening a PR. This reuses the [TTOD contribution ritual](https://github.com/ruvebal/ttod/blob/main/docs/public/guides/contributing.md); the cover slug is your boundary.
+
+Use the two focused satellites while you build: [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) and [KTX2/Basis first principles]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}).
+
+---
+
+## The four covenant bars
+
+The [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) still defines the pass bar. Your route must show all four:
+
+1. **Interface-layer transfer** — an R3F scene using React state, refs, and composition. The cover is readable as the named album; visible title and supporting copy stay accessible in the DOM.
+2. **One understood shader** — one custom GLSL fragment or `shaderMaterial` sleeve effect that you can explain aloud: its uniform, coordinate space, sampled texture, and deliberate effect. It is not a paste of the Unit 9 bulb.
+3. **Documented GPU budget** — `docs/renderer-info.md` records draw calls, triangles, and `renderer.info.memory.textures` for the device you name, with the threshold you accepted or the change you made.
+4. **Merge judgment** — `docs/ai-3d-merge-log.md` records ACCEPT / REJECT / ESCALATE decisions. Include at least **two REJECT** rows across Units 8–9, or state explicitly that nothing was worth rejecting and attach the reviews that support that conclusion.
+
+Two hand-in conditions make those bars specific to this cover:
+
+- **KTX2 choice** — supply a source PNG on your route, compare ETC1S and UASTC, choose one, and explain the choice in `docs/ktx2-note.md`. Record both file bytes and runtime `renderer.info.memory.textures`; they are different measurements.
+- **IP declaration** — photograph a physical album you own **or** name the licence that permits your image use in `docs/ktx2-note.md`. Private GitHub is not a licence. Do not place scraped commercial sleeve scans in `_studio`, and do not publish unlicensed cover imagery to a public Pages site.
+
+This course treats the sequence as a transparent studio pilot, not as a settled claim that R3F, KTX2, or an album-cover prompt is the best higher-education syllabus. The research precedent is that durable graphics concepts can remain meaningful across changing APIs (Angel and Shreiner 2024, 1–2); the implementation, measurements, PRs, and defence are the evidence for this cohort.
 
 ---
 
 ## What you hand in
 
-On the shared repo, at the date your section sets:
+Your completed route contains the scene plus these four documents:
 
-1. **The scene** — Canvas, lights, one composed mesh tree, hover and click that write React state, one `useFrame` that does not allocate geometry. Unit 8's lab is this list.
-2. **`docs/renderer-info.md`** — the Unit 8 template, with your machine's row filled in. Course caps stay desktop ≤ 200 draw calls and mobile ≤ 80. The reference scene's own ceiling is tighter. If your tree is different, your row is the one you accept, and it still has to sit under the course cap for the device you name.
-3. **`docs/shader-note.md`** — the Unit 9 template. Eight to twelve lines. All six checklist items. The uniform, the coordinate space, and the effect have to match the shader in the repo.
-4. **`docs/ai-3d-merge-log.md`** — the covenant template. At least two REJECT rows across Units 8–9, or an explicit finding that nothing was worth rejecting, with the reviews attached. One log for both units.
+- `docs/renderer-info.md` — machine/device, draw calls, triangles, textures, threshold, and any before/after change.
+- `docs/shader-note.md` — the uniform, coordinate space, sampler, and authored visual effect in eight to twelve lines.
+- `docs/ktx2-note.md` — source/licence declaration; source PNG, ETC1S, and UASTC file bytes; runtime texture-memory observation; chosen delivery and reason.
+- `docs/ai-3d-merge-log.md` — the covenant decisions and required REJECT evidence across the two units.
 
-A generated look you cannot narrate fails bar 2 of the covenant. A log of only ACCEPTs fails bar 4.
+**Template** — keep the KTX2 comparison explicit rather than writing “compressed better.”
+
+```markdown
+# KTX2 choice
+
+Album and source/licence:
+
+| Asset | File bytes | renderer.info.memory.textures | Observation |
+| --- | ---: | ---: | --- |
+| Source PNG | | | |
+| ETC1S | | | |
+| UASTC | | | |
+
+Chosen delivery:
+Reason:
+```
+
+There is **no post required**. The route, the four documents, the PR history, and the human defence are the hand-in.
+
+---
+
+## The PR sequence
+
+Start every task from the current teaching baseline, `main`, and use this branch family:
+
+`cover-<slug>-task<N>-<short-topic-name>`
+
+For example: `cover-ok-computer-task1-mesh`, `cover-ok-computer-task2-shader`, and `cover-ok-computer-task3-ktx2`. Submit small staged PRs rather than one final dump:
+
+1. **task1 — mesh and scene.** Copy `_template` once, create `covers/<slug>/`, add your one registry object, and make the named album readable. Type and controls stay in the DOM.
+2. **task2 — authored shader.** Add the sleeve sampler effect and `docs/shader-note.md`; update the renderer note if the budget moves.
+3. **task3 — KTX2 and evidence.** Add the source PNG, the chosen encoded asset, `docs/ktx2-note.md`, the completed renderer note, and the merge log.
+4. **task4 — cross-cover contribution.** Open a real fix in another slug (or a shared accessibility/gallery fix) with that team's consent. You must also complete at least one formal review of a PR outside your slug.
+
+Tasks 1–3 change only `covers/<slug>/**` plus your one `registry.json` object. Never edit another team's slug except through the explicit task4 contribution. Never replace `src/App.jsx`; the instructor-owned router already lights `/covers/<slug>` from the registry and page module.
+
+Every PR must use the repository template and include its **AI Review Log**. Before pushing, run `npm run lint` and `npm run build`. The `lint-and-build` check must pass, and at least one human must approve. Bots and assistants may comment; they never approve or merge. A human performs the merge.
 
 ---
 
 ## What this file does not ask for
 
-- A second sandbox, a route table, or a new dependency list. Unit 9's shader runs in the Unit 8 project.
-- A post-processing pass. Zero passes is the reference. One pass is allowed when `docs/renderer-info.md` has a row with it and a row without it, both read with Unit 9's per-frame `BudgetProbe`. The Unit 8 probe sees only a composer's last pass: Bloom read as 1 call there and 23 per frame with the per-frame probe.
-- Unit 10's socket, a device API, or a Python service.
-- An MCP server, a design-generation product, or a generated monorepo. The covenant already excludes those.
+- A second sandbox or a rewrite of `App.jsx`. The aggregator already owns the gallery and route contract.
+- TTOD's Astro seam names as student branches. Use `cover-<slug>-task<N>-<topic>`, not the TTOD content/graph/oracle/PWA/accounts vocabulary.
+- TTOD's quote-proposal workflow, an in-app `ASSIGNMENT.md`, or cloud PR-review automation.
+- A post-processing pass. Zero passes is the reference; one is allowed only with comparable renderer measurements before and after.
+- Unit 10's socket, device API, Python service, or assessment work.
+- An MCP server, MCP shopping, Stitch, 21st.dev, or `corpus-to-boilerplate/`.
+- A generated monorepo, a second dependency culture, or a replacement for the shared route contract.
+- Three-dimensional lettering as a grade requirement. Album title and explanatory copy remain accessible DOM text.
+- A social post or reflection post. The graded record is the route, documents, reviews, and PR history.
 
 ---
 
-## How the two labs meet
+## References
 
-Unit 8's three hours produce the scene and `docs/renderer-info.md`. Unit 9's three hours replace one material and produce `docs/shader-note.md`. The merge log is written across both afternoons, not duplicated. If the shader change moves the budget, you update the renderer note in the same commit as the shader. The two documents have to describe one tree.
+Angel, Edward, and Dave Shreiner. 2024. “The Future of Teaching Computer Graphics.” _SIGGRAPH Educators Forum ’24_. https://doi.org/10.1145/3641235.3664433.
+
+The KTX2 and R3F pages above use dated standards and current platform documentation for **how** the APIs work. They are not presented as evidence that this exact teaching sequence is already validated.
