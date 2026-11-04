@@ -64,7 +64,7 @@ Core Web Vitals como objetivo medible, no como cifra abstracta: optimización de
 
 ### Bloque 5 — 3D y Estética de Interfaz de Vanguardia (Unidades 8–9)
 
-Frontera explícitamente delimitada como **ejercicio de transferencia de la capa de interfaz**, no como curso de gráficos aislado: React Three Fiber aplica el mismo modelo de estado y hooks de React a escenas 3D declarativas — raycasting y eventos, optimización de rendimiento en WebGL (Unidad 8) — y una introducción a alfabetización en shaders — fundamentos de GLSL, shaders personalizados dentro de R3F, efectos de post-procesado (bloom, aberración cromática) — para que la estética de vanguardia sea código entendido, no una librería de efectos usada a ciegas (Unidad 9).
+Frontera explícitamente delimitada como **ejercicio de transferencia de la capa de interfaz**, no como curso de gráficos aislado: React Three Fiber aplica el modelo de estado y hooks de React a una versión web 3D de una portada de álbum (Unidad 8), mientras la Unidad 9 exige un shader de portada entendido y una decisión razonada entre la imagen fuente y sus variantes KTX2 ETC1S/UASTC, distinguiendo tamaño de archivo y memoria de texturas en ejecución. Los dos satélites de Bloque 5 —shader de portada y alfabetización KTX2 desde píxel, UV y texel— consumen las horas ya asignadas a U8–U9, no añaden unidades. Es un **piloto declarado**: KTX2 se enseña como técnica de plataforma y la pedagogía específica en educación superior permanece `[UNVERIFIED-GAP]`.
 
 ### Bloque 6 — IoT/Robótica e Interfaces Respaldadas por Python (Unidad 10)
 

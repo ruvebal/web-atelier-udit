@@ -34,8 +34,8 @@ Closing: each phase → VERIFYING → `PHASE-Xn-COLD-REVIEW.md` → amend if nee
 | 1 | [PHASE-X1.md](PHASE-X1.md) | Autonomous Profield 20261104 map (web tools + Ollama Pass 2; no clipboard) | DONE 2026-11-04 |
 | 2 | [PHASE-X2.md](PHASE-X2.md) | OA retrieve → Ahmes batch → coats → DevIAC ingest | DONE 2026-11-04 |
 | 3 | [PHASE-X3.md](PHASE-X3.md) | Evidence-matrix rows + AUDIT-GROUNDED addendum (cite Ahmes, not vectors) | DONE 2026-11-04 |
-| 4 | [PHASE-X4.md](PHASE-X4.md) | CV Bloque 5 / tracks / lesson-index structural freeze | READY |
-| 5 | [PHASE-X5.md](PHASE-X5.md) | Album-cover assignment pitch (Units 8–9 page) | BLOCKED until X4 DONE |
+| 4 | [PHASE-X4.md](PHASE-X4.md) | CV Bloque 5 / tracks / lesson-index structural freeze | DONE 2026-11-04 |
+| 5 | [PHASE-X5.md](PHASE-X5.md) | Album-cover assignment pitch (Units 8–9 page) | READY |
 | 6 | [PHASE-X6.md](PHASE-X6.md) | Enrich Unit 8 + Unit 9 toward the cover (lesson-scribe) | BLOCKED until X5 DONE |
 | 7 | [PHASE-X7.md](PHASE-X7.md) | New shaders satellite lesson | BLOCKED until X6 DONE |
 | 8 | [PHASE-X8.md](PHASE-X8.md) | First-principles KTX2 satellite (texel before brand names) | BLOCKED until X7 DONE |

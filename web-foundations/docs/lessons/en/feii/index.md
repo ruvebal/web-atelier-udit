@@ -89,7 +89,7 @@ Lab hours sum to the official **30 h** `ACTIVIDADES FORMATIVAS` allocation. The 
 | 9 | [Shader Literacy & Cutting-Edge Aesthetics]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}) | 3 h | 3 h | One understood shader · optional post · merge log |
 | 10 | [IoT/Robotics Control-Panel & Python-Backed Interface]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) | 2 h | 4 h | WebSocket + device APIs · **Entrega 2 due** |
 
-Units 8 and 9 are one graded scene. The hand-in is the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). Unit 10 stays on its own row.
+Units 8 and 9 are one graded scene: a [3D album-cover assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}) contributed as a student-owned route. Two unnumbered satellites sit inside the existing U8–U9 lab window: [Cover Shaders — One Authored Sleeve Effect]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) and [KTX2/Basis — Texture Choice from First Principles]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}). Unit 10 stays on its own row.
 
 ### Block 4 — Capstone (Units 11–12) · **Entrega 3 / Examen Final**
 
