@@ -39,7 +39,14 @@ Implement PHASE-X11 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X11.m
    clause that the mandatory fork is a lab sandbox, not the hand-in
    (assignment “does not ask for a second sandbox” means the hand-in);
    (G2) Unit 8 `src/parts.js` Template label — add “in the cover fork”.
-6. Hand off for cold review — do NOT mark DONE.
+6. Carried from X7 round-2 review: (G1) re-check that cover-shaders lab
+   step 2's promise holds on the real aggregator — the /covers/:slug route
+   passes hovered/selected/reduced/onHover/onSelect and _template's
+   picture path is route-relative; fix the lesson or the repo, whichever
+   is wrong. (G4, P2) cover-shaders L449: deleting only `varying vec2 vUv;`
+   while `vUv = uv;` remains is a vertex COMPILE error (undeclared
+   identifier); the Unit 9 link error needs both lines gone — reword.
+7. Hand off for cold review — do NOT mark DONE.
 
 ## Constraints
 - Autopilot may commit web-atelier lesson files locally. Do not git push web-atelier-udit.

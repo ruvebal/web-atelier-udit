@@ -16,7 +16,7 @@ A student-facing lesson that treats GLSL as **sampling an album sleeve**, not a 
 
 ## Scope
 
-**In:** One routed example intended for the sibling repo (`/ex3-cover-shader`). CodeSandbox-ready files that go into the Unit 8 **cover fork** (cover `parts.js` ids sleeve/vinyl/stage, `Cover.jsx`), never into the beacon sandbox: the cover shader is a new material file used from `Cover.jsx`, and the cover `parts.js` is not replaced (X6 triage F1).
+**In:** One runnable example in the Unit 8 cover fork (no router); on the hand-in it lives at `/covers/<slug>` (task2) — no `/ex3-cover-shader` route (X7 ruling a). CodeSandbox-ready files that go into the Unit 8 **cover fork** (cover `parts.js` ids sleeve/vinyl/stage, `Cover.jsx`), never into the beacon sandbox: the cover shader is a new material file used from `Cover.jsx`, and the cover `parts.js` is not replaced (X6 triage F1).
 **Out:** KTX2 encoding (X8). WebGPU/TSL as required path. TypeScript.
 
 ## Prompt (Implementation Agent)

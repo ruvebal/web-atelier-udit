@@ -13,7 +13,9 @@ rg -qi "uastc" "$ROOT/covers/_studio" "$ROOT/src/lib"
 rg -qi "etc1s" "$ROOT/covers/_studio" "$ROOT/src/lib"
 rg -q "uMap" "$ROOT/covers/_studio/src"
 rg -qi "file bytes" "$NOTE"
-rg -q "renderer.info.memory.textures" "$NOTE"
+rg -qi "GPU bytes" "$NOTE" || { echo "REFUSED: ktx2-note must record computed GPU bytes (X7 F3)" >&2; exit 1; }
+rg -q "lower_left_maps_to_s0t0|convert-texcoord-origin" "$ROOT/scripts/encode-cover.mjs" || { echo "REFUSED: encode-cover.mjs does not flip for KTX2 orientation" >&2; exit 1; }
+rg -q "colorSpace *(===|!==|==|!=) *(THREE\.)?SRGBColorSpace|SRGBColorSpace *(===|!==|==|!=) *[A-Za-z_.]*colorSpace" "$ROOT/covers/_studio/src" "$ROOT/src/lib" || { echo "REFUSED: no runtime colorSpace comparison (assignment alone does not count)" >&2; exit 1; }
 rg -qi "[0-9]+ ?(bytes|B|KB|KiB|MB)|encoder skip|toktx missing" "$NOTE"
 # no fake KTX2: every .ktx2 must start with the KTX 2.0 identifier
 for k in $(find "$ROOT/covers/_studio" -name '*.ktx2'); do

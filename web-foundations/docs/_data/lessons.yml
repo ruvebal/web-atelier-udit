@@ -1288,7 +1288,7 @@
   file:
    en: lessons/en/feii/cover-shaders/index.md
   status:
-   en: draft
+   en: complete
   category: feii
   tags: [feii, shaders, glsl, r3f, album-cover, satellite]
 - slug: feii-ktx2-basis

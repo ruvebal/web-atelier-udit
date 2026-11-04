@@ -10,6 +10,9 @@ rg -q "ETC1S" "$PAGE"
 rg -qi "texel" "$PAGE"
 rg -qi "pixel" "$PAGE"
 rg -q "renderer.info.memory.textures" "$PAGE"
+rg -qi "GPU bytes" "$PAGE" || { echo "REFUSED: page must teach computed GPU bytes (X7 F3)" >&2; exit 1; }
+rg -qi "flipY|upside|orientation" "$PAGE" || { echo "REFUSED: KTX2 orientation trap not taught (X7 ruling d)" >&2; exit 1; }
+rg -q "colorSpace" "$PAGE" || { echo "REFUSED: colorSpace check not taught (X7 ruling d)" >&2; exit 1; }
 rg -q "slug: feii-ktx2-basis$" "$WF/docs/_data/lessons.yml"
 # D22: texel is defined before the first brand name
 python3 - "$PAGE" <<'PY'

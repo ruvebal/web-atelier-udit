@@ -33,7 +33,18 @@ and REPO-SHAPE.md.
    from react-template pins (copy package.json deps, not the beacon as
    the gallery). Gallery App.jsx + import.meta.glob for covers/*/src/Cover.jsx.
 2. covers/_template, covers/_studio stub, covers/registry.json.
-   Students never replace App.jsx.
+   Students never replace App.jsx. AMENDED after X7 F2 — pin the route
+   contract in README + CONTRIBUTING + _template: (a) the props the
+   gallery passes to each route's default-export Cover. Match the
+   published Unit 8 cover fork (its App.jsx owns state and renders
+   <Cover hovered selected reduced onHover onSelect />): the gallery's
+   /covers/:slug route component owns that state (reduced from
+   prefers-reduced-motion) and passes the SAME five props, so a
+   student's fork Cover.jsx moves over unchanged (corrected after X7
+   triage — an earlier amend said state lives inside Cover; it does not);
+   (b) how a route references its own images under covers/<slug>/public/
+   (e.g. `new URL('../public/sleeve.png', import.meta.url).href` or a
+   Vite alias) — NOT a root '/sleeve.jpg'. Show both in _template.
 3. CONTRIBUTING.md from REPO-SHAPE.md D21 (TTOD contributing.md mapped
    to cover routes). Branch pattern cover-<slug>-task<N>-<topic>.
    Cite qa-007 by ID. Do not copy TTOD Astro seam names or quote-proposal
@@ -65,6 +76,7 @@ and REPO-SHAPE.md.
 
 ## Acceptance
 
+- [ ] Route contract pinned (X7 round-2 G1): the `/covers/:slug` route component passes `hovered`, `selected`, `reduced`, `onHover`, `onSelect` to each `Cover`; `covers/_template` references its picture under `covers/<slug>/public/` relative to the route; CONTRIBUTING states both
 - [ ] `package.json` pins equal `react-template` for react, three, fiber, drei
 - [ ] `npm run build` exit 0
 - [ ] `covers/_template/src/Cover.jsx` and `covers/registry.json` exist

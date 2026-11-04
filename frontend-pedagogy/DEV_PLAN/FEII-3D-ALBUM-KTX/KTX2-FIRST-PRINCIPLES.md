@@ -32,7 +32,7 @@ Teach these **before** KTX2, UASTC, or ETC1S. Never use them undefined.
 | --- | --- | --- |
 | **Pixel** | A coloured dot **on the screen** | Picture + element. What the monitor shows. |
 | **UV** | “Where on the picture?” | Two numbers, usually 0 to 1. `(0, 0)` one corner of the sleeve image; `(1, 1)` the opposite corner. |
-| **Texel** | A coloured sample **in the picture the GPU is holding** | **Tex**ture + **el**ement. The shader asks for a UV; the GPU answers with a texel (often blended with its neighbours). |
+| **Texel** | A coloured sample **in the picture the GPU is holding** | **Tex**ture + **el**ement. One stored colour in the grid. The shader asks for a UV; the GPU looks up the nearest texels and usually **blends** them, so the colour it returns is often a mix, not one texel. |
 | **Texture** | The whole picture on the GPU | A grid of texels. Not the `.jpg` file on disk. |
 
 **Poster analogy.** A photograph of a cover has grains of colour in the print (texels). The wall you see it on has paint dots (pixels). Stretch the photo across a large 3D sleeve and one texel covers many pixels (soft, blocky). Squeeze a huge photo onto a small sleeve and many texels fight for one pixel (shimmer, aliasing).
@@ -54,7 +54,7 @@ A concrete order of magnitude, not a measurement of your cover:
 
 That jump is **upload inflation**. The suitcase was small. The unpacked clothes fill the room.
 
-Unit 8 already taught `renderer.info` (draw calls, triangles). The textures row is this **GPU** number. It is not Finder’s file size. A lesson that reports only “my KTX2 is 80 KB” has measured the suitcase and skipped the room.
+Unit 8 already taught `renderer.info` (draw calls, triangles, and `memory.textures`). Careful: in three.js `renderer.info.memory.textures` is a **count** of textures alive on the GPU (it goes 1 → 2 when the sleeve loads), **not bytes**. The room is measured as **GPU bytes**, computed from what was uploaded: for a PNG, width × height × 4; for a KTX2, the sum of the transcoded `mipmaps[i].data.byteLength`. Compare like with like: three generates mipmaps for a PNG by default, which adds about one third (× 4/3), so count all levels on both sides — or say “level 0 only” for both — and write down `texture.format` (`TextureUtils.getByteLength(width, height, format, type)` needs it). It is not Finder’s file size. A lesson that reports only “my KTX2 is 80 KB” has measured the suitcase and skipped the room. (Amended 2026-11-04, X7 cold review F3: three 0.185.1 `WebGLInfo.js` / `WebGLTextures.js` increment the counter per texture.)
 
 ```
 Network file (JPEG/PNG)     GPU memory (typical default)
@@ -62,11 +62,12 @@ Network file (JPEG/PNG)     GPU memory (typical default)
 │ packed suitcase │  decode │ width × height × 4 bytes │
 │  ~200 KB        │ ──────► │  ~4 MB for 1024²         │
 └─────────────────┘         └──────────────────────────┘
-   what Git stores             what renderer.info.memory.textures
-                               is trying to tell you
+   what Git stores             GPU bytes — compute it;
+                               renderer.info.memory.textures
+                               only counts textures (1 → 2)
 ```
 
-If a later encoded file is small **and** the textures row stays huge, the GPU still unpacked. The format did not do the job this lesson is for.
+If a later encoded file is small **and** its GPU bytes stay at width × height × 4, the GPU still unpacked. The format did not do the job this lesson is for.
 
 ---
 
@@ -109,7 +110,7 @@ Not a brand. A sentence plus two numbers.
 2. **Why it fits this sleeve:** photo vs sharp type / logo (one honest reason).
 3. **Source licence:** photograph of a physical album you own, or a named licence. Private GitHub is not a licence.
 4. **File bytes** on disk (the suitcase).
-5. **`renderer.info.memory.textures`** with PNG vs with your chosen KTX2 (the room). Dated, from **your** machine. If the encoder is missing, say so and keep PNG — do not fake a `.ktx2`.
+5. **GPU bytes** with PNG vs with your chosen KTX2 (the room), computed as above; plus `renderer.info.memory.textures` as a sanity count (it should go up by one when the sleeve loads, for either format). Dated, from **your** machine. If the encoder is missing, say so and keep PNG — do not fake a `.ktx2`.
 
 Typical use (qualitative; do not invent ratios):
 
@@ -117,7 +118,7 @@ Typical use (qualitative; do not invent ratios):
 | --- | --- | --- |
 | Photograph, grain, soft print | ETC1S | Smaller GPU footprint; extra loss is harder to see |
 | Sharp title type, high-contrast logo | UASTC | Edges survive; you pay in size |
-| You have not looked at both | Measure both in the studio switch, then pick | Claiming a win without the textures row is a vibe |
+| You have not looked at both | Measure both in the studio switch, then pick | Claiming a win without GPU bytes is a vibe |
 
 ---
 
@@ -129,7 +130,7 @@ The complete journey on one page, before anyone “owns” a cover:
 2. The same picture as an ordinary GPU texture (PNG path).
 3. The same picture encoded ETC1S and UASTC (when the encoder exists).
 4. A **switch** in the scene: PNG / ETC1S / UASTC.
-5. Two numbers visible: file bytes, GPU textures memory.
+5. Two numbers visible: file bytes, GPU bytes (computed; `memory.textures` only counts).
 
 That switch is the rehearsal. The assignment copies the **habit**, not the studio art.
 
@@ -141,7 +142,7 @@ Encoding every student laptop is not the lab outcome. The repo script may encode
 
 | You already did | This satellite adds |
 | --- | --- |
-| Unit 8: `<Canvas>`, mesh, `renderer.info` budgets | The **textures** row as GPU memory, not file size |
+| Unit 8: `<Canvas>`, mesh, `renderer.info` budgets | **GPU bytes** computed from what was uploaded, not file size; the `memory.textures` row is only a count |
 | Unit 9: a shader as a small program; UV as a coordinate | **Texel** as what UV looks up; `sampler2D` as “the picture” |
 | Cover-shaders satellite: one authored sleeve effect | That effect still works; packing must not be an unexplained paste |
 | Covenant merge log | Log the encode/load path the same way you log shader diffs |
@@ -166,6 +167,6 @@ Platform notes stay **dated**. Khronos and three.js `KTX2Loader` are **how** not
 
 ## 9. One paragraph you should be able to say out loud
 
-> The sleeve is a picture on the GPU, not an `<img>`. A **pixel** is a screen dot; a **texel** is a colour in that GPU picture; **UV** is how the shader asks for a texel. A JPEG is small on disk and usually **large** once unpacked. **KTX2** is only the box. I picked **ETC1S** or **UASTC** because of this sleeve, and I wrote file bytes and `renderer.info.memory.textures` from this machine.
+> The sleeve is a picture on the GPU, not an `<img>`. A **pixel** is a screen dot; a **texel** is a colour in that GPU picture; **UV** is how the shader asks for a texel. A JPEG is small on disk and usually **large** once unpacked. **KTX2** is only the box. I picked **ETC1S** or **UASTC** because of this sleeve, and I wrote file bytes and GPU bytes from this machine.
 
 If you cannot say that, the lesson is still too much brand and not enough picture.
