@@ -47,7 +47,7 @@ status: complete
 
 > **AI Assistance Disclosure:** Models draft GLSL fluently and often wrongly. Literacy means you can explain *your* shader. Read the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) before the first prompt. Shader diffs go in that covenant's `docs/ai-3d-merge-log.md`, the same ACCEPT / REJECT habit as [Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}).
 
-**Code in this unit:** vocabulary fences are **Excerpts**. They show one idea and do not run alone. The bulb is three **CodeSandbox-ready** files you paste into the Unit 8 sandbox: `src/parts.js`, `src/BulbMaterial.jsx`, `src/Beacon.jsx`. A fourth, a per-frame `src/BudgetProbe.jsx`, is only for a team that adds a post-processing pass. `docs/shader-note.md` is a **Template** — copy it, then fill the six checklist lines from your own shader. One scene, continued from Unit 8, so there is still no route table.
+**Code in this unit:** vocabulary fences are **Excerpts**. They show one idea and do not run alone. The bulb is three **CodeSandbox-ready** files you paste into the Unit 8 **beacon** sandbox, never into your cover fork: `src/parts.js`, `src/BulbMaterial.jsx`, `src/Beacon.jsx`. A fourth, a per-frame `src/BudgetProbe.jsx`, is only for a team that adds a post-processing pass. `docs/shader-note.md` is a **Template** — copy it, then fill the six checklist lines from your own shader; a seventh line, the sampler, belongs to your album cover and waits for the Cover shaders satellite. One scene, continued from Unit 8, so there is still no route table.
 
 ---
 
@@ -181,11 +181,11 @@ uniform vec3 color;
 
 ## The bulb — one shader on the Unit 8 scene
 
-Start from the Unit 8 sandbox. Same template, same pins, same `main.jsx`, `App.jsx`, `index.css`, and `BudgetProbe.jsx`. You replace three files. Nothing new is installed: `shaderMaterial` comes from drei, which Unit 8 already pins.
+Start from the Unit 8 **beacon** sandbox, the one the Unit 8 lab keeps as published. Do not paste these files into your cover fork: the bulb's `parts.js` would remove the sleeve, vinyl, and stage ids, and `Cover.jsx` would lose every part without an error. Same template, same pins, same `main.jsx`, `App.jsx`, `index.css`, and `BudgetProbe.jsx`. You replace three files. Nothing new is installed: `shaderMaterial` comes from drei, which Unit 8 already pins.
 
 The bulb is the only custom material. Arm, ring, shaft, collar, and plinth stay `meshStandardMaterial`. Hover and click still write the same React state. `uHot` is that state, passed as a prop. `uTime` advances in `useFrame`, because the fragment shader cannot see `delta`.
 
-**CodeSandbox-ready** — replace `src/parts.js`. Only the lamp sentence changes. The panel would be lying if it still said the bulb was a standard material.
+**CodeSandbox-ready** — in the beacon sandbox, replace `src/parts.js`. Only the lamp sentence changes. The panel would be lying if it still said the bulb was a standard material.
 
 ```js
 export const PartId = {
@@ -213,7 +213,7 @@ export const PARTS = [
 ];
 ```
 
-**CodeSandbox-ready** — create `src/BulbMaterial.jsx`.
+**CodeSandbox-ready** — in the beacon sandbox, create `src/BulbMaterial.jsx`.
 
 ```jsx
 import { useRef } from 'react';
@@ -273,7 +273,7 @@ export default function BulbMaterial({ hot, reduced }) {
 }
 ```
 
-**CodeSandbox-ready** — replace `src/Beacon.jsx`.
+**CodeSandbox-ready** — in the beacon sandbox, replace `src/Beacon.jsx`.
 
 ```jsx
 import { useRef } from 'react';
@@ -400,6 +400,7 @@ Sampled 2026-10-22, three@0.185.1, Apple M4 Max: idle body rgb(123, 92, 41), whi
 4. Precision: mediump, or why this shader needs highp.
 5. Effect: the one thing a viewer should notice. Name the function (fresnel, band, dissolve).
 6. Post-pass: zero. Or one pass, the pin, and the per-frame renderer.info row with and without it.
+7. Sampler (album cover only): which picture the sleeve samples, and at which UV. Leave it as a question until Cover shaders.
 ```
 
 ### What this file refuses
@@ -566,15 +567,26 @@ import { Text } from '@react-three/drei';
 
 ## Lab (team) — workplace-like · 3 h
 
-Same repo as Unit 8. The graded hand-in for both units is the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). This lab is the shader half. Unit 10 is still the rest of Entrega 2.
+Same repo as Unit 8. The graded hand-in for both units is the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}): a web 3D version of a named album cover. This lab is the shader half, and it points at your album sleeve. Unit 10 is still the rest of Entrega 2.
 
-1. Keep the Unit 8 scene, or your own mesh tree, and replace one material with a `shaderMaterial` you can explain. The bulb above is the demonstration. Pasting it unchanged fails checklist item 5.
+### The bulb is the demonstration, the sleeve is the hand-in
+
+The bulb computes its rim from the surface normal and the view direction. It reads no picture. The cover's shader has to read one: it looks up a colour in the sleeve picture at a UV, through a `sampler2D`. That lookup is taught in the [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) satellite, not here. `BulbMaterial` with new colours, or with a texture bolted onto its rim, is still a paste of the lesson excerpt. It fails checklist item 5 here and the assignment's second covenant bar.
+
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+tuning_record: 2026-11-04-fb4ae679-b012-46fb-a97e-ca555f6ebc27-feii-u9-lab-1 — three thessia-scholar-v3 attempts, all REJECTED (quote gate FAIL; invented commands, file paths, lab names). Per PHASE-X6 risk clause the B1 paragraph was not shipped; the lines above are operator-written lab brief restating lesson facts only. No citation.
+-->
+{% endif %}
+
+1. Work in your cover fork from the [Unit 8 lab]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}#lab-team--workplace-like--3-h), not in the beacon sandbox where the bulb runs. Write one `shaderMaterial` you can explain as a **new** material file of your own, import it in `Cover.jsx`, and use it on the sleeve mesh in place of its `meshStandardMaterial`. Keep the cover `parts.js` as it is, and do not paste `Beacon.jsx` or `BulbMaterial.jsx` into the fork. How that material samples the picture is taught in the [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) satellite. The bulb above is the demonstration. Pasting it unchanged fails checklist item 5.
 2. Drive one uniform from React. `uTime` in `useFrame` counts. A number written into the shader source does not.
-3. Write `docs/shader-note.md` from the template. Eight to twelve lines, all six checklist items.
-4. Leave post-processing off, or add one pass, swap in the per-frame `BudgetProbe`, and record both rows. The Bloom table is why the reference stays at zero passes.
-5. One merge log, the covenant's `docs/ai-3d-merge-log.md`, shared with Unit 8. Do not start a second log.
+3. Write `docs/shader-note.md` from the template. Eight to twelve lines, all six checklist items. Line 7, the sampler, waits for Cover shaders; leave it as a question until then.
+4. **Your cover, not the beacon.** Add one sentence to the note: which coordinate space your sleeve shader will sample in, and what would go wrong if you used the bulb's. A picture looked up by view direction swims across the sleeve as the camera orbits. A picture looked up at the mesh's UV stays printed on it.
+5. Leave post-processing off, or add one pass, swap in the per-frame `BudgetProbe`, and record both rows. On your cover fork, keep your own measured `CEILING` values from Unit 8 when you paste that file, not the beacon's 6 / 1368 it is published with. The Bloom table is why the reference stays at zero passes. Those rows are the beacon's; a pass on your cover needs its own two rows.
+6. One merge log, the covenant's `docs/ai-3d-merge-log.md`, shared with Unit 8. Do not start a second log.
 
-**Deliverable:** the shader on the shared repo, plus `docs/shader-note.md`. The merge log and the budget note are the assignment's, not a second pair of files.
+**Deliverable:** the shader on the shared repo, plus `docs/shader-note.md`. The merge log and the budget note are the assignment's, not a second pair of files. On the assignment, the sleeve shader that samples the cover picture is **task2 — authored shader** on your route.
 
 ---
 
@@ -600,7 +612,7 @@ Resolución de Ejercicios allocation.
 
 ## Session outcome
 
-You can explain one authored shader and decide whether a post pass is worth its cost. Units 8 and 9 are one scene; the hand-in is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). [Unit 10]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) adds live data. Tool shopping is still not a learning outcome.
+You can explain one authored shader and decide whether a post pass is worth its cost. Units 8 and 9 are one scene. On the hand-in that scene is your album sleeve, and its shader samples the cover picture ([Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }})); the bulb stays the demonstration. The hand-in is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). [Unit 10]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) adds live data. Tool shopping is still not a learning outcome.
 
 ---
 
