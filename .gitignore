@@ -56,6 +56,15 @@ _private/*
 # To add one deliberately: `git add -f <path>` and say why in the commit body.
 # Never bypass this with a broad `git add -A`.
 
+# X3-authorized text-only grounding audit. This one file is deliberately
+# versioned for the cascade's student/instructor firewall; all sibling private
+# material remains ignored.
+!web-foundations/private/
+web-foundations/private/*
+!web-foundations/private/ai-assisted-3d/
+web-foundations/private/ai-assisted-3d/*
+!web-foundations/private/ai-assisted-3d/AUDIT-GROUNDED.md
+
 # Documents & ebooks
 *.pdf
 *.epub
