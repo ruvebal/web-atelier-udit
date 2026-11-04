@@ -47,7 +47,7 @@ status: complete
 
 > **AI Assistance Disclosure:** Assistants may draft R3F JSX. You remain responsible for API truth, dispose, and the merge log. Read the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) before the first prompt. Same ACCEPT / REJECT discipline as [Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}).
 
-**Code in this unit:** vocabulary fences are **Excerpts**. They show one idea and do not run alone. The capstone files are **CodeSandbox-ready**: paste each one at the path in its label. `docs/renderer-info.md` is a **Template** — copy it, then replace the blank row with the readout from your machine. One scene, so there is no route table.
+**Code in this unit:** vocabulary fences are **Excerpts**. They show one idea and do not run alone. The capstone files are **CodeSandbox-ready**: paste each one at the path in its label. `docs/renderer-info.md` is a **Template** — copy it, then replace the blank row with the readout from your machine. The lab's cover files, `src/parts.js` and `src/Cover.jsx`, are **Templates** too: they run, but every size, colour, and name in them is a placeholder for your album. One scene, so there is no route table.
 
 ---
 
@@ -104,6 +104,7 @@ By the end of this unit, you will be able to:
 - **Optimize 3D performance** — Instancing, culling, and a graded `renderer.info` snapshot (desktop ≤ 200 draw calls / mobile ≤ 80)
 - **See the interface-layer transfer** — Same component model, different rendering target
 - **Merge with judgment** — Log ACCEPT / REJECT on any AI-assisted scene diff (covenant)
+- **Fork a measured scene** — Turn the beacon into the first draft of your album cover, then measure that tree yourself
 
 ---
 
@@ -342,7 +343,7 @@ One read per frame is only the whole frame while a single `gl.render` draws it. 
 
 ## Capstone reference — one beacon
 
-One object, one state owner, one animation, one budget read. The files below are the scene the lab asks you to run. Change the tree before you defend it. A branch that only pastes this does not show that you can explain a scene.
+One object, one state owner, one animation, one budget read. The files below are the scene the lab asks you to run. Change the tree before you defend it. A branch that only pastes this does not show that you can explain a scene. The tree you defend is your album cover: the [lab](#lab-team--workplace-like--3-h) forks this scene into a sleeve.
 
 ### Sandbox setup
 
@@ -805,15 +806,157 @@ The reference rows were measured on Apple M4 Max, ANGLE Metal, WebGL 2, 2026-10-
 
 ## Lab (team) — workplace-like · 3 h
 
-Run the reference scene, then change the mesh tree on the repo you will defend. Do this **together**. The reference is an instructor demonstration.
+Run the reference scene, then fork it into the first draft of your album cover. Do this **together**. The beacon is an instructor demonstration. The cover is what you hand in through the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}).
 
-1. Canvas + lights + one composed mesh tree (not a single tutorial cube).
-2. Pointer events: hover + click that change **React state** (raycasting is the 3D `onClick`).
-3. One `useFrame` animation that does **not** allocate geometry.
-4. `renderer.info` snapshot in `docs/` — before/after or a threshold you accepted.
-5. Merge log: the covenant's `docs/ai-3d-merge-log.md`, shared with Unit 9. The two-REJECT rule is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). This lab does not keep a separate count.
+### From beacon to sleeve
 
-**Deliverable:** the scene on the shared repo, plus `docs/renderer-info.md`. The graded 3D slice is the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). Unit 10 is still the rest of Entrega 2.
+The beacon is six meshes, and your album cover is a new scene on the same code. In a fork of the sandbox, keep the Canvas, the lights, the state above the Canvas, and `BudgetProbe` where they are; replace the beacon's tree with a cover tree of your own in `Cover.jsx`, so the plinth, shaft, and lamp become a stage, a sleeve, and a vinyl disc for one named album, with the sleeve left a flat colour for now: the picture comes later, through the cover shader and the [KTX2 lesson]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}). The 6 calls and 1368 triangles in the table above belong to the beacon, so the first question about your cover is one you answer with the probe running: how many geometries does it count when you stack two discs instead of one? A lower count is not a better cover, and the ceiling you write down describes your tree, not whether anyone recognises the album, which is a question the budget cannot answer.
+
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+tuning_record: 2026-11-04-3013b8ca-6cd5-4cdd-9c2c-e5e4cec2f926-feii-u8-lab-1 (thessia-scholar-v3 attempt 2, amended; attempt 1 rejected by the quote gate). No citation in this paragraph. Beacon numbers are the 2026-10-21 Unit 8 reference row, attributed to the beacon. No cover has been measured.
+-->
+{% endif %}
+
+1. **Run the beacon** as published and wait for `within ceiling`. That reading is the beacon's. It is not a number for your cover.
+2. **Name the album.** One named album per team: the one your assignment route will carry. In step 3 its title goes into the fork's `<h1>` in place of `Beacon`. The title stays DOM text.
+3. **Fork the sandbox.** This step is not optional. The beacon sandbox stays exactly as published, because Unit 9's bulb goes into it; the cover lives in the fork. The cover `parts.js` drops the beacon's ids, so `Beacon.jsx` stops working in the fork. In the fork, replace `src/parts.js` and create `src/Cover.jsx` from the two Templates below, then swap the import and the `<h1>` in `App.jsx`. `main.jsx`, `index.css`, the lights, `BudgetProbe`, and `OrbitControls` do not change.
+4. **Compose for the album, not for the template.** Sleeve, vinyl, and stage are the three part ids. Their sizes, positions, colours, and how the disc sits against the sleeve are yours. The sleeve is a flat colour in this unit: no texture, no `useTexture`, no image file. The picture comes later: the [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) satellite samples it, and the [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}) decides how it is delivered and measures what it costs.
+5. **Pointer events** — hover and click on each part change **React state** through the same `bindPart` helper (raycasting is the 3D `onClick`).
+6. **One `useFrame` animation** that does **not** allocate geometry and that stops under `prefers-reduced-motion`.
+7. **Measure your tree.** Until you change `CEILING`, the panel compares your cover with the beacon's numbers, and either verdict is meaningless. Read your own sample, write it into `CEILING`, and add a `cover` row to `docs/renderer-info.md` with the machine and date. Keep the beacon's reference rows above it. Do not copy 6 / 1368 into your row.
+8. Merge log: the covenant's `docs/ai-3d-merge-log.md`, shared with Unit 9. The two-REJECT rule is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). This lab does not keep a separate count.
+
+#### `src/parts.js` — cover
+
+**Template** — replace `src/parts.js`. Keep the three ids unless your album needs a different part. Rewrite every `note` for your album: the panel reads them aloud through `aria-live`, so they should say what this part is on *your* cover.
+
+```js
+export const PartId = {
+  sleeve: 'sleeve',
+  vinyl: 'vinyl',
+  stage: 'stage',
+};
+
+export const PARTS = [
+  {
+    id: PartId.sleeve,
+    name: 'Sleeve',
+    note: 'Replace: what the sleeve is on your album. A flat colour until the picture arrives.',
+  },
+  {
+    id: PartId.vinyl,
+    name: 'Vinyl',
+    note: 'Replace: how the disc sits against the sleeve, and the one thing useFrame moves.',
+  },
+  {
+    id: PartId.stage,
+    name: 'Stage',
+    note: 'Replace: what the cover stands on, and why it is part of the scene.',
+  },
+];
+```
+
+#### `src/Cover.jsx`
+
+**Template** — create `src/Cover.jsx` in the cover fork. It runs there once `parts.js` is replaced and `App.jsx` imports it, but every size, position, colour, and the slide distance is a placeholder. The helpers are the beacon's, unchanged, so hover and selection behave the same. The disc slides instead of spinning: an untextured disc that spins looks exactly like one that stands still.
+
+```jsx
+import { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { PartId } from './parts.js';
+
+const ACCENT = '#e36a2c';
+const HOVER = '#f6e2bc';
+
+function colorFor(id, hovered, selected, idle) {
+  if (selected === id) return ACCENT;
+  if (hovered === id) return HOVER;
+  return idle;
+}
+
+function bindPart(id, onHover, onSelect) {
+  return {
+    onPointerOver: (event) => {
+      event.stopPropagation();
+      onHover(id);
+    },
+    onPointerOut: (event) => {
+      event.stopPropagation();
+      onHover(null);
+    },
+    onClick: (event) => {
+      event.stopPropagation();
+      onSelect(id);
+    },
+  };
+}
+
+export default function Cover({ hovered, selected, reduced, onHover, onSelect }) {
+  const disc = useRef(null);
+  const phase = useRef(0);
+
+  useFrame((_, delta) => {
+    const node = disc.current;
+    if (!node || reduced) return;
+    phase.current += Math.min(delta, 0.05);
+    // The disc slides part-way out of the sleeve and back. No allocation, one position write.
+    node.position.x = 0.3 + 0.12 * Math.sin(phase.current * 0.8);
+  });
+
+  return (
+    <group position={[0, -0.4, 0]}>
+      <mesh {...bindPart(PartId.stage, onHover, onSelect)}>
+        <boxGeometry args={[2.2, 0.06, 1.4]} />
+        <meshStandardMaterial
+          color={colorFor(PartId.stage, hovered, selected, '#2b2723')}
+          roughness={0.9}
+        />
+      </mesh>
+
+      <mesh position={[-0.35, 0.68, 0]} {...bindPart(PartId.sleeve, onHover, onSelect)}>
+        <boxGeometry args={[1.24, 1.24, 0.02]} />
+        <meshStandardMaterial
+          color={colorFor(PartId.sleeve, hovered, selected, '#cfc6ba')}
+          roughness={0.7}
+        />
+      </mesh>
+
+      <mesh
+        ref={disc}
+        position={[0.3, 0.68, -0.03]}
+        rotation={[Math.PI / 2, 0, 0]}
+        {...bindPart(PartId.vinyl, onHover, onSelect)}
+      >
+        <cylinderGeometry args={[0.6, 0.6, 0.01, 64]} />
+        <meshStandardMaterial
+          color={colorFor(PartId.vinyl, hovered, selected, '#141210')}
+          metalness={0.2}
+          roughness={0.4}
+        />
+      </mesh>
+    </group>
+  );
+}
+```
+
+**Excerpt** — the lines that change in the fork's `src/App.jsx`, besides the `<h1>` title. Everything else in the file stays as published above.
+
+```jsx
+import Cover from './Cover.jsx';
+
+<Cover
+  hovered={hovered}
+  selected={selected}
+  reduced={reduced}
+  onHover={setHovered}
+  onSelect={setSelected}
+/>
+```
+
+The import replaces `import Beacon from './Beacon.jsx'`, and `<Cover … />` replaces `<Beacon … />` inside `<Canvas>`. The `<h1>` gets your album's title. This page publishes no budget for `Cover.jsx`: the tree is a placeholder, so no row for it would mean anything. Your probe gives the first real one.
+
+**Deliverable:** the cover tree plus `docs/renderer-info.md` with your measured `cover` row, beside the beacon's reference rows. On the assignment this becomes **task1 — mesh and scene** on your route. The route's `src/Cover.jsx` is the same kind of file as `Beacon.jsx`: a tree with no `<Canvas>`, because the gallery supplies the Canvas. Where the state and the panel live on a route is set by that repository's `_template`, not by this sandbox's `App.jsx`. The graded 3D slice is the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). Unit 10 is still the rest of Entrega 2.
 
 ---
 
@@ -840,7 +983,7 @@ This check is separate from the lab scene. Isolate the strategy:
 
 ## Session outcome
 
-You can transfer the React component model onto a WebGL canvas, interact with meshes, and **show a budget**. Shader literacy is [Unit 9]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}). MCP shopping is not a learning outcome.
+You can transfer the React component model onto a WebGL canvas, interact with meshes, and **show a budget**. The beacon stays the measured demonstration; your album sleeve is the tree you carry into the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}), with a ceiling you measured yourself. Shader literacy is [Unit 9]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}). MCP shopping is not a learning outcome.
 
 ---
 

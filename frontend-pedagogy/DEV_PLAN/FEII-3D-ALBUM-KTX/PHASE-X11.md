@@ -35,7 +35,11 @@ Implement PHASE-X11 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X11.m
 4. Link https://github.com/ruvebal/feii-album-covers (or the fallback name
    X9 actually created) in assignment + satellites. If X9 was local-only,
    say “local aggregator, GitHub pending” — do not invent a URL.
-5. Hand off for cold review — do NOT mark DONE.
+5. Carried from X6 round-2 review (P2): (G1) Unit 8 lab step 3 — add one
+   clause that the mandatory fork is a lab sandbox, not the hand-in
+   (assignment “does not ask for a second sandbox” means the hand-in);
+   (G2) Unit 8 `src/parts.js` Template label — add “in the cover fork”.
+6. Hand off for cold review — do NOT mark DONE.
 
 ## Constraints
 - Autopilot may commit web-atelier lesson files locally. Do not git push web-atelier-udit.

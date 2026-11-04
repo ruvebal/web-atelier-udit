@@ -7,3 +7,5 @@ Use the three checks in the lesson's "Independent self-check" section.
 3. Given a mobile cap of 80 draw calls: would you add bloom? One sentence, and name the counter you would trust.
 
 Submit separately from the team lab. The bulb in the lesson is an instructor demonstration, not this submission. The team hand-in for Units 8 and 9 is the assignment page.
+
+These drills stay away from your album cover on purpose. The sleeve shader that samples the cover picture is team lab work, not an individual exercise.

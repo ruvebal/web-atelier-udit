@@ -8,7 +8,8 @@
 6. Instancing and culling — why draw calls are the budget
 7. `renderer.info` — the graded snapshot
 8. The AI merge log — ACCEPT / REJECT, same discipline as Unit 6
-9. The Units 8–9 assignment — what this unit's lab contributes
-10. Handoff to Unit 9 — shader literacy
+9. The Units 8–9 assignment — fork the beacon into a named album sleeve (sleeve, vinyl, stage); the beacon's 6 calls / 1368 triangles stay the beacon's, and your ceiling is measured, not copied
+10. The sleeve stays a flat colour here; the picture arrives through Cover shaders and the KTX2/Basis satellite
+11. Handoff to Unit 9 — shader literacy
 
 Speaker claims only; no unsupported learning-outcome claim.
