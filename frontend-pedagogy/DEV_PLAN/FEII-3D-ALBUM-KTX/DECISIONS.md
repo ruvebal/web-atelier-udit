@@ -1,0 +1,28 @@
+# Decisions — frozen 2026-11-04 (product-owner amend)
+
+Status values: `CONFIRMED` · `AMENDED` (new text below). No `PROPOSED` rows remain. Autopilot X0 re-probes; it does not re-open these unless a live store falsifies them. D21 freezes the contribution mapping. D22 freezes KTX2 first-principles pedagogy.
+
+| ID | Decision | Status |
+| --- | --- | --- |
+| D1 | Do **not** add numbered Units 13–14. Two new pages are **satellites** under Bloque 5, registered in `lessons.yml`, linked from U8/U9/assignment. No new `tracks.yml` session rows. | CONFIRMED |
+| D2 | Unit 9 remains min-viable GLSL. New shaders lesson = **cover application** (`sampler2D`, UV, one authored sleeve effect). | CONFIRMED |
+| D3 | New KTX2 lesson = UASTC vs ETC1S as a **written choice** with `renderer.info.memory.textures` (and file size) before/after. Tagged platform/standard until Ahmes has a spec PDF. **Pedagogy:** follow [KTX2-FIRST-PRINCIPLES.md](KTX2-FIRST-PRINCIPLES.md) — define pixel / UV / texel / texture, then file vs GPU memory, then container vs codec. No assumed WebGL degree. | AMENDED 2026-11-04 (first-principles spine) |
+| D4 | Assignment pitch = 3D web version of a favourite album cover. **Hand-in is TTOD-shaped PRs that light their route** `/covers/<slug>` (`covers/<slug>/` page module + one `registry.json` row). Branch from the teaching baseline; small staged PRs; CI green; human approve. Unit 8–9 labs may still use `react-template` / CodeSandbox for drills; that is not the entrega. | AMENDED 2026-11-04 (TTOD contribution ritual) |
+| D5 | Hours: satellites consume U8+U9 lab (3+3) + autonomous study. Do not steal `ejerciciosHours` from Units 1–7. Course 10/30/14 stays closed. | CONFIRMED |
+| D6 | L3 is GitHub repo **`ruvebal/feii-album-covers`** (private), local `~/projects/ruvebal/scholar/udit/courses-repos/feii-album-covers`. Gallery + **per-student routes** `/covers/<slug>` per [REPO-SHAPE.md](REPO-SHAPE.md). Do not overwrite `react-template`. | AMENDED 2026-11-04 (routes, not roots) |
+| D7 | Recycle from `private/ai-assisted-3d/index.md`: philosophy, merge rubric, rules-first, cursor-rules 00/20/30/40/50, KTX2 script ideas. **Do not execute** `corpus-to-boilerplate/`. **Forbidden student path:** MCP shopping, Stitch, 21st.dev. | AMENDED 2026-11-04 (index.md is recycle, not a repo factory) |
+| D8 | **IP:** `_studio` ships original or PD/CC only. Students photograph a physical album they own **or** name a licence. Private GitHub is not a licence. No scraped commercial covers in `_studio`. | CONFIRMED |
+| D9 | Students supply a source PNG on their route’s `public/`; `scripts/encode-cover.mjs` emits UASTC and ETC1S. They pick one and document it. Installing KTX-Software on every laptop is not a lab outcome. | AMENDED 2026-11-04 |
+| D10 | JSDoc typedefs — JavaScript-first, no TypeScript. Platform convention, not HE evidence. | CONFIRMED |
+| D11 | Spanish translations of the new pages are **out of scope**. | CONFIRMED |
+| D12 | Profield run = dated cycle under `ai-assisted-3d-web` (`20261104`). | CONFIRMED |
+| D13 | Entrega 2 still includes Unit 10 IoT. The album cover is the **3D slice** only. | CONFIRMED |
+| D14 | Autopilot **may commit** cascade reports, local web-atelier lesson files, and the aggregator repo. Autopilot **may `git push`** `feii-album-covers` only. No force-push, no skipped hooks, **no push of web-atelier-udit**. No cloud LLM SDKs. | AMENDED 2026-11-04 |
+| D15 | Aggregator tree is [REPO-SHAPE.md](REPO-SHAPE.md). `App.jsx` pre-wires `/covers/:slug`. Students add a **route page** under `covers/<slug>/`; they never replace `App.jsx`. | AMENDED 2026-11-04 (routes, not roots) |
+| D16 | X9 creates the GitHub repo with `gh repo create ruvebal/feii-album-covers --private`. Name collision → `feii-album-covers-udit` once, then BLOCKED. | AMENDED 2026-11-04 |
+| D17 | Research lane is **operator-autonomous**: prior 20260814 map + WebSearch/WebFetch + Crossref/OpenAlex + Ollama Pass-2 audit. No clipboard wait for a frontier chat. Surface label: `operator-web-tools`. | AMENDED 2026-11-04 |
+| D18 | A missing Khronos/Basis PDF does **not** block X4–X12. PENDING + platform-note teaching is success. | AMENDED 2026-11-04 |
+| D19 | Autopilot loop: [AUTOPILOT.md](AUTOPILOT.md). Cold review remains a fresh subagent; it is not skipped. | AMENDED 2026-11-04 |
+| D20 | `index.md` / `corpus-to-boilerplate` stay instructor-private. Aggregator README may link the **covenant**, not those files. | AMENDED 2026-11-04 |
+| D21 | Aggregator contribution **is** TTOD’s ritual, mapped onto cover **routes** (not TTOD Astro seams). Source: `ttod/docs/public/guides/contributing.md`, `reviewing-cohort-prs.md`, Phase V §§3–5, `.github/pull_request_template.md`. Cite `qa-007`. **Copy:** named branch from `main`, own-route files only, PR template, CI + one human approval, AI Review Log, small staged PRs, ≥1 cross-cover PR and ≥1 cross-cover review, bot comments never merge. **Do not copy:** `content`/`graph`/`oracle`/`pwa`/`accounts` seam names, in-app `ASSIGNMENT.md`, quote-proposal two-touchpoint, cloud `pr-review.yml`. Instructor review uses a sibling worktree, not the teaching clone. | CONFIRMED 2026-11-04 |
+| D22 | The KTX2 satellite **educates the instructor as well as the student**. Binding spine: [KTX2-FIRST-PRINCIPLES.md](KTX2-FIRST-PRINCIPLES.md). Define every graphics word before use. Hello-world = PNG / ETC1S / UASTC switch with **two** labelled numbers (file bytes vs GPU textures memory). Student-owned depth = the written choice on their sleeve. **Do not** put Tao/quote-database citations on this lesson — keep the journey, drop the names. Khronos/three.js remain dated platform notes. | CONFIRMED 2026-11-04 |
