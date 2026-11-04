@@ -13,6 +13,12 @@ rg -qi "uastc" "$ROOT/covers/_studio" "$ROOT/src/lib"
 rg -qi "etc1s" "$ROOT/covers/_studio" "$ROOT/src/lib"
 rg -q "uMap" "$ROOT/covers/_studio/src"
 rg -qi "file bytes" "$NOTE"
+rg -q -- "--assign[_-](oetf|tf)['\"]?[ ,]+['\"]?srgb" "$ROOT/scripts/encode-cover.mjs" || { echo "REFUSED: encode-cover.mjs must assign sRGB (X8 cold review S1)" >&2; exit 1; }
+if rg -- "--convert[_-](oetf|tf)\b" "$ROOT/scripts/encode-cover.mjs" | rg -qv '^\s*(//|\*|/\*)'; then echo "REFUSED: --convert_oetf/--convert-tf rewrites sleeve pixels (X8 cold review S1)" >&2; exit 1; fi
+test -f "$ROOT/public/basis/basis_transcoder.js" && test -f "$ROOT/public/basis/basis_transcoder.wasm" || { echo "REFUSED: transcoder pair not vendored at root public/basis/ (X8 F2)" >&2; exit 1; }
+if find "$ROOT/covers" -name 'basis_transcoder.*' | grep -q .; then echo "REFUSED: per-route transcoder copy (X8 F2)" >&2; exit 1; fi
+rg -q "BASE_URL[^\n]*basis" "$ROOT/src" || { echo "REFUSED: transcoder path not built from import.meta.env.BASE_URL (X8 F2)" >&2; exit 1; }
+if rg -q "setTranscoderPath\(\s*['\"]/" "$ROOT/src" "$ROOT/covers"; then echo "REFUSED: root-absolute transcoder path breaks under a Pages subpath (X8 F2)" >&2; exit 1; fi
 rg -qi "GPU bytes" "$NOTE" || { echo "REFUSED: ktx2-note must record computed GPU bytes (X7 F3)" >&2; exit 1; }
 rg -q "lower_left_maps_to_s0t0|convert-texcoord-origin" "$ROOT/scripts/encode-cover.mjs" || { echo "REFUSED: encode-cover.mjs does not flip for KTX2 orientation" >&2; exit 1; }
 rg -q "colorSpace *(===|!==|==|!=) *(THREE\.)?SRGBColorSpace|SRGBColorSpace *(===|!==|==|!=) *[A-Za-z_.]*colorSpace" "$ROOT/covers/_studio/src" "$ROOT/src/lib" || { echo "REFUSED: no runtime colorSpace comparison (assignment alone does not count)" >&2; exit 1; }

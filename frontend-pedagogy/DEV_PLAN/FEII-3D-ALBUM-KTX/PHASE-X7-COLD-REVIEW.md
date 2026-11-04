@@ -523,3 +523,8 @@ toktx help says `--assign_oetf` should be used "WITH CAUTION preferably only whe
 - SwiftShader only; no GPU or phone check.
 - I did not render a KTX2 in three. The orientation and colorSpace claims rest on three source, `toktx --help`, and `ktx info` of real encodes.
 - I did not re-run the round-1 hover, reduced-motion, or own-photo renders, because no fence changed (`diff -r` identical).
+
+
+> **Pointer (orchestrator, 2026-11-04):** G6 is superseded by PHASE-X8-COLD-REVIEW.md S1. `--assign_oetf srgb` is correct in every measured case and `--convert_oetf` never is. This record is otherwise unchanged.
+
+> **Correction (orchestrator, X8 round-2 G7):** “convert never correct” means never needed. On correctly tagged or untagged PNGs `--convert_oetf` is a harmless no-op. It does harm on mis-tagged and ICC-tagged files, which is why X10 uses assign only.

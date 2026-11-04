@@ -29,6 +29,9 @@ The alternative, publishing it on purpose, is your call. If you choose it, say s
 - `git log --oneline main..cascade/FEII-3D-ALBUM-KTX` and `git diff --stat main...cascade/FEII-3D-ALBUM-KTX`
 - The assignment page is `status: complete` and links `github.com/ruvebal/feii-album-covers`. Push only after X9 created that repo and students are added as collaborators.
 - Lesson prose in X6–X8 is partly drafted by thessia-scholar-v3 and reviewed only by agents. Read Unit 8, Unit 9, cover-shaders and ktx2-basis once yourself.
+- **Professor release required (agent-written, not Thessia):** Unit 9's cover lab lines; cover-shaders idea-1 paragraph; ktx2-basis §1, §3, §5; the X8 triage plain-words paragraphs ("Four colour words first", "Phone and editor photos"). Each has a hidden provenance comment naming the Claude executor.
+- **Thessia training hygiene:** exclude from any tuning batch the records whose published text is executor-written: `…feii-cover-shaders-idea1`, `…feii-ktx2-basis-s1`, `…-s3`, `…-s5`, and the U9 lab record. The rejected attempts can stay as negative examples if your pipeline labels them so.
+- **Decisions amended without you (amend-on-surprise):** D3/D22 measurement is now **computed GPU bytes**, because `renderer.info.memory.textures` only counts textures (FINDINGS F16). The KTX2 encode uses `--assign_oetf srgb`, never `--convert_oetf` (X8 S1). Confirm or overrule.
 
 ## 4. Host
 

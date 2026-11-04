@@ -46,7 +46,15 @@ Implement PHASE-X11 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X11.m
    is wrong. (G4, P2) cover-shaders L449: deleting only `varying vec2 vUv;`
    while `vUv = uv;` remains is a vertex COMPILE error (undeclared
    identifier); the Unit 9 link error needs both lines gone — reword.
-7. Hand off for cold review — do NOT mark DONE.
+7. Carried from X8 cold review F2: re-check ktx2-basis L314 / L343 / L513 (lab step 3)
+   against the built aggregator — one shared transcoder at root
+   public/basis/ (path from import.meta.env.BASE_URL), routes reference
+   their .ktx2 the way _template references its picture.
+8. Carried from X8 round-2 (P2): (G4) ktx2-basis L377 uses "colour
+   profile" one paragraph before its definition at L379 — reorder or
+   gloss; (G5) L373 "three.js copies the file's tag" → "for a packed
+   (KTX2) file", since the PNG example was tagged by hand.
+9. Hand off for cold review — do NOT mark DONE.
 
 ## Constraints
 - Autopilot may commit web-atelier lesson files locally. Do not git push web-atelier-udit.

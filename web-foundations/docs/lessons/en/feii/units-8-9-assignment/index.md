@@ -61,26 +61,32 @@ Your completed route contains the scene plus these four documents:
 
 - `docs/renderer-info.md` — machine/device, draw calls, triangles, textures, threshold, and any before/after change.
 - `docs/shader-note.md` — the uniform, coordinate space, sampler, and authored visual effect in eight to twelve lines.
-- `docs/ktx2-note.md` — source/licence declaration; source PNG, ETC1S, and UASTC file bytes; computed GPU bytes for each; chosen delivery and reason.
+- `docs/ktx2-note.md` — source/licence declaration; source PNG, ETC1S, and UASTC file bytes; computed GPU bytes for each (same levels counted, `texture.format` recorded); the orientation and `colorSpace` checks; chosen delivery and reason.
 - `docs/ai-3d-merge-log.md` — the covenant decisions and required REJECT evidence across the two units.
 
-**Template** — keep the KTX2 comparison explicit rather than writing “compressed better.”
+**Template** — keep the KTX2 comparison explicit rather than writing “compressed better.” This is the same template as the [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }})'s; replace every ellipsis. The orientation and `colorSpace` rows are the two traps that satellite teaches: a packed sleeve is not flipped on upload, and its colour space comes from the file.
 
 ```markdown
 # KTX2 choice
 
-Album and source/licence:
+Album, and the source picture's licence (a photo of an album you own, or the named licence): ...
 
-| Asset | File bytes | GPU bytes (computed) | Observation |
-| --- | ---: | ---: | --- |
-| Source PNG | | | |
-| ETC1S | | | |
-| UASTC | | | |
+Chosen mode (ETC1S or UASTC; or PNG kept, if the encoder was missing — say so): ...
+Why it fits this sleeve (one honest reason: photo grain, sharp type, a logo...): ...
 
-Texture count (`renderer.info.memory.textures`, a count, not bytes) with the sleeve loaded:
+Measured on (machine, browser, date): ...
+Levels counted (all levels on every row, or level 0 on every row): ...
 
-Chosen delivery:
-Reason:
+| Asset | File bytes (on disk) | GPU bytes (computed) | texture.format | Observation |
+| --- | ---: | ---: | --- | --- |
+| Source PNG | ... | ... | RGBAFormat | ... |
+| ETC1S .ktx2 | ... | ... | ... | ... |
+| UASTC .ktx2 | ... | ... | ... | ... |
+
+Texture count (renderer.info.memory.textures, a count, not bytes), before and after the sleeve loads: ... → ...
+
+Orientation check (does uv 0,0 land bottom-left and the title read upright? how was the file encoded?): ...
+colorSpace check (what does texture.colorSpace log after loading? what did you do if it was not srgb?): ...
 ```
 
 There is **no post required**. The route, the four documents, the PR history, and the human defence are the hand-in.
