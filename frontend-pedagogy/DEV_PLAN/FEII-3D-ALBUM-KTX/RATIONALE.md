@@ -30,4 +30,4 @@ The cascade is written to run X0→X12 with agent cold review and without a huma
 
 ## Success
 
-The instructor opens `/`, then each `/covers/<slug>`. A team can explain their shader, say pixel vs texel, show file bytes vs GPU texture memory, and name ETC1S or UASTC with a reason. `/covers/_studio` has no Beatles JPEG.
+The instructor opens `/`, then each `/covers/<slug>`. A team can explain their shader, say pixel vs texel, show file bytes vs computed GPU bytes, and name ETC1S or UASTC with a reason. `/covers/_studio` has no Beatles JPEG.

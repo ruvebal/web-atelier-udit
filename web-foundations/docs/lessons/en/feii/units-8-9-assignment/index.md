@@ -48,7 +48,7 @@ The [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | r
 
 Two hand-in conditions make those bars specific to this cover:
 
-- **KTX2 choice** — supply a source PNG on your route, compare ETC1S and UASTC, choose one, and explain the choice in `docs/ktx2-note.md`. Record both file bytes and runtime `renderer.info.memory.textures`; they are different measurements.
+- **KTX2 choice** — supply a source PNG on your route, compare ETC1S and UASTC, choose one, and explain the choice in `docs/ktx2-note.md`. Record both **file bytes** (the suitcase on disk) and **GPU bytes** (the room the picture takes once uploaded, computed: for the PNG, width × height × 4; for each KTX2, the sum of the transcoded mip data `byteLength`, as the [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}) teaches); they are different measurements. `renderer.info.memory.textures` is a texture **count**, not bytes: use it only to confirm the sleeve added one texture.
 - **IP declaration** — photograph a physical album you own **or** name the licence that permits your image use in `docs/ktx2-note.md`. Private GitHub is not a licence. Do not place scraped commercial sleeve scans in `_studio`, and do not publish unlicensed cover imagery to a public Pages site.
 
 This course treats the sequence as a transparent studio pilot, not as a settled claim that R3F, KTX2, or an album-cover prompt is the best higher-education syllabus. The research precedent is that durable graphics concepts can remain meaningful across changing APIs (Angel and Shreiner 2024, 1–2); the implementation, measurements, PRs, and defence are the evidence for this cohort.
@@ -61,7 +61,7 @@ Your completed route contains the scene plus these four documents:
 
 - `docs/renderer-info.md` — machine/device, draw calls, triangles, textures, threshold, and any before/after change.
 - `docs/shader-note.md` — the uniform, coordinate space, sampler, and authored visual effect in eight to twelve lines.
-- `docs/ktx2-note.md` — source/licence declaration; source PNG, ETC1S, and UASTC file bytes; runtime texture-memory observation; chosen delivery and reason.
+- `docs/ktx2-note.md` — source/licence declaration; source PNG, ETC1S, and UASTC file bytes; computed GPU bytes for each; chosen delivery and reason.
 - `docs/ai-3d-merge-log.md` — the covenant decisions and required REJECT evidence across the two units.
 
 **Template** — keep the KTX2 comparison explicit rather than writing “compressed better.”
@@ -71,11 +71,13 @@ Your completed route contains the scene plus these four documents:
 
 Album and source/licence:
 
-| Asset | File bytes | renderer.info.memory.textures | Observation |
+| Asset | File bytes | GPU bytes (computed) | Observation |
 | --- | ---: | ---: | --- |
 | Source PNG | | | |
 | ETC1S | | | |
 | UASTC | | | |
+
+Texture count (`renderer.info.memory.textures`, a count, not bytes) with the sleeve loaded:
 
 Chosen delivery:
 Reason:

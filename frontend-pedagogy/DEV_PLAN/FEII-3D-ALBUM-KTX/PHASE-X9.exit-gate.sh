@@ -19,6 +19,10 @@ if rg -n "git checkout -b (content|graph|oracle|pwa|accounts)-" "$ROOT/CONTRIBUT
   echo "REFUSED: CONTRIBUTING tells students to use TTOD seam names" >&2; exit 1
 fi
 rg -q "AI Review Log" "$ROOT/.github/pull_request_template.md"
+for prop in hovered selected reduced onHover onSelect; do
+  rg -q "\b$prop\b" "$ROOT/src" -g '*.jsx' || { echo "REFUSED: gallery route does not pass $prop to Cover (X7 G1 contract)" >&2; exit 1; }
+done
+if rg -n "['\"]/sleeve\.(jpg|png)" "$ROOT/covers/_template"; then echo "REFUSED: _template uses a root /sleeve path, not route-relative" >&2; exit 1; fi
 rg -q "covers/\*/src/Cover.jsx|covers/\*/src/Cover" "$ROOT/src/App.jsx" "$ROOT/src" -g '*.jsx' -g '*.js'
 python3 - "$ROOT/package.json" "$BEACON/package.json" <<'PY'
 import json,sys

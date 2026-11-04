@@ -30,11 +30,24 @@ Implement PHASE-X10 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X10.m
 ## Deliver
 1. Studio cover: sleeve, simple vinyl/stage, hover/click → state,
    useFrame without allocating geometry. Default export Cover, gallery wraps Canvas.
-2. Shader samples uMap; one authored effect. JSDoc on helpers.
+2. Shader samples uMap; one authored effect. JSDoc on helpers. Reuse the
+   cover-shaders lesson's SleeveMaterial.jsx / sleevePicture.js unchanged
+   (X7 round-2 G1: the lesson promises they move over as they are).
 3. KTX2Loader + transcoder. Compare ETC1S vs UASTC vs PNG as a visible
    switch (D22 hello-world). Label two numbers in the UI or docs:
-   “file bytes (suitcase)” vs “GPU texture memory (renderer.info.memory.textures)”.
+   “file bytes (suitcase)” vs “GPU bytes (room)”. GPU bytes are COMPUTED
+   (PNG: width × height × 4 via THREE.TextureUtils.getByteLength; KTX2: sum
+   of transcoded mipmaps[i].data.byteLength). renderer.info.memory.textures
+   is only a texture count — show it, labelled as a count (X7 F3).
    Do not print a raw dump with no gloss.
+   encode-cover.mjs must pass `--lower_left_maps_to_s0t0` (toktx 4.4.2;
+   KTX2 is not flipped on upload) and set sRGB transfer explicitly
+   (`--convert_oetf srgb`, the flag toktx help recommends; `--assign_oetf` is “use with caution”; `ktx create` equivalent `--convert-tf srgb`). _studio checks at
+   runtime that texture.colorSpace === THREE.SRGBColorSpace and shows a
+   UV-labelled test picture so orientation is visibly right for PNG, ETC1S
+   and UASTC. Do NOT fix orientation with 1.0 - vUv.y in the shader (PNG
+   and KTX2 would need different shaders). Re-check the flip flag if
+   `ktx create` replaces toktx.
 4. encode-cover.mjs: non-zero exit + install text if toktx missing.
    Run `which toktx ktx` FIRST. If present (the professor may install
    KTX-Software 4.4.2 .pkg after 2026-11-04 → /usr/local/bin), encode both
@@ -61,7 +74,8 @@ Implement PHASE-X10 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X10.m
 - [ ] `npm run build` and `npm run lint` exit 0 in feii-album-covers
 - [ ] Grep `uastc` and `etc1s` under `covers/_studio` or `src/lib`
 - [ ] `covers/_studio/docs/ktx2-note.md` has bytes or explicit encoder skip
-- [ ] Compare UI/docs label **file bytes** vs **GPU texture memory** (not a raw dump)
+- [ ] Compare UI/docs label **file bytes** vs **GPU bytes (computed)**; `memory.textures` shown only as a count
+- [ ] Orientation and `colorSpace` verified for PNG, ETC1S, UASTC (screenshot or logged check)
 - [ ] `registry.json` lists `_studio`
 - [ ] Budget caps ≤200 / ≤80 still in lib
 - [ ] Cold review filed; blocking Fn closed

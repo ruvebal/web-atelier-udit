@@ -11,7 +11,7 @@ Teach a reader who has never heard **texel** and is not a WebGL expert. Binding 
 
 - `web-foundations/docs/lessons/en/feii/ktx2-basis/index.md` (+ exercises.md, deck-outline.md)
 - `lessons.yml` entry `feii-ktx2-basis`
-- Template `docs/ktx2-note.md` for the assignment (mode, why, licence, file bytes, textures row)
+- Template `docs/ktx2-note.md` for the assignment (mode, why, licence, file bytes, GPU bytes, orientation + colorSpace checks)
 - lesson-scribe records whose B1 briefs are the spine sections, not a Khronos dump
 - `PHASE-X8-COLD-REVIEW.md`, `PHASE-X8-REPORT.md`
 
@@ -42,7 +42,24 @@ who has never heard “texel.”
    Missing measured pair → “measured in the reference repo (X10).”
 5. Excerpt: KTX2Loader + transcoder path, after the why. Template:
    ktx2-note.md asking mode, why, source licence, file bytes,
-   renderer.info.memory.textures (label those two numbers in prose).
+   GPU bytes (label those two numbers in prose). AMENDED after X7 F3:
+   renderer.info.memory.textures is a COUNT (1 → 2 when the sleeve
+   loads), not memory — teach it as a sanity count only. GPU bytes are
+   computed: PNG = width × height × 4 (THREE.TextureUtils.getByteLength
+   is exported); KTX2 = sum of transcoded mipmaps[i].data.byteLength.
+   Two KTX2 traps, checked against three 0.185.1 (X7 ruling d):
+   (a) a KTX2 picture is NOT flipped on upload (CompressedTexture
+   flipY=false, KTX2Loader ignores orientation) — encode it already
+   flipped; the UV-labelled placeholder from cover-shaders is the test;
+   (b) after loading, texture.colorSpace must be 'srgb' (set from the
+   file's DFD transfer) — if not, re-encode with sRGB transfer; never
+   delete colorspace_fragment. The ktx2-note Template records both, and
+   the same two rows are added to the assignment page's ktx2-note
+   Template so the two do not diverge (X7 round-2 G8). Compare GPU bytes
+   like with like: PNG gets mipmaps by default (× ~4/3) — count all levels
+   on both sides or level 0 on both, and record texture.format (G3).
+   Also fix the texel gloss per the amended spine §1 (texel = one stored
+   colour; the lookup usually blends several).
 6. IP: encode the student's own source PNG. Link cover-shaders +
    assignment. Unit 8 renderer.info and Unit 9 UV are prerequisites,
    restated in one sentence each — do not assume they are remembered.
@@ -63,7 +80,8 @@ who has never heard “texel.”
 - [ ] Page uses separate terms for ETC1S and UASTC; no “just use KTX2”
 - [ ] Studio test / oral paragraph is present (spine §9)
 - [ ] No `tao-development-quote` and no `` `arch-` `` / `` `qa-` `` / `` `dop-` `` IDs on the page
-- [ ] `docs/ktx2-note.md` Template asks for mode, why, source licence, file bytes, `renderer.info.memory.textures`
+- [ ] `docs/ktx2-note.md` Template asks for mode, why, source licence, file bytes, GPU bytes (computed), orientation check, `colorSpace` check
+- [ ] `renderer.info.memory.textures` is described as a texture **count**, never as memory
 - [ ] Normal build HTML has no coat/node/Ahmes strings
 - [ ] lessons.yml row exists; index links resolve in `_site`
 - [ ] Build exit 0; no Liquid Warning
