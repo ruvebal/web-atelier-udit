@@ -132,6 +132,8 @@ The complete journey on one page, before anyone “owns” a cover:
 4. A **switch** in the scene: PNG / ETC1S / UASTC.
 5. Two numbers visible: file bytes, GPU bytes (computed; `memory.textures` only counts).
 
+Two encode facts the switch depends on (checked 2026-11-04, toktx 4.4.2, three 0.185.1). Encode flipped (`--lower_left_maps_to_s0t0`), because three does not flip a packed picture on upload. Label the picture as screen colours with `--assign_oetf srgb`, never `--convert_oetf`: a sleeve picture always holds screen colours, so a file tagged anything else is mislabelled, and convert would trust the wrong label and rewrite the pixels (227,106,44 → 242,173,115 measured), while toktx refuses ICC-tagged files without assign. After loading, `texture.colorSpace` must read `'srgb'`; that check catches a missing label, not a baked conversion, so also look at the sleeve beside the PNG. A photo carrying a non-sRGB colour profile (e.g. Display P3) must be converted to sRGB in an image editor first; assign only relabels, so it would come out muted.
+
 That switch is the rehearsal. The assignment copies the **habit**, not the studio art.
 
 Encoding every student laptop is not the lab outcome. The repo script may encode; if `toktx` / the encoder is missing, the script fails **loudly** and the PNG path still teaches inflation.

@@ -612,7 +612,7 @@ Resolución de Ejercicios allocation.
 
 ## Session outcome
 
-You can explain one authored shader and decide whether a post pass is worth its cost. Units 8 and 9 are one scene. On the hand-in that scene is your album sleeve, and its shader samples the cover picture ([Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }})); the bulb stays the demonstration. The hand-in is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). [Unit 10]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) adds live data. Tool shopping is still not a learning outcome.
+You can explain one authored shader and decide whether a post pass is worth its cost. Units 8 and 9 are one scene. On the hand-in that scene is your album sleeve, and its shader samples the cover picture ([Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }})), and how that picture is delivered and what it costs on the GPU is the [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}); the bulb stays the demonstration. The hand-in is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). [Unit 10]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) adds live data. Tool shopping is still not a learning outcome.
 
 ---
 

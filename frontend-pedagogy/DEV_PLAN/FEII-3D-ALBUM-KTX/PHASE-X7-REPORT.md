@@ -263,3 +263,7 @@ The orchestrator's first PHASE-X9.md amendment wrongly said Unit 8 keeps hover/s
 | G8 assignment ktx2-note rows | P2 | Deferred to X8 (written into PHASE-X8.md) |
 
 For the professor: the amendment to the D3/D22 measurement method and release of the agent-written idea-1 paragraph.
+
+> **Pointer (orchestrator, 2026-11-04):** the G6 row above is superseded by PHASE-X8-COLD-REVIEW.md S1. X10 now uses `--assign_oetf srgb` and never `--convert_oetf`; PHASE-X10.md and its gate are amended in the X8 change set.
+
+> **Correction (orchestrator, X8 round-2 G7):** “convert never correct” means never needed. On correctly tagged or untagged PNGs `--convert_oetf` is a harmless no-op. It does harm on mis-tagged and ICC-tagged files, which is why X10 uses assign only.
