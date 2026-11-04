@@ -1,6 +1,6 @@
 {
   "schema": "profield-curriculum-sync/v1",
-  "generated_at": "2026-08-16T16:45:01.905578+00:00",
+  "generated_at": "2026-11-04T20:15:39+01:00",
   "authority": "curriculum root is mutable publication head; Profield run is evidence factory",
   "audit_ledger": "/Users/ruvebal/src/profield/runs/dc-curriculum-gap-harvest/20260816/pass2.claude.audit.ledger.md",
   "source_run": "dc-curriculum-gap-harvest/20260816 (cross-course forge brief only)",
@@ -129,6 +129,47 @@
   "unresolved": [
     "FE units still require wave-by-wave lesson/lab/exercise/deck build and Ahmes cite gates."
   ],
+  "feii_3d_album_ktx_20261104": {
+    "run_id": "ai-assisted-3d-web/20261104",
+    "authority": "Profield discovers; Ahmes coat/node/page is the only research citation surface; standards and vendor docs remain labelled platform notes",
+    "audited_artifacts": [
+      {
+        "path": "/Users/ruvebal/src/profield/runs/ai-assisted-3d-web/20261104/CONSOLIDATED.md",
+        "sha256": "05cf64a93e5cd9a25cbc09ac188a6049b63b1e23a970da13cd0433e8ec56d0ad"
+      },
+      {
+        "path": "/Users/ruvebal/src/profield/runs/ai-assisted-3d-web/20261104/manifest.json",
+        "sha256": "49dbec148ef8e31b1a1f02fc0932ccf1b025ec84681009fb079fcaf88b6e575f"
+      },
+      {
+        "path": "/Users/ruvebal/src/profield/runs/ai-assisted-3d-web/20261104/PENDING-procurement.md",
+        "sha256": "836ae6e6a270984584480a8ff7942c3be5731cc4e88b1a116b058c6be506c9ac"
+      }
+    ],
+    "source_manifest": "/Users/ruvebal/src/profield/runs/fe-curriculum-gap-harvest/20260815/source-pdfs/.ahmes/batch-manifest.json",
+    "evaluator_safe": [
+      {
+        "coat": "10_1145_3641235_3664433_the_future_of_teaching_computer_graphics_e2e9b45c",
+        "nodes": [
+          "348bd016-3aee-5eb3-ae93-b3d422e137df",
+          "92a534c1-6aff-5d5e-b1e5-2a7d2e2c65a9"
+        ],
+        "pages": [1, 2],
+        "status": "evaluator_safe=yes; supports durable graphics concepts across API churn, not R3F/KTX2/album-cover outcomes"
+      }
+    ],
+    "gaps": [
+      "No evaluator-safe HE KTX2/Basis pedagogy coat landed in the 20261104 run.",
+      "No Ahmes coat validates the R3F/Drei cover-shader sequence or album-cover/route-PR brief as a superior learning intervention.",
+      "AI Co-Artist remains excluded from student citations; ShaderMatch remained no_oa and is not promoted without an Ahmes node."
+    ],
+    "target_files": [
+      "frontend-pedagogy/grounding/README.mdc",
+      "frontend-pedagogy/grounding/FEII-3D-ALBUM-KTX-CITATION-TRANSCRIPT-20261104.md",
+      "web-foundations/private/ai-assisted-3d/AUDIT-GROUNDED.md"
+    ],
+    "release_decision": "Grounding promotion approved by frozen X3 autopilot scope; satellites and assignment remain declared pilots, KTX2 remains platform-note-only for pedagogy claims."
+  },
   "fe_track_audit_2026_08_23": {
     "kind": "manual student-facing curriculum integrity audit",
     "fieldspec_supplied": false,
