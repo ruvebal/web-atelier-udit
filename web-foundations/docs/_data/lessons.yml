@@ -1280,6 +1280,28 @@
    en: complete
   category: feii
   tags: [feii, r3f, shaders, human-in-the-loop, ai-declaration, entrega-2]
+- slug: feii-cover-shaders
+  title:
+   en: 'Cover Shaders — One Authored Sleeve Effect'
+  path:
+   en: /lessons/en/feii/cover-shaders/
+  file:
+   en: lessons/en/feii/cover-shaders/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, shaders, glsl, r3f, album-cover, satellite]
+- slug: feii-ktx2-basis
+  title:
+   en: 'KTX2/Basis — Texture Choice from First Principles'
+  path:
+   en: /lessons/en/feii/ktx2-basis/
+  file:
+   en: lessons/en/feii/ktx2-basis/index.md
+  status:
+   en: draft
+  category: feii
+  tags: [feii, ktx2, basis-universal, textures, album-cover, satellite]
 - slug: feii-unit-8-r3f-fundamentals
   title:
    en: 'Unit 8: React Three Fiber — 3D Interfaces with React Patterns'
@@ -1304,7 +1326,7 @@
   tags: [feii, shaders, glsl, post-processing, aesthetics]
 - slug: feii-units-8-9-assignment
   title:
-   en: 'Units 8–9 Assignment — One Scene, One Shader'
+   en: 'Units 8–9 Assignment — 3D Album Cover'
   path:
    en: /lessons/en/feii/units-8-9-assignment/
   file:

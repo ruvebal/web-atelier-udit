@@ -457,7 +457,7 @@ tracks:
      tags: [performance, core-web-vitals, performance-budgets, bundle-optimization, runtime-optimization]
    - title: 'React Three Fiber — 3D Interfaces with React Patterns'
      slug: 'unit-8-r3f-fundamentals'
-     description: 'Interface-layer transfer onto R3F: state, raycasting, renderer.info budgets, AI merge log. Student covenant — no MCP shopping. Declared pedagogical pilot.'
+     description: 'Interface-layer transfer onto R3F through a 3D album-cover scene: state, raycasting, renderer.info budgets, source PNG and KTX2 texture choices, AI merge log. Student covenant — no MCP shopping. Declared pedagogical pilot.'
      duration: '3 horas'
      magistralHours: 1
      labHours: 3
@@ -465,7 +465,7 @@ tracks:
      tags: [r3f, react-three-fiber, 3d, webgl, three-js, interface-layer]
    - title: 'Shader Literacy & Cutting-Edge Interface Aesthetics'
      slug: 'unit-9-shader-literacy'
-     description: 'Minimum-viable GLSL: one understood shader, uniforms, UV space, optional post-processing cost. Merge log parity with Unit 6. Declared pedagogical pilot.'
+     description: 'Minimum-viable GLSL applied to the album cover: one understood sleeve shader, uniforms and UV space, plus a written PNG/ETC1S/UASTC KTX2 choice. Merge log parity with Unit 6. Declared pedagogical pilot.'
      duration: '3 horas'
      magistralHours: 0.5
      labHours: 3
