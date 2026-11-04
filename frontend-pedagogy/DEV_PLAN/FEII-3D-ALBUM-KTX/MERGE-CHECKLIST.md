@@ -33,3 +33,5 @@ The alternative, publishing it on purpose, is your call. If you choose it, say s
 ## 4. Host
 
 The disk filled to 0 bytes during the run (2026-11-04 ~21:00) and crashed Docker; DevIAC is down. ~24 GB was freed (brew cleanup, npm cache, Ollama log, `llama3.2-vision`, app caches). Phases X6–X12 do not need DevIAC. Keep Docker off until the run ends, then check `df -h` before starting it (its VM file is 23 GB and grows).
+
+`~/src/deviac/fine-tuning/.venv` is broken: it links to Homebrew `python@3.14/3.14.3_1`, which was replaced by 3.14.7 around Aug–Sep 2026 (before tonight's cleanup). Because of that, `thessia_generate.py` could not run in X6. The executor used a stdlib HTTP shim (`scribe_http.py`, copied into the U8 tuning record). To restore the canonical lesson-scribe path, rebuild that venv on 3.14.7 and reinstall its requirements.
