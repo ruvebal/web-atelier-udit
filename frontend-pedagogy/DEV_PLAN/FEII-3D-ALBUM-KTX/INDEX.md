@@ -32,8 +32,8 @@ Closing: each phase → VERIFYING → `PHASE-Xn-COLD-REVIEW.md` → amend if nee
 | ---- | ---- | ----------- | ---- |
 | 0 | [PHASE-X0.md](PHASE-X0.md) | Re-probe live stores; DECISIONS already frozen | DONE 2026-11-04 |
 | 1 | [PHASE-X1.md](PHASE-X1.md) | Autonomous Profield 20261104 map (web tools + Ollama Pass 2; no clipboard) | DONE 2026-11-04 |
-| 2 | [PHASE-X2.md](PHASE-X2.md) | OA retrieve → Ahmes batch → coats → DevIAC ingest | READY |
-| 3 | [PHASE-X3.md](PHASE-X3.md) | Evidence-matrix rows + AUDIT-GROUNDED addendum (cite Ahmes, not vectors) | BLOCKED until X2 DONE |
+| 2 | [PHASE-X2.md](PHASE-X2.md) | OA retrieve → Ahmes batch → coats → DevIAC ingest | DONE 2026-11-04 |
+| 3 | [PHASE-X3.md](PHASE-X3.md) | Evidence-matrix rows + AUDIT-GROUNDED addendum (cite Ahmes, not vectors) | READY |
 | 4 | [PHASE-X4.md](PHASE-X4.md) | CV Bloque 5 / tracks / lesson-index structural freeze | BLOCKED until X3 DONE |
 | 5 | [PHASE-X5.md](PHASE-X5.md) | Album-cover assignment pitch (Units 8–9 page) | BLOCKED until X4 DONE |
 | 6 | [PHASE-X6.md](PHASE-X6.md) | Enrich Unit 8 + Unit 9 toward the cover (lesson-scribe) | BLOCKED until X5 DONE |
