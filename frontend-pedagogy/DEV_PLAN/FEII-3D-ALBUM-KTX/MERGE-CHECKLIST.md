@@ -33,6 +33,12 @@ The alternative, publishing it on purpose, is your call. If you choose it, say s
 - **Thessia training hygiene:** exclude from any tuning batch the records whose published text is executor-written: `…feii-cover-shaders-idea1`, `…feii-ktx2-basis-s1`, `…-s3`, `…-s5`, and the U9 lab record. The rejected attempts can stay as negative examples if your pipeline labels them so.
 - **Decisions amended without you (amend-on-surprise):** D3/D22 measurement is now **computed GPU bytes**, because `renderer.info.memory.textures` only counts textures (FINDINGS F16). The KTX2 encode uses `--assign_oetf srgb`, never `--convert_oetf` (X8 S1). Confirm or overrule.
 
+## 3b. Aggregator repo — your decisions (X9, 2026-11-04)
+
+- `https://github.com/ruvebal/feii-album-covers` is created **private**, and CI `lint-and-build` is green.
+- **Branch protection is NOT enforced.** GitHub returned 403 for both classic protection and rulesets: “Upgrade to GitHub Pro or make this repository public”. CONTRIBUTING's “CI must pass / one human must approve” is therefore convention only. Options: GitHub Pro, or GitHub Education (free for teachers), or move the repo to an org with a plan. Making it public conflicts with D6/D8 (sleeve photos). Until then, merge only through PRs yourself.
+- Add the students as collaborators (out of cascade scope).
+
 ## 4. Host
 
 The disk filled to 0 bytes during the run (2026-11-04 ~21:00) and crashed Docker; DevIAC is down. ~24 GB was freed (brew cleanup, npm cache, Ollama log, `llama3.2-vision`, app caches). Phases X6–X12 do not need DevIAC. Keep Docker off until the run ends, then check `df -h` before starting it (its VM file is 23 GB and grows).
