@@ -36,9 +36,10 @@ Implement PHASE-X10 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X10.m
    “file bytes (suitcase)” vs “GPU texture memory (renderer.info.memory.textures)”.
    Do not print a raw dump with no gloss.
 4. encode-cover.mjs: non-zero exit + install text if toktx missing.
-   As of 2026-11-04 toktx is NOT installed on this machine (no Homebrew
-   formula; KTX-Software ships a macOS .pkg on GitHub releases). Do not
-   install system software unattended. Expected path: loud skip,
+   Run `which toktx ktx` FIRST. If present (the professor may install
+   KTX-Software 4.4.2 .pkg after 2026-11-04 → /usr/local/bin), encode both
+   modes for real and record measured bytes. Only if absent: do not install
+   system software unattended; take the loud-skip path:
    ktx2-note.md says "encoder skip — toktx missing" + PNG numbers; the
    ETC1S/UASTC switch shows "not encoded yet". Never commit a fake .ktx2
    (the gate checks the KTX 2.0 magic bytes).
