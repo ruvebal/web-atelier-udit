@@ -1,9 +1,9 @@
-# Technical director — FEII-3D-ALBUM-KTX (X0–X13)
+# Technical director — FEII-3D-ALBUM-KTX (X0–X16)
 
 **Status:** ACTIVE. Autopilot: [AUTOPILOT.md](AUTOPILOT.md). Run phases **in order**. Each `PHASE-Xn.md` is a self-contained paste prompt.
 
-**Product claim:** Entrega 2’s 3D slice is a web-3D album cover, handed in as **TTOD-shaped PRs** that light a **route** on one GitHub aggregator.
-**Engineering claim:** two satellite lessons + `ruvebal/feii-album-covers` (private), hour-closed, grounded, cold-reviewed; no 13th unit; no corpus-to-boilerplate.
+**Product claim:** Entrega 2’s 3D slice is a recognisable web album-cover **endpoint**, handed in as **TTOD-shaped PRs** that light `/covers/<slug>` on one GitHub aggregator; **format is student-owned** (D26).
+**Engineering claim:** satellite lessons + `ruvebal/feii-album-covers` (public Pages exhibition), hour-closed, grounded, cold-reviewed; no 13th unit; no corpus-to-boilerplate; shell ≠ shared Canvas.
 
 ## Programme (do not invert)
 
@@ -20,7 +20,7 @@ See [INDEX.md](INDEX.md) Programme table. Gate column first word is the harness 
 | L2 vectors | DevIAC `project_slug=profield-ai-assisted-3d-web` | X2 ingest | X3 discovery only |
 | L2 evidence | `frontend-pedagogy/grounding/` + `AUDIT-GROUNDED.md` addendum | X3 | X4–X8 |
 | L1 teaching | `web-foundations/docs/lessons/en/feii/**` | X4–X8, X11 | students |
-| L3 product | `courses-repos/feii-album-covers` + GitHub `ruvebal/feii-album-covers` | X9–X10 | assignment PRs (D21: TTOD contributing.md) |
+| L3 product | `courses-repos/feii-album-covers` + GitHub `ruvebal/feii-album-covers` | X9–X10, X14–X16 | assignment PRs (D21); D26 Route.jsx endpoints |
 
 ## Ollama delegation
 
@@ -73,10 +73,10 @@ autopilot.sh bootstrap creates it).
 - git push of web-atelier-udit
 
 ## Programme
-Execute the next incomplete phase only, in order X0 → X13, through the
+Execute the next incomplete phase only, in order X0 → X16, through the
 AUTOPILOT loop (executor → harness verify → cold-reviewer subagent →
 REPORT → flip next READY). Do not wait for clipboard Pass 1.
-Implementer must not self-certify DONE.
+Implementer must not self-certify DONE. D26: student Route.jsx endpoints.
 
 ## Hard constraints
 - No cloud AI SDKs. Ollama localhost:11434 only.
@@ -131,7 +131,8 @@ Check:
 3. Non-negotiables: hours, IP, no corpus-to-boilerplate on student path,
    no cloud SDKs, no vector-snippet cites, aggregator shape not a
    single-app overwrite of App.jsx, D21 TTOD contribution ritual
-   (cover slugs, not Astro seams).
+   (cover slugs, not Astro seams), D26 complete Route.jsx endpoints
+   (shell ≠ mandatory shared Canvas / sleeve composition).
 
 Write PHASE-<Xn>-COLD-REVIEW.md with Fn findings.
 Do not mark DONE. You may not git push web-atelier-udit.

@@ -566,7 +566,7 @@ Checked 2026-11-04. These explain how the tools work. None of them is evidence t
 
 ## Session outcome
 
-You can say what a texel is without naming a format. You can explain why the picture's file size is not its GPU number, and compute GPU bytes for a PNG and for a packed file, counting the same levels on both sides. KTX2 is the box. ETC1S and UASTC are the choice you write, with a reason, a licence, and two numbers. You know the two traps a packed sleeve sets: it can land upside down, and it can land in the wrong colour space. The sleeve effect stays the [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) satellite's job. The hand-in is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}).
+You can say what a texel is without naming a format. You can explain why the picture's file size is not its GPU number, and compute GPU bytes for a PNG and for a packed file, counting the same levels on both sides. KTX2 is the box. ETC1S and UASTC are the choice you write, with a reason, a licence, and two numbers. You know the two traps a packed sleeve sets: it can land upside down, and it can land in the wrong colour space. The sleeve effect stays the [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) satellite's job. Say the oral paragraph from [3D terminology]({{ '/lessons/en/feii/3d-terminology/' | relative_url }}) about your own sleeve. The hand-in is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}).
 
 {% if site.publication.publish_internal_metadata %}
 <!-- curriculum-internal:

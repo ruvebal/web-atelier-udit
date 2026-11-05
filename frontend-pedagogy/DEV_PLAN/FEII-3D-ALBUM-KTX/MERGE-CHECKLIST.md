@@ -33,19 +33,15 @@ The alternative, publishing it on purpose, is your call. If you choose it, say s
 - **Thessia training hygiene:** exclude from any tuning batch the records whose published text is executor-written: `…feii-cover-shaders-idea1`, `…feii-ktx2-basis-s1`, `…-s3`, `…-s5`, and the U9 lab record. The rejected attempts can stay as negative examples if your pipeline labels them so.
 - **Decisions amended without you (amend-on-surprise):** D3/D22 measurement is now **computed GPU bytes**, because `renderer.info.memory.textures` only counts textures (FINDINGS F16). The KTX2 encode uses `--assign_oetf srgb`, never `--convert_oetf` (X8 S1). Confirm or overrule.
 
-## 3b. Aggregator repo — your decisions (X9, 2026-11-04)
+## 3b. Aggregator repo — your decisions (X9 / D23 refresh 2026-11-05)
 
-- `https://github.com/ruvebal/feii-album-covers` is created **private**, and CI `lint-and-build` is green.
-- **Branch protection is NOT enforced — decided (D23, 2026-11-05):** stay on the personal `ruvebal` account, regular plan. “CI must pass / one human approves” is convention; you merge only through PRs. Collaborators can technically push to `main`, and a force-push can **erase** commits without leaving a trace in the log. Keep a local clone that you fetch regularly, so you have a copy to compare against. Students never press Merge; you do.
-- **X10 opens a PR (`_studio` reference cover) and leaves it unmerged.** D21: AI never merges. Review it and merge it yourself (`gh pr merge --squash`). The X9 scaffold commits (`4deb186`, `0e87d73`, `bb5e324`) were pushed straight to `main` before any collaborator existed, a one-time pre-cohort carve-out under D14.
-- Add the students as collaborators (out of cascade scope).
+- `https://github.com/ruvebal/feii-album-covers` is **public** with Pages at `https://ruvebal.github.io/feii-album-covers/` (D6 amended).
+- **Branch protection IS enforced (D23 AMENDED 2026-11-05):** `main` requires `lint-and-build` + ≥1 approving review; force-push disabled. Enabled after the repo went public (the X9 private free-plan attempt returned HTTP 403). Students still never press Merge; you do.
+- Add the students as collaborators (out of cascade scope). Public Pages → D8 IP declarations are non-negotiable.
 
-## 3c. react-template (public): publish BEFORE the lessons (D24)
+## 3c. react-template (public): D24
 
-- Today https://ruvebal.github.io/react-template/ is **broken**. Pages “legacy” serves the unbuilt `index.html` from `main`: a blank page, and `/ex1-beacon` returns 404.
-- Branch `satellites-ex3-ex5` (unpushed) adds `/ex3-cover`, `/ex4-cover-shader`, `/ex5-ktx2`, “Focus” notes on every route, and a Pages build workflow.
-- To publish: review the branch → merge to `main` → `git push` → Settings → Pages → Source = **GitHub Actions** (or `gh api -X PUT repos/ruvebal/react-template/pages -f build_type=workflow`). Then open `/react-template/ex1-beacon` through `/ex5-ktx2`.
-- Push the lessons only after that. Their “Running reference” links point at those routes and files (the X11 gate warns while they are not 200).
+- Branch `satellites-ex3-ex5` is merged to `main`. Pages Source = **GitHub Actions** (`build_type=workflow`). Live routes: `/ex1-beacon` … `/ex5-ktx2` under `https://ruvebal.github.io/react-template/` (SPA deep links may return HTTP 404 with `404.html` shell — same pattern as the aggregator).
 
 ## 4. Host
 

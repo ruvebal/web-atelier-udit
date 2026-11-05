@@ -1,6 +1,6 @@
 # Results index — FEII-3D-ALBUM-KTX
 
-For the professor's audit before merging `cascade/FEII-3D-ALBUM-KTX` into `main`. State as of 2026-11-05 10:50: **X0–X9 DONE · X10 running · react-template satellite routes running (D24) · X11–X13 not started.** `main` is untouched. Nothing from web-atelier-udit or react-template is pushed. The aggregator repo is pushed; X10 arrives there as an unmerged PR for you.
+For the professor's audit before merging `cascade/FEII-3D-ALBUM-KTX` into `main`. State as of 2026-11-05 (D26 amend): **X0–X12 DONE · X13 READY · X14–X16 BLOCKED (D26 route freedom) · aggregator public + Pages live · `_studio` merged.** `web-atelier-udit` `main` is untouched. See [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT-D26-ROUTE-FREEDOM.md).
 
 Start with **[MERGE-CHECKLIST.md](MERGE-CHECKLIST.md)**. It lists every decision that is yours.
 
