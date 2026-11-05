@@ -56,6 +56,13 @@ rg -qi "complete .+endpoint|student-authored endpoint|reference, not" CONTRIBUTI
 
 npm run lint
 npm run build
+# F1/F2 evidence (cold review round 2): error-boundary nav + unmount cleanup
+if npm run | grep -q "smoke:x14"; then
+  npm run smoke:x14
+else
+  echo "REFUSED: smoke:x14 script missing — required after X14 F1/F2" >&2
+  exit 1
+fi
 
 # Separate lazy chunks: Route modules must not all sit in the main index chunk only
 python3 - <<'PY'
