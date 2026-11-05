@@ -36,7 +36,8 @@ The alternative, publishing it on purpose, is your call. If you choose it, say s
 ## 3b. Aggregator repo — your decisions (X9, 2026-11-04)
 
 - `https://github.com/ruvebal/feii-album-covers` is created **private**, and CI `lint-and-build` is green.
-- **Branch protection is NOT enforced — decided (D23, 2026-11-05):** stay on the personal `ruvebal` account, regular plan. “CI must pass / one human approves” is convention; you merge only through PRs. Collaborators can technically push to `main`, so watch the commit log for direct pushes.
+- **Branch protection is NOT enforced — decided (D23, 2026-11-05):** stay on the personal `ruvebal` account, regular plan. “CI must pass / one human approves” is convention; you merge only through PRs. Collaborators can technically push to `main`, and a force-push can **erase** commits without leaving a trace in the log. Keep a local clone that you fetch regularly, so you have a copy to compare against. Students never press Merge; you do.
+- **X10 opens a PR (`_studio` reference cover) and leaves it unmerged.** D21: AI never merges. Review it and merge it yourself (`gh pr merge --squash`). The X9 scaffold commits (`4deb186`, `0e87d73`, `bb5e324`) were pushed straight to `main` before any collaborator existed, a one-time pre-cohort carve-out under D14.
 - Add the students as collaborators (out of cascade scope).
 
 ## 4. Host
