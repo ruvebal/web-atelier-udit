@@ -31,9 +31,13 @@ Create a **web 3D version of your favourite music album cover**. The result must
 
 This is the team hand-in for [Unit 8]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}) and [Unit 9]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}), the 3D slice of Entrega 2. [Unit 10]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) remains a separate slice. The beacon in `react-template` is the Units 8–9 **lab demonstration**, not the hand-in.
 
-Your work lands in the private class aggregator [`ruvebal/feii-album-covers`](https://github.com/ruvebal/feii-album-covers). You own one student **route**, `/covers/<slug>`, implemented under `covers/<slug>/` plus one object in `covers/registry.json`. Read that repository's [`CONTRIBUTING.md`](https://github.com/ruvebal/feii-album-covers/blob/main/CONTRIBUTING.md) before opening a PR. This reuses the [TTOD contribution ritual](https://github.com/ruvebal/ttod/blob/main/docs/public/guides/contributing.md); the cover slug is your boundary.
+Your work lands in the private class aggregator [`ruvebal/feii-album-covers`](https://github.com/ruvebal/feii-album-covers). You will be added as a collaborator before task1. You own one student **route**, `/covers/<slug>`, implemented under `covers/<slug>/` plus one object in `covers/registry.json`. Read that repository's [`CONTRIBUTING.md`](https://github.com/ruvebal/feii-album-covers/blob/main/CONTRIBUTING.md) before opening a PR. This reuses the [TTOD contribution ritual](https://github.com/ruvebal/ttod/blob/main/docs/public/guides/contributing.md); the cover slug is your boundary.
 
 Use the two focused satellites while you build: [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) and [KTX2/Basis first principles]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}).
+
+### Running references
+
+These are the reference routes in `react-template` (being published): [cover fork](https://ruvebal.github.io/react-template/ex3-cover), [cover shader](https://ruvebal.github.io/react-template/ex4-cover-shader), and [KTX2 switch](https://ruvebal.github.io/react-template/ex5-ktx2). Their source is on the `satellites-ex3-ex5` branch until the professor publishes it. The private aggregator's instructor reference is [`/covers/_studio`](https://github.com/ruvebal/feii-album-covers/tree/main/covers/_studio): collaborators can run it with `npm run dev`; it is not a deployed public page. Teams copy `covers/_template`, never `_studio`.
 
 ---
 
@@ -108,7 +112,7 @@ For example: `cover-ok-computer-task1-mesh`, `cover-ok-computer-task2-shader`, a
 
 Tasks 1–3 change only `covers/<slug>/**` plus your one `registry.json` object. Never edit another team's slug except through the explicit task4 contribution. Never replace `src/App.jsx`; the instructor-owned router already lights `/covers/<slug>` from the registry and page module.
 
-Every PR must use the repository template and include its **AI Review Log**. Before pushing, run `npm run lint` and `npm run build`. The `lint-and-build` check must pass, and at least one human must approve. Bots and assistants may comment; they never approve or merge. A human performs the merge.
+Every PR must use the repository template and include its **AI Review Log**. Before requesting review, run `npm run lint` and `npm run build`; the course expects the `lint-and-build` check to be green and at least one human approval. Bots and assistants may comment; they never approve or merge. Students never push or force-push `main`; on this personal-account course repository that is a course convention, and only the instructor merges through PRs.
 
 ---
 

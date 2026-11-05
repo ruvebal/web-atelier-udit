@@ -820,16 +820,18 @@ tuning_record: 2026-11-04-3013b8ca-6cd5-4cdd-9c2c-e5e4cec2f926-feii-u8-lab-1 (th
 
 1. **Run the beacon** as published and wait for `within ceiling`. That reading is the beacon's. It is not a number for your cover.
 2. **Name the album.** One named album per team: the one your assignment route will carry. In step 3 its title goes into the fork's `<h1>` in place of `Beacon`. The title stays DOM text.
-3. **Fork the sandbox.** This step is not optional. The beacon sandbox stays exactly as published, because Unit 9's bulb goes into it; the cover lives in the fork. The cover `parts.js` drops the beacon's ids, so `Beacon.jsx` stops working in the fork. In the fork, replace `src/parts.js` and create `src/Cover.jsx` from the two Templates below, then swap the import and the `<h1>` in `App.jsx`. `main.jsx`, `index.css`, the lights, `BudgetProbe`, and `OrbitControls` do not change.
+3. **Fork the sandbox.** This step is not optional. The beacon sandbox stays exactly as published, because Unit 9's bulb goes into it; the cover lives in the fork. This mandatory fork is a **lab sandbox**, not the hand-in: the hand-in is your `/covers/<slug>` route in the aggregator. The cover `parts.js` drops the beacon's ids, so `Beacon.jsx` stops working in the fork. In the fork, replace `src/parts.js` and create `src/Cover.jsx` from the two Templates below, then swap the import and the `<h1>` in `App.jsx`. `main.jsx`, `index.css`, the lights, `BudgetProbe`, and `OrbitControls` do not change.
 4. **Compose for the album, not for the template.** Sleeve, vinyl, and stage are the three part ids. Their sizes, positions, colours, and how the disc sits against the sleeve are yours. The sleeve is a flat colour in this unit: no texture, no `useTexture`, no image file. The picture comes later: the [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) satellite samples it, and the [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}) decides how it is delivered and measures what it costs.
 5. **Pointer events** — hover and click on each part change **React state** through the same `bindPart` helper (raycasting is the 3D `onClick`).
 6. **One `useFrame` animation** that does **not** allocate geometry and that stops under `prefers-reduced-motion`.
-7. **Measure your tree.** Until you change `CEILING`, the panel compares your cover with the beacon's numbers, and either verdict is meaningless. Read your own sample, write it into `CEILING`, and add a `cover` row to `docs/renderer-info.md` with the machine and date. Keep the beacon's reference rows above it. Do not copy 6 / 1368 into your row.
+7. **Measure your tree.** Until you change `CEILING`, the panel compares your cover with the beacon's numbers, and either verdict is meaningless. Read your own sample, write it into `CEILING`, and add a `cover` row to `docs/renderer-info.md` with the machine and date. On the aggregator, that optional cover ceiling lives in `covers/<slug>/src/budget.js`, not in the beacon's file. Keep the beacon's reference rows above it. Do not copy 6 / 1368 into your row.
 8. Merge log: the covenant's `docs/ai-3d-merge-log.md`, shared with Unit 9. The two-REJECT rule is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). This lab does not keep a separate count.
 
 #### `src/parts.js` — cover
 
-**Template** — replace `src/parts.js`. Keep the three ids unless your album needs a different part. Rewrite every `note` for your album: the panel reads them aloud through `aria-live`, so they should say what this part is on *your* cover.
+**Template** — in the cover fork, replace `src/parts.js`. Keep the three ids unless your album needs a different part. Rewrite every `note` for your album: the panel reads them aloud through `aria-live`, so they should say what this part is on *your* cover.
+
+Running reference: [live route](https://ruvebal.github.io/react-template/ex3-cover) · [source](https://github.com/ruvebal/react-template/blob/main/src/cover/parts.js).
 
 ```js
 export const PartId = {
@@ -860,6 +862,8 @@ export const PARTS = [
 #### `src/Cover.jsx`
 
 **Template** — create `src/Cover.jsx` in the cover fork. It runs there once `parts.js` is replaced and `App.jsx` imports it, but every size, position, colour, and the slide distance is a placeholder. The helpers are the beacon's, unchanged, so hover and selection behave the same. The disc slides instead of spinning: an untextured disc that spins looks exactly like one that stands still.
+
+Running reference: [live route](https://ruvebal.github.io/react-template/ex3-cover) · [source](https://github.com/ruvebal/react-template/blob/main/src/cover/Cover.jsx).
 
 ```jsx
 import { useRef } from 'react';

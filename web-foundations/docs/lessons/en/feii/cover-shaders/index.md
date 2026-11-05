@@ -164,6 +164,8 @@ The panel's `textures` count goes up by **one**, because the picture is a textur
 
 **CodeSandbox-ready** — in the cover fork, create `src/sleevePicture.js`. It draws a placeholder sleeve on a canvas, so the sandbox needs no image file and no licence decision yet. Swap in your own photo later with the Template further down.
 
+Running reference: [live route](https://ruvebal.github.io/react-template/ex4-cover-shader) · [source](https://github.com/ruvebal/react-template/blob/main/src/cover/sleevePicture.js).
+
 ```js
 import { useEffect, useMemo } from 'react';
 import { CanvasTexture, SRGBColorSpace } from 'three';
@@ -241,6 +243,8 @@ export function useSleevePicture(title) {
 ### `src/SleeveMaterial.jsx`
 
 **CodeSandbox-ready** — in the cover fork, create `src/SleeveMaterial.jsx`. This is the new material file Unit 9's lab step 1 asks for.
+
+Running reference: [live route](https://ruvebal.github.io/react-template/ex4-cover-shader) · [source](https://github.com/ruvebal/react-template/blob/main/src/cover/SleeveMaterial.jsx).
 
 {% raw %}
 
@@ -388,6 +392,8 @@ The software renderer cannot tell you about speed or phone memory. Your own cove
 
 **Template** — when you have a picture you are allowed to use, replace `src/sleevePicture.js` with this version. Put the file at `public/sleeve.jpg` in the fork: Vite serves `public/` from the site root. That is true of the fork only; on the assignment the path changes (see Lab mapping, step 2). Replace the path if your file has another name. `Cover.jsx` does not change. The title argument it still passes is simply ignored.
 
+Running reference: [live route](https://ruvebal.github.io/react-template/ex4-cover-shader) · [source](https://github.com/ruvebal/react-template/blob/main/src/cover/sleevePictureFile.js).
+
 ```js
 import { useTexture } from '@react-three/drei';
 import { SRGBColorSpace } from 'three';
@@ -431,6 +437,8 @@ This is the same kind of checklist as Unit 9's, applied to the sleeve. Unit 9's 
 
 **Template** — line 7 of `docs/shader-note.md`, which Unit 9 left as a question. Replace each ellipsis.
 
+Running reference: [live route](https://ruvebal.github.io/react-template/ex4-cover-shader) · [source](https://github.com/ruvebal/react-template/blob/main/src/cover/SleeveMaterial.jsx).
+
 ```markdown
 7. Sampler: uMap is ... (what the picture shows, and its source or licence). It is looked up at vUv, the sleeve's own UV, so the picture stays printed when the camera orbits. My effect ... (moves the place / changes the answer) in the line ...
 ```
@@ -446,7 +454,7 @@ A note that only restates this page's sheen does not pass item 4. The effect has
 - **Only one of the two colour lines.** The sleeve comes out too dark, or washed out, and the shader still compiles.
 - **`new CanvasTexture(...)` inside the render body.** It uploads a new texture on every render. Make the picture once with `useMemo`, as in the reference file.
 - **`useTexture` with a new callback inside the render body.** The texture is cached and uploaded once, but the callback runs again on every render. Keep it outside the hook, as in the own-photo version.
-- **A varying that the vertex shader never declares.** Here that is `vUv`. If the vertex shader has no `varying vec2 vUv;` line, the link fails, exactly as Unit 9 describes.
+- **A varying that the vertex shader never declares.** Here that is `vUv`. Delete only `varying vec2 vUv;` from the vertex shader and `vUv = uv;` is now an undeclared identifier: the **vertex shader fails to compile**. To make the Unit 9-style **linker** error instead, delete both vertex-side lines (`varying vec2 vUv;` and `vUv = uv;`) while the fragment shader still declares and uses `vUv`.
 - **A varying that the vertex shader declares but never sets.** Delete only `vUv = uv;` and there is no error at all: the shader compiles and links, and the whole sleeve shows one flat colour, the picture's colour at UV (0,0). Look for the flat colour, not for an error.
 - **A clock uniform that grows forever under `mediump`.** Wrap it.
 - **A `for` loop or `discard` you cannot justify aloud.** One lookup per pixel is the reference cost.
@@ -458,8 +466,8 @@ A note that only restates this page's sheen does not pass item 4. The effect has
 This satellite is studied inside the Units 8–9 lab hours. It does not add hours. On the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}), the sleeve shader is **task2 — authored shader**. The steps:
 
 1. **Branch.** Work on a `cover-<slug>-task2-shader` branch.
-2. **Move the files.** `SleeveMaterial.jsx` and your `sleevePicture.js` go into your route's `covers/<slug>/src/`, beside its `Cover.jsx`. They do not touch the Canvas, the router, or `App.jsx`, but two things change. First, the own-photo version's `'/sleeve.jpg'` assumes the fork's root `public/`; on the aggregator each route has its own `covers/<slug>/public/`, so put the photo there and reference it relative to your route, as the aggregator's `_template` shows. Second, the gallery's `/covers/<slug>` route is built to pass `Cover` the same five props the fork's `App.jsx` does (`hovered`, `selected`, `reduced`, `onHover`, `onSelect`), so your `Cover.jsx` moves over unchanged; the aggregator's `CONTRIBUTING.md` documents that contract.
-3. **Write the notes.** Fill line 7 of `docs/shader-note.md`, and add the new `textures` reading to `docs/renderer-info.md`.
+2. **Move the files.** `SleeveMaterial.jsx` and your `sleevePicture.js` go into your route's `covers/<slug>/src/`, beside its `Cover.jsx`. They do not touch the Canvas, the router, or `App.jsx`, but three things change. First, the own-photo version's `'/sleeve.jpg'` assumes the fork's root `public/`; on the aggregator each route has its own `covers/<slug>/public/`, so put the photo there and reference it relative to your route, as the aggregator's `_template` shows. Second, the gallery's `/covers/<slug>` route is built to pass `Cover` the same five props the fork's `App.jsx` does (`hovered`, `selected`, `reduced`, `onHover`, `onSelect`), so your `Cover.jsx` moves over unchanged; the aggregator's `CONTRIBUTING.md` documents that contract. Third, rename the R3F `extend` registration to a slug-unique key (or use `const Sleeve = extend(SleeveShader)`): material element names are shared across every route, and the registry check rejects a duplicate.
+3. **Write the notes.** Fill line 7 of `docs/shader-note.md`, and add the new `textures` reading to `docs/renderer-info.md`. If you keep a cover ceiling in code, it belongs in `covers/<slug>/src/budget.js`, with your measured rows, not in the beacon's `CEILING`.
 4. **Stop before KTX2.** The KTX2 choice is task3, in the KTX2/Basis satellite. Do not start it in this PR.
 
 ---

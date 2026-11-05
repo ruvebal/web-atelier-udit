@@ -213,6 +213,8 @@ The PNG path needs no encoder. It is the inflation demo, and it already runs in 
 
 **CodeSandbox-ready** — in the cover fork, create `src/gpuBytes.js`. It works for the canvas placeholder, for your own photo, and for a packed `.ktx2` sleeve.
 
+Running reference: [live route](https://ruvebal.github.io/react-template/ex5-ktx2) · [source](https://github.com/ruvebal/react-template/blob/main/src/cover/gpuBytes.js).
+
 {% raw %}
 
 ```js
@@ -370,11 +372,11 @@ An ordinary picture file stores its rows from the top down. When three.js upload
 
 ### Trap 2 — colour space: the sleeve comes out washed out
 
-**Four colour words first.** A picture file stores **screen colours**: numbers already bent so that they look right on a monitor. That way of storing colour is called **sRGB**. A shader does its maths on **linear** numbers instead, numbers that rise in step with the amount of light. The rule that bends one kind into the other is the **transfer function**, or **transfer** for short. Which kind of numbers a picture holds is its **colour space**. The file carries a tag naming its transfer, and three.js copies that tag into `texture.colorSpace`, so the GPU can turn screen colours into linear ones as it looks them up. A sleeve photo always holds screen colours, so the tag must say sRGB.
+**Four colour words first.** A picture file stores **screen colours**: numbers already bent so that they look right on a monitor. That way of storing colour is called **sRGB**. A shader does its maths on **linear** numbers instead, numbers that rise in step with the amount of light. The rule that bends one kind into the other is the **transfer function**, or **transfer** for short. Which kind of numbers a picture holds is its **colour space**. For a packed KTX2 file, three.js copies the file's transfer tag into `texture.colorSpace`, so the GPU can turn screen colours into linear ones as it looks them up. A sleeve photo always holds screen colours, so the tag must say sRGB.
 
 The cover-shaders satellite tagged the canvas picture `colorSpace = SRGBColorSpace` by hand. A packed sleeve is different. `KTX2Loader` sets `texture.colorSpace` itself, from the colour description stored in the file. For a sleeve photo it must read `'srgb'`. If the source PNG carried a wrong colour tag, the encoder copies it, the loader reports `'srgb-linear'`, and the sleeve comes out washed out. The shader still compiles.
 
-**Fix the file, not the shader.** Re-encode with an sRGB transfer. `--assign_oetf srgb` (with `ktx create`, `--assign-tf srgb`) relabels the pixels as the screen colours they already are. (OETF is the flag's name for the transfer.) Never delete `#include <colorspace_fragment>` to make the colours “look right”. And do not reach for `--convert_oetf srgb` on a sleeve photo, because it trusts whatever tag the file carries, even a wrong one. On a correctly tagged or untagged PNG it changes nothing. On a file tagged linear it rewrites the pixels as if they had been linear, and brightens them for good. On a file with a colour profile, toktx refuses to run. `--assign_oetf srgb` was right in every case this page tested.
+**Fix the file, not the shader.** Re-encode with an sRGB transfer. `--assign_oetf srgb` (with `ktx create`, `--assign-tf srgb`) relabels the pixels as the screen colours they already are. (OETF is the flag's name for the transfer.) Never delete `#include <colorspace_fragment>` to make the colours “look right”. And do not reach for `--convert_oetf srgb` on a sleeve photo, because it trusts whatever tag the file carries, even a wrong one. On a correctly tagged or untagged PNG it changes nothing. On a file tagged linear it rewrites the pixels as if they had been linear, and brightens them for good. On a file with an embedded profile tag, toktx refuses to run. `--assign_oetf srgb` was right in every case this page tested.
 
 **Phone and editor photos.** A **colour profile** is a tag that a camera or image editor embeds in a picture to describe its colour space. If your PNG carries a profile other than sRGB (phone photos often carry Display P3), convert it to sRGB in your image editor first, then encode with `--assign_oetf srgb`. The encode flag only relabels, so on an unconverted Display P3 photo the colours come out muted, and the `colorSpace` check below still logs `srgb`.
 
@@ -395,6 +397,8 @@ These were checked on 2026-11-04 with a 512 × 512 PNG drawn to match the cover-
 ## Encode — the two commands
 
 **Template** — run from your route folder, with the encoder installed. Replace `public/sleeve.png` with your own source PNG and keep the output names your loader expects. The aggregator's encode script runs these same two commands for you, and it should stop with a loud error if `toktx` is missing.
+
+Running reference: [live route](https://ruvebal.github.io/react-template/ex5-ktx2) · [source](https://github.com/ruvebal/react-template/blob/main/scripts/encode-ex5.sh).
 
 ```bash
 # Your own source picture, square, with a licence you can name.
@@ -452,6 +456,8 @@ The software renderer tells you nothing about speed or phone memory. The two tra
 ## Your note — `docs/ktx2-note.md`
 
 **Template** — create `docs/ktx2-note.md` in your route and replace every ellipsis. The [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}) uses this same template.
+
+Running reference: [live route](https://ruvebal.github.io/react-template/ex5-ktx2) · [source](https://github.com/ruvebal/react-template/blob/main/src/pages/Ex5Ktx2.jsx).
 
 ```markdown
 # KTX2 choice
