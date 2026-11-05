@@ -4,9 +4,10 @@
 **Scope:** the Bloque 5 student path, its two satellites, the Units 8–9
 assignment, `react-template`, and `feii-album-covers`, tested against the
 original `AUDIT-GROUNDED.md` and its 2026-11-04 addendum.  
-**Result:** PASS. The private prospector stack stays private; the student
-path is a bounded route, explainable shader, measured budget, documented
-KTX2 choice, and human-reviewed PR ritual.
+**Result:** PASS for X12 scope (D1–D22 under the then scene-module contract).
+**Superseded in part by D26 (2026-11-05):** student routes become complete
+`Route.jsx` endpoints; shell ≠ shared Canvas. Re-audit D21–D26 in **X16**
+before claiming exhibition close. See [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT-D26-ROUTE-FREEDOM.md).
 
 ## Audit recommendations
 

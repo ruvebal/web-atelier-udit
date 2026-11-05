@@ -1,4 +1,4 @@
-# Autopilot — run X0→X13 without a human in the clipboard loop
+# Autopilot — run X0→X16 without a human in the clipboard loop
 
 Authorized 2026-11-04 by the product owner: aggregator GitHub repo + cascade may proceed to the end without waiting for ChatGPT paste, decision confirmations, or per-phase “please commit”.
 
@@ -75,11 +75,11 @@ and FEII-3D-ALBUM-KTX-CASCADE.md (same directory — the integration
 worktree copy is the live pack; run autopilot.sh bootstrap first if it
 does not exist yet).
 
-Execute the next incomplete phase only, in order, through X13, using
+Execute the next incomplete phase only, in order, through X16, using
 autopilot.sh start / verify / land exactly as the Loop section says.
 After each: verify → cold-reviewer subagent → report DONE → land.
 Never commit to or push web-atelier-udit main.
-Decisions are already frozen. Do not wait for clipboard Pass 1.
-Create GitHub repo feii-album-covers at X9 per REPO-SHAPE.md
-(student **routes** `/covers/<slug>`, TTOD branch/PR ritual D21, not extra git roots).
+Decisions are already frozen (incl. D26). Do not wait for clipboard Pass 1.
+Aggregator: student **endpoints** `/covers/<slug>` via Route.jsx (D26);
+TTOD branch/PR ritual D21; shell owns discovery/routing/isolation only.
 ```
