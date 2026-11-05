@@ -5,7 +5,7 @@ Author: Rubén Vega Balbás, PhD · 2026-11-04
 
 # FE II 3D album cover — shaders, KTX2, implementation repo
 
-**Status:** ACTIVE cascade (X0–X13; X13 added 2026-11-05, D25) · not a 13th/14th numbered unit · not the `corpus-to-boilerplate` prospector.
+**Status:** ACTIVE cascade (X0–X16; X13 D25; X14–X16 + D26 route freedom 2026-11-05) · not a 13th/14th numbered unit · not the `corpus-to-boilerplate` prospector.
 **Author:** Rubén Vega Balbás, PhD · 2026-11-04
 **Readers:** product owner (RATIONALE first); technical director (cascade second).
 
@@ -15,14 +15,15 @@ Author: Rubén Vega Balbás, PhD · 2026-11-04
 | ---- | ---- | ------------------- |
 | Product owner | [RATIONALE.md](RATIONALE.md) | Why an album cover, why satellites, why one GitHub aggregator. |
 | Technical director | [FEII-3D-ALBUM-KTX-CASCADE.md](FEII-3D-ALBUM-KTX-CASCADE.md) | Ordered phases, gates, Ollama roles, cold review, hard constraints. |
-| Autopilot | [AUTOPILOT.md](AUTOPILOT.md) | How an agent runs X0→X12 without clipboard waits. |
-| Aggregator | [REPO-SHAPE.md](REPO-SHAPE.md) | `feii-album-covers` — one repo, student **routes** `/covers/<slug>`, TTOD branch/PR ritual (D21). |
+| Autopilot | [AUTOPILOT.md](AUTOPILOT.md) | How an agent runs X0→X16 without clipboard waits. |
+| Route freedom | [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT-D26-ROUTE-FREEDOM.md) | D26 audit: student-owned `Route.jsx` endpoints; shell ≠ shared Canvas. |
+| Aggregator | [REPO-SHAPE.md](REPO-SHAPE.md) | `feii-album-covers` — one repo, student **endpoints** `/covers/<slug>`, TTOD branch/PR ritual (D21). |
 | KTX2 pedagogy | [KTX2-FIRST-PRINCIPLES.md](KTX2-FIRST-PRINCIPLES.md) | Pixel → texel → suitcase vs GPU room → ETC1S/UASTC. Instructor rehearsal (D22). |
 | Evidence | [FINDINGS-2026-11-04.md](FINDINGS-2026-11-04.md) | What was checked live, not assumed from briefs. |
 | Decisions | [DECISIONS.md](DECISIONS.md) | Frozen 2026-11-04 (no PROPOSED rows). |
 | Operator agents | [AGENT.md](AGENT.md) | Executor stops at VERIFYING; reviewer is a fresh session. |
 
-Phase files (do not invert): [X0](PHASE-X0.md) · [X1](PHASE-X1.md) · [X2](PHASE-X2.md) · [X3](PHASE-X3.md) · [X4](PHASE-X4.md) · [X5](PHASE-X5.md) · [X6](PHASE-X6.md) · [X7](PHASE-X7.md) · [X8](PHASE-X8.md) · [X9](PHASE-X9.md) · [X10](PHASE-X10.md) · [X11](PHASE-X11.md) · [X12](PHASE-X12.md) · [X13](PHASE-X13.md).
+Phase files (do not invert): [X0](PHASE-X0.md) · [X1](PHASE-X1.md) · [X2](PHASE-X2.md) · [X3](PHASE-X3.md) · [X4](PHASE-X4.md) · [X5](PHASE-X5.md) · [X6](PHASE-X6.md) · [X7](PHASE-X7.md) · [X8](PHASE-X8.md) · [X9](PHASE-X9.md) · [X10](PHASE-X10.md) · [X11](PHASE-X11.md) · [X12](PHASE-X12.md) · [X13](PHASE-X13.md) · [X14](PHASE-X14.md) · [X15](PHASE-X15.md) · [X16](PHASE-X16.md).
 
 Closing: each phase → VERIFYING → `PHASE-Xn-COLD-REVIEW.md` → amend if needed → `PHASE-Xn-REPORT.md` → DONE.
 
@@ -44,6 +45,9 @@ Closing: each phase → VERIFYING → `PHASE-Xn-COLD-REVIEW.md` → amend if nee
 | 11 | [PHASE-X11.md](PHASE-X11.md) | Publish gates: lessons.yml, Liquid, citation firewall, build | DONE 2026-11-05 |
 | 12 | [PHASE-X12.md](PHASE-X12.md) | Closing audit vs AUDIT-GROUNDED student/instructor split | DONE 2026-11-05 |
 | 13 | [PHASE-X13.md](PHASE-X13.md) | 3D terminology satellite (oral paragraph + glossary; D25) | READY |
+| 14 | [PHASE-X14.md](PHASE-X14.md) | Complete student-owned `Route.jsx` architecture + fixtures (D26) | BLOCKED until X13 |
+| 15 | [PHASE-X15.md](PHASE-X15.md) | Neutral templates, registry, gallery, student brief (D26) | BLOCKED until X14 |
+| 16 | [PHASE-X16.md](PHASE-X16.md) | Live Pages exhibition + closing audit D21–D26 | BLOCKED until X15 |
 
 Harness: `~/src/.cursor/skills/cascade-forge/scripts/cascade-harness.sh`. Only the **first word** of Gate is a status token.
 

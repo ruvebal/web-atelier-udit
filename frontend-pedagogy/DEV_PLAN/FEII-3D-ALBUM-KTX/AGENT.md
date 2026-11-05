@@ -21,6 +21,7 @@ Canonical copies — do not duplicate their body here:
 - Force-push, skip hooks, push `web-atelier-udit`.
 - Execute `corpus-to-boilerplate/` against `feii-album-covers`.
 - Invent a second git culture. D21: TTOD contributing.md mapped onto cover slugs.
+- Re-impose a shared Canvas / five-prop `Cover.jsx` contract after D26.
 - Check student PRs out of the teaching clone (use `../feii-album-covers-review`).
 
 ## Harness

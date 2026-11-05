@@ -1,6 +1,6 @@
 # Aggregator repo shape — `feii-album-covers`
 
-Frozen 2026-11-04 (D6, D15, D21). This is L3 for the Units 8–9 assignment. It is **not** `corpus-to-boilerplate` and it is **not** a replacement of `react-template`.
+Frozen 2026-11-04 (D6, D15, D21); **amended 2026-11-05 (D26)** — student-owned `Route.jsx` endpoints; shell owns discovery/routing/isolation only. This is L3 for the Units 8–9 assignment. It is **not** `corpus-to-boilerplate` and it is **not** a replacement of `react-template`.
 
 ## Answer: do not follow `index.md` as a create-repo prompt
 
@@ -21,12 +21,12 @@ Runnable stack comes from **`react-template` pins**, not from the 3D lesson corp
 
 ## Product
 
-One GitHub repository the instructor owns. Students do **not** each get a separate assignment repo. Each student (or team) owns a **route** in the gallery (`/covers/<slug>`). The instructor `npm run dev`s once and walks every cover by URL — same routed-sandbox rule as Units 8–9 (`App.jsx` is pre-wired; students add a page, they never replace the router).
+One GitHub repository the instructor owns. Students do **not** each get a separate assignment repo. Each student (or team) owns a **complete endpoint** at `/covers/<slug>` — they control format (WebGL, DOM/CSS, shaders, audio, multi-scene, hybrid), Canvas, camera, interaction and visual language (D26). The instructor-owned shell supplies the gallery index, routing, a collapsed project selector, prev/next/all navigation, lazy loading, error isolation and production checks. Students never replace `App.jsx`.
 
 | Path | Owner |
 | --- | --- |
 | `~/projects/ruvebal/scholar/udit/courses-repos/feii-album-covers` | local |
-| `git@github.com:ruvebal/feii-album-covers.git` | GitHub, **private** (classroom artwork + sleeve photos) |
+| `git@github.com:ruvebal/feii-album-covers.git` | GitHub; **public Pages** exhibition at `https://ruvebal.github.io/feii-album-covers/` (D6 amended 2026-11-05) |
 
 `react-template` stays the Unit 8–9 **lesson sandbox** (beacon measurements). Students may practice there; they **hand in** a route on this aggregator.
 
@@ -44,27 +44,26 @@ feii-album-covers/
   vite.config.js
   src/
     main.jsx
-    App.jsx                       # gallery + Route /covers/:slug — students do not replace this
-    gallery/Home.jsx              # lists registry (links to each route)
-    lib/                          # BudgetProbe, ktx2 loader, JSDoc typedefs (shared)
+    App.jsx                       # gallery + /covers/:slug shell — students do not replace this
+    gallery/Home.jsx              # exhibition index (registry)
+    gallery/*Selector*            # collapsed fixed project switcher (X14)
+    lib/                          # optional shared helpers (ktx2, gpuBytes) — routes opt in
   covers/
-    registry.json                 # [{ "slug", "title", "album", "authors" }]
-    _studio/                      # instructor reference (X10)
-      src/Cover.jsx               # default export: R3F tree (no Canvas — gallery wraps)
-      docs/renderer-info.md
-      docs/shader-note.md
-      docs/ktx2-note.md
-      docs/ai-3d-merge-log.md
+    registry.json                 # slug, title, authors, concept, thumbnail, tags, readiness (+ album if kept)
+    _studio/                      # instructor REFERENCE only (not prescribed composition)
+      src/Route.jsx               # complete endpoint (owns its Canvas if any)
+      docs/…
       public/
-    _template/                    # copy to covers/<slug>/ to light /covers/<slug>
-      src/Cover.jsx
+    _template/                    # neutral starters (DOM / WebGL / hybrid) — X15
+      src/Route.jsx
       docs/…
       public/.gitkeep
+    _fixture-*/                   # instructor fixtures proving format freedom (X14)
   scripts/encode-cover.mjs        # PNG → UASTC + ETC1S; fail loud if toktx missing
   .cursor/rules/                  # 00, 20, 30, 40, 50 only
 ```
 
-Gallery loads `covers/registry.json` and `import.meta.glob('../covers/*/src/Cover.jsx')`. A slug that is not in the registry has no route. Students add **one page module + one registry row**, which is what turns `/covers/<slug>` on. They never rewrite `App.jsx`.
+Gallery loads `covers/registry.json` and `import.meta.glob('../covers/*/src/Route.jsx')`. A slug that is not in the registry has no route. Students add **one `Route.jsx` endpoint + one registry row**. They never rewrite `App.jsx`. The shell does **not** wrap student work in a shared Canvas or sleeve/record UI.
 
 ## Collaboration (TTOD contribution ritual — D21)
 
@@ -91,11 +90,11 @@ Cite, do not invent: [`ttod/docs/public/guides/contributing.md`](https://github.
 1. Branch from the current teaching baseline (`main`):  
    `git checkout -b cover-<slug>-task<N>-<short-topic-name>`  
    Examples: `cover-ok-computer-task1-mesh`, `cover-ok-computer-task2-shader`, `cover-ok-computer-task3-ktx2`. The `cover-<slug>-task<N>` prefix is the analogue of TTOD’s seam-task parser — keep it so a later local review bot can match the assignment bar.
-2. Copy `covers/_template/` → `covers/<slug>/` once (task1). Later tasks edit that folder only.
+2. Copy `covers/_template/` → `covers/<slug>/` once (task1), pick a neutral starter variant, and own the whole `Route.jsx` endpoint. Later tasks edit that folder only. `_studio` is a reference, not a clone target for aesthetics.
 3. Staged tasks (small PRs defend better than one dump — TTOD teaching model):  
-   - **task1** — mesh/scene that reads as the named album; type stays DOM.  
-   - **task2** — one `sampler2D` sleeve effect (not a paste of the Unit 9 bulb).  
-   - **task3** — KTX2 UASTC vs ETC1S choice + `docs/renderer-info.md`, `shader-note.md`, `ktx2-note.md`, `ai-3d-merge-log.md`.  
+   - **task1** — endpoint lights; named album is recognisable in the chosen format (WebGL, DOM, hybrid, …).  
+   - **task2** — one authored technique the team can explain (shader, interaction, motion, multi-scene, …) — not a paste of the Unit 9 bulb when shaders are used.  
+   - **task3** — evidence pack: IP declaration; when textures/GPU are used, KTX2 choice + measurements; when not, honest N/A; `docs/ai-3d-merge-log.md` always.  
    - **task4** — cross-cover: a real fix in another slug **or** a formal review of someone else’s cover PR against the assignment bars (Phase V §3 items 2).
 4. Before push: `npm run lint && npm run build`.
 5. Open the PR. The repository template fills in: contract (own route + one registry row, no `App.jsx` rewrite), acceptance bars, lint/build, a11y, AI Review Log.
