@@ -960,7 +960,7 @@ import Cover from './Cover.jsx';
 
 The import replaces `import Beacon from './Beacon.jsx'`, and `<Cover … />` replaces `<Beacon … />` inside `<Canvas>`. The `<h1>` gets your album's title. This page publishes no budget for `Cover.jsx`: the tree is a placeholder, so no row for it would mean anything. Your probe gives the first real one.
 
-**Deliverable:** the cover tree plus `docs/renderer-info.md` with your measured `cover` row, beside the beacon's reference rows. On the assignment this becomes **task1 — mesh and scene** on your route. The route's `src/Cover.jsx` is the same kind of file as `Beacon.jsx`: a tree with no `<Canvas>`, because the gallery supplies the Canvas. Where the state and the panel live on a route is set by that repository's `_template`, not by this sandbox's `App.jsx`. The graded 3D slice is the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). Unit 10 is still the rest of Entrega 2.
+**Deliverable:** the cover tree plus `docs/renderer-info.md` with your measured `cover` row, beside the beacon's reference rows. In **this lab sandbox**, `Cover.jsx` stays a scene tree with no `<Canvas>` — `App.jsx` supplies the Canvas, just as it did for `Beacon.jsx`. On the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}), **task1** lights your slug by owning **`covers/<slug>/src/Route.jsx`**: a complete endpoint where **your route** mounts `<Canvas>` when you choose WebGL (see §Format freedom there). The gallery shell only routes and lazy-loads; it does not wrap your scene. You may reuse this lab's sleeve composition inside that file; **`covers/_studio`** on the aggregator is a reference only, not the required shape. Unit 10 is still the rest of Entrega 2.
 
 ---
 

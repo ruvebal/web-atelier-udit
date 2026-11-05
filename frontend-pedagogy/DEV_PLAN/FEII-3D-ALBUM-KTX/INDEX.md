@@ -46,8 +46,8 @@ Closing: each phase → VERIFYING → `PHASE-Xn-COLD-REVIEW.md` → amend if nee
 | 12 | [PHASE-X12.md](PHASE-X12.md) | Closing audit vs AUDIT-GROUNDED student/instructor split | DONE 2026-11-05 |
 | 13 | [PHASE-X13.md](PHASE-X13.md) | 3D terminology satellite (oral paragraph + glossary; D25) | DONE 2026-11-05 |
 | 14 | [PHASE-X14.md](PHASE-X14.md) | Complete student-owned `Route.jsx` architecture + fixtures (D26) | DONE 2026-11-05 |
-| 15 | [PHASE-X15.md](PHASE-X15.md) | Neutral templates, registry, gallery, student brief (D26) | READY |
-| 16 | [PHASE-X16.md](PHASE-X16.md) | Live Pages exhibition + closing audit D21–D26 | BLOCKED until X15 |
+| 15 | [PHASE-X15.md](PHASE-X15.md) | Neutral templates, registry, gallery, student brief (D26) | DONE 2026-11-05 |
+| 16 | [PHASE-X16.md](PHASE-X16.md) | Live Pages exhibition + closing audit D21–D26 | READY |
 
 Harness: `~/src/.cursor/skills/cascade-forge/scripts/cascade-harness.sh`. Only the **first word** of Gate is a status token.
 
