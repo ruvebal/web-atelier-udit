@@ -37,9 +37,9 @@ Use the focused satellites while you build: [Cover shaders]({{ '/lessons/en/feii
 
 ### Running references
 
-These are the reference routes in `react-template` (being published): [cover fork](https://ruvebal.github.io/react-template/ex3-cover), [cover shader](https://ruvebal.github.io/react-template/ex4-cover-shader), and [KTX2 switch](https://ruvebal.github.io/react-template/ex5-ktx2). Their source is on the `satellites-ex3-ex5` branch until the professor publishes it.
+These are the reference routes in `react-template`: [cover fork](https://ruvebal.github.io/react-template/ex3-cover), [cover shader](https://ruvebal.github.io/react-template/ex4-cover-shader), and [KTX2 switch](https://ruvebal.github.io/react-template/ex5-ktx2).
 
-On the aggregator, **`covers/_studio`** is **one instructor reference** (sleeve shader + KTX2 compare on original art) — live at [https://ruvebal.github.io/feii-album-covers/#/covers/_studio](https://ruvebal.github.io/feii-album-covers/#/covers/_studio) when built for Pages. It is **not the expected answer**. Teams copy **`covers/_template`** (neutral DOM / WebGL / hybrid starters), never `_studio`.
+On the aggregator, **`covers/_studio`** is **one instructor reference** (sleeve shader + KTX2 compare on original art) — live at [https://ruvebal.github.io/feii-album-covers/covers/_studio](https://ruvebal.github.io/feii-album-covers/covers/_studio). It is **not the expected answer**. Teams copy **`covers/_template`** (neutral DOM / WebGL / hybrid starters), never `_studio`.
 
 ---
 
