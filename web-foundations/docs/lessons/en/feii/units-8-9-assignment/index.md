@@ -123,7 +123,7 @@ Every PR must use the repository template and include its **AI Review Log**. Bef
 - TTOD's quote-proposal workflow, an in-app `ASSIGNMENT.md`, or cloud PR-review automation.
 - A post-processing pass. Zero passes is the reference; one is allowed only with comparable renderer measurements before and after.
 - Unit 10's socket, device API, Python service, or assessment work.
-- An MCP server, MCP shopping, Stitch, 21st.dev, or `corpus-to-boilerplate/`.
+- An MCP server, MCP shopping, Stitch, 21st.dev, or `corpus-to-boilerplate/`: these are not required for this hand-in.
 - A generated monorepo, a second dependency culture, or a replacement for the shared route contract.
 - Three-dimensional lettering as a grade requirement. Album title and explanatory copy remain accessible DOM text.
 - A social post or reflection post. The graded record is the route, documents, reviews, and PR history.
