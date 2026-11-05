@@ -137,4 +137,4 @@ Reuse TTOD `reviewing-cohort-prs.md`: one sibling worktree `../feii-album-covers
 ## IP (D8)
 
 - `_studio` ships original or PD/CC art only.
-- Student routes: photograph of a physical album they own, or a licence they name in `docs/ktx2-note.md`. Private repo is not a licence.
+- Student routes: student-created artwork, public-domain material, a suitably open-licensed source, or written permission. Record creator, source, licence/permission, and attribution in `docs/ktx2-note.md`. Owning a physical album is not permission to republish its cover on public Pages; any claimed legal exception requires instructor review before publication.

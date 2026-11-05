@@ -418,7 +418,7 @@ What to customise and check:
 
 - **Crop the photo square.** UV runs from 0 to 1 on both axes, so a picture that is not square is stretched to fit the square sleeve. This version was rendered with a wide image to confirm it: the picture stretched.
 - **Keep `tagScreenColours` outside the hook.** `useTexture` calls it once, before the upload. A new arrow function on every render would make it run again on every render.
-- **The rights are yours to declare.** The rule is the assignment's: photograph a physical album you own, or name the licence that lets you use the image. A private repository is not a licence.
+- **The rights are yours to declare.** Follow the [assignment's IP rule]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}#the-four-covenant-bars): use artwork you created, public-domain or suitably open-licensed material, or written permission. Owning a physical album is not permission to republish its cover on public Pages.
 - **This is not the final delivery.** A JPEG or PNG is a file format for the network. The [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}) changes how the sleeve picture is delivered, and measures it on the GPU. When you load a KTX2 sleeve, check what the loader set: `texture.colorSpace` should read `'srgb'` for a sleeve photo. If it does not, the file was encoded without screen colours and the sleeve comes out washed out. Fix the encode, not the shader: keep `#include <colorspace_fragment>`.
 
 ---

@@ -35,9 +35,9 @@ See [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT-D26-ROUTE-FREEDOM.md).
 | D3 | PASS | `ktx2-basis/` distinguishes file bytes from computed GPU bytes and labels `renderer.info.memory.textures` as a count. |
 | D4 | PASS | Assignment hand-in is staged PRs that light `/covers/<slug>`, not a second sandbox. |
 | D5 | PASS | FE II hour arithmetic remains magistral 10, lab 30, ejercicios 14; satellites add no session rows. |
-| D6 | PASS | `feii-album-covers` is the private shared gallery; the public `react-template` examples are additive references, not a replacement. |
+| D6 | PASS | `feii-album-covers` is the public shared gallery with Pages enabled; D8 licensing, not repository privacy, is the IP control. The public `react-template` examples are additive references, not a replacement. |
 | D7 | PASS | Student pages forbid MCP shopping, Stitch, 21st.dev, and `corpus-to-boilerplate/`; no scaffold generator is assigned. |
-| D8 | PASS | Assignment, README, and CONTRIBUTING require a named licence or owned physical-photo source; `_studio` is original/PD/CC only. |
+| D8 | PASS | Assignment, aggregator README/CONTRIBUTING, PR checklist, and `ktx2-note.md` require student-created, public-domain, suitably open-licensed, or explicitly permitted material with creator/source/right/attribution recorded. Owning a physical album is explicitly insufficient for public republication; `_studio` is original/PD/CC only. |
 | D9 | PASS | Assignment requires source PNG plus a documented ETC1S/UASTC choice; encoder absence permits PNG with an honest note. |
 | D10 | PASS | Lesson and aggregator code use JavaScript and JSDoc; no TypeScript teaching path was introduced. |
 | D11 | PASS | New satellite registrations and files are English-only; no Spanish translation was added. |
@@ -45,7 +45,7 @@ See [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT-D26-ROUTE-FREEDOM.md).
 | D13 | PASS | Assignment explicitly keeps Unit 10 separate; the aggregator has no Unit 10 scope. |
 | D14 | PASS | Cascade commits remain on `cascade/FEII-3D-ALBUM-KTX`; this audit made no web-atelier push, force operation, skipped hook, or cloud SDK addition. |
 | D15 | PASS | Aggregator `src/App.jsx` owns `/covers/:slug`; CONTRIBUTING forbids students from editing it and requires one route folder plus registry object. |
-| D16 | PASS | Local private `ruvebal/feii-album-covers` exists and is the X9-created aggregator; no fallback identity is claimed. |
+| D16 | PASS | `ruvebal/feii-album-covers` is the X9-created aggregator and is now public for the class exhibition; no fallback identity is claimed. |
 | D17 | PASS | X1 provenance is `operator-web-tools` plus local Ollama Pass 2; the student surface exposes neither a cloud SDK nor a clipboard workflow. |
 | D18 | PASS | KTX2 remains platform-note-only / an explicit pedagogy gap where appropriate; missing OA PDFs did not become fabricated citations. |
 | D19 | PASS | Each landed phase has a verify log, fresh cold-review record, and orchestrator-owned DONE promotion. |
@@ -64,7 +64,7 @@ See [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT-D26-ROUTE-FREEDOM.md).
 | D21 | PASS | TTOD-mapped contribution ritual unchanged in repo docs: `CONTRIBUTING.md`, `.github/pull_request_template.md`, `lint-and-build.yml`. Live exhibition uses the same registry + `/covers/<slug>` contract students PR against. |
 | D22 | PASS | Unchanged from X12/X13; KTX2 satellite ordering and citation firewall not regressed (`web-foundations` `npm run build` + citation gate in X16 worktree). |
 | D23 | PASS | Public repo; `main` branch protection enabled 2026-11-05 (required `lint-and-build` + ≥1 review; no force-push). DECISIONS.md AMENDED. Instructor still merges; students never press Merge. |
-| D24 | DEFER (professor) | Running references still **404** on origin: https://ruvebal.github.io/react-template/ex3-cover , `/ex4-cover-shader` , `/ex5-ktx2` (branch `satellites-ex3-ex5` unpushed per D14). Lessons label “being published”; not a student-path leak. |
+| D24 | PASS | `satellites-ex3-ex5` is merged to `react-template` `main`; GitHub Actions Pages run https://github.com/ruvebal/react-template/actions/runs/42033746346 succeeded. Root returns HTTP 200. Direct `/ex3-cover`, `/ex4-cover-shader`, and `/ex5-ktx2` requests return the expected GitHub Pages `404.html` SPA shell and boot through the client router; lessons label them live. |
 | D25 | PASS (worktree) | Terminology satellite built in X13; `web-foundations/npm run build` passes in cascade worktree. Public lesson URL on `web-atelier-udit` Pages **not** claimed (no push to teaching `main` in X16). |
 | D26 | PASS | Live `Route.jsx` endpoints: https://ruvebal.github.io/feii-album-covers/covers/_studio , `/covers/_fixture-webgl` , `/covers/_fixture-dom` , `/covers/_fixture-throw` — direct open + browser reload OK. Deep links: HTTP **404** + SPA shell (`id="root"`) per GitHub Pages; app boots. Project selector + prev/next/all nav survive `_fixture-throw` error (`role="alert"` + `[data-exhibition-nav]`). Per-route lazy chunks in deployed bundle (`import("./Route-…")`, separate `react-three-fiber.esm-*.js`). |
 
@@ -89,7 +89,8 @@ See [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT-D26-ROUTE-FREEDOM.md).
 (Actions workflow; base path `/feii-album-covers/`). IP control is D8 + licence
 text, not repo privacy.
 
-**D24 running references:** still accurately labelled **being published** —
-`satellites-ex3-ex5` remains unpushed; the three `react-template` reference
-URLs return HTTP 404 on origin (checked 2026-11-05 in X16). Professor action
-unchanged: publish `react-template` when authorised.
+**D24 running references:** published from `react-template` `main` through
+GitHub Actions (run `42033746346`). The three direct route requests use the
+repository's deployed `404.html` SPA fallback, so HTTP 404 at the transport
+layer is expected; the shell boots `/ex3-cover`, `/ex4-cover-shader`, and
+`/ex5-ktx2` through the client router.

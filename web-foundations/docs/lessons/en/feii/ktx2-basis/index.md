@@ -191,7 +191,7 @@ The choice is not a brand. It is a sentence plus two numbers:
 
 1. **Mode:** ETC1S or UASTC.
 2. **Why it fits this sleeve:** photo or sharp type and logo. One honest reason.
-3. **Source licence:** a photograph of a physical album you own, or a named licence. A private GitHub repository is not a licence.
+3. **Source rights:** artwork you created, public-domain material, an open licence that permits the public adaptation, or written permission from the rights holder. Record the creator, source, licence/permission, and attribution. Owning the physical album is not permission to republish its cover; follow the [assignment's IP rule]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}#the-four-covenant-bars).
 4. **File bytes** on disk: the suitcase.
 5. **GPU bytes** for the PNG and for your chosen file: the room, computed as above, with the same levels counted on both sides and `texture.format` recorded. Add `renderer.info.memory.textures` as a sanity count only, because it goes up by one for either format. Date the numbers and say which machine they come from. If the encoder is missing, say so and keep the PNG. Never fake a `.ktx2`.
 
@@ -203,7 +203,7 @@ Typical use. This table is qualitative. It invents no ratios.
 | Sharp title type, high-contrast logo | UASTC | Edges survive; you pay in size |
 | You have not looked at both | Measure both, then pick | A win claimed without GPU bytes is a vibe |
 
-A measured pair for a **real** sleeve photograph is not on this page. It is measured in the reference repo, the album aggregator's studio switch. Until it lands, the only numbers here are the placeholder's, further down, and they come with a warning.
+A measured pair for a **real** sleeve photograph is not on this page. It is available in the live album aggregator's `_studio` switch. The only numbers taught here are the controlled placeholder's, further down, and they come with a warning: students must measure their own source and chosen encode.
 
 ---
 
@@ -462,7 +462,10 @@ Running reference: [live route](https://ruvebal.github.io/react-template/ex5-ktx
 ```markdown
 # KTX2 choice
 
-Album, and the source picture's licence (a photo of an album you own, or the named licence): ...
+Album: ...
+Artwork creator and source: ...
+Right to publish and adapt (student-created / public domain / open licence / written permission): ...
+Required attribution: ...
 
 Chosen mode (ETC1S or UASTC; or PNG kept, if the encoder was missing — say so): ...
 Why it fits this sleeve (one honest reason: photo grain, sharp type, a logo...): ...
@@ -543,7 +546,7 @@ STEP A (PHASE-X8, 2026-11-04): evidence-matrix row frontend-pedagogy/grounding/R
 VERIFIED graphics-pedagogy precedent only: Angel, E. & Shreiner, D. (2024). The Future of Teaching Computer Graphics. SIGGRAPH Educators Forum '24. DOI 10.1145/3641235.3664433. Ahmes coat 10_1145_3641235_3664433_the_future_of_teaching_computer_graphics_e2e9b45c, nodes 348bd016-3aee-5eb3-ae93-b3d422e137df p.1 and 92a534c1-6aff-5d5e-b1e5-2a7d2e2c65a9 p.2, evaluator_safe=yes (X3 transcript FEII-3D-ALBUM-KTX-CITATION-TRANSCRIPT-20261104.md). It does NOT validate this KTX2 page; the prose says so.
 D22: no Tao / quote-database citations on this page (no epigraphs, no qa-/arch-/dop- IDs).
 DevIAC/Athanor not used in X8 (down per X3/X7; KTX2 vector hits are the wrong papers per FINDINGS "Rejected hypotheses"). No vector snippet cited.
-Real-sleeve measured pair: deferred to X10 (feii-album-covers _studio switch). The placeholder table above is executor-measured, scratchpad only, no binaries committed.
+Real-sleeve comparison: completed in the live `feii-album-covers` `_studio` switch. The public lesson intentionally keeps its controlled placeholder table so the teaching comparison remains reproducible and does not substitute an instructor result for each student's measurements.
 -->
 {% endif %}
 

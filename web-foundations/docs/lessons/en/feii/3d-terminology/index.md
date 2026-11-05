@@ -33,7 +33,7 @@ tags: [feii, terminology, glossary, album-cover, satellite, r3f, shaders, ktx2]
 
 > **Before you start.** [Unit 8]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}) built the scene and the budget panel. [Unit 9]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}) introduced shaders. Cover shaders made the sleeve look up a colour in a picture. KTX2/Basis taught how that picture travels and what room it takes. This page is the rehearsal, not a fifth story.
 
-**Code in this lesson:** none. The linked lessons carry the CodeSandbox-ready, Excerpt, and Template fences. Optional running references (being published) match those satellites: [cover fork](https://ruvebal.github.io/react-template/ex3-cover), [cover shader](https://ruvebal.github.io/react-template/ex4-cover-shader), [ex5 packed-texture switch](https://ruvebal.github.io/react-template/ex5-ktx2).
+**Code in this lesson:** none. The linked lessons carry the CodeSandbox-ready, Excerpt, and Template fences. These live running references match those satellites: [cover fork](https://ruvebal.github.io/react-template/ex3-cover), [cover shader](https://ruvebal.github.io/react-template/ex4-cover-shader), [ex5 packed-texture switch](https://ruvebal.github.io/react-template/ex5-ktx2).
 
 ---
 

@@ -39,7 +39,7 @@ Use the focused satellites while you build: [Cover shaders]({{ '/lessons/en/feii
 
 These are the reference routes in `react-template`: [cover fork](https://ruvebal.github.io/react-template/ex3-cover), [cover shader](https://ruvebal.github.io/react-template/ex4-cover-shader), and [KTX2 switch](https://ruvebal.github.io/react-template/ex5-ktx2).
 
-On the aggregator, **`covers/_studio`** is **one instructor reference** (sleeve shader + KTX2 compare on original art) — live at [https://ruvebal.github.io/feii-album-covers/covers/_studio](https://ruvebal.github.io/feii-album-covers/covers/_studio). It is **not the expected answer**. Teams copy **`covers/_template`** (neutral DOM / WebGL / hybrid starters), never `_studio`.
+On the aggregator, **`covers/_studio`** is **one instructor reference** (sleeve shader + KTX2 compare on original art) — live at [https://ruvebal.github.io/feii-album-covers/covers/_studio](https://ruvebal.github.io/feii-album-covers/covers/_studio). It is **not the expected answer**. Teams copy [**`covers/_template`**](https://github.com/ruvebal/feii-album-covers/tree/main/covers/_template), never `_studio`. Start with its neutral DOM route, or choose the documented [DOM, WebGL, or hybrid starter](https://github.com/ruvebal/feii-album-covers/tree/main/covers/_template/starters) before making the visual language your own.
 
 ---
 
@@ -69,7 +69,7 @@ The [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | r
 Additional hand-in conditions:
 
 - **KTX2 choice** — **when your route loads GPU textures:** source PNG, ETC1S vs UASTC comparison, choice in `docs/ktx2-note.md`, file bytes and computed GPU bytes (see [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }})). **Pure DOM: N/A — do not fake KTX2 rows.**
-- **IP declaration** — photograph an album you own **or** name the licence in `docs/ktx2-note.md`. **Public Pages is not a licence.** No scraped commercial sleeves on the exhibition site (D8).
+- **IP declaration** — use artwork you created, public-domain material, an open licence that permits this public adaptation, or written permission from the rights holder; record the creator, source, licence/permission, and any attribution in `docs/ktx2-note.md`. **Owning the physical album is not permission to republish its cover on public Pages.** Spain's Ministry of Culture explains that public online use of a protected work normally requires authorization unless a specific legal exception applies ([Ministerio de Cultura 2026](https://www.cultura.gob.es/cultura/propiedadintelectual/la-propiedad-intelectual/preguntas-mas-frecuentes/autorizacion-para-utilizar-obras.html)). No scraped or unlicensed commercial sleeves enter the exhibition (D8).
 
 This course treats the sequence as a transparent studio pilot, not as a settled claim that one stack is the best higher-education syllabus. The research precedent is that durable graphics concepts can remain meaningful across changing APIs (Angel and Shreiner 2024, 1–2); the implementation, measurements, PRs, and defence are the evidence for this cohort.
 
@@ -84,7 +84,7 @@ Your completed route plus these four documents (honest N/A where a bar does not 
 - `docs/ktx2-note.md` — licence, bytes, choice, or N/A.
 - `docs/ai-3d-merge-log.md` — covenant decisions and REJECT evidence.
 
-Registry row (one object, sorted by slug): `slug`, `title`, `authors`, `concept` (artist/album + pitch), `thumbnail`, `tags`, `readiness` (`wip` → `ready`).
+Registry row (one object in [**`covers/registry.json`**](https://github.com/ruvebal/feii-album-covers/blob/main/covers/registry.json), sorted by slug): `slug`, `title`, `authors`, `concept` (artist/album + pitch), `thumbnail`, `tags`, `readiness` (`wip` → `ready`).
 
 **Template** — KTX2 comparison when you use textures (same table as the [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }})); replace every ellipsis. Skip the table honestly if your route never uploads a texture.
 
@@ -100,7 +100,7 @@ Start every task from `main`:
 
 For example: `cover-ok-computer-task1-mesh`, `cover-ok-computer-task2-shader`, `cover-ok-computer-task3-ktx2`. Submit small staged PRs:
 
-1. **task1 — light the route.** Copy `_template`, create `covers/<slug>/`, add registry metadata, make the album readable at `/covers/<slug>`.
+1. **task1 — light the route.** Copy [`_template`](https://github.com/ruvebal/feii-album-covers/tree/main/covers/_template), create `covers/<slug>/`, add registry metadata, make the album readable at `/covers/<slug>`.
 2. **task2 — authored shader.** When applicable: sampler effect + `docs/shader-note.md`; otherwise document N/A.
 3. **task3 — KTX2 and evidence.** When applicable: PNG, chosen `.ktx2`, notes, merge log; otherwise document N/A.
 4. **task4 — cross-cover contribution.** A real fix in another slug (with consent) or a shared gallery/a11y fix, plus at least one formal review outside your slug.
@@ -127,5 +127,7 @@ Every PR must use the repository template and include its **AI Review Log**. Bef
 ## References
 
 Angel, Edward, and Dave Shreiner. 2024. “The Future of Teaching Computer Graphics.” _SIGGRAPH Educators Forum ’24_. https://doi.org/10.1145/3641235.3664433.
+
+Ministerio de Cultura. 2026. “Permisos para utilizar obras y prestaciones protegidas.” Gobierno de España. Accessed November 5, 2026. https://www.cultura.gob.es/cultura/propiedadintelectual/la-propiedad-intelectual/preguntas-mas-frecuentes/autorizacion-para-utilizar-obras.html.
 
 The KTX2 and R3F pages above use dated standards and current platform documentation for **how** the APIs work. They are not presented as evidence that this exact teaching sequence is already validated.

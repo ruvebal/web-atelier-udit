@@ -108,7 +108,7 @@ Not a brand. A sentence plus two numbers.
 
 1. **Mode:** ETC1S or UASTC.
 2. **Why it fits this sleeve:** photo vs sharp type / logo (one honest reason).
-3. **Source licence:** photograph of a physical album you own, or a named licence. Private GitHub is not a licence.
+3. **Source rights:** student-created artwork, public-domain material, a suitably open licence, or written permission. Record creator, source, licence/permission, and attribution. Owning the physical album is not permission to republish its cover on public Pages.
 4. **File bytes** on disk (the suitcase).
 5. **GPU bytes** with PNG vs with your chosen KTX2 (the room), computed as above; plus `renderer.info.memory.textures` as a sanity count (it should go up by one when the sleeve loads, for either format). Dated, from **your** machine. If the encoder is missing, say so and keep PNG — do not fake a `.ktx2`.
 
