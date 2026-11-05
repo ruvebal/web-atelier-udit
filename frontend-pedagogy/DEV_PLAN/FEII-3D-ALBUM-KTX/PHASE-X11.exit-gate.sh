@@ -18,11 +18,13 @@ rg -q "budget\.js" "$FEII/unit-8-r3f-fundamentals/index.md" || { echo "REFUSED: 
 rg -q "budget\.js" "$FEII/cover-shaders/index.md" || { echo "REFUSED: cover-shaders does not name budget.js (X9 F3)" >&2; exit 1; }
 
 # D24: lesson code blocks link the react-template running reference
-for f in "$FEII/cover-shaders/index.md" "$FEII/ktx2-basis/index.md" "$FEII/unit-8-r3f-fundamentals/index.md"; do
+for f in "$FEII/cover-shaders/index.md" "$FEII/ktx2-basis/index.md" "$FEII/unit-8-r3f-fundamentals/index.md" "$FEII/units-8-9-assignment/index.md"; do
   rg -q "ruvebal.github.io/react-template/ex[345]" "$f" || { echo "REFUSED: $(basename "$(dirname "$f")") has no live react-template reference link (D24)" >&2; exit 1; }
 done
 for u in $(rg -o --no-filename "https://(ruvebal\.github\.io/react-template|github\.com/ruvebal/react-template/blob/main)[^) >\"]*" "$FEII" -g '*.md' | sort -u); do
   c=$(curl -s -o /dev/null -m 10 -w '%{http_code}' "$u" || echo 000)
   [ "$c" = 200 ] || echo "WARN: $u -> $c (publish react-template first: push + Pages source = GitHub Actions)"
 done
+rg -q "covers/_studio" "$FEII/units-8-9-assignment/index.md" || { echo "REFUSED: assignment does not point at the /covers/_studio reference" >&2; exit 1; }
+rg -qi "lint-and-build. check must p" "$FEII/units-8-9-assignment/index.md" && { echo "REFUSED: assignment L111 still claims an enforced check (D23)" >&2; exit 1; } || true
 echo "OK PHASE-X11.exit-gate.sh"

@@ -80,7 +80,16 @@ Implement PHASE-X11 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X11.m
    GitHub Actions), the gate WARNS and the report lists the URLs as
    "publish react-template first". The links are correct once published;
    do not invent other URLs.
-12. Hand off for cold review — do NOT mark DONE.
+12. Assignment page (professor question 2026-11-05): add a short
+   "Running references" list near the satellites line (L36):
+   react-template /ex3-cover, /ex4-cover-shader, /ex5-ktx2 (live links,
+   same publish rule as step 11), and the instructor reference cover
+   /covers/_studio in the aggregator. Say it is visible to collaborators
+   through `npm run dev` (the repo is private and not deployed), and that
+   teams copy covers/_template, never _studio. Also check that L34's private
+   repo link reads correctly for students who are not yet collaborators
+   (one clause: "you will be added as a collaborator").
+13. Hand off for cold review — do NOT mark DONE.
 
 ## Constraints
 - Autopilot may commit web-atelier lesson files locally. Do not git push web-atelier-udit.
