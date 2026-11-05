@@ -9,6 +9,6 @@
 7. The minimum viable GLSL checklist (graded)
 8. The failure mode this unit refuses: a generated look you cannot narrate
 9. Render-then-judge pipelines elsewhere: adjacent, not the grade
-10. The Units 8–9 assignment — one scene, one authored shader, explained
+10. The Units 8–9 assignment — the bulb stays the demonstration; the album-cover shader samples the sleeve picture at a UV (Cover shaders satellite) and is not a paste of `BulbMaterial`
 
 Speaker claims only; no unsupported learning-outcome claim.

@@ -47,7 +47,7 @@ status: complete
 
 > **AI Assistance Disclosure:** Models draft GLSL fluently and often wrongly. Literacy means you can explain *your* shader. Read the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) before the first prompt. Shader diffs go in that covenant's `docs/ai-3d-merge-log.md`, the same ACCEPT / REJECT habit as [Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}).
 
-**Code in this unit:** vocabulary fences are **Excerpts**. They show one idea and do not run alone. The bulb is three **CodeSandbox-ready** files you paste into the Unit 8 sandbox: `src/parts.js`, `src/BulbMaterial.jsx`, `src/Beacon.jsx`. A fourth, a per-frame `src/BudgetProbe.jsx`, is only for a team that adds a post-processing pass — with optional `src/BloomPass.jsx` or `src/ChromaticPass.jsx` so the composer import stays visible. `docs/shader-note.md` is a **Template** — copy it, then fill the six checklist lines from your own shader. Optional `src/StretchText.jsx` is also a **Template** (font paths). **Student lab:** one scene, continued from Unit 8 — still no required route table. **Instructor demonstration** (`react-template` **1.0.0**): `/ex2-shader` toggles the same beacon with `useShader`; oral review notes live in that repo as `docs/guia-revision-shader-rim.md` (ES).
+**Code in this unit:** vocabulary fences are **Excerpts**. They show one idea and do not run alone. The bulb is three **CodeSandbox-ready** files you paste into the Unit 8 **beacon** sandbox, never into your cover fork: `src/parts.js`, `src/BulbMaterial.jsx`, `src/Beacon.jsx`. A fourth, a per-frame `src/BudgetProbe.jsx`, is only for a team that adds a post-processing pass; optional Bloom or chromatic passes make the composer import visible. `docs/shader-note.md` is a **Template** — copy it, then fill the six checklist lines from your own shader; a seventh line, the sampler, belongs to your album cover and waits for the Cover shaders satellite. The instructor’s routed `react-template` beacon remains the demonstration; one scene, continued from Unit 8, is the student lab, so there is still no route table.
 
 ---
 
@@ -181,11 +181,11 @@ uniform vec3 color;
 
 ## The bulb — one shader on the Unit 8 scene
 
-Start from the Unit 8 sandbox. Same template, same pins, same `main.jsx`, `App.jsx`, `index.css`, and `BudgetProbe.jsx`. You replace three files. Nothing new is installed: `shaderMaterial` comes from drei, which Unit 8 already pins.
+Start from the Unit 8 **beacon** sandbox, the one the Unit 8 lab keeps as published. Do not paste these files into your cover fork: the bulb's `parts.js` would remove the sleeve, vinyl, and stage ids, and `Cover.jsx` would lose every part without an error. Same template, same pins, same `main.jsx`, `App.jsx`, `index.css`, and `BudgetProbe.jsx`. You replace three files. Nothing new is installed: `shaderMaterial` comes from drei, which Unit 8 already pins.
 
 The bulb is the only custom material. Arm, ring, shaft, collar, and plinth stay `meshStandardMaterial`. Hover and click still write the same React state. `uHot` is that state, passed as a prop. `uTime` advances in `useFrame`, because the fragment shader cannot see `delta`.
 
-**CodeSandbox-ready** — replace `src/parts.js`. Only the lamp sentence changes. The panel would be lying if it still said the bulb was a standard material.
+**CodeSandbox-ready** — in the beacon sandbox, replace `src/parts.js`. Only the lamp sentence changes. The panel would be lying if it still said the bulb was a standard material.
 
 ```js
 export const PartId = {
@@ -213,7 +213,7 @@ export const PARTS = [
 ];
 ```
 
-**CodeSandbox-ready** — create `src/BulbMaterial.jsx`.
+**CodeSandbox-ready** — in the beacon sandbox, create `src/BulbMaterial.jsx`.
 
 ```jsx
 import { useRef } from 'react';
@@ -273,7 +273,7 @@ export default function BulbMaterial({ hot, reduced }) {
 }
 ```
 
-**CodeSandbox-ready** — replace `src/Beacon.jsx`.
+**CodeSandbox-ready** — in the beacon sandbox, replace `src/Beacon.jsx`.
 
 ```jsx
 import { useRef } from 'react';
@@ -400,6 +400,7 @@ Sampled 2026-10-22, three@0.185.1, Apple M4 Max: idle body rgb(123, 92, 41), whi
 4. Precision: mediump, or why this shader needs highp.
 5. Effect: the one thing a viewer should notice. Name the function (fresnel, band, dissolve).
 6. Post-pass: zero. Or one pass, the pin, and the per-frame renderer.info row with and without it.
+7. Sampler (album cover only): which picture the sleeve samples, and at which UV. Leave it as a question until Cover shaders.
 ```
 
 ### What this file refuses
@@ -423,56 +424,18 @@ If you try a pass, install both packages. `postprocessing` is a peer. Name it, s
 npm install @react-three/postprocessing@3.0.5 postprocessing@6.39.5
 ```
 
-**CodeSandbox-ready** — create `src/BloomPass.jsx` only when you measure a pass. Mount it inside the Unit 8 `<Canvas>`, beside `Beacon` and the per-frame `BudgetProbe`.
+**Excerpt** — `Bloom` is a child of `EffectComposer`, and both sit inside `Canvas` beside the scene. This is not a file. `Beacon` here has no props.
 
 ```jsx
-// src/BloomPass.jsx
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
-export default function BloomPass() {
-  return (
-    <EffectComposer>
-      <Bloom luminanceThreshold={0.5} intensity={1.5} />
-    </EffectComposer>
-  );
-}
+<Canvas>
+  <Beacon />
+  <EffectComposer>
+    <Bloom luminanceThreshold={0.5} intensity={1.5} />
+  </EffectComposer>
+</Canvas>
 ```
-
-**Excerpt** — wire it into the Unit 8 `src/App.jsx` `Canvas` children. Keep the existing `Beacon` props. Do not invent a second scene.
-
-```jsx
-import BloomPass from './BloomPass.jsx';
-
-// inside <Canvas>, after <Beacon ... /> and before or after <BudgetProbe ... />:
-<BloomPass />
-```
-
-**CodeSandbox-ready** — create `src/ChromaticPass.jsx` the same way if you measure chromatic aberration instead of bloom. Still one pass, still inside `EffectComposer`.
-
-```jsx
-// src/ChromaticPass.jsx
-import { EffectComposer, ChromaticAberration } from '@react-three/postprocessing';
-import { Vector2 } from 'three';
-
-export default function ChromaticPass() {
-  return (
-    <EffectComposer>
-      <ChromaticAberration
-        offset={new Vector2(0.002, 0.002)}
-        radialModulation={false}
-      />
-    </EffectComposer>
-  );
-}
-```
-
-**Imports to notice**
-
-| Import | From | Why |
-| --- | --- | --- |
-| `EffectComposer`, `Bloom` / `ChromaticAberration` | `@react-three/postprocessing` | Composer host + one effect child |
-| `Vector2` | `three` | Chromatic offset is a Three vector, not a bare array on this pin |
-| `BloomPass` / `ChromaticPass` | `./BloomPass.jsx` / `./ChromaticPass.jsx` | Keep the pass out of `App.jsx` so the Unit 8 shell stays readable |
 
 Measured 2026-10-22 on the same beacon, same machine and pins as the Unit 8 table (Apple M4 Max, ANGLE Metal, WebGL 2), with `@react-three/postprocessing@3.0.5`, `postprocessing@6.39.5`, and one `Bloom`. Three resets `calls` and `triangles` at the start of every `gl.render` unless `gl.info.autoReset` is false. It never resets memory.
 
@@ -545,17 +508,15 @@ The reset runs every frame. The report runs once a second. This probe's `useFram
 
 If you keep a pass, change `CEILING` to the row you accept, and put the same row in `docs/renderer-info.md`. Course caps are still the Unit 8 ones: desktop ≤ 200 draw calls, mobile ≤ 80. Twenty-three calls fits the mobile cap. It does not fit this scene's ceiling, and the shader note has to say which of the two you are defending.
 
-`ChromaticPass.jsx` above is the same pattern as bloom: one effect child inside `EffectComposer`. A fullscreen pass is a different object from `BulbMaterial`, and this unit does not grade one.
+`ChromaticAberration` is the same kind of child. It does nothing unless it is inside `EffectComposer`. A fullscreen pass is a different object from `BulbMaterial`, and this unit does not grade one.
 
 ---
 
 ## 🎯 Looks that are not the grade
 
-Stretch only. The grade is still the checklist on one explained `shaderMaterial`.
+These three fences are **Excerpts**. Undefined components, a missing font, and a hash named after a noise function. The grade is the checklist.
 
-### A hash, not simplex noise — **Excerpt**
-
-Fragment body only. It needs `uniform` declarations and a Three material wrapper (same import pattern as `BulbMaterial.jsx`) before it runs.
+### A hash, not simplex noise
 
 ```glsl
 uniform float time;
@@ -574,11 +535,9 @@ void main() {
 
 `fract(sin(dot(...)))` is a hash. Simplex noise is a different function. Shipping this under the name simplex fails the literacy bar even when it compiles.
 
-### Names with no components — **Excerpt**
+### Names with no components
 
 ```jsx
-import { Canvas } from '@react-three/fiber';
-
 function GenerativeInterface() {
   return (
     <Canvas>
@@ -590,69 +549,44 @@ function GenerativeInterface() {
 }
 ```
 
-`Canvas` is a real import. `BackgroundShader`, `FloatingElements`, and `OverlayUI` are not in this lesson. The fence shows a wish with one honest import and three missing modules.
+`BackgroundShader`, `FloatingElements`, and `OverlayUI` are not in this lesson. The fence shows a wish.
 
-### Type in space — **Template**
-
-`Text` (SDF) needs a font URL you host. `Text3D` needs typeface JSON, not a `.woff`. Replace the font paths. Neither is the grade. Interactive copy stays in the DOM, as in Unit 8.
-
-**Template** — optional `src/StretchText.jsx`. Not wired in the Unit 8 `App.jsx`.
-
-{% raw %}
+### Type in space
 
 ```jsx
-// src/StretchText.jsx — optional stretch; replace font paths before running
-import { Canvas } from '@react-three/fiber';
-import { Center, OrbitControls, Text, Text3D } from '@react-three/drei';
+import { Text } from '@react-three/drei';
 
-export default function StretchText() {
-  return (
-    <Canvas camera={{ position: [0, 0, 8], fov: 40 }}>
-      <color attach="background" args={['#161411']} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[3, 4, 2]} intensity={1.2} />
-
-      <Text
-        position={[0, 1.4, 0]}
-        font="/fonts/example.woff"
-        fontSize={0.45}
-        color="#f6e2bc"
-      >
-        Hello Spatial Web
-      </Text>
-
-      <Center position={[0, -0.4, 0]}>
-        <Text3D
-          font="/fonts/helvetiker_regular.typeface.json"
-          size={0.4}
-          height={0.1}
-        >
-          Entrega 2
-          <meshStandardMaterial color="#e36a2c" />
-        </Text3D>
-      </Center>
-
-      <OrbitControls enablePan={false} />
-    </Canvas>
-  );
-}
+<Text font="/fonts/example.woff" fontSize={0.2}>
+  Hello
+</Text>
 ```
 
-{% endraw %}
+`Text` needs a font file you host. `Text3D` needs a typeface JSON, not a `.woff`. Neither is the grade. Interactive copy stays in the DOM, as in Unit 8.
 
 ---
 
 ## Lab (team) — workplace-like · 3 h
 
-Same repo as Unit 8. The graded hand-in for both units is the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). This lab is the shader half. Unit 10 is still the rest of Entrega 2.
+Same repo as Unit 8. The graded hand-in for both units is the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}): a web 3D version of a named album cover. This lab is the shader half, and it points at your album sleeve. Unit 10 is still the rest of Entrega 2.
 
-1. Keep the Unit 8 scene, or your own mesh tree, and replace one material with a `shaderMaterial` you can explain. The bulb above is the demonstration. Pasting it unchanged fails checklist item 5.
+### The bulb is the demonstration, the sleeve is the hand-in
+
+The bulb computes its rim from the surface normal and the view direction. It reads no picture. The cover's shader has to read one: it looks up a colour in the sleeve picture at a UV, through a `sampler2D`. That lookup is taught in the [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) satellite, not here. `BulbMaterial` with new colours, or with a texture bolted onto its rim, is still a paste of the lesson excerpt. It fails checklist item 5 here and the assignment's second covenant bar.
+
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+tuning_record: 2026-11-04-fb4ae679-b012-46fb-a97e-ca555f6ebc27-feii-u9-lab-1 — three thessia-scholar-v3 attempts, all REJECTED (quote gate FAIL; invented commands, file paths, lab names). Per PHASE-X6 risk clause the B1 paragraph was not shipped; the lines above are operator-written lab brief restating lesson facts only. No citation.
+-->
+{% endif %}
+
+1. Work in your cover fork from the [Unit 8 lab]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}#lab-team--workplace-like--3-h), not in the beacon sandbox where the bulb runs. Write one `shaderMaterial` you can explain as a **new** material file of your own, import it in `Cover.jsx`, and use it on the sleeve mesh in place of its `meshStandardMaterial`. Keep the cover `parts.js` as it is, and do not paste `Beacon.jsx` or `BulbMaterial.jsx` into the fork. How that material samples the picture is taught in the [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) satellite. The bulb above is the demonstration. Pasting it unchanged fails checklist item 5.
 2. Drive one uniform from React. `uTime` in `useFrame` counts. A number written into the shader source does not.
-3. Write `docs/shader-note.md` from the template. Eight to twelve lines, all six checklist items.
-4. Leave post-processing off, or add one pass (`BloomPass` or `ChromaticPass`), swap in the per-frame `BudgetProbe`, and record both rows. The Bloom table is why the reference stays at zero passes.
-5. One merge log, the covenant's `docs/ai-3d-merge-log.md`, shared with Unit 8. Do not start a second log.
+3. Write `docs/shader-note.md` from the template. Eight to twelve lines, all six checklist items. Line 7, the sampler, waits for Cover shaders; leave it as a question until then.
+4. **Your cover, not the beacon.** Add one sentence to the note: which coordinate space your sleeve shader will sample in, and what would go wrong if you used the bulb's. A picture looked up by view direction swims across the sleeve as the camera orbits. A picture looked up at the mesh's UV stays printed on it.
+5. Leave post-processing off, or add one pass, swap in the per-frame `BudgetProbe`, and record both rows. On your cover fork, keep your own measured `CEILING` values from Unit 8 when you paste that file, not the beacon's 6 / 1368 it is published with. The Bloom table is why the reference stays at zero passes. Those rows are the beacon's; a pass on your cover needs its own two rows.
+6. One merge log, the covenant's `docs/ai-3d-merge-log.md`, shared with Unit 8. Do not start a second log.
 
-**Deliverable:** the shader on the shared repo, plus `docs/shader-note.md`. The merge log and the budget note are the assignment's, not a second pair of files.
+**Deliverable:** the shader on the shared repo, plus `docs/shader-note.md`. The merge log and the budget note are the assignment's, not a second pair of files. On the assignment, the sleeve shader that samples the cover picture is **task2 — authored shader** on your route.
 
 ---
 
@@ -678,7 +612,7 @@ Resolución de Ejercicios allocation.
 
 ## Session outcome
 
-You can explain one authored shader and decide whether a post pass is worth its cost. Units 8 and 9 are one scene; the hand-in is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). [Unit 10]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) adds live data. Tool shopping is still not a learning outcome.
+You can explain one authored shader and decide whether a post pass is worth its cost. Units 8 and 9 are one scene. On the hand-in that scene is your album sleeve, and its shader samples the cover picture ([Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }})), and how that picture is delivered and what it costs on the GPU is the [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}); the bulb stays the demonstration. The hand-in is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). [Unit 10]({{ '/lessons/en/feii/unit-10-iot-python-backend/' | relative_url }}) adds live data. Tool shopping is still not a learning outcome.
 
 ---
 
