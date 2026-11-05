@@ -36,7 +36,7 @@ The alternative, publishing it on purpose, is your call. If you choose it, say s
 ## 3b. Aggregator repo — your decisions (X9, 2026-11-04)
 
 - `https://github.com/ruvebal/feii-album-covers` is created **private**, and CI `lint-and-build` is green.
-- **Branch protection is NOT enforced.** GitHub returned 403 for both classic protection and rulesets: “Upgrade to GitHub Pro or make this repository public”. CONTRIBUTING's “CI must pass / one human must approve” is therefore convention only. Options: GitHub Pro, or GitHub Education (free for teachers), or move the repo to an org with a plan. Making it public conflicts with D6/D8 (sleeve photos). Until then, merge only through PRs yourself.
+- **Branch protection is NOT enforced — decided (D23, 2026-11-05):** stay on the personal `ruvebal` account, regular plan. “CI must pass / one human approves” is convention; you merge only through PRs. Collaborators can technically push to `main`, so watch the commit log for direct pushes.
 - Add the students as collaborators (out of cascade scope).
 
 ## 4. Host
