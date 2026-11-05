@@ -70,7 +70,17 @@ Implement PHASE-X11 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X11.m
    satellites-ex3-ex5 is not yet pushed or merged by the professor, name the
    routes and the repo without a branch URL, and say "reference routes in
    react-template (being published)". Never invent a URL.
-11. Hand off for cold review — do NOT mark DONE.
+11. D24 + professor request (2026-11-05): every CodeSandbox-ready and
+   Template block in the Unit 8 cover-fork lab, cover-shaders and
+   ktx2-basis gets one line directly under it:
+   "Running reference: [live route](https://ruvebal.github.io/react-template/<route>) · [source](https://github.com/ruvebal/react-template/blob/main/src/cover/<file>)".
+   Use the exact files and routes on branch satellites-ex3-ex5. The X11
+   gate checks the lines exist and curls each URL. If any URL is not 200
+   (the professor has not yet pushed react-template or switched Pages to
+   GitHub Actions), the gate WARNS and the report lists the URLs as
+   "publish react-template first". The links are correct once published;
+   do not invent other URLs.
+12. Hand off for cold review — do NOT mark DONE.
 
 ## Constraints
 - Autopilot may commit web-atelier lesson files locally. Do not git push web-atelier-udit.

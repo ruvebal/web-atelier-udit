@@ -40,6 +40,13 @@ The alternative, publishing it on purpose, is your call. If you choose it, say s
 - **X10 opens a PR (`_studio` reference cover) and leaves it unmerged.** D21: AI never merges. Review it and merge it yourself (`gh pr merge --squash`). The X9 scaffold commits (`4deb186`, `0e87d73`, `bb5e324`) were pushed straight to `main` before any collaborator existed, a one-time pre-cohort carve-out under D14.
 - Add the students as collaborators (out of cascade scope).
 
+## 3c. react-template (public): publish BEFORE the lessons (D24)
+
+- Today https://ruvebal.github.io/react-template/ is **broken**. Pages “legacy” serves the unbuilt `index.html` from `main`: a blank page, and `/ex1-beacon` returns 404.
+- Branch `satellites-ex3-ex5` (unpushed) adds `/ex3-cover`, `/ex4-cover-shader`, `/ex5-ktx2`, “Focus” notes on every route, and a Pages build workflow.
+- To publish: review the branch → merge to `main` → `git push` → Settings → Pages → Source = **GitHub Actions** (or `gh api -X PUT repos/ruvebal/react-template/pages -f build_type=workflow`). Then open `/react-template/ex1-beacon` through `/ex5-ktx2`.
+- Push the lessons only after that. Their “Running reference” links point at those routes and files (the X11 gate warns while they are not 200).
+
 ## 4. Host
 
 The disk filled to 0 bytes during the run (2026-11-04 ~21:00) and crashed Docker; DevIAC is down. ~24 GB was freed (brew cleanup, npm cache, Ollama log, `llama3.2-vision`, app caches). Phases X6–X12 do not need DevIAC. Keep Docker off until the run ends, then check `df -h` before starting it (its VM file is 23 GB and grows).
