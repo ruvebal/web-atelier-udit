@@ -32,7 +32,16 @@ Implement PHASE-X10 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X10.m
    useFrame without allocating geometry. Default export Cover, gallery wraps Canvas.
 2. Shader samples uMap; one authored effect. JSDoc on helpers. Reuse the
    cover-shaders lesson's SleeveMaterial.jsx / sleevePicture.js unchanged
-   (X7 round-2 G1: the lesson promises they move over as they are).
+   EXCEPT the R3F `extend` key: register _studio's material under a
+   studio-unique name (e.g. `extend({ StudioSleeve: SleeveShader })`) or
+   the component form `const Sleeve = extend(SleeveShader)` — extend names
+   are global across every route (X9 cold review F1: a shared key made
+   one route render another route's shader). Ship Unit 9's per-frame
+   BudgetProbe in src/lib so a route with a post-pass can be measured
+   (X9 F5; Unit 8's probe reads calls 1 with Bloom on). The transcoder
+   lands once at root public/basis/ (X9 F7 — make CONTRIBUTING's "will be
+   vendored" true, and re-check rule 40 L21 wording). Keep
+   covers/registry.json sorted by slug — check-registry now enforces it.
 3. KTX2Loader + transcoder. Compare ETC1S vs UASTC vs PNG as a visible
    switch (D22 hello-world). Label two numbers in the UI or docs:
    “file bytes (suitcase)” vs “GPU bytes (room)”. GPU bytes are COMPUTED
@@ -61,9 +70,16 @@ Implement PHASE-X10 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X10.m
 6. npm run build && npm run lint. Browser-verify gallery + /covers/_studio
    if a browser tool is up; else `npm run preview` + curl the routes, and
    say renderer.info numbers were not browser-measured.
-7. Instructor `_studio` work also uses a branch + PR into main (D21),
-   not a direct commit to main if protection is live. Commit and push
-   feii-album-covers only.
+7. Instructor `_studio` work goes on a branch (e.g.
+   `instructor-studio-x10`) pushed to origin, with a PR opened into main
+   and CI green. **Do NOT merge it.** D21 says “AI never merges” and D23
+   says the instructor merges only through PRs, so the professor merges.
+   The X10 gate runs on the local branch checkout. (X9 round-2 G5: the old
+   “if protection is live” clause is gone; protection is never live (D23).
+   The X9 scaffold pushes went straight to main before any collaborator
+   existed, a one-time pre-cohort carve-out under D14.) Push
+   feii-album-covers only. Also add to CONTRIBUTING one sentence saying
+   students never press Merge, the instructor does (X9 round-2 G4).
 8. Hand off for cold review — do NOT mark DONE.
 
 ## Constraints

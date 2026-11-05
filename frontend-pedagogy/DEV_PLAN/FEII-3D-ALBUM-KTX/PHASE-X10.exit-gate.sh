@@ -12,6 +12,10 @@ test -f "$NOTE"
 rg -qi "uastc" "$ROOT/covers/_studio" "$ROOT/src/lib"
 rg -qi "etc1s" "$ROOT/covers/_studio" "$ROOT/src/lib"
 rg -q "uMap" "$ROOT/covers/_studio/src"
+# X9 round-2 G3: _studio must not keep the lesson's shared extend key
+if rg -q "extend\(\s*\{\s*SleeveShader\s*[,}]" "$ROOT/covers/_studio/src"; then echo "REFUSED: _studio registers the shared key SleeveShader (X9 F1)" >&2; exit 1; fi
+(cd "$ROOT" && node scripts/check-registry.mjs >/dev/null) || { echo "REFUSED: check-registry fails on the X10 tree" >&2; exit 1; }
+rg -qi "never press merge|do not (press|click) merge|instructor merges" "$ROOT/CONTRIBUTING.md" || { echo "REFUSED: CONTRIBUTING does not say the instructor merges (X9 G4)" >&2; exit 1; }
 rg -qi "file bytes" "$NOTE"
 rg -q -- "--assign[_-](oetf|tf)['\"]?[ ,]+['\"]?srgb" "$ROOT/scripts/encode-cover.mjs" || { echo "REFUSED: encode-cover.mjs must assign sRGB (X8 cold review S1)" >&2; exit 1; }
 if rg -- "--convert[_-](oetf|tf)\b" "$ROOT/scripts/encode-cover.mjs" | rg -qv '^\s*(//|\*|/\*)'; then echo "REFUSED: --convert_oetf/--convert-tf rewrites sleeve pixels (X8 cold review S1)" >&2; exit 1; fi
