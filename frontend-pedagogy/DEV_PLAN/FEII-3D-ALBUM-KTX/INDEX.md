@@ -39,8 +39,8 @@ Closing: each phase → VERIFYING → `PHASE-Xn-COLD-REVIEW.md` → amend if nee
 | 6 | [PHASE-X6.md](PHASE-X6.md) | Enrich Unit 8 + Unit 9 toward the cover (lesson-scribe) | DONE 2026-11-04 |
 | 7 | [PHASE-X7.md](PHASE-X7.md) | New shaders satellite lesson | DONE 2026-11-04 |
 | 8 | [PHASE-X8.md](PHASE-X8.md) | First-principles KTX2 satellite (texel before brand names) | DONE 2026-11-04 |
-| 9 | [PHASE-X9.md](PHASE-X9.md) | GitHub aggregator `feii-album-covers` scaffold + `gh repo create --private` | READY |
-| 10 | [PHASE-X10.md](PHASE-X10.md) | `_studio` cover + KTX2 compare + gallery glob | BLOCKED until X9 DONE |
+| 9 | [PHASE-X9.md](PHASE-X9.md) | GitHub aggregator `feii-album-covers` scaffold + `gh repo create --private` | DONE 2026-11-05 |
+| 10 | [PHASE-X10.md](PHASE-X10.md) | `_studio` cover + KTX2 compare + gallery glob | READY |
 | 11 | [PHASE-X11.md](PHASE-X11.md) | Publish gates: lessons.yml, Liquid, citation firewall, build | BLOCKED until X10 DONE |
 | 12 | [PHASE-X12.md](PHASE-X12.md) | Closing audit vs AUDIT-GROUNDED student/instructor split | BLOCKED until X11 DONE |
 

@@ -19,9 +19,24 @@ if rg -n "git checkout -b (content|graph|oracle|pwa|accounts)-" "$ROOT/CONTRIBUT
   echo "REFUSED: CONTRIBUTING tells students to use TTOD seam names" >&2; exit 1
 fi
 rg -q "AI Review Log" "$ROOT/.github/pull_request_template.md"
+# F10 + round-2 G2: props passed ON <Cover ...> (anchored: not <CoverStage>)
 for prop in hovered selected reduced onHover onSelect; do
-  rg -q "\b$prop\b" "$ROOT/src" -g '*.jsx' || { echo "REFUSED: gallery route does not pass $prop to Cover (X7 G1 contract)" >&2; exit 1; }
+  rg -U -q "<Cover\s[\s\S]*?\b$prop=\{" "$ROOT/src/gallery" -g '*.jsx' || { echo "REFUSED: gallery route does not pass $prop= on <Cover> (X7 G1 contract)" >&2; exit 1; }
 done
+# F1 + round-2 G2: functional proof that check-registry refuses a shared extend key
+T=$(mktemp -d "$LOGDIR/x9-extend.XXXX")
+rsync -a --exclude node_modules --exclude dist --exclude .git "$ROOT/" "$T/"
+ln -s "$ROOT/node_modules" "$T/node_modules"
+for s in zz-a zz-b; do
+  mkdir -p "$T/covers/$s/src"
+  printf "import { extend } from '@react-three/fiber'\nclass SleeveShader {}\nextend({ SleeveShader })\nexport default function Cover(){ return null }\n" > "$T/covers/$s/src/Cover.jsx"
+done
+if (cd "$T" && node scripts/check-registry.mjs >"$LOGDIR/x9-extend.log" 2>&1); then
+  rm -rf "$T"; echo "REFUSED: check-registry accepted two routes sharing extend key SleeveShader (X9 F1)" >&2; exit 1
+fi
+rg -q "SleeveShader.*zz-a.*zz-b|zz-a.*zz-b" "$LOGDIR/x9-extend.log" || { rm -rf "$T"; echo "REFUSED: check-registry failed, but not on the shared key:" >&2; tail -5 "$LOGDIR/x9-extend.log" >&2; exit 1; }
+rm -rf "$T"
+echo "extend-key guard: refuses shared key (ok)"
 if rg -n "['\"]/sleeve\.(jpg|png)" "$ROOT/covers/_template"; then echo "REFUSED: _template uses a root /sleeve path, not route-relative" >&2; exit 1; fi
 rg -q "covers/\*/src/Cover.jsx|covers/\*/src/Cover" "$ROOT/src/App.jsx" "$ROOT/src" -g '*.jsx' -g '*.js'
 python3 - "$ROOT/package.json" "$BEACON/package.json" <<'PY'

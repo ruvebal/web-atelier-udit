@@ -54,7 +54,17 @@ Implement PHASE-X11 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X11.m
    profile" one paragraph before its definition at L379 — reorder or
    gloss; (G5) L373 "three.js copies the file's tag" → "for a packed
    (KTX2) file", since the PNG example was tagged by hand.
-9. Hand off for cold review — do NOT mark DONE.
+9. Carried from X9 cold review: (F1) cover-shaders Lab mapping step 2 —
+   one sentence: on the aggregator rename the `extend` key to something
+   slug-unique (or use `const Sleeve = extend(SleeveShader)`), because
+   extend names are shared by every route; CI's check-registry refuses
+   duplicates. (F3) Unit 8 Deliverable (~L959) and cover-shaders step 3 —
+   CEILING lives in optional covers/<slug>/src/budget.js on the
+   aggregator. (F2) assignment ~L111 — match D23 (CONFIRMED: convention-only on
+   the personal account; instructor merges only through PRs). (F5) state the
+   post-pass rule on the aggregator if X10 did not add the dependency.
+   Also re-check the two satellite links once published (X9 S3).
+10. Hand off for cold review — do NOT mark DONE.
 
 ## Constraints
 - Autopilot may commit web-atelier lesson files locally. Do not git push web-atelier-udit.
