@@ -5,7 +5,7 @@ Author: Rubén Vega Balbás, PhD · 2026-11-04
 
 # FE II 3D album cover — shaders, KTX2, implementation repo
 
-**Status:** ACTIVE cascade (X0–X12) · not a 13th/14th numbered unit · not the `corpus-to-boilerplate` prospector.
+**Status:** ACTIVE cascade (X0–X13; X13 added 2026-11-05, D25) · not a 13th/14th numbered unit · not the `corpus-to-boilerplate` prospector.
 **Author:** Rubén Vega Balbás, PhD · 2026-11-04
 **Readers:** product owner (RATIONALE first); technical director (cascade second).
 
@@ -22,7 +22,7 @@ Author: Rubén Vega Balbás, PhD · 2026-11-04
 | Decisions | [DECISIONS.md](DECISIONS.md) | Frozen 2026-11-04 (no PROPOSED rows). |
 | Operator agents | [AGENT.md](AGENT.md) | Executor stops at VERIFYING; reviewer is a fresh session. |
 
-Phase files (do not invert): [X0](PHASE-X0.md) · [X1](PHASE-X1.md) · [X2](PHASE-X2.md) · [X3](PHASE-X3.md) · [X4](PHASE-X4.md) · [X5](PHASE-X5.md) · [X6](PHASE-X6.md) · [X7](PHASE-X7.md) · [X8](PHASE-X8.md) · [X9](PHASE-X9.md) · [X10](PHASE-X10.md) · [X11](PHASE-X11.md) · [X12](PHASE-X12.md).
+Phase files (do not invert): [X0](PHASE-X0.md) · [X1](PHASE-X1.md) · [X2](PHASE-X2.md) · [X3](PHASE-X3.md) · [X4](PHASE-X4.md) · [X5](PHASE-X5.md) · [X6](PHASE-X6.md) · [X7](PHASE-X7.md) · [X8](PHASE-X8.md) · [X9](PHASE-X9.md) · [X10](PHASE-X10.md) · [X11](PHASE-X11.md) · [X12](PHASE-X12.md) · [X13](PHASE-X13.md).
 
 Closing: each phase → VERIFYING → `PHASE-Xn-COLD-REVIEW.md` → amend if needed → `PHASE-Xn-REPORT.md` → DONE.
 
@@ -43,6 +43,7 @@ Closing: each phase → VERIFYING → `PHASE-Xn-COLD-REVIEW.md` → amend if nee
 | 10 | [PHASE-X10.md](PHASE-X10.md) | `_studio` cover + KTX2 compare + gallery glob | READY |
 | 11 | [PHASE-X11.md](PHASE-X11.md) | Publish gates: lessons.yml, Liquid, citation firewall, build | BLOCKED until X10 DONE |
 | 12 | [PHASE-X12.md](PHASE-X12.md) | Closing audit vs AUDIT-GROUNDED student/instructor split | BLOCKED until X11 DONE |
+| 13 | [PHASE-X13.md](PHASE-X13.md) | 3D terminology satellite (oral paragraph + glossary; D25) | BLOCKED until X12 DONE |
 
 Harness: `~/src/.cursor/skills/cascade-forge/scripts/cascade-harness.sh`. Only the **first word** of Gate is a status token.
 

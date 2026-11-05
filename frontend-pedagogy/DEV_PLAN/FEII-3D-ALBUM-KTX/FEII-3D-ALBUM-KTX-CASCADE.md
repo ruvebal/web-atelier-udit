@@ -1,4 +1,4 @@
-# Technical director — FEII-3D-ALBUM-KTX (X0–X12)
+# Technical director — FEII-3D-ALBUM-KTX (X0–X13)
 
 **Status:** ACTIVE. Autopilot: [AUTOPILOT.md](AUTOPILOT.md). Run phases **in order**. Each `PHASE-Xn.md` is a self-contained paste prompt.
 
@@ -73,7 +73,7 @@ autopilot.sh bootstrap creates it).
 - git push of web-atelier-udit
 
 ## Programme
-Execute the next incomplete phase only, in order X0 → X12, through the
+Execute the next incomplete phase only, in order X0 → X13, through the
 AUTOPILOT loop (executor → harness verify → cold-reviewer subagent →
 REPORT → flip next READY). Do not wait for clipboard Pass 1.
 Implementer must not self-certify DONE.

@@ -1,4 +1,4 @@
-# Autopilot — run X0→X12 without a human in the clipboard loop
+# Autopilot — run X0→X13 without a human in the clipboard loop
 
 Authorized 2026-11-04 by the product owner: aggregator GitHub repo + cascade may proceed to the end without waiting for ChatGPT paste, decision confirmations, or per-phase “please commit”.
 
@@ -75,7 +75,7 @@ and FEII-3D-ALBUM-KTX-CASCADE.md (same directory — the integration
 worktree copy is the live pack; run autopilot.sh bootstrap first if it
 does not exist yet).
 
-Execute the next incomplete phase only, in order, through X12, using
+Execute the next incomplete phase only, in order, through X13, using
 autopilot.sh start / verify / land exactly as the Loop section says.
 After each: verify → cold-reviewer subagent → report DONE → land.
 Never commit to or push web-atelier-udit main.
