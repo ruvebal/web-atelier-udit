@@ -33,7 +33,7 @@ This is the team hand-in for [Unit 8]({{ '/lessons/en/feii/unit-8-r3f-fundamenta
 
 Your work lands in the private class aggregator [`ruvebal/feii-album-covers`](https://github.com/ruvebal/feii-album-covers). You will be added as a collaborator before task1. You own one student **route**, `/covers/<slug>`, implemented under `covers/<slug>/` plus one object in `covers/registry.json`. Read that repository's [`CONTRIBUTING.md`](https://github.com/ruvebal/feii-album-covers/blob/main/CONTRIBUTING.md) before opening a PR. This reuses the [TTOD contribution ritual](https://github.com/ruvebal/ttod/blob/main/docs/public/guides/contributing.md); the cover slug is your boundary.
 
-Use the two focused satellites while you build: [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) and [KTX2/Basis first principles]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}).
+Use the focused satellites while you build: [Cover shaders]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}), [KTX2/Basis first principles]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}), and the [3D terminology]({{ '/lessons/en/feii/3d-terminology/' | relative_url }}) rehearsal page.
 
 ### Running references
 

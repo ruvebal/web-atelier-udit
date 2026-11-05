@@ -497,7 +497,7 @@ Checked 2026-11-04. These explain how the tools work. None of them is evidence t
 
 ## Session outcome
 
-You can say in plain words what your sleeve shader does: it looks up a colour in the sleeve picture at the sleeve's own UV, then changes that colour, or the place, on purpose. You can name the line that does each part. The bulb stays Unit 9's demonstration. The sleeve is yours. How the picture travels and what it costs on the GPU is the [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}). The hand-in is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}).
+You can say in plain words what your sleeve shader does: it looks up a colour in the sleeve picture at the sleeve's own UV, then changes that colour, or the place, on purpose. You can name the line that does each part. The bulb stays Unit 9's demonstration. The sleeve is yours. How the picture travels and what it costs on the GPU is the [KTX2/Basis satellite]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}). Rehearse pixel, texel, UV, and the rest on [3D terminology]({{ '/lessons/en/feii/3d-terminology/' | relative_url }}). The hand-in is the [assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}).
 
 {% if site.publication.publish_internal_metadata %}
 <!-- curriculum-internal:
