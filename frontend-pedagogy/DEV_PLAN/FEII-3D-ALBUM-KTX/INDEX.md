@@ -44,8 +44,8 @@ Closing: each phase → VERIFYING → `PHASE-Xn-COLD-REVIEW.md` → amend if nee
 | 10 | [PHASE-X10.md](PHASE-X10.md) | `_studio` cover + KTX2 compare + gallery glob | DONE 2026-11-05 |
 | 11 | [PHASE-X11.md](PHASE-X11.md) | Publish gates: lessons.yml, Liquid, citation firewall, build | DONE 2026-11-05 |
 | 12 | [PHASE-X12.md](PHASE-X12.md) | Closing audit vs AUDIT-GROUNDED student/instructor split | DONE 2026-11-05 |
-| 13 | [PHASE-X13.md](PHASE-X13.md) | 3D terminology satellite (oral paragraph + glossary; D25) | READY |
-| 14 | [PHASE-X14.md](PHASE-X14.md) | Complete student-owned `Route.jsx` architecture + fixtures (D26) | BLOCKED until X13 |
+| 13 | [PHASE-X13.md](PHASE-X13.md) | 3D terminology satellite (oral paragraph + glossary; D25) | DONE 2026-11-05 |
+| 14 | [PHASE-X14.md](PHASE-X14.md) | Complete student-owned `Route.jsx` architecture + fixtures (D26) | READY |
 | 15 | [PHASE-X15.md](PHASE-X15.md) | Neutral templates, registry, gallery, student brief (D26) | BLOCKED until X14 |
 | 16 | [PHASE-X16.md](PHASE-X16.md) | Live Pages exhibition + closing audit D21–D26 | BLOCKED until X15 |
 

@@ -1302,6 +1302,17 @@
    en: complete
   category: feii
   tags: [feii, ktx2, basis-universal, textures, album-cover, satellite]
+- slug: feii-3d-terminology
+  title:
+   en: '3D Terminology — Say It Out Loud'
+  path:
+   en: /lessons/en/feii/3d-terminology/
+  file:
+   en: lessons/en/feii/3d-terminology/index.md
+  status:
+   en: complete
+  category: feii
+  tags: [feii, terminology, glossary, album-cover, satellite, r3f, shaders, ktx2]
 - slug: feii-unit-8-r3f-fundamentals
   title:
    en: 'Unit 8: React Three Fiber — 3D Interfaces with React Patterns'
