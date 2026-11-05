@@ -1,6 +1,6 @@
 # Results index — FEII-3D-ALBUM-KTX
 
-For the professor's audit before merging `cascade/FEII-3D-ALBUM-KTX` into `main`. State as of 2026-11-05 morning: **X0–X8 DONE · X9 in round-2 review · X10–X12 not started.** `main` is untouched. Nothing from web-atelier-udit is pushed.
+For the professor's audit before merging `cascade/FEII-3D-ALBUM-KTX` into `main`. State as of 2026-11-05 morning: **X0–X9 DONE · X10 running · X11–X12 not started.** `main` is untouched. Nothing from web-atelier-udit is pushed.
 
 Start with **[MERGE-CHECKLIST.md](MERGE-CHECKLIST.md)**. It lists every decision that is yours.
 
@@ -64,7 +64,7 @@ Every phase has, in this folder: `PHASE-Xn-REPORT.md` (executor claims, then the
 | X6 Units 8–9 | DONE, round 2 | Unit 9 bulb paste broke the cover fork, fixed |
 | X7 cover shaders | DONE, round 2 | **`renderer.info.memory.textures` is a count, not memory** (F16 → D3/D22 amended); KTX2 flip and sRGB traps |
 | X8 KTX2 | DONE, round 2 | **`--assign_oetf`, never `--convert_oetf`** (measured); one shared transcoder at root |
-| X9 aggregator | round 2 running | Shared R3F `extend` names swapped shaders between routes, fixed + CI guard; D23 |
+| X9 aggregator | DONE, round 2 | Shared R3F `extend` names swapped shaders between routes, fixed + CI guard; D23 |
 
 Decisions and evidence: [DECISIONS.md](DECISIONS.md) (D1–D23) · [FINDINGS-2026-11-04.md](FINDINGS-2026-11-04.md) (F1–F16) · runner [autopilot.sh](autopilot.sh) · gates `PHASE-Xn.exit-gate.sh`.
 
