@@ -1,13 +1,15 @@
 # Closing audit — FE II 3D album cover / KTX2
 
-**Date:** 2026-11-05  
-**Scope:** the Bloque 5 student path, its two satellites, the Units 8–9
+**Date:** 2026-11-05 (X16 live re-audit)  
+**Scope:** the Bloque 5 student path, its satellites, the Units 8–9
 assignment, `react-template`, and `feii-album-covers`, tested against the
-original `AUDIT-GROUNDED.md` and its 2026-11-04 addendum.  
-**Result:** PASS for X12 scope (D1–D22 under the then scene-module contract).
-**Superseded in part by D26 (2026-11-05):** student routes become complete
-`Route.jsx` endpoints; shell ≠ shared Canvas. Re-audit D21–D26 in **X16**
-before claiming exhibition close. See [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT-D26-ROUTE-FREEDOM.md).
+original `AUDIT-GROUNDED.md`, the 2026-11-04 addendum, and **D26** route
+freedom.  
+**Result:** PASS for X12 scope (D1–D22 under the prior scene-module contract).
+**X16 (D21–D26):** live GitHub Pages exhibition verified on origin; see table
+below and [PHASE-X16-REPORT.md](PHASE-X16-REPORT.md). Phase status **VERIFYING**
+(awaiting cold review + harness exit gate — not exhibition DONE).  
+See [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT-D26-ROUTE-FREEDOM.md).
 
 ## Audit recommendations
 
@@ -51,6 +53,21 @@ before claiming exhibition close. See [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT
 | D21 | PASS | `CONTRIBUTING.md`, `.github/pull_request_template.md`, and `lint-and-build.yml` require cover-slug branches, staged PRs, AI Review Log, one human approval, cross-cover contribution/review, and no Astro seam names. |
 | D22 | PASS | `ktx2-basis/` defines pixel, UV, texel, and texture before KTX2/ETC1S/UASTC; the rendered page has no Tao or quote-database citation and labels platform sources as HOW notes. |
 
+## X16 re-audit — D21–D26 (live origin)
+
+**Deployed commit:** `fd95b698cd1c49ee4acdf882cd1a2b68178e3ced` (`feii-album-covers` `main`).  
+**Pages workflow:** https://github.com/ruvebal/feii-album-covers/actions/runs/42031920034 (success).  
+**Live base:** https://ruvebal.github.io/feii-album-covers/
+
+| Decision | Result | Evidence / exact live URLs |
+| --- | --- | --- |
+| D21 | PASS | TTOD-mapped contribution ritual unchanged in repo docs: `CONTRIBUTING.md`, `.github/pull_request_template.md`, `lint-and-build.yml`. Live exhibition uses the same registry + `/covers/<slug>` contract students PR against. |
+| D22 | PASS | Unchanged from X12/X13; KTX2 satellite ordering and citation firewall not regressed (`web-foundations` `npm run build` + citation gate in X16 worktree). |
+| D23 | PASS (live caveat) | `gh api repos/ruvebal/feii-album-covers` → `visibility: public` (D23 prose still says “not public” — **DECISIONS amend deferred to professor**). Course rule intact: instructor merges via PR; CONTRIBUTING forbids push/force-push to `main`. |
+| D24 | DEFER (professor) | Running references still **404** on origin: https://ruvebal.github.io/react-template/ex3-cover , `/ex4-cover-shader` , `/ex5-ktx2` (branch `satellites-ex3-ex5` unpushed per D14). Lessons label “being published”; not a student-path leak. |
+| D25 | PASS (worktree) | Terminology satellite built in X13; `web-foundations/npm run build` passes in cascade worktree. Public lesson URL on `web-atelier-udit` Pages **not** claimed (no push to teaching `main` in X16). |
+| D26 | PASS | Live `Route.jsx` endpoints: https://ruvebal.github.io/feii-album-covers/covers/_studio , `/covers/_fixture-webgl` , `/covers/_fixture-dom` , `/covers/_fixture-throw` — direct open + browser reload OK. Deep links: HTTP **404** + SPA shell (`id="root"`) per GitHub Pages; app boots. Project selector + prev/next/all nav survive `_fixture-throw` error (`role="alert"` + `[data-exhibition-nav]`). Per-route lazy chunks in deployed bundle (`import("./Route-…")`, separate `react-three-fiber.esm-*.js`). |
+
 ## Runnable checks
 
 - `web-foundations/npm run build` — passed: Jekyll build, publication safety,
@@ -58,15 +75,21 @@ before claiming exhibition close. See [AMENDMENT-D26-ROUTE-FREEDOM.md](AMENDMENT
   permalinks exist with no internal corpus metadata.
 - `react-template/npm run build` — passed; the original beacon files remain a
   zero-byte diff from `main`.
-- `feii-album-covers/npm run lint && npm run build` — passed; registry check
-  reports one cover and one non-shared R3F extend key.
+- `feii-album-covers/npm run lint && npm run build && npm run smoke:x14` — passed
+  (X16 executor); registry: 4 covers, 1 R3F extend key, none shared.
+- `bash PHASE-X14.exit-gate.sh` / `bash PHASE-X15.exit-gate.sh` — exit 0 (X16).
+- **Live origin (X16):** curl + browser on `https://ruvebal.github.io/feii-album-covers/`
+  and fixture slugs; Pages deploy run **42031920034** green for `fd95b69`.
 - The X12 student-path grep is clean after the assignment exclusion was made
   line-explicit: none of the prohibited tools is a required deliverable.
 
 ## Publication dependency
 
-The D24 running-reference URLs are accurately labelled **being published**:
-`satellites-ex3-ex5` remains unpushed and GitHub Pages has not yet switched to
-the Actions workflow. This is not a student-path leak or a claim that the
-references are already live. The professor's next external action is to switch
-Pages to GitHub Actions and push the reviewed `react-template` branch.
+**Aggregator (D6/D26):** `feii-album-covers` is **live** on GitHub Pages
+(Actions workflow; base path `/feii-album-covers/`). IP control is D8 + licence
+text, not repo privacy.
+
+**D24 running references:** still accurately labelled **being published** —
+`satellites-ex3-ex5` remains unpushed; the three `react-template` reference
+URLs return HTTP 404 on origin (checked 2026-11-05 in X16). Professor action
+unchanged: publish `react-template` when authorised.
