@@ -64,7 +64,13 @@ Implement PHASE-X11 per frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/PHASE-X11.m
    the personal account; instructor merges only through PRs). (F5) state the
    post-pass rule on the aggregator if X10 did not add the dependency.
    Also re-check the two satellite links once published (X9 S3).
-10. Hand off for cold review — do NOT mark DONE.
+10. D24: link the react-template reference routes from Unit 8 (cover
+   fork lab), cover-shaders and ktx2-basis as the running reference
+   (/ex3-cover, /ex4-cover-shader, /ex5-ktx2). If branch
+   satellites-ex3-ex5 is not yet pushed or merged by the professor, name the
+   routes and the repo without a branch URL, and say "reference routes in
+   react-template (being published)". Never invent a URL.
+11. Hand off for cold review — do NOT mark DONE.
 
 ## Constraints
 - Autopilot may commit web-atelier lesson files locally. Do not git push web-atelier-udit.
