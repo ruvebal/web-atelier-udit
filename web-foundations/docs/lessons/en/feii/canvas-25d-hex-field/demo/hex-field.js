@@ -107,31 +107,38 @@ function pushCell(nodes, random, x, y, z0, radius, colorIdx, activation, energy)
 }
 
 /**
- * Dense Hexaform-profiled field covering the CSS-pixel viewport.
- * Keeps nearly every lattice site so the plane is covered; size / stroke / float stay irregular.
+ * Sparse Hexaform-profiled field with a deep Z stack.
+ * Frame fill comes from camera/FOV overscan, not packing every lattice site.
+ * `complexity` 0..1 raises survival rate + spiral count.
  */
 export function buildHexaformField({
   width,
   height,
   mode = 'archive',
   seed = 767,
-  energy = 0.72,
-  density = 22,
-  baseRadius = 26,
-  overscan = 1.55,
+  energy = 0.55,
+  density = 10,
+  complexity = 0.38,
+  baseRadius = 28,
+  overscan = 1.35,
+  zDepth = 280,
 } = {}) {
   const [frequency, drift, pulse] = MODE_PROFILES[mode] || MODE_PROFILES.archive;
-  const random = mulberry32(hash32(`${seed}-${mode}-canvas25d-v2`));
-  // Pack tighter than a clean honeycomb so gaps from tiny cells still read as coverage.
-  const horizontal = Math.sqrt(3) * baseRadius * 0.78;
-  const vertical = baseRadius * 1.18;
+  const random = mulberry32(hash32(`${seed}-${mode}-canvas25d-v3`));
+  const cxAmt = Math.max(0, Math.min(1, complexity));
+  // Loose honeycomb — silhouette of the field, not a carpet.
+  const horizontal = Math.sqrt(3) * baseRadius * 1.22;
+  const vertical = baseRadius * 1.72;
   const spanW = width * overscan;
   const spanH = height * overscan;
-  const cols = Math.ceil(spanW / horizontal) + 4;
-  const rows = Math.ceil(spanH / vertical) + 4;
+  const cols = Math.ceil(spanW / horizontal) + 2;
+  const rows = Math.ceil(spanH / vertical) + 2;
   const originCol = -Math.floor(cols / 2);
   const originRow = -Math.floor(rows / 2);
   const nodes = [];
+  // Higher threshold = fewer cells; complexity opens the gate.
+  const cull = 0.62 - cxAmt * 0.36 - energy * 0.06;
+  const zSpread = zDepth * (0.75 + energy * 0.55 + cxAmt * 0.35);
 
   for (let row = 0; row < rows; row += 1) {
     for (let column = 0; column < cols; column += 1) {
@@ -141,34 +148,33 @@ export function buildHexaformField({
       const y = r * vertical;
       const distance = Math.hypot(x / spanW, y / spanH);
       const wave = (Math.sin(c * frequency * 0.72 + r * drift * 5 + seed * 0.013) + 1) / 2;
-      const focus = Math.max(0, 1 - distance * 1.55);
-      const activation = wave * 0.42 + focus * 0.5 + random() * 0.28;
-      // Cull only the weakest ghosts — keep the field covering the viewport.
-      if (activation < 0.12) continue;
+      const focus = Math.max(0, 1 - distance * 1.85);
+      const activation = wave * 0.48 + focus * 0.4 + random() * 0.22;
+      if (activation < cull) continue;
 
       const colorIdx = activation > 0.78 ? 2 : activation > 0.55 ? 1 : 0;
-      // Wide irregular size range (tiny sparks → oversized shells).
       const sizeNoise = random() ** 2;
       const radius =
         baseRadius *
-        (0.08 + sizeNoise * 1.35 + activation * 0.35 + (random() < 0.06 ? 0.7 + random() * 0.9 : 0));
-      const t = ((c * 0.37 + r * 0.61) % 1 + 1) % 1;
-      const baseZ = (t - 0.5) * (22 + energy * 28) + (random() - 0.5) * 18;
+        (0.1 + sizeNoise * 1.25 + activation * 0.3 + (random() < 0.05 ? 0.65 + random() * 0.85 : 0));
+      // Wide Z presence — cells stack through depth, not a flat sheet.
+      const baseZ = (random() - 0.5) * zSpread + (activation - 0.5) * zSpread * 0.35;
       pushCell(nodes, random, x, y, baseZ, radius, colorIdx, activation, energy);
     }
   }
 
-  // Spiral accent — denser multidimensional pressure near centre.
-  for (let index = 0; index < density; index += 1) {
+  const spiralN = Math.max(3, Math.round(density * (0.45 + cxAmt * 0.9)));
+  for (let index = 0; index < spiralN; index += 1) {
     const angle = index * 2.399963229728653 + seed * 0.0019;
-    const radial = 28 + Math.sqrt(index + 1) * (24 + energy * 48);
+    const radial = 36 + Math.sqrt(index + 1) * (30 + energy * 42);
     const x = Math.cos(angle) * radial * (1 + drift * 0.4);
     const y = Math.sin(angle) * radial * (0.62 + pulse * 0.5);
     const size =
-      baseRadius * (0.35 + ((density - index) / density) * 1.1 + random() * 0.85);
+      baseRadius * (0.4 + ((spiralN - index) / spiralN) * 1.05 + random() * 0.8);
     const colorIdx = index % 5 === 0 ? 0 : index % 2 === 0 ? 2 : 1;
-    const activation = 0.5 + ((density - index) / density) * 0.45;
-    pushCell(nodes, random, x, y, (random() - 0.5) * 36, size, colorIdx, activation, energy);
+    const activation = 0.5 + ((spiralN - index) / spiralN) * 0.45;
+    const baseZ = (random() - 0.5) * zSpread * 1.15;
+    pushCell(nodes, random, x, y, baseZ, size, colorIdx, activation, energy);
   }
 
   return new Float32Array(nodes);
@@ -188,10 +194,13 @@ export function createHexField(canvas, options = {}) {
   const dprCap = options.dprCap ?? 1.5;
   const fov = options.fov ?? 820;
   const mode = options.mode ?? 'archive';
-  const seed = options.seed ?? 767;
-  const energy = options.energy ?? 0.72;
-  const density = options.density ?? 22;
-  const floatAmp = options.floatAmp ?? 22;
+  let seed = options.seed ?? 767;
+  let complexity = clamp01(options.complexity ?? seedToComplexity(seed));
+  let energy = options.energy ?? energyFromComplexity(complexity);
+  let density = options.density ?? densityFromComplexity(complexity);
+  const floatAmp = options.floatAmp ?? 36;
+  const zDepth = options.zDepth ?? 300;
+  const seedMax = options.seedMax ?? 2047;
 
   let nodes = new Float32Array(0);
   let count = 0;
@@ -236,13 +245,24 @@ export function createHexField(canvas, options = {}) {
       seed,
       energy,
       density,
-      baseRadius: options.baseRadius ?? Math.max(18, Math.min(cssW, cssH) * 0.024),
-      overscan: options.overscan ?? 1.55,
+      complexity,
+      zDepth,
+      baseRadius: options.baseRadius ?? Math.max(22, Math.min(cssW, cssH) * 0.03),
+      overscan: options.overscan ?? 1.35,
     });
     count = nodes.length / STRIDE;
     order = new Int32Array(count);
     depthBuf = new Float32Array(count);
     for (let i = 0; i < count; i += 1) order[i] = i;
+  }
+
+  function applySeed(nextSeed, nextComplexity) {
+    seed = Math.max(0, Math.min(seedMax, nextSeed | 0));
+    complexity = clamp01(nextComplexity ?? seedToComplexity(seed));
+    energy = options.energy ?? energyFromComplexity(complexity);
+    density = options.density ?? densityFromComplexity(complexity);
+    if (cssW > 0) rebuildLattice();
+    return { seed, complexity, cells: count };
   }
 
   function resize() {
@@ -384,6 +404,8 @@ export function createHexField(canvas, options = {}) {
       fps: Math.round(fps) || 0,
       pitch: pitch.toFixed(2),
       yaw: yaw.toFixed(2),
+      seed,
+      complexity: Number(complexity.toFixed(2)),
       mode,
       reduced,
       engine: 'canvas-2d+hexaform',
@@ -436,8 +458,40 @@ export function createHexField(canvas, options = {}) {
       reducedQuery.removeEventListener('change', onReduced);
       canvas.removeEventListener('pointerleave', onPointerLeave);
     },
-    getStats: () => ({ cells: count, mode, engine: 'canvas-2d+hexaform' }),
+    /** Interactive seed fader — reshuffles the field; complexity tracks seed by default. */
+    setSeed(nextSeed, nextComplexity) {
+      return applySeed(nextSeed, nextComplexity);
+    },
+    setComplexity(nextComplexity) {
+      return applySeed(seed, nextComplexity);
+    },
+    getSeed: () => seed,
+    getComplexity: () => complexity,
+    getStats: () => ({
+      cells: count,
+      seed,
+      complexity,
+      mode,
+      engine: 'canvas-2d+hexaform',
+    }),
   };
+}
+
+function clamp01(v) {
+  return Math.max(0, Math.min(1, Number(v) || 0));
+}
+
+/** Map seed position on the fader into a complexity gate (sparse → busier). */
+export function seedToComplexity(seed, seedMax = 2047) {
+  return clamp01((seed | 0) / seedMax);
+}
+
+function energyFromComplexity(c) {
+  return 0.32 + c * 0.55;
+}
+
+function densityFromComplexity(c) {
+  return Math.round(4 + c * 20);
 }
 
 function hexToRgba(hex, a) {

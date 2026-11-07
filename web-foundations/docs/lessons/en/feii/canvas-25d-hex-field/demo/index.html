@@ -76,6 +76,47 @@ layout: null
 				font-size: 0.8rem;
 			}
 
+			.fader {
+				display: grid;
+				grid-template-columns: auto 1fr auto;
+				gap: 0.55rem 0.75rem;
+				align-items: center;
+				margin: 0.75rem 0 0.35rem;
+				padding: 0.55rem 0.65rem;
+				border: 1px solid var(--line);
+				border-radius: 0.55rem;
+				background: rgb(244 239 230 / 0.04);
+			}
+
+			.fader label {
+				font-size: 0.75rem;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+				color: var(--muted);
+			}
+
+			.fader output {
+				font-family: ui-monospace, monospace;
+				font-size: 0.8rem;
+				color: var(--accent);
+				min-width: 3.5rem;
+				text-align: right;
+			}
+
+			.fader input[type='range'] {
+				grid-column: 1 / -1;
+				width: 100%;
+				accent-color: var(--accent);
+				cursor: pointer;
+			}
+
+			.fader .hint {
+				grid-column: 1 / -1;
+				margin: 0;
+				font-size: 0.72rem;
+				color: var(--muted);
+			}
+
 			.stats {
 				margin-top: 0.55rem;
 				font-family: ui-monospace, monospace;
@@ -93,14 +134,29 @@ layout: null
 			<canvas
 				id="hex-field"
 				role="img"
-				aria-label="Interactive 2.5D hexagonal lattice. Move the pointer to tilt; scroll to pitch. Decorative — content is in the panel."
+				aria-label="Interactive 2.5D hexagonal lattice. Move the pointer to tilt; scroll to pitch. Use the seed fader for complexity. Decorative — content is in the panel."
 			></canvas>
 			<aside class="readout">
 				<h1>Canvas 2.5D hex field</h1>
 				<p>
-					Dense Hexaform profiles — irregular sizes, mostly empty strokes,
-					chaotic float directions, full viewport.
+					Sparse Hexaform profiles in a deep Z stack — hollow strokes, chaotic float.
+					Viewport fill is camera/overscan, not a packed carpet.
 				</p>
+				<div class="fader">
+					<label for="seed">Seed</label>
+					<span></span>
+					<output id="seed-out" for="seed">767</output>
+					<input
+						id="seed"
+						type="range"
+						min="0"
+						max="2047"
+						value="767"
+						step="1"
+						aria-valuetext="seed 767"
+					/>
+					<p class="hint">Drag to reshuffle · higher seed opens complexity (more survivors + spiral accents)</p>
+				</div>
 				<p>
 					Pointer warps cells · wheel adds pitch inertia ·
 					<code>prefers-reduced-motion</code> freezes float.
@@ -116,24 +172,41 @@ layout: null
 			</aside>
 		</main>
 		<script type="module">
-			import { createHexField } from './hex-field.js';
+			import { createHexField, seedToComplexity } from './hex-field.js';
 
 			const canvas = document.getElementById('hex-field');
 			const stats = document.getElementById('stats');
+			const seedInput = document.getElementById('seed');
+			const seedOut = document.getElementById('seed-out');
+			const seedMax = Number(seedInput.max) || 2047;
 
-			createHexField(canvas, {
+			const field = createHexField(canvas, {
 				mode: 'archive',
-				seed: 767,
-				energy: 0.72,
-				density: 22,
-				floatAmp: 24,
+				seed: Number(seedInput.value),
+				zDepth: 320,
+				floatAmp: 40,
 				dprCap: 1.5,
-				onSample({ cells, fps, pitch, yaw, mode, reduced, engine }) {
-					stats.textContent = `${engine} · ${mode} · cells ${cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
+				seedMax,
+				onSample({ cells, fps, pitch, yaw, seed, complexity, mode, reduced, engine }) {
+					stats.textContent = `${engine} · ${mode} · seed ${seed} · cx ${complexity} · cells ${cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
 						reduced ? ' · reduced-motion' : ''
 					}`;
 				},
 			});
+
+			function syncSeedUi(value) {
+				const seed = Number(value);
+				seedOut.textContent = String(seed);
+				seedInput.setAttribute('aria-valuetext', `seed ${seed}, complexity ${seedToComplexity(seed, seedMax).toFixed(2)}`);
+			}
+
+			seedInput.addEventListener('input', () => {
+				const seed = Number(seedInput.value);
+				syncSeedUi(seed);
+				field.setSeed(seed);
+			});
+
+			syncSeedUi(seedInput.value);
 		</script>
 	</body>
 </html>
