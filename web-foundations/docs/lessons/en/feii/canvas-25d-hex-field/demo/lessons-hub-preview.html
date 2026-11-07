@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Lessons (EN) — live Hexaform hub preview</title>
+		<link rel="stylesheet" href="/assets/css/site.css" />
+		<style>
+			body {
+				margin: 0;
+				background: #070a11;
+				color: #f7f2e8;
+				font-family: ui-sans-serif, system-ui, sans-serif;
+			}
+			.preview-note {
+				max-width: 42rem;
+				margin: 1.25rem auto 2rem;
+				padding: 0 1rem;
+				font-size: 0.875rem;
+				line-height: 1.45;
+				color: rgb(244 239 230 / 0.72);
+			}
+			.preview-note a {
+				color: #54d6be;
+			}
+		</style>
+	</head>
+	<body>
+		<section
+			class="hero-section hero-section--archive hero-section--hub"
+			aria-labelledby="lessons-hero-title"
+			style="--hero-archive-image: url('/assets/images/archive-covers/archive-lessons-en.svg')">
+			<header class="hero-section__inner text-center" style="padding: 2.5rem 1rem">
+				<h1 id="lessons-hero-title" style="font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 0.75rem">Lessons</h1>
+				<p style="max-width: 36rem; margin: 0 auto; opacity: 0.9">
+					Complete pedagogical content — living <code>archive-lessons-en</code> Hexaform behind the heading.
+				</p>
+			</header>
+		</section>
+
+		<p class="preview-note">
+			<a href="/">Home landing preview</a>
+			·
+			<a href="/lessons/en/feii/canvas-25d-hex-field/demo/">Gallery</a>
+		</p>
+
+		<script type="module">
+			import { mountComposition } from '/lessons/en/feii/canvas-25d-hex-field/demo/mount.js';
+
+			const hero = document.querySelector('.hero-section--archive');
+			if (hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				const canvas = document.createElement('canvas');
+				canvas.className = 'hexaform-live-bg';
+				canvas.setAttribute('aria-hidden', 'true');
+				hero.prepend(canvas);
+				hero.classList.add('has-hexaform-live');
+				mountComposition(canvas, 'archive-lessons-en', {
+					interactive: false,
+					dprCap: 1.15,
+					maxCells: 120,
+					onSample: null,
+				});
+			}
+		</script>
+	</body>
+</html>

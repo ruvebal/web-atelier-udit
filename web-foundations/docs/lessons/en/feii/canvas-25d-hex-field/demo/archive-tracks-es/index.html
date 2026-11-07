@@ -1,0 +1,43 @@
+---
+permalink: /lessons/en/feii/canvas-25d-hex-field/demo/archive-tracks-es/
+layout: null
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cursos de Aprendizaje (ES) — Hexaform living cover</title>
+<link rel="stylesheet" href="../stage.css" />
+</head>
+<body>
+<main class="stage">
+<canvas id="hex-field" role="img" aria-label="Cursos de Aprendizaje (ES). Decorative Hexaform field."></canvas>
+<aside class="readout">
+<h1>Cursos de Aprendizaje (ES)</h1>
+<p>ES tracks — slower drift, stronger near band.</p>
+<p>Endpoint <code>/tracks/es/</code> · seed <code>882</code> · family <code>fe-ii</code></p>
+<p class="stats" id="stats">boot…</p>
+<p class="nav-row">
+<a href="../">Gallery</a>
+·
+<a href="../lab/">Lab (faders)</a>
+·
+<a href="{{ '/assets/images/archive-covers/archive-tracks-es.svg' | relative_url }}">SVG stamp</a>
+·
+<a href="{{ '/lessons/en/feii/canvas-25d-hex-field/' | relative_url }}">Lesson</a>
+</p>
+</aside>
+</main>
+<script type="module">
+import { mountComposition } from '../mount.js';
+const canvas = document.getElementById('hex-field');
+const stats = document.getElementById('stats');
+mountComposition(canvas, 'archive-tracks-es', {
+  onSample({ cells, visible, fps, seed, velocity, fillMode, mode, reduced }) {
+    stats.textContent = `${mode} · ${fillMode} · seed ${seed} · vel ${velocity} · cells ${cells}/${visible ?? cells} · ~${fps} fps${reduced ? ' · reduced-motion' : ''}`;
+  },
+});
+</script>
+</body>
+</html>

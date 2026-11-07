@@ -1,8 +1,8 @@
 /**
  * Canvas 2.5D hex field — Hexaform lattice + pitch/yaw projection.
  *
- * Sparse, deep Z (near + far), variable stroke alpha, stroke-only paths.
- * Tuned for laptop budgets: low cell cap, dpr cap, one project pass, no fills.
+ * Supports archive-cover comps: solid fills, double-depth grids,
+ * chaotic closer/bigger centre clusters. Laptop budget: cell cap + dpr cap.
  */
 
 export const PALETTE = [
@@ -11,7 +11,6 @@ export const PALETTE = [
   { r: 84, g: 214, b: 190 },
 ];
 
-/** Hexaform mode profiles — [frequency, drift, pulse]. */
 export const MODE_PROFILES = {
   lattice: [1.4, 0.25, 0.12],
   constellation: [1.62, 0.62, 0.36],
@@ -25,12 +24,12 @@ export const MODE_PROFILES = {
 };
 
 /**
- * Stride 14:
+ * Stride 15:
  * 0 x, 1 y, 2 z0, 3 radius, 4 energy, 5 phase,
  * 6 colorIdx, 7 activation, 8 strokePx, 9 alpha,
- * 10 dirX, 11 dirY, 12 dirZ, 13 floatSpeed
+ * 10 dirX, 11 dirY, 12 dirZ, 13 floatSpeed, 14 fillAmt
  */
-export const STRIDE = 14;
+export const STRIDE = 15;
 
 const HEX_ANG = [];
 for (let i = 0; i < 6; i += 1) {
@@ -68,16 +67,15 @@ export function project(x, y, z, cosY, sinY, cosX, sinX, fov) {
   return { x: x1 * scale, y: y2 * scale, scale, depth: z2 };
 }
 
-function pushCell(nodes, random, x, y, z0, radius, colorIdx, activation, energy) {
-  const strokePx = 0.5 + random() ** 1.55 * 3.2 + activation * 0.4;
-  // Variable opacity — ghosts far back, stronger near-ish profiles.
-  const alpha = 0.07 + random() * 0.55 + activation * 0.22;
+function pushCell(nodes, random, x, y, z0, radius, colorIdx, activation, energy, fillAmt) {
+  const strokePx = 0.45 + random() ** 1.55 * 2.8 + activation * 0.35;
+  const alpha = 0.08 + random() * 0.5 + activation * 0.25;
   const az = random() * Math.PI * 2;
   const el = (random() - 0.5) * Math.PI;
   const dirX = Math.cos(el) * Math.cos(az);
   const dirY = Math.cos(el) * Math.sin(az);
   const dirZ = Math.sin(el) * (0.55 + random() * 0.9);
-  const floatSpeed = 0.18 + random() * 0.75 + energy * 0.18;
+  const floatSpeed = 0.16 + random() * 0.7 + energy * 0.16;
   nodes.push(
     x,
     y,
@@ -93,12 +91,22 @@ function pushCell(nodes, random, x, y, z0, radius, colorIdx, activation, energy)
     dirY,
     dirZ,
     floatSpeed,
+    fillAmt,
   );
 }
 
+function fillForMode(fillMode, random, activation, solidBias = 0) {
+  if (fillMode === 'stroke') return random() < 0.06 ? 0.06 + random() * 0.1 : 0;
+  if (fillMode === 'solid') return 0.08 + activation * 0.22 + random() * 0.12 + solidBias;
+  // mixed
+  if (random() < 0.55) return 0.1 + activation * 0.2 + random() * 0.1;
+  return 0;
+}
+
 /**
- * Sparse Hexaform field: near + far Z bands, hard cell budget.
- * `complexity` 0..1 raises survival rate + spiral count (still capped).
+ * Archive-style Hexaform field.
+ * - doubleDepth: far sheet + offset near sheet
+ * - centerChaos: closer/bigger solid spiral at origin (SVG accent cluster)
  */
 export function buildHexaformField({
   width,
@@ -112,12 +120,16 @@ export function buildHexaformField({
   overscan = 1.28,
   zDepth = 340,
   maxCells = 160,
+  fillMode = 'stroke',
+  doubleDepth = false,
+  centerChaos = false,
 } = {}) {
   const [frequency, drift, pulse] = MODE_PROFILES[mode] || MODE_PROFILES.archive;
-  const random = mulberry32(hash32(`${seed}-${mode}-canvas25d-v4`));
+  const random = mulberry32(hash32(`${seed}-${mode}-canvas25d-v5`));
   const cxAmt = Math.max(0, Math.min(1, complexity));
-  const horizontal = Math.sqrt(3) * baseRadius * 1.55;
-  const vertical = baseRadius * 2.05;
+  const pack = doubleDepth ? 1.35 : 1.55;
+  const horizontal = Math.sqrt(3) * baseRadius * pack;
+  const vertical = baseRadius * (doubleDepth ? 1.85 : 2.05);
   const spanW = width * overscan;
   const spanH = height * overscan;
   const cols = Math.ceil(spanW / horizontal) + 1;
@@ -125,64 +137,81 @@ export function buildHexaformField({
   const originCol = -Math.floor(cols / 2);
   const originRow = -Math.floor(rows / 2);
   const nodes = [];
-  const cull = 0.72 - cxAmt * 0.28 - energy * 0.05;
+  const cull = (doubleDepth ? 0.58 : 0.72) - cxAmt * 0.28 - energy * 0.05;
   const zFar = zDepth * (0.85 + energy * 0.4);
-  // Near band reaches past the camera plane so closest shells read oversized.
   const zNear = zDepth * (0.95 + cxAmt * 0.35);
 
-  for (let row = 0; row < rows; row += 1) {
-    for (let column = 0; column < cols; column += 1) {
-      const c = originCol + column;
-      const r = originRow + row;
-      const x = c * horizontal + (r % 2 ? horizontal / 2 : 0);
-      const y = r * vertical;
-      const distance = Math.hypot(x / spanW, y / spanH);
-      const wave = (Math.sin(c * frequency * 0.72 + r * drift * 5 + seed * 0.013) + 1) / 2;
-      const focus = Math.max(0, 1 - distance * 1.9);
-      const activation = wave * 0.5 + focus * 0.32 + random() * 0.2;
-      if (activation < cull) continue;
+  function stampLattice(layer) {
+    // layer 0 = far sheet, 1 = nearer sheet (offset phase)
+    const zBias = layer === 0 ? zFar * 0.55 : -zNear * 0.55;
+    const zJitter = layer === 0 ? zFar * 0.45 : zNear * 0.55;
+    const ox = layer === 1 ? horizontal * 0.33 : 0;
+    const oy = layer === 1 ? vertical * 0.28 : 0;
 
-      const colorIdx = activation > 0.78 ? 2 : activation > 0.55 ? 1 : 0;
-      const sizeNoise = random() ** 2;
-      const radius =
-        baseRadius * (0.12 + sizeNoise * 1.15 + activation * 0.28 + (random() < 0.04 ? 0.7 : 0));
+    for (let row = 0; row < rows; row += 1) {
+      for (let column = 0; column < cols; column += 1) {
+        const c = originCol + column;
+        const r = originRow + row;
+        const x = c * horizontal + (r % 2 ? horizontal / 2 : 0) + ox;
+        const y = r * vertical + oy;
+        const distance = Math.hypot(x / spanW, y / spanH);
+        const wave = (Math.sin(c * frequency * 0.72 + r * drift * 5 + seed * 0.013 + layer) + 1) / 2;
+        const focus = Math.max(0, 1 - distance * 1.9);
+        const activation = wave * 0.5 + focus * 0.32 + random() * 0.2;
+        const layerCull = cull + layer * 0.06;
+        if (activation < layerCull) continue;
 
-      // Near band (toward camera / larger on screen) + far band (keep the depth read).
-      let baseZ;
-      const band = random();
-      if (band < 0.4) {
-        // Closest shells: deep negative Z → large projected scale.
-        baseZ = -zNear * (0.75 + random() * 1.15);
-      } else if (band < 0.58) {
-        baseZ = (random() - 0.5) * zFar * 0.35;
-      } else {
-        baseZ = zFar * (0.25 + random() * 0.75) * (random() < 0.5 ? 1 : -0.35);
+        const colorIdx = activation > 0.78 ? 2 : activation > 0.55 ? 1 : 0;
+        const sizeNoise = random() ** 2;
+        const radius =
+          baseRadius *
+          (0.12 + sizeNoise * 1.05 + activation * 0.28 + (random() < 0.04 ? 0.55 : 0)) *
+          (layer === 1 ? 0.92 : 1);
+        const baseZ = zBias + (random() - 0.5) * zJitter;
+        const fillAmt = fillForMode(fillMode, random, activation, layer === 0 ? -0.02 : 0.02);
+        pushCell(nodes, random, x, y, baseZ, radius, colorIdx, activation, energy, fillAmt);
       }
-
-      pushCell(nodes, random, x, y, baseZ, radius, colorIdx, activation, energy);
     }
   }
 
-  const spiralN = Math.max(2, Math.round(density * (0.35 + cxAmt * 0.7)));
+  stampLattice(0);
+  if (doubleDepth) stampLattice(1);
+
+  const spiralN = centerChaos
+    ? Math.max(8, Math.round(density * (0.9 + cxAmt * 1.1)))
+    : Math.max(2, Math.round(density * (0.35 + cxAmt * 0.7)));
+
   for (let index = 0; index < spiralN; index += 1) {
     const angle = index * 2.399963229728653 + seed * 0.0019;
-    const radial = 40 + Math.sqrt(index + 1) * (32 + energy * 36);
+    const radial = (centerChaos ? 22 : 40) + Math.sqrt(index + 1) * (centerChaos ? 22 + energy * 40 : 32 + energy * 36);
     const x = Math.cos(angle) * radial * (1 + drift * 0.4);
     const y = Math.sin(angle) * radial * (0.62 + pulse * 0.5);
-    const size = baseRadius * (0.45 + ((spiralN - index) / spiralN) * 0.95 + random() * 0.7);
+    const t = (spiralN - index) / spiralN;
+    const size = centerChaos
+      ? baseRadius * (0.55 + t * 1.55 + random() * 0.9)
+      : baseRadius * (0.45 + t * 0.95 + random() * 0.7);
     const colorIdx = index % 5 === 0 ? 0 : index % 2 === 0 ? 2 : 1;
-    const activation = 0.5 + ((spiralN - index) / spiralN) * 0.4;
-    const baseZ = random() < 0.5 ? -zNear * (0.8 + random() * 1.1) : (random() - 0.2) * zFar;
-    pushCell(nodes, random, x, y, baseZ, size, colorIdx, activation, energy);
+    const activation = 0.55 + t * 0.4;
+    const baseZ = centerChaos
+      ? -zNear * (0.9 + t * 1.25 + random() * 0.45)
+      : random() < 0.5
+        ? -zNear * (0.8 + random() * 1.1)
+        : (random() - 0.2) * zFar;
+    const fillAmt = centerChaos
+      ? 0.28 + t * 0.42 + random() * 0.08
+      : fillForMode(fillMode, random, activation, 0.08);
+    pushCell(nodes, random, x, y, baseZ, size, colorIdx, activation, energy, fillAmt);
   }
 
-  // Hard budget — keep highest-activation survivors if we overshot.
   const total = nodes.length / STRIDE;
   if (total <= maxCells) return new Float32Array(nodes);
 
   const scored = [];
   for (let i = 0; i < total; i += 1) {
-    scored.push({ i, a: nodes[i * STRIDE + 7] + random() * 0.08 });
+    // Prefer centre chaos (high fill + near Z) when culling.
+    const o = i * STRIDE;
+    const prefer = nodes[o + 14] * 0.4 + Math.max(0, -nodes[o + 2] / zNear) * 0.35;
+    scored.push({ i, a: nodes[o + 7] + prefer + random() * 0.05 });
   }
   scored.sort((a, b) => b.a - a.a);
   const out = [];
@@ -212,17 +241,29 @@ export function createHexField(canvas, options = {}) {
   let energy = options.energy ?? energyFromComplexity(complexity);
   let density = options.density ?? densityFromComplexity(complexity);
   const floatAmp = options.floatAmp ?? 22;
-  /** Global float-rate multiplier — 1 = authored speeds; demo default is slow. */
   let velocity = Math.max(0, options.velocity ?? 0.38);
   const zDepth = options.zDepth ?? 360;
   const maxCells = options.maxCells ?? 160;
   const seedMax = options.seedMax ?? 2047;
+  const fillMode = options.fillMode ?? 'stroke';
+  const doubleDepth = options.doubleDepth ?? false;
+  const centerChaos = options.centerChaos ?? false;
+  const palette = options.palette ?? PALETTE;
+  const paper = options.paper ?? '#0b1220';
+  const paperDeep = options.paperDeep ?? '#070A11';
+  const interactive = options.interactive !== false;
+  /** Listen for pointer on this element (hero) so canvas can stay pointer-events: none. */
+  const pointerRoot = options.pointerRoot || canvas;
+  /** Window-scroll depth parallax — for landing heroes behind titles. */
+  const scrollParallax = options.scrollParallax === true;
+  /** Wheel→pitch only when the canvas itself is the interaction surface (not page heroes). */
+  const wheelPitch = options.wheelPitch ?? pointerRoot === canvas;
+  const pointerAmp = options.pointerAmp ?? 1;
 
   let nodes = new Float32Array(0);
   let count = 0;
   let order = new Int32Array(0);
   let depthBuf = new Float32Array(0);
-  // Scratch for one-pass pose: x,y,z,wave,energy per cell
   let poseX = new Float32Array(0);
   let poseY = new Float32Array(0);
   let poseZ = new Float32Array(0);
@@ -237,8 +278,8 @@ export function createHexField(canvas, options = {}) {
   let cy = 0;
   let dpr = 1;
 
-  let pitch = 0.48;
-  let yaw = -0.32;
+  let pitch = options.pitch ?? 0.48;
+  let yaw = options.yaw ?? -0.32;
   let targetPitch = pitch;
   let targetYaw = yaw;
   let panX = 0;
@@ -246,6 +287,10 @@ export function createHexField(canvas, options = {}) {
   let targetPanX = 0;
   let targetPanY = 0;
   let scrollV = 0;
+  let scrollYaw = 0;
+  let scrollPitch = 0;
+  let scrollPanX = 0;
+  let scrollPanY = 0;
 
   let pointerX = 0.5;
   let pointerY = 0.5;
@@ -272,7 +317,10 @@ export function createHexField(canvas, options = {}) {
       complexity,
       zDepth,
       maxCells,
-      baseRadius: options.baseRadius ?? Math.max(26, Math.min(cssW, cssH) * 0.034),
+      fillMode,
+      doubleDepth,
+      centerChaos,
+      baseRadius: options.baseRadius ?? Math.max(24, Math.min(cssW, cssH) * 0.032),
       overscan: options.overscan ?? 1.28,
     });
     count = nodes.length / STRIDE;
@@ -354,11 +402,13 @@ export function createHexField(canvas, options = {}) {
     const px = pointerX * width;
     const py = pointerY * height;
     const ptrSigma = (200 * dpr) ** 2;
-    const ptrK = hasPointer && !reduced ? 1 - Math.exp(-dt * 8) : 0;
+    const ptrK = hasPointer && !reduced && interactive ? 1 - Math.exp(-dt * 8) : 0;
     const decayK = !hasPointer && !reduced ? Math.exp(-dt * 1.8) : 1;
 
-    // Flat background — nebulae were a fill-tax every frame.
-    ctx.fillStyle = '#0b1220';
+    const g = ctx.createLinearGradient(0, 0, width, height);
+    g.addColorStop(0, paper);
+    g.addColorStop(1, paperDeep);
+    ctx.fillStyle = g;
     ctx.fillRect(0, 0, width, height);
 
     let visible = 0;
@@ -376,7 +426,7 @@ export function createHexField(canvas, options = {}) {
       const wy = (nodes[o + 1] + wave * amp * nodes[o + 11]) * dpr;
       let wz = (nodes[o + 2] + wave * amp * nodes[o + 12]) * dpr;
 
-      if (hasPointer && !reduced) {
+      if (hasPointer && !reduced && interactive) {
         const probe = projectRaw(wx, wy, wz - energyN * 36 * dpr, cosY, sinY, cosX, sinX);
         const dx = probe.x - px;
         const dy = probe.y - py;
@@ -390,8 +440,6 @@ export function createHexField(canvas, options = {}) {
 
       wz -= energyN * 36 * dpr;
       const p = projectRaw(wx, wy, wz, cosY, sinY, cosX, sinX);
-
-      // Cheap frustum reject before sort/draw.
       if (p.x < -margin || p.x > width + margin || p.y < -margin || p.y > height + margin) {
         continue;
       }
@@ -401,12 +449,10 @@ export function createHexField(canvas, options = {}) {
       poseZ[visible] = wz;
       poseWave[visible] = wave;
       depthBuf[visible] = p.depth;
-      // Stash original index in order via side channel: reuse order as index map after compact.
       order[visible] = i;
       visible += 1;
     }
 
-    // Insertion sort — fast for ~100–160 visible cells, no comparator alloc.
     for (let i = 1; i < visible; i += 1) {
       const d = depthBuf[i];
       const idx = order[i];
@@ -451,23 +497,32 @@ export function createHexField(canvas, options = {}) {
         const p = projectRaw(hx, hy, wz, cosY, sinY, cosX, sinX);
         cornerX[c] = p.x;
         cornerY[c] = p.y;
-        if (c === 0) {
-          // scale from first corner via depth already in pose — approximate line width from center scale
-        }
         if (p.x < minSX) minSX = p.x;
         if (p.x > maxSX) maxSX = p.x;
       }
 
-      const pal = PALETTE[nodes[o + 6] | 0];
-      const alpha = Math.min(0.95, nodes[o + 9] * (0.75 + pointerE * 0.55) * (0.55 + Math.min(1.4, radius / (28 * dpr)) * 0.35));
+      const pal = palette[nodes[o + 6] | 0] || palette[0];
+      const baseA = nodes[o + 9];
+      const fillAmt = nodes[o + 14];
+      const strokeA = Math.min(
+        0.95,
+        baseA * (0.75 + pointerE * 0.55) * (0.55 + Math.min(1.4, radius / (28 * dpr)) * 0.35),
+      );
       const scaleApprox = Math.max(0.55, Math.min(1.9, (maxSX - minSX) / Math.max(1, radius * 2)));
-      const strokePx = Math.max(0.55 * dpr, nodes[o + 8] * dpr * scaleApprox);
+      const strokePx = Math.max(0.5 * dpr, nodes[o + 8] * dpr * scaleApprox);
 
       ctx.beginPath();
       ctx.moveTo(cornerX[0], cornerY[0]);
       for (let c = 1; c < 6; c += 1) ctx.lineTo(cornerX[c], cornerY[c]);
       ctx.closePath();
-      ctx.strokeStyle = `rgba(${pal.r},${pal.g},${pal.b},${alpha})`;
+
+      if (fillAmt > 0.01) {
+        const fa = Math.min(0.85, fillAmt + pointerE * 0.12);
+        ctx.fillStyle = `rgba(${pal.r},${pal.g},${pal.b},${fa})`;
+        ctx.fill();
+      }
+
+      ctx.strokeStyle = `rgba(${pal.r},${pal.g},${pal.b},${strokeA})`;
       ctx.lineWidth = strokePx;
       ctx.stroke();
     }
@@ -483,6 +538,7 @@ export function createHexField(canvas, options = {}) {
         seed,
         complexity: Number(complexity.toFixed(2)),
         velocity: Number(velocity.toFixed(2)),
+        fillMode,
         mode,
         reduced,
         engine: 'canvas-2d+hexaform',
@@ -492,40 +548,83 @@ export function createHexField(canvas, options = {}) {
     raf = requestAnimationFrame(frame);
   }
 
+  function restPose() {
+    return {
+      yaw: (options.yaw ?? -0.32) + scrollYaw,
+      pitch: (options.pitch ?? 0.48) + scrollPitch,
+      panX: scrollPanX,
+      panY: scrollPanY,
+    };
+  }
+
+  function applyRestTargets() {
+    const rest = restPose();
+    targetYaw = rest.yaw;
+    targetPitch = rest.pitch;
+    targetPanX = rest.panX;
+    targetPanY = rest.panY;
+  }
+
   function onPointer(clientX, clientY) {
-    const rect = canvas.getBoundingClientRect();
+    if (!interactive) return;
+    const rect = pointerRoot.getBoundingClientRect();
     pointerX = (clientX - rect.left) / Math.max(1, rect.width);
     pointerY = (clientY - rect.top) / Math.max(1, rect.height);
     hasPointer = true;
-    targetYaw = -0.32 + (pointerX - 0.5) * 0.9;
-    targetPitch = 0.48 + (pointerY - 0.5) * 0.42;
-    targetPanX = (pointerX - 0.5) * width * 0.045;
-    targetPanY = (pointerY - 0.5) * height * 0.035;
+    const rest = restPose();
+    const amp = pointerAmp;
+    targetYaw = rest.yaw + (pointerX - 0.5) * 0.95 * amp;
+    targetPitch = rest.pitch + (pointerY - 0.5) * 0.48 * amp;
+    targetPanX = rest.panX + (pointerX - 0.5) * width * 0.07 * amp;
+    targetPanY = rest.panY + (pointerY - 0.5) * height * 0.055 * amp;
   }
 
   function onPointerLeave() {
     hasPointer = false;
-    targetYaw = -0.32;
-    targetPitch = 0.48;
-    targetPanX = 0;
-    targetPanY = 0;
+    applyRestTargets();
   }
 
   function onWheel(event) {
-    if (reduced) return;
+    if (reduced || !interactive || !wheelPitch) return;
     event.preventDefault();
     scrollV += event.deltaY * 0.001;
   }
+
+  function onScrollParallax() {
+    if (!scrollParallax || reduced) return;
+    const rect = pointerRoot.getBoundingClientRect();
+    const viewH = window.innerHeight || 1;
+    const mid = rect.top + rect.height * 0.5;
+    const t = Math.max(-1.2, Math.min(1.2, (viewH * 0.42 - mid) / viewH));
+    scrollYaw = t * 0.28;
+    scrollPitch = t * 0.2;
+    scrollPanX = t * width * 0.04;
+    scrollPanY = t * height * 0.12;
+    if (!hasPointer) applyRestTargets();
+  }
+
+  const onPointerMove = (e) => onPointer(e.clientX, e.clientY);
+  const onPointerDown = (e) => onPointer(e.clientX, e.clientY);
 
   const ro = new ResizeObserver(() => resize());
   ro.observe(canvas);
   resize();
 
-  canvas.addEventListener('pointermove', (e) => onPointer(e.clientX, e.clientY));
-  canvas.addEventListener('pointerdown', (e) => onPointer(e.clientX, e.clientY));
-  canvas.addEventListener('pointerleave', onPointerLeave);
-  canvas.addEventListener('pointercancel', onPointerLeave);
-  canvas.addEventListener('wheel', onWheel, { passive: false });
+  if (interactive) {
+    pointerRoot.addEventListener('pointermove', onPointerMove);
+    pointerRoot.addEventListener('pointerdown', onPointerDown);
+    pointerRoot.addEventListener('pointerleave', onPointerLeave);
+    pointerRoot.addEventListener('pointercancel', onPointerLeave);
+    if (wheelPitch) {
+      pointerRoot.addEventListener('wheel', onWheel, { passive: false });
+    }
+  }
+
+  if (scrollParallax) {
+    window.addEventListener('scroll', onScrollParallax, { passive: true });
+    window.addEventListener('resize', onScrollParallax, { passive: true });
+    onScrollParallax();
+  }
 
   raf = requestAnimationFrame(frame);
 
@@ -534,7 +633,13 @@ export function createHexField(canvas, options = {}) {
       cancelAnimationFrame(raf);
       ro.disconnect();
       reducedQuery.removeEventListener('change', onReduced);
-      canvas.removeEventListener('pointerleave', onPointerLeave);
+      pointerRoot.removeEventListener('pointermove', onPointerMove);
+      pointerRoot.removeEventListener('pointerdown', onPointerDown);
+      pointerRoot.removeEventListener('pointerleave', onPointerLeave);
+      pointerRoot.removeEventListener('pointercancel', onPointerLeave);
+      pointerRoot.removeEventListener('wheel', onWheel);
+      window.removeEventListener('scroll', onScrollParallax);
+      window.removeEventListener('resize', onScrollParallax);
     },
     setSeed(nextSeed, nextComplexity) {
       return applySeed(nextSeed, nextComplexity);
@@ -542,7 +647,6 @@ export function createHexField(canvas, options = {}) {
     setComplexity(nextComplexity) {
       return applySeed(seed, nextComplexity);
     },
-    /** Float-rate fader — 0 freezes drift (reduced-motion still wins). */
     setVelocity(next) {
       velocity = Math.max(0, Math.min(1.5, Number(next) || 0));
       return { velocity };
@@ -555,6 +659,7 @@ export function createHexField(canvas, options = {}) {
       seed,
       complexity,
       velocity,
+      fillMode,
       mode,
       engine: 'canvas-2d+hexaform',
     }),
@@ -565,7 +670,6 @@ function clamp01(v) {
   return Math.max(0, Math.min(1, Number(v) || 0));
 }
 
-/** Gentler complexity curve — mid seed stays sparse. */
 export function seedToComplexity(seed, seedMax = 2047) {
   return clamp01(((seed | 0) / seedMax) ** 1.35);
 }

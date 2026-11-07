@@ -4,243 +4,154 @@ layout: null
 ---
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Canvas 2.5D hex field — demo</title>
-		<style>
-			:root {
-				color-scheme: dark;
-				--ink: #f4efe6;
-				--muted: rgb(244 239 230 / 0.72);
-				--panel: rgb(7 10 17 / 0.82);
-				--line: rgb(244 239 230 / 0.16);
-				--accent: #54d6be;
-			}
-
-			* {
-				box-sizing: border-box;
-			}
-
-			html,
-			body {
-				margin: 0;
-				height: 100%;
-				font-family: ui-sans-serif, system-ui, sans-serif;
-				background: #070a11;
-				color: var(--ink);
-			}
-
-			.stage {
-				position: relative;
-				height: 100dvh;
-				overflow: hidden;
-			}
-
-			canvas {
-				display: block;
-				width: 100%;
-				height: 100%;
-				touch-action: none;
-				cursor: crosshair;
-			}
-
-			.readout {
-				position: absolute;
-				inset: auto 1rem 1rem 1rem;
-				max-width: 36rem;
-				padding: 0.9rem 1rem;
-				border: 1px solid var(--line);
-				border-radius: 0.75rem;
-				background: var(--panel);
-				backdrop-filter: blur(8px);
-				font-size: 0.875rem;
-				line-height: 1.45;
-			}
-
-			.readout h1 {
-				margin: 0 0 0.35rem;
-				font-size: 0.95rem;
-				font-weight: 650;
-				letter-spacing: 0.02em;
-			}
-
-			.readout p {
-				margin: 0.25rem 0;
-				color: var(--muted);
-			}
-
-			.readout code {
-				color: var(--accent);
-				font-family: ui-monospace, monospace;
-				font-size: 0.8rem;
-			}
-
-			.fader {
-				display: grid;
-				grid-template-columns: auto 1fr auto;
-				gap: 0.55rem 0.75rem;
-				align-items: center;
-				margin: 0.75rem 0 0.35rem;
-				padding: 0.55rem 0.65rem;
-				border: 1px solid var(--line);
-				border-radius: 0.55rem;
-				background: rgb(244 239 230 / 0.04);
-			}
-
-			.fader label {
-				font-size: 0.75rem;
-				letter-spacing: 0.04em;
-				text-transform: uppercase;
-				color: var(--muted);
-			}
-
-			.fader output {
-				font-family: ui-monospace, monospace;
-				font-size: 0.8rem;
-				color: var(--accent);
-				min-width: 3.5rem;
-				text-align: right;
-			}
-
-			.fader input[type='range'] {
-				grid-column: 1 / -1;
-				width: 100%;
-				accent-color: var(--accent);
-				cursor: pointer;
-			}
-
-			.fader .hint {
-				grid-column: 1 / -1;
-				margin: 0;
-				font-size: 0.72rem;
-				color: var(--muted);
-			}
-
-			.stats {
-				margin-top: 0.55rem;
-				font-family: ui-monospace, monospace;
-				font-size: 0.75rem;
-				color: var(--ink);
-			}
-
-			a {
-				color: var(--accent);
-			}
-		</style>
-	</head>
-	<body>
-		<main class="stage">
-			<canvas
-				id="hex-field"
-				role="img"
-				aria-label="Interactive 2.5D hexagonal lattice. Move the pointer to tilt; scroll to pitch. Use the seed fader for complexity. Decorative — content is in the panel."
-			></canvas>
-			<aside class="readout">
-				<h1>Canvas 2.5D hex field</h1>
-				<p>
-					Near + far Z bands, variable stroke alpha, light cell budget for laptops.
-				</p>
-				<div class="fader">
-					<label for="seed">Seed</label>
-					<span></span>
-					<output id="seed-out" for="seed">767</output>
-					<input
-						id="seed"
-						type="range"
-						min="0"
-						max="2047"
-						value="767"
-						step="1"
-						aria-valuetext="seed 767"
-					/>
-					<p class="hint">Reshuffle · higher opens complexity (more survivors + spiral accents)</p>
-				</div>
-				<div class="fader">
-					<label for="velocity">Velocity</label>
-					<span></span>
-					<output id="velocity-out" for="velocity">0.38</output>
-					<input
-						id="velocity"
-						type="range"
-						min="0"
-						max="1.2"
-						value="0.38"
-						step="0.01"
-						aria-valuetext="velocity 0.38"
-					/>
-					<p class="hint">Float rate · default is slow; 0 freezes drift</p>
-				</div>
-				<p>
-					Pointer warps cells · wheel adds pitch inertia ·
-					<code>prefers-reduced-motion</code> freezes float.
-				</p>
-				<p class="stats" id="stats">boot…</p>
-				<p>
-					<a href="{{ '/lessons/en/feii/canvas-25d-hex-field/' | relative_url }}">Lesson</a>
-					·
-					<a href="{{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}">Unit 8 R3F</a>
-					·
-					<a href="{{ '/tracks/en/feii/' | relative_url }}">FE II track</a>
-				</p>
-			</aside>
-		</main>
-		<script type="module">
-			import { createHexField, seedToComplexity } from './hex-field.js';
-
-			const canvas = document.getElementById('hex-field');
-			const stats = document.getElementById('stats');
-			const seedInput = document.getElementById('seed');
-			const seedOut = document.getElementById('seed-out');
-			const velocityInput = document.getElementById('velocity');
-			const velocityOut = document.getElementById('velocity-out');
-			const seedMax = Number(seedInput.max) || 2047;
-
-			const field = createHexField(canvas, {
-				mode: 'archive',
-				seed: Number(seedInput.value),
-				velocity: Number(velocityInput.value),
-				zDepth: 400,
-				floatAmp: 22,
-				dprCap: 1.15,
-				maxCells: 140,
-				seedMax,
-				onSample({ cells, visible, fps, pitch, yaw, seed, complexity, velocity, mode, reduced, engine }) {
-					stats.textContent = `${engine} · ${mode} · seed ${seed} · cx ${complexity} · vel ${velocity} · cells ${cells}/${visible ?? cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
-						reduced ? ' · reduced-motion' : ''
-					}`;
-				},
-			});
-
-			function syncSeedUi(value) {
-				const seed = Number(value);
-				seedOut.textContent = String(seed);
-				seedInput.setAttribute(
-					'aria-valuetext',
-					`seed ${seed}, complexity ${seedToComplexity(seed, seedMax).toFixed(2)}`,
-				);
-			}
-
-			function syncVelocityUi(value) {
-				const v = Number(value);
-				velocityOut.textContent = v.toFixed(2);
-				velocityInput.setAttribute('aria-valuetext', `velocity ${v.toFixed(2)}`);
-			}
-
-			seedInput.addEventListener('input', () => {
-				const seed = Number(seedInput.value);
-				syncSeedUi(seed);
-				field.setSeed(seed);
-			});
-
-			velocityInput.addEventListener('input', () => {
-				const v = Number(velocityInput.value);
-				syncVelocityUi(v);
-				field.setVelocity(v);
-			});
-
-			syncSeedUi(seedInput.value);
-			syncVelocityUi(velocityInput.value);
-		</script>
-	</body>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hexaform living covers — gallery</title>
+<link rel="stylesheet" href="./stage.css" />
+</head>
+<body>
+<main class="gallery">
+<header>
+<h1>Hexaform living covers</h1>
+<p class="lede">
+One Canvas 2.5D composition per archive hub endpoint — solid fills, double-depth grid,
+chaotic closer/bigger centre cluster. Still SVG stamps remain the OG / reduced-motion fallback.
+</p>
+<p class="gallery-actions">
+<a href="./lab/">Open lab (seed + velocity faders)</a>
+·
+<a href="{{ '/lessons/en/feii/canvas-25d-hex-field/' | relative_url }}">Lesson</a>
+·
+<a href="{{ '/assets/images/archive-covers/' | relative_url }}">SVG covers</a>
+</p>
+</header>
+<ul class="gallery-grid">
+				<li>
+					<a class="gallery-card" data-compo="archive-home" href="./archive-home/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>WEB ATELIER (UDIT)</h2>
+							<p>Home hub — balanced solid field, deep double grid, calm centre weight.</p>
+							<span class="endpoint">/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-lessons-en" href="./archive-lessons-en/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Lessons (EN)</h2>
+							<p>Reference stamp — solid hexes, double depth, chaotic closer/bigger centre cluster.</p>
+							<span class="endpoint">/lessons/en/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-lessons-es" href="./archive-lessons-es/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Lecciones (ES)</h2>
+							<p>ES twin — slightly cooler cull, denser centre spiral.</p>
+							<span class="endpoint">/lessons/es/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-tracks" href="./archive-tracks/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Learning Tracks</h2>
+							<p>Tracks hub — FE II palette, wider far sheet, tight centre knot.</p>
+							<span class="endpoint">/tracks/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-tracks-en" href="./archive-tracks-en/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Learning Tracks (EN)</h2>
+							<p>EN tracks — mid density, soft solid fills.</p>
+							<span class="endpoint">/tracks/en/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-tracks-es" href="./archive-tracks-es/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Cursos de Aprendizaje (ES)</h2>
+							<p>ES tracks — slower drift, stronger near band.</p>
+							<span class="endpoint">/tracks/es/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-fei" href="./archive-fei/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Front-End I</h2>
+							<p>FE I — coral-led solids, open lattice, modest centre.</p>
+							<span class="endpoint">/tracks/fei/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-feii" href="./archive-feii/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Front-End II</h2>
+							<p>FE II — mint/lilac solids, shader-ish frequency, busy centre.</p>
+							<span class="endpoint">/tracks/feii/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-2627-fei" href="./archive-2627-fei/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Front-End I · 2026–27</h2>
+							<p>Cohort FE I — year stamp seed, calmer velocity.</p>
+							<span class="endpoint">/tracks/en/udit/2627-fei/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-2627-feii" href="./archive-2627-feii/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Front-End II · 2026–27</h2>
+							<p>Cohort FE II — denser double grid, hot centre cluster.</p>
+							<span class="endpoint">/tracks/en/udit/2627-feii/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-methodology-en" href="./archive-methodology-en/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Methodology (EN)</h2>
+							<p>Methodology — sparse solids, deep Z, quiet centre.</p>
+							<span class="endpoint">/methodology/en/</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="gallery-card" data-compo="archive-methodology-es" href="./archive-methodology-es/">
+						<div class="thumb"><canvas aria-hidden="true"></canvas></div>
+						<div class="meta">
+							<h2>Metodología (ES)</h2>
+							<p>Metodología — stroke+fill mix, slow drift.</p>
+							<span class="endpoint">/methodology/es/</span>
+						</div>
+					</a>
+				</li>
+</ul>
+</main>
+<script type="module">
+import { mountGalleryThumbs } from './mount.js';
+mountGalleryThumbs(document.querySelector('.gallery-grid'));
+</script>
+</body>
 </html>

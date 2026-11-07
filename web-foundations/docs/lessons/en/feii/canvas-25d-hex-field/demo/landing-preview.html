@@ -1,0 +1,187 @@
+---
+permalink: /lessons/en/feii/canvas-25d-hex-field/demo/landing-preview/
+layout: null
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Landing hero preview — Hexaform live</title>
+		<link rel="stylesheet" href="../stage.css" />
+		<style>
+			.landing-hero {
+				position: relative;
+				isolation: isolate;
+				overflow: hidden;
+				min-height: min(72vh, 38rem);
+				color: #f7f2e8;
+				background: #050816;
+				clip-path: polygon(7% 0, 93% 0, 100% 50%, 93% 100%, 7% 100%, 0 50%);
+				border-bottom: 1px solid rgb(226 177 39 / 0.28);
+				cursor: crosshair;
+			}
+
+			/* Spacer so scroll parallax is testable on this preview page */
+			.scroll-pad {
+				height: 70vh;
+				opacity: 0.35;
+				padding: 2rem 1.25rem;
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+
+			.landing-hero .hexaform-live-bg {
+				position: absolute;
+				inset: 0;
+				z-index: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+			}
+
+			.landing-hero .scrim {
+				position: absolute;
+				inset: 0;
+				z-index: 1;
+				pointer-events: none;
+				background:
+					linear-gradient(0deg, rgb(5 8 22 / 0.72), rgb(5 8 22 / 0.28)),
+					linear-gradient(90deg, rgb(5 8 22 / 0.5), transparent 42%, rgb(5 8 22 / 0.18));
+			}
+
+			.landing-hero .inner {
+				position: relative;
+				z-index: 2;
+				max-width: 44rem;
+				margin: 0 auto;
+				padding: clamp(2.5rem, 7vw, 5rem) 1.5rem;
+				text-align: center;
+			}
+
+			.landing-hero h1 {
+				margin: 0 0 0.5rem;
+				font-size: clamp(2rem, 5vw, 3.25rem);
+				font-weight: 700;
+				line-height: 1.1;
+			}
+
+			.landing-hero .sub {
+				margin: 0 0 1rem;
+				font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+				opacity: 0.9;
+			}
+
+			.landing-hero .lede {
+				margin: 0 auto;
+				max-width: 36rem;
+				line-height: 1.5;
+				opacity: 0.85;
+			}
+
+			.picker {
+				max-width: 44rem;
+				margin: 1.5rem auto 0;
+				padding: 0 1.25rem 2rem;
+			}
+
+			.picker label {
+				display: block;
+				margin-bottom: 0.4rem;
+				font-size: 0.75rem;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+				color: var(--muted);
+			}
+
+			.picker select {
+				width: 100%;
+				padding: 0.55rem 0.7rem;
+				border-radius: 0.5rem;
+				border: 1px solid var(--line);
+				background: rgb(7 10 17 / 0.9);
+				color: var(--ink);
+			}
+
+			.picker .links {
+				margin-top: 0.85rem;
+				font-size: 0.875rem;
+			}
+
+			.picker a {
+				color: var(--accent);
+			}
+		</style>
+	</head>
+	<body>
+		<section class="landing-hero" id="landing-hero" aria-labelledby="hero-title">
+			<canvas class="hexaform-live-bg" id="hex-bg" aria-hidden="true"></canvas>
+			<div class="scrim" aria-hidden="true"></div>
+			<div class="inner">
+				<h1 id="hero-title">WEB ATELIER <span style="font-weight: 400; opacity: 0.9">(UDIT)</span></h1>
+				<p class="sub">Learning by doing, with theory, practice and shared reflection</p>
+				<p class="lede">
+					Living Hexaform composition as the landing hero background — same module as archive covers, behind the title.
+				</p>
+			</div>
+		</section>
+
+		<div class="picker">
+			<label for="compo">Composition (archive endpoint)</label>
+			<select id="compo"></select>
+			<p class="links">
+				<a href="../">Gallery</a>
+				·
+				<a href="../lab/">Lab</a>
+				·
+				<a id="full-compo" href="../archive-home/">Full-bleed endpoint</a>
+			</p>
+			<p class="stats" id="stats">boot…</p>
+		</div>
+
+		<script type="module">
+			import { COMPOSITIONS, mountComposition } from '../mount.js';
+
+			const select = document.getElementById('compo');
+			const canvas = document.getElementById('hex-bg');
+			const stats = document.getElementById('stats');
+			const fullLink = document.getElementById('full-compo');
+			const title = document.getElementById('hero-title');
+			let field = null;
+
+			for (const c of COMPOSITIONS) {
+				const opt = document.createElement('option');
+				opt.value = c.id;
+				opt.textContent = `${c.title} (${c.endpoint})`;
+				if (c.id === 'archive-home') opt.selected = true;
+				select.appendChild(opt);
+			}
+
+			const hero = document.getElementById('landing-hero');
+
+			function boot(id) {
+				if (field) field.destroy();
+				const { compo, field: next } = mountComposition(canvas, id, {
+					interactive: true,
+					pointerRoot: hero,
+					scrollParallax: true,
+					wheelPitch: false,
+					pointerAmp: 1.15,
+					dprCap: 1.15,
+					maxCells: 120,
+					onSample({ cells, visible, fps, seed, velocity, fillMode }) {
+						stats.textContent = `${id} · ${fillMode} · seed ${seed} · vel ${velocity} · cells ${cells}/${visible ?? cells} · ~${fps} fps · move / scroll`;
+					},
+				});
+				field = next;
+				title.innerHTML = `${compo.title}`;
+				fullLink.href = `../${compo.id}/`;
+				fullLink.textContent = `Full-bleed: ${compo.id}`;
+			}
+
+			select.addEventListener('change', () => boot(select.value));
+			boot(select.value);
+		</script>
+		<div class="scroll-pad">Scroll to feel parallax · move over the hero for tilt</div>
+	</body>
+</html>
