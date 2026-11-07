@@ -266,6 +266,42 @@ img.footer-logo {
 	z-index: 1;
 }
 
+/* Living Hexaform canvas (archive-hero-live.html) — SVG stays as reduced-motion / noscript fallback */
+.hero-section--archive.has-hexaform-live {
+	/* Pointer tilt is bound to the hero; canvas stays non-blocking for links/text */
+	cursor: crosshair;
+}
+
+.hero-section--archive .hexaform-live-bg {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+.hero-section--archive.has-hexaform-live {
+	/* Keep scrim gradients for type; drop the static SVG once the canvas is mounted */
+	background-image:
+		linear-gradient(0deg, rgb(5 8 22 / 0.72), rgb(5 8 22 / 0.32)),
+		linear-gradient(90deg, rgb(5 8 22 / 0.52), transparent 42%, rgb(5 8 22 / 0.2));
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hero-section--archive .hexaform-live-bg {
+		display: none;
+	}
+
+	.hero-section--archive.has-hexaform-live {
+		background-image:
+			linear-gradient(0deg, rgb(5 8 22 / 0.78), rgb(5 8 22 / 0.34)),
+			linear-gradient(90deg, rgb(5 8 22 / 0.58), transparent 42%, rgb(5 8 22 / 0.22)),
+			var(--hero-archive-image);
+	}
+}
+
 .hero-section--archive a {
 	color: #93c5fd;
 }
