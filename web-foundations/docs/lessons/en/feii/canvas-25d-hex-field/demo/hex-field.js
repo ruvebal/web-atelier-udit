@@ -1,12 +1,8 @@
 /**
  * Canvas 2.5D hex field — Hexaform lattice + pitch/yaw projection.
  *
- * Lattice = the irregular, mode-profiled grid from lesson-covers
- * (frequency / drift / pulse → activation, variable cell size, spiral accent).
- * Projection = world rotate → perspective → screen offset + painter sort.
- *
- * Viewport policy: rebuild the lattice on resize so cells cover the canvas
- * (with overscan for tilt), not a fixed axial “postage stamp” in the middle.
+ * Visual brief: irregular sizes, mostly empty (stroke-only) profiles,
+ * varied border widths, chaotic per-cell float, full-viewport coverage.
  */
 
 export const PALETTE = [
@@ -15,7 +11,7 @@ export const PALETTE = [
   { fill: '#54D6BE', stroke: '#54D6BE' },
 ];
 
-/** Hexaform mode profiles — [frequency, drift, pulse]. Same keys as generate-lesson-covers.mjs. */
+/** Hexaform mode profiles — [frequency, drift, pulse]. */
 export const MODE_PROFILES = {
   lattice: [1.4, 0.25, 0.12],
   constellation: [1.62, 0.62, 0.36],
@@ -28,8 +24,13 @@ export const MODE_PROFILES = {
   space: [0.78, 0.35, 0.6],
 };
 
-/** Stride 8: x, y, z, radius, energy, breath, colorIdx, activation */
-export const STRIDE = 8;
+/**
+ * Stride 14:
+ * 0 x, 1 y, 2 z0, 3 radius, 4 energy, 5 phase,
+ * 6 colorIdx, 7 activation, 8 strokePx, 9 fillAmt,
+ * 10 dirX, 11 dirY, 12 dirZ, 13 floatSpeed
+ */
+export const STRIDE = 14;
 
 function hash32(value) {
   let h = 2166136261 >>> 0;
@@ -74,28 +75,60 @@ export function hexCorners(wx, wy, wz, radius, projectFn) {
   return pts;
 }
 
+function pushCell(nodes, random, x, y, z0, radius, colorIdx, activation, energy) {
+  // Almost all empty profiles — rare soft fill.
+  const fillAmt = random() < 0.08 ? 0.08 + random() * 0.14 : 0;
+  // Border in CSS px before DPR: hairline → chunky.
+  const strokePx = 0.45 + random() ** 1.6 * 3.8 + activation * 0.55;
+  // Unit-ish chaotic float direction (not normalised hard — keeps some bias).
+  const az = random() * Math.PI * 2;
+  const el = (random() - 0.5) * Math.PI;
+  const dirX = Math.cos(el) * Math.cos(az);
+  const dirY = Math.cos(el) * Math.sin(az);
+  const dirZ = Math.sin(el) * (0.55 + random() * 0.9);
+  const floatSpeed = 0.35 + random() * 1.85 + energy * 0.4;
+  const phase = random() * Math.PI * 2;
+  nodes.push(
+    x,
+    y,
+    z0,
+    radius,
+    0,
+    phase,
+    colorIdx,
+    activation,
+    strokePx,
+    fillAmt,
+    dirX,
+    dirY,
+    dirZ,
+    floatSpeed,
+  );
+}
+
 /**
- * Hexaform irregular field covering a CSS-pixel viewport (centred on origin).
- * Port of generate-lesson-covers.mjs renderCover lattice + spiral accent.
+ * Dense Hexaform-profiled field covering the CSS-pixel viewport.
+ * Keeps nearly every lattice site so the plane is covered; size / stroke / float stay irregular.
  */
 export function buildHexaformField({
   width,
   height,
   mode = 'archive',
   seed = 767,
-  energy = 0.62,
-  density = 16,
-  baseRadius = 28,
-  overscan = 1.45,
+  energy = 0.72,
+  density = 22,
+  baseRadius = 26,
+  overscan = 1.55,
 } = {}) {
   const [frequency, drift, pulse] = MODE_PROFILES[mode] || MODE_PROFILES.archive;
-  const random = mulberry32(hash32(`${seed}-${mode}-canvas25d`));
-  const horizontal = Math.sqrt(3) * baseRadius;
-  const vertical = baseRadius * 1.5;
+  const random = mulberry32(hash32(`${seed}-${mode}-canvas25d-v2`));
+  // Pack tighter than a clean honeycomb so gaps from tiny cells still read as coverage.
+  const horizontal = Math.sqrt(3) * baseRadius * 0.78;
+  const vertical = baseRadius * 1.18;
   const spanW = width * overscan;
   const spanH = height * overscan;
-  const cols = Math.ceil(spanW / horizontal) + 3;
-  const rows = Math.ceil(spanH / vertical) + 3;
+  const cols = Math.ceil(spanW / horizontal) + 4;
+  const rows = Math.ceil(spanH / vertical) + 4;
   const originCol = -Math.floor(cols / 2);
   const originRow = -Math.floor(rows / 2);
   const nodes = [];
@@ -108,29 +141,34 @@ export function buildHexaformField({
       const y = r * vertical;
       const distance = Math.hypot(x / spanW, y / spanH);
       const wave = (Math.sin(c * frequency * 0.72 + r * drift * 5 + seed * 0.013) + 1) / 2;
-      const focus = Math.max(0, 1 - distance * 2.1);
-      const activation = wave * 0.48 + focus * 0.74 + random() * 0.18;
-      const visible = activation > 0.34 - energy * 0.08;
-      if (!visible) continue;
+      const focus = Math.max(0, 1 - distance * 1.55);
+      const activation = wave * 0.42 + focus * 0.5 + random() * 0.28;
+      // Cull only the weakest ghosts — keep the field covering the viewport.
+      if (activation < 0.12) continue;
 
-      const colorIdx = activation > 0.78 ? 2 : activation > 0.6 ? 1 : 0;
-      const radius = (0.22 + activation * 0.55 + energy * 0.12) * baseRadius;
+      const colorIdx = activation > 0.78 ? 2 : activation > 0.55 ? 1 : 0;
+      // Wide irregular size range (tiny sparks → oversized shells).
+      const sizeNoise = random() ** 2;
+      const radius =
+        baseRadius *
+        (0.08 + sizeNoise * 1.35 + activation * 0.35 + (random() < 0.06 ? 0.7 + random() * 0.9 : 0));
       const t = ((c * 0.37 + r * 0.61) % 1 + 1) % 1;
-      const baseZ = (t - 0.5) * (18 + energy * 22);
-      nodes.push(x, y, baseZ, radius, 0, random() * Math.PI * 2, colorIdx, activation);
+      const baseZ = (t - 0.5) * (22 + energy * 28) + (random() - 0.5) * 18;
+      pushCell(nodes, random, x, y, baseZ, radius, colorIdx, activation, energy);
     }
   }
 
-  // Spiral accent cluster (Hexaform density loop) — multidimensional pressure at the centre.
+  // Spiral accent — denser multidimensional pressure near centre.
   for (let index = 0; index < density; index += 1) {
     const angle = index * 2.399963229728653 + seed * 0.0019;
-    const radial = 34 + Math.sqrt(index + 1) * (28 + energy * 55);
-    const x = Math.cos(angle) * radial * (1 + drift * 0.36);
-    const y = Math.sin(angle) * radial * (0.67 + pulse * 0.47);
-    const size = 15 + ((density - index) / density) * (40 + energy * 32) + random() * 9;
+    const radial = 28 + Math.sqrt(index + 1) * (24 + energy * 48);
+    const x = Math.cos(angle) * radial * (1 + drift * 0.4);
+    const y = Math.sin(angle) * radial * (0.62 + pulse * 0.5);
+    const size =
+      baseRadius * (0.35 + ((density - index) / density) * 1.1 + random() * 0.85);
     const colorIdx = index % 5 === 0 ? 0 : index % 2 === 0 ? 2 : 1;
-    const activation = 0.55 + ((density - index) / density) * 0.4;
-    nodes.push(x, y, (random() - 0.5) * 24, size * 0.55, 0, random() * Math.PI * 2, colorIdx, activation);
+    const activation = 0.5 + ((density - index) / density) * 0.45;
+    pushCell(nodes, random, x, y, (random() - 0.5) * 36, size, colorIdx, activation, energy);
   }
 
   return new Float32Array(nodes);
@@ -151,13 +189,15 @@ export function createHexField(canvas, options = {}) {
   const fov = options.fov ?? 820;
   const mode = options.mode ?? 'archive';
   const seed = options.seed ?? 767;
-  const energy = options.energy ?? 0.62;
-  const density = options.density ?? 16;
+  const energy = options.energy ?? 0.72;
+  const density = options.density ?? 22;
+  const floatAmp = options.floatAmp ?? 22;
 
   let nodes = new Float32Array(0);
   let count = 0;
   let order = new Int32Array(0);
   let depthBuf = new Float32Array(0);
+  let time = 0;
 
   let width = 0;
   let height = 0;
@@ -196,8 +236,8 @@ export function createHexField(canvas, options = {}) {
       seed,
       energy,
       density,
-      baseRadius: options.baseRadius ?? Math.max(22, Math.min(cssW, cssH) * 0.028),
-      overscan: options.overscan ?? 1.5,
+      baseRadius: options.baseRadius ?? Math.max(18, Math.min(cssW, cssH) * 0.024),
+      overscan: options.overscan ?? 1.55,
     });
     count = nodes.length / STRIDE;
     order = new Int32Array(count);
@@ -215,12 +255,11 @@ export function createHexField(canvas, options = {}) {
     canvas.width = width;
     canvas.height = height;
     cx = width * 0.5;
-    cy = height * 0.52;
+    cy = height * 0.5;
     rebuildLattice();
   }
 
   function projectWorld(x, y, z) {
-    // Lattice is authored in CSS pixels; scale into device pixels for the canvas buffer.
     const p = project(x * dpr, y * dpr, z * dpr, Math.cos(yaw), Math.sin(yaw), Math.cos(pitch), Math.sin(pitch), fov);
     return {
       x: p.x + cx + panX,
@@ -228,6 +267,18 @@ export function createHexField(canvas, options = {}) {
       scale: p.scale,
       depth: p.depth,
     };
+  }
+
+  function cellPose(o) {
+    const phase = nodes[o + 5];
+    const speed = nodes[o + 13];
+    const wave = reduced ? 0 : Math.sin(time * speed + phase);
+    const amp = floatAmp * (0.55 + nodes[o + 7] * 0.7);
+    const pointerE = nodes[o + 4];
+    const ox = nodes[o] + wave * amp * nodes[o + 10];
+    const oy = nodes[o + 1] + wave * amp * nodes[o + 11];
+    const oz = nodes[o + 2] + wave * amp * nodes[o + 12] + pointerE * -36;
+    return { x: ox, y: oy, z: oz, wave, pointerE };
   }
 
   function paintBackground() {
@@ -238,9 +289,9 @@ export function createHexField(canvas, options = {}) {
     ctx.fillRect(0, 0, width, height);
 
     const nebulae = [
-      [0.22, 0.38, Math.max(width, height) * 0.45, 'rgba(255,122,89,0.16)'],
-      [0.78, 0.62, Math.max(width, height) * 0.4, 'rgba(84,214,190,0.14)'],
-      [0.52, 0.18, Math.max(width, height) * 0.35, 'rgba(243,201,105,0.1)'],
+      [0.22, 0.38, Math.max(width, height) * 0.45, 'rgba(255,122,89,0.14)'],
+      [0.78, 0.62, Math.max(width, height) * 0.4, 'rgba(84,214,190,0.12)'],
+      [0.52, 0.18, Math.max(width, height) * 0.35, 'rgba(243,201,105,0.09)'],
     ];
     for (const [nx, ny, r, color] of nebulae) {
       const grd = ctx.createRadialGradient(nx * width, ny * height, 0, nx * width, ny * height, r);
@@ -263,6 +314,7 @@ export function createHexField(canvas, options = {}) {
     }
 
     if (!reduced) {
+      time += dt;
       const k = 1 - Math.exp(-dt * 6);
       pitch += (targetPitch - pitch) * k;
       yaw += (targetYaw - yaw) * k;
@@ -274,13 +326,13 @@ export function createHexField(canvas, options = {}) {
 
       for (let i = 0; i < count; i += 1) {
         const o = i * STRIDE;
-        nodes[o + 5] += dt * 1.35;
         if (hasPointer) {
-          const p = projectWorld(nodes[o], nodes[o + 1], nodes[o + 2]);
+          const pose = cellPose(o);
+          const p = projectWorld(pose.x, pose.y, pose.z);
           const dx = p.x - pointerX * width;
           const dy = p.y - pointerY * height;
           const dist = Math.hypot(dx, dy);
-          const pulse = Math.exp(-(dist * dist) / (2 * (170 * dpr) ** 2));
+          const pulse = Math.exp(-(dist * dist) / (2 * (190 * dpr) ** 2));
           nodes[o + 4] += (pulse - nodes[o + 4]) * (1 - Math.exp(-dt * 8));
         } else {
           nodes[o + 4] *= Math.exp(-dt * 1.8);
@@ -292,9 +344,8 @@ export function createHexField(canvas, options = {}) {
 
     for (let i = 0; i < count; i += 1) {
       const o = i * STRIDE;
-      const breath = reduced ? 0 : Math.sin(nodes[o + 5]) * 6;
-      const lift = nodes[o + 4] * -40;
-      depthBuf[i] = projectWorld(nodes[o], nodes[o + 1], nodes[o + 2] + breath + lift).depth;
+      const pose = cellPose(o);
+      depthBuf[i] = projectWorld(pose.x, pose.y, pose.z).depth;
       order[i] = i;
     }
     order.sort((a, b) => depthBuf[b] - depthBuf[a]);
@@ -302,25 +353,29 @@ export function createHexField(canvas, options = {}) {
     for (let n = 0; n < count; n += 1) {
       const i = order[n];
       const o = i * STRIDE;
-      const breath = reduced ? 0 : Math.sin(nodes[o + 5]) * 6;
-      const pointerE = nodes[o + 4];
+      const pose = cellPose(o);
+      const pointerE = pose.pointerE;
       const activation = nodes[o + 7];
-      const lift = pointerE * -40;
-      const z = nodes[o + 2] + breath + lift;
-      const radius = nodes[o + 3] * (0.92 + pointerE * 0.28);
-      const corners = hexCorners(nodes[o], nodes[o + 1], z, radius, projectWorld);
+      const radius = nodes[o + 3] * (0.9 + pointerE * 0.32 + (reduced ? 0 : Math.abs(pose.wave) * 0.06));
+      const corners = hexCorners(pose.x, pose.y, pose.z, radius, projectWorld);
       const pal = PALETTE[nodes[o + 6] | 0];
-      const alpha = 0.12 + activation * 0.28 + pointerE * 0.4;
-      const strokeA = 0.22 + activation * 0.35 + pointerE * 0.45;
+      const fillAmt = nodes[o + 9];
+      const strokeA = 0.28 + activation * 0.42 + pointerE * 0.4;
+      const strokePx = nodes[o + 8] * dpr * Math.max(0.65, Math.min(corners[0].scale, 1.85));
 
       ctx.beginPath();
       ctx.moveTo(corners[0].x, corners[0].y);
       for (let c = 1; c < 6; c += 1) ctx.lineTo(corners[c].x, corners[c].y);
       ctx.closePath();
-      ctx.fillStyle = hexToRgba(pal.fill, alpha);
+
+      if (fillAmt > 0.001) {
+        ctx.fillStyle = hexToRgba(pal.fill, fillAmt + pointerE * 0.18);
+        ctx.fill();
+      }
+
       ctx.strokeStyle = hexToRgba(pal.stroke, strokeA);
-      ctx.lineWidth = Math.max(1, 1.2 * Math.min(corners[0].scale, 1.7));
-      ctx.fill();
+      ctx.lineWidth = Math.max(0.6 * dpr, strokePx);
+      ctx.lineJoin = 'round';
       ctx.stroke();
     }
 

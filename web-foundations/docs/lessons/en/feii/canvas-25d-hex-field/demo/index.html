@@ -98,12 +98,12 @@ layout: null
 			<aside class="readout">
 				<h1>Canvas 2.5D hex field</h1>
 				<p>
-					Hexaform irregular lattice (<code>archive</code> mode) + pitch/yaw projection.
-					No Three.js. Fills the viewport on resize.
+					Dense Hexaform profiles — irregular sizes, mostly empty strokes,
+					chaotic float directions, full viewport.
 				</p>
 				<p>
 					Pointer warps cells · wheel adds pitch inertia ·
-					<code>prefers-reduced-motion</code> freezes breath.
+					<code>prefers-reduced-motion</code> freezes float.
 				</p>
 				<p class="stats" id="stats">boot…</p>
 				<p>
@@ -124,8 +124,9 @@ layout: null
 			createHexField(canvas, {
 				mode: 'archive',
 				seed: 767,
-				energy: 0.62,
-				density: 16,
+				energy: 0.72,
+				density: 22,
+				floatAmp: 24,
 				dprCap: 1.5,
 				onSample({ cells, fps, pitch, yaw, mode, reduced, engine }) {
 					stats.textContent = `${engine} · ${mode} · cells ${cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
