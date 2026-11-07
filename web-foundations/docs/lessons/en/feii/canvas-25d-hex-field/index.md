@@ -35,7 +35,7 @@ tags: [feii, canvas, projection, hex-grid, 2.5d, satellite, performance]
 
 **Code in this lesson:** the demo is **CodeSandbox-ready** as static files under `demo/`. Excerpts below show the two load-bearing ideas.
 
-**Live demo:** [Canvas 2.5D hex field]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }}) — sparse near+far Z bands, variable stroke alpha, hard cell budget (~140) for laptop FPS; seed fader; pointer tilt; wheel inertia; `prefers-reduced-motion`.
+**Live demo:** [Canvas 2.5D hex field]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }}) — sparse near+far Z bands (closest shells oversized), variable stroke alpha, hard cell budget (~140); **Seed** + **Velocity** faders; pointer tilt; wheel inertia; `prefers-reduced-motion`.
 
 The irregular field is not a regular axial honeycomb. It is the **Hexaform** rule system from `web-foundations/scripts/lesson-covers/` (see `ALGORITHMIC-PHILOSOPHY.md` in the repo): mode profile → activation → variable cell size / stroke → optional spiral accent. SVG covers bake a filled stamp once; this demo keeps hollow, living profiles under 2.5D projection.
 
@@ -88,10 +88,34 @@ Wrong order = near cells buried under far ones. That bug is the whole lesson.
 
 ## Interaction contract (demo)
 
+- **Seed fader** — reshuffles the Hexaform field; higher seed opens complexity (more survivors).
+- **Velocity fader** — global float rate (default slow ~0.38; `0` freezes drift).
 - **Pointer / finger** — damped yaw/pitch + radial energy falloff on cells.
 - **Wheel** — scroll velocity decays into pitch (inertia without Rapier).
-- **`prefers-reduced-motion: reduce`** — freeze breath; keep a readable static tilt.
-- **DPR cap 1.5** — same mobile fill-rate instinct as Unit 8.
+- **`prefers-reduced-motion: reduce`** — freeze float; keep a readable static tilt.
+- **DPR cap ~1.15 + `maxCells`** — laptop fill-rate budget (same instinct as Unit 8 ceilings).
+
+---
+
+## Using this for lessons, landings, and heroes
+
+Three layers, one Hexaform language — pick by durability and motion budget:
+
+| Surface | What ships | When |
+| --- | --- | --- |
+| **Static cover / OG / print** | Baked SVG from `scripts/lesson-covers/` (`archive-home.svg`, lesson stamps) | Always — no JS, sharable still |
+| **Hub / track hero (CSS)** | `.hero-section--archive` paints the SVG as `background-image` under the title | Landings that need brand + typography, motion optional |
+| **Living hero / lesson heading** | Absolute `<canvas>` behind the heading, `createHexField(canvas, { seed, velocity, maxCells, mode })`, pointer optional | When the page can afford ~100 stroke hexes and should breathe |
+
+**Recipe for a lesson or landing heading**
+
+1. Keep the **SVG** as the `noscript` / reduced-motion / OG fallback (same seed/mode as the canvas when possible).
+2. Mount a full-bleed canvas *inside* the hero (`position: absolute; inset: 0; z-index: 0`), title/lede at `z-index: 1` with a soft scrim so type stays readable.
+3. Call `createHexField` once with a **fixed seed** per page (brand consistency) and a **low velocity** (0.25–0.45). Do not expose faders on production heroes — faders are the lab.
+4. Honour `prefers-reduced-motion`: destroy the RAF loop or pass motion freeze; show the SVG background instead.
+5. Cap cost: `maxCells: 80–140`, `dprCap: 1.15`, no pointer warping on content-heavy pages (tilt-only or static yaw).
+
+**Heading vs full-page demo** — demos teach the math with controls; heroes reuse `hex-field.js` as a silent background module. Same file, different options object.
 
 ---
 
@@ -99,8 +123,8 @@ Wrong order = near cells buried under far ones. That bug is the whole lesson.
 
 | Path | Role |
 | --- | --- |
-| [`demo/index.html`]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }}) | Stage + readout |
-| `demo/hex-field.js` | Lattice SoA, projection, painter sort, pointer/scroll |
+| [`demo/index.html`]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }}) | Stage + Seed / Velocity readout |
+| `demo/hex-field.js` | Lattice SoA, projection, painter sort, pointer/scroll, fader API |
 
 **CodeSandbox-ready** — open the demo URL, or copy both files into any static host. No npm install.
 
@@ -108,8 +132,8 @@ Wrong order = near cells buried under far ones. That bug is the whole lesson.
 
 ## Lab check (15–20 min)
 
-1. Switch `mode` in the demo (`archive` → `shader` → `lattice`) and name what frequency/drift/pulse change visually.
-2. Resize the window — the lattice rebuilds to cover the viewport (overscan for tilt). Say why a fixed axial radius cannot do that.
+1. Drag **Seed** and **Velocity** — name what each controls (structure vs time).
+2. Set velocity to `0` and resize — lattice rebuilds, drift does not. Why is that the right hero default under `prefers-reduced-motion`?
 3. Disable the painter sort and describe what breaks.
 4. One sentence: when would this field graduate to R3F `InstancedMesh` instead?
 
@@ -117,7 +141,7 @@ Wrong order = near cells buried under far ones. That bug is the whole lesson.
 
 ## Session outcome
 
-You can fake a spatial hex field with projection + draw order, interact with pointer and scroll inertia, and name the moment the Three tax becomes worth paying. The archive SVG stays the durable still; this demo is the living twin.
+You can fake a spatial hex field with projection + draw order, tune seed/velocity for a calm hero background, and name the moment the Three tax becomes worth paying. The archive SVG stays the durable still; this module is the living twin.
 
 {% comment %}
 outcome-graphic-selection:

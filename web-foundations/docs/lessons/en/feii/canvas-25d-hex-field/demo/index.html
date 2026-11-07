@@ -154,7 +154,22 @@ layout: null
 						step="1"
 						aria-valuetext="seed 767"
 					/>
-					<p class="hint">Drag to reshuffle · higher seed opens complexity (more survivors + spiral accents)</p>
+					<p class="hint">Reshuffle · higher opens complexity (more survivors + spiral accents)</p>
+				</div>
+				<div class="fader">
+					<label for="velocity">Velocity</label>
+					<span></span>
+					<output id="velocity-out" for="velocity">0.38</output>
+					<input
+						id="velocity"
+						type="range"
+						min="0"
+						max="1.2"
+						value="0.38"
+						step="0.01"
+						aria-valuetext="velocity 0.38"
+					/>
+					<p class="hint">Float rate · default is slow; 0 freezes drift</p>
 				</div>
 				<p>
 					Pointer warps cells · wheel adds pitch inertia ·
@@ -177,18 +192,21 @@ layout: null
 			const stats = document.getElementById('stats');
 			const seedInput = document.getElementById('seed');
 			const seedOut = document.getElementById('seed-out');
+			const velocityInput = document.getElementById('velocity');
+			const velocityOut = document.getElementById('velocity-out');
 			const seedMax = Number(seedInput.max) || 2047;
 
 			const field = createHexField(canvas, {
 				mode: 'archive',
 				seed: Number(seedInput.value),
-				zDepth: 380,
-				floatAmp: 28,
+				velocity: Number(velocityInput.value),
+				zDepth: 400,
+				floatAmp: 22,
 				dprCap: 1.15,
 				maxCells: 140,
 				seedMax,
-				onSample({ cells, visible, fps, pitch, yaw, seed, complexity, mode, reduced, engine }) {
-					stats.textContent = `${engine} · ${mode} · seed ${seed} · cx ${complexity} · cells ${cells}/${visible ?? cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
+				onSample({ cells, visible, fps, pitch, yaw, seed, complexity, velocity, mode, reduced, engine }) {
+					stats.textContent = `${engine} · ${mode} · seed ${seed} · cx ${complexity} · vel ${velocity} · cells ${cells}/${visible ?? cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
 						reduced ? ' · reduced-motion' : ''
 					}`;
 				},
@@ -197,7 +215,16 @@ layout: null
 			function syncSeedUi(value) {
 				const seed = Number(value);
 				seedOut.textContent = String(seed);
-				seedInput.setAttribute('aria-valuetext', `seed ${seed}, complexity ${seedToComplexity(seed, seedMax).toFixed(2)}`);
+				seedInput.setAttribute(
+					'aria-valuetext',
+					`seed ${seed}, complexity ${seedToComplexity(seed, seedMax).toFixed(2)}`,
+				);
+			}
+
+			function syncVelocityUi(value) {
+				const v = Number(value);
+				velocityOut.textContent = v.toFixed(2);
+				velocityInput.setAttribute('aria-valuetext', `velocity ${v.toFixed(2)}`);
 			}
 
 			seedInput.addEventListener('input', () => {
@@ -206,7 +233,14 @@ layout: null
 				field.setSeed(seed);
 			});
 
+			velocityInput.addEventListener('input', () => {
+				const v = Number(velocityInput.value);
+				syncVelocityUi(v);
+				field.setVelocity(v);
+			});
+
 			syncSeedUi(seedInput.value);
+			syncVelocityUi(velocityInput.value);
 		</script>
 	</body>
 </html>

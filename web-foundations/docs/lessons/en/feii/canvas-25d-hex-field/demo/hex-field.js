@@ -77,7 +77,7 @@ function pushCell(nodes, random, x, y, z0, radius, colorIdx, activation, energy)
   const dirX = Math.cos(el) * Math.cos(az);
   const dirY = Math.cos(el) * Math.sin(az);
   const dirZ = Math.sin(el) * (0.55 + random() * 0.9);
-  const floatSpeed = 0.3 + random() * 1.4 + energy * 0.3;
+  const floatSpeed = 0.18 + random() * 0.75 + energy * 0.18;
   nodes.push(
     x,
     y,
@@ -127,7 +127,8 @@ export function buildHexaformField({
   const nodes = [];
   const cull = 0.72 - cxAmt * 0.28 - energy * 0.05;
   const zFar = zDepth * (0.85 + energy * 0.4);
-  const zNear = zDepth * (0.55 + cxAmt * 0.25);
+  // Near band reaches past the camera plane so closest shells read oversized.
+  const zNear = zDepth * (0.95 + cxAmt * 0.35);
 
   for (let row = 0; row < rows; row += 1) {
     for (let column = 0; column < cols; column += 1) {
@@ -149,9 +150,10 @@ export function buildHexaformField({
       // Near band (toward camera / larger on screen) + far band (keep the depth read).
       let baseZ;
       const band = random();
-      if (band < 0.38) {
-        baseZ = -zNear * (0.4 + random() * 0.75);
-      } else if (band < 0.55) {
+      if (band < 0.4) {
+        // Closest shells: deep negative Z → large projected scale.
+        baseZ = -zNear * (0.75 + random() * 1.15);
+      } else if (band < 0.58) {
         baseZ = (random() - 0.5) * zFar * 0.35;
       } else {
         baseZ = zFar * (0.25 + random() * 0.75) * (random() < 0.5 ? 1 : -0.35);
@@ -170,7 +172,7 @@ export function buildHexaformField({
     const size = baseRadius * (0.45 + ((spiralN - index) / spiralN) * 0.95 + random() * 0.7);
     const colorIdx = index % 5 === 0 ? 0 : index % 2 === 0 ? 2 : 1;
     const activation = 0.5 + ((spiralN - index) / spiralN) * 0.4;
-    const baseZ = random() < 0.45 ? -zNear * (0.5 + random() * 0.7) : (random() - 0.2) * zFar;
+    const baseZ = random() < 0.5 ? -zNear * (0.8 + random() * 1.1) : (random() - 0.2) * zFar;
     pushCell(nodes, random, x, y, baseZ, size, colorIdx, activation, energy);
   }
 
@@ -209,7 +211,9 @@ export function createHexField(canvas, options = {}) {
   let complexity = clamp01(options.complexity ?? seedToComplexity(seed));
   let energy = options.energy ?? energyFromComplexity(complexity);
   let density = options.density ?? densityFromComplexity(complexity);
-  const floatAmp = options.floatAmp ?? 28;
+  const floatAmp = options.floatAmp ?? 22;
+  /** Global float-rate multiplier — 1 = authored speeds; demo default is slow. */
+  let velocity = Math.max(0, options.velocity ?? 0.38);
   const zDepth = options.zDepth ?? 360;
   const maxCells = options.maxCells ?? 160;
   const seedMax = options.seedMax ?? 2047;
@@ -364,8 +368,8 @@ export function createHexField(canvas, options = {}) {
       const o = i * STRIDE;
       const phase = nodes[o + 5];
       const speed = nodes[o + 13];
-      const wave = reduced ? 0 : Math.sin(time * speed + phase);
-      const amp = floatAmp * (0.5 + nodes[o + 7] * 0.65);
+      const wave = reduced ? 0 : Math.sin(time * speed * velocity + phase);
+      const amp = floatAmp * (0.45 + nodes[o + 7] * 0.55) * (0.65 + velocity * 0.45);
       let energyN = nodes[o + 4];
 
       const wx = (nodes[o] + wave * amp * nodes[o + 10]) * dpr;
@@ -478,6 +482,7 @@ export function createHexField(canvas, options = {}) {
         yaw: yaw.toFixed(2),
         seed,
         complexity: Number(complexity.toFixed(2)),
+        velocity: Number(velocity.toFixed(2)),
         mode,
         reduced,
         engine: 'canvas-2d+hexaform',
@@ -537,12 +542,19 @@ export function createHexField(canvas, options = {}) {
     setComplexity(nextComplexity) {
       return applySeed(seed, nextComplexity);
     },
+    /** Float-rate fader — 0 freezes drift (reduced-motion still wins). */
+    setVelocity(next) {
+      velocity = Math.max(0, Math.min(1.5, Number(next) || 0));
+      return { velocity };
+    },
     getSeed: () => seed,
     getComplexity: () => complexity,
+    getVelocity: () => velocity,
     getStats: () => ({
       cells: count,
       seed,
       complexity,
+      velocity,
       mode,
       engine: 'canvas-2d+hexaform',
     }),
