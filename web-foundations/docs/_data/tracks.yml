@@ -512,6 +512,13 @@ tracks:
      path:
       en: /lessons/en/feii/ktx2-basis/
      tags: [ktx2, basis-universal, textures, album-cover, satellite]
+   - title: 'Canvas 2.5D Hex Field — Projection Without Three'
+     slug: 'canvas-25d-hex-field'
+     after: 'unit-9-shader-literacy'
+     description: 'Pitch/yaw projection + painter’s algorithm on a Canvas hex lattice — depth literacy without the Three.js tax.'
+     path:
+      en: /lessons/en/feii/canvas-25d-hex-field/
+     tags: [canvas, projection, hex-grid, 2.5d, satellite, performance]
   objectives:
    - 'Dominar arquitecturas de producción: meta-frameworks (Astro), SSR/SSG, y micro-frontends.'
    - 'Construir aplicaciones PWA con capacidades offline y estrategia de caching avanzada.'

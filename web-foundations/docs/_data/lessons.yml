@@ -1302,6 +1302,17 @@
    en: complete
   category: feii
   tags: [feii, ktx2, basis-universal, textures, album-cover, satellite]
+- slug: feii-canvas-25d-hex-field
+  title:
+   en: 'Canvas 2.5D Hex Field — Projection Without Three'
+  path:
+   en: /lessons/en/feii/canvas-25d-hex-field/
+  file:
+   en: lessons/en/feii/canvas-25d-hex-field/index.md
+  status:
+   en: complete
+  category: feii
+  tags: [feii, canvas, projection, hex-grid, 2.5d, satellite, performance]
 - slug: feii-3d-terminology
   title:
    en: '3D Terminology — Say It Out Loud'

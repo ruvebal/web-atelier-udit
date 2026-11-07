@@ -1,0 +1,136 @@
+---
+permalink: /lessons/en/feii/canvas-25d-hex-field/demo/
+layout: null
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Canvas 2.5D hex field — demo</title>
+		<style>
+			:root {
+				color-scheme: dark;
+				--ink: #f4efe6;
+				--muted: rgb(244 239 230 / 0.72);
+				--panel: rgb(7 10 17 / 0.82);
+				--line: rgb(244 239 230 / 0.16);
+				--accent: #54d6be;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				margin: 0;
+				height: 100%;
+				font-family: ui-sans-serif, system-ui, sans-serif;
+				background: #070a11;
+				color: var(--ink);
+			}
+
+			.stage {
+				position: relative;
+				height: 100dvh;
+				overflow: hidden;
+			}
+
+			canvas {
+				display: block;
+				width: 100%;
+				height: 100%;
+				touch-action: none;
+				cursor: crosshair;
+			}
+
+			.readout {
+				position: absolute;
+				inset: auto 1rem 1rem 1rem;
+				max-width: 36rem;
+				padding: 0.9rem 1rem;
+				border: 1px solid var(--line);
+				border-radius: 0.75rem;
+				background: var(--panel);
+				backdrop-filter: blur(8px);
+				font-size: 0.875rem;
+				line-height: 1.45;
+			}
+
+			.readout h1 {
+				margin: 0 0 0.35rem;
+				font-size: 0.95rem;
+				font-weight: 650;
+				letter-spacing: 0.02em;
+			}
+
+			.readout p {
+				margin: 0.25rem 0;
+				color: var(--muted);
+			}
+
+			.readout code {
+				color: var(--accent);
+				font-family: ui-monospace, monospace;
+				font-size: 0.8rem;
+			}
+
+			.stats {
+				margin-top: 0.55rem;
+				font-family: ui-monospace, monospace;
+				font-size: 0.75rem;
+				color: var(--ink);
+			}
+
+			a {
+				color: var(--accent);
+			}
+		</style>
+	</head>
+	<body>
+		<main class="stage">
+			<canvas
+				id="hex-field"
+				role="img"
+				aria-label="Interactive 2.5D hexagonal lattice. Move the pointer to tilt; scroll to pitch. Decorative — content is in the panel."
+			></canvas>
+			<aside class="readout">
+				<h1>Canvas 2.5D hex field</h1>
+				<p>
+					Pitch / yaw projection + painter’s algorithm. No Three.js. Palette from
+					<code>archive-home.svg</code>.
+				</p>
+				<p>
+					Pointer warps cells · wheel adds pitch inertia ·
+					<code>prefers-reduced-motion</code> freezes breath.
+				</p>
+				<p class="stats" id="stats">boot…</p>
+				<p>
+					<a href="{{ '/lessons/en/feii/canvas-25d-hex-field/' | relative_url }}">Lesson</a>
+					·
+					<a href="{{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}">Unit 8 R3F</a>
+					·
+					<a href="{{ '/tracks/en/feii/' | relative_url }}">FE II track</a>
+				</p>
+			</aside>
+		</main>
+		<script type="module">
+			import { createHexField } from './hex-field.js';
+
+			const canvas = document.getElementById('hex-field');
+			const stats = document.getElementById('stats');
+
+			createHexField(canvas, {
+				lattice: { radius: 8, hexSize: 26, zAmp: 22 },
+				hexRadius: 20,
+				dprCap: 1.5,
+				onSample({ cells, fps, pitch, yaw, reduced, engine }) {
+					stats.textContent = `${engine} · cells ${cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
+						reduced ? ' · reduced-motion' : ''
+					}`;
+				},
+			});
+		</script>
+	</body>
+</html>

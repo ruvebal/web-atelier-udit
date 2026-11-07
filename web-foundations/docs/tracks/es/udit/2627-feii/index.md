@@ -126,6 +126,7 @@ No numerados. Profundizan la escena de portada de Entrega 2; no añaden una deci
 | --- | --- | --- |
 | S1 | [Cover Shaders — un efecto de manga autorado]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) | `shaderMaterial` de manga que muestrea una imagen (`sampler2D` + `vUv`); un uniform desde React; un efecto explicado |
 | S2 | [KTX2/Basis — elección de textura desde primeros principios]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}) | Píxel / texel / memoria GPU; PNG vs ETC1S / UASTC KTX2; dejar la elección escrita con dos números etiquetados |
+| S3 | [Canvas 2.5D Hex Field — proyección sin Three]({{ '/lessons/en/feii/canvas-25d-hex-field/' | relative_url }}) | Proyección pitch/yaw + algoritmo del pintor; retícula con paleta del archivo sin el impuesto Three.js ([demo]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }})) |
 {: .track-session-table }
 
 ---
