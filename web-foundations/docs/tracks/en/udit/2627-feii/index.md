@@ -126,7 +126,7 @@ Unnumbered. They deepen the album-cover Entrega 2 scene; they do not add a thirt
 | --- | --- | --- |
 | S1 | [Cover Shaders — One Authored Sleeve Effect]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) | Sleeve `shaderMaterial` that samples a picture (`sampler2D` + `vUv`); one uniform from React; one explained effect |
 | S2 | [KTX2/Basis — Texture Choice from First Principles]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}) | Pixel / texel / GPU memory; PNG vs ETC1S / UASTC KTX2; write the choice with two labelled numbers |
-| S3 | [Canvas 2.5D Hex Field — Projection Without Three]({{ '/lessons/en/feii/canvas-25d-hex-field/' | relative_url }}) | Pitch/yaw projection + painter’s algorithm; archive-palette lattice without the Three.js tax ([live demo]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }})) |
+| S3 | [Canvas 2.5D Hex Field — Projection Without Three]({{ '/lessons/en/feii/canvas-25d-hex-field/' | relative_url }}) | Hexaform → living covers + landing heroes; pitch/yaw + painter’s algorithm without Three ([gallery]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }})) |
 {: .track-satellite-table}
 
 ---

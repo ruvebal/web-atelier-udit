@@ -1312,7 +1312,7 @@
   status:
    en: complete
   category: feii
-  tags: [feii, canvas, projection, hex-grid, 2.5d, satellite, performance]
+  tags: [feii, canvas, projection, hex-grid, 2.5d, satellite, performance, hexaform, hero]
 - slug: feii-3d-terminology
   title:
    en: '3D Terminology — Say It Out Loud'
