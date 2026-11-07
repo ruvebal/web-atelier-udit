@@ -58,16 +58,16 @@ Worth it for an instructor: you stop treating WebGL as the only “real” 3D, a
 Rotate around Y (yaw), then X (pitch), then divide by depth. No matrix library required for a floor lattice.
 
 ```js
-function project(x, y, z, cx, cy, cosY, sinY, cosX, sinX, fov) {
-  const dx = x - cx;
-  const dy = y - cy;
-  const x1 = dx * cosY - z * sinY;
-  const z1 = z * cosY + dx * sinY;
-  const y2 = dy * cosX - z1 * sinX;
-  const z2 = z1 * cosX + dy * sinX;
-  const scale = fov / (fov + z2);
-  return { x: x1 * scale + cx, y: y2 * scale + cy, scale, depth: z2 };
+// World-space rotate, then offset onto the screen center (do not subtract cx/cy from world x/y).
+function project(x, y, z, cosY, sinY, cosX, sinX, fov) {
+  const x1 = x * cosY - z * sinY;
+  const z1 = z * cosY + x * sinY;
+  const y2 = y * cosX - z1 * sinX;
+  const z2 = z1 * cosX + y * sinX;
+  const scale = fov / Math.max(fov * 0.15, fov + z2);
+  return { x: x1 * scale, y: y2 * scale, scale, depth: z2 };
 }
+// screenX = projected.x + cx; screenY = projected.y + cy;
 ```
 
 ### 2. Painter’s algorithm — **Excerpt**
