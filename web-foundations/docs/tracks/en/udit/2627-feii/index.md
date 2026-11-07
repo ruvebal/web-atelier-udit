@@ -70,7 +70,7 @@ Front-End II raises the stakes, because everything this course adds is expensive
 - **Unit 4** — PWA/offline capabilities (service workers, caching strategies)
 - **Units 5–6** — Testing strategy and AI-assisted code review (Testing Trophy, CI/CD, human-in-the-loop workflows)
 - **Unit 7** — Performance engineering (Core Web Vitals, performance budgets, bundle optimization)
-- **Units 8–9** — 3D/cutting-edge interface aesthetics (React Three Fiber, shader literacy, post-processing)
+- **Units 8–9** — 3D/cutting-edge interface aesthetics (React Three Fiber, shader literacy), plus two unnumbered Bloque 5 satellites inside the same lab window: Cover Shaders and KTX2/Basis
 - **Unit 10** — IoT/robotics control-panel with Python-backed interface (WebSocket, device APIs)
 - **Units 11–12** — Capstone integration and oral defence (process evidence, AI declaration, verify/narrate axes)
 
@@ -117,6 +117,16 @@ Sequence source: `web-foundations/docs/_data/tracks.yml`, key `feii`.
 {: .track-session-table}
 
 **Total Lab Hours:** 30h (matching official `ACTIVIDADES FORMATIVAS` allocation)
+
+### Bloque 5 satellites (inside the U8–U9 lab window — no extra hours)
+
+Unnumbered. They deepen the album-cover Entrega 2 scene; they do not add a thirteenth session or lab hours. The graded hand-in remains the [Units 8–9 assignment]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). Oral review also uses the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) and, optionally, [3D Terminology]({{ '/lessons/en/feii/3d-terminology/' | relative_url }}).
+
+| # | Satellite | Role |
+| --- | --- | --- |
+| S1 | [Cover Shaders — One Authored Sleeve Effect]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) | Sleeve `shaderMaterial` that samples a picture (`sampler2D` + `vUv`); one uniform from React; one explained effect |
+| S2 | [KTX2/Basis — Texture Choice from First Principles]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}) | Pixel / texel / GPU memory; PNG vs ETC1S / UASTC KTX2; write the choice with two labelled numbers |
+{: .track-session-table}
 
 ---
 
@@ -210,7 +220,7 @@ AI assistance is integrated following the **[AI Practical Guide]({{ '/methodolog
 ## 📝 Notes
 
 - **Meta-framework Decision** — Astro selected as the meta-framework for units 2–3 based on content-first philosophy and islands architecture. This decision was made at the start of Phase 2.
-- **3D as Interface-Layer Transfer** — Units 8–9 explicitly teach 3D as an interface-layer transfer exercise — the same component/state model as React, applied to spatial interfaces. This is not a graphics course but an application of React patterns to WebGL.
+- **3D as Interface-Layer Transfer** — Units 8–9 explicitly teach 3D as an interface-layer transfer exercise — the same component/state model as React, applied to spatial interfaces. This is not a graphics course but an application of React patterns to WebGL. Cover Shaders and KTX2/Basis are satellites inside that window (texture-sampling sleeve + GPU texture choice), not extra graded units.
 - **IoT/Robotics Load-Bearing** — Unit 10 is load-bearing — it is the direct payoff of teaching both Full-Stack and Data-Science students. Entrega 2 uses the published, versioned lab contract first; any later Back-End II integration must remain contract-compatible or arrive as a documented versioned change.
 - **Zero FE I Overlap** — No React fundamentals, hooks, routing, or basic deployment content is repeated from FE I. All content is either new (Astro, PWA, testing, performance, 3D, IoT) or advanced extensions of FE I patterns.
 - **Evidence Boundary** — The interface-transfer teaching sequence in Units 8–10 is a declared pilot. The course supplies a runnable lab contract; it does not claim that the still-unverified pedagogy has already been empirically validated for this cohort.

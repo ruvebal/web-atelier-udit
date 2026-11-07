@@ -496,6 +496,22 @@ tracks:
      ejerciciosHours: 1
      evaluationHours: 2
      tags: [capstone, oral-defence, final-evaluation, presentation, evaluation-criteria]
+  # Unnumbered Bloque 5 satellites — inside the U8–U9 lab window; do not count toward sessions: 12.
+  satellites:
+   - title: 'Cover Shaders — One Authored Sleeve Effect'
+     slug: 'cover-shaders'
+     after: 'unit-9-shader-literacy'
+     description: 'Sleeve shader that samples a picture (sampler2D + vUv), one uniform from React, one explained effect.'
+     path:
+      en: /lessons/en/feii/cover-shaders/
+     tags: [shaders, glsl, r3f, album-cover, satellite]
+   - title: 'KTX2/Basis — Texture Choice from First Principles'
+     slug: 'ktx2-basis'
+     after: 'unit-9-shader-literacy'
+     description: 'Pixel/texel/GPU memory; PNG vs ETC1S/UASTC KTX2; write the texture choice with two labelled numbers.'
+     path:
+      en: /lessons/en/feii/ktx2-basis/
+     tags: [ktx2, basis-universal, textures, album-cover, satellite]
   objectives:
    - 'Dominar arquitecturas de producción: meta-frameworks (Astro), SSR/SSG, y micro-frontends.'
    - 'Construir aplicaciones PWA con capacidades offline y estrategia de caching avanzada.'

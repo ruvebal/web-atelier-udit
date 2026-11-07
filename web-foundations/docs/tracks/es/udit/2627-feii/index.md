@@ -70,7 +70,7 @@ Nuestra pedagogía descansa en cuatro pilares:
 - **Unidad 4** — PWA y capacidades offline (service workers, estrategias de caché)
 - **Unidades 5–6** — Estrategia de testing y revisión de código asistida por IA (Testing Trophy, CI/CD, human-in-the-loop)
 - **Unidad 7** — Ingeniería de rendimiento (Core Web Vitals, presupuestos, optimización de bundles)
-- **Unidades 8–9** — Estética 3D y shader literacy (React Three Fiber, GLSL, post-processing)
+- **Unidades 8–9** — Estética 3D y shader literacy (React Three Fiber, GLSL), más dos satélites no numerados de Bloque 5 dentro de la misma ventana de laboratorio: Cover Shaders y KTX2/Basis
 - **Unidad 10** — Panel de control IoT/robotics con interfaz respaldada por Python (WebSocket, APIs de dispositivo)
 - **Unidades 11–12** — Integración capstone y defensa oral (evidencia de proceso, declaración IA, ejes verify/narrate)
 
@@ -117,6 +117,16 @@ Sequence source: `web-foundations/docs/_data/tracks.yml`, key `feii`.
 {: .track-session-table }
 
 **Total horas de laboratorio:** 30 h (coincide con la asignación oficial de `ACTIVIDADES FORMATIVAS`)
+
+### Satélites de Bloque 5 (dentro de la ventana U8–U9 — sin horas extra)
+
+No numerados. Profundizan la escena de portada de Entrega 2; no añaden una decimotercera sesión ni horas de laboratorio. La entrega calificada sigue siendo la [tarea de las unidades 8–9]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}). La revisión oral usa también el [covenant 3D asistido por IA]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) y, opcionalmente, [terminología 3D]({{ '/lessons/en/feii/3d-terminology/' | relative_url }}).
+
+| # | Satélite | Rol |
+| --- | --- | --- |
+| S1 | [Cover Shaders — un efecto de manga autorado]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) | `shaderMaterial` de manga que muestrea una imagen (`sampler2D` + `vUv`); un uniform desde React; un efecto explicado |
+| S2 | [KTX2/Basis — elección de textura desde primeros principios]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}) | Píxel / texel / memoria GPU; PNG vs ETC1S / UASTC KTX2; dejar la elección escrita con dos números etiquetados |
+{: .track-session-table }
 
 ---
 
@@ -210,7 +220,7 @@ La asistencia IA sigue la **[Guía práctica de IA]({{ '/methodology/es/ai-pract
 ## 📝 Notas
 
 - **Decisión meta-framework** — Astro seleccionado para unidades 2–3 por filosofía content-first e islands architecture. Decisión tomada al inicio de la Fase 2.
-- **3D como transfer capa-interfaz** — Las unidades 8–9 enseñan 3D como ejercicio de transferencia del modelo component/state a interfaces espaciales. No es un curso de gráficos sino aplicación de patrones React a WebGL.
+- **3D como transfer capa-interfaz** — Las unidades 8–9 enseñan 3D como ejercicio de transferencia del modelo component/state a interfaces espaciales. No es un curso de gráficos sino aplicación de patrones React a WebGL. Cover Shaders y KTX2/Basis son satélites dentro de esa ventana (manga con muestreo de textura + elección de textura en GPU), no unidades calificadas extra.
 - **IoT/robotics load-bearing** — La unidad 10 es estructural: payoff directo para estudiantes Full-Stack y Data Science. La Entrega 2 usa primero el contrato de laboratorio publicado; cualquier integración posterior con Back-End II debe ser compatible o documentada como cambio versionado.
 - **Cero solapamiento FE I** — No se repiten fundamentos React, hooks, routing ni despliegue básico de FE I.
 - **Límite de evidencia** — La secuencia docente de transfer de interfaz en unidades 8–10 es un piloto declarado. El curso aporta un contrato de laboratorio ejecutable; no afirma validación empírica previa para esta cohorte.
