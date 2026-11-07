@@ -12,6 +12,28 @@ description: 'Structured 3D-web corpus. FE II students: Phase 7 graded path is t
 
 A structured corpus for the frontend specialist who treats the browser as a rendering engine, not a document viewer. From GPU fundamentals to Awwwards-grade craft, with AI copilots as first-class collaborators.
 
+The lessons browser lists this page under **3D**, together with the Front-End II units that share that window.
+
+---
+
+## FE II — graded 3D index
+
+Units 8 and 9 are one graded scene inside the existing lab window. Satellites deepen that scene. They do not add a session or lab hours. The hand-in is the album-cover assignment. Oral review uses the covenant.
+
+| # | Lesson | Role |
+| --- | --- | --- |
+| U8 | [React Three Fiber — 3D Interfaces with React Patterns]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}) | Declarative 3D, state in the scene, raycasting, `renderer.info` |
+| U9 | [Shader Literacy & Cutting-Edge Interface Aesthetics]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}) | One understood GLSL shader, uniforms, UV space, written texture choice |
+| — | [Units 8–9 Assignment — 3D Album Cover]({{ '/lessons/en/feii/units-8-9-assignment/' | relative_url }}) | Graded hand-in for the sleeve scene |
+| — | [AI-Assisted 3D Covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) | Bar for oral review: what the model may draft, what you must defend |
+| — | [3D Terminology — Say It Out Loud]({{ '/lessons/en/feii/3d-terminology/' | relative_url }}) | Optional glossary for the defence |
+| S1 | [Cover Shaders — One Authored Sleeve Effect]({{ '/lessons/en/feii/cover-shaders/' | relative_url }}) | `shaderMaterial` that samples a picture; one uniform from React; one explained effect |
+| S2 | [KTX2/Basis — Texture Choice from First Principles]({{ '/lessons/en/feii/ktx2-basis/' | relative_url }}) | Pixel, texel, GPU memory; PNG vs ETC1S / UASTC, written with two labelled numbers |
+| S3 | [Canvas 2.5D Hex Field — Projection Without Three]({{ '/lessons/en/feii/canvas-25d-hex-field/' | relative_url }}) | Pitch/yaw plus painter’s algorithm, without the Three.js tax ([live demo]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }})) |
+{: .track-satellite-table }
+
+Course framing stays on the [Front-End II lesson sequence]({{ '/lessons/en/feii/' | relative_url }}). The phases below are the optional corpus, not extra assessed hours.
+
 ---
 
 ## Who this is for
@@ -37,68 +59,75 @@ A senior frontend developer (or an ambitious intermediate) who wants to:
 
 ### Phase 0 — Orientation
 
-| # | Lesson | What you learn | Directory |
-|---|--------|----------------|-----------|
-| 0.1 | **State of the Art** | 2026 Web-3D landscape: WebGPU, glTF, KTX2, 3DGS, framework choices | [state-of-the-art/](state-of-the-art/) |
+| # | Lesson | What you learn |
+| --- | --- | --- |
+| 0.1 | [State of the Art]({{ '/lessons/en/3d/state-of-the-art/' | relative_url }}) | 2026 Web-3D landscape: WebGPU, glTF, KTX2, 3DGS, framework choices |
+{: .track-satellite-table }
 
 ### Phase 1 — Foundations (the GPU contract)
 
 > *"You don't program a GPU. You negotiate with it."*
 
-| # | Lesson | What you learn | Directory |
-|---|--------|----------------|-----------|
-| 1.1 | **GPU Pipeline & Render Loop** | WebGL → WebGPU mental model, draw calls, state machines, the frame budget | [foundations/](foundations/) |
-| 1.2 | **Three.js Core** | Scene graph, cameras, renderers, the object lifecycle, coordinate systems | [threejs-core/](threejs-core/) |
-| 1.3 | **React Three Fiber** | Declarative 3D in React, reconciler internals, Drei, Suspense for assets | [react-three-fiber/](react-three-fiber/) |
+| # | Lesson | What you learn |
+| --- | --- | --- |
+| 1.1 | [GPU Pipeline & Render Loop]({{ '/lessons/en/3d/foundations/' | relative_url }}) | WebGL → WebGPU mental model, draw calls, state machines, the frame budget |
+| 1.2 | [Three.js Core]({{ '/lessons/en/3d/threejs-core/' | relative_url }}) | Scene graph, cameras, renderers, the object lifecycle, coordinate systems |
+| 1.3 | [React Three Fiber]({{ '/lessons/en/3d/react-three-fiber/' | relative_url }}) | Declarative 3D in React, reconciler internals, Drei, Suspense for assets |
+{: .track-satellite-table }
 
 ### Phase 2 — The Visual Stack
 
 > *"A shader is a tiny poem the GPU reads sixty times a second."*
 
-| # | Lesson | What you learn | Directory |
-|---|--------|----------------|-----------|
-| 2.1 | **Materials & Shaders** | PBR theory, MeshStandardMaterial internals, ShaderMaterial, GLSL, TSL for WebGPU | [materials-shaders/](materials-shaders/) |
-| 2.2 | **Geometry & Mesh** | BufferGeometry, indexed vs non-indexed, instancing, merge, LOD, procedural geometry | [geometry-mesh/](geometry-mesh/) |
-| 2.3 | **Textures** | Texture types, UV mapping, atlas strategies, procedural generation, video textures | [textures/](textures/) |
-| 2.3.1 | **↳ KTX2 Deep Dive** | GPU-compressed textures: ETC1S vs UASTC, Basis Universal, build-time pipelines | [textures/ktx2/](textures/ktx2/) |
-| 2.3.2 | **↳ p5.js as Live Texture** | p5 sketches as `THREE.Texture`, SSR-safe dynamic import, forced perspective, depth-layer composition | [p5-textures/](p5-textures/) |
-| 2.4 | **Lighting & Shadows** | Light types, shadow maps, cascaded shadows, environment lighting, PMREM, baked lightmaps | [lighting-shadows/](lighting-shadows/) |
+| # | Lesson | What you learn |
+| --- | --- | --- |
+| 2.1 | [Materials & Shaders]({{ '/lessons/en/3d/materials-shaders/' | relative_url }}) | PBR theory, MeshStandardMaterial internals, ShaderMaterial, GLSL, TSL for WebGPU |
+| 2.2 | [Geometry & Mesh]({{ '/lessons/en/3d/geometry-mesh/' | relative_url }}) | BufferGeometry, indexed vs non-indexed, instancing, merge, LOD, procedural geometry |
+| 2.3 | Textures | Texture types, UV mapping, atlas strategies, procedural generation, video textures. The published deep dive is the KTX2 row below |
+| 2.3.1 | [KTX2 Deep Dive]({{ '/lessons/en/3d/textures/ktx2/' | relative_url }}) | GPU-compressed textures: ETC1S vs UASTC, Basis Universal, build-time pipelines |
+| 2.3.2 | [p5.js as Live Texture]({{ '/lessons/en/3d/p5-textures/' | relative_url }}) | p5 sketches as `THREE.Texture`, SSR-safe dynamic import, forced perspective, depth-layer composition |
+| 2.4 | [Lighting & Shadows]({{ '/lessons/en/3d/lighting-shadows/' | relative_url }}) | Light types, shadow maps, cascaded shadows, environment lighting, PMREM, baked lightmaps |
+{: .track-satellite-table }
 
 ### Phase 3 — Motion & Time
 
 > *"Animation is not movement. Animation is the illusion of intention."*
 
-| # | Lesson | What you learn | Directory |
-|---|--------|----------------|-----------|
-| 3.1 | **Animation** | Skeletal (mixamo → web), morph targets, procedural animation, spring physics, useFrame patterns | [animation/](animation/) |
-| 3.2 | **Post-Processing** | EffectComposer, bloom, DOF, color grading, custom passes, performance cost of each | [post-processing/](post-processing/) |
-| 3.3 | **Scroll-Driven 3D** | GSAP + R3F, Lenis smooth scroll, scroll-linked cameras, cinematic transitions, parallax depth | [scroll-driven-3d/](scroll-driven-3d/) |
+| # | Lesson | What you learn |
+| --- | --- | --- |
+| 3.1 | [Animation]({{ '/lessons/en/3d/animation/' | relative_url }}) | Skeletal (mixamo → web), morph targets, procedural animation, spring physics, useFrame patterns |
+| 3.2 | [Post-Processing]({{ '/lessons/en/3d/post-processing/' | relative_url }}) | EffectComposer, bloom, DOF, color grading, custom passes, performance cost of each |
+| 3.3 | [Scroll-Driven 3D]({{ '/lessons/en/3d/scroll-driven-3d/' | relative_url }}) | GSAP + R3F, Lenis smooth scroll, scroll-linked cameras, cinematic transitions, parallax depth |
+{: .track-satellite-table }
 
 ### Phase 4 — Advanced Media
 
 > *"A splat is a photograph that remembers depth."*
 
-| # | Lesson | What you learn | Directory |
-|---|--------|----------------|-----------|
-| 4.1 | **3D Gaussian Splatting** | Capture → web pipeline, PLY/splat formats, viewers, blending splats with meshes, compression | [gaussian-splatting/](gaussian-splatting/) |
-| 4.2 | **Asset Pipeline** | glTF ecosystem, gltf-transform, Draco vs meshopt, KTX2 integration, CI automation, CDN strategies | [asset-pipeline/](asset-pipeline/) |
+| # | Lesson | What you learn |
+| --- | --- | --- |
+| 4.1 | [3D Gaussian Splatting]({{ '/lessons/en/3d/gaussian-splatting/' | relative_url }}) | Capture → web pipeline, PLY/splat formats, viewers, blending splats with meshes, compression |
+| 4.2 | [Asset Pipeline]({{ '/lessons/en/3d/asset-pipeline/' | relative_url }}) | glTF ecosystem, gltf-transform, Draco vs meshopt, KTX2 integration, CI automation, CDN strategies |
+{: .track-satellite-table }
 
 ### Phase 5 — Production
 
 > *"Performance is not optimization. Performance is respect for the user's device."*
 
-| # | Lesson | What you learn | Directory |
-|---|--------|----------------|-----------|
-| 5.1 | **Performance** | GPU profiling (Spector.js, Chrome GPU), VRAM budgets, draw call reduction, culling, LOD, demand frameloop | [performance/](performance/) |
-| 5.2 | **Accessibility in 3D** | Reduced motion, semantic alternatives, keyboard navigation, screen reader strategies, WCAG in 3D contexts | [accessibility-3d/](accessibility-3d/) |
+| # | Lesson | What you learn |
+| --- | --- | --- |
+| 5.1 | [Performance]({{ '/lessons/en/3d/performance/' | relative_url }}) | GPU profiling (Spector.js, Chrome GPU), VRAM budgets, draw call reduction, culling, LOD, demand frameloop |
+| 5.2 | [Accessibility in 3D]({{ '/lessons/en/3d/accessibility-3d/' | relative_url }}) | Reduced motion, semantic alternatives, keyboard navigation, screen reader strategies, WCAG in 3D contexts |
+{: .track-satellite-table }
 
 ### Phase 6 — Craft & Career
 
 > *"The Awwwards site you admire took 6 months. The craft took 6 years."*
 
-| # | Lesson | What you learn | Directory |
-|---|--------|----------------|-----------|
-| 6.1 | **Portfolio Craft** | From collage to Awwwards: case study anatomy, visual grammar, interaction choreography, studio-level polish | [portfolio-craft/](portfolio-craft/) |
+| # | Lesson | What you learn |
+| --- | --- | --- |
+| 6.1 | [Portfolio Craft]({{ '/lessons/en/3d/portfolio-craft/' | relative_url }}) | From collage to Awwwards: case study anatomy, visual grammar, interaction choreography, studio-level polish |
+{: .track-satellite-table }
 
 ### Phase 7 — AI-Assisted 3D Development
 
@@ -106,13 +135,14 @@ A senior frontend developer (or an ambitious intermediate) who wants to:
 
 **FE II students:** do not treat this corpus Phase 7 as homework. Graded path is the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}), [Unit 8]({{ '/lessons/en/feii/unit-8-r3f-fundamentals/' | relative_url }}), and [Unit 9]({{ '/lessons/en/feii/unit-9-shader-literacy/' | relative_url }}). No MCP shopping.
 
-| # | Lesson | Audience | Notes |
-|---|--------|----------|--------|
-| 7.0 | Philosophy, merge rubric, perf prompts | **Student** (distilled in the covenant) | Full instructor text stays in the private studio module |
-| 7.1 | Cursor rules for R3F / shaders / perf budgets | **Student** (copy numeric caps into the project) | Desktop ≤ 200 / mobile ≤ 80 draw calls |
-| 7.2–7.3 | Claude / Windsurf workflow mirrors | Optional, same Unit 6 AI rules | Not a second toolchain to install |
-| 7.4 | Corpus-to-boilerplate master prompt | **Instructor / prospector only** | Not assessed; not a public URL |
-| 7.5 | MCP preflight (Stitch, 21st.dev, …) | **Instructor demo once per term** | Browser MCP as verification, not a grade |
+| # | Lesson | Role |
+| --- | --- | --- |
+| 7.0 | Philosophy, merge rubric, perf prompts | Student path, distilled in the covenant. Full instructor text stays in the private studio module |
+| 7.1 | Cursor rules for R3F / shaders / perf budgets | Student path: copy the numeric caps. Desktop ≤ 200 draw calls, mobile ≤ 80 |
+| 7.2–7.3 | Claude / Windsurf workflow mirrors | Optional. Same Unit 6 AI rules. Not a second toolchain to install |
+| 7.4 | Corpus-to-boilerplate master prompt | Instructor / prospector only. Not assessed, and not a public URL |
+| 7.5 | MCP preflight (Stitch, 21st.dev, …) | Instructor demo once per term. Browser MCP is verification, not a grade |
+{: .track-satellite-table }
 
 ---
 
@@ -160,12 +190,14 @@ Each lesson follows a consistent structure:
 | Deploy | Cloudflare Workers / Vercel / Fly.io | Edge delivery for assets + SSR |
 | AI | Cursor + Claude + Windsurf | Rules-driven, context-aware AI coding |
 | AI MCPs | Stitch, 21st.dev Magic, Nano Banana 2, course knowledge gateway | UI generation, component library, visual refs, knowledge RAG |
+| AI Skills | UI UX Pro Max | Design intelligence: palettes, font pairings, UX reasoning |
+{: .track-satellite-table }
+
 {% if site.publication.publish_internal_metadata %}
 <!-- curriculum-internal:
-The course knowledge gateway in the row above is implemented by DevIAC Gateway.
+The course knowledge gateway in the AI MCPs row is implemented by DevIAC Gateway.
 -->
 {% endif %}
-| AI Skills | UI UX Pro Max | Design intelligence: palettes, font pairings, UX reasoning |
 
 ---
 

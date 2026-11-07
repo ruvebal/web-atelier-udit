@@ -158,6 +158,7 @@ Behind those institutional weights sits the Atelier rubric — **Technical 40 % 
 - **[Front-End I track]({{ '/tracks/en/fei/' | relative_url }})** — the prerequisite year
 - **[React Teaching Sequence]({{ '/lessons/en/react/' | relative_url }})** — FE I semester 2, the foundation this builds on
 - **[Astro Teaching Sequence]({{ '/lessons/en/astro/' | relative_url }})** — FE II units 2–3, islands architecture, Astro Docs MCP
+- **[3D Web corpus]({{ '/lessons/en/3d/' | relative_url }})** — graded Units 8–9 index, then the optional corpus
 - **[AI Practical Guide]({{ '/methodology/en/ai-practical-guide/' | relative_url }})** — when to plan, how to disclose, what you must defend
 - **[Architecture Foundations]({{ '/lessons/en/ai-assisted-development/foundations/' | relative_url }})** — RPC, RAG, MVC as discipline
 - **[All lessons]({{ '/lessons/en/' | relative_url }})** — the full canonical library

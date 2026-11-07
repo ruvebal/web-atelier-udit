@@ -102,6 +102,12 @@ permalink: /lessons/en/
 			class="px-4 py-2 rounded-full text-sm font-medium border border-slate-200 dark:border-neutral-700 hover:bg-cyan-500 hover:text-white transition-all">
 			<span aria-hidden="true">⚛️</span> React
 		</button>
+		<button
+			@click="setCategory('3d')"
+			:class="{ 'bg-indigo-600 text-white': category === '3d', 'bg-white/80 dark:bg-neutral-800/80 text-slate-700 dark:text-neutral-300': category !== '3d' }"
+			class="px-4 py-2 rounded-full text-sm font-medium border border-slate-200 dark:border-neutral-700 hover:bg-indigo-500 hover:text-white transition-all">
+			<span aria-hidden="true">🧊</span> 3D
+		</button>
 	</div>
 
 	<!-- Results count -->
@@ -133,7 +139,7 @@ permalink: /lessons/en/
 			<span
 				class="absolute top-2 right-2 text-xs px-2 py-0.5 rounded-full bg-slate-100 dark:bg-neutral-800 text-slate-600 dark:text-neutral-400">
 				{% case item.category %} {% when 'js' %} ⚡ {% when 'tailwind' %} 💨 {% when 'bootstrap' %} 🅱️ {% when 'animations' %} ✨ {% when
-				'media' %} 🎬 {% when 'ux' %} 🧠 {% else %} 📚 {% endcase %}
+				'media' %} 🎬 {% when 'ux' %} 🧠 {% when '3d' %} 🧊 {% else %} 📚 {% endcase %}
 			</span>
 			{% endif %}
 
@@ -216,6 +222,7 @@ permalink: /lessons/en/
 						media: ['media', 'video', 'images', 'tao-of-moving-images', 'tao-of-web-images'],
 						ai: ['ai-assisted-development', 'ai-ad-foundations'],
 						react: ['react', 'modern-fe-intro', 'state-and-ui', 'ai-assisted-development-foundations', 'react-fundamentals', 'react-hooks', 'react-state-architecture', 'react-routing', 'react-backend-integration', 'react-authentication', 'react-testing', 'react-performance', 'react-deployment', 'geophysical-aggregator-project', 'final-presentation'],
+						'3d': ['3d', 'r3f', 'shader', 'ktx2', 'hex-field', 'units-8-9'],
 					};
 
 					const normalizedCategory = (itemCategory || '').toLowerCase().trim();
