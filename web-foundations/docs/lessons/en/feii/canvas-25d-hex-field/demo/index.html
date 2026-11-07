@@ -139,8 +139,7 @@ layout: null
 			<aside class="readout">
 				<h1>Canvas 2.5D hex field</h1>
 				<p>
-					Sparse Hexaform profiles in a deep Z stack — hollow strokes, chaotic float.
-					Viewport fill is camera/overscan, not a packed carpet.
+					Near + far Z bands, variable stroke alpha, light cell budget for laptops.
 				</p>
 				<div class="fader">
 					<label for="seed">Seed</label>
@@ -183,12 +182,13 @@ layout: null
 			const field = createHexField(canvas, {
 				mode: 'archive',
 				seed: Number(seedInput.value),
-				zDepth: 320,
-				floatAmp: 40,
-				dprCap: 1.5,
+				zDepth: 380,
+				floatAmp: 28,
+				dprCap: 1.15,
+				maxCells: 140,
 				seedMax,
-				onSample({ cells, fps, pitch, yaw, seed, complexity, mode, reduced, engine }) {
-					stats.textContent = `${engine} · ${mode} · seed ${seed} · cx ${complexity} · cells ${cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
+				onSample({ cells, visible, fps, pitch, yaw, seed, complexity, mode, reduced, engine }) {
+					stats.textContent = `${engine} · ${mode} · seed ${seed} · cx ${complexity} · cells ${cells}/${visible ?? cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
 						reduced ? ' · reduced-motion' : ''
 					}`;
 				},

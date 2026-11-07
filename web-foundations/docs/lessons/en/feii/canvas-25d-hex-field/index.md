@@ -35,7 +35,7 @@ tags: [feii, canvas, projection, hex-grid, 2.5d, satellite, performance]
 
 **Code in this lesson:** the demo is **CodeSandbox-ready** as static files under `demo/`. Excerpts below show the two load-bearing ideas.
 
-**Live demo:** [Canvas 2.5D hex field]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }}) — sparse Hexaform `archive` lattice in a deep Z range; hollow irregular strokes; chaotic float; seed fader drives complexity (survival + spiral count); viewport fill via camera/overscan; pointer tilt; wheel inertia; `prefers-reduced-motion`.
+**Live demo:** [Canvas 2.5D hex field]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }}) — sparse near+far Z bands, variable stroke alpha, hard cell budget (~140) for laptop FPS; seed fader; pointer tilt; wheel inertia; `prefers-reduced-motion`.
 
 The irregular field is not a regular axial honeycomb. It is the **Hexaform** rule system from `web-foundations/scripts/lesson-covers/` (see `ALGORITHMIC-PHILOSOPHY.md` in the repo): mode profile → activation → variable cell size / stroke → optional spiral accent. SVG covers bake a filled stamp once; this demo keeps hollow, living profiles under 2.5D projection.
 
