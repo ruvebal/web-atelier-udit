@@ -1,50 +1,70 @@
 /**
- * Canvas 2.5D hex field — pitch/yaw projection + painter's algorithm.
+ * Canvas 2.5D hex field — Hexaform lattice + pitch/yaw projection.
  *
- * Lattice lives in *world* units around the origin. Projection rotates that
- * world, perspective-divides, then offsets onto the screen center. Do not
- * subtract screen cx/cy from world x/y — that flings the field off-canvas.
+ * Lattice = the irregular, mode-profiled grid from lesson-covers
+ * (frequency / drift / pulse → activation, variable cell size, spiral accent).
+ * Projection = world rotate → perspective → screen offset + painter sort.
+ *
+ * Viewport policy: rebuild the lattice on resize so cells cover the canvas
+ * (with overscan for tilt), not a fixed axial “postage stamp” in the middle.
  */
 
-/** Atelier archive palette (archive-home.svg). */
 export const PALETTE = [
   { fill: '#F3C969', stroke: '#F3C969' },
   { fill: '#FF7A59', stroke: '#FF7A59' },
   { fill: '#54D6BE', stroke: '#54D6BE' },
 ];
 
-/** Axial hex layout → flat Cartesian (pointy-top), world units. */
-export function axialToWorld(q, r, size) {
-  // Prefer sqrt(3): Math.SQRT3 is absent in some runtimes (e.g. Node 24).
-  const x = size * Math.sqrt(3) * (q + r * 0.5);
-  const y = size * 1.5 * r;
-  return { x, y };
+/** Hexaform mode profiles — [frequency, drift, pulse]. Same keys as generate-lesson-covers.mjs. */
+export const MODE_PROFILES = {
+  lattice: [1.4, 0.25, 0.12],
+  constellation: [1.62, 0.62, 0.36],
+  archive: [0.72, 0.55, 0.34],
+  contract: [1.18, 0.32, 0.22],
+  spectrum: [0.88, 0.7, 0.48],
+  field: [1.55, 0.42, 0.38],
+  shader: [1.92, 0.94, 0.68],
+  scene: [1.35, 0.52, 0.73],
+  space: [0.78, 0.35, 0.6],
+};
+
+/** Stride 8: x, y, z, radius, energy, breath, colorIdx, activation */
+export const STRIDE = 8;
+
+function hash32(value) {
+  let h = 2166136261 >>> 0;
+  const s = String(value);
+  for (let i = 0; i < s.length; i += 1) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
 }
 
-/**
- * Floor-perspective projection in world space (Neo.mjs Neural Fabric shape).
- * Returns world-projected x/y (still centered on origin) + scale + depth.
- * Screen offset is applied by the caller.
- */
-export function project(x, y, z, cosY, sinY, cosX, sinX, fov) {
-  // 1. Yaw around Y
-  const x1 = x * cosY - z * sinY;
-  const z1 = z * cosY + x * sinY;
-  // 2. Pitch around X
-  const y2 = y * cosX - z1 * sinX;
-  const z2 = z1 * cosX + y * sinX;
-  // 3. Perspective divide — keep scale finite if a point slips behind the camera
-  const denom = Math.max(fov * 0.15, fov + z2);
-  const scale = fov / denom;
-  return {
-    x: x1 * scale,
-    y: y2 * scale,
-    scale,
-    depth: z2,
+function mulberry32(seed) {
+  let t = seed >>> 0;
+  return () => {
+    t += 0x6d2b79f5;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
   };
 }
 
-/** Six corners of a pointy-top hex in world space, then project each. */
+/**
+ * Floor-perspective projection in world space.
+ * Caller adds screen centre. Do not subtract canvas cx/cy from world x/y.
+ */
+export function project(x, y, z, cosY, sinY, cosX, sinX, fov) {
+  const x1 = x * cosY - z * sinY;
+  const z1 = z * cosY + x * sinY;
+  const y2 = y * cosX - z1 * sinX;
+  const z2 = z1 * cosX + y * sinX;
+  const denom = Math.max(fov * 0.15, fov + z2);
+  const scale = fov / denom;
+  return { x: x1 * scale, y: y2 * scale, scale, depth: z2 };
+}
+
 export function hexCorners(wx, wy, wz, radius, projectFn) {
   const pts = [];
   for (let i = 0; i < 6; i += 1) {
@@ -54,23 +74,65 @@ export function hexCorners(wx, wy, wz, radius, projectFn) {
   return pts;
 }
 
-/** Stride 8: q, r, x, y, baseZ, energy, breath, colorIdx */
-export const STRIDE = 8;
-
-export function buildLattice({ radius = 7, hexSize = 28, zAmp = 18 } = {}) {
+/**
+ * Hexaform irregular field covering a CSS-pixel viewport (centred on origin).
+ * Port of generate-lesson-covers.mjs renderCover lattice + spiral accent.
+ */
+export function buildHexaformField({
+  width,
+  height,
+  mode = 'archive',
+  seed = 767,
+  energy = 0.62,
+  density = 16,
+  baseRadius = 28,
+  overscan = 1.45,
+} = {}) {
+  const [frequency, drift, pulse] = MODE_PROFILES[mode] || MODE_PROFILES.archive;
+  const random = mulberry32(hash32(`${seed}-${mode}-canvas25d`));
+  const horizontal = Math.sqrt(3) * baseRadius;
+  const vertical = baseRadius * 1.5;
+  const spanW = width * overscan;
+  const spanH = height * overscan;
+  const cols = Math.ceil(spanW / horizontal) + 3;
+  const rows = Math.ceil(spanH / vertical) + 3;
+  const originCol = -Math.floor(cols / 2);
+  const originRow = -Math.floor(rows / 2);
   const nodes = [];
-  for (let q = -radius; q <= radius; q += 1) {
-    const r1 = Math.max(-radius, -q - radius);
-    const r2 = Math.min(radius, -q + radius);
-    for (let r = r1; r <= r2; r += 1) {
-      const { x, y } = axialToWorld(q, r, hexSize);
-      const colorIdx = Math.abs(q * 3 + r * 5) % PALETTE.length;
-      // JS % can be negative — fold into [0,1) so baseZ stays finite.
-      const t = ((q * 0.37 + r * 0.61) % 1 + 1) % 1;
-      const baseZ = t * zAmp - zAmp * 0.5;
-      nodes.push(q, r, x, y, baseZ, 0, Math.random() * Math.PI * 2, colorIdx);
+
+  for (let row = 0; row < rows; row += 1) {
+    for (let column = 0; column < cols; column += 1) {
+      const c = originCol + column;
+      const r = originRow + row;
+      const x = c * horizontal + (r % 2 ? horizontal / 2 : 0);
+      const y = r * vertical;
+      const distance = Math.hypot(x / spanW, y / spanH);
+      const wave = (Math.sin(c * frequency * 0.72 + r * drift * 5 + seed * 0.013) + 1) / 2;
+      const focus = Math.max(0, 1 - distance * 2.1);
+      const activation = wave * 0.48 + focus * 0.74 + random() * 0.18;
+      const visible = activation > 0.34 - energy * 0.08;
+      if (!visible) continue;
+
+      const colorIdx = activation > 0.78 ? 2 : activation > 0.6 ? 1 : 0;
+      const radius = (0.22 + activation * 0.55 + energy * 0.12) * baseRadius;
+      const t = ((c * 0.37 + r * 0.61) % 1 + 1) % 1;
+      const baseZ = (t - 0.5) * (18 + energy * 22);
+      nodes.push(x, y, baseZ, radius, 0, random() * Math.PI * 2, colorIdx, activation);
     }
   }
+
+  // Spiral accent cluster (Hexaform density loop) — multidimensional pressure at the centre.
+  for (let index = 0; index < density; index += 1) {
+    const angle = index * 2.399963229728653 + seed * 0.0019;
+    const radial = 34 + Math.sqrt(index + 1) * (28 + energy * 55);
+    const x = Math.cos(angle) * radial * (1 + drift * 0.36);
+    const y = Math.sin(angle) * radial * (0.67 + pulse * 0.47);
+    const size = 15 + ((density - index) / density) * (40 + energy * 32) + random() * 9;
+    const colorIdx = index % 5 === 0 ? 0 : index % 2 === 0 ? 2 : 1;
+    const activation = 0.55 + ((density - index) / density) * 0.4;
+    nodes.push(x, y, (random() - 0.5) * 24, size * 0.55, 0, random() * Math.PI * 2, colorIdx, activation);
+  }
+
   return new Float32Array(nodes);
 }
 
@@ -86,23 +148,27 @@ export function createHexField(canvas, options = {}) {
   reducedQuery.addEventListener('change', onReduced);
 
   const dprCap = options.dprCap ?? 1.5;
-  const fov = options.fov ?? 780;
-  const hexRadius = options.hexRadius ?? 22;
-  const nodes = options.nodes ?? buildLattice(options.lattice);
-  const count = nodes.length / STRIDE;
+  const fov = options.fov ?? 820;
+  const mode = options.mode ?? 'archive';
+  const seed = options.seed ?? 767;
+  const energy = options.energy ?? 0.62;
+  const density = options.density ?? 16;
 
-  const order = new Int32Array(count);
-  const depth = new Float32Array(count);
-  for (let i = 0; i < count; i += 1) order[i] = i;
+  let nodes = new Float32Array(0);
+  let count = 0;
+  let order = new Int32Array(0);
+  let depthBuf = new Float32Array(0);
 
   let width = 0;
   let height = 0;
+  let cssW = 0;
+  let cssH = 0;
   let cx = 0;
   let cy = 0;
-  let worldScale = 1;
+  let dpr = 1;
 
-  let pitch = 0.55;
-  let yaw = -0.35;
+  let pitch = 0.48;
+  let yaw = -0.32;
   let targetPitch = pitch;
   let targetYaw = yaw;
   let panX = 0;
@@ -122,34 +188,40 @@ export function createHexField(canvas, options = {}) {
 
   const readout = options.onSample ?? (() => {});
 
+  function rebuildLattice() {
+    nodes = buildHexaformField({
+      width: cssW,
+      height: cssH,
+      mode,
+      seed,
+      energy,
+      density,
+      baseRadius: options.baseRadius ?? Math.max(22, Math.min(cssW, cssH) * 0.028),
+      overscan: options.overscan ?? 1.5,
+    });
+    count = nodes.length / STRIDE;
+    order = new Int32Array(count);
+    depthBuf = new Float32Array(count);
+    for (let i = 0; i < count; i += 1) order[i] = i;
+  }
+
   function resize() {
     const rect = canvas.getBoundingClientRect();
-    const dpr = Math.min(window.devicePixelRatio || 1, dprCap);
-    width = Math.max(1, Math.floor(rect.width * dpr));
-    height = Math.max(1, Math.floor(rect.height * dpr));
+    cssW = Math.max(1, rect.width);
+    cssH = Math.max(1, rect.height);
+    dpr = Math.min(window.devicePixelRatio || 1, dprCap);
+    width = Math.max(1, Math.floor(cssW * dpr));
+    height = Math.max(1, Math.floor(cssH * dpr));
     canvas.width = width;
     canvas.height = height;
     cx = width * 0.5;
     cy = height * 0.52;
-    // Fit the lattice (~hexSize * radius * 2) into the shorter canvas axis.
-    const lattice = options.lattice ?? {};
-    const hexSize = lattice.hexSize ?? 28;
-    const radius = lattice.radius ?? 7;
-    const span = hexSize * (radius * 2 + 1) * 1.15;
-    worldScale = Math.min(width, height) / span;
+    rebuildLattice();
   }
 
   function projectWorld(x, y, z) {
-    const p = project(
-      x * worldScale,
-      y * worldScale,
-      z * worldScale,
-      Math.cos(yaw),
-      Math.sin(yaw),
-      Math.cos(pitch),
-      Math.sin(pitch),
-      fov,
-    );
+    // Lattice is authored in CSS pixels; scale into device pixels for the canvas buffer.
+    const p = project(x * dpr, y * dpr, z * dpr, Math.cos(yaw), Math.sin(yaw), Math.cos(pitch), Math.sin(pitch), fov);
     return {
       x: p.x + cx + panX,
       y: p.y + cy + panY,
@@ -198,20 +270,20 @@ export function createHexField(canvas, options = {}) {
       panY += (targetPanY - panY) * k;
       scrollV *= Math.exp(-dt * 3.2);
       targetPitch += scrollV * dt;
-      targetPitch = Math.max(0.25, Math.min(1.05, targetPitch));
+      targetPitch = Math.max(0.22, Math.min(1.0, targetPitch));
 
       for (let i = 0; i < count; i += 1) {
         const o = i * STRIDE;
-        nodes[o + 6] += dt * 1.4;
+        nodes[o + 5] += dt * 1.35;
         if (hasPointer) {
-          const p = projectWorld(nodes[o + 2], nodes[o + 3], nodes[o + 4]);
+          const p = projectWorld(nodes[o], nodes[o + 1], nodes[o + 2]);
           const dx = p.x - pointerX * width;
           const dy = p.y - pointerY * height;
           const dist = Math.hypot(dx, dy);
-          const pulse = Math.exp(-(dist * dist) / (2 * (160 * (window.devicePixelRatio || 1)) ** 2));
-          nodes[o + 5] += (pulse - nodes[o + 5]) * (1 - Math.exp(-dt * 8));
+          const pulse = Math.exp(-(dist * dist) / (2 * (170 * dpr) ** 2));
+          nodes[o + 4] += (pulse - nodes[o + 4]) * (1 - Math.exp(-dt * 8));
         } else {
-          nodes[o + 5] *= Math.exp(-dt * 1.8);
+          nodes[o + 4] *= Math.exp(-dt * 1.8);
         }
       }
     }
@@ -220,32 +292,26 @@ export function createHexField(canvas, options = {}) {
 
     for (let i = 0; i < count; i += 1) {
       const o = i * STRIDE;
-      const breath = reduced ? 0 : Math.sin(nodes[o + 6]) * 5;
-      const lift = nodes[o + 5] * -36;
-      depth[i] = projectWorld(nodes[o + 2], nodes[o + 3], nodes[o + 4] + breath + lift).depth;
+      const breath = reduced ? 0 : Math.sin(nodes[o + 5]) * 6;
+      const lift = nodes[o + 4] * -40;
+      depthBuf[i] = projectWorld(nodes[o], nodes[o + 1], nodes[o + 2] + breath + lift).depth;
       order[i] = i;
     }
-    // Painter's algorithm: far → near.
-    order.sort((a, b) => depth[b] - depth[a]);
+    order.sort((a, b) => depthBuf[b] - depthBuf[a]);
 
     for (let n = 0; n < count; n += 1) {
       const i = order[n];
       const o = i * STRIDE;
-      const breath = reduced ? 0 : Math.sin(nodes[o + 6]) * 5;
-      const energy = nodes[o + 5];
-      const lift = energy * -36;
-      const z = nodes[o + 4] + breath + lift;
-      const corners = hexCorners(
-        nodes[o + 2],
-        nodes[o + 3],
-        z,
-        hexRadius * (0.92 + energy * 0.22),
-        projectWorld,
-      );
-      const pal = PALETTE[nodes[o + 7] | 0];
-      // Visible at rest; energy brightens on pointer.
-      const alpha = 0.22 + energy * 0.45;
-      const strokeA = 0.38 + energy * 0.5;
+      const breath = reduced ? 0 : Math.sin(nodes[o + 5]) * 6;
+      const pointerE = nodes[o + 4];
+      const activation = nodes[o + 7];
+      const lift = pointerE * -40;
+      const z = nodes[o + 2] + breath + lift;
+      const radius = nodes[o + 3] * (0.92 + pointerE * 0.28);
+      const corners = hexCorners(nodes[o], nodes[o + 1], z, radius, projectWorld);
+      const pal = PALETTE[nodes[o + 6] | 0];
+      const alpha = 0.12 + activation * 0.28 + pointerE * 0.4;
+      const strokeA = 0.22 + activation * 0.35 + pointerE * 0.45;
 
       ctx.beginPath();
       ctx.moveTo(corners[0].x, corners[0].y);
@@ -253,7 +319,7 @@ export function createHexField(canvas, options = {}) {
       ctx.closePath();
       ctx.fillStyle = hexToRgba(pal.fill, alpha);
       ctx.strokeStyle = hexToRgba(pal.stroke, strokeA);
-      ctx.lineWidth = Math.max(1, 1.25 * Math.min(corners[0].scale, 1.6));
+      ctx.lineWidth = Math.max(1, 1.2 * Math.min(corners[0].scale, 1.7));
       ctx.fill();
       ctx.stroke();
     }
@@ -263,8 +329,9 @@ export function createHexField(canvas, options = {}) {
       fps: Math.round(fps) || 0,
       pitch: pitch.toFixed(2),
       yaw: yaw.toFixed(2),
+      mode,
       reduced,
-      engine: 'canvas-2d',
+      engine: 'canvas-2d+hexaform',
     });
 
     raf = requestAnimationFrame(frame);
@@ -275,16 +342,16 @@ export function createHexField(canvas, options = {}) {
     pointerX = (clientX - rect.left) / Math.max(1, rect.width);
     pointerY = (clientY - rect.top) / Math.max(1, rect.height);
     hasPointer = true;
-    targetYaw = -0.35 + (pointerX - 0.5) * 0.85;
-    targetPitch = 0.55 + (pointerY - 0.5) * 0.4;
-    targetPanX = (pointerX - 0.5) * width * 0.05;
-    targetPanY = (pointerY - 0.5) * height * 0.04;
+    targetYaw = -0.32 + (pointerX - 0.5) * 0.9;
+    targetPitch = 0.48 + (pointerY - 0.5) * 0.42;
+    targetPanX = (pointerX - 0.5) * width * 0.055;
+    targetPanY = (pointerY - 0.5) * height * 0.045;
   }
 
   function onPointerLeave() {
     hasPointer = false;
-    targetYaw = -0.35;
-    targetPitch = 0.55;
+    targetYaw = -0.32;
+    targetPitch = 0.48;
     targetPanX = 0;
     targetPanY = 0;
   }
@@ -314,7 +381,7 @@ export function createHexField(canvas, options = {}) {
       reducedQuery.removeEventListener('change', onReduced);
       canvas.removeEventListener('pointerleave', onPointerLeave);
     },
-    getStats: () => ({ cells: count, engine: 'canvas-2d' }),
+    getStats: () => ({ cells: count, mode, engine: 'canvas-2d+hexaform' }),
   };
 }
 

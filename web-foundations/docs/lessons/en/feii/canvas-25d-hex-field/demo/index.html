@@ -98,8 +98,8 @@ layout: null
 			<aside class="readout">
 				<h1>Canvas 2.5D hex field</h1>
 				<p>
-					Pitch / yaw projection + painter’s algorithm. No Three.js. Palette from
-					<code>archive-home.svg</code>.
+					Hexaform irregular lattice (<code>archive</code> mode) + pitch/yaw projection.
+					No Three.js. Fills the viewport on resize.
 				</p>
 				<p>
 					Pointer warps cells · wheel adds pitch inertia ·
@@ -122,11 +122,13 @@ layout: null
 			const stats = document.getElementById('stats');
 
 			createHexField(canvas, {
-				lattice: { radius: 8, hexSize: 26, zAmp: 22 },
-				hexRadius: 20,
+				mode: 'archive',
+				seed: 767,
+				energy: 0.62,
+				density: 16,
 				dprCap: 1.5,
-				onSample({ cells, fps, pitch, yaw, reduced, engine }) {
-					stats.textContent = `${engine} · cells ${cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
+				onSample({ cells, fps, pitch, yaw, mode, reduced, engine }) {
+					stats.textContent = `${engine} · ${mode} · cells ${cells} · ~${fps} fps · pitch ${pitch} · yaw ${yaw}${
 						reduced ? ' · reduced-motion' : ''
 					}`;
 				},

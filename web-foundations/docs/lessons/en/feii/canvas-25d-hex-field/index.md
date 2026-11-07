@@ -35,7 +35,9 @@ tags: [feii, canvas, projection, hex-grid, 2.5d, satellite, performance]
 
 **Code in this lesson:** the demo is **CodeSandbox-ready** as static files under `demo/`. Excerpts below show the two load-bearing ideas.
 
-**Live demo:** [Canvas 2.5D hex field]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }}) — pointer tilt, wheel inertia, archive palette, `prefers-reduced-motion`.
+**Live demo:** [Canvas 2.5D hex field]({{ '/lessons/en/feii/canvas-25d-hex-field/demo/' | relative_url }}) — Hexaform `archive` lattice (same frequency/drift/pulse profiles as lesson covers), full-viewport rebuild on resize, pointer tilt, wheel inertia, `prefers-reduced-motion`.
+
+The irregular field is not a regular axial honeycomb. It is the **Hexaform** rule system from `web-foundations/scripts/lesson-covers/` (see `ALGORITHMIC-PHILOSOPHY.md` in the repo): mode profile → activation threshold → variable cell size → optional spiral accent. SVG covers bake that once; this demo keeps it live under 2.5D projection.
 
 ---
 
@@ -106,9 +108,10 @@ Wrong order = near cells buried under far ones. That bug is the whole lesson.
 
 ## Lab check (15–20 min)
 
-1. Change `lattice.radius` and watch cell count / fps in the panel.
-2. Disable the sort (`order` left unsorted) and describe what breaks.
-3. One sentence: when would this field graduate to R3F `InstancedMesh` instead?
+1. Switch `mode` in the demo (`archive` → `shader` → `lattice`) and name what frequency/drift/pulse change visually.
+2. Resize the window — the lattice rebuilds to cover the viewport (overscan for tilt). Say why a fixed axial radius cannot do that.
+3. Disable the painter sort and describe what breaks.
+4. One sentence: when would this field graduate to R3F `InstancedMesh` instead?
 
 ---
 
