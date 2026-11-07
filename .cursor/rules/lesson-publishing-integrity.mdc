@@ -269,4 +269,16 @@ Then confirm, against the **built output** in `_site/`:
       from built output; cited lessons have Chicago inline forms and final
       References/Referencias entries.
 
+### Track Markdown tables — class is load-bearing
+
+`site.css` styles sequence tables by **column count**, not by heading text:
+
+| Kramdown class | Shape | Do not use for |
+| --- | --- | --- |
+| `{: .track-session-table}` | `# · Session · Duration · Lab · Description` (cols 3–4 are `nowrap`) | Satellite / related lists with a long prose column |
+| `{: .track-satellite-table}` | `# · Title · Role` (role wraps) | The 12-session sequence |
+| `{: .track-evaluation-table}` | Component · % | Session lists |
+
+Reusing `.track-session-table` on a 3-column satellite table crushes the role column (`white-space: nowrap` on `nth-child(3)`). Pick the class that matches the column contract.
+
 Local build verification and *published* are different checkboxes. Publishing is the professor's `git push`.

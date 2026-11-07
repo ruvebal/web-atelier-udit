@@ -630,6 +630,8 @@ html.dark,
 	text-align: center;
 }
 
+/* Duration + lab columns on the 12-session sequence only — never reuse this
+   class for 3-column satellite/related tables (nowrap would crush prose). */
 .prose table.track-session-table th:nth-child(3),
 .prose table.track-session-table th:nth-child(4),
 .prose table.track-session-table td:nth-child(3),
@@ -637,6 +639,25 @@ html.dark,
 	white-space: nowrap;
 }
 
+.prose table.track-satellite-table th:first-child,
+.prose table.track-satellite-table td:first-child {
+	white-space: nowrap;
+	width: 1%;
+	text-align: center;
+	vertical-align: top;
+}
+
+.prose table.track-satellite-table th:nth-child(2),
+.prose table.track-satellite-table td:nth-child(2) {
+	min-width: 12rem;
+	vertical-align: top;
+}
+
+.prose table.track-satellite-table th:nth-child(3),
+.prose table.track-satellite-table td:nth-child(3) {
+	white-space: normal;
+	vertical-align: top;
+}
 .prose table.track-evaluation-table th:nth-child(2),
 .prose table.track-evaluation-table td:nth-child(2) {
 	text-align: center;
