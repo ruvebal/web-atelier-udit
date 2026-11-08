@@ -623,7 +623,8 @@ export function createHexField(canvas, options = {}) {
   if (scrollParallax) {
     window.addEventListener('scroll', onScrollParallax, { passive: true });
     window.addEventListener('resize', onScrollParallax, { passive: true });
-    onScrollParallax();
+    // Some hero mounts request a face-on first frame before scroll motion begins.
+    if (options.frontStart !== true) onScrollParallax();
   }
 
   raf = requestAnimationFrame(frame);

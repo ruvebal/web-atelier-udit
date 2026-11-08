@@ -308,9 +308,9 @@ These sophisticated methods are for students ready to push beyond basics and cre
   - **SVG**: Animated logo with path drawing effect.
   - **CSS**:
     ```css
-    .logo-path {
-    	stroke-dasharray: 1000;
-    	stroke-dashoffset: 1000;
+     .logo-path {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
     	animation: draw 3s ease-in-out forwards;
     }
     @keyframes draw {
@@ -321,8 +321,10 @@ These sophisticated methods are for students ready to push beyond basics and cre
     ```
   - **Key Points**:
     - `stroke-dasharray` and `stroke-dashoffset` create the drawing effect.
+    - Set `pathLength="1"` on the SVG path so the dash values are normalized instead of guessing a path-specific length.
     - SVGs scale perfectly on all screens.
     - Great for icons, illustrations, and logos.
+    - SVG `<animate>` (SMIL) remains a supported option; compare portability and page-level control in the [SVG Animation Master Session]({{ '/lessons/en/web-animations/svg-master-session/' | relative_url }}).
 
 > **💡 Beyond CSS for SVG Animations:**
 > While CSS can animate SVG properties, **complex SVG morphing, sequencing, and physics-based animations** benefit significantly from JavaScript animation libraries like **GSAP (GreenSock Animation Platform)**. GSAP provides:
@@ -330,7 +332,7 @@ These sophisticated methods are for students ready to push beyond basics and cre
 > - **MorphSVG Plugin**: Smoothly morph between completely different SVG shapes
 > - **DrawSVG Plugin**: More control over path drawing than CSS `stroke-dashoffset`
 > - **Timeline Sequencing**: Orchestrate complex multi-element choreography
-> - **Cross-browser Consistency**: Eliminates CSS animation quirks across browsers
+> - **Path-drawing utility**: `DrawSVG` can animate partial stroke segments and plugs into GSAP timelines; the basic full-path reveal is also achievable with normalized CSS dash values.
 > - **Physics & Easing**: Advanced easing functions and physics-based motion
 >
 > **When to use CSS vs GSAP for SVG:**

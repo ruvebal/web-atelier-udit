@@ -8,13 +8,26 @@ lang: es
 <section
 	class="hero-section hero-section--archive"
 	aria-labelledby="hero-title">
-	<div class="max-w-4xl mx-auto text-center hero-section__inner">
+	<div class="max-w-4xl mx-auto text-center hero-section__inner hero-foreground-plane">
 		<div class="flex flex-col items-center justify-center gap-6 mb-6">
-			<img
-				src="{{ '/assets/icons/favicon.svg' | relative_url }}"
-				alt=""
-				class="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
-				aria-hidden="true" />
+			<span
+				id="fava-hero-icon"
+				class="fava-hero-mark w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
+				data-animated-src="{{ '/assets/icons/fava-mark.svg' | relative_url }}?v=20261108-palette">
+				<img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}" alt="" aria-hidden="true" />
+			</span>
+			<p id="fava-facet-help" class="fava-facet-help" hidden>
+				Selecciona una faceta para invertir su color. Usa las flechas para recorrerlas y Enter o Espacio para alternar la elegida.
+			</p>
+			<span id="fava-facet-status" class="sr-only" aria-live="polite"></span>
+			<button
+				type="button"
+				id="fava-motion-toggle"
+				class="fava-motion-toggle text-xs opacity-70 underline underline-offset-4"
+				aria-controls="fava-hero-icon"
+				hidden>
+				Pausar ciclo de color del icono
+			</button>
 			<div class="text-center">
 				<h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
 					<span class="block">WEB ATELIER</span>
@@ -47,6 +60,100 @@ lang: es
 		</div>
 	</div>
 </section>
+
+<script>
+	(() => {
+		const host = document.getElementById('fava-hero-icon');
+		const toggle = document.getElementById('fava-motion-toggle');
+		const help = document.getElementById('fava-facet-help');
+		const status = document.getElementById('fava-facet-status');
+		if (!host || !toggle || !help || !status) return;
+
+		const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+		let manuallyPaused = false;
+		let facets = [];
+
+		function syncMotionPreference() {
+			const paused = preference.matches || manuallyPaused;
+			host.classList.toggle('is-paused', paused);
+			toggle.hidden = preference.matches || facets.length === 0;
+			toggle.textContent = manuallyPaused ? 'Reanudar ciclo de color del icono' : 'Pausar ciclo de color del icono';
+		}
+
+		function focusFacet(index) {
+			facets.forEach((facet, facetIndex) => facet.setAttribute('tabindex', facetIndex === index ? '0' : '-1'));
+			facets[index]?.focus();
+		}
+
+		function toggleFacet(facet) {
+			const inverted = facet.classList.toggle('is-inverted');
+			facet.setAttribute('aria-pressed', String(inverted));
+			status.textContent = `Color de la faceta ${Number(facet.dataset.facetIndex) + 1} ${inverted ? 'invertido' : 'restaurado'}.`;
+		}
+
+		async function mountInteractiveMark() {
+			try {
+				const response = await fetch(host.dataset.animatedSrc);
+				if (!response.ok) throw new Error(`SVG request failed (${response.status})`);
+				const parsed = new DOMParser().parseFromString(await response.text(), 'image/svg+xml');
+				const svg = document.importNode(parsed.documentElement, true);
+				svg.removeAttribute('width');
+				svg.removeAttribute('height');
+				svg.classList.add('fava-hero-svg');
+				svg.setAttribute('role', 'group');
+				svg.setAttribute('aria-label', 'Favicon ruvebal interactivo con 15 facetas seleccionables');
+				svg.setAttribute('aria-describedby', help.id);
+
+				facets = [...svg.querySelectorAll('path')];
+				facets.forEach((facet, index) => {
+					facet.classList.add('fava-hero-facet');
+					facet.dataset.facetIndex = index;
+					facet.setAttribute('role', 'button');
+					facet.setAttribute('aria-label', `Faceta ${index + 1}`);
+					facet.setAttribute('aria-pressed', 'false');
+					facet.setAttribute('tabindex', index === 0 ? '0' : '-1');
+				});
+
+				svg.addEventListener('click', (event) => {
+					const facet = event.target.closest?.('.fava-hero-facet');
+					if (!facet) return;
+					const index = Number(facet.dataset.facetIndex);
+					facets.forEach((item, facetIndex) => item.setAttribute('tabindex', facetIndex === index ? '0' : '-1'));
+					toggleFacet(facet);
+				});
+
+				svg.addEventListener('keydown', (event) => {
+					const facet = event.target.closest?.('.fava-hero-facet');
+					if (!facet) return;
+					const index = Number(facet.dataset.facetIndex);
+					if (event.key === 'Enter' || event.key === ' ') {
+						event.preventDefault();
+						toggleFacet(facet);
+						return;
+					}
+					const direction = ['ArrowRight', 'ArrowDown'].includes(event.key) ? 1 : ['ArrowLeft', 'ArrowUp'].includes(event.key) ? -1 : 0;
+					if (!direction) return;
+					event.preventDefault();
+					focusFacet((index + direction + facets.length) % facets.length);
+				});
+
+				host.replaceChildren(svg);
+				help.hidden = false;
+				syncMotionPreference();
+			} catch (error) {
+				console.warn('The interactive ruvebal favicon could not be mounted; the static fallback remains.', error);
+			}
+		}
+
+		toggle.addEventListener('click', () => {
+			manuallyPaused = !manuallyPaused;
+			syncMotionPreference();
+		});
+		preference.addEventListener('change', syncMotionPreference);
+		syncMotionPreference();
+		mountInteractiveMark();
+	})();
+</script>
 
 <main class="content-main max-w-7xl mx-auto px-4">
 	<section class="lessons-section mb-16" aria-labelledby="lessons-heading">

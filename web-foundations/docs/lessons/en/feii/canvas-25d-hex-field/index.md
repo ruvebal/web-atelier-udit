@@ -273,6 +273,9 @@ mountComposition(canvas, 'archive-home', {
   interactive: true,
   pointerRoot: hero,      // tilt without blocking <a> / text
   scrollParallax: true,   // page scroll shifts yaw/pitch/pan
+  frontStart: true,       // preserve a frontal first frame
+  pitch: 0,
+  yaw: 0,
   wheelPitch: false,      // do not steal page scroll
   pointerAmp: 1.15,
   dprCap: 1.15,
@@ -285,10 +288,52 @@ mountComposition(canvas, 'archive-home', {
 **CSS contract** (see `docs/assets/css/site.css`):
 
 - Canvas: `position: absolute; inset: 0; z-index: 0; pointer-events: none`
-- Title / lede: `z-index: 1` + scrim gradients
+- Foreground: `.hero-foreground-plane` creates an oversized translucent polygon between canvas and content
+- Title / lede / controls: `z-index: 1`; the plane uses alpha and a fine border, never backdrop blur
 - `prefers-reduced-motion: reduce` → hide canvas, restore SVG `--hero-archive-image` ([MDN: prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion))
 
 **Why `pointerRoot`:** if the canvas ate pointer events, every CTA in the hero would miss clicks. Bind tilt to the hero; keep the canvas decorative for hit-testing.
+
+### Foreground legibility plane
+
+The animation is a background for meaning, not a competing illustration. Put the semantic content in a dedicated plane and oversize its clipped geometry so the user never reads it as a complete card:
+
+```html
+<section class="hero-section hero-section--archive">
+  <header class="hero-section__inner hero-foreground-plane">
+    <h1>Lessons</h1>
+    <p>Complete pedagogical content with focus on accessibility…</p>
+    <!-- interactive controls stay in normal document order -->
+  </header>
+</section>
+```
+
+```css
+.hero-foreground-plane { position: relative; z-index: 1; isolation: isolate; }
+.hero-foreground-plane::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -5rem -16vw;
+  clip-path: polygon(9% 0, 91% 0, 100% 50%, 91% 100%, 9% 100%, 0 50%);
+  background: rgb(5 8 22 / 0.28);
+  border: 1px solid rgb(255 255 255 / 0.16);
+  pointer-events: none;
+}
+```
+
+Do not use `backdrop-filter` as the legibility mechanism. It increases paint cost and erases the geometry that establishes depth. Tune the plane's alpha and the canvas palette instead; verify text and control contrast in the final composite. The production example applies this contract to the home hero, EN/ES lesson hubs, and the FE I/II track mottos.
+
+### Choose the motion medium before converting the artwork
+
+This Canvas field is one outcome, not a universal SVG conversion recipe. Use the [SVG Animation Master Session]({{ '/lessons/en/web-animations/svg-master-session/' | relative_url }}) to compare the delivery shape first:
+
+- keep the source inline as SVG for path-level CSS, SMIL, WAAPI, GSAP, Motion, or Anime.js animation;
+- keep the SVG verbatim as an image when the whole plane only needs CSS perspective/tilt;
+- convert the composition into seeded Canvas geometry when many independent shapes, depth sorting, pointer camera, and controlled dispersion matter;
+- export Lottie/dotLottie or Rive when authored motion, packaged variants, cross-platform playback, or state machines repay the runtime and authoring cost.
+
+For a fair comparison, first hold the intended visual result constant across techniques. Then run a second “best in show” pass where each medium demonstrates its own strength. Judge motion fit, visual fidelity, code clarity, delivery cost, and reduced-motion behavior.
 
 ---
 

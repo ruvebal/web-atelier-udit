@@ -10,6 +10,7 @@ permalink: /tracks/feii/
 description: 'Track semestral del Grado en Desarrollo Full-Stack y Ciencia de Datos e IA (UDIT). Arquitectura de producción, PWA, testing, performance, 3D e IoT/robotics. 6 ECTS, 150 h totales (30 h laboratorio).'
 tags: [frontend, astro, pwa, testing, performance, r3f, iot, python, udit, production-architecture, annual]
 status: complete
+hero_tagline: 'Critical coding for a better living.'
 ---
 
 <!-- prettier-ignore-start -->
@@ -22,8 +23,6 @@ status: complete
 <!-- prettier-ignore-end -->
 
 ---
-
-> _"Critical coding for a better living."_
 
 > **Declaración de asistencia IA:** Este track integra desarrollo asistido por IA siguiendo la metodología docs-first. Planes, prompts e informes de implementación se documentan durante todo el proceso. La pedagogía está fundamentada en la experiencia de aula y la reflexión crítica sobre el rol de la IA en la educación.
 

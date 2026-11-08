@@ -100,7 +100,11 @@ breadcrumbs = breadcrumbs | push: breadcrumb_item %} {% endif %} {% endfor %}
 				</ol>
 			</nav>
 
-			<header class="lesson-header{% if site.data.archive_covers[page.url] %} hero-section hero-section--archive hero-section--hub{% endif %}">
+			{% assign archive_cover = site.data.archive_covers[page.url] %}
+			{% if archive_cover %}
+			<section class="hero-section hero-section--archive hero-section--hub" aria-labelledby="lesson-hero-title">
+			{% endif %}
+			<header class="lesson-header{% if archive_cover %} hero-section__inner hero-foreground-plane{% endif %}">
 				{% assign cover_key = page.slug | default: page.title | slugify %}
 				{% assign lesson_cover = site.data.lesson_covers[cover_key] %}
 				<div class="lesson-meta">
@@ -124,7 +128,7 @@ breadcrumbs = breadcrumbs | push: breadcrumb_item %} {% endif %} {% endfor %}
 							alt="{{ lesson_cover_alt | escape }}"
 							fetchpriority="high" />
 						<figcaption class="lesson-cover__caption">
-							<h1 class="lesson-title lesson-title--cover">{{ page.title }}</h1>
+							<h1{% if archive_cover %} id="lesson-hero-title"{% endif %} class="lesson-title lesson-title--cover">{{ page.title }}</h1>
 							{% if page.status %} {% assign status_lower = page.status | downcase %}
 							<span class="lesson-status lesson-status--cover status-{{ page.status | downcase | replace: ' ', '-' }} flex-shrink-0">
 								{% if status_lower == 'finished' or status_lower == 'terminado' %} {% if page.lang == 'es' %}✓ Finalizado{% else
@@ -138,7 +142,7 @@ breadcrumbs = breadcrumbs | push: breadcrumb_item %} {% endif %} {% endfor %}
 					</figure>
 				{% else %}
 				<div class="flex items-start justify-between gap-4 mb-4">
-					<h1 class="lesson-title flex-1">{{ page.title }}</h1>
+					<h1{% if archive_cover %} id="lesson-hero-title"{% endif %} class="lesson-title flex-1">{{ page.title }}</h1>
 					{% if page.status %} {% assign status_lower = page.status | downcase %}
 					<span class="lesson-status status-{{ page.status | downcase | replace: ' ', '-' }} flex-shrink-0">
 						{% if status_lower == 'finished' or status_lower == 'terminado' %} {% if page.lang == 'es' %}✓ Finalizado{% else
@@ -149,6 +153,9 @@ breadcrumbs = breadcrumbs | push: breadcrumb_item %} {% endif %} {% endfor %}
 					</span>
 					{% endif %}
 				</div>
+				{% endif %}
+				{% if page.hero_tagline %}
+				<p class="hero-foreground-kicker">{{ page.hero_tagline | escape }}</p>
 				{% endif %}
 				{% if page.author or page.date %}
 				<div class="lesson-author-date">
@@ -169,6 +176,9 @@ breadcrumbs = breadcrumbs | push: breadcrumb_item %} {% endif %} {% endfor %}
 					</a>
 				</p>
 			</header>
+			{% if archive_cover %}
+			</section>
+			{% endif %}
 
 			<div class="lesson-body prose prose-lg prose-slate dark:prose-invert">{{ content }}</div>
 		</article>
@@ -208,6 +218,32 @@ breadcrumbs = breadcrumbs | push: breadcrumb_item %} {% endif %} {% endfor %}
 					lastParagraph.innerHTML = lastParagraph.innerHTML.replace(/^\s*(—|&mdash;)/, '<span class="tao-signature-break">$1</span>');
 				}
 			}
+		});
+
+		// Keep Markdown tables semantically intact. Their wrapper owns overflow,
+		// so narrow viewports scroll instead of breaking technical terms in cells.
+		document.querySelectorAll('.lesson-body table').forEach((table, index) => {
+			if (table.parentElement?.classList.contains('lesson-table-scroll')) return;
+			const wrapper = document.createElement('div');
+			wrapper.className = 'lesson-table-scroll';
+			const caption = table.querySelector('caption')?.textContent?.trim();
+			const label = caption || `Scrollable lesson table ${index + 1}`;
+			table.before(wrapper);
+			wrapper.appendChild(table);
+			const syncOverflowAffordance = () => {
+				const scrolls = wrapper.scrollWidth > wrapper.clientWidth + 1;
+				if (scrolls) {
+					wrapper.setAttribute('role', 'region');
+					wrapper.setAttribute('tabindex', '0');
+					wrapper.setAttribute('aria-label', label);
+				} else {
+					wrapper.removeAttribute('role');
+					wrapper.removeAttribute('tabindex');
+					wrapper.removeAttribute('aria-label');
+				}
+			};
+			syncOverflowAffordance();
+			if ('ResizeObserver' in window) new ResizeObserver(syncOverflowAffordance).observe(wrapper);
 		});
 
 		// Mobile TOC toggle functionality

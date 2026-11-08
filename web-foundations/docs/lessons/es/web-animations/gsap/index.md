@@ -496,18 +496,18 @@ gsap.to('.bg', {
 
 ### Animación SVG: Más Allá de las Limitaciones de CSS
 
-GSAP puede animar SVG de formas que CSS simplemente no puede.
+GSAP añade herramientas para secuenciar SVG, dibujar segmentos parciales y emparejar rutas. CSS también permite dibujar rutas completas y puede interpolar algunos paths compatibles cuando el navegador admite `d: path()`.
 
 #### Dibujo de Paths SVG
 
 ```javascript
-// Método CSS (limitado)
+// Método CSS: dibujo completo con stroke-dashoffset
 gsap.to('.path', {
 	strokeDashoffset: 0,
 	duration: 2,
 });
 
-// Plugin DrawSVG (requiere membresía Club GreenSock)
+// DrawSVG: segmentos parciales y control integrado con GSAP
 gsap.from('.path', {
 	drawSVG: 0, // Dibujar desde 0% hasta 100%
 	duration: 2,
@@ -531,7 +531,7 @@ tl
 #### SVG Morphing
 
 ```javascript
-// Plugin MorphSVG (requiere Club GreenSock - $99/año)
+// MorphSVG: disponible como plugin GSAP desde npm (GSAP 3.13+)
 gsap.to('#circle', {
 	morphSVG: '#star', // Transformar círculo en estrella
 	duration: 2,
@@ -879,7 +879,7 @@ function loadingAnimation() {
    - Añade controles pausar/reproducir/reiniciar
    - Crea navegación por capítulos
 
-10. **Animación de SVG Morphing** _(Requiere Club GreenSock)_
+10. **Animación de SVG Morphing**
     - Transforma entre 5 formas diferentes suavemente
     - Crea un set de iconos animados
     - Construye un logo que cambia de forma
@@ -979,7 +979,7 @@ recognition.onresult = (event) => {
 
 ### Temas Avanzados
 
-- [Club GreenSock](https://greensock.com/club/) — Plugins premium ($99/año)
+- [Instalación de GSAP](https://gsap.com/docs/v3/Installation/) — plugins como DrawSVG y MorphSVG disponibles desde npm en GSAP 3.13+
 - [React GSAP](https://github.com/bitworking/react-gsap) — GSAP en React
 - [GSAP + Three.js](https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-character-with-three-js/) — Integración de animación 3D
 - [Rendimiento GSAP](https://css-tricks.com/myth-busting-css-animations-vs-javascript/) — Profundización en optimización
@@ -1050,7 +1050,7 @@ recognition.onresult = (event) => {
 
 <figure class="quote">
   <blockquote>
-    El modelo de precios de GSAP es guerra psicológica inversa. Pasas un mes con la versión gratuita, te das cuenta de que necesitas MorphSVG, y de repente $99/año parece una ganga para tu cordura.
+    GSAP 3.13 y versiones posteriores publican sus plugins en npm. Decide si DrawSVG o MorphSVG ahorran suficiente trabajo de autoría para justificar la dependencia adicional.
   </blockquote>
   <figcaption>
     &mdash; Cita Anónima de Diseñador-Desarrollador #7
@@ -1076,7 +1076,7 @@ recognition.onresult = (event) => {
 | -------------------- | --------------- | -------------------- |
 | Efectos hover simples| ✅ Perfecto     | ⚠️ Excesivo          |
 | Secuencias complejas | ❌ Doloroso     | ✅ Perfecto          |
-| SVG morphing         | ❌ Imposible    | ✅ Fácil             |
+| SVG morphing         | ⚠️ Solo entre rutas compatibles y en navegadores que admiten `d: path()` | ✅ Fácil con `MorphSVG` |
 | Control de timeline  | ❌ Limitado     | ✅ Poderoso          |
 | Animaciones de scroll| ⚠️ Experimental | ✅ Listo para producción |
 | Rendimiento          | ✅ Bueno        | ✅ Mejor             |
@@ -1176,7 +1176,7 @@ Una vez que hayas construido tus animaciones potenciadas por GSAP:
 
 **Este Mes:**
 
-1. Considera membresía [Club GreenSock](https://greensock.com/club/) para plugins premium
+1. Compara los [plugins de GSAP](https://gsap.com/docs/v3/Plugins/) con CSS y WAAPI antes de añadir dependencias
 2. Construye una pieza interactiva compleja
 3. Comparte tu trabajo en Twitter/CodePen con #GSAP
 

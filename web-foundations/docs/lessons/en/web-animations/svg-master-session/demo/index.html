@@ -1,0 +1,876 @@
+---
+layout: default
+title: 'ruvebal favicon animation comparison'
+description: 'One ruvebal favicon compared across native SVG, JavaScript animation libraries, and authored animation assets.'
+lang: en
+permalink: /lessons/en/web-animations/svg-master-session/demo/
+---
+<article class="svg-motion-demo">
+  <nav class="svg-motion-demo__rail" aria-label="Comparison sections">
+    <a href="#same-result">Same result</a>
+    <a href="#best-in-show">Best in show</a>
+    <a href="#interaction-lab">Interaction lab</a>
+    <a href="#authored-assets">Authored assets</a>
+    <a href="#verdict">Verdict</a>
+  </nav>
+
+  <section id="same-result" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="same-result-title">
+  <header class="svg-motion-demo__intro">
+  <h1 id="same-result-title">One mark.<br>Seven motion engines.</h1>
+  <p class="lede">Round 1 holds the result constant: the same ruvebal favicon artwork and the same staggered reveal. Round 2 changes the motion task so each technique can show its strongest fit. Round 3 compares facet-level interaction, state, and interruption. The tab favicon cycles through the course palette; the demo uses a separate static copy so it cannot bias the comparison.</p>
+  </header>
+  <div class="toolbar">
+    <button id="replay-all" type="button">Replay all</button>
+    <button id="show-static" type="button">Show static marks</button>
+    <span class="status" id="status" role="status" aria-live="polite">Loading the source SVG…</span>
+  </div>
+  <section class="grid" aria-label="Live SVG animation technique comparison">
+    <article class="card method--transition" data-method="transition">
+      <div class="card-head"><h2>CSS transition</h2><span class="category">Native CSS</span></div>
+      <div class="stage" data-icon></div>
+      <p class="card-copy">The least code for a simple reveal. A class change controls opacity; transition delays sequence the facets.</p>
+      <button type="button" data-replay>Replay</button>
+      <p class="code-note">No library · class state + transition delay</p>
+    </article>
+    <article class="card method--keyframes" data-method="keyframes">
+      <div class="card-head"><h2>CSS keyframes</h2><span class="category">Native CSS</span></div>
+      <div class="stage" data-icon></div>
+      <p class="card-copy">Declarative, easy to inspect, and a natural choice for a fixed one-shot sequence.</p>
+      <button type="button" data-replay>Replay</button>
+      <p class="code-note">No library · @keyframes + per-path delay</p>
+    </article>
+    <article class="card method--smil" data-method="smil">
+      <div class="card-head"><h2>SVG SMIL</h2><span class="category">Inside SVG</span></div>
+      <div class="stage" data-icon></div>
+      <p class="card-copy">The animation travels with the SVG. It is self-contained, but page-level orchestration is less convenient.</p>
+      <button type="button" data-replay>Replay</button>
+      <p class="code-note">No library · &lt;animate&gt; elements</p>
+    </article>
+    <article class="card" data-method="waapi">
+      <div class="card-head"><h2>Web Animations API</h2><span class="category">Native JavaScript</span></div>
+      <div class="stage" data-icon></div>
+      <p class="card-copy">Native playback controls, dynamic timing, and direct access to each path's animation object.</p>
+      <button type="button" data-replay>Replay</button>
+      <p class="code-note">No library · Element.animate()</p>
+    </article>
+    <article class="card" data-method="gsap">
+      <div class="card-head"><h2>GSAP</h2><span class="category">JavaScript library</span></div>
+      <div class="stage" data-icon></div>
+      <p class="card-copy">A clear timeline and stagger make choreography easy to tune. Already part of FE I Session 11.</p>
+      <button type="button" data-replay>Replay</button>
+      <p class="code-note">CDN · timeline + stagger</p>
+    </article>
+    <article class="card" data-method="motion">
+      <div class="card-head"><h2>Motion for JavaScript</h2><span class="category">JavaScript library</span></div>
+      <div class="stage" data-icon></div>
+      <p class="card-copy">A concise standalone API for SVG, with stagger helpers and spring options when the design needs them.</p>
+      <button type="button" data-replay disabled>Loading library…</button>
+      <p class="code-note">ES module · animate() + stagger()</p>
+    </article>
+    <article class="card" data-method="anime">
+      <div class="card-head"><h2>Anime.js</h2><span class="category">JavaScript library</span></div>
+      <div class="stage" data-icon></div>
+      <p class="card-copy">A compact target-and-stagger API. Strong expressive economy, but it adds another library to this course.</p>
+      <button type="button" data-replay disabled>Loading library…</button>
+      <p class="code-note">ES module · animate() + stagger()</p>
+    </article>
+  </section>
+  </section>
+
+  <section id="best-in-show" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="best-in-show-title">
+  <h2 id="best-in-show-title" class="round-title">Round 2: best in show</h2>
+  <p class="lede">These are distinct, small demonstrations of each approach’s best fit, not a second universal ranking. Hover, focus, scrub, or replay where the control indicates. The export-based tools need authored files, so their cards show the honest production path rather than faking a player.</p>
+  <section class="showcase-grid" aria-label="Best-in-show examples of SVG animation techniques">
+    <article class="showcase-card" data-show="transition">
+      <div class="card-head"><h2>CSS transition</h2><span class="category">State response</span></div>
+      <div class="stage showcase-stage"><button class="showcase-trigger transition-trigger" type="button" aria-pressed="false" aria-label="Toggle the ruvebal favicon's hover transition"><span data-show-icon="transition"></span></button></div>
+      <p class="showcase-copy">A real control state gives the mark a restrained lift and tilt on hover, keyboard focus, or activation.</p>
+      <span class="best-at">Best at: styling a change between UI states</span>
+    </article>
+    <article class="showcase-card" data-show="keyframes">
+      <div class="card-head"><h2>CSS keyframes</h2><span class="category">Fixed sequence</span></div>
+      <div class="stage showcase-stage" data-show-icon="keyframes"></div>
+      <p class="showcase-copy">A named, three-beat entrance uses explicit offsets for anticipation, a small overshoot, and a clean settle.</p>
+      <div class="showcase-control"><button type="button" data-show-replay="keyframes">Play sequence</button></div>
+      <span class="best-at">Best at: readable, time-based CSS choreography</span>
+    </article>
+    <article class="showcase-card" data-show="smil">
+      <div class="card-head"><h2>SVG SMIL</h2><span class="category">Portable vector motion</span></div>
+      <div class="stage showcase-stage" data-show-icon="smil"></div>
+      <p class="showcase-copy">A short transform is authored inside the SVG itself, so its timing travels with the vector asset.</p>
+      <div class="showcase-control"><button type="button" data-show-replay="smil">Play SVG motion</button></div>
+      <span class="best-at">Best at: a self-contained SVG animation</span>
+    </article>
+    <article class="showcase-card" data-show="waapi">
+      <div class="card-head"><h2>Web Animations API</h2><span class="category">Playback control</span></div>
+      <div class="stage showcase-stage" data-show-icon="waapi"></div>
+      <label class="scrub-label" for="waapi-scrub">Assembly progress <input id="waapi-scrub" type="range" min="0" max="100" value="0" disabled><output for="waapi-scrub">0%</output></label>
+      <p class="showcase-copy">The keyboard-accessible slider seeks paused per-path animations via their native Animation objects.</p>
+      <span class="best-at">Best at: seeking, pausing, and reversing in browser-native code</span>
+    </article>
+    <article class="showcase-card" data-show="gsap">
+      <div class="card-head"><h2>GSAP</h2><span class="category">Timeline direction</span></div>
+      <div class="stage showcase-stage" data-show-icon="gsap"></div>
+      <p class="showcase-copy">A labelled timeline sequences facet assembly, a restrained settle, and a held final state.</p>
+      <div class="showcase-control"><button type="button" data-show-replay="gsap">Play timeline</button><button type="button" data-show-reverse="gsap">Reverse</button></div>
+      <span class="best-at">Best at: controlled multi-part choreography</span>
+    </article>
+    <article class="showcase-card" data-show="motion">
+      <div class="card-head"><h2>Motion for JavaScript</h2><span class="category">Spring response</span></div>
+      <div class="stage showcase-stage"><button class="showcase-trigger spring-trigger" type="button" aria-label="Focus, hover, or activate to spring the ruvebal favicon"><span data-show-icon="motion"></span></button></div>
+      <p class="showcase-copy">Hover, focus, or press to give the whole mark a small spring response, then let it settle.</p>
+      <span class="best-at">Best at: expressive, physics-based interface response</span>
+    </article>
+    <article class="showcase-card" data-show="anime">
+      <div class="card-head"><h2>Anime.js</h2><span class="category">SVG line drawing</span></div>
+      <div class="stage showcase-stage" data-show-icon="anime"></div>
+      <p class="showcase-copy">A light stroke overlay draws the source facets in sequence, then clears to the original colored mark.</p>
+      <div class="showcase-control"><button type="button" data-show-replay="anime" disabled>Loading library…</button></div>
+      <span class="best-at">Best at: expressive SVG path drawing</span>
+    </article>
+  </section>
+  </section>
+
+  <section id="interaction-lab" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="interaction-lab-title">
+    <h2 id="interaction-lab-title" class="round-title">Round 3: interaction lab</h2>
+    <p class="lede">Direct path control is common to every DOM-based technique once the SVG is inline. What changes is where state, hit testing, timing, interruption, and authoring live. Select any facet; use arrow keys to move between facets and Enter or Space to activate one.</p>
+    <section class="showcase-grid interaction-grid" aria-label="Interactive SVG technique comparison">
+      <article class="showcase-card interaction-card" data-interaction="css">
+        <div class="card-head"><h2>CSS transition</h2><span class="category">Persistent state</span></div>
+        <div class="stage interaction-stage" data-interaction-icon="css"></div>
+        <p class="showcase-copy">Activation toggles one class; CSS owns the facet’s colour, opacity, and transition. JavaScript only records the persistent click state.</p>
+        <div class="showcase-control"><button type="button" data-interaction-reset="css">Reset facets</button></div>
+        <p class="interaction-status" data-interaction-status="css" aria-live="polite">Choose a facet.</p>
+        <span class="best-at">Best at: direct two-state UI feedback</span>
+      </article>
+      <article class="showcase-card interaction-card" data-interaction="smil">
+        <div class="card-head"><h2>SVG SMIL</h2><span class="category">Event timing in SVG</span></div>
+        <div class="stage interaction-stage" data-interaction-icon="smil"></div>
+        <p class="showcase-copy">Each facet contains its own opacity pulse. The SVG timing model owns the response; a tiny keyboard bridge calls the same animation.</p>
+        <div class="showcase-control"><button type="button" data-interaction-reset="smil">Restore facets</button></div>
+        <p class="interaction-status" data-interaction-status="smil" aria-live="polite">Choose a facet.</p>
+        <span class="best-at">Best at: portable event-triggered vector motion</span>
+      </article>
+      <article class="showcase-card interaction-card" data-interaction="waapi">
+        <div class="card-head"><h2>Web Animations API</h2><span class="category">Per-facet playback</span></div>
+        <div class="stage interaction-stage" data-interaction-icon="waapi"></div>
+        <p class="showcase-copy">Each facet owns an Animation object that can be reversed independently. Activate several facets, then restore them in any order.</p>
+        <div class="showcase-control"><button type="button" data-interaction-reset="waapi">Restore facets</button></div>
+        <p class="interaction-status" data-interaction-status="waapi" aria-live="polite">Choose a facet.</p>
+        <span class="best-at">Best at: granular native playback state</span>
+      </article>
+      <article class="showcase-card interaction-card" data-interaction="gsap">
+        <div class="card-head"><h2>GSAP</h2><span class="category">Coordinated selection</span></div>
+        <div class="stage interaction-stage" data-interaction-icon="gsap"></div>
+        <p class="showcase-copy">One selection coordinates the entire composition: the chosen facet advances while its neighbours recede, with interruption handled by one timeline.</p>
+        <div class="showcase-control"><button type="button" data-interaction-reset="gsap">Clear selection</button></div>
+        <p class="interaction-status" data-interaction-status="gsap" aria-live="polite">Choose a facet.</p>
+        <span class="best-at">Best at: interruptible multi-target choreography</span>
+      </article>
+      <article class="showcase-card interaction-card" data-interaction="motion">
+        <div class="card-head"><h2>Motion for JavaScript</h2><span class="category">Gesture spring</span></div>
+        <div class="stage interaction-stage" data-interaction-icon="motion"></div>
+        <p class="showcase-copy">Hover, focus, press, or activate a facet. A spring makes the selected geometry feel responsive without authoring a fixed timeline.</p>
+        <div class="showcase-control"><button type="button" data-interaction-reset="motion">Settle facets</button></div>
+        <p class="interaction-status" data-interaction-status="motion" aria-live="polite">Choose a facet.</p>
+        <span class="best-at">Best at: physical gesture feedback</span>
+      </article>
+      <article class="showcase-card interaction-card" data-interaction="anime">
+        <div class="card-head"><h2>Anime.js</h2><span class="category">Neighbour ripple</span></div>
+        <div class="stage interaction-stage" data-interaction-icon="anime"></div>
+        <p class="showcase-copy">The selected facet becomes the origin of a distance-based ripple. Functional delays turn one input into a compact local wave.</p>
+        <div class="showcase-control"><button type="button" data-interaction-reset="anime">Clear ripple</button></div>
+        <p class="interaction-status" data-interaction-status="anime" aria-live="polite">Choose a facet.</p>
+        <span class="best-at">Best at: compact target functions and ripples</span>
+      </article>
+    </section>
+  </section>
+
+  <section id="authored-assets" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="authored-assets-title">
+  <h2 id="authored-assets-title" class="round-title">Authored asset showreel</h2>
+  <p class="lede">These cards play the exported ruvebal favicon assets with their own runtimes. Lottie reveals the 15 colored facets; dotLottie packages brand and night variants in one file. The Rive source is built and verified, but its distributable <code>.riv</code> still needs the account sign-in described in the lesson.</p>
+  <section class="asset-grid" aria-label="Authored animation asset showreel">
+    <article class="asset-card" data-authored="lottie"><div class="card-head"><h2>Lottie</h2><span class="category">Motion design</span></div><p class="asset-status" data-asset-status="lottie" role="status">Loading the exported Lottie JSON…</p><div class="asset-preview"><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}" alt="Static ruvebal favicon"><div data-lottie-stage aria-label="ruvebal favicon Lottie facet bloom"></div></div><label class="scrub-label" for="lottie-scrub">Timeline <input id="lottie-scrub" data-lottie-scrub type="range" min="0" max="100" value="0" disabled><output for="lottie-scrub">0%</output></label><div class="asset-controls"><button type="button" data-asset-replay="lottie" disabled>Loading player…</button><a href="{{ '/assets/animations/fava/fava-brand.json' | relative_url }}">Open JSON</a></div><p><strong>Best show:</strong> the player exposes timeline-level play, pause, direction, segments, markers, and seeking—not stable access to the source SVG facets.</p></article>
+    <article class="asset-card" data-authored="dotlottie"><div class="card-head"><h2>dotLottie</h2><span class="category">Packaged variants</span></div><p class="asset-status" data-asset-status="dotlottie" role="status">Loading the exported dotLottie bundle…</p><div class="asset-preview" data-dot-preview><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}" alt="Static ruvebal favicon"><canvas data-dot-canvas aria-label="ruvebal favicon dotLottie variant"></canvas></div><div class="asset-controls"><button type="button" data-dot-play="fava-brand" disabled>Brand reveal</button><button type="button" data-dot-play="fava-night" disabled>Night reveal</button><a href="{{ '/assets/animations/fava/fava-showcase.lottie' | relative_url }}">Open bundle</a></div><p><strong>Best show:</strong> one player switches complete authored animations and themes; deeper interaction should be exported as markers or a state machine.</p></article>
+    <article class="asset-card" data-authored="rive"><div class="card-head"><h2>Rive</h2><span class="category">Runtime timeline</span></div><p class="asset-status" data-asset-status="rive" role="status">Rive source verified; final <code>.riv</code> export needs Rive sign-in.</p><div class="asset-preview"><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}" alt="Static ruvebal favicon"><canvas data-rive-canvas aria-label="ruvebal favicon Rive facet reveal"></canvas></div><div class="asset-controls"><button type="button" data-asset-replay="rive" disabled>Export requires Rive sign-in</button><a href="{{ '/assets/animations/fava/rive/scene.rml' | relative_url }}">Open RML source</a></div><p><strong>Best show:</strong> the reveal is authored as a Rive timeline and state-machine entry, then played by Rive’s canvas runtime.</p></article>
+  </section>
+  </section>
+
+  <section id="verdict" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="verdict-title">
+  <h2 id="verdict-title" class="round-title">Contest verdict</h2>
+  <div class="verdict" aria-label="Economy and quality framing">
+    <div><strong>Best economy for this reveal</strong><p>CSS keyframes or transitions: no dependency, direct ownership, and enough control for a short one-shot sequence.</p></div>
+    <div><strong>Best course fit for richer choreography</strong><p>GSAP: the course already teaches it, and its timeline is easy to explain, inspect, interrupt, and extend.</p></div>
+    <div><strong>Best for interaction as authored logic</strong><p>Rive wins when states, transitions, listeners, and data binding must travel with the asset. Lottie wins at timeline control, not per-facet DOM interaction.</p></div>
+  </div>
+  </section>
+  <footer class="svg-motion-demo__footer"><a href="{{ '/lessons/en/web-animations/svg-master-session/' | relative_url }}">Return to the master session</a> · Reduced motion leaves every mark static. Replay uses the same source paths and stagger goal.</footer>
+</article>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script type="module">
+  const cards = [...document.querySelectorAll('[data-method]')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const status = document.querySelector('#status');
+  const iconUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}";
+  let sourceSvg;
+  let svgReady = false;
+  let motionReady = false;
+  let animeReady = false;
+  let motionAnimate;
+  let motionStagger;
+  let animeAnimate;
+  let animeStagger;
+
+  function reset(card) {
+    const svg = card.querySelector('svg');
+    const paths = [...svg.querySelectorAll('path')];
+    card.classList.add('is-preparing');
+    card._smilTimers?.forEach(window.clearTimeout);
+    card._gsapTween?.kill();
+    card._motionPlayback?.stop();
+    card._animePlayback?.pause();
+    card.classList.remove('is-playing', 'is-visible', 'is-hidden');
+    paths.forEach((path) => {
+      path.getAnimations().forEach((animation) => animation.cancel());
+      path.style.removeProperty('opacity');
+      path.removeAttribute('opacity');
+      path.querySelectorAll('animate').forEach((animation) => animation.remove());
+    });
+    void svg.getBoundingClientRect();
+    card.classList.remove('is-preparing');
+    return { svg, paths };
+  }
+
+  function replay(card) {
+    if (!sourceSvg || reduceMotion) return;
+    const { svg, paths } = reset(card);
+    const method = card.dataset.method;
+    if (method === 'transition') {
+      card.classList.add('is-preparing');
+      card.classList.add('is-hidden');
+      void svg.getBoundingClientRect();
+      card.classList.remove('is-preparing');
+      card.classList.remove('is-hidden');
+      card.classList.add('is-visible');
+    } else if (method === 'keyframes') {
+      void svg.getBoundingClientRect();
+      card.classList.add('is-playing');
+    } else if (method === 'smil') {
+      card._smilTimers = [];
+      paths.forEach((path, index) => {
+        path.setAttribute('opacity', '0');
+        const animation = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        animation.setAttribute('attributeName', 'opacity');
+        animation.setAttribute('from', '0');
+        animation.setAttribute('to', '1');
+        animation.setAttribute('dur', '420ms');
+        animation.setAttribute('fill', 'freeze');
+        animation.setAttribute('begin', 'indefinite');
+        path.append(animation);
+        card._smilTimers.push(window.setTimeout(() => animation.beginElement(), index * 34));
+      });
+    } else if (method === 'waapi') {
+      paths.forEach((path, index) => path.animate(
+        [{ opacity: 0 }, { opacity: 1 }],
+        { duration: 420, delay: index * 34, easing: 'cubic-bezier(.2,.75,.25,1)', fill: 'both' },
+      ));
+    } else if (method === 'gsap' && window.gsap) {
+      card._gsapTween = window.gsap.timeline().fromTo(paths, { opacity: 0 }, {
+        opacity: 1, duration: .42, stagger: .034, ease: 'power2.out', overwrite: 'auto',
+      });
+    } else if (method === 'motion' && motionReady) {
+      card._motionPlayback = motionAnimate(paths, { opacity: [0, 1] }, {
+        duration: .42, delay: motionStagger(.034), ease: 'easeOut',
+      });
+    } else if (method === 'anime' && animeReady) {
+      card._animePlayback = animeAnimate(paths, { opacity: [0, 1], duration: 420, delay: animeStagger(34), ease: 'outQuad' });
+    }
+  }
+
+  function mountSvg(card) {
+    const svg = sourceSvg.cloneNode(true);
+    svg.classList.add('fava');
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', 'ruvebal favicon');
+    svg.querySelectorAll('path').forEach((path, index) => {
+      path.classList.add('facet');
+      path.style.setProperty('--order', index);
+    });
+    card.querySelector('[data-icon]').replaceChildren(svg);
+  }
+
+  try {
+    const response = await fetch(iconUrl);
+    if (!response.ok) throw new Error(`SVG request failed (${response.status})`);
+    const parsed = new DOMParser().parseFromString(await response.text(), 'image/svg+xml');
+    sourceSvg = document.importNode(parsed.documentElement, true);
+    cards.forEach(mountSvg);
+    svgReady = true;
+    status.textContent = reduceMotion ? 'Reduced motion is on; static marks are shown.' : 'All marks are ready; replay any technique to compare.';
+    document.querySelectorAll('[data-replay]').forEach((button) => {
+      const card = button.closest('[data-method]');
+      button.disabled = reduceMotion || (card.dataset.method === 'motion' && !motionReady) || (card.dataset.method === 'anime' && !animeReady);
+      button.textContent = reduceMotion ? 'Static by preference' : 'Replay';
+      button.addEventListener('click', () => replay(card));
+    });
+    const replayAll = document.querySelector('#replay-all');
+    replayAll.disabled = reduceMotion;
+    replayAll.addEventListener('click', () => cards.forEach(replay));
+    document.querySelector('#show-static').addEventListener('click', () => cards.forEach((card) => reset(card)));
+  } catch (error) {
+    status.textContent = `Could not load the ruvebal favicon SVG: ${error.message}. The source asset remains available from the site header.`;
+  }
+
+  try {
+    ({ animate: motionAnimate, stagger: motionStagger } = await import('https://cdn.jsdelivr.net/npm/motion@14.10.1/+esm'));
+    motionReady = true;
+    const button = document.querySelector('[data-method="motion"] [data-replay]');
+    if (button) { button.disabled = reduceMotion; button.textContent = reduceMotion ? 'Static by preference' : 'Replay'; }
+  } catch (error) {
+    const button = document.querySelector('[data-method="motion"] [data-replay]');
+    if (button) button.textContent = 'Library unavailable';
+    console.error('Motion failed to load', error);
+  }
+  try {
+    ({ animate: animeAnimate, stagger: animeStagger } = await import('https://cdn.jsdelivr.net/npm/animejs@4.5.0/+esm'));
+    animeReady = true;
+    const button = document.querySelector('[data-method="anime"] [data-replay]');
+    if (button) { button.disabled = reduceMotion; button.textContent = reduceMotion ? 'Static by preference' : 'Replay'; }
+  } catch (error) {
+    const button = document.querySelector('[data-method="anime"] [data-replay]');
+    if (button) button.textContent = 'Library unavailable';
+    console.error('Anime.js failed to load', error);
+  }
+  if (svgReady && !reduceMotion) {
+    status.textContent = motionReady && animeReady
+      ? 'All techniques are ready; replay any version to compare.'
+      : 'Native techniques are ready; an optional library could not load.';
+  }
+</script>
+<script type="module">
+  const interactionRoot = document.querySelector('#interaction-lab');
+  if (interactionRoot) {
+    const reduceInteractionMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const interactionMarkUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}";
+    const svgNamespace = 'http://www.w3.org/2000/svg';
+    const methods = ['css', 'smil', 'waapi', 'gsap', 'motion', 'anime'];
+    const [markResponse, motionModule, animeModule] = await Promise.all([
+      fetch(interactionMarkUrl),
+      import('https://cdn.jsdelivr.net/npm/motion@14.10.1/+esm').catch(() => null),
+      import('https://cdn.jsdelivr.net/npm/animejs@4.5.0/+esm').catch(() => null),
+    ]);
+
+    if (markResponse.ok) {
+      const parsed = new DOMParser().parseFromString(await markResponse.text(), 'image/svg+xml');
+      const sourceMark = document.importNode(parsed.documentElement, true);
+      const labs = new Map();
+
+      function updateStatus(method, message) {
+        const status = interactionRoot.querySelector(`[data-interaction-status="${method}"]`);
+        if (status) status.textContent = message;
+      }
+
+      function mountInteractionMark(method) {
+        const host = interactionRoot.querySelector(`[data-interaction-icon="${method}"]`);
+        const svg = sourceMark.cloneNode(true);
+        svg.classList.add('fava');
+        svg.removeAttribute('width');
+        svg.removeAttribute('height');
+        svg.setAttribute('role', 'group');
+        svg.setAttribute('aria-label', `${method} facet interaction example`);
+
+        const facets = [...svg.querySelectorAll('path')].map((path, index) => {
+          const group = document.createElementNS(svgNamespace, 'g');
+          path.parentNode.insertBefore(group, path);
+          group.append(path);
+          group.classList.add('interaction-facet');
+          group.dataset.index = index;
+          group.setAttribute('role', 'button');
+          group.setAttribute('aria-label', `Facet ${index + 1}`);
+          group.setAttribute('tabindex', index === 0 ? '0' : '-1');
+          return group;
+        });
+
+        host.replaceChildren(svg);
+        const lab = { method, host, svg, facets, selected: null, playback: null };
+        labs.set(method, lab);
+        return lab;
+      }
+
+      function setRovingFacet(lab, index, moveFocus = false) {
+        lab.facets.forEach((facet, facetIndex) => facet.setAttribute('tabindex', facetIndex === index ? '0' : '-1'));
+        if (moveFocus) lab.facets[index]?.focus();
+      }
+
+      function resetLab(lab) {
+        lab.playback?.pause?.();
+        lab.playback?.revert?.();
+        lab.playback?.kill?.();
+        window.gsap?.killTweensOf(lab.facets);
+        window.gsap?.set(lab.facets, { clearProps: 'all' });
+        lab.facets.forEach((facet) => {
+          facet.getAnimations().forEach((animation) => animation.cancel());
+          facet._waapiAnimation = null;
+          facet.classList.remove('is-selected');
+          facet.removeAttribute('aria-pressed');
+          facet.dataset.hidden = 'false';
+          facet.style.removeProperty('opacity');
+          facet.style.removeProperty('transform');
+          facet.style.removeProperty('translate');
+          facet.querySelector('path')?.style.removeProperty('fill');
+        });
+        lab.selected = null;
+        lab.playback = null;
+        setRovingFacet(lab, 0);
+        updateStatus(lab.method, 'All facets restored.');
+      }
+
+      function activateFacet(lab, facet, index) {
+        const label = `Facet ${index + 1}`;
+        if (lab.method === 'css') {
+          const selected = facet.classList.toggle('is-selected');
+          facet.setAttribute('aria-pressed', String(selected));
+          updateStatus(lab.method, `${label} ${selected ? 'selected' : 'restored'}; CSS owns the visual transition.`);
+          return;
+        }
+
+        if (lab.method === 'smil') {
+          if (reduceInteractionMotion) {
+            facet.style.opacity = facet.style.opacity === '0.45' ? '' : '0.45';
+            updateStatus(lab.method, `${label} changed without motion.`);
+          } else {
+            facet.querySelector('animate')?.beginElement();
+            updateStatus(lab.method, `${label} started its embedded SMIL pulse.`);
+          }
+          return;
+        }
+
+        if (lab.method === 'waapi') {
+          const hiding = facet.dataset.hidden !== 'true';
+          facet.dataset.hidden = String(hiding);
+          facet.setAttribute('aria-pressed', String(hiding));
+          if (reduceInteractionMotion) {
+            facet.style.opacity = hiding ? '0.14' : '1';
+          } else {
+            if (!facet._waapiAnimation) {
+              facet._waapiAnimation = facet.animate(
+                [
+                  { opacity: 1, transform: 'scale(1)' },
+                  { opacity: 0.14, transform: 'scale(.84)' },
+                ],
+                { duration: 360, easing: 'cubic-bezier(.2,.75,.25,1)', fill: 'both' },
+              );
+              facet._waapiAnimation.pause();
+              facet._waapiAnimation.currentTime = 0;
+            }
+            facet._waapiAnimation.playbackRate = hiding ? 1 : -1;
+            if (!hiding && Number(facet._waapiAnimation.currentTime) <= 0) facet._waapiAnimation.currentTime = 360;
+            facet._waapiAnimation.play();
+          }
+          updateStatus(lab.method, `${label} ${hiding ? 'receded' : 'returned'} with its own Animation object.`);
+          return;
+        }
+
+        if (lab.method === 'gsap') {
+          lab.playback?.kill?.();
+          const sameFacet = lab.selected === facet;
+          lab.selected = sameFacet ? null : facet;
+          if (!window.gsap || reduceInteractionMotion) {
+            lab.facets.forEach((item) => { item.style.opacity = !lab.selected || item === lab.selected ? '1' : '0.16'; });
+          } else {
+            lab.playback = window.gsap.timeline()
+              .to(lab.facets, {
+                opacity: (_, item) => !lab.selected || item === lab.selected ? 1 : 0.16,
+                scale: (_, item) => lab.selected === item ? 1.13 : 1,
+                rotation: (_, item) => lab.selected === item ? -3 : 0,
+                duration: 0.28,
+                ease: 'power2.out',
+                overwrite: 'auto',
+              });
+          }
+          updateStatus(lab.method, sameFacet ? 'Selection cleared.' : `${label} directs the coordinated timeline.`);
+          return;
+        }
+
+        if (lab.method === 'motion') {
+          if (!motionModule || reduceInteractionMotion) {
+            facet.style.opacity = facet.style.opacity === '0.55' ? '' : '0.55';
+          } else {
+            motionModule.animate(facet, { scale: [1, 1.18, 1], rotate: [0, 4, 0] }, { type: 'spring', stiffness: 360, damping: 18 });
+          }
+          updateStatus(lab.method, `${label} responded with ${reduceInteractionMotion ? 'a static state' : 'a spring'}.`);
+          return;
+        }
+
+        if (lab.method === 'anime') {
+          lab.playback?.pause?.();
+          if (!animeModule || reduceInteractionMotion) {
+            lab.facets.forEach((item, itemIndex) => { item.style.opacity = String(Math.max(0.28, 1 - Math.abs(itemIndex - index) * 0.1)); });
+          } else {
+            lab.playback = animeModule.animate(lab.facets, {
+              y: [0, -14, 0],
+              opacity: [1, 0.34, 1],
+              duration: 620,
+              delay: (_, itemIndex) => Math.abs(itemIndex - index) * 42,
+              ease: 'inOutSine',
+            });
+          }
+          updateStatus(lab.method, `${label} launched a distance-based neighbour ripple.`);
+        }
+      }
+
+      methods.forEach((method) => {
+        const lab = mountInteractionMark(method);
+        if (method === 'smil') {
+          lab.facets.forEach((facet) => {
+            const pulse = document.createElementNS(svgNamespace, 'animate');
+            pulse.setAttribute('attributeName', 'opacity');
+            pulse.setAttribute('values', '1;.14;1');
+            pulse.setAttribute('dur', '720ms');
+            pulse.setAttribute('begin', 'indefinite');
+            pulse.setAttribute('fill', 'remove');
+            facet.append(pulse);
+          });
+        }
+
+        lab.facets.forEach((facet, index) => {
+          facet.addEventListener('click', () => {
+            setRovingFacet(lab, index);
+            activateFacet(lab, facet, index);
+          });
+          facet.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              activateFacet(lab, facet, index);
+              return;
+            }
+            const direction = ['ArrowRight', 'ArrowDown'].includes(event.key) ? 1 : ['ArrowLeft', 'ArrowUp'].includes(event.key) ? -1 : 0;
+            if (!direction) return;
+            event.preventDefault();
+            setRovingFacet(lab, (index + direction + lab.facets.length) % lab.facets.length, true);
+          });
+        });
+
+        interactionRoot.querySelector(`[data-interaction-reset="${method}"]`)?.addEventListener('click', () => resetLab(lab));
+      });
+
+      if (motionModule && !reduceInteractionMotion) {
+        const motionLab = labs.get('motion');
+        motionLab.facets.forEach((facet) => {
+          const springTo = (scale) => motionModule.animate(facet, { scale }, { type: 'spring', stiffness: 420, damping: 24 });
+          facet.addEventListener('pointerenter', () => springTo(1.09));
+          facet.addEventListener('pointerleave', () => springTo(1));
+          facet.addEventListener('focus', () => springTo(1.09));
+          facet.addEventListener('blur', () => springTo(1));
+        });
+      }
+    } else {
+      methods.forEach((method) => updateStatus(method, 'The source SVG could not be loaded.'));
+    }
+  }
+</script>
+<script type="module">
+  const prefersLess = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const markUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}";
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const specialIcons = [...document.querySelectorAll('[data-show-icon]')];
+  const showcaseTimelines = new Map();
+  let springAnimate;
+  let animeCreateTimeline;
+  let animeStagger;
+  let animeSvg;
+
+  const response = await fetch(markUrl);
+  const doc = new DOMParser().parseFromString(await response.text(), 'image/svg+xml');
+  const mark = document.importNode(doc.documentElement, true);
+
+  function cloneFor(name) {
+    const svg = mark.cloneNode(true);
+    svg.classList.add('fava');
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', 'ruvebal favicon');
+    const host = document.querySelector(`[data-show-icon="${name}"]`);
+    host.replaceChildren(svg);
+    return { host, svg, paths: [...svg.querySelectorAll('path')] };
+  }
+
+  const mounted = new Map(specialIcons.map(({ dataset }) => [dataset.showIcon, cloneFor(dataset.showIcon)]));
+  const transitionButton = document.querySelector('.transition-trigger');
+  transitionButton.disabled = prefersLess;
+  transitionButton.addEventListener('click', () => {
+    const pressed = transitionButton.getAttribute('aria-pressed') !== 'true';
+    transitionButton.setAttribute('aria-pressed', String(pressed));
+  });
+
+  const keyframe = mounted.get('keyframes').svg;
+  keyframe.classList.add('keyframe-mark');
+  document.querySelector('[data-show-replay="keyframes"]').disabled = prefersLess;
+  document.querySelector('[data-show-replay="keyframes"]').addEventListener('click', () => {
+    keyframe.classList.remove('is-playing');
+    void keyframe.getBoundingClientRect();
+    if (!prefersLess) keyframe.classList.add('is-playing');
+  });
+  keyframe.addEventListener('animationend', () => keyframe.classList.remove('is-playing'));
+
+  const { svg: smilSvg } = mounted.get('smil');
+  const smilGroup = document.createElementNS(svgNS, 'g');
+  while (smilSvg.firstChild) smilGroup.append(smilSvg.firstChild);
+  const smil = document.createElementNS(svgNS, 'animateTransform');
+  smil.setAttribute('attributeName', 'transform');
+  smil.setAttribute('type', 'rotate');
+  smil.setAttribute('values', '-3 512 460; 2 512 460; 0 512 460');
+  smil.setAttribute('dur', '1.15s');
+  smil.setAttribute('begin', 'indefinite');
+  smil.setAttribute('fill', 'freeze');
+  smilGroup.append(smil);
+  smilSvg.append(smilGroup);
+  const smilButton = document.querySelector('[data-show-replay="smil"]');
+  smilButton.disabled = prefersLess;
+  smilButton.addEventListener('click', () => {
+    smilGroup.setAttribute('transform', 'rotate(0 512 460)');
+    smil.beginElement();
+  });
+
+  const { paths: scrubPaths } = mounted.get('waapi');
+  const scrub = document.querySelector('#waapi-scrub');
+  const scrubOutput = document.querySelector('output[for="waapi-scrub"]');
+  const delayPerPath = 35;
+  const pathDuration = 460;
+  const totalDuration = pathDuration + (scrubPaths.length - 1) * delayPerPath;
+  const scrubAnimations = prefersLess ? [] : scrubPaths.map((path, index) => {
+    const animation = path.animate([{ opacity: 0 }, { opacity: 1 }], {
+      duration: pathDuration, delay: index * delayPerPath, easing: 'cubic-bezier(.2,.75,.25,1)', fill: 'both',
+    });
+    animation.pause();
+    animation.currentTime = 0;
+    return animation;
+  });
+  scrub.disabled = prefersLess;
+  scrub.addEventListener('input', () => {
+    const pct = Number(scrub.value);
+    const time = totalDuration * pct / 100;
+    scrubAnimations.forEach((animation) => { animation.currentTime = time; });
+    scrubOutput.value = `${pct}%`;
+    scrubOutput.textContent = `${pct}%`;
+  });
+
+  const { svg: directorSvg, paths: directorPaths } = mounted.get('gsap');
+  if (window.gsap && !prefersLess) {
+    directorSvg.style.transformOrigin = '50% 50%';
+    const timeline = window.gsap.timeline({ paused: true });
+    timeline.addLabel('facets')
+      .fromTo(directorPaths, { opacity: 0 }, { opacity: 1, duration: .24, stagger: .035, ease: 'power2.out', immediateRender: false })
+      .addLabel('settle')
+      .fromTo(directorSvg, { scale: .95, rotation: -2 }, { scale: 1, rotation: 0, duration: .36, ease: 'back.out(1.7)', immediateRender: false }, 'settle-=0.08')
+      .addLabel('hold');
+    showcaseTimelines.set('gsap', timeline);
+  }
+  const replayTimeline = document.querySelector('[data-show-replay="gsap"]');
+  const reverseTimeline = document.querySelector('[data-show-reverse="gsap"]');
+  replayTimeline.disabled = reverseTimeline.disabled = prefersLess || !showcaseTimelines.has('gsap');
+  replayTimeline.addEventListener('click', () => showcaseTimelines.get('gsap')?.restart());
+  reverseTimeline.addEventListener('click', () => {
+    const timeline = showcaseTimelines.get('gsap');
+    if (!timeline) return;
+    if (timeline.time() === 0) timeline.progress(1);
+    timeline.reverse();
+  });
+
+  const { svg: springSvg } = mounted.get('motion');
+  const springTrigger = document.querySelector('.spring-trigger');
+  try {
+    ({ animate: springAnimate } = await import('https://cdn.jsdelivr.net/npm/motion@14.10.1/+esm'));
+    const springIn = () => { if (!prefersLess) springAnimate(springSvg, { scale: 1.045, rotate: 3 }, { type: 'spring', stiffness: 320, damping: 19 }); };
+    const springOut = () => { if (!prefersLess) springAnimate(springSvg, { scale: 1, rotate: 0 }, { type: 'spring', stiffness: 320, damping: 22 }); };
+    springTrigger.addEventListener('pointerenter', springIn);
+    springTrigger.addEventListener('pointerleave', springOut);
+    springTrigger.addEventListener('focus', springIn);
+    springTrigger.addEventListener('blur', springOut);
+    springTrigger.addEventListener('click', springIn);
+    if (prefersLess) springTrigger.disabled = true;
+  } catch (error) {
+    springTrigger.disabled = true;
+    springTrigger.title = 'Motion could not be loaded from the CDN.';
+  }
+
+  const { host: animeHost, svg: animeBase } = mounted.get('anime');
+  const overlay = animeBase.cloneNode(true);
+  overlay.classList.add('draw-overlay');
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.removeAttribute('role');
+  overlay.removeAttribute('aria-label');
+  const overlayPaths = [...overlay.querySelectorAll('path')];
+  overlayPaths.forEach((path) => {
+    path.classList.add('anime-draw-facet');
+    path.setAttribute('fill', 'none');
+    path.removeAttribute('stroke');
+    path.setAttribute('stroke-width', '30');
+    path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('stroke-linejoin', 'round');
+    path.style.opacity = '0';
+  });
+  animeHost.append(overlay);
+  const animeButton = document.querySelector('[data-show-replay="anime"]');
+  let animeTimeline;
+  animeButton.disabled = true;
+  try {
+    ({ createTimeline: animeCreateTimeline, stagger: animeStagger, svg: animeSvg } = await import('https://cdn.jsdelivr.net/npm/animejs@4.5.0/+esm'));
+    animeButton.disabled = prefersLess;
+    animeButton.textContent = prefersLess ? 'Static by preference' : 'Draw the facets';
+    function playAnimeDrawing() {
+      if (prefersLess) return;
+      animeTimeline?.pause();
+      overlayPaths.forEach((path) => { path.style.opacity = '0'; });
+      animeTimeline = animeCreateTimeline({ autoplay: false });
+      animeTimeline
+        .add(animeBase, { opacity: [1, .24], duration: 160, ease: 'outQuad' }, 0)
+        .add(overlayPaths, { opacity: [.92, .92], duration: 1 }, 0)
+        .add(animeSvg.createDrawable('.anime-draw-facet'), {
+          draw: ['0 0', '0 1'], duration: 820, delay: animeStagger(38), ease: 'inOutSine',
+        }, 0)
+        .add(overlayPaths, { opacity: [.92, 0], duration: 260, ease: 'outQuad' }, 1360)
+        .add(animeBase, { opacity: [.24, 1], duration: 260, ease: 'outQuad' }, 1360)
+        .restart();
+    }
+    animeButton.addEventListener('click', playAnimeDrawing);
+    if (!prefersLess && 'IntersectionObserver' in window) {
+      const animeEntryObserver = new IntersectionObserver((entries, observer) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          playAnimeDrawing();
+          observer.disconnect();
+        }
+      }, { threshold: .45 });
+      animeEntryObserver.observe(document.querySelector('[data-show="anime"]'));
+    }
+  } catch (error) {
+    animeButton.textContent = 'Anime.js unavailable';
+  }
+
+  if (prefersLess) {
+    scrubOutput.value = 'Static';
+    scrubOutput.textContent = 'Static';
+  }
+
+  // These authored formats use their own runtimes. Keep the source SVG visible
+  // when reduced motion is requested or a player cannot load.
+  const authoredBase = "{{ '/assets/animations/fava/' | relative_url }}";
+  const authoredStatus = (name) => document.querySelector(`[data-asset-status="${name}"]`);
+  const authoredPreview = (name) => document.querySelector(`[data-authored="${name}"] .asset-preview`);
+  const lottieButton = document.querySelector('[data-asset-replay="lottie"]');
+  const lottieScrub = document.querySelector('[data-lottie-scrub]');
+  const lottieScrubOutput = document.querySelector('output[for="lottie-scrub"]');
+  if (prefersLess) {
+    authoredStatus('lottie').textContent = 'Reduced motion is on; showing the static source SVG.';
+    authoredStatus('dotlottie').textContent = 'Reduced motion is on; showing the static source SVG.';
+    authoredStatus('rive').textContent = 'Reduced motion is on; showing the static source SVG.';
+    lottieButton.textContent = 'Static by preference';
+    lottieScrubOutput.value = 'Static';
+    lottieScrubOutput.textContent = 'Static';
+  } else {
+    try {
+      const lottieModule = await import('https://cdn.jsdelivr.net/npm/lottie-web@5.13.0/+esm');
+      const lottie = lottieModule.default ?? lottieModule;
+      const lottiePlayer = lottie.loadAnimation({
+        container: document.querySelector('[data-lottie-stage]'),
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: `${authoredBase}fava-brand.json`,
+        name: 'ruvebal favicon facet bloom',
+      });
+      lottiePlayer.addEventListener('DOMLoaded', () => {
+        authoredPreview('lottie').classList.add('is-playing');
+        authoredStatus('lottie').textContent = 'Exported Lottie JSON loaded; replay the facet bloom.';
+        lottieButton.disabled = false;
+        lottieButton.textContent = 'Replay bloom';
+        lottieScrub.disabled = false;
+        lottieButton.addEventListener('click', () => {
+          lottieScrub.value = '0';
+          lottieScrubOutput.value = '0%';
+          lottieScrubOutput.textContent = '0%';
+          lottiePlayer.goToAndPlay(0, true);
+        });
+        lottieScrub.addEventListener('input', () => {
+          const progress = Number(lottieScrub.value) / 100;
+          lottiePlayer.goToAndStop(lottiePlayer.getDuration(true) * progress, true);
+          lottieScrubOutput.value = `${lottieScrub.value}%`;
+          lottieScrubOutput.textContent = `${lottieScrub.value}%`;
+        });
+        lottiePlayer.goToAndPlay(0, true);
+      });
+      lottiePlayer.addEventListener('data_failed', () => {
+        authoredStatus('lottie').textContent = 'Lottie JSON could not be loaded; the static source mark is shown.';
+      });
+    } catch (error) {
+      authoredStatus('lottie').textContent = 'Lottie player could not load; the static source mark is shown.';
+      console.error('Lottie player failed to load', error);
+    }
+
+    let dotPlayer;
+    let dotModule;
+    const dotCanvas = document.querySelector('[data-dot-canvas]');
+    const dotButtons = [...document.querySelectorAll('[data-dot-play]')];
+    async function playDotVariant(animationId) {
+      if (!dotModule) return;
+      dotPlayer?.destroy();
+      authoredPreview('dotlottie').classList.toggle('is-night', animationId === 'fava-night');
+      dotPlayer = new dotModule.DotLottie({
+        canvas: dotCanvas,
+        src: `${authoredBase}fava-showcase.lottie`,
+        animationId,
+        autoplay: true,
+        loop: false,
+        backgroundColor: 'transparent',
+      });
+      dotPlayer.addEventListener('load', () => {
+        authoredPreview('dotlottie').classList.add('is-playing');
+        authoredStatus('dotlottie').textContent = `dotLottie v2 bundle loaded: ${animationId === 'fava-night' ? 'night' : 'brand'} palette.`;
+      });
+      dotPlayer.addEventListener('loadError', (event) => {
+        authoredStatus('dotlottie').textContent = 'dotLottie bundle could not be loaded; the static source mark is shown.';
+        console.error('dotLottie failed to load', event);
+      });
+    }
+    try {
+      dotModule = await import('https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web@0.82.1/+esm');
+      dotButtons.forEach((button) => {
+        button.disabled = false;
+        button.addEventListener('click', () => playDotVariant(button.dataset.dotPlay));
+      });
+      authoredStatus('dotlottie').textContent = 'Exported dotLottie v2 bundle ready; choose a palette.';
+      playDotVariant('fava-brand');
+    } catch (error) {
+      authoredStatus('dotlottie').textContent = 'dotLottie runtime could not load; the static source mark is shown.';
+      console.error('dotLottie runtime failed to load', error);
+    }
+
+    const riveUrl = `${authoredBase}rive/fava-motion.riv`;
+    try {
+      const riveAsset = await fetch(riveUrl, { method: 'HEAD' });
+      if (!riveAsset.ok) throw new Error('The signed .riv export is not present yet.');
+      const { Rive } = await import('https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.49.4/+esm');
+      let rivePlayer;
+      const riveCanvas = document.querySelector('[data-rive-canvas]');
+      const riveButton = document.querySelector('[data-asset-replay="rive"]');
+      rivePlayer = new Rive({
+        src: riveUrl,
+        canvas: riveCanvas,
+        autoplay: false,
+        onLoad: () => {
+          authoredPreview('rive').classList.add('is-playing');
+          authoredStatus('rive').textContent = 'Exported Rive file loaded; replay its one-shot reveal.';
+          riveButton.disabled = false;
+          riveButton.textContent = 'Replay reveal';
+          riveButton.addEventListener('click', () => rivePlayer.play('ruvebal Favicon Reveal'));
+          rivePlayer.play('ruvebal Favicon Reveal');
+        },
+        onLoadError: (error) => {
+          authoredStatus('rive').textContent = 'Rive file could not be loaded; the static source mark is shown.';
+          console.error('Rive file failed to load', error);
+        },
+      });
+    } catch (error) {
+      authoredStatus('rive').textContent = 'RML source is verified. Export the signed .riv with the lesson command after rive login.';
+    }
+  }
+</script>

@@ -129,6 +129,12 @@ Copy from here only for later units. Fill the six `INPUT` slots. Do not skip ste
 - The conceptual model — diagram in prose or ASCII; no code yet.
 - Evidence or declared gap (Step A).
 - ONE TTOD epigraph at the conceptual turn, cited by ID.
+- Mark only genuine scan anchors as `concept`, `decision`, `practice`,
+  `caution`, or `evidence` per `lesson-scribe` §7.1. Markdown carries the
+  semantic class and plain-text label; theme CSS owns colour and dark mode.
+- Comparison tables keep whole words. Publish the intact table inside an
+  overflow wrapper when needed; never use word-breaking or smaller type to
+  force technical terms into narrow columns.
 - Deck: reveal.js, data/code/tokens separated, ≤ 12 slides, speaker-facing.
   Slides carry claims, not paragraphs.
 

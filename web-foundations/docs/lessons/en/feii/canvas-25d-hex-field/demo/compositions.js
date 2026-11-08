@@ -1,6 +1,6 @@
 /**
  * Living Hexaform compositions — one preset per archive hub endpoint (UDIT).
- * Mirrors docs/_data/archive_covers.manifest.json seeds/families.
+ * Mirrors the published archive-cover manifest's seeds and families.
  *
  * Visual grammar (archive-lessons-en.svg):
  *   solid soft hex fills · double-depth grid · chaotic closer/bigger centre cluster

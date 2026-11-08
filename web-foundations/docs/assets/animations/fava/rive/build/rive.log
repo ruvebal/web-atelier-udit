@@ -1,0 +1,26 @@
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="114" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="113" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="112" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="111" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="110" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="109" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="108" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="107" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="106" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="105" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="104" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="103" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="102" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="101" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] error   scene.rml:1:1  [rml] objectId="100" is not a reference; ids are numeric "client:object", like "0:12"
+[13:35:29.423] rive  build failed (0 bytes, 31ms, 15 errors, 0 warnings)
+[13:35:40.252] rive  verified (0 bytes, 33ms, 0 errors, 0 warnings)
+[13:35:47.481] rive  built (9765 bytes, 32ms, 0 errors, 0 warnings)
+[13:35:47.482] rive  showing FAVA [1/1]
+[13:35:47.482] rive  viewport 1024x920 @1x
+[13:35:47.506] rive  wrote /private/tmp/fava-rive.png
+[13:36:03.353] rive  built (9765 bytes, 33ms, 0 errors, 0 warnings)
+[13:36:03.354] rive  showing FAVA [1/1]
+[13:36:03.354] rive  viewport 1024x920 @1x
+[13:36:03.385] rive  wrote /private/tmp/fava-rive.png
+[13:44:27.371] rive  verified (0 bytes, 31ms, 0 errors, 0 warnings)

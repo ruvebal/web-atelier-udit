@@ -236,7 +236,6 @@ img.footer-logo {
 
 /* Archive hub heroes — Hexaform + nebula as hero-section background (not a main figure) */
 .hero-section--archive {
-	--archive-hex-corner: 7%;
 	position: relative;
 	isolation: isolate;
 	overflow: hidden;
@@ -248,14 +247,6 @@ img.footer-logo {
 		var(--hero-archive-image);
 	background-size: cover;
 	background-position: center;
-	clip-path: polygon(
-		var(--archive-hex-corner) 0,
-		calc(100% - var(--archive-hex-corner)) 0,
-		100% 50%,
-		calc(100% - var(--archive-hex-corner)) 100%,
-		var(--archive-hex-corner) 100%,
-		0 50%
-	);
 	border-bottom: 1px solid rgb(226 177 39 / 0.28);
 }
 
@@ -264,6 +255,134 @@ img.footer-logo {
 .hero-section--archive .hero-section__lede {
 	position: relative;
 	z-index: 1;
+}
+
+/*
+ * Readability plane for animated geometry heroes.
+ * It is translucent glass without backdrop blur: the canvas remains visible,
+ * while the oversized polygon is clipped by the hero so its full outline is
+ * never perceived as a card around the content.
+ */
+.hero-section--archive .hero-foreground-plane,
+.hero-section--archive.hero-foreground-plane {
+	--hero-plane-overhang-inline: max(16vw, 9rem);
+	--hero-plane-overhang-block: clamp(3.5rem, 9vw, 7rem);
+	position: relative;
+	z-index: 1;
+	isolation: isolate;
+}
+
+.hero-section--archive .hero-foreground-plane::before,
+.hero-section--archive.hero-foreground-plane::before {
+	content: '';
+	position: absolute;
+	z-index: 0;
+	inset:
+		calc(-1 * var(--hero-plane-overhang-block))
+		calc(-1 * var(--hero-plane-overhang-inline));
+	pointer-events: none;
+	clip-path: polygon(9% 0, 91% 0, 100% 50%, 91% 100%, 9% 100%, 0 50%);
+	background:
+		radial-gradient(ellipse at 50% 48%, rgb(5 8 22 / 0.68), rgb(5 8 22 / 0.5) 48%, rgb(5 8 22 / 0.22) 100%),
+		linear-gradient(118deg, rgb(10 18 39 / 0.5), rgb(10 18 39 / 0.22) 48%, rgb(29 78 216 / 0.14));
+	border: 1px solid rgb(255 255 255 / 0.16);
+	box-shadow:
+		inset 0 1px 0 rgb(255 255 255 / 0.08),
+		0 28px 80px rgb(0 0 0 / 0.16);
+}
+
+.hero-section--archive .hero-foreground-plane > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* When the foreground plane is also the canvas mount, reserve explicit layers. */
+.hero-section--archive.hero-foreground-plane::before {
+	z-index: 1;
+}
+
+.hero-section--archive.hero-foreground-plane > :not(.hexaform-live-bg) {
+	position: relative;
+	z-index: 2;
+}
+
+.hero-section--archive .hero-foreground-kicker {
+	margin: 0.35rem auto 1rem;
+	color: #f7f2e8;
+	font-size: clamp(1rem, 2vw, 1.25rem);
+	font-style: italic;
+	letter-spacing: 0.015em;
+	opacity: 0.9;
+}
+
+/* One-shot, low-amplitude ruvebal favicon entrance on the landing page. */
+.fava-hero-mark {
+	display: inline-grid;
+	place-items: center;
+	transform-origin: center;
+	animation: fava-mark-enter 680ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.fava-hero-mark > img,
+.fava-hero-svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.fava-hero-facet {
+	cursor: pointer;
+	transition: filter 180ms ease, opacity 180ms ease, stroke 180ms ease;
+}
+
+.fava-hero-facet:hover {
+	opacity: 0.82;
+}
+
+.fava-hero-facet.is-inverted {
+	filter: invert(1);
+}
+
+.fava-hero-facet:focus-visible {
+	stroke: var(--focus-outline);
+	stroke-width: 8;
+	stroke-linejoin: round;
+	paint-order: stroke fill;
+}
+
+.fava-hero-mark.is-paused .fava-hero-facet {
+	animation-play-state: paused !important;
+}
+
+.fava-facet-help {
+	max-width: 34rem;
+	margin: -0.75rem auto 0;
+	color: var(--hero-fg);
+	font-size: var(--text-sm);
+	line-height: 1.35;
+	opacity: 0.76;
+}
+
+@keyframes fava-mark-enter {
+	from {
+		opacity: 0.35;
+		transform: translateY(12px) scale(0.94);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fava-hero-mark {
+		animation: none;
+	}
+
+	.fava-hero-facet {
+		transition: none;
+	}
 }
 
 /* Living Hexaform canvas (archive-hero-live.html) — SVG stays as reduced-motion / noscript fallback */
@@ -280,6 +399,11 @@ img.footer-logo {
 	width: 100%;
 	height: 100%;
 	pointer-events: none;
+}
+
+/* Some lesson-layout track pages use the header itself as the hero mount. */
+.lesson-header.hero-section--archive.hero-foreground-plane .hexaform-live-bg {
+	z-index: 0;
 }
 
 .hero-section--archive.has-hexaform-live {
@@ -336,25 +460,21 @@ img.footer-logo {
 	padding: clamp(2rem, 5vw, 3.5rem) 1rem 2rem;
 }
 
-.lesson-header.hero-section--archive {
+.hero-section--archive > .lesson-header {
 	margin-bottom: 0;
-	padding: clamp(2rem, 5vw, 3.5rem) 1rem 2rem;
+	padding: 0;
 	border-bottom: none;
-	width: 100vw;
-	max-width: 100vw;
-	margin-left: calc(50% - 50vw);
-	margin-right: calc(50% - 50vw);
 	box-sizing: border-box;
 }
 
-.lesson-header.hero-section--archive .lesson-title,
-.lesson-header.hero-section--archive .lesson-subtitle,
-.lesson-header.hero-section--archive .lesson-meta,
-.lesson-header.hero-section--archive .lesson-tagline {
+.hero-section--archive > .lesson-header .lesson-title,
+.hero-section--archive > .lesson-header .lesson-subtitle,
+.hero-section--archive > .lesson-header .lesson-meta,
+.hero-section--archive > .lesson-header .lesson-tagline {
 	color: inherit;
 }
 
-.lesson-header.hero-section--archive,
+.hero-section--archive > .lesson-header,
 .hero-section--archive .hero-section__inner {
 	text-align: center;
 }
@@ -364,12 +484,12 @@ img.footer-logo {
 	margin-inline: auto;
 }
 
-.lesson-header.hero-section--archive .lesson-author-date,
+.hero-section--archive > .lesson-header .lesson-author-date,
 .hero-section--archive .hero-section__inner .lesson-meta {
 	justify-content: center;
 }
 
-.lesson-header.hero-section--archive .lesson-url {
+.hero-section--archive > .lesson-header .lesson-url {
 	text-align: center;
 }
 
@@ -379,6 +499,12 @@ img.footer-logo {
 		padding-left: 1rem;
 		padding-right: 1rem;
 	}
+
+	.hero-section--archive .hero-foreground-plane,
+	.hero-section--archive.hero-foreground-plane {
+		--hero-plane-overhang-inline: 6rem;
+		--hero-plane-overhang-block: 4rem;
+	}
 }
 
 @media print {
@@ -387,6 +513,11 @@ img.footer-logo {
 		background: none !important;
 		color: inherit;
 		border-bottom: 1px solid var(--border-light);
+	}
+
+	.hero-section--archive .hero-foreground-plane::before,
+	.hero-section--archive.hero-foreground-plane::before {
+		display: none;
 	}
 }
 
@@ -628,15 +759,34 @@ html.dark,
 .prose ol {
 	padding-left: 1.25rem;
 }
-.prose table {
-	display: block; /* intrinsic: allow horizontal scrolling if needed */
+.lesson-table-scroll {
 	inline-size: 100%;
+	min-inline-size: 0;
+	max-inline-size: 100%;
+	margin: 1rem 0;
 	overflow-x: auto;
+	overscroll-behavior-inline: contain;
 	-webkit-overflow-scrolling: touch;
 	border: 1px solid var(--border-light);
 	border-radius: 8px;
 	background: var(--bg);
-	margin: 1rem 0;
+	scrollbar-gutter: stable;
+}
+
+.lesson-table-scroll:focus-visible {
+	outline: 3px solid var(--focus-outline);
+	outline-offset: 3px;
+}
+
+.prose table {
+	display: table;
+	inline-size: 100%;
+	min-inline-size: 42rem;
+	margin: 0;
+	border: 0;
+	border-collapse: separate;
+	border-spacing: 0;
+	background: var(--bg);
 }
 .prose table thead th {
 	position: sticky;
@@ -650,13 +800,20 @@ html.dark,
 	text-align: left;
 	vertical-align: top;
 	border-bottom: 1px solid var(--border-light);
-	word-break: break-word;
+	/* Tables scroll when necessary; terminology must never fracture mid-word. */
+	word-break: normal;
+	overflow-wrap: normal;
+	hyphens: none;
 }
 .prose table th {
 	font-weight: 700;
 }
 .prose table tbody tr:nth-child(even) {
 	background: var(--bg-light);
+}
+
+.prose table tbody tr:last-child > * {
+	border-bottom: 0;
 }
 
 .prose table.track-session-table th:first-child,
@@ -1320,6 +1477,7 @@ html.dark,
 	grid-template-columns: 280px 1fr;
 	gap: 0;
 	min-height: 0;
+	overflow-x: clip;
 	max-width: 100%;
 	margin: 0;
 	padding: 0;
@@ -1663,7 +1821,9 @@ html.dark,
 
 .lesson-main {
 	overflow-y: visible;
+	overflow-x: clip;
 	height: auto;
+	min-inline-size: 0;
 	min-height: 0;
 	scroll-behavior: smooth;
 	position: relative;
@@ -1699,6 +1859,8 @@ html.dark,
 }
 
 .lesson-content {
+	inline-size: 100%;
+	min-inline-size: 0;
 	max-width: 900px;
 	margin: 0 auto;
 	padding: 2rem 3rem;
@@ -2016,7 +2178,61 @@ html.dark,
 	font-weight: 600;
 }
 
-/* In-lesson key idea / summary callouts (lighter than .lesson-framing) */
+/*
+ * Semantic lesson emphasis. Markdown chooses the meaning; the theme owns all
+ * colour and presentation. Keep these blocks rare enough to remain useful.
+ */
+.lesson-emphasis {
+	--lesson-emphasis-color: var(--primary);
+	margin: 1.25rem 0 1.5rem;
+	padding: 1rem 1.15rem;
+	border: 1px solid color-mix(in srgb, var(--lesson-emphasis-color) 34%, var(--border-light));
+	border-inline-start: 0.35rem solid var(--lesson-emphasis-color);
+	border-radius: 0.75rem;
+	background: var(--bg-light);
+	background: color-mix(in srgb, var(--lesson-emphasis-color) 9%, var(--bg));
+	box-shadow: 0 0.5rem 1.5rem color-mix(in srgb, var(--lesson-emphasis-color) 8%, transparent);
+}
+
+.lesson-emphasis--concept {
+	--lesson-emphasis-color: var(--primary);
+}
+
+.lesson-emphasis--decision {
+	--lesson-emphasis-color: var(--link);
+}
+
+.lesson-emphasis--practice {
+	--lesson-emphasis-color: var(--foreground);
+}
+
+.lesson-emphasis--caution {
+	--lesson-emphasis-color: var(--link-inverse);
+}
+
+.lesson-emphasis--evidence {
+	--lesson-emphasis-color: var(--focus-outline);
+}
+
+.lesson-emphasis__label {
+	margin: 0 0 0.35rem;
+	color: var(--text-primary);
+	font-size: var(--text-sm);
+	font-weight: 750;
+	letter-spacing: 0.08em;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.lesson-emphasis > :not(.lesson-emphasis__label) {
+	margin-block: 0;
+}
+
+.lesson-emphasis > :not(.lesson-emphasis__label) + * {
+	margin-top: 0.55rem;
+}
+
+/* In-lesson key idea / summary callouts (legacy lighter treatment). */
 .lesson-idea {
 	margin: 1.25rem 0;
 	padding: 0.85rem 1.15rem;
@@ -2201,6 +2417,8 @@ html.dark,
 
 .lesson-body {
 	margin-top: 2rem;
+	min-inline-size: 0;
+	max-inline-size: 100%;
 }
 
 .lesson-body :where(h2, h3, h4) {
@@ -2578,5 +2796,543 @@ main#main:has(.lesson-wrapper) {
 	pre {
 		white-space: pre-wrap;
 		border: 1px solid #ddd;
+	}
+}
+
+/* SVG animation master-session demo — inherits the global light/dark theme. */
+.svg-motion-demo {
+	--motion-radius: 1rem;
+	--motion-radius-small: 0.75rem;
+	--motion-surface: color-mix(in srgb, var(--bg-light) 94%, transparent);
+	--motion-stage: radial-gradient(
+		ellipse at 50% 48%,
+		color-mix(in srgb, var(--bg-light) 88%, var(--text-primary) 5%),
+		var(--bg) 76%
+	);
+	width: min(100% - 2rem, 74rem);
+	margin-inline: auto;
+	padding-block: clamp(1.5rem, 4vw, 3rem) 3rem;
+	color: var(--text-primary);
+}
+
+.svg-motion-demo__rail {
+	position: sticky;
+	top: calc(var(--site-header-height) + 0.5rem);
+	z-index: 15;
+	display: flex;
+	width: fit-content;
+	max-width: 100%;
+	margin: 0 auto clamp(2rem, 5vw, 4rem);
+	padding: 0.35rem;
+	overflow-x: auto;
+	border: 1px solid var(--border-light);
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--bg) 92%, transparent);
+	box-shadow: 0 0.75rem 2.5rem var(--shadow-color);
+	scrollbar-width: none;
+}
+
+.svg-motion-demo__rail::-webkit-scrollbar {
+	display: none;
+}
+
+.svg-motion-demo__rail a {
+	padding: 0.45rem 0.75rem;
+	border-radius: 999px;
+	color: var(--text-secondary);
+	font-size: var(--text-sm);
+	font-weight: 650;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.svg-motion-demo__rail a:hover,
+.svg-motion-demo__rail a:focus-visible {
+	color: var(--on-primary);
+	background: var(--primary);
+}
+
+.svg-motion-demo:has(#same-result:target) .svg-motion-demo__rail a[href='#same-result'],
+.svg-motion-demo:has(#best-in-show:target) .svg-motion-demo__rail a[href='#best-in-show'],
+.svg-motion-demo:has(#authored-assets:target) .svg-motion-demo__rail a[href='#authored-assets'],
+.svg-motion-demo:has(#verdict:target) .svg-motion-demo__rail a[href='#verdict'] {
+	color: var(--text-primary);
+	background: var(--code-inline-bg);
+}
+
+.svg-motion-demo__snap {
+	scroll-margin-top: calc(var(--site-header-height) + 4rem);
+	scroll-snap-align: start;
+	scroll-snap-stop: normal;
+}
+
+.svg-motion-demo__round {
+	padding-block: 0 4rem;
+}
+
+.svg-motion-demo__intro h1 {
+	max-width: 18ch;
+	margin: 0;
+	font-size: clamp(2.2rem, 5vw, 4rem);
+	line-height: 0.98;
+	letter-spacing: -0.055em;
+}
+
+.svg-motion-demo h2 {
+	margin: 0;
+	color: var(--text-primary);
+	font-size: 1.1rem;
+	letter-spacing: -0.02em;
+}
+
+.svg-motion-demo p {
+	color: var(--text-secondary);
+}
+
+.svg-motion-demo .lede {
+	max-width: 70ch;
+	margin: 1rem 0 1.5rem;
+}
+
+.svg-motion-demo .toolbar,
+.svg-motion-demo .asset-controls,
+.svg-motion-demo .showcase-control {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.6rem;
+}
+
+.svg-motion-demo .toolbar {
+	margin: 1rem 0 1.5rem;
+}
+
+.svg-motion-demo button {
+	border: 1px solid var(--border-hover);
+	border-radius: 999px;
+	padding: 0.55rem 0.9rem;
+	background: var(--primary);
+	color: var(--on-primary);
+	font: inherit;
+	font-size: 0.9rem;
+	font-weight: 650;
+	cursor: pointer;
+}
+
+.svg-motion-demo button:hover:not(:disabled) {
+	background: var(--primary-hover);
+}
+
+.svg-motion-demo button:disabled {
+	cursor: not-allowed;
+	opacity: 0.55;
+}
+
+.svg-motion-demo button:focus-visible,
+.svg-motion-demo a:focus-visible,
+.svg-motion-demo input:focus-visible {
+	outline: 3px solid var(--focus-outline);
+	outline-offset: 3px;
+}
+
+.svg-motion-demo .status {
+	color: var(--muted);
+	font-size: 0.88rem;
+}
+
+.svg-motion-demo .grid,
+.svg-motion-demo .showcase-grid,
+.svg-motion-demo .asset-grid,
+.svg-motion-demo .verdict {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+	gap: 1rem;
+}
+
+.svg-motion-demo .asset-grid,
+.svg-motion-demo .showcase-grid,
+.svg-motion-demo .verdict {
+	margin-top: 1rem;
+}
+
+.svg-motion-demo .card,
+.svg-motion-demo .showcase-card,
+.svg-motion-demo .asset-card,
+.svg-motion-demo .verdict > div {
+	min-width: 0;
+	border: 1px solid var(--border-light);
+	border-radius: var(--motion-radius);
+	background: var(--motion-surface);
+	padding: 1rem;
+	box-shadow: 0 0.75rem 2rem var(--shadow-color);
+}
+
+.svg-motion-demo .card-head {
+	display: flex;
+	align-items: start;
+	justify-content: space-between;
+	gap: 0.8rem;
+}
+
+.svg-motion-demo .category {
+	display: inline-block;
+	border: 1px solid var(--code-inline-border);
+	border-radius: 999px;
+	padding: 0.2rem 0.55rem;
+	background: var(--code-inline-bg);
+	color: var(--text-secondary);
+	font-size: 0.72rem;
+	font-weight: 650;
+	white-space: nowrap;
+}
+
+.svg-motion-demo .stage,
+.svg-motion-demo .asset-preview {
+	display: grid;
+	min-height: 12.5rem;
+	place-items: center;
+	overflow: hidden;
+	margin: 0.85rem 0;
+	border: 1px solid var(--border-light);
+	border-radius: var(--motion-radius-small);
+	background: var(--motion-stage);
+}
+
+.svg-motion-demo .asset-preview.is-night {
+	background: var(--code-block-bg);
+}
+
+.svg-motion-demo .fava {
+	display: block;
+	width: min(72%, 11.25rem);
+	height: auto;
+	overflow: visible;
+}
+
+.svg-motion-demo .card-copy {
+	min-height: 5.5em;
+	margin: 0.6rem 0 0.85rem;
+	font-size: 0.88rem;
+}
+
+.svg-motion-demo .code-note,
+.svg-motion-demo .asset-status {
+	color: var(--muted);
+	font-size: 0.78rem;
+}
+
+.svg-motion-demo .code-note {
+	margin: 0.6rem 0 0;
+}
+
+.svg-motion-demo .asset-card p {
+	margin-bottom: 0;
+	font-size: 0.9rem;
+}
+
+.svg-motion-demo .asset-controls {
+	margin-top: 0.75rem;
+}
+
+.svg-motion-demo .asset-controls a {
+	font-size: 0.8rem;
+	font-weight: 650;
+}
+
+.svg-motion-demo .asset-card > p:last-child {
+	margin-top: 0.85rem;
+}
+
+.svg-motion-demo .asset-status {
+	display: block;
+	min-height: 2.4em;
+	margin: 0.55rem 0;
+}
+
+.svg-motion-demo .asset-preview img {
+	display: block;
+	width: min(72%, 10.625rem);
+	height: 10.625rem;
+	object-fit: contain;
+}
+
+.svg-motion-demo .asset-preview.is-playing img {
+	display: none;
+}
+
+.svg-motion-demo .asset-preview [data-lottie-stage] {
+	width: 100%;
+	height: 11.875rem;
+}
+
+.svg-motion-demo .asset-preview [data-lottie-stage] svg {
+	width: 100%;
+	height: 100%;
+}
+
+.svg-motion-demo .asset-preview canvas {
+	display: block;
+	width: min(100%, 16.25rem);
+	height: 11.875rem;
+}
+
+.svg-motion-demo .round-title {
+	margin: 0 0 0.4rem;
+	font-size: clamp(1.7rem, 3vw, 2.4rem);
+	letter-spacing: -0.04em;
+}
+
+.svg-motion-demo .showcase-card .stage {
+	min-height: 10.625rem;
+}
+
+.svg-motion-demo .showcase-card .fava {
+	width: min(64%, 9rem);
+}
+
+.svg-motion-demo .interaction-stage {
+	position: relative;
+}
+
+.svg-motion-demo .interaction-stage .fava {
+	width: min(72%, 10.5rem);
+}
+
+.svg-motion-demo .interaction-facet {
+	cursor: pointer;
+	transform-box: fill-box;
+	transform-origin: center;
+}
+
+.svg-motion-demo .interaction-facet path {
+	transition: fill 220ms ease, opacity 220ms ease, filter 220ms ease;
+}
+
+.svg-motion-demo .interaction-facet:focus {
+	outline: none;
+}
+
+.svg-motion-demo .interaction-facet:focus-visible path {
+	stroke: var(--focus-outline);
+	stroke-width: 8;
+	stroke-linejoin: round;
+	paint-order: stroke fill;
+}
+
+.svg-motion-demo [data-interaction='css'] .interaction-facet:hover path,
+.svg-motion-demo [data-interaction='css'] .interaction-facet:focus-visible path,
+.svg-motion-demo [data-interaction='css'] .interaction-facet.is-selected path {
+	fill: var(--focus-outline);
+	opacity: 0.62;
+}
+
+.svg-motion-demo .interaction-status {
+	margin: 0.65rem 0 0;
+	color: var(--muted);
+	font-size: 0.78rem;
+}
+
+.svg-motion-demo .showcase-card[data-show='anime'] .stage {
+	min-height: 12.8rem;
+}
+
+.svg-motion-demo .showcase-card[data-show='anime'] .fava,
+.svg-motion-demo .showcase-card[data-show='anime'] .draw-overlay {
+	width: min(72%, 11.25rem);
+}
+
+.svg-motion-demo .anime-draw-facet {
+	stroke: var(--focus-outline);
+	filter: drop-shadow(0 0 0.1rem var(--bg));
+}
+
+.svg-motion-demo .showcase-copy {
+	min-height: 4.2em;
+	margin: 0.65rem 0;
+	font-size: 0.88rem;
+}
+
+.svg-motion-demo .showcase-trigger {
+	padding: 0.4rem;
+	border: 0;
+	border-radius: var(--motion-radius-small);
+	background: transparent;
+}
+
+.svg-motion-demo .showcase-trigger:hover:not(:disabled) {
+	background: var(--code-inline-bg);
+}
+
+.svg-motion-demo .showcase-trigger svg {
+	transform-origin: center;
+}
+
+.svg-motion-demo .transition-trigger svg {
+	transition: transform 240ms ease, filter 240ms ease;
+}
+
+.svg-motion-demo .transition-trigger:hover svg,
+.svg-motion-demo .transition-trigger:focus-visible svg,
+.svg-motion-demo .transition-trigger[aria-pressed='true'] svg {
+	transform: translateY(-3px) rotate(-3deg) scale(1.04);
+	filter: drop-shadow(0 0.5rem 0.5rem var(--shadow-color));
+}
+
+.svg-motion-demo .keyframe-mark.is-playing {
+	animation: signature-bloom 1050ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+	transform-origin: center;
+}
+
+@keyframes signature-bloom {
+	0% { opacity: 0.3; transform: translateY(10px) scale(0.88) rotate(-5deg); }
+	62% { opacity: 1; transform: translateY(-2px) scale(1.035) rotate(1.5deg); }
+	100% { opacity: 1; transform: none; }
+}
+
+.svg-motion-demo .draw-overlay {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: min(64%, 9rem);
+	height: auto;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.svg-motion-demo .showcase-stage {
+	position: relative;
+}
+
+.svg-motion-demo .scrub-label {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	gap: 0.6rem;
+	color: var(--text-secondary);
+	font-size: 0.82rem;
+}
+
+.svg-motion-demo .scrub-label input {
+	flex: 1;
+	accent-color: var(--primary);
+}
+
+.svg-motion-demo .scrub-label output {
+	min-width: 3.5ch;
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
+.svg-motion-demo .best-at {
+	display: inline-block;
+	margin: 0.45rem 0 0;
+	color: var(--link-on-dark);
+	font-size: 0.8rem;
+	font-weight: 700;
+}
+
+.svg-motion-demo .verdict > div {
+	background: var(--code-block-bg);
+	color: var(--code-block-fg);
+}
+
+.svg-motion-demo .verdict p {
+	margin: 0.4rem 0 0;
+	color: var(--code-block-fg);
+	font-size: 0.9rem;
+	opacity: 0.82;
+}
+
+.svg-motion-demo__footer {
+	margin-top: 1rem;
+	color: var(--muted);
+	font-size: 0.85rem;
+}
+
+.svg-motion-demo__footer a,
+.svg-motion-demo .asset-controls a {
+	color: var(--link-on-dark);
+}
+
+@keyframes facets-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.svg-motion-demo .method--keyframes.is-playing .facet {
+	animation: facets-in 420ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+	animation-delay: calc(var(--order) * 34ms);
+}
+
+.svg-motion-demo .method--transition .facet {
+	transition: opacity 420ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.svg-motion-demo .method--transition.is-preparing .facet {
+	transition: none !important;
+}
+
+.svg-motion-demo .method--transition.is-hidden .facet {
+	opacity: 0;
+}
+
+.svg-motion-demo .method--transition.is-visible .facet {
+	opacity: 1;
+	transition-delay: calc(var(--order) * 34ms);
+}
+
+@supports selector(html:has(.svg-motion-demo)) {
+	html:has(.svg-motion-demo) {
+		scroll-behavior: smooth;
+		scroll-padding-top: calc(var(--site-header-height) + 4rem);
+		scroll-snap-type: y proximity;
+	}
+}
+
+@media (max-width: 640px) {
+	.svg-motion-demo {
+		width: min(100% - 1rem, 74rem);
+	}
+
+	.svg-motion-demo__rail {
+		justify-content: start;
+		width: 100%;
+	}
+
+	.svg-motion-demo .card-copy,
+	.svg-motion-demo .showcase-copy {
+		min-height: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	@supports selector(html:has(.svg-motion-demo)) {
+		html:has(.svg-motion-demo) {
+			scroll-behavior: auto;
+			scroll-snap-type: none;
+		}
+	}
+
+	.svg-motion-demo .method--keyframes .facet,
+	.svg-motion-demo .method--transition .facet {
+		animation: none !important;
+		transition: none !important;
+		opacity: 1 !important;
+	}
+
+	.svg-motion-demo .transition-trigger svg,
+	.svg-motion-demo .transition-trigger:hover svg,
+	.svg-motion-demo .transition-trigger:focus-visible svg {
+		transition: none !important;
+		transform: none !important;
+		filter: none !important;
+	}
+
+	.svg-motion-demo .keyframe-mark.is-playing {
+		animation: none !important;
+	}
+
+	.svg-motion-demo .interaction-facet path {
+		transition: none !important;
 	}
 }

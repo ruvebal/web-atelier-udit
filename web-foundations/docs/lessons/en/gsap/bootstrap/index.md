@@ -63,8 +63,8 @@ You've learned CSS animations. They're elegant for simple transitions. But as a 
 | Design Intent | CSS Reality | GSAP Solution |
 |--------------|-------------|---------------|
 | "Animate each letter sequentially" | Manual delays for every character | `SplitText` + `stagger` |
-| "Draw this logo path on scroll" | Limited `stroke-dashoffset` control | `DrawSVG` + `ScrollTrigger` |
-| "Morph this circle into a star" | Impossible | `MorphSVG` plugin |
+| "Draw this logo path on scroll" | Full-path reveal with dash values; manual partial segments | `DrawSVG` + `ScrollTrigger` for partial segments and timeline integration |
+| "Morph this circle into a star" | Possible for compatible paths where CSS `d: path()` is supported; not a broadly interoperable default | `MorphSVG` normalizes paths and handles shape matching |
 | "Sync 10 animations perfectly" | Callback hell | `Timeline` with labels |
 | "Pause, reverse, scrub with scroll" | Not possible | Full playback control |
 

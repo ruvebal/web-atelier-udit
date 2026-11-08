@@ -1027,6 +1027,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 > **✅ Pure CSS + SVG - No JavaScript Required**
 
+> **Master session:** [Compare seven SVG animation techniques on the ruvebal favicon]({{ '/lessons/en/web-animations/svg-master-session/' | relative_url }}). The session covers CSS transitions/keyframes, SVG SMIL, WAAPI, GSAP, Motion, Anime.js, and the delivery costs of Lottie, dotLottie, and Rive.
+
 **Goal**: Animate SVG graphics using pure CSS for professional, scalable animations.
 
 ---
