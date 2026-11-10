@@ -151,7 +151,7 @@ value += velocity * dt;
 
 `damping ≈ 1` is a critically damped starting point: little or no overshoot, frame-rate-independent when `dt` is bounded, and a gentle return to the exact frontal mark. This is physics-inspired interaction design, not a claim that the icon is a physical body.
 
-The production mapping also follows a **foveal centre rule**: pointer displacement is measured from the favicon's own centre, not the page or hero centre. A small central dead zone produces exactly zero camera response; outside it, `smoothstep()` raises the gain nonlinearly toward the perimeter. Yaw, pitch, depth, and plane travel all use that gain. Perspective scale is clamped independently, so a near facet can move forward without suddenly becoming dominant:
+The production mapping also follows a **foveal centre rule**: pointer displacement is measured from the favicon's own centre, not the page or hero centre. The landing mark listens across the viewport, so its 2.5D composition continues to respond after the pointer leaves the icon; actual icon hover remains a separate signal that yields the background camera. A small central dead zone produces exactly zero camera response; outside it, `smoothstep()` raises the gain nonlinearly toward the viewport perimeter. Yaw, pitch, depth, and plane travel all use that gain. Facet extrusion has its own multiplier, while perspective scale remains clamped, so depth can increase without a near facet suddenly dominating:
 
 ```js
 const radius = Math.min(1, Math.hypot(pointerX, pointerY));
@@ -160,6 +160,7 @@ const gain = t * t * (3 - 2 * t);
 
 target.yaw = pointerX * gain * yawAmplitude;
 target.depth = gain;
+projectedZ *= extrusionStrength;
 perspective = clamp(rawPerspective, 0.94, 1.06);
 ```
 
