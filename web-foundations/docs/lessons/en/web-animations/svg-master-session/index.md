@@ -164,7 +164,7 @@ projectedZ *= extrusionStrength;
 perspective = clamp(rawPerspective, 0.94, 1.06);
 ```
 
-**Pen-tablet note:** a Wacom pen can emit tiny, high-frequency pointer excursions while the hand is visually still. The camera therefore conditions input separately from facet hit testing: the camera dead zone is slightly larger (`0.16` here), and the normalized pointer vector is low-pass filtered before yaw, pitch, depth, and plane travel are derived. Raw coordinates remain available for precise facet selection. This removes eye-seeking micro-motion without making deliberate pen gestures feel unresponsive.
+**Pen-tablet note:** a Wacom pen can emit tiny, high-frequency pointer excursions while the hand is visually still. The camera therefore conditions input separately from facet hit testing: the camera dead zone is intentionally larger (`0.24` here), and the normalized pointer vector is low-pass filtered at `0.08` before yaw, pitch, depth, and plane travel are derived. Raw coordinates remain available for precise facet selection. This removes eye-seeking micro-motion without making deliberate pen gestures feel unresponsive.
 
 <aside class="lesson-emphasis lesson-emphasis--concept" aria-label="Flotation model boundary">
 <p class="lesson-emphasis__label">Flotation is a metaphor</p>
@@ -428,7 +428,7 @@ rive docs/assets/animations/fava/rive --verify
 rive docs/assets/animations/fava/rive --publish=local --output-dir=.
 ```
 
-The signed output should be `docs/assets/animations/fava/rive/fava-motion.riv`; the showreel detects that file and enables its Rive canvas player automatically. Until that step, the demo links the RML and AnimaScript sources, shows the verified AnimaScript capture, and preserves honest static fallbacks. See the [Rive CLI guide](https://rive.app/agents), [dotLottie v2 specification](https://dotlottie.io/spec/2.0/), and [dotLottie JavaScript player guide](https://docs.lottiefiles.com/en/runtimes/distributions/js).
+The local Rive export is `docs/assets/animations/fava/rive/fava-motion.riv`; the showreel detects that file and enables its Rive canvas player automatically. The Homebrew CLI writes an unsigned/watermarked local file for the current account plan; `rive login` is still required for a fully signed publish without the watermark. The demo retains the RML and AnimaScript source links and static fallback. See the [Rive CLI guide](https://rive.app/agents), [dotLottie v2 specification](https://dotlottie.io/spec/2.0/), and [dotLottie JavaScript player guide](https://docs.lottiefiles.com/en/runtimes/distributions/js).
 
 ## 4-hour master session
 
