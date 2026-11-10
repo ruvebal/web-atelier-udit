@@ -418,7 +418,7 @@ rive docs/assets/animations/fava/rive/animascript \
   --screenshot=build/favicon-pulse.png --advance=1s
 ```
 
-The checked source was verified with Rive CLI 1.9.2: **0 errors and 0 warnings**. Rive recommends AnimaScript for new scripts; the older Luau scripting path is deprecated. See the official [AnimaScript introduction](https://rive.app/rasc/docs/introduction.html), [getting-started protocol example](https://rive.app/rasc/docs/getting-started.html), and [execution model](https://rive.app/rasc/docs/execution-lanes.html).
+The AnimaScript project was verified with the Homebrew-pinned Rive CLI 1.9.2: **0 errors and 0 warnings**. A signed `.riv` publish still requires `rive login`; the CLI does not support account-free signing. Rive recommends AnimaScript for new scripts; the older Luau scripting path is deprecated. See the official [AnimaScript introduction](https://rive.app/rasc/docs/introduction.html), [getting-started protocol example](https://rive.app/rasc/docs/getting-started.html), and [execution model](https://rive.app/rasc/docs/execution-lanes.html).
 
 To publish the timeline/state-machine RML project as a signed `.riv`, run from the workspace root:
 
