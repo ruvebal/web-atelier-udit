@@ -386,7 +386,9 @@ export function createHexField(canvas, options = {}) {
 
     if (!reduced) {
       time += dt;
-      const k = 1 - Math.exp(-dt * 6);
+      // The field should follow broad pointer gestures, not pen-tablet micro-noise.
+      // A slower critically damped approach gives an ease-in/ease-out return to rest.
+      const k = 1 - Math.exp(-dt * 3.2);
       pitch += (targetPitch - pitch) * k;
       yaw += (targetYaw - yaw) * k;
       panX += (targetPanX - panX) * k;
@@ -574,10 +576,10 @@ export function createHexField(canvas, options = {}) {
     hasPointer = true;
     const rest = restPose();
     const amp = pointerAmp;
-    targetYaw = rest.yaw + (pointerX - 0.5) * 0.95 * amp;
-    targetPitch = rest.pitch + (pointerY - 0.5) * 0.48 * amp;
-    targetPanX = rest.panX + (pointerX - 0.5) * width * 0.07 * amp;
-    targetPanY = rest.panY + (pointerY - 0.5) * height * 0.055 * amp;
+    targetYaw = rest.yaw + (pointerX - 0.5) * 0.35 * amp;
+    targetPitch = rest.pitch + (pointerY - 0.5) * 0.18 * amp;
+    targetPanX = rest.panX + (pointerX - 0.5) * width * 0.025 * amp;
+    targetPanY = rest.panY + (pointerY - 0.5) * height * 0.02 * amp;
   }
 
   function onPointerLeave() {
