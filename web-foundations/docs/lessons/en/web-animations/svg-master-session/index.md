@@ -151,6 +151,18 @@ value += velocity * dt;
 
 `damping ≈ 1` is a critically damped starting point: little or no overshoot, frame-rate-independent when `dt` is bounded, and a gentle return to the exact frontal mark. This is physics-inspired interaction design, not a claim that the icon is a physical body.
 
+The production mapping also follows a **foveal centre rule**: pointer displacement is measured from the favicon's own centre, not the page or hero centre. A small central dead zone produces exactly zero camera response; outside it, `smoothstep()` raises the gain nonlinearly toward the perimeter. Yaw, pitch, depth, and plane travel all use that gain. Perspective scale is clamped independently, so a near facet can move forward without suddenly becoming dominant:
+
+```js
+const radius = Math.min(1, Math.hypot(pointerX, pointerY));
+const t = clamp((radius - deadZone) / (1 - deadZone));
+const gain = t * t * (3 - 2 * t);
+
+target.yaw = pointerX * gain * yawAmplitude;
+target.depth = gain;
+perspective = clamp(rawPerspective, 0.94, 1.06);
+```
+
 <aside class="lesson-emphasis lesson-emphasis--concept" aria-label="Flotation model boundary">
 <p class="lesson-emphasis__label">Flotation is a metaphor</p>
 <p>A sine wave or spring can suggest buoyancy, but true flotation would integrate mass, gravity, displaced-fluid buoyancy, drag, collisions, and a stable time step. The production mark uses two bounded springs instead: one translates the complete SVG plane and another drives camera/depth response. While the mark is active, the hero background stops accepting camera input but keeps its animation clock alive; its current camera coasts toward rest and its low-amplitude levitation continues.</p>
