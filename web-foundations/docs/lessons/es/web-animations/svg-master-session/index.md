@@ -16,9 +16,9 @@ permalink: /lessons/es/web-animations/svg-master-session/
 
 ## Encargo
 
-La fuente visual de esta sesión es el favicon de Web Atelier: 15 trazados superpuestos que usan la paleta del curso (azul marino, azul, violeta y chartreuse). El favicon y el icono principal de la portada comparten un ciclo CSS de color de ocho segundos: cada faceta recorre la paleta con un pequeño desfase, mientras la geometría permanece quieta. En la portada, el SVG externo se sustituye progresivamente por una copia inline: al seleccionar una faceta se invierte su color; las flechas recorren las facetas y Enter o Espacio alternan la elegida. El ciclo se detiene con `prefers-reduced-motion`; algunos navegadores también pueden pausar o bloquear la animación del favicon. La navegación y la comparación usan una copia estática para que el movimiento no altere la demostración común.
+La fuente visual de esta sesión es el favicon de Web Atelier: 14 trazados con la paleta del curso (azul marino, azul, violeta y chartreuse). El favicon del navegador conserva un ciclo CSS lento. La marca grande de portada lee esos mismos trazados en Canvas: el plano completo sigue el puntero, las facetas se separan en Z proyectada, el color rota con desfase y un clic invierte la faceta visible. Es una interacción decorativa, no un control de teclado; con `prefers-reduced-motion` o sin script permanece el SVG estático.
 
-Abre la [comparación interactiva de técnicas (demo en inglés)]({{ '/lessons/en/web-animations/svg-master-session/demo/' | relative_url }}). La ronda 1 plantea la misma tarea y el mismo tiempo a transiciones/keyframes CSS, SMIL, WAAPI, GSAP, Motion y Anime.js. La ronda 2 cambia la tarea para mostrar la fortaleza de cada técnica. La ronda 3 compara cómo reciben, guardan, interrumpen y coordinan interacción por faceta. La sección de recursos reproduce JSON Lottie y un paquete dotLottie v2, con scrubbing temporal y cambio de variantes. El proyecto Rive en RML está verificado y listo para exportar; el `.riv` firmado requiere iniciar sesión en la CLI de Rive.
+Abre la [comparación interactiva de técnicas (demo en inglés)]({{ '/lessons/en/web-animations/svg-master-session/demo/' | relative_url }}). La ronda 1 plantea la misma tarea y el mismo tiempo a transiciones/keyframes CSS, SMIL, WAAPI, GSAP, Motion y Anime.js. La ronda 2 cambia la tarea para mostrar la fortaleza de cada técnica. La ronda 3 compara cómo reciben, guardan, interrumpen y coordinan interacción por faceta. La sección de recursos reproduce JSON Lottie y un paquete dotLottie v2, con scrubbing temporal y cambio de variantes. El proyecto Rive en RML muestra timeline y máquina de estados; un segundo proyecto recompone los 14 trazados exactos con AnimaScript y aplica un pulso procedural. Ambos pueden verificarse sin cuenta; el `.riv` firmado requiere iniciar sesión en la CLI de Rive.
 
 ## Resultados de aprendizaje
 
@@ -43,6 +43,7 @@ Al terminar, el alumnado podrá explicar cuándo conviene insertar un SVG inline
 | Lottie | Animación vectorial generada y exportada a JSON, reproducida en la demo | Formato portable con tiempos independientes por faceta | Representación y reproductor aparte; el JSON pesa 38 KB antes de comprimir la transferencia |
 | dotLottie | Dos animaciones Lottie dentro de un paquete v2 reproducido en canvas | Agrupa variantes claro/oscuro en un archivo de 14 KB | Sigue necesitando runtime Lottie; no anima el DOM SVG existente |
 | Rive | Fuente RML generada con animación one-shot y entrada de máquina de estados | Modelo compacto para interacción y colaboración con diseño | La exportación `.riv` firmada requiere cuenta; la fuente se verifica offline y el archivo reproducible espera el inicio de sesión |
+| Rive + AnimaScript | Los 14 trazados exactos se dibujan con `Path` y reciben escala/opacidad procedural | Lógica tipada que viaja con el proyecto y compila a WebAssembly | No es JavaScript DOM; mantiene el coste de autoría, runtime, firma y accesibilidad del host |
 
 CSS, SMIL y WAAPI son opciones nativas; GSAP, Motion y Anime.js son bibliotecas; Lottie, dotLottie y Rive son formatos o flujos de trabajo con runtime. Referencias: [MDN sobre insertar SVG](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Including_vector_graphics), [SMIL](https://developer.mozilla.org/en-US/docs/Web/SVG/Guides/SVG_animation_with_SMIL), [WAAPI](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API), [GSAP](https://gsap.com/docs/v3/Installation/), [Motion](https://motion.dev/docs/quick-start), [Anime.js](https://animejs.com/documentation/animation/), [dotLottie](https://docs.lottiefiles.com/en/runtimes/distributions/js/v0.x) y [Rive](https://rive.app/use-cases/websites).
 
@@ -136,7 +137,7 @@ Puntúa las tres rondas por separado. En la segunda, juzga si la técnica encaja
 
 Color, opacidad, transformaciones, visibilidad y movimiento no pertenecen en exclusiva a ningún motor. Con SVG inline, CSS, SMIL, WAAPI, GSAP, Motion y Anime.js pueden apuntar a la misma faceta. Lo que cambia es la arquitectura: quién resuelve el hit testing, dónde vive el estado persistente, cómo se interrumpen varias animaciones y si la interacción viaja dentro del recurso exportado.
 
-Un SVG cargado mediante `<img>` es deliberadamente no interactivo desde la página. El SVG inline expone nodos DOM normales; `pointer-events` permite decidir si reciben entrada el relleno, el trazo o la zona pintada. La delegación de eventos en el `<svg>` raíz puede identificar `event.target`, de modo que 15 facetas no exigen 15 controladores independientes. ([MDN: scripting de SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Guides/Scripting), [MDN: `pointer-events` en SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/pointer-events))
+Un SVG cargado mediante `<img>` es deliberadamente no interactivo desde la página. El SVG inline expone nodos DOM normales; `pointer-events` permite decidir si reciben entrada el relleno, el trazo o la zona pintada. La delegación de eventos en el `<svg>` raíz puede identificar `event.target`, de modo que muchos trazados no exigen muchos controladores independientes. ([MDN: scripting de SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Guides/Scripting), [MDN: `pointer-events` en SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/pointer-events))
 
 <aside class="lesson-emphasis lesson-emphasis--practice" aria-label="Regla práctica">
 <p class="lesson-emphasis__label">Regla práctica</p>
@@ -157,17 +158,25 @@ Un SVG cargado mediante `<img>` es deliberadamente no interactivo desde la pági
 
 Referencias primarias: [eventos SMIL](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/begin), [objetos de reproducción WAAPI](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API), [gestos de Motion](https://motion.dev/examples/js-gestures), [atributos SVG en Anime.js](https://animejs.com/documentation/animation/animatable-properties/svg-attributes/), [métodos de Lottie](https://github.com/airbnb/lottie-web/blob/master/README.md), [máquinas de estados dotLottie v2](https://www.dotlottie.io/spec/2.0/) y [estados interactivos de Rive](https://rive.app/use-cases/websites).
 
-**Veredicto:** SVG inline + un listener delegado + una clase CSS es la solución más económica para invertir una faceta en la portada. WAAPI ofrece el control granular nativo más completo; GSAP coordina mejor muchos objetivos dentro del curso; Motion destaca en respuesta física; Rive es la opción más fuerte cuando la lógica interactiva debe viajar con el recurso. Lottie destaca como timeline intercambiable, no como API de las facetas SVG originales.
+**Veredicto:** SVG inline + un listener delegado + una clase CSS sigue siendo la solución más económica cuando cada faceta es un control semántico. Para una profundidad decorativa reutilizable, la portada usa Canvas, orden de pintado e hit testing mediante la matriz inversa de cada faceta. WAAPI ofrece el control granular nativo más completo; GSAP coordina mejor muchos objetivos; Motion destaca en respuesta física; Rive es la opción más fuerte cuando la lógica debe viajar con el recurso.
 
 ## Generación y exportación de recursos
 
-El SVG canónico es [`fava-mark-static.svg`]({{ '/assets/icons/fava-mark-static.svg' | relative_url }}). Desde `web-foundations/`, ejecuta el generador para volver a extraer sus 15 facetas y crear los recursos:
+El SVG canónico es [`fava-mark-static.svg`]({{ '/assets/icons/fava-mark-static.svg' | relative_url }}). Desde `web-foundations/`, ejecuta el generador para extraer sus trazados y regenerar todos los recursos, incluidos los dos SVG animados:
 
 ```sh
 python3 scripts/build-fava-motion-assets.py
 ```
 
-Se crean `fava-brand.json` (florecimiento de una sola reproducción con escala/opacidad escalonadas), `fava-night.json` (misma animación con colores claros), `fava-showcase.lottie` (paquete ZIP dotLottie v2 con ambas variantes) y `rive/scene.rml` con `rive.yaml` (geometría convertida y timeline/máquina de estados Rive). La demo usa `lottie-web` para JSON y `@lottiefiles/dotlottie-web` para el paquete. Ambos conservan una copia SVG estática para `prefers-reduced-motion` o si no carga el reproductor.
+Se crean `fava-brand.json` (florecimiento de una sola reproducción con escala/opacidad escalonadas), `fava-night.json` (misma animación con colores claros), `fava-showcase.lottie` (paquete ZIP dotLottie v2 con ambas variantes), `rive/scene.rml` (timeline/máquina de estados) y [`rive/animascript/favicon-pulse.as`]({{ '/assets/animations/fava/rive/animascript/favicon-pulse.as' | relative_url }}). Este último reconstruye líneas y curvas cúbicas del favicon, adapta el dibujo al layout y anima cada faceta mediante `advance()` y `draw()`. Además, `pointerDown()` captura la pulsación y lanza una rotación escalonada de cinco colores con un breve florecimiento espacial. La portada reproduce esa gramática con un módulo Canvas: un muelle mueve el plano completo, otro controla profundidad/cámara, la paleta se escalona y el clic invierte la faceta superior. La captura Rive procede del proyecto verificado con Rive CLI 1.9.2: **0 errores y 0 avisos**.
+
+AnimaScript usa sintaxis parecida a TypeScript, pero tipos WebAssembly reales, sin DOM. Rive lo recomienda para scripts nuevos y considera obsoleto el flujo anterior con Luau. Verifica el ejemplo sin cuenta:
+
+```sh
+rive docs/assets/animations/fava/rive/animascript --verify
+```
+
+Consulta la [introducción oficial a AnimaScript](https://rive.app/rasc/docs/introduction.html) y el [ejemplo de protocolos y dibujo](https://rive.app/rasc/docs/getting-started.html).
 
 La CLI de Rive puede verificar y previsualizar la fuente RML sin cuenta. Para exportar el `.riv` firmado hay que iniciar sesión y ejecutar:
 
@@ -195,7 +204,7 @@ El archivo esperado es `docs/assets/animations/fava/rive/fava-motion.riv`; al ex
 ## Accesibilidad y entrega
 
 - El icono es decorativo junto al texto de marca. Cuando sus facetas se convierten en controles, expón el SVG inline como grupo etiquetado, usa `tabindex` itinerante para aportar un solo paso de Tab y admite flechas más Enter/Espacio.
-- Mantén estáticos los iconos de navegación. El favicon y el icono principal usan un ciclo de color lento, sin movimiento geométrico. La portada tiene control para pausar/reanudar y ambos recursos se detienen con `prefers-reduced-motion`; algunos navegadores pueden congelar o ignorar la animación de pestaña.
+- Mantén estáticos los iconos de navegación. El favicon de pestaña conserva un ciclo lento; la marca de portada suma traslación del plano, profundidad acotada y color escalonado. Al interactuar con ella se suspende solo la cámara del fondo: la levitación ambiental continúa y la cámara vuelve con inercia. Con `prefers-reduced-motion` queda el SVG estático.
 - La demo dura poco y se reproduce una vez. Si una animación de producción empieza sola, dura más de cinco segundos y aparece junto a otro contenido, WCAG 2.2.2 requiere un control para pausarla, detenerla u ocultarla.
 - Mantén sutil el ciclo de color, sin destellos ni transiciones rápidas. No lo repitas en otros iconos grandes de la página.
 

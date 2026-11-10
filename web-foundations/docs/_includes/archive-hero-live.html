@@ -8,6 +8,7 @@
 {% if archive_cover %}
 <script type="module">
 	import { mountComposition } from '{{ '/lessons/en/feii/canvas-25d-hex-field/demo/mount.js' | relative_url }}';
+	import { bindFaviconBackgroundMotion } from '{{ '/assets/js/favicon-motion/hero-coordinator.js' | relative_url }}';
 
 	const hero = document.querySelector('.hero-section--archive');
 	if (!hero) {
@@ -22,7 +23,7 @@
 		hero.classList.add('has-hexaform-live');
 
 		try {
-			mountComposition(canvas, {{ archive_cover.asset | jsonify }}, {
+			const { field } = mountComposition(canvas, {{ archive_cover.asset | jsonify }}, {
 				interactive: true,
 				pointerRoot: hero,
 				scrollParallax: true,
@@ -36,6 +37,11 @@
 				maxCells: 120,
 				onSample: null,
 			});
+
+			const unbindFavicon = bindFaviconBackgroundMotion(hero, field, {
+				selector: '#fava-hero-icon',
+			});
+			window.addEventListener('pagehide', unbindFavicon, { once: true });
 		} catch (err) {
 			hero.classList.remove('has-hexaform-live');
 			canvas.remove();

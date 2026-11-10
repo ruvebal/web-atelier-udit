@@ -228,6 +228,7 @@ export function createHexField(canvas, options = {}) {
 
   const reducedQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   let reduced = reducedQuery.matches;
+  let cameraPaused = false;
   const onReduced = () => {
     reduced = reducedQuery.matches;
   };
@@ -566,7 +567,7 @@ export function createHexField(canvas, options = {}) {
   }
 
   function onPointer(clientX, clientY) {
-    if (!interactive) return;
+    if (!interactive || cameraPaused) return;
     const rect = pointerRoot.getBoundingClientRect();
     pointerX = (clientX - rect.left) / Math.max(1, rect.width);
     pointerY = (clientY - rect.top) / Math.max(1, rect.height);
@@ -591,7 +592,7 @@ export function createHexField(canvas, options = {}) {
   }
 
   function onScrollParallax() {
-    if (!scrollParallax || reduced) return;
+    if (!scrollParallax || reduced || cameraPaused) return;
     const rect = pointerRoot.getBoundingClientRect();
     const viewH = window.innerHeight || 1;
     const mid = rect.top + rect.height * 0.5;
@@ -651,6 +652,14 @@ export function createHexField(canvas, options = {}) {
     setVelocity(next) {
       velocity = Math.max(0, Math.min(1.5, Number(next) || 0));
       return { velocity };
+    },
+    setCameraPaused(next) {
+      cameraPaused = Boolean(next);
+      if (cameraPaused) {
+        hasPointer = false;
+        applyRestTargets();
+      }
+      return { cameraPaused };
     },
     getSeed: () => seed,
     getComplexity: () => complexity,

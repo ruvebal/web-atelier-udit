@@ -331,9 +331,44 @@ img.footer-logo {
 	object-fit: contain;
 }
 
+/* SVG-derived favicon Canvas: exact frontal rest, inertial plane travel, facet depth. */
+.favicon-canvas-25d {
+	position: relative;
+	display: grid;
+	place-items: center;
+	isolation: isolate;
+}
+
+.favicon-canvas-25d.is-canvas-ready {
+	cursor: pointer;
+	touch-action: manipulation;
+}
+
+.favicon-canvas-25d > img,
+.favicon-canvas-25d__surface {
+	grid-area: 1 / 1;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.favicon-canvas-25d__surface {
+	z-index: 1;
+	pointer-events: none;
+}
+
+.favicon-canvas-25d > img {
+	transition: opacity 120ms ease;
+}
+
+.favicon-canvas-25d.is-canvas-ready > img {
+	opacity: 0;
+}
+
 .fava-hero-facet {
 	cursor: pointer;
-	transition: filter 180ms ease, opacity 180ms ease, stroke 180ms ease;
+	transition: fill 320ms cubic-bezier(0.2, 0.75, 0.25, 1), filter 180ms ease, opacity 180ms ease, stroke 180ms ease;
 }
 
 .fava-hero-facet:hover {
@@ -364,6 +399,18 @@ img.footer-logo {
 	opacity: 0.76;
 }
 
+.fava-motion-controls {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 0.45rem 0.9rem;
+}
+
+.fava-motion-controls > * {
+	color: inherit;
+}
+
 @keyframes fava-mark-enter {
 	from {
 		opacity: 0.35;
@@ -378,6 +425,10 @@ img.footer-logo {
 @media (prefers-reduced-motion: reduce) {
 	.fava-hero-mark {
 		animation: none;
+	}
+
+	.favicon-canvas-25d > img {
+		transition: none;
 	}
 
 	.fava-hero-facet {
@@ -2799,6 +2850,116 @@ main#main:has(.lesson-wrapper) {
 	}
 }
 
+/* Spatial model diagram and official technology identity atlas. */
+.spatial-stack-figure {
+	margin: 2rem 0;
+	padding: clamp(1rem, 3vw, 1.75rem);
+	border: 1px solid var(--border-light);
+	border-radius: 1rem;
+	background: color-mix(in srgb, var(--bg-light) 92%, transparent);
+	box-shadow: 0 1rem 3rem var(--shadow-color);
+}
+
+.spatial-stack-figure__scene {
+	display: grid;
+	min-height: clamp(19rem, 42vw, 25rem);
+	place-items: center;
+	perspective: 56rem;
+	overflow: hidden;
+}
+
+.spatial-stack-figure__layer {
+	display: grid;
+	grid-area: 1 / 1;
+	width: min(88%, 35rem);
+	min-height: 7rem;
+	align-content: center;
+	gap: 0.3rem;
+	padding: 1rem 1.25rem;
+	border: 1px solid color-mix(in srgb, var(--primary) 48%, var(--border-light));
+	border-radius: 0.9rem;
+	background: color-mix(in srgb, var(--bg) 80%, var(--primary) 10%);
+	box-shadow: 0 1.25rem 2.5rem var(--shadow-color);
+	transform-style: preserve-3d;
+}
+
+.spatial-stack-figure__layer span {
+	color: var(--text-primary);
+	font-size: clamp(1rem, 2vw, 1.25rem);
+	font-weight: 750;
+}
+
+.spatial-stack-figure__layer small {
+	color: var(--text-secondary);
+	font-size: 0.8rem;
+}
+
+.spatial-stack-figure__layer--timing {
+	transform: translateY(-4.25rem) translateZ(5rem) rotateX(58deg);
+}
+
+.spatial-stack-figure__layer--model {
+	transform: translateY(0) translateZ(1.25rem) rotateX(58deg);
+}
+
+.spatial-stack-figure__layer--renderer {
+	transform: translateY(4.25rem) translateZ(-2.5rem) rotateX(58deg);
+}
+
+.spatial-stack-figure figcaption {
+	max-width: 65ch;
+	margin-inline: auto;
+	color: var(--text-secondary);
+	font-size: 0.9rem;
+	text-align: center;
+}
+
+.technology-atlas {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+	gap: 0.75rem;
+	margin: 1rem 0 2rem;
+}
+
+.technology-atlas__item {
+	display: flex;
+	min-width: 0;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.8rem;
+	border: 1px solid var(--border-light);
+	border-radius: 0.8rem;
+	background: color-mix(in srgb, var(--bg-light) 94%, transparent);
+	color: var(--text-primary);
+	font-size: 0.85rem;
+	font-weight: 700;
+	line-height: 1.25;
+	text-decoration: none;
+}
+
+.technology-atlas__item:hover {
+	border-color: var(--border-hover);
+	background: var(--code-inline-bg);
+}
+
+.technology-atlas__item:focus-visible {
+	outline: 3px solid var(--focus-outline);
+	outline-offset: 3px;
+}
+
+.technology-atlas__item img {
+	width: 2rem;
+	height: 2rem;
+	flex: 0 0 2rem;
+	object-fit: contain;
+}
+
+.technology-atlas__item small {
+	color: var(--text-secondary);
+	font-size: 0.72rem;
+	font-weight: 500;
+}
+
 /* SVG animation master-session demo — inherits the global light/dark theme. */
 .svg-motion-demo {
 	--motion-radius: 1rem;
@@ -2854,7 +3015,9 @@ main#main:has(.lesson-wrapper) {
 
 .svg-motion-demo:has(#same-result:target) .svg-motion-demo__rail a[href='#same-result'],
 .svg-motion-demo:has(#best-in-show:target) .svg-motion-demo__rail a[href='#best-in-show'],
+.svg-motion-demo:has(#interaction-lab:target) .svg-motion-demo__rail a[href='#interaction-lab'],
 .svg-motion-demo:has(#authored-assets:target) .svg-motion-demo__rail a[href='#authored-assets'],
+.svg-motion-demo:has(#spatial-lab:target) .svg-motion-demo__rail a[href='#spatial-lab'],
 .svg-motion-demo:has(#verdict:target) .svg-motion-demo__rail a[href='#verdict'] {
 	color: var(--text-primary);
 	background: var(--code-inline-bg);
@@ -2943,6 +3106,7 @@ main#main:has(.lesson-wrapper) {
 .svg-motion-demo .grid,
 .svg-motion-demo .showcase-grid,
 .svg-motion-demo .asset-grid,
+.svg-motion-demo .spatial-demo-grid,
 .svg-motion-demo .verdict {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
@@ -2951,13 +3115,19 @@ main#main:has(.lesson-wrapper) {
 
 .svg-motion-demo .asset-grid,
 .svg-motion-demo .showcase-grid,
+.svg-motion-demo .spatial-demo-grid,
 .svg-motion-demo .verdict {
 	margin-top: 1rem;
+}
+
+.svg-motion-demo .spatial-demo-grid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .svg-motion-demo .card,
 .svg-motion-demo .showcase-card,
 .svg-motion-demo .asset-card,
+.svg-motion-demo .spatial-card,
 .svg-motion-demo .verdict > div {
 	min-width: 0;
 	border: 1px solid var(--border-light);
@@ -3056,6 +3226,21 @@ main#main:has(.lesson-wrapper) {
 	object-fit: contain;
 }
 
+.svg-motion-demo .asset-preview .animascript-motion-preview {
+	width: 100%;
+	height: 11.875rem;
+}
+
+.svg-motion-demo .asset-preview .animascript-static-preview {
+	display: none;
+}
+
+.svg-motion-demo [data-authored="animascript"] .asset-controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.45rem 0.85rem;
+}
+
 .svg-motion-demo .asset-preview.is-playing img {
 	display: none;
 }
@@ -3074,6 +3259,16 @@ main#main:has(.lesson-wrapper) {
 	display: block;
 	width: min(100%, 16.25rem);
 	height: 11.875rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.svg-motion-demo .asset-preview .animascript-motion-preview {
+		display: none;
+	}
+
+	.svg-motion-demo .asset-preview .animascript-static-preview {
+		display: block;
+	}
 }
 
 .svg-motion-demo .round-title {
@@ -3231,6 +3426,93 @@ main#main:has(.lesson-wrapper) {
 	font-weight: 700;
 }
 
+.svg-motion-demo .spatial-card > p {
+	margin: 0.75rem 0 0;
+	font-size: 0.88rem;
+}
+
+.svg-motion-demo .spatial-stage {
+	position: relative;
+	display: grid;
+	height: 16rem;
+	place-items: center;
+	overflow: hidden;
+	margin: 0.85rem 0;
+	border: 1px solid var(--border-light);
+	border-radius: var(--motion-radius-small);
+	background: var(--motion-stage);
+	isolation: isolate;
+}
+
+.svg-motion-demo .spatial-stage::after {
+	position: absolute;
+	inset: auto 10% 8% 10%;
+	z-index: -1;
+	height: 18%;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--text-primary) 14%, transparent);
+	filter: blur(1rem);
+	content: '';
+}
+
+.svg-motion-demo .spatial-stage > img,
+.svg-motion-demo .spatial-css-plane img {
+	display: block;
+	width: min(66%, 11rem);
+	height: auto;
+}
+
+.svg-motion-demo .spatial-css-scene {
+	perspective: 42rem;
+}
+
+.svg-motion-demo .spatial-css-plane {
+	display: grid;
+	place-items: center;
+	transform-style: preserve-3d;
+	animation: spatial-plane-orbit 7s cubic-bezier(0.55, 0, 0.45, 1) infinite alternate;
+}
+
+@keyframes spatial-plane-orbit {
+	0% { transform: rotateX(-8deg) rotateY(-24deg) translateZ(-1rem); }
+	50% { transform: rotateX(8deg) rotateY(0deg) translateZ(2rem); }
+	100% { transform: rotateX(-5deg) rotateY(24deg) translateZ(-1rem); }
+}
+
+.svg-motion-demo .spatial-stage canvas {
+	display: block;
+	width: 100%;
+	height: 100%;
+	touch-action: pan-y;
+}
+
+.svg-motion-demo .spatial-webgl-stage > img {
+	position: absolute;
+}
+
+.svg-motion-demo .spatial-webgl-stage.is-ready > img {
+	display: none;
+}
+
+.svg-motion-demo .spatial-status {
+	min-height: 2.4em;
+	color: var(--muted);
+	font-size: 0.78rem;
+}
+
+.svg-motion-demo .spatial-verdict {
+	margin-top: 1rem;
+	padding: 1rem 1.25rem;
+	border-inline-start: 0.3rem solid var(--primary);
+	border-radius: 0.75rem;
+	background: var(--code-inline-bg);
+	color: var(--text-primary);
+}
+
+.svg-motion-demo .spatial-verdict p {
+	margin: 0.35rem 0 0;
+}
+
 .svg-motion-demo .verdict > div {
 	background: var(--code-block-bg);
 	color: var(--code-block-fg);
@@ -3303,6 +3585,10 @@ main#main:has(.lesson-wrapper) {
 	.svg-motion-demo .showcase-copy {
 		min-height: 0;
 	}
+
+	.svg-motion-demo .spatial-demo-grid {
+		grid-template-columns: 1fr;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3330,6 +3616,11 @@ main#main:has(.lesson-wrapper) {
 
 	.svg-motion-demo .keyframe-mark.is-playing {
 		animation: none !important;
+	}
+
+	.svg-motion-demo .spatial-css-plane {
+		animation: none !important;
+		transform: none !important;
 	}
 
 	.svg-motion-demo .interaction-facet path {

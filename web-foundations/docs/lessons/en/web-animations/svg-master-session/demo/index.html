@@ -11,13 +11,14 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
     <a href="#best-in-show">Best in show</a>
     <a href="#interaction-lab">Interaction lab</a>
     <a href="#authored-assets">Authored assets</a>
+    <a href="#spatial-lab">Spatial lab</a>
     <a href="#verdict">Verdict</a>
   </nav>
 
   <section id="same-result" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="same-result-title">
   <header class="svg-motion-demo__intro">
   <h1 id="same-result-title">One mark.<br>Seven motion engines.</h1>
-  <p class="lede">Round 1 holds the result constant: the same ruvebal favicon artwork and the same staggered reveal. Round 2 changes the motion task so each technique can show its strongest fit. Round 3 compares facet-level interaction, state, and interruption. The tab favicon cycles through the course palette; the demo uses a separate static copy so it cannot bias the comparison.</p>
+  <p class="lede">Round 1 holds the result constant: the same ruvebal favicon artwork and the same staggered reveal. Round 2 changes the motion task so each technique can show its strongest fit. Round 3 compares facet-level interaction, state, and interruption. Round 4 separates a flat SVG, a CSS-composited plane, mathematical 2.5D, and true mesh geometry. The tab favicon cycles through the course palette; the demo uses a separate static copy so it cannot bias the comparison.</p>
   </header>
   <div class="toolbar">
     <button id="replay-all" type="button">Replay all</button>
@@ -188,12 +189,57 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
 
   <section id="authored-assets" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="authored-assets-title">
   <h2 id="authored-assets-title" class="round-title">Authored asset showreel</h2>
-  <p class="lede">These cards play the exported ruvebal favicon assets with their own runtimes. Lottie reveals the 15 colored facets; dotLottie packages brand and night variants in one file. The Rive source is built and verified, but its distributable <code>.riv</code> still needs the account sign-in described in the lesson.</p>
+  <p class="lede">These cards play or document exported ruvebal favicon assets with their own runtimes. Lottie reveals the coloured source paths; dotLottie packages brand and night variants in one file. The Rive RML and AnimaScript projects are source-verifiable; their distributable <code>.riv</code> files still need the account sign-in described in the lesson.</p>
   <section class="asset-grid" aria-label="Authored animation asset showreel">
-    <article class="asset-card" data-authored="lottie"><div class="card-head"><h2>Lottie</h2><span class="category">Motion design</span></div><p class="asset-status" data-asset-status="lottie" role="status">Loading the exported Lottie JSON…</p><div class="asset-preview"><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}" alt="Static ruvebal favicon"><div data-lottie-stage aria-label="ruvebal favicon Lottie facet bloom"></div></div><label class="scrub-label" for="lottie-scrub">Timeline <input id="lottie-scrub" data-lottie-scrub type="range" min="0" max="100" value="0" disabled><output for="lottie-scrub">0%</output></label><div class="asset-controls"><button type="button" data-asset-replay="lottie" disabled>Loading player…</button><a href="{{ '/assets/animations/fava/fava-brand.json' | relative_url }}">Open JSON</a></div><p><strong>Best show:</strong> the player exposes timeline-level play, pause, direction, segments, markers, and seeking—not stable access to the source SVG facets.</p></article>
-    <article class="asset-card" data-authored="dotlottie"><div class="card-head"><h2>dotLottie</h2><span class="category">Packaged variants</span></div><p class="asset-status" data-asset-status="dotlottie" role="status">Loading the exported dotLottie bundle…</p><div class="asset-preview" data-dot-preview><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}" alt="Static ruvebal favicon"><canvas data-dot-canvas aria-label="ruvebal favicon dotLottie variant"></canvas></div><div class="asset-controls"><button type="button" data-dot-play="fava-brand" disabled>Brand reveal</button><button type="button" data-dot-play="fava-night" disabled>Night reveal</button><a href="{{ '/assets/animations/fava/fava-showcase.lottie' | relative_url }}">Open bundle</a></div><p><strong>Best show:</strong> one player switches complete authored animations and themes; deeper interaction should be exported as markers or a state machine.</p></article>
-    <article class="asset-card" data-authored="rive"><div class="card-head"><h2>Rive</h2><span class="category">Runtime timeline</span></div><p class="asset-status" data-asset-status="rive" role="status">Rive source verified; final <code>.riv</code> export needs Rive sign-in.</p><div class="asset-preview"><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}" alt="Static ruvebal favicon"><canvas data-rive-canvas aria-label="ruvebal favicon Rive facet reveal"></canvas></div><div class="asset-controls"><button type="button" data-asset-replay="rive" disabled>Export requires Rive sign-in</button><a href="{{ '/assets/animations/fava/rive/scene.rml' | relative_url }}">Open RML source</a></div><p><strong>Best show:</strong> the reveal is authored as a Rive timeline and state-machine entry, then played by Rive’s canvas runtime.</p></article>
+    <article class="asset-card" data-authored="lottie"><div class="card-head"><h2>Lottie</h2><span class="category">Motion design</span></div><p class="asset-status" data-asset-status="lottie" role="status">Loading the exported Lottie JSON…</p><div class="asset-preview"><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt="Static ruvebal favicon"><div data-lottie-stage aria-label="ruvebal favicon Lottie facet bloom"></div></div><label class="scrub-label" for="lottie-scrub">Timeline <input id="lottie-scrub" data-lottie-scrub type="range" min="0" max="100" value="0" disabled><output for="lottie-scrub">0%</output></label><div class="asset-controls"><button type="button" data-asset-replay="lottie" disabled>Loading player…</button><a href="{{ '/assets/animations/fava/fava-brand.json' | relative_url }}">Open JSON</a></div><p><strong>Best show:</strong> the player exposes timeline-level play, pause, direction, segments, markers, and seeking—not stable access to the source SVG facets.</p></article>
+    <article class="asset-card" data-authored="dotlottie"><div class="card-head"><h2>dotLottie</h2><span class="category">Packaged variants</span></div><p class="asset-status" data-asset-status="dotlottie" role="status">Loading the exported dotLottie bundle…</p><div class="asset-preview" data-dot-preview><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt="Static ruvebal favicon"><canvas data-dot-canvas aria-label="ruvebal favicon dotLottie variant"></canvas></div><div class="asset-controls"><button type="button" data-dot-play="fava-brand" disabled>Brand reveal</button><button type="button" data-dot-play="fava-night" disabled>Night reveal</button><a href="{{ '/assets/animations/fava/fava-showcase.lottie' | relative_url }}">Open bundle</a></div><p><strong>Best show:</strong> one player switches complete authored animations and themes; deeper interaction should be exported as markers or a state machine.</p></article>
+    <article class="asset-card" data-authored="rive"><div class="card-head"><h2>Rive</h2><span class="category">2D state machine asset</span></div><p class="asset-status" data-asset-status="rive" role="status">Rive source verified; final <code>.riv</code> export needs Rive sign-in.</p><div class="asset-preview"><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt="Static ruvebal favicon"><canvas data-rive-canvas aria-label="ruvebal favicon Rive facet reveal"></canvas></div><div class="asset-controls"><button type="button" data-asset-replay="rive" disabled>Export requires Rive sign-in</button><a href="{{ '/assets/animations/fava/rive/scene.rml' | relative_url }}">Open RML source</a></div><p><strong>Best show:</strong> this lesson asset is a 2D timeline and state-machine entry. Current Rive can also author native 3D scenes, but that capability does not automatically extrude this mark.</p></article>
+    <article class="asset-card" data-authored="animascript"><div class="card-head"><h2>Rive + AnimaScript</h2><span class="category">Procedural runtime logic</span></div><p class="asset-status" role="status">Verified with Rive CLI 1.9.2: 0 errors and 0 warnings.</p><div class="asset-preview animascript-preview"><img class="animascript-motion-preview" src="{{ '/assets/animations/fava/rive/animascript/favicon-pulse.webp' | relative_url }}" alt="Captured AnimaScript render: the ruvebal favicon pulses, receives a pointer press, then swaps colours facet by facet"><img class="animascript-static-preview" src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt="Static ruvebal favicon"></div><div class="asset-controls"><a href="{{ '/assets/animations/fava/rive/animascript/favicon-pulse.as' | relative_url }}">Open <code>.as</code> source</a><a href="{{ '/assets/animations/fava/rive/animascript/rive.yaml' | relative_url }}">Project config</a></div><p><strong>Best show:</strong> exact paths, responsive fitting, procedural per-facet scale/opacity, and native pointer input. The capture includes a pointer-triggered staggered palette swap compiled to WebAssembly; it is not a JavaScript imitation or a live signed <code>.riv</code>.</p></article>
   </section>
+  </section>
+
+  <section id="spatial-lab" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="spatial-lab-title">
+    <h2 id="spatial-lab-title" class="round-title">Round 4: spatial truth lab</h2>
+    <p class="lede">The artwork stays recognisable while the spatial model changes. Compare what owns depth, which visual cues are simulated, and whether the original SVG remains an accessible DOM document.</p>
+    <section class="spatial-demo-grid" aria-label="Comparison of flat SVG, planar CSS, projected 2.5D, and true 3D rendering">
+      <article class="spatial-card">
+        <div class="card-head"><h2>Flat SVG source</h2><span class="category">2D vector</span></div>
+        <div class="spatial-stage"><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt="The flat ruvebal favicon source artwork"></div>
+        <p>Scalable paths, crisp colour, and direct DOM semantics when inline. There is no Z axis, camera, light, or occlusion.</p>
+        <span class="best-at">Best economy: identity, icons, and direct facet interaction</span>
+      </article>
+      <article class="spatial-card">
+        <div class="card-head"><h2>CSS perspective</h2><span class="category">Planar 3D</span></div>
+        <div class="spatial-stage spatial-css-scene" aria-label="The complete favicon rotating as one flat plane">
+          <div class="spatial-css-plane"><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt=""></div>
+        </div>
+        <p>The browser composites the complete SVG in perspective. The plane can rotate and translate in Z, but its facets gain no thickness.</p>
+        <span class="best-at">Best economy: cards, covers, and whole-mark tilts</span>
+      </article>
+      <article class="spatial-card">
+        <div class="card-head"><h2>Canvas projection</h2><span class="category">2.5D math</span></div>
+        <div class="spatial-stage" data-spatial-stage>
+          <canvas data-spatial-canvas role="img" aria-label="The favicon facets separated in projected depth and responding to pointer movement"></canvas>
+        </div>
+        <p class="spatial-status" data-spatial-status role="status">Preparing projected paths…</p>
+        <p>Every unchanged SVG path receives a fixed Z value, but its initial depth contribution is zero so the first frame is the exact frontal 2D composition. Pointer entry eases depth on: yaw shifts facets horizontally, pitch shifts them vertically, and perspective scales them by <code>FOV / (FOV − depth)</code>; facets are then painted back to front. This is a projected flat image, not buoyancy or a mesh with a depth buffer.</p>
+        <span class="best-at">Best economy: many lightweight shapes with camera-like response</span>
+      </article>
+      <article class="spatial-card">
+        <div class="card-head"><h2>Three.js extrusion</h2><span class="category">True 3D</span></div>
+        <div class="spatial-stage spatial-webgl-stage" data-webgl-stage>
+          <img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt="Static ruvebal favicon fallback">
+          <canvas data-webgl-canvas role="img" aria-label="The favicon paths converted to lit, extruded meshes in a Three.js scene"></canvas>
+        </div>
+        <p class="spatial-status" data-webgl-status role="status">Preparing the mesh scene…</p>
+        <p>SVGLoader translates paths into shapes; extrusion creates geometry with thickness. A camera, materials, lights, and depth buffer now own the result.</p>
+        <span class="best-at">Best capability: geometry, lighting, occlusion, and spatial cameras</span>
+      </article>
+    </section>
+    <aside class="spatial-verdict" aria-label="Spatial rendering verdict">
+      <strong>Do not infer 3D from the graphics API.</strong>
+      <p>dotLottie can use WebGL2 or WebGPU and still render a two-dimensional timeline. GSAP, Motion, and Anime.js can animate Three.js values but do not render the scene. Current Rive can own native 3D; this lesson’s Rive asset remains deliberately 2D.</p>
+    </aside>
   </section>
 
   <section id="verdict" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="verdict-title">
@@ -206,12 +252,12 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
   </section>
   <footer class="svg-motion-demo__footer"><a href="{{ '/lessons/en/web-animations/svg-master-session/' | relative_url }}">Return to the master session</a> · Reduced motion leaves every mark static. Replay uses the same source paths and stagger goal.</footer>
 </article>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js" defer></script>
 <script type="module">
   const cards = [...document.querySelectorAll('[data-method]')];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const status = document.querySelector('#status');
-  const iconUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}";
+  const iconUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry";
   let sourceSvg;
   let svgReady = false;
   let motionReady = false;
@@ -322,7 +368,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
   }
 
   try {
-    ({ animate: motionAnimate, stagger: motionStagger } = await import('https://cdn.jsdelivr.net/npm/motion@14.10.1/+esm'));
+    ({ animate: motionAnimate, stagger: motionStagger } = await import('https://cdn.jsdelivr.net/npm/motion@14.11.1/+esm'));
     motionReady = true;
     const button = document.querySelector('[data-method="motion"] [data-replay]');
     if (button) { button.disabled = reduceMotion; button.textContent = reduceMotion ? 'Static by preference' : 'Replay'; }
@@ -348,15 +394,250 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
   }
 </script>
 <script type="module">
+  const spatialSvgUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry";
+  const spatialReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const spatialTheme = getComputedStyle(document.documentElement);
+  const spatialShadow = spatialTheme.getPropertyValue('--shadow-color').trim() || 'rgba(0, 0, 0, 0.18)';
+  const spatialDocument = new DOMParser().parseFromString(
+    await fetch(spatialSvgUrl).then((response) => {
+      if (!response.ok) throw new Error(`SVG request failed: ${response.status}`);
+      return response.text();
+    }),
+    'image/svg+xml',
+  );
+  const spatialPaths = [...spatialDocument.querySelectorAll('path')].map((path, index) => ({
+    path: new Path2D(path.getAttribute('d')),
+    fill: path.getAttribute('fill') || '#1D4ED8',
+    depth: (index - 7) * 22,
+  }));
+
+  const projectedCanvas = document.querySelector('[data-spatial-canvas]');
+  const projectedStage = document.querySelector('[data-spatial-stage]');
+  const projectedStatus = document.querySelector('[data-spatial-status]');
+  const projectedContext = projectedCanvas?.getContext('2d');
+  let projectedVisible = true;
+  let projectedFrame = 0;
+  let lastProjectedFrameTime = null;
+  let targetYaw = 0;
+  let targetPitch = 0;
+  let targetDepth = 0;
+  let yaw = 0;
+  let pitch = 0;
+  let depth = 0;
+  const maxProjectedYaw = 0.16;
+  const maxProjectedPitch = 0.1;
+  const projectedDamping = 5.5;
+
+  function resizeProjectedCanvas() {
+    if (!projectedCanvas || !projectedStage) return;
+    const rect = projectedStage.getBoundingClientRect();
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+    projectedCanvas.width = Math.max(1, Math.round(rect.width * pixelRatio));
+    projectedCanvas.height = Math.max(1, Math.round(rect.height * pixelRatio));
+  }
+
+  function drawProjected(deltaMs = 0) {
+    if (!projectedContext || !projectedCanvas) return;
+    const pixelRatio = projectedCanvas.width / Math.max(1, projectedCanvas.clientWidth);
+    const width = projectedCanvas.clientWidth;
+    const height = projectedCanvas.clientHeight;
+    projectedContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    projectedContext.clearRect(0, 0, width, height);
+
+    const frameSeconds = Math.min(Math.max(deltaMs, 0), 50) / 1000;
+    const cameraBlend = 1 - Math.exp(-projectedDamping * frameSeconds);
+    yaw += (targetYaw - yaw) * cameraBlend;
+    pitch += (targetPitch - pitch) * cameraBlend;
+    depth += (targetDepth - depth) * cameraBlend;
+    const baseScale = Math.min(width / 1024, height / 920) * 0.88;
+    const fov = 680;
+    const ordered = spatialPaths.map((facet) => ({
+      ...facet,
+      projectedDepth: facet.depth * depth * Math.cos(yaw),
+    }));
+    if (depth > 0.0005) ordered.sort((a, b) => a.projectedDepth - b.projectedDepth);
+
+    ordered.forEach((facet) => {
+      const perspective = fov / (fov - facet.projectedDepth);
+      const xShift = Math.sin(yaw) * facet.depth * depth * 1.35;
+      const yShift = -Math.sin(pitch) * facet.depth * depth;
+      projectedContext.save();
+      projectedContext.translate(width / 2 + xShift, height / 2 + yShift);
+      projectedContext.scale(baseScale * perspective, baseScale * perspective);
+      projectedContext.translate(-512, -460);
+      projectedContext.scale(0.610979, 0.61089);
+      projectedContext.fillStyle = facet.fill;
+      projectedContext.globalAlpha = 1;
+      projectedContext.shadowColor = spatialShadow;
+      projectedContext.shadowBlur = depth * 12 / Math.max(baseScale, 0.25);
+      projectedContext.shadowOffsetY = depth * 8 / Math.max(baseScale, 0.25);
+      projectedContext.fill(facet.path);
+      projectedContext.restore();
+    });
+  }
+
+  function runProjected(time) {
+    const deltaMs = lastProjectedFrameTime === null ? 0 : time - lastProjectedFrameTime;
+    lastProjectedFrameTime = time;
+    drawProjected(deltaMs);
+    if (!spatialReducedMotion && projectedVisible) projectedFrame = requestAnimationFrame(runProjected);
+  }
+
+  if (projectedCanvas && projectedStage && projectedContext) {
+    resizeProjectedCanvas();
+    drawProjected();
+    projectedStatus.textContent = 'Projected 2.5D: pointer position changes the virtual camera; painter order replaces a depth buffer.';
+    projectedStage.addEventListener('pointermove', (event) => {
+      const bounds = projectedStage.getBoundingClientRect();
+      const horizontal = Math.max(-1, Math.min(1, ((event.clientX - bounds.left) / bounds.width - 0.5) * 2));
+      const vertical = Math.max(-1, Math.min(1, ((event.clientY - bounds.top) / bounds.height - 0.5) * 2));
+      targetYaw = horizontal * maxProjectedYaw;
+      targetPitch = vertical * maxProjectedPitch;
+      targetDepth = 1;
+    });
+    projectedStage.addEventListener('pointerleave', () => {
+      targetYaw = 0;
+      targetPitch = 0;
+      targetDepth = 0;
+    });
+    new ResizeObserver(() => {
+      resizeProjectedCanvas();
+      drawProjected();
+    }).observe(projectedStage);
+    new IntersectionObserver(([entry]) => {
+      projectedVisible = entry.isIntersecting;
+      cancelAnimationFrame(projectedFrame);
+      if (projectedVisible && !spatialReducedMotion) {
+        lastProjectedFrameTime = null;
+        projectedFrame = requestAnimationFrame(runProjected);
+      }
+    }, { rootMargin: '120px' }).observe(projectedStage);
+  }
+
+  async function buildWebGLStudy() {
+    const webglCanvas = document.querySelector('[data-webgl-canvas]');
+    const webglStage = document.querySelector('[data-webgl-stage]');
+    const webglStatus = document.querySelector('[data-webgl-status]');
+    if (!webglCanvas || !webglStage || !webglStatus) return;
+
+    let renderer;
+    let sceneFrame = 0;
+    try {
+      const [THREE, loaderModule] = await Promise.all([
+        import('https://cdn.jsdelivr.net/npm/three@0.187.0/+esm'),
+        import('https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/loaders/SVGLoader.js/+esm'),
+      ]);
+      const svgText = new XMLSerializer().serializeToString(spatialDocument.documentElement);
+      const svgData = new loaderModule.SVGLoader().parse(svgText);
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
+      camera.position.set(0, 0, 5.6);
+      renderer = new THREE.WebGLRenderer({ canvas: webglCanvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+      const mark = new THREE.Group();
+      svgData.paths.forEach((path, pathIndex) => {
+        path.toShapes(true).forEach((shape) => {
+          const geometry = new THREE.ExtrudeGeometry(shape, {
+            depth: 18,
+            bevelEnabled: true,
+            bevelThickness: 2.5,
+            bevelSize: 1.4,
+            bevelSegments: 2,
+          });
+          const material = new THREE.MeshStandardMaterial({
+            color: path.color,
+            roughness: 0.62,
+            metalness: 0.08,
+            side: THREE.DoubleSide,
+          });
+          const mesh = new THREE.Mesh(geometry, material);
+          mesh.position.z = pathIndex * 2.6;
+          mark.add(mesh);
+        });
+      });
+      const center = new THREE.Box3().setFromObject(mark).getCenter(new THREE.Vector3());
+      mark.position.sub(center);
+      const markRoot = new THREE.Group();
+      markRoot.scale.set(0.0035, -0.0035, 0.0035);
+      markRoot.add(mark);
+      scene.add(markRoot);
+      scene.add(new THREE.HemisphereLight(0xffffff, 0x223355, 2.2));
+      const keyLight = new THREE.DirectionalLight(0xffffff, 3.4);
+      keyLight.position.set(2.5, 3.5, 5);
+      scene.add(keyLight);
+      const rimLight = new THREE.DirectionalLight(0x93c5fd, 2.1);
+      rimLight.position.set(-4, -1, 2);
+      scene.add(rimLight);
+
+      let visible = true;
+      let pointerYaw = 0;
+      let pointerPitch = 0;
+      function resizeWebGL() {
+        const bounds = webglStage.getBoundingClientRect();
+        renderer.setSize(bounds.width, bounds.height, false);
+        camera.aspect = bounds.width / Math.max(bounds.height, 1);
+        camera.updateProjectionMatrix();
+      }
+      function renderWebGL(time = 0) {
+        const idle = spatialReducedMotion ? 0 : Math.sin(time * 0.00028) * 0.16;
+        markRoot.rotation.y += ((pointerYaw || idle) - markRoot.rotation.y) * 0.05;
+        markRoot.rotation.x += (pointerPitch - markRoot.rotation.x) * 0.05;
+        renderer.render(scene, camera);
+        if (visible && !spatialReducedMotion) sceneFrame = requestAnimationFrame(renderWebGL);
+      }
+
+      resizeWebGL();
+      renderer.render(scene, camera);
+      webglStage.classList.add('is-ready');
+      webglStatus.textContent = 'True 3D: extruded meshes, perspective camera, lights, materials, and depth testing.';
+      webglStage.addEventListener('pointermove', (event) => {
+        const bounds = webglStage.getBoundingClientRect();
+        pointerYaw = ((event.clientX - bounds.left) / bounds.width - 0.5) * 0.9;
+        pointerPitch = ((event.clientY - bounds.top) / bounds.height - 0.5) * 0.45;
+      });
+      webglStage.addEventListener('pointerleave', () => {
+        pointerYaw = 0;
+        pointerPitch = 0;
+      });
+      new ResizeObserver(() => {
+        resizeWebGL();
+        renderer.render(scene, camera);
+      }).observe(webglStage);
+      new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        cancelAnimationFrame(sceneFrame);
+        if (visible && !spatialReducedMotion) sceneFrame = requestAnimationFrame(renderWebGL);
+      }, { rootMargin: '120px' }).observe(webglStage);
+      window.addEventListener('pagehide', () => {
+        cancelAnimationFrame(sceneFrame);
+        markRoot.traverse((object) => {
+          object.geometry?.dispose();
+          object.material?.dispose();
+        });
+        renderer.dispose();
+      }, { once: true });
+    } catch (error) {
+      webglStatus.textContent = 'WebGL or its module could not load; the static SVG fallback remains visible.';
+      console.error('Three.js spatial study failed to load', error);
+      renderer?.dispose();
+    }
+  }
+
+  buildWebGLStudy();
+  window.addEventListener('pagehide', () => cancelAnimationFrame(projectedFrame), { once: true });
+</script>
+<script type="module">
   const interactionRoot = document.querySelector('#interaction-lab');
   if (interactionRoot) {
     const reduceInteractionMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const interactionMarkUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}";
+    const interactionMarkUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry";
     const svgNamespace = 'http://www.w3.org/2000/svg';
     const methods = ['css', 'smil', 'waapi', 'gsap', 'motion', 'anime'];
     const [markResponse, motionModule, animeModule] = await Promise.all([
       fetch(interactionMarkUrl),
-      import('https://cdn.jsdelivr.net/npm/motion@14.10.1/+esm').catch(() => null),
+      import('https://cdn.jsdelivr.net/npm/motion@14.11.1/+esm').catch(() => null),
       import('https://cdn.jsdelivr.net/npm/animejs@4.5.0/+esm').catch(() => null),
     ]);
 
@@ -571,7 +852,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
 </script>
 <script type="module">
   const prefersLess = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const markUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}";
+  const markUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry";
   const svgNS = 'http://www.w3.org/2000/svg';
   const specialIcons = [...document.querySelectorAll('[data-show-icon]')];
   const showcaseTimelines = new Map();
@@ -679,7 +960,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
   const { svg: springSvg } = mounted.get('motion');
   const springTrigger = document.querySelector('.spring-trigger');
   try {
-    ({ animate: springAnimate } = await import('https://cdn.jsdelivr.net/npm/motion@14.10.1/+esm'));
+    ({ animate: springAnimate } = await import('https://cdn.jsdelivr.net/npm/motion@14.11.1/+esm'));
     const springIn = () => { if (!prefersLess) springAnimate(springSvg, { scale: 1.045, rotate: 3 }, { type: 'spring', stiffness: 320, damping: 19 }); };
     const springOut = () => { if (!prefersLess) springAnimate(springSvg, { scale: 1, rotate: 0 }, { type: 'spring', stiffness: 320, damping: 22 }); };
     springTrigger.addEventListener('pointerenter', springIn);
@@ -848,7 +1129,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
     try {
       const riveAsset = await fetch(riveUrl, { method: 'HEAD' });
       if (!riveAsset.ok) throw new Error('The signed .riv export is not present yet.');
-      const { Rive } = await import('https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.49.4/+esm');
+      const { Rive } = await import('https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.50.0/+esm');
       let rivePlayer;
       const riveCanvas = document.querySelector('[data-rive-canvas]');
       const riveButton = document.querySelector('[data-asset-replay="rive"]');
