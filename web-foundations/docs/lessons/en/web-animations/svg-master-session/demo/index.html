@@ -1364,7 +1364,9 @@ scene.add(new THREE.Mesh(geometry, material));`]
         import('https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.50.0/+esm'),
         new Promise((_, reject) => setTimeout(() => reject(new Error('Rive runtime timed out.')), 8000)),
       ]);
-      const { Rive } = riveRuntime;
+      const riveApi = riveRuntime.rive ?? riveRuntime.default?.rive ?? riveRuntime.default ?? riveRuntime;
+      const { Rive } = riveApi;
+      if (typeof Rive !== 'function') throw new TypeError('The Rive canvas runtime did not expose its player constructor.');
       let rivePlayer;
       rivePlayer = new Rive({
         src: riveUrl,
@@ -1399,7 +1401,9 @@ scene.add(new THREE.Mesh(geometry, material));`]
         import('https://cdn.jsdelivr.net/npm/@rive-app/webgl2@2.50.0/+esm'),
         new Promise((_, reject) => setTimeout(() => reject(new Error('Rive WebGL2 runtime timed out.')), 8000)),
       ]);
-      const { Rive } = rive3dRuntime;
+      const rive3dApi = rive3dRuntime.rive ?? rive3dRuntime.default?.rive ?? rive3dRuntime.default ?? rive3dRuntime;
+      const { Rive } = rive3dApi;
+      if (typeof Rive !== 'function') throw new TypeError('The Rive WebGL2 runtime did not expose its player constructor.');
       let isPlaying = true;
       const rive3dPlayer = new Rive({
         src: rive3dUrl,
