@@ -392,6 +392,14 @@ export function createHexField(canvas, options = {}) {
       const pointerK = 1 - Math.exp(-dt * (options.pointerFollow ?? 4.2));
       pointerX += (targetPointerX - pointerX) * pointerK;
       pointerY += (targetPointerY - pointerY) * pointerK;
+      if (hasPointer && !cameraPaused) {
+        const rest = restPose();
+        const amp = pointerAmp;
+        targetYaw = rest.yaw + (pointerX - 0.5) * 0.95 * amp;
+        targetPitch = rest.pitch + (pointerY - 0.5) * 0.48 * amp;
+        targetPanX = rest.panX + (pointerX - 0.5) * width * 0.07 * amp;
+        targetPanY = rest.panY + (pointerY - 0.5) * height * 0.055 * amp;
+      }
       pitch += (targetPitch - pitch) * k;
       yaw += (targetYaw - yaw) * k;
       panX += (targetPanX - panX) * k;
@@ -408,7 +416,9 @@ export function createHexField(canvas, options = {}) {
     const px = pointerX * width;
     const py = pointerY * height;
     const ptrSigma = (200 * dpr) ** 2;
-    const ptrK = hasPointer && !reduced && interactive ? 1 - Math.exp(-dt * 8) : 0;
+    const ptrK = hasPointer && !reduced && interactive
+      ? 1 - Math.exp(-dt * (options.geometryFollow ?? 3.6))
+      : 0;
     // Pointer-displaced geometry should float home, not snap back as if pulled
     // by a stiff spring. Keep this recovery independent from camera response.
     const decayK = !hasPointer && !reduced
@@ -581,12 +591,6 @@ export function createHexField(canvas, options = {}) {
     targetPointerX = Math.max(0, Math.min(1, (clientX - rect.left) / Math.max(1, rect.width)));
     targetPointerY = Math.max(0, Math.min(1, (clientY - rect.top) / Math.max(1, rect.height)));
     hasPointer = true;
-    const rest = restPose();
-    const amp = pointerAmp;
-    targetYaw = rest.yaw + (targetPointerX - 0.5) * 0.95 * amp;
-    targetPitch = rest.pitch + (targetPointerY - 0.5) * 0.48 * amp;
-    targetPanX = rest.panX + (targetPointerX - 0.5) * width * 0.07 * amp;
-    targetPanY = rest.panY + (targetPointerY - 0.5) * height * 0.055 * amp;
   }
 
   function onPointerLeave() {
