@@ -3261,6 +3261,34 @@ main#main:has(.lesson-wrapper) {
 	height: 11.875rem;
 }
 
+.svg-motion-demo .asset-preview.rive-source-preview {
+	position: relative;
+}
+
+.svg-motion-demo .asset-preview.rive-source-preview canvas {
+	display: none;
+}
+
+.svg-motion-demo .asset-preview.rive-source-preview.is-playing img {
+	display: none;
+}
+
+.svg-motion-demo .asset-preview.rive-source-preview.is-playing canvas {
+	display: block;
+}
+
+.svg-motion-demo .rive-source-badge {
+	position: absolute;
+	inset: auto 0.7rem 0.65rem auto;
+	padding: 0.25rem 0.45rem;
+	border: 1px solid var(--border-light);
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--code-block-bg) 84%, transparent);
+	color: var(--text-secondary);
+	font-size: 0.68rem;
+	font-weight: 700;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.svg-motion-demo .asset-preview .animascript-motion-preview {
 		display: none;
