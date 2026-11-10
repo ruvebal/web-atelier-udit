@@ -232,7 +232,10 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
           <canvas data-webgl-canvas role="img" aria-label="The favicon paths converted to lit, extruded meshes in a Three.js scene"></canvas>
         </div>
         <p class="spatial-status" data-webgl-status role="status">Preparing the mesh scene…</p>
-        <p>SVGLoader translates paths into shapes; extrusion creates geometry with thickness. A camera, materials, lights, and depth buffer now own the result.</p>
+        <div class="spatial-controls">
+          <button type="button" class="motion-button" data-webgl-orbit aria-pressed="false">Orbit 360°</button>
+        </div>
+        <p>SVGLoader translates paths into shapes; extrusion creates geometry with thickness. A camera, materials, lights, and depth buffer now own the result. Use <strong>Orbit 360°</strong> to inspect the actual front, side, and back surfaces—not a 2.5D approximation.</p>
         <span class="best-at">Best capability: geometry, lighting, occlusion, and spatial cameras</span>
       </article>
     </section>
@@ -257,7 +260,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
   const cards = [...document.querySelectorAll('[data-method]')];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const status = document.querySelector('#status');
-  const iconUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry";
+  const iconUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261110-clean-base-6";
   let sourceSvg;
   let svgReady = false;
   let motionReady = false;
@@ -394,7 +397,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
   }
 </script>
 <script type="module">
-  const spatialSvgUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry";
+  const spatialSvgUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261110-clean-base-6";
   const spatialReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const spatialTheme = getComputedStyle(document.documentElement);
   const spatialShadow = spatialTheme.getPropertyValue('--shadow-color').trim() || 'rgba(0, 0, 0, 0.18)';
@@ -574,6 +577,10 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
       let visible = true;
       let pointerYaw = 0;
       let pointerPitch = 0;
+      let autoOrbit = false;
+      let orbitAngle = 0;
+      let previousTime = 0;
+      const orbitButton = webglStage.closest('.spatial-card')?.querySelector('[data-webgl-orbit]');
       function resizeWebGL() {
         const bounds = webglStage.getBoundingClientRect();
         renderer.setSize(bounds.width, bounds.height, false);
@@ -581,8 +588,12 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
         camera.updateProjectionMatrix();
       }
       function renderWebGL(time = 0) {
+        const deltaSeconds = previousTime ? Math.min(0.05, (time - previousTime) / 1000) : 0;
+        previousTime = time;
+        if (autoOrbit) orbitAngle = (orbitAngle + deltaSeconds * 0.72) % (Math.PI * 2);
         const idle = spatialReducedMotion ? 0 : Math.sin(time * 0.00028) * 0.16;
-        markRoot.rotation.y += ((pointerYaw || idle) - markRoot.rotation.y) * 0.05;
+        const targetRotation = autoOrbit ? orbitAngle : (pointerYaw || idle);
+        markRoot.rotation.y += (targetRotation - markRoot.rotation.y) * 0.05;
         markRoot.rotation.x += (pointerPitch - markRoot.rotation.x) * 0.05;
         renderer.render(scene, camera);
         if (visible && !spatialReducedMotion) sceneFrame = requestAnimationFrame(renderWebGL);
@@ -592,6 +603,22 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
       renderer.render(scene, camera);
       webglStage.classList.add('is-ready');
       webglStatus.textContent = 'True 3D: extruded meshes, perspective camera, lights, materials, and depth testing.';
+      if (orbitButton) {
+        orbitButton.disabled = spatialReducedMotion;
+        if (spatialReducedMotion) orbitButton.textContent = 'Static by preference';
+        orbitButton.addEventListener('click', () => {
+          autoOrbit = !autoOrbit;
+          orbitButton.setAttribute('aria-pressed', String(autoOrbit));
+          orbitButton.textContent = autoOrbit ? 'Stop 360° orbit' : 'Orbit 360°';
+          webglStatus.textContent = autoOrbit
+            ? 'True 3D orbit active: the camera reveals the extruded side walls and back surfaces.'
+            : 'True 3D ready: drag or move across the stage to aim the camera.';
+          if (autoOrbit && visible && !sceneFrame) {
+            previousTime = 0;
+            sceneFrame = requestAnimationFrame(renderWebGL);
+          }
+        });
+      }
       webglStage.addEventListener('pointermove', (event) => {
         const bounds = webglStage.getBoundingClientRect();
         pointerYaw = ((event.clientX - bounds.left) / bounds.width - 0.5) * 0.9;
@@ -632,7 +659,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
   const interactionRoot = document.querySelector('#interaction-lab');
   if (interactionRoot) {
     const reduceInteractionMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const interactionMarkUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry";
+    const interactionMarkUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261110-clean-base-6";
     const svgNamespace = 'http://www.w3.org/2000/svg';
     const methods = ['css', 'smil', 'waapi', 'gsap', 'motion', 'anime'];
     const [markResponse, motionModule, animeModule] = await Promise.all([
@@ -852,7 +879,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
 </script>
 <script type="module">
   const prefersLess = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const markUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry";
+  const markUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261110-clean-base-6";
   const svgNS = 'http://www.w3.org/2000/svg';
   const specialIcons = [...document.querySelectorAll('[data-show-icon]')];
   const showcaseTimelines = new Map();

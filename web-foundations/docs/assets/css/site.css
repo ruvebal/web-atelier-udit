@@ -3500,6 +3500,33 @@ main#main:has(.lesson-wrapper) {
 	font-size: 0.78rem;
 }
 
+.svg-motion-demo .spatial-controls {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 0.55rem;
+}
+
+.svg-motion-demo .spatial-controls .motion-button {
+	padding: 0.42rem 0.72rem;
+	border: 1px solid var(--border-light);
+	border-radius: 999px;
+	background: var(--code-inline-bg);
+	color: var(--text-primary);
+	font-size: 0.78rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.svg-motion-demo .spatial-controls .motion-button[aria-pressed='true'] {
+	border-color: var(--primary);
+	background: color-mix(in srgb, var(--primary) 18%, var(--code-inline-bg));
+}
+
+.svg-motion-demo .spatial-controls .motion-button:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+}
+
 .svg-motion-demo .spatial-verdict {
 	margin-top: 1rem;
 	padding: 1rem 1.25rem;
