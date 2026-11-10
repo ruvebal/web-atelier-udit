@@ -260,6 +260,7 @@ export function createHexField(canvas, options = {}) {
   /** Wheel→pitch only when the canvas itself is the interaction surface (not page heroes). */
   const wheelPitch = options.wheelPitch ?? pointerRoot === canvas;
   const pointerAmp = options.pointerAmp ?? 1;
+  const neutralRoot = options.neutralRoot || null;
 
   let nodes = new Float32Array(0);
   let count = 0;
@@ -374,6 +375,24 @@ export function createHexField(canvas, options = {}) {
     };
   }
 
+  function neutralPoint() {
+    if (!neutralRoot?.getBoundingClientRect) return { x: 0.5, y: 0.5 };
+    const rootRect = pointerRoot.getBoundingClientRect();
+    const neutralRect = neutralRoot.getBoundingClientRect();
+    return {
+      x: (neutralRect.left + neutralRect.width * 0.5 - rootRect.left) / Math.max(1, rootRect.width),
+      y: (neutralRect.top + neutralRect.height * 0.5 - rootRect.top) / Math.max(1, rootRect.height),
+    };
+  }
+
+  function neutralResponse(x, y, neutral) {
+    const distance = Math.hypot(x - neutral.x, y - neutral.y);
+    const deadZone = options.neutralDeadZone ?? 0.045;
+    const fullResponse = Math.max(deadZone + 0.001, options.neutralFullResponse ?? 0.42);
+    const t = Math.max(0, Math.min(1, (distance - deadZone) / (fullResponse - deadZone)));
+    return t * t * (3 - 2 * t);
+  }
+
   function frame(now) {
     const dt = Math.min(0.05, (now - last) / 1000);
     last = now;
@@ -388,17 +407,24 @@ export function createHexField(canvas, options = {}) {
 
     if (!reduced) {
       time += dt;
-      const k = 1 - Math.exp(-dt * 6);
       const pointerK = 1 - Math.exp(-dt * (options.pointerFollow ?? 4.2));
       pointerX += (targetPointerX - pointerX) * pointerK;
       pointerY += (targetPointerY - pointerY) * pointerK;
-      if (hasPointer && !cameraPaused) {
+    }
+
+    const neutral = neutralPoint();
+    const gravityGain = neutralResponse(pointerX, pointerY, neutral);
+    if (!reduced) {
+      const k = 1 - Math.exp(-dt * 6);
+      if (hasPointer) {
         const rest = restPose();
         const amp = pointerAmp;
-        targetYaw = rest.yaw + (pointerX - 0.5) * 0.95 * amp;
-        targetPitch = rest.pitch + (pointerY - 0.5) * 0.48 * amp;
-        targetPanX = rest.panX + (pointerX - 0.5) * width * 0.07 * amp;
-        targetPanY = rest.panY + (pointerY - 0.5) * height * 0.055 * amp;
+        const dx = pointerX - neutral.x;
+        const dy = pointerY - neutral.y;
+        targetYaw = rest.yaw + dx * gravityGain * 0.95 * amp;
+        targetPitch = rest.pitch + dy * gravityGain * 0.48 * amp;
+        targetPanX = rest.panX + dx * gravityGain * width * 0.07 * amp;
+        targetPanY = rest.panY + dy * gravityGain * height * 0.055 * amp;
       }
       pitch += (targetPitch - pitch) * k;
       yaw += (targetYaw - yaw) * k;
@@ -450,7 +476,7 @@ export function createHexField(canvas, options = {}) {
         const probe = projectRaw(wx, wy, wz - energyN * 36 * dpr, cosY, sinY, cosX, sinX);
         const dx = probe.x - px;
         const dy = probe.y - py;
-        const pulse = Math.exp(-(dx * dx + dy * dy) / (2 * ptrSigma));
+        const pulse = Math.exp(-(dx * dx + dy * dy) / (2 * ptrSigma)) * gravityGain;
         energyN += (pulse - energyN) * ptrK;
         nodes[o + 4] = energyN;
       } else if (!reduced) {
@@ -586,7 +612,7 @@ export function createHexField(canvas, options = {}) {
   }
 
   function onPointer(clientX, clientY) {
-    if (!interactive || cameraPaused) return;
+    if (!interactive) return;
     const rect = pointerRoot.getBoundingClientRect();
     targetPointerX = Math.max(0, Math.min(1, (clientX - rect.left) / Math.max(1, rect.width)));
     targetPointerY = Math.max(0, Math.min(1, (clientY - rect.top) / Math.max(1, rect.height)));
@@ -669,9 +695,9 @@ export function createHexField(canvas, options = {}) {
     setCameraPaused(next) {
       cameraPaused = Boolean(next);
       if (cameraPaused) {
-        // Transfer pointer ownership without pulling the background back to its
-        // gravity centre or clearing the retained geometry interaction point.
-        // Ambient flotation continues around this held pose.
+        // Hover itself must not pull the background to rest. The next frames
+        // may still approach the focal neutral point from actual pointer
+        // position, while competing scroll-camera targets remain suspended.
         targetYaw = yaw;
         targetPitch = pitch;
         targetPanX = panX;
