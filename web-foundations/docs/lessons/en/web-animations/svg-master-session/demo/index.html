@@ -7,6 +7,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
 ---
 <article class="svg-motion-demo">
   <nav class="svg-motion-demo__rail" aria-label="Comparison sections">
+    <a class="svg-motion-demo__rail-back" href="{{ '/lessons/en/web-animations/svg-master-session/' | relative_url }}" aria-label="Return to the SVG animation master session">← Lesson</a>
     <a href="#same-result">Same result</a>
     <a href="#best-in-show">Best in show</a>
     <a href="#interaction-lab">Interaction lab</a>
@@ -242,7 +243,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
     </section>
     <aside class="spatial-verdict" aria-label="Spatial rendering verdict">
       <strong>Do not infer 3D from the graphics API.</strong>
-      <p>dotLottie can use WebGL2 or WebGPU and still render a two-dimensional timeline. GSAP, Motion, and Anime.js can animate Three.js values but do not render the scene. Current Rive can own native 3D; this lesson’s Rive asset remains deliberately 2D.</p>
+      <p>dotLottie can use WebGL2 or WebGPU and still render a two-dimensional timeline. GSAP, Motion, and Anime.js can animate Three.js values but do not render the scene. <a href="https://rive.app/agents" target="_blank" rel="noopener">Current Rive</a> can combine vectors and native 3D in one scene, and <a href="https://rive.app/rasc/docs/getting-started.html" target="_blank" rel="noopener">AnimaScript</a> can drive its procedural logic. That capability does not make every Rive file three-dimensional: both lesson assets—the timeline <code>.riv</code> and the scripted favicon—remain deliberately 2D. The Canvas specimen above is <strong>projected 2.5D</strong>: it gives flat SVG facets synthetic Z values, perspective scale, and painter order, but has no meshes, thickness, lights, or depth buffer.</p>
     </aside>
   </section>
 

@@ -3084,6 +3084,13 @@ main#main:has(.lesson-wrapper) {
 	white-space: nowrap;
 }
 
+.svg-motion-demo__rail .svg-motion-demo__rail-back {
+	margin-inline-end: 0.15rem;
+	border-inline-end: 1px solid var(--border-light);
+	border-radius: 999px 0 0 999px;
+	padding-inline-end: 0.9rem;
+}
+
 .svg-motion-demo__rail a:hover,
 .svg-motion-demo__rail a:focus-visible {
 	color: var(--on-primary);
