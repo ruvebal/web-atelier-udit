@@ -19,6 +19,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
   <header class="svg-motion-demo__intro">
   <h1 id="same-result-title">One mark.<br>Seven motion engines.</h1>
   <p class="lede">Round 1 holds the result constant: the same ruvebal favicon artwork and the same staggered reveal. Round 2 changes the motion task so each technique can show its strongest fit. Round 3 compares facet-level interaction, state, and interruption. Round 4 separates a flat SVG, a CSS-composited plane, mathematical 2.5D, and true mesh geometry. The tab favicon cycles through the course palette; the demo uses a separate static copy so it cannot bias the comparison.</p>
+  <p class="code-convention"><strong>Code convention:</strong> every <em>Key code</em> disclosure is an <strong>Excerpt</strong> of the mechanism beside it, not a standalone file. Open the disclosure after using the specimen; links on exported assets lead to their complete source.</p>
   </header>
   <div class="toolbar">
     <button id="replay-all" type="button">Replay all</button>
@@ -255,6 +256,177 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
   </section>
   <footer class="svg-motion-demo__footer"><a href="{{ '/lessons/en/web-animations/svg-master-session/' | relative_url }}">Return to the master session</a> · Reduced motion leaves every mark static. Replay uses the same source paths and stagger goal.</footer>
 </article>
+<script type="module">
+  const codeExamples = {
+    'method:transition': ['css', `.facet { opacity: 0; transition: opacity 420ms ease; }
+.is-running .facet { opacity: 1; }
+.facet:nth-child(2) { transition-delay: 70ms; }`],
+    'method:keyframes': ['css', `@keyframes reveal { from { opacity: 0; } to { opacity: 1; } }
+.is-running .facet {
+  animation: reveal 420ms ease both;
+  animation-delay: calc(var(--index) * 70ms);
+}`],
+    'method:smil': ['html', `<animate attributeName="opacity" from="0" to="1"
+  dur="420ms" begin="140ms" fill="freeze" />`],
+    'method:waapi': ['js', `facet.animate(
+  [{ opacity: 0 }, { opacity: 1 }],
+  { duration: 420, delay: index * 70, fill: 'both' }
+);`],
+    'method:gsap': ['js', `gsap.timeline().fromTo(facets,
+  { opacity: 0 },
+  { opacity: 1, duration: 0.42, stagger: 0.07 }
+);`],
+    'method:motion': ['js', `animate(facets,
+  { opacity: [0, 1] },
+  { duration: 0.42, delay: stagger(0.07) }
+);`],
+    'method:anime': ['js', `animate(facets, {
+  opacity: [0, 1],
+  duration: 420,
+  delay: stagger(70)
+});`],
+
+    'show:transition': ['css', `.mark { transition: transform 240ms ease; }
+.trigger:hover .mark,
+.trigger:focus-visible .mark,
+.trigger[aria-pressed='true'] .mark {
+  transform: translateY(-3px) rotate(-3deg) scale(1.04);
+}`],
+    'show:keyframes': ['css', `@keyframes signature-bloom {
+  0% { opacity: .3; transform: translateY(10px) scale(.88); }
+  62% { transform: translateY(-2px) scale(1.035); }
+  100% { opacity: 1; transform: none; }
+}`],
+    'show:smil': ['html', `<animateTransform attributeName="transform" type="scale"
+  values="1;1.06;1" keyTimes="0;.62;1"
+  dur="700ms" begin="indefinite" />`],
+    'show:waapi': ['js', `const animation = facet.animate(keyframes, timing);
+animation.pause();
+slider.addEventListener('input', () => {
+  animation.currentTime = duration * slider.value / 100;
+});`],
+    'show:gsap': ['js', `const timeline = gsap.timeline({ paused: true })
+  .from(facets, { opacity: 0, stagger: 0.055 })
+  .to(mark, { scale: 1.025, yoyo: true, repeat: 1 });
+reverseButton.onclick = () => timeline.reverse();`],
+    'show:motion': ['js', `const spring = { type: 'spring', stiffness: 320, damping: 19 };
+trigger.onpointerenter = () => animate(mark, { scale: 1.045, rotate: 3 }, spring);
+trigger.onpointerleave = () => animate(mark, { scale: 1, rotate: 0 }, spring);`],
+    'show:anime': ['js', `animate(overlayPaths, {
+  strokeDashoffset: [pathLength, 0],
+  delay: stagger(85),
+  easing: 'easeInOutSine'
+});`],
+
+    'interaction:css': ['js', `facet.addEventListener('click', () => {
+  facet.classList.toggle('is-selected');
+});
+// CSS owns fill, opacity, and the transition.`],
+    'interaction:smil': ['html', `<path tabindex="0">
+  <animate attributeName="opacity" values="1;.25;1"
+    dur="480ms" begin="click" />
+</path>`],
+    'interaction:waapi': ['js', `const playback = facet.animate(keyframes, { fill: 'both' });
+facet.addEventListener('click', () => {
+  playback.playbackRate *= -1;
+  playback.play();
+});`],
+    'interaction:gsap': ['js', `gsap.timeline()
+  .to(facets, { opacity: 0.38, scale: 0.94 })
+  .to(selectedFacet, { opacity: 1, scale: 1.16 }, '<');`],
+    'interaction:motion': ['js', `animate(facet,
+  { scale: [1, 1.18, 1.08], rotate: [0, 4, 2] },
+  { type: 'spring', stiffness: 360, damping: 18 }
+);`],
+    'interaction:anime': ['js', `animate(facets, {
+  scale: [1, 1.12, 1],
+  delay: (_, index) => Math.abs(index - selectedIndex) * 65
+});`],
+
+    'authored:lottie': ['js', `const player = lottie.loadAnimation({
+  container: stage,
+  renderer: 'svg',
+  animationData
+});
+player.goToAndStop(progress * player.totalFrames, true);`],
+    'authored:dotlottie': ['js', `const player = new DotLottie({
+  canvas,
+  src: 'fava-showcase.lottie',
+  autoplay: true
+});
+player.loadAnimation('fava-night');`],
+    'authored:rive': ['js', `const player = new Rive({
+  src: 'fava-motion.riv',
+  canvas,
+  autoplay: true,
+  animations: 'ruvebal Favicon Reveal'
+});`],
+    'authored:animascript': ['js', `fn pointer_down(event: PointerEvent) {
+  swap_started_at = clock.now();
+}
+
+fn facet_delay(index: u32) -> f32 {
+  return index as f32 * 0.07;
+}`],
+
+    'spatial:flat': ['html', `<svg viewBox="0 0 1024 920" role="img">
+  <path class="facet" d="…" fill="var(--facet-1)" />
+</svg>`],
+    'spatial:css': ['css', `.scene { perspective: 800px; }
+.plane {
+  transform-style: preserve-3d;
+  transform: rotateX(var(--pitch)) rotateY(var(--yaw));
+}`],
+    'spatial:canvas': ['js', `const perspective = fov / (fov - projectedDepth);
+context.setTransform(scale * perspective, 0, 0, scale * perspective, x, y);
+facets.sort((a, b) => a.depth - b.depth)
+  .forEach(({ path }) => context.fill(path));`],
+    'spatial:three': ['js', `const shapes = SVGLoader.createShapes(path);
+const geometry = new THREE.ExtrudeGeometry(shapes[0], {
+  depth: 18,
+  bevelEnabled: true
+});
+scene.add(new THREE.Mesh(geometry, material));`]
+  };
+
+  const cardKeys = [
+    ['[data-method]', 'method'],
+    ['[data-show]', 'show'],
+    ['[data-interaction]', 'interaction'],
+    ['[data-authored]', 'authored']
+  ];
+
+  for (const [selector, namespace] of cardKeys) {
+    document.querySelectorAll(selector).forEach((card) => {
+      const value = card.dataset[namespace];
+      appendCodeDisclosure(card, codeExamples[`${namespace}:${value}`]);
+    });
+  }
+
+  document.querySelectorAll('.spatial-card').forEach((card, index) => {
+    appendCodeDisclosure(card, codeExamples[`spatial:${['flat', 'css', 'canvas', 'three'][index]}`]);
+  });
+
+  function appendCodeDisclosure(card, example) {
+    if (!example) return;
+    const [language, source] = example;
+    const details = document.createElement('details');
+    details.className = 'demo-code';
+    const summary = document.createElement('summary');
+    summary.textContent = 'Key code';
+    const label = document.createElement('p');
+    label.className = 'demo-code__label';
+    label.textContent = 'Excerpt · key mechanism';
+    const pre = document.createElement('pre');
+    pre.tabIndex = 0;
+    const code = document.createElement('code');
+    code.className = `language-${language}`;
+    code.textContent = source;
+    pre.append(code);
+    details.append(summary, label, pre);
+    card.append(details);
+  }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js" defer></script>
 <script type="module">
   const cards = [...document.querySelectorAll('[data-method]')];
