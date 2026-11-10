@@ -1160,11 +1160,15 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
     }
 
     const riveUrl = `${authoredBase}rive/fava-motion.riv`;
+    const riveButton = document.querySelector('[data-asset-replay="rive"]');
+    const riveCanvas = document.querySelector('[data-rive-canvas]');
     try {
-      const { Rive } = await import('https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.50.0/+esm');
+      const riveRuntime = await Promise.race([
+        import('https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.50.0/+esm'),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Rive runtime timed out.')), 8000)),
+      ]);
+      const { Rive } = riveRuntime;
       let rivePlayer;
-      const riveCanvas = document.querySelector('[data-rive-canvas]');
-      const riveButton = document.querySelector('[data-asset-replay="rive"]');
       rivePlayer = new Rive({
         src: riveUrl,
         canvas: riveCanvas,
@@ -1183,7 +1187,11 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
         },
       });
     } catch (error) {
-      authoredStatus('rive').textContent = 'RML source is verified. Export the signed .riv with the lesson command after rive login.';
+      authoredStatus('rive').textContent = 'Rive runtime unavailable; showing the static source mark.';
+      riveButton.disabled = true;
+      riveButton.textContent = 'Rive runtime unavailable';
+      riveCanvas?.setAttribute('aria-label', 'Static ruvebal favicon; Rive runtime unavailable');
+      console.warn('Rive showreel unavailable', error);
     }
   }
 </script>
