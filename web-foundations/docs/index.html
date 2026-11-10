@@ -13,8 +13,8 @@ lang: es
 			<span
 				id="fava-hero-icon"
 				class="fava-hero-mark favicon-canvas-25d w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
-				data-favicon-src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261110-canvas">
-				<img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt="" aria-hidden="true" />
+				data-favicon-src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261110-clean-base-6">
+				<img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261110-clean-base-6" alt="" aria-hidden="true" />
 			</span>
 			<p id="fava-facet-help" class="fava-facet-help">
 				Mueve el puntero: el plano acompaña el gesto y sus facetas se separan en profundidad. Haz clic en una faceta para invertir su color; la paleta rota en secuencia y al salir vuelve a la proyección SVG frontal.
@@ -60,7 +60,7 @@ lang: es
 </section>
 
 <script type="module">
-	import { mountFaviconCanvas } from '{{ '/assets/js/favicon-canvas-25d.js' | relative_url }}?v=20261110-viewport-depth-4';
+	import { mountFaviconCanvas } from '{{ '/assets/js/favicon-canvas-25d.js' | relative_url }}?v=20261110-clean-base-depth-6';
 
 	mountFaviconCanvas(document.getElementById('fava-hero-icon')).catch((error) => {
 		console.warn('[favicon-canvas-25d] Static SVG fallback retained.', error);
