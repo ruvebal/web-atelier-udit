@@ -164,6 +164,8 @@ projectedZ *= extrusionStrength;
 perspective = clamp(rawPerspective, 0.94, 1.06);
 ```
 
+**Pen-tablet note:** a Wacom pen can emit tiny, high-frequency pointer excursions while the hand is visually still. The camera therefore conditions input separately from facet hit testing: the camera dead zone is slightly larger (`0.16` here), and the normalized pointer vector is low-pass filtered before yaw, pitch, depth, and plane travel are derived. Raw coordinates remain available for precise facet selection. This removes eye-seeking micro-motion without making deliberate pen gestures feel unresponsive.
+
 <aside class="lesson-emphasis lesson-emphasis--concept" aria-label="Flotation model boundary">
 <p class="lesson-emphasis__label">Flotation is a metaphor</p>
 <p>A sine wave or spring can suggest buoyancy, but true flotation would integrate mass, gravity, displaced-fluid buoyancy, drag, collisions, and a stable time step. The production mark uses two bounded springs instead: one translates the complete SVG plane and another drives camera/depth response. While the mark is active, the hero background stops accepting camera input but keeps its animation clock alive; its current camera coasts toward rest and its low-amplitude levitation continues.</p>
