@@ -183,148 +183,6 @@ function facet01(): Path {
 function facet02(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
-  path.moveTo(Vector.xy(441.904, 394.7785));
-  path.lineTo(Vector.xy(442.54248, 395.12487));
-  path.cubicTo(
-    Vector.xy(454.60809, 409.35189),
-    Vector.xy(467.18998, 423.37609),
-    Vector.xy(479.60752, 437.3111)
-  );
-  path.cubicTo(
-    Vector.xy(487.15983, 445.78598),
-    Vector.xy(497.32774, 458.34527),
-    Vector.xy(505.71954, 465.57882)
-  );
-  path.lineTo(Vector.xy(506.16066, 465.67961));
-  path.cubicTo(
-    Vector.xy(507.73638, 466.28623),
-    Vector.xy(508.205, 466.43834),
-    Vector.xy(509.84487, 466.8177)
-  );
-  path.lineTo(Vector.xy(509.11658, 467.72365));
-  path.cubicTo(
-    Vector.xy(510.09842, 473.23021),
-    Vector.xy(519.88631, 476.12034),
-    Vector.xy(522.81656, 486.59954)
-  );
-  path.lineTo(Vector.xy(526.13418, 490.5184));
-  path.cubicTo(
-    Vector.xy(535.36729, 495.38842),
-    Vector.xy(539.39181, 502.94146),
-    Vector.xy(546.14191, 509.91416)
-  );
-  path.cubicTo(
-    Vector.xy(555.5241, 519.60471),
-    Vector.xy(563.43261, 529.30747),
-    Vector.xy(571.64539, 539.95773)
-  );
-  path.cubicTo(
-    Vector.xy(574.73023, 543.95723),
-    Vector.xy(581.38684, 547.84065),
-    Vector.xy(584.58165, 552.07046)
-  );
-  path.cubicTo(
-    Vector.xy(589.35951, 558.80796),
-    Vector.xy(589.5202, 562.05668),
-    Vector.xy(597.46231, 566.36162)
-  );
-  path.cubicTo(
-    Vector.xy(598.83701, 567.1069),
-    Vector.xy(604.1898, 576.35883),
-    Vector.xy(605.86938, 577.90744)
-  );
-  path.cubicTo(
-    Vector.xy(612.3537, 585.63275),
-    Vector.xy(628.65462, 599.5586),
-    Vector.xy(631.52622, 608.78976)
-  );
-  path.cubicTo(
-    Vector.xy(631.79505, 609.64012),
-    Vector.xy(632.01501, 610.50575),
-    Vector.xy(632.18608, 611.37871)
-  );
-  path.lineTo(Vector.xy(623.72402, 611.26875));
-  path.cubicTo(
-    Vector.xy(584.74601, 611.6475),
-    Vector.xy(544.90773, 611.3726),
-    Vector.xy(505.89183, 611.20766)
-  );
-  path.cubicTo(
-    Vector.xy(512.07922, 619.32028),
-    Vector.xy(518.5281, 625.33144),
-    Vector.xy(525.26109, 632.90648)
-  );
-  path.cubicTo(
-    Vector.xy(535.42778, 644.34845),
-    Vector.xy(545.88957, 655.66824),
-    Vector.xy(555.6072, 667.47674)
-  );
-  path.cubicTo(
-    Vector.xy(558.71769, 671.25815),
-    Vector.xy(566.03233, 677.77635),
-    Vector.xy(567.45347, 682.04647)
-  );
-  path.cubicTo(
-    Vector.xy(563.41306, 684.06851),
-    Vector.xy(452.7275, 683.79361),
-    Vector.xy(443.26282, 682.37635)
-  );
-  path.cubicTo(
-    Vector.xy(448.79585, 674.9968),
-    Vector.xy(456.10927, 667.2446),
-    Vector.xy(462.31864, 660.311)
-  );
-  path.lineTo(Vector.xy(486.55435, 633.1325));
-  path.cubicTo(
-    Vector.xy(491.8216, 627.32905),
-    Vector.xy(501.60398, 617.65255),
-    Vector.xy(505.09573, 611.17712)
-  );
-  path.cubicTo(
-    Vector.xy(489.85364, 610.60166),
-    Vector.xy(472.52566, 611.03661),
-    Vector.xy(457.14732, 611.07938)
-  );
-  path.lineTo(Vector.xy(377.26243, 610.98774));
-  path.cubicTo(
-    Vector.xy(372.03183, 606.51419),
-    Vector.xy(362.32643, 594.52181),
-    Vector.xy(357.21498, 588.83137)
-  );
-  path.cubicTo(
-    Vector.xy(342.09386, 572.10337),
-    Vector.xy(327.05767, 555.29901),
-    Vector.xy(312.1064, 538.41951)
-  );
-  path.cubicTo(
-    Vector.xy(319.85117, 529.88538),
-    Vector.xy(327.94176, 522.43679),
-    Vector.xy(335.97124, 513.25817)
-  );
-  path.lineTo(Vector.xy(359.01554, 486.74799));
-  path.cubicTo(
-    Vector.xy(364.2614, 480.72889),
-    Vector.xy(371.96463, 471.84472),
-    Vector.xy(377.84652, 466.63321)
-  );
-  path.lineTo(Vector.xy(378.24182, 466.59228));
-  path.cubicTo(
-    Vector.xy(380.59593, 462.22137),
-    Vector.xy(395.77875, 445.66564),
-    Vector.xy(400.08127, 440.89153)
-  );
-  path.cubicTo(
-    Vector.xy(413.83257, 425.63211),
-    Vector.xy(427.40669, 409.21078),
-    Vector.xy(441.904, 394.7785)
-  );
-  path.close();
-  return path;
-}
-
-function facet03(): Path {
-  const path = new Path();
-  path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(505.71954, 465.57882));
   path.lineTo(Vector.xy(632.18608, 611.37871));
   path.lineTo(Vector.xy(505.09573, 611.17712));
@@ -333,7 +191,7 @@ function facet03(): Path {
   return path;
 }
 
-function facet04(): Path {
+function facet03(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(505.49348, 611.19545));
@@ -343,7 +201,7 @@ function facet04(): Path {
   return path;
 }
 
-function facet05(): Path {
+function facet04(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(441.904, 394.7785));
@@ -389,7 +247,7 @@ function facet05(): Path {
   return path;
 }
 
-function facet06(): Path {
+function facet05(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(313.37235, 250.49056));
@@ -461,7 +319,7 @@ function facet06(): Path {
   return path;
 }
 
-function facet07(): Path {
+function facet06(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(569.38722, 394.03382));
@@ -501,7 +359,7 @@ function facet07(): Path {
   return path;
 }
 
-function facet08(): Path {
+function facet07(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(442.77893, 394.07292));
@@ -530,7 +388,7 @@ function facet08(): Path {
   return path;
 }
 
-function facet09(): Path {
+function facet08(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(636.01692, 322.13268));
@@ -569,7 +427,7 @@ function facet09(): Path {
   return path;
 }
 
-function facet10(): Path {
+function facet09(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(569.38722, 394.03382));
@@ -614,7 +472,7 @@ function facet10(): Path {
   return path;
 }
 
-function facet11(): Path {
+function facet10(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(698.97831, 394.53842));
@@ -648,7 +506,7 @@ function facet11(): Path {
   return path;
 }
 
-function facet12(): Path {
+function facet11(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(572.60952, 250.45879));
@@ -679,7 +537,7 @@ function facet12(): Path {
   return path;
 }
 
-function facet13(): Path {
+function facet12(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(378.36097, 322.43141));
@@ -749,7 +607,7 @@ function facet13(): Path {
   return path;
 }
 
-function facet14(): Path {
+function facet13(): Path {
   const path = new Path();
   path.fillRule = FillRule.nonZero;
   path.moveTo(Vector.xy(506.49793, 177.03287));
@@ -811,8 +669,6 @@ export class RuvebalFaviconPulse extends Layout {
     this.paths.push(facet11());
     this.paths.push(facet12());
     this.paths.push(facet13());
-    this.paths.push(facet14());
-    this.paints.push(makePaint(Color.rgb(29, 78, 216)));
     this.paints.push(makePaint(Color.rgb(29, 78, 216)));
     this.paints.push(makePaint(Color.rgb(147, 115, 221)));
     this.paints.push(makePaint(Color.rgb(147, 115, 221)));
@@ -832,7 +688,6 @@ export class RuvebalFaviconPulse extends Layout {
     this.palette.push(Color.rgb(0, 41, 94));
     this.palette.push(Color.rgb(147, 197, 253));
     this.facetPalette.push(0);
-    this.facetPalette.push(0);
     this.facetPalette.push(1);
     this.facetPalette.push(1);
     this.facetPalette.push(4);
@@ -845,7 +700,7 @@ export class RuvebalFaviconPulse extends Layout {
     this.facetPalette.push(2);
     this.facetPalette.push(3);
     this.facetPalette.push(0);
-    context.log("ruvebal favicon AnimaScript: 14 interactive facets ready");
+    context.log("ruvebal favicon AnimaScript: 13 interactive facets ready");
     return true;
   }
 

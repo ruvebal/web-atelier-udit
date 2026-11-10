@@ -717,6 +717,8 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
         window.gsap?.killTweensOf(lab.facets);
         window.gsap?.set(lab.facets, { clearProps: 'all' });
         lab.facets.forEach((facet) => {
+          facet._motionPlayback?.stop?.();
+          facet._motionPlayback = null;
           facet.getAnimations().forEach((animation) => animation.cancel());
           facet._waapiAnimation = null;
           facet.classList.remove('is-selected');
@@ -804,7 +806,8 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
           if (!motionModule || reduceInteractionMotion) {
             facet.style.opacity = facet.style.opacity === '0.55' ? '' : '0.55';
           } else {
-            motionModule.animate(facet, { scale: [1, 1.18, 1], rotate: [0, 4, 0] }, { type: 'spring', stiffness: 360, damping: 18 });
+            facet._motionPlayback?.stop?.();
+            facet._motionPlayback = motionModule.animate(facet, { scale: [1, 1.18, 1.08], rotate: [0, 4, 2] }, { type: 'spring', stiffness: 360, damping: 18 });
           }
           updateStatus(lab.method, `${label} responded with ${reduceInteractionMotion ? 'a static state' : 'a spring'}.`);
           return;
@@ -865,11 +868,15 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
       if (motionModule && !reduceInteractionMotion) {
         const motionLab = labs.get('motion');
         motionLab.facets.forEach((facet) => {
-          const springTo = (scale) => motionModule.animate(facet, { scale }, { type: 'spring', stiffness: 420, damping: 24 });
-          facet.addEventListener('pointerenter', () => springTo(1.09));
-          facet.addEventListener('pointerleave', () => springTo(1));
-          facet.addEventListener('focus', () => springTo(1.09));
-          facet.addEventListener('blur', () => springTo(1));
+          const springTo = (scale, rotate) => {
+            facet._motionPlayback?.stop?.();
+            facet._motionPlayback = motionModule.animate(facet, { scale, rotate }, { type: 'spring', stiffness: 420, damping: 24 });
+          };
+          // Deliberately persistent: the facet stays transformed after hover or
+          // focus so students can inspect the result. The reset button is the
+          // explicit state transition back to the frontal composition.
+          facet.addEventListener('pointerenter', () => springTo(1.09, 2.5));
+          facet.addEventListener('focus', () => springTo(1.09, 2.5));
         });
       }
     } else {

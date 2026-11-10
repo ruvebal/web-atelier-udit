@@ -2895,15 +2895,15 @@ main#main:has(.lesson-wrapper) {
 }
 
 .spatial-stack-figure__layer--timing {
-	transform: translateY(-4.25rem) translateZ(5rem) rotateX(58deg);
+	transform: translateY(-3.5rem) translateZ(5rem) rotateX(28deg);
 }
 
 .spatial-stack-figure__layer--model {
-	transform: translateY(0) translateZ(1.25rem) rotateX(58deg);
+	transform: translateY(0) translateZ(1.25rem) rotateX(28deg);
 }
 
 .spatial-stack-figure__layer--renderer {
-	transform: translateY(4.25rem) translateZ(-2.5rem) rotateX(58deg);
+	transform: translateY(3.5rem) translateZ(-2.5rem) rotateX(28deg);
 }
 
 .spatial-stack-figure figcaption {
