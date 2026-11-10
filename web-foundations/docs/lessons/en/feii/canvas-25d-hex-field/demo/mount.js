@@ -1,4 +1,4 @@
-import { createHexField } from './hex-field.js';
+import { createHexField } from './hex-field.js?v=20261110-motion-2';
 import { COMPOSITIONS, compositionOptions, getComposition } from './compositions.js';
 
 export { COMPOSITIONS, getComposition };

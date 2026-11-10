@@ -168,7 +168,7 @@ perspective = clamp(rawPerspective, 0.94, 1.06);
 
 <aside class="lesson-emphasis lesson-emphasis--concept" aria-label="Flotation model boundary">
 <p class="lesson-emphasis__label">Flotation is a metaphor</p>
-<p>A sine wave or spring can suggest buoyancy, but true flotation would integrate mass, gravity, displaced-fluid buoyancy, drag, collisions, and a stable time step. The production mark uses two bounded springs instead: one translates the complete SVG plane and another drives camera/depth response. While the mark is active, the hero background stops accepting camera input but keeps its animation clock alive; its current camera coasts toward rest and its low-amplitude levitation continues.</p>
+<p>A sine wave or spring can suggest buoyancy, but true flotation would integrate mass, gravity, displaced-fluid buoyancy, drag, collisions, and a stable time step. The production mark keeps camera response, per-shape displacement recovery, and ambient flotation as separate channels. While the mark is active, the hero background stops accepting camera input and holds its current camera pose; its animation clock and low-amplitude levitation continue. Pointer-displaced hexagons recover through their own slower energy decay instead of a stiff gravity-like pull.</p>
 </aside>
 
 **3. A timing library can drive a scene without rendering it.**
@@ -370,7 +370,7 @@ favicon-motion/
 └── hero-coordinator.js   foreground activity → background camera suspension
 ```
 
-The foreground emits one bubbling `favicon-canvas-interaction` event. The coordinator composes pointer/focus reasons and calls `field.setCameraPaused(active)`. That method must suspend new pointer/scroll camera targets—not cancel the render loop—when ambient levitation is meant to continue. This boundary prevents the favicon from knowing which geometry engine is behind it and prevents the background from knowing how the favicon is rendered.
+The foreground emits one bubbling `favicon-canvas-interaction` event. The coordinator composes pointer/focus reasons and calls `field.setCameraPaused(active)`. That method must suspend new pointer/scroll camera targets, hold the current camera pose, and leave the render loop running when ambient levitation is meant to continue. It must not silently retarget the scene to its rest centre. This boundary prevents the favicon from knowing which geometry engine is behind it and prevents the background from knowing how the favicon is rendered.
 
 The demo uses `lottie-web` to render the JSON as SVG and `@lottiefiles/dotlottie-web` to play the archive on canvas. Each has a static SVG fallback and does not autoplay when reduced motion is requested. The AnimaScript capture is replaced by the static SVG under `prefers-reduced-motion`. Rive projects can be verified, previewed, and captured without signing in. Publishing a distributable signed `.riv` requires Rive CLI sign-in.
 

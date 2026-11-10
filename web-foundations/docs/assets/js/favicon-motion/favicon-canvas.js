@@ -7,8 +7,8 @@ import {
 	springStep,
 	svgScale,
 	svgViewBox,
-} from './math.js?v=20261110-clean-base-depth-8';
-import { buildPalette, staggeredColour, transitionDuration } from './palette.js?v=20261110-clean-base-depth-8';
+} from './math.js?v=20261110-motion-2';
+import { buildPalette, staggeredColour, transitionDuration } from './palette.js?v=20261110-motion-2';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -203,11 +203,11 @@ export async function mountFaviconCanvas(host, options = {}) {
 		filteredPointer.x += (rawX - filteredPointer.x) * smoothing;
 		filteredPointer.y += (rawY - filteredPointer.y) * smoothing;
 		const response = fovealResponse(filteredPointer.x, filteredPointer.y, options.fovealDeadZone ?? 0.24);
-		target.yaw = filteredPointer.x * response.gain * (options.yawAmplitude ?? 0.07);
-		target.pitch = -filteredPointer.y * response.gain * (options.pitchAmplitude ?? 0.052);
+		target.yaw = filteredPointer.x * response.gain * (options.yawAmplitude ?? 0.11);
+		target.pitch = -filteredPointer.y * response.gain * (options.pitchAmplitude ?? 0.082);
 		target.depth = response.gain;
-		target.planeX = filteredPointer.x * response.gain * width * (options.planeTravelX ?? 0.1);
-		target.planeY = filteredPointer.y * response.gain * height * (options.planeTravelY ?? 0.075);
+		target.planeX = filteredPointer.x * response.gain * width * (options.planeTravelX ?? 0.12);
+		target.planeY = filteredPointer.y * response.gain * height * (options.planeTravelY ?? 0.09);
 		schedule();
 	}
 

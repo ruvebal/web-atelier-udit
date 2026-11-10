@@ -386,9 +386,7 @@ export function createHexField(canvas, options = {}) {
 
     if (!reduced) {
       time += dt;
-      // The field should follow broad pointer gestures, not pen-tablet micro-noise.
-      // A slower critically damped approach gives an ease-in/ease-out return to rest.
-      const k = 1 - Math.exp(-dt * 3.2);
+      const k = 1 - Math.exp(-dt * 6);
       pitch += (targetPitch - pitch) * k;
       yaw += (targetYaw - yaw) * k;
       panX += (targetPanX - panX) * k;
@@ -406,7 +404,11 @@ export function createHexField(canvas, options = {}) {
     const py = pointerY * height;
     const ptrSigma = (200 * dpr) ** 2;
     const ptrK = hasPointer && !reduced && interactive ? 1 - Math.exp(-dt * 8) : 0;
-    const decayK = !hasPointer && !reduced ? Math.exp(-dt * 1.8) : 1;
+    // Pointer-displaced geometry should float home, not snap back as if pulled
+    // by a stiff spring. Keep this recovery independent from camera response.
+    const decayK = !hasPointer && !reduced
+      ? Math.exp(-dt * (options.pointerRecovery ?? 0.55))
+      : 1;
 
     const g = ctx.createLinearGradient(0, 0, width, height);
     g.addColorStop(0, paper);
@@ -576,10 +578,10 @@ export function createHexField(canvas, options = {}) {
     hasPointer = true;
     const rest = restPose();
     const amp = pointerAmp;
-    targetYaw = rest.yaw + (pointerX - 0.5) * 0.35 * amp;
-    targetPitch = rest.pitch + (pointerY - 0.5) * 0.18 * amp;
-    targetPanX = rest.panX + (pointerX - 0.5) * width * 0.025 * amp;
-    targetPanY = rest.panY + (pointerY - 0.5) * height * 0.02 * amp;
+    targetYaw = rest.yaw + (pointerX - 0.5) * 0.95 * amp;
+    targetPitch = rest.pitch + (pointerY - 0.5) * 0.48 * amp;
+    targetPanX = rest.panX + (pointerX - 0.5) * width * 0.07 * amp;
+    targetPanY = rest.panY + (pointerY - 0.5) * height * 0.055 * amp;
   }
 
   function onPointerLeave() {
@@ -659,7 +661,12 @@ export function createHexField(canvas, options = {}) {
       cameraPaused = Boolean(next);
       if (cameraPaused) {
         hasPointer = false;
-        applyRestTargets();
+        // Transfer pointer ownership without pulling the background back to its
+        // gravity centre. Ambient flotation continues around this held pose.
+        targetYaw = yaw;
+        targetPitch = pitch;
+        targetPanX = panX;
+        targetPanY = panY;
       }
       return { cameraPaused };
     },
