@@ -7,7 +7,7 @@
 {% assign archive_cover = site.data.archive_covers[page.url] %}
 {% if archive_cover %}
 <script type="module">
-	import { mountComposition } from '{{ '/lessons/en/feii/canvas-25d-hex-field/demo/mount.js' | relative_url }}?v=20261110-motion-4';
+	import { mountComposition } from '{{ '/lessons/en/feii/canvas-25d-hex-field/demo/mount.js' | relative_url }}?v=20261110-motion-5';
 	import { bindFaviconBackgroundMotion } from '{{ '/assets/js/favicon-motion/hero-coordinator.js' | relative_url }}';
 
 	const hero = document.querySelector('.hero-section--archive');
@@ -23,9 +23,11 @@
 		hero.classList.add('has-hexaform-live');
 
 		try {
+			const focalMark = hero.querySelector('#fava-hero-icon');
 			const { field } = mountComposition(canvas, {{ archive_cover.asset | jsonify }}, {
 				interactive: true,
 				pointerRoot: hero,
+				neutralRoot: focalMark,
 				scrollParallax: true,
 				frontStart: true,
 				/* Start face-on; pointer and scroll still add gentle perspective. */
