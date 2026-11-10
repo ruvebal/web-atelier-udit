@@ -168,7 +168,7 @@ perspective = clamp(rawPerspective, 0.94, 1.06);
 
 <aside class="lesson-emphasis lesson-emphasis--concept" aria-label="Flotation model boundary">
 <p class="lesson-emphasis__label">Flotation is a metaphor</p>
-<p>A sine wave or spring can suggest buoyancy, but true flotation would integrate mass, gravity, displaced-fluid buoyancy, drag, collisions, and a stable time step. The production mark keeps camera response, per-shape displacement recovery, and ambient flotation as separate channels. While the mark is active, the hero background stops accepting camera input and holds its current camera pose; its animation clock and low-amplitude levitation continue. Pointer-displaced hexagons recover through their own slower energy decay instead of a stiff gravity-like pull.</p>
+<p>A sine wave or spring can suggest buoyancy, but true flotation would integrate mass, gravity, displaced-fluid buoyancy, drag, collisions, and a stable time step. The production mark keeps camera response, per-shape displacement recovery, ambient flotation, and pointer position as separate channels. The background interpolates a rendered interaction point toward the latest mouse or touch sample and retains that position when events cease, so geometry follows position rather than event velocity. While the mark is active, the hero background stops accepting camera input and holds its current camera pose; its animation clock, retained interaction point, and low-amplitude levitation continue.</p>
 </aside>
 
 **3. A timing library can drive a scene without rendering it.**

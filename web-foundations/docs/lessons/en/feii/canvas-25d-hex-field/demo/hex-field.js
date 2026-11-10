@@ -295,6 +295,8 @@ export function createHexField(canvas, options = {}) {
 
   let pointerX = 0.5;
   let pointerY = 0.5;
+  let targetPointerX = 0.5;
+  let targetPointerY = 0.5;
   let hasPointer = false;
   let raf = 0;
   let last = performance.now();
@@ -387,6 +389,9 @@ export function createHexField(canvas, options = {}) {
     if (!reduced) {
       time += dt;
       const k = 1 - Math.exp(-dt * 6);
+      const pointerK = 1 - Math.exp(-dt * (options.pointerFollow ?? 4.2));
+      pointerX += (targetPointerX - pointerX) * pointerK;
+      pointerY += (targetPointerY - pointerY) * pointerK;
       pitch += (targetPitch - pitch) * k;
       yaw += (targetYaw - yaw) * k;
       panX += (targetPanX - panX) * k;
@@ -573,20 +578,20 @@ export function createHexField(canvas, options = {}) {
   function onPointer(clientX, clientY) {
     if (!interactive || cameraPaused) return;
     const rect = pointerRoot.getBoundingClientRect();
-    pointerX = (clientX - rect.left) / Math.max(1, rect.width);
-    pointerY = (clientY - rect.top) / Math.max(1, rect.height);
+    targetPointerX = Math.max(0, Math.min(1, (clientX - rect.left) / Math.max(1, rect.width)));
+    targetPointerY = Math.max(0, Math.min(1, (clientY - rect.top) / Math.max(1, rect.height)));
     hasPointer = true;
     const rest = restPose();
     const amp = pointerAmp;
-    targetYaw = rest.yaw + (pointerX - 0.5) * 0.95 * amp;
-    targetPitch = rest.pitch + (pointerY - 0.5) * 0.48 * amp;
-    targetPanX = rest.panX + (pointerX - 0.5) * width * 0.07 * amp;
-    targetPanY = rest.panY + (pointerY - 0.5) * height * 0.055 * amp;
+    targetYaw = rest.yaw + (targetPointerX - 0.5) * 0.95 * amp;
+    targetPitch = rest.pitch + (targetPointerY - 0.5) * 0.48 * amp;
+    targetPanX = rest.panX + (targetPointerX - 0.5) * width * 0.07 * amp;
+    targetPanY = rest.panY + (targetPointerY - 0.5) * height * 0.055 * amp;
   }
 
   function onPointerLeave() {
-    hasPointer = false;
-    applyRestTargets();
+    // Latch the last meaningful position. A stationary mouse or released touch
+    // is still a position; only a later pointer sample should replace it.
   }
 
   function onWheel(event) {
@@ -660,9 +665,9 @@ export function createHexField(canvas, options = {}) {
     setCameraPaused(next) {
       cameraPaused = Boolean(next);
       if (cameraPaused) {
-        hasPointer = false;
         // Transfer pointer ownership without pulling the background back to its
-        // gravity centre. Ambient flotation continues around this held pose.
+        // gravity centre or clearing the retained geometry interaction point.
+        // Ambient flotation continues around this held pose.
         targetYaw = yaw;
         targetPitch = pitch;
         targetPanX = panX;
