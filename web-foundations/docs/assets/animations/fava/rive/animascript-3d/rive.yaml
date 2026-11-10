@@ -1,0 +1,12 @@
+name: fava_prismatic_3d
+main: main
+scripting: wasm
+artboard:
+  width: 720
+  height: 480
+  background: "#090D1A"
+output:
+  dir: build
+logs:
+  file: build/rive.log
+  problems: build/problems.log

@@ -3424,6 +3424,34 @@ main#main:has(.lesson-wrapper) {
 	display: block;
 }
 
+.svg-motion-demo .asset-preview.rive-gpu-preview {
+	position: relative;
+	min-height: 15rem;
+	background: var(--code-block-bg);
+}
+
+.svg-motion-demo .asset-preview.rive-gpu-preview canvas {
+	display: none;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 3 / 2;
+}
+
+.svg-motion-demo .asset-preview.rive-gpu-preview > img {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 3 / 2;
+	object-fit: cover;
+}
+
+.svg-motion-demo .asset-preview.rive-gpu-preview.is-playing canvas {
+	display: block;
+}
+
+.svg-motion-demo .asset-preview.rive-gpu-preview.is-playing > img {
+	display: none;
+}
+
 .svg-motion-demo .rive-source-badge {
 	position: absolute;
 	inset: auto 0.7rem 0.65rem auto;
