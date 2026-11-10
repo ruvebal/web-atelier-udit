@@ -1161,8 +1161,6 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
 
     const riveUrl = `${authoredBase}rive/fava-motion.riv`;
     try {
-      const riveAsset = await fetch(riveUrl, { method: 'HEAD' });
-      if (!riveAsset.ok) throw new Error('The signed .riv export is not present yet.');
       const { Rive } = await import('https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.50.0/+esm');
       let rivePlayer;
       const riveCanvas = document.querySelector('[data-rive-canvas]');

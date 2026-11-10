@@ -2871,7 +2871,13 @@ main#main:has(.lesson-wrapper) {
 .spatial-stack-figure__layer {
 	display: grid;
 	grid-area: 1 / 1;
-	width: min(88%, 35rem);
+	width: min(92%, 38rem);
+	min-height: 4.5rem;
+	padding: 0.75rem 1rem;
+	align-content: center;
+	justify-items: center;
+	text-align: center;
+	line-height: 1.25;
 	min-height: 7rem;
 	align-content: center;
 	gap: 0.3rem;
@@ -2890,8 +2896,11 @@ main#main:has(.lesson-wrapper) {
 }
 
 .spatial-stack-figure__layer small {
+	display: block;
+	max-width: 30ch;
 	color: var(--text-secondary);
 	font-size: 0.8rem;
+	line-height: 1.35;
 }
 
 .spatial-stack-figure__layer--timing {
@@ -2912,6 +2921,24 @@ main#main:has(.lesson-wrapper) {
 	color: var(--text-secondary);
 	font-size: 0.9rem;
 	text-align: center;
+}
+
+@media (max-width: 42rem) {
+	.spatial-stack-figure__scene {
+		min-height: 22rem;
+	}
+	.spatial-stack-figure__layer {
+		width: 94%;
+	}
+	.spatial-stack-figure__layer--timing {
+		transform: translateY(-4.5rem) translateZ(5rem) rotateX(20deg);
+	}
+	.spatial-stack-figure__layer--model {
+		transform: translateY(0) translateZ(1.25rem) rotateX(20deg);
+	}
+	.spatial-stack-figure__layer--renderer {
+		transform: translateY(4.5rem) translateZ(-2.5rem) rotateX(20deg);
+	}
 }
 
 .technology-atlas {
