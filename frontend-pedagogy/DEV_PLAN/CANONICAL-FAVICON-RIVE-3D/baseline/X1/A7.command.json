@@ -1,0 +1,13 @@
+{
+  "acceptanceId": "A7",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A7",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs",
+    "A7"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-1",
+  "exitCode": 0,
+  "stdout": "PASS A7: independent X1 acceptance verified\n",
+  "stderr": ""
+}
