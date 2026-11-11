@@ -1,6 +1,6 @@
 # PHASE-X1 · Build the reusable SVG extrusion compiler
 
-**Status:** BLOCKED — X0 must be DONE
+**Status:** IN_PROGRESS — compiler implemented; evidence handoff follows
 
 ## Goal
 
@@ -42,3 +42,9 @@ Implement the compiler without importing lesson or favicon modules. Preserve sou
 ## Risks
 
 Independent overlapping facets can expose seams. Keep overlap policy explicit and separate from intrinsic depth.
+
+## Frozen X1 grammar and mapping
+
+V1 accepts one closed filled contour per `path`, absolute or relative `M/L/C/Z`, implicit repeated coordinate groups, decimal signs/exponents, solid resolved fills, and path-local affine `matrix`, `translate`, `scale`, or `rotate` transforms composed in written order. It rejects DTD/entities, nested/group transforms, multiple subpaths/holes, strokes, paint servers/effects, unsupported commands, degenerate rings, and self-intersections.
+
+Transforms are baked in SVG coordinates; points are then Y-inverted and normalized by the viewBox maximum dimension into a centered, right-handed model. Fronts are CCW at Z=0 and backs extend along negative Z. Generated `manifest.json` uses `svg-to-rive-3d/v1`; `geometry.json` uses `rive-animascript-3d/generated-provider/v1` with triangle-list positions, unit normals, indices, and per-facet spans. The external X1 verifier rebuilds both fixtures twice in fresh directories and inspects these contracts independently.

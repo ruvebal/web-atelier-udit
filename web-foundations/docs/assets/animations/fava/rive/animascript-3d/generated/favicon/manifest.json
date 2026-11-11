@@ -1,0 +1,339 @@
+{
+  "schema": "svg-to-rive-3d/v1",
+  "compilerVersion": "1.0.0",
+  "supportedSubset": "closed-filled-path-MLCZ-affine/v1",
+  "source": {
+    "sha256": "90cfa8a5dfb290e92515647141369111c821427c71fec3f402873c1221db51ad",
+    "viewBox": [
+      0,
+      0,
+      1024,
+      920
+    ],
+    "path": "fava-mark-static.svg"
+  },
+  "facetCount": 13,
+  "facets": [
+    {
+      "id": "facet-01",
+      "sourceId": null,
+      "sourceOrder": 0,
+      "fill": "#1D4ED8",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.1194413517,
+      "centroid": [
+        0.0246088228,
+        0.0184294311
+      ],
+      "depth": 0.22,
+      "contourVertexCount": 171,
+      "frontTriangleCount": 169,
+      "mesh": {
+        "vertexStart": 0,
+        "vertexCount": 1026,
+        "indexStart": 0,
+        "indexCount": 2040
+      }
+    },
+    {
+      "id": "facet-02",
+      "sourceId": null,
+      "sourceOrder": 1,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0131792069,
+      "centroid": [
+        0.014441905,
+        -0.0925463872
+      ],
+      "depth": 0.0997915468,
+      "contourVertexCount": 4,
+      "frontTriangleCount": 2,
+      "mesh": {
+        "vertexStart": 1026,
+        "vertexCount": 24,
+        "indexStart": 2040,
+        "indexCount": 36
+      }
+    },
+    {
+      "id": "facet-03",
+      "sourceId": null,
+      "sourceOrder": 2,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0042054528,
+      "centroid": [
+        -0.0064421344,
+        -0.1938861523
+      ],
+      "depth": 0.07377548,
+      "contourVertexCount": 3,
+      "frontTriangleCount": 1,
+      "mesh": {
+        "vertexStart": 1050,
+        "vertexCount": 18,
+        "indexStart": 2076,
+        "indexCount": 24
+      }
+    },
+    {
+      "id": "facet-04",
+      "sourceId": null,
+      "sourceOrder": 3,
+      "fill": "#93C5FD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0044518877,
+      "centroid": [
+        -0.0689523317,
+        0.0169148682
+      ],
+      "depth": 0.0747509954,
+      "contourVertexCount": 37,
+      "frontTriangleCount": 35,
+      "mesh": {
+        "vertexStart": 1068,
+        "vertexCount": 222,
+        "indexStart": 2100,
+        "indexCount": 432
+      }
+    },
+    {
+      "id": "facet-05",
+      "sourceId": null,
+      "sourceOrder": 4,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0219390706,
+      "centroid": [
+        -0.055713127,
+        0.1154335595
+      ],
+      "depth": 0.1171443747,
+      "contourVertexCount": 71,
+      "frontTriangleCount": 69,
+      "mesh": {
+        "vertexStart": 1290,
+        "vertexCount": 426,
+        "indexStart": 2532,
+        "indexCount": 840
+      }
+    },
+    {
+      "id": "facet-06",
+      "sourceId": null,
+      "sourceOrder": 5,
+      "fill": "#1D4ED8",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.00443048,
+      "centroid": [
+        -0.0059645716,
+        0.0405211038
+      ],
+      "depth": 0.0746673416,
+      "contourVertexCount": 33,
+      "frontTriangleCount": 31,
+      "mesh": {
+        "vertexStart": 1716,
+        "vertexCount": 198,
+        "indexStart": 3372,
+        "indexCount": 384
+      }
+    },
+    {
+      "id": "facet-07",
+      "sourceId": null,
+      "sourceOrder": 6,
+      "fill": "#C9C932",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0043964091,
+      "centroid": [
+        -0.0054352949,
+        0.087675053
+      ],
+      "depth": 0.0745337866,
+      "contourVertexCount": 23,
+      "frontTriangleCount": 21,
+      "mesh": {
+        "vertexStart": 1914,
+        "vertexCount": 138,
+        "indexStart": 3756,
+        "indexCount": 264
+      }
+    },
+    {
+      "id": "facet-08",
+      "sourceId": null,
+      "sourceOrder": 7,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0088069124,
+      "centroid": [
+        0.15190094,
+        0.0994101314
+      ],
+      "depth": 0.0888772753,
+      "contourVertexCount": 36,
+      "frontTriangleCount": 34,
+      "mesh": {
+        "vertexStart": 2052,
+        "vertexCount": 216,
+        "indexStart": 4020,
+        "indexCount": 420
+      }
+    },
+    {
+      "id": "facet-09",
+      "sourceId": null,
+      "sourceOrder": 8,
+      "fill": "#C9C932",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0044649752,
+      "centroid": [
+        0.056962207,
+        0.0169465384
+      ],
+      "depth": 0.074802038,
+      "contourVertexCount": 32,
+      "frontTriangleCount": 30,
+      "mesh": {
+        "vertexStart": 2268,
+        "vertexCount": 192,
+        "indexStart": 4440,
+        "indexCount": 372
+      }
+    },
+    {
+      "id": "facet-10",
+      "sourceId": null,
+      "sourceOrder": 9,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0043912463,
+      "centroid": [
+        0.1830347669,
+        0.0167470084
+      ],
+      "depth": 0.0745135036,
+      "contourVertexCount": 33,
+      "frontTriangleCount": 31,
+      "mesh": {
+        "vertexStart": 2460,
+        "vertexCount": 198,
+        "indexStart": 4812,
+        "indexCount": 384
+      }
+    },
+    {
+      "id": "facet-11",
+      "sourceId": null,
+      "sourceOrder": 10,
+      "fill": "#C9C932",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0043493121,
+      "centroid": [
+        0.1201534604,
+        0.1815148746
+      ],
+      "depth": 0.0743483149,
+      "contourVertexCount": 22,
+      "frontTriangleCount": 20,
+      "mesh": {
+        "vertexStart": 2658,
+        "vertexCount": 132,
+        "indexStart": 5196,
+        "indexCount": 252
+      }
+    },
+    {
+      "id": "facet-12",
+      "sourceId": null,
+      "sourceOrder": 11,
+      "fill": "#00295E",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.01780151,
+      "centroid": [
+        -0.1626469651,
+        0.0643355504
+      ],
+      "depth": 0.1094902015,
+      "contourVertexCount": 62,
+      "frontTriangleCount": 60,
+      "mesh": {
+        "vertexStart": 2790,
+        "vertexCount": 372,
+        "indexStart": 5448,
+        "indexCount": 732
+      }
+    },
+    {
+      "id": "facet-13",
+      "sourceId": null,
+      "sourceOrder": 12,
+      "fill": "#1D4ED8",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0044927204,
+      "centroid": [
+        0.056940661,
+        0.2529959517
+      ],
+      "depth": 0.0749099996,
+      "contourVertexCount": 29,
+      "frontTriangleCount": 27,
+      "mesh": {
+        "vertexStart": 3162,
+        "vertexCount": 174,
+        "indexStart": 6180,
+        "indexCount": 336
+      }
+    }
+  ],
+  "geometry": {
+    "vertexCount": 3336,
+    "indexCount": 6516,
+    "primitive": "triangle-list",
+    "channels": [
+      "position",
+      "normal"
+    ]
+  },
+  "coordinateSystem": {
+    "sourceY": "down",
+    "worldHandedness": "right",
+    "cameraForward": "negative-z",
+    "frontWinding": "ccw",
+    "matrixOrder": "column-vector",
+    "normalization": "viewBox-max-dimension-centered"
+  },
+  "flattening": {
+    "screenTolerancePx": 0.35,
+    "maximumDisplayScale": 4,
+    "modelTolerance": 0.0000854492,
+    "method": "adaptive-de-casteljau"
+  },
+  "depth": {
+    "policy": "sqrt-relative-area",
+    "minimum": 0.04,
+    "maximum": 0.22
+  },
+  "fillRules": [
+    "nonzero"
+  ],
+  "centroidMethod": "signed-polygon-area",
+  "windingNormalization": "ccw-after-svg-y-inversion",
+  "warnings": [],
+  "resolvedConfigSha256": "f0a16297ce04f9fc3fabce6c7cd5273332b5a2d3571364df88ff091cb4aa1671"
+}

@@ -1,0 +1,7 @@
+{
+  "flattenTolerancePx": 0.35,
+  "maximumDisplayScale": 4,
+  "minimumTriangleArea": 1e-10,
+  "minimumDepth": 0.04,
+  "maximumDepth": 0.22
+}
