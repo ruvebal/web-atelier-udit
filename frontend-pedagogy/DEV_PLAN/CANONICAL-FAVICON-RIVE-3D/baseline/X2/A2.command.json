@@ -1,0 +1,13 @@
+{
+  "acceptanceId": "A2",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A2",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/svg-extrusion/verify-fidelity.mjs",
+    "A2"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-2",
+  "exitCode": 0,
+  "stdout": "PASS A2: all 13 facet fills verified at interior samples (worst 99.7%), 13189 samples, bg 6134/6134\n",
+  "stderr": ""
+}

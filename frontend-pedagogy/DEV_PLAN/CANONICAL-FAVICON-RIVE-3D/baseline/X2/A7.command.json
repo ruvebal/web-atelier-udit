@@ -1,0 +1,13 @@
+{
+  "acceptanceId": "A7",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A7",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/svg-extrusion/verify-fidelity.mjs",
+    "A7"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-2",
+  "exitCode": 0,
+  "stdout": "PASS A7: world→view→clip→depth distinct per fixture; front depth 0.1562 < back 0.8438; front-centre: appZ=0.0000 viewZ=-2.8900 clipZ=0.1562 ndc=(0.000,0.000) px=(360,240) | back-centre: appZ=-0.2200 viewZ=-3.1100 clipZ=0.8438 ndc=(0.000,0.000) px=(360,240) | front-top-right: appZ=0.0000 viewZ=-2.8900 clipZ=0.1562 ndc=(0.638,0.943) px=(590,14) | back-bottom-left: appZ=-0.2200 viewZ=-3.1100 clipZ=0.8438 ndc=(-0.638,-0.943) px=(130,466)\n",
+  "stderr": ""
+}

@@ -1,0 +1,191 @@
+{
+  "phase": "X2",
+  "reportStatus": "VERIFYING",
+  "generatedBy": "capture-x2-evidence.mjs",
+  "items": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A1",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/gpu-manifest.json",
+      "sha256": "0a5145d8499d0015eb3a3ab29bb3a2ee0da9974e6bb7ca62429f90e87b4d6de2",
+      "expected": {
+        "assertions": [
+          "A1-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A1-independent-live-check"
+        ],
+        "summary": "PASS A1: pipeline vertex layout 36B/3attrs, depth32float write=on, blobs 96336B+10392B, counts 2676/5196 from provider"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A1.command.json",
+        "sha256": "d04119d765c249f6406797831f3e10ecd903f81b9b889eddaebbe6026e73f135"
+      }
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A2",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/canonical-rest.png",
+      "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+      "expected": {
+        "assertions": [
+          "A2-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A2-independent-live-check"
+        ],
+        "summary": "PASS A2: all 13 facet fills verified at interior samples (worst 99.7%), 13189 samples, bg 6134/6134"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A2.command.json",
+        "sha256": "7b40fee8c245fd4fedb960882b81f45ec22b71d0366e68ff6f9b575b639e5e18"
+      }
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A3",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/canonical-rest.png",
+      "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+      "expected": {
+        "assertions": [
+          "A3-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A3-independent-live-check"
+        ],
+        "summary": "PASS A3: rest capture vs SVG raster: IoU 0.9930, chamfer 0.004px (normalised 220 grid)"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A3.command.json",
+        "sha256": "2be72c20a2777b923e5214f7d125095ba78793ed067c3c25d4aee64f1ebe0421"
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A4",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/canonical-oblique.png",
+      "sha256": "68791036eb645e56648a1fed555a1e1cc1b6aa3a9336b3d9a8906fa895ccd14b",
+      "expected": {
+        "assertions": [
+          "A4-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A4-independent-live-check"
+        ],
+        "summary": "PASS A4: oblique t=3.5s: reference back=62914 side=36237 px; capture matches back 15/15, side 32/32"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A4.command.json",
+        "sha256": "b72d065c9a86fa50bcb0789e62f1031f064cec2142dcb0557f289adf197046ae"
+      }
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A5",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A5-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A5-independent-live-check"
+        ],
+        "summary": "PASS A5: depth = 0.04+(0.22-0.04)*sqrt(area/max): max dev 2.5e-10, largest facet facet-01 deepest"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A5.command.json",
+        "sha256": "b923cfa43c9b17f4d607d993302bde356c6072974425319dd6cb724971d53ce6"
+      }
+    },
+    {
+      "id": "A6",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A6",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/canonical-narrow.png",
+      "sha256": "c8c3b559af7ebaca929e503c6b09e5a8f1c51c2b266aaecdd49beb6b35ea7e72",
+      "expected": {
+        "assertions": [
+          "A6-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A6-independent-live-check"
+        ],
+        "summary": "PASS A6: narrow 400x800 and wide 1200x400 captures contain the object, aspect within 8% of reference, IoU>=0.85"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A6.command.json",
+        "sha256": "9994072a76a225989e0bc0d76919a64f46202263cadc8038f2f25513d825dd8e"
+      }
+    },
+    {
+      "id": "A7",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A7",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/geometry.json",
+      "sha256": "5d96714d0d75505347555b164cae198020fa6f64a2bd2072858f5a8edb6ef1e4",
+      "expected": {
+        "assertions": [
+          "A7-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A7-independent-live-check"
+        ],
+        "summary": "PASS A7: world→view→clip→depth distinct per fixture; front depth 0.1562 < back 0.8438; front-centre: appZ=0.0000 viewZ=-2.8900 clipZ=0.1562 ndc=(0.000,0.000) px=(360,240) | back-centre: appZ=-0.2200 viewZ=-3.1100 clipZ=0.8438 ndc=(0.000,0.000) px=(360,240) | front-top-right: appZ=0.0000 viewZ=-2.8900 clipZ=0.1562 ndc=(0.638,0.943) px=(590,14) | back-bottom-left: appZ=-0.2200 viewZ=-3.1100 clipZ=0.8438 ndc=(-0.638,-0.943) px=(130,466)"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A7.command.json",
+        "sha256": "1268f9d43871c8f2384a9a43ee7d7f2d83a7b2bae9c9043ccfd9d7225f87ba7d"
+      }
+    },
+    {
+      "id": "A8",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A8",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/geometry.json",
+      "sha256": "5d96714d0d75505347555b164cae198020fa6f64a2bd2072858f5a8edb6ef1e4",
+      "expected": {
+        "assertions": [
+          "A8-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A8-independent-live-check"
+        ],
+        "summary": "PASS A8: normals unit (max err 6.7e-11), classes f/b/s=446,446,1784, side outward 1676/1784, axis err 0.0e+0"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A8.command.json",
+        "sha256": "cda146a892480b3fb96f607d752868d0753801de6ce83052faa8289f9d2a0399"
+      }
+    }
+  ]
+}
