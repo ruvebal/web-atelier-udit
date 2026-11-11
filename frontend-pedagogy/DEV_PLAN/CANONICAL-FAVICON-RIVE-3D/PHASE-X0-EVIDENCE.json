@@ -126,10 +126,10 @@
     {
       "id": "A4",
       "status": "PASS",
-      "command": "node --version",
+      "command": "node web-foundations/scripts/svg-extrusion/capture-x0-command-provenance.mjs",
       "exitCode": 0,
       "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/tool-versions.json",
-      "sha256": "0465799be817c44593cf6f487f500bbb20321671096d1ce5f8594698d7e78e9a",
+      "sha256": "c5d83f935b4cfdbf2508298952a12cd75d5870dc39af8afa7fa14fff49cfc403",
       "expected": {
         "assertions": [
           "dated_tool_version_commands_recorded"
@@ -144,7 +144,7 @@
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/command-transcripts/A4.json",
-        "sha256": "efff24f1c0071b9d6fecb892501504db902d5ba9883b7701f15b7c2861db6736"
+        "sha256": "4df98c2284b36ea781c2776d39dcc0346a140a9ab5f0f736a04478abdf298177"
       }
     },
     {
@@ -153,7 +153,7 @@
       "command": "node web-foundations/scripts/svg-extrusion/verify-x0-acceptance.mjs A5",
       "exitCode": 0,
       "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X0-REPORT.md",
-      "sha256": "02166ef667bc18e410d87cef55557e3d06dc32e2d5cc250879e2d99a10f35c7e",
+      "sha256": "aeef3ad5c2306da8a64bad6a6218c251f8343b39182c540adeb12bb59d6b5d2c",
       "expected": {
         "assertions": [
           "report_remains_VERIFYING",
@@ -179,24 +179,24 @@
       "command": "node web-foundations/scripts/svg-extrusion/test-phase-evidence-validator.mjs",
       "exitCode": 0,
       "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/validator-mutation-results.json",
-      "sha256": "41c0e1cb6b1e79cd1f462f72520149349ea36c0ca0b2a8076c618d86073889a5",
+      "sha256": "5140d223fede817bc785986e3c78e6b9bc5d669b97bb929ea0d4010494c4917b",
       "expected": {
         "assertions": [
           "negative_mutations_rejected",
           "receipt_exit_code_without_transcript_rejected"
         ],
-        "summary": "Eight negative fixtures reject the specified receipt mutations; absence of a command transcript cannot pass on exitCode alone."
+        "summary": "Eleven negative fixtures reject malformed receipts and internally consistent semantic falsifications; absence of a command transcript cannot pass on exitCode alone."
       },
       "observed": {
         "assertions": [
           "negative_mutations_rejected",
           "receipt_exit_code_without_transcript_rejected"
         ],
-        "summary": "Eight negative fixtures reject the specified receipt mutations; absence of a command transcript cannot pass on exitCode alone."
+        "summary": "Eleven negative fixtures reject malformed receipts and internally consistent semantic falsifications; absence of a command transcript cannot pass on exitCode alone."
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/command-transcripts/A6.json",
-        "sha256": "2e8c066989324ab9a8fa9896fad9ece51a9b6df5a219e50779e25a5072ef3a76"
+        "sha256": "7153a9ba99de8d265a8a64b7178fc302070fa6828399e048e3c399ea84755b43"
       }
     },
     {

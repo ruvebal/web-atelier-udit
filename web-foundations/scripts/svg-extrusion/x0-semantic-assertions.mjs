@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const readJson = (root, path) => JSON.parse(readFileSync(resolve(root, path), 'utf8'));
@@ -8,6 +8,11 @@ const pack = 'frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D';
 const base = `${pack}/baseline/X0`;
 const inventoryPath = `${base}/source-inventory.json`;
 const svgPath = 'web-foundations/docs/assets/icons/fava-mark-static.svg';
+const evidenceFile = (root, name) => {
+  const override = process.env.X0_EVIDENCE_OVERRIDE_BASE;
+  const candidate = override ? resolve(override, name) : null;
+  return candidate && existsSync(candidate) ? JSON.parse(readFileSync(candidate, 'utf8')) : readJson(root, `${base}/${name}`);
+};
 export const X0_ASSERTION_IDS = {
   A1: ['source_digest_matches', 'source_order_is_complete', 'fixture_count_is_separate_from_dynamic_N'],
   A2: ['tracked_binary_digest_matches', 'browser_runtime_loaded', 'cli_project_verify_is_distinct'],
@@ -28,7 +33,7 @@ export function assertX0Acceptance(id, root) {
   const report = readFileSync(resolve(root, `${pack}/PHASE-X0-REPORT.md`), 'utf8');
   const runbooks = ['X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7']
     .map((phase) => readFileSync(resolve(root, `${pack}/PHASE-${phase}.md`), 'utf8')).join('\n');
-  const contexts = readJson(root, `${base}/research-anchor-page-contexts.json`);
+  const contexts = evidenceFile(root, 'research-anchor-page-contexts.json');
   switch (id) {
     case 'A1': {
       const svg = readFileSync(resolve(root, svgPath), 'utf8');
@@ -52,6 +57,8 @@ export function assertX0Acceptance(id, root) {
     case 'A3': {
       const metrics = readJson(root, `${base}/route-runtime-metrics.json`);
       const failureMetrics = readJson(root, `${base}/route-fallback-failure-metrics.json`);
+      const browserProvenance = evidenceFile(root, 'browser-failure-command-transcripts.json');
+      if (browserProvenance.sessions?.length !== 2) throw new Error('A3: induced-failure execution provenance is absent');
       if (metrics.desktop.viewportWidth !== 1440 || metrics.mobile.viewportWidth !== 390) throw new Error('A3: expected desktop and narrow viewport measurements are absent');
       for (const [name, size] of [['route-desktop-1440x980.png', 1440], ['route-mobile-390x844.png', 390], ['route-rive3d-desktop-1440x980.png', 1440], ['route-rive3d-mobile-390x844.png', 390]]) {
         const bytes = readFileSync(resolve(root, `${base}/${name}`));
@@ -66,13 +73,30 @@ export function assertX0Acceptance(id, root) {
         const image = readFileSync(resolve(root, `${base}/route-fallback-failure-${viewport}.png`));
         if (image.toString('hex', 0, 4) !== '89504e47' || image.readUInt32BE(16) !== failed.viewportWidth || image.readUInt32BE(20) !== failed.viewportHeight) throw new Error(`A3: failure screenshot dimensions do not match ${viewport} viewport`);
       }
+      for (const session of browserProvenance.sessions) {
+        if (session.exitCode !== 0 || !session.cwd || !session.executable || !Array.isArray(session.argv) || !session.startedAtUtc || !session.endedAtUtc) throw new Error('A3: incomplete induced-failure execution provenance');
+        if (!session.argv.includes('--disable-gpu') || !session.argv.includes('--disable-webgl') || !session.assertions?.failureStatusInDom || !session.assertions?.staticFallbackInDom) throw new Error('A3: induced browser session did not prove the failure fallback');
+        if (digest(root, `${base}/${session.screenshotPath}`) !== session.screenshotSha256 || digest(root, `${base}/${session.metricsPath}`) !== session.metricsSha256) throw new Error('A3: browser provenance is not bound to capture/metrics');
+      }
       return 'PASS A3: baseline/failure route captures, truthful fallback status, and measured dimensions verified';
     }
     case 'A4': {
-      const versions = readJson(root, `${base}/tool-versions.json`);
+      const versions = evidenceFile(root, 'tool-versions.json');
+      const provenance = evidenceFile(root, 'tool-provenance.json');
+      const build = evidenceFile(root, 'pnpm-build-command-transcript.json');
       const labels = new Set(versions.tools.map((tool) => tool.label));
       for (const label of ['Rive CLI', 'Node.js', 'npm', 'pnpm', 'Ruby', 'Bundler', 'Jekyll', 'Chrome']) if (!labels.has(label)) throw new Error(`A4: missing ${label} version record`);
       if (!/^2026-11-11/.test(versions.capturedAtUtc ?? '')) throw new Error('A4: tool capture date is absent');
+      if (provenance.probes?.length !== 8) throw new Error('A4: complete runner provenance is absent');
+      for (const tool of versions.tools) {
+        const probe = provenance.probes.find((item) => item.label === tool.label);
+        if (!probe || probe.exitCode !== 0 || !probe.executable || !probe.cwd || !probe.startedAtUtc || !probe.endedAtUtc) throw new Error(`A4: incomplete runner provenance for ${tool.label}`);
+        if (tool.exitCode !== probe.exitCode || tool.stdout !== probe.stdout.trim() || tool.stderr !== probe.stderr.trim() || tool.stdoutSha256 !== probe.stdoutSha256 || tool.stderrSha256 !== probe.stderrSha256) throw new Error(`A4: tool record does not match runner transcript for ${tool.label}`);
+      }
+      const expectedOutputs = { 'Rive CLI': /^rive 1\.9\.2/, 'Node.js': /^v24\./, npm: /^11\./, pnpm: /^10\./, Ruby: /^ruby 3\.3\.11/, Bundler: /^Bundler version 2\.5\.22/, Jekyll: /^jekyll 3\.10\.0/, Chrome: /^Google Chrome 157\./ };
+      for (const tool of versions.tools) if (!expectedOutputs[tool.label]?.test(tool.stdout)) throw new Error(`A4: unexpected verified output for ${tool.label}`);
+      if (build.exitCode !== 0 || build.environment?.RBENV_VERSION !== '3.3.11' || !build.cwd || !build.executable || !build.startedAtUtc || !build.endedAtUtc) throw new Error('A4: full-build runner provenance is incomplete');
+      if (digest(root, `${base}/${build.stdoutPath}`) !== build.stdoutSha256 || digest(root, `${base}/${build.stderrPath}`) !== build.stderrSha256) throw new Error('A4: full-build raw streams do not match transcript');
       return 'PASS A4: dated Rive, Node, package manager, Ruby, Jekyll, and browser records verified';
     }
     case 'A5': {
@@ -82,14 +106,15 @@ export function assertX0Acceptance(id, root) {
       return 'PASS A5: VERIFYING report and downstream N/math/source amendments verified';
     }
     case 'A6': {
-      const mutation = readJson(root, `${base}/validator-mutation-results.json`);
-      const required = ['missing-id', 'extra-id', 'bad-digest', 'nonzero-exit', 'nonzero-transcript', 'pending-claim', 'prose-only-claim'];
+      const mutation = evidenceFile(root, 'validator-mutation-results.json');
+      const required = ['missing-id', 'extra-id', 'bad-digest', 'nonzero-exit', 'nonzero-transcript', 'pending-claim', 'prose-only-claim', 'falsified-tool-output', 'missing-browser-provenance', 'omitted-authoritative-page-member'];
       if (!mutation.results || required.some((name) => mutation.results[name] !== 'REJECTED')) throw new Error('A6: validator negative mutation cases are incomplete');
       if (mutation.results['receipt-exit-code-only'] !== 'REJECTED') throw new Error('A6: validator accepts a receipt exitCode without successful command transcript');
       return 'PASS A6: negative fixture suite proves validator rejects all required mutations';
     }
     case 'A7': {
       const initial = readJson(root, `${base}/research-anchor-verification.json`);
+      const authority = evidenceFile(root, 'research-authoritative-page-membership.json');
       const expectedSourceByNode = new Map(initial.sources.flatMap((source) => source.nodes.map((node) => [node.nodeId, source.key])));
       const expected = [...expectedSourceByNode.keys()].sort();
       const observed = contexts.contexts.map((item) => item.anchorNodeId).sort();
@@ -102,6 +127,11 @@ export function assertX0Acceptance(id, root) {
         if (!page.nodes.some((node) => node.nodeId === item.anchorNodeId) || !page.nodes.every((node) => typeof node.text === 'string')) throw new Error(`A7: incomplete page text for ${item.anchorNodeId}`);
         if (!item.documentIdentity.title || !item.documentIdentity.originalFileSha256) throw new Error(`A7: document identity absent for ${item.anchorNodeId}`);
         if (pageTextDigest(page) !== item.pageContextTextSha256) throw new Error(`A7: page context text digest mismatch for ${item.anchorNodeId}`);
+        const sourceAuthority = authority.sources?.find((source) => source.sourceKey === item.sourceKey);
+        const authoritativePage = sourceAuthority?.pages?.find((candidate) => candidate.pageIndexZeroBased === page.pageIndexZeroBased);
+        const contextIds = page.nodes.map((node) => node.nodeId);
+        if (!sourceAuthority || sourceAuthority.unassignedNodeIds.length !== 0 || sourceAuthority.totalFissionNodeCount !== sourceAuthority.assignedNodeCount) throw new Error(`A7: authoritative source membership is incomplete for ${item.sourceKey}`);
+        if (!authoritativePage || authoritativePage.nodeCount !== contextIds.length || JSON.stringify(authoritativePage.nodeIds) !== JSON.stringify(contextIds)) throw new Error(`A7: page context does not match authoritative membership for ${item.anchorNodeId}`);
         if (item.sourceKey === 'acm_cs2023' ? !item.sourceOnlyGap || item.evaluatorSafe : item.sourceOnlyGap || !item.evaluatorSafe) throw new Error(`A7: source confidence boundary changed for ${item.anchorNodeId}`);
       }
       if (contexts.validation.unsafeAcMSourceRemainsSourceOnly !== true) throw new Error('A7: ACM source-only boundary is not preserved');

@@ -8,6 +8,9 @@
     "nonzero-transcript": "REJECTED",
     "pending-claim": "REJECTED",
     "prose-only-claim": "REJECTED",
-    "receipt-exit-code-only": "REJECTED"
+    "receipt-exit-code-only": "REJECTED",
+    "falsified-tool-output": "REJECTED",
+    "missing-browser-provenance": "REJECTED",
+    "omitted-authoritative-page-member": "REJECTED"
   }
 }

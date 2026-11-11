@@ -9,7 +9,10 @@ assert inventory["fixtureCountMatchesExpectation"] is True
 assert inventory["observedFacetCount"] == inventory["expectedCanonicalFixtureFacetCount"] == 13
 assert inventory["architectureFacetCount"].startswith("N ")
 PY
-rive "$RIVE_PROJECT" --verify
+RIVE_VERIFY_COPY="$(mktemp -d "${TMPDIR:-/tmp}/x0-rive-verify.XXXXXX")"
+trap 'rm -rf -- "$RIVE_VERIFY_COPY"' EXIT
+cp -R "$RIVE_PROJECT/." "$RIVE_VERIFY_COPY/"
+rive "$RIVE_VERIFY_COPY" --verify
 python3 - "$PACK_DIR/baseline/X0/rive-runtime-baseline.json" "$WEB_ROOT/docs/assets/animations/fava/rive/animascript-3d/build/fava_prismatic_3d.riv" <<'PY'
 import hashlib, json, sys
 baseline = json.load(open(sys.argv[1]))

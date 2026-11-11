@@ -26,10 +26,16 @@ def main() -> None:
         type=Path,
         default=Path("frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/research-anchor-page-contexts.json"),
     )
+    parser.add_argument(
+        "--membership-output",
+        type=Path,
+        default=Path("frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/research-authoritative-page-membership.json"),
+    )
     args = parser.parse_args()
 
     anchors = json.loads(args.anchors.read_text())
     contexts = []
+    authorities = []
     for source in anchors["sources"]:
         database = args.library_root / "scholar/documents" / source["databaseName"] / "extract/extraction.db"
         if not database.is_file():
@@ -42,6 +48,26 @@ def main() -> None:
         ).fetchone()
         if source_row is None:
             raise SystemExit(f"No source identity in {source['key']} extraction database")
+        all_nodes = connection.execute(
+            "SELECT node_id FROM fission_node WHERE document_id=(SELECT document_id FROM source LIMIT 1) ORDER BY rowid"
+        ).fetchall()
+        spatial_rows = connection.execute(
+            "SELECT n.node_id, s.page_index FROM fission_node n LEFT JOIN anchor_spatial s ON s.node_id=n.node_id WHERE n.document_id=(SELECT document_id FROM source LIMIT 1) ORDER BY n.rowid"
+        ).fetchall()
+        unassigned = [row["node_id"] for row in spatial_rows if row["page_index"] is None]
+        if unassigned:
+            raise SystemExit(f"{source['key']} has {len(unassigned)} page-unassigned fission nodes")
+        pages = {}
+        for row in spatial_rows:
+            pages.setdefault(str(row["page_index"]), []).append(row["node_id"])
+        authorities.append({
+            "sourceKey": source["key"],
+            "databaseName": source["databaseName"],
+            "totalFissionNodeCount": len(all_nodes),
+            "assignedNodeCount": len(spatial_rows),
+            "unassignedNodeIds": unassigned,
+            "pages": [{"pageIndexZeroBased": int(page), "nodeCount": len(ids), "nodeIds": ids} for page, ids in sorted(pages.items(), key=lambda item: int(item[0]))],
+        })
 
         for anchor in source["nodes"]:
             page_match = re.search(r"page_index=(\d+)", anchor["citationResolution"])
@@ -125,6 +151,8 @@ def main() -> None:
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n")
+    membership = {"schema": "x0-authoritative-page-membership/v1", "sources": authorities}
+    args.membership_output.write_text(json.dumps(membership, indent=2, ensure_ascii=False) + "\n")
     print(f"Captured complete page context for {len(contexts)} anchors across {len(anchors['sources'])} sources.")
 
 

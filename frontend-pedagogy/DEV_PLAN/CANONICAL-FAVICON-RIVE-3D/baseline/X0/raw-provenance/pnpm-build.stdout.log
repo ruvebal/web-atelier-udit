@@ -1,0 +1,43 @@
+
+> web-foundations@1.0.0 prebuild /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations
+> bundle exec jekyll clean --source docs --destination _site --config _config.yml
+
+Configuration file: _config.yml
+           Cleaner: Removing _site...
+           Cleaner: Nothing to do for docs/.jekyll-metadata.
+           Cleaner: Nothing to do for .sass-cache.
+
+> web-foundations@1.0.0 build /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations
+> npm run postcss:build && bundle exec jekyll build --source docs --destination _site --config _config.yml && npm run verify:publication && npm run verify:citations
+
+
+> web-foundations@1.0.0 postcss:build
+> postcss docs/assets/css/tailwind.css -o docs/assets/css/tailwind-processed.css
+
+Configuration file: _config.yml
+Loading post_process plugin... 
+            Source: docs
+       Destination: _site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+Running post-processing scripts... 
+Running normalize-ids... 
+✅ Normalized accents in 200 HTML files
+Running mark-broken-links... 
+[mark-broken-links] No error files found
+[mark-broken-links] No broken URLs to mark
+Running strip-markdown-helper-attrs... 
+Stripped markdown helper attributes from 200 HTML files
+Post-processing complete! 
+                    done in 4.568 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
+
+> web-foundations@1.0.0 verify:publication
+> node scripts/verify-publication-safety.mjs
+
+Publication safety passed: no internal corpus or local-architecture metadata is publishable.
+
+> web-foundations@1.0.0 verify:citations
+> node scripts/verify-publication-safety.mjs --citations
+
+Citation conformance passed for canonical lessons.

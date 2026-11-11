@@ -1,8 +1,20 @@
 {
-  "schema": "x0-command-transcript/v1",
-  "acceptanceId": "F4",
-  "command": "pnpm build",
+  "schema": "x0-command-provenance/v1",
+  "label": "Full pnpm build",
+  "startedAtUtc": "2026-11-11T13:03:01.722Z",
+  "endedAtUtc": "2026-11-11T13:03:09.504Z",
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations",
+  "executable": "/opt/homebrew/bin/pnpm",
+  "argv": [
+    "/opt/homebrew/bin/pnpm",
+    "build"
+  ],
+  "environment": {
+    "RBENV_VERSION": "3.3.11"
+  },
   "exitCode": 0,
-  "stdout": "\u2705 Normalized accents in 200 HTML files\nStripped markdown helper attributes from 200 HTML files\nPublication safety passed: no internal corpus or local-architecture metadata is publishable.\nCitation conformance passed for canonical lessons.",
-  "stderr": ""
+  "stdoutSha256": "a85ac31fa87996e094786638ce1670312ee9b50d894389f3ead84bcbcba41942",
+  "stderrSha256": "53486df4ea4d1bc8492d5b58fceb6a9fcd6467236566f9faebfab014cbba253c",
+  "stdoutPath": "raw-provenance/pnpm-build.stdout.log",
+  "stderrPath": "raw-provenance/pnpm-build.stderr.log"
 }

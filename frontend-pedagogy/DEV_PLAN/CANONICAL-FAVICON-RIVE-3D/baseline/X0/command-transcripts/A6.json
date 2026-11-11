@@ -3,6 +3,6 @@
   "acceptanceId": "A6",
   "command": "node web-foundations/scripts/svg-extrusion/test-phase-evidence-validator.mjs",
   "exitCode": 0,
-  "stdout": "PASS A6: rejected 8 mutated receipt fixtures\n",
+  "stdout": "PASS A6: rejected 11 mutated receipt fixtures\n",
   "stderr": ""
 }

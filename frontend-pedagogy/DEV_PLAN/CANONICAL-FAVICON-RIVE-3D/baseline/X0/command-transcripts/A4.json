@@ -1,8 +1,8 @@
 {
   "schema": "x0-command-transcript/v1",
   "acceptanceId": "A4",
-  "command": "node --version",
+  "command": "node web-foundations/scripts/svg-extrusion/capture-x0-command-provenance.mjs",
   "exitCode": 0,
-  "stdout": "v24.22.1\n",
+  "stdout": "Captured X0 tool, build, and induced-browser provenance.\n",
   "stderr": ""
 }
