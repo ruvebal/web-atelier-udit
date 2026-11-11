@@ -226,13 +226,19 @@ const checks = {
 			],
 			['<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L1e999 0L2 2Z"/></svg>', /non-finite|unsupported path/],
 			['<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u00A00L2 0L2 2Z"/></svg>', /unsupported path syntax/],
-			['<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u000B0L2 0L2 2Z"/></svg>', /unsupported path syntax/],
+			['<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u000B0L2 0L2 2Z"/></svg>', /non-XML character/],
 			['<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u30000L2 0L2 2Z"/></svg>', /unsupported path syntax/],
 			['<svg viewBox="0 0\f10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
 			[
 				'<svg viewBox="0 0 10 10"><path fill="#000" transform="translate(1\u00A02)" d="M0 0L2 0L2 2Z"/></svg>',
 				/transform/,
 			],
+			['<svg viewBox="0x10 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
+			['<svg viewBox="0,,0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
+			['<svg viewBox="0 , , 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
+			['<svg viewBox="0 0 10 10,"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
+			['<svg viewBox="0 0 10 10"><!-- a -- b --><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /malformed XML comment/],
+			['<svg viewBox="0 0 10 10"><path id="a\fb" fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /non-XML character/],
 		])
 			rejects(svg, pattern);
 	},
@@ -253,6 +259,10 @@ const checks = {
 		rejects('<svg viewBox="0 0 10 10"><path fill="#000"\fd="M0 0L2 0L2 2Z"/></svg>', /malformed attribute syntax/);
 		rejects('<svg viewBox="0 0 10 10">\f<path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /text or malformed markup/);
 		rejects('<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>\f', /text or malformed markup/);
+		rejects('<svg viewBox="0 0 10 10"><path fill="#000" d="M0,,0L2 0L2 2Z"/></svg>', /misplaced comma/);
+		rejects('<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0,L2 0L2 2Z"/></svg>', /misplaced comma/);
+		rejects('<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z,"/></svg>', /misplaced comma/);
+		rejects('<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z\n,"/></svg>', /misplaced comma/);
 		const e = buildSvg('<svg viewBox="0 0 10 10"><path fill="#000" fill-rule="evenodd" d="M0 0L2 0L2 2Z"/></svg>');
 		assert.deepEqual(e.manifest.fillRules, ['evenodd']);
 		assert.ok(f1.manifest.facets.some((x) => x.contourVertexCount > 6));

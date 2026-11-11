@@ -2,8 +2,10 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 export const SCHEMA = 'svg-to-rive-3d/v1';
-export const COMPILER_VERSION = '1.0.6';
+export const COMPILER_VERSION = '1.0.7';
 const EPS = 1e-10;
+const NUMBER = /^[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?$/;
+const nonXmlChar = /[^\u0009\u000A\u000D\u0020-\uD7FF\uE000-\uFFFD\u{10000}-\u{10FFFF}]/u;
 
 export function sha256(data) {
 	return createHash('sha256').update(data).digest('hex');
@@ -36,6 +38,7 @@ function attrs(text, context = 'path') {
 		if (Object.hasOwn(out, key)) throw new Error(`${context}: duplicate attribute ${key}`);
 		const value = text.slice(i, end);
 		if (/[<&>]/.test(value)) throw new Error(`${context}: unresolved markup in attribute ${key}`);
+		if (nonXmlChar.test(value)) throw new Error(`${context}: non-XML character in attribute ${key}`);
 		out[key] = value;
 		i = end + 1;
 	}
@@ -50,6 +53,9 @@ function stripComments(source) {
 		if (!inTag && source.startsWith('<!--', i)) {
 			const end = source.indexOf('-->', i + 4);
 			if (end < 0) throw new Error('unterminated XML comment');
+			const body = source.slice(i + 4, end);
+			if (body.includes('--') || body.endsWith('-')) throw new Error('malformed XML comment');
+			if (nonXmlChar.test(body)) throw new Error('non-XML character in comment');
 			i = end + 3;
 			continue;
 		}
@@ -241,6 +247,15 @@ function flattenCubic(p0, p1, p2, p3, tol, out, depth = 0) {
 }
 
 export function parsePath(d, tolerance, pointTransform = (p) => p) {
+	for (let k = 0; k < d.length; k++) {
+		if (d[k] !== ',') continue;
+		let a = k - 1;
+		while (a >= 0 && isXmlSpace(d[a])) a--;
+		let b = k + 1;
+		while (b < d.length && isXmlSpace(d[b])) b++;
+		if (a < 0 || !/[0-9.]/.test(d[a]) || b >= d.length || !/[0-9+.-]/.test(d[b]))
+			throw new Error('misplaced comma in path data');
+	}
 	const tokens = [...d.matchAll(/[MLCZmlcz]|[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?/g)].map((m) => m[0]);
 	const residue = d.replace(/[MLCZmlcz]|[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?|[ \t\r\n,]+/g, '');
 	if (residue) throw new Error(`unsupported path syntax near ${residue.slice(0, 16)}`);
@@ -423,11 +438,12 @@ export function compileSvg(source, config = {}) {
 		rootAllowed = new Set(['xmlns', 'xmlns:xlink', 'width', 'height', 'viewBox']);
 	for (const key of Object.keys(ra))
 		if (!rootAllowed.has(key)) throw new Error(`unsupported or unresolved root attribute ${key}`);
-	const vb = xmlTrim(ra.viewBox ?? '')
-		.split(/[ \t\r\n,]+/)
-		.map(Number);
+	const vbText = xmlTrim(ra.viewBox ?? ''),
+		vb = (vbText === '' ? [] : vbText.split(/[ \t\r\n]*,[ \t\r\n]*|[ \t\r\n]+/)).map((x) =>
+			NUMBER.test(x) ? Number(x) : NaN
+		);
 	if (vb.length !== 4 || vb.some((x) => !Number.isFinite(x)) || vb[2] <= 0 || vb[3] <= 0)
-		throw new Error('viewBox must contain four finite values with positive bounds');
+		throw new Error('viewBox must contain four finite SVG numbers with positive bounds');
 	if (ra.xmlns !== undefined && ra.xmlns !== 'http://www.w3.org/2000/svg')
 		throw new Error('root xmlns must be the SVG namespace');
 	if (ra['xmlns:xlink'] !== undefined && ra['xmlns:xlink'] !== 'http://www.w3.org/1999/xlink')
@@ -443,10 +459,11 @@ export function compileSvg(source, config = {}) {
 		sourceTol = px / scale,
 		tol = sourceTol / Math.max(vb[2], vb[3]);
 	const min = config.minimumDepth ?? 0.04,
-		max = config.maximumDepth ?? 0.22;
+		max = config.maximumDepth ?? 0.22,
+		minArea = config.minimumTriangleArea ?? 1e-10;
 	if (!(min >= 0 && max >= min)) throw new Error('depth bounds require 0 <= minimum <= maximum');
-	if (![scale, px, min, max].every(Number.isFinite) || scale <= 0 || px < 0)
-		throw new Error('compiler config requires finite scale/tolerance and depth bounds');
+	if (![scale, px, min, max, minArea].every(Number.isFinite) || scale <= 0 || px < 0 || minArea < 0)
+		throw new Error('compiler config requires finite scale/tolerance/depth bounds');
 	const paths = structure.paths.map((text) => [null, text]);
 	const parsed = paths.map((m, order) => {
 		const a = attrs(m[1]),
@@ -485,8 +502,7 @@ export function compileSvg(source, config = {}) {
 			throw new Error(`path ${number}: non-finite normalized contour`);
 		assertSimple(ring);
 		let area = signedArea(ring);
-		if (!Number.isFinite(area) || Math.abs(area) < (config.minimumTriangleArea ?? 1e-10))
-			throw new Error(`path ${number}: degenerate contour`);
+		if (!Number.isFinite(area) || Math.abs(area) < minArea) throw new Error(`path ${number}: degenerate contour`);
 		if (area < 0) {
 			ring = ring.reverse();
 			area = -area;

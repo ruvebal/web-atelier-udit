@@ -239,7 +239,7 @@ for (const [name, svg, pattern] of [
 	[
 		'whitespace-path-ff',
 		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0\f0L2 0L2 2Z"/></svg>',
-		/unsupported path syntax/,
+		/non-XML character in attribute d/,
 	],
 	[
 		'whitespace-path-nbsp',
@@ -259,7 +259,7 @@ for (const [name, svg, pattern] of [
 	[
 		'whitespace-path-vt',
 		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u000B0L2 0L2 2Z"/></svg>',
-		/unsupported path syntax/,
+		/non-XML character in attribute d/,
 	],
 	[
 		'whitespace-path-ideographic',
@@ -287,6 +287,81 @@ for (const [name, svg, pattern] of [
 		/transform/,
 	],
 	['whitespace-viewbox-ff', '<svg viewBox="0 0\f10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
+	[
+		'viewbox-hex',
+		'<svg viewBox="0x10 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/viewBox/,
+	],
+	[
+		'viewbox-binary',
+		'<svg viewBox="0b101 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/viewBox/,
+	],
+	[
+		'viewbox-octal',
+		'<svg viewBox="0o17 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/viewBox/,
+	],
+	[
+		'viewbox-double-comma',
+		'<svg viewBox="0,,0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/viewBox/,
+	],
+	[
+		'viewbox-comma-run',
+		'<svg viewBox="0 , , 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/viewBox/,
+	],
+	[
+		'viewbox-trailing-comma',
+		'<svg viewBox="0 0 10 10,"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/viewBox/,
+	],
+	[
+		'viewbox-leading-comma',
+		'<svg viewBox=",0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/viewBox/,
+	],
+	[
+		'comment-double-hyphen',
+		'<svg viewBox="0 0 10 10"><!-- a -- b --><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/malformed XML comment/,
+	],
+	[
+		'comment-trailing-hyphen',
+		'<svg viewBox="0 0 10 10"><!-- a ---><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/malformed XML comment/,
+	],
+	[
+		'comment-control-char',
+		'<svg viewBox="0 0 10 10"><!-- a \f b --><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/non-XML character in comment/,
+	],
+	[
+		'attribute-control-char',
+		'<svg viewBox="0 0 10 10"><path id="a\fb" fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/non-XML character in attribute id/,
+	],
+	[
+		'path-double-comma',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0,,0L2 0L2 2Z"/></svg>',
+		/misplaced comma/,
+	],
+	[
+		'path-comma-before-command',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0,L2 0L2 2Z"/></svg>',
+		/misplaced comma/,
+	],
+	[
+		'path-trailing-comma',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z,"/></svg>',
+		/misplaced comma/,
+	],
+	[
+		'path-post-close-comma',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z\n,"/></svg>',
+		/misplaced comma/,
+	],
 	[
 		'non-finite-coordinate',
 		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L1e999 0L2 2Z"/></svg>',
