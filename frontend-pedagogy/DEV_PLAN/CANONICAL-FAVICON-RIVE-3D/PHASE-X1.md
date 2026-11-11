@@ -47,4 +47,6 @@ Independent overlapping facets can expose seams. Keep overlap policy explicit an
 
 V1 accepts one closed filled contour per `path`, absolute or relative `M/L/C/Z`, implicit repeated coordinate groups, decimal signs/exponents, opaque `solid-hex-or-rgb/v1` fills, and path-local affine `matrix`, `translate`, `scale`, or `rotate` transforms composed in written order. It rejects DTD/entities, nested/group transforms, multiple subpaths/holes, strokes, classes, opacity/inherited/variable paint, paint servers/effects, unknown presentation attributes, unsupported commands, degenerate rings, and self-intersections.
 
+Every start-tag attribute is uniquely named, explicitly assigned, quoted, and fully consumed before the root/path semantic allowlists run. Unquoted, duplicate, unterminated, boolean, residual, and path-namespace attribute syntax rejects.
+
 Transforms are baked in SVG coordinates; points are then Y-inverted and normalized by the viewBox maximum dimension into a centered, right-handed model. Fronts are CCW at Z=0 and backs extend along negative Z. Generated `manifest.json` uses `svg-to-rive-3d/v1`; `geometry.json` uses `rive-animascript-3d/generated-provider/v1` with triangle-list positions, unit normals, indices, and per-facet spans. The external X1 verifier rebuilds both fixtures twice in fresh directories and inspects these contracts independently.

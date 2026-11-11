@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 export const SCHEMA = 'svg-to-rive-3d/v1';
-export const COMPILER_VERSION = '1.0.2';
+export const COMPILER_VERSION = '1.0.3';
 const EPS = 1e-10;
 
 export function sha256(data) { return createHash('sha256').update(data).digest('hex'); }
@@ -10,8 +10,10 @@ const round = (n) => Number(n.toFixed(10));
 const cross = (a, b, c) => (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);
 const distLine = (p,a,b) => Math.abs(cross(a,b,p))/Math.max(Math.hypot(b[0]-a[0],b[1]-a[1]),EPS);
 
-function attrs(text) {
-  return Object.fromEntries([...text.matchAll(/([:\w-]+)\s*=\s*(["'])(.*?)\2/gs)].map(m=>[m[1],m[3]]));
+function attrs(text,context='path') {
+  const out={};let i=0;
+  while(i<text.length){while(/\s/.test(text[i]??''))i++;if(i>=text.length)break;if(text[i]==='/'&&text.slice(i+1).trim()==='')break;const name=/^[A-Za-z_][A-Za-z0-9_.:-]*/.exec(text.slice(i));if(!name)throw new Error(`${context}: malformed attribute syntax`);const key=name[0];i+=key.length;while(/\s/.test(text[i]??''))i++;if(text[i]!=='=')throw new Error(`${context}: attribute ${key} must use a quoted value`);i++;while(/\s/.test(text[i]??''))i++;const quote=text[i];if(quote!=='"'&&quote!=="'")throw new Error(`${context}: attribute ${key} must use a quoted value`);i++;const end=text.indexOf(quote,i);if(end<0)throw new Error(`${context}: unterminated attribute ${key}`);if(Object.hasOwn(out,key))throw new Error(`${context}: duplicate attribute ${key}`);const value=text.slice(i,end);if(/[<&]/.test(value))throw new Error(`${context}: unresolved markup in attribute ${key}`);out[key]=value;i=end+1;}
+  return out;
 }
 function assertSafeXmlStructure(source) {
   const clean=source.replace(/<!--[\s\S]*?-->/g,'').replace(/<\?[\s\S]*?\?>/g,'');
@@ -88,7 +90,7 @@ export function compileSvg(source, config={}) {
   assertSafeXmlStructure(source);
   for(const tag of ['text','image','clipPath','mask','filter','pattern','linearGradient','radialGradient'])if(new RegExp(`<${tag}\\b`,'i').test(source))throw new Error(`unsupported SVG feature: ${tag}`);
   if(/<(?:g|svg)[^>]+transform=/i.test(source))throw new Error('nested/group transforms are not supported in v1');
-  const root=/<svg\b([^>]*)>/i.exec(source);if(!root)throw new Error('missing svg root');const ra=attrs(root[1]),rootAllowed=new Set(['xmlns','xmlns:xlink','width','height','viewBox']);for(const key of Object.keys(ra))if(!rootAllowed.has(key))throw new Error(`unsupported or unresolved root attribute ${key}`);const vb=(ra.viewBox??'').trim().split(/[\s,]+/).map(Number);if(vb.length!==4||vb.some(x=>!Number.isFinite(x))||vb[2]<=0||vb[3]<=0)throw new Error('viewBox must contain four finite values with positive bounds');
+  const root=/<svg\b([^>]*)>/i.exec(source);if(!root)throw new Error('missing svg root');const ra=attrs(root[1],'svg root'),rootAllowed=new Set(['xmlns','xmlns:xlink','width','height','viewBox']);for(const key of Object.keys(ra))if(!rootAllowed.has(key))throw new Error(`unsupported or unresolved root attribute ${key}`);const vb=(ra.viewBox??'').trim().split(/[\s,]+/).map(Number);if(vb.length!==4||vb.some(x=>!Number.isFinite(x))||vb[2]<=0||vb[3]<=0)throw new Error('viewBox must contain four finite values with positive bounds');
   const scale=config.maximumDisplayScale??4,px=config.flattenTolerancePx??0.35,sourceTol=px/scale,tol=sourceTol/Math.max(vb[2],vb[3]);const min=config.minimumDepth??0.04,max=config.maximumDepth??0.22;if(!(min>=0&&max>=min))throw new Error('depth bounds require 0 <= minimum <= maximum');
   const paths=[...source.matchAll(/<path\b([^>]*)\/?\s*>/gi)];if(!paths.length)throw new Error('no eligible path facets');
   const parsed=paths.map((m,order)=>{const a=attrs(m[1]),number=order+1,allowed=new Set(['id','d','fill','fill-rule','stroke','style','transform']);for(const key of Object.keys(a))if(!allowed.has(key))throw new Error(`path ${number}: unsupported or unresolved attribute ${key}`);if(!a.d)throw new Error(`path ${number}: missing d`);const style={};if(a.style){for(const declaration of a.style.split(';').filter(x=>x.trim())){const separator=declaration.indexOf(':');if(separator<1||declaration.indexOf(':',separator+1)>=0)throw new Error(`path ${number}: unresolved style declaration`);const key=declaration.slice(0,separator).trim().toLowerCase(),value=declaration.slice(separator+1).trim();if(!['fill','stroke','fill-rule'].includes(key))throw new Error(`path ${number}: unsupported style property ${key}`);style[key]=value;}}const stroke=(style.stroke??a.stroke)?.toLowerCase();if(stroke&&stroke!=='none')throw new Error(`path ${number}: strokes are unsupported`);const fill=style.fill??a.fill;if(!fill||fill.toLowerCase()==='none')throw new Error(`path ${number}: solid resolved fill required`);validateSolidFill(fill,number);const fillRule=(style['fill-rule']??a['fill-rule']??'nonzero').toLowerCase();if(!['nonzero','evenodd'].includes(fillRule))throw new Error(`path ${number}: unsupported fill-rule ${fillRule}`);const matrix=transformMatrix(a.transform);let ring=parsePath(a.d,sourceTol,p=>tx(p,matrix)).map(p=>[(p[0]-vb[0])/Math.max(vb[2],vb[3])-vb[2]/Math.max(vb[2],vb[3])/2,(vb[1]+vb[3]-p[1])/Math.max(vb[2],vb[3])-vb[3]/Math.max(vb[2],vb[3])/2]);ring=ring.filter((p,i)=>!i||Math.hypot(p[0]-ring[i-1][0],p[1]-ring[i-1][1])>EPS);assertSimple(ring);let area=signedArea(ring);if(Math.abs(area)<(config.minimumTriangleArea??1e-10))throw new Error(`path ${number}: degenerate contour`);if(area<0){ring=ring.reverse();area=-area;}let triangles;try{triangles=triangulate(ring);}catch(e){throw new Error(`path ${number}: ${e.message}`);}return {order,id:`facet-${String(number).padStart(2,'0')}`,sourceId:a.id??null,fill,fillRule,transform:a.transform??null,ring,triangles,area,centroid:centroid(ring)};});

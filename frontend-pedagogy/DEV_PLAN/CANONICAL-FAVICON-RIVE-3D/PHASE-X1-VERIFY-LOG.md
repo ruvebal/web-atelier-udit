@@ -2,8 +2,8 @@
 
 **Run by:** cascade-harness.sh (runner process, not the implementing session)
 **Worktree:** /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-1
-**Commit:** 88706789dbc2a62b116c7f5015fc1de7f82362ce
-**Started:** 2026-11-11T18:57:22Z
+**Commit:** f1f68eb1017e41a96a8914ffde0ecc5826ccd74c
+**Started:** 2026-11-11T19:07:45Z
 
 ```
 PASS X1 compiler: canonical N=13, distinct curved/concave N=2, geometry/rejection/determinism checks
@@ -60,7 +60,7 @@ Running mark-broken-links...
 Running strip-markdown-helper-attrs...
 Stripped markdown helper attributes from 200 HTML files
 Post-processing complete!
-                    done in 4.517 seconds.
+                    done in 4.611 seconds.
  Auto-regeneration: disabled. Use --watch to enable.
 npm warn Unknown env config "npm-globalconfig". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
 npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
