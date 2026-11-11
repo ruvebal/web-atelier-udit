@@ -27,6 +27,7 @@ Teach how one SVG became a portable, crisp, responsive real-3D asset, including 
 - [ ] **A7** The lesson is indexed and survives the built route/link checks.
 - [ ] **A8** Public technical claims cite evaluator-safe sources; the unresolved curriculum metadata gap is omitted publicly or taught without a polished citation.
 - [ ] **A9** The lesson distinguishes elapsed-time interpolation, camera/model transforms, depth/visibility, shader computation cost and DOM-versus-GPU interaction ownership.
+- [ ] **A10** The comparison rubric evaluates authored motion principles separately from input-driven state, interruption, persistence and reset.
 
 ## Risks
 

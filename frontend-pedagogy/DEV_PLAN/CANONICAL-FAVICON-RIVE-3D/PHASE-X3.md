@@ -27,6 +27,8 @@ Animate assembled SVG → area-depth extrusion → separated spatial inspection 
 - [ ] **A7** Loop interruption does not jump or lose selected state.
 - [ ] **A8** Pen-scale micro-movement does not visibly steer the camera.
 - [ ] **A9** Equal elapsed time produces equivalent loop state across at least two simulated frame rates.
+- [ ] **A10** Exponential camera damping converges equivalently over equal elapsed time at 30, 60 and 144 Hz with bounded long-frame handling.
+- [ ] **A11** Orientation fixtures include identity→90° rotation with an expected 45° midpoint and near-identical quaternion handling.
 
 ## Risks
 

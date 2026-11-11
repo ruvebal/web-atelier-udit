@@ -54,6 +54,17 @@ Angel and Shreiner observe that much graphics logic remains similar across APIs 
 - Citation gate: `evaluator_safe=yes`; resolver truncates co-authorship, so public citation must be `(Angel and Shreiner 2024, 1–2)`.
 - Cascade consequence: expose generated buffers, transforms, depth and shader responsibilities while packaging boilerplate behind the reusable extruder/runtime adapter.
 
+### 5. Separate frame-authored motion from input-controlled parameters
+
+Funk and Zhang introduce animation as successive frames and separately show visual parameters controlled by mouse/input. The source uses Processing/p5.js, so it supports the conceptual distinction rather than a browser API claim. This gives the comparison a useful second axis: authored timing/choreography versus input-driven state and interruption.
+
+- Source: Mathias Funk and Yu Zhang, *Coding Art*, 2nd ed. (2024), printed pp. 39 and 49, DOI `10.1007/978-1-4842-9780-3`.
+- Ahmes nodes: animation `12d8aeb4-c5ac-5ae5-85ae-89ba29a2254e`; input-controlled parameters `b0a99d30-7e7f-520c-a5f9-77bd28248d22` and `7694d55e-d016-5bff-af05-d371b6ca2f68`.
+- Citation gate: `evaluator_safe=yes`; restore Yu Zhang as co-author because the short resolver key truncates authorship.
+- Transfer boundary: the pages do not compare CSS, SMIL, WAAPI, GSAP, Lottie or Rive.
+
+The curriculum report’s printed p. 160 also lists timing, anticipation, staging, follow-through, overlapping action, slow-in/out, arcs, exaggeration and appeal, but its local record remains the same evaluator-unsafe `[BIBLIO-GAP]`. Use the vocabulary internally as rubric design; do not attach a polished public author-date citation until resolved.
+
 ## Discarded matches
 
 - Additive-manufacturing “extrusion” and tetrahedral finite-element nodes: lexical collision with SVG extrusion, wrong domain.
@@ -69,11 +80,13 @@ Angel and Shreiner observe that much graphics logic remains similar across APIs 
 3. Add D23’s DOM-versus-GPU interaction ownership to the technique comparison.
 4. Add D24’s GPU setup/performance distinction and shader computation evidence to X5.
 5. Carry the ACM curriculum metadata problem as a source-only `[BIBLIO-GAP]`; do not leak the label or local architecture into the published site.
+6. Add D31’s two-axis critique: authored motion craft versus interactive state quality.
 
 ## Evaluator-safe bibliography candidates
 
 - Angel, Edward, and Dave Shreiner. 2024. “The Future of Teaching Computer Graphics.” In *SIGGRAPH Educators Forum ’24*. https://doi.org/10.1145/3641235.3664433.
 - Haverbeke, Marijn. 2024. *Eloquent JavaScript*. 4th ed. No Starch Press. Chapter 17, “Drawing on Canvas.”
+- Funk, Mathias, and Yu Zhang. 2024. *Coding Art: A Guide to Unlocking Your Creativity with the Processing Language and p5.js in Four Simple Steps*. 2nd ed. Apress. https://doi.org/10.1007/978-1-4842-9780-3.
 - Vince, John. 2017. *Mathematics for Computer Graphics*. 5th ed. London: Springer.
 
 These candidates still require the public lesson editor to match the repository’s Chicago formatting and preserve the internal node trail behind the publication metadata switch.

@@ -2,7 +2,7 @@
 
 **Status:** READY · planning branch `codex/canonical-favicon-rive-3d-cascade`  
 **Author:** Rubén Vega Balbás, PhD · 2026-11-10  
-**Product claim:** one canonical SVG becomes a crisp, responsive, depth-tested object whose 13 facets remain individually understandable and selectable.  
+**Product claim:** any SVG inside the supported subset becomes a crisp, responsive, depth-tested object whose dynamic set of source facets remains individually understandable and selectable; the favicon is the golden fixture.
 **Engineering claim:** geometry, colour, area, intrinsic extrusion depth, hit identity, fallback, and teaching evidence are generated from one SVG source rather than copied by hand.
 
 ## Read this pack
@@ -14,6 +14,7 @@
 | Implementer/reviewer | [AGENT.md](AGENT.md) | What may each agent change, and who may certify it? |
 | Evidence reader | [FINDINGS-2026-11-10.md](FINDINGS-2026-11-10.md) | Which claims were checked against this repository and installed tools? |
 | Research reader | [ATHANOR-NEURAL-MATCH-2026-11-11.md](ATHANOR-NEURAL-MATCH-2026-11-11.md) | Which local monographs and graphics sources ground the cascade architecture? |
+| Geometry implementer | [MATH-CONTRACTS-2026-11-11.md](MATH-CONTRACTS-2026-11-11.md) | Which equations are sourced, which are engineering derivations, and what must tests prove? |
 | Maintainer | [DECISIONS.md](DECISIONS.md) | Which geometry, interaction, accessibility, and provenance choices are frozen? |
 | Reviewer | [PLAN-COLD-REVIEW.md](PLAN-COLD-REVIEW.md) | Which planning defects were found independently? |
 | Orchestrator | [PLAN-REVIEW-RESOLUTION.md](PLAN-REVIEW-RESOLUTION.md) | How were those findings closed before X0? |
@@ -47,7 +48,7 @@ amending the runbook and its gate together.
 | Worktree before branch | clean `main...origin/main` | `git status --short --branch` |
 | Working branch | `codex/canonical-favicon-rive-3d-cascade` | `git branch --show-current` |
 | Canonical source | `fava-mark-static.svg`, `viewBox="0 0 1024 920"` | `web-foundations/docs/assets/icons/fava-mark-static.svg` |
-| Canonical facets | 13 `<path>` elements | same source, lines 3–15 |
+| Canonical fixture facets | 13 `<path>` elements today; fixture assertion, not an engine limit | same source, lines 3–15 |
 | Existing GPU specimen | 13 copies of one hand-authored triangular prism | `animascript-3d/main.as`, `prismatic-favicon.wgsl` |
 | Existing renderer | AnimaScript GPU Canvas, WGSL, depth32float, back-face culling | current `main.as` and shader |
 | Existing signed asset | `build/fava_prismatic_3d.riv` | animation asset tree |

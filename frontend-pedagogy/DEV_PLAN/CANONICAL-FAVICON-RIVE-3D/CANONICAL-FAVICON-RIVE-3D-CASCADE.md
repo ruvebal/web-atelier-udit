@@ -29,7 +29,7 @@ Read first:
 
 Hard constraints:
 - fava-mark-static.svg is the only hand-authored geometry authority
-- preserve 13 stable facet identities and source order
+- preserve dynamic `N` stable facet identities and source order; the favicon fixture alone asserts `N = 13`
 - derive intrinsic depth from measured relative area using the exact D4 formula
 - exact frontal rest, real side walls/back faces/depth testing
 - raw coordinates for picking; conditioned coordinates for camera

@@ -24,13 +24,16 @@ Implement the compiler without importing lesson or favicon modules. Preserve sou
 - [ ] **A1** One command regenerates the favicon manifest and mesh from the canonical SVG.
 - [ ] **A2** The same command/API converts the second fixture without source changes.
 - [ ] **A3** Re-running produces byte-identical output.
-- [ ] **A4** All 13 areas are positive after winding normalization.
+- [ ] **A4** Every generated facet area is positive after winding normalization, for both fixtures with different `N`.
 - [ ] **A5** Every depth equals the exact D4 formula within numeric tolerance.
 - [ ] **A6** Invalid bounds and zero/degenerate contours fail.
 - [ ] **A7** Uniform scaling preserves normalized relative depths; equal areas produce equal depths.
 - [ ] **A8** Front/back triangle area matches flattened contour area within declared tolerance.
 - [ ] **A9** Unsupported SVG features fail clearly rather than degrading silently.
 - [ ] **A10** Transform, winding, concavity, cubic, and every V1 rejection class have fixtures; multiple subpaths/holes are rejected.
+- [ ] **A11** Generated buffers, IDs and manifest counts derive from source `N`; no compiler/runtime constant equals the favicon’s fixture count.
+- [ ] **A12** Adaptive cubic flattening stays within the declared projected pixel tolerance against a dense reference at the maximum supported scale.
+- [ ] **A13** The manifest records D26 coordinate conventions, flattening tolerance, fill rule, signed area, centroid method and winding normalization.
 
 ## Risks
 
