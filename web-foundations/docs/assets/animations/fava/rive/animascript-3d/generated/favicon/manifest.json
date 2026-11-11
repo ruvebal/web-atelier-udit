@@ -1,6 +1,6 @@
 {
   "schema": "svg-to-rive-3d/v1",
-  "compilerVersion": "1.0.3",
+  "compilerVersion": "1.0.4",
   "supportedSubset": "closed-filled-path-MLCZ-affine/v1",
   "source": {
     "sha256": "90cfa8a5dfb290e92515647141369111c821427c71fec3f402873c1221db51ad",
