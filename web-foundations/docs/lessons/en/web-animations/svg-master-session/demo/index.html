@@ -12,6 +12,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
     <a href="#best-in-show">Best in show</a>
     <a href="#interaction-lab">Interaction lab</a>
     <a href="#authored-assets">Authored assets</a>
+    <a href="#audio-specimen">Audio hum</a>
     <a href="#spatial-lab">Spatial lab</a>
     <a href="#verdict">Verdict</a>
   </nav>
@@ -191,7 +192,8 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
 
   <section id="authored-assets" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="authored-assets-title">
   <h2 id="authored-assets-title" class="round-title">Authored asset showreel</h2>
-  <p class="lede">These cards play or document exported ruvebal favicon assets with their own runtimes. Lottie reveals the coloured source paths; dotLottie packages brand and night variants in one file. The Rive examples progress from a 2D timeline to procedural 2D drawing and, finally, a signed GPU Canvas specimen with true depth-tested geometry.</p>
+  <p class="lede">These cards play or document exported ruvebal favicon assets with their own runtimes. Lottie reveals the coloured source paths; dotLottie packages brand and night variants in one file. The Rive examples progress from a 2D timeline to procedural 2D drawing, a signed GPU Canvas specimen with true depth-tested geometry, and an AnimaScript audio processor you can hear after a click (CLI-rendered WAV on a page AudioContext).</p>
+  <p class="lede"><a href="#audio-specimen"><strong>Hear the AnimaScript audio specimen →</strong></a> (last card in this grid, also linked as <em>Audio hum</em> in the left rail).</p>
   <section class="asset-grid" aria-label="Authored animation asset showreel">
     <article class="asset-card" data-authored="lottie"><div class="card-head"><h2>Lottie</h2><span class="category">Motion design</span></div><p class="asset-status" data-asset-status="lottie" role="status">Loading the exported Lottie JSON…</p><div class="asset-preview"><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt="Static ruvebal favicon"><div data-lottie-stage aria-label="ruvebal favicon Lottie facet bloom"></div></div><label class="scrub-label" for="lottie-scrub">Timeline <input id="lottie-scrub" data-lottie-scrub type="range" min="0" max="100" value="0" disabled><output for="lottie-scrub">0%</output></label><div class="asset-controls"><button type="button" data-asset-replay="lottie" disabled>Loading player…</button><a href="{{ '/assets/animations/fava/fava-brand.json' | relative_url }}">Open JSON</a></div><p><strong>Best show:</strong> the player exposes timeline-level play, pause, direction, segments, markers, and seeking—not stable access to the source SVG facets.</p></article>
     <article class="asset-card" data-authored="dotlottie"><div class="card-head"><h2>dotLottie</h2><span class="category">Packaged variants</span></div><p class="asset-status" data-asset-status="dotlottie" role="status">Loading the exported dotLottie bundle…</p><div class="asset-preview" data-dot-preview><img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt="Static ruvebal favicon"><canvas data-dot-canvas aria-label="ruvebal favicon dotLottie variant"></canvas></div><div class="asset-controls"><button type="button" data-dot-play="fava-brand" disabled>Brand reveal</button><button type="button" data-dot-play="fava-night" disabled>Night reveal</button><a href="{{ '/assets/animations/fava/fava-showcase.lottie' | relative_url }}">Open bundle</a></div><p><strong>Best show:</strong> one player switches complete authored animations and themes; deeper interaction should be exported as markers or a state machine.</p></article>
@@ -212,6 +214,24 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
         <a href="{{ '/assets/animations/fava/rive/animascript-3d/build/fava_prismatic_3d.riv' | relative_url }}">Open signed <code>.riv</code></a>
       </div>
       <p><strong>Best show:</strong> one portable Rive file owns the WebAssembly loop, instanced prism geometry, perspective camera, directional lighting, real side faces, occlusion, and a depth buffer. The favicon-inspired facets unfold through Z and return in a seamless nine-second cycle.</p>
+    </article>
+    <article id="audio-specimen" class="asset-card asset-card--audio" data-authored="animascript-audio">
+      <div class="card-head"><h2>Rive + AnimaScript audio</h2><span class="category">AudioProcessor lane · hear this</span></div>
+      <p class="asset-status" data-asset-status="animascript-audio" role="status">Ready: play the CLI-rendered processor output (gesture unlocks Web Audio).</p>
+      <div class="asset-preview audio-specimen-preview">
+        <img src="{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261109-geometry" alt="">
+        <canvas data-audio-meter width="280" height="56" role="img" aria-label="Level meter for the AnimaScript audio processor preview"></canvas>
+        <span class="rive-source-badge">AudioProcessor → --render-audio → Web Audio play</span>
+      </div>
+      <div class="asset-controls">
+        <button type="button" data-audio-play disabled>Play hum (1.5 s)</button>
+        <button type="button" data-audio-stop disabled>Stop</button>
+        <a href="{{ '/assets/animations/fava/rive/animascript-audio/hum.as' | relative_url }}">Open <code>hum.as</code></a>
+        <a href="{{ '/assets/animations/fava/rive/animascript-audio/build/hum-preview.wav' | relative_url }}">Open WAV</a>
+        <a href="{{ '/assets/animations/fava/rive/animascript-audio/build/ruvebal-favicon-animascript-audio.riv' | relative_url }}">Open <code>.riv</code></a>
+        <a href="{{ '/lessons/en/web-animations/svg-master-session/#audio-sync-bridge-rive-animascript-processors-and-the-other-clocks' | relative_url }}">Lesson: audio sync bridge</a>
+      </div>
+      <p><strong>Best show:</strong> what you hear is the same <code>Hum</code> <code>AudioProcessor</code> captured with <code>rive --render-audio</code>, then decoded and started on a page <code>AudioContext</code> after click. Live in-browser processors need <code>@rive-app/webgl2-threads</code> plus cross-origin isolation; this card teaches the sample clock without that host tax.</p>
     </article>
   </section>
   </section>
@@ -1275,6 +1295,8 @@ scene.add(new THREE.Mesh(geometry, material));`]
     authoredStatus('dotlottie').textContent = 'Reduced motion is on; showing the static source SVG.';
     authoredStatus('rive').textContent = 'Reduced motion is on; showing the static source SVG.';
     authoredStatus('animascript3d').textContent = 'Reduced motion is on; showing a static frame of the 3D scene.';
+    authoredStatus('animascript-audio').textContent =
+      'Reduced motion is on — open hum.as / hum-preview.wav; Play stays off.';
     lottieButton.textContent = 'Static by preference';
     lottieScrubOutput.value = 'Static';
     lottieScrubOutput.textContent = 'Static';
@@ -1396,7 +1418,13 @@ scene.add(new THREE.Mesh(geometry, material));`]
     const rive3dCanvas = document.querySelector('[data-rive-3d-canvas]');
     const rive3dButton = document.querySelector('[data-rive-3d-toggle]');
     const rive3dUrl = `${authoredBase}rive/animascript-3d/build/fava_prismatic_3d.riv`;
-    try {
+    const forceRive3dFailure = new URLSearchParams(window.location.search).has('force-rive3d-failure');
+    if (forceRive3dFailure) {
+      authoredStatus('animascript3d').textContent = 'The GPU scene could not load; its verified static frame remains visible.';
+      rive3dButton.disabled = true;
+      rive3dButton.textContent = 'GPU scene unavailable';
+      rive3dCanvas?.setAttribute('aria-label', 'Static Rive frame; GPU scene unavailable');
+    } else try {
       const rive3dRuntime = await Promise.race([
         import('https://cdn.jsdelivr.net/npm/@rive-app/webgl2@2.50.0/+esm'),
         new Promise((_, reject) => setTimeout(() => reject(new Error('Rive WebGL2 runtime timed out.')), 8000)),
@@ -1420,6 +1448,9 @@ scene.add(new THREE.Mesh(geometry, material));`]
         },
         onLoadError: (error) => {
           authoredStatus('animascript3d').textContent = 'The GPU scene could not load; its verified static frame remains visible.';
+          rive3dButton.disabled = true;
+          rive3dButton.textContent = 'GPU scene unavailable';
+          rive3dCanvas?.setAttribute('aria-label', 'Static Rive frame; GPU scene unavailable');
           console.error('Rive 3D file failed to load', error);
         },
       });
@@ -1436,4 +1467,122 @@ scene.add(new THREE.Mesh(geometry, material));`]
       console.warn('Rive 3D showreel unavailable', error);
     }
   }
+
+  // AnimaScript audio specimen: play CLI --render-audio WAV on a page AudioContext.
+  // Honest pedagogy: processor sample output, not a live AudioWorklet on Pages (needs COI + threads).
+  const audioPlay = document.querySelector('[data-audio-play]');
+  const audioStop = document.querySelector('[data-audio-stop]');
+  const audioMeter = document.querySelector('[data-audio-meter]');
+  const audioWavUrl = `${authoredBase}rive/animascript-audio/build/hum-preview.wav`;
+  let audioCtx = null;
+  let audioSource = null;
+  let audioAnalyser = null;
+  let meterRaf = 0;
+  const meterCtx = audioMeter?.getContext?.('2d');
+  const audioPreview = () => authoredPreview('animascript-audio');
+
+  function haltAudioSource() {
+    if (meterRaf) cancelAnimationFrame(meterRaf);
+    meterRaf = 0;
+    try { audioSource?.stop(); } catch (_) { /* already stopped */ }
+    audioSource = null;
+  }
+
+  function stopAudioSpecimen() {
+    haltAudioSource();
+    audioPreview()?.classList.remove('is-playing');
+    if (meterCtx && audioMeter) {
+      meterCtx.clearRect(0, 0, audioMeter.width, audioMeter.height);
+    }
+    if (audioPlay) {
+      audioPlay.disabled = false;
+      audioPlay.textContent = 'Play hum (1.5 s)';
+    }
+    if (audioStop) audioStop.disabled = true;
+    authoredStatus('animascript-audio').textContent =
+      'Stopped. Chain: hum.as → rive --render-audio → hum-preview.wav → AudioContext.';
+  }
+
+  function drawMeter() {
+    if (!meterCtx || !audioAnalyser || !audioMeter || !audioSource) return;
+    const bins = new Uint8Array(audioAnalyser.frequencyBinCount);
+    audioAnalyser.getByteTimeDomainData(bins);
+    const w = audioMeter.width;
+    const h = audioMeter.height;
+    meterCtx.fillStyle = '#090B12';
+    meterCtx.fillRect(0, 0, w, h);
+    meterCtx.strokeStyle = '#7CF29C';
+    meterCtx.lineWidth = 2;
+    meterCtx.beginPath();
+    for (let i = 0; i < bins.length; i += 1) {
+      const x = (i / (bins.length - 1)) * w;
+      const y = (1 - bins[i] / 255) * h;
+      if (i === 0) meterCtx.moveTo(x, y);
+      else meterCtx.lineTo(x, y);
+    }
+    meterCtx.stroke();
+    meterRaf = requestAnimationFrame(drawMeter);
+  }
+
+  async function playAudioSpecimen() {
+    if (prefersLess) {
+      authoredStatus('animascript-audio').textContent =
+        'Reduced motion is on — audio preview stays off; open hum.as / the WAV instead.';
+      return;
+    }
+    try {
+      audioCtx = audioCtx || new AudioContext();
+      if (audioCtx.state === 'suspended') await audioCtx.resume();
+      haltAudioSource();
+      const response = await fetch(audioWavUrl);
+      if (!response.ok) throw new Error(`WAV ${response.status}`);
+      const buffer = await audioCtx.decodeAudioData(await response.arrayBuffer());
+      audioAnalyser = audioCtx.createAnalyser();
+      audioAnalyser.fftSize = 256;
+      const audioGain = audioCtx.createGain();
+      audioGain.gain.value = 0.85;
+      audioSource = audioCtx.createBufferSource();
+      audioSource.buffer = buffer;
+      audioSource.connect(audioGain);
+      audioGain.connect(audioAnalyser);
+      audioAnalyser.connect(audioCtx.destination);
+      audioSource.onended = () => stopAudioSpecimen();
+      audioSource.start(0);
+      audioPlay.disabled = true;
+      audioPlay.textContent = 'Playing…';
+      audioStop.disabled = false;
+      authoredStatus('animascript-audio').textContent =
+        'Playing: AnimaScript Hum processor output (110 Hz, Snapshot gain pulse) via Web Audio.';
+      audioPreview()?.classList.add('is-playing');
+      drawMeter();
+    } catch (error) {
+      authoredStatus('animascript-audio').textContent =
+        'Audio preview failed; open hum-preview.wav or re-run rive --render-audio.';
+      console.warn('AnimaScript audio specimen unavailable', error);
+      stopAudioSpecimen();
+    }
+  }
+
+  if (audioPlay && audioStop) {
+    if (prefersLess) {
+      audioPlay.disabled = true;
+      audioStop.disabled = true;
+      authoredStatus('animascript-audio').textContent =
+        'Reduced motion is on — open hum.as / hum-preview.wav; Play stays off.';
+    } else {
+      audioPlay.disabled = false;
+      audioPlay.addEventListener('click', playAudioSpecimen);
+      audioStop.addEventListener('click', stopAudioSpecimen);
+      authoredStatus('animascript-audio').textContent =
+        'Ready: click Play (gesture unlocks AudioContext). Same samples as hum.as / --render-audio.';
+    }
+  }
+
+  // Section snap aligns to #authored-assets; bring the last card into view for #audio-specimen.
+  const focusAudioSpecimen = () => {
+    if (location.hash !== '#audio-specimen') return;
+    document.getElementById('audio-specimen')?.scrollIntoView({ block: 'center', behavior: 'instant' });
+  };
+  window.addEventListener('hashchange', focusAudioSpecimen);
+  requestAnimationFrame(focusAudioSpecimen);
 </script>

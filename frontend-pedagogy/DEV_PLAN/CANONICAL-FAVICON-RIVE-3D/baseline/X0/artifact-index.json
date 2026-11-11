@@ -1,0 +1,166 @@
+{
+  "schema": "x0-artifact-index/v1",
+  "capturedAtUtc": "2026-11-11T18:06:26.886Z",
+  "artifacts": [
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/pnpm-build-command-transcript.json",
+      "sha256": "aa292a8e16274187982908db31b771d1966d2e383f5ef9cddefac7be283e86af",
+      "bytes": 2013
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/pnpm-build-final.log",
+      "sha256": "b1a11728bf1b087bab1813f5483c77a24eda7f72ab5b3f2b6ba7c1f6c60272e0",
+      "bytes": 3182
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/pnpm-build-result.json",
+      "sha256": "4243a72f65f0e161150afb782f491fdd9422968f59f825ca0c4eae5bd6f31954",
+      "bytes": 391
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/pnpm-build-success-result.json",
+      "sha256": "36b1c024d8b575f7f3efc31751269a3fbeb7eacdf219b3b543be1084e549fedd",
+      "bytes": 258
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/pnpm-build-success.log",
+      "sha256": "d5ecaef93ec901a937293db6c88111613e4f6e1bffecd273cc730a946f25ecd5",
+      "bytes": 3919
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/research-anchor-page-contexts.json",
+      "sha256": "3db76f52b050db01a5015ca9e3388e3cd4403477df3870c4dfe05bdbd01382cf",
+      "bytes": 324414
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/research-anchor-verification.json",
+      "sha256": "fa3989792a367fc88b146a7eaadc1c3e8a6b0a9fe55c884866d53c33f755a495",
+      "bytes": 14133
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-build.log",
+      "sha256": "bf5a645b5ac36c159dd8378115390635342ff03ec4148515a659f70ea261e362",
+      "bytes": 68
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-cli-default.png",
+      "sha256": "6c876cd6e6d1b7f4c7ebabede5eefdf67597259eb6b3a463a5c1315950fe6724",
+      "bytes": 2434
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-cli-problems.log",
+      "sha256": "20b43def6a4576c43145d9dfff304148f2b96bb7166620e91bd1b75cfdaee821",
+      "bytes": 48
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-cli-rive.log",
+      "sha256": "a60998177df2854d7d72daf8066424c84d617d51262480c5a083db93048ccc79",
+      "bytes": 68
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-data.json",
+      "sha256": "3ea495ce054d10532ab4a46934b5c83dfa10914673be7380c5826a7d5afb0646",
+      "bytes": 131
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-gpu-manifest.json",
+      "sha256": "8599df932f43de49c17af416119b2b7d44f13b94bb8b26975b478a23b4ff9972",
+      "bytes": 7273
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-problems.log",
+      "sha256": "20b43def6a4576c43145d9dfff304148f2b96bb7166620e91bd1b75cfdaee821",
+      "bytes": 48
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-project-verify.json",
+      "sha256": "5c493fb355491831234161a7d9defd2d59ad2e259ae6cfd25c8d8f44ef85f4fd",
+      "bytes": 260
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-runtime-baseline.json",
+      "sha256": "3bb8d407a0879921bd79a474c05fe7ebb23a412101a5c8ac502efedf44eab8b2",
+      "bytes": 3424
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-semantics.json",
+      "sha256": "86bac1384087d5b4e99ec7307b2cf9bc529dc513cbab8f94b6a32df7e746c0d3",
+      "bytes": 55
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-desktop-1440x980.png",
+      "sha256": "f37ae8da9119bbe7dec5019ed8b84b6eddbe3288a89f1d930cb67ecf93d90886",
+      "bytes": 135475
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-fallback-failure-desktop-metrics.json",
+      "sha256": "df8b0d0c85c3f682ff9c928796e8776f8db381b56a2ad0a6f186da5be30dcf50",
+      "bytes": 727
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-fallback-failure-desktop.png",
+      "sha256": "4785c8656e1c973bc0671d9151e51955ac5359a98857825edc3f4ee6378e3a33",
+      "bytes": 160186
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-fallback-failure-metrics.json",
+      "sha256": "aae21d033a1dbe20628a4493a0c93c110b5d3e10bdeef6ff0e4493fef80ddd68",
+      "bytes": 1581
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-fallback-failure-mobile-metrics.json",
+      "sha256": "b2e15a877d373e91b41c5cbcca91923866d8eb77d5a24dff0e8d524e4abcaf7e",
+      "bytes": 704
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-fallback-failure-mobile.png",
+      "sha256": "15a8b686641006ea166fb1cb3e749e4458259478bfb9ddf45f78b1076268cd68",
+      "bytes": 84222
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-mobile-390x844.png",
+      "sha256": "d6bcae65a315b84399fe166bd1319ddda967b29ad3f908c5bb66df791f465263",
+      "bytes": 70582
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-rive3d-desktop-1440x980.png",
+      "sha256": "1cebd3b342b59376f31acbabc7361fd6fd382a3fc4dd4fea18613f647a133bf4",
+      "bytes": 197934
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-rive3d-mobile-390x844.png",
+      "sha256": "ee0bbc767747daac27091c9758773081b6809a76276c2bd30a1e1ddf04854059",
+      "bytes": 80036
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-runtime-dom.html",
+      "sha256": "fc9b216dd10caaac1dc8e58e4c90a2ecd41c5fbbdad0c7ddb47f86da5033cdb9",
+      "bytes": 272049
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-runtime-metrics.json",
+      "sha256": "539106dadc6b52139b1935f0242cbf9e0eb5f958ea4769e44b02d636f4aec7cc",
+      "bytes": 511
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/source-inventory.json",
+      "sha256": "ad200887de1c2e05e270517e046243fe90741b647e76ffd73da177b2d7e8377f",
+      "bytes": 7773
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/tool-versions.json",
+      "sha256": "a8292035e6928055bf27325357851d7424ced46d24de8b94223560b9870ae673",
+      "bytes": 5301
+    },
+    {
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/validator-mutation-results.json",
+      "sha256": "1bf4a47c57d735a4725bd4b7355adbf6c72b37752b5c807f561d7d43dbcd60bf",
+      "bytes": 622
+    },
+    {
+      "path": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/fava_prismatic_3d.riv",
+      "sha256": "862beb6f58be8a6d8c08ebc4658deb6748794cb003c920776afb53374ae1eed1",
+      "bytes": 117084
+    }
+  ]
+}

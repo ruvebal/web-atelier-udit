@@ -1,0 +1,8 @@
+{
+  "schema": "x0-command-transcript/v1",
+  "acceptanceId": "A7",
+  "command": "node web-foundations/scripts/svg-extrusion/verify-x0-acceptance.mjs A7",
+  "exitCode": 0,
+  "stdout": "PASS A7: anchor membership, page identity/text, document identity, and ACM gap verified\n",
+  "stderr": ""
+}

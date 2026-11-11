@@ -18,7 +18,7 @@ permalink: /lessons/en/web-animations/svg-master-session/
 
 The Web Atelier favicon is the source artwork for this session. Its 13 cleaned facets use the course palette (navy, blue, violet, and chartreuse). The browser favicon keeps a slow, self-contained CSS colour cycle. The larger landing mark reads those same paths into Canvas: the whole plane follows the pointer, facets separate along projected Z, colours rotate with a stagger, and clicking a visible facet toggles its inversion. This Canvas interaction is decorative rather than a keyboard control; reduced motion and script failure retain the static SVG. Navigation and comparison examples use a separate static copy so the loop cannot bias the baseline.
 
-Open the [interactive technique comparison]({{ '/lessons/en/web-animations/svg-master-session/demo/' | relative_url }}). Round 1 gives CSS transition/keyframes, SMIL, WAAPI, GSAP, Motion, and Anime.js the same reveal task and timing. Round 2 gives them different motion tasks that fit their strengths. Round 3 asks how the same techniques receive, store, interrupt, and coordinate facet-level input. Round 4 separates flat SVG motion, CSS 3D planes, mathematical 2.5D projection, GPU-backed 2D rendering, and genuine depth-tested scenes. The authored-asset showreel plays generated Lottie JSON and a dotLottie v2 package, including timeline scrubbing and variant switching. Its Rive sequence now has three deliberately different specimens: an RML timeline/state machine, exact favicon paths drawn procedurally in 2D AnimaScript, and a signed Rive + AnimaScript GPU Canvas scene whose thirteen triangular prisms unfold through real Z, lighting, and occlusion.
+Open the [interactive technique comparison]({{ '/lessons/en/web-animations/svg-master-session/demo/' | relative_url }}). Round 1 gives CSS transition/keyframes, SMIL, WAAPI, GSAP, Motion, and Anime.js the same reveal task and timing. Round 2 gives them different motion tasks that fit their strengths. Round 3 asks how the same techniques receive, store, interrupt, and coordinate facet-level input. Round 4 separates flat SVG motion, CSS 3D planes, mathematical 2.5D projection, GPU-backed 2D rendering, and genuine depth-tested scenes. A short audio-sync bridge maps those same techniques onto the Web Audio clock and Rive/AnimaScript’s WASM audio lane—without turning this page into a full Web Audio master lesson. The authored-asset showreel plays generated Lottie JSON and a dotLottie v2 package, including timeline scrubbing and variant switching. Its Rive sequence now has four deliberately different specimens: an RML timeline/state machine, exact favicon paths drawn procedurally in 2D AnimaScript, a signed Rive + AnimaScript GPU Canvas scene whose thirteen triangular prisms unfold through real Z, lighting, and occlusion, and an AnimaScript `AudioProcessor` hum you can hear on the demo card after a click (CLI-rendered WAV → page `AudioContext`).
 
 The comparison opens as a full page rather than a modal. Its wide stages, long-form evidence, browser history, and shareable URL are useful here; placing the same material in a focus-trapped overlay would introduce nested scrolling without improving the task. A compact, theme-aware section rail and proximity snap points preserve orientation without forcing every scroll gesture to stop.
 
@@ -29,10 +29,11 @@ By the end of the session, students can:
 - explain when an SVG must be inline to target its internal paths from page CSS or JavaScript;
 - compare CSS transitions, CSS keyframes, SVG SMIL, WAAPI, GSAP, Motion for JavaScript, and Anime.js on the same visual task;
 - distinguish direct DOM interaction, timeline control, packaged state machines, and authored runtime logic;
-- distinguish a Rive state machine from custom AnimaScript logic compiled to WebAssembly;
+- distinguish a Rive state machine from custom AnimaScript logic compiled to WebAssembly, including an `AudioProcessor` audio lane;
 - distinguish an animation technique from an exported format, player, or authoring runtime;
 - distinguish a GPU rendering backend from a scene that actually owns depth, cameras, lights, materials, and occlusion;
 - classify CSS 3D planes, SVG/Canvas 2.5D projection, and WebGL mesh rendering without calling them equivalent;
+- name which animation techniques can lock to the Web Audio clock (or a WASM audio lane) versus which only approximate it;
 - select a solution using visual fit, code clarity, delivery cost, and accessibility rather than library fashion;
 - produce and justify a reduced-motion-safe ruvebal favicon for a landing page.
 
@@ -219,6 +220,108 @@ The result is no longer the original SVG DOM. It is a Three.js scene derived fro
 
 The icons above are the official website favicons, stored locally for a stable classroom page and used nominatively. Their source URLs and retrieval record live beside the files.
 
+## Audio sync bridge: Rive, AnimaScript processors, and the other clocks
+
+<aside class="lesson-emphasis lesson-emphasis--concept" aria-label="Key concept">
+<p class="lesson-emphasis__label">Key concept</p>
+<p><strong>Rive is where this session’s techniques meet sample-accurate sound.</strong> Authored <em>audio events</em> ride the web runtime’s <code>AudioContext</code>. <strong>AnimaScript audio processors</strong> go further: they render interleaved samples on the audio thread (AudioWorklet on the web), so motion and tone can share one WASM artifact’s clock. That is the “own WebAssembly” answer — not a DOM tween chasing <code>HTMLMediaElement.timeupdate</code>.</p>
+</aside>
+
+This session already asks *who owns time, who owns space, who draws the pixels?* Sound adds a fourth owner: **who owns the audible sample clock?** Among the techniques on this page, only **Rive** can package that clock *inside the asset*. Everyone else either **follows** an external Web Audio / media clock or **reacts** to analysed energy.
+
+Three honest patterns (HOW, not a full Web Audio course):
+
+1. **Rive audio events** — designer/runtime stamps; web player unlocks after a user gesture ([Playing audio](https://rive.app/docs/runtimes/web/playing-audio)).
+2. **Rive + AnimaScript `AudioProcessor`** — you write `init` / `process` on the audio lane; main lane talks through `Snapshot` / `Ring` ([Audio processors](https://rive.app/rasc/docs/audio.html)).
+3. **External followers** — WAAPI/GSAP/Lottie/Canvas seek from `AudioContext.currentTime`, or `AnalyserNode` for reactive (not sample-locked) visuals.
+
+### Coded specimen — AnimaScript audio processor
+
+**Template / lab source** (verified locally with Rive CLI 1.9.2: **0 errors, 0 warnings**):
+
+- Project: [`docs/assets/animations/fava/rive/animascript-audio/`]({{ '/assets/animations/fava/rive/animascript-audio/rive.yaml' | relative_url }})
+- Script: [`hum.as`]({{ '/assets/animations/fava/rive/animascript-audio/hum.as' | relative_url }}) — `Humming` (Layout) + `Hum` (`AudioProcessor`)
+- Published `.riv`: [`ruvebal-favicon-animascript-audio.riv`]({{ '/assets/animations/fava/rive/animascript-audio/build/ruvebal-favicon-animascript-audio.riv' | relative_url }})
+- Hearable capture: [`hum-preview.wav`]({{ '/assets/animations/fava/rive/animascript-audio/build/hum-preview.wav' | relative_url }}) (PCM stereo 48 kHz, ~1.5 s)
+- Demo card: [Play hum — audio specimen]({{ '/lessons/en/web-animations/svg-master-session/demo/#audio-specimen' | relative_url }})
+- Official pattern twin: [AnimaScript audio docs — first processor](https://rive.app/rasc/docs/audio.html)
+
+```sh
+# From web-foundations/
+rive docs/assets/animations/fava/rive/animascript-audio --verify
+rive docs/assets/animations/fava/rive/animascript-audio --publish=local --output-dir=build
+rive docs/assets/animations/fava/rive/animascript-audio \
+  --render-audio=docs/assets/animations/fava/rive/animascript-audio/build/hum-preview.wav \
+  --advance=1.5s
+```
+
+`--render-audio` writes a deterministic WAV with **no window and no device** — the same path CI or a student laptop can use to prove the processor without autoplay. Live browser playback of processors needs a **threaded** web build (`@rive-app/webgl2-threads`) plus cross-origin isolation; without that host tax, `AudioHandle.failed` is set (the specimen reads that field). Pages therefore plays the **captured** WAV on a gesture-unlocked page `AudioContext` — same samples, honest about the delivery path.
+
+### How the demo sounds
+
+What you hear on **Play hum** is not a designer sample dropped into the page. It is the **output of `Hum.process`**: a soft **110 Hz** sine whose gain the Layout lane pulses through a `Snapshot<Level>` (~0.05–0.09). The demo card:
+
+1. fetches [`hum-preview.wav`]({{ '/assets/animations/fava/rive/animascript-audio/build/hum-preview.wav' | relative_url }}) (the CLI capture of that processor);
+2. unlocks / resumes an `AudioContext` on your click (autoplay policy);
+3. `decodeAudioData` → `BufferSource` → light gain → `AnalyserNode` (waveform meter) → destination;
+4. stops after the buffer ends (~1.5 s) or on **Stop**.
+
+| Claim | Honest answer |
+| --- | --- |
+| “This is AnimaScript audio” | **Yes** — the WAV is the processor’s interleaved samples, not an unrelated MP3. |
+| “This is a live AudioWorklet on GitHub Pages” | **No** — that needs threads + COI; the card teaches ownership without that deploy tax. |
+| “The meter proves sample-lock to the mark” | **No** — the meter is a Web Audio follower of the same buffer; the *ownership* lesson is still `hum.as`. |
+| `prefers-reduced-motion` | Play stays off; open `hum.as` / the WAV instead. |
+
+Studio takeaway: prove the audio lane with `--verify` / `--render-audio`; let the page *hear* the capture; reserve threaded live processors for hosts that can ship COI.
+
+**Excerpt — the two-lane contract** (full file is the specimen; this is the ownership sketch):
+
+```ts
+// Excerpt — from hum.as (AnimaScript, not browser TypeScript)
+export class Hum extends AudioProcessor<Snapshot<Level>> {
+  override init(sampleRate: f64, maxFrames: i32, channels: i32, level: Snapshot<Level>): void {
+    this.level = level;
+    this.step = (2 * Math.PI * 110) / sampleRate; // device rate from init — never hard-code
+  }
+  override process(out: StaticArray<f32>, frames: i32, startFrame: f64): void {
+    // audio thread: no wait, no allocate; startFrame is the engine clock for this block
+    this.level!.latestInto(this.current);
+    // … write interleaved f32 samples into out …
+  }
+}
+
+export class Humming extends Layout {
+  override init(context: Context): bool {
+    this.level.publish(new Level());
+    this.hum = Audio.start(() => new Hum(), this.level); // keep the handle or the processor stops
+    return true;
+  }
+}
+```
+
+### Sync matrix for this session’s techniques
+
+| Technique / runtime | Sync with sound | How | Honest limit |
+| --- | --- | --- | --- |
+| CSS / SMIL | **Weak** | Class toggles / `beginElementAt` from callbacks | No seekable playhead |
+| WAAPI / GSAP / Motion / Anime | **Strong–good (followers)** | Seek/progress from host `AudioContext.currentTime` | Paint still follows display refresh |
+| Canvas 2.5D / Three.js | **Strong (manual follower)** | Sample audio time or Analyser in `rAF` / `useFrame` | You own the mapping |
+| Lottie / dotLottie | **Good (follower)** | Seek player time from audio progress | Still an external timeline |
+| **Rive audio events** | **Strong (authored)** | Events in the `.riv`; runtime `AudioContext` after gesture | Autoplay policy; not custom DSP |
+| **Rive + AnimaScript audio processors** | **Strongest here (WASM audio lane)** | `AudioProcessor.process` on audio thread / AudioWorklet; `Snapshot`/`Ring` from Layout | Threaded web build for live processors; `process` must stay allocation-free |
+
+Host-Web-Audio followers remain useful when the visual is still DOM/SVG (this favicon comparison). They are not a substitute for packaging sound **inside** a Rive artifact. (Convolution reverb / `ConvolverNode` is an *effect* on a Web Audio graph — unrelated to Rive’s brand or to sync ownership.)
+
+### Studio judgment
+
+- Choose **Rive audio events** when hit sounds and loops should ship with the `.riv` and designers own placement.
+- Choose **AnimaScript audio processors** when you need procedural DSP or sample-accurate stamps (`startFrame`) beside procedural drawing — same WASM family as this lesson’s path/AnimaScript specimens.
+- Choose **WAAPI/GSAP followers** when the mark stays inline SVG/DOM and audio lives in page script.
+- Keep **`prefers-reduced-motion`** and gesture-unlock rules even when the processor is perfect.
+
+This bridge does **not** replace a dedicated Web Audio course. It answers, for techniques already on this page: who can *own* the sample clock (Rive/AnimaScript) versus who can only *follow* or *react*.
+
 ## Contest rubric: elegance and economy
 
 Score each approach from 1–5, then weight the criteria. Each student should record the score and one piece of evidence from the live comparison.
@@ -228,7 +331,8 @@ Score each approach from 1–5, then weight the criteria. Each student should re
 | Motion fit | 15% | The reveal supports the identity, has good pacing, and ends cleanly |
 | SVG fidelity | 15% | The original colours and geometry stay intact at different sizes |
 | Interaction granularity | 20% | Pointer and keyboard input can reach the intended facet/state without fragile targeting |
-| Spatial honesty | 15% | The explanation names planar 3D, simulated 2.5D, GPU-backed 2D, or true 3D correctly |
+| Spatial honesty | 10% | The explanation names planar 3D, simulated 2.5D, GPU-backed 2D, or true 3D correctly |
+| Audio-clock honesty | 5% | If sound is claimed, the note names Rive events / AnimaScript processor vs external follower vs Analyser-reactive |
 | Code elegance | 15% | Input, state, timing, interruption, and reset behavior are easy to find and adjust |
 | Delivery economy | 20% | Added code, runtime, asset conversion, and maintenance are proportionate to the result |
 
@@ -421,7 +525,7 @@ rive docs/assets/animations/fava/rive/animascript \
   --screenshot=build/favicon-pulse.png --advance=1s
 ```
 
-Both AnimaScript projects were verified with the Homebrew-pinned Rive CLI 1.9.2: **0 errors and 0 warnings**. The 3D project was then signed and exported as a 117 KB `.riv`; the current workspace plan adds Rive's splash watermark. Rive recommends AnimaScript for new scripts; the older Luau scripting path is deprecated. See the official [AnimaScript introduction](https://rive.app/rasc/docs/introduction.html), [getting-started protocol example](https://rive.app/rasc/docs/getting-started.html), and [execution model](https://rive.app/rasc/docs/execution-lanes.html).
+Both AnimaScript drawing projects were verified with the Homebrew-pinned Rive CLI 1.9.2: **0 errors and 0 warnings**. The 3D project was then signed and exported as a 117 KB `.riv`; the current workspace plan adds Rive's splash watermark. A third specimen, [`animascript-audio/hum.as`]({{ '/assets/animations/fava/rive/animascript-audio/hum.as' | relative_url }}), verifies the **audio lane** (`AudioProcessor` + `Snapshot`) the same way — see [Audio sync bridge](#audio-sync-bridge-rive-animascript-processors-and-the-other-clocks). Rive recommends AnimaScript for new scripts; the older Luau scripting path is deprecated. See the official [AnimaScript introduction](https://rive.app/rasc/docs/introduction.html), [getting-started protocol example](https://rive.app/rasc/docs/getting-started.html), [execution model](https://rive.app/rasc/docs/execution-lanes.html), and [audio processors](https://rive.app/rasc/docs/audio.html).
 
 To publish the timeline/state-machine RML project as a signed `.riv`, run from the workspace root:
 
@@ -444,8 +548,9 @@ The local Rive export is `docs/assets/animations/fava/rive/fava-motion.riv`; the
 | 30 min | Use the Round 3 facet interaction lab and authored timeline controls | Distinguish DOM targeting, playback objects, gesture response, coordinated timelines, and asset state machines |
 | 15 min | Play Lottie/dotLottie exports; compare Rive's 2D state machine, procedural 2D paths, and signed GPU Canvas scene | Distinguish timelines, state machines, procedural scripts, GPU geometry, players, and signing/export costs |
 | 35 min | Use the Round 4 spatial lab: flat SVG, CSS plane, Canvas projection, and WebGL extrusion | Classify each result as 2D, planar 3D, 2.5D, GPU-backed 2D, or true 3D and identify who owns rendering |
-| 25 min | Read and adapt the CSS, projection, scene-driver, and SVGLoader code examples | Explain the boundary between a timing engine and a renderer |
-| 45 min | Build the chosen static-mark treatment into a landing-page hero | Keep the original silhouette, tune timing, and provide a static mark |
+| 20 min | Read and adapt the CSS, projection, scene-driver, and SVGLoader code examples | Explain the boundary between a timing engine and a renderer |
+| 15 min | Audio sync bridge: Rive events vs AnimaScript processor vs external follower | Open `hum.as`, click **Play hum** on the demo card, name which lane owns the sample clock vs the page `AudioContext` follower |
+| 40 min | Build the chosen static-mark treatment into a landing-page hero | Keep the original silhouette, tune timing, and provide a static mark |
 | 10 min | Review reduced motion, keyboard access, and performance | Demonstrate reduced-motion behavior and note one rendering observation |
 
 ## Accessibility and delivery constraints
@@ -467,7 +572,8 @@ One ruvebal favicon treatment in the landing-page hero, plus a short design note
 3. the reduced-motion behavior;
 4. the added delivery cost (code, runtime, or exported asset);
 5. the spatial classification—2D, planar 3D, 2.5D, GPU-backed 2D, or true 3D—and the renderer that actually owns it;
-6. one thing the student would remove if the animation did not improve communication.
+6. if the treatment involves sound: whether it uses **Rive audio events**, an **AnimaScript `AudioProcessor`** (cite `hum.as` or equivalent), or an **external follower**—and one sentence on gesture unlock / threaded web builds;
+7. one thing the student would remove if the animation did not improve communication.
 
 ## Instructor note
 

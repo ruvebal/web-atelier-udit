@@ -1,0 +1,204 @@
+{
+  "schema": "x0-research-anchor-verification/v1",
+  "discoveryDate": "2026-11-11",
+  "authority": "Ahmes extraction.db for source node text; Ahmes --cite for citation safety",
+  "sources": [
+    {
+      "key": "haverbeke",
+      "databaseName": "marijn_haverbeke_eloquent_javascript_no_starch_press_2024_6eab5aec",
+      "nodes": [
+        {
+          "nodeId": "ae6b838e-3c54-5340-ae22-0f93571d00ad",
+          "citeExitCode": 0,
+          "citationResolution": "(Haverbeke 2024, 47)  [ae6b838e-3c54-5340-ae22-0f93571d00ad]  page_index=46\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "Both SVG and HTML build up a data structure (the DOM) that represents your picture. This makes it possible to modify elements after they are drawn. If you need to repeatedly change a small part of a big picture in response to what the user is doing or as part of an animation, doing it in a canvas can be needlessly expensive. The DOM also allows us to register mouse event handlers on every element in the picture (even on shapes drawn with SVG). You can’t do that with canvas.",
+          "originalContent": null
+        },
+        {
+          "nodeId": "64676c43-5466-5ca6-bea3-34751f0237ff",
+          "citeExitCode": 0,
+          "citationResolution": "(Haverbeke 2024, 47)  [64676c43-5466-5ca6-bea3-34751f0237ff]  page_index=46\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "When you need to generate graphics in the browser, you can choose among plain HTML, SVG, and canvas. There is no singlebestapproach that works in all situations. Each option has strengths and weaknesses.",
+          "originalContent": null
+        }
+      ],
+      "evaluatorSafe": true,
+      "sourceOnlyGap": false
+    },
+    {
+      "key": "vince",
+      "databaseName": "undergraduate_topics_in_computer_science_vince_john_mathematics_for_computer_graphics_2017_springer_london_imprint_springer_9f6b4c20",
+      "nodes": [
+        {
+          "nodeId": "0874eb09-97c7-5cdd-9841-77b7b2c5a5cc",
+          "citeExitCode": 0,
+          "citationResolution": "(Vince 2017, 217)  [0874eb09-97c7-5cdd-9841-77b7b2c5a5cc]  page_index=216\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "Of all the projections employed in computer graphics, the perspective projection is one most widely used. There are two stages to its computation: the first involves converting world coordinates to the camera's frame of reference, and the second transforms camera coordinates to the projection plane coordinates. We have already looked at the transforms for locating a camera in world space, and the inverse transform for converting world coordinates to the camera's frame of reference. Let's now investigate how these camera coordinates are transformed into a perspective projection.",
+          "originalContent": null
+        },
+        {
+          "nodeId": "b82017e9-e5c6-597b-81c6-f770443500c0",
+          "citeExitCode": 0,
+          "citationResolution": "(Vince 2017, 229)  [b82017e9-e5c6-597b-81c6-f770443500c0]  page_index=228\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "To implement the above interpolant for different limits we require a general algorithm, which is one of the first exercises of this chapter. We also need to explore ways of controlling the spacing between the interpolated values. In animation, for example, we often need to move an object very slowly and gradually increase its speed. Conversely, we may want to bring an object to a halt, making its speed less and less. The interpolant function includes a parameter within its algorithm, which permits any interpolated value to be created at will. The parameter can depend upon time, or operate over a distance in space.",
+          "originalContent": null
+        },
+        {
+          "nodeId": "bbeb0ba1-779b-5463-b197-781766908cd5",
+          "citeExitCode": 0,
+          "citationResolution": "(Vince 2017, 231)  [bbeb0ba1-779b-5463-b197-781766908cd5]  page_index=230\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "The parameter t could be generated from two frame values within an animation. What is assured by this interpolant, is that equal steps in t result in equal steps in x , y , and z . Figure10.3 illustrates this linear spacing with a 2D example where we interpolate between the points ( 1 , 1 ) and ( 4 , 5 ) . Note the equal spacing between the intermediate interpolated points.",
+          "originalContent": null
+        },
+        {
+          "nodeId": "6f55faef-ae07-5720-94c3-57db8c32b4c8",
+          "citeExitCode": 0,
+          "citationResolution": "(Vince 2017, 243)  [6f55faef-ae07-5720-94c3-57db8c32b4c8]  page_index=242\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "Weare now in a position to demonstrate how to interpolate between a pair of quaternions. For example, say we have two quaternions q 1 and q 2 that rotate 0 ◦ and 90 ◦ about the z -axis respectively:",
+          "originalContent": null
+        },
+        {
+          "nodeId": "0cd5672a-361a-58e7-921c-3efde2fcb9fc",
+          "citeExitCode": 0,
+          "citationResolution": "(Vince 2017, 256)  [0cd5672a-361a-58e7-921c-3efde2fcb9fc]  page_index=255\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "A similar development is used for a cubic Bézier curve, which has the following matrix formulation:",
+          "originalContent": null
+        }
+      ],
+      "evaluatorSafe": true,
+      "sourceOnlyGap": false
+    },
+    {
+      "key": "angel_shreiner",
+      "databaseName": "10_1145_3641235_3664433_the_future_of_teaching_computer_graphics_e2e9b45c",
+      "nodes": [
+        {
+          "nodeId": "493d33dd-6417-52ce-b356-d722abd49f57",
+          "citeExitCode": 0,
+          "citationResolution": "(Angel 2024, 1)  [493d33dd-6417-52ce-b356-d722abd49f57]  page_index=0\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "We start with the observation that across APIs, the graphics part of the code is similar and is inside the shaders. The large amount of code necessary for basic applications using WebGPU, Vulkan and other recent APIs, is necessary to setup the GPU but contains very little graphics.",
+          "originalContent": null
+        },
+        {
+          "nodeId": "ea4b03ac-8a91-5eb1-8004-1cd4c87a2902",
+          "citeExitCode": 0,
+          "citationResolution": "(Angel 2024, 1)  [ea4b03ac-8a91-5eb1-8004-1cd4c87a2902]  page_index=0\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "Over the past few years, GPUs have grown increasingly powerful and allow for multiple forms of rendering including deferred shading, patch rendering, volume rendering, and ray tracing. New APIs, including WebGPU, Vulkan, DirectX 12, and Metal, provide access to the full power of the GPU but require much more code. An application must not only deal with shaders in the pipeline but must also set up the GPU to exploit its incredible capabilities. Consequently, a 'hello world' application as simple as displaying a single triangle can require 100+ lines of code with these newer APIs. The question is can we design a computer graphics course that supports any or all choices of an API, the core topics and some of the recent advances.",
+          "originalContent": null
+        }
+      ],
+      "evaluatorSafe": true,
+      "sourceOnlyGap": false
+    },
+    {
+      "key": "acm_cs2023",
+      "databaseName": "10_1145_3664191_computer_science_curricula_2023_da20f30d",
+      "nodes": [
+        {
+          "nodeId": "9708117d-1a8f-5d10-9936-2d5fcb6f7e69",
+          "citeExitCode": 0,
+          "citationResolution": "(10.1145 3664, 151)  [9708117d-1a8f-5d10-9936-2d5fcb6f7e69]  page_index=150\n  confidence=0.60 source=slug kind=person scheme=pdf_order evaluator_safe=no",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "Computer graphics is the term used to describe the computer generation and manipulation of images and can be viewed as the science of enabling visual communication through computation. Its application domains include animation, Computer Generated Imagery (CGI) and Visual Effects (VFX); engineering; machine learning; medical imaging; scientific, information, and knowledge visualization; simulators; special effects; user interfaces; and video games. Traditionally, graphics at the undergraduate level focused on rendering, linear algebra, physics, the graphics pipeline, interaction, and phenomenological approaches. Today's graphics courses increasingly include data science, physical computing, animation, and haptics. Thus, the knowledge area (KA) expanded beyond core image-based computer graphics. At the advanced level, undergraduate institutions are more likely to offer one or several courses specializing in a specific graphics knowledge unit (KU) or topic: e.g., gaming, animation, visualization, tangible or physical computing, and immersive courses such as Augmented Reality (AR)/Virtual Reality (VR)/eXtended Reality (XR). There is considerable connection with other computer science knowledge areas (KAs): Algorithmic Foundations, Architecture and Organization, Artificial Intelligence; Human-Computer Interaction; Parallel and Distributed Computing; Specialized Platform Development; Software Engineering; and Society, Ethics, and the Profession.",
+          "originalContent": null
+        },
+        {
+          "nodeId": "1ae1e1cd-4be4-5e6f-9507-4e82095fcfb7",
+          "citeExitCode": 0,
+          "citationResolution": "(10.1145 3664, 153)  [1ae1e1cd-4be4-5e6f-9507-4e82095fcfb7]  page_index=152\n  confidence=0.60 source=slug kind=person scheme=pdf_order evaluator_safe=no",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "GIT-Interaction: Interaction. Interactive computer graphics is a requisite part of real-time applications ranging from the utilitarian-like word processors to virtual and/or augmented reality applications.",
+          "originalContent": null
+        },
+        {
+          "nodeId": "c0bd56b4-cf72-57ef-baf0-21aabe070246",
+          "citeExitCode": 0,
+          "citationResolution": "(10.1145 3664, 158)  [c0bd56b4-cf72-57ef-baf0-21aabe070246]  page_index=157\n  confidence=0.60 source=slug kind=person scheme=pdf_order evaluator_safe=no",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "Visibility and occlusion, including solutions to this problem (e.g., depth buffering, Painter's algorithm, and ray tracing)",
+          "originalContent": null
+        },
+        {
+          "nodeId": "25665122-3076-525d-949f-acb86fbcc80d",
+          "citeExitCode": 0,
+          "citationResolution": "(10.1145 3664, 158)  [25665122-3076-525d-949f-acb86fbcc80d]  page_index=157\n  confidence=0.60 source=slug kind=person scheme=pdf_order evaluator_safe=no",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "Implement a simple real-time renderer using a rasterization API (e.g., OpenGL, webGL) using vertex buffers and shaders.",
+          "originalContent": null
+        },
+        {
+          "nodeId": "cf1d4bcd-4d12-5747-8182-cf6157f84230",
+          "citeExitCode": 0,
+          "citationResolution": "(10.1145 3664, 158)  [cf1d4bcd-4d12-5747-8182-cf6157f84230]  page_index=157\n  confidence=0.60 source=slug kind=person scheme=pdf_order evaluator_safe=no",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "Tessellation",
+          "originalContent": null
+        },
+        {
+          "nodeId": "91c82bde-89c4-50fb-9ddd-2458a2baa3df",
+          "citeExitCode": 0,
+          "citationResolution": "(10.1145 3664, 159)  [91c82bde-89c4-50fb-9ddd-2458a2baa3df]  page_index=158\n  confidence=0.60 source=slug kind=person scheme=pdf_order evaluator_safe=no",
+          "citationStderr": "",
+          "nodeFound": true,
+          "blockType": "text",
+          "blockSubtype": null,
+          "fullMarkdownContent": "Analyze the bandwidth and computation demands of a simple shading algorithm.",
+          "originalContent": null
+        }
+      ],
+      "evaluatorSafe": false,
+      "sourceOnlyGap": true
+    }
+  ]
+}
