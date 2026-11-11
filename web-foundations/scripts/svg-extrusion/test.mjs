@@ -22,6 +22,16 @@ for(const [name,svg,pattern] of [
  ['stroke','<svg viewBox="0 0 10 10"><path fill="#000" stroke="#fff" d="M0 0L2 0L2 2Z"/></svg>',/strokes/],
  ['style-stroke','<svg viewBox="0 0 10 10"><path style="fill:#000;stroke:#fff" d="M0 0L2 0L2 2Z"/></svg>',/strokes/],
  ['style-unknown','<svg viewBox="0 0 10 10"><path style="fill:#000;opacity:.5" d="M0 0L2 0L2 2Z"/></svg>',/unsupported style property/],
+ ['opacity','<svg viewBox="0 0 10 10"><path fill="#000" opacity=".5" d="M0 0L2 0L2 2Z"/></svg>',/unsupported or unresolved attribute opacity/],
+ ['fill-opacity','<svg viewBox="0 0 10 10"><path fill="#000" fill-opacity=".5" d="M0 0L2 0L2 2Z"/></svg>',/unsupported or unresolved attribute fill-opacity/],
+ ['class','<svg viewBox="0 0 10 10"><path class="paint" fill="#000" d="M0 0L2 0L2 2Z"/></svg>',/unsupported or unresolved attribute class/],
+ ['root-opacity','<svg viewBox="0 0 10 10" opacity=".5"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',/unresolved root attribute opacity/],
+ ['upper-url','<svg viewBox="0 0 10 10"><path fill="URL(#paint)" d="M0 0L2 0L2 2Z"/></svg>',/paint servers/],
+ ['style-url','<svg viewBox="0 0 10 10"><path style="fill:Url(#paint)" d="M0 0L2 0L2 2Z"/></svg>',/paint servers/],
+ ['bad-color','<svg viewBox="0 0 10 10"><path fill="not-a-color" d="M0 0L2 0L2 2Z"/></svg>',/solid-hex-or-rgb/],
+ ['bad-hex','<svg viewBox="0 0 10 10"><path fill="#1234567" d="M0 0L2 0L2 2Z"/></svg>',/solid-hex-or-rgb/],
+ ['inherited-color','<svg viewBox="0 0 10 10"><path fill="currentColor" d="M0 0L2 0L2 2Z"/></svg>',/inherited colours/],
+ ['css-variable','<svg viewBox="0 0 10 10"><path fill="var(--mark)" d="M0 0L2 0L2 2Z"/></svg>',/variables/],
  ['fill-rule','<svg viewBox="0 0 10 10"><path fill="#000" fill-rule="banana" d="M0 0L2 0L2 2Z"/></svg>',/unsupported fill-rule/],
  ['collinear-overlap','<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L10 0L5 0L10 10L0 10Z"/></svg>',/collinear overlap/],
  ['mask','<svg viewBox="0 0 10 10"><mask id="m"/><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',/mask/],
@@ -31,6 +41,8 @@ for(const [name,svg,pattern] of [
  ['doctype','<!DOCTYPE svg [<!ENTITY x "x">]><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',/DOCTYPE/],
 ])assert.throws(()=>compileSvg(svg,config),pattern,name);
 const evenodd=compileSvg('<svg viewBox="0 0 10 10"><path style="fill:#000;fill-rule:evenodd;stroke:none" d="M0 0L2 0L2 2Z"/></svg>',config);assert.deepEqual(evenodd.manifest.fillRules,['evenodd']);assert.deepEqual(evenodd.manifest.supportedFillRules,['nonzero','evenodd']);
+for(const fill of ['#abc','#AABBCC','rgb(0, 127, 255)'])assert.equal(compileSvg(`<svg viewBox="0 0 10 10"><path fill="${fill}" d="M0 0L2 0L2 2Z"/></svg>`,config).manifest.facets[0].fill,fill);
+for(const fill of ['#abcd','#AABBCCDD','rgba(0,127,255,0.5)'])assert.throws(()=>compileSvg(`<svg viewBox="0 0 10 10"><path fill="${fill}" d="M0 0L2 0L2 2Z"/></svg>`,config),/solid-hex-or-rgb/);
 assert.throws(()=>compileSvg(readFileSync(fixture,'utf8'),{...config,minimumDepth:.3,maximumDepth:.2}),/depth bounds/);
 // Dense cubic reference: every flattened segment stays within the declared screen tolerance.
 const ring=parsePath('M0 0 C15 60 85 -20 100 40 L100 50 L0 50 Z',config.flattenTolerancePx/config.maximumDisplayScale);let max=0;for(let k=0;k<=10000;k++){const t=k/10000,u=1-t,p=[3*u*u*t*15+3*u*t*t*85+t*t*t*100,3*u*u*t*60+3*u*t*t*-20+t*t*t*40];let best=Infinity;for(let i=0;i<ring.length-3;i++){const x=ring[i],y=ring[i+1],dx=y[0]-x[0],dy=y[1]-x[1],q=Math.max(0,Math.min(1,((p[0]-x[0])*dx+(p[1]-x[1])*dy)/(dx*dx+dy*dy)));best=Math.min(best,Math.hypot(p[0]-x[0]-q*dx,p[1]-x[1]-q*dy));}max=Math.max(max,best);}assert.ok(max*config.maximumDisplayScale<=config.flattenTolerancePx*1.01,`dense deviation ${max}`);

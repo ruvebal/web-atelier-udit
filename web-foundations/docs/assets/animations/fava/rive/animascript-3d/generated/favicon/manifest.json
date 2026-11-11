@@ -1,6 +1,6 @@
 {
   "schema": "svg-to-rive-3d/v1",
-  "compilerVersion": "1.0.1",
+  "compilerVersion": "1.0.2",
   "supportedSubset": "closed-filled-path-MLCZ-affine/v1",
   "source": {
     "sha256": "90cfa8a5dfb290e92515647141369111c821427c71fec3f402873c1221db51ad",
@@ -328,6 +328,16 @@
     "policy": "sqrt-relative-area",
     "minimum": 0.04,
     "maximum": 0.22
+  },
+  "paint": {
+    "grammar": "solid-hex-or-rgb/v1",
+    "opacity": "opaque-only",
+    "styleProperties": [
+      "fill",
+      "fill-rule",
+      "stroke:none"
+    ],
+    "unresolvedClasses": "reject"
   },
   "fillRules": [
     "nonzero"
