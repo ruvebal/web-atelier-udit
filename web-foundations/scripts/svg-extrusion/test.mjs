@@ -237,6 +237,67 @@ for (const [name, svg, pattern] of [
 		/root width/,
 	],
 	[
+		'whitespace-path-ff',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0\f0L2 0L2 2Z"/></svg>',
+		/unsupported path syntax/,
+	],
+	[
+		'whitespace-path-nbsp',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u00A00L2 0L2 2Z"/></svg>',
+		/unsupported path syntax/,
+	],
+	[
+		'whitespace-path-u2028',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u20280L2 0L2 2Z"/></svg>',
+		/unsupported path syntax/,
+	],
+	[
+		'whitespace-path-feff',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0\uFEFF0L2 0L2 2Z"/></svg>',
+		/unsupported path syntax/,
+	],
+	[
+		'whitespace-path-vt',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u000B0L2 0L2 2Z"/></svg>',
+		/unsupported path syntax/,
+	],
+	[
+		'whitespace-path-ideographic',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u30000L2 0L2 2Z"/></svg>',
+		/unsupported path syntax/,
+	],
+	[
+		'whitespace-attribute-ff',
+		'<svg viewBox="0 0 10 10"><path fill="#000"\fd="M0 0L2 0L2 2Z"/></svg>',
+		/malformed attribute syntax/,
+	],
+	[
+		'whitespace-between-tags',
+		'<svg viewBox="0 0 10 10">\f<path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/text or malformed markup/,
+	],
+	[
+		'whitespace-trailing-document',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>\f',
+		/text or malformed markup/,
+	],
+	[
+		'whitespace-transform-nbsp',
+		'<svg viewBox="0 0 10 10"><path fill="#000" transform="translate(1\u00A02)" d="M0 0L2 0L2 2Z"/></svg>',
+		/transform/,
+	],
+	['whitespace-viewbox-ff', '<svg viewBox="0 0\f10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
+	[
+		'non-finite-coordinate',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L1e999 0L2 2Z"/></svg>',
+		/non-finite coordinate/,
+	],
+	[
+		'area-overflow',
+		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L1e308 0L1e308 1e308Z"/></svg>',
+		/degenerate|non-finite/,
+	],
+	[
 		'fill-rule',
 		'<svg viewBox="0 0 10 10"><path fill="#000" fill-rule="banana" d="M0 0L2 0L2 2Z"/></svg>',
 		/unsupported fill-rule/,

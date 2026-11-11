@@ -48,7 +48,14 @@ function validateMesh(r) {
 	assert.equal(g.positions.length, m.geometry.vertexCount * 3);
 	assert.equal(g.normals.length, g.positions.length);
 	assert.equal(g.indices.length, m.geometry.indexCount);
+	assert.ok(g.positions.every(Number.isFinite), 'finite positions');
+	assert.ok(g.normals.every(Number.isFinite), 'finite normals');
 	assert.ok(g.indices.every((i) => Number.isInteger(i) && i >= 0 && i < m.geometry.vertexCount));
+	for (const f of m.facets)
+		assert.ok(
+			Number.isFinite(f.area) && Number.isFinite(f.depth) && f.centroid.every(Number.isFinite),
+			`${f.id} finite manifest values`
+		);
 	for (let i = 0; i < g.normals.length; i += 3)
 		assert.ok(Math.abs(Math.hypot(g.normals[i], g.normals[i + 1], g.normals[i + 2]) - 1) < 1e-8);
 	for (const f of m.facets) {
@@ -217,6 +224,15 @@ const checks = {
 				'<svg viewBox="0 0 10 10"><path fill="#000" transform="translate(1)scale(2)" d="M0 0L2 0L2 2Z"/></svg>',
 				/transform/,
 			],
+			['<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L1e999 0L2 2Z"/></svg>', /non-finite|unsupported path/],
+			['<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u00A00L2 0L2 2Z"/></svg>', /unsupported path syntax/],
+			['<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u000B0L2 0L2 2Z"/></svg>', /unsupported path syntax/],
+			['<svg viewBox="0 0 10 10"><path fill="#000" d="M0\u30000L2 0L2 2Z"/></svg>', /unsupported path syntax/],
+			['<svg viewBox="0 0\f10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
+			[
+				'<svg viewBox="0 0 10 10"><path fill="#000" transform="translate(1\u00A02)" d="M0 0L2 0L2 2Z"/></svg>',
+				/transform/,
+			],
 		])
 			rejects(svg, pattern);
 	},
@@ -233,6 +249,10 @@ const checks = {
 			/after closepath/
 		);
 		rejects('<svg viewBox="0 0 100 100"><path fill="#000" d="M0 0L10 0L10 10ZC1 1 2 2 3 3Z"/></svg>', /after closepath/);
+		rejects('<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L1e308 0L1e308 1e308Z"/></svg>', /degenerate|non-finite/);
+		rejects('<svg viewBox="0 0 10 10"><path fill="#000"\fd="M0 0L2 0L2 2Z"/></svg>', /malformed attribute syntax/);
+		rejects('<svg viewBox="0 0 10 10">\f<path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /text or malformed markup/);
+		rejects('<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>\f', /text or malformed markup/);
 		const e = buildSvg('<svg viewBox="0 0 10 10"><path fill="#000" fill-rule="evenodd" d="M0 0L2 0L2 2Z"/></svg>');
 		assert.deepEqual(e.manifest.fillRules, ['evenodd']);
 		assert.ok(f1.manifest.facets.some((x) => x.contourVertexCount > 6));

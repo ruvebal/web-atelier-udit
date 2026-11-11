@@ -2,13 +2,15 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 export const SCHEMA = 'svg-to-rive-3d/v1';
-export const COMPILER_VERSION = '1.0.5';
+export const COMPILER_VERSION = '1.0.6';
 const EPS = 1e-10;
 
 export function sha256(data) {
 	return createHash('sha256').update(data).digest('hex');
 }
 const round = (n) => Number(n.toFixed(10));
+const isXmlSpace = (ch) => ch === ' ' || ch === '\t' || ch === '\r' || ch === '\n';
+const xmlTrim = (value) => value.replace(/^[ \t\r\n]+|[ \t\r\n]+$/g, '');
 const cross = (a, b, c) => (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
 const distLine = (p, a, b) => Math.abs(cross(a, b, p)) / Math.max(Math.hypot(b[0] - a[0], b[1] - a[1]), EPS);
 
@@ -16,16 +18,16 @@ function attrs(text, context = 'path') {
 	const out = {};
 	let i = 0;
 	while (i < text.length) {
-		while (/\s/.test(text[i] ?? '')) i++;
+		while (isXmlSpace(text[i])) i++;
 		if (i >= text.length) break;
 		const name = /^[A-Za-z_][A-Za-z0-9_.:-]*/.exec(text.slice(i));
 		if (!name) throw new Error(`${context}: malformed attribute syntax`);
 		const key = name[0];
 		i += key.length;
-		while (/\s/.test(text[i] ?? '')) i++;
+		while (isXmlSpace(text[i])) i++;
 		if (text[i] !== '=') throw new Error(`${context}: attribute ${key} must use a quoted value`);
 		i++;
-		while (/\s/.test(text[i] ?? '')) i++;
+		while (isXmlSpace(text[i])) i++;
 		const quote = text[i];
 		if (quote !== '"' && quote !== "'") throw new Error(`${context}: attribute ${key} must use a quoted value`);
 		i++;
@@ -67,7 +69,7 @@ function readTags(source) {
 	const tags = [];
 	let i = 0;
 	while (i < source.length) {
-		while (i < source.length && /\s/.test(source[i])) i++;
+		while (i < source.length && isXmlSpace(source[i])) i++;
 		if (i >= source.length) break;
 		if (source[i] !== '<') throw new Error('text or malformed markup outside supported tags');
 		let j = i + 1,
@@ -87,9 +89,9 @@ function readTags(source) {
 	return tags;
 }
 function parseSvgStructure(source) {
-	let clean = stripComments(source).trim();
-	const declaration = /^<\?xml\s[\s\S]*?\?>\s*/.exec(clean);
-	if (declaration) clean = clean.slice(declaration[0].length).trim();
+	let clean = xmlTrim(stripComments(source));
+	const declaration = /^<\?xml[ \t\r\n][\s\S]*?\?>[ \t\r\n]*/.exec(clean);
+	if (declaration) clean = xmlTrim(clean.slice(declaration[0].length));
 	if (/<!DOCTYPE|<!ENTITY|<script\b/i.test(clean)) throw new Error('DOCTYPE, entities, and scripts are forbidden');
 	const tags = readTags(clean);
 	if (tags.length < 3) throw new Error('SVG V1 requires one root and at least one path');
@@ -97,9 +99,9 @@ function parseSvgStructure(source) {
 		rootBoundary = rootTag[4];
 	if (
 		!rootTag.startsWith('<svg') ||
-		!(rootBoundary === '>' || rootBoundary === '/' || /\s/.test(rootBoundary)) ||
+		!(rootBoundary === '>' || rootBoundary === '/' || isXmlSpace(rootBoundary)) ||
 		rootTag.startsWith('</') ||
-		/\/\s*>$/.test(rootTag)
+		/\/[ \t\r\n]*>$/.test(rootTag)
 	)
 		throw new Error('SVG V1 requires exactly one non-self-closing root svg');
 	const root = rootTag.slice(4, -1);
@@ -107,7 +109,7 @@ function parseSvgStructure(source) {
 	const paths = [];
 	for (const tag of tags.slice(1, -1)) {
 		const boundary = tag[5];
-		if (!tag.startsWith('<path') || !(boundary === '/' || /\s/.test(boundary)) || !tag.endsWith('/>'))
+		if (!tag.startsWith('<path') || !(boundary === '/' || isXmlSpace(boundary)) || !tag.endsWith('/>'))
 			throw new Error(`malformed or unsupported direct child tag: ${tag.slice(0, 80)}`);
 		paths.push(tag.slice(5, -2));
 	}
@@ -115,12 +117,12 @@ function parseSvgStructure(source) {
 	return { root, paths, clean };
 }
 function validateSolidFill(value, pathNumber) {
-	if (/url\s*\(|var\s*\(|currentcolor/i.test(value))
+	if (/url[ \t\r\n]*\(|var[ \t\r\n]*\(|currentcolor/i.test(value))
 		throw new Error(`path ${pathNumber}: paint servers, variables, and inherited colours are unsupported`);
 	if (/^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i.test(value)) return value;
 	const fn = /^rgb\(([^)]*)\)$/i.exec(value);
 	if (fn) {
-		const parts = fn[1].split(',').map((x) => x.trim());
+		const parts = fn[1].split(',').map((x) => xmlTrim(x));
 		if (parts.length === 3 && parts.every((x) => /^\d+(?:\.\d+)?$/.test(x) && Number(x) >= 0 && Number(x) <= 255))
 			return value;
 	}
@@ -140,7 +142,7 @@ function multiply(a, b) {
 function transformMatrix(value) {
 	let out = [1, 0, 0, 1, 0, 0];
 	if (value === undefined) return out;
-	value = value.trim();
+	value = xmlTrim(value);
 	if (!value) throw new Error('empty transform attribute');
 	let i = 0;
 	const n = value.length,
@@ -151,7 +153,7 @@ function transformMatrix(value) {
 			return Number(m[0]);
 		},
 		ws = () => {
-			while (i < n && /\s/.test(value[i])) i++;
+			while (i < n && isXmlSpace(value[i])) i++;
 		};
 	ws();
 	let functions = 0;
@@ -201,7 +203,7 @@ function transformMatrix(value) {
 		functions++;
 		let separator = false,
 			comma = false;
-		while (i < n && /\s/.test(value[i])) {
+		while (i < n && isXmlSpace(value[i])) {
 			i++;
 			separator = true;
 		}
@@ -240,7 +242,7 @@ function flattenCubic(p0, p1, p2, p3, tol, out, depth = 0) {
 
 export function parsePath(d, tolerance, pointTransform = (p) => p) {
 	const tokens = [...d.matchAll(/[MLCZmlcz]|[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?/g)].map((m) => m[0]);
-	const residue = d.replace(/[MLCZmlcz]|[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?|[\s,]+/g, '');
+	const residue = d.replace(/[MLCZmlcz]|[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?|[ \t\r\n,]+/g, '');
 	if (residue) throw new Error(`unsupported path syntax near ${residue.slice(0, 16)}`);
 	let i = 0,
 		cmd = null,
@@ -250,7 +252,9 @@ export function parsePath(d, tolerance, pointTransform = (p) => p) {
 	const out = [];
 	const num = () => {
 		if (i >= tokens.length || /^[A-Za-z]$/.test(tokens[i])) throw new Error(`missing coordinates for ${cmd}`);
-		return Number(tokens[i++]);
+		const value = Number(tokens[i++]);
+		if (!Number.isFinite(value)) throw new Error(`non-finite coordinate for ${cmd}`);
+		return value;
 	};
 	while (i < tokens.length) {
 		if (/^[A-Za-z]$/.test(tokens[i])) cmd = tokens[i++];
@@ -286,6 +290,7 @@ export function parsePath(d, tolerance, pointTransform = (p) => p) {
 		} else throw new Error(`unsupported path command ${cmd}`);
 	}
 	if (subpaths !== 1 || !start || cmd !== null) throw new Error('path must contain one closed contour');
+	if (out.some((p) => !Number.isFinite(p[0]) || !Number.isFinite(p[1]))) throw new Error('non-finite path coordinates');
 	if (out.length > 1 && Math.hypot(out.at(-1)[0] - out[0][0], out.at(-1)[1] - out[0][1]) < EPS) out.pop();
 	return out;
 }
@@ -418,9 +423,8 @@ export function compileSvg(source, config = {}) {
 		rootAllowed = new Set(['xmlns', 'xmlns:xlink', 'width', 'height', 'viewBox']);
 	for (const key of Object.keys(ra))
 		if (!rootAllowed.has(key)) throw new Error(`unsupported or unresolved root attribute ${key}`);
-	const vb = (ra.viewBox ?? '')
-		.trim()
-		.split(/[\s,]+/)
+	const vb = xmlTrim(ra.viewBox ?? '')
+		.split(/[ \t\r\n,]+/)
 		.map(Number);
 	if (vb.length !== 4 || vb.some((x) => !Number.isFinite(x)) || vb[2] <= 0 || vb[3] <= 0)
 		throw new Error('viewBox must contain four finite values with positive bounds');
@@ -429,7 +433,7 @@ export function compileSvg(source, config = {}) {
 	if (ra['xmlns:xlink'] !== undefined && ra['xmlns:xlink'] !== 'http://www.w3.org/1999/xlink')
 		throw new Error('root xmlns:xlink must be the XLink namespace');
 	const positiveLength = (value) => {
-		const m = /^([-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?)(?:px)?$/.exec(value.trim());
+		const m = /^([-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?)(?:px)?$/.exec(xmlTrim(value));
 		return m && Number(m[1]) > 0;
 	};
 	for (const key of ['width', 'height'])
@@ -441,6 +445,8 @@ export function compileSvg(source, config = {}) {
 	const min = config.minimumDepth ?? 0.04,
 		max = config.maximumDepth ?? 0.22;
 	if (!(min >= 0 && max >= min)) throw new Error('depth bounds require 0 <= minimum <= maximum');
+	if (![scale, px, min, max].every(Number.isFinite) || scale <= 0 || px < 0)
+		throw new Error('compiler config requires finite scale/tolerance and depth bounds');
 	const paths = structure.paths.map((text) => [null, text]);
 	const parsed = paths.map((m, order) => {
 		const a = attrs(m[1]),
@@ -451,12 +457,12 @@ export function compileSvg(source, config = {}) {
 		if (!a.d) throw new Error(`path ${number}: missing d`);
 		const style = {};
 		if (a.style) {
-			for (const declaration of a.style.split(';').filter((x) => x.trim())) {
+			for (const declaration of a.style.split(';').filter((x) => xmlTrim(x))) {
 				const separator = declaration.indexOf(':');
 				if (separator < 1 || declaration.indexOf(':', separator + 1) >= 0)
 					throw new Error(`path ${number}: unresolved style declaration`);
-				const key = declaration.slice(0, separator).trim().toLowerCase(),
-					value = declaration.slice(separator + 1).trim();
+				const key = xmlTrim(declaration.slice(0, separator)).toLowerCase(),
+					value = xmlTrim(declaration.slice(separator + 1));
 				if (!['fill', 'stroke', 'fill-rule'].includes(key))
 					throw new Error(`path ${number}: unsupported style property ${key}`);
 				style[key] = value;
@@ -475,9 +481,12 @@ export function compileSvg(source, config = {}) {
 			(vb[1] + vb[3] - p[1]) / Math.max(vb[2], vb[3]) - vb[3] / Math.max(vb[2], vb[3]) / 2,
 		]);
 		ring = ring.filter((p, i) => !i || Math.hypot(p[0] - ring[i - 1][0], p[1] - ring[i - 1][1]) > EPS);
+		if (ring.some((p) => !Number.isFinite(p[0]) || !Number.isFinite(p[1])))
+			throw new Error(`path ${number}: non-finite normalized contour`);
 		assertSimple(ring);
 		let area = signedArea(ring);
-		if (Math.abs(area) < (config.minimumTriangleArea ?? 1e-10)) throw new Error(`path ${number}: degenerate contour`);
+		if (!Number.isFinite(area) || Math.abs(area) < (config.minimumTriangleArea ?? 1e-10))
+			throw new Error(`path ${number}: degenerate contour`);
 		if (area < 0) {
 			ring = ring.reverse();
 			area = -area;
@@ -488,6 +497,8 @@ export function compileSvg(source, config = {}) {
 		} catch (e) {
 			throw new Error(`path ${number}: ${e.message}`);
 		}
+		const center = centroid(ring);
+		if (!center.every(Number.isFinite)) throw new Error(`path ${number}: non-finite centroid`);
 		return {
 			order,
 			id: `facet-${String(number).padStart(2, '0')}`,
@@ -498,7 +509,7 @@ export function compileSvg(source, config = {}) {
 			ring,
 			triangles,
 			area,
-			centroid: centroid(ring),
+			centroid: center,
 		};
 	});
 	const maxArea = Math.max(...parsed.map((x) => x.area)),
@@ -531,6 +542,8 @@ export function compileSvg(source, config = {}) {
 		frontTriangleCount: f.triangles.length / 3,
 		mesh: f.mesh,
 	}));
+	if (!positions.every(Number.isFinite) || !normals.every(Number.isFinite))
+		throw new Error('non-finite geometry buffers');
 	return {
 		manifest: {
 			schema: SCHEMA,
