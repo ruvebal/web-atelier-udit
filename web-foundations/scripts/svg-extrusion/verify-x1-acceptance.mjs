@@ -235,10 +235,14 @@ const checks = {
 			],
 			['<svg viewBox="0x10 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
 			['<svg viewBox="0,,0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
-			['<svg viewBox="0 , , 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
+			['<svg viewBox="0 0 , , 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
 			['<svg viewBox="0 0 10 10,"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /viewBox/],
 			['<svg viewBox="0 0 10 10"><!-- a -- b --><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /malformed XML comment/],
 			['<svg viewBox="0 0 10 10"><path id="a\fb" fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /non-XML character/],
+			['<svg __proto__="x" viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /root attribute __proto__/],
+			['<svg viewBox="0 0 10 10"><path __proto__="x" __proto__="y" fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /duplicate attribute/],
+			['<?xml garbage?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /malformed XML declaration/],
+			['<?xml version="x"?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /malformed XML declaration/],
 		])
 			rejects(svg, pattern);
 	},

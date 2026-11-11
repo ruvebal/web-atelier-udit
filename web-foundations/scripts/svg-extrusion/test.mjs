@@ -309,7 +309,7 @@ for (const [name, svg, pattern] of [
 	],
 	[
 		'viewbox-comma-run',
-		'<svg viewBox="0 , , 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		'<svg viewBox="0 0 , , 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
 		/viewBox/,
 	],
 	[
@@ -361,6 +361,31 @@ for (const [name, svg, pattern] of [
 		'path-post-close-comma',
 		'<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z\n,"/></svg>',
 		/misplaced comma/,
+	],
+	[
+		'root-proto-attribute',
+		'<svg __proto__="x" viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/root attribute __proto__/,
+	],
+	[
+		'path-proto-duplicate',
+		'<svg viewBox="0 0 10 10"><path __proto__="x" __proto__="y" fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/duplicate attribute __proto__/,
+	],
+	[
+		'xml-declaration-garbage',
+		'<?xml garbage?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/malformed XML declaration/,
+	],
+	[
+		'xml-declaration-bad-version',
+		'<?xml version="x"?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/malformed XML declaration/,
+	],
+	[
+		'xml-declaration-control-char',
+		'<?xml version="1.0"\f?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/non-XML character in XML declaration/,
 	],
 	[
 		'non-finite-coordinate',

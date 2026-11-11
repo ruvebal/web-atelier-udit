@@ -9,7 +9,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A1",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A1-independent-live-check"
@@ -32,7 +32,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A2",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A2-independent-live-check"
@@ -55,7 +55,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A3",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A3-independent-live-check"
@@ -78,7 +78,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A4",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A4-independent-live-check"
@@ -101,7 +101,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A5",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A5-independent-live-check"
@@ -124,7 +124,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A6",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A6-independent-live-check"
@@ -147,7 +147,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A7",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A7-independent-live-check"
@@ -170,7 +170,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A8",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A8-independent-live-check"
@@ -193,7 +193,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A9",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A9-independent-live-check"
@@ -216,7 +216,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A10",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A10-independent-live-check"
@@ -239,7 +239,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A11",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A11-independent-live-check"
@@ -262,7 +262,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A12",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A12-independent-live-check"
@@ -285,7 +285,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A13",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
-      "sha256": "cf62aed1717342ec259987d5d12ba6db68978fa686e4d00b6a4ae7ae82d3d2ad",
+      "sha256": "aa7aef75fa9227c36d528a263d02c2dca0e0f8c5ccf99d171e31a6114d97d11c",
       "expected": {
         "assertions": [
           "A13-independent-live-check"
