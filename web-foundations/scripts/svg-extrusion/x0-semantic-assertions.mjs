@@ -1,6 +1,8 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { homedir } from 'node:os';
+import { dirname, resolve } from 'node:path';
 
 const readJson = (root, path) => JSON.parse(readFileSync(resolve(root, path), 'utf8'));
 const digest = (root, path) => createHash('sha256').update(readFileSync(resolve(root, path))).digest('hex');
@@ -13,6 +15,23 @@ const evidenceFile = (root, name) => {
   const candidate = override ? resolve(override, name) : null;
   return candidate && existsSync(candidate) ? JSON.parse(readFileSync(candidate, 'utf8')) : readJson(root, `${base}/${name}`);
 };
+const exactToolSpecs = (root) => {
+  const nodeDir = dirname(process.execPath);
+  const web = resolve(root, 'web-foundations');
+  const repo = resolve(root);
+  return new Map([
+    ['Rive CLI', { executable: '/opt/homebrew/bin/rive', args: ['--version'], cwd: repo }],
+    ['Node.js', { executable: process.execPath, args: ['--version'], cwd: repo }],
+    ['npm', { executable: resolve(nodeDir, 'npm'), args: ['--version'], cwd: repo }],
+    ['pnpm', { executable: '/opt/homebrew/bin/pnpm', args: ['--version'], cwd: repo }],
+    ['Ruby', { executable: '/opt/homebrew/bin/rbenv', args: ['exec', 'ruby', '--version'], cwd: web }],
+    ['Bundler', { executable: '/opt/homebrew/bin/rbenv', args: ['exec', 'bundle', '--version'], cwd: web }],
+    ['Jekyll', { executable: '/opt/homebrew/bin/rbenv', args: ['exec', 'bundle', 'exec', 'jekyll', '--version'], cwd: web }],
+    ['Chrome', { executable: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', args: ['--version'], cwd: repo }],
+  ]);
+};
+const exactBrowserExecutable = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const exactBrowserUrl = 'http://127.0.0.1:4177/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/?force-rive3d-failure=1#authored-assets';
 export const X0_ASSERTION_IDS = {
   A1: ['source_digest_matches', 'source_order_is_complete', 'fixture_count_is_separate_from_dynamic_N'],
   A2: ['tracked_binary_digest_matches', 'browser_runtime_loaded', 'cli_project_verify_is_distinct'],
@@ -75,7 +94,16 @@ export function assertX0Acceptance(id, root) {
       }
       for (const session of browserProvenance.sessions) {
         if (session.exitCode !== 0 || !session.cwd || !session.executable || !Array.isArray(session.argv) || !session.startedAtUtc || !session.endedAtUtc) throw new Error('A3: incomplete induced-failure execution provenance');
-        if (!session.argv.includes('--disable-gpu') || !session.argv.includes('--disable-webgl') || !session.assertions?.failureStatusInDom || !session.assertions?.staticFallbackInDom) throw new Error('A3: induced browser session did not prove the failure fallback');
+        if (session.executable !== exactBrowserExecutable || session.argv[0] !== exactBrowserExecutable || session.argv.at(-1) !== 'about:blank' || session.target !== exactBrowserUrl) throw new Error('A3: substituted browser executable or target');
+        if (!session.argv.includes('--headless=new') || !session.argv.some((arg) => /^--remote-debugging-port=(9227|9228)$/.test(arg))) throw new Error('A3: browser argv lacks the controlled CDP session');
+        const dom = readFileSync(resolve(root, `${base}/${session.domPath}`), 'utf8');
+        if (createHash('sha256').update(dom).digest('hex') !== session.domSha256) throw new Error('A3: browser DOM digest mismatch');
+        const sessionMetrics = readJson(root, `${base}/${session.metricsPath}`);
+        if (!/GPU scene could not load/.test(sessionMetrics.status ?? '') || sessionMetrics.buttonLabel !== 'GPU scene unavailable' || sessionMetrics.buttonDisabled !== true || sessionMetrics.staticFallbackVisible !== true) throw new Error('A3: rendered browser state does not prove the failure fallback');
+        const transcriptBytes = readFileSync(resolve(root, `${base}/${session.transcriptPath}`));
+        if (createHash('sha256').update(transcriptBytes).digest('hex') !== session.transcriptSha256) throw new Error('A3: CDP transcript digest mismatch');
+        const transcript = JSON.parse(transcriptBytes);
+        if (transcript.target !== exactBrowserUrl || !transcript.commands.some((command) => command.method === 'Page.navigate' && command.params?.url === exactBrowserUrl) || !transcript.commands.some((command) => command.method === 'Page.captureScreenshot')) throw new Error('A3: CDP transcript does not bind navigation and capture');
         if (digest(root, `${base}/${session.screenshotPath}`) !== session.screenshotSha256 || digest(root, `${base}/${session.metricsPath}`) !== session.metricsSha256) throw new Error('A3: browser provenance is not bound to capture/metrics');
       }
       return 'PASS A3: baseline/failure route captures, truthful fallback status, and measured dimensions verified';
@@ -84,19 +112,28 @@ export function assertX0Acceptance(id, root) {
       const versions = evidenceFile(root, 'tool-versions.json');
       const provenance = evidenceFile(root, 'tool-provenance.json');
       const build = evidenceFile(root, 'pnpm-build-command-transcript.json');
+      const specs = exactToolSpecs(root);
       const labels = new Set(versions.tools.map((tool) => tool.label));
       for (const label of ['Rive CLI', 'Node.js', 'npm', 'pnpm', 'Ruby', 'Bundler', 'Jekyll', 'Chrome']) if (!labels.has(label)) throw new Error(`A4: missing ${label} version record`);
       if (!/^2026-11-11/.test(versions.capturedAtUtc ?? '')) throw new Error('A4: tool capture date is absent');
       if (provenance.probes?.length !== 8) throw new Error('A4: complete runner provenance is absent');
       for (const tool of versions.tools) {
         const probe = provenance.probes.find((item) => item.label === tool.label);
+        const spec = specs.get(tool.label);
         if (!probe || probe.exitCode !== 0 || !probe.executable || !probe.cwd || !probe.startedAtUtc || !probe.endedAtUtc) throw new Error(`A4: incomplete runner provenance for ${tool.label}`);
+        if (!spec || probe.executable !== spec.executable || JSON.stringify(probe.argv) !== JSON.stringify([spec.executable, ...spec.args])) throw new Error(`A4: substituted executable or argv for ${tool.label}`);
         if (tool.exitCode !== probe.exitCode || tool.stdout !== probe.stdout.trim() || tool.stderr !== probe.stderr.trim() || tool.stdoutSha256 !== probe.stdoutSha256 || tool.stderrSha256 !== probe.stderrSha256) throw new Error(`A4: tool record does not match runner transcript for ${tool.label}`);
+        const live = spawnSync(spec.executable, spec.args, { cwd: spec.cwd, encoding: 'utf8', env: { ...process.env, RBENV_VERSION: '3.3.11', PATH: `/Users/ruvebal/.rbenv/shims:${process.env.PATH}` } });
+        if (live.status !== 0 || live.stdout.trim() !== probe.stdout.trim() || (live.stderr ?? '').trim() !== probe.stderr.trim()) throw new Error(`A4: recorded output differs from live ${tool.label} probe`);
       }
       const expectedOutputs = { 'Rive CLI': /^rive 1\.9\.2/, 'Node.js': /^v24\./, npm: /^11\./, pnpm: /^10\./, Ruby: /^ruby 3\.3\.11/, Bundler: /^Bundler version 2\.5\.22/, Jekyll: /^jekyll 3\.10\.0/, Chrome: /^Google Chrome 157\./ };
       for (const tool of versions.tools) if (!expectedOutputs[tool.label]?.test(tool.stdout)) throw new Error(`A4: unexpected verified output for ${tool.label}`);
-      if (build.exitCode !== 0 || build.environment?.RBENV_VERSION !== '3.3.11' || !build.cwd || !build.executable || !build.startedAtUtc || !build.endedAtUtc) throw new Error('A4: full-build runner provenance is incomplete');
+      if (build.exitCode !== 0 || build.environment?.RBENV_VERSION !== '3.3.11' || !build.environment?.PATH?.startsWith('/Users/ruvebal/.rbenv/shims:') || !build.cwd || !build.startedAtUtc || !build.endedAtUtc) throw new Error('A4: full-build runner provenance is incomplete');
+      if (build.executable !== '/opt/homebrew/bin/pnpm' || JSON.stringify(build.argv) !== JSON.stringify(['/opt/homebrew/bin/pnpm', 'build'])) throw new Error('A4: substituted build executable or argv');
+      for (const [name, expected] of Object.entries({ ruby: '/Users/ruvebal/.rbenv/versions/3.3.11/bin/ruby', bundle: '/Users/ruvebal/.rbenv/versions/3.3.11/bin/bundle', jekyll: '/Users/ruvebal/.rbenv/versions/3.3.11/bin/jekyll' })) if (build.resolvedRuntime?.[name] !== expected) throw new Error(`A4: build did not resolve expected ${name}`);
       if (digest(root, `${base}/${build.stdoutPath}`) !== build.stdoutSha256 || digest(root, `${base}/${build.stderrPath}`) !== build.stderrSha256) throw new Error('A4: full-build raw streams do not match transcript');
+      const buildStdout = readFileSync(resolve(root, `${base}/${build.stdoutPath}`), 'utf8');
+      if (!buildStdout.includes('Publication safety passed:') || !buildStdout.includes('Citation conformance passed for canonical lessons.')) throw new Error('A4: raw build output lacks required success markers');
       return 'PASS A4: dated Rive, Node, package manager, Ruby, Jekyll, and browser records verified';
     }
     case 'A5': {
@@ -107,7 +144,7 @@ export function assertX0Acceptance(id, root) {
     }
     case 'A6': {
       const mutation = evidenceFile(root, 'validator-mutation-results.json');
-      const required = ['missing-id', 'extra-id', 'bad-digest', 'nonzero-exit', 'nonzero-transcript', 'pending-claim', 'prose-only-claim', 'falsified-tool-output', 'missing-browser-provenance', 'omitted-authoritative-page-member'];
+      const required = ['missing-id', 'extra-id', 'bad-digest', 'nonzero-exit', 'nonzero-transcript', 'pending-claim', 'prose-only-claim', 'falsified-tool-output', 'substituted-build-provenance', 'missing-browser-provenance', 'substituted-browser-provenance', 'omitted-authoritative-page-member', 'jointly-omitted-live-page-member'];
       if (!mutation.results || required.some((name) => mutation.results[name] !== 'REJECTED')) throw new Error('A6: validator negative mutation cases are incomplete');
       if (mutation.results['receipt-exit-code-only'] !== 'REJECTED') throw new Error('A6: validator accepts a receipt exitCode without successful command transcript');
       return 'PASS A6: negative fixture suite proves validator rejects all required mutations';
@@ -135,6 +172,15 @@ export function assertX0Acceptance(id, root) {
         if (item.sourceKey === 'acm_cs2023' ? !item.sourceOnlyGap || item.evaluatorSafe : item.sourceOnlyGap || !item.evaluatorSafe) throw new Error(`A7: source confidence boundary changed for ${item.anchorNodeId}`);
       }
       if (contexts.validation.unsafeAcMSourceRemainsSourceOnly !== true) throw new Error('A7: ACM source-only boundary is not preserved');
+      const override = process.env.X0_EVIDENCE_OVERRIDE_BASE;
+      const liveCheck = spawnSync('python3', [
+        resolve(root, 'web-foundations/scripts/svg-extrusion/verify-ahmes-page-contexts.py'),
+        '--library-root', process.env.AHMES_LIBRARY_ROOT ?? resolve(homedir(), 'ahmes-library'),
+        '--anchors', resolve(root, `${base}/research-anchor-verification.json`),
+        '--contexts', override && existsSync(resolve(override, 'research-anchor-page-contexts.json')) ? resolve(override, 'research-anchor-page-contexts.json') : resolve(root, `${base}/research-anchor-page-contexts.json`),
+        '--membership', override && existsSync(resolve(override, 'research-authoritative-page-membership.json')) ? resolve(override, 'research-authoritative-page-membership.json') : resolve(root, `${base}/research-authoritative-page-membership.json`),
+      ], { cwd: root, encoding: 'utf8' });
+      if (liveCheck.status !== 0) throw new Error(`A7: live Ahmes membership check failed: ${(liveCheck.stderr || liveCheck.stdout).trim()}`);
       return 'PASS A7: anchor membership, page identity/text, document identity, and ACM gap verified';
     }
     default: throw new Error(`Unknown X0 acceptance ID ${id}`);

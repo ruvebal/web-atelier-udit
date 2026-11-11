@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { createHash } from 'node:crypto';
-import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
-import { spawnSync } from 'node:child_process';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { spawn, spawnSync } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -26,7 +26,7 @@ function run(label, command, args, cwd, extraEnv = {}) {
   const endedAtUtc = now();
   const stdout = result.stdout ?? '';
   const stderr = result.stderr ?? '';
-  return { label, startedAtUtc, endedAtUtc, cwd, executable, argv: [executable, ...args], environment: { RBENV_VERSION: env.RBENV_VERSION, ...extraEnv }, exitCode: result.status, stdout, stderr, stdoutSha256: sha(stdout), stderrSha256: sha(stderr) };
+  return { label, startedAtUtc, endedAtUtc, cwd, executable, argv: [executable, ...args], environment: { RBENV_VERSION: env.RBENV_VERSION, PATH: env.PATH, ...extraEnv }, exitCode: result.status, stdout, stderr, stdoutSha256: sha(stdout), stderrSha256: sha(stderr) };
 }
 
 const probes = [
@@ -51,25 +51,61 @@ writeFileSync(resolve(base, 'tool-versions.json'), `${JSON.stringify({
 const build = run('Full pnpm build', 'pnpm', ['build'], web);
 writeFileSync(resolve(base, 'raw-provenance/pnpm-build.stdout.log'), build.stdout);
 writeFileSync(resolve(base, 'raw-provenance/pnpm-build.stderr.log'), build.stderr);
-const buildRecord = { ...build, stdout: undefined, stderr: undefined, stdoutPath: 'raw-provenance/pnpm-build.stdout.log', stderrPath: 'raw-provenance/pnpm-build.stderr.log' };
+const resolvedRuntime = Object.fromEntries(['ruby', 'bundle', 'jekyll'].map((name) => {
+  const resolved = spawnSync('/opt/homebrew/bin/rbenv', ['which', name], { cwd: web, encoding: 'utf8', env });
+  if (resolved.status !== 0) throw new Error(`cannot resolve build runtime ${name}`);
+  return [name, resolved.stdout.trim()];
+}));
+const buildRecord = { ...build, stdout: undefined, stderr: undefined, resolvedRuntime, stdoutPath: 'raw-provenance/pnpm-build.stdout.log', stderrPath: 'raw-provenance/pnpm-build.stderr.log' };
 writeFileSync(resolve(base, 'pnpm-build-command-transcript.json'), `${JSON.stringify({ schema: 'x0-command-provenance/v1', ...buildRecord }, null, 2)}\n`);
 if (build.exitCode !== 0) throw new Error('full build failed');
 
-const chrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const browserRuns = [];
+const serverRoot = mkdtempSync(resolve(process.env.TMPDIR ?? '/tmp', 'x0-browser-server-'));
+symlinkSync(resolve(web, '_site'), resolve(serverRoot, 'web-atelier-udit'));
+const server = spawn('python3', ['-m', 'http.server', '4177', '--directory', serverRoot], { cwd: repo, stdio: 'ignore' });
+spawnSync('/bin/sleep', ['1']);
+try {
 for (const [name, width, height] of [['desktop', 1440, 893], ['mobile', 390, 844]]) {
-  const temp = mkdtempSync(resolve(process.env.TMPDIR ?? '/tmp', `x0-chrome-${name}-`));
-  const url = 'http://127.0.0.1:4000/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/#spatial-lab';
-  const args = ['--headless=new', '--disable-gpu', '--disable-webgl', '--virtual-time-budget=12000', `--window-size=${width},${height}`, `--user-data-dir=${resolve(temp, 'profile')}`, '--dump-dom', url];
-  const session = run(`Induced GPU failure ${name}`, chrome, args, repo);
-  const domPath = resolve(base, `raw-provenance/failure-${name}.dom.html`);
-  const stderrPath = resolve(base, `raw-provenance/failure-${name}.stderr.log`);
-  writeFileSync(domPath, session.stdout);
-  writeFileSync(stderrPath, session.stderr);
-  const screenshotPath = resolve(base, `route-fallback-failure-${name}.png`);
-  const metricsPath = resolve(base, `route-fallback-failure-${name}-metrics.json`);
-  browserRuns.push({ ...session, stdout: undefined, stderr: undefined, domPath: `raw-provenance/failure-${name}.dom.html`, domSha256: sha(session.stdout), stderrPath: `raw-provenance/failure-${name}.stderr.log`, screenshotPath: `route-fallback-failure-${name}.png`, screenshotSha256: sha(readFileSync(screenshotPath)), metricsPath: `route-fallback-failure-${name}-metrics.json`, metricsSha256: sha(readFileSync(metricsPath)), requestedViewport: { width, height }, assertions: { failureStatusInDom: /GPU scene could not load/.test(session.stdout), staticFallbackInDom: /verified static frame remains visible/.test(session.stdout) } });
+  const url = 'http://127.0.0.1:4177/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/?force-rive3d-failure=1#authored-assets';
+  const capture = run(`Induced Rive runtime failure ${name}`, process.execPath, [resolve(web, 'scripts/svg-extrusion/capture-chrome-session.mjs'), url, base, name, String(width), String(height), String(name === 'desktop' ? 9227 : 9228)], repo);
+  if (capture.exitCode !== 0) throw new Error(`browser capture failed for ${name}: ${capture.stderr}`);
+  const result = JSON.parse(capture.stdout);
+  const relativeToBase = (path) => path.slice(base.length + 1);
+  browserRuns.push({
+    label: capture.label,
+    startedAtUtc: result.startedAtUtc,
+    endedAtUtc: result.endedAtUtc,
+    cwd: repo,
+    executable: result.executable,
+    argv: result.argv,
+    target: url,
+    exitCode: result.exitCode,
+    domPath: relativeToBase(result.domPath),
+    domSha256: result.domSha256,
+    screenshotPath: relativeToBase(result.screenshotPath),
+    screenshotSha256: result.screenshotSha256,
+    metricsPath: relativeToBase(result.metricsPath),
+    metricsSha256: result.metricsSha256,
+    transcriptPath: relativeToBase(result.transcriptPath),
+    transcriptSha256: result.transcriptSha256,
+    requestedViewport: { width, height },
+  });
 }
-if (browserRuns.some((item) => item.exitCode !== 0 || !item.assertions.failureStatusInDom || !item.assertions.staticFallbackInDom)) throw new Error('browser failure provenance did not observe fallback');
+} finally {
+  server.kill('SIGTERM');
+  rmSync(serverRoot, { recursive: true, force: true });
+}
+if (browserRuns.some((item) => item.exitCode !== 0)) throw new Error('browser failure provenance did not observe fallback');
 writeFileSync(resolve(base, 'browser-failure-command-transcripts.json'), `${JSON.stringify({ schema: 'x0-browser-failure-provenance/v1', sessions: browserRuns }, null, 2)}\n`);
+const indexPath = resolve(base, 'artifact-index.json');
+const index = JSON.parse(readFileSync(indexPath, 'utf8'));
+index.capturedAtUtc = now();
+for (const artifact of index.artifacts) {
+  const artifactPath = resolve(repo, artifact.path);
+  const bytes = readFileSync(artifactPath);
+  artifact.sha256 = sha(bytes);
+  artifact.bytes = bytes.byteLength;
+}
+writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`);
 console.log('Captured X0 tool, build, and induced-browser provenance.');

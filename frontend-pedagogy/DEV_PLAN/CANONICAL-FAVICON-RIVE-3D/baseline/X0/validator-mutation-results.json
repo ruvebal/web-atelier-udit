@@ -10,7 +10,10 @@
     "prose-only-claim": "REJECTED",
     "receipt-exit-code-only": "REJECTED",
     "falsified-tool-output": "REJECTED",
+    "substituted-build-provenance": "REJECTED",
     "missing-browser-provenance": "REJECTED",
-    "omitted-authoritative-page-member": "REJECTED"
+    "substituted-browser-provenance": "REJECTED",
+    "omitted-authoritative-page-member": "REJECTED",
+    "jointly-omitted-live-page-member": "REJECTED"
   }
 }

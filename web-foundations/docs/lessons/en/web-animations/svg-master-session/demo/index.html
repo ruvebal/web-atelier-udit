@@ -1396,7 +1396,13 @@ scene.add(new THREE.Mesh(geometry, material));`]
     const rive3dCanvas = document.querySelector('[data-rive-3d-canvas]');
     const rive3dButton = document.querySelector('[data-rive-3d-toggle]');
     const rive3dUrl = `${authoredBase}rive/animascript-3d/build/fava_prismatic_3d.riv`;
-    try {
+    const forceRive3dFailure = new URLSearchParams(window.location.search).has('force-rive3d-failure');
+    if (forceRive3dFailure) {
+      authoredStatus('animascript3d').textContent = 'The GPU scene could not load; its verified static frame remains visible.';
+      rive3dButton.disabled = true;
+      rive3dButton.textContent = 'GPU scene unavailable';
+      rive3dCanvas?.setAttribute('aria-label', 'Static Rive frame; GPU scene unavailable');
+    } else try {
       const rive3dRuntime = await Promise.race([
         import('https://cdn.jsdelivr.net/npm/@rive-app/webgl2@2.50.0/+esm'),
         new Promise((_, reject) => setTimeout(() => reject(new Error('Rive WebGL2 runtime timed out.')), 8000)),

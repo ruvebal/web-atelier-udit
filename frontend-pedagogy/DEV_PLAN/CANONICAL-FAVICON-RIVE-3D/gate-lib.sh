@@ -17,7 +17,7 @@ require_report() {
 }
 
 site_build() {
-  (cd "$WEB_ROOT" && npm run build)
+  (cd "$WEB_ROOT" && PATH="/Users/ruvebal/.rbenv/shims:$PATH" RBENV_VERSION=3.3.11 pnpm build)
 }
 
 verify_evidence() {

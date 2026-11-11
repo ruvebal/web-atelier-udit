@@ -1,0 +1,15 @@
+{
+  "schema": "x0-browser-session/v2",
+  "requestedViewport": {
+    "width": 1440,
+    "height": 893
+  },
+  "target": "http://127.0.0.1:4177/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/?force-rive3d-failure=1#authored-assets",
+  "pageWidth": 1433,
+  "viewportWidth": 1440,
+  "viewportHeight": 893,
+  "status": "The GPU scene could not load; its verified static frame remains visible.",
+  "buttonLabel": "GPU scene unavailable",
+  "buttonDisabled": true,
+  "staticFallbackVisible": true
+}

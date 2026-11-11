@@ -1,8 +1,8 @@
 {
   "schema": "x0-command-provenance/v1",
   "label": "Full pnpm build",
-  "startedAtUtc": "2026-11-11T13:03:01.722Z",
-  "endedAtUtc": "2026-11-11T13:03:09.504Z",
+  "startedAtUtc": "2026-11-11T18:05:48.110Z",
+  "endedAtUtc": "2026-11-11T18:05:55.780Z",
   "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations",
   "executable": "/opt/homebrew/bin/pnpm",
   "argv": [
@@ -10,11 +10,17 @@
     "build"
   ],
   "environment": {
-    "RBENV_VERSION": "3.3.11"
+    "RBENV_VERSION": "3.3.11",
+    "PATH": "/Users/ruvebal/.rbenv/shims:/Users/ruvebal/.antigravity/antigravity/bin:/Users/ruvebal/.codeium/windsurf/bin:/Users/ruvebal/.nvm/versions/node/v24.22.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/X11/bin:/Library/TeX/texbin:/Applications/Wireshark.app/Contents/MacOS:/opt/homebrew/bin:/opt/podman/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/ruvebal/.codex/tmp/arg0-macos/codex-arg0YX2ixR:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS"
   },
   "exitCode": 0,
-  "stdoutSha256": "a85ac31fa87996e094786638ce1670312ee9b50d894389f3ead84bcbcba41942",
+  "stdoutSha256": "db5be0108df0713f8d2fd759342194eb6034dcb8bf83bd68c2c86dd8a54dbd2e",
   "stderrSha256": "53486df4ea4d1bc8492d5b58fceb6a9fcd6467236566f9faebfab014cbba253c",
+  "resolvedRuntime": {
+    "ruby": "/Users/ruvebal/.rbenv/versions/3.3.11/bin/ruby",
+    "bundle": "/Users/ruvebal/.rbenv/versions/3.3.11/bin/bundle",
+    "jekyll": "/Users/ruvebal/.rbenv/versions/3.3.11/bin/jekyll"
+  },
   "stdoutPath": "raw-provenance/pnpm-build.stdout.log",
   "stderrPath": "raw-provenance/pnpm-build.stderr.log"
 }

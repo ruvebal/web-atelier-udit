@@ -25,3 +25,4 @@ PY
 rg -q 'SHA-256|sha256' "$PACK_DIR/PHASE-X0-REPORT.md"
 rg -q '1\.9\.2' "$PACK_DIR/PHASE-X0-REPORT.md"
 verify_evidence X0
+site_build

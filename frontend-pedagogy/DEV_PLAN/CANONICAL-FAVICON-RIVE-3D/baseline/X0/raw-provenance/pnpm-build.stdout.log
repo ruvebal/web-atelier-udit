@@ -29,7 +29,7 @@ Running mark-broken-links...
 Running strip-markdown-helper-attrs... 
 Stripped markdown helper attributes from 200 HTML files
 Post-processing complete! 
-                    done in 4.568 seconds.
+                    done in 4.4 seconds.
  Auto-regeneration: disabled. Use --watch to enable.
 
 > web-foundations@1.0.0 verify:publication

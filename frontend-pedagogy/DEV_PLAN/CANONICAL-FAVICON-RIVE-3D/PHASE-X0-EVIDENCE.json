@@ -65,7 +65,7 @@
       "command": "node web-foundations/scripts/svg-extrusion/verify-x0-acceptance.mjs A3",
       "exitCode": 0,
       "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/artifact-index.json",
-      "sha256": "ad5cff3b7e790b7750e88f3cc44932cdd74abd49c1a45e979529612a3093e277",
+      "sha256": "1a6938a36f8f184cb84383fc94ea0c805b1d64c08f845e0383877e3ab7c31730",
       "expected": {
         "assertions": [
           "desktop_and_narrow_captures_exist",
@@ -88,7 +88,7 @@
       },
       "visualReview": {
         "reviewer": "X0 fallback capture inspection",
-        "decision": "Forced GPU failure shows the static frame and truthful status at both sizes. Desktop document width is 1433/1440; mobile is 390/390 and card bounds are x=8..382. The mobile viewport image shows status and fallback; lower card text falls below the capture edge, so full-card legibility is not claimed.",
+        "decision": "A deliberately injected Rive 3D runtime failure shows the static frame, truthful status, and disabled control at both sizes. The runner-owned CDP session measured document width 1433/1440 desktop and 390/390 mobile; the narrow capture shows the fallback and status while lower card text continues below the viewport.",
         "captures": [
           {
             "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-desktop-1440x980.png",
@@ -112,12 +112,12 @@
           },
           {
             "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-fallback-failure-desktop.png",
-            "sha256": "0d3b5f1e0d0840aec218d27f066470727d3ec860f49b7e35155b565054542134",
+            "sha256": "4785c8656e1c973bc0671d9151e51955ac5359a98857825edc3f4ee6378e3a33",
             "viewport": "1440x893"
           },
           {
             "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-fallback-failure-mobile.png",
-            "sha256": "a1765fcdd75e6daeb510e79a25e52bf143a23a2a350b4d26444cafdd723bff52",
+            "sha256": "15a8b686641006ea166fb1cb3e749e4458259478bfb9ddf45f78b1076268cd68",
             "viewport": "390x844"
           }
         ]
@@ -129,7 +129,7 @@
       "command": "node web-foundations/scripts/svg-extrusion/capture-x0-command-provenance.mjs",
       "exitCode": 0,
       "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/tool-versions.json",
-      "sha256": "c5d83f935b4cfdbf2508298952a12cd75d5870dc39af8afa7fa14fff49cfc403",
+      "sha256": "a8292035e6928055bf27325357851d7424ced46d24de8b94223560b9870ae673",
       "expected": {
         "assertions": [
           "dated_tool_version_commands_recorded"
@@ -153,7 +153,7 @@
       "command": "node web-foundations/scripts/svg-extrusion/verify-x0-acceptance.mjs A5",
       "exitCode": 0,
       "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X0-REPORT.md",
-      "sha256": "aeef3ad5c2306da8a64bad6a6218c251f8343b39182c540adeb12bb59d6b5d2c",
+      "sha256": "2e2bf0912cd22558b792105bf18f1134d24332465b8c8ae4f0e43c2b8626fcdd",
       "expected": {
         "assertions": [
           "report_remains_VERIFYING",
@@ -179,24 +179,24 @@
       "command": "node web-foundations/scripts/svg-extrusion/test-phase-evidence-validator.mjs",
       "exitCode": 0,
       "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/validator-mutation-results.json",
-      "sha256": "5140d223fede817bc785986e3c78e6b9bc5d669b97bb929ea0d4010494c4917b",
+      "sha256": "1bf4a47c57d735a4725bd4b7355adbf6c72b37752b5c807f561d7d43dbcd60bf",
       "expected": {
         "assertions": [
           "negative_mutations_rejected",
           "receipt_exit_code_without_transcript_rejected"
         ],
-        "summary": "Eleven negative fixtures reject malformed receipts and internally consistent semantic falsifications; absence of a command transcript cannot pass on exitCode alone."
+        "summary": "Fourteen negative fixtures reject malformed receipts and internally consistent semantic falsifications; absence of a command transcript cannot pass on exitCode alone."
       },
       "observed": {
         "assertions": [
           "negative_mutations_rejected",
           "receipt_exit_code_without_transcript_rejected"
         ],
-        "summary": "Eleven negative fixtures reject malformed receipts and internally consistent semantic falsifications; absence of a command transcript cannot pass on exitCode alone."
+        "summary": "Fourteen negative fixtures reject malformed receipts and internally consistent semantic falsifications; absence of a command transcript cannot pass on exitCode alone."
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/command-transcripts/A6.json",
-        "sha256": "7153a9ba99de8d265a8a64b7178fc302070fa6828399e048e3c399ea84755b43"
+        "sha256": "09bb39d0f34d50f2dfa0a95799254cdc4bbd489a1391469cb39561e5fe26c915"
       }
     },
     {

@@ -2,81 +2,63 @@
   "schema": "x0-browser-failure-provenance/v1",
   "sessions": [
     {
-      "label": "Induced GPU failure desktop",
-      "startedAtUtc": "2026-11-11T13:03:09.505Z",
-      "endedAtUtc": "2026-11-11T13:03:10.954Z",
+      "label": "Induced Rive runtime failure desktop",
+      "startedAtUtc": "2026-11-11T18:05:56.910Z",
+      "endedAtUtc": "2026-11-11T18:06:09.893Z",
       "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
       "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
       "argv": [
         "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
         "--headless=new",
-        "--disable-gpu",
-        "--disable-webgl",
-        "--virtual-time-budget=12000",
-        "--window-size=1440,893",
-        "--user-data-dir=/var/folders/p5/3_v4l4693yd4s9dssccyq_dr0000gn/T/x0-chrome-desktop-flEsjt/profile",
-        "--dump-dom",
-        "http://127.0.0.1:4000/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/#spatial-lab"
+        "--remote-debugging-port=9227",
+        "--user-data-dir=/var/folders/p5/3_v4l4693yd4s9dssccyq_dr0000gn/T/x0-cdp-desktop-yVdWv6",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
       ],
-      "environment": {
-        "RBENV_VERSION": "3.3.11"
-      },
+      "target": "http://127.0.0.1:4177/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/?force-rive3d-failure=1#authored-assets",
       "exitCode": 0,
-      "stdoutSha256": "5dc578ecb4624ca5dd44f1b2dc1f0da8e79d91d92b6ff35f35e4db138272352d",
-      "stderrSha256": "ae24a53fb87e9ac818a1395786222f4feb3dfaea6582e6066b0cc874f45012a0",
       "domPath": "raw-provenance/failure-desktop.dom.html",
-      "domSha256": "5dc578ecb4624ca5dd44f1b2dc1f0da8e79d91d92b6ff35f35e4db138272352d",
-      "stderrPath": "raw-provenance/failure-desktop.stderr.log",
+      "domSha256": "b8334771f5043674cb4241f4aefd40eaee72e8327d5a22177fcf7757045dcd63",
       "screenshotPath": "route-fallback-failure-desktop.png",
-      "screenshotSha256": "0d3b5f1e0d0840aec218d27f066470727d3ec860f49b7e35155b565054542134",
-      "metricsPath": "route-fallback-failure-desktop-metrics.json",
-      "metricsSha256": "df8b0d0c85c3f682ff9c928796e8776f8db381b56a2ad0a6f186da5be30dcf50",
+      "screenshotSha256": "4785c8656e1c973bc0671d9151e51955ac5359a98857825edc3f4ee6378e3a33",
+      "metricsPath": "raw-provenance/failure-desktop.session.json",
+      "metricsSha256": "4160759a9cc84d3f00a3691b3e619fc60cd41c21c64ebd2ee4acaa41c5c37d09",
+      "transcriptPath": "raw-provenance/failure-desktop.cdp.json",
+      "transcriptSha256": "30f050e94c8f3dda86368b9f1d522f9ba2a09c6e2cc5813a87ccb7f75359b08b",
       "requestedViewport": {
         "width": 1440,
         "height": 893
-      },
-      "assertions": {
-        "failureStatusInDom": true,
-        "staticFallbackInDom": true
       }
     },
     {
-      "label": "Induced GPU failure mobile",
-      "startedAtUtc": "2026-11-11T13:03:10.956Z",
-      "endedAtUtc": "2026-11-11T13:03:12.616Z",
+      "label": "Induced Rive runtime failure mobile",
+      "startedAtUtc": "2026-11-11T18:06:11.933Z",
+      "endedAtUtc": "2026-11-11T18:06:24.873Z",
       "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
       "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
       "argv": [
         "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
         "--headless=new",
-        "--disable-gpu",
-        "--disable-webgl",
-        "--virtual-time-budget=12000",
-        "--window-size=390,844",
-        "--user-data-dir=/var/folders/p5/3_v4l4693yd4s9dssccyq_dr0000gn/T/x0-chrome-mobile-e3JE7k/profile",
-        "--dump-dom",
-        "http://127.0.0.1:4000/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/#spatial-lab"
+        "--remote-debugging-port=9228",
+        "--user-data-dir=/var/folders/p5/3_v4l4693yd4s9dssccyq_dr0000gn/T/x0-cdp-mobile-a8AorB",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
       ],
-      "environment": {
-        "RBENV_VERSION": "3.3.11"
-      },
+      "target": "http://127.0.0.1:4177/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/?force-rive3d-failure=1#authored-assets",
       "exitCode": 0,
-      "stdoutSha256": "a80ef577702d0989c6ef2d269d6448c8a7d4488666b5650f348c8399dc35c8c9",
-      "stderrSha256": "1cb9409f44f077a5724d524e160bc21ef6e16dfbec72315fed590a822dd85252",
       "domPath": "raw-provenance/failure-mobile.dom.html",
-      "domSha256": "a80ef577702d0989c6ef2d269d6448c8a7d4488666b5650f348c8399dc35c8c9",
-      "stderrPath": "raw-provenance/failure-mobile.stderr.log",
+      "domSha256": "b5a31aefaf57d4acd483daa1abb3034309de261241436b47cbdc14ca543eb5ac",
       "screenshotPath": "route-fallback-failure-mobile.png",
-      "screenshotSha256": "a1765fcdd75e6daeb510e79a25e52bf143a23a2a350b4d26444cafdd723bff52",
-      "metricsPath": "route-fallback-failure-mobile-metrics.json",
-      "metricsSha256": "b2e15a877d373e91b41c5cbcca91923866d8eb77d5a24dff0e8d524e4abcaf7e",
+      "screenshotSha256": "15a8b686641006ea166fb1cb3e749e4458259478bfb9ddf45f78b1076268cd68",
+      "metricsPath": "raw-provenance/failure-mobile.session.json",
+      "metricsSha256": "766c3ee11c55aa0ef2899926828b7cf10e197d1058e606ab4f468c607068db56",
+      "transcriptPath": "raw-provenance/failure-mobile.cdp.json",
+      "transcriptSha256": "43f69ca1e5723ecd1c465e61c06e1d44fe66e3c3663ea3be133702b9e35025b4",
       "requestedViewport": {
         "width": 390,
         "height": 844
-      },
-      "assertions": {
-        "failureStatusInDom": true,
-        "staticFallbackInDom": true
       }
     }
   ]
