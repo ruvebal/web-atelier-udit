@@ -32,7 +32,7 @@ Only the first word of each Gate cell is machine status.
 | 4 | [PHASE-X4.md](PHASE-X4.md) | Responsive demo integration, semantics, reduced-motion/static fallbacks | BLOCKED — opens after X3 DONE |
 | 5 | [PHASE-X5.md](PHASE-X5.md) | Public step-by-step lesson and truthful agentic-making evidence | BLOCKED — opens after X4 DONE |
 | 6 | [PHASE-X6.md](PHASE-X6.md) | Full implementation audit and performance/fidelity matrix | BLOCKED — opens after X5 DONE |
-| 7 | [PHASE-X7.md](PHASE-X7.md) | Post-audit skill promotion and implementation PR A | BLOCKED — opens after X6 DONE |
+| 7 | [PHASE-X7.md](PHASE-X7.md) | Promote the general Rive/AnimaScript 3D skill and SVG adapter; open implementation PR A | BLOCKED — opens after X6 DONE |
 | 8 | [PHASE-X8.md](PHASE-X8.md) | Post-merge provenance hook with real PR/review/merge evidence | BLOCKED — opens only after PR A is merged |
 
 Every phase closes `VERIFYING → COLD_REVIEW → DONE`; the implementer never marks their own work DONE.
