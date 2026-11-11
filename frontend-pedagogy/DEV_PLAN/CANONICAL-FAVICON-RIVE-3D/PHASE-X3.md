@@ -9,6 +9,7 @@ Animate assembled SVG → area-depth extrusion → separated spatial inspection 
 ## Deliverables
 
 - deterministic build/unbuild loop with interruptible state;
+- elapsed-time animation and distinct position/orientation interpolation contracts;
 - pointer/touch picking that returns source facet ID;
 - click/tap selection toggle, bounded Z offset and reversible palette state;
 - reset action and selection data exposed for tests;
@@ -25,6 +26,7 @@ Animate assembled SVG → area-depth extrusion → separated spatial inspection 
 - [ ] **A6** Pointer selection remains correct at narrow and wide viewports.
 - [ ] **A7** Loop interruption does not jump or lose selected state.
 - [ ] **A8** Pen-scale micro-movement does not visibly steer the camera.
+- [ ] **A9** Equal elapsed time produces equivalent loop state across at least two simulated frame rates.
 
 ## Risks
 

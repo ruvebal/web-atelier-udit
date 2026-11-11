@@ -10,6 +10,7 @@ Capture the current canonical SVG, approximate prism specimen, tool versions, si
 
 - checksums and path/command inventory for all 13 facets;
 - current Rive CLI/runtime versions and signing state;
+- verified Athanor/Ahmes research anchors, evaluator-safety outcomes and bibliography gaps from the neural-match report;
 - baseline screenshots/data dump/GPU manifest where supported;
 - explicit support matrix for SVG commands and transforms;
 - reusable phase-report/evidence schema validator used by every later gate;
@@ -27,6 +28,7 @@ Run read-only probes first. Record exact commands and outputs. Verify there are 
 - [ ] **A4** Rive/Node/Ruby/browser versions are dated.
 - [ ] **A5** Every contradicted assumption amends downstream runbooks.
 - [ ] **A6** `verify-phase-evidence.mjs X0` validates every acceptance item and names its immutable artifact.
+- [ ] **A7** Research anchors used downstream resolve to full page context; unsafe citation metadata remains an explicit source-only gap.
 
 ## Risks
 

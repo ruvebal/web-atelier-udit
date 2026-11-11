@@ -10,6 +10,7 @@ Teach how one SVG became a portable, crisp, responsive real-3D asset, including 
 
 - master-session integration plus a dedicated public making-of route;
 - diagrams for source → mesh → runtime → web ownership;
+- a graphics-architecture diagram covering D21’s eight layers and identifying which layer Rive, AnimaScript, WGSL and HTML own;
 - runnable tool invocation and clearly labelled Excerpt code for tessellation, area-depth mapping, WGSL, picking and host semantics;
 - before/after captures and fidelity/performance evidence;
 - append-only provenance data with a clearly pending PR/merge section.
@@ -24,6 +25,8 @@ Teach how one SVG became a portable, crisp, responsive real-3D asset, including 
 - [ ] **A5** Public provenance contains only real local commits/reviews available at publication time and labels pending events.
 - [ ] **A6** The provenance verifier rejects unresolved non-pending events, secrets and unsafe local paths.
 - [ ] **A7** The lesson is indexed and survives the built route/link checks.
+- [ ] **A8** Public technical claims cite evaluator-safe sources; the unresolved curriculum metadata gap is omitted publicly or taught without a polished citation.
+- [ ] **A9** The lesson distinguishes elapsed-time interpolation, camera/model transforms, depth/visibility, shader computation cost and DOM-versus-GPU interaction ownership.
 
 ## Risks
 

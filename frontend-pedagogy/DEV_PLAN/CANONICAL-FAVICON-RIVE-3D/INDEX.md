@@ -13,6 +13,7 @@
 | Technical director | [CANONICAL-FAVICON-RIVE-3D-CASCADE.md](CANONICAL-FAVICON-RIVE-3D-CASCADE.md) | In what order is it built, falsified, reviewed, and published? |
 | Implementer/reviewer | [AGENT.md](AGENT.md) | What may each agent change, and who may certify it? |
 | Evidence reader | [FINDINGS-2026-11-10.md](FINDINGS-2026-11-10.md) | Which claims were checked against this repository and installed tools? |
+| Research reader | [ATHANOR-NEURAL-MATCH-2026-11-11.md](ATHANOR-NEURAL-MATCH-2026-11-11.md) | Which local monographs and graphics sources ground the cascade architecture? |
 | Maintainer | [DECISIONS.md](DECISIONS.md) | Which geometry, interaction, accessibility, and provenance choices are frozen? |
 | Reviewer | [PLAN-COLD-REVIEW.md](PLAN-COLD-REVIEW.md) | Which planning defects were found independently? |
 | Orchestrator | [PLAN-REVIEW-RESOLUTION.md](PLAN-REVIEW-RESOLUTION.md) | How were those findings closed before X0? |
