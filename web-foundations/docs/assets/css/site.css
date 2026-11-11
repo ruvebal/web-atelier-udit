@@ -3221,6 +3221,16 @@ main#main:has(.lesson-wrapper) {
 	box-shadow: 0 0.75rem 2rem var(--shadow-color);
 }
 
+.svg-motion-demo .asset-card--audio {
+	border-color: color-mix(in srgb, #7cf29c 45%, var(--border-light));
+	scroll-margin-top: 5rem;
+}
+
+.svg-motion-demo .asset-card--audio:target {
+	outline: 2px solid #7cf29c;
+	outline-offset: 3px;
+}
+
 .svg-motion-demo .card-head {
 	display: flex;
 	align-items: start;
@@ -3450,6 +3460,34 @@ main#main:has(.lesson-wrapper) {
 
 .svg-motion-demo .asset-preview.rive-gpu-preview.is-playing > img {
 	display: none;
+}
+
+.svg-motion-demo .asset-preview.audio-specimen-preview {
+	position: relative;
+	display: grid;
+	gap: 0.65rem;
+	justify-items: center;
+	min-height: 10rem;
+	padding: 1rem 0.85rem 2.4rem;
+	background: var(--code-block-bg);
+}
+
+.svg-motion-demo .asset-preview.audio-specimen-preview > img {
+	width: min(4.5rem, 28%);
+	opacity: 0.55;
+}
+
+.svg-motion-demo .asset-preview.audio-specimen-preview [data-audio-meter] {
+	display: block;
+	width: min(100%, 17.5rem);
+	height: 3.5rem;
+	border: 1px solid var(--border-light);
+	border-radius: 0.35rem;
+	background: #090b12;
+}
+
+.svg-motion-demo .asset-preview.audio-specimen-preview.is-playing > img {
+	opacity: 0.9;
 }
 
 .svg-motion-demo .rive-source-badge {

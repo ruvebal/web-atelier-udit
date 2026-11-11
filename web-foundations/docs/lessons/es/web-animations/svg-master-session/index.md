@@ -190,28 +190,39 @@ rive docs/assets/animations/fava/rive --publish=local --output-dir=.
 
 El archivo esperado es `docs/assets/animations/fava/rive/fava-motion.riv`; al existir, la demo habilita automáticamente su canvas y el botón de repetición. Mientras tanto se enlaza la fuente RML verificada y se muestra el icono estático. Documentación: [CLI de Rive](https://rive.app/agents), [especificación dotLottie v2](https://dotlottie.io/spec/2.0/) y [reproductor JavaScript de dotLottie](https://docs.lottiefiles.com/en/runtimes/distributions/js).
 
-## Puente de sincronía con audio: ¿quién posee el reloj?
+## Puente de sincronía con audio: Rive, AnimaScript y los otros relojes
 
-<aside class="lesson-emphasis lesson-emphasis--caution" aria-label="Distinción crítica">
-<p class="lesson-emphasis__label">Distinción crítica</p>
-<p><strong>Un efecto de reverberación no es un reloj de sincronía.</strong> El <code>ConvolverNode</code> de Web Audio colorea el sonido. El bloqueo audiovisual preciso viene de la <strong>línea temporal de audio</strong> — <code>AudioContext.currentTime</code>, la latencia de salida y (en Rive) los procesadores de audio de AnimaScript en el hilo de audio / AudioWorklet.</p>
+<aside class="lesson-emphasis lesson-emphasis--concept" aria-label="Concepto clave">
+<p class="lesson-emphasis__label">Concepto clave</p>
+<p><strong>Rive es donde las técnicas de esta sesión encuentran el sonido a nivel de muestra.</strong> Los <em>eventos de audio</em> autorados usan el <code>AudioContext</code> del runtime web. Los <strong>procesadores de audio de AnimaScript</strong> renderizan muestras en el hilo de audio (AudioWorklet en el navegador), así que movimiento y tono pueden compartir el reloj de un mismo artefacto WASM.</p>
 </aside>
 
-Esta sesión ya pregunta *quién posee el tiempo, el espacio y los píxeles*. El sonido añade un cuarto dueño: **quién posee el reloj de muestras**. Dos patrones honestos (CÓMO, no un curso completo de Web Audio):
+Tres patrones honestos (CÓMO, no un curso completo de Web Audio):
 
-1. **La animación sigue al audio** — programa `source.start(when)` y, en cada frame, lee `audioCtx.currentTime` (restando `outputLatency` si hace falta) y posiciona un playhead que admita seek (WAAPI `currentTime`, progreso de GSAP, frame de Lottie/Rive).
-2. **Reacción a energía analizada** — `AnalyserNode` → amplitud/FFT → opacidad o uniforms. Útil y musical; **no** es sincronía a nivel de muestra.
+1. **Eventos de audio en Rive** — van en el `.riv`; el player web desbloquea tras un gesto ([Playing audio](https://rive.app/docs/runtimes/web/playing-audio)).
+2. **`AudioProcessor` en AnimaScript** — `init` / `process` en el carril de audio; el Layout habla por `Snapshot` / `Ring` ([Audio processors](https://rive.app/rasc/docs/audio.html)).
+3. **Seguidores externos** — WAAPI/GSAP/Lottie buscan desde `AudioContext.currentTime`, o `AnalyserNode` para lo reactivo (no cerrado a la muestra).
 
-| Técnica | Calidad de sync | Cómo engancharla | Límite |
+**Espécimen verificado (CLI 1.9.2, 0 errores):** [`hum.as`]({{ '/assets/animations/fava/rive/animascript-audio/hum.as' | relative_url }}) · [`rive.yaml`]({{ '/assets/animations/fava/rive/animascript-audio/rive.yaml' | relative_url }}) · WAV: [`hum-preview.wav`]({{ '/assets/animations/fava/rive/animascript-audio/build/hum-preview.wav' | relative_url }}) · demo: [Play hum]({{ '/lessons/en/web-animations/svg-master-session/demo/#audio-specimen' | relative_url }})
+
+```sh
+rive docs/assets/animations/fava/rive/animascript-audio --verify
+rive docs/assets/animations/fava/rive/animascript-audio \
+  --render-audio=docs/assets/animations/fava/rive/animascript-audio/build/hum-preview.wav \
+  --advance=1.5s
+```
+
+**Cómo suena la demo:** el botón **Play hum** no reproduce un MP3 ajeno. Reproduce la captura CLI del `AudioProcessor` `Hum` (seno ~110 Hz con pulso de ganancia vía `Snapshot`). La página hace `fetch` → `decodeAudioData` → `AudioContext` tras el gesto. No es un AudioWorklet en vivo en Pages (hace falta build con hilos + aislamiento cross-origin); es la misma muestra, camino honesto. Con `prefers-reduced-motion`, Play queda desactivado.
+
+| Técnica | Sync | Cómo | Límite |
 | --- | --- | --- | --- |
-| CSS / SMIL | Débil | Clases o `beginElementAt` desde callbacks de audio | Sin playhead fiable |
-| **WAAPI / GSAP / Motion / Anime** | Fuerte–buena | Seek/progreso desde `AudioContext.currentTime` | El pintado sigue el refresco de pantalla |
-| Canvas 2.5D / Three.js | Fuerte | Muestrear el reloj (o Analyser) en `rAF` / `useFrame` | Tú escribes el mapeo |
-| Lottie / dotLottie | Buena | Seek del reproductor desde el progreso de audio | Depende de la API del player |
-| **Rive (eventos de audio)** | Fuerte (autoría) | Audio embebido en el `.riv`; el runtime web usa `AudioContext` tras gesto | Política de autoplay del navegador |
-| **Rive + AnimaScript (procesadores)** | La más fuerte aquí (WASM) | Renderizan bloques en el hilo de audio / AudioWorklet | Build web con hilos para procesadores en vivo |
+| CSS / SMIL | Débil | Callbacks | Sin playhead |
+| WAAPI / GSAP / Motion / Anime | Fuerte–buena (seguidor) | Seek desde `currentTime` | Refresco de pantalla |
+| Canvas / Three / Lottie | Buena–fuerte (seguidor) | Seek o Analyser | Reloj externo |
+| **Rive (eventos)** | Fuerte (autoría) | Eventos en el `.riv` | Autoplay |
+| **Rive + AnimaScript processors** | La más fuerte aquí | `process` en hilo de audio / AudioWorklet | Build web con hilos |
 
-Detalle y excerpt en la [versión inglesa de esta lección]({{ '/lessons/en/web-animations/svg-master-session/#audio-sync-bridge-who-owns-the-clock' | relative_url }}). Referencias: [MDN `currentTime`](https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/currentTime), [audio en Rive](https://rive.app/docs/runtimes/web/playing-audio), [procesadores AnimaScript](https://rive.app/rasc/docs/audio.html).
+Excerpt completo, matriz y juicio de taller: [Audio sync bridge (EN)]({{ '/lessons/en/web-animations/svg-master-session/#audio-sync-bridge-rive-animascript-processors-and-the-other-clocks' | relative_url }}) · [How the demo sounds]({{ '/lessons/en/web-animations/svg-master-session/#how-the-demo-sounds' | relative_url }}).
 
 ## Sesión maestra de 3 horas
 
