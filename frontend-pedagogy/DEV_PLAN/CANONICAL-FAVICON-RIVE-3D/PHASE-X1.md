@@ -6,6 +6,10 @@
 
 Create a deterministic, favicon-agnostic compiler that converts supported SVG paths into indexed front/back/side geometry plus a reviewable manifest.
 
+This compiler is the `svg-to-rive-3d` frontend. Its output must conform to the
+source-agnostic scene/mesh contract owned by `rive-animascript-3d`; the general
+backend may not depend on this SVG adapter.
+
 ## Deliverables
 
 - reusable SVG-path-to-mesh tool under `web-foundations/scripts/svg-extrusion/`;

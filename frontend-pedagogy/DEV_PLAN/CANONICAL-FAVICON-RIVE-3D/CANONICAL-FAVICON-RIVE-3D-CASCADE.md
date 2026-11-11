@@ -44,13 +44,14 @@ every affected phase in the same commit as the report that records the finding.
 ## Data lineage
 
 ```text
-any supported SVG
-  └─ source checksum + normalized paths
+mathematical/procedural geometry ──────────────┐
+authored/generated mesh data ─────────────────┤
+any supported SVG → source checksum + normalized paths ─┘
       ├─ facet manifest (ID, colour, area, bounds, depth)
       ├─ indexed front/back triangles + side-wall boundary mesh
       ├─ canonical static/raster fallback
       └─ fidelity fixtures
-          └─ AnimaScript GPU resources + WGSL
+          └─ general Rive/AnimaScript 3D scene contract + GPU resources + WGSL
               ├─ build/unbuild loop
               ├─ ray/pick result → persistent facet state
               └─ signed .riv
@@ -63,6 +64,14 @@ minimum/maximum depth, and optional palette policy. It must not import lesson,
 favicon, or theme modules. The favicon and a deliberately different concave/
 cubic SVG fixture run through the same public interface. Its manifest declares
 the supported-subset schema version; unsupported SVG semantics fail explicitly.
+
+The reusable capability is deliberately split. `rive-animascript-3d` is the
+source-agnostic backend for mathematical/procedural geometry, authored mesh
+data, cameras, materials/shaders, choreography, interaction and portable Rive
+runtime output. `svg-to-rive-3d` is a one-way adapter that compiles supported
+SVG semantics into that backend's scene contract. The backend must never import
+the SVG adapter. Both contracts remain experimental until X6 evidence and cold
+review permit X7 promotion.
 
 ## Closing protocol
 
@@ -79,11 +88,12 @@ the supported-subset schema version; unsupported SVG semantics fail explicitly.
 - **Merge event:** human or authorized workflow merges PR A.
 - **PR B — provenance post-hook:** X8 imports PR A’s actual number, commits, review excerpts, checks, and merge SHA into the public making-of. PR B must remain docs/data-only.
 
-After X6 succeeds and its cold review is closed, X7 promotes the
-stable reusable workflow into the studio `canvas-25d-content-hero` skill (and
-its Codex adapter) as a true-3D extension/reference. Promotion records only
-portable rules, CLI contract, gates, and failure modes; Web Atelier paths and
-favicon palette remain in the linked case study.
+After X6 succeeds and its cold review is closed, X7 promotes the experimental
+`rive-animascript-3d` backend and `svg-to-rive-3d` adapter (and their Codex
+adapters) to verified studio skills. `canvas-25d-content-hero` routes true-3D
+requests to them rather than absorbing their implementation. Promotion records
+only portable rules, parameter/scene contracts, CLI gates and failure modes;
+Web Atelier paths and favicon palette remain in the linked case study.
 
 This two-PR topology is part of the pedagogy: reproducible history is observed after it exists, not narrated in advance.
 
