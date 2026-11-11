@@ -2,8 +2,8 @@
 
 **Run by:** cascade-harness.sh (runner process, not the implementing session)
 **Worktree:** /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-1
-**Commit:** f1f68eb1017e41a96a8914ffde0ecc5826ccd74c
-**Started:** 2026-11-11T19:07:45Z
+**Commit:** 4d24ef185123dbc01401dc8897c5813edd13c94b
+**Started:** 2026-11-11T21:16:27Z
 
 ```
 PASS X1 compiler: canonical N=13, distinct curved/concave N=2, geometry/rejection/determinism checks
@@ -46,21 +46,21 @@ Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
   npx update-browserslist-db@latest
   Why you should do it regularly: https://github.com/browserslist/update-db#readme
 Configuration file: _config.yml
-Loading post_process plugin...
+Loading post_process plugin... 
             Source: docs
        Destination: _site
  Incremental build: disabled. Enable with --incremental
-      Generating...
-Running post-processing scripts...
-Running normalize-ids...
+      Generating... 
+Running post-processing scripts... 
+Running normalize-ids... 
 ✅ Normalized accents in 200 HTML files
-Running mark-broken-links...
+Running mark-broken-links... 
 [mark-broken-links] No error files found
 [mark-broken-links] No broken URLs to mark
-Running strip-markdown-helper-attrs...
+Running strip-markdown-helper-attrs... 
 Stripped markdown helper attributes from 200 HTML files
-Post-processing complete!
-                    done in 4.611 seconds.
+Post-processing complete! 
+                    done in 3.708 seconds.
  Auto-regeneration: disabled. Use --watch to enable.
 npm warn Unknown env config "npm-globalconfig". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
 npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
