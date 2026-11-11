@@ -11,6 +11,7 @@ Animate assembled SVG → area-depth extrusion → separated spatial inspection 
 - deterministic build/unbuild loop with interruptible state;
 - elapsed-time animation and distinct position/orientation interpolation contracts;
 - pointer/touch picking that returns source facet ID;
+- N-driven picking and selection state, with identity mapped from generated source-order IDs;
 - click/tap selection toggle, bounded Z offset and reversible palette state;
 - reset action and selection data exposed for tests;
 - conditioned camera input separated from raw picking coordinates.
@@ -32,4 +33,4 @@ Animate assembled SVG → area-depth extrusion → separated spatial inspection 
 
 ## Risks
 
-GPU readback picking can be expensive. Use deterministic CPU ray/triangle tests unless measurement proves a facet-ID picking pass necessary. Raw canvas coordinates are converted to normalized device coordinates and unprojected through the inverse current projection/view matrix; the ray is transformed into each current facet model space, intersected with its animated front/back/side triangles, culled consistently with the GPU pipeline, and the nearest positive visible hit wins.
+GPU readback picking can be expensive. Use deterministic CPU ray/triangle tests unless measurement proves a facet-ID picking pass necessary. Raw canvas coordinates are converted to normalized device coordinates and unprojected through the inverse current projection/view matrix; the ray is transformed into each current facet model space, intersected with its animated front/back/side triangles, culled consistently with the GPU pipeline, and the nearest positive visible hit wins. Triangle-area inclusion, Möller–Trumbore intersection and exponential damping are engineering derivations rather than claims sourced from local graphics research. Position interpolation uses elapsed-time `lerp(a,b,t)` or a named easing curve; orientation interpolation is separately specified with quaternion interpolation, not Euler-angle lerp.

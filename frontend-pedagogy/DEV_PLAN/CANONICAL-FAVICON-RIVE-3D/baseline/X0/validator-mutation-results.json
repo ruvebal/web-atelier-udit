@@ -1,0 +1,19 @@
+{
+  "schema": "x0-validator-mutations/v1",
+  "results": {
+    "missing-id": "REJECTED",
+    "extra-id": "REJECTED",
+    "bad-digest": "REJECTED",
+    "nonzero-exit": "REJECTED",
+    "nonzero-transcript": "REJECTED",
+    "pending-claim": "REJECTED",
+    "prose-only-claim": "REJECTED",
+    "receipt-exit-code-only": "REJECTED",
+    "falsified-tool-output": "REJECTED",
+    "substituted-build-provenance": "REJECTED",
+    "missing-browser-provenance": "REJECTED",
+    "substituted-browser-provenance": "REJECTED",
+    "omitted-authoritative-page-member": "REJECTED",
+    "jointly-omitted-live-page-member": "REJECTED"
+  }
+}

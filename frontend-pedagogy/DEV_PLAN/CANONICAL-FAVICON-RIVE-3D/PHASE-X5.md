@@ -6,6 +6,8 @@
 
 Teach how one SVG became a portable, crisp, responsive real-3D asset, including the engineering value and cost of the Rive + AnimaScript + GPU Canvas stack.
 
+Teach the current favicon as a golden fixture with N=13 while describing compiler, runtime, picker, and semantic-control capacity as data-driven N. Label cubic evaluation/flattening, shoelace area/centroid, triangle signed-area inclusion, Möller–Trumbore picking, exponential damping, and D4 area-to-depth/GPU depth mapping as engineering derivations unless a verified source directly supports the algorithm. Keep the curriculum metadata gap as source-only evidence.
+
 ## Deliverables
 
 - master-session integration plus a dedicated public making-of route;

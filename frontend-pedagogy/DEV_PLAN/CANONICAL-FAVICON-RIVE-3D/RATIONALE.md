@@ -2,7 +2,7 @@
 
 The existing specimen proves that Rive can package AnimaScript, WGSL, perspective, lighting, and a depth buffer. It does not yet prove that this stack can preserve the identity of an authored SVG: every instance is currently the same triangular prism arranged approximately like the mark.
 
-The canonical specimen makes the comparison intellectually honest. The same 13 coloured source facets shown by CSS, SMIL, WAAPI, JavaScript libraries, Canvas 2.5D, and Three.js become the front faces of real meshes. The learner can therefore see what changes when the **spatial model** changes while the artwork does not.
+The current 13-colour favicon fixture makes the comparison intellectually honest. Its same source facets shown by CSS, SMIL, WAAPI, JavaScript libraries, Canvas 2.5D, and Three.js become front faces of real meshes. The reusable system parses N facets from each supported SVG and derives its buffers, identities, picking, and controls from N. Learners can therefore see what changes when the **spatial model** changes while the source artwork does not.
 
 ## Value of the stack
 

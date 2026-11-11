@@ -1,0 +1,8 @@
+{
+  "schema": "x0-command-transcript/v1",
+  "acceptanceId": "A2",
+  "command": "node web-foundations/scripts/svg-extrusion/verify-x0-acceptance.mjs A2",
+  "exitCode": 0,
+  "stdout": "PASS A2: tracked Rive digest and separate CLI/browser observations verified\n",
+  "stderr": ""
+}

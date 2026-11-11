@@ -8,7 +8,7 @@ Capture the current canonical SVG, approximate prism specimen, tool versions, si
 
 ## Deliverables
 
-- checksums and path/command inventory for the favicon fixture’s observed facets;
+- checksums and path/command inventory for the canonical fixture (currently N=13);
 - current Rive CLI/runtime versions and signing state;
 - verified Athanor/Ahmes research anchors, evaluator-safety outcomes and bibliography gaps from the neural-match report;
 - baseline screenshots/data dump/GPU manifest where supported;
@@ -18,17 +18,17 @@ Capture the current canonical SVG, approximate prism specimen, tool versions, si
 
 ## Prompt
 
-Run read-only probes first. Record exact commands and outputs. Verify the current fixture count from source (expected today: 13, not the stale lesson claim of 14); identify all `M/L/C/Z` commands and the non-uniform transform. Record explicitly that count is fixture data and the reusable architecture uses dynamic `N`. Do not alter the specimen. Write `PHASE-X0-REPORT.md` with status VERIFYING and hand off.
+Run read-only probes first. Record exact commands and outputs. Verify that the current golden fixture has N=13 source paths, not “14 canonical paths”; identify all `M/L/C/Z` commands and the non-uniform transform. Record N as an observed fixture property only: downstream compiler/runtime capacity, generated buffers, IDs, picking and semantic controls must remain data-driven. Capture narrow browser behavior as well as the desktop route. Do not alter the existing specimen. Write `PHASE-X0-REPORT.md` with status VERIFYING and hand off.
 
 ## Acceptance
 
-- [ ] **A1** Canonical source checksum and dynamic path inventory are machine-generated; the favicon golden fixture currently asserts `N = 13`.
-- [ ] **A2** Current `.riv` verifies and its checksum is recorded.
-- [ ] **A3** Baseline route and fallback are captured at desktop and narrow viewport.
-- [ ] **A4** Rive/Node/Ruby/browser versions are dated.
+- [ ] **A1** Canonical source checksum and machine-generated path inventory record observed N and confirm N=13 only for this golden fixture.
+- [ ] **A2** Current `.riv` loads in the browser runtime and its checksum is recorded; CLI source-project verification is reported separately.
+- [ ] **A3** Baseline and deliberate GPU-failure routes are captured at desktop and narrow viewport; the fallback image and truthful failure status are visible, and viewport/page-width/card metrics accompany each failure capture.
+- [ ] **A4** Rive/Node/Ruby/browser version commands, outputs, and capture date are recorded in an immutable transcript.
 - [ ] **A5** Every contradicted assumption amends downstream runbooks.
-- [ ] **A6** `verify-phase-evidence.mjs X0` validates every acceptance item and names its immutable artifact.
-- [ ] **A7** Research anchors used downstream resolve to full page context; unsafe citation metadata remains an explicit source-only gap.
+- [ ] **A6** `verify-phase-evidence.mjs X0` validates semantic assertions, immutable command transcripts, artifact hashes, and visual capture hashes; mutation fixtures reject missing/extra IDs, bad digests, nonzero exits, pending/prose-only claims, and receipt exit codes without transcripts.
+- [ ] **A7** All 15 research anchors resolve to complete page context with verified node membership, page/document identity, and context hashes; unsafe citation metadata remains an explicit source-only gap.
 
 ## Risks
 

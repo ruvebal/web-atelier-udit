@@ -1,6 +1,6 @@
 # Canonical favicon · Rive + AnimaScript 3D cascade
 
-**Status:** READY · planning branch `codex/canonical-favicon-rive-3d-cascade`  
+**Status:** ACTIVE · X0 DONE · X1 READY · integration branch `codex/canonical-favicon-rive-3d-cascade`  
 **Author:** Rubén Vega Balbás, PhD · 2026-11-10  
 **Product claim:** any SVG inside the supported subset becomes a crisp, responsive, depth-tested object whose dynamic set of source facets remains individually understandable and selectable; the favicon is the golden fixture.
 **Engineering claim:** geometry, colour, area, intrinsic extrusion depth, hit identity, fallback, and teaching evidence are generated from one SVG source rather than copied by hand.
@@ -18,6 +18,7 @@
 | Maintainer | [DECISIONS.md](DECISIONS.md) | Which geometry, interaction, accessibility, and provenance choices are frozen? |
 | Reviewer | [PLAN-COLD-REVIEW.md](PLAN-COLD-REVIEW.md) | Which planning defects were found independently? |
 | Orchestrator | [PLAN-REVIEW-RESOLUTION.md](PLAN-REVIEW-RESOLUTION.md) | How were those findings closed before X0? |
+| Independent verifier | [PHASE-X0-FINAL-COLD-REVIEW.md](PHASE-X0-FINAL-COLD-REVIEW.md) | Did the hardened X0 evidence survive a fresh adversarial review? |
 
 ## Programme
 
@@ -25,8 +26,8 @@ Only the first word of each Gate cell is machine status.
 
 | Step | Runbook | Deliverable | Gate |
 | --- | --- | --- | --- |
-| 0 | [PHASE-X0.md](PHASE-X0.md) | Baseline captures, canonical-source checksum, runtime/browser/tool probes | READY — live facts may amend X1–X8 |
-| 1 | [PHASE-X1.md](PHASE-X1.md) | Deterministic SVG → indexed extrusion compiler and manifest | BLOCKED — opens after X0 DONE |
+| 0 | [PHASE-X0.md](PHASE-X0.md) | Baseline captures, canonical-source checksum, runtime/browser/tool probes | DONE — exit gate and independent cold review passed |
+| 1 | [PHASE-X1.md](PHASE-X1.md) | Deterministic SVG → indexed extrusion compiler and manifest | READY — opened after X0 promotion |
 | 2 | [PHASE-X2.md](PHASE-X2.md) | Exact frontal Rive GPU scene and area-derived facet depths | BLOCKED — opens after X1 DONE |
 | 3 | [PHASE-X3.md](PHASE-X3.md) | Build/unbuild choreography, facet picking, persistent selection | BLOCKED — opens after X2 DONE |
 | 4 | [PHASE-X4.md](PHASE-X4.md) | Responsive demo integration, semantics, reduced-motion/static fallbacks | BLOCKED — opens after X3 DONE |
