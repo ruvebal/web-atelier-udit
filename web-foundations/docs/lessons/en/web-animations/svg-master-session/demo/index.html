@@ -1420,6 +1420,9 @@ scene.add(new THREE.Mesh(geometry, material));`]
         },
         onLoadError: (error) => {
           authoredStatus('animascript3d').textContent = 'The GPU scene could not load; its verified static frame remains visible.';
+          rive3dButton.disabled = true;
+          rive3dButton.textContent = 'GPU scene unavailable';
+          rive3dCanvas?.setAttribute('aria-label', 'Static Rive frame; GPU scene unavailable');
           console.error('Rive 3D file failed to load', error);
         },
       });

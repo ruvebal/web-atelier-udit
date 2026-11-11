@@ -11,7 +11,7 @@ Audit the complete implementation independently before any studio skill claims a
 - fresh full-stack cold review and closed blocking findings;
 - fidelity, interaction, accessibility, responsive, fallback and performance matrix;
 - clean-checkout rebuild transcript for both fixture SVGs and the signed asset;
-- multi-count fixture evidence proving N-driven buffers, identity, and semantics rather than a favicon-specific capacity;
+- at least two distinct eligible-shape-count fixtures (the favicon golden fixture plus a smaller synthetic SVG) proving the manifest drives facet IDs, GPU buffers/draw counts, area-to-depth mapping, picking, staggered motion, generated controls, reset state, and semantic labels; assert output counts follow each fixture's N and contain no fixed favicon capacity;
 - explicit list of portable lessons eligible for X7 skill promotion.
 
 ## Acceptance

@@ -25,7 +25,7 @@ Implement the compiler without importing lesson or favicon modules. Preserve sou
 - [ ] **A1** One command regenerates the favicon manifest and mesh from the canonical SVG.
 - [ ] **A2** The same command/API converts the second fixture without source changes.
 - [ ] **A3** Re-running produces byte-identical output.
-- [ ] **A4** Every facet area in the 13-facet favicon golden fixture is positive after winding normalization; a second fixture proves N is data-driven.
+- [ ] **A4** Every facet area in the current favicon golden fixture is positive after winding normalization; a second, distinct-count synthetic fixture proves N is data-driven without introducing a capacity constant.
 - [ ] **A5** Every depth equals the exact D4 formula within numeric tolerance.
 - [ ] **A6** Invalid bounds and zero/degenerate contours fail.
 - [ ] **A7** Uniform scaling preserves normalized relative depths; equal areas produce equal depths.

@@ -1,0 +1,8 @@
+{
+  "schema": "x0-command-transcript/v1",
+  "acceptanceId": "A4",
+  "command": "node --version",
+  "exitCode": 0,
+  "stdout": "v24.22.1\n",
+  "stderr": ""
+}

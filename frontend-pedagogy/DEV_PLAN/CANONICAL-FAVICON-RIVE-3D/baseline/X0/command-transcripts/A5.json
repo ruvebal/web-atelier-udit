@@ -1,0 +1,8 @@
+{
+  "schema": "x0-command-transcript/v1",
+  "acceptanceId": "A5",
+  "command": "node web-foundations/scripts/svg-extrusion/verify-x0-acceptance.mjs A5",
+  "exitCode": 0,
+  "stdout": "PASS A5: VERIFYING report and downstream N/math/source amendments verified\n",
+  "stderr": ""
+}

@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync, existsSync, realpathSync } from 'node:fs';
 import { dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { X0_ASSERTION_IDS, assertX0Acceptance } from './x0-semantic-assertions.mjs';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const defaultPackRoot = resolve(repoRoot, 'frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D');
@@ -121,10 +122,37 @@ try {
     if (item.expected === undefined || item.observed === undefined) {
       throw new Error(`${label}: expected and observed are required`);
     }
+    if (!item.expected || !item.observed || typeof item.expected !== 'object' || typeof item.observed !== 'object') {
+      throw new Error(`${label}: expected/observed must contain machine-readable assertion objects`);
+    }
+    const requiredAssertions = X0_ASSERTION_IDS[label];
+    if (phase === 'X0' && (!requiredAssertions || JSON.stringify(item.expected.assertions) !== JSON.stringify(requiredAssertions) || JSON.stringify(item.observed.assertions) !== JSON.stringify(requiredAssertions))) {
+      throw new Error(`${label}: prose-only or incomplete semantic assertion claims`);
+    }
     const unresolved = hasPending({ expected: item.expected, observed: item.observed });
     if (unresolved) throw new Error(`${label}: unresolved pending value at ${unresolved}`);
     const artifact = resolveArtifact(item.artifact, label);
     if (sha256(artifact) !== item.sha256) throw new Error(`${label}: digest mismatch for ${item.artifact}`);
+    if (!item.commandTranscript || typeof item.commandTranscript !== 'object') {
+      throw new Error(`${label}: immutable command transcript is required`);
+    }
+    const transcriptPath = resolveArtifact(item.commandTranscript.path, `${label} command transcript`);
+    if (sha256(transcriptPath) !== item.commandTranscript.sha256) throw new Error(`${label}: command transcript digest mismatch`);
+    const transcript = JSON.parse(readFileSync(transcriptPath, 'utf8'));
+    if (transcript.acceptanceId !== label || transcript.command !== item.command || transcript.exitCode !== 0 || item.exitCode !== transcript.exitCode) {
+      throw new Error(`${label}: command transcript does not prove the receipt command succeeded`);
+    }
+    if (typeof transcript.stdout !== 'string' || transcript.stderr !== '') {
+      throw new Error(`${label}: command transcript stdout/stderr is malformed`);
+    }
+    if (label !== 'A4' && !transcript.stdout.includes(`PASS ${label}:`)) {
+      throw new Error(`${label}: command transcript has no acceptance PASS output`);
+    }
+    if (phase === 'X0') {
+      const semanticResult = assertX0Acceptance(label, repoRoot);
+      if (typeof item.observed.summary !== 'string' || !item.observed.summary.trim()) throw new Error(`${label}: observed semantic summary is required`);
+      if (!semanticResult.startsWith(`PASS ${label}:`)) throw new Error(`${label}: semantic assertion did not pass`);
+    }
     validateVisualReview(item.visualReview, label);
   }
   console.log(`PASS ${phase}: ${expectedIds.length} acceptance items match ${runbookPath}`);

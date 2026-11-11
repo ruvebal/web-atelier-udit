@@ -1,0 +1,8 @@
+{
+  "schema": "x0-command-transcript/v1",
+  "acceptanceId": "A3",
+  "command": "node web-foundations/scripts/svg-extrusion/verify-x0-acceptance.mjs A3",
+  "exitCode": 0,
+  "stdout": "PASS A3: baseline/failure route captures, truthful fallback status, and measured dimensions verified\n",
+  "stderr": ""
+}

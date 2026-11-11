@@ -1,0 +1,8 @@
+{
+  "schema": "x0-command-transcript/v1",
+  "acceptanceId": "F4",
+  "command": "pnpm build",
+  "exitCode": 0,
+  "stdout": "\u2705 Normalized accents in 200 HTML files\nStripped markdown helper attributes from 200 HTML files\nPublication safety passed: no internal corpus or local-architecture metadata is publishable.\nCitation conformance passed for canonical lessons.",
+  "stderr": ""
+}

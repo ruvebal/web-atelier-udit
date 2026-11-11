@@ -1,0 +1,64 @@
+{
+  "desktop": {
+    "status": "The GPU scene could not load; its verified static frame remains visible.",
+    "buttonLabel": "GPU scene unavailable",
+    "buttonDisabled": true,
+    "staticFallbackVisible": true,
+    "fallbackNaturalWidth": 720,
+    "viewportWidth": 1440,
+    "viewportHeight": 893,
+    "pageWidth": 1433,
+    "cardRect": {
+      "x": 520.5,
+      "y": 394.140625,
+      "width": 384,
+      "height": 571.09375,
+      "top": 394.140625,
+      "right": 904.5,
+      "bottom": 965.234375,
+      "left": 520.5
+    },
+    "imageRect": {
+      "x": 538.5,
+      "y": 496.453125,
+      "width": 348,
+      "height": 232,
+      "top": 496.453125,
+      "right": 886.5,
+      "bottom": 728.453125,
+      "left": 538.5
+    },
+    "failureInjection": "Chrome --disable-gpu --disable-webgl"
+  },
+  "mobile": {
+    "status": "The GPU scene could not load; its verified static frame remains visible.",
+    "buttonLabel": "GPU scene unavailable",
+    "buttonDisabled": true,
+    "staticFallbackVisible": true,
+    "fallbackNaturalWidth": 720,
+    "viewportWidth": 390,
+    "viewportHeight": 844,
+    "pageWidth": 390,
+    "cardRect": {
+      "x": 8,
+      "y": 364.859375,
+      "width": 374,
+      "height": 551.09375,
+      "top": 364.859375,
+      "right": 382,
+      "bottom": 915.953125,
+      "left": 8
+    },
+    "imageRect": {
+      "x": 26,
+      "y": 468.5,
+      "width": 338,
+      "height": 225.328125,
+      "top": 468.5,
+      "right": 364,
+      "bottom": 693.828125,
+      "left": 26
+    },
+    "failureInjection": "Chrome --disable-gpu --disable-webgl"
+  }
+}

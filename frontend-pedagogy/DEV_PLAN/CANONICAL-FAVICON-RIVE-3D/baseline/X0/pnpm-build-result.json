@@ -1,6 +1,6 @@
 {
   "schema": "x0-developer-check/v1",
-  "command": "PATH=/Users/ruvebal/.rbenv/shims:/opt/homebrew/bin:$PATH RBENV_VERSION=3.3.11 pnpm build",
+  "command": "PATH=<rbenv Ruby 3.3.11 toolchain> RBENV_VERSION=3.3.11 pnpm build",
   "exitCode": 1,
   "jekyllBuild": "passed",
   "publicationGate": {
