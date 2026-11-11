@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 export const SCHEMA = 'svg-to-rive-3d/v1';
-export const COMPILER_VERSION = '1.0.4';
+export const COMPILER_VERSION = '1.0.5';
 const EPS = 1e-10;
 
 export function sha256(data) {
@@ -137,31 +137,87 @@ function multiply(a, b) {
 		a[1] * b[4] + a[3] * b[5] + a[5],
 	];
 }
-function transformMatrix(value = '') {
+function transformMatrix(value) {
 	let out = [1, 0, 0, 1, 0, 0];
-	const matches = [...value.matchAll(/(matrix|translate|scale|rotate)\s*\(([^)]*)\)/g)];
-	if (value.replace(/(matrix|translate|scale|rotate)\s*\(([^)]*)\)/g, '').replace(/[\s,]/g, ''))
-		throw new Error(`unsupported transform: ${value}`);
-	for (const m of matches) {
-		const v = m[2]
-			.trim()
-			.split(/[\s,]+/)
-			.filter(Boolean)
-			.map(Number);
-		let n;
-		if (v.some((x) => !Number.isFinite(x))) throw new Error(`invalid transform: ${value}`);
-		if (m[1] === 'matrix' && v.length === 6) n = v;
-		else if (m[1] === 'translate' && (v.length === 1 || v.length === 2)) n = [1, 0, 0, 1, v[0], v[1] ?? 0];
-		else if (m[1] === 'scale' && (v.length === 1 || v.length === 2)) n = [v[0], 0, 0, v[1] ?? v[0], 0, 0];
-		else if (m[1] === 'rotate' && (v.length === 1 || v.length === 3)) {
-			const q = (v[0] * Math.PI) / 180,
+	if (value === undefined) return out;
+	value = value.trim();
+	if (!value) throw new Error('empty transform attribute');
+	let i = 0;
+	const n = value.length,
+		number = () => {
+			const m = /^[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?/.exec(value.slice(i));
+			if (!m) throw new Error(`invalid transform number in ${value}`);
+			i += m[0].length;
+			return Number(m[0]);
+		},
+		ws = () => {
+			while (i < n && /\s/.test(value[i])) i++;
+		};
+	ws();
+	let functions = 0;
+	while (i < n) {
+		const name = /^[A-Za-z]+/.exec(value.slice(i));
+		if (!name) throw new Error(`unsupported transform syntax in ${value}`);
+		i += name[0].length;
+		const fn = name[0];
+		if (!['matrix', 'translate', 'scale', 'rotate'].includes(fn)) throw new Error(`unsupported transform function ${fn}`);
+		ws();
+		if (value[i] !== '(') throw new Error(`malformed transform function ${fn}`);
+		i++;
+		ws();
+		if (value[i] === ')') throw new Error(`empty transform arguments in ${value}`);
+		const args = [];
+		let closed = false;
+		while (i < n && !closed) {
+			args.push(number());
+			ws();
+			if (value[i] === ',') {
+				i++;
+				ws();
+				if (i >= n || value[i] === ')') throw new Error(`trailing transform separator in ${value}`);
+				continue;
+			}
+			if (value[i] === ')') {
+				i++;
+				closed = true;
+				break;
+			}
+		}
+		if (!closed) throw new Error(`unterminated transform function ${fn}`);
+		if (args.some((x) => !Number.isFinite(x))) throw new Error(`invalid transform: ${value}`);
+		let next;
+		if (fn === 'matrix' && args.length === 6) next = args;
+		else if (fn === 'translate' && (args.length === 1 || args.length === 2)) next = [1, 0, 0, 1, args[0], args[1] ?? 0];
+		else if (fn === 'scale' && (args.length === 1 || args.length === 2)) next = [args[0], 0, 0, args[1] ?? args[0], 0, 0];
+		else if (fn === 'rotate' && (args.length === 1 || args.length === 3)) {
+			const q = (args[0] * Math.PI) / 180,
 				c = Math.cos(q),
 				s = Math.sin(q),
 				r = [c, s, -s, c, 0, 0];
-			n = v.length === 3 ? multiply(multiply([1, 0, 0, 1, v[1], v[2]], r), [1, 0, 0, 1, -v[1], -v[2]]) : r;
-		} else throw new Error(`invalid transform arity: ${m[0]}`);
-		out = multiply(out, n);
+			next =
+				args.length === 3 ? multiply(multiply([1, 0, 0, 1, args[1], args[2]], r), [1, 0, 0, 1, -args[1], -args[2]]) : r;
+		} else throw new Error(`invalid transform arity: ${fn}(${args.join(' ')})`);
+		out = multiply(out, next);
+		functions++;
+		let separator = false,
+			comma = false;
+		while (i < n && /\s/.test(value[i])) {
+			i++;
+			separator = true;
+		}
+		if (i < n && value[i] === ',') {
+			i++;
+			comma = true;
+			separator = true;
+			ws();
+		}
+		if (i >= n) {
+			if (comma) throw new Error(`trailing transform separator in ${value}`);
+			break;
+		}
+		if (!separator) throw new Error(`missing transform separator in ${value}`);
 	}
+	if (!functions) throw new Error(`invalid transform: ${value}`);
 	return out;
 }
 const tx = (p, m) => [m[0] * p[0] + m[2] * p[1] + m[4], m[1] * p[0] + m[3] * p[1] + m[5]];
@@ -225,6 +281,8 @@ export function parsePath(d, tolerance, pointTransform = (p) => p) {
 			p = start;
 			cmd = null;
 			if (i < tokens.length && !/^[A-Za-z]$/.test(tokens[i])) throw new Error('coordinates after close');
+			if (i < tokens.length && /^[A-Za-z]$/.test(tokens[i]) && !/^[Mm]$/.test(tokens[i]))
+				throw new Error('commands after closepath are not supported in v1');
 		} else throw new Error(`unsupported path command ${cmd}`);
 	}
 	if (subpaths !== 1 || !start || cmd !== null) throw new Error('path must contain one closed contour');
@@ -366,6 +424,16 @@ export function compileSvg(source, config = {}) {
 		.map(Number);
 	if (vb.length !== 4 || vb.some((x) => !Number.isFinite(x)) || vb[2] <= 0 || vb[3] <= 0)
 		throw new Error('viewBox must contain four finite values with positive bounds');
+	if (ra.xmlns !== undefined && ra.xmlns !== 'http://www.w3.org/2000/svg')
+		throw new Error('root xmlns must be the SVG namespace');
+	if (ra['xmlns:xlink'] !== undefined && ra['xmlns:xlink'] !== 'http://www.w3.org/1999/xlink')
+		throw new Error('root xmlns:xlink must be the XLink namespace');
+	const positiveLength = (value) => {
+		const m = /^([-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?)(?:px)?$/.exec(value.trim());
+		return m && Number(m[1]) > 0;
+	};
+	for (const key of ['width', 'height'])
+		if (ra[key] !== undefined && !positiveLength(ra[key])) throw new Error(`root ${key} must be a positive SVG length`);
 	const scale = config.maximumDisplayScale ?? 4,
 		px = config.flattenTolerancePx ?? 0.35,
 		sourceTol = px / scale,

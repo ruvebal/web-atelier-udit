@@ -176,6 +176,67 @@ for (const [name, svg, pattern] of [
 		/malformed or unsupported direct child/,
 	],
 	[
+		'post-close-lineto',
+		'<svg viewBox="0 0 100 100"><path fill="#000" d="M75,55L95,95L60,75ZL10,55L60,25L75,5Z"/></svg>',
+		/after closepath/,
+	],
+	[
+		'post-close-relative-lineto',
+		'<svg viewBox="0 0 100 100"><path fill="#000" d="M75,55L95,95L60,75Zl-65,0l50,-30l15,-20Z"/></svg>',
+		/after closepath/,
+	],
+	[
+		'post-close-cubic',
+		'<svg viewBox="0 0 100 100"><path fill="#000" d="M0 0L10 0L10 10ZC1 1 2 2 3 3Z"/></svg>',
+		/after closepath/,
+	],
+	['post-close-close', '<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2ZZ"/></svg>', /after closepath/],
+	[
+		'transform-empty-component',
+		'<svg viewBox="0 0 10 10"><path fill="#000" transform="translate(,1)" d="M0 0L2 0L2 2Z"/></svg>',
+		/invalid transform number/,
+	],
+	[
+		'transform-trailing-comma',
+		'<svg viewBox="0 0 10 10"><path fill="#000" transform="translate(1,)" d="M0 0L2 0L2 2Z"/></svg>',
+		/trailing transform separator/,
+	],
+	[
+		'transform-scale-empty',
+		'<svg viewBox="0 0 10 10"><path fill="#000" transform="scale(,2)" d="M0 0L2 0L2 2Z"/></svg>',
+		/invalid transform number/,
+	],
+	[
+		'transform-matrix-empty',
+		'<svg viewBox="0 0 10 10"><path fill="#000" transform="matrix(,1,0,0,1,0,0)" d="M0 0L2 0L2 2Z"/></svg>',
+		/invalid transform number/,
+	],
+	[
+		'transform-rotate-empty',
+		'<svg viewBox="0 0 10 10"><path fill="#000" transform="rotate(,45)" d="M0 0L2 0L2 2Z"/></svg>',
+		/invalid transform number/,
+	],
+	[
+		'transform-separator-only',
+		'<svg viewBox="0 0 10 10"><path fill="#000" transform=",,," d="M0 0L2 0L2 2Z"/></svg>',
+		/unsupported transform/,
+	],
+	[
+		'transform-missing-separator',
+		'<svg viewBox="0 0 10 10"><path fill="#000" transform="translate(1)scale(2)" d="M0 0L2 0L2 2Z"/></svg>',
+		/missing transform separator/,
+	],
+	[
+		'root-xmlns',
+		'<svg xmlns="http://www.w3.org/1999/xhtml" viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/root xmlns/,
+	],
+	[
+		'root-width',
+		'<svg viewBox="0 0 10 10" width="banana" height="10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/root width/,
+	],
+	[
 		'fill-rule',
 		'<svg viewBox="0 0 10 10"><path fill="#000" fill-rule="banana" d="M0 0L2 0L2 2Z"/></svg>',
 		/unsupported fill-rule/,
@@ -212,6 +273,11 @@ for (const fill of ['#abcd', '#AABBCCDD', 'rgba(0,127,255,0.5)'])
 		() => compileSvg(`<svg viewBox="0 0 10 10"><path fill="${fill}" d="M0 0L2 0L2 2Z"/></svg>`, config),
 		/solid-hex-or-rgb/
 	);
+const rootAttrs = compileSvg(
+	'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="10" viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+	config
+);
+assert.equal(rootAttrs.manifest.facetCount, 1);
 assert.throws(
 	() => compileSvg(readFileSync(fixture, 'utf8'), { ...config, minimumDepth: 0.3, maximumDepth: 0.2 }),
 	/depth bounds/

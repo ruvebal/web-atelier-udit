@@ -130,6 +130,13 @@ function verifyFlatDocumentBoundary() {
 			'<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"></path></svg>',
 			/malformed or unsupported direct child/,
 		],
+		[
+			'<svg xmlns="http://www.w3.org/1999/xhtml" viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+			/root xmlns/,
+		],
+		['<svg xmlns:xlink="banana" viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /root xmlns:xlink/],
+		['<svg viewBox="0 0 10 10" width="banana" height="10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /root width/],
+		['<svg viewBox="0 0 10 10" width="10" height="0"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /root height/],
 	])
 		rejects(svg, pattern);
 }
@@ -197,6 +204,19 @@ const checks = {
 			['<svg viewBox="0 0 10 10"><path fill="rgba(0,0,0,.5)" d="M0 0L2 0L2 2Z"/></svg>', /solid-hex-or-rgb/],
 			['<svg viewBox="0 0 10 10"><path fill="currentColor" d="M0 0L2 0L2 2Z"/></svg>', /inherited colours/],
 			['<svg viewBox="0 0 10 10"><path fill="var(--x)" d="M0 0L2 0L2 2Z"/></svg>', /variables/],
+			['<svg viewBox="0 0 10 10"><path fill="#000" transform="translate(,1)" d="M0 0L2 0L2 2Z"/></svg>', /transform/],
+			['<svg viewBox="0 0 10 10"><path fill="#000" transform="translate(1,)" d="M0 0L2 0L2 2Z"/></svg>', /transform/],
+			['<svg viewBox="0 0 10 10"><path fill="#000" transform="scale(,2)" d="M0 0L2 0L2 2Z"/></svg>', /transform/],
+			[
+				'<svg viewBox="0 0 10 10"><path fill="#000" transform="matrix(,1,0,0,1,0,0)" d="M0 0L2 0L2 2Z"/></svg>',
+				/transform/,
+			],
+			['<svg viewBox="0 0 10 10"><path fill="#000" transform="rotate(,45)" d="M0 0L2 0L2 2Z"/></svg>', /transform/],
+			['<svg viewBox="0 0 10 10"><path fill="#000" transform=",,," d="M0 0L2 0L2 2Z"/></svg>', /transform/],
+			[
+				'<svg viewBox="0 0 10 10"><path fill="#000" transform="translate(1)scale(2)" d="M0 0L2 0L2 2Z"/></svg>',
+				/transform/,
+			],
 		])
 			rejects(svg, pattern);
 	},
@@ -204,6 +224,15 @@ const checks = {
 		rejects('<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L10 10L0 10L10 0Z"/></svg>', /self-intersecting/);
 		rejects('<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L10 0L5 0L10 10L0 10Z"/></svg>', /collinear overlap/);
 		rejects('<svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z M5 5L7 5L7 7Z"/></svg>', /multiple subpaths/);
+		rejects(
+			'<svg viewBox="0 0 100 100"><path fill="#000" d="M75,55L95,95L60,75ZL10,55L60,25L75,5Z"/></svg>',
+			/after closepath/
+		);
+		rejects(
+			'<svg viewBox="0 0 100 100"><path fill="#000" d="M75,55L95,95L60,75Zl-65,0l50,-30l15,-20Z"/></svg>',
+			/after closepath/
+		);
+		rejects('<svg viewBox="0 0 100 100"><path fill="#000" d="M0 0L10 0L10 10ZC1 1 2 2 3 3Z"/></svg>', /after closepath/);
 		const e = buildSvg('<svg viewBox="0 0 10 10"><path fill="#000" fill-rule="evenodd" d="M0 0L2 0L2 2Z"/></svg>');
 		assert.deepEqual(e.manifest.fillRules, ['evenodd']);
 		assert.ok(f1.manifest.facets.some((x) => x.contourVertexCount > 6));
