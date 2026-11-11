@@ -1,6 +1,6 @@
 {
   "schema": "svg-to-rive-3d/v1",
-  "compilerVersion": "1.0.0",
+  "compilerVersion": "1.0.1",
   "supportedSubset": "closed-filled-path-MLCZ-affine/v1",
   "source": {
     "sha256": "90cfa8a5dfb290e92515647141369111c821427c71fec3f402873c1221db51ad",
@@ -21,19 +21,19 @@
       "fill": "#1D4ED8",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.1194413517,
+      "area": 0.1194374004,
       "centroid": [
-        0.0246088228,
-        0.0184294311
+        0.0246073528,
+        0.0184291043
       ],
       "depth": 0.22,
-      "contourVertexCount": 171,
-      "frontTriangleCount": 169,
+      "contourVertexCount": 135,
+      "frontTriangleCount": 133,
       "mesh": {
         "vertexStart": 0,
-        "vertexCount": 1026,
+        "vertexCount": 810,
         "indexStart": 0,
-        "indexCount": 2040
+        "indexCount": 1608
       }
     },
     {
@@ -48,13 +48,13 @@
         0.014441905,
         -0.0925463872
       ],
-      "depth": 0.0997915468,
+      "depth": 0.0997925358,
       "contourVertexCount": 4,
       "frontTriangleCount": 2,
       "mesh": {
-        "vertexStart": 1026,
+        "vertexStart": 810,
         "vertexCount": 24,
-        "indexStart": 2040,
+        "indexStart": 1608,
         "indexCount": 36
       }
     },
@@ -70,13 +70,13 @@
         -0.0064421344,
         -0.1938861523
       ],
-      "depth": 0.07377548,
+      "depth": 0.0737760386,
       "contourVertexCount": 3,
       "frontTriangleCount": 1,
       "mesh": {
-        "vertexStart": 1050,
+        "vertexStart": 834,
         "vertexCount": 18,
-        "indexStart": 2076,
+        "indexStart": 1644,
         "indexCount": 24
       }
     },
@@ -87,19 +87,19 @@
       "fill": "#93C5FD",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.0044518877,
+      "area": 0.0044511308,
       "centroid": [
-        -0.0689523317,
-        0.0169148682
+        -0.0689412896,
+        0.0169140317
       ],
-      "depth": 0.0747509954,
-      "contourVertexCount": 37,
-      "frontTriangleCount": 35,
+      "depth": 0.0747486158,
+      "contourVertexCount": 28,
+      "frontTriangleCount": 26,
       "mesh": {
-        "vertexStart": 1068,
-        "vertexCount": 222,
-        "indexStart": 2100,
-        "indexCount": 432
+        "vertexStart": 852,
+        "vertexCount": 168,
+        "indexStart": 1668,
+        "indexCount": 324
       }
     },
     {
@@ -109,19 +109,19 @@
       "fill": "#9373DD",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.0219390706,
+      "area": 0.0219376978,
       "centroid": [
-        -0.055713127,
-        0.1154335595
+        -0.0557137516,
+        0.1154329083
       ],
-      "depth": 0.1171443747,
-      "contourVertexCount": 71,
-      "frontTriangleCount": 69,
+      "depth": 0.1171432371,
+      "contourVertexCount": 56,
+      "frontTriangleCount": 54,
       "mesh": {
-        "vertexStart": 1290,
-        "vertexCount": 426,
-        "indexStart": 2532,
-        "indexCount": 840
+        "vertexStart": 1020,
+        "vertexCount": 336,
+        "indexStart": 1992,
+        "indexCount": 660
       }
     },
     {
@@ -131,19 +131,19 @@
       "fill": "#1D4ED8",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.00443048,
+      "area": 0.0044302017,
       "centroid": [
-        -0.0059645716,
-        0.0405211038
+        -0.0059671909,
+        0.040523462
       ],
-      "depth": 0.0746673416,
-      "contourVertexCount": 33,
-      "frontTriangleCount": 31,
+      "depth": 0.0746668263,
+      "contourVertexCount": 29,
+      "frontTriangleCount": 27,
       "mesh": {
-        "vertexStart": 1716,
-        "vertexCount": 198,
-        "indexStart": 3372,
-        "indexCount": 384
+        "vertexStart": 1356,
+        "vertexCount": 174,
+        "indexStart": 2652,
+        "indexCount": 336
       }
     },
     {
@@ -153,19 +153,19 @@
       "fill": "#C9C932",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.0043964091,
+      "area": 0.0043961353,
       "centroid": [
-        -0.0054352949,
-        0.087675053
+        -0.0054437449,
+        0.0876714882
       ],
-      "depth": 0.0745337866,
-      "contourVertexCount": 23,
-      "frontTriangleCount": 21,
+      "depth": 0.0745332821,
+      "contourVertexCount": 18,
+      "frontTriangleCount": 16,
       "mesh": {
-        "vertexStart": 1914,
-        "vertexCount": 138,
-        "indexStart": 3756,
-        "indexCount": 264
+        "vertexStart": 1530,
+        "vertexCount": 108,
+        "indexStart": 2988,
+        "indexCount": 204
       }
     },
     {
@@ -175,19 +175,19 @@
       "fill": "#9373DD",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.0088069124,
+      "area": 0.0088070305,
       "centroid": [
-        0.15190094,
-        0.0994101314
+        0.1518937586,
+        0.0994100429
       ],
-      "depth": 0.0888772753,
-      "contourVertexCount": 36,
-      "frontTriangleCount": 34,
+      "depth": 0.0888784115,
+      "contourVertexCount": 28,
+      "frontTriangleCount": 26,
       "mesh": {
-        "vertexStart": 2052,
-        "vertexCount": 216,
-        "indexStart": 4020,
-        "indexCount": 420
+        "vertexStart": 1638,
+        "vertexCount": 168,
+        "indexStart": 3192,
+        "indexCount": 324
       }
     },
     {
@@ -197,19 +197,19 @@
       "fill": "#C9C932",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.0044649752,
+      "area": 0.0044648329,
       "centroid": [
-        0.056962207,
-        0.0169465384
+        0.0569590884,
+        0.0169446588
       ],
-      "depth": 0.074802038,
-      "contourVertexCount": 32,
-      "frontTriangleCount": 30,
+      "depth": 0.074802059,
+      "contourVertexCount": 27,
+      "frontTriangleCount": 25,
       "mesh": {
-        "vertexStart": 2268,
-        "vertexCount": 192,
-        "indexStart": 4440,
-        "indexCount": 372
+        "vertexStart": 1806,
+        "vertexCount": 162,
+        "indexStart": 3516,
+        "indexCount": 312
       }
     },
     {
@@ -219,19 +219,19 @@
       "fill": "#9373DD",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.0043912463,
+      "area": 0.0043907589,
       "centroid": [
-        0.1830347669,
-        0.0167470084
+        0.1830410356,
+        0.0167492344
       ],
-      "depth": 0.0745135036,
-      "contourVertexCount": 33,
-      "frontTriangleCount": 31,
+      "depth": 0.0745121592,
+      "contourVertexCount": 30,
+      "frontTriangleCount": 28,
       "mesh": {
-        "vertexStart": 2460,
-        "vertexCount": 198,
-        "indexStart": 4812,
-        "indexCount": 384
+        "vertexStart": 1968,
+        "vertexCount": 180,
+        "indexStart": 3828,
+        "indexCount": 348
       }
     },
     {
@@ -241,19 +241,19 @@
       "fill": "#C9C932",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.0043493121,
+      "area": 0.0043483345,
       "centroid": [
-        0.1201534604,
-        0.1815148746
+        0.1201528468,
+        0.1815106542
       ],
-      "depth": 0.0743483149,
-      "contourVertexCount": 22,
-      "frontTriangleCount": 20,
+      "depth": 0.0743450228,
+      "contourVertexCount": 18,
+      "frontTriangleCount": 16,
       "mesh": {
-        "vertexStart": 2658,
-        "vertexCount": 132,
-        "indexStart": 5196,
-        "indexCount": 252
+        "vertexStart": 2148,
+        "vertexCount": 108,
+        "indexStart": 4176,
+        "indexCount": 204
       }
     },
     {
@@ -263,19 +263,19 @@
       "fill": "#00295E",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.01780151,
+      "area": 0.0177987675,
       "centroid": [
-        -0.1626469651,
-        0.0643355504
+        -0.1626354811,
+        0.0643426052
       ],
-      "depth": 0.1094902015,
-      "contourVertexCount": 62,
-      "frontTriangleCount": 60,
+      "depth": 0.1094859979,
+      "contourVertexCount": 48,
+      "frontTriangleCount": 46,
       "mesh": {
-        "vertexStart": 2790,
-        "vertexCount": 372,
-        "indexStart": 5448,
-        "indexCount": 732
+        "vertexStart": 2256,
+        "vertexCount": 288,
+        "indexStart": 4380,
+        "indexCount": 564
       }
     },
     {
@@ -285,25 +285,25 @@
       "fill": "#1D4ED8",
       "fillRule": "nonzero",
       "transform": "scale(0.610979 0.61089)",
-      "area": 0.0044927204,
+      "area": 0.0044918517,
       "centroid": [
-        0.056940661,
-        0.2529959517
+        0.0569396248,
+        0.2529956616
       ],
-      "depth": 0.0749099996,
-      "contourVertexCount": 29,
-      "frontTriangleCount": 27,
+      "depth": 0.0749072021,
+      "contourVertexCount": 22,
+      "frontTriangleCount": 20,
       "mesh": {
-        "vertexStart": 3162,
-        "vertexCount": 174,
-        "indexStart": 6180,
-        "indexCount": 336
+        "vertexStart": 2544,
+        "vertexCount": 132,
+        "indexStart": 4944,
+        "indexCount": 252
       }
     }
   ],
   "geometry": {
-    "vertexCount": 3336,
-    "indexCount": 6516,
+    "vertexCount": 2676,
+    "indexCount": 5196,
     "primitive": "triangle-list",
     "channels": [
       "position",
@@ -322,7 +322,7 @@
     "screenTolerancePx": 0.35,
     "maximumDisplayScale": 4,
     "modelTolerance": 0.0000854492,
-    "method": "adaptive-de-casteljau"
+    "method": "adaptive-de-casteljau-after-affine-bake"
   },
   "depth": {
     "policy": "sqrt-relative-area",
@@ -331,6 +331,10 @@
   },
   "fillRules": [
     "nonzero"
+  ],
+  "supportedFillRules": [
+    "nonzero",
+    "evenodd"
   ],
   "centroidMethod": "signed-polygon-area",
   "windingNormalization": "ccw-after-svg-y-inversion",

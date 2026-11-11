@@ -24,3 +24,7 @@ The original “affine transforms” and “M/L/C/Z” wording was underspecifie
 ## Open gate
 
 The implementer has not marked X1 DONE. The cascade harness must rerun the exit gate from the committed tree; a fresh cold reviewer must inspect the verifier, mesh output, and acceptance evidence.
+
+## Cold-review amendment
+
+The first cold review correctly blocked promotion with four P1 findings. The amendment now flattens cubics after the full affine transform, resolves and validates inline paint style, validates `nonzero`/`evenodd` against truthful manifest semantics, and rejects proper crossings, endpoint touches, retracing, and collinear overlap. Both test layers contain adversarial cases that fail the pre-amendment code, including a transformed cubic measured independently against the projected 0.35 px bound. See `PHASE-X1-REVIEW-RESOLUTION.md`. X1 remains VERIFYING pending a new external gate and independent re-review.

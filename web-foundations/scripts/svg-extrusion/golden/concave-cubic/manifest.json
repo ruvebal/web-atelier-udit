@@ -1,6 +1,6 @@
 {
   "schema": "svg-to-rive-3d/v1",
-  "compilerVersion": "1.0.0",
+  "compilerVersion": "1.0.1",
   "supportedSubset": "closed-filled-path-MLCZ-affine/v1",
   "source": {
     "sha256": "07455962cfce8549042733879e56ff6fb986d36cfe224563047101e5ff812cf6",
@@ -43,25 +43,25 @@
       "fill": "#9373DD",
       "fillRule": "nonzero",
       "transform": "translate(50 5) scale(.8 1.1)",
-      "area": 0.0936297832,
+      "area": 0.0935510705,
       "centroid": [
         0.18,
-        0.0976372335
+        0.0976565476
       ],
-      "depth": 0.2060669355,
-      "contourVertexCount": 35,
-      "frontTriangleCount": 33,
+      "depth": 0.2059971162,
+      "contourVertexCount": 31,
+      "frontTriangleCount": 29,
       "mesh": {
         "vertexStart": 36,
-        "vertexCount": 210,
+        "vertexCount": 186,
         "indexStart": 60,
-        "indexCount": 408
+        "indexCount": 360
       }
     }
   ],
   "geometry": {
-    "vertexCount": 246,
-    "indexCount": 468,
+    "vertexCount": 222,
+    "indexCount": 420,
     "primitive": "triangle-list",
     "channels": [
       "position",
@@ -80,7 +80,7 @@
     "screenTolerancePx": 0.35,
     "maximumDisplayScale": 4,
     "modelTolerance": 0.000875,
-    "method": "adaptive-de-casteljau"
+    "method": "adaptive-de-casteljau-after-affine-bake"
   },
   "depth": {
     "policy": "sqrt-relative-area",
@@ -89,6 +89,10 @@
   },
   "fillRules": [
     "nonzero"
+  ],
+  "supportedFillRules": [
+    "nonzero",
+    "evenodd"
   ],
   "centroidMethod": "signed-polygon-area",
   "windingNormalization": "ccw-after-svg-y-inversion",
