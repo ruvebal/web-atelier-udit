@@ -1,6 +1,6 @@
 # PHASE-X1 · Build the reusable SVG extrusion compiler
 
-**Status:** IN_PROGRESS — compiler implemented; evidence handoff follows
+**Status:** VERIFYING — implementation complete; external gate and cold review required
 
 ## Goal
 
