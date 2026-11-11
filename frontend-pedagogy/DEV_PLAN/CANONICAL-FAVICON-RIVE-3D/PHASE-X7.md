@@ -15,7 +15,7 @@ Distil only the independently verified reusable workflow into the studio skill a
 
 ## Acceptance
 
-- [ ] **A1** Skill contains the SVG-path-to-mesh supported subset, D4 depth mapping, D19 picking contract, responsive/fallback rules, verification gates and failure modes.
+- [ ] **A1** Skill contains the SVG-path-to-mesh supported subset, data-driven N contract, D4 depth mapping, D19 picking contract, coordinate conventions, responsive/fallback rules, verification gates and failure modes.
 - [ ] **A2** Repo-specific paths/palette remain in the linked case study, not universal instructions.
 - [ ] **A3** Canonical skill and Codex adapter are synchronized in substance.
 - [ ] **A4** Each repository/root records its own actual commit evidence.

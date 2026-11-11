@@ -1,0 +1,11 @@
+{
+  "schema": "x0-developer-check/v1",
+  "command": "PATH=/Users/ruvebal/.rbenv/shims:/opt/homebrew/bin:$PATH RBENV_VERSION=3.3.11 pnpm build",
+  "exitCode": 1,
+  "jekyllBuild": "passed",
+  "publicationGate": {
+    "status": "failed",
+    "finding": "_site/assets/js/neoplastic/SOURCE.txt: local studio path"
+  },
+  "log": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/pnpm-build-final.log"
+}

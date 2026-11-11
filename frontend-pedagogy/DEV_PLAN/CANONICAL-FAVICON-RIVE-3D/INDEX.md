@@ -2,7 +2,7 @@
 
 **Status:** READY · planning branch `codex/canonical-favicon-rive-3d-cascade`  
 **Author:** Rubén Vega Balbás, PhD · 2026-11-10  
-**Product claim:** one canonical SVG becomes a crisp, responsive, depth-tested object whose 13 facets remain individually understandable and selectable.  
+**Product claim:** one canonical SVG becomes a crisp, responsive, depth-tested object whose N source facets remain individually understandable and selectable; the current favicon golden fixture has N=13.
 **Engineering claim:** geometry, colour, area, intrinsic extrusion depth, hit identity, fallback, and teaching evidence are generated from one SVG source rather than copied by hand.
 
 ## Read this pack
@@ -53,6 +53,8 @@ amending the runbook and its gate together.
 | Existing signed asset | `build/fava_prismatic_3d.riv` | animation asset tree |
 | Rive CLI | 1.9.2 at `/opt/homebrew/bin/rive`; supports verification, pointer/touch input, screenshots, semantics, data dumps, GPU manifests and benchmarks | `rive --version`, `rive --help` |
 | GitHub authority | `ruvebal` authenticated; `repo` and `workflow` scopes | `gh auth status` |
+
+The 2026-11-11 X0 live baseline supersedes these planning-branch/tool-version observations; see [PHASE-X0-REPORT.md](PHASE-X0-REPORT.md) and its immutable artifacts.
 
 ## Non-negotiable outcome
 

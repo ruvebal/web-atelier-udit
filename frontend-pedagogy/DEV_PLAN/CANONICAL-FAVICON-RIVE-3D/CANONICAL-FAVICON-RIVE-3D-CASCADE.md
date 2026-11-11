@@ -29,7 +29,7 @@ Read first:
 
 Hard constraints:
 - fava-mark-static.svg is the only hand-authored geometry authority
-- preserve 13 stable facet identities and source order
+- preserve N stable facet identities and source order (N=13 for the current favicon fixture)
 - derive intrinsic depth from measured relative area using the exact D4 formula
 - exact frontal rest, real side walls/back faces/depth testing
 - raw coordinates for picking; conditioned coordinates for camera
@@ -61,8 +61,11 @@ any supported SVG
 The SVG-path-to-mesh compiler accepts an input SVG, output directory, flattening tolerance,
 minimum/maximum depth, and optional palette policy. It must not import lesson,
 favicon, or theme modules. The favicon and a deliberately different concave/
-cubic SVG fixture run through the same public interface. Its manifest declares
-the supported-subset schema version; unsupported SVG semantics fail explicitly.
+cubic SVG fixture run through the same public interface. Runtime buffers, facet
+IDs, picking, and semantic controls derive their size and identities from parsed
+facet count N; 13 is only the present favicon fixture's expected count, never a
+compiler, shader, runtime, or skill capacity. Its manifest declares the
+supported-subset schema version; unsupported SVG semantics fail explicitly.
 
 ## Closing protocol
 

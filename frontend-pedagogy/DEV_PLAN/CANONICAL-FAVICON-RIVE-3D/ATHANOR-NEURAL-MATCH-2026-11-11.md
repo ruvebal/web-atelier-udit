@@ -77,3 +77,7 @@ Angel and Shreiner observe that much graphics logic remains similar across APIs 
 - Vince, John. 2017. *Mathematics for Computer Graphics*. 5th ed. London: Springer.
 
 These candidates still require the public lesson editor to match the repository’s Chicago formatting and preserve the internal node trail behind the publication metadata switch.
+
+## X0 live anchor recheck · 2026-11-11
+
+The X0 implementer resolved all 15 retained node IDs again through their current Ahmes `extraction.db` files and captured the full extracted node text plus `ahmes query --cite` output in `baseline/X0/research-anchor-verification.json`. Haverbeke, Vince, and Angel/Shreiner nodes still resolve as evaluator-safe (`confidence=0.95`, metadata-backed); their verified content supports SVG/DOM interaction, camera-then-projection, time-parameterized interpolation, quaternion interpolation, Bézier representation, and modern GPU setup cost. ACM CS2023 nodes resolve to full page text, but the current cite outputs are `source=slug`, `confidence=0.60`, `evaluator_safe=no` (rather than the earlier report’s 0.70 observation). Keep the source-only bibliography gap; do not publish a citation derived from the slug. The live recheck supersedes any different safety score in this earlier search note.

@@ -1,0 +1,118 @@
+{
+  "schema": "x0-tool-versions/v1",
+  "tools": [
+    {
+      "label": "Rive CLI",
+      "command": "rive --version",
+      "exitCode": 0,
+      "stdout": "rive 1.9.2",
+      "stderr": ""
+    },
+    {
+      "label": "Node.js",
+      "command": "node --version",
+      "exitCode": 0,
+      "stdout": "v24.22.1",
+      "stderr": ""
+    },
+    {
+      "label": "npm",
+      "command": "npm --version",
+      "exitCode": 0,
+      "stdout": "11.19.1",
+      "stderr": ""
+    },
+    {
+      "label": "pnpm",
+      "command": "pnpm --version",
+      "exitCode": 0,
+      "stdout": "10.30.0",
+      "stderr": ""
+    },
+    {
+      "label": "Ruby",
+      "command": "ruby --version",
+      "exitCode": 0,
+      "stdout": "ruby 2.6.10p210 (2022-04-12 revision 67958) [universal.arm64e-darwin26]",
+      "stderr": ""
+    },
+    {
+      "label": "Bundler used",
+      "command": "bundle _2.4.22_ --version",
+      "exitCode": 0,
+      "stdout": "Bundler version 2.4.22",
+      "stderr": "Your RubyGems version (3.0.3.1) has a bug that prevents `required_ruby_version` from working for Bundler. Any scripts that use `gem install bundler` will break as soon as Bundler drops support for your Ruby version. Please upgrade RubyGems to avoid future breakage and silence this warning by running `gem update --system 3.2.3`\nIgnoring commonmarker-0.23.11 because its extensions are not built. Try: gem pristine commonmarker --version 0.23.11\nIgnoring eventmachine-1.2.7 because its extensions are not built. Try: gem pristine eventmachine --version 1.2.7\nIgnoring ffi-1.13.1 because its extensions are not built. Try: gem pristine ffi --version 1.13.1\nIgnoring http_parser.rb-0.8.1 because its extensions are not built. Try: gem pristine http_parser.rb --version 0.8.1\nIgnoring http_parser.rb-0.8.0 because its extensions are not built. Try: gem pristine http_parser.rb --version 0.8.0\nIgnoring racc-1.8.1 because its extensions are not built. Try: gem pristine racc --version 1.8.1"
+    },
+    {
+      "label": "Jekyll",
+      "command": "bundle _2.4.22_ exec jekyll --version",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "Your RubyGems version (3.0.3.1) has a bug that prevents `required_ruby_version` from working for Bundler. Any scripts that use `gem install bundler` will break as soon as Bundler drops support for your Ruby version. Please upgrade RubyGems to avoid future breakage and silence this warning by running `gem update --system 3.2.3`\nIgnoring commonmarker-0.23.11 because its extensions are not built. Try: gem pristine commonmarker --version 0.23.11\nIgnoring eventmachine-1.2.7 because its extensions are not built. Try: gem pristine eventmachine --version 1.2.7\nIgnoring ffi-1.13.1 because its extensions are not built. Try: gem pristine ffi --version 1.13.1\nIgnoring http_parser.rb-0.8.1 because its extensions are not built. Try: gem pristine http_parser.rb --version 0.8.1\nIgnoring http_parser.rb-0.8.0 because its extensions are not built. Try: gem pristine http_parser.rb --version 0.8.0\nIgnoring racc-1.8.1 because its extensions are not built. Try: gem pristine racc --version 1.8.1\nbundler: failed to load command: jekyll (/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations/vendor/bundle/ruby/2.6.0/bin/jekyll)\n/Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/definition.rb:540:in `materialize': Could not find i18n-1.15.2, public_suffix-7.0.5 in locally installed gems (Bundler::GemNotFound)\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/definition.rb:200:in `specs'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/definition.rb:266:in `specs_for'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/runtime.rb:18:in `setup'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler.rb:162:in `setup'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/setup.rb:23:in `block in <top (required)>'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/ui/shell.rb:159:in `with_level'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/ui/shell.rb:111:in `silence'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/setup.rb:23:in `<top (required)>'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/cli/exec.rb:56:in `require_relative'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/cli/exec.rb:56:in `kernel_load'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/cli/exec.rb:23:in `run'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/cli.rb:492:in `exec'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/vendor/thor/lib/thor/command.rb:28:in `run'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/vendor/thor/lib/thor.rb:527:in `dispatch'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/cli.rb:34:in `dispatch'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/vendor/thor/lib/thor/base.rb:584:in `start'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/cli.rb:28:in `start'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/exe/bundle:37:in `block in <top (required)>'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/lib/bundler/friendly_errors.rb:117:in `with_friendly_errors'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/gems/bundler-2.4.22/exe/bundle:29:in `<top (required)>'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/bin/bundle:23:in `load'\n\tfrom /Users/ruvebal/.gem/ruby/2.6.0/bin/bundle:23:in `<main>'"
+    },
+    {
+      "label": "Google Chrome",
+      "command": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome --version",
+      "exitCode": 0,
+      "stdout": "Google Chrome 157.0.8103.51",
+      "stderr": ""
+    },
+    {
+      "label": "macOS",
+      "command": "sw_vers -productVersion",
+      "exitCode": 0,
+      "stdout": "27.0.1",
+      "stderr": ""
+    },
+    {
+      "label": "Python",
+      "command": "python3 --version",
+      "exitCode": 0,
+      "stdout": "Python 3.14.7",
+      "stderr": ""
+    },
+    {
+      "label": "Bundler locked by Gemfile.lock",
+      "command": "read web-foundations/Gemfile.lock BUNDLED WITH",
+      "exitCode": 0,
+      "stdout": "2.5.22",
+      "stderr": ""
+    },
+    {
+      "label": "Capture date",
+      "command": "UTC system clock at X0 collection",
+      "exitCode": 0,
+      "stdout": "2026-11-11T12:02:04+00:00",
+      "stderr": ""
+    }
+  ],
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64"
+  },
+  "buildToolchain": {
+    "ruby": {
+      "version": "3.3.11",
+      "command": "PATH=/Users/ruvebal/.rbenv/shims:/opt/homebrew/bin:$PATH RBENV_VERSION=3.3.11 ruby --version",
+      "exitCode": 0
+    },
+    "bundler": {
+      "version": "2.5.22",
+      "command": "PATH=/Users/ruvebal/.rbenv/shims:/opt/homebrew/bin:$PATH RBENV_VERSION=3.3.11 bundle --version",
+      "exitCode": 0
+    },
+    "jekyll": {
+      "version": "3.10.0",
+      "command": "PATH=/Users/ruvebal/.rbenv/shims:/opt/homebrew/bin:$PATH RBENV_VERSION=3.3.11 bundle exec jekyll --version",
+      "exitCode": 0
+    },
+    "reason": "Gemfile.lock requires Bundler 2.5.22; system Ruby 2.6 uses only Bundler 1.17.2, so the installed rbenv Ruby 3.3.11 toolchain was used for the final pnpm build."
+  },
+  "pnpmBuild": {
+    "command": "PATH=/Users/ruvebal/.rbenv/shims:/opt/homebrew/bin:$PATH RBENV_VERSION=3.3.11 pnpm build",
+    "exitCode": 1,
+    "jekyllBuild": "passed; 200 HTML files post-processed",
+    "publicationSafety": "failed: _site/assets/js/neoplastic/SOURCE.txt: local studio path",
+    "log": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/pnpm-build-final.log"
+  }
+}

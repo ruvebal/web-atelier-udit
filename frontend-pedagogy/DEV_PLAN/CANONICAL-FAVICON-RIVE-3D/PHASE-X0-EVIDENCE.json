@@ -1,0 +1,103 @@
+{
+  "schema": "phase-evidence/v1",
+  "phase": "X0",
+  "reportStatus": "VERIFYING",
+  "items": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "command": "python3 web-foundations/scripts/svg-extrusion/capture-phase-x0-inventory.py",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/source-inventory.json",
+      "sha256": "ad200887de1c2e05e270517e046243fe90741b647e76ffd73da177b2d7e8377f",
+      "expected": "Canonical SVG checksum, path inventory, source order, and fixture count N=13 are recorded.",
+      "observed": "Inventory records 13 current source paths; it labels 13 as golden-fixture count and architecture capacity as dynamic N."
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "command": "Rive CLI verify plus Chrome browser route capture",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/rive-runtime-baseline.json",
+      "sha256": "3bb8d407a0879921bd79a474c05fe7ebb23a412101a5c8ac502efedf44eab8b2",
+      "expected": "Tracked .riv checksum is recorded and the binary loads in browser runtime; CLI source verify is reported separately.",
+      "observed": "Existing tracked .riv checksum and byte count are recorded; browser runtime status confirms loaded GPU Canvas scene; CLI verify reports riv:null and bytes:0."
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "command": "Chrome route captures at desktop and narrow viewports",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/artifact-index.json",
+      "sha256": "70eb7432933e58b68de40b99de4fc226da9f497ccb8fe03d264511875432613d",
+      "expected": "Desktop and narrow baseline route and fallback captures are present with viewport dimensions.",
+      "observed": "Four desktop/narrow route captures and corresponding browser metrics are indexed; fallback image reports loaded.",
+      "visualReview": {
+        "reviewer": "X0 capture inspection",
+        "decision": "Desktop and narrow route captures are legible; fallback loads; browser runtime renders the existing specimen; viewport metrics show no page-level horizontal overflow.",
+        "captures": [
+          {
+            "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-rive3d-desktop-1440x980.png",
+            "sha256": "1cebd3b342b59376f31acbabc7361fd6fd382a3fc4dd4fea18613f647a133bf4",
+            "viewport": "1440x893 Chrome viewport"
+          },
+          {
+            "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-rive3d-mobile-390x844.png",
+            "sha256": "ee0bbc767747daac27091c9758773081b6809a76276c2bd30a1e1ddf04854059",
+            "viewport": "390x844"
+          },
+          {
+            "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-desktop-1440x980.png",
+            "sha256": "f37ae8da9119bbe7dec5019ed8b84b6eddbe3288a89f1d930cb67ecf93d90886",
+            "viewport": "1440x893 Chrome viewport"
+          },
+          {
+            "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/route-mobile-390x844.png",
+            "sha256": "d6bcae65a315b84399fe166bd1319ddda967b29ad3f908c5bb66df791f465263",
+            "viewport": "390x844"
+          }
+        ]
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "command": "node web-foundations/scripts/svg-extrusion/capture-phase-x0-inventory.py",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/tool-versions.json",
+      "sha256": "8af3efd8bb56c4099098ef7349b7b22f05d42def09f2c6b02bacda8dd7d7cefa",
+      "expected": "Rive, Node, Ruby, and browser versions are recorded with date.",
+      "observed": "Rive CLI 1.9.2, Node 24.22.1, npm 11.19.1, pnpm 10.30.0, Chrome 157.0.8103.51, Ruby 3.3.11, Bundler 2.5.22, and Jekyll 3.10.0 recorded 2026-11-11."
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "command": "Manual downstream runbook amendment review",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X0-REPORT.md",
+      "sha256": "6ce587e5e934e2ae9f2e0c461ac7c2b73dfc48afadd4a994e048ec02c1d0f3a3",
+      "expected": "Every contradicted assumption amends downstream runbooks and report remains VERIFYING.",
+      "observed": "Dynamic N, coordinate conventions, transform order, interpolation separation, algorithm derivation labels, and source-only citation gap are amended across X1\u2013X7; report status VERIFYING."
+    },
+    {
+      "id": "A6",
+      "status": "PASS",
+      "command": "node web-foundations/scripts/svg-extrusion/verify-phase-evidence.mjs X0",
+      "exitCode": 0,
+      "artifact": "web-foundations/scripts/svg-extrusion/verify-phase-evidence.mjs",
+      "sha256": "e7471c31892bbea3d6c3c1c3cb9673cf793a5745200ec5e7d1b3c817471d1708",
+      "expected": "Validator checks the exact A1\u2013A7 receipt, artifact hashes, and visual capture hashes.",
+      "observed": "Validator syntax and positive/negative receipt smoke cases passed; final receipt was validated after generation."
+    },
+    {
+      "id": "A7",
+      "status": "PASS",
+      "command": "ahmes query --cite plus local extraction node verification",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X0/research-anchor-verification.json",
+      "sha256": "fa3989792a367fc88b146a7eaadc1c3e8a6b0a9fe55c884866d53c33f755a495",
+      "expected": "All downstream research anchors resolve to full page context; unsafe metadata remains source-only.",
+      "observed": "15 node IDs resolve to full text; 9 verified anchors remain evaluator-safe and 6 ACM CS2023 anchors remain source-only because citation metadata is slug-derived."
+    }
+  ]
+}

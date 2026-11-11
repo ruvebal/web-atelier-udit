@@ -8,7 +8,7 @@ Capture the current canonical SVG, approximate prism specimen, tool versions, si
 
 ## Deliverables
 
-- checksums and path/command inventory for all 13 facets;
+- checksums and path/command inventory for the canonical fixture (currently N=13);
 - current Rive CLI/runtime versions and signing state;
 - verified Athanor/Ahmes research anchors, evaluator-safety outcomes and bibliography gaps from the neural-match report;
 - baseline screenshots/data dump/GPU manifest where supported;
@@ -18,12 +18,12 @@ Capture the current canonical SVG, approximate prism specimen, tool versions, si
 
 ## Prompt
 
-Run read-only probes first. Record exact commands and outputs. Verify there are 13 source paths, not “14 canonical paths”; identify all `M/L/C/Z` commands and the non-uniform transform. Do not alter the specimen. Write `PHASE-X0-REPORT.md` with status VERIFYING and hand off.
+Run read-only probes first. Record exact commands and outputs. Verify that the current golden fixture has N=13 source paths, not “14 canonical paths”; identify all `M/L/C/Z` commands and the non-uniform transform. Record N as an observed fixture property only: downstream compiler/runtime capacity, generated buffers, IDs, picking and semantic controls must remain data-driven. Capture narrow browser behavior as well as the desktop route. Do not alter the existing specimen. Write `PHASE-X0-REPORT.md` with status VERIFYING and hand off.
 
 ## Acceptance
 
-- [ ] **A1** Canonical source checksum and 13-facet inventory are machine-generated.
-- [ ] **A2** Current `.riv` verifies and its checksum is recorded.
+- [ ] **A1** Canonical source checksum and machine-generated path inventory record observed N and confirm N=13 only for this golden fixture.
+- [ ] **A2** Current `.riv` loads in the browser runtime and its checksum is recorded; CLI source-project verification is reported separately.
 - [ ] **A3** Baseline route and fallback are captured at desktop and narrow viewport.
 - [ ] **A4** Rive/Node/Ruby/browser versions are dated.
 - [ ] **A5** Every contradicted assumption amends downstream runbooks.
