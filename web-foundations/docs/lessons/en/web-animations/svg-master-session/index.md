@@ -18,7 +18,7 @@ permalink: /lessons/en/web-animations/svg-master-session/
 
 The Web Atelier favicon is the source artwork for this session. Its 13 cleaned facets use the course palette (navy, blue, violet, and chartreuse). The browser favicon keeps a slow, self-contained CSS colour cycle. The larger landing mark reads those same paths into Canvas: the whole plane follows the pointer, facets separate along projected Z, colours rotate with a stagger, and clicking a visible facet toggles its inversion. This Canvas interaction is decorative rather than a keyboard control; reduced motion and script failure retain the static SVG. Navigation and comparison examples use a separate static copy so the loop cannot bias the baseline.
 
-Open the [interactive technique comparison]({{ '/lessons/en/web-animations/svg-master-session/demo/' | relative_url }}). Round 1 gives CSS transition/keyframes, SMIL, WAAPI, GSAP, Motion, and Anime.js the same reveal task and timing. Round 2 gives them different motion tasks that fit their strengths. Round 3 asks how the same techniques receive, store, interrupt, and coordinate facet-level input. Round 4 separates flat SVG motion, CSS 3D planes, mathematical 2.5D projection, GPU-backed 2D rendering, and genuine depth-tested scenes. The authored-asset showreel plays generated Lottie JSON and a dotLottie v2 package, including timeline scrubbing and variant switching. Its Rive sequence now has three deliberately different specimens: an RML timeline/state machine, exact favicon paths drawn procedurally in 2D AnimaScript, and a signed Rive + AnimaScript GPU Canvas scene whose thirteen triangular prisms unfold through real Z, lighting, and occlusion.
+Open the [interactive technique comparison]({{ '/lessons/en/web-animations/svg-master-session/demo/' | relative_url }}). Round 1 gives CSS transition/keyframes, SMIL, WAAPI, GSAP, Motion, and Anime.js the same reveal task and timing. Round 2 gives them different motion tasks that fit their strengths. Round 3 asks how the same techniques receive, store, interrupt, and coordinate facet-level input. Round 4 separates flat SVG motion, CSS 3D planes, mathematical 2.5D projection, GPU-backed 2D rendering, and genuine depth-tested scenes. A short audio-sync bridge maps those same techniques onto the Web Audio clock and Rive/AnimaScript’s WASM audio lane—without turning this page into a full Web Audio master lesson. The authored-asset showreel plays generated Lottie JSON and a dotLottie v2 package, including timeline scrubbing and variant switching. Its Rive sequence now has three deliberately different specimens: an RML timeline/state machine, exact favicon paths drawn procedurally in 2D AnimaScript, and a signed Rive + AnimaScript GPU Canvas scene whose thirteen triangular prisms unfold through real Z, lighting, and occlusion.
 
 The comparison opens as a full page rather than a modal. Its wide stages, long-form evidence, browser history, and shareable URL are useful here; placing the same material in a focus-trapped overlay would introduce nested scrolling without improving the task. A compact, theme-aware section rail and proximity snap points preserve orientation without forcing every scroll gesture to stop.
 
@@ -33,6 +33,7 @@ By the end of the session, students can:
 - distinguish an animation technique from an exported format, player, or authoring runtime;
 - distinguish a GPU rendering backend from a scene that actually owns depth, cameras, lights, materials, and occlusion;
 - classify CSS 3D planes, SVG/Canvas 2.5D projection, and WebGL mesh rendering without calling them equivalent;
+- name which animation techniques can lock to the Web Audio clock (or a WASM audio lane) versus which only approximate it;
 - select a solution using visual fit, code clarity, delivery cost, and accessibility rather than library fashion;
 - produce and justify a reduced-motion-safe ruvebal favicon for a landing page.
 
@@ -219,6 +220,68 @@ The result is no longer the original SVG DOM. It is a Three.js scene derived fro
 
 The icons above are the official website favicons, stored locally for a stable classroom page and used nominatively. Their source URLs and retrieval record live beside the files.
 
+## Audio sync bridge: who owns the clock?
+
+<aside class="lesson-emphasis lesson-emphasis--caution" aria-label="Critical distinction">
+<p class="lesson-emphasis__label">Critical distinction</p>
+<p><strong>A reverb effect is not a sync clock.</strong> Web Audio’s <code>ConvolverNode</code> (convolution reverb) colours sound. Precise audiovisual lock comes from the <strong>audio timeline</strong> — <code>AudioContext.currentTime</code>, output latency, and (when authored inside Rive) AnimaScript audio processors on the audio thread / AudioWorklet. Do not confuse the two.</p>
+</aside>
+
+This session already asks *who owns time, who owns space, who draws the pixels?* Sound adds a fourth owner: **who owns the audible sample clock?** The Web Audio API keeps that clock on its own rendering thread, advancing in *render quanta* (commonly 128 frames ≈ 2.7–2.9 ms at 44.1/48 kHz). Visual systems that can **seek or sample** against that clock can approach sample-accurate choreography. Systems that only fire CSS transitions or one-shot library tweens after an `ended` / `timeupdate` callback will always feel “close enough,” not locked.
+
+Two honest sync patterns (HOW, not a full Web Audio course):
+
+1. **Drive animation from the audio clock** — schedule `AudioBufferSourceNode.start(when)`, then each frame read `audioCtx.currentTime` (optionally minus `outputLatency` / via `getOutputTimestamp()`) and set a seekable animation playhead.
+2. **React to analysed energy** — `AnalyserNode` → amplitude/FFT → uniforms or facet opacity. Musical and useful for reactive visuals; **not** sample-accurate event lock.
+
+**Excerpt — audio clock as master, animation as follower** (not a complete app; paste into a page that already has a decoded buffer and a WAAPI or GSAP handle):
+
+```js
+// Excerpt — AudioContext owns time; paint seeks the visual
+const audioCtx = new AudioContext();
+const source = audioCtx.createBufferSource();
+source.buffer = decodedBuffer;
+source.connect(audioCtx.destination);
+
+const startAt = audioCtx.currentTime + 0.05; // slight look-ahead
+source.start(startAt);
+
+function paint() {
+  const latency = audioCtx.outputLatency || 0;
+  const t = Math.max(0, audioCtx.currentTime - startAt - latency);
+  // WAAPI: Animation.currentTime is milliseconds
+  revealAnimation.currentTime = t * 1000;
+  // GSAP alternative: timeline.progress(t / durationSeconds)
+  requestAnimationFrame(paint);
+}
+requestAnimationFrame(paint);
+```
+
+### Sync matrix for this session’s techniques
+
+| Technique / runtime | Sync quality with Web Audio | How you would lock it | Honest limit |
+| --- | --- | --- | --- |
+| CSS transition / keyframes | **Weak** | Toggle classes from audio callbacks, or rewrite `animation-delay` / custom properties each frame | No reliable seekable playhead; hard to scrub mid-phrase |
+| SVG SMIL | **Weak** | `beginElementAt()` / restart from script timed against `currentTime` | Awkward external control; not designed as an AV transport |
+| **WAAPI** | **Strong (DOM)** | Set `animation.currentTime` from `AudioContext.currentTime` each rAF | Still paints on the display refresh; lock is clock-driven, not sample-threaded |
+| **GSAP** | **Strong (JS timeline)** | `timeline.progress(t / duration)` or `timeline.time(t)` from the audio clock | Same refresh-bound paint; excellent when choreography already lives in GSAP |
+| Motion / Anime.js | **Good** | Drive their controls / seek APIs from `currentTime` the same way | Check each library’s seek/progress API; no audio clock of their own |
+| Canvas 2.5D / Three.js | **Strong (manual)** | Sample audio time (or Analyser) inside `requestAnimationFrame` / `useFrame` and write transforms/uniforms | You own the mapping; easiest place to also apply `outputLatency` |
+| Lottie / dotLottie | **Good (player)** | Seek the player’s frame/time from audio progress | Player API quality varies; still a 2D timeline follower |
+| **Rive (audio events)** | **Strong (authored)** | Embed audio events in the `.riv`; web runtime uses an `AudioContext` and unlocks after user gesture | Browser autoplay policy still applies; host page must unlock audio |
+| **Rive + AnimaScript audio processors** | **Strongest in this map (WASM audio lane)** | Processors render sample blocks on the audio thread / AudioWorklet; `startFrame` / engine time can stamp notes with the mix | Requires a threaded web build for live processors; this is where “own WebAssembly” means *sample-rate continuity*, not a DOM tween |
+
+Sources for the HOW layer: [MDN `AudioContext.currentTime`](https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/currentTime), [Web Audio API](https://www.w3.org/TR/webaudio-1.1/), [Rive playing audio](https://rive.app/docs/runtimes/web/playing-audio), [AnimaScript audio processors](https://rive.app/rasc/docs/audio.html).
+
+### Studio judgment
+
+- Prefer **WAAPI or GSAP seeking from `AudioContext.currentTime`** when the visual is DOM/SVG and the sound is a decoded buffer or scheduled graph you control.
+- Prefer **Rive audio events / AnimaScript processors** when hit sounds, loops, and motion must travel **inside one authored `.riv`** across platforms — that is the session’s WASM answer, not a reason to rewrite every landing mark in Rive.
+- Prefer **Analyser-driven** motion for reactive visualisers (including Streamfield-style membranes); do not claim beat-reactive opacity is “perfect sync.”
+- Keep **`prefers-reduced-motion`**: mute or simplify the visual even when the audio clock is perfect. Autoplay still needs a user gesture on the web.
+
+This bridge does **not** replace a dedicated Web Audio lesson. It only answers, for the techniques already on this page: which clocks they can follow, and which runtimes can own the audible sample stream themselves.
+
 ## Contest rubric: elegance and economy
 
 Score each approach from 1–5, then weight the criteria. Each student should record the score and one piece of evidence from the live comparison.
@@ -228,7 +291,8 @@ Score each approach from 1–5, then weight the criteria. Each student should re
 | Motion fit | 15% | The reveal supports the identity, has good pacing, and ends cleanly |
 | SVG fidelity | 15% | The original colours and geometry stay intact at different sizes |
 | Interaction granularity | 20% | Pointer and keyboard input can reach the intended facet/state without fragile targeting |
-| Spatial honesty | 15% | The explanation names planar 3D, simulated 2.5D, GPU-backed 2D, or true 3D correctly |
+| Spatial honesty | 10% | The explanation names planar 3D, simulated 2.5D, GPU-backed 2D, or true 3D correctly |
+| Audio-clock honesty | 5% | If sound is claimed, the note names follower (seek from `currentTime`) vs reactive (Analyser) vs authored WASM audio — not “reverb” as sync |
 | Code elegance | 15% | Input, state, timing, interruption, and reset behavior are easy to find and adjust |
 | Delivery economy | 20% | Added code, runtime, asset conversion, and maintenance are proportionate to the result |
 
@@ -444,8 +508,9 @@ The local Rive export is `docs/assets/animations/fava/rive/fava-motion.riv`; the
 | 30 min | Use the Round 3 facet interaction lab and authored timeline controls | Distinguish DOM targeting, playback objects, gesture response, coordinated timelines, and asset state machines |
 | 15 min | Play Lottie/dotLottie exports; compare Rive's 2D state machine, procedural 2D paths, and signed GPU Canvas scene | Distinguish timelines, state machines, procedural scripts, GPU geometry, players, and signing/export costs |
 | 35 min | Use the Round 4 spatial lab: flat SVG, CSS plane, Canvas projection, and WebGL extrusion | Classify each result as 2D, planar 3D, 2.5D, GPU-backed 2D, or true 3D and identify who owns rendering |
-| 25 min | Read and adapt the CSS, projection, scene-driver, and SVGLoader code examples | Explain the boundary between a timing engine and a renderer |
-| 45 min | Build the chosen static-mark treatment into a landing-page hero | Keep the original silhouette, tune timing, and provide a static mark |
+| 20 min | Read and adapt the CSS, projection, scene-driver, and SVGLoader code examples | Explain the boundary between a timing engine and a renderer |
+| 15 min | Audio sync bridge: map techniques to Web Audio / Rive WASM audio | Name follower vs reactive vs authored-audio; avoid calling reverb a sync clock |
+| 40 min | Build the chosen static-mark treatment into a landing-page hero | Keep the original silhouette, tune timing, and provide a static mark |
 | 10 min | Review reduced motion, keyboard access, and performance | Demonstrate reduced-motion behavior and note one rendering observation |
 
 ## Accessibility and delivery constraints
@@ -467,7 +532,8 @@ One ruvebal favicon treatment in the landing-page hero, plus a short design note
 3. the reduced-motion behavior;
 4. the added delivery cost (code, runtime, or exported asset);
 5. the spatial classification—2D, planar 3D, 2.5D, GPU-backed 2D, or true 3D—and the renderer that actually owns it;
-6. one thing the student would remove if the animation did not improve communication.
+6. if the treatment involves sound: whether motion is an audio-clock **follower**, **Analyser-reactive**, or **authored in Rive/AnimaScript’s audio lane**—and one sentence on autoplay/gesture unlock;
+7. one thing the student would remove if the animation did not improve communication.
 
 ## Instructor note
 

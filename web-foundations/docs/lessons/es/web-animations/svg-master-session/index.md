@@ -24,7 +24,7 @@ Abre la [comparación interactiva de técnicas (demo en inglés)]({{ '/lessons/e
 
 ## Resultados de aprendizaje
 
-Al terminar, el alumnado podrá explicar cuándo conviene insertar un SVG inline; comparar transiciones y keyframes CSS, SMIL, WAAPI, GSAP, Motion para JavaScript y Anime.js; distinguir una técnica de un formato exportado/runtime; escoger una solución con criterios de encaje visual, claridad, coste y accesibilidad; y crear una versión del favicon ruvebal compatible con movimiento reducido.
+Al terminar, el alumnado podrá explicar cuándo conviene insertar un SVG inline; comparar transiciones y keyframes CSS, SMIL, WAAPI, GSAP, Motion para JavaScript y Anime.js; distinguir una técnica de un formato exportado/runtime; nombrar qué técnicas pueden engancharse al reloj de Web Audio (o a un carril de audio WASM) frente a las que solo lo aproximan; escoger una solución con criterios de encaje visual, claridad, coste y accesibilidad; y crear una versión del favicon ruvebal compatible con movimiento reducido.
 
 ## Mapa de técnicas
 
@@ -189,6 +189,29 @@ rive docs/assets/animations/fava/rive --publish=local --output-dir=.
 ```
 
 El archivo esperado es `docs/assets/animations/fava/rive/fava-motion.riv`; al existir, la demo habilita automáticamente su canvas y el botón de repetición. Mientras tanto se enlaza la fuente RML verificada y se muestra el icono estático. Documentación: [CLI de Rive](https://rive.app/agents), [especificación dotLottie v2](https://dotlottie.io/spec/2.0/) y [reproductor JavaScript de dotLottie](https://docs.lottiefiles.com/en/runtimes/distributions/js).
+
+## Puente de sincronía con audio: ¿quién posee el reloj?
+
+<aside class="lesson-emphasis lesson-emphasis--caution" aria-label="Distinción crítica">
+<p class="lesson-emphasis__label">Distinción crítica</p>
+<p><strong>Un efecto de reverberación no es un reloj de sincronía.</strong> El <code>ConvolverNode</code> de Web Audio colorea el sonido. El bloqueo audiovisual preciso viene de la <strong>línea temporal de audio</strong> — <code>AudioContext.currentTime</code>, la latencia de salida y (en Rive) los procesadores de audio de AnimaScript en el hilo de audio / AudioWorklet.</p>
+</aside>
+
+Esta sesión ya pregunta *quién posee el tiempo, el espacio y los píxeles*. El sonido añade un cuarto dueño: **quién posee el reloj de muestras**. Dos patrones honestos (CÓMO, no un curso completo de Web Audio):
+
+1. **La animación sigue al audio** — programa `source.start(when)` y, en cada frame, lee `audioCtx.currentTime` (restando `outputLatency` si hace falta) y posiciona un playhead que admita seek (WAAPI `currentTime`, progreso de GSAP, frame de Lottie/Rive).
+2. **Reacción a energía analizada** — `AnalyserNode` → amplitud/FFT → opacidad o uniforms. Útil y musical; **no** es sincronía a nivel de muestra.
+
+| Técnica | Calidad de sync | Cómo engancharla | Límite |
+| --- | --- | --- | --- |
+| CSS / SMIL | Débil | Clases o `beginElementAt` desde callbacks de audio | Sin playhead fiable |
+| **WAAPI / GSAP / Motion / Anime** | Fuerte–buena | Seek/progreso desde `AudioContext.currentTime` | El pintado sigue el refresco de pantalla |
+| Canvas 2.5D / Three.js | Fuerte | Muestrear el reloj (o Analyser) en `rAF` / `useFrame` | Tú escribes el mapeo |
+| Lottie / dotLottie | Buena | Seek del reproductor desde el progreso de audio | Depende de la API del player |
+| **Rive (eventos de audio)** | Fuerte (autoría) | Audio embebido en el `.riv`; el runtime web usa `AudioContext` tras gesto | Política de autoplay del navegador |
+| **Rive + AnimaScript (procesadores)** | La más fuerte aquí (WASM) | Renderizan bloques en el hilo de audio / AudioWorklet | Build web con hilos para procesadores en vivo |
+
+Detalle y excerpt en la [versión inglesa de esta lección]({{ '/lessons/en/web-animations/svg-master-session/#audio-sync-bridge-who-owns-the-clock' | relative_url }}). Referencias: [MDN `currentTime`](https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/currentTime), [audio en Rive](https://rive.app/docs/runtimes/web/playing-audio), [procesadores AnimaScript](https://rive.app/rasc/docs/audio.html).
 
 ## Sesión maestra de 3 horas
 
