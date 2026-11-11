@@ -243,6 +243,8 @@ const checks = {
 			['<svg viewBox="0 0 10 10"><path __proto__="x" __proto__="y" fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /duplicate attribute/],
 			['<?xml garbage?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /malformed XML declaration/],
 			['<?xml version="x"?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /malformed XML declaration/],
+			[' \n\t<?xml version="1.0"?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /root svg|malformed/],
+			['<!-- c --><?xml version="1.0"?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>', /root svg|malformed/],
 		])
 			rejects(svg, pattern);
 	},

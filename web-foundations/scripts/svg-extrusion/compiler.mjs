@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 export const SCHEMA = 'svg-to-rive-3d/v1';
-export const COMPILER_VERSION = '1.0.8';
+export const COMPILER_VERSION = '1.0.9';
 const EPS = 1e-10;
 const NUMBER = /^[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?$/;
 const nonXmlChar = /[^\u0009\u000A\u000D\u0020-\uD7FF\uE000-\uFFFD\u{10000}-\u{10FFFF}]/u;
@@ -95,7 +95,7 @@ function readTags(source) {
 	return tags;
 }
 function parseSvgStructure(source) {
-	let clean = xmlTrim(stripComments(source));
+	let clean = source;
 	const declaration = /^<\?xml[ \t\r\n]([^]*?)\?>[ \t\r\n]*/.exec(clean);
 	if (declaration) {
 		const body = declaration[1];
@@ -106,8 +106,9 @@ function parseSvgStructure(source) {
 			)
 		)
 			throw new Error('malformed XML declaration');
-		clean = xmlTrim(clean.slice(declaration[0].length));
+		clean = clean.slice(declaration[0].length);
 	}
+	clean = xmlTrim(stripComments(clean));
 	if (/<!DOCTYPE|<!ENTITY|<script\b/i.test(clean)) throw new Error('DOCTYPE, entities, and scripts are forbidden');
 	const tags = readTags(clean);
 	if (tags.length < 3) throw new Error('SVG V1 requires one root and at least one path');

@@ -383,6 +383,16 @@ for (const [name, svg, pattern] of [
 		/malformed XML declaration/,
 	],
 	[
+		'xml-declaration-after-whitespace',
+		' \n\t<?xml version="1.0"?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/root svg|malformed markup/,
+	],
+	[
+		'xml-declaration-after-comment',
+		'<!-- c --><?xml version="1.0"?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
+		/root svg|malformed markup/,
+	],
+	[
 		'xml-declaration-control-char',
 		'<?xml version="1.0"\f?><svg viewBox="0 0 10 10"><path fill="#000" d="M0 0L2 0L2 2Z"/></svg>',
 		/non-XML character in XML declaration/,
