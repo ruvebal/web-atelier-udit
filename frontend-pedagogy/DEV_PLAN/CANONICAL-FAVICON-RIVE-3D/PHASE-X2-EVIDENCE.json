@@ -42,11 +42,11 @@
         "assertions": [
           "A2-independent-live-check"
         ],
-        "summary": "PASS A2: all 13 facet fills verified at interior samples (worst 99.7%), 13189 samples, bg 6134/6134"
+        "summary": "PASS A2: all 13 facet fills verified at interior samples (worst 99.7%), 13189 samples, bg 6134/6134, nanEdge=0"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A2.command.json",
-        "sha256": "7b40fee8c245fd4fedb960882b81f45ec22b71d0366e68ff6f9b575b639e5e18"
+        "sha256": "59792c5a735025e7a52cb37f6e69bf86438899b371c05f48cef9584d6d42e7ad"
       }
     },
     {
@@ -111,11 +111,11 @@
         "assertions": [
           "A5-independent-live-check"
         ],
-        "summary": "PASS A5: depth = 0.04+(0.22-0.04)*sqrt(area/max): max dev 2.5e-10, largest facet facet-01 deepest"
+        "summary": "PASS A5: depth = 0.04+(0.22-0.04)*sqrt(area/max): manifest dev 2.5e-10, packed Z dev 3.6e-9/3.6e-9, largest facet facet-01 deepest in buffer"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A5.command.json",
-        "sha256": "b923cfa43c9b17f4d607d993302bde356c6072974425319dd6cb724971d53ce6"
+        "sha256": "19bbbc49c8357245dae14c2b94f7d0845ea3014737c239910ae0786e2ef63a7e"
       }
     },
     {
@@ -157,11 +157,11 @@
         "assertions": [
           "A7-independent-live-check"
         ],
-        "summary": "PASS A7: world→view→clip→depth distinct per fixture; front depth 0.1562 < back 0.8438; front-centre: appZ=0.0000 viewZ=-2.8900 clipZ=0.1562 ndc=(0.000,0.000) px=(360,240) | back-centre: appZ=-0.2200 viewZ=-3.1100 clipZ=0.8438 ndc=(0.000,0.000) px=(360,240) | front-top-right: appZ=0.0000 viewZ=-2.8900 clipZ=0.1562 ndc=(0.638,0.943) px=(590,14) | back-bottom-left: appZ=-0.2200 viewZ=-3.1100 clipZ=0.8438 ndc=(-0.638,-0.943) px=(130,466)"
+        "summary": "PASS A7: world→view→clip→depth distinct per fixture; front depth 0.1562 < back 0.8438; front-centre: appZ=0.0000 viewZ=-2.8900 depth=0.1562 ndc=(0.000,0.000) px=(360,240) | back-centre: appZ=-0.2200 viewZ=-3.1100 depth=0.8438 ndc=(0.000,0.000) px=(360,240) | front-top-right: appZ=0.0000 viewZ=-2.8900 depth=0.1562 ndc=(0.638,0.943) px=(590,14) | back-bottom-left: appZ=-0.2200 viewZ=-3.1100 depth=0.8438 ndc=(-0.638,-0.943) px=(130,466)"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A7.command.json",
-        "sha256": "1268f9d43871c8f2384a9a43ee7d7f2d83a7b2bae9c9043ccfd9d7225f87ba7d"
+        "sha256": "06c1d1fbb20b5887c58f8de78137a3a8f9b14c06b5db424aad22414e82655f8a"
       }
     },
     {
@@ -180,11 +180,11 @@
         "assertions": [
           "A8-independent-live-check"
         ],
-        "summary": "PASS A8: normals unit (max err 6.7e-11), classes f/b/s=446,446,1784, side outward 1676/1784, axis err 0.0e+0"
+        "summary": "PASS A8: normals unit (max err 6.7e-11), classes f/b/s=446,446,1784, side normals = contour edge normals 2676/2676, axis err 0.0e+0"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X2/A8.command.json",
-        "sha256": "cda146a892480b3fb96f607d752868d0753801de6ce83052faa8289f9d2a0399"
+        "sha256": "7b76995831ff38b0fdf0d872c599d67baa5b09d3e73ca6e495f59a2279773c1e"
       }
     }
   ]

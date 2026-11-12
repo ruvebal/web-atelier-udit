@@ -2,8 +2,10 @@
 // Coordinate contract (see PHASE-X2 report / MATH-CONTRACTS):
 //   application Z  - model units from geometry.json (y up, front faces +z at z=0)
 //   view Z         - camera space after Mat4.lookAt (camera looks down -z)
-//   clip Z         - NDC z in [0,1] produced by Mat4.ortho
-//   depth buffer   - depth32float, compare less, written per fragment
+//   clip Z         - NDC z in [0,1] produced by Mat4.ortho; this single
+//                    scalar is both the projected depth and the value the
+//                    depth32float attachment stores (depthStoreOp discards)
+//   depth buffer   - depth32float, compare less-equal, written per fragment
 // The three Z values stay distinct: the shader only ever sees clip position.
 
 struct Frame {

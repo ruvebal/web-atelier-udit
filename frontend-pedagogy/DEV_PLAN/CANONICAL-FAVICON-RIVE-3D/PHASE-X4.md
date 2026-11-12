@@ -9,6 +9,7 @@ Integrate the real 3D asset into the comparison route without surrendering theme
 ## Deliverables
 
 - live themed host in the demo’s Rive + AnimaScript section;
+- demo/lesson asset references retargeted for the X2 shader rename (`prismatic-favicon.wgsl` → `canonical-favicon.wgsl`); surrounding host copy that still describes the old prism scene is refreshed here, with lesson prose owned by X5;
 - pause/play, reset and `N` generated semantic facet controls;
 - status announcements and selected-state synchronization;
 - static canonical fallback and runtime timeout/error handling;

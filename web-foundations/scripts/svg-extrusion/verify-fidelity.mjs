@@ -295,6 +295,9 @@ const items = {
 		if (JSON.stringify(formats) !== JSON.stringify(want)) fail(`vertex attributes ${formats}`);
 		const ds = pipe.depthStencil;
 		if (!ds || ds.format !== 'depth32float' || ds.depthWriteEnabled !== true) fail('depth attachment missing');
+		// Painter-order parity: coplanar facets must resolve to the later
+		// source-order facet, so the compare must be less-equal, not less.
+		if (ds.depthCompare !== 'less-equal') fail(`depthCompare ${ds.depthCompare} != less-equal`);
 		const vbBytes = readFileSync(resolve(RIVE, 'favicon-vertices.bin')).length;
 		const ibBytes = readFileSync(resolve(RIVE, 'favicon-indices.bin')).length;
 		if (vbBytes !== VERTS * 36) fail(`vertex blob ${vbBytes} != ${VERTS * 36}`);
@@ -314,9 +317,14 @@ const items = {
 		const ref = restRaster(W, H);
 		const facets = manifest.facets;
 		const perFacet = facets.map(() => ({ ok: 0, total: 0 }));
-		// Interior samples: pixels owned by the facet's front faces, >1.2px from edges.
+		// Interior samples: pixels owned by the facet's front faces, >=1.2px
+		// from edges. The >= form rejects NaN edge distances (degenerate
+		// triangles); a < form would silently admit them.
+		const isInteriorSample = (owner, tclass, d) => owner >= 0 && tclass === 0 && d >= 1.2;
+		let nanEdge = 0;
 		for (let i = 0; i < W * H; i++) {
-			if (ref.owner[i] < 0 || ref.tclass[i] !== 0 || ref.edgeDist[i] < 1.2) continue;
+			if (ref.owner[i] >= 0 && ref.tclass[i] === 0 && !Number.isFinite(ref.edgeDist[i])) nanEdge++;
+			if (!isInteriorSample(ref.owner[i], ref.tclass[i], ref.edgeDist[i])) continue;
 			const fi = ref.owner[i];
 			perFacet[fi].total++;
 			if (perFacet[fi].total % 7 !== 0) continue; // subsample
@@ -335,6 +343,15 @@ const items = {
 			if (rate < 0.9) fail(`${f.id}: fill match ${(rate * 100).toFixed(1)}%`);
 			checked += Math.ceil(s.total / 7);
 		});
+		// NaN fixture: poisoning every edge distance must select zero samples.
+		// Guards the >= predicate against a regression to a <-form that would
+		// silently admit NaN (NaN < 1.2 is false, so the sample is kept).
+		let poisonHits = 0;
+		for (let i = 0; i < W * H; i++) {
+			if (ref.owner[i] >= 0 && ref.tclass[i] === 0 && isInteriorSample(ref.owner[i], ref.tclass[i], Number.NaN))
+				poisonHits++;
+		}
+		if (poisonHits !== 0) fail(`NaN edge distance admitted ${poisonHits} samples`);
 		// Background sanity away from the object.
 		let bgOk = 0,
 			bgN = 0;
@@ -345,7 +362,7 @@ const items = {
 			if (near(cap.data[o], 6, 3) && near(cap.data[o + 1], 10, 3) && near(cap.data[o + 2], 23, 3)) bgOk++;
 		}
 		if (bgN === 0 || bgOk / bgN < 0.98) fail(`background mismatch ${bgOk}/${bgN}`);
-		return `all ${facets.length} facet fills verified at interior samples (worst ${(worst * 100).toFixed(1)}%), ${checked} samples, bg ${bgOk}/${bgN}`;
+		return `all ${facets.length} facet fills verified at interior samples (worst ${(worst * 100).toFixed(1)}%), ${checked} samples, bg ${bgOk}/${bgN}, nanEdge=${nanEdge}`;
 	},
 
 	A3() {
@@ -461,7 +478,33 @@ const items = {
 		const biggest = manifest.facets[areas.indexOf(maxArea)];
 		if (deepest.id !== biggest.id) fail(`deepest facet ${deepest.id} != largest-area ${biggest.id}`);
 		if (worst > 1e-6) fail(`depth formula deviation ${worst}`);
-		return `depth = ${d.minimum}+(${d.maximum}-${d.minimum})*sqrt(area/max): max dev ${worst.toExponential(1)}, largest facet ${biggest.id} deepest`;
+		// The claim must hold in the packed GPU buffer, not only the manifest:
+		// every packed Z equals the provider position (f32 rounding), fronts
+		// sit at z=0 and each facet's back reaches exactly -facet.depth.
+		const vb = readFileSync(resolve(RIVE, 'favicon-vertices.bin'));
+		if (vb.length !== VERTS * 36) fail(`vertex blob ${vb.length} != ${VERTS * 36}`);
+		const packedZ = (v) => vb.readFloatLE(v * 36 + 8);
+		let maxZDev = 0;
+		for (let v = 0; v < VERTS; v++) maxZDev = Math.max(maxZDev, Math.abs(packedZ(v) - POS[v * 3 + 2]));
+		if (maxZDev > 1e-6) fail(`packed Z diverges from provider positions: ${maxZDev}`);
+		let packedDeepest = null,
+			packedWorst = 0;
+		manifest.facets.forEach((f, fi) => {
+			const span = f.mesh;
+			let minZ = Infinity,
+				maxZ = -Infinity;
+			for (let v = span.vertexStart; v < span.vertexStart + span.vertexCount; v++) {
+				const z = packedZ(v);
+				minZ = Math.min(minZ, z);
+				maxZ = Math.max(maxZ, z);
+			}
+			if (Math.abs(maxZ) > 1e-6) fail(`${f.id}: front Z ${maxZ} != 0`);
+			packedWorst = Math.max(packedWorst, Math.abs(minZ + f.depth));
+			if (!packedDeepest || minZ < packedDeepest.minZ) packedDeepest = { id: f.id, minZ };
+		});
+		if (packedWorst > 1e-5) fail(`packed back Z deviates from -depth: ${packedWorst}`);
+		if (packedDeepest.id !== biggest.id) fail(`packed deepest facet ${packedDeepest.id} != largest-area ${biggest.id}`);
+		return `depth = ${d.minimum}+(${d.maximum}-${d.minimum})*sqrt(area/max): manifest dev ${worst.toExponential(1)}, packed Z dev ${maxZDev.toExponential(1)}/${packedWorst.toExponential(1)}, largest facet ${biggest.id} deepest in buffer`;
 	},
 
 	A6() {
@@ -515,7 +558,7 @@ const items = {
 			const px = Math.round(((pr.ndcX + 1) / 2) * W),
 				py = Math.round((1 - (pr.ndcY + 1) / 2) * H);
 			rows.push(
-				`${name}: appZ=${p[2].toFixed(4)} viewZ=${v[2].toFixed(4)} clipZ=${pr.depth.toFixed(4)} ndc=(${pr.ndcX.toFixed(3)},${pr.ndcY.toFixed(3)}) px=(${px},${py})`
+				`${name}: appZ=${p[2].toFixed(4)} viewZ=${v[2].toFixed(4)} depth=${pr.depth.toFixed(4)} ndc=(${pr.ndcX.toFixed(3)},${pr.ndcY.toFixed(3)}) px=(${px},${py})`
 			);
 			if (v[2] >= 0) fail(`${name}: viewZ ${v[2]} behind camera`);
 			if (pr.depth < -1e-6 || pr.depth > 1 + 1e-6) fail(`${name}: depth ${pr.depth} outside [0,1]`);
@@ -545,31 +588,102 @@ const items = {
 
 	A8() {
 		let maxLenErr = 0,
-			sidePerp = 0,
-			sideTot = 0,
 			counts = [0, 0, 0];
 		for (let v = 0; v < VERTS; v++) {
 			const nx = NRM[v * 3],
 				ny = NRM[v * 3 + 1],
 				nz = NRM[v * 3 + 2];
 			maxLenErr = Math.max(maxLenErr, Math.abs(Math.hypot(nx, ny, nz) - 1));
-			const fi = vertexFacet[v];
-			const cx = manifest.facets[fi].centroid[0],
-				cy = manifest.facets[fi].centroid[1];
 			if (nz > 0.5) counts[0]++;
 			else if (nz < -0.5) counts[1]++;
-			else {
-				counts[2]++;
-				sideTot++;
-				const rx = POS[v * 3] - cx,
-					ry = POS[v * 3 + 1] - cy;
-				const rl = Math.hypot(rx, ry);
-				if (rl > 1e-6 && (nx * rx + ny * ry) / (Math.hypot(nx, ny) * rl) > 0) sidePerp++;
-			}
+			else counts[2]++;
 		}
 		if (maxLenErr > 1e-3) fail(`non-unit normal ${maxLenErr}`);
 		if (counts[0] === 0 || counts[1] === 0 || counts[2] === 0) fail(`missing surface class ${counts}`);
-		if (sidePerp / sideTot < 0.9) fail(`side normals outward ${((sidePerp / sideTot) * 100).toFixed(1)}%`);
+		// Side normals must equal the outward normal of the contour edge that
+		// generated their wall — derived here from front-face boundary
+		// winding, not from a centroid heuristic that fails on concave
+		// contours. Front winding is CCW from +z, so the outward direction is
+		// the right-hand perpendicular of each directed boundary edge.
+		const xyKey = (v) => `${Math.round(POS[v * 3] * 1e6)},${Math.round(POS[v * 3 + 1] * 1e6)}`;
+		const facetEdgeNormals = manifest.facets.map((facet) => {
+			const span = facet.mesh,
+				t0 = span.indexStart / 3,
+				t1 = (span.indexStart + span.indexCount) / 3;
+			const undirected = new Map();
+			for (let t = t0; t < t1; t++) {
+				if (triClass[t] !== 0) continue;
+				const tri = [IDX[t * 3], IDX[t * 3 + 1], IDX[t * 3 + 2]];
+				for (let e = 0; e < 3; e++) {
+					const a = tri[e],
+						b = tri[(e + 1) % 3];
+					const key = a < b ? a * VERTS + b : b * VERTS + a;
+					const rec = undirected.get(key);
+					if (rec) rec.count++;
+					else undirected.set(key, { count: 1, a, b });
+				}
+			}
+			const next = new Map();
+			for (const rec of undirected.values()) if (rec.count === 1) next.set(rec.a, rec.b);
+			const start = next.keys().next().value;
+			if (start === undefined) return { edges: new Map(), loopLength: 0 };
+			const loop = [start];
+			let cur = start;
+			for (let guard = 0; guard <= VERTS; guard++) {
+				const nxt = next.get(cur);
+				if (nxt === undefined || nxt === start) break;
+				loop.push(nxt);
+				cur = nxt;
+			}
+			let area2 = 0;
+			for (let i = 0; i < loop.length; i++) {
+				const a = loop[i],
+					b = loop[(i + 1) % loop.length];
+				area2 += POS[a * 3] * POS[b * 3 + 1] - POS[b * 3] * POS[a * 3 + 1];
+			}
+			const edges = new Map();
+			for (let i = 0; i < loop.length; i++) {
+				const a = loop[i],
+					b = loop[(i + 1) % loop.length];
+				const dx = POS[b * 3] - POS[a * 3],
+					dy = POS[b * 3 + 1] - POS[a * 3 + 1];
+				const l = Math.hypot(dx, dy);
+				if (l < 1e-12) continue;
+				const s = area2 > 0 ? 1 : -1;
+				const k1 = xyKey(a),
+					k2 = xyKey(b);
+				edges.set([k1, k2].sort().join('|'), [(s * dy) / l, (-s * dx) / l]);
+			}
+			return { edges, loopLength: loop.length };
+		});
+		manifest.facets.forEach((facet, fi) => {
+			if (facetEdgeNormals[fi].loopLength !== facet.contourVertexCount)
+				fail(`${facet.id}: contour loop ${facetEdgeNormals[fi].loopLength} != manifest ${facet.contourVertexCount}`);
+		});
+		let sidePerp = 0,
+			sideTot = 0;
+		for (let t = 0; t < TRIS; t++) {
+			if (triClass[t] !== 2) continue;
+			const edgeMap = facetEdgeNormals[triFacet[t]].edges;
+			const keys = new Set();
+			for (let k = 0; k < 3; k++) keys.add(xyKey(IDX[t * 3 + k]));
+			if (keys.size !== 2) {
+				sideTot += 3;
+				continue;
+			}
+			const [k1, k2] = [...keys].sort(),
+				expected = edgeMap.get(`${k1}|${k2}`);
+			for (let k = 0; k < 3; k++) {
+				const v = IDX[t * 3 + k];
+				sideTot++;
+				const nx = NRM[v * 3],
+					ny = NRM[v * 3 + 1],
+					nz = NRM[v * 3 + 2];
+				if (expected && Math.abs(nz) <= 0.01 && nx * expected[0] + ny * expected[1] >= 0.999) sidePerp++;
+			}
+		}
+		if (sideTot === 0) fail('no side triangles');
+		if (sidePerp !== sideTot) fail(`side normals match contour edge normal ${sidePerp}/${sideTot}`);
 		// front/back axis alignment: |nx|,|ny| ~ 0 on flat faces
 		let axisErr = 0;
 		for (let v = 0; v < VERTS; v += 7) {
@@ -577,7 +691,7 @@ const items = {
 			if (Math.abs(nz) > 0.5) axisErr = Math.max(axisErr, Math.hypot(NRM[v * 3], NRM[v * 3 + 1]));
 		}
 		if (axisErr > 1e-3) fail(`front/back normal not axis-aligned ${axisErr}`);
-		return `normals unit (max err ${maxLenErr.toExponential(1)}), classes f/b/s=${counts}, side outward ${sidePerp}/${sideTot}, axis err ${axisErr.toExponential(1)}`;
+		return `normals unit (max err ${maxLenErr.toExponential(1)}), classes f/b/s=${counts}, side normals = contour edge normals ${sidePerp}/${sideTot}, axis err ${axisErr.toExponential(1)}`;
 	},
 };
 
