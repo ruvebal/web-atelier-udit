@@ -1,6 +1,6 @@
 # PHASE-X2 · Render the exact frontal object in Rive GPU Canvas
 
-**Status:** VERIFYING
+**Status:** DONE
 **Branch:** `cascade/CANONICAL-FAVICON-RIVE-3D-2`
 **Implemented:** 2026-11-12
 
@@ -37,9 +37,9 @@ The external gate passed at `367a2e9`; cold review filed 0 P0 / 0 P1 / 4 P2. All
 
 Evidence was regenerated after these changes: `PHASE-X2-EVIDENCE.json` and `baseline/X2/` transcripts reflect the strengthened verifier; `.riv`, `gpu-manifest.json` and all four canonical captures were rebuilt and re-verified (0 errors, 0 warnings).
 
-## Open gate
+## Promotion
 
-The implementer has not marked X2 DONE. The cascade harness must rerun `PHASE-X2.exit-gate.sh` from the committed tree; a fresh cold reviewer must inspect the packer, WGSL, camera math, verifier independence, and evidence.
+**Promotion evidence:** the external exit gate passed at `9f733466bd3622e286d2a4db48300cf97a0cb74c` (A1–A8, evidence match, `rive --verify` 0 errors). Cold review of `367a2e9` recorded 0 P0, 0 P1, and 4 P2; those four are closed in `9f73346`. An earlier gate named amended-away `385d39f`; the promoted log names `9f73346`. See [PHASE-X2-COLD-REVIEW.md](PHASE-X2-COLD-REVIEW.md) and [PHASE-X2-VERIFY-LOG.md](PHASE-X2-VERIFY-LOG.md).
 
 ## Risks / notes for the reviewer
 

@@ -1,6 +1,6 @@
 # Canonical favicon · Rive + AnimaScript 3D cascade
 
-**Status:** ACTIVE · X0 DONE · X1 DONE · X2 READY · integration branch `codex/canonical-favicon-rive-3d-cascade`  
+**Status:** ACTIVE · X0 DONE · X1 DONE · X2 DONE · X3 READY · integration branch `codex/canonical-favicon-rive-3d-cascade`  
 **Author:** Rubén Vega Balbás, PhD · 2026-11-10  
 **Product claim:** any SVG inside the supported subset becomes a crisp, responsive, depth-tested object whose dynamic set of source facets remains individually understandable and selectable; the favicon is the golden fixture.
 **Engineering claim:** geometry, colour, area, intrinsic extrusion depth, hit identity, fallback, and teaching evidence are generated from one SVG source rather than copied by hand.
@@ -20,6 +20,7 @@
 | Orchestrator | [PLAN-REVIEW-RESOLUTION.md](PLAN-REVIEW-RESOLUTION.md) | How were those findings closed before X0? |
 | Independent verifier | [PHASE-X0-FINAL-COLD-REVIEW.md](PHASE-X0-FINAL-COLD-REVIEW.md) | Did the hardened X0 evidence survive a fresh adversarial review? |
 | Independent verifier | [PHASE-X1-PARSER-CLOSURE-REVIEW-5.md](PHASE-X1-PARSER-CLOSURE-REVIEW-5.md) | Did the hardened X1 grammar survive five adversarial reviews? |
+| Independent verifier | [PHASE-X2-COLD-REVIEW.md](PHASE-X2-COLD-REVIEW.md) | Did the frontal GPU scene survive an independent review? |
 
 ## Programme
 
@@ -29,8 +30,8 @@ Only the first word of each Gate cell is machine status.
 | --- | --- | --- | --- |
 | 0 | [PHASE-X0.md](PHASE-X0.md) | Baseline captures, canonical-source checksum, runtime/browser/tool probes | DONE — exit gate and independent cold review passed |
 | 1 | [PHASE-X1.md](PHASE-X1.md) | Deterministic SVG → indexed extrusion compiler and manifest | DONE — exit gate and independent cold review passed |
-| 2 | [PHASE-X2.md](PHASE-X2.md) | Exact frontal Rive GPU scene and area-derived facet depths | READY — opened after X1 promotion |
-| 3 | [PHASE-X3.md](PHASE-X3.md) | Build/unbuild choreography, facet picking, persistent selection | BLOCKED — opens after X2 DONE |
+| 2 | [PHASE-X2.md](PHASE-X2.md) | Exact frontal Rive GPU scene and area-derived facet depths | DONE — exit gate and independent cold review passed |
+| 3 | [PHASE-X3.md](PHASE-X3.md) | Build/unbuild choreography, facet picking, persistent selection | READY — opened after X2 promotion |
 | 4 | [PHASE-X4.md](PHASE-X4.md) | Responsive demo integration, semantics, reduced-motion/static fallbacks | BLOCKED — opens after X3 DONE |
 | 5 | [PHASE-X5.md](PHASE-X5.md) | Public step-by-step lesson and truthful agentic-making evidence | BLOCKED — opens after X4 DONE |
 | 6 | [PHASE-X6.md](PHASE-X6.md) | Full implementation audit and performance/fidelity matrix | BLOCKED — opens after X5 DONE |
