@@ -1,0 +1,145 @@
+{
+  "phase": "X4",
+  "reportStatus": "VERIFYING",
+  "generatedBy": "capture-x4-evidence.mjs",
+  "items": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A1",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A1.json",
+      "sha256": "27ef0d65ab39b742317503205734e0685768300b2506148fecbaa259aedb48da",
+      "expected": {
+        "assertions": [
+          "A1-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A1-independent-live-check"
+        ],
+        "summary": "PASS A1: mouse=true touch=true fineMotion micro=true drag=true keyboard=true errors=0\nALL PASS: A1"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A1.command.json",
+        "sha256": "8e11996926e7a01fbca0ee09e3311d9ef23532aaf92714a8c7321d0055dc9eb8"
+      }
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A2",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A2.json",
+      "sha256": "3c2a29e8a9c33289d0ddc1ed2c14375b4bd69145641e8e751a95c83c29d60c64",
+      "expected": {
+        "assertions": [
+          "A2-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A2-independent-live-check"
+        ],
+        "summary": "PASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true\nALL PASS: A2"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A2.command.json",
+        "sha256": "a09099854661cac9e39339dfb95c42b5cadfa613996e80ad66c8fdf8bcaffb31"
+      }
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A3",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A3.json",
+      "sha256": "a45c0f3e42ae9508fcae5af6f271a21a6a3c0c723e2ce13061e705c54348e5b5",
+      "expected": {
+        "assertions": [
+          "A3-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A3-independent-live-check"
+        ],
+        "summary": "PASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nALL PASS: A3"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A3.command.json",
+        "sha256": "e9970ce7d032777a9a86f61a95bc7674e7235785791cf651af960ba2410eadc0"
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A4",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A4.json",
+      "sha256": "8b7223c304f6c9a7b3193fd70e163c7f48a2ce4035471cfa652fe835a388c321",
+      "expected": {
+        "assertions": [
+          "A4-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A4-independent-live-check"
+        ],
+        "summary": "PASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nALL PASS: A4"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A4.command.json",
+        "sha256": "166d2709a548c7c2c24dacacfeaeaeb0e01defd659a464d129fb2594edb5d81f"
+      }
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A5",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A5.json",
+      "sha256": "688533d5b895e28ee1e0d9ba5d54cccddacd130d2446fbc977b0d6251ee912f2",
+      "expected": {
+        "assertions": [
+          "A5-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A5-independent-live-check"
+        ],
+        "summary": "PASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nALL PASS: A5"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A5.command.json",
+        "sha256": "12e176a3a43401e150c6cc53d3101a397c77a9432c75f630cb410122a4f91ec8"
+      }
+    },
+    {
+      "id": "A6",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A6",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A6.json",
+      "sha256": "9ff1ee715752533f94db2d6aa9cb4d7b8ee6af6196a94c9cb4c08326ff1bb9e2",
+      "expected": {
+        "assertions": [
+          "A6-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A6-independent-live-check"
+        ],
+        "summary": "PASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A6"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A6.command.json",
+        "sha256": "32d9249480be737c52de26e7ff4103d742aaac1e1a5b92159f712cf115925193"
+      }
+    }
+  ]
+}

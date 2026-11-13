@@ -203,7 +203,8 @@ function computeCam(phase, elapsed, userYaw, userPitch, aspect) {
 				maxVZ = Math.max(maxVZ, v[2]);
 			}
 	const halfH = Math.max(maxVY, maxVX / aspect) * C.FIT_MARGIN;
-	const near = Math.max(-maxVZ - 0.05, 0.01);
+	const nearMargin = C.SELECT_OFFSET_Z + C.SEPARATION_DIST + 0.02;
+	const near = Math.max(-maxVZ - nearMargin, 0.01);
 	const far = -minVZ + 0.05;
 	return {
 		phase,
@@ -482,21 +483,29 @@ function checkA1() {
 			}
 		}
 	}
-	const pickFor = (fi) => {
+	// Overlap goes first on an empty bitset so its winner is the later
+	// source-order facet; small/large points are then planned against the
+	// selection state the earlier clicks leave behind (a selected facet pops
+	// toward the camera and can legitimately win a later pick).
+	const pickFor = (fi, selSet) => {
 		for (const pt of candidates.get(fi) ?? []) {
-			if (pickJS(frame0, ZERO8, pt.x, pt.y, cssW, cssH) === fi) return pt;
+			if (pickJS(frame0, selWordsFor(selSet), pt.x, pt.y, cssW, cssH) === fi) return pt;
 		}
 		return null;
 	};
-	const pts = { small: pickFor(small), large: pickFor(large), overlap };
+	const pts = {
+		overlap,
+		small: pickFor(small, new Set([overlap.facet])),
+		large: pickFor(large, new Set([overlap.facet, small])),
+	};
 	if (!pts.small || !pts.large || !overlap) {
 		record('A1', false, `fixture missing small=${!!pts.small} large=${!!pts.large} overlap=${!!overlap}`);
 		return;
 	}
 	const events = [
+		{ kind: 'click', x: overlap.x, y: overlap.y, want: overlap.facet },
 		{ kind: 'click', x: pts.small.x, y: pts.small.y, want: small },
 		{ kind: 'click', x: pts.large.x, y: pts.large.y, want: large },
-		{ kind: 'click', x: overlap.x, y: overlap.y, want: overlap.facet },
 	];
 	const { expected } = expectSequence(
 		events.map(({ kind, x, y }) => ({ kind, x, y })),
@@ -626,7 +635,14 @@ function checkA2A3() {
 	// empty point at extruded phase: resets the bitset so the z-offset
 	// select/probe pair runs on a clean selection (F4).
 	let emptyE = null;
-	for (const [x, y] of [[8, 8], [712, 8], [8, 472], [712, 472], [360, 8], [8, 240]]) {
+	for (const [x, y] of [
+		[8, 8],
+		[712, 8],
+		[8, 472],
+		[712, 472],
+		[360, 8],
+		[8, 240],
+	]) {
 		if (pickAt(frameE, x, y) === -1) {
 			emptyE = { x, y };
 			break;
@@ -802,17 +818,8 @@ function checkA4() {
 	// the facet selected + one advance, one without. If the selection bitset
 	// never reaches the shader the frames are pixel-identical (F1).
 	const T = Math.round(phase * C.LOOP_PERIOD * 60);
-	runCommands([
-		`advance ${T}`,
-		`advance 1`,
-		`screenshot ${OUT}/x3-a4-unselected.png`,
-	]);
-	runCommands([
-		`advance ${T}`,
-		`pointer click@${pt.x},${pt.y}`,
-		`advance 1`,
-		`screenshot ${OUT}/x3-a4-selected.png`,
-	]);
+	runCommands([`advance ${T}`, `advance 1`, `screenshot ${OUT}/x3-a4-unselected.png`]);
+	runCommands([`advance ${T}`, `pointer click@${pt.x},${pt.y}`, `advance 1`, `screenshot ${OUT}/x3-a4-selected.png`]);
 	const unP = resolve(OUT, 'x3-a4-unselected.png'),
 		selP = resolve(OUT, 'x3-a4-selected.png');
 	const selDiff = unP && selP ? aeDiff(unP, selP) : NaN;
@@ -820,7 +827,15 @@ function checkA4() {
 	writeFileSync(
 		resolve(OUT, 'A4.json'),
 		JSON.stringify(
-			{ facet: facetIdOf[fi], picks: run.picks, hashesBefore: before, hashesAfter: after, selDiff, unselected: unP, selected: selP },
+			{
+				facet: facetIdOf[fi],
+				picks: run.picks,
+				hashesBefore: before,
+				hashesAfter: after,
+				selDiff,
+				unselected: unP,
+				selected: selP,
+			},
 			null,
 			2
 		)
@@ -1068,7 +1083,20 @@ function checkA8() {
 	const ok = microDiff === 0 && dragDiff > 0;
 	writeFileSync(
 		resolve(OUT, 'A8.json'),
-		JSON.stringify({ microDiff, dragDiff, ref: refP, micro: microP, drag: dragP, refPicks: ref.picks, microPicks: micro.picks, dragPicks: drag.picks }, null, 2)
+		JSON.stringify(
+			{
+				microDiff,
+				dragDiff,
+				ref: refP,
+				micro: microP,
+				drag: dragP,
+				refPicks: ref.picks,
+				microPicks: micro.picks,
+				dragPicks: drag.picks,
+			},
+			null,
+			2
+		)
 	);
 	record('A8', ok, `deadzone micro-diff=${microDiff} (want 0), drag-diff=${dragDiff} (want >0)`);
 }

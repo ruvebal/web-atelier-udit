@@ -3462,6 +3462,44 @@ main#main:has(.lesson-wrapper) {
 	display: none;
 }
 
+.svg-motion-demo .rive-3d-facets {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: 0.6rem;
+}
+
+.svg-motion-demo .rive-3d-facet {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	border: 1px solid var(--border-hover);
+	border-radius: 999px;
+	padding: 0.3rem 0.65rem;
+	font-size: 0.75rem;
+	font-weight: 600;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+}
+
+.svg-motion-demo .rive-3d-facet:disabled {
+	opacity: 0.55;
+	cursor: default;
+}
+
+.svg-motion-demo .rive-3d-facet[aria-pressed='true'] {
+	border-color: currentColor;
+	box-shadow: inset 0 0 0 1px currentColor;
+}
+
+.svg-motion-demo .rive-3d-facet .facet-chip {
+	width: 0.7rem;
+	height: 0.7rem;
+	border-radius: 50%;
+	border: 1px solid rgba(127, 127, 127, 0.45);
+}
+
 .svg-motion-demo .asset-preview.audio-specimen-preview {
 	position: relative;
 	display: grid;

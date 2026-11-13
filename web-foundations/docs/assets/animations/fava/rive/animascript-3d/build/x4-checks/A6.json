@@ -1,0 +1,22 @@
+{
+  "before": {
+    "mode": "live",
+    "selSize": 0
+  },
+  "destroy": {
+    "destroyed": true,
+    "player": null,
+    "observer": null,
+    "raf": 0,
+    "orbitDown": false,
+    "buttons": 0,
+    "consoleNative": true,
+    "elapsed": 0.03319999999999994
+  },
+  "after": {
+    "elapsed": 0.03319999999999994,
+    "raf": 0
+  },
+  "picksBefore": 0,
+  "picksAfter": 0
+}
