@@ -1,0 +1,104 @@
+[00:11:10.106] error   main:167:32  [as] E3001: cannot implicitly convert f64 to f32
+[00:11:10.107] error   main:167:38  [as] E3001: cannot implicitly convert f64 to f32
+[00:11:10.107] error   main:167:44  [as] E3001: cannot implicitly convert f64 to f32
+[00:11:10.107] error   main:200:23  [as] E3001: changetype is unsafe; mark the enclosing function 'unsafe'
+[00:11:10.107] error   main:202:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[00:11:10.107] error   main:203:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[00:11:10.107] error   main:204:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[00:11:10.107] error   main:205:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[00:11:10.108] rive  build failed (0 bytes, 56ms, 8 errors, 0 warnings)
+[00:11:37.392] rive  verified (0 bytes, 39ms, 0 errors, 0 warnings)
+[00:11:39.478] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[00:11:39.507] rive  built (512994 bytes, 29ms, 0 errors, 0 warnings)
+[00:11:39.508] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[00:11:39.509] rive  showing main [1/1]
+[00:11:39.510] rive  viewport 720x480 @1x
+[00:11:39.618] rive  wrote build/probe-rest.png
+[00:12:09.119] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[00:12:09.150] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
+[00:12:09.150] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[00:12:09.150] rive  showing main [1/1]
+[00:12:09.150] rive  viewport 720x480 @1x
+[00:12:09.184] rive  wrote build/probe-rest.png
+[00:12:41.526] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[00:12:41.560] rive  built (512994 bytes, 34ms, 0 errors, 0 warnings)
+[00:12:41.561] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[00:12:41.561] rive  showing main [1/1]
+[00:12:41.561] rive  viewport 720x480 @1x
+[00:12:41.617] rive  wrote build/probe-rest.png
+[00:12:51.354] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[00:12:51.382] rive  built (512994 bytes, 28ms, 0 errors, 0 warnings)
+[00:12:51.383] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[00:12:51.383] rive  showing main [1/1]
+[00:12:51.383] rive  viewport 720x480 @1x
+[00:12:51.384] rive  script frame gc: scavenging per frame
+[00:12:51.409] rive  wrote build/probe-oblique.png
+[00:12:55.254] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[00:12:55.284] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
+[00:12:55.284] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[00:12:55.285] rive  showing main [1/1]
+[00:12:55.285] rive  viewport 720x480 @1x
+[00:12:55.308] rive  wrote ./build/fava_prismatic_3d.png
+[00:12:55.308] rive  wrote build/gpu-manifest.json
+[00:13:19.097] rive  signing 1 scripts…
+[00:13:21.415] rive  signed 1 scripts
+[00:13:21.446] rive  watermarked: ruvebal is on a plan with the Rive splash screen. Upgrade to publish without it: https://rive.app/pricing?utm_source=cli&utm_medium=watermark&utm_campaign=cli-upgrade
+[00:13:21.450] rive  published build/fava_prismatic_3d.riv (481929 bytes, 3458ms, 0 errors, 0 warnings)
+[00:16:02.195] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[00:16:02.255] rive  built (512994 bytes, 61ms, 0 errors, 0 warnings)
+[00:16:02.256] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[00:16:02.257] rive  showing main [1/1]
+[00:16:02.258] rive  viewport 720x480 @1x
+[00:16:02.285] rive  wrote build/canonical-rest.png
+[00:16:02.373] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[00:16:02.404] rive  built (512994 bytes, 32ms, 0 errors, 0 warnings)
+[00:16:02.405] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[00:16:02.405] rive  showing main [1/1]
+[00:16:02.405] rive  viewport 720x480 @1x
+[00:16:02.405] rive  script frame gc: scavenging per frame
+[00:16:02.434] rive  wrote build/canonical-oblique.png
+[00:16:02.511] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[00:16:02.541] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
+[00:16:02.542] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[00:16:02.542] rive  showing main [1/1]
+[00:16:02.542] rive  viewport 400x800 @1x
+[00:16:02.566] rive  wrote build/canonical-narrow.png
+[00:16:02.635] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[00:16:02.665] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
+[00:16:02.666] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[00:16:02.666] rive  showing main [1/1]
+[00:16:02.666] rive  viewport 1200x400 @1x
+[00:16:02.692] rive  wrote build/canonical-wide.png
+[00:21:53.215] rive  verified (0 bytes, 59ms, 0 errors, 0 warnings)
+[00:32:31.260] rive  verified (0 bytes, 62ms, 0 errors, 0 warnings)
+[10:24:00.156] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[10:24:00.221] rive  built (512994 bytes, 66ms, 0 errors, 0 warnings)
+[10:24:00.222] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[10:24:00.224] rive  showing main [1/1]
+[10:24:00.224] rive  viewport 720x480 @1x
+[10:24:00.251] rive  wrote build/canonical-rest.png
+[10:24:00.251] rive  wrote build/gpu-manifest.json
+[10:24:00.318] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[10:24:00.348] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
+[10:24:00.348] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[10:24:00.348] rive  showing main [1/1]
+[10:24:00.349] rive  viewport 720x480 @1x
+[10:24:00.349] rive  script frame gc: scavenging per frame
+[10:24:00.387] rive  wrote build/canonical-oblique.png
+[10:24:00.456] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[10:24:00.485] rive  built (512994 bytes, 29ms, 0 errors, 0 warnings)
+[10:24:00.485] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[10:24:00.486] rive  showing main [1/1]
+[10:24:00.486] rive  viewport 400x800 @1x
+[10:24:00.508] rive  wrote build/canonical-narrow.png
+[10:24:00.574] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[10:24:00.604] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
+[10:24:00.605] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[10:24:00.605] rive  showing main [1/1]
+[10:24:00.605] rive  viewport 1200x400 @1x
+[10:24:00.632] rive  wrote build/canonical-wide.png
+[10:24:02.566] rive  signing 1 scripts…
+[10:24:04.499] rive  signed 1 scripts
+[10:24:04.522] rive  watermarked: ruvebal is on a plan with the Rive splash screen. Upgrade to publish without it: https://rive.app/pricing?utm_source=cli&utm_medium=watermark&utm_campaign=cli-upgrade
+[10:24:04.526] rive  published build/fava_prismatic_3d.riv (481929 bytes, 2891ms, 0 errors, 0 warnings)
+[10:24:18.937] rive  verified (0 bytes, 29ms, 0 errors, 0 warnings)

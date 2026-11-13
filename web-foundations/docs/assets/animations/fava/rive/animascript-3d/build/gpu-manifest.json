@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "shaders": {
+    "0":{"label":"canonical-favicon","code":"struct Frame {\n    mvp: mat4x4<f32>,\n    misc: vec4<f32>,\n}\n\nstruct VertexOutput {\n    @builtin(position) position: vec4<f32>,\n    @location(0) normal: vec3<f32>,\n    @location(1) colour: vec3<f32>,\n}\n\n@group(0) @binding(0) \nvar<uniform> frame: Frame;\n\n@vertex \nfn vertexMain(@location(0) position: vec3<f32>, @location(1) normal: vec3<f32>, @location(2) colour: vec3<f32>) -> VertexOutput {\n    var output: VertexOutput;\n\n    let _e7 = frame.mvp;\n    output.position = (_e7 * vec4<f32>(position, 1f));\n    output.normal = normal;\n    output.colour = colour;\n    let _e13 = output;\n    return _e13;\n}\n\n@fragment \nfn fragmentMain(input: VertexOutput) -> @location(0) vec4<f32> {\n    var rgb: vec3<f32>;\n\n    rgb = input.colour;\n    let nz = input.normal.z;\n    if (nz < -0.5f) {\n        let _e7 = rgb;\n        rgb = (_e7 * 0.45f);\n    } else {\n        if (nz < 0.5f) {\n            let _e12 = rgb;\n            rgb = (_e12 * vec3<f32>(0.72f, 0.74f, 0.78f));\n        }\n    }\n    let _e18 = rgb;\n    return vec4<f32>(_e18, 1f);\n}\n"}},
+  "bindGroupLayouts": [
+    {"id":0,"group":0,"entries":[{"binding":0,"visibility":7,"buffer":{"type":"uniform","hasDynamicOffset":false,"minBindingSize":80}}]}],
+  "pipelines": [
+    {"label":"","layout":[0],"vertex":{"module":0,"entryPoint":"vertexMain","label":"canonical-favicon","buffers":[{"arrayStride":36,"stepMode":"vertex","attributes":[{"format":"float32x3","offset":0,"shaderLocation":0},{"format":"float32x3","offset":12,"shaderLocation":1},{"format":"float32x3","offset":24,"shaderLocation":2}]}]},"fragment":{"module":0,"entryPoint":"fragmentMain","label":"canonical-favicon","targets":[{"format":"rgba8unorm","writeMask":15}]},"primitive":{"topology":"triangle-list","frontFace":"ccw","cullMode":"none"},"depthStencil":{"format":"depth32float","depthWriteEnabled":true,"depthCompare":"less-equal","stencilFront":{"compare":"always","failOp":"keep","depthFailOp":"keep","passOp":"keep"},"stencilBack":{"compare":"always","failOp":"keep","depthFailOp":"keep","passOp":"keep"},"stencilReadMask":255,"stencilWriteMask":255,"depthBias":0,"depthBiasSlopeScale":0,"depthBiasClamp":0},"multisample":{"count":1}}],
+  "bindGroups": [
+    {"layout":0,"entries":[{"binding":0,"buffer":{"usage":"uniform","bufferSize":80,"offset":0,"size":0}}]}],
+  "skipped": []
+}
