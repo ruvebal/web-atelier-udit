@@ -223,8 +223,12 @@ export class Main extends Layout {
         store<f32>(address + 132, 0.6);
         store<f32>(address + 136, 0.15);
         store<f32>(address + 140, 0);
+        store<f32>(address + 144, <f32>frame.towardX);
+        store<f32>(address + 148, <f32>frame.towardY);
+        store<f32>(address + 152, <f32>frame.towardZ);
+        store<f32>(address + 156, 0);
         for (let i = 0; i < 8; i++) {
-            store<u32>(address + 144 + i * 4, this.selWords[i]);
+            store<u32>(address + 160 + i * 4, this.selWords[i]);
         }
         frameBuffer.update(0, this.frameBytes);
     }
@@ -304,6 +308,7 @@ export class Main extends Layout {
             this.selCount -= 1;
         }
         this.ctx?.log(`x3pick facet=${facet} selected=${this.selected[facet] ? 1 : 0} count=${this.selCount}`);
+        this.updateUniforms();
         this.ctx?.markNeedsUpdate();
     }
 
@@ -314,6 +319,7 @@ export class Main extends Layout {
         this.userYawTarget = 0;
         this.userPitchTarget = 0;
         this.ctx?.log("x3pick reset count=0");
+        this.updateUniforms();
         this.ctx?.markNeedsUpdate();
     }
 

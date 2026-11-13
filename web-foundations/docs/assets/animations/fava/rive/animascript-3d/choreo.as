@@ -36,7 +36,6 @@ export const DRAG_DEADZONE: f64 = 3.0;
 export const MAX_USER_YAW: f64 = 1.2;
 export const MAX_USER_PITCH: f64 = 0.9;
 export const MAX_SELECT_FACETS: u32 = 256;
-export const PICK_TIE_EPS: f64 = 0.00001;
 
 export function smoothstep(x: f64): f64 {
     let t = x < 0 ? 0 : x > 1 ? 1 : x;
@@ -198,6 +197,12 @@ export class CameraFrame {
     towardX: f64 = 0; // unit vector from scene toward the camera
     towardY: f64 = 0;
     towardZ: f64 = 1;
+    // f64 camera basis shared verbatim with the JS verifier mirror; the GPU
+    // path keeps using the f32 Mat4s below.
+    eye: Array<f64> = [0, 0, 0];
+    right: Array<f64> = [1, 0, 0];
+    upv: Array<f64> = [0, 1, 0];
+    fwd: Array<f64> = [0, 0, -1];
     mvp: Mat4 = Mat4.identity();
     view: Mat4 = Mat4.identity();
     viewInv: Mat4 = Mat4.identity();
@@ -236,12 +241,28 @@ export function computeCamera(
     let q = quatNormalize(quatMul(qBase, qUser));
     let forward = quatRotate(q, 0, 0, -1);
     let up = quatRotate(q, 0, 1, 0);
+    // Orthonormal basis in the same order the verifier mirror uses:
+    // right = norm(cross(forward, up)), viewUp = cross(right, forward).
+    let crx = forward[1] * up[2] - forward[2] * up[1];
+    let cry = forward[2] * up[0] - forward[0] * up[2];
+    let crz = forward[0] * up[1] - forward[1] * up[0];
+    let crl = Math.sqrt(crx * crx + cry * cry + crz * crz);
+    crx /= crl;
+    cry /= crl;
+    crz /= crl;
+    let cux = cry * forward[2] - crz * forward[1];
+    let cuy = crz * forward[0] - crx * forward[2];
+    let cuz = crx * forward[1] - cry * forward[0];
+    frame.right = [crx, cry, crz];
+    frame.upv = [cux, cuy, cuz];
+    frame.fwd = forward;
     frame.towardX = -forward[0];
     frame.towardY = -forward[1];
     frame.towardZ = -forward[2];
     let eyeX = centreX - forward[0] * CAMERA_DISTANCE;
     let eyeY = centreY - forward[1] * CAMERA_DISTANCE;
     let eyeZ = centreZ - forward[2] * CAMERA_DISTANCE;
+    frame.eye = [eyeX, eyeY, eyeZ];
 
     let view = Mat4.lookAt(
         <f32>eyeX, <f32>eyeY, <f32>eyeZ,
@@ -252,32 +273,34 @@ export function computeCamera(
     let inv = view.invertAffine();
     frame.viewInv = inv != null ? inv : Mat4.identity();
 
-    // Fit the ortho volume to the rotated bounding box.
-    let maxVX: f32 = 0;
-    let maxVY: f32 = 0;
-    let minVZ: f32 = 0;
-    let maxVZ: f32 = 0;
+    // Fit the ortho volume to the rotated bounding box on the shared f64
+    // basis — identical arithmetic to the verifier mirror, so picker depth
+    // comparisons are bit-exact. The f32 Mat4 above still feeds the GPU MVP.
+    let maxVX: f64 = 0;
+    let maxVY: f64 = 0;
+    let minVZ: f64 = 1e30;
+    let maxVZ: f64 = -1e30;
     for (let ix = 0; ix < 2; ix++) {
         for (let iy = 0; iy < 2; iy++) {
             for (let iz = 0; iz < 2; iz++) {
-                let wx = ix == 0 ? <f32>minX : <f32>maxX;
-                let wy = iy == 0 ? <f32>minY : <f32>maxY;
-                let wz = iz == 0 ? <f32>minZ : <f32>maxZ;
-                let p = view.transformPoint(wx, wy, wz);
-                maxVX = Mathf.max(maxVX, Mathf.abs(p.x));
-                maxVY = Mathf.max(maxVY, Mathf.abs(p.y));
-                if (ix == 0 && iy == 0 && iz == 0) {
-                    minVZ = p.z;
-                    maxVZ = p.z;
-                } else {
-                    minVZ = Mathf.min(minVZ, p.z);
-                    maxVZ = Mathf.max(maxVZ, p.z);
-                }
+                let wx = ix == 0 ? minX : maxX;
+                let wy = iy == 0 ? minY : maxY;
+                let wz = iz == 0 ? minZ : maxZ;
+                let ddx = wx - eyeX;
+                let ddy = wy - eyeY;
+                let ddz = wz - eyeZ;
+                let cvx = crx * ddx + cry * ddy + crz * ddz;
+                let cvy = cux * ddx + cuy * ddy + cuz * ddz;
+                let cvz = -(forward[0] * ddx + forward[1] * ddy + forward[2] * ddz);
+                maxVX = Math.max(maxVX, Math.abs(cvx));
+                maxVY = Math.max(maxVY, Math.abs(cvy));
+                minVZ = Math.min(minVZ, cvz);
+                maxVZ = Math.max(maxVZ, cvz);
             }
         }
     }
-    let halfHeight: f64 = Mathf.max(maxVY, maxVX / <f32>aspect) * FIT_MARGIN;
-    let nearZ: f64 = Mathf.max(-maxVZ - 0.05, 0.01);
+    let halfHeight: f64 = Math.max(maxVY, maxVX / aspect) * FIT_MARGIN;
+    let nearZ: f64 = Math.max(-maxVZ - 0.05, 0.01);
     let farZ: f64 = -minVZ + 0.05;
     frame.halfHeight = halfHeight;
     frame.nearZ = nearZ;

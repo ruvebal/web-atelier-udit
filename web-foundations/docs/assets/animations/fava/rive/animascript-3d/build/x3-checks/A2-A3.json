@@ -9,6 +9,10 @@
         4
       ]
     },
+    "emptyE": {
+      "x": 8,
+      "y": 8
+    },
     "zoff": {
       "x": 309,
       "y": 327,
@@ -53,9 +57,9 @@
       "count": 1
     },
     {
-      "facet": 0,
-      "selected": 0,
-      "count": 0
+      "facet": -1,
+      "count": 0,
+      "reset": true
     },
     {
       "facet": 0,
@@ -71,16 +75,21 @@
       "facet": 0,
       "selected": 1,
       "count": 1
+    },
+    {
+      "facet": 0,
+      "selected": 0,
+      "count": 0
     },
     {
       "facet": 2,
       "selected": 1,
-      "count": 2
+      "count": 1
     },
     {
       "facet": 4,
       "selected": 1,
-      "count": 3
+      "count": 2
     }
   ],
   "got": [
@@ -90,8 +99,7 @@
       "count": 1
     },
     {
-      "facet": 0,
-      "selected": 0,
+      "facet": -1,
       "count": 0
     },
     {
@@ -108,16 +116,21 @@
       "facet": 0,
       "selected": 1,
       "count": 1
+    },
+    {
+      "facet": 0,
+      "selected": 0,
+      "count": 0
     },
     {
       "facet": 2,
       "selected": 1,
-      "count": 2
+      "count": 1
     },
     {
       "facet": 4,
       "selected": 1,
-      "count": 3
+      "count": 2
     }
   ],
   "detail": [
@@ -127,34 +140,39 @@
       "got": "facet-01 sel=1 n=1"
     },
     {
+      "note": "reset",
+      "want": "reset",
+      "got": "reset"
+    },
+    {
       "note": "zoffset-select",
       "want": "facet-01",
-      "got": "facet-01 sel=0 n=0"
+      "got": "facet-01 sel=1 n=1"
     },
     {
       "note": "zoffset-probe",
       "want": "facet-01",
-      "got": "facet-01 sel=1 n=1"
+      "got": "facet-01 sel=0 n=0"
     },
     {
       "note": "touch",
+      "want": "facet-01",
+      "got": "facet-01 sel=1 n=1"
+    },
+    {
+      "note": "separated",
       "want": "facet-01",
       "got": "facet-01 sel=0 n=0"
     },
     {
       "note": "separated",
-      "want": "facet-01",
-      "got": "facet-01 sel=1 n=1"
-    },
-    {
-      "note": "separated",
       "want": "facet-03",
-      "got": "facet-03 sel=1 n=2"
+      "got": "facet-03 sel=1 n=1"
     },
     {
       "note": "culling-rest",
       "want": "facet-05",
-      "got": "facet-05 sel=1 n=3"
+      "got": "facet-05 sel=1 n=2"
     }
   ]
 }

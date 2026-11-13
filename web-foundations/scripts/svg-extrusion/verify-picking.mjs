@@ -68,7 +68,6 @@ const C = {
 	DRAG_DEADZONE: 3.0,
 	MAX_USER_YAW: 1.2,
 	MAX_USER_PITCH: 0.9,
-	PICK_TIE_EPS: 1e-5,
 };
 const smoothstep = (x) => {
 	const t = Math.min(1, Math.max(0, x));
@@ -106,8 +105,8 @@ const hashDir3 = (facet) => {
 	h = (h ^ (h >>> 15)) >>> 0;
 	const c = (h & 65535) / 65535;
 	const v = [a * 2 - 1, b * 2 - 1, c * 2 - 1];
-	const l = Math.hypot(...v);
-	return l < 1e-9 ? [1, 0, 0] : v.map((x) => x / l);
+	const l = Math.sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+	return l < 1e-9 ? [1, 0, 0] : [v[0] / l, v[1] / l, v[2] / l];
 };
 // quaternions [x,y,z,w]
 const qIdent = () => [0, 0, 0, 1];
@@ -118,11 +117,11 @@ const qMul = (a, b) => [
 	a[3] * b[3] - a[0] * b[0] - a[1] * b[1] - a[2] * b[2],
 ];
 const qNorm = (q) => {
-	const l = Math.hypot(...q);
-	return l < 1e-12 ? qIdent() : q.map((x) => x / l);
+	const l = Math.sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2] + q[3] * q[3]);
+	return l < 1e-12 ? qIdent() : [q[0] / l, q[1] / l, q[2] / l, q[3] / l];
 };
 const qAxis = (x, y, z, angle) => {
-	const l = Math.hypot(x, y, z);
+	const l = Math.sqrt(x * x + y * y + z * z);
 	if (l < 1e-12) return qIdent();
 	const s = Math.sin(angle / 2) / l;
 	return [x * s, y * s, z * s, Math.cos(angle / 2)];
@@ -156,7 +155,7 @@ const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
 const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
 const norm = (a) => {
-	const l = Math.hypot(...a);
+	const l = Math.sqrt(a[0] * a[0] + a[1] * a[1] + a[2] * a[2]);
 	return [a[0] / l, a[1] / l, a[2] / l];
 };
 const bounds = (() => {
@@ -275,7 +274,7 @@ function pickJS(frame, selWords, px, py, cssW, cssH) {
 	];
 	const d = norm(frame.forward);
 	const cache = { e: new Map(), dir: new Map() };
-	let bestZ = -1e30,
+	let bestDepth = Infinity,
 		bestFacet = -1,
 		bestTri = -1;
 	for (let t = 0; t < TRIS; t++) {
@@ -286,10 +285,11 @@ function pickJS(frame, selWords, px, py, cssW, cssH) {
 		const hp = [o[0] + d[0] * hit, o[1] + d[1] * hit, o[2] + d[2] * hit];
 		const pz = frame.view(hp)[2];
 		if (pz > -frame.near + 0.001 || pz < -frame.far - 0.001) continue;
-		const tie = pz > bestZ - C.PICK_TIE_EPS && pz < bestZ + C.PICK_TIE_EPS;
+		const depth = Math.fround((-pz - frame.near) / (frame.far - frame.near));
+		const tie = depth === bestDepth;
 		const orderBetter = facet > bestFacet || (facet === bestFacet && t > bestTri);
-		if (bestFacet < 0 || pz > bestZ + C.PICK_TIE_EPS || (tie && orderBetter)) {
-			bestZ = pz;
+		if (bestFacet < 0 || depth < bestDepth || (tie && orderBetter)) {
+			bestDepth = depth;
 			bestFacet = facet;
 			bestTri = t;
 		}
@@ -611,6 +611,15 @@ function checkA2A3() {
 		}
 		if (cull) break;
 	}
+	// empty point at extruded phase: resets the bitset so the z-offset
+	// select/probe pair runs on a clean selection (F4).
+	let emptyE = null;
+	for (const [x, y] of [[8, 8], [712, 8], [8, 472], [712, 472], [360, 8], [8, 240]]) {
+		if (pickAt(frameE, x, y) === -1) {
+			emptyE = { x, y };
+			break;
+		}
+	}
 	// touch target: any visible facet at extruded phase
 	let touch = null;
 	for (const [fi, pts] of candE) {
@@ -625,6 +634,7 @@ function checkA2A3() {
 
 	const missing = [];
 	if (!occl) missing.push('occlusion');
+	if (!emptyE) missing.push('empty-reset');
 	if (sepPts.length < 2) missing.push('separated');
 	if (!zoff) missing.push('zoffset');
 	if (!cull) missing.push('culling');
@@ -647,6 +657,7 @@ function checkA2A3() {
 		ev.push({ kind: 'click', x, y, note });
 	};
 	addClick(occl.x, occl.y, 'occlusion');
+	addClick(emptyE.x, emptyE.y, 'reset');
 	addClick(zoff.self.x, zoff.self.y, 'zoffset-select');
 	addClick(zoff.x, zoff.y, 'zoffset-probe');
 	lines.push(`touch tap@${touch.x},${touch.y}`);
@@ -660,10 +671,16 @@ function checkA2A3() {
 	const run = runCommands(lines);
 
 	function expectSequenceForMixed(events) {
-		const phaseOf = [PH_EXTRUDE, PH_EXTRUDE, PH_EXTRUDE, PH_EXTRUDE, PH_SEP, PH_SEP, 0];
+		// --commands ticks one 60fps frame per dispatched event: advance N = N
+		// ticks, pointer down/move/up = 1 each, `pointer click` = down+move+up
+		// = 3 ticks, touch tap likewise. The pick runs on the up tick's frame.
+		// Session: advance 238; 5 picks at ticks 241/244/247/250/253; +140;
+		// 2 picks at 396/399; +162; rest pick at 564.
+		const frameAt = [241, 244, 247, 250, 253, 396, 399, 564];
 		const selSet = new Set();
 		const expected = events.map((e, i) => {
-			const frame = computeCam(phaseOf[i], phaseOf[i] * C.LOOP_PERIOD, 0, 0, aspect);
+			const phase = loopPhase(frameAt[i] / 60);
+			const frame = computeCam(phase, phase * C.LOOP_PERIOD, 0, 0, aspect);
 			const f = pickJS(frame, selWordsFor(selSet), e.x, e.y, cssW, cssH);
 			if (f < 0) {
 				selSet.clear();
@@ -704,12 +721,12 @@ function checkA2A3() {
 		});
 	writeFileSync(
 		resolve(OUT, 'A2-A3.json'),
-		JSON.stringify({ fixtures: { occl, zoff, touch, sepPts, cull }, expected, got, detail }, null, 2)
+		JSON.stringify({ fixtures: { occl, emptyE, zoff, touch, sepPts, cull }, expected, got, detail }, null, 2)
 	);
 	record(
 		'A2',
 		ok,
-		`fixtures occl=${facetIdOf[occl.facet]} zoff=${facetIdOf[zoff.facet]} touch=${facetIdOf[touch.facet]} sep=[${sepPts.map((s) => facetIdOf[s.fi])}] cull=empty; ${ok ? 'all matched' : 'MISMATCH ' + JSON.stringify(detail)}`
+		`fixtures occl=${facetIdOf[occl.facet]} zoff=${facetIdOf[zoff.facet]} touch=${facetIdOf[touch.facet]} sep=[${sepPts.map((s) => facetIdOf[s.fi])}] cull=${facetIdOf[cull.want]}(back=${facetIdOf[cull.backFacet]}); ${ok ? 'all matched' : 'MISMATCH ' + JSON.stringify(detail)}`
 	);
 	record('A3', ok, 'nearest-positive picks matched JS mirror across extruded/separated/rest poses');
 }
@@ -759,14 +776,38 @@ function checkA4() {
 		run.picks[1].selected === 0 &&
 		run.picks[1].count === 0;
 	const unchanged = JSON.stringify(before) === JSON.stringify(after);
+
+	// GPU selection proof: two sessions at identical elapsed time, one with
+	// the facet selected + one advance, one without. If the selection bitset
+	// never reaches the shader the frames are pixel-identical (F1).
+	const T = Math.round(phase * C.LOOP_PERIOD * 60);
+	runCommands([
+		`advance ${T}`,
+		`advance 1`,
+		`screenshot ${OUT}/x3-a4-unselected.png`,
+	]);
+	runCommands([
+		`advance ${T}`,
+		`pointer click@${pt.x},${pt.y}`,
+		`advance 1`,
+		`screenshot ${OUT}/x3-a4-selected.png`,
+	]);
+	const unP = resolve(OUT, 'x3-a4-unselected.png'),
+		selP = resolve(OUT, 'x3-a4-selected.png');
+	const selDiff = unP && selP ? aeDiff(unP, selP) : NaN;
+
 	writeFileSync(
 		resolve(OUT, 'A4.json'),
-		JSON.stringify({ facet: facetIdOf[fi], picks: run.picks, hashesBefore: before, hashesAfter: after }, null, 2)
+		JSON.stringify(
+			{ facet: facetIdOf[fi], picks: run.picks, hashesBefore: before, hashesAfter: after, selDiff, unselected: unP, selected: selP },
+			null,
+			2
+		)
 	);
 	record(
 		'A4',
-		toggled && unchanged,
-		`toggle ${facetIdOf[fi]} sel 1->0 count->0; provider hashes ${unchanged ? 'unchanged' : 'CHANGED'}`
+		toggled && unchanged && selDiff > 0,
+		`toggle ${facetIdOf[fi]} sel 1->0 count->0; provider hashes ${unchanged ? 'unchanged' : 'CHANGED'}; GPU sel-vs-unsel diff=${selDiff}`
 	);
 }
 
@@ -976,24 +1017,39 @@ function checkA7() {
 }
 
 function checkA8() {
-	// pen-scale micro-movement: sub-deadzone drag at an empty point -> no camera steer, no selection.
-	const lines = [
-		`screenshot ${OUT}/x3-micro-before.png`,
+	// Deadzone: a sub-3px drag must not steer the camera even after damping
+	// frames advance; a real drag at the same elapsed time must change pixels.
+	// Every --commands line consumes one frame, so pointer-heavy sessions
+	// advance fewer explicit frames to land on the same elapsed time.
+	const ref = runCommands(['advance 60', `screenshot ${OUT}/x3-a8-ref.png`]);
+	const micro = runCommands([
 		'pointer down@10,10',
 		'pointer move@11,10',
 		'pointer move@10,11',
 		'pointer move@11,11',
 		'pointer up@11,11',
+		'advance 55',
 		`screenshot ${OUT}/x3-micro-after.png`,
-	];
-	const run = runCommands(lines);
-	const b = resolve(OUT, 'x3-micro-before.png'),
-		a = resolve(OUT, 'x3-micro-after.png');
-	const diff = b && a ? aeDiff(b, a) : NaN;
-	// (10,10)-(11,11) is empty -> click triggers reset log but no visual change
-	const ok = diff === 0;
-	writeFileSync(resolve(OUT, 'A8.json'), JSON.stringify({ diff, before: b, after: a, picks: run.picks }, null, 2));
-	record('A8', ok, `micro-drag pixel diff=${diff}`);
+	]);
+	const drag = runCommands([
+		'pointer down@400,240',
+		'pointer move@430,260',
+		'pointer move@440,255',
+		'pointer up@440,255',
+		'advance 56',
+		`screenshot ${OUT}/x3-drag-after.png`,
+	]);
+	const refP = resolve(OUT, 'x3-a8-ref.png'),
+		microP = resolve(OUT, 'x3-micro-after.png'),
+		dragP = resolve(OUT, 'x3-drag-after.png');
+	const microDiff = refP && microP ? aeDiff(refP, microP) : NaN;
+	const dragDiff = refP && dragP ? aeDiff(refP, dragP) : NaN;
+	const ok = microDiff === 0 && dragDiff > 0;
+	writeFileSync(
+		resolve(OUT, 'A8.json'),
+		JSON.stringify({ microDiff, dragDiff, ref: refP, micro: microP, drag: dragP, refPicks: ref.picks, microPicks: micro.picks, dragPicks: drag.picks }, null, 2)
+	);
+	record('A8', ok, `deadzone micro-diff=${microDiff} (want 0), drag-diff=${dragDiff} (want >0)`);
 }
 
 function checkA9() {

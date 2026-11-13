@@ -81,20 +81,23 @@ export function pickFacet(
     let vx = ndcX * frame.halfHeight * frame.aspect;
     let vy = ndcY * frame.halfHeight;
 
-    let o1 = frame.viewInv.transformPoint(<f32>vx, <f32>vy, <f32>(-1));
-    let o2 = frame.viewInv.transformPoint(<f32>vx, <f32>vy, <f32>(-2));
-    let ox: f64 = o1.x, oy: f64 = o1.y, oz: f64 = o1.z;
-    let dx: f64 = <f64>o2.x - <f64>o1.x;
-    let dy: f64 = <f64>o2.y - <f64>o1.y;
-    let dz: f64 = <f64>o2.z - <f64>o1.z;
-    let dl = Math.sqrt(dx * dx + dy * dy + dz * dz);
-    if (dl < 1e-12) return -1;
-    dx /= dl; dy /= dl; dz /= dl;
+    // Ray through view (vx, vy, -1) on the shared f64 camera basis — the same
+    // arithmetic the JS verifier mirror runs, so picks agree bit-for-bit.
+    let eyeA = frame.eye, rightA = frame.right, upA = frame.upv, fwdA = frame.fwd;
+    let ox: f64 = eyeA[0] + vx * rightA[0] + vy * upA[0] + fwdA[0];
+    let oy: f64 = eyeA[1] + vx * rightA[1] + vy * upA[1] + fwdA[1];
+    let oz: f64 = eyeA[2] + vx * rightA[2] + vy * upA[2] + fwdA[2];
+    let fl = Math.sqrt(fwdA[0] * fwdA[0] + fwdA[1] * fwdA[1] + fwdA[2] * fwdA[2]);
+    let dx: f64 = fwdA[0] / fl;
+    let dy: f64 = fwdA[1] / fl;
+    let dz: f64 = fwdA[2] / fl;
 
     let sepBase = choreo.separation(frame.phase) * choreo.SEPARATION_DIST;
-    let eps = choreo.PICK_TIE_EPS;
 
-    let bestZ = -1e30;
+    // The GPU stores depth32float of the ortho depth scalar
+    // depth = (-viewZ - near) / (far - near); equal depth means equal f32
+    // of that scalar, not a tolerance band on view z.
+    let bestDepth: f32 = 1e30;
     let bestFacet: i32 = -1;
     let bestTri: i32 = -1;
 
@@ -139,16 +142,19 @@ export function pickFacet(
 
         // Depth in view space: ortho so view z orders visibility directly.
         let hx = ox + dx * hit, hy = oy + dy * hit, hz = oz + dz * hit;
-        let pv = frame.view.transformPoint(<f32>hx, <f32>hy, <f32>hz);
-        let pz = pv.z;
+        let ddx = hx - eyeA[0], ddy = hy - eyeA[1], ddz = hz - eyeA[2];
+        let pz = -(fwdA[0] * ddx + fwdA[1] * ddy + fwdA[2] * ddz);
         if (pz > -frame.nearZ + 0.001 || pz < -frame.farZ - 0.001) continue;
 
-        // Nearest positive hit wins; equal depth -> later source-order facet
-        // (then later index-order tri), matching GPU lessEqual semantics.
-        let tie = pz > bestZ - eps && pz < bestZ + eps;
+        // Nearest positive hit wins; a hit ties only when its depth scalar
+        // rounds to the same f32 the depth32float attachment stores, then the
+        // later source-order facet (then later index-order tri) wins,
+        // matching GPU lessEqual semantics.
+        let d = <f32>((-pz - frame.nearZ) / (frame.farZ - frame.nearZ));
+        let tie = d == bestDepth;
         let orderBetter = facet > <u32>bestFacet || (facet == <u32>bestFacet && <i32>t > bestTri);
-        if (bestFacet < 0 || pz > bestZ + eps || (tie && orderBetter)) {
-            bestZ = pz;
+        if (bestFacet < 0 || d < bestDepth || (tie && orderBetter)) {
+            bestDepth = d;
             bestFacet = <i32>facet;
             bestTri = <i32>t;
         }

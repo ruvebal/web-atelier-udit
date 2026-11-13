@@ -8,6 +8,7 @@ import { Buffer } from "rive/buffer";
 import * as choreo from "../choreo";
 import { CameraFrame } from "../choreo";
 import { pickFacet } from "../pick";
+import { Main } from "../main";
 import {
     BOUNDS_MAX_X,
     BOUNDS_MAX_Y,
@@ -151,10 +152,16 @@ export class ChoreoTests extends Tests {
                 expect.that(Math.abs(slow - fast) < 1e-9).is(true);
                 expect.that(Math.abs(slow - 1) < 0.01).is(true);
             });
-            test("long frames stay bounded", (expect) => {
-                let v: f64 = choreo.dampStep(0, 1, 5, choreo.ORBIT_LAMBDA);
-                expect.that(v <= 1 && v >= 0).is(true);
-                expect.that(Number.isFinite(v)).is(true);
+            test("advance clamps the damping step to 0.5s on long frames", (expect) => {
+                // advance(5) must integrate damping with dt=0.5, not dt=5:
+                // dampStep(0,1,0.5) != dampStep(0,1,5) and both are finite.
+                let m = new Main();
+                m.userYawTarget = 1;
+                m.advance(5);
+                let want = choreo.dampStep(0, 1, 0.5, choreo.ORBIT_LAMBDA);
+                expect.that(Math.abs(m.userYaw - want) < 1e-9).is(true);
+                expect.that(m.userYaw < choreo.dampStep(0, 1, 5, choreo.ORBIT_LAMBDA)).is(true);
+                expect.that(m.elapsed == 5).is(true);
             });
         });
 
@@ -191,6 +198,27 @@ export class ChoreoTests extends Tests {
                 let frame = restFrame(0, 1, -1, 1, -1, 1, -0.1, 0.1);
                 expect.that(pick(mesh, frame, 1, ZERO_SEL, 50, 50, SX, SY)).is(0);
                 expect.that(pick(mesh, frame, 1, ZERO_SEL, 2, 2, SX, SY)).is(-1);
+            });
+
+            test("1e-6 view-z separation keeps the nearer facet", (expect) => {
+                // Two identical facets separated by 1e-6 in view z: inside
+                // any tolerance band, but their depth32float values differ,
+                // so the nearer facet must win over later source order.
+                let frame = restFrame(0.45, 1, -1, 1, -1, 1, -0.3, 0.1);
+                let vzPerZ =
+                    <f64>frame.view.transformPoint(<f32>0, <f32>0, <f32>1).z -
+                    <f64>frame.view.transformPoint(<f32>0, <f32>0, <f32>0).z;
+                let off = 0.000001 / Math.abs(vzPerZ);
+                for (let flip of [false, true]) {
+                    let za = flip ? 0.0 + off : 0.0 - off;
+                    let zb = flip ? 0.0 - off : 0.0 + off;
+                    let verts = centreTri(0, za, 1).concat(centreTri(1, zb, 1));
+                    let mesh = makeMesh(verts, [0, 1, 2, 3, 4, 5]);
+                    let vza = <f64>frame.view.transformPoint(<f32>0, <f32>0, <f32>za).z;
+                    let vzb = <f64>frame.view.transformPoint(<f32>0, <f32>0, <f32>zb).z;
+                    expect.that(Math.abs(vza - vzb) > 5e-7).is(true);
+                    expect.that(pick(mesh, frame, 2, ZERO_SEL, 50, 50, SX, SY)).is(vza > vzb ? 0 : 1);
+                }
             });
 
             test("equal depth resolves to later source-order facet", (expect) => {

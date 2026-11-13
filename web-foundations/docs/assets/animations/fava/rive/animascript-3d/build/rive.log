@@ -1470,3 +1470,1855 @@
 [12:59:03.557] rive    PASS empty corner pick returns -1
 [12:59:03.557] rive  21/21 passed
 [12:59:05.272] rive  verified (0 bytes, 55ms, 0 errors, 0 warnings)
+[13:00:49.900] rive  built (582651 bytes, 89ms, 0 errors, 0 warnings)
+[13:00:49.903] rive  loop phase
+[13:00:49.903] rive    PASS phase wraps at the loop period
+[13:00:49.903] rive    PASS extrusion is 0 at rest and 1 through inspect
+[13:00:49.903] rive    PASS extrude staggers facet 0 ahead of the last facet
+[13:00:49.903] rive    PASS retract runs in reverse facet order
+[13:00:49.903] rive    PASS separation peaks mid-inspect and is 0 at rest
+[13:00:49.903] rive  quaternion camera
+[13:00:49.903] rive    PASS identity orientation looks down -z
+[13:00:49.903] rive    PASS 90 degree yaw rotates forward to -x
+[13:00:49.903] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[13:00:49.903] rive    PASS near-identical quaternions slerp stably
+[13:00:49.903] rive  frame-rate independent damping
+[13:00:49.903] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[13:00:49.903] rive    PASS long frames stay bounded
+[13:00:49.903] rive  hashDir
+[13:00:49.903] rive    PASS deterministic and unit length
+[13:00:49.903] rive    PASS distinct facets get distinct directions
+[13:00:49.903] rive  picker on synthetic meshes
+[13:00:49.903] rive    PASS single front facet picks at centre, misses at corner
+[13:00:49.903] rive    PASS equal depth resolves to later source-order facet
+[13:00:49.903] rive    PASS nearest positive hit wins over source order
+[13:00:49.903] rive    PASS selected offset toward camera can win a depth contest
+[13:00:49.903] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[13:00:49.903] rive    PASS narrow and wide aspects still map the centre ray
+[13:00:49.903] rive  picker on the real blobs
+[13:00:49.903] rive    PASS rest centre pick lands on a generated facet
+[13:00:49.903] rive    PASS empty corner pick returns -1
+[13:00:49.903] rive  21/21 passed
+[13:00:50.019] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:50.074] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[13:00:50.075] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:50.077] rive  showing main [1/1]
+[13:00:50.078] rive  viewport 720x480 @1x
+[13:00:50.078] rive  script frame gc: scavenging per frame
+[13:00:50.082] console :0  x3pick facet=2 selected=1 count=1
+[13:00:50.086] console :0  x3pick facet=0 selected=1 count=2
+[13:00:50.090] console :0  x3pick facet=4 selected=1 count=3
+[13:00:50.158] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:50.214] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[13:00:50.214] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:50.215] rive  showing main [1/1]
+[13:00:50.215] rive  viewport 720x480 @1x
+[13:00:50.215] rive  script frame gc: scavenging per frame
+[13:00:50.231] console :0  x3pick facet=0 selected=1 count=1
+[13:00:50.240] console :0  x3pick facet=0 selected=0 count=0
+[13:00:50.249] console :0  x3pick facet=0 selected=1 count=1
+[13:00:50.258] console :0  x3pick facet=0 selected=0 count=0
+[13:00:50.271] console :0  x3pick facet=0 selected=1 count=1
+[13:00:50.280] console :0  x3pick facet=2 selected=1 count=2
+[13:00:50.289] console :0  x3pick facet=4 selected=1 count=3
+[13:00:50.350] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:50.405] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[13:00:50.405] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:50.406] rive  showing main [1/1]
+[13:00:50.406] rive  viewport 720x480 @1x
+[13:00:50.406] rive  script frame gc: scavenging per frame
+[13:00:50.422] console :0  x3pick facet=0 selected=1 count=1
+[13:00:50.431] console :0  x3pick facet=0 selected=0 count=0
+[13:00:50.492] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:50.548] rive  built (567043 bytes, 56ms, 0 errors, 0 warnings)
+[13:00:50.548] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:50.548] rive  showing main [1/1]
+[13:00:50.549] rive  viewport 720x480 @1x
+[13:00:50.549] rive  script frame gc: scavenging per frame
+[13:00:50.566] console :0  x3pick facet=0 selected=1 count=1
+[13:00:50.576] console :0  x3pick reset count=0
+[13:00:50.610] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-after.png
+[13:00:50.676] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:50.729] rive  built (567043 bytes, 54ms, 0 errors, 0 warnings)
+[13:00:50.730] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:50.730] rive  showing main [1/1]
+[13:00:50.730] rive  viewport 720x480 @1x
+[13:00:50.754] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-ref.png
+[13:00:50.852] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:50.908] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[13:00:50.908] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:50.909] rive  showing main [1/1]
+[13:00:50.909] rive  viewport 720x480 @1x
+[13:00:50.909] rive  viewport 400x480 @1x
+[13:00:50.909] rive  script frame gc: scavenging per frame
+[13:00:50.925] console :0  x3pick facet=0 selected=1 count=1
+[13:00:50.934] console :0  x3pick facet=0 selected=0 count=0
+[13:00:50.997] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:51.051] rive  built (567043 bytes, 53ms, 0 errors, 0 warnings)
+[13:00:51.052] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:51.052] rive  showing main [1/1]
+[13:00:51.052] rive  viewport 720x480 @1x
+[13:00:51.052] rive  viewport 1200x480 @1x
+[13:00:51.052] rive  script frame gc: scavenging per frame
+[13:00:51.069] console :0  x3pick facet=0 selected=1 count=1
+[13:00:51.079] console :0  x3pick facet=0 selected=0 count=0
+[13:00:51.140] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:51.196] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[13:00:51.196] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:51.196] rive  showing main [1/1]
+[13:00:51.197] rive  viewport 720x480 @1x
+[13:00:51.197] rive  script frame gc: scavenging per frame
+[13:00:51.211] console :0  x3pick facet=0 selected=1 count=1
+[13:00:51.222] console :0  x3pick facet=0 selected=0 count=0
+[13:00:51.282] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:51.337] rive  built (567043 bytes, 54ms, 0 errors, 0 warnings)
+[13:00:51.337] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:51.337] rive  showing main [1/1]
+[13:00:51.337] rive  viewport 720x480 @1x
+[13:00:51.361] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-before.png
+[13:00:51.361] rive  script frame gc: scavenging per frame
+[13:00:51.365] console :0  x3pick reset count=0
+[13:00:51.372] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-after.png
+[13:00:51.449] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:51.505] rive  built (567043 bytes, 56ms, 0 errors, 0 warnings)
+[13:00:51.506] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:51.506] rive  showing main [1/1]
+[13:00:51.506] rive  viewport 720x480 @1x
+[13:00:51.506] rive  script frame gc: scavenging per frame
+[13:00:51.535] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[13:00:51.594] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:51.649] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[13:00:51.650] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:51.650] rive  showing main [1/1]
+[13:00:51.650] rive  viewport 720x480 @1x
+[13:00:51.650] rive  script frame gc: scavenging per frame
+[13:00:51.679] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[13:00:51.745] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:51.800] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[13:00:51.800] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:51.801] rive  showing main [1/1]
+[13:00:51.801] rive  viewport 720x480 @1x
+[13:00:51.801] rive  script frame gc: scavenging per frame
+[13:00:51.830] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[13:00:51.932] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:51.988] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[13:00:51.988] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:51.989] rive  showing main [1/1]
+[13:00:51.989] rive  viewport 720x480 @1x
+[13:00:51.989] rive  script frame gc: scavenging per frame
+[13:00:52.014] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[13:00:52.075] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:52.130] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[13:00:52.130] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:52.130] rive  showing main [1/1]
+[13:00:52.130] rive  viewport 720x480 @1x
+[13:00:52.130] rive  script frame gc: scavenging per frame
+[13:00:52.156] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[13:00:52.216] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:52.272] rive  built (567043 bytes, 56ms, 0 errors, 0 warnings)
+[13:00:52.273] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:52.273] rive  showing main [1/1]
+[13:00:52.273] rive  viewport 720x480 @1x
+[13:00:52.273] rive  script frame gc: scavenging per frame
+[13:00:52.304] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[13:00:52.366] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[13:00:52.420] rive  built (567043 bytes, 54ms, 0 errors, 0 warnings)
+[13:00:52.421] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[13:00:52.421] rive  showing main [1/1]
+[13:00:52.421] rive  viewport 720x480 @1x
+[13:00:52.421] rive  script frame gc: scavenging per frame
+[13:00:52.439] console :0  x3pick facet=0 selected=1 count=1
+[18:39:08.920] error   main:311:9  [as] E3001: unknown identifier 'unsafe'
+[18:39:08.920] error   main:311:16  [as] E2001: expected ';'
+[18:39:08.920] error   main:322:9  [as] E3001: unknown identifier 'unsafe'
+[18:39:08.920] error   main:322:16  [as] E2001: expected ';'
+[18:39:08.920] warning main:311:9  [lint] W1013: statement has no effect
+[18:39:08.920] warning main:322:9  [lint] W1013: statement has no effect
+[18:39:08.921] rive  build failed (0 bytes, 97ms, 4 errors, 2 warnings)
+[18:39:25.699] error   main:204:23  [as] E3001: changetype is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:206:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:207:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:208:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:209:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:210:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:211:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:212:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:213:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:214:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:215:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:216:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:217:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:218:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:219:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:220:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:221:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:222:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:223:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:224:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:225:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:226:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:227:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:228:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:229:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] error   main:231:13  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
+[18:39:25.700] rive  build failed (0 bytes, 52ms, 26 errors, 0 warnings)
+[18:40:00.111] rive  verified (0 bytes, 94ms, 0 errors, 0 warnings)
+[18:45:13.669] rive  built (583662 bytes, 72ms, 0 errors, 0 warnings)
+[18:45:13.672] rive  loop phase
+[18:45:13.672] rive    PASS phase wraps at the loop period
+[18:45:13.672] rive    PASS extrusion is 0 at rest and 1 through inspect
+[18:45:13.672] rive    PASS extrude staggers facet 0 ahead of the last facet
+[18:45:13.672] rive    PASS retract runs in reverse facet order
+[18:45:13.672] rive    PASS separation peaks mid-inspect and is 0 at rest
+[18:45:13.672] rive  quaternion camera
+[18:45:13.672] rive    PASS identity orientation looks down -z
+[18:45:13.672] rive    PASS 90 degree yaw rotates forward to -x
+[18:45:13.673] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[18:45:13.673] rive    PASS near-identical quaternions slerp stably
+[18:45:13.673] rive  frame-rate independent damping
+[18:45:13.673] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[18:45:13.673] rive    PASS advance clamps the damping step to 0.5s on long frames
+[18:45:13.673] rive  hashDir
+[18:45:13.673] rive    PASS deterministic and unit length
+[18:45:13.673] rive    PASS distinct facets get distinct directions
+[18:45:13.673] rive  picker on synthetic meshes
+[18:45:13.673] rive    PASS single front facet picks at centre, misses at corner
+[18:45:13.673] rive    PASS 1e-6 view-z separation keeps the nearer facet
+[18:45:13.673] rive    PASS equal depth resolves to later source-order facet
+[18:45:13.673] rive    PASS nearest positive hit wins over source order
+[18:45:13.673] rive    PASS selected offset toward camera can win a depth contest
+[18:45:13.673] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[18:45:13.673] rive    PASS narrow and wide aspects still map the centre ray
+[18:45:13.673] rive  picker on the real blobs
+[18:45:13.673] rive    PASS rest centre pick lands on a generated facet
+[18:45:13.673] rive    PASS empty corner pick returns -1
+[18:45:13.673] rive  22/22 passed
+[18:47:02.631] rive  verified (0 bytes, 98ms, 0 errors, 0 warnings)
+[18:47:04.645] rive  signing 1 scripts…
+[18:47:06.038] rive  signed 1 scripts
+[18:47:06.068] rive  watermarked: ruvebal is on a plan with the Rive splash screen. Upgrade to publish without it: https://rive.app/pricing?utm_source=cli&utm_medium=watermark&utm_campaign=cli-upgrade
+[18:47:06.079] rive  published build/fava_prismatic_3d.riv (530427 bytes, 2391ms, 0 errors, 0 warnings)
+[18:47:08.926] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:08.983] rive  built (567135 bytes, 57ms, 0 errors, 0 warnings)
+[18:47:08.983] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:08.988] rive  showing main [1/1]
+[18:47:08.988] rive  viewport 720x480 @1x
+[18:47:08.988] rive  script frame gc: scavenging per frame
+[18:47:08.992] console :0  x3pick facet=2 selected=1 count=1
+[18:47:08.996] console :0  x3pick facet=0 selected=1 count=2
+[18:47:09.000] console :0  x3pick facet=4 selected=1 count=3
+[18:47:09.072] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:09.128] rive  built (567135 bytes, 55ms, 0 errors, 0 warnings)
+[18:47:09.128] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:09.129] rive  showing main [1/1]
+[18:47:09.129] rive  viewport 720x480 @1x
+[18:47:09.129] rive  script frame gc: scavenging per frame
+[18:47:09.146] console :0  x3pick facet=0 selected=1 count=1
+[18:47:09.155] console :0  x3pick reset count=0
+[18:47:09.164] console :0  x3pick facet=0 selected=1 count=1
+[18:47:09.174] console :0  x3pick facet=0 selected=0 count=0
+[18:47:09.183] console :0  x3pick facet=0 selected=1 count=1
+[18:47:09.198] console :0  x3pick facet=0 selected=0 count=0
+[18:47:09.207] console :0  x3pick facet=2 selected=1 count=1
+[18:47:09.216] console :0  x3pick facet=4 selected=1 count=2
+[18:47:09.284] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:09.342] rive  built (567135 bytes, 57ms, 0 errors, 0 warnings)
+[18:47:09.342] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:09.343] rive  showing main [1/1]
+[18:47:09.343] rive  viewport 720x480 @1x
+[18:47:09.343] rive  script frame gc: scavenging per frame
+[18:47:09.360] console :0  x3pick facet=0 selected=1 count=1
+[18:47:09.369] console :0  x3pick facet=0 selected=0 count=0
+[18:47:09.435] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:09.490] rive  built (567135 bytes, 55ms, 0 errors, 0 warnings)
+[18:47:09.490] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:09.491] rive  showing main [1/1]
+[18:47:09.491] rive  viewport 720x480 @1x
+[18:47:09.491] rive  script frame gc: scavenging per frame
+[18:47:09.523] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-unselected.png
+[18:47:09.590] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:09.648] rive  built (567135 bytes, 58ms, 0 errors, 0 warnings)
+[18:47:09.648] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:09.648] rive  showing main [1/1]
+[18:47:09.649] rive  viewport 720x480 @1x
+[18:47:09.649] rive  script frame gc: scavenging per frame
+[18:47:09.666] console :0  x3pick facet=0 selected=1 count=1
+[18:47:09.690] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-selected.png
+[18:47:09.791] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:09.848] rive  built (567135 bytes, 56ms, 0 errors, 0 warnings)
+[18:47:09.848] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:09.849] rive  showing main [1/1]
+[18:47:09.849] rive  viewport 720x480 @1x
+[18:47:09.849] rive  script frame gc: scavenging per frame
+[18:47:09.866] console :0  x3pick facet=0 selected=1 count=1
+[18:47:09.875] console :0  x3pick reset count=0
+[18:47:09.911] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-after.png
+[18:47:09.974] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:10.030] rive  built (567135 bytes, 56ms, 0 errors, 0 warnings)
+[18:47:10.031] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:10.031] rive  showing main [1/1]
+[18:47:10.031] rive  viewport 720x480 @1x
+[18:47:10.054] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-ref.png
+[18:47:10.138] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:10.194] rive  built (567135 bytes, 56ms, 0 errors, 0 warnings)
+[18:47:10.194] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:10.194] rive  showing main [1/1]
+[18:47:10.194] rive  viewport 720x480 @1x
+[18:47:10.195] rive  viewport 400x480 @1x
+[18:47:10.195] rive  script frame gc: scavenging per frame
+[18:47:10.211] console :0  x3pick facet=0 selected=1 count=1
+[18:47:10.220] console :0  x3pick facet=0 selected=0 count=0
+[18:47:10.283] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:10.340] rive  built (567135 bytes, 58ms, 0 errors, 0 warnings)
+[18:47:10.341] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:10.341] rive  showing main [1/1]
+[18:47:10.341] rive  viewport 720x480 @1x
+[18:47:10.341] rive  viewport 1200x480 @1x
+[18:47:10.341] rive  script frame gc: scavenging per frame
+[18:47:10.358] console :0  x3pick facet=0 selected=1 count=1
+[18:47:10.368] console :0  x3pick facet=0 selected=0 count=0
+[18:47:10.432] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:10.488] rive  built (567135 bytes, 56ms, 0 errors, 0 warnings)
+[18:47:10.488] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:10.489] rive  showing main [1/1]
+[18:47:10.489] rive  viewport 720x480 @1x
+[18:47:10.489] rive  script frame gc: scavenging per frame
+[18:47:10.503] console :0  x3pick facet=0 selected=1 count=1
+[18:47:10.513] console :0  x3pick facet=0 selected=0 count=0
+[18:47:10.573] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:10.630] rive  built (567135 bytes, 57ms, 0 errors, 0 warnings)
+[18:47:10.631] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:10.631] rive  showing main [1/1]
+[18:47:10.631] rive  viewport 720x480 @1x
+[18:47:10.631] rive  script frame gc: scavenging per frame
+[18:47:10.656] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a8-ref.png
+[18:47:10.715] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:10.771] rive  built (567135 bytes, 56ms, 0 errors, 0 warnings)
+[18:47:10.771] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:10.772] rive  showing main [1/1]
+[18:47:10.772] rive  viewport 720x480 @1x
+[18:47:10.772] rive  script frame gc: scavenging per frame
+[18:47:10.776] console :0  x3pick reset count=0
+[18:47:10.803] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-after.png
+[18:47:10.866] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:10.923] rive  built (567135 bytes, 56ms, 0 errors, 0 warnings)
+[18:47:10.923] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:10.923] rive  showing main [1/1]
+[18:47:10.923] rive  viewport 720x480 @1x
+[18:47:10.924] rive  script frame gc: scavenging per frame
+[18:47:10.949] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-drag-after.png
+[18:47:11.050] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:11.106] rive  built (567135 bytes, 56ms, 0 errors, 0 warnings)
+[18:47:11.107] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:11.107] rive  showing main [1/1]
+[18:47:11.107] rive  viewport 720x480 @1x
+[18:47:11.107] rive  script frame gc: scavenging per frame
+[18:47:11.136] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[18:47:11.198] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:11.256] rive  built (567135 bytes, 57ms, 0 errors, 0 warnings)
+[18:47:11.256] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:11.256] rive  showing main [1/1]
+[18:47:11.257] rive  viewport 720x480 @1x
+[18:47:11.257] rive  script frame gc: scavenging per frame
+[18:47:11.286] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[18:47:11.350] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:11.408] rive  built (567135 bytes, 58ms, 0 errors, 0 warnings)
+[18:47:11.409] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:11.409] rive  showing main [1/1]
+[18:47:11.409] rive  viewport 720x480 @1x
+[18:47:11.409] rive  script frame gc: scavenging per frame
+[18:47:11.440] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[18:47:11.551] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:11.607] rive  built (567135 bytes, 57ms, 0 errors, 0 warnings)
+[18:47:11.608] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:11.608] rive  showing main [1/1]
+[18:47:11.608] rive  viewport 720x480 @1x
+[18:47:11.608] rive  script frame gc: scavenging per frame
+[18:47:11.634] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[18:47:11.697] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:11.756] rive  built (567135 bytes, 59ms, 0 errors, 0 warnings)
+[18:47:11.757] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:11.757] rive  showing main [1/1]
+[18:47:11.757] rive  viewport 720x480 @1x
+[18:47:11.757] rive  script frame gc: scavenging per frame
+[18:47:11.783] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[18:47:11.845] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:11.899] rive  built (567135 bytes, 54ms, 0 errors, 0 warnings)
+[18:47:11.900] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:11.900] rive  showing main [1/1]
+[18:47:11.900] rive  viewport 720x480 @1x
+[18:47:11.900] rive  script frame gc: scavenging per frame
+[18:47:11.929] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[18:47:11.991] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:47:12.047] rive  built (567135 bytes, 56ms, 0 errors, 0 warnings)
+[18:47:12.047] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:47:12.047] rive  showing main [1/1]
+[18:47:12.047] rive  viewport 720x480 @1x
+[18:47:12.048] rive  script frame gc: scavenging per frame
+[18:47:12.066] console :0  x3pick facet=0 selected=1 count=1
+[18:53:40.542] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:40.542] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:40.542] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:40.542] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:40.543] rive  build failed (0 bytes, 88ms, 3 errors, 1 warnings)
+[18:53:46.664] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:46.716] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:46.716] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:46.716] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:46.716] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:46.716] rive  build failed (0 bytes, 52ms, 3 errors, 1 warnings)
+[18:53:46.786] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:46.839] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:46.839] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:46.839] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:46.839] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:46.839] rive  build failed (0 bytes, 52ms, 3 errors, 1 warnings)
+[18:53:46.895] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:46.943] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:46.943] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:46.943] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:46.943] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:46.943] rive  build failed (0 bytes, 48ms, 3 errors, 1 warnings)
+[18:53:46.998] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:47.046] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.046] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.046] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.046] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:47.046] rive  build failed (0 bytes, 48ms, 3 errors, 1 warnings)
+[18:53:47.099] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:47.148] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.148] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.148] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.148] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:47.148] rive  build failed (0 bytes, 49ms, 3 errors, 1 warnings)
+[18:53:47.237] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:47.290] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.290] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.290] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.290] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:47.290] rive  build failed (0 bytes, 53ms, 3 errors, 1 warnings)
+[18:53:47.349] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:47.402] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.402] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.402] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.402] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:47.402] rive  build failed (0 bytes, 53ms, 3 errors, 1 warnings)
+[18:53:47.481] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:47.537] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.537] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.537] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.537] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:47.537] rive  build failed (0 bytes, 56ms, 3 errors, 1 warnings)
+[18:53:47.593] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:47.646] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.646] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.646] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.646] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:47.646] rive  build failed (0 bytes, 53ms, 3 errors, 1 warnings)
+[18:53:47.707] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:47.755] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.755] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.755] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.755] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:47.755] rive  build failed (0 bytes, 48ms, 3 errors, 1 warnings)
+[18:53:47.811] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:47.860] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.860] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.860] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.860] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:47.860] rive  build failed (0 bytes, 49ms, 3 errors, 1 warnings)
+[18:53:47.915] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:47.962] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.962] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.962] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:47.962] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:47.963] rive  build failed (0 bytes, 47ms, 3 errors, 1 warnings)
+[18:53:48.015] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:48.063] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.063] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.063] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.063] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:48.063] rive  build failed (0 bytes, 47ms, 3 errors, 1 warnings)
+[18:53:48.156] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:48.204] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.204] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.204] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.204] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:48.204] rive  build failed (0 bytes, 48ms, 3 errors, 1 warnings)
+[18:53:48.257] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:48.306] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.306] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.306] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.306] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:48.306] rive  build failed (0 bytes, 48ms, 3 errors, 1 warnings)
+[18:53:48.359] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:48.407] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.407] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.408] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.408] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:48.408] rive  build failed (0 bytes, 48ms, 3 errors, 1 warnings)
+[18:53:48.501] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:48.550] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.550] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.550] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.550] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:48.550] rive  build failed (0 bytes, 48ms, 3 errors, 1 warnings)
+[18:53:48.603] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:48.652] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.652] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.652] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.652] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:48.652] rive  build failed (0 bytes, 48ms, 3 errors, 1 warnings)
+[18:53:48.705] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:48.754] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.754] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.754] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.754] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:48.754] rive  build failed (0 bytes, 49ms, 3 errors, 1 warnings)
+[18:53:48.815] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:53:48.867] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.867] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.867] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:53:48.867] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:53:48.867] rive  build failed (0 bytes, 52ms, 3 errors, 1 warnings)
+[18:54:01.665] error   pick:145:24  [as] E3001: indexing needs a class with an [] operator
+[18:54:01.665] error   pick:145:41  [as] E3001: indexing needs a class with an [] operator
+[18:54:01.665] error   pick:145:58  [as] E3001: indexing needs a class with an [] operator
+[18:54:01.665] warning pick:127:13  [lint] W1005: 'e' shadows a declaration on line 86
+[18:54:01.665] rive  build failed (0 bytes, 55ms, 3 errors, 1 warnings)
+[18:54:18.958] rive  verified (0 bytes, 96ms, 0 errors, 0 warnings)
+[18:54:22.950] rive  signing 1 scripts…
+[18:54:25.062] rive  signed 1 scripts
+[18:54:25.091] rive  watermarked: ruvebal is on a plan with the Rive splash screen. Upgrade to publish without it: https://rive.app/pricing?utm_source=cli&utm_medium=watermark&utm_campaign=cli-upgrade
+[18:54:25.102] rive  published build/fava_prismatic_3d.riv (531336 bytes, 3122ms, 0 errors, 0 warnings)
+[18:54:25.212] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:25.266] rive  built (567928 bytes, 54ms, 0 errors, 0 warnings)
+[18:54:25.267] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:25.270] rive  showing main [1/1]
+[18:54:25.270] rive  viewport 720x480 @1x
+[18:54:25.270] rive  script frame gc: scavenging per frame
+[18:54:25.275] console :0  x3pick facet=2 selected=1 count=1
+[18:54:25.279] console :0  x3pick facet=0 selected=1 count=2
+[18:54:25.283] console :0  x3pick facet=4 selected=1 count=3
+[18:54:25.355] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:25.408] rive  built (567928 bytes, 53ms, 0 errors, 0 warnings)
+[18:54:25.408] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:25.408] rive  showing main [1/1]
+[18:54:25.408] rive  viewport 720x480 @1x
+[18:54:25.408] rive  script frame gc: scavenging per frame
+[18:54:25.425] console :0  x3pick facet=0 selected=1 count=1
+[18:54:25.434] console :0  x3pick reset count=0
+[18:54:25.443] console :0  x3pick facet=0 selected=1 count=1
+[18:54:25.452] console :0  x3pick facet=0 selected=0 count=0
+[18:54:25.462] console :0  x3pick facet=0 selected=1 count=1
+[18:54:25.475] console :0  x3pick facet=0 selected=0 count=0
+[18:54:25.484] console :0  x3pick facet=2 selected=1 count=1
+[18:54:25.494] console :0  x3pick facet=4 selected=1 count=2
+[18:54:25.559] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:25.615] rive  built (567928 bytes, 56ms, 0 errors, 0 warnings)
+[18:54:25.615] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:25.616] rive  showing main [1/1]
+[18:54:25.616] rive  viewport 720x480 @1x
+[18:54:25.616] rive  script frame gc: scavenging per frame
+[18:54:25.632] console :0  x3pick facet=0 selected=1 count=1
+[18:54:25.641] console :0  x3pick facet=0 selected=0 count=0
+[18:54:25.698] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:25.752] rive  built (567928 bytes, 54ms, 0 errors, 0 warnings)
+[18:54:25.753] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:25.753] rive  showing main [1/1]
+[18:54:25.753] rive  viewport 720x480 @1x
+[18:54:25.753] rive  script frame gc: scavenging per frame
+[18:54:25.914] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-unselected.png
+[18:54:25.975] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:26.028] rive  built (567928 bytes, 54ms, 0 errors, 0 warnings)
+[18:54:26.029] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:26.029] rive  showing main [1/1]
+[18:54:26.029] rive  viewport 720x480 @1x
+[18:54:26.029] rive  script frame gc: scavenging per frame
+[18:54:26.046] console :0  x3pick facet=0 selected=1 count=1
+[18:54:26.068] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-selected.png
+[18:54:26.160] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:26.210] rive  built (567928 bytes, 50ms, 0 errors, 0 warnings)
+[18:54:26.210] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:26.211] rive  showing main [1/1]
+[18:54:26.211] rive  viewport 720x480 @1x
+[18:54:26.211] rive  script frame gc: scavenging per frame
+[18:54:26.227] console :0  x3pick facet=0 selected=1 count=1
+[18:54:26.236] console :0  x3pick reset count=0
+[18:54:26.268] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-after.png
+[18:54:26.324] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:26.375] rive  built (567928 bytes, 51ms, 0 errors, 0 warnings)
+[18:54:26.376] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:26.376] rive  showing main [1/1]
+[18:54:26.376] rive  viewport 720x480 @1x
+[18:54:26.399] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-ref.png
+[18:54:26.476] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:26.527] rive  built (567928 bytes, 50ms, 0 errors, 0 warnings)
+[18:54:26.527] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:26.528] rive  showing main [1/1]
+[18:54:26.528] rive  viewport 720x480 @1x
+[18:54:26.528] rive  viewport 400x480 @1x
+[18:54:26.528] rive  script frame gc: scavenging per frame
+[18:54:26.544] console :0  x3pick facet=0 selected=1 count=1
+[18:54:26.553] console :0  x3pick facet=0 selected=0 count=0
+[18:54:26.608] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:26.658] rive  built (567928 bytes, 50ms, 0 errors, 0 warnings)
+[18:54:26.658] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:26.659] rive  showing main [1/1]
+[18:54:26.659] rive  viewport 720x480 @1x
+[18:54:26.659] rive  viewport 1200x480 @1x
+[18:54:26.659] rive  script frame gc: scavenging per frame
+[18:54:26.675] console :0  x3pick facet=0 selected=1 count=1
+[18:54:26.684] console :0  x3pick facet=0 selected=0 count=0
+[18:54:26.742] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:26.793] rive  built (567928 bytes, 51ms, 0 errors, 0 warnings)
+[18:54:26.794] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:26.794] rive  showing main [1/1]
+[18:54:26.794] rive  viewport 720x480 @1x
+[18:54:26.794] rive  script frame gc: scavenging per frame
+[18:54:26.808] console :0  x3pick facet=0 selected=1 count=1
+[18:54:26.818] console :0  x3pick facet=0 selected=0 count=0
+[18:54:26.873] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:26.923] rive  built (567928 bytes, 50ms, 0 errors, 0 warnings)
+[18:54:26.923] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:26.924] rive  showing main [1/1]
+[18:54:26.924] rive  viewport 720x480 @1x
+[18:54:26.924] rive  script frame gc: scavenging per frame
+[18:54:26.948] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a8-ref.png
+[18:54:27.003] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:27.054] rive  built (567928 bytes, 51ms, 0 errors, 0 warnings)
+[18:54:27.055] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:27.055] rive  showing main [1/1]
+[18:54:27.055] rive  viewport 720x480 @1x
+[18:54:27.055] rive  script frame gc: scavenging per frame
+[18:54:27.059] console :0  x3pick reset count=0
+[18:54:27.086] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-after.png
+[18:54:27.148] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:27.205] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:54:27.206] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:27.206] rive  showing main [1/1]
+[18:54:27.206] rive  viewport 720x480 @1x
+[18:54:27.206] rive  script frame gc: scavenging per frame
+[18:54:27.233] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-drag-after.png
+[18:54:27.335] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:27.387] rive  built (567928 bytes, 52ms, 0 errors, 0 warnings)
+[18:54:27.388] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:27.388] rive  showing main [1/1]
+[18:54:27.388] rive  viewport 720x480 @1x
+[18:54:27.388] rive  script frame gc: scavenging per frame
+[18:54:27.418] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[18:54:27.478] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:27.530] rive  built (567928 bytes, 53ms, 0 errors, 0 warnings)
+[18:54:27.531] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:27.531] rive  showing main [1/1]
+[18:54:27.531] rive  viewport 720x480 @1x
+[18:54:27.531] rive  script frame gc: scavenging per frame
+[18:54:27.560] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[18:54:27.617] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:27.669] rive  built (567928 bytes, 52ms, 0 errors, 0 warnings)
+[18:54:27.669] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:27.669] rive  showing main [1/1]
+[18:54:27.669] rive  viewport 720x480 @1x
+[18:54:27.669] rive  script frame gc: scavenging per frame
+[18:54:27.699] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[18:54:27.793] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:27.844] rive  built (567928 bytes, 50ms, 0 errors, 0 warnings)
+[18:54:27.844] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:27.844] rive  showing main [1/1]
+[18:54:27.844] rive  viewport 720x480 @1x
+[18:54:27.845] rive  script frame gc: scavenging per frame
+[18:54:27.869] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[18:54:27.925] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:27.976] rive  built (567928 bytes, 51ms, 0 errors, 0 warnings)
+[18:54:27.977] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:27.977] rive  showing main [1/1]
+[18:54:27.977] rive  viewport 720x480 @1x
+[18:54:27.977] rive  script frame gc: scavenging per frame
+[18:54:28.002] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[18:54:28.057] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:28.107] rive  built (567928 bytes, 50ms, 0 errors, 0 warnings)
+[18:54:28.107] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:28.107] rive  showing main [1/1]
+[18:54:28.108] rive  viewport 720x480 @1x
+[18:54:28.108] rive  script frame gc: scavenging per frame
+[18:54:28.136] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[18:54:28.192] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:54:28.242] rive  built (567928 bytes, 50ms, 0 errors, 0 warnings)
+[18:54:28.243] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:54:28.243] rive  showing main [1/1]
+[18:54:28.243] rive  viewport 720x480 @1x
+[18:54:28.243] rive  script frame gc: scavenging per frame
+[18:54:28.262] console :0  x3pick facet=0 selected=1 count=1
+[18:56:34.249] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:56:34.309] rive  built (567928 bytes, 60ms, 0 errors, 0 warnings)
+[18:56:34.310] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:56:34.312] rive  showing main [1/1]
+[18:56:34.312] rive  viewport 720x480 @1x
+[18:56:34.312] rive  script frame gc: scavenging per frame
+[18:56:34.340] rive  wrote /tmp/p-a.png
+[18:56:34.346] console :0  x3pick reset count=0
+[18:56:34.353] rive  wrote /tmp/p-b.png
+[18:56:34.359] rive  wrote /tmp/p-c.png
+[18:56:46.737] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:56:46.790] rive  built (567928 bytes, 54ms, 0 errors, 0 warnings)
+[18:56:46.791] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:56:46.791] rive  showing main [1/1]
+[18:56:46.791] rive  viewport 720x480 @1x
+[18:56:46.791] rive  script frame gc: scavenging per frame
+[18:56:46.817] rive  wrote /tmp/r1.png
+[18:56:46.885] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:56:46.944] rive  built (567928 bytes, 59ms, 0 errors, 0 warnings)
+[18:56:46.945] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:56:46.945] rive  showing main [1/1]
+[18:56:46.945] rive  viewport 720x480 @1x
+[18:56:46.945] rive  script frame gc: scavenging per frame
+[18:56:46.950] console :0  x3pick reset count=0
+[18:56:46.978] rive  wrote /tmp/r2.png
+[18:57:02.780] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:02.835] rive  built (567928 bytes, 54ms, 0 errors, 0 warnings)
+[18:57:02.835] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:02.836] rive  showing main [1/1]
+[18:57:02.836] rive  viewport 720x480 @1x
+[18:57:02.836] rive  script frame gc: scavenging per frame
+[18:57:02.861] rive  wrote /tmp/q1.png
+[18:57:02.867] console :0  x3pick reset count=0
+[18:57:02.874] rive  wrote /tmp/q2.png
+[18:57:07.668] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:07.725] rive  built (567928 bytes, 56ms, 0 errors, 0 warnings)
+[18:57:07.725] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:07.726] rive  showing main [1/1]
+[18:57:07.726] rive  viewport 720x480 @1x
+[18:57:07.726] rive  script frame gc: scavenging per frame
+[18:57:07.751] rive  wrote /tmp/e60.png
+[18:57:07.819] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:07.879] rive  built (567928 bytes, 60ms, 0 errors, 0 warnings)
+[18:57:07.880] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:07.880] rive  showing main [1/1]
+[18:57:07.880] rive  viewport 720x480 @1x
+[18:57:07.880] rive  script frame gc: scavenging per frame
+[18:57:07.906] rive  wrote /tmp/e61.png
+[18:57:07.969] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:08.026] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:57:08.027] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:08.027] rive  showing main [1/1]
+[18:57:08.027] rive  viewport 720x480 @1x
+[18:57:08.027] rive  script frame gc: scavenging per frame
+[18:57:08.053] rive  wrote /tmp/e60p.png
+[18:57:16.262] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:16.320] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:57:16.320] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:16.320] rive  showing main [1/1]
+[18:57:16.320] rive  viewport 720x480 @1x
+[18:57:16.321] rive  script frame gc: scavenging per frame
+[18:57:16.345] rive  wrote /tmp/t.png
+[18:57:16.428] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:16.485] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:57:16.486] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:16.486] rive  showing main [1/1]
+[18:57:16.486] rive  viewport 720x480 @1x
+[18:57:16.486] rive  script frame gc: scavenging per frame
+[18:57:16.511] rive  wrote /tmp/t.png
+[18:57:16.592] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:16.650] rive  built (567928 bytes, 58ms, 0 errors, 0 warnings)
+[18:57:16.651] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:16.651] rive  showing main [1/1]
+[18:57:16.651] rive  viewport 720x480 @1x
+[18:57:16.651] rive  script frame gc: scavenging per frame
+[18:57:16.655] console :0  x3pick reset count=0
+[18:57:16.680] rive  wrote /tmp/t.png
+[18:57:23.502] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:23.559] rive  built (567928 bytes, 56ms, 0 errors, 0 warnings)
+[18:57:23.559] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:23.559] rive  showing main [1/1]
+[18:57:23.560] rive  viewport 720x480 @1x
+[18:57:23.560] rive  script frame gc: scavenging per frame
+[18:57:23.564] console :0  x3pick reset count=0
+[18:57:23.590] rive  wrote /tmp/t2.png
+[18:57:23.668] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:23.726] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:57:23.727] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:23.727] rive  showing main [1/1]
+[18:57:23.727] rive  viewport 720x480 @1x
+[18:57:23.727] rive  script frame gc: scavenging per frame
+[18:57:23.732] console :0  x3pick reset count=0
+[18:57:23.757] rive  wrote /tmp/t3.png
+[18:57:29.437] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:29.493] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:57:29.494] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:29.494] rive  showing main [1/1]
+[18:57:29.494] rive  viewport 720x480 @1x
+[18:57:29.494] rive  script frame gc: scavenging per frame
+[18:57:29.498] console :0  x3pick reset count=0
+[18:57:29.523] rive  wrote /tmp/t4.png
+[18:57:29.604] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:29.661] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:57:29.662] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:29.662] rive  showing main [1/1]
+[18:57:29.662] rive  viewport 720x480 @1x
+[18:57:29.662] rive  script frame gc: scavenging per frame
+[18:57:29.666] console :0  x3pick reset count=0
+[18:57:49.993] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:50.050] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:57:50.051] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:50.051] rive  showing main [1/1]
+[18:57:50.051] rive  viewport 720x480 @1x
+[18:57:50.051] rive  script frame gc: scavenging per frame
+[18:57:50.055] console :0  x3pick reset count=0
+[18:57:50.082] rive  wrote /tmp/t5.png
+[18:57:50.165] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:50.223] rive  built (567928 bytes, 58ms, 0 errors, 0 warnings)
+[18:57:50.224] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:50.224] rive  showing main [1/1]
+[18:57:50.224] rive  viewport 720x480 @1x
+[18:57:50.224] rive  script frame gc: scavenging per frame
+[18:57:50.229] console :0  x3pick reset count=0
+[18:57:50.254] rive  wrote /tmp/t6.png
+[18:57:58.136] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:58.192] rive  built (567928 bytes, 55ms, 0 errors, 0 warnings)
+[18:57:58.192] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:58.193] rive  showing main [1/1]
+[18:57:58.193] rive  viewport 720x480 @1x
+[18:57:58.193] rive  script frame gc: scavenging per frame
+[18:57:58.197] console :0  x3pick reset count=0
+[18:57:58.223] rive  wrote /tmp/t7.png
+[18:57:58.305] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:57:58.363] rive  built (567928 bytes, 58ms, 0 errors, 0 warnings)
+[18:57:58.363] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:57:58.363] rive  showing main [1/1]
+[18:57:58.364] rive  viewport 720x480 @1x
+[18:57:58.364] rive  script frame gc: scavenging per frame
+[18:58:08.184] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:58:08.241] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:58:08.241] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:58:08.241] rive  showing main [1/1]
+[18:58:08.241] rive  viewport 720x480 @1x
+[18:58:08.241] rive  script frame gc: scavenging per frame
+[18:58:08.266] rive  wrote /tmp/t8.png
+[18:58:08.344] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:58:08.401] rive  built (567928 bytes, 56ms, 0 errors, 0 warnings)
+[18:58:08.401] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:58:08.401] rive  showing main [1/1]
+[18:58:08.402] rive  viewport 720x480 @1x
+[18:58:08.402] rive  script frame gc: scavenging per frame
+[18:58:08.426] rive  wrote /tmp/s1.png
+[18:58:08.433] rive  wrote /tmp/s2.png
+[18:58:08.439] rive  wrote /tmp/s3.png
+[18:58:08.446] rive  wrote /tmp/t9.png
+[18:58:28.537] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:58:28.594] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:58:28.594] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:58:28.595] rive  showing main [1/1]
+[18:58:28.595] rive  viewport 720x480 @1x
+[18:58:28.595] rive  script frame gc: scavenging per frame
+[18:58:28.599] console :0  x3pick reset count=0
+[18:58:28.626] rive  wrote /tmp/t10.png
+[18:58:28.706] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:58:28.763] rive  built (567928 bytes, 57ms, 0 errors, 0 warnings)
+[18:58:28.764] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:58:28.764] rive  showing main [1/1]
+[18:58:28.764] rive  viewport 720x480 @1x
+[18:58:28.764] rive  script frame gc: scavenging per frame
+[18:58:28.768] console :0  x3pick reset count=0
+[18:58:28.795] rive  wrote /tmp/t11.png
+[18:58:44.598] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:58:44.654] rive  built (567928 bytes, 56ms, 0 errors, 0 warnings)
+[18:58:44.654] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:58:44.655] rive  showing main [1/1]
+[18:58:44.655] rive  viewport 720x480 @1x
+[18:58:44.655] rive  script frame gc: scavenging per frame
+[18:58:44.679] rive  wrote /tmp/en62.png
+[18:58:44.754] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:58:44.809] rive  built (567928 bytes, 54ms, 0 errors, 0 warnings)
+[18:58:44.809] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:58:44.809] rive  showing main [1/1]
+[18:58:44.809] rive  viewport 720x480 @1x
+[18:58:44.809] rive  script frame gc: scavenging per frame
+[18:58:44.834] rive  wrote /tmp/en63.png
+[18:58:44.910] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:58:44.966] rive  built (567928 bytes, 56ms, 0 errors, 0 warnings)
+[18:58:44.967] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:58:44.967] rive  showing main [1/1]
+[18:58:44.967] rive  viewport 720x480 @1x
+[18:58:44.967] rive  script frame gc: scavenging per frame
+[18:58:44.992] rive  wrote /tmp/en64.png
+[18:58:45.074] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:58:45.129] rive  built (567928 bytes, 55ms, 0 errors, 0 warnings)
+[18:58:45.130] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:58:45.130] rive  showing main [1/1]
+[18:58:45.130] rive  viewport 720x480 @1x
+[18:58:45.130] rive  script frame gc: scavenging per frame
+[18:58:45.155] rive  wrote /tmp/en65.png
+[18:58:45.233] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:58:45.283] rive  built (567928 bytes, 50ms, 0 errors, 0 warnings)
+[18:58:45.283] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:58:45.283] rive  showing main [1/1]
+[18:58:45.283] rive  viewport 720x480 @1x
+[18:58:45.283] rive  script frame gc: scavenging per frame
+[18:58:45.309] rive  wrote /tmp/en66.png
+[18:59:04.128] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:59:04.184] rive  built (567928 bytes, 56ms, 0 errors, 0 warnings)
+[18:59:04.184] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:59:04.184] rive  showing main [1/1]
+[18:59:04.184] rive  viewport 720x480 @1x
+[18:59:04.185] rive  script frame gc: scavenging per frame
+[18:59:04.189] console :0  x3pick reset count=0
+[18:59:04.213] rive  wrote /tmp/t12.png
+[18:59:04.287] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[18:59:04.342] rive  built (567928 bytes, 54ms, 0 errors, 0 warnings)
+[18:59:04.342] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[18:59:04.342] rive  showing main [1/1]
+[18:59:04.343] rive  viewport 720x480 @1x
+[18:59:04.343] rive  script frame gc: scavenging per frame
+[18:59:04.368] rive  wrote /tmp/t13.png
+[19:00:23.094] rive  verified (0 bytes, 56ms, 0 errors, 0 warnings)
+[19:00:42.768] rive  signing 1 scripts…
+[19:00:44.875] rive  signed 1 scripts
+[19:00:44.905] rive  watermarked: ruvebal is on a plan with the Rive splash screen. Upgrade to publish without it: https://rive.app/pricing?utm_source=cli&utm_medium=watermark&utm_campaign=cli-upgrade
+[19:00:44.910] rive  published build/fava_prismatic_3d.riv (531256 bytes, 3106ms, 0 errors, 0 warnings)
+[19:00:45.007] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:45.057] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:45.058] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:45.058] rive  showing main [1/1]
+[19:00:45.058] rive  viewport 720x480 @1x
+[19:00:45.058] rive  script frame gc: scavenging per frame
+[19:00:45.062] console :0  x3pick facet=2 selected=1 count=1
+[19:00:45.066] console :0  x3pick facet=0 selected=1 count=2
+[19:00:45.070] console :0  x3pick facet=4 selected=1 count=3
+[19:00:45.138] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:45.189] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:45.190] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:45.190] rive  showing main [1/1]
+[19:00:45.190] rive  viewport 720x480 @1x
+[19:00:45.190] rive  script frame gc: scavenging per frame
+[19:00:45.205] console :0  x3pick facet=0 selected=1 count=1
+[19:00:45.214] console :0  x3pick reset count=0
+[19:00:45.223] console :0  x3pick facet=0 selected=1 count=1
+[19:00:45.232] console :0  x3pick facet=0 selected=0 count=0
+[19:00:45.240] console :0  x3pick facet=0 selected=1 count=1
+[19:00:45.253] console :0  x3pick facet=0 selected=0 count=0
+[19:00:45.262] console :0  x3pick facet=2 selected=1 count=1
+[19:00:45.271] console :0  x3pick facet=4 selected=1 count=2
+[19:00:45.326] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:45.376] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:45.377] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:45.377] rive  showing main [1/1]
+[19:00:45.377] rive  viewport 720x480 @1x
+[19:00:45.377] rive  script frame gc: scavenging per frame
+[19:00:45.393] console :0  x3pick facet=0 selected=1 count=1
+[19:00:45.402] console :0  x3pick facet=0 selected=0 count=0
+[19:00:45.455] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:45.506] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:00:45.506] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:45.507] rive  showing main [1/1]
+[19:00:45.507] rive  viewport 720x480 @1x
+[19:00:45.507] rive  script frame gc: scavenging per frame
+[19:00:45.535] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-unselected.png
+[19:00:45.588] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:45.637] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:45.638] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:45.638] rive  showing main [1/1]
+[19:00:45.638] rive  viewport 720x480 @1x
+[19:00:45.638] rive  script frame gc: scavenging per frame
+[19:00:45.654] console :0  x3pick facet=0 selected=1 count=1
+[19:00:45.676] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-selected.png
+[19:00:45.751] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:45.801] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:45.802] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:45.802] rive  showing main [1/1]
+[19:00:45.802] rive  viewport 720x480 @1x
+[19:00:45.802] rive  script frame gc: scavenging per frame
+[19:00:45.818] console :0  x3pick facet=0 selected=1 count=1
+[19:00:45.827] console :0  x3pick reset count=0
+[19:00:45.858] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-after.png
+[19:00:45.914] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:45.964] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:45.965] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:45.965] rive  showing main [1/1]
+[19:00:45.965] rive  viewport 720x480 @1x
+[19:00:45.987] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-ref.png
+[19:00:46.059] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:46.108] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:46.109] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:46.109] rive  showing main [1/1]
+[19:00:46.109] rive  viewport 720x480 @1x
+[19:00:46.110] rive  viewport 400x480 @1x
+[19:00:46.110] rive  script frame gc: scavenging per frame
+[19:00:46.125] console :0  x3pick facet=0 selected=1 count=1
+[19:00:46.135] console :0  x3pick facet=0 selected=0 count=0
+[19:00:46.188] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:46.239] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:46.239] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:46.239] rive  showing main [1/1]
+[19:00:46.239] rive  viewport 720x480 @1x
+[19:00:46.239] rive  viewport 1200x480 @1x
+[19:00:46.239] rive  script frame gc: scavenging per frame
+[19:00:46.255] console :0  x3pick facet=0 selected=1 count=1
+[19:00:46.264] console :0  x3pick facet=0 selected=0 count=0
+[19:00:46.320] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:46.371] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:00:46.371] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:46.372] rive  showing main [1/1]
+[19:00:46.372] rive  viewport 720x480 @1x
+[19:00:46.372] rive  script frame gc: scavenging per frame
+[19:00:46.386] console :0  x3pick facet=0 selected=1 count=1
+[19:00:46.396] console :0  x3pick facet=0 selected=0 count=0
+[19:00:46.449] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:46.499] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:46.500] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:46.500] rive  showing main [1/1]
+[19:00:46.500] rive  viewport 720x480 @1x
+[19:00:46.500] rive  script frame gc: scavenging per frame
+[19:00:46.523] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a8-ref.png
+[19:00:46.577] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:46.627] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:46.628] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:46.628] rive  showing main [1/1]
+[19:00:46.628] rive  viewport 720x480 @1x
+[19:00:46.628] rive  script frame gc: scavenging per frame
+[19:00:46.632] console :0  x3pick reset count=0
+[19:00:46.655] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-after.png
+[19:00:46.711] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:46.763] rive  built (567526 bytes, 52ms, 0 errors, 0 warnings)
+[19:00:46.764] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:46.764] rive  showing main [1/1]
+[19:00:46.764] rive  viewport 720x480 @1x
+[19:00:46.764] rive  script frame gc: scavenging per frame
+[19:00:46.788] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-drag-after.png
+[19:00:46.880] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:46.930] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:46.930] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:46.930] rive  showing main [1/1]
+[19:00:46.931] rive  viewport 720x480 @1x
+[19:00:46.931] rive  script frame gc: scavenging per frame
+[19:00:46.957] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[19:00:47.011] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:47.061] rive  built (567526 bytes, 49ms, 0 errors, 0 warnings)
+[19:00:47.061] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:47.061] rive  showing main [1/1]
+[19:00:47.061] rive  viewport 720x480 @1x
+[19:00:47.061] rive  script frame gc: scavenging per frame
+[19:00:47.089] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[19:00:47.142] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:47.192] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:47.192] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:47.193] rive  showing main [1/1]
+[19:00:47.193] rive  viewport 720x480 @1x
+[19:00:47.193] rive  script frame gc: scavenging per frame
+[19:00:47.220] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[19:00:47.312] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:47.365] rive  built (567526 bytes, 52ms, 0 errors, 0 warnings)
+[19:00:47.366] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:47.366] rive  showing main [1/1]
+[19:00:47.366] rive  viewport 720x480 @1x
+[19:00:47.366] rive  script frame gc: scavenging per frame
+[19:00:47.392] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[19:00:47.447] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:47.500] rive  built (567526 bytes, 53ms, 0 errors, 0 warnings)
+[19:00:47.501] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:47.501] rive  showing main [1/1]
+[19:00:47.501] rive  viewport 720x480 @1x
+[19:00:47.501] rive  script frame gc: scavenging per frame
+[19:00:47.525] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[19:00:47.578] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:47.628] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:00:47.629] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:47.629] rive  showing main [1/1]
+[19:00:47.629] rive  viewport 720x480 @1x
+[19:00:47.629] rive  script frame gc: scavenging per frame
+[19:00:47.656] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[19:00:47.712] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:00:47.765] rive  built (567526 bytes, 53ms, 0 errors, 0 warnings)
+[19:00:47.766] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:00:47.766] rive  showing main [1/1]
+[19:00:47.766] rive  viewport 720x480 @1x
+[19:00:47.766] rive  script frame gc: scavenging per frame
+[19:00:47.784] console :0  x3pick facet=0 selected=1 count=1
+[19:01:27.449] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:27.505] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:01:27.506] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:27.506] rive  showing main [1/1]
+[19:01:27.506] rive  viewport 720x480 @1x
+[19:01:27.506] rive  script frame gc: scavenging per frame
+[19:01:27.511] console :0  x3pick facet=2 selected=1 count=1
+[19:01:27.515] console :0  x3pick facet=0 selected=1 count=2
+[19:01:27.519] console :0  x3pick facet=4 selected=1 count=3
+[19:01:27.593] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:27.651] rive  built (567526 bytes, 58ms, 0 errors, 0 warnings)
+[19:01:27.652] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:27.652] rive  showing main [1/1]
+[19:01:27.652] rive  viewport 720x480 @1x
+[19:01:27.652] rive  script frame gc: scavenging per frame
+[19:01:27.668] console :0  x3pick facet=0 selected=1 count=1
+[19:01:27.678] console :0  x3pick reset count=0
+[19:01:27.688] console :0  x3pick facet=0 selected=1 count=1
+[19:01:27.697] console :0  x3pick facet=0 selected=0 count=0
+[19:01:27.706] console :0  x3pick facet=0 selected=1 count=1
+[19:01:27.721] console :0  x3pick facet=0 selected=0 count=0
+[19:01:27.731] console :0  x3pick facet=2 selected=1 count=1
+[19:01:27.741] console :0  x3pick facet=4 selected=1 count=2
+[19:01:27.803] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:27.860] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:01:27.860] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:27.860] rive  showing main [1/1]
+[19:01:27.860] rive  viewport 720x480 @1x
+[19:01:27.860] rive  script frame gc: scavenging per frame
+[19:01:27.877] console :0  x3pick facet=0 selected=1 count=1
+[19:01:27.886] console :0  x3pick facet=0 selected=0 count=0
+[19:01:27.941] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:27.997] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:01:27.998] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:27.998] rive  showing main [1/1]
+[19:01:27.998] rive  viewport 720x480 @1x
+[19:01:27.998] rive  script frame gc: scavenging per frame
+[19:01:28.027] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-unselected.png
+[19:01:28.081] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:28.131] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:28.132] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:28.132] rive  showing main [1/1]
+[19:01:28.132] rive  viewport 720x480 @1x
+[19:01:28.132] rive  script frame gc: scavenging per frame
+[19:01:28.148] console :0  x3pick facet=0 selected=1 count=1
+[19:01:28.169] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-selected.png
+[19:01:28.242] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:28.293] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:01:28.293] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:28.293] rive  showing main [1/1]
+[19:01:28.294] rive  viewport 720x480 @1x
+[19:01:28.294] rive  script frame gc: scavenging per frame
+[19:01:28.309] console :0  x3pick facet=0 selected=1 count=1
+[19:01:28.318] console :0  x3pick reset count=0
+[19:01:28.349] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-after.png
+[19:01:28.403] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:28.452] rive  built (567526 bytes, 49ms, 0 errors, 0 warnings)
+[19:01:28.453] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:28.453] rive  showing main [1/1]
+[19:01:28.453] rive  viewport 720x480 @1x
+[19:01:28.475] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-ref.png
+[19:01:28.548] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:28.598] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:28.599] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:28.599] rive  showing main [1/1]
+[19:01:28.599] rive  viewport 720x480 @1x
+[19:01:28.599] rive  viewport 400x480 @1x
+[19:01:28.599] rive  script frame gc: scavenging per frame
+[19:01:28.614] console :0  x3pick facet=0 selected=1 count=1
+[19:01:28.623] console :0  x3pick facet=0 selected=0 count=0
+[19:01:28.677] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:28.727] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:28.728] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:28.728] rive  showing main [1/1]
+[19:01:28.728] rive  viewport 720x480 @1x
+[19:01:28.728] rive  viewport 1200x480 @1x
+[19:01:28.728] rive  script frame gc: scavenging per frame
+[19:01:28.744] console :0  x3pick facet=0 selected=1 count=1
+[19:01:28.753] console :0  x3pick facet=0 selected=0 count=0
+[19:01:28.810] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:28.860] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:28.860] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:28.861] rive  showing main [1/1]
+[19:01:28.861] rive  viewport 720x480 @1x
+[19:01:28.861] rive  script frame gc: scavenging per frame
+[19:01:28.874] console :0  x3pick facet=0 selected=1 count=1
+[19:01:28.884] console :0  x3pick facet=0 selected=0 count=0
+[19:01:28.937] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:28.988] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:28.988] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:28.988] rive  showing main [1/1]
+[19:01:28.989] rive  viewport 720x480 @1x
+[19:01:28.989] rive  script frame gc: scavenging per frame
+[19:01:29.012] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a8-ref.png
+[19:01:29.064] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:29.114] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:29.115] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:29.115] rive  showing main [1/1]
+[19:01:29.115] rive  viewport 720x480 @1x
+[19:01:29.115] rive  script frame gc: scavenging per frame
+[19:01:29.119] console :0  x3pick reset count=0
+[19:01:29.143] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-after.png
+[19:01:29.196] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:29.246] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:29.247] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:29.247] rive  showing main [1/1]
+[19:01:29.247] rive  viewport 720x480 @1x
+[19:01:29.247] rive  script frame gc: scavenging per frame
+[19:01:29.271] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-drag-after.png
+[19:01:29.361] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:29.411] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:29.412] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:29.412] rive  showing main [1/1]
+[19:01:29.412] rive  viewport 720x480 @1x
+[19:01:29.412] rive  script frame gc: scavenging per frame
+[19:01:29.439] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[19:01:29.492] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:29.543] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:29.543] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:29.543] rive  showing main [1/1]
+[19:01:29.543] rive  viewport 720x480 @1x
+[19:01:29.543] rive  script frame gc: scavenging per frame
+[19:01:29.572] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[19:01:29.629] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:29.681] rive  built (567526 bytes, 53ms, 0 errors, 0 warnings)
+[19:01:29.682] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:29.682] rive  showing main [1/1]
+[19:01:29.682] rive  viewport 720x480 @1x
+[19:01:29.682] rive  script frame gc: scavenging per frame
+[19:01:29.709] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[19:01:29.800] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:29.850] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:29.851] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:29.851] rive  showing main [1/1]
+[19:01:29.851] rive  viewport 720x480 @1x
+[19:01:29.851] rive  script frame gc: scavenging per frame
+[19:01:29.875] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[19:01:29.927] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:29.977] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:29.978] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:29.978] rive  showing main [1/1]
+[19:01:29.978] rive  viewport 720x480 @1x
+[19:01:29.978] rive  script frame gc: scavenging per frame
+[19:01:30.003] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[19:01:30.058] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:30.108] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:30.109] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:30.109] rive  showing main [1/1]
+[19:01:30.109] rive  viewport 720x480 @1x
+[19:01:30.109] rive  script frame gc: scavenging per frame
+[19:01:30.135] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[19:01:30.191] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:30.241] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:30.241] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:30.241] rive  showing main [1/1]
+[19:01:30.241] rive  viewport 720x480 @1x
+[19:01:30.241] rive  script frame gc: scavenging per frame
+[19:01:30.260] console :0  x3pick facet=0 selected=1 count=1
+[19:01:44.671] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:44.726] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:01:44.727] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:44.727] rive  showing main [1/1]
+[19:01:44.727] rive  viewport 720x480 @1x
+[19:01:44.727] rive  script frame gc: scavenging per frame
+[19:01:44.743] console :0  x3pick facet=1 selected=1 count=1
+[19:01:44.799] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:44.854] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:01:44.854] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:44.854] rive  showing main [1/1]
+[19:01:44.854] rive  viewport 720x480 @1x
+[19:01:44.854] rive  script frame gc: scavenging per frame
+[19:01:44.870] console :0  x3pick facet=1 selected=1 count=1
+[19:01:44.926] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:44.981] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:01:44.982] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:44.982] rive  showing main [1/1]
+[19:01:44.982] rive  viewport 720x480 @1x
+[19:01:44.982] rive  script frame gc: scavenging per frame
+[19:01:44.998] console :0  x3pick facet=1 selected=1 count=1
+[19:01:45.054] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:45.110] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:01:45.110] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:45.110] rive  showing main [1/1]
+[19:01:45.110] rive  viewport 720x480 @1x
+[19:01:45.111] rive  script frame gc: scavenging per frame
+[19:01:45.127] console :0  x3pick facet=1 selected=1 count=1
+[19:01:45.186] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:45.242] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:01:45.243] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:45.243] rive  showing main [1/1]
+[19:01:45.243] rive  viewport 720x480 @1x
+[19:01:45.243] rive  script frame gc: scavenging per frame
+[19:01:45.260] console :0  x3pick facet=1 selected=1 count=1
+[19:01:45.319] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:45.374] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:01:45.375] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:45.375] rive  showing main [1/1]
+[19:01:45.375] rive  viewport 720x480 @1x
+[19:01:45.375] rive  script frame gc: scavenging per frame
+[19:01:45.392] console :0  x3pick facet=1 selected=1 count=1
+[19:01:45.449] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:45.501] rive  built (567526 bytes, 52ms, 0 errors, 0 warnings)
+[19:01:45.502] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:45.502] rive  showing main [1/1]
+[19:01:45.502] rive  viewport 720x480 @1x
+[19:01:45.502] rive  script frame gc: scavenging per frame
+[19:01:45.518] console :0  x3pick facet=1 selected=1 count=1
+[19:01:45.574] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:45.624] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:45.625] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:45.625] rive  showing main [1/1]
+[19:01:45.625] rive  viewport 720x480 @1x
+[19:01:45.625] rive  script frame gc: scavenging per frame
+[19:01:45.641] console :0  x3pick facet=0 selected=1 count=1
+[19:01:45.699] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:01:45.748] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:01:45.749] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:01:45.749] rive  showing main [1/1]
+[19:01:45.749] rive  viewport 720x480 @1x
+[19:01:45.749] rive  script frame gc: scavenging per frame
+[19:01:45.765] console :0  x3pick facet=0 selected=1 count=1
+[19:02:04.170] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:02:04.228] rive  built (567526 bytes, 58ms, 0 errors, 0 warnings)
+[19:02:04.229] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:02:04.229] rive  showing main [1/1]
+[19:02:04.229] rive  viewport 720x480 @1x
+[19:02:04.229] rive  script frame gc: scavenging per frame
+[19:02:04.245] console :0  x3pick facet=0 selected=1 count=1
+[19:02:04.254] console :0  x3pick reset count=0
+[19:02:04.263] console :0  x3pick facet=0 selected=1 count=1
+[19:02:25.545] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:02:25.600] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:02:25.600] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:02:25.601] rive  showing main [1/1]
+[19:02:25.601] rive  viewport 720x480 @1x
+[19:02:25.601] rive  script frame gc: scavenging per frame
+[19:02:25.617] console :0  x3pick reset count=0
+[19:02:25.626] console :0  x3pick facet=1 selected=1 count=1
+[19:02:25.681] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:02:25.736] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:02:25.737] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:02:25.737] rive  showing main [1/1]
+[19:02:25.737] rive  viewport 720x480 @1x
+[19:02:25.737] rive  script frame gc: scavenging per frame
+[19:02:25.753] console :0  x3pick facet=0 selected=1 count=1
+[19:02:25.762] console :0  x3pick facet=0 selected=0 count=0
+[19:02:53.501] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:02:53.556] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:02:53.556] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:02:53.557] rive  showing main [1/1]
+[19:02:53.557] rive  viewport 720x480 @1x
+[19:02:53.557] rive  script frame gc: scavenging per frame
+[19:02:53.573] console :0  x3pick facet=1 selected=1 count=1
+[19:02:53.629] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:02:53.685] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:02:53.686] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:02:53.686] rive  showing main [1/1]
+[19:02:53.686] rive  viewport 720x480 @1x
+[19:02:53.686] rive  script frame gc: scavenging per frame
+[19:02:53.704] console :0  x3pick facet=1 selected=1 count=1
+[19:02:53.765] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:02:53.822] rive  built (567526 bytes, 57ms, 0 errors, 0 warnings)
+[19:02:53.823] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:02:53.823] rive  showing main [1/1]
+[19:02:53.823] rive  viewport 720x480 @1x
+[19:02:53.823] rive  script frame gc: scavenging per frame
+[19:02:53.841] console :0  x3pick facet=1 selected=1 count=1
+[19:02:53.904] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:02:53.963] rive  built (567526 bytes, 59ms, 0 errors, 0 warnings)
+[19:02:53.964] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:02:53.964] rive  showing main [1/1]
+[19:02:53.964] rive  viewport 720x480 @1x
+[19:02:53.964] rive  script frame gc: scavenging per frame
+[19:02:53.981] console :0  x3pick facet=0 selected=1 count=1
+[19:03:05.768] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:05.824] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:03:05.825] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:05.825] rive  showing main [1/1]
+[19:03:05.825] rive  viewport 720x480 @1x
+[19:03:05.825] rive  a command is its flag without the dashes, one per line:
+[19:03:05.825] rive    advance <N|Ns|Nms>          step animation time
+[19:03:05.825] rive    pointer <spec>              a mouse gesture
+[19:03:05.825] rive    touch <spec>                a finger gesture
+[19:03:05.825] rive    key <spec>                  a key event
+[19:03:05.825] rive    gamepad <spec>              a gamepad event
+[19:03:05.825] rive    data <path>=<value>         write a view model property
+[19:03:05.825] rive    semantic-action <type@lbl>  an accessibility action
+[19:03:05.825] rive    screenshot [path]           write a png
+[19:03:05.825] rive    semantics [path]            write the accessibility tree
+[19:03:05.825] rive    data-dump [path]            write the view model state
+[19:03:05.825] rive    viewport <WxH>              lay the artboard out at a size
+[19:03:05.825] rive    artboard [name]             switch artboard, or list them
+[19:03:05.825] rive    fit [mode]                  set the fit, or report it
+[19:03:05.825] rive    reload                      rebuild the project and load it
+[19:03:05.825] rive    quit                        end the run
+[19:03:05.825] rive    help, ?                     this list
+[19:03:05.825] rive  blank lines and # comments are skipped; every command answers ok or err on stdout
+[19:03:37.140] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:37.195] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:03:37.196] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:37.196] rive  showing main [1/1]
+[19:03:37.196] rive  viewport 720x480 @1x
+[19:03:37.196] rive  script frame gc: scavenging per frame
+[19:03:37.213] console :0  x3pick facet=0 selected=1 count=1
+[19:03:37.222] console :0  x3pick facet=0 selected=0 count=0
+[19:03:37.283] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:37.339] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:03:37.342] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:37.343] rive  showing main [1/1]
+[19:03:37.343] rive  viewport 720x480 @1x
+[19:03:37.343] rive  script frame gc: scavenging per frame
+[19:03:37.360] console :0  x3pick facet=0 selected=1 count=1
+[19:03:37.370] console :0  x3pick facet=0 selected=0 count=0
+[19:03:37.430] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:37.489] rive  built (567526 bytes, 58ms, 0 errors, 0 warnings)
+[19:03:37.489] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:37.490] rive  showing main [1/1]
+[19:03:37.490] rive  viewport 720x480 @1x
+[19:03:37.490] rive  script frame gc: scavenging per frame
+[19:03:37.507] console :0  x3pick facet=0 selected=1 count=1
+[19:03:37.517] console :0  x3pick facet=0 selected=0 count=0
+[19:03:37.577] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:37.633] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:03:37.633] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:37.634] rive  showing main [1/1]
+[19:03:37.634] rive  viewport 720x480 @1x
+[19:03:37.634] rive  script frame gc: scavenging per frame
+[19:03:37.650] console :0  x3pick facet=0 selected=1 count=1
+[19:03:37.659] console :0  x3pick facet=0 selected=0 count=0
+[19:03:40.897] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:40.952] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:03:40.952] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:40.953] rive  showing main [1/1]
+[19:03:40.953] rive  viewport 720x480 @1x
+[19:03:40.953] rive  script frame gc: scavenging per frame
+[19:03:40.968] console :0  x3pick facet=0 selected=1 count=1
+[19:03:40.977] console :0  x3pick reset count=0
+[19:03:40.986] console :0  x3pick facet=0 selected=1 count=1
+[19:03:41.042] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:41.097] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:03:41.098] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:41.098] rive  showing main [1/1]
+[19:03:41.098] rive  viewport 720x480 @1x
+[19:03:41.098] rive  script frame gc: scavenging per frame
+[19:03:41.114] console :0  x3pick facet=0 selected=1 count=1
+[19:03:41.123] console :0  x3pick reset count=0
+[19:03:41.132] console :0  x3pick facet=0 selected=1 count=1
+[19:03:41.188] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:41.242] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:03:41.243] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:41.243] rive  showing main [1/1]
+[19:03:41.243] rive  viewport 720x480 @1x
+[19:03:41.243] rive  script frame gc: scavenging per frame
+[19:03:41.259] console :0  x3pick facet=0 selected=1 count=1
+[19:03:41.268] console :0  x3pick reset count=0
+[19:03:41.277] console :0  x3pick facet=0 selected=1 count=1
+[19:03:41.333] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:41.388] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:03:41.388] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:41.388] rive  showing main [1/1]
+[19:03:41.388] rive  viewport 720x480 @1x
+[19:03:41.389] rive  script frame gc: scavenging per frame
+[19:03:41.404] console :0  x3pick facet=0 selected=1 count=1
+[19:03:41.413] console :0  x3pick reset count=0
+[19:03:41.423] console :0  x3pick facet=0 selected=1 count=1
+[19:03:41.479] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:41.535] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:03:41.535] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:41.535] rive  showing main [1/1]
+[19:03:41.535] rive  viewport 720x480 @1x
+[19:03:41.536] rive  script frame gc: scavenging per frame
+[19:03:41.552] console :0  x3pick facet=0 selected=1 count=1
+[19:03:41.561] console :0  x3pick reset count=0
+[19:03:41.570] console :0  x3pick facet=0 selected=1 count=1
+[19:03:56.477] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:56.533] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:03:56.534] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:56.534] rive  showing main [1/1]
+[19:03:56.534] rive  viewport 720x480 @1x
+[19:03:56.534] rive  script frame gc: scavenging per frame
+[19:03:56.565] rive  wrote /tmp/base.png
+[19:03:56.621] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:03:56.675] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:03:56.676] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:03:56.676] rive  showing main [1/1]
+[19:03:56.676] rive  viewport 720x480 @1x
+[19:03:56.676] rive  script frame gc: scavenging per frame
+[19:03:56.694] console :0  x3pick facet=0 selected=1 count=1
+[19:03:56.703] console :0  x3pick reset count=0
+[19:03:56.726] rive  wrote /tmp/after.png
+[19:04:00.391] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:04:00.446] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:04:00.447] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:04:00.447] rive  showing main [1/1]
+[19:04:00.447] rive  viewport 720x480 @1x
+[19:04:00.447] rive  script frame gc: scavenging per frame
+[19:04:00.465] console :0  x3pick facet=0 selected=1 count=1
+[19:04:00.474] console :0  x3pick reset count=0
+[19:04:00.497] rive  wrote /tmp/after2.png
+[19:04:04.458] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:04:04.513] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:04:04.514] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:04:04.514] rive  showing main [1/1]
+[19:04:04.514] rive  viewport 720x480 @1x
+[19:04:04.514] rive  script frame gc: scavenging per frame
+[19:04:04.546] rive  wrote /tmp/f300.png
+[19:04:04.602] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:04:04.658] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:04:04.659] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:04:04.659] rive  showing main [1/1]
+[19:04:04.659] rive  viewport 720x480 @1x
+[19:04:04.659] rive  script frame gc: scavenging per frame
+[19:04:04.691] rive  wrote /tmp/f299m.png
+[19:04:04.748] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:04:04.804] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:04:04.804] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:04:04.804] rive  showing main [1/1]
+[19:04:04.804] rive  viewport 720x480 @1x
+[19:04:04.804] rive  script frame gc: scavenging per frame
+[19:04:04.822] console :0  x3pick reset count=0
+[19:04:04.845] rive  wrote /tmp/f298c.png
+[19:04:04.909] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:04:04.964] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:04:04.965] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:04:04.965] rive  showing main [1/1]
+[19:04:04.965] rive  viewport 720x480 @1x
+[19:04:04.965] rive  script frame gc: scavenging per frame
+[19:04:04.983] console :0  x3pick reset count=0
+[19:04:05.006] rive  wrote /tmp/f297c.png
+[19:05:10.119] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:10.174] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:05:10.174] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:10.175] rive  showing main [1/1]
+[19:05:10.175] rive  viewport 720x480 @1x
+[19:05:10.175] rive  script frame gc: scavenging per frame
+[19:05:10.179] console :0  x3pick facet=2 selected=1 count=1
+[19:05:10.183] console :0  x3pick facet=0 selected=1 count=2
+[19:05:10.187] console :0  x3pick facet=4 selected=1 count=3
+[19:05:10.255] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:10.309] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:05:10.310] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:10.310] rive  showing main [1/1]
+[19:05:10.310] rive  viewport 720x480 @1x
+[19:05:10.310] rive  script frame gc: scavenging per frame
+[19:05:10.326] console :0  x3pick facet=0 selected=1 count=1
+[19:05:10.335] console :0  x3pick reset count=0
+[19:05:10.344] console :0  x3pick facet=0 selected=1 count=1
+[19:05:10.353] console :0  x3pick facet=0 selected=0 count=0
+[19:05:10.361] console :0  x3pick facet=0 selected=1 count=1
+[19:05:10.374] console :0  x3pick facet=0 selected=0 count=0
+[19:05:10.383] console :0  x3pick facet=2 selected=1 count=1
+[19:05:10.392] console :0  x3pick facet=4 selected=1 count=2
+[19:05:10.450] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:10.505] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:05:10.505] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:10.506] rive  showing main [1/1]
+[19:05:10.506] rive  viewport 720x480 @1x
+[19:05:10.506] rive  script frame gc: scavenging per frame
+[19:05:10.521] console :0  x3pick facet=0 selected=1 count=1
+[19:05:10.530] console :0  x3pick facet=0 selected=0 count=0
+[19:05:10.585] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:10.640] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:05:10.641] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:10.641] rive  showing main [1/1]
+[19:05:10.641] rive  viewport 720x480 @1x
+[19:05:10.641] rive  script frame gc: scavenging per frame
+[19:05:10.672] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-unselected.png
+[19:05:10.727] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:10.783] rive  built (567526 bytes, 56ms, 0 errors, 0 warnings)
+[19:05:10.783] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:10.784] rive  showing main [1/1]
+[19:05:10.784] rive  viewport 720x480 @1x
+[19:05:10.784] rive  script frame gc: scavenging per frame
+[19:05:10.800] console :0  x3pick facet=0 selected=1 count=1
+[19:05:10.823] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-selected.png
+[19:05:10.900] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:10.950] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:10.950] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:10.950] rive  showing main [1/1]
+[19:05:10.950] rive  viewport 720x480 @1x
+[19:05:10.951] rive  script frame gc: scavenging per frame
+[19:05:10.966] console :0  x3pick facet=0 selected=1 count=1
+[19:05:10.975] console :0  x3pick reset count=0
+[19:05:11.006] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-after.png
+[19:05:11.063] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:11.114] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:11.114] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:11.115] rive  showing main [1/1]
+[19:05:11.115] rive  viewport 720x480 @1x
+[19:05:11.136] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-ref.png
+[19:05:11.211] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:11.261] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:11.262] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:11.262] rive  showing main [1/1]
+[19:05:11.262] rive  viewport 720x480 @1x
+[19:05:11.262] rive  viewport 400x480 @1x
+[19:05:11.262] rive  script frame gc: scavenging per frame
+[19:05:11.278] console :0  x3pick facet=0 selected=1 count=1
+[19:05:11.287] console :0  x3pick facet=0 selected=0 count=0
+[19:05:11.340] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:11.390] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:11.391] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:11.391] rive  showing main [1/1]
+[19:05:11.391] rive  viewport 720x480 @1x
+[19:05:11.391] rive  viewport 1200x480 @1x
+[19:05:11.391] rive  script frame gc: scavenging per frame
+[19:05:11.407] console :0  x3pick facet=0 selected=1 count=1
+[19:05:11.416] console :0  x3pick facet=0 selected=0 count=0
+[19:05:11.472] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:11.523] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:11.523] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:11.524] rive  showing main [1/1]
+[19:05:11.524] rive  viewport 720x480 @1x
+[19:05:11.524] rive  script frame gc: scavenging per frame
+[19:05:11.537] console :0  x3pick facet=0 selected=1 count=1
+[19:05:11.547] console :0  x3pick facet=0 selected=0 count=0
+[19:05:11.601] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:11.651] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:11.652] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:11.652] rive  showing main [1/1]
+[19:05:11.652] rive  viewport 720x480 @1x
+[19:05:11.652] rive  script frame gc: scavenging per frame
+[19:05:11.676] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a8-ref.png
+[19:05:11.729] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:11.779] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:11.779] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:11.779] rive  showing main [1/1]
+[19:05:11.779] rive  viewport 720x480 @1x
+[19:05:11.779] rive  script frame gc: scavenging per frame
+[19:05:11.783] console :0  x3pick reset count=0
+[19:05:11.808] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-after.png
+[19:05:11.864] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:11.919] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:05:11.920] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:11.920] rive  showing main [1/1]
+[19:05:11.920] rive  viewport 720x480 @1x
+[19:05:11.920] rive  script frame gc: scavenging per frame
+[19:05:11.946] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-drag-after.png
+[19:05:12.039] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:12.094] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:05:12.094] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:12.095] rive  showing main [1/1]
+[19:05:12.095] rive  viewport 720x480 @1x
+[19:05:12.095] rive  script frame gc: scavenging per frame
+[19:05:12.124] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[19:05:12.178] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:12.233] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:05:12.234] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:12.234] rive  showing main [1/1]
+[19:05:12.234] rive  viewport 720x480 @1x
+[19:05:12.234] rive  script frame gc: scavenging per frame
+[19:05:12.263] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[19:05:12.319] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:12.370] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:12.370] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:12.370] rive  showing main [1/1]
+[19:05:12.370] rive  viewport 720x480 @1x
+[19:05:12.370] rive  script frame gc: scavenging per frame
+[19:05:12.399] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[19:05:12.495] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:12.547] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:12.547] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:12.547] rive  showing main [1/1]
+[19:05:12.547] rive  viewport 720x480 @1x
+[19:05:12.547] rive  script frame gc: scavenging per frame
+[19:05:12.576] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[19:05:12.630] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:12.680] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:12.681] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:12.681] rive  showing main [1/1]
+[19:05:12.681] rive  viewport 720x480 @1x
+[19:05:12.681] rive  script frame gc: scavenging per frame
+[19:05:12.705] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[19:05:12.760] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:12.811] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:12.812] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:12.812] rive  showing main [1/1]
+[19:05:12.812] rive  viewport 720x480 @1x
+[19:05:12.812] rive  script frame gc: scavenging per frame
+[19:05:12.839] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[19:05:12.896] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:12.947] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:12.948] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:12.948] rive  showing main [1/1]
+[19:05:12.948] rive  viewport 720x480 @1x
+[19:05:12.948] rive  script frame gc: scavenging per frame
+[19:05:12.967] console :0  x3pick facet=0 selected=1 count=1
+[19:05:18.203] rive  built (584360 bytes, 57ms, 0 errors, 0 warnings)
+[19:05:18.207] rive  loop phase
+[19:05:18.207] rive    PASS phase wraps at the loop period
+[19:05:18.207] rive    PASS extrusion is 0 at rest and 1 through inspect
+[19:05:18.207] rive    PASS extrude staggers facet 0 ahead of the last facet
+[19:05:18.207] rive    PASS retract runs in reverse facet order
+[19:05:18.207] rive    PASS separation peaks mid-inspect and is 0 at rest
+[19:05:18.207] rive  quaternion camera
+[19:05:18.207] rive    PASS identity orientation looks down -z
+[19:05:18.207] rive    PASS 90 degree yaw rotates forward to -x
+[19:05:18.207] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[19:05:18.207] rive    PASS near-identical quaternions slerp stably
+[19:05:18.207] rive  frame-rate independent damping
+[19:05:18.207] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[19:05:18.207] rive    PASS advance clamps the damping step to 0.5s on long frames
+[19:05:18.207] rive  hashDir
+[19:05:18.207] rive    PASS deterministic and unit length
+[19:05:18.207] rive    PASS distinct facets get distinct directions
+[19:05:18.207] rive  picker on synthetic meshes
+[19:05:18.207] rive    PASS single front facet picks at centre, misses at corner
+[19:05:18.207] rive    PASS 1e-6 view-z separation keeps the nearer facet
+[19:05:18.207] rive    PASS equal depth resolves to later source-order facet
+[19:05:18.207] rive    PASS nearest positive hit wins over source order
+[19:05:18.207] rive    PASS selected offset toward camera can win a depth contest
+[19:05:18.207] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[19:05:18.207] rive    PASS narrow and wide aspects still map the centre ray
+[19:05:18.207] rive  picker on the real blobs
+[19:05:18.207] rive    PASS rest centre pick lands on a generated facet
+[19:05:18.207] rive    PASS empty corner pick returns -1
+[19:05:18.207] rive  22/22 passed
+[19:05:18.324] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:18.379] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:05:18.380] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:18.380] rive  showing main [1/1]
+[19:05:18.380] rive  viewport 720x480 @1x
+[19:05:18.380] rive  script frame gc: scavenging per frame
+[19:05:18.384] console :0  x3pick facet=2 selected=1 count=1
+[19:05:18.388] console :0  x3pick facet=0 selected=1 count=2
+[19:05:18.392] console :0  x3pick facet=4 selected=1 count=3
+[19:05:18.496] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:18.550] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:05:18.551] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:18.551] rive  showing main [1/1]
+[19:05:18.551] rive  viewport 720x480 @1x
+[19:05:18.551] rive  script frame gc: scavenging per frame
+[19:05:18.567] console :0  x3pick facet=0 selected=1 count=1
+[19:05:18.576] console :0  x3pick reset count=0
+[19:05:18.585] console :0  x3pick facet=0 selected=1 count=1
+[19:05:18.594] console :0  x3pick facet=0 selected=0 count=0
+[19:05:18.603] console :0  x3pick facet=0 selected=1 count=1
+[19:05:18.616] console :0  x3pick facet=0 selected=0 count=0
+[19:05:18.625] console :0  x3pick facet=2 selected=1 count=1
+[19:05:18.634] console :0  x3pick facet=4 selected=1 count=2
+[19:05:18.736] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:18.792] rive  built (567526 bytes, 55ms, 0 errors, 0 warnings)
+[19:05:18.792] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:18.793] rive  showing main [1/1]
+[19:05:18.793] rive  viewport 720x480 @1x
+[19:05:18.793] rive  script frame gc: scavenging per frame
+[19:05:18.809] console :0  x3pick facet=0 selected=1 count=1
+[19:05:18.818] console :0  x3pick reset count=0
+[19:05:18.827] console :0  x3pick facet=0 selected=1 count=1
+[19:05:18.836] console :0  x3pick facet=0 selected=0 count=0
+[19:05:18.844] console :0  x3pick facet=0 selected=1 count=1
+[19:05:18.858] console :0  x3pick facet=0 selected=0 count=0
+[19:05:18.867] console :0  x3pick facet=2 selected=1 count=1
+[19:05:18.876] console :0  x3pick facet=4 selected=1 count=2
+[19:05:18.968] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:19.022] rive  built (567526 bytes, 54ms, 0 errors, 0 warnings)
+[19:05:19.023] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:19.023] rive  showing main [1/1]
+[19:05:19.023] rive  viewport 720x480 @1x
+[19:05:19.023] rive  script frame gc: scavenging per frame
+[19:05:19.039] console :0  x3pick facet=0 selected=1 count=1
+[19:05:19.048] console :0  x3pick facet=0 selected=0 count=0
+[19:05:19.102] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:19.152] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:19.152] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:19.152] rive  showing main [1/1]
+[19:05:19.152] rive  viewport 720x480 @1x
+[19:05:19.152] rive  script frame gc: scavenging per frame
+[19:05:19.182] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-unselected.png
+[19:05:19.237] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:19.288] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:19.288] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:19.288] rive  showing main [1/1]
+[19:05:19.289] rive  viewport 720x480 @1x
+[19:05:19.289] rive  script frame gc: scavenging per frame
+[19:05:19.304] console :0  x3pick facet=0 selected=1 count=1
+[19:05:19.326] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a4-selected.png
+[19:05:19.434] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:19.484] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:19.485] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:19.485] rive  showing main [1/1]
+[19:05:19.485] rive  viewport 720x480 @1x
+[19:05:19.485] rive  script frame gc: scavenging per frame
+[19:05:19.500] console :0  x3pick facet=0 selected=1 count=1
+[19:05:19.510] console :0  x3pick reset count=0
+[19:05:19.540] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-after.png
+[19:05:19.595] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:19.646] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:19.647] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:19.647] rive  showing main [1/1]
+[19:05:19.647] rive  viewport 720x480 @1x
+[19:05:19.669] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-ref.png
+[19:05:19.777] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:19.828] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:19.828] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:19.828] rive  showing main [1/1]
+[19:05:19.828] rive  viewport 720x480 @1x
+[19:05:19.829] rive  viewport 400x480 @1x
+[19:05:19.829] rive  script frame gc: scavenging per frame
+[19:05:19.844] console :0  x3pick facet=0 selected=1 count=1
+[19:05:19.853] console :0  x3pick facet=0 selected=0 count=0
+[19:05:19.910] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:19.961] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:19.962] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:19.962] rive  showing main [1/1]
+[19:05:19.962] rive  viewport 720x480 @1x
+[19:05:19.962] rive  viewport 1200x480 @1x
+[19:05:19.962] rive  script frame gc: scavenging per frame
+[19:05:19.978] console :0  x3pick facet=0 selected=1 count=1
+[19:05:19.987] console :0  x3pick facet=0 selected=0 count=0
+[19:05:20.076] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:20.127] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:20.127] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:20.127] rive  showing main [1/1]
+[19:05:20.127] rive  viewport 720x480 @1x
+[19:05:20.127] rive  script frame gc: scavenging per frame
+[19:05:20.141] console :0  x3pick facet=0 selected=1 count=1
+[19:05:20.151] console :0  x3pick facet=0 selected=0 count=0
+[19:05:20.235] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:20.286] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:20.287] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:20.287] rive  showing main [1/1]
+[19:05:20.287] rive  viewport 720x480 @1x
+[19:05:20.287] rive  script frame gc: scavenging per frame
+[19:05:20.311] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a8-ref.png
+[19:05:20.368] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:20.420] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:20.420] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:20.420] rive  showing main [1/1]
+[19:05:20.420] rive  viewport 720x480 @1x
+[19:05:20.420] rive  script frame gc: scavenging per frame
+[19:05:20.424] console :0  x3pick reset count=0
+[19:05:20.448] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-after.png
+[19:05:20.503] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:20.554] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:20.555] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:20.555] rive  showing main [1/1]
+[19:05:20.555] rive  viewport 720x480 @1x
+[19:05:20.555] rive  script frame gc: scavenging per frame
+[19:05:20.579] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-drag-after.png
+[19:05:20.703] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:20.753] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:20.754] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:20.754] rive  showing main [1/1]
+[19:05:20.754] rive  viewport 720x480 @1x
+[19:05:20.754] rive  script frame gc: scavenging per frame
+[19:05:20.782] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[19:05:20.837] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:20.888] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:20.888] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:20.888] rive  showing main [1/1]
+[19:05:20.888] rive  viewport 720x480 @1x
+[19:05:20.888] rive  script frame gc: scavenging per frame
+[19:05:20.916] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[19:05:20.971] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:21.021] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:21.022] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:21.022] rive  showing main [1/1]
+[19:05:21.022] rive  viewport 720x480 @1x
+[19:05:21.022] rive  script frame gc: scavenging per frame
+[19:05:21.051] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[19:05:21.174] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:21.226] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:21.226] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:21.226] rive  showing main [1/1]
+[19:05:21.226] rive  viewport 720x480 @1x
+[19:05:21.226] rive  script frame gc: scavenging per frame
+[19:05:21.251] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[19:05:21.306] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:21.357] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:21.357] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:21.357] rive  showing main [1/1]
+[19:05:21.357] rive  viewport 720x480 @1x
+[19:05:21.357] rive  script frame gc: scavenging per frame
+[19:05:21.382] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[19:05:21.437] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:21.488] rive  built (567526 bytes, 50ms, 0 errors, 0 warnings)
+[19:05:21.489] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:21.489] rive  showing main [1/1]
+[19:05:21.489] rive  viewport 720x480 @1x
+[19:05:21.489] rive  script frame gc: scavenging per frame
+[19:05:21.516] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[19:05:21.574] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[19:05:21.624] rive  built (567526 bytes, 51ms, 0 errors, 0 warnings)
+[19:05:21.625] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[19:05:21.625] rive  showing main [1/1]
+[19:05:21.625] rive  viewport 720x480 @1x
+[19:05:21.625] rive  script frame gc: scavenging per frame
+[19:05:21.643] console :0  x3pick facet=0 selected=1 count=1
