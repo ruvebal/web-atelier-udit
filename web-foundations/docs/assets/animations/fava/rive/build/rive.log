@@ -24,3 +24,11 @@
 [13:36:03.354] rive  viewport 1024x920 @1x
 [13:36:03.385] rive  wrote /private/tmp/fava-rive.png
 [13:44:27.371] rive  verified (0 bytes, 31ms, 0 errors, 0 warnings)
+[18:45:02.628] error   [lint] AnimaScript sources need scripting: wasm
+[18:45:02.629] rive  build failed (0 bytes, 100ms, 1 errors, 0 warnings)
+[18:45:02.629] rive  no Tests scripts found. A script qualifies by returning the Tests protocol, not by filename.
+[18:45:02.629] rive    scanned animascript-3d/main (Layout)
+[18:45:02.629] rive    scanned animascript-audio/hum (Layout)
+[18:45:02.629] rive    scanned animascript/favicon-pulse (Layout)
+[18:56:28.015] error   [lint] AnimaScript sources need scripting: wasm
+[18:56:28.015] rive  build failed (0 bytes, 105ms, 1 errors, 0 warnings)

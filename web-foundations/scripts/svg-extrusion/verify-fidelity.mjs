@@ -289,9 +289,9 @@ const items = {
 		const pipe = gm.pipelines?.[0];
 		if (!pipe) fail('gpu-manifest has no pipeline');
 		const vb = pipe.vertex?.buffers?.[0];
-		if (!vb || vb.arrayStride !== 36) fail('vertex buffer layout missing or wrong stride');
+		if (!vb || vb.arrayStride !== 40) fail('vertex buffer layout missing or wrong stride');
 		const formats = vb.attributes.map((a) => `${a.format}@${a.shaderLocation}:${a.offset}`);
-		const want = ['float32x3@0:0', 'float32x3@1:12', 'float32x3@2:24'];
+		const want = ['float32x3@0:0', 'float32x3@1:12', 'float32x3@2:24', 'float32@3:36'];
 		if (JSON.stringify(formats) !== JSON.stringify(want)) fail(`vertex attributes ${formats}`);
 		const ds = pipe.depthStencil;
 		if (!ds || ds.format !== 'depth32float' || ds.depthWriteEnabled !== true) fail('depth attachment missing');
@@ -300,13 +300,13 @@ const items = {
 		if (ds.depthCompare !== 'less-equal') fail(`depthCompare ${ds.depthCompare} != less-equal`);
 		const vbBytes = readFileSync(resolve(RIVE, 'favicon-vertices.bin')).length;
 		const ibBytes = readFileSync(resolve(RIVE, 'favicon-indices.bin')).length;
-		if (vbBytes !== VERTS * 36) fail(`vertex blob ${vbBytes} != ${VERTS * 36}`);
+		if (vbBytes !== VERTS * 40) fail(`vertex blob ${vbBytes} != ${VERTS * 40}`);
 		if (ibBytes !== IDX.length * 2) fail(`index blob ${ibBytes} != ${IDX.length * 2}`);
 		const asSrc = readFileSync(resolve(RIVE, 'favicon_mesh.as'), 'utf8');
 		const vc = Number(/VERTEX_COUNT: u32 = (\d+)/.exec(asSrc)[1]);
 		const ic = Number(/INDEX_COUNT: u32 = (\d+)/.exec(asSrc)[1]);
 		if (vc !== VERTS || ic !== IDX.length) fail('generated constants diverge from provider geometry');
-		return `pipeline vertex layout 36B/3attrs, depth32float write=on, blobs ${vbBytes}B+${ibBytes}B, counts ${VERTS}/${IDX.length} from provider`;
+		return `pipeline vertex layout 40B/4attrs, depth32float write=on, blobs ${vbBytes}B+${ibBytes}B, counts ${VERTS}/${IDX.length} from provider`;
 	},
 
 	A2() {
@@ -482,8 +482,8 @@ const items = {
 		// every packed Z equals the provider position (f32 rounding), fronts
 		// sit at z=0 and each facet's back reaches exactly -facet.depth.
 		const vb = readFileSync(resolve(RIVE, 'favicon-vertices.bin'));
-		if (vb.length !== VERTS * 36) fail(`vertex blob ${vb.length} != ${VERTS * 36}`);
-		const packedZ = (v) => vb.readFloatLE(v * 36 + 8);
+		if (vb.length !== VERTS * 40) fail(`vertex blob ${vb.length} != ${VERTS * 40}`);
+		const packedZ = (v) => vb.readFloatLE(v * 40 + 8);
 		let maxZDev = 0;
 		for (let v = 0; v < VERTS; v++) maxZDev = Math.max(maxZDev, Math.abs(packedZ(v) - POS[v * 3 + 2]));
 		if (maxZDev > 1e-6) fail(`packed Z diverges from provider positions: ${maxZDev}`);
@@ -504,6 +504,14 @@ const items = {
 		});
 		if (packedWorst > 1e-5) fail(`packed back Z deviates from -depth: ${packedWorst}`);
 		if (packedDeepest.id !== biggest.id) fail(`packed deepest facet ${packedDeepest.id} != largest-area ${biggest.id}`);
+		// Byte 36 is the facet source-order index the picker and shader share.
+		let facetIdBad = 0;
+		manifest.facets.forEach((f, fi) => {
+			for (let v = f.mesh.vertexStart; v < f.mesh.vertexStart + f.mesh.vertexCount; v++) {
+				if (vb.readFloatLE(v * 40 + 36) !== fi) facetIdBad++;
+			}
+		});
+		if (facetIdBad) fail(`packed facetId mismatch on ${facetIdBad} vertices`);
 		return `depth = ${d.minimum}+(${d.maximum}-${d.minimum})*sqrt(area/max): manifest dev ${worst.toExponential(1)}, packed Z dev ${maxZDev.toExponential(1)}/${packedWorst.toExponential(1)}, largest facet ${biggest.id} deepest in buffer`;
 	},
 

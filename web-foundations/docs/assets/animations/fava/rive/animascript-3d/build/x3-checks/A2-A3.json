@@ -1,0 +1,178 @@
+{
+  "fixtures": {
+    "occl": {
+      "x": 333,
+      "y": 173,
+      "facet": 0,
+      "cover": [
+        0,
+        4
+      ]
+    },
+    "emptyE": {
+      "x": 8,
+      "y": 8
+    },
+    "zoff": {
+      "x": 237,
+      "y": 221,
+      "facet": 9,
+      "self": {
+        "x": 210,
+        "y": 212
+      }
+    },
+    "touch": {
+      "x": 333,
+      "y": 173,
+      "facet": 0
+    },
+    "sepPts": [
+      {
+        "fi": 0,
+        "x": 350,
+        "y": 234
+      },
+      {
+        "fi": 2,
+        "x": 301,
+        "y": 421
+      }
+    ],
+    "cull": {
+      "x": 335,
+      "y": 157,
+      "backFacet": 0,
+      "fronts": [
+        0,
+        4
+      ],
+      "want": 4
+    }
+  },
+  "expected": [
+    {
+      "facet": 0,
+      "selected": 1,
+      "count": 1
+    },
+    {
+      "facet": -1,
+      "count": 0,
+      "reset": true
+    },
+    {
+      "facet": 9,
+      "selected": 1,
+      "count": 1
+    },
+    {
+      "facet": 9,
+      "selected": 0,
+      "count": 0
+    },
+    {
+      "facet": 0,
+      "selected": 1,
+      "count": 1
+    },
+    {
+      "facet": 0,
+      "selected": 0,
+      "count": 0
+    },
+    {
+      "facet": 2,
+      "selected": 1,
+      "count": 1
+    },
+    {
+      "facet": 4,
+      "selected": 1,
+      "count": 2
+    }
+  ],
+  "got": [
+    {
+      "facet": 0,
+      "selected": 1,
+      "count": 1
+    },
+    {
+      "facet": -1,
+      "count": 0
+    },
+    {
+      "facet": 9,
+      "selected": 1,
+      "count": 1
+    },
+    {
+      "facet": 9,
+      "selected": 0,
+      "count": 0
+    },
+    {
+      "facet": 0,
+      "selected": 1,
+      "count": 1
+    },
+    {
+      "facet": 0,
+      "selected": 0,
+      "count": 0
+    },
+    {
+      "facet": 2,
+      "selected": 1,
+      "count": 1
+    },
+    {
+      "facet": 4,
+      "selected": 1,
+      "count": 2
+    }
+  ],
+  "detail": [
+    {
+      "note": "occlusion",
+      "want": "facet-01",
+      "got": "facet-01 sel=1 n=1"
+    },
+    {
+      "note": "reset",
+      "want": "reset",
+      "got": "reset"
+    },
+    {
+      "note": "zoffset-select",
+      "want": "facet-10",
+      "got": "facet-10 sel=1 n=1"
+    },
+    {
+      "note": "zoffset-probe",
+      "want": "facet-10",
+      "got": "facet-10 sel=0 n=0"
+    },
+    {
+      "note": "touch",
+      "want": "facet-01",
+      "got": "facet-01 sel=1 n=1"
+    },
+    {
+      "note": "separated",
+      "want": "facet-01",
+      "got": "facet-01 sel=0 n=0"
+    },
+    {
+      "note": "separated",
+      "want": "facet-03",
+      "got": "facet-03 sel=1 n=1"
+    },
+    {
+      "note": "culling-rest",
+      "want": "facet-05",
+      "got": "facet-05 sel=1 n=2"
+    }
+  ]
+}
