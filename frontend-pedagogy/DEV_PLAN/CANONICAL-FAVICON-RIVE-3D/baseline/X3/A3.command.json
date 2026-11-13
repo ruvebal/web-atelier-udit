@@ -1,0 +1,13 @@
+{
+  "acceptanceId": "A3",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A3",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/svg-extrusion/verify-picking.mjs",
+    "A3"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3",
+  "exitCode": 0,
+  "stdout": "PASS A2: fixtures occl=facet-01 zoff=facet-02 touch=facet-01 sep=[facet-01,facet-03] cull=empty; all matched\nPASS A3: nearest-positive picks matched JS mirror across extruded/separated/rest poses\n",
+  "stderr": ""
+}

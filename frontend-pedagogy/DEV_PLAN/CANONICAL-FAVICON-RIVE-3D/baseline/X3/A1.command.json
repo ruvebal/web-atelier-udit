@@ -1,0 +1,13 @@
+{
+  "acceptanceId": "A1",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A1",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/svg-extrusion/verify-picking.mjs",
+    "A1"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3",
+  "exitCode": 0,
+  "stdout": "PASS A1: small=facet-03(18v) large=facet-01(810v) overlap=facet-05 cover=[facet-01,facet-05] picks=[2,0,4]\n",
+  "stderr": ""
+}

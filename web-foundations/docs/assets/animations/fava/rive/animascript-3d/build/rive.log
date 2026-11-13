@@ -1,104 +1,1472 @@
-[00:11:10.106] error   main:167:32  [as] E3001: cannot implicitly convert f64 to f32
-[00:11:10.107] error   main:167:38  [as] E3001: cannot implicitly convert f64 to f32
-[00:11:10.107] error   main:167:44  [as] E3001: cannot implicitly convert f64 to f32
-[00:11:10.107] error   main:200:23  [as] E3001: changetype is unsafe; mark the enclosing function 'unsafe'
-[00:11:10.107] error   main:202:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
-[00:11:10.107] error   main:203:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
-[00:11:10.107] error   main:204:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
-[00:11:10.107] error   main:205:9  [as] E3001: store is unsafe; mark the enclosing function 'unsafe'
-[00:11:10.108] rive  build failed (0 bytes, 56ms, 8 errors, 0 warnings)
-[00:11:37.392] rive  verified (0 bytes, 39ms, 0 errors, 0 warnings)
-[00:11:39.478] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[00:11:39.507] rive  built (512994 bytes, 29ms, 0 errors, 0 warnings)
-[00:11:39.508] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[00:11:39.509] rive  showing main [1/1]
-[00:11:39.510] rive  viewport 720x480 @1x
-[00:11:39.618] rive  wrote build/probe-rest.png
-[00:12:09.119] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[00:12:09.150] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
-[00:12:09.150] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[00:12:09.150] rive  showing main [1/1]
-[00:12:09.150] rive  viewport 720x480 @1x
-[00:12:09.184] rive  wrote build/probe-rest.png
-[00:12:41.526] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[00:12:41.560] rive  built (512994 bytes, 34ms, 0 errors, 0 warnings)
-[00:12:41.561] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[00:12:41.561] rive  showing main [1/1]
-[00:12:41.561] rive  viewport 720x480 @1x
-[00:12:41.617] rive  wrote build/probe-rest.png
-[00:12:51.354] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[00:12:51.382] rive  built (512994 bytes, 28ms, 0 errors, 0 warnings)
-[00:12:51.383] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[00:12:51.383] rive  showing main [1/1]
-[00:12:51.383] rive  viewport 720x480 @1x
-[00:12:51.384] rive  script frame gc: scavenging per frame
-[00:12:51.409] rive  wrote build/probe-oblique.png
-[00:12:55.254] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[00:12:55.284] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
-[00:12:55.284] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[00:12:55.285] rive  showing main [1/1]
-[00:12:55.285] rive  viewport 720x480 @1x
-[00:12:55.308] rive  wrote ./build/fava_prismatic_3d.png
-[00:12:55.308] rive  wrote build/gpu-manifest.json
-[00:13:19.097] rive  signing 1 scripts…
-[00:13:21.415] rive  signed 1 scripts
-[00:13:21.446] rive  watermarked: ruvebal is on a plan with the Rive splash screen. Upgrade to publish without it: https://rive.app/pricing?utm_source=cli&utm_medium=watermark&utm_campaign=cli-upgrade
-[00:13:21.450] rive  published build/fava_prismatic_3d.riv (481929 bytes, 3458ms, 0 errors, 0 warnings)
-[00:16:02.195] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[00:16:02.255] rive  built (512994 bytes, 61ms, 0 errors, 0 warnings)
-[00:16:02.256] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[00:16:02.257] rive  showing main [1/1]
-[00:16:02.258] rive  viewport 720x480 @1x
-[00:16:02.285] rive  wrote build/canonical-rest.png
-[00:16:02.373] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[00:16:02.404] rive  built (512994 bytes, 32ms, 0 errors, 0 warnings)
-[00:16:02.405] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[00:16:02.405] rive  showing main [1/1]
-[00:16:02.405] rive  viewport 720x480 @1x
-[00:16:02.405] rive  script frame gc: scavenging per frame
-[00:16:02.434] rive  wrote build/canonical-oblique.png
-[00:16:02.511] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[00:16:02.541] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
-[00:16:02.542] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[00:16:02.542] rive  showing main [1/1]
-[00:16:02.542] rive  viewport 400x800 @1x
-[00:16:02.566] rive  wrote build/canonical-narrow.png
-[00:16:02.635] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[00:16:02.665] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
-[00:16:02.666] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[00:16:02.666] rive  showing main [1/1]
-[00:16:02.666] rive  viewport 1200x400 @1x
-[00:16:02.692] rive  wrote build/canonical-wide.png
-[00:21:53.215] rive  verified (0 bytes, 59ms, 0 errors, 0 warnings)
-[00:32:31.260] rive  verified (0 bytes, 62ms, 0 errors, 0 warnings)
-[10:24:00.156] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[10:24:00.221] rive  built (512994 bytes, 66ms, 0 errors, 0 warnings)
-[10:24:00.222] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[10:24:00.224] rive  showing main [1/1]
-[10:24:00.224] rive  viewport 720x480 @1x
-[10:24:00.251] rive  wrote build/canonical-rest.png
-[10:24:00.251] rive  wrote build/gpu-manifest.json
-[10:24:00.318] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[10:24:00.348] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
-[10:24:00.348] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[10:24:00.348] rive  showing main [1/1]
-[10:24:00.349] rive  viewport 720x480 @1x
-[10:24:00.349] rive  script frame gc: scavenging per frame
-[10:24:00.387] rive  wrote build/canonical-oblique.png
-[10:24:00.456] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[10:24:00.485] rive  built (512994 bytes, 29ms, 0 errors, 0 warnings)
-[10:24:00.485] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[10:24:00.486] rive  showing main [1/1]
-[10:24:00.486] rive  viewport 400x800 @1x
-[10:24:00.508] rive  wrote build/canonical-narrow.png
-[10:24:00.574] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
-[10:24:00.604] rive  built (512994 bytes, 30ms, 0 errors, 0 warnings)
-[10:24:00.605] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
-[10:24:00.605] rive  showing main [1/1]
-[10:24:00.605] rive  viewport 1200x400 @1x
-[10:24:00.632] rive  wrote build/canonical-wide.png
-[10:24:02.566] rive  signing 1 scripts…
-[10:24:04.499] rive  signed 1 scripts
-[10:24:04.522] rive  watermarked: ruvebal is on a plan with the Rive splash screen. Upgrade to publish without it: https://rive.app/pricing?utm_source=cli&utm_medium=watermark&utm_campaign=cli-upgrade
-[10:24:04.526] rive  published build/fava_prismatic_3d.riv (481929 bytes, 2891ms, 0 errors, 0 warnings)
-[10:24:18.937] rive  verified (0 bytes, 29ms, 0 errors, 0 warnings)
+[12:29:40.131] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:29:40.174] rive  built (566129 bytes, 43ms, 0 errors, 0 warnings)
+[12:29:40.175] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:29:40.175] rive  showing main [1/1]
+[12:29:40.175] rive  viewport 720x480 @1x
+[12:29:40.175] rive  script frame gc: scavenging per frame
+[12:29:40.179] console :0  x3pick facet=5 selected=1 count=1
+[12:31:40.234] error   tests/interaction-test:6:1  [as] E3001: std/rive/test.as:69:13: cannot cast void to f64
+[12:31:40.234] error   tests/interaction-test:24:60  [as] E2001: expected type name
+[12:31:40.234] error   tests/interaction-test:24:60  [as] E3001: unknown type '<missing>'
+[12:31:40.234] error   tests/interaction-test:24:62  [as] E3001: unknown identifier 'v'
+[12:31:40.234] error   tests/interaction-test:24:63  [as] E2001: expected ';'
+[12:31:40.234] error   tests/interaction-test:24:63  [as] E2001: expected expression
+[12:31:40.234] error   tests/interaction-test:24:63  [as] E3001: unknown identifier '<error>'
+[12:31:40.234] error   tests/interaction-test:24:65  [as] E2001: expected ';'
+[12:31:40.234] error   tests/interaction-test:24:65  [as] E3001: 'ArrayBuffer' is a type, not a value
+[12:31:40.234] error   tests/interaction-test:24:78  [as] E3001: unknown identifier 'i'
+[12:31:40.234] error   tests/interaction-test:24:79  [as] E2001: expected ';'
+[12:31:40.234] error   tests/interaction-test:24:79  [as] E2001: expected expression
+[12:31:40.234] error   tests/interaction-test:24:79  [as] E3001: unknown identifier '<error>'
+[12:31:40.234] error   tests/interaction-test:24:81  [as] E2001: expected ';'
+[12:31:40.234] error   tests/interaction-test:24:81  [as] E3001: 'ArrayBuffer' is a type, not a value
+[12:31:40.234] error   tests/interaction-test:26:33  [as] E3001: unknown identifier 'verts'
+[12:31:40.234] error   tests/interaction-test:27:25  [as] E3001: unknown identifier 'verts'
+[12:31:40.234] error   tests/interaction-test:29:53  [as] E3001: unknown identifier 'verts'
+[12:31:40.234] error   tests/interaction-test:32:33  [as] E3001: unknown identifier 'indices'
+[12:31:40.234] error   tests/interaction-test:33:25  [as] E3001: unknown identifier 'indices'
+[12:31:40.234] error   tests/interaction-test:33:78  [as] E3001: unknown identifier 'indices'
+[12:31:40.234] error   tests/interaction-test:34:5  [as] E3001: void function cannot return a value
+[12:31:40.234] error   tests/interaction-test:34:12  [as] E3001: an object literal needs a class type here
+[12:31:40.234] error   tests/interaction-test:42:11  [as] E2001: expected type name
+[12:31:40.234] error   tests/interaction-test:42:11  [as] E2001: expected ')'
+[12:31:40.234] error   tests/interaction-test:42:11  [as] E3001: unknown type '<missing>'
+[12:31:40.234] error   tests/interaction-test:42:13  [as] E3001: unknown identifier 'v'
+[12:31:40.234] error   tests/interaction-test:42:14  [as] E2001: expected ';'
+[12:31:40.234] error   tests/interaction-test:42:14  [as] E2001: expected expression
+[12:31:40.234] error   tests/interaction-test:42:14  [as] E3001: unknown identifier '<error>'
+[12:31:40.234] error   tests/interaction-test:42:16  [as] E2001: expected ';'
+[12:31:40.234] error   tests/interaction-test:42:16  [as] E3001: 'ArrayBuffer' is a type, not a value
+[12:31:40.234] error   tests/interaction-test:42:29  [as] E3001: unknown identifier 'i'
+[12:31:40.235] error   tests/interaction-test:42:30  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:42:30  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:42:30  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:42:32  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:42:32  [as] E3001: 'ArrayBuffer' is a type, not a value
+[12:31:40.235] error   tests/interaction-test:42:45  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:42:45  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:43:5  [as] E3001: unknown identifier 'frame'
+[12:31:40.235] error   tests/interaction-test:43:10  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:43:10  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:43:10  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:43:12  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:43:12  [as] E3001: 'CameraFrame' is a type, not a value
+[12:31:40.235] error   tests/interaction-test:44:5  [as] E3001: unknown identifier 'facetCount'
+[12:31:40.235] error   tests/interaction-test:44:15  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:44:15  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:44:15  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:44:17  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:44:17  [as] E3001: 'u32' is a namespace, not a value
+[12:31:40.235] error   tests/interaction-test:45:5  [as] E3001: unknown identifier 'sel'
+[12:31:40.235] error   tests/interaction-test:45:8  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:45:8  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:45:8  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:45:10  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:45:10  [as] E3001: 'Array' is a type, not a value
+[12:31:40.235] error   tests/interaction-test:45:16  [as] E3001: 'u32' is a namespace, not a value
+[12:31:40.235] error   tests/interaction-test:45:20  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:45:20  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:46:5  [as] E3001: unknown identifier 'px'
+[12:31:40.235] error   tests/interaction-test:46:7  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:46:7  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:46:7  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:46:9  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:46:9  [as] E3001: 'f64' is a namespace, not a value
+[12:31:40.235] error   tests/interaction-test:47:5  [as] E3001: unknown identifier 'py'
+[12:31:40.235] error   tests/interaction-test:47:7  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:47:7  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:47:7  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:47:9  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:47:9  [as] E3001: 'f64' is a namespace, not a value
+[12:31:40.235] error   tests/interaction-test:48:5  [as] E3001: unknown identifier 'w'
+[12:31:40.235] error   tests/interaction-test:48:6  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:48:6  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:48:6  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:48:8  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:48:8  [as] E3001: 'f64' is a namespace, not a value
+[12:31:40.235] error   tests/interaction-test:49:5  [as] E3001: unknown identifier 'h'
+[12:31:40.235] error   tests/interaction-test:49:6  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:49:6  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:49:6  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:49:8  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:49:8  [as] E3001: 'f64' is a namespace, not a value
+[12:31:40.235] error   tests/interaction-test:50:1  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:50:1  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:50:2  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:50:2  [as] E2001: expected expression
+[12:31:40.235] error   tests/interaction-test:50:2  [as] E3001: unknown identifier '<error>'
+[12:31:40.235] error   tests/interaction-test:50:4  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:50:4  [as] E3001: 'i32' is a namespace, not a value
+[12:31:40.235] error   tests/interaction-test:50:8  [as] E2001: expected ';'
+[12:31:40.235] error   tests/interaction-test:143:58  [as] E3001: cannot implicitly convert f64 to i32
+[12:31:40.235] error   tests/interaction-test:144:59  [as] E3001: cannot implicitly convert f64 to i32
+[12:31:40.235] error   tests/interaction-test:184:21  [as] E3001: cannot infer variable type
+[12:31:40.235] error   tests/interaction-test:186:29  [as] E3001: wrong number of arguments
+[12:31:40.235] error   tests/interaction-test:186:80  [as] E3001: cannot implicitly convert i32 to void
+[12:31:40.235] error   tests/interaction-test:187:29  [as] E3001: wrong number of arguments
+[12:31:40.235] error   tests/interaction-test:187:78  [as] E3001: cannot implicitly convert i32 to void
+[12:31:40.235] error   tests/interaction-test:192:21  [as] E3001: cannot infer variable type
+[12:31:40.235] error   tests/interaction-test:194:29  [as] E3001: wrong number of arguments
+[12:31:40.235] error   tests/interaction-test:194:80  [as] E3001: cannot implicitly convert i32 to void
+[12:31:40.235] error   tests/interaction-test:200:21  [as] E3001: cannot infer variable type
+[12:31:40.235] error   tests/interaction-test:202:29  [as] E3001: wrong number of arguments
+[12:31:40.235] error   tests/interaction-test:202:80  [as] E3001: cannot implicitly convert i32 to void
+[12:31:40.235] error   tests/interaction-test:208:21  [as] E3001: cannot infer variable type
+[12:31:40.235] error   tests/interaction-test:210:29  [as] E3001: wrong number of arguments
+[12:31:40.235] error   tests/interaction-test:210:80  [as] E3001: cannot implicitly convert i32 to void
+[12:31:40.235] error   tests/interaction-test:212:29  [as] E3001: wrong number of arguments
+[12:31:40.235] error   tests/interaction-test:212:75  [as] E3001: cannot implicitly convert i32 to void
+[12:31:40.235] error   tests/interaction-test:216:21  [as] E3001: cannot infer variable type
+[12:31:40.235] error   tests/interaction-test:218:29  [as] E3001: wrong number of arguments
+[12:31:40.235] error   tests/interaction-test:218:79  [as] E3001: cannot implicitly convert i32 to void
+[12:31:40.235] error   tests/interaction-test:220:29  [as] E3001: wrong number of arguments
+[12:31:40.235] error   tests/interaction-test:220:83  [as] E3001: cannot implicitly convert i32 to void
+[12:31:40.235] error   tests/interaction-test:224:21  [as] E3001: cannot infer variable type
+[12:31:40.235] error   tests/interaction-test:229:33  [as] E3001: wrong number of arguments
+[12:31:40.235] error   tests/interaction-test:229:88  [as] E3001: cannot implicitly convert i32 to void
+[12:31:40.235] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:31:40.235] warning tests/interaction-test:24:19  [lint] W1002: unused parameter 'verts'
+[12:31:40.235] warning tests/interaction-test:24:38  [lint] W1002: unused parameter 'indices'
+[12:31:40.235] warning tests/interaction-test:24:62  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:24:63  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:24:65  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:24:78  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:24:79  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:24:81  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:42:5  [lint] W1002: unused parameter 'mesh'
+[12:31:40.235] warning tests/interaction-test:42:13  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:42:14  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:42:16  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:42:29  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:42:30  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:42:32  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:42:45  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:43:5  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:43:10  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:44:15  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:45:8  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:45:10  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:46:5  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:46:7  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:47:7  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:48:6  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:49:6  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:49:8  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:50:1  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:50:2  [lint] W1013: statement has no effect
+[12:31:40.235] warning tests/interaction-test:50:4  [lint] W1013: statement has no effect
+[12:31:40.235] rive  build failed (0 bytes, 53ms, 119 errors, 31 warnings)
+[12:31:40.235] rive  no Tests scripts found. A script qualifies by returning the Tests protocol, not by filename.
+[12:31:40.235] rive    scanned main (Layout)
+[12:31:46.440] error   tests/interaction-test:6:1  [as] E3001: std/rive/test.as:69:13: cannot cast void to f64
+[12:31:46.441] error   tests/interaction-test:24:60  [as] E2001: expected type name
+[12:31:46.441] error   tests/interaction-test:24:60  [as] E3001: unknown type '<missing>'
+[12:31:46.441] error   tests/interaction-test:24:62  [as] E3001: unknown identifier 'v'
+[12:31:46.441] error   tests/interaction-test:24:63  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:24:63  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:24:63  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:24:65  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:24:65  [as] E3001: 'ArrayBuffer' is a type, not a value
+[12:31:46.441] error   tests/interaction-test:24:78  [as] E3001: unknown identifier 'i'
+[12:31:46.441] error   tests/interaction-test:24:79  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:24:79  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:24:79  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:24:81  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:24:81  [as] E3001: 'ArrayBuffer' is a type, not a value
+[12:31:46.441] error   tests/interaction-test:26:33  [as] E3001: unknown identifier 'verts'
+[12:31:46.441] error   tests/interaction-test:27:25  [as] E3001: unknown identifier 'verts'
+[12:31:46.441] error   tests/interaction-test:29:53  [as] E3001: unknown identifier 'verts'
+[12:31:46.441] error   tests/interaction-test:32:33  [as] E3001: unknown identifier 'indices'
+[12:31:46.441] error   tests/interaction-test:33:25  [as] E3001: unknown identifier 'indices'
+[12:31:46.441] error   tests/interaction-test:33:78  [as] E3001: unknown identifier 'indices'
+[12:31:46.441] error   tests/interaction-test:34:5  [as] E3001: void function cannot return a value
+[12:31:46.441] error   tests/interaction-test:34:12  [as] E3001: an object literal needs a class type here
+[12:31:46.441] error   tests/interaction-test:42:11  [as] E2001: expected type name
+[12:31:46.441] error   tests/interaction-test:42:11  [as] E2001: expected ')'
+[12:31:46.441] error   tests/interaction-test:42:11  [as] E3001: unknown type '<missing>'
+[12:31:46.441] error   tests/interaction-test:42:13  [as] E3001: unknown identifier 'v'
+[12:31:46.441] error   tests/interaction-test:42:14  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:42:14  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:42:14  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:42:16  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:42:16  [as] E3001: 'ArrayBuffer' is a type, not a value
+[12:31:46.441] error   tests/interaction-test:42:29  [as] E3001: unknown identifier 'i'
+[12:31:46.441] error   tests/interaction-test:42:30  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:42:30  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:42:30  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:42:32  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:42:32  [as] E3001: 'ArrayBuffer' is a type, not a value
+[12:31:46.441] error   tests/interaction-test:42:45  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:42:45  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:43:5  [as] E3001: unknown identifier 'frame'
+[12:31:46.441] error   tests/interaction-test:43:10  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:43:10  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:43:10  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:43:12  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:43:12  [as] E3001: 'CameraFrame' is a type, not a value
+[12:31:46.441] error   tests/interaction-test:44:5  [as] E3001: unknown identifier 'facetCount'
+[12:31:46.441] error   tests/interaction-test:44:15  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:44:15  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:44:15  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:44:17  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:44:17  [as] E3001: 'u32' is a namespace, not a value
+[12:31:46.441] error   tests/interaction-test:45:5  [as] E3001: unknown identifier 'sel'
+[12:31:46.441] error   tests/interaction-test:45:8  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:45:8  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:45:8  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:45:10  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:45:10  [as] E3001: 'Array' is a type, not a value
+[12:31:46.441] error   tests/interaction-test:45:16  [as] E3001: 'u32' is a namespace, not a value
+[12:31:46.441] error   tests/interaction-test:45:20  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:45:20  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:46:5  [as] E3001: unknown identifier 'px'
+[12:31:46.441] error   tests/interaction-test:46:7  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:46:7  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:46:7  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:46:9  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:46:9  [as] E3001: 'f64' is a namespace, not a value
+[12:31:46.441] error   tests/interaction-test:47:5  [as] E3001: unknown identifier 'py'
+[12:31:46.441] error   tests/interaction-test:47:7  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:47:7  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:47:7  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:47:9  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:47:9  [as] E3001: 'f64' is a namespace, not a value
+[12:31:46.441] error   tests/interaction-test:48:5  [as] E3001: unknown identifier 'w'
+[12:31:46.441] error   tests/interaction-test:48:6  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:48:6  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:48:6  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:48:8  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:48:8  [as] E3001: 'f64' is a namespace, not a value
+[12:31:46.441] error   tests/interaction-test:49:5  [as] E3001: unknown identifier 'h'
+[12:31:46.441] error   tests/interaction-test:49:6  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:49:6  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:49:6  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:49:8  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:49:8  [as] E3001: 'f64' is a namespace, not a value
+[12:31:46.441] error   tests/interaction-test:50:1  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:50:1  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:50:2  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:50:2  [as] E2001: expected expression
+[12:31:46.441] error   tests/interaction-test:50:2  [as] E3001: unknown identifier '<error>'
+[12:31:46.441] error   tests/interaction-test:50:4  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:50:4  [as] E3001: 'i32' is a namespace, not a value
+[12:31:46.441] error   tests/interaction-test:50:8  [as] E2001: expected ';'
+[12:31:46.441] error   tests/interaction-test:143:58  [as] E3001: cannot implicitly convert f64 to i32
+[12:31:46.441] error   tests/interaction-test:144:59  [as] E3001: cannot implicitly convert f64 to i32
+[12:31:46.441] error   tests/interaction-test:184:21  [as] E3001: cannot infer variable type
+[12:31:46.441] error   tests/interaction-test:186:29  [as] E3001: wrong number of arguments
+[12:31:46.441] error   tests/interaction-test:186:80  [as] E3001: cannot implicitly convert i32 to void
+[12:31:46.441] error   tests/interaction-test:187:29  [as] E3001: wrong number of arguments
+[12:31:46.441] error   tests/interaction-test:187:78  [as] E3001: cannot implicitly convert i32 to void
+[12:31:46.441] error   tests/interaction-test:192:21  [as] E3001: cannot infer variable type
+[12:31:46.441] error   tests/interaction-test:194:29  [as] E3001: wrong number of arguments
+[12:31:46.441] error   tests/interaction-test:194:80  [as] E3001: cannot implicitly convert i32 to void
+[12:31:46.441] error   tests/interaction-test:200:21  [as] E3001: cannot infer variable type
+[12:31:46.441] error   tests/interaction-test:202:29  [as] E3001: wrong number of arguments
+[12:31:46.441] error   tests/interaction-test:202:80  [as] E3001: cannot implicitly convert i32 to void
+[12:31:46.441] error   tests/interaction-test:208:21  [as] E3001: cannot infer variable type
+[12:31:46.441] error   tests/interaction-test:210:29  [as] E3001: wrong number of arguments
+[12:31:46.441] error   tests/interaction-test:210:80  [as] E3001: cannot implicitly convert i32 to void
+[12:31:46.441] error   tests/interaction-test:212:29  [as] E3001: wrong number of arguments
+[12:31:46.441] error   tests/interaction-test:212:75  [as] E3001: cannot implicitly convert i32 to void
+[12:31:46.441] error   tests/interaction-test:216:21  [as] E3001: cannot infer variable type
+[12:31:46.441] error   tests/interaction-test:218:29  [as] E3001: wrong number of arguments
+[12:31:46.441] error   tests/interaction-test:218:79  [as] E3001: cannot implicitly convert i32 to void
+[12:31:46.441] error   tests/interaction-test:220:29  [as] E3001: wrong number of arguments
+[12:31:46.441] error   tests/interaction-test:220:83  [as] E3001: cannot implicitly convert i32 to void
+[12:31:46.441] error   tests/interaction-test:224:21  [as] E3001: cannot infer variable type
+[12:31:46.441] error   tests/interaction-test:229:33  [as] E3001: wrong number of arguments
+[12:31:46.441] error   tests/interaction-test:229:88  [as] E3001: cannot implicitly convert i32 to void
+[12:31:46.441] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:31:46.441] warning tests/interaction-test:24:19  [lint] W1002: unused parameter 'verts'
+[12:31:46.441] warning tests/interaction-test:24:38  [lint] W1002: unused parameter 'indices'
+[12:31:46.441] warning tests/interaction-test:24:62  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:24:63  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:24:65  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:24:78  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:24:79  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:24:81  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:42:5  [lint] W1002: unused parameter 'mesh'
+[12:31:46.441] warning tests/interaction-test:42:13  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:42:14  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:42:16  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:42:29  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:42:30  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:42:32  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:42:45  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:43:5  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:43:10  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:44:15  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:45:8  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:45:10  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:46:5  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:46:7  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:47:7  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:48:6  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:49:6  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:49:8  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:50:1  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:50:2  [lint] W1013: statement has no effect
+[12:31:46.441] warning tests/interaction-test:50:4  [lint] W1013: statement has no effect
+[12:31:46.441] rive  build failed (0 bytes, 52ms, 119 errors, 31 warnings)
+[12:31:46.442] rive  no Tests scripts found. A script qualifies by returning the Tests protocol, not by filename.
+[12:31:46.442] rive    scanned main (Layout)
+[12:33:10.710] error   tests/interaction-test:149:53  [as] E3001: cannot implicitly convert f64 to i32
+[12:33:10.710] error   tests/interaction-test:150:54  [as] E3001: cannot implicitly convert f64 to i32
+[12:33:10.710] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:33:10.710] rive  build failed (0 bytes, 51ms, 2 errors, 1 warnings)
+[12:33:10.710] rive  no Tests scripts found. A script qualifies by returning the Tests protocol, not by filename.
+[12:33:10.710] rive    scanned main (Layout)
+[12:33:21.861] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:33:21.863] rive  built (581796 bytes, 55ms, 0 errors, 1 warnings)
+[12:33:21.866] rive  loop phase
+[12:33:21.866] rive    PASS phase wraps at the loop period
+[12:33:21.866] rive    PASS extrusion is 0 at rest and 1 through inspect
+[12:33:21.866] rive    PASS extrude staggers facet 0 ahead of the last facet
+[12:33:21.866] rive    PASS retract runs in reverse facet order
+[12:33:21.866] rive    PASS separation peaks mid-inspect and is 0 at rest
+[12:33:21.866] rive  quaternion camera
+[12:33:21.866] rive    PASS identity orientation looks down -z
+[12:33:21.866] rive    PASS 90 degree yaw rotates forward to -x
+[12:33:21.866] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[12:33:21.866] rive    PASS near-identical quaternions slerp stably
+[12:33:21.866] rive  frame-rate independent damping
+[12:33:21.866] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[12:33:21.866] rive    PASS long frames stay bounded
+[12:33:21.866] rive  hashDir
+[12:33:21.866] rive    PASS deterministic and unit length
+[12:33:21.866] rive    PASS distinct facets get distinct directions
+[12:33:21.866] rive  picker on synthetic meshes
+[12:33:21.866] rive    PASS single front facet picks at centre, misses at corner
+[12:33:21.866] rive    PASS equal depth resolves to later source-order facet
+[12:33:21.866] rive    PASS nearest positive hit wins over source order
+[12:33:21.866] rive    FAIL selected z offset can win a depth contest
+[12:33:21.866] rive      1.0 is not equal to 0.0 (line 216)
+[12:33:21.866] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[12:33:21.866] rive    PASS narrow and wide aspects still map the centre ray
+[12:33:21.866] rive  picker on the real blobs
+[12:33:21.866] rive    PASS rest centre pick lands on a generated facet
+[12:33:21.866] rive    PASS empty corner pick returns -1
+[12:33:21.866] rive  20/21 passed
+[12:33:57.140] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:33:57.143] rive  built (581796 bytes, 55ms, 0 errors, 1 warnings)
+[12:33:57.146] rive  loop phase
+[12:33:57.146] rive    PASS phase wraps at the loop period
+[12:33:57.146] rive    PASS extrusion is 0 at rest and 1 through inspect
+[12:33:57.146] rive    PASS extrude staggers facet 0 ahead of the last facet
+[12:33:57.146] rive    PASS retract runs in reverse facet order
+[12:33:57.146] rive    PASS separation peaks mid-inspect and is 0 at rest
+[12:33:57.146] rive  quaternion camera
+[12:33:57.146] rive    PASS identity orientation looks down -z
+[12:33:57.146] rive    PASS 90 degree yaw rotates forward to -x
+[12:33:57.146] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[12:33:57.146] rive    PASS near-identical quaternions slerp stably
+[12:33:57.146] rive  frame-rate independent damping
+[12:33:57.146] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[12:33:57.146] rive    PASS long frames stay bounded
+[12:33:57.146] rive  hashDir
+[12:33:57.146] rive    PASS deterministic and unit length
+[12:33:57.146] rive    PASS distinct facets get distinct directions
+[12:33:57.146] rive  picker on synthetic meshes
+[12:33:57.146] rive    PASS single front facet picks at centre, misses at corner
+[12:33:57.146] rive    PASS equal depth resolves to later source-order facet
+[12:33:57.146] rive    FAIL nearest positive hit wins over source order
+[12:33:57.146] rive      0.0 is not equal to 1.0 (line 209)
+[12:33:57.146] rive    FAIL selected z offset can win a depth contest
+[12:33:57.146] rive      1.0 is not equal to 0.0 (line 218)
+[12:33:57.146] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[12:33:57.146] rive    PASS narrow and wide aspects still map the centre ray
+[12:33:57.146] rive  picker on the real blobs
+[12:33:57.146] rive    PASS rest centre pick lands on a generated facet
+[12:33:57.146] rive    PASS empty corner pick returns -1
+[12:33:57.146] rive  19/21 passed
+[12:34:02.284] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:34:02.286] rive  built (581796 bytes, 54ms, 0 errors, 1 warnings)
+[12:34:02.289] rive  loop phase
+[12:34:02.289] rive    PASS phase wraps at the loop period
+[12:34:02.289] rive    PASS extrusion is 0 at rest and 1 through inspect
+[12:34:02.289] rive    PASS extrude staggers facet 0 ahead of the last facet
+[12:34:02.289] rive    PASS retract runs in reverse facet order
+[12:34:02.289] rive    PASS separation peaks mid-inspect and is 0 at rest
+[12:34:02.289] rive  quaternion camera
+[12:34:02.289] rive    PASS identity orientation looks down -z
+[12:34:02.289] rive    PASS 90 degree yaw rotates forward to -x
+[12:34:02.289] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[12:34:02.289] rive    PASS near-identical quaternions slerp stably
+[12:34:02.289] rive  frame-rate independent damping
+[12:34:02.289] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[12:34:02.289] rive    PASS long frames stay bounded
+[12:34:02.289] rive  hashDir
+[12:34:02.289] rive    PASS deterministic and unit length
+[12:34:02.289] rive    PASS distinct facets get distinct directions
+[12:34:02.289] rive  picker on synthetic meshes
+[12:34:02.289] rive    PASS single front facet picks at centre, misses at corner
+[12:34:02.289] rive    PASS equal depth resolves to later source-order facet
+[12:34:02.289] rive    FAIL nearest positive hit wins over source order
+[12:34:02.289] rive      0.0 is not equal to 1.0 (line 209)
+[12:34:02.289] rive    FAIL selected z offset can win a depth contest
+[12:34:02.289] rive      1.0 is not equal to 0.0 (line 218)
+[12:34:02.289] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[12:34:02.289] rive    PASS narrow and wide aspects still map the centre ray
+[12:34:02.289] rive  picker on the real blobs
+[12:34:02.289] rive    PASS rest centre pick lands on a generated facet
+[12:34:02.289] rive    PASS empty corner pick returns -1
+[12:34:02.289] rive  19/21 passed
+[12:35:37.362] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:35:37.363] error   canonical-favicon.wgsl:31:16  [wgsl] WGSL parse error: name `meta` is a reserved keyword
+[12:35:37.363] rive  build failed (0 bytes, 46ms, 1 errors, 1 warnings)
+[12:35:37.435] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:35:37.435] error   canonical-favicon.wgsl:31:16  [wgsl] WGSL parse error: name `meta` is a reserved keyword
+[12:35:37.435] rive  build failed (0 bytes, 44ms, 1 errors, 1 warnings)
+[12:35:37.440] rive  loop phase
+[12:35:37.440] rive    PASS phase wraps at the loop period
+[12:35:37.440] rive    PASS extrusion is 0 at rest and 1 through inspect
+[12:35:37.440] rive    PASS extrude staggers facet 0 ahead of the last facet
+[12:35:37.440] rive    PASS retract runs in reverse facet order
+[12:35:37.440] rive    PASS separation peaks mid-inspect and is 0 at rest
+[12:35:37.440] rive  quaternion camera
+[12:35:37.440] rive    PASS identity orientation looks down -z
+[12:35:37.440] rive    PASS 90 degree yaw rotates forward to -x
+[12:35:37.440] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[12:35:37.440] rive    PASS near-identical quaternions slerp stably
+[12:35:37.440] rive  frame-rate independent damping
+[12:35:37.440] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[12:35:37.440] rive    PASS long frames stay bounded
+[12:35:37.440] rive  hashDir
+[12:35:37.440] rive    PASS deterministic and unit length
+[12:35:37.440] rive    PASS distinct facets get distinct directions
+[12:35:37.440] rive  picker on synthetic meshes
+[12:35:37.440] rive    PASS single front facet picks at centre, misses at corner
+[12:35:37.440] rive    PASS equal depth resolves to later source-order facet
+[12:35:37.440] rive    PASS nearest positive hit wins over source order
+[12:35:37.440] rive    FAIL selected offset toward camera can win a depth contest
+[12:35:37.440] rive      0.0 is not equal to 1.0 (line 222)
+[12:35:37.440] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[12:35:37.440] rive    PASS narrow and wide aspects still map the centre ray
+[12:35:37.440] rive  picker on the real blobs
+[12:35:37.440] rive    PASS rest centre pick lands on a generated facet
+[12:35:37.440] rive    PASS empty corner pick returns -1
+[12:35:37.440] rive  20/21 passed
+[12:36:09.355] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:36:09.357] rive  verified (0 bytes, 53ms, 0 errors, 1 warnings)
+[12:36:09.439] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:36:09.442] rive  built (582655 bytes, 56ms, 0 errors, 1 warnings)
+[12:36:09.445] rive  loop phase
+[12:36:09.445] rive    PASS phase wraps at the loop period
+[12:36:09.445] rive    PASS extrusion is 0 at rest and 1 through inspect
+[12:36:09.445] rive    PASS extrude staggers facet 0 ahead of the last facet
+[12:36:09.445] rive    PASS retract runs in reverse facet order
+[12:36:09.445] rive    PASS separation peaks mid-inspect and is 0 at rest
+[12:36:09.445] rive  quaternion camera
+[12:36:09.445] rive    PASS identity orientation looks down -z
+[12:36:09.445] rive    PASS 90 degree yaw rotates forward to -x
+[12:36:09.445] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[12:36:09.445] rive    PASS near-identical quaternions slerp stably
+[12:36:09.445] rive  frame-rate independent damping
+[12:36:09.445] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[12:36:09.445] rive    PASS long frames stay bounded
+[12:36:09.445] rive  hashDir
+[12:36:09.445] rive    PASS deterministic and unit length
+[12:36:09.445] rive    PASS distinct facets get distinct directions
+[12:36:09.445] rive  picker on synthetic meshes
+[12:36:09.445] rive    PASS single front facet picks at centre, misses at corner
+[12:36:09.445] rive    PASS equal depth resolves to later source-order facet
+[12:36:09.445] rive    PASS nearest positive hit wins over source order
+[12:36:09.445] rive    FAIL selected offset toward camera can win a depth contest
+[12:36:09.445] rive      0.0 is not equal to 1.0 (line 222)
+[12:36:09.445] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[12:36:09.445] rive    PASS narrow and wide aspects still map the centre ray
+[12:36:09.445] rive  picker on the real blobs
+[12:36:09.445] rive    PASS rest centre pick lands on a generated facet
+[12:36:09.445] rive    PASS empty corner pick returns -1
+[12:36:09.445] rive  20/21 passed
+[12:36:29.570] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:36:29.573] rive  built (582651 bytes, 55ms, 0 errors, 1 warnings)
+[12:36:29.575] rive  loop phase
+[12:36:29.575] rive    PASS phase wraps at the loop period
+[12:36:29.575] rive    PASS extrusion is 0 at rest and 1 through inspect
+[12:36:29.575] rive    PASS extrude staggers facet 0 ahead of the last facet
+[12:36:29.575] rive    PASS retract runs in reverse facet order
+[12:36:29.575] rive    PASS separation peaks mid-inspect and is 0 at rest
+[12:36:29.575] rive  quaternion camera
+[12:36:29.575] rive    PASS identity orientation looks down -z
+[12:36:29.575] rive    PASS 90 degree yaw rotates forward to -x
+[12:36:29.575] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[12:36:29.575] rive    PASS near-identical quaternions slerp stably
+[12:36:29.575] rive  frame-rate independent damping
+[12:36:29.575] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[12:36:29.575] rive    PASS long frames stay bounded
+[12:36:29.575] rive  hashDir
+[12:36:29.575] rive    PASS deterministic and unit length
+[12:36:29.575] rive    PASS distinct facets get distinct directions
+[12:36:29.575] rive  picker on synthetic meshes
+[12:36:29.575] rive    PASS single front facet picks at centre, misses at corner
+[12:36:29.575] rive    PASS equal depth resolves to later source-order facet
+[12:36:29.575] rive    PASS nearest positive hit wins over source order
+[12:36:29.575] rive    PASS selected offset toward camera can win a depth contest
+[12:36:29.575] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[12:36:29.575] rive    PASS narrow and wide aspects still map the centre ray
+[12:36:29.575] rive  picker on the real blobs
+[12:36:29.575] rive    PASS rest centre pick lands on a generated facet
+[12:36:29.575] rive    PASS empty corner pick returns -1
+[12:36:29.575] rive  21/21 passed
+[12:40:12.084] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:40:12.160] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:40:12.167] rive  built (567043 bytes, 83ms, 0 errors, 1 warnings)
+[12:40:12.167] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:40:12.169] rive  showing main [1/1]
+[12:40:12.169] rive  viewport 720x480 @1x
+[12:40:12.169] rive  script frame gc: scavenging per frame
+[12:40:12.186] console :0  x3pick facet=0 selected=1 count=1
+[12:40:12.245] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:40:12.295] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:40:12.297] rive  built (567043 bytes, 52ms, 0 errors, 1 warnings)
+[12:40:12.298] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:40:12.298] rive  showing main [1/1]
+[12:40:12.298] rive  viewport 720x480 @1x
+[12:40:12.298] rive  script frame gc: scavenging per frame
+[12:40:12.315] console :0  x3pick facet=0 selected=1 count=1
+[12:40:24.620] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:40:24.670] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:40:24.673] rive  built (567043 bytes, 52ms, 0 errors, 1 warnings)
+[12:40:24.673] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:40:24.673] rive  showing main [1/1]
+[12:40:24.673] rive  viewport 720x480 @1x
+[12:40:24.673] rive  viewport 400x480 @1x
+[12:40:24.673] rive  script frame gc: scavenging per frame
+[12:40:24.677] console :0  x3pick facet=5 selected=1 count=1
+[12:40:24.682] console :0  x3pick facet=9 selected=1 count=2
+[12:48:31.698] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:48:31.785] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:48:31.792] rive  built (567043 bytes, 96ms, 0 errors, 1 warnings)
+[12:48:31.793] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:48:31.795] rive  showing main [1/1]
+[12:48:31.795] rive  viewport 720x480 @1x
+[12:48:31.795] rive  script frame gc: scavenging per frame
+[12:48:31.992] rive  wrote /tmp/x3-a10-5s.png
+[12:48:32.055] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:48:32.106] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:48:32.108] rive  built (567043 bytes, 53ms, 0 errors, 1 warnings)
+[12:48:32.108] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:48:32.109] rive  showing main [1/1]
+[12:48:32.109] rive  viewport 720x480 @1x
+[12:48:32.109] rive  script frame gc: scavenging per frame
+[12:48:32.141] rive  wrote /tmp/x3-a10-500x10.png
+[12:48:49.319] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:48:49.369] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:48:49.371] rive  built (567043 bytes, 52ms, 0 errors, 1 warnings)
+[12:48:49.371] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:48:49.372] rive  showing main [1/1]
+[12:48:49.372] rive  viewport 720x480 @1x
+[12:48:49.372] rive  script frame gc: scavenging per frame
+[12:48:49.453] rive  wrote /tmp/x3-a10-600ms.png
+[12:48:49.526] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:48:49.581] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:48:49.584] rive  built (567043 bytes, 57ms, 0 errors, 1 warnings)
+[12:48:49.584] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:48:49.584] rive  showing main [1/1]
+[12:48:49.584] rive  viewport 720x480 @1x
+[12:48:49.585] rive  script frame gc: scavenging per frame
+[12:48:49.611] rive  wrote /tmp/x3-a10-36f.png
+[12:48:49.699] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:48:49.750] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:48:49.752] rive  built (567043 bytes, 52ms, 0 errors, 1 warnings)
+[12:48:49.752] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:48:49.753] rive  showing main [1/1]
+[12:48:49.753] rive  viewport 720x480 @1x
+[12:48:49.753] rive  script frame gc: scavenging per frame
+[12:48:49.779] rive  wrote /tmp/x3-a10-06s.png
+[12:49:20.760] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:49:20.811] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:49:20.813] rive  built (567043 bytes, 53ms, 0 errors, 1 warnings)
+[12:49:20.813] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:49:20.813] rive  showing main [1/1]
+[12:49:20.813] rive  viewport 720x480 @1x
+[12:49:20.814] rive  script frame gc: scavenging per frame
+[12:49:20.839] rive  wrote /tmp/x3-drag.png
+[12:49:20.843] console :0  x3pick reset count=0
+[12:49:20.848] console :0  x3pick facet=5 selected=1 count=1
+[12:50:29.958] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:50:30.035] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:50:30.041] rive  built (567043 bytes, 83ms, 0 errors, 1 warnings)
+[12:50:30.042] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:50:30.043] rive  showing main [1/1]
+[12:50:30.043] rive  viewport 720x480 @1x
+[12:50:30.043] rive  script frame gc: scavenging per frame
+[12:50:30.047] console :0  x3pick facet=2 selected=1 count=1
+[12:50:30.052] console :0  x3pick facet=0 selected=1 count=2
+[12:50:30.056] console :0  x3pick facet=4 selected=1 count=3
+[12:51:11.866] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:51:11.913] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:51:11.915] rive  built (567043 bytes, 49ms, 0 errors, 1 warnings)
+[12:51:11.916] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:51:11.916] rive  showing main [1/1]
+[12:51:11.916] rive  viewport 720x480 @1x
+[12:51:11.916] rive  script frame gc: scavenging per frame
+[12:51:11.920] console :0  x3pick facet=2 selected=1 count=1
+[12:51:11.924] console :0  x3pick facet=0 selected=1 count=2
+[12:51:11.928] console :0  x3pick facet=4 selected=1 count=3
+[12:52:12.085] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:52:12.133] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:52:12.135] rive  built (567043 bytes, 49ms, 0 errors, 1 warnings)
+[12:52:12.135] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:52:12.135] rive  showing main [1/1]
+[12:52:12.135] rive  viewport 720x480 @1x
+[12:52:12.135] rive  script frame gc: scavenging per frame
+[12:52:12.151] console :0  x3pick facet=0 selected=1 count=1
+[12:52:12.160] console :0  x3pick facet=0 selected=0 count=0
+[12:52:12.168] console :0  x3pick facet=0 selected=1 count=1
+[12:52:12.177] console :0  x3pick facet=0 selected=0 count=0
+[12:52:12.190] console :0  x3pick facet=0 selected=1 count=1
+[12:52:12.199] console :0  x3pick facet=2 selected=1 count=2
+[12:52:12.208] console :0  x3pick facet=4 selected=1 count=3
+[12:52:18.087] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:52:18.134] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:52:18.136] rive  built (567043 bytes, 49ms, 0 errors, 1 warnings)
+[12:52:18.137] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:52:18.137] rive  showing main [1/1]
+[12:52:18.137] rive  viewport 720x480 @1x
+[12:52:18.137] rive  script frame gc: scavenging per frame
+[12:52:18.152] console :0  x3pick facet=0 selected=1 count=1
+[12:52:18.161] console :0  x3pick facet=0 selected=0 count=0
+[12:52:18.251] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:52:18.298] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:52:18.300] rive  built (567043 bytes, 49ms, 0 errors, 1 warnings)
+[12:52:18.300] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:52:18.300] rive  showing main [1/1]
+[12:52:18.300] rive  viewport 720x480 @1x
+[12:52:18.300] rive  script frame gc: scavenging per frame
+[12:52:18.315] console :0  x3pick facet=0 selected=1 count=1
+[12:52:18.324] console :0  x3pick reset count=0
+[12:52:18.357] rive  wrote x3-rest-after.png
+[12:52:18.411] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:52:18.458] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:52:18.460] rive  built (574525 bytes, 49ms, 0 errors, 1 warnings)
+[12:52:18.461] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:52:18.461] rive  showing main [1/1]
+[12:52:18.461] rive  viewport 720x480 @1x
+[12:52:18.484] rive  wrote x3-rest-ref.png
+[12:52:18.605] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:52:18.653] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:52:18.655] rive  built (582005 bytes, 50ms, 0 errors, 1 warnings)
+[12:52:18.656] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:52:18.656] rive  showing main [1/1]
+[12:52:18.656] rive  viewport 720x480 @1x
+[12:52:18.657] rive  viewport 400x480 @1x
+[12:52:18.657] rive  script frame gc: scavenging per frame
+[12:52:18.672] console :0  x3pick facet=0 selected=1 count=1
+[12:52:18.681] console :0  x3pick facet=0 selected=0 count=0
+[12:52:18.736] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:52:18.784] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:52:18.786] rive  built (582005 bytes, 49ms, 0 errors, 1 warnings)
+[12:52:18.786] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:52:18.786] rive  showing main [1/1]
+[12:52:18.786] rive  viewport 720x480 @1x
+[12:52:18.786] rive  viewport 1200x480 @1x
+[12:52:18.786] rive  script frame gc: scavenging per frame
+[12:52:18.802] console :0  x3pick facet=0 selected=1 count=1
+[12:52:18.811] console :0  x3pick facet=0 selected=0 count=0
+[12:53:14.879] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:14.928] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:14.930] rive  built (582005 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:14.930] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:14.930] rive  showing main [1/1]
+[12:53:14.930] rive  viewport 720x480 @1x
+[12:53:14.930] rive  script frame gc: scavenging per frame
+[12:53:14.946] console :0  x3pick facet=0 selected=1 count=1
+[12:53:14.955] console :0  x3pick reset count=0
+[12:53:14.988] rive  wrote x3-rest-after.png
+[12:53:15.043] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:15.092] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:15.094] rive  built (582005 bytes, 51ms, 0 errors, 1 warnings)
+[12:53:15.095] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:15.095] rive  showing main [1/1]
+[12:53:15.095] rive  viewport 720x480 @1x
+[12:53:15.120] rive  wrote x3-rest-ref.png
+[12:53:15.231] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:15.278] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:15.280] rive  built (582005 bytes, 49ms, 0 errors, 1 warnings)
+[12:53:15.281] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:15.281] rive  showing main [1/1]
+[12:53:15.281] rive  viewport 720x480 @1x
+[12:53:15.281] rive  script frame gc: scavenging per frame
+[12:53:15.294] console :0  x3pick facet=0 selected=1 count=1
+[12:53:15.304] console :0  x3pick facet=0 selected=0 count=0
+[12:53:15.391] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:15.438] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:15.440] rive  built (582005 bytes, 49ms, 0 errors, 1 warnings)
+[12:53:15.441] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:15.441] rive  showing main [1/1]
+[12:53:15.441] rive  viewport 720x480 @1x
+[12:53:15.465] rive  wrote x3-micro-before.png
+[12:53:15.466] rive  script frame gc: scavenging per frame
+[12:53:15.470] console :0  x3pick reset count=0
+[12:53:15.476] rive  wrote x3-micro-after.png
+[12:53:15.583] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:15.631] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:15.633] rive  built (596972 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:15.633] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:15.634] rive  showing main [1/1]
+[12:53:15.634] rive  viewport 720x480 @1x
+[12:53:15.634] rive  script frame gc: scavenging per frame
+[12:53:15.665] rive  wrote x3-a9-frames6x30.png
+[12:53:15.719] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:15.767] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:15.769] rive  built (602639 bytes, 49ms, 0 errors, 1 warnings)
+[12:53:15.770] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:15.770] rive  showing main [1/1]
+[12:53:15.770] rive  viewport 720x480 @1x
+[12:53:15.770] rive  script frame gc: scavenging per frame
+[12:53:15.802] rive  wrote x3-a9-ms50x60.png
+[12:53:15.858] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:15.906] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:15.908] rive  built (608303 bytes, 49ms, 0 errors, 1 warnings)
+[12:53:15.908] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:15.908] rive  showing main [1/1]
+[12:53:15.909] rive  viewport 720x480 @1x
+[12:53:15.909] rive  script frame gc: scavenging per frame
+[12:53:15.946] rive  wrote x3-a9-ms20x150.png
+[12:53:16.071] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:16.120] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:16.122] rive  built (613948 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:16.122] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:16.122] rive  showing main [1/1]
+[12:53:16.123] rive  viewport 720x480 @1x
+[12:53:16.123] rive  script frame gc: scavenging per frame
+[12:53:16.155] rive  wrote x3-a10-hz30.png
+[12:53:16.210] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:16.258] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:16.260] rive  built (624334 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:16.261] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:16.261] rive  showing main [1/1]
+[12:53:16.261] rive  viewport 720x480 @1x
+[12:53:16.261] rive  script frame gc: scavenging per frame
+[12:53:16.296] rive  wrote x3-a10-hz60.png
+[12:53:16.351] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:16.400] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:16.402] rive  built (634720 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:16.402] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:16.402] rive  showing main [1/1]
+[12:53:16.402] rive  viewport 720x480 @1x
+[12:53:16.402] rive  script frame gc: scavenging per frame
+[12:53:16.440] rive  wrote x3-a10-hz144.png
+[12:53:16.499] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:16.548] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:16.550] rive  built (645107 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:16.551] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:16.551] rive  showing main [1/1]
+[12:53:16.551] rive  viewport 720x480 @1x
+[12:53:16.551] rive  script frame gc: scavenging per frame
+[12:53:16.569] console :0  x3pick facet=0 selected=1 count=1
+[12:53:27.133] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:27.182] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:27.183] rive  built (645107 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:27.184] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:27.184] rive  showing main [1/1]
+[12:53:27.184] rive  viewport 720x480 @1x
+[12:53:27.184] rive  script frame gc: scavenging per frame
+[12:53:27.226] rive  wrote /tmp/x3-20ms.png
+[12:53:27.281] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:27.332] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:27.334] rive  built (645107 bytes, 53ms, 0 errors, 1 warnings)
+[12:53:27.335] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:27.335] rive  showing main [1/1]
+[12:53:27.335] rive  viewport 720x480 @1x
+[12:53:27.335] rive  script frame gc: scavenging per frame
+[12:53:27.374] rive  wrote /tmp/x3-180f.png
+[12:53:27.451] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:27.499] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:27.501] rive  built (645107 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:27.501] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:27.502] rive  showing main [1/1]
+[12:53:27.502] rive  viewport 720x480 @1x
+[12:53:27.502] rive  script frame gc: scavenging per frame
+[12:53:27.540] rive  wrote /tmp/x3-50ms.png
+[12:53:34.159] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:34.209] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:34.211] rive  built (645107 bytes, 51ms, 0 errors, 1 warnings)
+[12:53:34.211] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:34.212] rive  showing main [1/1]
+[12:53:34.212] rive  viewport 720x480 @1x
+[12:53:34.212] rive  script frame gc: scavenging per frame
+[12:53:34.251] rive  wrote x3-a9-f6x30.png
+[12:53:34.314] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:34.368] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:34.370] rive  built (650769 bytes, 56ms, 0 errors, 1 warnings)
+[12:53:34.371] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:34.371] rive  showing main [1/1]
+[12:53:34.371] rive  viewport 720x480 @1x
+[12:53:34.371] rive  script frame gc: scavenging per frame
+[12:53:34.412] rive  wrote x3-a9-f3x60.png
+[12:53:34.468] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:34.521] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:34.523] rive  built (656431 bytes, 54ms, 0 errors, 1 warnings)
+[12:53:34.523] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:34.523] rive  showing main [1/1]
+[12:53:34.523] rive  viewport 720x480 @1x
+[12:53:34.523] rive  script frame gc: scavenging per frame
+[12:53:34.566] rive  wrote x3-a9-f1x180.png
+[12:53:36.986] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:37.038] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:37.040] rive  built (662094 bytes, 54ms, 0 errors, 1 warnings)
+[12:53:37.040] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:37.041] rive  showing main [1/1]
+[12:53:37.041] rive  viewport 720x480 @1x
+[12:53:37.041] rive  script frame gc: scavenging per frame
+[12:53:37.045] console :0  x3pick facet=2 selected=1 count=1
+[12:53:37.049] console :0  x3pick facet=0 selected=1 count=2
+[12:53:37.053] console :0  x3pick facet=4 selected=1 count=3
+[12:53:37.117] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:37.166] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:37.168] rive  built (662094 bytes, 51ms, 0 errors, 1 warnings)
+[12:53:37.168] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:37.169] rive  showing main [1/1]
+[12:53:37.169] rive  viewport 720x480 @1x
+[12:53:37.169] rive  script frame gc: scavenging per frame
+[12:53:37.184] console :0  x3pick facet=0 selected=1 count=1
+[12:53:37.193] console :0  x3pick facet=0 selected=0 count=0
+[12:53:37.201] console :0  x3pick facet=0 selected=1 count=1
+[12:53:37.210] console :0  x3pick facet=0 selected=0 count=0
+[12:53:37.223] console :0  x3pick facet=0 selected=1 count=1
+[12:53:37.232] console :0  x3pick facet=2 selected=1 count=2
+[12:53:37.240] console :0  x3pick facet=4 selected=1 count=3
+[12:53:37.298] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:37.347] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:37.349] rive  built (662094 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:37.349] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:37.349] rive  showing main [1/1]
+[12:53:37.349] rive  viewport 720x480 @1x
+[12:53:37.349] rive  script frame gc: scavenging per frame
+[12:53:37.365] console :0  x3pick facet=0 selected=1 count=1
+[12:53:37.374] console :0  x3pick facet=0 selected=0 count=0
+[12:53:37.383] console :0  x3pick facet=0 selected=1 count=1
+[12:53:37.392] console :0  x3pick facet=0 selected=0 count=0
+[12:53:37.405] console :0  x3pick facet=0 selected=1 count=1
+[12:53:37.413] console :0  x3pick facet=2 selected=1 count=2
+[12:53:37.422] console :0  x3pick facet=4 selected=1 count=3
+[12:53:37.476] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:37.531] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:37.533] rive  built (662094 bytes, 56ms, 0 errors, 1 warnings)
+[12:53:37.534] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:37.534] rive  showing main [1/1]
+[12:53:37.534] rive  viewport 720x480 @1x
+[12:53:37.534] rive  script frame gc: scavenging per frame
+[12:53:37.551] console :0  x3pick facet=0 selected=1 count=1
+[12:53:37.561] console :0  x3pick facet=0 selected=0 count=0
+[12:53:37.618] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:37.667] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:37.669] rive  built (662094 bytes, 51ms, 0 errors, 1 warnings)
+[12:53:37.669] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:37.669] rive  showing main [1/1]
+[12:53:37.669] rive  viewport 720x480 @1x
+[12:53:37.670] rive  script frame gc: scavenging per frame
+[12:53:37.686] console :0  x3pick facet=0 selected=1 count=1
+[12:53:37.695] console :0  x3pick reset count=0
+[12:53:37.758] rive  wrote x3-rest-after.png
+[12:53:37.817] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:37.866] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:37.868] rive  built (662094 bytes, 51ms, 0 errors, 1 warnings)
+[12:53:37.869] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:37.869] rive  showing main [1/1]
+[12:53:37.869] rive  viewport 720x480 @1x
+[12:53:37.906] rive  wrote x3-rest-ref.png
+[12:53:37.986] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:38.035] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:38.037] rive  built (662094 bytes, 51ms, 0 errors, 1 warnings)
+[12:53:38.037] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:38.038] rive  showing main [1/1]
+[12:53:38.038] rive  viewport 720x480 @1x
+[12:53:38.038] rive  viewport 400x480 @1x
+[12:53:38.038] rive  script frame gc: scavenging per frame
+[12:53:38.053] console :0  x3pick facet=0 selected=1 count=1
+[12:53:38.062] console :0  x3pick facet=0 selected=0 count=0
+[12:53:38.117] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:38.167] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:38.169] rive  built (662094 bytes, 52ms, 0 errors, 1 warnings)
+[12:53:38.170] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:38.170] rive  showing main [1/1]
+[12:53:38.170] rive  viewport 720x480 @1x
+[12:53:38.170] rive  viewport 1200x480 @1x
+[12:53:38.171] rive  script frame gc: scavenging per frame
+[12:53:38.186] console :0  x3pick facet=0 selected=1 count=1
+[12:53:38.195] console :0  x3pick facet=0 selected=0 count=0
+[12:53:38.253] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:38.303] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:38.305] rive  built (662094 bytes, 51ms, 0 errors, 1 warnings)
+[12:53:38.305] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:38.305] rive  showing main [1/1]
+[12:53:38.306] rive  viewport 720x480 @1x
+[12:53:38.306] rive  script frame gc: scavenging per frame
+[12:53:38.319] console :0  x3pick facet=0 selected=1 count=1
+[12:53:38.328] console :0  x3pick facet=0 selected=0 count=0
+[12:53:38.383] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:38.435] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:38.438] rive  built (662094 bytes, 55ms, 0 errors, 1 warnings)
+[12:53:38.438] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:38.438] rive  showing main [1/1]
+[12:53:38.438] rive  viewport 720x480 @1x
+[12:53:38.477] rive  wrote x3-micro-before.png
+[12:53:38.477] rive  script frame gc: scavenging per frame
+[12:53:38.481] console :0  x3pick reset count=0
+[12:53:38.488] rive  wrote x3-micro-after.png
+[12:53:38.564] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:38.612] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:38.614] rive  built (662094 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:38.615] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:38.615] rive  showing main [1/1]
+[12:53:38.615] rive  viewport 720x480 @1x
+[12:53:38.615] rive  script frame gc: scavenging per frame
+[12:53:38.657] rive  wrote x3-a9-f6x30.png
+[12:53:38.715] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:38.766] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:38.768] rive  built (662094 bytes, 53ms, 0 errors, 1 warnings)
+[12:53:38.768] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:38.768] rive  showing main [1/1]
+[12:53:38.769] rive  viewport 720x480 @1x
+[12:53:38.769] rive  script frame gc: scavenging per frame
+[12:53:38.811] rive  wrote x3-a9-f3x60.png
+[12:53:38.865] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:38.913] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:38.915] rive  built (662094 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:38.915] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:38.915] rive  showing main [1/1]
+[12:53:38.916] rive  viewport 720x480 @1x
+[12:53:38.916] rive  script frame gc: scavenging per frame
+[12:53:38.958] rive  wrote x3-a9-f1x180.png
+[12:53:39.053] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:39.103] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:39.105] rive  built (662094 bytes, 51ms, 0 errors, 1 warnings)
+[12:53:39.105] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:39.105] rive  showing main [1/1]
+[12:53:39.105] rive  viewport 720x480 @1x
+[12:53:39.105] rive  script frame gc: scavenging per frame
+[12:53:39.145] rive  wrote x3-a10-hz30.png
+[12:53:39.203] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:39.251] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:39.253] rive  built (662094 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:39.253] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:39.253] rive  showing main [1/1]
+[12:53:39.253] rive  viewport 720x480 @1x
+[12:53:39.254] rive  script frame gc: scavenging per frame
+[12:53:39.293] rive  wrote x3-a10-hz60.png
+[12:53:39.348] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:39.397] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:39.399] rive  built (662094 bytes, 50ms, 0 errors, 1 warnings)
+[12:53:39.400] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:39.400] rive  showing main [1/1]
+[12:53:39.400] rive  viewport 720x480 @1x
+[12:53:39.400] rive  script frame gc: scavenging per frame
+[12:53:39.442] rive  wrote x3-a10-hz144.png
+[12:53:39.498] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:53:39.547] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:53:39.549] rive  built (662094 bytes, 51ms, 0 errors, 1 warnings)
+[12:53:39.550] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:53:39.550] rive  showing main [1/1]
+[12:53:39.550] rive  viewport 720x480 @1x
+[12:53:39.550] rive  script frame gc: scavenging per frame
+[12:53:39.568] console :0  x3pick facet=0 selected=1 count=1
+[12:55:15.554] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:55:15.640] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:55:15.647] rive  built (567043 bytes, 95ms, 0 errors, 1 warnings)
+[12:55:15.648] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:55:15.650] rive  showing main [1/1]
+[12:55:15.650] rive  viewport 720x480 @1x
+[12:55:15.651] rive  script frame gc: scavenging per frame
+[12:55:15.667] console :0  x3pick facet=0 selected=1 count=1
+[12:55:15.676] console :0  x3pick reset count=0
+[12:55:15.728] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-after.png
+[12:55:15.790] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:55:15.838] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:55:15.840] rive  built (567043 bytes, 50ms, 0 errors, 1 warnings)
+[12:55:15.841] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:55:15.841] rive  showing main [1/1]
+[12:55:15.841] rive  viewport 720x480 @1x
+[12:55:15.863] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-ref.png
+[12:55:15.981] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:55:16.028] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:55:16.030] rive  built (567043 bytes, 49ms, 0 errors, 1 warnings)
+[12:55:16.031] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:55:16.031] rive  showing main [1/1]
+[12:55:16.031] rive  viewport 720x480 @1x
+[12:55:16.054] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-before.png
+[12:55:16.054] rive  script frame gc: scavenging per frame
+[12:55:16.058] console :0  x3pick reset count=0
+[12:55:16.065] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-after.png
+[12:55:16.175] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:55:16.223] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:55:16.224] rive  built (567043 bytes, 49ms, 0 errors, 1 warnings)
+[12:55:16.225] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:55:16.225] rive  showing main [1/1]
+[12:55:16.225] rive  viewport 720x480 @1x
+[12:55:16.225] rive  script frame gc: scavenging per frame
+[12:55:16.253] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[12:55:16.310] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:55:16.358] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:55:16.360] rive  built (567043 bytes, 50ms, 0 errors, 1 warnings)
+[12:55:16.360] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:55:16.361] rive  showing main [1/1]
+[12:55:16.361] rive  viewport 720x480 @1x
+[12:55:16.361] rive  script frame gc: scavenging per frame
+[12:55:16.394] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[12:55:16.452] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:55:16.502] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:55:16.504] rive  built (567043 bytes, 52ms, 0 errors, 1 warnings)
+[12:55:16.505] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:55:16.505] rive  showing main [1/1]
+[12:55:16.505] rive  viewport 720x480 @1x
+[12:55:16.505] rive  script frame gc: scavenging per frame
+[12:55:16.535] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[12:55:16.675] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:55:16.729] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:55:16.732] rive  built (567043 bytes, 56ms, 0 errors, 1 warnings)
+[12:55:16.732] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:55:16.732] rive  showing main [1/1]
+[12:55:16.732] rive  viewport 720x480 @1x
+[12:55:16.732] rive  script frame gc: scavenging per frame
+[12:55:16.757] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[12:55:16.818] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:55:16.873] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:55:16.875] rive  built (567043 bytes, 57ms, 0 errors, 1 warnings)
+[12:55:16.876] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:55:16.876] rive  showing main [1/1]
+[12:55:16.876] rive  viewport 720x480 @1x
+[12:55:16.876] rive  script frame gc: scavenging per frame
+[12:55:16.901] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[12:55:16.959] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:55:17.009] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:55:17.012] rive  built (567043 bytes, 53ms, 0 errors, 1 warnings)
+[12:55:17.012] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:55:17.012] rive  showing main [1/1]
+[12:55:17.012] rive  viewport 720x480 @1x
+[12:55:17.012] rive  script frame gc: scavenging per frame
+[12:55:17.040] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[12:55:17.098] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:55:17.146] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:55:17.148] rive  built (567043 bytes, 50ms, 0 errors, 1 warnings)
+[12:55:17.148] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:55:17.148] rive  showing main [1/1]
+[12:55:17.148] rive  viewport 720x480 @1x
+[12:55:17.148] rive  script frame gc: scavenging per frame
+[12:55:17.166] console :0  x3pick facet=0 selected=1 count=1
+[12:56:06.782] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:56:06.784] rive  verified (0 bytes, 60ms, 0 errors, 1 warnings)
+[12:56:06.861] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:56:06.864] rive  built (582651 bytes, 51ms, 0 errors, 1 warnings)
+[12:56:06.866] rive  loop phase
+[12:56:06.866] rive    PASS phase wraps at the loop period
+[12:56:06.866] rive    PASS extrusion is 0 at rest and 1 through inspect
+[12:56:06.866] rive    PASS extrude staggers facet 0 ahead of the last facet
+[12:56:06.866] rive    PASS retract runs in reverse facet order
+[12:56:06.866] rive    PASS separation peaks mid-inspect and is 0 at rest
+[12:56:06.866] rive  quaternion camera
+[12:56:06.866] rive    PASS identity orientation looks down -z
+[12:56:06.866] rive    PASS 90 degree yaw rotates forward to -x
+[12:56:06.866] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[12:56:06.866] rive    PASS near-identical quaternions slerp stably
+[12:56:06.866] rive  frame-rate independent damping
+[12:56:06.866] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[12:56:06.866] rive    PASS long frames stay bounded
+[12:56:06.866] rive  hashDir
+[12:56:06.866] rive    PASS deterministic and unit length
+[12:56:06.866] rive    PASS distinct facets get distinct directions
+[12:56:06.866] rive  picker on synthetic meshes
+[12:56:06.866] rive    PASS single front facet picks at centre, misses at corner
+[12:56:06.866] rive    PASS equal depth resolves to later source-order facet
+[12:56:06.866] rive    PASS nearest positive hit wins over source order
+[12:56:06.866] rive    PASS selected offset toward camera can win a depth contest
+[12:56:06.867] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[12:56:06.867] rive    PASS narrow and wide aspects still map the centre ray
+[12:56:06.867] rive  picker on the real blobs
+[12:56:06.867] rive    PASS rest centre pick lands on a generated facet
+[12:56:06.867] rive    PASS empty corner pick returns -1
+[12:56:06.867] rive  21/21 passed
+[12:56:09.003] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:56:09.006] rive  verified (0 bytes, 55ms, 0 errors, 1 warnings)
+[12:56:10.201] warning tests/interaction-test:6:1  [lint] W1012: unused import 'Expect'
+[12:56:10.954] rive  signing 1 scripts…
+[12:56:13.003] rive  signed 1 scripts
+[12:56:13.041] rive  watermarked: ruvebal is on a plan with the Rive splash screen. Upgrade to publish without it: https://rive.app/pricing?utm_source=cli&utm_medium=watermark&utm_campaign=cli-upgrade
+[12:56:13.049] rive  published build/fava_prismatic_3d.riv (530385 bytes, 3037ms, 0 errors, 1 warnings)
+[12:56:26.584] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:26.637] rive  built (567043 bytes, 53ms, 0 errors, 0 warnings)
+[12:56:26.638] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:26.638] rive  showing main [1/1]
+[12:56:26.638] rive  viewport 720x480 @1x
+[12:56:26.670] rive  wrote ./build/fava_prismatic_3d.png
+[12:56:26.670] rive  wrote build/gpu-manifest.json
+[12:56:38.151] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:38.205] rive  built (567043 bytes, 53ms, 0 errors, 0 warnings)
+[12:56:38.205] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:38.206] rive  showing main [1/1]
+[12:56:38.206] rive  viewport 720x480 @1x
+[12:56:38.254] rive  wrote build/x3-rest.png
+[12:56:38.254] rive  script frame gc: scavenging per frame
+[12:56:38.269] rive  wrote build/x3-inspect.png
+[12:56:38.269] rive  viewport 400x480 @1x
+[12:56:38.273] rive  wrote build/x3-narrow.png
+[12:56:38.274] rive  viewport 1200x480 @1x
+[12:56:38.284] rive  wrote build/x3-wide.png
+[12:56:54.570] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:54.621] rive  built (567043 bytes, 51ms, 0 errors, 0 warnings)
+[12:56:54.622] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:54.622] rive  showing main [1/1]
+[12:56:54.622] rive  viewport 720x480 @1x
+[12:56:54.622] rive  script frame gc: scavenging per frame
+[12:56:54.626] console :0  x3pick facet=2 selected=1 count=1
+[12:56:54.631] console :0  x3pick facet=0 selected=1 count=2
+[12:56:54.635] console :0  x3pick facet=4 selected=1 count=3
+[12:56:54.738] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:54.795] rive  built (567043 bytes, 57ms, 0 errors, 0 warnings)
+[12:56:54.795] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:54.796] rive  showing main [1/1]
+[12:56:54.796] rive  viewport 720x480 @1x
+[12:56:54.796] rive  script frame gc: scavenging per frame
+[12:56:54.813] console :0  x3pick facet=0 selected=1 count=1
+[12:56:54.822] console :0  x3pick facet=0 selected=0 count=0
+[12:56:54.832] console :0  x3pick facet=0 selected=1 count=1
+[12:56:54.841] console :0  x3pick facet=0 selected=0 count=0
+[12:56:54.855] console :0  x3pick facet=0 selected=1 count=1
+[12:56:54.864] console :0  x3pick facet=2 selected=1 count=2
+[12:56:54.873] console :0  x3pick facet=4 selected=1 count=3
+[12:56:54.972] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:55.023] rive  built (567043 bytes, 50ms, 0 errors, 0 warnings)
+[12:56:55.023] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:55.023] rive  showing main [1/1]
+[12:56:55.023] rive  viewport 720x480 @1x
+[12:56:55.023] rive  script frame gc: scavenging per frame
+[12:56:55.040] console :0  x3pick facet=0 selected=1 count=1
+[12:56:55.049] console :0  x3pick facet=0 selected=0 count=0
+[12:56:55.058] console :0  x3pick facet=0 selected=1 count=1
+[12:56:55.067] console :0  x3pick facet=0 selected=0 count=0
+[12:56:55.079] console :0  x3pick facet=0 selected=1 count=1
+[12:56:55.089] console :0  x3pick facet=2 selected=1 count=2
+[12:56:55.097] console :0  x3pick facet=4 selected=1 count=3
+[12:56:55.184] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:55.233] rive  built (567043 bytes, 49ms, 0 errors, 0 warnings)
+[12:56:55.233] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:55.234] rive  showing main [1/1]
+[12:56:55.234] rive  viewport 720x480 @1x
+[12:56:55.234] rive  script frame gc: scavenging per frame
+[12:56:55.249] console :0  x3pick facet=0 selected=1 count=1
+[12:56:55.258] console :0  x3pick facet=0 selected=0 count=0
+[12:56:55.345] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:55.395] rive  built (567043 bytes, 50ms, 0 errors, 0 warnings)
+[12:56:55.396] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:55.396] rive  showing main [1/1]
+[12:56:55.396] rive  viewport 720x480 @1x
+[12:56:55.396] rive  script frame gc: scavenging per frame
+[12:56:55.414] console :0  x3pick facet=0 selected=1 count=1
+[12:56:55.425] console :0  x3pick reset count=0
+[12:56:55.459] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-after.png
+[12:56:55.516] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:55.569] rive  built (567043 bytes, 52ms, 0 errors, 0 warnings)
+[12:56:55.569] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:55.569] rive  showing main [1/1]
+[12:56:55.569] rive  viewport 720x480 @1x
+[12:56:55.591] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-ref.png
+[12:56:55.700] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:55.749] rive  built (567043 bytes, 49ms, 0 errors, 0 warnings)
+[12:56:55.750] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:55.750] rive  showing main [1/1]
+[12:56:55.750] rive  viewport 720x480 @1x
+[12:56:55.750] rive  viewport 400x480 @1x
+[12:56:55.750] rive  script frame gc: scavenging per frame
+[12:56:55.765] console :0  x3pick facet=0 selected=1 count=1
+[12:56:55.774] console :0  x3pick facet=0 selected=0 count=0
+[12:56:55.830] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:55.879] rive  built (567043 bytes, 49ms, 0 errors, 0 warnings)
+[12:56:55.880] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:55.880] rive  showing main [1/1]
+[12:56:55.880] rive  viewport 720x480 @1x
+[12:56:55.880] rive  viewport 1200x480 @1x
+[12:56:55.880] rive  script frame gc: scavenging per frame
+[12:56:55.896] console :0  x3pick facet=0 selected=1 count=1
+[12:56:55.905] console :0  x3pick facet=0 selected=0 count=0
+[12:56:55.997] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:56.046] rive  built (567043 bytes, 49ms, 0 errors, 0 warnings)
+[12:56:56.047] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:56.047] rive  showing main [1/1]
+[12:56:56.047] rive  viewport 720x480 @1x
+[12:56:56.047] rive  script frame gc: scavenging per frame
+[12:56:56.061] console :0  x3pick facet=0 selected=1 count=1
+[12:56:56.070] console :0  x3pick facet=0 selected=0 count=0
+[12:56:56.154] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:56.203] rive  built (567043 bytes, 49ms, 0 errors, 0 warnings)
+[12:56:56.204] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:56.204] rive  showing main [1/1]
+[12:56:56.204] rive  viewport 720x480 @1x
+[12:56:56.226] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-before.png
+[12:56:56.227] rive  script frame gc: scavenging per frame
+[12:56:56.231] console :0  x3pick reset count=0
+[12:56:56.238] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-after.png
+[12:56:56.343] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:56.394] rive  built (567043 bytes, 50ms, 0 errors, 0 warnings)
+[12:56:56.395] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:56.395] rive  showing main [1/1]
+[12:56:56.395] rive  viewport 720x480 @1x
+[12:56:56.395] rive  script frame gc: scavenging per frame
+[12:56:56.423] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[12:56:56.477] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:56.526] rive  built (567043 bytes, 49ms, 0 errors, 0 warnings)
+[12:56:56.527] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:56.527] rive  showing main [1/1]
+[12:56:56.527] rive  viewport 720x480 @1x
+[12:56:56.527] rive  script frame gc: scavenging per frame
+[12:56:56.555] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[12:56:56.611] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:56.660] rive  built (567043 bytes, 50ms, 0 errors, 0 warnings)
+[12:56:56.661] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:56.661] rive  showing main [1/1]
+[12:56:56.661] rive  viewport 720x480 @1x
+[12:56:56.661] rive  script frame gc: scavenging per frame
+[12:56:56.689] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[12:56:56.815] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:56.864] rive  built (567043 bytes, 49ms, 0 errors, 0 warnings)
+[12:56:56.865] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:56.865] rive  showing main [1/1]
+[12:56:56.865] rive  viewport 720x480 @1x
+[12:56:56.865] rive  script frame gc: scavenging per frame
+[12:56:56.890] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[12:56:56.946] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:56.998] rive  built (567043 bytes, 52ms, 0 errors, 0 warnings)
+[12:56:56.998] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:56.998] rive  showing main [1/1]
+[12:56:56.998] rive  viewport 720x480 @1x
+[12:56:56.998] rive  script frame gc: scavenging per frame
+[12:56:57.023] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[12:56:57.079] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:57.129] rive  built (567043 bytes, 50ms, 0 errors, 0 warnings)
+[12:56:57.129] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:57.130] rive  showing main [1/1]
+[12:56:57.130] rive  viewport 720x480 @1x
+[12:56:57.130] rive  script frame gc: scavenging per frame
+[12:56:57.158] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[12:56:57.216] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:56:57.267] rive  built (567043 bytes, 51ms, 0 errors, 0 warnings)
+[12:56:57.268] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:56:57.268] rive  showing main [1/1]
+[12:56:57.268] rive  viewport 720x480 @1x
+[12:56:57.268] rive  script frame gc: scavenging per frame
+[12:56:57.286] console :0  x3pick facet=0 selected=1 count=1
+[12:57:30.419] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:30.468] rive  built (567043 bytes, 49ms, 0 errors, 0 warnings)
+[12:57:30.468] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:30.469] rive  showing main [1/1]
+[12:57:30.469] rive  viewport 720x480 @1x
+[12:57:30.469] rive  script frame gc: scavenging per frame
+[12:57:30.501] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[12:57:30.557] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:30.608] rive  built (567043 bytes, 51ms, 0 errors, 0 warnings)
+[12:57:30.609] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:30.609] rive  showing main [1/1]
+[12:57:30.609] rive  viewport 720x480 @1x
+[12:57:30.609] rive  script frame gc: scavenging per frame
+[12:57:30.636] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[12:57:30.692] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:30.744] rive  built (567043 bytes, 52ms, 0 errors, 0 warnings)
+[12:57:30.745] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:30.745] rive  showing main [1/1]
+[12:57:30.745] rive  viewport 720x480 @1x
+[12:57:30.745] rive  script frame gc: scavenging per frame
+[12:57:30.773] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[12:57:30.912] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:30.966] rive  built (567043 bytes, 53ms, 0 errors, 0 warnings)
+[12:57:30.966] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:30.967] rive  showing main [1/1]
+[12:57:30.967] rive  viewport 720x480 @1x
+[12:57:30.967] rive  script frame gc: scavenging per frame
+[12:57:30.991] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[12:57:31.046] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:31.097] rive  built (567043 bytes, 51ms, 0 errors, 0 warnings)
+[12:57:31.098] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:31.098] rive  showing main [1/1]
+[12:57:31.098] rive  viewport 720x480 @1x
+[12:57:31.098] rive  script frame gc: scavenging per frame
+[12:57:31.123] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[12:57:31.178] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:31.229] rive  built (567043 bytes, 51ms, 0 errors, 0 warnings)
+[12:57:31.229] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:31.229] rive  showing main [1/1]
+[12:57:31.229] rive  viewport 720x480 @1x
+[12:57:31.230] rive  script frame gc: scavenging per frame
+[12:57:31.256] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[12:57:31.314] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:31.364] rive  built (567043 bytes, 50ms, 0 errors, 0 warnings)
+[12:57:31.365] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:31.365] rive  showing main [1/1]
+[12:57:31.365] rive  viewport 720x480 @1x
+[12:57:31.365] rive  script frame gc: scavenging per frame
+[12:57:31.383] console :0  x3pick facet=0 selected=1 count=1
+[12:57:36.102] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:36.158] rive  built (567043 bytes, 57ms, 0 errors, 0 warnings)
+[12:57:36.159] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:36.159] rive  showing main [1/1]
+[12:57:36.159] rive  viewport 720x480 @1x
+[12:57:36.159] rive  script frame gc: scavenging per frame
+[12:57:36.164] console :0  x3pick facet=2 selected=1 count=1
+[12:57:36.168] console :0  x3pick facet=0 selected=1 count=2
+[12:57:36.173] console :0  x3pick facet=4 selected=1 count=3
+[12:57:36.280] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:36.333] rive  built (567043 bytes, 53ms, 0 errors, 0 warnings)
+[12:57:36.334] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:36.334] rive  showing main [1/1]
+[12:57:36.334] rive  viewport 720x480 @1x
+[12:57:36.334] rive  script frame gc: scavenging per frame
+[12:57:36.351] console :0  x3pick facet=0 selected=1 count=1
+[12:57:36.360] console :0  x3pick facet=0 selected=0 count=0
+[12:57:36.370] console :0  x3pick facet=0 selected=1 count=1
+[12:57:36.380] console :0  x3pick facet=0 selected=0 count=0
+[12:57:36.394] console :0  x3pick facet=0 selected=1 count=1
+[12:57:36.404] console :0  x3pick facet=2 selected=1 count=2
+[12:57:36.413] console :0  x3pick facet=4 selected=1 count=3
+[12:57:36.519] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:36.575] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[12:57:36.575] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:36.575] rive  showing main [1/1]
+[12:57:36.576] rive  viewport 720x480 @1x
+[12:57:36.576] rive  script frame gc: scavenging per frame
+[12:57:36.592] console :0  x3pick facet=0 selected=1 count=1
+[12:57:36.601] console :0  x3pick facet=0 selected=0 count=0
+[12:57:36.611] console :0  x3pick facet=0 selected=1 count=1
+[12:57:36.621] console :0  x3pick facet=0 selected=0 count=0
+[12:57:36.635] console :0  x3pick facet=0 selected=1 count=1
+[12:57:36.645] console :0  x3pick facet=2 selected=1 count=2
+[12:57:36.654] console :0  x3pick facet=4 selected=1 count=3
+[12:57:36.748] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:36.803] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[12:57:36.804] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:36.804] rive  showing main [1/1]
+[12:57:36.804] rive  viewport 720x480 @1x
+[12:57:36.804] rive  script frame gc: scavenging per frame
+[12:57:36.820] console :0  x3pick facet=0 selected=1 count=1
+[12:57:36.829] console :0  x3pick facet=0 selected=0 count=0
+[12:57:36.918] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:36.970] rive  built (567043 bytes, 52ms, 0 errors, 0 warnings)
+[12:57:36.971] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:36.971] rive  showing main [1/1]
+[12:57:36.971] rive  viewport 720x480 @1x
+[12:57:36.971] rive  script frame gc: scavenging per frame
+[12:57:36.989] console :0  x3pick facet=0 selected=1 count=1
+[12:57:37.000] console :0  x3pick reset count=0
+[12:57:37.042] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-after.png
+[12:57:37.099] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:37.153] rive  built (567043 bytes, 54ms, 0 errors, 0 warnings)
+[12:57:37.153] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:37.154] rive  showing main [1/1]
+[12:57:37.154] rive  viewport 720x480 @1x
+[12:57:37.177] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-rest-ref.png
+[12:57:37.292] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:37.348] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[12:57:37.348] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:37.349] rive  showing main [1/1]
+[12:57:37.349] rive  viewport 720x480 @1x
+[12:57:37.349] rive  viewport 400x480 @1x
+[12:57:37.349] rive  script frame gc: scavenging per frame
+[12:57:37.365] console :0  x3pick facet=0 selected=1 count=1
+[12:57:37.374] console :0  x3pick facet=0 selected=0 count=0
+[12:57:37.432] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:37.489] rive  built (567043 bytes, 56ms, 0 errors, 0 warnings)
+[12:57:37.489] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:37.489] rive  showing main [1/1]
+[12:57:37.490] rive  viewport 720x480 @1x
+[12:57:37.490] rive  viewport 1200x480 @1x
+[12:57:37.490] rive  script frame gc: scavenging per frame
+[12:57:37.506] console :0  x3pick facet=0 selected=1 count=1
+[12:57:37.515] console :0  x3pick facet=0 selected=0 count=0
+[12:57:37.609] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:37.664] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[12:57:37.665] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:37.665] rive  showing main [1/1]
+[12:57:37.665] rive  viewport 720x480 @1x
+[12:57:37.665] rive  script frame gc: scavenging per frame
+[12:57:37.678] console :0  x3pick facet=0 selected=1 count=1
+[12:57:37.689] console :0  x3pick facet=0 selected=0 count=0
+[12:57:37.778] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:37.833] rive  built (567043 bytes, 55ms, 0 errors, 0 warnings)
+[12:57:37.834] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:37.834] rive  showing main [1/1]
+[12:57:37.834] rive  viewport 720x480 @1x
+[12:57:37.857] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-before.png
+[12:57:37.857] rive  script frame gc: scavenging per frame
+[12:57:37.861] console :0  x3pick reset count=0
+[12:57:37.868] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-micro-after.png
+[12:57:37.978] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:38.029] rive  built (567043 bytes, 50ms, 0 errors, 0 warnings)
+[12:57:38.029] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:38.029] rive  showing main [1/1]
+[12:57:38.030] rive  viewport 720x480 @1x
+[12:57:38.030] rive  script frame gc: scavenging per frame
+[12:57:38.057] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f6x30.png
+[12:57:38.114] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:38.165] rive  built (567043 bytes, 52ms, 0 errors, 0 warnings)
+[12:57:38.166] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:38.166] rive  showing main [1/1]
+[12:57:38.166] rive  viewport 720x480 @1x
+[12:57:38.166] rive  script frame gc: scavenging per frame
+[12:57:38.194] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f3x60.png
+[12:57:38.248] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:38.298] rive  built (567043 bytes, 50ms, 0 errors, 0 warnings)
+[12:57:38.298] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:38.298] rive  showing main [1/1]
+[12:57:38.298] rive  viewport 720x480 @1x
+[12:57:38.298] rive  script frame gc: scavenging per frame
+[12:57:38.326] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a9-f1x180.png
+[12:57:38.450] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:38.500] rive  built (567043 bytes, 51ms, 0 errors, 0 warnings)
+[12:57:38.501] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:38.501] rive  showing main [1/1]
+[12:57:38.501] rive  viewport 720x480 @1x
+[12:57:38.501] rive  script frame gc: scavenging per frame
+[12:57:38.526] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz30.png
+[12:57:38.581] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:38.631] rive  built (567043 bytes, 50ms, 0 errors, 0 warnings)
+[12:57:38.632] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:38.632] rive  showing main [1/1]
+[12:57:38.632] rive  viewport 720x480 @1x
+[12:57:38.632] rive  script frame gc: scavenging per frame
+[12:57:38.657] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz60.png
+[12:57:38.712] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:38.762] rive  built (567043 bytes, 50ms, 0 errors, 0 warnings)
+[12:57:38.762] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:38.763] rive  showing main [1/1]
+[12:57:38.763] rive  viewport 720x480 @1x
+[12:57:38.763] rive  script frame gc: scavenging per frame
+[12:57:38.790] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-3/web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/x3-a10-hz144.png
+[12:57:38.849] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[12:57:38.898] rive  built (567043 bytes, 49ms, 0 errors, 0 warnings)
+[12:57:38.898] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[12:57:38.899] rive  showing main [1/1]
+[12:57:38.899] rive  viewport 720x480 @1x
+[12:57:38.899] rive  script frame gc: scavenging per frame
+[12:57:38.916] console :0  x3pick facet=0 selected=1 count=1
+[12:59:03.466] rive  verified (0 bytes, 100ms, 0 errors, 0 warnings)
+[12:59:03.553] rive  built (582651 bytes, 57ms, 0 errors, 0 warnings)
+[12:59:03.557] rive  loop phase
+[12:59:03.557] rive    PASS phase wraps at the loop period
+[12:59:03.557] rive    PASS extrusion is 0 at rest and 1 through inspect
+[12:59:03.557] rive    PASS extrude staggers facet 0 ahead of the last facet
+[12:59:03.557] rive    PASS retract runs in reverse facet order
+[12:59:03.557] rive    PASS separation peaks mid-inspect and is 0 at rest
+[12:59:03.557] rive  quaternion camera
+[12:59:03.557] rive    PASS identity orientation looks down -z
+[12:59:03.557] rive    PASS 90 degree yaw rotates forward to -x
+[12:59:03.557] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[12:59:03.557] rive    PASS near-identical quaternions slerp stably
+[12:59:03.557] rive  frame-rate independent damping
+[12:59:03.557] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[12:59:03.557] rive    PASS long frames stay bounded
+[12:59:03.557] rive  hashDir
+[12:59:03.557] rive    PASS deterministic and unit length
+[12:59:03.557] rive    PASS distinct facets get distinct directions
+[12:59:03.557] rive  picker on synthetic meshes
+[12:59:03.557] rive    PASS single front facet picks at centre, misses at corner
+[12:59:03.557] rive    PASS equal depth resolves to later source-order facet
+[12:59:03.557] rive    PASS nearest positive hit wins over source order
+[12:59:03.557] rive    PASS selected offset toward camera can win a depth contest
+[12:59:03.557] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[12:59:03.557] rive    PASS narrow and wide aspects still map the centre ray
+[12:59:03.557] rive  picker on the real blobs
+[12:59:03.557] rive    PASS rest centre pick lands on a generated facet
+[12:59:03.557] rive    PASS empty corner pick returns -1
+[12:59:03.557] rive  21/21 passed
+[12:59:05.272] rive  verified (0 bytes, 55ms, 0 errors, 0 warnings)
