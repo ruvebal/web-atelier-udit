@@ -1,6 +1,6 @@
 # PHASE-X3 · Choreograph and make every facet selectable
 
-**Status:** VERIFYING
+**Status:** DONE
 **Branch:** `cascade/CANONICAL-FAVICON-RIVE-3D-3`
 
 ## Outcome
@@ -41,7 +41,8 @@ The cold review blocked DONE on one P0, one P1 and four P2 findings; all are cor
 - `rive publish` still watermarks local builds with the Rive splash — same X2 portability note for X4/X6.
 - The unused `Expect` import warning in `tests/interaction-test.as` was removed; `--verify`/`--test`/`--publish` now report 0 warnings.
 
-## Not checked here
+## Promotion
 
-- The external exit gate and cold review are run by the harness after this report; X3 stays VERIFYING and INDEX is untouched.
-- Browser-host pointer/touch behaviour (real PointerEvents, not `--commands` synthesis) is X4/X6 host-integration scope.
+**Promotion evidence:** the external exit gate passed at `604a55a810719b66f7a2685a6151c38649d82ec8` (A1–A11, `rive --test` 22/22). A2 prints `zoff=facet-10`, and `A2-A3.json` records select `facet-10 sel=1` then probe `facet-10 sel=0`. The review of `ef6e900` blocked on F1 and F2; the closure review of `85f6ff7` left F4 open; `604a55a` retargets that fixture only. No third review. See [PHASE-X3-COLD-REVIEW.md](PHASE-X3-COLD-REVIEW.md), [PHASE-X3-CLOSURE-COLD-REVIEW.md](PHASE-X3-CLOSURE-COLD-REVIEW.md), and [PHASE-X3-VERIFY-LOG.md](PHASE-X3-VERIFY-LOG.md).
+
+Browser-host pointer/touch behaviour (real PointerEvents, not `--commands` synthesis) remains X4/X6 host-integration scope.
