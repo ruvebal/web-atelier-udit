@@ -14,12 +14,12 @@
       "y": 8
     },
     "zoff": {
-      "x": 309,
-      "y": 327,
-      "facet": 1,
+      "x": 237,
+      "y": 221,
+      "facet": 9,
       "self": {
-        "x": 285,
-        "y": 327
+        "x": 210,
+        "y": 212
       }
     },
     "touch": {
@@ -62,12 +62,12 @@
       "reset": true
     },
     {
-      "facet": 0,
+      "facet": 9,
       "selected": 1,
       "count": 1
     },
     {
-      "facet": 0,
+      "facet": 9,
       "selected": 0,
       "count": 0
     },
@@ -103,12 +103,12 @@
       "count": 0
     },
     {
-      "facet": 0,
+      "facet": 9,
       "selected": 1,
       "count": 1
     },
     {
-      "facet": 0,
+      "facet": 9,
       "selected": 0,
       "count": 0
     },
@@ -146,13 +146,13 @@
     },
     {
       "note": "zoffset-select",
-      "want": "facet-01",
-      "got": "facet-01 sel=1 n=1"
+      "want": "facet-10",
+      "got": "facet-10 sel=1 n=1"
     },
     {
       "note": "zoffset-probe",
-      "want": "facet-01",
-      "got": "facet-01 sel=0 n=0"
+      "want": "facet-10",
+      "got": "facet-10 sel=0 n=0"
     },
     {
       "note": "touch",

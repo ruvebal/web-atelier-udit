@@ -32,7 +32,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A2",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A2-A3.json",
-      "sha256": "1b5a712050975c06a45d1c35db616b65c9468560bfacf75e12ca8a41fe3d6407",
+      "sha256": "54bb670aeff4a6ecb5497817daf4499b58ba73754df0999df4185282cfd49924",
       "expected": {
         "assertions": [
           "A2-independent-live-check"
@@ -42,11 +42,11 @@
         "assertions": [
           "A2-independent-live-check"
         ],
-        "summary": "PASS A2: fixtures occl=facet-01 zoff=facet-02 touch=facet-01 sep=[facet-01,facet-03] cull=facet-05(back=facet-01); all matched\nPASS A3: nearest-positive picks matched JS mirror across extruded/separated/rest poses"
+        "summary": "PASS A2: fixtures occl=facet-01 zoff=facet-10 touch=facet-01 sep=[facet-01,facet-03] cull=facet-05(back=facet-01); all matched\nPASS A3: nearest-positive picks matched JS mirror across extruded/separated/rest poses"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A2.command.json",
-        "sha256": "10e922a6facd9d6b39c382eb3fd1aba6a5bf4c1a5dba082237e741d7bae2ed5c"
+        "sha256": "fa6cb3f925577918cf73d99ae070c1b43c539a8e9c9395e96842d77eb09cebe4"
       }
     },
     {
@@ -55,7 +55,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A3",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A2-A3.json",
-      "sha256": "1b5a712050975c06a45d1c35db616b65c9468560bfacf75e12ca8a41fe3d6407",
+      "sha256": "54bb670aeff4a6ecb5497817daf4499b58ba73754df0999df4185282cfd49924",
       "expected": {
         "assertions": [
           "A3-independent-live-check"
@@ -65,11 +65,11 @@
         "assertions": [
           "A3-independent-live-check"
         ],
-        "summary": "PASS A2: fixtures occl=facet-01 zoff=facet-02 touch=facet-01 sep=[facet-01,facet-03] cull=facet-05(back=facet-01); all matched\nPASS A3: nearest-positive picks matched JS mirror across extruded/separated/rest poses"
+        "summary": "PASS A2: fixtures occl=facet-01 zoff=facet-10 touch=facet-01 sep=[facet-01,facet-03] cull=facet-05(back=facet-01); all matched\nPASS A3: nearest-positive picks matched JS mirror across extruded/separated/rest poses"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A3.command.json",
-        "sha256": "a662cacb3be97cda7b30e4e3187863941d7b6052bb249bfc529d9301de5d0a41"
+        "sha256": "36f483dd06f24bf4a74c6e6318fd612b01c1ff3e351594cd20f2708ac8401c42"
       }
     },
     {

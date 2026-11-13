@@ -576,16 +576,28 @@ function checkA2A3() {
 		}
 		if (sepPts.length >= 2) break;
 	}
-	// selected Z offset: facet losing unselected but winning when selected.
-	// Need a point where the facet wins on its own (to select it) plus a second
-	// point where it only wins once the +0.08 selection offset applies.
+	// selected Z offset at the real up-tick frames: `pointer click` costs
+	// three 60fps ticks, so the select pick lands on frame 247 (phase
+	// 247/540) and the probe on frame 250 (phase 250/540). Separation is
+	// already nonzero there, so candidates must be sampled at those phases,
+	// not at the nominal PH_EXTRUDE.
+	const phaseZSel = loopPhase(247 / 60);
+	const phaseZProbe = loopPhase(250 / 60);
+	const frameZSel = computeCam(phaseZSel, phaseZSel * C.LOOP_PERIOD, 0, 0, aspect);
+	const frameZProbe = computeCam(phaseZProbe, phaseZProbe * C.LOOP_PERIOD, 0, 0, aspect);
+	const { candidates: candZSel } = facetCandidates(phaseZSel, aspect, cssW, cssH, new Set(), 0, 5);
+	const { candidates: candZProbe } = facetCandidates(phaseZProbe, aspect, cssW, cssH, new Set(), 0, 5);
+	// Facet losing unselected at the probe frame but winning once its own
+	// +0.08 selection offset applies; the select point must pick it clean.
 	let zoff = null;
-	outer2: for (const [fi, pts] of candE) {
-		const self = pts.find((p) => pickAt(frameE, p.x, p.y) === fi);
+	outer2: for (const [fi, selPts] of candZSel) {
+		const probePts = candZProbe.get(fi);
+		if (!probePts) continue;
+		const self = selPts.find((p) => pickJS(frameZSel, ZERO8, p.x, p.y, cssW, cssH) === fi);
 		if (!self) continue;
-		for (const pt of pts) {
-			if (pickAt(frameE, pt.x, pt.y) === fi) continue;
-			if (pickAt(frameE, pt.x, pt.y, new Set([fi])) === fi) {
+		for (const pt of probePts) {
+			if (pickJS(frameZProbe, ZERO8, pt.x, pt.y, cssW, cssH) === fi) continue;
+			if (pickJS(frameZProbe, selWordsFor(new Set([fi])), pt.x, pt.y, cssW, cssH) === fi) {
 				zoff = { x: pt.x, y: pt.y, facet: fi, self: { x: self.x, y: self.y } };
 				break outer2;
 			}
@@ -711,8 +723,17 @@ function checkA2A3() {
 				: `${facetIdOf[got[i].facet]} sel=${got[i].selected} n=${got[i].count}`
 			: 'none',
 	}));
+	const zoffOk =
+		!!zoff &&
+		got[2] &&
+		got[2].facet === zoff.facet &&
+		got[2].selected === 1 &&
+		got[3] &&
+		got[3].facet === zoff.facet &&
+		got[3].selected === 0;
 	const ok =
 		got.length === expected.length &&
+		zoffOk &&
 		expected.every((e, i) => {
 			const g = got[i];
 			if (!g) return false;
