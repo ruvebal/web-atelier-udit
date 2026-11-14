@@ -184,7 +184,7 @@ export function createRive3DMirror({ manifest, vertices, indices }) {
 	}
 	const CENTER = [(bounds.minX + bounds.maxX) / 2, (bounds.minY + bounds.maxY) / 2, (bounds.minZ + bounds.maxZ) / 2];
 
-	function computeCam(phase, userYaw, userPitch, aspect) {
+	function computeCam(phase, userYaw, userPitch, aspect, nearMarginOverride) {
 		const w = inspectWeight(phase);
 		const qBase = qSlerp(qIdent(), qYawPitch(CHOREO.INSPECT_YAW, CHOREO.INSPECT_PITCH), w);
 		const qUser = qYawPitch(userYaw, userPitch);
@@ -212,7 +212,7 @@ export function createRive3DMirror({ manifest, vertices, indices }) {
 					maxVZ = Math.max(maxVZ, v[2]);
 				}
 		const halfH = Math.max(maxVY, maxVX / aspect) * CHOREO.FIT_MARGIN;
-		const nearMargin = CHOREO.SELECT_OFFSET_Z + CHOREO.SEPARATION_DIST + 0.02;
+		const nearMargin = nearMarginOverride ?? CHOREO.SELECT_OFFSET_Z + CHOREO.SEPARATION_DIST + 0.02;
 		const near = Math.max(-maxVZ - nearMargin, 0.01);
 		const far = -minVZ + 0.05;
 		return {
@@ -270,10 +270,10 @@ export function createRive3DMirror({ manifest, vertices, indices }) {
 
 	// Mirror of pick.as pickFacet. px/py are layout (CSS-pixel) coordinates;
 	// cssW/cssH are the canvas layout size the scene was resized to.
-	function pick(phase, userYaw, userPitch, px, py, cssW, cssH, selWords = new Uint32Array(8)) {
+	function pick(phase, userYaw, userPitch, px, py, cssW, cssH, selWords = new Uint32Array(8), nearMarginOverride) {
 		if (cssW <= 0 || cssH <= 0) return -1;
 		const aspect = cssW / cssH;
-		const frame = computeCam(phase, userYaw, userPitch, aspect);
+		const frame = computeCam(phase, userYaw, userPitch, aspect, nearMarginOverride);
 		const ndcX = (px / cssW) * 2 - 1;
 		const ndcY = 1 - (py / cssH) * 2;
 		const vx = ndcX * frame.halfH * aspect;

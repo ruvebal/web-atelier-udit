@@ -19,11 +19,11 @@
         "assertions": [
           "A1-independent-live-check"
         ],
-        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-12) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 914ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; cardOverflow<=2px && docOverflow<=8px(baseline)=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A1.command.json",
-        "sha256": "a444443219d0476b39f95d01ac586f13c573c32498691ddad735198a0f6c577e"
+        "sha256": "d2df0383898573c101e5f9515af4948eef55ccfa48bfdaef8f857d0015a56971"
       }
     },
     {
@@ -42,11 +42,11 @@
         "assertions": [
           "A2-independent-live-check"
         ],
-        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-12) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 914ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; cardOverflow<=2px && docOverflow<=8px(baseline)=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A2.command.json",
-        "sha256": "b5db575003e77946a3ad1b84a2962fa00d8ba2b9a907dbe8d8d9e0e85e28c116"
+        "sha256": "3671c7c4c0e1bf4c42dd415a5be76aa7626fe278fc1ead77f03c59f0b1780d15"
       }
     },
     {
@@ -55,7 +55,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A3.json",
-      "sha256": "b229e5f2bac6788333e13dcf0bbff1994568a867937180f8325a30ca9a4d14d0",
+      "sha256": "3ed7d628da0bbc09edb692793ccd6cd8155735ffcd47e71e17f11c3487f03bf1",
       "expected": {
         "assertions": [
           "A3-independent-live-check"
@@ -65,11 +65,47 @@
         "assertions": [
           "A3-independent-live-check"
         ],
-        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-12) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 914ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; cardOverflow<=2px && docOverflow<=8px(baseline)=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A3.command.json",
-        "sha256": "08a49918cc217fff25d6636d752649d782a391840131d062e84605372bc991dd"
+        "sha256": "645d7b0e0a36a88a7a2b2cd2c6aee90be41ed93b2edb987fd89dc6de91e1f66e"
+      },
+      "visualReview": {
+        "reviewer": "verify-rive-3d-host.mjs",
+        "decision": "scripted capture review: cardOverflow<=2px, docOverflow<=8px pre-existing baseline, canvas sized at all six viewport/theme pairs",
+        "captures": [
+          {
+            "path": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A3-320-dark.png",
+            "sha256": "8009ae45d52363043ba9fcaa06e4ab51b7166f1635e4098f9c2f27ac1a26a8f1",
+            "viewport": "320x800 dark"
+          },
+          {
+            "path": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A3-320-light.png",
+            "sha256": "d3827f33160cd4a1c4fa8097f430e85fa63203831b5f0e97b31f7911df2c0b3e",
+            "viewport": "320x800 light"
+          },
+          {
+            "path": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A3-768-dark.png",
+            "sha256": "63393596338f05aa2c5fb186960bf8cee63cb0d44d4d09a8071ca83fe8f71d00",
+            "viewport": "768x800 dark"
+          },
+          {
+            "path": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A3-768-light.png",
+            "sha256": "672ef28925c3cecde79fd8003012910860cb9a00e7ad0cff3ca72dcc1dc5f12a",
+            "viewport": "768x800 light"
+          },
+          {
+            "path": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A3-1280-dark.png",
+            "sha256": "32311c0f291775992f476cb478df1bf5431cc44709ac5ea14419e927ba77ddfc",
+            "viewport": "1280x800 dark"
+          },
+          {
+            "path": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A3-1280-light.png",
+            "sha256": "fe54d7c79c550e6597db84159ff47c9eab73e81c2461822479ab62a4c2aef151",
+            "viewport": "1280x800 light"
+          }
+        ]
       }
     },
     {
@@ -88,11 +124,11 @@
         "assertions": [
           "A4-independent-live-check"
         ],
-        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-12) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 914ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; cardOverflow<=2px && docOverflow<=8px(baseline)=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A4.command.json",
-        "sha256": "7c1a8e3a872100520a3a142927471bcb74d4249b652f3cbbf0b843d2028e67d6"
+        "sha256": "1cbd88f50a78540ffbd0da8475bc2558f99add4d3b8aba537c4fa06ce15aad62"
       }
     },
     {
@@ -111,11 +147,11 @@
         "assertions": [
           "A5-independent-live-check"
         ],
-        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-12) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 914ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; cardOverflow<=2px && docOverflow<=8px(baseline)=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A5.command.json",
-        "sha256": "b9a2dcbd21b2f345d057c7b925a3f1fafe4819845d73663950146e0a293c85b6"
+        "sha256": "f33a960e55bdaf3cdea48c12d75829855e4539a31b73b094ae0772f961916ab8"
       }
     },
     {
@@ -134,11 +170,11 @@
         "assertions": [
           "A6-independent-live-check"
         ],
-        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-12) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 914ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; cardOverflow<=2px && docOverflow<=8px(baseline)=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A6.command.json",
-        "sha256": "4e47ac72f8710065a7572f018ef113af61120b1d01e16a95cc15f638d9e5af75"
+        "sha256": "c8b5475f632dd0b75c893c1efb6fa564fca8779ea30be3633c20dff9afe78e09"
       }
     }
   ]

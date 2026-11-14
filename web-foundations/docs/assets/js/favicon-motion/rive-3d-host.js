@@ -362,6 +362,10 @@ export async function initRive3DHost(root, { baseUrl } = {}) {
 		}
 	};
 
+	// Registered before the mode branches so reduced-motion, forced-failure
+	// and mirror-load-failure paths hook unload too.
+	window.addEventListener('pagehide', destroy, { once: true });
+
 	// ---- boot ----
 	try {
 		const get = async (u) => {
@@ -477,8 +481,6 @@ export async function initRive3DHost(root, { baseUrl } = {}) {
 		state.player = null;
 		facetWrap?.replaceChildren();
 	}
-
-	window.addEventListener('pagehide', destroy, { once: true });
 
 	return { destroy, state };
 }

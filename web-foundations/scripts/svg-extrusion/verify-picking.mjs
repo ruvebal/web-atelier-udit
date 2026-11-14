@@ -175,7 +175,7 @@ const bounds = (() => {
 })();
 const CENTER = [(bounds.minX + bounds.maxX) / 2, (bounds.minY + bounds.maxY) / 2, (bounds.minZ + bounds.maxZ) / 2];
 
-function computeCam(phase, elapsed, userYaw, userPitch, aspect) {
+function computeCam(phase, elapsed, userYaw, userPitch, aspect, nearMarginOverride) {
 	const w = inspectWeight(phase);
 	const qBase = qSlerp(qIdent(), qYawPitch(C.INSPECT_YAW, C.INSPECT_PITCH), w);
 	const qUser = qYawPitch(userYaw, userPitch);
@@ -203,7 +203,7 @@ function computeCam(phase, elapsed, userYaw, userPitch, aspect) {
 				maxVZ = Math.max(maxVZ, v[2]);
 			}
 	const halfH = Math.max(maxVY, maxVX / aspect) * C.FIT_MARGIN;
-	const nearMargin = C.SELECT_OFFSET_Z + C.SEPARATION_DIST + 0.02;
+	const nearMargin = nearMarginOverride ?? C.SELECT_OFFSET_Z + C.SEPARATION_DIST + 0.02;
 	const near = Math.max(-maxVZ - nearMargin, 0.01);
 	const far = -minVZ + 0.05;
 	return {
@@ -1186,6 +1186,88 @@ function checkA11() {
 	);
 }
 
+function checkA12() {
+	// Near-margin regression (X4 cold review F1): the ortho near margin must
+	// contain SELECT_OFFSET_Z + SEPARATION_DIST, not the old fixed 0.05. Two
+	// `pointer click`s from scene start put the select pick on frame 3
+	// (phase 3/540) and the probe on frame 6 (phase 6/540). With facet-01
+	// selected, its +0.08 pop carries the front surface inside the old
+	// margin's clip zone (measured clearance -0.029): under margin 0.05 the
+	// probe picks facet-05 or empty space; under the shipped 0.20 margin it
+	// picks the selected facet. This check fails if the margin regresses.
+	const aspect = 720 / 480,
+		cssW = 720,
+		cssH = 480;
+	const camAt = (frame) => computeCam(loopPhase(frame / 60), frame / 60, 0, 0, aspect);
+	const frameSel = camAt(3);
+	const frameProbe = camAt(6);
+	const frameProbeOld = computeCam(loopPhase(6 / 60), 6 / 60, 0, 0, aspect, 0.05);
+	const sel0 = selWordsFor(new Set([0]));
+	// Select point: unselected pick of facet-01 at frames 2-4 (slack around
+	// the exact up-tick frame 3).
+	let selPt = null;
+	outerSel: for (let y = 8; y < cssH; y += 4) {
+		for (let x = 8; x < cssW; x += 4) {
+			if (
+				pickJS(frameSel, ZERO8, x, y, cssW, cssH) === 0 &&
+				pickJS(camAt(2), ZERO8, x, y, cssW, cssH) === 0 &&
+				pickJS(camAt(4), ZERO8, x, y, cssW, cssH) === 0
+			) {
+				selPt = { x, y };
+				break outerSel;
+			}
+		}
+	}
+	// Probe point: new margin picks facet-01, old margin picks anything else.
+	let probePt = null,
+		oldPick = null;
+	outerProbe: for (let y = 8; y < cssH; y += 2) {
+		for (let x = 8; x < cssW; x += 2) {
+			if (pickJS(frameProbe, sel0, x, y, cssW, cssH) !== 0) continue;
+			const po = pickJS(frameProbeOld, sel0, x, y, cssW, cssH);
+			if (po === 0) continue;
+			probePt = { x, y };
+			oldPick = po;
+			break outerProbe;
+		}
+	}
+	if (!selPt || !probePt) {
+		record('A12', false, `near-margin fixture missing sel=${!!selPt} probe=${!!probePt}`);
+		return;
+	}
+	const lines = [`pointer click@${selPt.x},${selPt.y}`, `pointer click@${probePt.x},${probePt.y}`];
+	const run = runCommands(lines);
+	const ok =
+		run.errs.length === 0 &&
+		run.picks.length === 2 &&
+		run.picks[0].facet === 0 &&
+		run.picks[0].selected === 1 &&
+		run.picks[0].count === 1 &&
+		run.picks[1].facet === 0 &&
+		run.picks[1].selected === 0 &&
+		run.picks[1].count === 0;
+	writeFileSync(
+		resolve(OUT, 'A12.json'),
+		JSON.stringify(
+			{
+				selPt,
+				probePt,
+				oldMarginPick: oldPick,
+				newMarginPick: 0,
+				picks: run.picks,
+				errs: run.errs,
+			},
+			null,
+			2
+		)
+	);
+	record(
+		'A12',
+		ok,
+		`near-margin sel=(${selPt.x},${selPt.y}) probe=(${probePt.x},${probePt.y}) old0.05->${oldPick < 0 ? 'empty' : facetIdOf[oldPick]} new0.20->facet-01 picks=${JSON.stringify(run.picks)}`
+	);
+}
+
 const CHECKS = {
 	A1: checkA1,
 	A2: checkA2A3,
@@ -1202,16 +1284,17 @@ const CHECKS = {
 	A9: checkA9,
 	A10: checkA10,
 	A11: checkA11,
+	A12: checkA12,
 };
 const arg = process.argv[2];
 if (arg === '--all-fixtures') {
-	for (const id of ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11']) {
+	for (const id of ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12']) {
 		if (CHECKS[id]) CHECKS[id]();
 	}
 } else if (CHECKS[arg]) {
 	CHECKS[arg]();
 } else {
-	console.error('usage: verify-picking.mjs --all-fixtures | A1..A11');
+	console.error('usage: verify-picking.mjs --all-fixtures | A1..A12');
 	process.exit(2);
 }
 const failed = Object.entries(results).filter(([, r]) => !r.ok);

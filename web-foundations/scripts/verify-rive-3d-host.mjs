@@ -426,11 +426,11 @@ async function checkA3(ctx) {
 	const BASELINE_DOC_OVERFLOW = 8;
 	const noOverflow = details.every((d) => d.docOverflow <= BASELINE_DOC_OVERFLOW && d.cardOverflow <= 2);
 	const canvasOk = details.every((d) => d.canvas.w > 0 && d.canvas.h > 0);
-	writeCheck('A3', { captures: details });
+	writeCheck('A3', { baselineDocOverflow: BASELINE_DOC_OVERFLOW, captures: details });
 	record(
 		'A3',
 		noOverflow && canvasOk,
-		`6 captures 320/768/1280 x dark/light; docOverflow<=2px=${noOverflow} canvasSized=${canvasOk}`
+		`6 captures 320/768/1280 x dark/light; cardOverflow<=2px && docOverflow<=${BASELINE_DOC_OVERFLOW}px(baseline)=${noOverflow} canvasSized=${canvasOk}`
 	);
 	return captures;
 }

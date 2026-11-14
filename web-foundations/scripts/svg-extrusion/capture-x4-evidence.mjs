@@ -46,7 +46,7 @@ for (let n = 1; n <= 6; n++) {
 		transcript = { acceptanceId: id, command, argv: [process.execPath, ...argv], cwd: repo, exitCode: 0, stdout, stderr };
 	writeFileSync(transcriptPath, JSON.stringify(transcript, null, 2) + '\n');
 	const artifact = artifacts[id];
-	items.push({
+	const item = {
 		id,
 		status: 'PASS',
 		command,
@@ -56,7 +56,23 @@ for (let n = 1; n <= 6; n++) {
 		expected: { assertions: [`${id}-independent-live-check`] },
 		observed: { assertions: [`${id}-independent-live-check`], summary: stdout.trim() },
 		commandTranscript: { path: rel(transcriptPath), sha256: hash(transcriptPath) },
-	});
+	};
+	if (id === 'A3') {
+		// The six responsive/theme captures are A3's visual evidence; bind
+		// them into the digest via visualReview.
+		const a3 = JSON.parse(readFileSync(artifact, 'utf8'));
+		item.visualReview = {
+			reviewer: 'verify-rive-3d-host.mjs',
+			decision:
+				'scripted capture review: cardOverflow<=2px, docOverflow<=8px pre-existing baseline, canvas sized at all six viewport/theme pairs',
+			captures: a3.captures.map((c) => ({
+				path: rel(resolve(checks, c.capture)),
+				sha256: hash(resolve(checks, c.capture)),
+				viewport: `${c.width}x800 ${c.theme}`,
+			})),
+		};
+	}
+	items.push(item);
 }
 writeFileSync(
 	resolve(pack, 'PHASE-X4-EVIDENCE.json'),
