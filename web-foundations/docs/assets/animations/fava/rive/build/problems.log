@@ -1,1 +1,2 @@
-# rive generation 1 | 0 errors, 0 warnings | OK
+# rive generation 1 | 1 errors, 0 warnings | FAILED
+error   [lint] AnimaScript sources need scripting: wasm
