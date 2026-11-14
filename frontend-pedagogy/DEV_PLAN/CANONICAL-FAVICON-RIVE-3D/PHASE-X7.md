@@ -1,6 +1,6 @@
 # PHASE-X7 · Promote verified knowledge and open implementation PR A
 
-**Status:** BLOCKED — X6 post-review promotion gate must pass
+**Status:** READY — opened after X6 promotion gate
 
 ## Goal
 

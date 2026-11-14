@@ -1,0 +1,12 @@
+{
+  "id": "A3",
+  "status": "PASS",
+  "observed": {
+    "packedFacetCounts": {
+      "favicon": 13,
+      "synthetic": 2
+    },
+    "d4Fidelity": true,
+    "d19Picking": true
+  }
+}

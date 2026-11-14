@@ -1,0 +1,15 @@
+{
+  "id": "A1",
+  "status": "PASS",
+  "observed": {
+    "favicon": {
+      "n": 13,
+      "manifestSha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d"
+    },
+    "synthetic": {
+      "n": 2,
+      "manifestSha256": "f6feb7656f5e17ab54b97cdc6daa16d6e2aadf699f58994974382c84448f415b"
+    },
+    "cli": "node scripts/svg-extrusion/cli.mjs --input <svg> --output <dir> --config scripts/svg-extrusion/fixtures/config.json"
+  }
+}

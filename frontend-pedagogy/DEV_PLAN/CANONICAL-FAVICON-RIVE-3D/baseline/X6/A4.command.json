@@ -1,0 +1,13 @@
+{
+  "acceptanceId": "A4",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x6-audit.mjs --all",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/svg-extrusion/verify-x6-audit.mjs",
+    "--all"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-6",
+  "exitCode": 0,
+  "stdout": "PASS A1: {\"favicon\":{\"n\":13,\"manifestSha256\":\"9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d\"},\"synthetic\":{\"n\":2,\"manifestSha256\":\"f6feb7656f5e17ab54b97cdc6daa16d6e2aadf699f58994974382c84448f415b\"},\"cli\":\"node scripts/svg-extrusion/cli.mjs --input <svg> --output <dir> --config scripts/svg-extrusion/fixtures/config.json\"}\nPASS A2: {\"compilerTests\":true,\"riveVerify\":true,\"riveTest\":true,\"riveBench\":true,\"jekyllBuild\":true,\"benchTail\":[\"\"],\"buildOk\":true}\nPASS A3: {\"packedFacetCounts\":{\"favicon\":13,\"synthetic\":2},\"d4Fidelity\":true,\"d19Picking\":true}\nPASS A4: {\"claims\":5,\"matrixKeys\":[\"fidelity\",\"interaction\",\"accessibility\",\"responsive\",\"fallback\",\"performance\"]}\nPASS A5: {\"reusable\":6,\"webAtelierSpecific\":4}\nALL PASS: A1, A2, A3, A4, A5\n",
+  "stderr": ""
+}

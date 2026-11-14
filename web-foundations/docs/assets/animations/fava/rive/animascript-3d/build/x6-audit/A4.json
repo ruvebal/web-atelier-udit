@@ -1,0 +1,15 @@
+{
+  "id": "A4",
+  "status": "PASS",
+  "observed": {
+    "claims": 5,
+    "matrixKeys": [
+      "fidelity",
+      "interaction",
+      "accessibility",
+      "responsive",
+      "fallback",
+      "performance"
+    ]
+  }
+}
