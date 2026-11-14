@@ -1,6 +1,6 @@
 # PHASE-X5 · Publish the build as a pedagogical agentic lesson
 
-**Status:** READY — opened after X4 DONE
+**Status:** DONE — exit gate, ES twin (D52), and closure cold review passed
 
 ## Goal
 
