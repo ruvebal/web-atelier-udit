@@ -1,6 +1,6 @@
 # PHASE-X6 · External exit gate log
 
-**Commit under test:** (bound after evidence commit)
+**Commit under test:** `1c5fd49`
 **Gate:** `PHASE-X6.exit-gate.sh`
 **Result:** PASS
 
