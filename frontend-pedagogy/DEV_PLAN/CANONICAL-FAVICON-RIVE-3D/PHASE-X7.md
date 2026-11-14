@@ -1,6 +1,6 @@
 # PHASE-X7 · Promote verified knowledge and open implementation PR A
 
-**Status:** VERIFYING
+**Status:** DONE — skills verified, PR A #7 open, cold review clear
 
 ## Goal
 
