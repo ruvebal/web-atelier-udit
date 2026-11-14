@@ -1,6 +1,6 @@
 # PHASE-X5 · Publish the build as a pedagogical agentic lesson
 
-**Status:** READY — opened after X4 DONE
+**Status:** VERIFYING — lesson + provenance + evidence prepared
 
 ## Goal
 

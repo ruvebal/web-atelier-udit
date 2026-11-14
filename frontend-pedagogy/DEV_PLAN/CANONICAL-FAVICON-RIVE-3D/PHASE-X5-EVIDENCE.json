@@ -1,0 +1,260 @@
+{
+  "phase": "X5",
+  "reportStatus": "VERIFYING",
+  "generatedBy": "capture-x5-evidence.mjs",
+  "items": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A1.json",
+      "sha256": "9a7184a0dee858ee6a947755b8e61a45ecdad011dfde5c3867a3d7475456ddd2",
+      "expected": {
+        "assertions": [
+          "A1-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A1-lesson-check"
+        ],
+        "summary": "PASS A1: {\"labels\":[\"CodeSandbox-ready\",\"Excerpt\",\"Template\"],\"conventionNote\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A1.command.json",
+        "sha256": "3a98381f9ce2d4f049d05d9dcfd1909e18065b4b1aae4064506afe39b9ee6ea2"
+      }
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A2.json",
+      "sha256": "5b294a71d698c369096e4986c611d42cf0ed73078c259b48022bdad7aaa40927",
+      "expected": {
+        "assertions": [
+          "A2-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A2-lesson-check"
+        ],
+        "summary": "PASS A2: {\"svg\":true,\"projected25d\":true,\"depthTested\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A2.command.json",
+        "sha256": "d04d9a36e5bf27ebca13a0f244d9a10c577b7b3add156140e6ae37ae59daf0c7"
+      }
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A3.json",
+      "sha256": "7605b5bff308d0d80cee5730986b096eeb41c9738aa2bdc25bce804638dbc8c6",
+      "expected": {
+        "assertions": [
+          "A3-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A3-lesson-check"
+        ],
+        "summary": "PASS A3: {\"owners\":[\"Rive\",\"AnimaScript\",\"WGSL\",\"HTML\"]}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A3.command.json",
+        "sha256": "77e3c39268bcbb883527469ce359efa8c9ff4f40414ded99a4cb56188cce5fd8"
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A4.json",
+      "sha256": "27ea14507a53382acf6c7493fd92f450a67b49a32beb999fd99cc0e249d3448f",
+      "expected": {
+        "assertions": [
+          "A4-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A4-lesson-check"
+        ],
+        "summary": "PASS A4: {\"areaDepth\":true,\"limitationsNamed\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A4.command.json",
+        "sha256": "9b06d669e8df1e9d5a64543eef34c244b5c2ecfc19ccea24a3bb002c30ec1a8c"
+      }
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A5.json",
+      "sha256": "e51d2f29bab98672dd3975bcffec01e2ef14bcbc96442fede3c14c09a4510911",
+      "expected": {
+        "assertions": [
+          "A5-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A5-lesson-check"
+        ],
+        "summary": "PASS A5: {\"pendingLabeled\":true,\"realShaPresent\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A5.command.json",
+        "sha256": "2bc3abb63ea17daa29f0f6509864db1730efdd263a66855b8677f5f43931eb3c"
+      }
+    },
+    {
+      "id": "A6",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A6.json",
+      "sha256": "cbfffb034498abab290ace7741ec05a5c3c918afe6b2b410c024c2a7de93fe36",
+      "expected": {
+        "assertions": [
+          "A6-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A6-lesson-check"
+        ],
+        "summary": "PASS A6: {\"verifierOk\":true,\"eventCount\":8,\"openRows\":2}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A6.command.json",
+        "sha256": "0aebb39442220fe8caeaacbae727d5d6f8e1ce33de6e1646d41501dee2451adb"
+      }
+    },
+    {
+      "id": "A7",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A7.json",
+      "sha256": "3fbd3c103de6b8c79ab3a86d2f9af381c1d27ba4c395855192065b31c6efe95d",
+      "expected": {
+        "assertions": [
+          "A7-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A7-lesson-check"
+        ],
+        "summary": "PASS A7: {\"indexed\":true,\"builtRoute\":true,\"soundInHtml\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A7.command.json",
+        "sha256": "3323207864aa8eba778859ff063610d6c5e41172a4ee9d80181323ff612c0dfc"
+      }
+    },
+    {
+      "id": "A8",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A8.json",
+      "sha256": "fc141c33f8f051b2f8d8e04ff3941cbb4fe653262a9f12e27adbc3c10fa62090",
+      "expected": {
+        "assertions": [
+          "A8-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A8-lesson-check"
+        ],
+        "summary": "PASS A8: {\"evaluatorSafeRefs\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A8.command.json",
+        "sha256": "f9d8472aeb7714f6c90f887560c41af73af6aba061e0dd0bdc76b940632c8445"
+      }
+    },
+    {
+      "id": "A9",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A9.json",
+      "sha256": "f717798fd9493814bde79ba9e495c7797e66371098f920a1b27665930cadeb6e",
+      "expected": {
+        "assertions": [
+          "A9-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A9-lesson-check"
+        ],
+        "summary": "PASS A9: {\"clocksAndOwners\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A9.command.json",
+        "sha256": "c5b2ad2688950fd66519ce3db62d2176c35895f099b62c00a097dd52a75763c0"
+      }
+    },
+    {
+      "id": "A10",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A10.json",
+      "sha256": "62cf56778837a529097cbd6bab7a9aafeb2e0cd43479f849649d37290b80a333",
+      "expected": {
+        "assertions": [
+          "A10-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A10-lesson-check"
+        ],
+        "summary": "PASS A10: {\"rubric\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A10.command.json",
+        "sha256": "38f4f7377e04583d7cec154eaa01f76cff8fbc285b31eaa1ab647b615bae34af"
+      }
+    },
+    {
+      "id": "A11",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A11.json",
+      "sha256": "ce0e902d56d016871945924d33fca575e9dd987e2a90f6be41ddbfbf6ef7415a",
+      "expected": {
+        "assertions": [
+          "A11-lesson-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A11-lesson-check"
+        ],
+        "summary": "PASS A11: {\"firstRelevance\":true,\"specimenLinked\":true,\"coiHonesty\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X5/A11.command.json",
+        "sha256": "b8c8f59c24d6acb2a3f0f5981edb901c6daa70dfba940c1415cc4579a6e42e18"
+      }
+    }
+  ]
+}
