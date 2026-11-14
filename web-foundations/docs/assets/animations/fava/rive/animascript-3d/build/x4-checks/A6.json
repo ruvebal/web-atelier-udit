@@ -11,10 +11,10 @@
     "orbitDown": false,
     "buttons": 0,
     "consoleNative": true,
-    "elapsed": 0.03319999999999994
+    "elapsed": 0.06660000000000002
   },
   "after": {
-    "elapsed": 0.03319999999999994,
+    "elapsed": 0.06660000000000002,
     "raf": 0
   },
   "picksBefore": 0,

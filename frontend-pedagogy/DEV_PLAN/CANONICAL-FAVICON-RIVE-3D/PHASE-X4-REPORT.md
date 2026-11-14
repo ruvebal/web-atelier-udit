@@ -27,6 +27,10 @@ Static resilience is layered: reduced motion never boots the GPU scene and inste
 - `node scripts/svg-extrusion/verify-phase-evidence.mjs X4` — PASS.
 - Regression: `verify-picking.mjs --all-fixtures` A1–A11 PASS, `verify-fidelity.mjs` A1–A8 PASS, `rive --verify`/`--test` unchanged and green after the near-margin change.
 
+## Gate correction (post-`0b47e07`)
+
+The first external gate exited 1: A2 read `button.disabled` while A1's keyboard pick still had `pickBusy` set — the buttons re-enable in `aimAndClick`'s `finally` after the scene ack, and A2 sampled inside that window. A2 now waits (bounded, 6 s) for the pick-busy state to clear before asserting usability and records `enabledAfterMs` in `A2.json`; the full `--all` run passes with A2 waiting 919 ms — the same shared-page ordering the gate exercises. No host code changed; the disabled-during-pick behaviour is intentional serialization, not a defect.
+
 ## Amendments and honest limitations
 
 - The X4 host consumes scene state only through the `x3pick` console contract and the shared mirror for aiming/stills; it does not read GPU pixels. Semantic truth lives in the DOM twin, synchronized on every logged pick — if the scene ever stops logging, controls stay consistent with the last known state rather than fabricating picks.

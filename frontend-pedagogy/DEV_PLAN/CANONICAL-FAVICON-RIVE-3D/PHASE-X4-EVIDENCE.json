@@ -32,7 +32,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A2",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A2.json",
-      "sha256": "3c2a29e8a9c33289d0ddc1ed2c14375b4bd69145641e8e751a95c83c29d60c64",
+      "sha256": "3572785dbf1e421810ed13d328b0c90a913639f997719d8b238ff7fe6237d75b",
       "expected": {
         "assertions": [
           "A2-independent-live-check"
@@ -42,11 +42,11 @@
         "assertions": [
           "A2-independent-live-check"
         ],
-        "summary": "PASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true\nALL PASS: A2"
+        "summary": "PASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 1ms for pick-busy to clear)\nALL PASS: A2"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A2.command.json",
-        "sha256": "a09099854661cac9e39339dfb95c42b5cadfa613996e80ad66c8fdf8bcaffb31"
+        "sha256": "0f42a69cb2058eb77ff4d0effdec869b417a544b6a4666220ed1be712509557a"
       }
     },
     {
@@ -124,7 +124,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A6",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A6.json",
-      "sha256": "9ff1ee715752533f94db2d6aa9cb4d7b8ee6af6196a94c9cb4c08326ff1bb9e2",
+      "sha256": "705960b76f3d4be75c123985785aea9c109121e312d56338f1936569881fcf60",
       "expected": {
         "assertions": [
           "A6-independent-live-check"

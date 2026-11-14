@@ -335,6 +335,19 @@ async function checkA2(ctx) {
 		readFileSync(resolve(web, 'docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json'), 'utf8')
 	);
 	const n = manifest.facetCount;
+	// A1's keyboard pick leaves the buttons disabled while aimAndClick waits
+	// for the scene ack (bounded by its deadline). A2 shares that page, so
+	// wait for the busy state to clear before asserting usability.
+	const enableStart = Date.now();
+	const enableDeadline = enableStart + 6000;
+	while (Date.now() < enableDeadline) {
+		const anyDisabled = await page.evaluate(() =>
+			[...document.querySelectorAll('[data-rive-3d-facets] button')].some((b) => b.disabled)
+		);
+		if (!anyDisabled) break;
+		await sleep(150);
+	}
+	const enabledAfterMs = Date.now() - enableStart;
 	const info = await page.evaluate(() => {
 		const wrap = document.querySelector('[data-rive-3d-facets]');
 		const buttons = wrap ? [...wrap.querySelectorAll('button')] : [];
@@ -365,11 +378,11 @@ async function checkA2(ctx) {
 		info.pressed.every((p) => p === 'true' || p === 'false') &&
 		info.disabled.every((d) => d === false) &&
 		info.groupLabel.length > 0;
-	writeCheck('A2', { manifestFacetCount: n, ...info, labelOk, notColorOnly, chipOk });
+	writeCheck('A2', { manifestFacetCount: n, enabledAfterMs, ...info, labelOk, notColorOnly, chipOk });
 	record(
 		'A2',
 		ok,
-		`N=${n} buttons=${info.count} labels=${labelOk} textNotColorOnly=${notColorOnly} chipsMatchFills=${chipOk} enabled=${info.disabled.every((d) => !d)}`
+		`N=${n} buttons=${info.count} labels=${labelOk} textNotColorOnly=${notColorOnly} chipsMatchFills=${chipOk} enabled=${info.disabled.every((d) => !d)} (waited ${enabledAfterMs}ms for pick-busy to clear)`
 	);
 }
 
