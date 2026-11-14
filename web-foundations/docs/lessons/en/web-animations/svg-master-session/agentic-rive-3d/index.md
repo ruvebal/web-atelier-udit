@@ -30,7 +30,7 @@ It is also the place where the comparison session’s audio question becomes a *
 <p><strong>Who owns the audible sample clock?</strong> Among the techniques on the master comparison page, only Rive + AnimaScript can package that clock <em>inside</em> the WASM artifact. Everyone else follows an external Web Audio or media clock, or reacts to analysed energy.</p>
 </aside>
 
-Why open here? A student who only sees “prettier 3D” will miss the first honest answer to *why this stack is worth the host tax*. Sound synchronicity is that answer. The GPU favicon owns **elapsed time** for choreography (nine-second loop, staggered extrusion, quaternion inspect). The AnimaScript `AudioProcessor` specimen owns the **sample clock** for tone. Shared *ownership pattern*, not a claimed A/V lock between those two fixtures.
+Why open here? A student who only sees “prettier 3D” will miss the first honest answer to *why this stack is worth the host tax*. Sound synchronicity is that answer. The GPU favicon owns **elapsed-time choreography** (nine-second loop, staggered extrusion, quaternion inspect). The AnimaScript `AudioProcessor` specimen owns the **sample clock** for tone. Shared *ownership pattern*, not a claimed A/V lock between those two fixtures.
 
 Three honest patterns (HOW, not a Web Audio course):
 
@@ -98,7 +98,7 @@ node scripts/svg-extrusion/cli.mjs \
 node scripts/svg-extrusion/pack-rive-mesh.mjs
 ```
 
-Intrinsic depth follows the frozen D4 rule: area after transforms, then `minDepth + (maxDepth - minDepth) × √(area / maxArea)`. That formula is an engineering contract validated by fixtures, not a theorem smuggled in as citation.
+Intrinsic depth follows the frozen studio D4 rule: area after transforms, then `minDepth + (maxDepth - minDepth) × √(area / maxArea)`. That formula is an **engineering derivation** validated by fixtures — not a cited scholarly theorem.
 
 **Excerpt** — near margin must contain the selection pop (X4 finding):
 
@@ -118,14 +118,14 @@ Open the live card: [Rive + AnimaScript 3D on the demo]({{ '/lessons/en/web-anim
 
 | Axis | What this specimen teaches |
 | --- | --- |
-| Authored timeline | Staggered extrusion, separation pulse, inspect orbit — elapsed-time based |
+| Authored timeline | Staggered extrusion, separation pulse, inspect orbit — elapsed-time choreography |
 | Input-driven state | Click/tap/keyboard toggle, persistent selection, reset, interruptible orbit damping |
 | Accessibility | Semantic twin in HTML; GPU pixels are never the only control surface |
 | Reduced motion | No automatic loop; deliberate facet stills remain usable |
 
 ## Provenance (local, honest, pending where pending)
 
-Public claims below cite **real local commits and reviews** already in this repository. The implementation PR and its merge are **pending** — a later phase imports them after they exist. A machine-readable receipt ships with the site data and is checked by the provenance verifier; it is not a student-facing route.
+Public claims below cite **real local commits and reviews** already in this repository. **Pending events (explicit):** Implementation PR A has not been opened yet, and its merge to `main` has not happened — both rows stay labelled **pending** until X7/X8 record real GitHub events. A machine-readable receipt ships with the site data and is checked by the provenance verifier; it is not a student-facing route.
 
 | Event | Role | Id / SHA | Status |
 | --- | --- | --- | --- |
@@ -134,8 +134,8 @@ Public claims below cite **real local commits and reviews** already in this repo
 | X4 host integration | agent implementation | `0b47e076cf972d84e6a9a0747e0315ab12231d13` | recorded |
 | X4 cold-review closures F1–F5 | agent + review | `8b698be67ec27ff598991b171b8988b4e6cf2255` | recorded |
 | X4 still-capture digest | agent + gate | `01a53612db3d83e8c56406c31494d988aa018fc3` | recorded |
-| Implementation PR A | human / workflow | — | **pending** |
-| Merge of PR A to `main` | human / workflow | — | **pending** |
+| Implementation PR A | human / workflow | — | **pending** (not opened) |
+| Merge of PR A to `main` | human / workflow | — | **pending** (not merged) |
 
 ## Studio judgment
 

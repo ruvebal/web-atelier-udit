@@ -9,7 +9,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A1.json",
-      "sha256": "9a7184a0dee858ee6a947755b8e61a45ecdad011dfde5c3867a3d7475456ddd2",
+      "sha256": "4384039cee065f1510ca872cf40ac8cac324864d48fed92ac5eab0ac11fd42bf",
       "expected": {
         "assertions": [
           "A1-lesson-check"
@@ -32,7 +32,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A2.json",
-      "sha256": "5b294a71d698c369096e4986c611d42cf0ed73078c259b48022bdad7aaa40927",
+      "sha256": "35c3d5a10197a97e461d55f796d045081517abcfa40cccd796e0493486e2e0d2",
       "expected": {
         "assertions": [
           "A2-lesson-check"
@@ -55,7 +55,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A3.json",
-      "sha256": "7605b5bff308d0d80cee5730986b096eeb41c9738aa2bdc25bce804638dbc8c6",
+      "sha256": "e5f8a929712c88ff8857a857de970f446c8edd50b6cb4323a9e1ba789af95fe7",
       "expected": {
         "assertions": [
           "A3-lesson-check"
@@ -78,7 +78,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A4.json",
-      "sha256": "27ea14507a53382acf6c7493fd92f450a67b49a32beb999fd99cc0e249d3448f",
+      "sha256": "135ba2bec93f9ba0feb0010e47533c2a83a7c31bbc9f33b46750445028f505ad",
       "expected": {
         "assertions": [
           "A4-lesson-check"
@@ -101,7 +101,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A5.json",
-      "sha256": "e51d2f29bab98672dd3975bcffec01e2ef14bcbc96442fede3c14c09a4510911",
+      "sha256": "19aa2201e8009ea2f458ab6ab961975764eae8e7def222f852eb8b2bb9977d2f",
       "expected": {
         "assertions": [
           "A5-lesson-check"
@@ -124,7 +124,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A6.json",
-      "sha256": "cbfffb034498abab290ace7741ec05a5c3c918afe6b2b410c024c2a7de93fe36",
+      "sha256": "2f6f99aba92066e37752d9b075d77bb246023a3c4f74d06861a0124d8db97f17",
       "expected": {
         "assertions": [
           "A6-lesson-check"
@@ -147,7 +147,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A7.json",
-      "sha256": "3fbd3c103de6b8c79ab3a86d2f9af381c1d27ba4c395855192065b31c6efe95d",
+      "sha256": "c7f2674e463963a00717acf7ba1d70712ee4effd583d7a85b9ced970926948ab",
       "expected": {
         "assertions": [
           "A7-lesson-check"
@@ -170,7 +170,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A8.json",
-      "sha256": "fc141c33f8f051b2f8d8e04ff3941cbb4fe653262a9f12e27adbc3c10fa62090",
+      "sha256": "7e3df0b327fbd8c5a8315267dee3f921c0ac5dac8cab21118de3506b82c4971b",
       "expected": {
         "assertions": [
           "A8-lesson-check"
@@ -193,7 +193,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A9.json",
-      "sha256": "f717798fd9493814bde79ba9e495c7797e66371098f920a1b27665930cadeb6e",
+      "sha256": "f223c28bf696f909b0cbcc733f3f0d096728117290a0622ef536c5eae9815022",
       "expected": {
         "assertions": [
           "A9-lesson-check"
@@ -216,7 +216,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A10.json",
-      "sha256": "62cf56778837a529097cbd6bab7a9aafeb2e0cd43479f849649d37290b80a333",
+      "sha256": "120d2f2ba2209f30cf6eff48b56174547ff748bb4fc325f70103c02dc8792ded",
       "expected": {
         "assertions": [
           "A10-lesson-check"
@@ -239,7 +239,7 @@
       "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x5-checks/A11.json",
-      "sha256": "ce0e902d56d016871945924d33fca575e9dd987e2a90f6be41ddbfbf6ef7415a",
+      "sha256": "fa3491182b32fb6a3b4de09ab1ee67188b0a9b0c51857b18d88ed7cef34f6670",
       "expected": {
         "assertions": [
           "A11-lesson-check"
