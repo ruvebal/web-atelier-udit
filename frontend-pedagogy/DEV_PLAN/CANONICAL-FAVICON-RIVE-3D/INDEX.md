@@ -39,7 +39,7 @@ Only the first word of each Gate cell is machine status.
 | 4 | [PHASE-X4.md](PHASE-X4.md) | Responsive demo integration, semantics, reduced-motion/static fallbacks | DONE — exit gate and independent cold review passed |
 | 5 | [PHASE-X5.md](PHASE-X5.md) | Public making-of lesson; sound synchronicity as first relevance utility; truthful agentic provenance | DONE — exit gate, ES twin, and closure cold review passed |
 | 6 | [PHASE-X6.md](PHASE-X6.md) | Full implementation audit and performance/fidelity matrix | DONE — exit gate, cold review, promotion gate |
-| 7 | [PHASE-X7.md](PHASE-X7.md) | Promote the general Rive/AnimaScript 3D skill and SVG adapter; open implementation PR A | READY — opened after X6 promotion gate |
+| 7 | [PHASE-X7.md](PHASE-X7.md) | Promote the general Rive/AnimaScript 3D skill and SVG adapter; open implementation PR A | VERIFYING |
 | 8 | [PHASE-X8.md](PHASE-X8.md) | Post-merge provenance hook with real PR/review/merge evidence | BLOCKED — opens only after PR A is merged |
 | 9 | [PHASE-X9.md](PHASE-X9.md) | Propose animation wisdom to TTOD from the findings this pack keeps | BLOCKED — opens after X8 DONE |
 
