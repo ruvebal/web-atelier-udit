@@ -2,6 +2,23 @@
   "events": [
     {
       "kind": "click",
+      "x": 284,
+      "y": 80,
+      "want": 4,
+      "wantId": "facet-05",
+      "got": {
+        "facet": 4,
+        "selected": 1,
+        "count": 1
+      },
+      "expected": {
+        "facet": 4,
+        "selected": 1,
+        "count": 1
+      }
+    },
+    {
+      "kind": "click",
       "x": 360,
       "y": 444,
       "want": 2,
@@ -9,12 +26,12 @@
       "got": {
         "facet": 2,
         "selected": 1,
-        "count": 1
+        "count": 2
       },
       "expected": {
         "facet": 2,
         "selected": 1,
-        "count": 1
+        "count": 2
       }
     },
     {
@@ -26,27 +43,10 @@
       "got": {
         "facet": 0,
         "selected": 1,
-        "count": 2
-      },
-      "expected": {
-        "facet": 0,
-        "selected": 1,
-        "count": 2
-      }
-    },
-    {
-      "kind": "click",
-      "x": 284,
-      "y": 80,
-      "want": 4,
-      "wantId": "facet-05",
-      "got": {
-        "facet": 4,
-        "selected": 1,
         "count": 3
       },
       "expected": {
-        "facet": 4,
+        "facet": 0,
         "selected": 1,
         "count": 3
       }

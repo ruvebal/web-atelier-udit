@@ -1,0 +1,16 @@
+{
+  "reusable": [
+    "SVG subset → indexed extrusion compiler with data-driven facetCount N",
+    "D4 area→depth mapping as an engineering contract with fixture proofs",
+    "D19 CPU picker agreeing with GPU depth under animated transforms",
+    "AnimaScript AudioProcessor ownership of the audible sample clock (CLI --render-audio honesty)",
+    "Host semantics consuming scene pick events; stills for reduced-motion/failure",
+    "Append-only provenance with explicit pending PR/merge rows"
+  ],
+  "webAtelierSpecific": [
+    "fava-mark-static.svg golden fixture and course palette fills",
+    "GitHub Pages demo card paths under svg-master-session",
+    "Jekyll lesson layout and lessons.yml indexing",
+    "Studio cascade pack paths under frontend-pedagogy/DEV_PLAN"
+  ]
+}

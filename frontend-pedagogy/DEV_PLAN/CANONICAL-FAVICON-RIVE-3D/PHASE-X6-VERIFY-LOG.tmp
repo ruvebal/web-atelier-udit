@@ -1,0 +1,103 @@
+PASS X1 compiler: canonical N=13, distinct curved/concave N=2, geometry/rejection/determinism checks
+[15:29:36.829] rive  verified (0 bytes, 56ms, 0 errors, 0 warnings)
+[15:29:36.917] rive  built (753567 bytes, 58ms, 0 errors, 0 warnings)
+[15:29:36.920] rive  loop phase
+[15:29:36.920] rive    PASS phase wraps at the loop period
+[15:29:36.920] rive    PASS extrusion is 0 at rest and 1 through inspect
+[15:29:36.920] rive    PASS extrude staggers facet 0 ahead of the last facet
+[15:29:36.920] rive    PASS retract runs in reverse facet order
+[15:29:36.920] rive    PASS separation peaks mid-inspect and is 0 at rest
+[15:29:36.920] rive  quaternion camera
+[15:29:36.920] rive    PASS identity orientation looks down -z
+[15:29:36.920] rive    PASS 90 degree yaw rotates forward to -x
+[15:29:36.920] rive    PASS slerp midpoint of identity and 90deg is 45deg
+[15:29:36.920] rive    PASS near-identical quaternions slerp stably
+[15:29:36.920] rive  frame-rate independent damping
+[15:29:36.920] rive    PASS equal elapsed time converges identically at 30/60/144Hz
+[15:29:36.920] rive    PASS advance clamps the damping step to 0.5s on long frames
+[15:29:36.920] rive  hashDir
+[15:29:36.920] rive    PASS deterministic and unit length
+[15:29:36.920] rive    PASS distinct facets get distinct directions
+[15:29:36.920] rive  picker on synthetic meshes
+[15:29:36.921] rive    PASS single front facet picks at centre, misses at corner
+[15:29:36.921] rive    PASS 1e-6 view-z separation keeps the nearer facet
+[15:29:36.921] rive    PASS equal depth resolves to later source-order facet
+[15:29:36.921] rive    PASS nearest positive hit wins over source order
+[15:29:36.921] rive    PASS selected offset toward camera can win a depth contest
+[15:29:36.921] rive    PASS collapsed backs are invisible at rest, visible when extruded
+[15:29:36.921] rive    PASS narrow and wide aspects still map the centre ray
+[15:29:36.921] rive  picker on the real blobs
+[15:29:36.921] rive    PASS rest centre pick lands on a generated facet
+[15:29:36.921] rive    PASS empty corner pick returns -1
+[15:29:36.921] rive  22/22 passed
+[15:29:36.978] rive  deferred replay: inline
+[15:29:36.978] rive  baking release scripts, as a publish ships them, with watchdog checks
+[15:29:37.165] rive  built (688809 bytes, 187ms, 0 errors, 0 warnings)
+[15:29:37.165] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[15:29:37.166] rive  showing main [1/1]
+[15:29:37.166] rive  viewport 720x480 @1x
+[15:29:37.166] rive  script frame gc: scavenging per frame
+[15:29:37.224] rive  bench script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[15:29:37.245] rive  bench advance: mean 0.015ms p50 0.014ms p95 0.024ms max 0.047ms
+[15:29:37.245] rive  bench render: mean 0.056ms p50 0.043ms p95 0.110ms max 0.430ms
+[15:29:37.245] rive  bench memory: 25 -> 41 wasm pages (+16) over 300 frames
+
+> web-foundations@1.0.0 prebuild /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-6/web-foundations
+> bundle exec jekyll clean --source docs --destination _site --config _config.yml
+
+Configuration file: _config.yml
+           Cleaner: Removing _site...
+           Cleaner: Nothing to do for docs/.jekyll-metadata.
+           Cleaner: Nothing to do for .sass-cache.
+
+> web-foundations@1.0.0 build /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-6/web-foundations
+> npm run postcss:build && bundle exec jekyll build --source docs --destination _site --config _config.yml && npm run verify:publication && npm run verify:citations
+
+npm warn Unknown env config "npm-globalconfig". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "_jsr-registry". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown global config "only-built-dependencies-file". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> web-foundations@1.0.0 postcss:build
+> postcss docs/assets/css/tailwind.css -o docs/assets/css/tailwind-processed.css
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+Browserslist: browsers data (caniuse-lite) is 13 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Configuration file: _config.yml
+Loading post_process plugin... 
+            Source: docs
+       Destination: _site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+Running post-processing scripts... 
+Running normalize-ids... 
+✅ Normalized accents in 202 HTML files
+Running mark-broken-links... 
+[mark-broken-links] No error files found
+[mark-broken-links] No broken URLs to mark
+Running strip-markdown-helper-attrs... 
+Stripped markdown helper attributes from 200 HTML files
+Post-processing complete! 
+                    done in 4.25 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
+npm warn Unknown env config "npm-globalconfig". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "_jsr-registry". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown global config "only-built-dependencies-file". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> web-foundations@1.0.0 verify:publication
+> node scripts/verify-publication-safety.mjs
+
+Publication safety passed: no internal corpus or local-architecture metadata is publishable.
+npm warn Unknown env config "npm-globalconfig". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "_jsr-registry". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown global config "only-built-dependencies-file". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> web-foundations@1.0.0 verify:citations
+> node scripts/verify-publication-safety.mjs --citations
+
+Citation conformance passed for canonical lessons.
+PASS X6: 5 acceptance items match /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-6/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X6.md
