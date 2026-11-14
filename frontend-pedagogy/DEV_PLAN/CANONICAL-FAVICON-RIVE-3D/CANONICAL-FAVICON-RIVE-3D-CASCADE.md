@@ -99,6 +99,8 @@ This two-PR topology is part of the pedagogy: reproducible history is observed a
 
 X9 opens only after X8 is DONE. It distills animation wisdom into TTOD proposals under `~/src/.cursor/skills/ttod-bridge/pending/`. The cold reviews, verify logs, and `DECISIONS.md` stay in this pack; a proposal cites them and does not replace them. Nothing in X9 writes `~/src/ttod/ttod.yml`. Acceptance is a human act inside TTOD, after D52's local model has drafted the proposal text.
 
+X5’s public making-of opens with sound synchronicity (D54) as the first relevance utility of the stack — who owns the audible sample clock — before the SVG→mesh→GPU pipeline. The hearable proof is the existing AnimaScript audio specimen, not a fabricated lock to the 3D loop.
+
 ## Harness execution
 
 Canonical harness: `/Users/ruvebal/src/.cursor/skills/cascade-forge/scripts/cascade-harness.sh`.
