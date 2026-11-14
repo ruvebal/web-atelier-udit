@@ -380,8 +380,17 @@ async function checkA2(ctx) {
 	);
 }
 
-async function checkA3(ctx) {
-	const { page } = ctx;
+async function checkA3(browser, url) {
+	// Fresh page, not the shared live context: the captures are hashed into the
+	// evidence digest, so selection state, aria-live text, and pressed chips
+	// left over from A1/A2 must not leak into the pixels.
+	const { context, page } = await openPage(browser, url, { viewport: { width: 1280, height: 800 } });
+	try {
+	const s = await waitForMode(page, ['live'], 60000);
+	if (s?.mode !== 'live') {
+		record('A3', false, `scene did not reach live mode (mode=${s?.mode})`);
+		return null;
+	}
 	const captures = [];
 	const widths = [320, 768, 1280];
 	const themes = ['dark', 'light'];
@@ -410,7 +419,39 @@ async function checkA3(ctx) {
 			});
 			const name = `A3-${width}-${theme}.png`;
 			const file = join(OUT, name);
+			// Metrics and the clip rect are taken on the live canvas. The GPU
+			// frame itself is not byte-stable, so the hashed screenshot hides
+			// that canvas with visibility:hidden — the box stays, unlike
+			// display:none — and paints the assembled still in the same box.
+			await page.evaluate(() => {
+				const preview = document.querySelector('[data-authored="animascript3d"] .rive-gpu-preview');
+				const canvas = preview?.querySelector('[data-rive-3d-canvas]');
+				const still = preview?.querySelector(':scope > img');
+				if (canvas) canvas.style.visibility = 'hidden';
+				if (still) {
+					still.style.display = 'block';
+					still.style.position = 'absolute';
+					still.style.inset = '0';
+					still.style.width = '100%';
+					still.style.height = '100%';
+				}
+			});
+			await sleep(150);
 			await page.screenshot({ path: file, clip: metrics.clip });
+			await page.evaluate(() => {
+				const preview = document.querySelector('[data-authored="animascript3d"] .rive-gpu-preview');
+				const canvas = preview?.querySelector('[data-rive-3d-canvas]');
+				const still = preview?.querySelector(':scope > img');
+				if (canvas) canvas.style.visibility = '';
+				if (still) {
+					still.style.display = '';
+					still.style.position = '';
+					still.style.inset = '';
+					still.style.width = '';
+					still.style.height = '';
+				}
+			});
+			await sleep(50);
 			captures.push({ file, viewport: `${width}x800`, theme, metrics });
 			// `clip` is screenshot geometry, not an assertion — keep it out of
 			// the hashed artifact so sub-pixel scroll variance cannot break the
@@ -433,6 +474,9 @@ async function checkA3(ctx) {
 		`6 captures 320/768/1280 x dark/light; cardOverflow<=2px && docOverflow<=${BASELINE_DOC_OVERFLOW}px(baseline)=${noOverflow} canvasSized=${canvasOk}`
 	);
 	return captures;
+	} finally {
+		await context.close().catch(() => {});
+	}
 }
 
 async function checkA4(browser, url) {
@@ -643,11 +687,7 @@ try {
 			else if (id === 'A2') await checkA2(liveCtx);
 			else await checkA6(liveCtx);
 		} else if (id === 'A3') {
-			if (!liveCtx) {
-				liveCtx = await openPage(browser, url, { viewport: { width: 1280, height: 800 } });
-				await waitForMode(liveCtx.page, ['live', 'static'], 60000);
-			}
-			captures = (await checkA3(liveCtx)) ?? [];
+			captures = (await checkA3(browser, url)) ?? [];
 		} else if (id === 'A4') {
 			await checkA4(browser, url);
 		} else if (id === 'A5') {

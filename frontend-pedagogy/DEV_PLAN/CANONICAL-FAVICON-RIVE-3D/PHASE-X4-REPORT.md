@@ -46,6 +46,10 @@ The cold review blocked DONE on two P1 findings; all are corrected in this tree:
 
 X3 evidence remains valid: the regenerated `x3-checks` artifacts were restored to HEAD (`verify-phase-evidence.mjs X3` PASS); `A12.json` is the only new file in that directory and is not referenced by the X3 receipt.
 
+## Still captures (post-`8b698be`)
+
+The gate on `8b698be` passed A1–A6 and the site build, then failed `A3: visual capture digest mismatch` because `--all` rewrites the six PNGs and the new `visualReview` hashes those pixels. The live GPU frame is not byte-stable. A3 still measures overflow on the live canvas, then sets `visibility: hidden` on that canvas so its box stays put, and paints `stills/assembled.png` in the same box for the screenshot. A3 opens its own page, so A1's selection does not enter the picture. Two A3 runs and a following `--all` must hash the same six files or the receipt is wrong.
+
 ## Amendments and honest limitations
 
 - The X4 host consumes scene state only through the `x3pick` console contract and the shared mirror for aiming/stills; it does not read GPU pixels. Semantic truth lives in the DOM twin, synchronized on every logged pick — if the scene ever stops logging, controls stay consistent with the last known state rather than fabricating picks.
