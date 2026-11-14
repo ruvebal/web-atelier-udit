@@ -1,6 +1,6 @@
 # PHASE-X5 · Publish the build as a pedagogical agentic lesson
 
-**Status:** VERIFYING — lesson + provenance + evidence prepared
+**Status:** DONE — exit gate, ES twin (D52), and closure cold review passed
 
 ## Goal
 

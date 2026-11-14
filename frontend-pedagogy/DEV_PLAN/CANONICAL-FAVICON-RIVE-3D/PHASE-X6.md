@@ -1,6 +1,6 @@
 # PHASE-X6 · Full implementation audit
 
-**Status:** BLOCKED — X5 must be DONE
+**Status:** READY — opened after X5 DONE
 
 ## Goal
 

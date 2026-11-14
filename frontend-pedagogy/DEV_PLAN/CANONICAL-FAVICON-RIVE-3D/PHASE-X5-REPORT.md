@@ -1,6 +1,6 @@
 # PHASE-X5 · Publish the build as a pedagogical agentic lesson
 
-**Status:** VERIFYING
+**Status:** DONE
 **Branch:** `cascade/CANONICAL-FAVICON-RIVE-3D-5`
 
 ## Outcome
