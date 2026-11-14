@@ -1,6 +1,6 @@
 # PHASE-X4 · Expose a resilient responsive web specimen
 
-**Status:** VERIFYING
+**Status:** DONE
 **Branch:** `cascade/CANONICAL-FAVICON-RIVE-3D-4`
 
 ## Outcome
@@ -62,4 +62,4 @@ The gate on `8b698be` passed A1–A6 and the site build, then failed `A3: visual
 
 ## Promotion
 
-Pending external gate and cold review. The phase stops at VERIFYING.
+**Promotion evidence:** the external exit gate passed at `01a53612db3d83e8c56406c31494d988aa018fc3` (A1–A6, Jekyll, publication, citations, `PASS X4: 6 acceptance items`). A12 prints `old0.05->facet-05 new0.20->facet-01`. The review of `b12d938` blocked on F1 and F2; `8b698be` closed F1–F5; `01a5361` binds the A3 stills. The closure review was written by local `qwen2.5:72b-instruct-q4_K_M` and found nothing further. See [PHASE-X4-COLD-REVIEW.md](PHASE-X4-COLD-REVIEW.md), [PHASE-X4-CLOSURE-COLD-REVIEW.md](PHASE-X4-CLOSURE-COLD-REVIEW.md), and [PHASE-X4-VERIFY-LOG.md](PHASE-X4-VERIFY-LOG.md).
