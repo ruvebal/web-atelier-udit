@@ -1,6 +1,6 @@
 # PHASE-X6 · Full implementation audit
 
-**Status:** BLOCKED — X5 must be DONE
+**Status:** DONE — exit gate, cold review, and promotion gate passed
 
 ## Goal
 

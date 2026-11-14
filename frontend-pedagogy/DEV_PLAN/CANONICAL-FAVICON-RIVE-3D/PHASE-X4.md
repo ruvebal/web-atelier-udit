@@ -9,8 +9,12 @@ Integrate the real 3D asset into the comparison route without surrendering theme
 ## Deliverables
 
 - live themed host in the demo’s Rive + AnimaScript section;
+- demo/lesson asset references retargeted for the X2 shader rename (`prismatic-favicon.wgsl` → `canonical-favicon.wgsl`); surrounding host copy that still describes the old prism scene is refreshed here, with lesson prose owned by X5;
 - pause/play, reset and `N` generated semantic facet controls;
 - status announcements and selected-state synchronization;
+
+> Uniform contract (fixed in X3 cold review F1): the frame uniform block is 192 bytes — camera/choreography through byte 143, `camDir` at byte 144, padding at 156, and the eight `u32` selection words at bytes 160–191, matching the WGSL `Frame` struct (`camDir` then `selection: array<vec4<u32>,2>`). `updateUniforms()` uploads on `advance`, `toggleFacet`, and `resetSelection`; the shader draws the highlight and camera-relative offset, so selected-state sync must read the same `x3pick`/selection events the scene consumes — do not assume a highlight exists without the bitset upload.
+
 - static canonical fallback and runtime timeout/error handling;
 - reduced-motion mode with no automatic orbit/build loop;
 - viewport/lifecycle cleanup.

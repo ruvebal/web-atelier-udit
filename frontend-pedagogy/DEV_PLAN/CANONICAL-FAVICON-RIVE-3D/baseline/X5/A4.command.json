@@ -1,0 +1,13 @@
+{
+  "acceptanceId": "A4",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-x5-lesson.mjs --all",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/verify-x5-lesson.mjs",
+    "--all"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-5",
+  "exitCode": 0,
+  "stdout": "PASS A1: {\"labels\":[\"CodeSandbox-ready\",\"Excerpt\",\"Template\"],\"conventionNote\":true}\nPASS A2: {\"svg\":true,\"projected25d\":true,\"depthTested\":true}\nPASS A3: {\"owners\":[\"Rive\",\"AnimaScript\",\"WGSL\",\"HTML\"]}\nPASS A4: {\"areaDepth\":true,\"limitationsNamed\":true}\nPASS A5: {\"pendingLabeled\":true,\"realShaPresent\":true}\nPASS A6: {\"verifierOk\":true,\"eventCount\":8,\"openRows\":2}\nPASS A7: {\"indexed\":true,\"builtRoute\":true,\"soundInHtml\":true}\nPASS A8: {\"evaluatorSafeRefs\":true}\nPASS A9: {\"clocksAndOwners\":true}\nPASS A10: {\"rubric\":true}\nPASS A11: {\"firstRelevance\":true,\"specimenLinked\":true,\"coiHonesty\":true}\nALL PASS: A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11\n",
+  "stderr": ""
+}

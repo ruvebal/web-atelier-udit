@@ -1,0 +1,85 @@
+# Canonical favicon · Rive 3D — public provenance (append-only)
+# Pending events must stay pending until a real GitHub event exists.
+schema_version: '1'
+phase: X5
+reportStatus: VERIFYING
+merge_sha: pending
+pr_a:
+  number: pending
+  url: pending
+  reason: Implementation PR A opens in X7 after X6; no PR exists yet.
+events:
+  - id: x1-xml-decl-offset-0
+    url: local://git/4d24ef185123dbc01401dc8897c5813edd13c94b
+    immutable_id: '4d24ef185123dbc01401dc8897c5813edd13c94b'
+    actor_role: agent-implementation
+    timestamp: '2026-11-11T22:16:25+01:00'
+    label: summary
+    summary: 'X1 compiler pins XML declaration match to raw source offset 0.'
+    source_digest: '4d24ef185123dbc01401dc8897c5813edd13c94b'
+    pending: false
+  - id: x2-frontal-gpu-hardened
+    url: local://git/9f733466bd3622e286d2a4db48300cf97a0cb74c
+    immutable_id: '9f733466bd3622e286d2a4db48300cf97a0cb74c'
+    actor_role: agent-implementation
+    timestamp: '2026-11-12T11:06:05+01:00'
+    label: summary
+    summary: 'X2 frontal GPU scene and cold-review F1–F4 closures.'
+    source_digest: '9f733466bd3622e286d2a4db48300cf97a0cb74c'
+    pending: false
+  - id: x4-host-integration
+    url: local://git/0b47e076cf972d84e6a9a0747e0315ab12231d13
+    immutable_id: '0b47e076cf972d84e6a9a0747e0315ab12231d13'
+    actor_role: agent-implementation
+    timestamp: '2026-11-13T21:26:48+01:00'
+    label: summary
+    summary: 'X4 responsive host, stills, and near-margin scene change.'
+    source_digest: '0b47e076cf972d84e6a9a0747e0315ab12231d13'
+    pending: false
+  - id: x4-cold-review-closures
+    url: local://git/8b698be67ec27ff598991b171b8988b4e6cf2255
+    immutable_id: '8b698be67ec27ff598991b171b8988b4e6cf2255'
+    actor_role: agent-implementation
+    timestamp: '2026-11-14T12:38:31+01:00'
+    label: summary
+    summary: 'X4 cold-review F1–F5 closures including A12 near-margin fixture.'
+    source_digest: '8b698be67ec27ff598991b171b8988b4e6cf2255'
+    pending: false
+  - id: x4-still-capture-digest
+    url: local://git/01a53612db3d83e8c56406c31494d988aa018fc3
+    immutable_id: '01a53612db3d83e8c56406c31494d988aa018fc3'
+    actor_role: agent-implementation
+    timestamp: '2026-11-14T14:50:30+01:00'
+    label: summary
+    summary: 'A3 hashed captures use visibility-hidden stills under the live canvas box.'
+    source_digest: '01a53612db3d83e8c56406c31494d988aa018fc3'
+    pending: false
+  - id: x4-closure-cold-review
+    url: local://file/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X4-CLOSURE-COLD-REVIEW.md
+    immutable_id: 'PHASE-X4-CLOSURE-COLD-REVIEW.md'
+    actor_role: cold-reviewer
+    timestamp: '2026-11-14T14:56:00+01:00'
+    label: summary
+    summary: 'Local Qwen closure review found no further blockers for X4.'
+    source_digest: 'PHASE-X4-CLOSURE-COLD-REVIEW.md'
+    pending: false
+  - id: pr-a-open
+    url: pending
+    immutable_id: pending
+    actor_role: human
+    timestamp: pending
+    label: summary
+    summary: 'Implementation PR A.'
+    source_digest: pending
+    pending: true
+    pending_reason: Opens in X7 after X6 promotion gate.
+  - id: pr-a-merge
+    url: pending
+    immutable_id: pending
+    actor_role: human
+    timestamp: pending
+    label: summary
+    summary: 'Merge of PR A.'
+    source_digest: pending
+    pending: true
+    pending_reason: Observed only after merge; X8 imports the real SHA.

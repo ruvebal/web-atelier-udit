@@ -1,0 +1,15 @@
+{
+  "id": "A2",
+  "status": "PASS",
+  "observed": {
+    "compilerTests": true,
+    "riveVerify": true,
+    "riveTest": true,
+    "riveBench": true,
+    "jekyllBuild": true,
+    "benchTail": [
+      ""
+    ],
+    "buildOk": true
+  }
+}

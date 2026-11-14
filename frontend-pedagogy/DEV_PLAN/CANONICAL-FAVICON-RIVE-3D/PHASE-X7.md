@@ -1,6 +1,6 @@
 # PHASE-X7 · Promote verified knowledge and open implementation PR A
 
-**Status:** BLOCKED — X6 post-review promotion gate must pass
+**Status:** DONE — skills verified, PR A #7 open, cold review clear
 
 ## Goal
 

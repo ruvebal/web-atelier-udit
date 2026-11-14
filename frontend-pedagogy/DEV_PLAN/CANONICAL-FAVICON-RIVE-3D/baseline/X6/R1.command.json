@@ -1,0 +1,13 @@
+{
+  "acceptanceId": "R1",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node -e console.log('PASS R1: openBlocking=0 findings=[] eligible_for_promotion_gate=true')",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "-e",
+    "console.log('PASS R1: openBlocking=0 findings=[] eligible_for_promotion_gate=true')"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-6",
+  "exitCode": 0,
+  "stdout": "PASS R1: openBlocking=0 findings=[] eligible_for_promotion_gate=true\n",
+  "stderr": ""
+}

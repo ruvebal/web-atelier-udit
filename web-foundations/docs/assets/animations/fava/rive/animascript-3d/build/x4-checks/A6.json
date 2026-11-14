@@ -1,0 +1,14 @@
+{
+  "modeBefore": "live",
+  "teardown": {
+    "destroyed": true,
+    "playerNull": true,
+    "observerNull": true,
+    "orbitDetached": true,
+    "buttonsRemoved": true,
+    "consoleRestored": true,
+    "rafZero": true,
+    "elapsedFrozen": true,
+    "noNewPicks": true
+  }
+}

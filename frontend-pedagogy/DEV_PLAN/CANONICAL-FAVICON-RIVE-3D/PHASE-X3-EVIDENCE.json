@@ -1,0 +1,260 @@
+{
+  "phase": "X3",
+  "reportStatus": "VERIFYING",
+  "generatedBy": "capture-x3-evidence.mjs",
+  "items": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A1",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A1.json",
+      "sha256": "57ef6184b83d99bd3a48ef4c06ac43923a84549f52e7ef5e44dc088f74c2d296",
+      "expected": {
+        "assertions": [
+          "A1-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A1-independent-live-check"
+        ],
+        "summary": "PASS A1: small=facet-03(18v) large=facet-01(810v) overlap=facet-05 cover=[facet-01,facet-05] picks=[2,0,4]"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A1.command.json",
+        "sha256": "eb80be9a75e62f9211fe40a46a3df4ce216620747bf173be3ceebe9ab5f74534"
+      }
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A2",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A2-A3.json",
+      "sha256": "54bb670aeff4a6ecb5497817daf4499b58ba73754df0999df4185282cfd49924",
+      "expected": {
+        "assertions": [
+          "A2-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A2-independent-live-check"
+        ],
+        "summary": "PASS A2: fixtures occl=facet-01 zoff=facet-10 touch=facet-01 sep=[facet-01,facet-03] cull=facet-05(back=facet-01); all matched\nPASS A3: nearest-positive picks matched JS mirror across extruded/separated/rest poses"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A2.command.json",
+        "sha256": "fa6cb3f925577918cf73d99ae070c1b43c539a8e9c9395e96842d77eb09cebe4"
+      }
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A3",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A2-A3.json",
+      "sha256": "54bb670aeff4a6ecb5497817daf4499b58ba73754df0999df4185282cfd49924",
+      "expected": {
+        "assertions": [
+          "A3-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A3-independent-live-check"
+        ],
+        "summary": "PASS A2: fixtures occl=facet-01 zoff=facet-10 touch=facet-01 sep=[facet-01,facet-03] cull=facet-05(back=facet-01); all matched\nPASS A3: nearest-positive picks matched JS mirror across extruded/separated/rest poses"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A3.command.json",
+        "sha256": "36f483dd06f24bf4a74c6e6318fd612b01c1ff3e351594cd20f2708ac8401c42"
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A4",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A4.json",
+      "sha256": "d6103f56c79dcbcbd799d2ac6c8d08d59efd250d167861c8e672afb27f65b47f",
+      "expected": {
+        "assertions": [
+          "A4-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A4-independent-live-check"
+        ],
+        "summary": "PASS A4: toggle facet-01 sel 1->0 count->0; provider hashes unchanged; GPU sel-vs-unsel diff=70255"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A4.command.json",
+        "sha256": "6d4d0b793831564a60b79f553007fbe4e92c777103a7e2076813be5b73302584"
+      }
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A5",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A5.json",
+      "sha256": "6738aea8fd7764539e5f586bdb64f43885ebf6806c5589223553fbc02de5749a",
+      "expected": {
+        "assertions": [
+          "A5-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A5-independent-live-check"
+        ],
+        "summary": "PASS A5: reset logged=true rest-pose pixel diff vs fresh rest=0"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A5.command.json",
+        "sha256": "112c837802b7eff5d8800568bfba8a6f3755305a84c24fc4a688ee454951f196"
+      }
+    },
+    {
+      "id": "A6",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A6",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A6.json",
+      "sha256": "01f81ad498f88e4576347be81ee104487abc87d3da794db1af85aa1ec498da78",
+      "expected": {
+        "assertions": [
+          "A6-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A6-independent-live-check"
+        ],
+        "summary": "PASS A6: viewports 400x480,1200x480: [{\"vp\":\"400x480\",\"center\":\"facet-01->0\",\"off\":\"facet-01->0\"},{\"vp\":\"1200x480\",\"center\":\"facet-01->0\",\"off\":\"facet-01->0\"}]"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A6.command.json",
+        "sha256": "3ae8f274d1331caac84cbc15ed70da99b5c2f8651196f4661674bbd1b9106952"
+      }
+    },
+    {
+      "id": "A7",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A7",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A7.json",
+      "sha256": "0eec29b96c38141917127bdd315897e1dd1ed4c1ccbab0ef66ba77fa4f67772a",
+      "expected": {
+        "assertions": [
+          "A7-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A7-independent-live-check"
+        ],
+        "summary": "PASS A7: irregular advance -> picks 0,0 vs expected 0,0 count=0"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A7.command.json",
+        "sha256": "24194625edfa3bc6d9aece47b12b029cbc12773cd1e4b5c75faf28c019c5b9e5"
+      }
+    },
+    {
+      "id": "A8",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A8",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A8.json",
+      "sha256": "ead8b250c1902a02384ed397a3f45ed1a0e0d6193e09a44297be3467b1588188",
+      "expected": {
+        "assertions": [
+          "A8-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A8-independent-live-check"
+        ],
+        "summary": "PASS A8: deadzone micro-diff=0 (want 0), drag-diff=58108 (want >0)"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A8.command.json",
+        "sha256": "bff95c7457e7107f5d3f4cceb48de7fb1271321e660ef4e661a27f32310e9375"
+      }
+    },
+    {
+      "id": "A9",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A9",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A9.json",
+      "sha256": "36eed716386b6647989144817651b9cbf538b2bb0ed594793e4ea799819729bb",
+      "expected": {
+        "assertions": [
+          "A9-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A9-independent-live-check"
+        ],
+        "summary": "PASS A9: 3s elapsed at 3 granularities, pixel diffs vs first: [0,0]"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A9.command.json",
+        "sha256": "c2670056093cc6d0cdf020737a22434df827707072fe8de50648f844bb700239"
+      }
+    },
+    {
+      "id": "A10",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A10",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A10.json",
+      "sha256": "54da8864e10a7dccd32e85440bb91c4886d6a757cd9f935f7ced610c0d33f2c0",
+      "expected": {
+        "assertions": [
+          "A10-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A10-independent-live-check"
+        ],
+        "summary": "PASS A10: 960ms damping diffs=[0,0]; 5s advance pick=0 vs expected 0 (stable)"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A10.command.json",
+        "sha256": "339012b0c0b86d957b92d38068630e29060cdae9d7ac4eb832a33466a49858f3"
+      }
+    },
+    {
+      "id": "A11",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-picking.mjs A11",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/A11.json",
+      "sha256": "3542e4b50b28792340af8806238ccb0aef9ad4d50fead5b3b542fb1988184714",
+      "expected": {
+        "assertions": [
+          "A11-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A11-independent-live-check"
+        ],
+        "summary": "PASS A11: identity->[0,0,-1] 90->[-1,0,0] mid45->[-0.707,0,-0.707]"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X3/A11.command.json",
+        "sha256": "0b0933b42cef0cf6b71c2b5c96b03bc7d67ee6eb77f1a26a551f25387d4db6c2"
+      }
+    }
+  ]
+}
