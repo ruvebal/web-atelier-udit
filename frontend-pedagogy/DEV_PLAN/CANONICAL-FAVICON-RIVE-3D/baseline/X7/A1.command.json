@@ -1,0 +1,12 @@
+{
+  "acceptanceId": "A1",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-skill-promotion.mjs",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/svg-extrusion/verify-skill-promotion.mjs"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-7",
+  "exitCode": 0,
+  "stdout": "WARN A6: gh pr view not available yet (exit gate will require it)\nPASS skill promotion: A1–A5 skill surfaces + Codex sync\nPASS A1: {\"verifiedGeneral\":true,\"noSvgDependency\":true}\n",
+  "stderr": ""
+}
