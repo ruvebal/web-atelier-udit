@@ -1,0 +1,10 @@
+{
+  "id": "A7",
+  "status": "PASS",
+  "observed": {
+    "indexed": true,
+    "builtRoute": true,
+    "soundInHtml": true
+  },
+  "lessonSha256": "cc9ac9060ba03366d6460b597f9b32d5bbf3c229ce47d08efb54c524431440b8"
+}

@@ -73,6 +73,7 @@ exclude:
  # paths and are evidence artifacts, not lesson assets.
  - assets/animations/fava/rive/animascript-3d/build/x3-checks
  - assets/animations/fava/rive/animascript-3d/build/x4-checks
+ - assets/animations/fava/rive/animascript-3d/build/x5-checks
 
 # Plugins available on GitHub Pages via 'github-pages' gem
 plugins:

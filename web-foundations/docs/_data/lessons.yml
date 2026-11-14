@@ -204,6 +204,20 @@
    es: complete
    en: complete
   category: animations
+- slug: agentic-rive-3d
+  title:
+   es: 'Making of: Favicon canónico → Rive GPU 3D'
+   en: 'Making of: Canonical Favicon → Rive GPU 3D'
+  path:
+   es: /lessons/es/web-animations/svg-master-session/agentic-rive-3d/
+   en: /lessons/en/web-animations/svg-master-session/agentic-rive-3d/
+  file:
+   es: lessons/es/web-animations/svg-master-session/agentic-rive-3d/index.md
+   en: lessons/en/web-animations/svg-master-session/agentic-rive-3d/index.md
+  status:
+   es: complete
+   en: complete
+  category: animations
 - slug: gsap-overview
   title:
    es: 'GSAP para Diseñadores: Dominio de Tipografía y Animación SVG'
