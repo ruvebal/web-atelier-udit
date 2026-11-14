@@ -1,22 +1,14 @@
 {
-  "before": {
-    "mode": "live",
-    "selSize": 0
-  },
-  "destroy": {
+  "modeBefore": "live",
+  "teardown": {
     "destroyed": true,
-    "player": null,
-    "observer": null,
-    "raf": 0,
-    "orbitDown": false,
-    "buttons": 0,
-    "consoleNative": true,
-    "elapsed": 0.06660000000000002
-  },
-  "after": {
-    "elapsed": 0.06660000000000002,
-    "raf": 0
-  },
-  "picksBefore": 0,
-  "picksAfter": 0
+    "playerNull": true,
+    "observerNull": true,
+    "orbitDetached": true,
+    "buttonsRemoved": true,
+    "consoleRestored": true,
+    "rafZero": true,
+    "elapsedFrozen": true,
+    "noNewPicks": true
+  }
 }

@@ -239,29 +239,20 @@ async function checkA1(ctx) {
 		}
 		return { aim: lastAim, state: await hostState(page), newLines: [] };
 	};
+	const pickEvents = (lines) => lines.filter((l) => l.includes('facet=')).length;
 	// --- mouse click path ---
 	const mouseRes = await clickUntilPick((p) => page.mouse.click(p.x, p.y));
-	out.paths.mouse = {
-		facet: mouseRes.aim?.id,
-		sel: mouseRes.state.sel,
-		selSize: mouseRes.state.selSize,
-		picks: mouseRes.newLines,
-	};
 	const mouseOk =
 		!!mouseRes.aim &&
 		(mouseRes.state.sel.includes(mouseRes.aim.facet) || mouseRes.newLines.some((l) => l.includes('facet=')));
+	out.paths.mouse = { ok: mouseOk, events: pickEvents(mouseRes.newLines) };
 
 	// --- touch tap path ---
 	const touchRes = await clickUntilPick((p) => page.touchscreen.tap(p.x, p.y));
-	out.paths.touch = {
-		facet: touchRes.aim?.id,
-		sel: touchRes.state.sel,
-		selSize: touchRes.state.selSize,
-		picks: touchRes.newLines,
-	};
 	const touchOk =
 		!!touchRes.aim &&
 		(touchRes.state.sel.includes(touchRes.aim.facet) || touchRes.newLines.some((l) => l.includes('facet=')));
+	out.paths.touch = { ok: touchOk, events: pickEvents(touchRes.newLines) };
 
 	// --- Wacom-like fine motion: sub-deadzone moves must not orbit; a real drag must ---
 	const orbitBefore = (await hostState(page)).orbit;
@@ -287,7 +278,7 @@ async function checkA1(ctx) {
 	await sleep(120);
 	const orbitDrag = (await hostState(page)).orbit;
 	const dragOk = Math.abs(orbitDrag.yawTarget - orbitBefore.yawTarget) > 0.01;
-	out.paths.fineMotion = { microOk, dragOk, yawTarget: orbitDrag.yawTarget };
+	out.paths.fineMotion = { microOk, dragOk };
 
 	// --- keyboard path: focus a facet button, activate with Enter ---
 	const btnCount = await page.locator('.rive-3d-facet').count();
@@ -299,12 +290,11 @@ async function checkA1(ctx) {
 			})
 		: -1;
 	let kbOk = false;
-	let kbSel = null;
+	let kbFacetHit = -1;
 	if (kbFacet >= 0) {
 		const btn = page.locator('.rive-3d-facet').nth(kbFacet);
 		await btn.focus();
 		await page.keyboard.press('Enter');
-		const st = await waitSelSize(page, () => true, 1); // placeholder replaced below
 		const deadline = Date.now() + 8000;
 		let last = null;
 		while (Date.now() < deadline) {
@@ -312,20 +302,21 @@ async function checkA1(ctx) {
 			const pressed = await page.locator('.rive-3d-facet').nth(kbFacet).getAttribute('aria-pressed');
 			if (pressed === 'true' || last.sel.includes(kbFacet)) {
 				kbOk = true;
-				kbSel = { facet: kbFacet, pressed, sel: last.sel };
+				kbFacetHit = kbFacet;
 				break;
 			}
 			await sleep(250);
 		}
 	}
-	out.paths.keyboard = { kbOk, kbSel };
+	out.paths.keyboard = { kbOk };
 
 	const ok = mouseOk && touchOk && microOk && dragOk && kbOk && ctx.errors.length === 0;
 	writeCheck('A1', { ...out, pageErrors: ctx.errors });
+	const facetName = (i) => (i >= 0 ? `facet-${String(i + 1).padStart(2, '0')}` : 'none');
 	record(
 		'A1',
 		ok,
-		`mouse=${mouseOk} touch=${touchOk} fineMotion micro=${microOk} drag=${dragOk} keyboard=${kbOk} errors=${ctx.errors.length}`
+		`mouse=${mouseOk}(${mouseRes.aim?.id ?? 'none'}) touch=${touchOk}(${touchRes.aim?.id ?? 'none'}) fineMotion micro=${microOk} drag=${dragOk} keyboard=${kbOk}(${facetName(kbFacetHit)}) errors=${ctx.errors.length}`
 	);
 }
 
@@ -378,7 +369,10 @@ async function checkA2(ctx) {
 		info.pressed.every((p) => p === 'true' || p === 'false') &&
 		info.disabled.every((d) => d === false) &&
 		info.groupLabel.length > 0;
-	writeCheck('A2', { manifestFacetCount: n, enabledAfterMs, ...info, labelOk, notColorOnly, chipOk });
+	// `pressed` reflects whatever A1 left selected on the shared page — valid
+	// for the check but not stable enough to hash as evidence.
+	const { pressed: _pressed, ...stableInfo } = info;
+	writeCheck('A2', { manifestFacetCount: n, ...stableInfo, labelOk, notColorOnly, chipOk });
 	record(
 		'A2',
 		ok,
@@ -418,7 +412,11 @@ async function checkA3(ctx) {
 			const file = join(OUT, name);
 			await page.screenshot({ path: file, clip: metrics.clip });
 			captures.push({ file, viewport: `${width}x800`, theme, metrics });
-			details.push({ width, theme, ...metrics, capture: name });
+			// `clip` is screenshot geometry, not an assertion — keep it out of
+			// the hashed artifact so sub-pixel scroll variance cannot break the
+			// evidence digest.
+			const { clip: _clip, ...stableMetrics } = metrics;
+			details.push({ width, theme, ...stableMetrics, capture: name });
 		}
 	}
 	// The demo page carries a pre-existing 8px document overflow at 320px on
@@ -592,12 +590,22 @@ async function checkA6(ctx) {
 		result.consoleNative === true &&
 		rafStopped &&
 		noNewPicks;
+	// Absolute elapsed/pick counts depend on how long A1–A3 ran before this
+	// check on the shared page; the hashed artifact keeps only stable
+	// booleans. Volatile numbers stay in the PASS transcript line.
 	writeCheck('A6', {
-		before: { mode: before.mode, selSize: before.selSize },
-		destroy: result,
-		after,
-		picksBefore,
-		picksAfter: picks.length,
+		modeBefore: before.mode,
+		teardown: {
+			destroyed: result.destroyed === true,
+			playerNull: result.player === null,
+			observerNull: result.observer === null,
+			orbitDetached: result.orbitDown === false,
+			buttonsRemoved: result.buttons === 0,
+			consoleRestored: result.consoleNative === true,
+			rafZero: after.raf === 0,
+			elapsedFrozen: rafStopped,
+			noNewPicks: noNewPicks,
+		},
 	});
 	record(
 		'A6',

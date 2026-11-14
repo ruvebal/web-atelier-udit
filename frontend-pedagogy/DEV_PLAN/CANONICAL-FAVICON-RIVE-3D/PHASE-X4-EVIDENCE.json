@@ -6,10 +6,10 @@
     {
       "id": "A1",
       "status": "PASS",
-      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A1",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A1.json",
-      "sha256": "27ef0d65ab39b742317503205734e0685768300b2506148fecbaa259aedb48da",
+      "sha256": "7dbfbfc73e08e5b2d0b3eea9784d5b22da43de77628b5b883b5eb3db44c774cb",
       "expected": {
         "assertions": [
           "A1-independent-live-check"
@@ -19,20 +19,20 @@
         "assertions": [
           "A1-independent-live-check"
         ],
-        "summary": "PASS A1: mouse=true touch=true fineMotion micro=true drag=true keyboard=true errors=0\nALL PASS: A1"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A1.command.json",
-        "sha256": "8e11996926e7a01fbca0ee09e3311d9ef23532aaf92714a8c7321d0055dc9eb8"
+        "sha256": "a444443219d0476b39f95d01ac586f13c573c32498691ddad735198a0f6c577e"
       }
     },
     {
       "id": "A2",
       "status": "PASS",
-      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A2",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A2.json",
-      "sha256": "3572785dbf1e421810ed13d328b0c90a913639f997719d8b238ff7fe6237d75b",
+      "sha256": "1aadc3c00de51157d34db69c7b51ed97da0376a7074b5329330145e771ce9fdb",
       "expected": {
         "assertions": [
           "A2-independent-live-check"
@@ -42,20 +42,20 @@
         "assertions": [
           "A2-independent-live-check"
         ],
-        "summary": "PASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 1ms for pick-busy to clear)\nALL PASS: A2"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A2.command.json",
-        "sha256": "0f42a69cb2058eb77ff4d0effdec869b417a544b6a4666220ed1be712509557a"
+        "sha256": "b5db575003e77946a3ad1b84a2962fa00d8ba2b9a907dbe8d8d9e0e85e28c116"
       }
     },
     {
       "id": "A3",
       "status": "PASS",
-      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A3",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A3.json",
-      "sha256": "a45c0f3e42ae9508fcae5af6f271a21a6a3c0c723e2ce13061e705c54348e5b5",
+      "sha256": "b229e5f2bac6788333e13dcf0bbff1994568a867937180f8325a30ca9a4d14d0",
       "expected": {
         "assertions": [
           "A3-independent-live-check"
@@ -65,17 +65,17 @@
         "assertions": [
           "A3-independent-live-check"
         ],
-        "summary": "PASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nALL PASS: A3"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A3.command.json",
-        "sha256": "e9970ce7d032777a9a86f61a95bc7674e7235785791cf651af960ba2410eadc0"
+        "sha256": "08a49918cc217fff25d6636d752649d782a391840131d062e84605372bc991dd"
       }
     },
     {
       "id": "A4",
       "status": "PASS",
-      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A4",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A4.json",
       "sha256": "8b7223c304f6c9a7b3193fd70e163c7f48a2ce4035471cfa652fe835a388c321",
@@ -88,17 +88,17 @@
         "assertions": [
           "A4-independent-live-check"
         ],
-        "summary": "PASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nALL PASS: A4"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A4.command.json",
-        "sha256": "166d2709a548c7c2c24dacacfeaeaeb0e01defd659a464d129fb2594edb5d81f"
+        "sha256": "7c1a8e3a872100520a3a142927471bcb74d4249b652f3cbbf0b843d2028e67d6"
       }
     },
     {
       "id": "A5",
       "status": "PASS",
-      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A5",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A5.json",
       "sha256": "688533d5b895e28ee1e0d9ba5d54cccddacd130d2446fbc977b0d6251ee912f2",
@@ -111,20 +111,20 @@
         "assertions": [
           "A5-independent-live-check"
         ],
-        "summary": "PASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nALL PASS: A5"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A5.command.json",
-        "sha256": "12e176a3a43401e150c6cc53d3101a397c77a9432c75f630cb410122a4f91ec8"
+        "sha256": "b9a2dcbd21b2f345d057c7b925a3f1fafe4819845d73663950146e0a293c85b6"
       }
     },
     {
       "id": "A6",
       "status": "PASS",
-      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs A6",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs --all",
       "exitCode": 0,
       "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x4-checks/A6.json",
-      "sha256": "705960b76f3d4be75c123985785aea9c109121e312d56338f1936569881fcf60",
+      "sha256": "ad325a8224936b5a97614d99531ae2d3a431ea97552c82b618e40df177d88ce4",
       "expected": {
         "assertions": [
           "A6-independent-live-check"
@@ -134,11 +134,11 @@
         "assertions": [
           "A6-independent-live-check"
         ],
-        "summary": "PASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A6"
+        "summary": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 912ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; docOverflow<=2px=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6"
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X4/A6.command.json",
-        "sha256": "32d9249480be737c52de26e7ff4103d742aaac1e1a5b92159f712cf115925193"
+        "sha256": "4e47ac72f8710065a7572f018ef113af61120b1d01e16a95cc15f638d9e5af75"
       }
     }
   ]

@@ -1,6 +1,5 @@
 {
   "manifestFacetCount": 13,
-  "enabledAfterMs": 1,
   "count": 13,
   "labels": [
     "facet-01",
@@ -16,21 +15,6 @@
     "facet-11",
     "facet-12",
     "facet-13"
-  ],
-  "pressed": [
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false",
-    "false"
   ],
   "disabled": [
     false,

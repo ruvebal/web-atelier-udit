@@ -27,9 +27,12 @@ Static resilience is layered: reduced motion never boots the GPU scene and inste
 - `node scripts/svg-extrusion/verify-phase-evidence.mjs X4` — PASS.
 - Regression: `verify-picking.mjs --all-fixtures` A1–A11 PASS, `verify-fidelity.mjs` A1–A8 PASS, `rive --verify`/`--test` unchanged and green after the near-margin change.
 
-## Gate correction (post-`0b47e07`)
+## Gate corrections (post-`0b47e07`, post-`032806c`)
 
-The first external gate exited 1: A2 read `button.disabled` while A1's keyboard pick still had `pickBusy` set — the buttons re-enable in `aimAndClick`'s `finally` after the scene ack, and A2 sampled inside that window. A2 now waits (bounded, 6 s) for the pick-busy state to clear before asserting usability and records `enabledAfterMs` in `A2.json`; the full `--all` run passes with A2 waiting 919 ms — the same shared-page ordering the gate exercises. No host code changed; the disabled-during-pick behaviour is intentional serialization, not a defect.
+Two gate failures, both verifier-side; no host or scene code changed:
+
+1. **A2 ordering race (`0b47e07`):** A2 read `button.disabled` while A1's keyboard pick still had `pickBusy` set — the buttons re-enable in `aimAndClick`'s `finally` after the scene ack. A2 now waits (bounded, 6 s) for the busy state to clear and records the wait in the PASS line.
+2. **Evidence digest (`032806c`):** the receipt was captured per-check but the gate runs `--all`, where A1/A2/A6 share one live page — different selection state, timings, and pick counts meant the hashed JSONs could never match. Two fixes: (a) `capture-x4-evidence.mjs` now runs the gate's own `--all` command once and records that transcript for all six items; (b) every `x4-checks/*.json` was normalized to deterministic content — volatile fields (facet IDs, selection arrays, pick lines, `enabledAfterMs`, clip rects, absolute elapsed/pick counts) moved to the PASS transcript line or dropped, leaving only stable booleans, counts, and manifest-derived values. Verified: two independent `--all` runs produce byte-identical JSON for all six checks (A1's touch pick differed between runs — `facet-12` vs `facet-01` — and correctly appears only in the transcript, not the hashed artifact).
 
 ## Amendments and honest limitations
 

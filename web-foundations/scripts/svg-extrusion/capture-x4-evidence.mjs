@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+// X4 evidence capture. The exit gate runs `verify-rive-3d-host.mjs` with no
+// argument (--all): A1/A2/A6 share one live page, so per-check invocations
+// produce different artifacts than the gated run. Evidence must therefore be
+// captured from the same command the gate executes. One --all run writes all
+// six check JSONs; each acceptance item records that same transcript, which
+// contains every `PASS A<n>:` line.
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -19,30 +25,26 @@ const artifacts = {
 	A5: resolve(checks, 'A5.json'),
 	A6: resolve(checks, 'A6.json'),
 };
+const argv = ['web-foundations/scripts/verify-rive-3d-host.mjs', '--all'];
+const run = spawnSync(process.execPath, argv, { cwd: repo, encoding: 'utf8' });
+const code = run.status ?? 1,
+	stdout = run.stdout ?? '',
+	stderr = run.stderr ?? '';
+const command = `${process.execPath} ${argv.join(' ')}`;
+if (code !== 0) {
+	console.error(`verify-rive-3d-host --all exited ${code}:\n${stdout}\n${stderr}`);
+	process.exit(1);
+}
 const items = [];
 for (let n = 1; n <= 6; n++) {
-	const id = `A${n}`,
-		argv = ['web-foundations/scripts/verify-rive-3d-host.mjs', id];
-	const run = spawnSync(process.execPath, argv, { cwd: repo, encoding: 'utf8' });
-	const code = run.status ?? 1,
-		stdout = run.stdout ?? '',
-		stderr = run.stderr ?? '';
-	const command = `${process.execPath} ${argv.join(' ')}`,
-		transcriptPath = resolve(out, `${id}.command.json`),
-		transcript = {
-			acceptanceId: id,
-			command,
-			argv: [process.execPath, ...argv],
-			cwd: repo,
-			exitCode: code,
-			stdout,
-			stderr,
-		};
-	writeFileSync(transcriptPath, JSON.stringify(transcript, null, 2) + '\n');
-	if (code !== 0) {
-		console.error(`${id} exited ${code}:\n${stdout}\n${stderr}`);
+	const id = `A${n}`;
+	if (!stdout.includes(`PASS ${id}:`)) {
+		console.error(`${id}: transcript has no PASS line`);
 		process.exit(1);
 	}
+	const transcriptPath = resolve(out, `${id}.command.json`),
+		transcript = { acceptanceId: id, command, argv: [process.execPath, ...argv], cwd: repo, exitCode: 0, stdout, stderr };
+	writeFileSync(transcriptPath, JSON.stringify(transcript, null, 2) + '\n');
 	const artifact = artifacts[id];
 	items.push({
 		id,
@@ -61,4 +63,4 @@ writeFileSync(
 	JSON.stringify({ phase: 'X4', reportStatus: 'VERIFYING', generatedBy: 'capture-x4-evidence.mjs', items }, null, 2) +
 		'\n'
 );
-console.log('captured X4 evidence for A1-A6');
+console.log('captured X4 evidence for A1-A6 from the --all gate run');
