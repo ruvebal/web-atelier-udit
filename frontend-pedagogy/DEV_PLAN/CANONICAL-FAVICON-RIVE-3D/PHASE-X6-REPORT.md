@@ -1,6 +1,6 @@
 # PHASE-X6 · Full implementation audit
 
-**Status:** VERIFYING
+**Status:** DONE
 **Branch:** `cascade/CANONICAL-FAVICON-RIVE-3D-6`
 
 ## Outcome

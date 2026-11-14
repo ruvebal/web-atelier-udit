@@ -1,6 +1,6 @@
 # Canonical favicon · Rive + AnimaScript 3D cascade
 
-**Status:** ACTIVE · X0 DONE · X1 DONE · X2 DONE · X3 DONE · X4 DONE · X5 DONE · X6 READY · X9 BLOCKED · integration branch `codex/canonical-favicon-rive-3d-cascade`  
+**Status:** ACTIVE · X0 DONE · X1 DONE · X2 DONE · X3 DONE · X4 DONE · X5 DONE · X6 DONE · X7 READY · X9 BLOCKED · integration branch `codex/canonical-favicon-rive-3d-cascade`  
 **Author:** Rubén Vega Balbás, PhD · 2026-11-10  
 **Product claim:** any SVG inside the supported subset becomes a crisp, responsive, depth-tested object whose dynamic set of source facets remains individually understandable and selectable; the favicon is the golden fixture.
 **Engineering claim:** geometry, colour, area, intrinsic extrusion depth, hit identity, fallback, and teaching evidence are generated from one SVG source rather than copied by hand.
@@ -24,6 +24,7 @@
 | Independent verifier | [PHASE-X3-CLOSURE-COLD-REVIEW.md](PHASE-X3-CLOSURE-COLD-REVIEW.md) | Did the choreography and picker survive the closure review? |
 | Independent verifier | [PHASE-X4-CLOSURE-COLD-REVIEW.md](PHASE-X4-CLOSURE-COLD-REVIEW.md) | Did the responsive host survive the closure review? |
 | Independent verifier | [PHASE-X5-CLOSURE-COLD-REVIEW.md](PHASE-X5-CLOSURE-COLD-REVIEW.md) | Did the making-of lesson (sound-first) survive the closure review? |
+| Independent verifier | [PHASE-X6-COLD-REVIEW.md](PHASE-X6-COLD-REVIEW.md) | Did the full-stack audit survive independent review? |
 
 ## Programme
 
@@ -37,8 +38,8 @@ Only the first word of each Gate cell is machine status.
 | 3 | [PHASE-X3.md](PHASE-X3.md) | Build/unbuild choreography, facet picking, persistent selection | DONE — exit gate and independent cold review passed |
 | 4 | [PHASE-X4.md](PHASE-X4.md) | Responsive demo integration, semantics, reduced-motion/static fallbacks | DONE — exit gate and independent cold review passed |
 | 5 | [PHASE-X5.md](PHASE-X5.md) | Public making-of lesson; sound synchronicity as first relevance utility; truthful agentic provenance | DONE — exit gate, ES twin, and closure cold review passed |
-| 6 | [PHASE-X6.md](PHASE-X6.md) | Full implementation audit and performance/fidelity matrix | VERIFYING |
-| 7 | [PHASE-X7.md](PHASE-X7.md) | Promote the general Rive/AnimaScript 3D skill and SVG adapter; open implementation PR A | BLOCKED — opens after X6 DONE |
+| 6 | [PHASE-X6.md](PHASE-X6.md) | Full implementation audit and performance/fidelity matrix | DONE — exit gate, cold review, promotion gate |
+| 7 | [PHASE-X7.md](PHASE-X7.md) | Promote the general Rive/AnimaScript 3D skill and SVG adapter; open implementation PR A | READY — opened after X6 promotion gate |
 | 8 | [PHASE-X8.md](PHASE-X8.md) | Post-merge provenance hook with real PR/review/merge evidence | BLOCKED — opens only after PR A is merged |
 | 9 | [PHASE-X9.md](PHASE-X9.md) | Propose animation wisdom to TTOD from the findings this pack keeps | BLOCKED — opens after X8 DONE |
 

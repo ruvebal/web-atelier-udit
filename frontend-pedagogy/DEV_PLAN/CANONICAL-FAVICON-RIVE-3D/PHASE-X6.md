@@ -1,6 +1,6 @@
 # PHASE-X6 · Full implementation audit
 
-**Status:** VERIFYING
+**Status:** DONE — exit gate, cold review, and promotion gate passed
 
 ## Goal
 
