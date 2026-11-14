@@ -1,6 +1,6 @@
 # PHASE-X5 · External exit gate log
 
-**Commit under test:** (evidence commit after F1–F3 closure)
+**Commit under test:** `a3f581e`
 **Gate:** `PHASE-X5.exit-gate.sh`
 **Result:** PASS (re-run after cold-review closures)
 **Cold review:** `PHASE-X5-COLD-REVIEW.md` → closures in `PHASE-X5-REVIEW-RESOLUTION.md`
