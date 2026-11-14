@@ -1,6 +1,6 @@
 # Canonical favicon · Rive + AnimaScript 3D cascade
 
-**Status:** ACTIVE · X0 DONE · X1 DONE · X2 DONE · X3 DONE · X4 READY · integration branch `codex/canonical-favicon-rive-3d-cascade`  
+**Status:** ACTIVE · X0 DONE · X1 DONE · X2 DONE · X3 DONE · X4 READY · X9 BLOCKED · integration branch `codex/canonical-favicon-rive-3d-cascade`  
 **Author:** Rubén Vega Balbás, PhD · 2026-11-10  
 **Product claim:** any SVG inside the supported subset becomes a crisp, responsive, depth-tested object whose dynamic set of source facets remains individually understandable and selectable; the favicon is the golden fixture.
 **Engineering claim:** geometry, colour, area, intrinsic extrusion depth, hit identity, fallback, and teaching evidence are generated from one SVG source rather than copied by hand.
@@ -38,6 +38,7 @@ Only the first word of each Gate cell is machine status.
 | 6 | [PHASE-X6.md](PHASE-X6.md) | Full implementation audit and performance/fidelity matrix | BLOCKED — opens after X5 DONE |
 | 7 | [PHASE-X7.md](PHASE-X7.md) | Promote the general Rive/AnimaScript 3D skill and SVG adapter; open implementation PR A | BLOCKED — opens after X6 DONE |
 | 8 | [PHASE-X8.md](PHASE-X8.md) | Post-merge provenance hook with real PR/review/merge evidence | BLOCKED — opens only after PR A is merged |
+| 9 | [PHASE-X9.md](PHASE-X9.md) | Propose animation wisdom to TTOD from the findings this pack keeps | BLOCKED — opens after X8 DONE |
 
 Every phase closes `VERIFYING → COLD_REVIEW → DONE`; the implementer never marks their own work DONE.
 

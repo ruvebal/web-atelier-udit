@@ -1,0 +1,48 @@
+{
+  "state": {
+    "mode": "static",
+    "playing": false,
+    "destroyed": false,
+    "sel": [],
+    "selSize": 0,
+    "elapsed": 0,
+    "phase": 0,
+    "orbit": {
+      "yaw": 0,
+      "pitch": 0,
+      "yawTarget": 0,
+      "pitchTarget": 0
+    },
+    "facetCount": 13
+  },
+  "dom": {
+    "mode": "static",
+    "imgSrc": "/web-atelier-udit/assets/animations/fava/rive/animascript-3d/stills/assembled.png",
+    "imgVisible": true,
+    "canvasDisplayed": false,
+    "previewPlaying": false,
+    "toggleText": "Still frames",
+    "toggleDisabled": true,
+    "resetDisabled": false,
+    "status": "Reduced motion is on; showing a static frame of the 3D scene. Facet buttons swap verified stills.",
+    "live": "Reduced motion is on; showing a static frame of the 3D scene. Facet buttons swap verified stills.",
+    "buttons": 13
+  },
+  "base": {
+    "assembled": true,
+    "imgVisible": true,
+    "canvasHidden": true,
+    "reducedStatus": true,
+    "controlsUsable": true
+  },
+  "afterSelect": {
+    "imgSrc": "/web-atelier-udit/assets/animations/fava/rive/animascript-3d/stills/facet-01.png",
+    "pressed": "true",
+    "live": "facet-01 still shown"
+  },
+  "afterReset": {
+    "imgSrc": "/web-atelier-udit/assets/animations/fava/rive/animascript-3d/stills/assembled.png",
+    "pressed": "false"
+  },
+  "pageErrors": []
+}

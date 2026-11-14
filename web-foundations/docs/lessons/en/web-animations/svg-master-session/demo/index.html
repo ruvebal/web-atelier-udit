@@ -203,17 +203,20 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
       <div class="card-head"><h2>Rive + AnimaScript 3D</h2><span class="category">GPU Canvas scene</span></div>
       <p class="asset-status" data-asset-status="animascript3d" role="status">Loading the signed depth-tested Rive scene…</p>
       <div class="asset-preview rive-gpu-preview">
-        <img src="{{ '/assets/animations/fava/rive/animascript-3d/fava-prismatic-3d.webp' | relative_url }}" alt="Static frame of thirteen extruded favicon-colour prisms">
-        <canvas width="720" height="480" data-rive-3d-canvas role="img" aria-label="Thirteen lit triangular prisms unfold from a frontal favicon composition into a depth-tested spatial constellation, then reassemble"></canvas>
+        <img src="{{ '/assets/animations/fava/rive/animascript-3d/stills/assembled.png' | relative_url }}" alt="Assembled still of the thirteen-facet extruded ruvebal favicon">
+        <canvas width="720" height="480" data-rive-3d-canvas role="img" aria-label="Thirteen extruded favicon facets in a depth-tested Rive GPU scene: they unfold through Z on staggered clocks, separate, and reassemble; click or tap a facet to toggle its selection"></canvas>
         <span class="rive-source-badge">AnimaScript · WGSL · depth buffer</span>
       </div>
       <div class="asset-controls">
         <button type="button" data-rive-3d-toggle disabled>Loading GPU scene…</button>
+        <button type="button" data-rive-3d-reset disabled>Reset selection</button>
         <a href="{{ '/assets/animations/fava/rive/animascript-3d/main.as' | relative_url }}">Open <code>.as</code></a>
         <a href="{{ '/assets/animations/fava/rive/animascript-3d/canonical-favicon.wgsl' | relative_url }}">Open WGSL</a>
         <a href="{{ '/assets/animations/fava/rive/animascript-3d/build/fava_prismatic_3d.riv' | relative_url }}">Open signed <code>.riv</code></a>
       </div>
-      <p><strong>Best show:</strong> one portable Rive file owns the WebAssembly loop, instanced prism geometry, perspective camera, directional lighting, real side faces, occlusion, and a depth buffer. The favicon-inspired facets unfold through Z and return in a seamless nine-second cycle.</p>
+      <div class="rive-3d-facets" data-rive-3d-facets role="group" aria-label="Select a favicon facet"></div>
+      <p class="sr-only" data-rive-3d-live aria-live="polite"></p>
+      <p><strong>Best show:</strong> one portable Rive file owns the WebAssembly loop, the generated extruded meshes, an orthographic camera with quaternion choreography, directional lighting, a depth buffer, and a CPU picker that shares the GPU's discard and depth-tie rules. The thirteen source facets extrude on staggered clocks, separate, and reassemble in a seamless nine-second loop. Click, tap, or use the facet buttons to toggle a selection; reduced motion swaps in verified stills of the same scene.</p>
     </article>
     <article id="audio-specimen" class="asset-card asset-card--audio" data-authored="animascript-audio">
       <div class="card-head"><h2>Rive + AnimaScript audio</h2><span class="category">AudioProcessor lane · hear this</span></div>
@@ -279,7 +282,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
     </section>
     <aside class="spatial-verdict" aria-label="Spatial rendering verdict">
       <strong>Do not infer 3D from the graphics API.</strong>
-      <p>dotLottie can use WebGL2 or WebGPU and still render a two-dimensional timeline. GSAP, Motion, and Anime.js can animate Three.js values but do not render the scene. <a href="https://rive.app/agents" target="_blank" rel="noopener">Current Rive</a> can combine vectors and native 3D in one scene, and <a href="https://rive.app/rasc/docs/getting-started.html" target="_blank" rel="noopener">AnimaScript</a> can drive its procedural logic. That capability does not make every Rive file three-dimensional: the timeline <code>.riv</code> and path-drawn scripted favicon remain 2D, while the new prismatic GPU Canvas specimen is true 3D because it supplies geometry, perspective, lighting, and a depth buffer. The Canvas projection specimen above is <strong>projected 2.5D</strong>: it gives flat SVG facets synthetic Z values, perspective scale, and painter order, but has no meshes, thickness, lights, or depth buffer.</p>
+      <p>dotLottie can use WebGL2 or WebGPU and still render a two-dimensional timeline. GSAP, Motion, and Anime.js can animate Three.js values but do not render the scene. <a href="https://rive.app/agents" target="_blank" rel="noopener">Current Rive</a> can combine vectors and native 3D in one scene, and <a href="https://rive.app/rasc/docs/getting-started.html" target="_blank" rel="noopener">AnimaScript</a> can drive its procedural logic. That capability does not make every Rive file three-dimensional: the timeline <code>.riv</code> and path-drawn scripted favicon remain 2D, while the canonical-favicon GPU Canvas specimen is true 3D because it supplies generated extruded geometry, an orthographic camera, lighting, and a depth buffer. The Canvas projection specimen above is <strong>projected 2.5D</strong>: it gives flat SVG facets synthetic Z values, perspective scale, and painter order, but has no meshes, thickness, lights, or depth buffer.</p>
     </aside>
   </section>
 
@@ -1101,6 +1104,8 @@ scene.add(new THREE.Mesh(geometry, material));`]
   }
 </script>
 <script type="module">
+  import { initRive3DHost } from '{{ "/assets/js/favicon-motion/rive-3d-host.js" | relative_url }}?v=20261113-x4';
+
   const prefersLess = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const markUrl = "{{ '/assets/icons/fava-mark-static.svg' | relative_url }}?v=20261110-clean-base-6";
   const svgNS = 'http://www.w3.org/2000/svg';
@@ -1294,7 +1299,6 @@ scene.add(new THREE.Mesh(geometry, material));`]
     authoredStatus('lottie').textContent = 'Reduced motion is on; showing the static source SVG.';
     authoredStatus('dotlottie').textContent = 'Reduced motion is on; showing the static source SVG.';
     authoredStatus('rive').textContent = 'Reduced motion is on; showing the static source SVG.';
-    authoredStatus('animascript3d').textContent = 'Reduced motion is on; showing a static frame of the 3D scene.';
     authoredStatus('animascript-audio').textContent =
       'Reduced motion is on — open hum.as / hum-preview.wav; Play stays off.';
     lottieButton.textContent = 'Static by preference';
@@ -1415,56 +1419,18 @@ scene.add(new THREE.Mesh(geometry, material));`]
       console.warn('Rive showreel unavailable', error);
     }
 
-    const rive3dCanvas = document.querySelector('[data-rive-3d-canvas]');
-    const rive3dButton = document.querySelector('[data-rive-3d-toggle]');
-    const rive3dUrl = `${authoredBase}rive/animascript-3d/build/fava_prismatic_3d.riv`;
-    const forceRive3dFailure = new URLSearchParams(window.location.search).has('force-rive3d-failure');
-    if (forceRive3dFailure) {
-      authoredStatus('animascript3d').textContent = 'The GPU scene could not load; its verified static frame remains visible.';
-      rive3dButton.disabled = true;
-      rive3dButton.textContent = 'GPU scene unavailable';
-      rive3dCanvas?.setAttribute('aria-label', 'Static Rive frame; GPU scene unavailable');
-    } else try {
-      const rive3dRuntime = await Promise.race([
-        import('https://cdn.jsdelivr.net/npm/@rive-app/webgl2@2.50.0/+esm'),
-        new Promise((_, reject) => setTimeout(() => reject(new Error('Rive WebGL2 runtime timed out.')), 8000)),
-      ]);
-      const rive3dApi = rive3dRuntime.rive ?? rive3dRuntime.default?.rive ?? rive3dRuntime.default ?? rive3dRuntime;
-      const { Rive } = rive3dApi;
-      if (typeof Rive !== 'function') throw new TypeError('The Rive WebGL2 runtime did not expose its player constructor.');
-      let isPlaying = true;
-      const rive3dPlayer = new Rive({
-        src: rive3dUrl,
-        canvas: rive3dCanvas,
-        autoplay: true,
-        enableGPUCanvas: true,
-        useOffscreenRenderer: false,
-        onLoad: () => {
-          authoredPreview('animascript3d').classList.add('is-playing');
-          authoredStatus('animascript3d').textContent = 'Signed Rive GPU Canvas scene: real geometry, lighting, and depth testing.';
-          rive3dButton.disabled = false;
-          rive3dButton.textContent = 'Pause 3D loop';
-          rive3dPlayer.resizeDrawingSurfaceToCanvas();
-        },
-        onLoadError: (error) => {
-          authoredStatus('animascript3d').textContent = 'The GPU scene could not load; its verified static frame remains visible.';
-          rive3dButton.disabled = true;
-          rive3dButton.textContent = 'GPU scene unavailable';
-          rive3dCanvas?.setAttribute('aria-label', 'Static Rive frame; GPU scene unavailable');
-          console.error('Rive 3D file failed to load', error);
-        },
-      });
-      rive3dButton.addEventListener('click', () => {
-        isPlaying = !isPlaying;
-        if (isPlaying) rive3dPlayer.play();
-        else rive3dPlayer.pause();
-        rive3dButton.textContent = isPlaying ? 'Pause 3D loop' : 'Resume 3D loop';
-      });
-      new ResizeObserver(() => rive3dPlayer.resizeDrawingSurfaceToCanvas()).observe(rive3dCanvas);
+  }
+
+  // Rive + AnimaScript 3D host: semantic facet controls, pause/reset, static
+  // fallback and reduced-motion stills. Runs in both motion branches — the
+  // host itself decides live vs. static mode.
+  const rive3dArticle = document.querySelector('[data-authored="animascript3d"]');
+  if (rive3dArticle) {
+    try {
+      rive3dArticle.__rive3dHost = await initRive3DHost(rive3dArticle, { baseUrl: authoredBase });
     } catch (error) {
       authoredStatus('animascript3d').textContent = 'Rive WebGL2 is unavailable; showing the verified static frame.';
-      rive3dButton.textContent = 'GPU runtime unavailable';
-      console.warn('Rive 3D showreel unavailable', error);
+      console.warn('Rive 3D host failed', error);
     }
   }
 

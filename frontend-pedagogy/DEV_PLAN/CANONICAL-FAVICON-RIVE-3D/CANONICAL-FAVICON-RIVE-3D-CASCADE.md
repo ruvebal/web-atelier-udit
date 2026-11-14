@@ -97,6 +97,8 @@ Web Atelier paths and favicon palette remain in the linked case study.
 
 This two-PR topology is part of the pedagogy: reproducible history is observed after it exists, not narrated in advance.
 
+X9 opens only after X8 is DONE. It distills animation wisdom into TTOD proposals under `~/src/.cursor/skills/ttod-bridge/pending/`. The cold reviews, verify logs, and `DECISIONS.md` stay in this pack; a proposal cites them and does not replace them. Nothing in X9 writes `~/src/ttod/ttod.yml`. Acceptance is a human act inside TTOD, after D52's local model has drafted the proposal text.
+
 ## Harness execution
 
 Canonical harness: `/Users/ruvebal/src/.cursor/skills/cascade-forge/scripts/cascade-harness.sh`.

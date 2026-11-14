@@ -78,7 +78,8 @@ function camera(elapsed, aspect) {
 				maxVZ = Math.max(maxVZ, v[2]);
 			}
 	const halfH = Math.max(maxVY, maxVX / aspect) * 1.06;
-	const near = Math.max(-maxVZ - 0.05, 0.01);
+	const nearMargin = 0.08 + 0.1 + 0.02; // SELECT_OFFSET_Z + SEPARATION_DIST + eps (choreo.as)
+	const near = Math.max(-maxVZ - nearMargin, 0.01);
 	const far = -minVZ + 0.05;
 	const project = (v) => {
 		// Mat4.ortho: x/y to NDC, view z in [-far,-near] to depth [0,1].

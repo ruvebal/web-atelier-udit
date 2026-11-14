@@ -175,7 +175,7 @@ const bounds = (() => {
 })();
 const CENTER = [(bounds.minX + bounds.maxX) / 2, (bounds.minY + bounds.maxY) / 2, (bounds.minZ + bounds.maxZ) / 2];
 
-function computeCam(phase, elapsed, userYaw, userPitch, aspect) {
+function computeCam(phase, elapsed, userYaw, userPitch, aspect, nearMarginOverride) {
 	const w = inspectWeight(phase);
 	const qBase = qSlerp(qIdent(), qYawPitch(C.INSPECT_YAW, C.INSPECT_PITCH), w);
 	const qUser = qYawPitch(userYaw, userPitch);
@@ -203,7 +203,8 @@ function computeCam(phase, elapsed, userYaw, userPitch, aspect) {
 				maxVZ = Math.max(maxVZ, v[2]);
 			}
 	const halfH = Math.max(maxVY, maxVX / aspect) * C.FIT_MARGIN;
-	const near = Math.max(-maxVZ - 0.05, 0.01);
+	const nearMargin = nearMarginOverride ?? C.SELECT_OFFSET_Z + C.SEPARATION_DIST + 0.02;
+	const near = Math.max(-maxVZ - nearMargin, 0.01);
 	const far = -minVZ + 0.05;
 	return {
 		phase,
@@ -482,21 +483,29 @@ function checkA1() {
 			}
 		}
 	}
-	const pickFor = (fi) => {
+	// Overlap goes first on an empty bitset so its winner is the later
+	// source-order facet; small/large points are then planned against the
+	// selection state the earlier clicks leave behind (a selected facet pops
+	// toward the camera and can legitimately win a later pick).
+	const pickFor = (fi, selSet) => {
 		for (const pt of candidates.get(fi) ?? []) {
-			if (pickJS(frame0, ZERO8, pt.x, pt.y, cssW, cssH) === fi) return pt;
+			if (pickJS(frame0, selWordsFor(selSet), pt.x, pt.y, cssW, cssH) === fi) return pt;
 		}
 		return null;
 	};
-	const pts = { small: pickFor(small), large: pickFor(large), overlap };
+	const pts = {
+		overlap,
+		small: pickFor(small, new Set([overlap.facet])),
+		large: pickFor(large, new Set([overlap.facet, small])),
+	};
 	if (!pts.small || !pts.large || !overlap) {
 		record('A1', false, `fixture missing small=${!!pts.small} large=${!!pts.large} overlap=${!!overlap}`);
 		return;
 	}
 	const events = [
+		{ kind: 'click', x: overlap.x, y: overlap.y, want: overlap.facet },
 		{ kind: 'click', x: pts.small.x, y: pts.small.y, want: small },
 		{ kind: 'click', x: pts.large.x, y: pts.large.y, want: large },
-		{ kind: 'click', x: overlap.x, y: overlap.y, want: overlap.facet },
 	];
 	const { expected } = expectSequence(
 		events.map(({ kind, x, y }) => ({ kind, x, y })),
@@ -626,7 +635,14 @@ function checkA2A3() {
 	// empty point at extruded phase: resets the bitset so the z-offset
 	// select/probe pair runs on a clean selection (F4).
 	let emptyE = null;
-	for (const [x, y] of [[8, 8], [712, 8], [8, 472], [712, 472], [360, 8], [8, 240]]) {
+	for (const [x, y] of [
+		[8, 8],
+		[712, 8],
+		[8, 472],
+		[712, 472],
+		[360, 8],
+		[8, 240],
+	]) {
 		if (pickAt(frameE, x, y) === -1) {
 			emptyE = { x, y };
 			break;
@@ -802,17 +818,8 @@ function checkA4() {
 	// the facet selected + one advance, one without. If the selection bitset
 	// never reaches the shader the frames are pixel-identical (F1).
 	const T = Math.round(phase * C.LOOP_PERIOD * 60);
-	runCommands([
-		`advance ${T}`,
-		`advance 1`,
-		`screenshot ${OUT}/x3-a4-unselected.png`,
-	]);
-	runCommands([
-		`advance ${T}`,
-		`pointer click@${pt.x},${pt.y}`,
-		`advance 1`,
-		`screenshot ${OUT}/x3-a4-selected.png`,
-	]);
+	runCommands([`advance ${T}`, `advance 1`, `screenshot ${OUT}/x3-a4-unselected.png`]);
+	runCommands([`advance ${T}`, `pointer click@${pt.x},${pt.y}`, `advance 1`, `screenshot ${OUT}/x3-a4-selected.png`]);
 	const unP = resolve(OUT, 'x3-a4-unselected.png'),
 		selP = resolve(OUT, 'x3-a4-selected.png');
 	const selDiff = unP && selP ? aeDiff(unP, selP) : NaN;
@@ -820,7 +827,15 @@ function checkA4() {
 	writeFileSync(
 		resolve(OUT, 'A4.json'),
 		JSON.stringify(
-			{ facet: facetIdOf[fi], picks: run.picks, hashesBefore: before, hashesAfter: after, selDiff, unselected: unP, selected: selP },
+			{
+				facet: facetIdOf[fi],
+				picks: run.picks,
+				hashesBefore: before,
+				hashesAfter: after,
+				selDiff,
+				unselected: unP,
+				selected: selP,
+			},
 			null,
 			2
 		)
@@ -1068,7 +1083,20 @@ function checkA8() {
 	const ok = microDiff === 0 && dragDiff > 0;
 	writeFileSync(
 		resolve(OUT, 'A8.json'),
-		JSON.stringify({ microDiff, dragDiff, ref: refP, micro: microP, drag: dragP, refPicks: ref.picks, microPicks: micro.picks, dragPicks: drag.picks }, null, 2)
+		JSON.stringify(
+			{
+				microDiff,
+				dragDiff,
+				ref: refP,
+				micro: microP,
+				drag: dragP,
+				refPicks: ref.picks,
+				microPicks: micro.picks,
+				dragPicks: drag.picks,
+			},
+			null,
+			2
+		)
 	);
 	record('A8', ok, `deadzone micro-diff=${microDiff} (want 0), drag-diff=${dragDiff} (want >0)`);
 }
@@ -1158,6 +1186,88 @@ function checkA11() {
 	);
 }
 
+function checkA12() {
+	// Near-margin regression (X4 cold review F1): the ortho near margin must
+	// contain SELECT_OFFSET_Z + SEPARATION_DIST, not the old fixed 0.05. Two
+	// `pointer click`s from scene start put the select pick on frame 3
+	// (phase 3/540) and the probe on frame 6 (phase 6/540). With facet-01
+	// selected, its +0.08 pop carries the front surface inside the old
+	// margin's clip zone (measured clearance -0.029): under margin 0.05 the
+	// probe picks facet-05 or empty space; under the shipped 0.20 margin it
+	// picks the selected facet. This check fails if the margin regresses.
+	const aspect = 720 / 480,
+		cssW = 720,
+		cssH = 480;
+	const camAt = (frame) => computeCam(loopPhase(frame / 60), frame / 60, 0, 0, aspect);
+	const frameSel = camAt(3);
+	const frameProbe = camAt(6);
+	const frameProbeOld = computeCam(loopPhase(6 / 60), 6 / 60, 0, 0, aspect, 0.05);
+	const sel0 = selWordsFor(new Set([0]));
+	// Select point: unselected pick of facet-01 at frames 2-4 (slack around
+	// the exact up-tick frame 3).
+	let selPt = null;
+	outerSel: for (let y = 8; y < cssH; y += 4) {
+		for (let x = 8; x < cssW; x += 4) {
+			if (
+				pickJS(frameSel, ZERO8, x, y, cssW, cssH) === 0 &&
+				pickJS(camAt(2), ZERO8, x, y, cssW, cssH) === 0 &&
+				pickJS(camAt(4), ZERO8, x, y, cssW, cssH) === 0
+			) {
+				selPt = { x, y };
+				break outerSel;
+			}
+		}
+	}
+	// Probe point: new margin picks facet-01, old margin picks anything else.
+	let probePt = null,
+		oldPick = null;
+	outerProbe: for (let y = 8; y < cssH; y += 2) {
+		for (let x = 8; x < cssW; x += 2) {
+			if (pickJS(frameProbe, sel0, x, y, cssW, cssH) !== 0) continue;
+			const po = pickJS(frameProbeOld, sel0, x, y, cssW, cssH);
+			if (po === 0) continue;
+			probePt = { x, y };
+			oldPick = po;
+			break outerProbe;
+		}
+	}
+	if (!selPt || !probePt) {
+		record('A12', false, `near-margin fixture missing sel=${!!selPt} probe=${!!probePt}`);
+		return;
+	}
+	const lines = [`pointer click@${selPt.x},${selPt.y}`, `pointer click@${probePt.x},${probePt.y}`];
+	const run = runCommands(lines);
+	const ok =
+		run.errs.length === 0 &&
+		run.picks.length === 2 &&
+		run.picks[0].facet === 0 &&
+		run.picks[0].selected === 1 &&
+		run.picks[0].count === 1 &&
+		run.picks[1].facet === 0 &&
+		run.picks[1].selected === 0 &&
+		run.picks[1].count === 0;
+	writeFileSync(
+		resolve(OUT, 'A12.json'),
+		JSON.stringify(
+			{
+				selPt,
+				probePt,
+				oldMarginPick: oldPick,
+				newMarginPick: 0,
+				picks: run.picks,
+				errs: run.errs,
+			},
+			null,
+			2
+		)
+	);
+	record(
+		'A12',
+		ok,
+		`near-margin sel=(${selPt.x},${selPt.y}) probe=(${probePt.x},${probePt.y}) old0.05->${oldPick < 0 ? 'empty' : facetIdOf[oldPick]} new0.20->facet-01 picks=${JSON.stringify(run.picks)}`
+	);
+}
+
 const CHECKS = {
 	A1: checkA1,
 	A2: checkA2A3,
@@ -1174,16 +1284,17 @@ const CHECKS = {
 	A9: checkA9,
 	A10: checkA10,
 	A11: checkA11,
+	A12: checkA12,
 };
 const arg = process.argv[2];
 if (arg === '--all-fixtures') {
-	for (const id of ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11']) {
+	for (const id of ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12']) {
 		if (CHECKS[id]) CHECKS[id]();
 	}
 } else if (CHECKS[arg]) {
 	CHECKS[arg]();
 } else {
-	console.error('usage: verify-picking.mjs --all-fixtures | A1..A11');
+	console.error('usage: verify-picking.mjs --all-fixtures | A1..A12');
 	process.exit(2);
 }
 const failed = Object.entries(results).filter(([, r]) => !r.ok);

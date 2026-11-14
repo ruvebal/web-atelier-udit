@@ -300,7 +300,12 @@ export function computeCamera(
         }
     }
     let halfHeight: f64 = Math.max(maxVY, maxVX / aspect) * FIT_MARGIN;
-    let nearZ: f64 = Math.max(-maxVZ - 0.05, 0.01);
+    // The near margin must clear every toward-camera displacement the scene
+    // can apply on top of the raw bounds: the selection pop (SELECT_OFFSET_Z)
+    // plus the separation drift (SEPARATION_DIST). A 0.05 margin clipped
+    // selected facets against both the GPU near plane and the picker window.
+    let nearMargin: f64 = SELECT_OFFSET_Z + SEPARATION_DIST + 0.02;
+    let nearZ: f64 = Math.max(-maxVZ - nearMargin, 0.01);
     let farZ: f64 = -minVZ + 0.05;
     frame.halfHeight = halfHeight;
     frame.nearZ = nearZ;

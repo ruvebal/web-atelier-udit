@@ -1,0 +1,77 @@
+{
+  "baselineDocOverflow": 8,
+  "captures": [
+    {
+      "width": 320,
+      "theme": "dark",
+      "docOverflow": 8,
+      "cardOverflow": 0,
+      "canvas": {
+        "w": 268,
+        "h": 179,
+        "displayed": true
+      },
+      "capture": "A3-320-dark.png"
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "docOverflow": 8,
+      "cardOverflow": 0,
+      "canvas": {
+        "w": 268,
+        "h": 179,
+        "displayed": true
+      },
+      "capture": "A3-320-light.png"
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "docOverflow": 0,
+      "cardOverflow": 0,
+      "canvas": {
+        "w": 324,
+        "h": 216,
+        "displayed": true
+      },
+      "capture": "A3-768-dark.png"
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "docOverflow": 0,
+      "cardOverflow": 0,
+      "canvas": {
+        "w": 324,
+        "h": 216,
+        "displayed": true
+      },
+      "capture": "A3-768-light.png"
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "docOverflow": 0,
+      "cardOverflow": 0,
+      "canvas": {
+        "w": 348,
+        "h": 232,
+        "displayed": true
+      },
+      "capture": "A3-1280-dark.png"
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "docOverflow": 0,
+      "cardOverflow": 0,
+      "canvas": {
+        "w": 348,
+        "h": 232,
+        "displayed": true
+      },
+      "capture": "A3-1280-light.png"
+    }
+  ]
+}

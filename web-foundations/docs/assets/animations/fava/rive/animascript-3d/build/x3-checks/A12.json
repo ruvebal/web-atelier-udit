@@ -1,0 +1,25 @@
+{
+  "selPt": {
+    "x": 304,
+    "y": 80
+  },
+  "probePt": {
+    "x": 190,
+    "y": 80
+  },
+  "oldMarginPick": 4,
+  "newMarginPick": 0,
+  "picks": [
+    {
+      "facet": 0,
+      "selected": 1,
+      "count": 1
+    },
+    {
+      "facet": 0,
+      "selected": 0,
+      "count": 0
+    }
+  ],
+  "errs": []
+}
