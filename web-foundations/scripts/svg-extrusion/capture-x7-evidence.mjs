@@ -28,15 +28,31 @@ if (skillRun.status !== 0) {
 	process.exit(skillRun.status || 1);
 }
 
-const prRun = spawnSync('gh', ['pr', 'view', '--json', 'number,url,title,body,headRefName'], {
-	cwd: repo,
-	encoding: 'utf8',
-});
-if (prRun.status !== 0) {
-	console.error(prRun.stderr || prRun.stdout);
-	process.exit(prRun.status || 1);
+const prMetaPath = resolve(pack, 'PHASE-X7-PR.json');
+let pr;
+let prRun = { status: 0, stdout: '', stderr: '' };
+if (existsSync(prMetaPath)) {
+	pr = JSON.parse(readFileSync(prMetaPath, 'utf8'));
+	prRun = spawnSync('gh', ['pr', 'view', String(pr.number), '--json', 'number,url,title,body,headRefName'], {
+		cwd: repo,
+		encoding: 'utf8',
+	});
+	if (prRun.status !== 0) {
+		console.error(prRun.stderr || prRun.stdout);
+		process.exit(prRun.status || 1);
+	}
+	pr = JSON.parse(prRun.stdout);
+} else {
+	prRun = spawnSync('gh', ['pr', 'view', '--json', 'number,url,title,body,headRefName'], {
+		cwd: repo,
+		encoding: 'utf8',
+	});
+	if (prRun.status !== 0) {
+		console.error(prRun.stderr || prRun.stdout);
+		process.exit(prRun.status || 1);
+	}
+	pr = JSON.parse(prRun.stdout);
 }
-const pr = JSON.parse(prRun.stdout);
 const deferredOk = /deferred P2|P2:/i.test(pr.body || '') || /non-SVG procedural/i.test(pr.body || '');
 if (!deferredOk) {
 	console.error('PR body must name deferred P2 (non-SVG procedural provider)');

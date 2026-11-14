@@ -1,0 +1,9 @@
+{
+  "id": "A6",
+  "status": "PASS",
+  "observed": {
+    "prNumber": 7,
+    "prUrl": "https://github.com/ruvebal/web-atelier-udit/pull/7",
+    "deferredP2Named": true
+  }
+}
