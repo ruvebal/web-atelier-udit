@@ -1,0 +1,124 @@
+{
+  "phase": "X9",
+  "model": "qwen2.5:72b-instruct-q4_K_M",
+  "endpoint": "http://localhost:11434",
+  "ttodYmlSha256Before": "9503e81d6bcd52c5fbdf52c45200372b2a0ca7fef8892a0a7e913fc46d8f7850",
+  "ttodYmlSha256After": "9503e81d6bcd52c5fbdf52c45200372b2a0ca7fef8892a0a7e913fc46d8f7850",
+  "transcript": {
+    "markdown": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X9-OLLAMA-TRANSCRIPT.md",
+    "json": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/ollama-distillation-transcript.json"
+  },
+  "proposals": [
+    {
+      "path": "/Users/ruvebal/src/.cursor/skills/ttod-bridge/pending/20261115T193048Z-images-the-hand-authored-svg-is-the-sole-author.yaml",
+      "cite": "D1, F1",
+      "source": "CANONICAL-FAVICON-RIVE-3D/DECISIONS.md#D1+FINDINGS-2026-11-10.md#F1",
+      "section": "images",
+      "suggested_id": "img-148",
+      "text": "The hand-authored SVG is the sole authority for geometry and colour; the GPU scene derives from it, never becomes a second author.",
+      "teaches": "Keep one hand-authored geometry authority; treat mesh/GPU output as derivation.",
+      "ollama_basis": "refine D1,F1"
+    },
+    {
+      "path": "/Users/ruvebal/src/.cursor/skills/ttod-bridge/pending/20261115T193049Z-images-extrusion-depth-follows-the-square-root-.yaml",
+      "cite": "D4",
+      "source": "CANONICAL-FAVICON-RIVE-3D/DECISIONS.md#D4",
+      "section": "images",
+      "suggested_id": "img-149",
+      "text": "Extrusion depth follows the square root of relative area between declared bounds \u2014 larger faces advance by measured law, not by eye.",
+      "teaches": "Derive intrinsic depth from measured relative area with an explicit sqrt law and bounds.",
+      "ollama_basis": "refine D4"
+    },
+    {
+      "path": "/Users/ruvebal/src/.cursor/skills/ttod-bridge/pending/20261115T193049Z-architecture-smooth-the-camera-never-the-pick-hit-ide.yaml",
+      "cite": "D8, D19",
+      "source": "CANONICAL-FAVICON-RIVE-3D/DECISIONS.md#D8+D19",
+      "section": "architecture",
+      "suggested_id": "arch-111",
+      "text": "Smooth the camera, never the pick: hit identity follows raw coordinates through the same transforms the pixels used.",
+      "teaches": "Separate camera conditioning from picking so selection agrees with visible depth.",
+      "ollama_basis": "refine D8,D19"
+    },
+    {
+      "path": "/Users/ruvebal/src/.cursor/skills/ttod-bridge/pending/20261115T193050Z-architecture-the-fixture-may-assert-a-count-the-engin.yaml",
+      "cite": "D3, D25",
+      "source": "CANONICAL-FAVICON-RIVE-3D/DECISIONS.md#D3+D25",
+      "section": "architecture",
+      "suggested_id": "arch-112",
+      "text": "The fixture may assert a count; the engine must not. Facet N lives in the manifest \u2014 shaders and skills iterate what the source produced.",
+      "teaches": "Keep dual-N honesty: golden fixtures assert counts; portable engines consume dynamic N.",
+      "ollama_basis": "refine D3,D25 + must_keep restore"
+    },
+    {
+      "path": "/Users/ruvebal/src/.cursor/skills/ttod-bridge/pending/20261115T193051Z-architecture-drive-the-pose-from-elapsed-time-not-fra.yaml",
+      "cite": "D22, D30, D46",
+      "source": "CANONICAL-FAVICON-RIVE-3D/DECISIONS.md#D22+D30+D46",
+      "section": "architecture",
+      "suggested_id": "arch-113",
+      "text": "Drive the pose from elapsed time, not frame count, so the same wall-clock second yields the same orientation on a slow machine.",
+      "teaches": "Time-base animation on elapsed seconds so choreography stays device-independent.",
+      "ollama_basis": "refine D22,D30,D46"
+    },
+    {
+      "path": "/Users/ruvebal/src/.cursor/skills/ttod-bridge/pending/20261115T193052Z-wisdom-before-the-mesh-ask-who-owns-the-audible.yaml",
+      "cite": "D54",
+      "source": "CANONICAL-FAVICON-RIVE-3D/DECISIONS.md#D54",
+      "section": "wisdom",
+      "suggested_id": "wis-035",
+      "text": "Before the mesh, ask who owns the audible sample clock \u2014 that synchronicity is the first relevance utility. The specimen owns the sample clock; the GPU loop owns elapsed choreography; invent no sample-lock between them.",
+      "teaches": "Teach sound-clock ownership as the first honest reason for the stack, without fabricating audio/3D lock.",
+      "ollama_basis": "refine D54 + must_keep restore (first relevance)"
+    },
+    {
+      "path": "/Users/ruvebal/src/.cursor/skills/ttod-bridge/pending/20261115T193053Z-wisdom-a-merge-story-cannot-be-written-before-a.yaml",
+      "cite": "F5, D14",
+      "source": "CANONICAL-FAVICON-RIVE-3D/FINDINGS-2026-11-10.md#F5+DECISIONS.md#D14",
+      "section": "wisdom",
+      "suggested_id": "wis-036",
+      "text": "A merge story cannot be written before a merge exists \u2014 public provenance is observed Git history, never anticipatory narrative.",
+      "teaches": "Publish only real repository events; leave provenance pending until merge evidence exists.",
+      "ollama_basis": "refine F5,D14"
+    },
+    {
+      "path": "/Users/ruvebal/src/.cursor/skills/ttod-bridge/pending/20261115T193054Z-wisdom-the-aphorism-teaches-the-contract-the-fi.yaml",
+      "cite": "D53",
+      "source": "CANONICAL-FAVICON-RIVE-3D/DECISIONS.md#D53",
+      "section": "wisdom",
+      "suggested_id": "wis-037",
+      "text": "The aphorism teaches the contract; the finding remains the proof \u2014 never retire the evidence because a sentence was proposed.",
+      "teaches": "Keep findings and cold reviews in place when distilling animation wisdom into TTOD proposals.",
+      "ollama_basis": "refine D53"
+    },
+    {
+      "path": "/Users/ruvebal/src/.cursor/skills/ttod-bridge/pending/20261115T193055Z-architecture-the-golden-fixture-proves-the-tool-it-mu.yaml",
+      "cite": "D16",
+      "source": "CANONICAL-FAVICON-RIVE-3D/DECISIONS.md#D16",
+      "section": "architecture",
+      "suggested_id": "arch-114",
+      "text": "The golden fixture proves the tool; it must not become the tool's business logic.",
+      "teaches": "Keep reusable compilers free of fixture-specific product logic.",
+      "ollama_basis": "refine D16"
+    }
+  ],
+  "skippedBecauseAlreadyInTTOD": [
+    {
+      "insight": "D32 SVG adapter vs rive-animascript-3d backend separation",
+      "nearMissIds": [
+        "arch-034",
+        "arch-011"
+      ],
+      "reason": "Active TTOD already teaches protocol/adapter/port and inner-reusable/outer-disposable; dual-capability split would mostly restate those."
+    },
+    {
+      "insight": "Generic SVG scalability / identity koans",
+      "nearMissIds": [
+        "img-004",
+        "img-016",
+        "arch-015",
+        "arch-022"
+      ],
+      "reason": "TTOD already covers SVG nature and explicit identity; proposed only the cascade-specific sole-authority and dual-N contracts instead."
+    }
+  ],
+  "generatedAt": "2026-11-15T19:31:37.493963+00:00"
+}

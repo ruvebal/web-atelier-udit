@@ -1,0 +1,15 @@
+{
+  "acceptanceId": "A2",
+  "expected": {
+    "assertions": [
+      "A2-ttod-yml-byte-identical"
+    ]
+  },
+  "observed": {
+    "assertions": [
+      "A2-ttod-yml-byte-identical"
+    ],
+    "summary": "PASS A2: {\"ttodYmlSha256\":\"9503e81d6bcd52c5fbdf52c45200372b2a0ca7fef8892a0a7e913fc46d8f7850\",\"identical\":true,\"proposalCount\":9}"
+  },
+  "exitCode": 0
+}
