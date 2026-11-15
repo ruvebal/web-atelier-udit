@@ -1,6 +1,6 @@
 # PHASE-X9 · Propose the animation wisdom, and keep the findings
 
-**Status:** VERIFYING
+**Status:** DONE — 9 proposals staged; ttod.yml unchanged; cold review clear
 
 ## Goal
 
