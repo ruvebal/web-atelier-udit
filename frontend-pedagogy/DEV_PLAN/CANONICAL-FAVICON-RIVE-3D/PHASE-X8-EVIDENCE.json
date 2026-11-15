@@ -23,7 +23,7 @@
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/A1.command.json",
-        "sha256": "f842c096c4fdb397de3d68a1ff1883a1f020682b93c0da355ad34611e523ae26"
+        "sha256": "6fa38ad9d7047708afed6a854185330833ecbe739635522d44524018a010a8a7"
       }
     },
     {
@@ -46,7 +46,7 @@
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/A2.command.json",
-        "sha256": "eb567a02c3994d566584fc5186176773d43501a8eae2124e1ea22c1970373d04"
+        "sha256": "287334b3c89a1b3987a3a5016e9529ffb02f212c09e58370e084e21d806c565d"
       }
     },
     {
@@ -69,7 +69,7 @@
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/A3.command.json",
-        "sha256": "7d0b75b7eb80556fcb7d9511c9ecaa45f6bdd2d201af8be721d6abdf13abe318"
+        "sha256": "d9fcb09b9a5bb73c66ef7d2351d0dc373d9e3792c0c2de2e0e1fabab73520b77"
       }
     },
     {
@@ -92,7 +92,7 @@
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/A4.command.json",
-        "sha256": "a0426aadd5c29705284f7d86e48f87d0b9cdc66776958498f3ec754d079a8b38"
+        "sha256": "783cd120ac421ca047d203bcd1138d7733b55ee71529df0c3d7d6a1d834430dc"
       }
     },
     {
@@ -115,7 +115,7 @@
       },
       "commandTranscript": {
         "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/A5.command.json",
-        "sha256": "5daa130547ac9ed44ce8aaf8185447569dcd52415215ad43245f31a6af969855"
+        "sha256": "f4fe9045e5c5ad91e470066ffd96ba5f087ecc6ed06063cef9c62f60aa7186ba"
       }
     }
   ]
