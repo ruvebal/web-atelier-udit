@@ -1,0 +1,15 @@
+{
+  "acceptanceId": "A4",
+  "expected": {
+    "assertions": [
+      "A4-section-and-prefix"
+    ]
+  },
+  "observed": {
+    "assertions": [
+      "A4-section-and-prefix"
+    ],
+    "summary": "OK A4 sections+prefixes verified\n{\"sectionsOk\": true, \"checked\": 9}"
+  },
+  "exitCode": 0
+}

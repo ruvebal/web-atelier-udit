@@ -1,0 +1,15 @@
+{
+  "acceptanceId": "A3",
+  "expected": {
+    "assertions": [
+      "A3-blackbox-awaiting-review-no-validated-by"
+    ]
+  },
+  "observed": {
+    "assertions": [
+      "A3-blackbox-awaiting-review-no-validated-by"
+    ],
+    "summary": "PASS A3: {\"proposals\":9,\"origin\":\"blackbox\",\"status\":\"awaiting_human_review\",\"hasValidatedBy\":false}"
+  },
+  "exitCode": 0
+}

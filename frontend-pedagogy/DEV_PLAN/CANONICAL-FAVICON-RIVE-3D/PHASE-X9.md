@@ -1,6 +1,6 @@
 # PHASE-X9 · Propose the animation wisdom, and keep the findings
 
-**Status:** READY — X8 must be DONE
+**Status:** VERIFYING
 
 ## Goal
 
