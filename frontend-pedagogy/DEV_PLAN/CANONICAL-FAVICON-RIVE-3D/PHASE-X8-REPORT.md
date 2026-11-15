@@ -1,6 +1,6 @@
 # PHASE-X8 · Post-merge provenance hook
 
-**Status:** VERIFYING
+**Status:** DONE
 **Branch:** `cascade/CANONICAL-FAVICON-RIVE-3D-8`
 **Worktree:** sibling `web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-8` (lane `CANONICAL-FAVICON-RIVE-3D`)
 **Base:** `origin/main` @ `b109707510e10687cd51d8b70da440a6b83f7108` (PR A #7 merge)

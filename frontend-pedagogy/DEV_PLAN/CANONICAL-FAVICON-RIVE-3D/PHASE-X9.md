@@ -1,6 +1,6 @@
 # PHASE-X9 · Propose the animation wisdom, and keep the findings
 
-**Status:** BLOCKED — X8 must be DONE
+**Status:** READY — X8 must be DONE
 
 ## Goal
 

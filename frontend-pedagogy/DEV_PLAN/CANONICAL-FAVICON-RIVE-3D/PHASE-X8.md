@@ -1,6 +1,6 @@
 # PHASE-X8 · Post-merge provenance hook
 
-**Status:** VERIFYING — PR A #7 merge imported; PR B docs/data-only; exit gate prepared
+**Status:** DONE — PR A merge imported; PR B #8 open; cold review clear
 
 ## Goal
 

@@ -1,6 +1,6 @@
 # Canonical favicon · Rive + AnimaScript 3D cascade
 
-**Status:** ACTIVE · X0 DONE · X1 DONE · X2 DONE · X3 DONE · X4 DONE · X5 DONE · X6 DONE · X7 DONE · X8 VERIFYING · X9 BLOCKED · integration branch `codex/canonical-favicon-rive-3d-cascade` (merged via PR #7)  
+**Status:** ACTIVE · X0 DONE · X1 DONE · X2 DONE · X3 DONE · X4 DONE · X5 DONE · X6 DONE · X7 DONE · X8 DONE · X9 READY · integration branch `codex/canonical-favicon-rive-3d-cascade` (merged via PR #7)  
 **Author:** Rubén Vega Balbás, PhD · 2026-11-10  
 **Product claim:** any SVG inside the supported subset becomes a crisp, responsive, depth-tested object whose dynamic set of source facets remains individually understandable and selectable; the favicon is the golden fixture.
 **Engineering claim:** geometry, colour, area, intrinsic extrusion depth, hit identity, fallback, and teaching evidence are generated from one SVG source rather than copied by hand.
@@ -26,6 +26,7 @@
 | Independent verifier | [PHASE-X5-CLOSURE-COLD-REVIEW.md](PHASE-X5-CLOSURE-COLD-REVIEW.md) | Did the making-of lesson (sound-first) survive the closure review? |
 | Independent verifier | [PHASE-X6-COLD-REVIEW.md](PHASE-X6-COLD-REVIEW.md) | Did the full-stack audit survive independent review? |
 | Independent verifier | [PHASE-X7-COLD-REVIEW.md](PHASE-X7-COLD-REVIEW.md) | Did skill promotion and PR A survive independent review? |
+| Independent verifier | [PHASE-X8-COLD-REVIEW.md](PHASE-X8-COLD-REVIEW.md) | Did post-merge provenance and PR B survive independent review? |
 
 ## Programme
 
@@ -41,8 +42,8 @@ Only the first word of each Gate cell is machine status.
 | 5 | [PHASE-X5.md](PHASE-X5.md) | Public making-of lesson; sound synchronicity as first relevance utility; truthful agentic provenance | DONE — exit gate, ES twin, and closure cold review passed |
 | 6 | [PHASE-X6.md](PHASE-X6.md) | Full implementation audit and performance/fidelity matrix | DONE — exit gate, cold review, promotion gate |
 | 7 | [PHASE-X7.md](PHASE-X7.md) | Promote the general Rive/AnimaScript 3D skill and SVG adapter; open implementation PR A | DONE — PR A #7 open; cold review clear |
-| 8 | [PHASE-X8.md](PHASE-X8.md) | Post-merge provenance hook with real PR/review/merge evidence | VERIFYING — PR A #7 imported; PR B docs/data-only |
-| 9 | [PHASE-X9.md](PHASE-X9.md) | Propose animation wisdom to TTOD from the findings this pack keeps | BLOCKED — opens after X8 DONE |
+| 8 | [PHASE-X8.md](PHASE-X8.md) | Post-merge provenance hook with real PR/review/merge evidence | DONE — PR B #8; cold review clear |
+| 9 | [PHASE-X9.md](PHASE-X9.md) | Propose animation wisdom to TTOD from the findings this pack keeps | READY |
 
 Every phase closes `VERIFYING → COLD_REVIEW → DONE`; the implementer never marks their own work DONE.
 
