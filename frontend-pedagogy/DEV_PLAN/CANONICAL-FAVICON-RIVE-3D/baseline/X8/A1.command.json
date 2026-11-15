@@ -1,0 +1,15 @@
+{
+  "acceptanceId": "A1",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-provenance.mjs --resolve-remote --require-merged --check-diff-allowlist",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/verify-rive-3d-provenance.mjs",
+    "--resolve-remote",
+    "--require-merged",
+    "--check-diff-allowlist"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-8",
+  "exitCode": 0,
+  "stdout": "PASS diff-allowlist: 0 path(s) vs b109707510e1…\nPASS provenance: 15 events (1 pending)\nPASS A1: {\"eventsResolved\":true,\"prNumber\":7,\"mergeSha\":\"b109707510e10687cd51d8b70da440a6b83f7108\",\"absentGithubReviewsLabeled\":true}\n",
+  "stderr": ""
+}

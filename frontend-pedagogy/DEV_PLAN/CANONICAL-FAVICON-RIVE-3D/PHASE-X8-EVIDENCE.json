@@ -1,0 +1,122 @@
+{
+  "phase": "X8",
+  "reportStatus": "VERIFYING",
+  "generatedBy": "capture-x8-evidence.mjs",
+  "items": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-provenance.mjs --resolve-remote --require-merged --check-diff-allowlist",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x8-checks/A1.json",
+      "sha256": "9c24d8377b71083bb21c9bd5cf9d4d19209b2dc91d6063b9474282d44496a766",
+      "expected": {
+        "assertions": [
+          "A1-provenance"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A1-provenance"
+        ],
+        "summary": "PASS A1: {\"eventsResolved\":true,\"prNumber\":7,\"mergeSha\":\"b109707510e10687cd51d8b70da440a6b83f7108\",\"absentGithubReviewsLabeled\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/A1.command.json",
+        "sha256": "f842c096c4fdb397de3d68a1ff1883a1f020682b93c0da355ad34611e523ae26"
+      }
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-provenance.mjs --resolve-remote --require-merged --check-diff-allowlist",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x8-checks/A2.json",
+      "sha256": "3fc445d0b9c1bae6abfcb8bad8458a34653ae56ec49f8253600857b5371bbb98",
+      "expected": {
+        "assertions": [
+          "A2-provenance"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A2-provenance"
+        ],
+        "summary": "PASS A2: {\"fetchedOriginMain\":true,\"mergeIsAncestor\":true,\"prMergeMatches\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/A2.command.json",
+        "sha256": "eb567a02c3994d566584fc5186176773d43501a8eae2124e1ea22c1970373d04"
+      }
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-provenance.mjs --resolve-remote --require-merged --check-diff-allowlist",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x8-checks/A3.json",
+      "sha256": "c6d08e0453e1a32fb9917b24a97b9ef43881bfbf45230c1e6cdccca58607607e",
+      "expected": {
+        "assertions": [
+          "A3-provenance"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A3-provenance"
+        ],
+        "summary": "PASS A3: {\"rolesLabeled\":true,\"quotationVsSummary\":true,\"esInLockstep\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/A3.command.json",
+        "sha256": "7d0b75b7eb80556fcb7d9511c9ecaa45f6bdd2d201af8be721d6abdf13abe318"
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-provenance.mjs --resolve-remote --require-merged --check-diff-allowlist",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x8-checks/A4.json",
+      "sha256": "0d8e8cd956992fd94ec3052b3a248f9adf7483381b73a860321cfc10ad6bbd2d",
+      "expected": {
+        "assertions": [
+          "A4-provenance"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A4-provenance"
+        ],
+        "summary": "PASS A4: {\"publicSurfacesClean\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/A4.command.json",
+        "sha256": "a0426aadd5c29705284f7d86e48f87d0b9cdc66776958498f3ec754d079a8b38"
+      }
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-provenance.mjs --resolve-remote --require-merged --check-diff-allowlist",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x8-checks/A5.json",
+      "sha256": "c9e1620bec96f4d301353e4a42be81115354d72308985a4dff6b755091242586",
+      "expected": {
+        "assertions": [
+          "A5-provenance"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A5-provenance"
+        ],
+        "summary": "PASS A5: {\"diffAllowlistPass\":true,\"eventCount\":15,\"openRowsLabeled\":1}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/A5.command.json",
+        "sha256": "5daa130547ac9ed44ce8aaf8185447569dcd52415215ad43245f31a6af969855"
+      }
+    }
+  ]
+}

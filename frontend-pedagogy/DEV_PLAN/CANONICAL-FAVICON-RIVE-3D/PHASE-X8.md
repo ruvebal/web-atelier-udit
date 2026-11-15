@@ -1,6 +1,6 @@
 # PHASE-X8 · Post-merge provenance hook
 
-**Status:** BLOCKED — PR A must be merged
+**Status:** VERIFYING — PR A #7 merge imported; PR B docs/data-only; exit gate prepared
 
 ## Goal
 
@@ -19,11 +19,11 @@ Fetch the remote state, then query Git and GitHub. Import immutable identifiers 
 
 ## Acceptance
 
-- [ ] **A1** Every non-pending commit, comment, check and merge SHA resolves to a real Git/GitHub event with URL/ID, actor role, timestamp and source digest.
-- [ ] **A2** Remote refs were fetched; PR A merge SHA is reachable from fetched `origin/main` and matches PR A metadata.
-- [ ] **A3** Public text labels author, agent, automation and reviewer roles accurately and labels quotation versus summary.
-- [ ] **A4** No token, credential, private prompt or irrelevant machine path reaches the built site.
-- [ ] **A5** PR B diff is restricted to the provenance allowlist and passes publication checks.
+- [x] **A1** Every non-pending commit, comment, check and merge SHA resolves to a real Git/GitHub event with URL/ID, actor role, timestamp and source digest.
+- [x] **A2** Remote refs were fetched; PR A merge SHA is reachable from fetched `origin/main` and matches PR A metadata.
+- [x] **A3** Public text labels author, agent, automation and reviewer roles accurately and labels quotation versus summary.
+- [x] **A4** No token, credential, private prompt or irrelevant machine path reaches the built site.
+- [x] **A5** PR B diff is restricted to the provenance allowlist and passes publication checks.
 
 ## Risks
 

@@ -1,0 +1,9 @@
+{
+  "id": "A3",
+  "status": "PASS",
+  "observed": {
+    "rolesLabeled": true,
+    "quotationVsSummary": true,
+    "esInLockstep": true
+  }
+}

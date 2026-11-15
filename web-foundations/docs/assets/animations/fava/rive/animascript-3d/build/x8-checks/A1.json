@@ -1,0 +1,10 @@
+{
+  "id": "A1",
+  "status": "PASS",
+  "observed": {
+    "eventsResolved": true,
+    "prNumber": 7,
+    "mergeSha": "b109707510e10687cd51d8b70da440a6b83f7108",
+    "absentGithubReviewsLabeled": true
+  }
+}
