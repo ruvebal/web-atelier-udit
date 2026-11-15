@@ -1,0 +1,122 @@
+{
+  "phase": "X6",
+  "reportStatus": "VERIFYING",
+  "generatedBy": "capture-x6-evidence.mjs",
+  "items": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x6-audit.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x6-audit/A1.json",
+      "sha256": "03a1cec15c3e4e5b245f8c7c3d45ed0908891511eb67768c29706bfbfd5c2389",
+      "expected": {
+        "assertions": [
+          "A1-audit-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A1-audit-check"
+        ],
+        "summary": "PASS A1: {\"favicon\":{\"n\":13,\"manifestSha256\":\"9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d\"},\"synthetic\":{\"n\":2,\"manifestSha256\":\"f6feb7656f5e17ab54b97cdc6daa16d6e2aadf699f58994974382c84448f415b\"},\"cli\":\"node scripts/svg-extrusion/cli.mjs --input <svg> --output <dir> --config scripts/svg-extrusion/fixtures/config.json\"}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X6/A1.command.json",
+        "sha256": "603a50a3be4b432e020a40de34cdda0f95e3b68b1557b1cf75af1986274c4685"
+      }
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x6-audit.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x6-audit/A2.json",
+      "sha256": "05f3ba139ed0f0804da6040f7d4589e9b81ab6f0c1f75faf23a4c38291f462b0",
+      "expected": {
+        "assertions": [
+          "A2-audit-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A2-audit-check"
+        ],
+        "summary": "PASS A2: {\"compilerTests\":true,\"riveVerify\":true,\"riveTest\":true,\"riveBench\":true,\"jekyllBuild\":true,\"benchTail\":[\"\"],\"buildOk\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X6/A2.command.json",
+        "sha256": "3eed52aaec7d85c05b195e9ff5a8bf2069fa9f086fd6b58fd643d9fef5d344fd"
+      }
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x6-audit.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x6-audit/A3.json",
+      "sha256": "21f2a4c51404b33d022d87c5d6330e7fb166668a8b1177c5f1090ccb81d68e0f",
+      "expected": {
+        "assertions": [
+          "A3-audit-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A3-audit-check"
+        ],
+        "summary": "PASS A3: {\"packedFacetCounts\":{\"favicon\":13,\"synthetic\":2},\"d4Fidelity\":true,\"d19Picking\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X6/A3.command.json",
+        "sha256": "7f6139895c14258da774e46166ed0ff9e97fc937d4425026d72337229b76e3ee"
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x6-audit.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x6-audit/A4.json",
+      "sha256": "e0f9332b85dd569acb83b1654ba14bba80066e5e94444c6ec7d6ab87140dc6c6",
+      "expected": {
+        "assertions": [
+          "A4-audit-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A4-audit-check"
+        ],
+        "summary": "PASS A4: {\"claims\":5,\"matrixKeys\":[\"fidelity\",\"interaction\",\"accessibility\",\"responsive\",\"fallback\",\"performance\"]}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X6/A4.command.json",
+        "sha256": "7ca9d8ef82fb46b7092abe5e738f782bd2a605fc49a9165b086dd71271249795"
+      }
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x6-audit.mjs --all",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x6-audit/A5.json",
+      "sha256": "f249f2c34ce975a93772ecce2220180d1082fc2cfa62400314223575cc565728",
+      "expected": {
+        "assertions": [
+          "A5-audit-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A5-audit-check"
+        ],
+        "summary": "PASS A5: {\"reusable\":6,\"webAtelierSpecific\":4}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X6/A5.command.json",
+        "sha256": "85cf55d468a1a59db12c94f8989dde7be9630af06aa2fa4453bc4f9a8f6a3d76"
+      }
+    }
+  ]
+}

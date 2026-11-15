@@ -1,0 +1,63 @@
+{
+  "events": [
+    {
+      "kind": "click",
+      "x": 284,
+      "y": 80,
+      "want": 4,
+      "wantId": "facet-05",
+      "got": {
+        "facet": 4,
+        "selected": 1,
+        "count": 1
+      },
+      "expected": {
+        "facet": 4,
+        "selected": 1,
+        "count": 1
+      }
+    },
+    {
+      "kind": "click",
+      "x": 360,
+      "y": 444,
+      "want": 2,
+      "wantId": "facet-03",
+      "got": {
+        "facet": 2,
+        "selected": 1,
+        "count": 2
+      },
+      "expected": {
+        "facet": 2,
+        "selected": 1,
+        "count": 2
+      }
+    },
+    {
+      "kind": "click",
+      "x": 196,
+      "y": 328,
+      "want": 0,
+      "wantId": "facet-01",
+      "got": {
+        "facet": 0,
+        "selected": 1,
+        "count": 3
+      },
+      "expected": {
+        "facet": 0,
+        "selected": 1,
+        "count": 3
+      }
+    }
+  ],
+  "facetVerts": {
+    "small": 18,
+    "large": 810
+  },
+  "overlapCover": [
+    0,
+    4
+  ]
+}

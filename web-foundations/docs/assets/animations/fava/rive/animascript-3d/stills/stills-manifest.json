@@ -1,0 +1,145 @@
+{
+  "basePhase": 0.4352,
+  "baseFrames": 235,
+  "viewport": [
+    720,
+    480
+  ],
+  "items": [
+    {
+      "id": "assembled",
+      "phase": 0.4352,
+      "frames": 235
+    },
+    {
+      "id": "facet-01",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 195.82,
+      "y": 327.61,
+      "shotPhase": 0.4352,
+      "shotFrames": 235,
+      "coverage": 1
+    },
+    {
+      "id": "facet-02",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 340.99,
+      "y": 337.04,
+      "shotPhase": 0.4352,
+      "shotFrames": 235,
+      "coverage": 1
+    },
+    {
+      "id": "facet-03",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 359.67,
+      "y": 444.12,
+      "shotPhase": 0.4352,
+      "shotFrames": 235,
+      "coverage": 1
+    },
+    {
+      "id": "facet-04",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 298.15,
+      "y": 213.45,
+      "shotPhase": 0.98,
+      "shotFrames": 529,
+      "coverage": 1
+    },
+    {
+      "id": "facet-05",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 202.37,
+      "y": 95.38,
+      "shotPhase": 0.98,
+      "shotFrames": 529,
+      "coverage": 1
+    },
+    {
+      "id": "facet-06",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 323.79,
+      "y": 208.27,
+      "shotPhase": 0.98,
+      "shotFrames": 529,
+      "coverage": 1
+    },
+    {
+      "id": "facet-07",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 342.42,
+      "y": 208.12,
+      "shotPhase": 0.98,
+      "shotFrames": 529,
+      "coverage": 1
+    },
+    {
+      "id": "facet-08",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 472.61,
+      "y": 147.59,
+      "shotPhase": 0.98,
+      "shotFrames": 529,
+      "coverage": 1
+    },
+    {
+      "id": "facet-09",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 393.22,
+      "y": 235.53,
+      "shotPhase": 0.98,
+      "shotFrames": 529,
+      "coverage": 1
+    },
+    {
+      "id": "facet-10",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 505.64,
+      "y": 239.34,
+      "shotPhase": 0.4352,
+      "shotFrames": 235,
+      "coverage": 1
+    },
+    {
+      "id": "facet-11",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 421.35,
+      "y": 81.96,
+      "shotPhase": 0.98,
+      "shotFrames": 529,
+      "coverage": 1
+    },
+    {
+      "id": "facet-12",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 147.23,
+      "y": 145.7,
+      "shotPhase": 0.98,
+      "shotFrames": 529,
+      "coverage": 1
+    },
+    {
+      "id": "facet-13",
+      "clickPhase": 0.12,
+      "clickFrames": 65,
+      "x": 363.8,
+      "y": 18.07,
+      "shotPhase": 0.98,
+      "shotFrames": 529,
+      "coverage": 1
+    }
+  ]
+}

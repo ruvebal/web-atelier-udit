@@ -1,0 +1,18 @@
+{
+  "schema": "rive-animascript-3d/v1",
+  "geometry": {
+    "providers": [
+      {
+        "id": "svg-extrusion",
+        "kind": "generated-package",
+        "manifest": "manifest.json",
+        "geometry": "geometry.json"
+      }
+    ]
+  },
+  "interaction": {
+    "picking": "nearest-visible-triangle",
+    "persistentSelection": true,
+    "reset": true
+  }
+}

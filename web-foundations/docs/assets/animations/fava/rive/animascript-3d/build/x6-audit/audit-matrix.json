@@ -1,0 +1,8 @@
+{
+  "fidelity": "verify-fidelity.mjs A1–A8",
+  "interaction": "verify-picking.mjs A1–A11 + host A1",
+  "accessibility": "host semantic facet buttons + reduced-motion stills (X4 A4)",
+  "responsive": "host A3 320/768/1280",
+  "fallback": "host A4/A5 stills",
+  "performance": "rive --bench=300 (A2)"
+}

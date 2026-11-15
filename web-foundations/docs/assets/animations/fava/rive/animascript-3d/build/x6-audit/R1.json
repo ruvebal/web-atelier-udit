@@ -1,0 +1,8 @@
+{
+  "id": "R1",
+  "status": "PASS",
+  "observed": {
+    "openBlocking": 0,
+    "findings": []
+  }
+}

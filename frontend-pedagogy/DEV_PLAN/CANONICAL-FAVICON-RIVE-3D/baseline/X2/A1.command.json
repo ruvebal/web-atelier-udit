@@ -1,0 +1,13 @@
+{
+  "acceptanceId": "A1",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-fidelity.mjs A1",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/svg-extrusion/verify-fidelity.mjs",
+    "A1"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-2",
+  "exitCode": 0,
+  "stdout": "PASS A1: pipeline vertex layout 36B/3attrs, depth32float write=on, blobs 96336B+10392B, counts 2676/5196 from provider\n",
+  "stderr": ""
+}

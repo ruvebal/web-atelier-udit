@@ -1,0 +1,13 @@
+{
+  "acceptanceId": "A6",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/verify-rive-3d-host.mjs --all",
+  "argv": [
+    "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+    "web-foundations/scripts/verify-rive-3d-host.mjs",
+    "--all"
+  ],
+  "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-4",
+  "exitCode": 0,
+  "stdout": "PASS A1: mouse=true(facet-01) touch=true(facet-01) fineMotion micro=true drag=true keyboard=true(facet-01) errors=0\nPASS A2: N=13 buttons=13 labels=true textNotColorOnly=true chipsMatchFills=true enabled=true (waited 915ms for pick-busy to clear)\nPASS A3: 6 captures 320/768/1280 x dark/light; cardOverflow<=2px && docOverflow<=8px(baseline)=true canvasSized=true\nPASS A4: mode=static assembled=true canvasHidden=true selectStill=true reset=true errors=0\nPASS A5: mode=static truthful=true fallbackImg=true controls=true status=\"The GPU scene could not load (forced failure test); verified stills remain avail\"\nPASS A6: destroyed=true player/observer null=true raf=0->0 elapsedFrozen=true orbitDetached=true consoleRestored=true buttons=0 newPicks=0\nALL PASS: A1, A2, A3, A4, A5, A6\n",
+  "stderr": ""
+}

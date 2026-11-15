@@ -1,0 +1,8 @@
+{
+  "id": "A4",
+  "status": "PASS",
+  "observed": {
+    "codexSynced": true,
+    "canvasRoutes": true
+  }
+}
