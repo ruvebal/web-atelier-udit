@@ -123,26 +123,29 @@ Open the live card: [Rive + AnimaScript 3D on the demo]({{ '/lessons/en/web-anim
 | Accessibility | Semantic twin in HTML; GPU pixels are never the only control surface |
 | Reduced motion | No automatic loop; deliberate facet stills remain usable |
 
-## Provenance (local, honest, pending where pending)
+## Provenance (local + GitHub, honest)
 
-Public claims below cite **real local commits and reviews** already in this repository. **Pending events (explicit):** Implementation PR A has not been opened yet, and its merge to `main` has not happened — both rows stay labelled **pending** until X7/X8 record real GitHub events. A machine-readable receipt ships with the site data and is checked by the provenance verifier; it is not a student-facing route.
+Public claims below cite **real local commits and GitHub events**. Roles: *human* (product owner), *agent implementation*, *automation* (CI), *cold reviewer* (independent local review). Labels: **summary** = editorial paraphrase; **quotation** = verbatim excerpt (none quoted from GitHub review threads here — PR #7 had zero review comments). A machine-readable receipt ships with site data and is checked by the provenance verifier; it is not a student-facing route.
 
-| Event | Role | Id / SHA | Status |
-| --- | --- | --- | --- |
-| X1 XML declaration pinned at offset 0 | agent implementation | `4d24ef185123dbc01401dc8897c5813edd13c94b` | recorded |
-| X2 frontal GPU scene hardened | agent + cold review | `9f733466bd3622e286d2a4db48300cf97a0cb74c` | recorded |
-| X4 host integration | agent implementation | `0b47e076cf972d84e6a9a0747e0315ab12231d13` | recorded |
-| X4 cold-review closures F1–F5 | agent + review | `8b698be67ec27ff598991b171b8988b4e6cf2255` | recorded |
-| X4 still-capture digest | agent + gate | `01a53612db3d83e8c56406c31494d988aa018fc3` | recorded |
-| Implementation PR A | human / workflow | — | **pending** (not opened) |
-| Merge of PR A to `main` | human / workflow | — | **pending** (not merged) |
+| Event | Role | Id / SHA | Status | Label |
+| --- | --- | --- | --- | --- |
+| X1 XML declaration pinned at offset 0 | agent implementation | `4d24ef185123dbc01401dc8897c5813edd13c94b` | recorded | summary |
+| X2 frontal GPU scene hardened | agent + cold review | `9f733466bd3622e286d2a4db48300cf97a0cb74c` | recorded | summary |
+| X4 host integration | agent implementation | `0b47e076cf972d84e6a9a0747e0315ab12231d13` | recorded | summary |
+| X4 cold-review closures F1–F5 | agent + review | `8b698be67ec27ff598991b171b8988b4e6cf2255` | recorded | summary |
+| X4 still-capture digest | agent + gate | `01a53612db3d83e8c56406c31494d988aa018fc3` | recorded | summary |
+| Implementation PR A opened | human | [#7](https://github.com/ruvebal/web-atelier-udit/pull/7) · `2026-11-14T15:51:19Z` | recorded | summary |
+| CI on PR A (lychee, yaml-lint, web-foundations-build, professor-template-build, student-template-checks) | automation | check-run IDs `132500887761` … `132500888044` | recorded | summary |
+| X7 cold review (pack-local) | cold reviewer | `80ab83101c31311706ea2450e72b3a5249e9b069` | recorded | summary |
+| Merge of PR A to `main` | human | [`b109707510e10687cd51d8b70da440a6b83f7108`](https://github.com/ruvebal/web-atelier-udit/commit/b109707510e10687cd51d8b70da440a6b83f7108) · `2026-11-15T19:05:36Z` | recorded | summary |
+| GitHub PR review threads on #7 | human | — | **pending** (none observed) | summary |
 
 ## Studio judgment
 
 - Lead with **who owns the clock** (audio sample vs display elapsed time) before admiring the mesh.
 - Keep the favicon as a **fixture** — the compiler and skills must stay data-driven in `N`.
 - Prefer a **failed gate** that taught a near-plane or uniform-layout bug over a green demo that lied about selection.
-- Do not narrate a merge that has not happened.
+- Do not invent a GitHub event the receipt cannot resolve; leave absent reviews **pending**.
 
 ## References
 

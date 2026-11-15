@@ -123,26 +123,29 @@ Abra la tarjeta en vivo: [Rive + AnimaScript 3D en la demostración]({{ '/lesson
 | Accesibilidad | gemelo semántico en HTML; los píxeles de GPU nunca son la única superficie de control |
 | Movimiento reducido | sin bucle automático; las imágenes estáticas de las facetas siguen siendo útiles |
 
-## Procedencia (local, honesta, pendiente donde pendiente)
+## Procedencia (local + GitHub, honesto)
 
-Las afirmaciones públicas a continuación citan **compromisos y revisiones locales reales** ya en este repositorio. **Eventos pendientes (explícitos):** el PR de implementación A aún no se ha abierto, y su fusión a `main` aún no ha ocurrido — ambas filas permanecen etiquetadas como **pendientes** hasta que X7/X8 registren eventos reales de GitHub. Un recibo legible por máquina se envía con los datos del sitio y se verifica con el verificador de procedencia; no es una ruta orientada a estudiantes.
+Las afirmaciones públicas a continuación citan **compromisos locales reales y eventos de GitHub**. Roles: *humano* (propietario del producto), *implementación del agente*, *automatización* (CI), *revisor frío* (revisión local independiente). Etiquetas: **resumen** = paráfrasis editorial; **cita** = extracto literal (no se citan comentarios de revisiones de GitHub aquí — PR #7 no tuvo comentarios de revisión). Un recibo legible por máquina se envía con los datos del sitio y es verificado por el comprobador de procedencia; no es una ruta orientada a los estudiantes.
 
-| Evento | Rol | Id / SHA | Estado |
-| --- | --- | --- | --- |
-| X1 declaración XML anclada en el desplazamiento 0 | implementación del agente | `4d24ef185123dbc01401dc8897c5813edd13c94b` | registrado |
-| X2 escena GPU frontal endurecida | agente + revisión fría | `9f733466bd3622e286d2a4db48300cf97a0cb74c` | registrado |
-| X4 integración del host | implementación del agente | `0b47e076cf972d84e6a9a0747e0315ab12231d13` | registrado |
-| X4 cierres de revisión fría F1–F5 | agente + revisión | `8b698be67ec27ff598991b171b8988b4e6cf2255` | registrado |
-| X4 digest de captura de imágenes estáticas | agente + puerta | `01a53612db3d83e8c56406c31494d988aa018fc3` | registrado |
-| PR de implementación A | humano / flujo de trabajo | — | **pendiente** (no abierto) |
-| Fusión de PR A a `main` | humano / flujo de trabajo | — | **pendiente** (no fusionado) |
+| Evento | Rol | Id / SHA | Estado | Etiqueta |
+| --- | --- | --- | --- | --- |
+| X1 declaración XML anclada en el desplazamiento 0 | implementación del agente | `4d24ef185123dbc01401dc8897c5813edd13c94b` | registrado | resumen |
+| X2 escena GPU frontal endurecida | agente + revisión fría | `9f733466bd3622e286d2a4db48300cf97a0cb74c` | registrado | resumen |
+| X4 integración del host | implementación del agente | `0b47e076cf972d84e6a9a0747e0315ab12231d13` | registrado | resumen |
+| X4 cierres de revisión fría F1–F5 | agente + revisión | `8b698be67ec27ff598991b171b8988b4e6cf2255` | registrado | resumen |
+| X4 digest de captura de imágenes estáticas | agente + puerta | `01a53612db3d83e8c56406c31494d988aa018fc3` | registrado | resumen |
+| Apertura del PR de implementación A | humano | [#7](https://github.com/ruvebal/web-atelier-udit/pull/7) · `2026-11-14T15:51:19Z` | registrado | resumen |
+| CI en PR A (lychee, yaml-lint, web-foundations-build, professor-template-build, student-template-checks) | automatización | check-run IDs `132500887761` … `132500888044` | registrado | resumen |
+| Revisión fría X7 (local al pack) | revisor frío | `80ab83101c31311706ea2450e72b3a5249e9b069` | registrado | resumen |
+| Fusión de PR A a `main` | humano | [`b109707510e10687cd51d8b70da440a6b83f7108`](https://github.com/ruvebal/web-atelier-udit/commit/b109707510e10687cd51d8b70da440a6b83f7108) · `2026-11-15T19:05:36Z` | registrado | resumen |
+| Hilos de revisión de GitHub en #7 | humano | — | **pendiente** (ninguno observado) | resumen |
 
 ## Juicio del estudio
 
 - Liderar con **quién posee el reloj** (reloj de muestra de audio vs tiempo transcurrido de la pantalla) antes de admirar la malla.
 - Mantener el favicon como una **pieza de referencia** — el compilador y las habilidades deben seguir siendo impulsadas por datos en `N`.
 - Preferir un **fallo de puerta** que enseñe un error de plano cercano o diseño uniforme sobre una demostración verde que mintiera sobre la selección.
-- No narrar una fusión que no ha ocurrido.
+- No invente un evento de GitHub que el recibo no pueda resolver; deje las revisiones **pendientes**.
 
 ## Referencias
 

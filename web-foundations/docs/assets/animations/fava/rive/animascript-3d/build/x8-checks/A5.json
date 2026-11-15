@@ -1,0 +1,9 @@
+{
+  "id": "A5",
+  "status": "PASS",
+  "observed": {
+    "diffAllowlistPass": true,
+    "eventCount": 15,
+    "openRowsLabeled": 1
+  }
+}
