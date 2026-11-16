@@ -1,1 +1,1 @@
-export { mountFaviconCanvas } from './favicon-motion/favicon-canvas.js?v=20261110-motion-2';
+export { mountFaviconCanvas } from './favicon-motion/favicon-canvas.js?v=20261115-touch-fix-3';
