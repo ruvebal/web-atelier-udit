@@ -1,0 +1,314 @@
+{
+  "phase": "X9",
+  "purpose": "distillation",
+  "model": "qwen2.5:72b-instruct-q4_K_M",
+  "endpoint": "http://localhost:11434",
+  "client": "ollama.Client(host='http://localhost:11434', timeout=600)",
+  "started_at": "2026-11-15T19:26:06.618795+00:00",
+  "calls": [
+    {
+      "cite": "D1, F1",
+      "section": "images",
+      "prefix": "img",
+      "level": "advanced",
+      "tags": [
+        "svg",
+        "architecture"
+      ],
+      "brief": "Frozen decision D1 and finding F1: fava-mark-static.svg is the sole hand-authored geometry and base-colour authority; the GPU scene was illustrative and must derive from that SVG, never become a second author of the mark.",
+      "model_raw": "{\n  \"text\": \"The SVG file fava-mark-static.svg is the single source of truth for the logo's geometry and base colours; the GPU scene must reflect this SVG, not diverge.\",\n  \"teaches\": \"Maintain a single authoritative source for critical design elements.\",\n  \"skip\": false\n}",
+      "parsed": {
+        "text": "The SVG file fava-mark-static.svg is the single source of truth for the logo's geometry and base colours; the GPU scene must reflect this SVG, not diverge.",
+        "teaches": "Maintain a single authoritative source for critical design elements.",
+        "skip": false
+      },
+      "elapsed_s": 32.84,
+      "ok": true
+    },
+    {
+      "cite": "D4",
+      "section": "images",
+      "prefix": "img",
+      "level": "advanced",
+      "tags": [
+        "svg",
+        "architecture"
+      ],
+      "brief": "Frozen decision D4: intrinsic extrusion depth is minDepth + (maxDepth - minDepth) * sqrt(area / maxArea), with area measured after SVG transforms and curve flattening in normalized viewBox units. Larger faces advance farther by measured law, not by eye.",
+      "model_raw": "{\n  \"text\": \"Intrinsic extrusion depth scales with the square root of the face area, ensuring larger faces extend proportionally further.\",\n  \"teaches\": \"Larger faces advance farther based on their area, not just visual size.\",\n  \"skip\": false\n}",
+      "parsed": {
+        "text": "Intrinsic extrusion depth scales with the square root of the face area, ensuring larger faces extend proportionally further.",
+        "teaches": "Larger faces advance farther based on their area, not just visual size.",
+        "skip": false
+      },
+      "elapsed_s": 9.59,
+      "ok": true
+    },
+    {
+      "cite": "D8, D19",
+      "section": "architecture",
+      "prefix": "arch",
+      "level": "advanced",
+      "tags": [
+        "coupling",
+        "boundaries"
+      ],
+      "brief": "Frozen decisions D8 and D19: selection uses raw pointer coordinates and depth-aware picking through the exact current projection/view/model transforms; camera smoothing must never change hit identity. Smooth the camera; never smooth the pick.",
+      "model_raw": "{\n  \"text\": \"Smooth the camera, not the pick, to maintain hit identity.\",\n  \"teaches\": \"Maintaining hit identity is crucial when smoothing the camera in a 3D environment.\",\n  \"skip\": false\n}",
+      "parsed": {
+        "text": "Smooth the camera, not the pick, to maintain hit identity.",
+        "teaches": "Maintaining hit identity is crucial when smoothing the camera in a 3D environment.",
+        "skip": false
+      },
+      "elapsed_s": 8.69,
+      "ok": true
+    },
+    {
+      "cite": "D3, D25",
+      "section": "architecture",
+      "prefix": "arch",
+      "level": "advanced",
+      "tags": [
+        "composition",
+        "boundaries"
+      ],
+      "brief": "Frozen decisions D3 and D25 (dual-N): every supported path gets a deterministic ordinal ID; facet count N is manifest data. The favicon fixture may assert N=13, but shaders, hosts, skills, and stagger loops must iterate dynamic N \u2014 never bake the fixture count into engine constants.",
+      "model_raw": "{\n  \"text\": \"Every supported path has a unique ID, and the number of facets is dynamic, not hardcoded.\",\n  \"teaches\": \"Dynamic facet counts ensure flexibility in engine design.\",\n  \"skip\": false\n}",
+      "parsed": {
+        "text": "Every supported path has a unique ID, and the number of facets is dynamic, not hardcoded.",
+        "teaches": "Dynamic facet counts ensure flexibility in engine design.",
+        "skip": false
+      },
+      "elapsed_s": 8.39,
+      "ok": true
+    },
+    {
+      "cite": "D22, D30, D46",
+      "section": "architecture",
+      "prefix": "arch",
+      "level": "intermediate",
+      "tags": [
+        "composition"
+      ],
+      "brief": "Frozen decisions D22, D30, D46: animation advances from elapsed time, not frame count; choreography (extrusion, separation, quaternion slerp) is elapsed-time driven so a slow machine meets the same pose at the same second.",
+      "model_raw": "{\n  \"text\": \"Animate by elapsed time, not frame count, to ensure consistent timing across devices.\",\n  \"teaches\": \"Using elapsed time for animations guarantees that the timing remains consistent regardless of the device's performance.\",\n  \"skip\": false\n}",
+      "parsed": {
+        "text": "Animate by elapsed time, not frame count, to ensure consistent timing across devices.",
+        "teaches": "Using elapsed time for animations guarantees that the timing remains consistent regardless of the device's performance.",
+        "skip": false
+      },
+      "elapsed_s": 9.01,
+      "ok": true
+    },
+    {
+      "cite": "D54",
+      "section": "wisdom",
+      "prefix": "wis",
+      "level": "advanced",
+      "tags": [
+        "teaching",
+        "philosophy"
+      ],
+      "brief": "Frozen decision D54: teach sound synchronicity as the first relevance utility of the Rive + AnimaScript stack \u2014 who owns the audible sample clock \u2014 before mesh and picking depth. The hearable specimen owns the sample clock; the GPU 3D loop owns elapsed-time choreography; do not invent sample-lock between them.",
+      "model_raw": "{\n  \"text\": \"In the Rive + AnimaScript stack, the audible specimen owns the sample clock, while the GPU 3D loop manages elapsed-time choreography; avoid creating a sample-lock between them.\",\n  \"teaches\": \"Understand the distinct roles of audio and GPU in managing time and synchronization.\",\n  \"skip\": false\n}",
+      "parsed": {
+        "text": "In the Rive + AnimaScript stack, the audible specimen owns the sample clock, while the GPU 3D loop manages elapsed-time choreography; avoid creating a sample-lock between them.",
+        "teaches": "Understand the distinct roles of audio and GPU in managing time and synchronization.",
+        "skip": false
+      },
+      "elapsed_s": 12.78,
+      "ok": true
+    },
+    {
+      "cite": "F5, D14",
+      "section": "wisdom",
+      "prefix": "wis",
+      "level": "advanced",
+      "tags": [
+        "teaching",
+        "philosophy"
+      ],
+      "brief": "Finding F5 and frozen decision D14: a merge story cannot be authored before a merge exists; public provenance is generated only from real Git/GitHub events. Observed history, never anticipatory narrative.",
+      "model_raw": "{\n  \"text\": \"A merge story reflects real Git events, not anticipatory narratives.\",\n  \"teaches\": \"Public provenance is derived from actual Git history, not hypothetical scenarios.\",\n  \"skip\": false\n}",
+      "parsed": {
+        "text": "A merge story reflects real Git events, not anticipatory narratives.",
+        "teaches": "Public provenance is derived from actual Git history, not hypothetical scenarios.",
+        "skip": false
+      },
+      "elapsed_s": 7.66,
+      "ok": true
+    },
+    {
+      "cite": "D53",
+      "section": "wisdom",
+      "prefix": "wis",
+      "level": "advanced",
+      "tags": [
+        "teaching",
+        "philosophy"
+      ],
+      "brief": "Frozen decision D53: animation wisdom leaves as TTOD proposals that cite findings/decisions which stay in the pack. The aphorism teaches the contract; the finding remains the proof. Never retire a cold review because a sentence was proposed.",
+      "model_raw": "{\n  \"text\": \"Propose TTOD aphorisms to capture wisdom, but keep the detailed findings in the contract for reference.\",\n  \"teaches\": \"Wisdom is distilled into aphorisms, while detailed findings remain in the contract.\",\n  \"skip\": false\n}",
+      "parsed": {
+        "text": "Propose TTOD aphorisms to capture wisdom, but keep the detailed findings in the contract for reference.",
+        "teaches": "Wisdom is distilled into aphorisms, while detailed findings remain in the contract.",
+        "skip": false
+      },
+      "elapsed_s": 9.45,
+      "ok": true
+    },
+    {
+      "cite": "D16",
+      "section": "architecture",
+      "prefix": "arch",
+      "level": "intermediate",
+      "tags": [
+        "extraction",
+        "composition"
+      ],
+      "brief": "Frozen decision D16: the extruder is a reusable SVG-path-to-mesh build tool; the favicon is its golden fixture, not embedded business logic. The fixture proves the tool; it must not become the tool.",
+      "model_raw": "{\n  \"text\": \"The favicon serves as a test case for the SVG-path-to-mesh tool, not as a core feature of the tool itself.\",\n  \"teaches\": \"Test cases should validate tools without becoming part of the core logic.\",\n  \"skip\": false\n}",
+      "parsed": {
+        "text": "The favicon serves as a test case for the SVG-path-to-mesh tool, not as a core feature of the tool itself.",
+        "teaches": "Test cases should validate tools without becoming part of the core logic.",
+        "skip": false
+      },
+      "elapsed_s": 9.56,
+      "ok": true
+    }
+  ],
+  "finished_at": "2026-11-15T19:27:54.576324+00:00",
+  "refine_pass": {
+    "started_at": "2026-11-15T19:30:06.622466+00:00",
+    "model": "qwen2.5:72b-instruct-q4_K_M",
+    "endpoint": "http://localhost:11434",
+    "calls": [
+      {
+        "cite": "D1, F1",
+        "section": "images",
+        "draft": "The SVG file fava-mark-static.svg is the single source of truth for the logo's geometry and base colours; the GPU scene must reflect this SVG, not diverge.",
+        "must_keep": "Hand-authored SVG is the sole geometry/colour authority; GPU/mesh is a derivation, never a second author. Do NOT name a specific filename.",
+        "parsed": {
+          "text": "The hand-authored SVG is the sole authority for geometry and colours; the GPU scene derives from it, never diverges.",
+          "teaches": "Single source of truth for visual assets",
+          "skip": false
+        },
+        "model_raw": "{\n  \"text\": \"The hand-authored SVG is the sole authority for geometry and colours; the GPU scene derives from it, never diverges.\",\n  \"teaches\": \"Single source of truth for visual assets\",\n  \"skip\": false\n}",
+        "elapsed_s": 11.96,
+        "pass": "refine"
+      },
+      {
+        "cite": "D4",
+        "section": "images",
+        "draft": "Intrinsic extrusion depth scales with the square root of the face area, ensuring larger faces extend proportionally further.",
+        "must_keep": "Depth uses sqrt(area/maxArea) between min and max depth bounds; measured after transform/flatten, not by eye.",
+        "parsed": {
+          "text": "Depth scales with the square root of area, measured after transform, not by eye.",
+          "teaches": "Intrinsic extrusion depth is proportional to the square root of the face area, ensuring consistent scaling.",
+          "skip": false
+        },
+        "model_raw": "{\n  \"text\": \"Depth scales with the square root of area, measured after transform, not by eye.\",\n  \"teaches\": \"Intrinsic extrusion depth is proportional to the square root of the face area, ensuring consistent scaling.\",\n  \"skip\": false\n}",
+        "elapsed_s": 10.63,
+        "pass": "refine"
+      },
+      {
+        "cite": "D8, D19",
+        "section": "architecture",
+        "draft": "Smooth the camera, not the pick, to maintain hit identity.",
+        "must_keep": "Raw pointer coords for picking through exact projection/view/model; camera smoothing never changes which facet is hit.",
+        "parsed": {
+          "text": "Smooth the camera, not the pick, to keep hit identity intact.",
+          "teaches": "Preserve raw pointer coordinates for accurate picking, even with camera smoothing.",
+          "skip": false
+        },
+        "model_raw": "{\n  \"text\": \"Smooth the camera, not the pick, to keep hit identity intact.\",\n  \"teaches\": \"Preserve raw pointer coordinates for accurate picking, even with camera smoothing.\",\n  \"skip\": false\n}",
+        "elapsed_s": 9.61,
+        "pass": "refine"
+      },
+      {
+        "cite": "D3, D25",
+        "section": "architecture",
+        "draft": "Every supported path has a unique ID, and the number of facets is dynamic, not hardcoded.",
+        "must_keep": "Dual-N: fixture may assert a count; engine/shader/skill must iterate dynamic N from the manifest \u2014 never bake fixture N into constants.",
+        "parsed": {
+          "text": "Each path has a unique ID, and facets adapt to dynamic counts, never hardcoded.",
+          "teaches": "Identity and flexibility in design.",
+          "skip": false
+        },
+        "model_raw": "{\n  \"text\": \"Each path has a unique ID, and facets adapt to dynamic counts, never hardcoded.\",\n  \"teaches\": \"Identity and flexibility in design.\",\n  \"skip\": false\n}",
+        "elapsed_s": 8.8,
+        "pass": "refine"
+      },
+      {
+        "cite": "D22, D30, D46",
+        "section": "architecture",
+        "draft": "Animate by elapsed time, not frame count, to ensure consistent timing across devices.",
+        "must_keep": "Elapsed time drives pose; same wall-clock second \u2192 same pose even on a slow machine.",
+        "parsed": {
+          "text": "Use elapsed time to drive pose, ensuring the same wall-clock second yields the same pose, regardless of device speed.",
+          "teaches": "Consistent timing across devices",
+          "skip": false
+        },
+        "model_raw": "{\n  \"text\": \"Use elapsed time to drive pose, ensuring the same wall-clock second yields the same pose, regardless of device speed.\",\n  \"teaches\": \"Consistent timing across devices\",\n  \"skip\": false\n}",
+        "elapsed_s": 9.52,
+        "pass": "refine"
+      },
+      {
+        "cite": "D54",
+        "section": "wisdom",
+        "draft": "In the Rive + AnimaScript stack, the audible specimen owns the sample clock, while the GPU 3D loop manages elapsed-time choreography; avoid creating a sample-lock between them.",
+        "must_keep": "Sound synchronicity (who owns the audible sample clock) is the first relevance utility; do not invent sample-lock between audio specimen and 3D loop.",
+        "parsed": {
+          "text": "The audible specimen owns the sample clock; the GPU 3D loop choreographs time. No sample-lock between them.",
+          "teaches": "Sound synchronicity is the first utility; avoid creating sample-lock.",
+          "skip": false
+        },
+        "model_raw": "{\n  \"text\": \"The audible specimen owns the sample clock; the GPU 3D loop choreographs time. No sample-lock between them.\",\n  \"teaches\": \"Sound synchronicity is the first utility; avoid creating sample-lock.\",\n  \"skip\": false\n}",
+        "elapsed_s": 11.64,
+        "pass": "refine"
+      },
+      {
+        "cite": "F5, D14",
+        "section": "wisdom",
+        "draft": "A merge story reflects real Git events, not anticipatory narratives.",
+        "must_keep": "Cannot author merge provenance before a merge exists; only real Git/GitHub events.",
+        "parsed": {
+          "text": "A merge reflects real Git events, not future predictions.",
+          "teaches": "Cannot author merge provenance before a merge exists; only real Git/GitHub events.",
+          "skip": false
+        },
+        "model_raw": "{\n  \"text\": \"A merge reflects real Git events, not future predictions.\",\n  \"teaches\": \"Cannot author merge provenance before a merge exists; only real Git/GitHub events.\",\n  \"skip\": false\n}",
+        "elapsed_s": 9.46,
+        "pass": "refine"
+      },
+      {
+        "cite": "D53",
+        "section": "wisdom",
+        "draft": "Propose TTOD aphorisms to capture wisdom, but keep the detailed findings in the contract for reference.",
+        "must_keep": "Aphorism teaches the contract; finding/decision remains the proof. Never delete a cold review because a sentence was proposed.",
+        "parsed": {
+          "text": "An aphorism captures wisdom; the contract holds the proof.",
+          "teaches": "Aphorism teaches the contract; finding/decision remains the proof.",
+          "skip": false
+        },
+        "model_raw": "{\n  \"text\": \"An aphorism captures wisdom; the contract holds the proof.\",\n  \"teaches\": \"Aphorism teaches the contract; finding/decision remains the proof.\",\n  \"skip\": false\n}",
+        "elapsed_s": 9.57,
+        "pass": "refine"
+      },
+      {
+        "cite": "D16",
+        "section": "architecture",
+        "draft": "The favicon serves as a test case for the SVG-path-to-mesh tool, not as a core feature of the tool itself.",
+        "must_keep": "Golden fixture proves the reusable tool; fixture must not become embedded business logic of the tool.",
+        "parsed": {
+          "text": "The favicon is a golden fixture, not a feature. It proves the tool, not the tool's purpose.",
+          "teaches": "Golden fixture proves the reusable tool; fixture must not become embedded business logic of the tool.",
+          "skip": false
+        },
+        "model_raw": "{\n  \"text\": \"The favicon is a golden fixture, not a feature. It proves the tool, not the tool's purpose.\",\n  \"teaches\": \"Golden fixture proves the reusable tool; fixture must not become embedded business logic of the tool.\",\n  \"skip\": false\n}",
+        "elapsed_s": 11.27,
+        "pass": "refine"
+      }
+    ]
+  }
+}

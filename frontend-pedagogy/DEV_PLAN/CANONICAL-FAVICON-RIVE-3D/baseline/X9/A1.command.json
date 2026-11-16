@@ -1,0 +1,7 @@
+{
+  "acceptanceId": "A1",
+  "command": "/Users/ruvebal/src/ttod/.venv/bin/python /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-9/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/x9-acceptance-checks.py A1",
+  "exitCode": 0,
+  "stdout": "PASS A1: {\"proposals\":9,\"allSourcesCitePresentIds\":true}\n",
+  "stderr": ""
+}
