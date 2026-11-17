@@ -18,6 +18,7 @@ Changed or generated:
 - `web-foundations/docs/assets/animations/fava/rive/animascript-3d/tests/interaction-test.as`
 - `web-foundations/docs/assets/js/favicon-motion/rive-3d-scene.mjs`
 - `web-foundations/scripts/svg-extrusion/verify-picking.mjs`
+- `web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x3-checks/` — refreshed picking-fixture receipts and captures for the corrected mirror timing
 - `web-foundations/scripts/svg-extrusion/capture-x10-front-phase.mjs`
 - `web-foundations/scripts/svg-extrusion/verify-x10-front-phase.mjs`
 - `web-foundations/scripts/svg-extrusion/verify-x10-acceptance.mjs`
@@ -51,8 +52,9 @@ the built `_site` asset is byte-identical.
   distinct and byte-identical to the X9 inspect capture.
 - The four corrected front-phase captures and the phase-zero/inspect pair
   received an implementer visual inspection, recorded with image digests in
-  the evidence receipt. The independent cold reviewer must still record their
-  separate decision for each of the four A2 captures.
+  the evidence receipt. The local Qwen cold review records separate decisions
+  for all four A2 captures in `PHASE-X10-COLD-REVIEW.md`; the text model relied
+  on the orchestrator's direct image inspection and the capture digests.
 - `node scripts/svg-extrusion/verify-picking.mjs --all-fixtures` — exit 0,
   A1–A12 passed.
 - Pinned Web Foundations command
@@ -72,13 +74,18 @@ locally (`pnpm install --frozen-lockfile` and pinned `bundle install`); no
 lockfile or tracked dependency declaration changed. The required pinned build
 then passed.
 
-## Remaining handoff
+## Gate and review closeout
 
-The evidence receipt is valid and reports `VERIFYING`. The harness runner must
-now invoke `PHASE-X10.exit-gate.sh` and preserve its transcript as
-`PHASE-X10-VERIFY-LOG.md`. The independent cold reviewer must inspect the four
-corrected A2 captures and the full build, recording a separate visual
-decision for each capture. I did not invoke the external gate.
+The committed implementation `8d1bd70f7d6c802c6a50bd98011ef2ca009b6318`
+passed the external X10 gate with exit code 0; see
+`PHASE-X10-VERIFY-LOG.md`. Local Qwen's cold review recommends eligibility
+for DONE and records all four visual decisions in
+`PHASE-X10-COLD-REVIEW.md`.
 
-**Resume point:** run the external X10 exit gate, then conduct the independent
-cold review. No phase promotion or successor-state change has been made.
+Orchestrator triage O1 (P2), documented in
+`PHASE-X10-REVIEW-RESOLUTION.md`, closed the stale gate/review handoff in the
+earlier report text. No production code changed after the verified commit.
+
+**Resume point:** merge the reviewed phase branch into the cascade integration
+branch, then atomically promote the X10 runbook, report, and index to DONE.
+Rerun the implementation gate only if production code changes.
