@@ -8,8 +8,8 @@
 //
 // Loop (period LOOP_PERIOD seconds, phase phi in [0,1)):
 //   [0.00,0.10)  assembled hold      extrusion 0, frontal camera
-//   [0.10,0.42)  extrude             per-facet staggered 0 -> 1
-//   [0.42,0.72)  inspect hold        extrusion 1, camera oblique
+//   [0.10,0.42)  extrude             per-facet staggered 0 -> 1, frontal camera
+//   [0.42,0.72)  inspect transition  extrusion 1, camera turns oblique
 //   [0.45,0.93)  separation bump     facets translate along hashed 3D dirs
 //   [0.72,0.97)  retract             per-facet staggered 1 -> 0 (reverse order)
 //   [0.97,1.00)  assembled hold      exact rest pose
@@ -21,6 +21,11 @@ export const SEPARATION_DIST: f64 = 0.1;
 export const SELECT_OFFSET_Z: f64 = 0.08;
 export const EXTRUDE_START: f64 = 0.1;
 export const EXTRUDE_SPAN: f64 = 0.32;
+// Keep the frontal view until the last staggered facet reaches full depth.
+// Starting the inspect turn earlier projects the independent back/side caps
+// across still-assembling neighbours, producing transient colored fragments.
+export const INSPECT_START: f64 = EXTRUDE_START + EXTRUDE_SPAN;
+export const INSPECT_SPAN: f64 = 0.25;
 export const RETRACT_START: f64 = 0.72;
 export const RETRACT_SPAN: f64 = 0.25;
 export const SEP_RISE_START: f64 = 0.45;
@@ -73,7 +78,7 @@ export function separation(phase: f64): f64 {
 
 // Camera inspect weight: 0 at assembled rest, 1 through the inspect hold.
 export function inspectWeight(phase: f64): f64 {
-    return smoothstep((phase - 0.12) / 0.25) * smoothstep((0.98 - phase) / 0.22);
+    return smoothstep((phase - INSPECT_START) / INSPECT_SPAN) * smoothstep((0.98 - phase) / 0.22);
 }
 
 // Deterministic direction per facet in [-1,1]^3, normalised. Identical 32-bit

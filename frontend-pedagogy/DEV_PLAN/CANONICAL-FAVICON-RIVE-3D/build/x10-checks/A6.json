@@ -1,0 +1,15 @@
+{
+  "schema": "canonical-favicon-rive-3d/x10-build-checks/v1",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node scripts/svg-extrusion/verify-x10-acceptance.mjs A6",
+  "exitCode": 0,
+  "outputSha256": "c1964bfdac5139589c1046ba11a8ea6c99f3517b74b62fd588833b968dcf0fea",
+  "checks": [
+    "rive-verify",
+    "rive-test",
+    "front-phase-verifier",
+    "picking-all-fixtures",
+    "pnpm-build",
+    "publication-safety",
+    "citation-conformance"
+  ]
+}

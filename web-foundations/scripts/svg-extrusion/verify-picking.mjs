@@ -54,6 +54,7 @@ const C = {
 	SELECT_OFFSET_Z: 0.08,
 	EXTRUDE_START: 0.1,
 	EXTRUDE_SPAN: 0.32,
+	INSPECT_SPAN: 0.25,
 	RETRACT_START: 0.72,
 	RETRACT_SPAN: 0.25,
 	SEP_RISE_START: 0.45,
@@ -91,7 +92,9 @@ const facetExtrusion = (phase, facet, count) => {
 };
 const separation = (phase) =>
 	smoothstep((phase - C.SEP_RISE_START) / C.SEP_SPAN) * smoothstep((C.SEP_FALL_END - phase) / C.SEP_SPAN);
-const inspectWeight = (phase) => smoothstep((phase - 0.12) / 0.25) * smoothstep((0.98 - phase) / 0.22);
+const INSPECT_START = C.EXTRUDE_START + C.EXTRUDE_SPAN;
+const inspectWeight = (phase) =>
+	smoothstep((phase - INSPECT_START) / C.INSPECT_SPAN) * smoothstep((0.98 - phase) / 0.22);
 const hashDir3 = (facet) => {
 	let h = Math.imul(facet, 2654435761) >>> 0;
 	h = (h ^ (h >>> 16)) >>> 0;
@@ -547,7 +550,10 @@ function checkA2A3() {
 	// One inspect-phase session covering occlusion, separated motion,
 	// selected Z offset, front/back culling and touch.
 	const aspect = 720 / 480;
-	const PH_EXTRUDE = 0.44,
+	// The inspect camera now turns only after the staggered build is complete.
+	// Sample depth occlusion in the fully turned pose, not at the former .44
+	// checkpoint where the updated camera is intentionally still easing in.
+	const PH_EXTRUDE = 0.67,
 		PH_SEP = 0.7;
 	const cssW = 720,
 		cssH = 480;
@@ -590,8 +596,8 @@ function checkA2A3() {
 	// 247/540) and the probe on frame 250 (phase 250/540). Separation is
 	// already nonzero there, so candidates must be sampled at those phases,
 	// not at the nominal PH_EXTRUDE.
-	const phaseZSel = loopPhase(247 / 60);
-	const phaseZProbe = loopPhase(250 / 60);
+	const phaseZSel = loopPhase(371 / 60);
+	const phaseZProbe = loopPhase(374 / 60);
 	const frameZSel = computeCam(phaseZSel, phaseZSel * C.LOOP_PERIOD, 0, 0, aspect);
 	const frameZProbe = computeCam(phaseZProbe, phaseZProbe * C.LOOP_PERIOD, 0, 0, aspect);
 	const { candidates: candZSel } = facetCandidates(phaseZSel, aspect, cssW, cssH, new Set(), 0, 5);
@@ -676,9 +682,10 @@ function checkA2A3() {
 	// Session: extruded phase picks (occlusion, then select zoff facet via its own
 	// point, then the zoff probe where only the selection offset wins), touch;
 	// separated phase picks; rest phase back-face culling probe.
-	// elapsed: 238f=3.9667s (phi .4407), +140f=6.3s (phi .70), +162f=9.0s (phi 0).
+	// elapsed: 362f=6.0333s (phi .6704), then the pick/touch events,
+	// +3f to the separation checkpoint, and a final 175f to the 9s rest.
 	const lines = [];
-	lines.push('advance 238'); // phi ~0.44
+	lines.push('advance 362'); // phi ~0.6704, full extrusion and inspect turn
 	const ev = [];
 	const addClick = (x, y, note) => {
 		lines.push(`pointer click@${x},${y}`);
@@ -690,9 +697,9 @@ function checkA2A3() {
 	addClick(zoff.x, zoff.y, 'zoffset-probe');
 	lines.push(`touch tap@${touch.x},${touch.y}`);
 	ev.push({ kind: 'touch', x: touch.x, y: touch.y, note: 'touch' });
-	lines.push('advance 140'); // elapsed 6.3s, phi 0.70 separated
+	lines.push('advance 3'); // settle at frame 380, phi ~0.704 separated
 	for (const s of sepPts.slice(0, 2)) addClick(s.x, s.y, 'separated');
-	lines.push('advance 162'); // elapsed 9.0s, phi 0 rest
+	lines.push('advance 175'); // frame 561, then click-up at frame 564 / 9.0s
 	addClick(cull.x, cull.y, 'culling-rest');
 
 	const { expected } = expectSequenceForMixed(ev);
@@ -702,9 +709,9 @@ function checkA2A3() {
 		// --commands ticks one 60fps frame per dispatched event: advance N = N
 		// ticks, pointer down/move/up = 1 each, `pointer click` = down+move+up
 		// = 3 ticks, touch tap likewise. The pick runs on the up tick's frame.
-		// Session: advance 238; 5 picks at ticks 241/244/247/250/253; +140;
-		// 2 picks at 396/399; +162; rest pick at 564.
-		const frameAt = [241, 244, 247, 250, 253, 396, 399, 564];
+		// Session: advance 362; 5 picks at ticks 365/368/371/374/377; +3;
+		// 2 picks at 383/386; +175; rest pick at 564.
+		const frameAt = [365, 368, 371, 374, 377, 383, 386, 564];
 		const selSet = new Set();
 		const expected = events.map((e, i) => {
 			const phase = loopPhase(frameAt[i] / 60);

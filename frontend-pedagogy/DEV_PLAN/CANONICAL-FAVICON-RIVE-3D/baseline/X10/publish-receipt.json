@@ -1,0 +1,13 @@
+{
+  "schema": "canonical-favicon-rive-3d/x10-local-publish/v1",
+  "command": "rive . --publish=local",
+  "exitCode": 0,
+  "signedScripts": 1,
+  "publishedAtLocalTime": "12:59:17.405",
+  "asset": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/fava_prismatic_3d.riv",
+  "bytes": 700467,
+  "durationMs": 3139,
+  "errors": 0,
+  "warnings": 0,
+  "assetSha256": "7694b97a44255d1e12de94db8f15dfe350e51a70cff01db25118c138c60080d4"
+}

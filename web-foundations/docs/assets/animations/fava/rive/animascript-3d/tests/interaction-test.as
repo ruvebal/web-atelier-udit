@@ -43,8 +43,22 @@ function makeMesh(verts: Array<f64>, indices: Array<u32>): Mesh {
     return m;
 }
 
-function restFrame(phase: f64, aspect: f64, minX: f64, maxX: f64, minY: f64, maxY: f64, minZ: f64, maxZ: f64): CameraFrame {
-    return choreo.computeCamera(phase, phase * choreo.LOOP_PERIOD, 0, 0, aspect, minX, maxX, minY, maxY, minZ, maxZ);
+function restFrame(
+    phase: f64,
+    aspect: f64,
+    minX: f64,
+    maxX: f64,
+    minY: f64,
+    maxY: f64,
+    minZ: f64,
+    maxZ: f64,
+    userYaw: f64 = 0,
+    userPitch: f64 = 0
+): CameraFrame {
+    return choreo.computeCamera(
+        phase, phase * choreo.LOOP_PERIOD, userYaw, userPitch, aspect,
+        minX, maxX, minY, maxY, minZ, maxZ
+    );
 }
 
 function pick(
@@ -91,6 +105,20 @@ export class ChoreoTests extends Tests {
                 expect.that(e0 > eLast).is(true);
                 expect.that(e0 > 0 && e0 < 1).is(true);
                 expect.that(eLast > 0 && eLast < 1).is(true);
+            });
+            test("early staggered extrusion keeps the camera exactly frontal", (expect) => {
+                for (let phase of [0.12, 0.15, 0.2, 0.3]) {
+                    expect.that(choreo.inspectWeight(phase)).is(0);
+                    let frame = restFrame(
+                        phase, 720 / 480,
+                        BOUNDS_MIN_X, BOUNDS_MAX_X, BOUNDS_MIN_Y, BOUNDS_MAX_Y,
+                        BOUNDS_MIN_Z, BOUNDS_MAX_Z
+                    );
+                    expect.that(frame.fwd[0]).is(0);
+                    expect.that(frame.fwd[1]).is(0);
+                    expect.that(frame.fwd[2]).is(-1);
+                }
+                expect.that(choreo.inspectWeight(0.72) > 0.99).is(true);
             });
             test("retract runs in reverse facet order", (expect) => {
                 let e0 = choreo.facetExtrusion(0.8, 0, 13);
@@ -231,20 +259,22 @@ export class ChoreoTests extends Tests {
             test("nearest positive hit wins over source order", (expect) => {
                 // Facet 0 sits nearer the inspect camera (more -z) than the
                 // later facet 1; depth must beat the later-order tie-break.
-                // Phase 0.45: fully extruded, separation still 0.
+                // Phase 0.45 keeps separation at zero; a steered camera
+                // exercises nearest-depth ordering independently of choreography.
                 let verts = centreTri(0, -0.2, 1).concat(centreTri(1, 0, 1));
                 let mesh = makeMesh(verts, [0, 1, 2, 3, 4, 5]);
-                let frame = restFrame(0.45, 1, -1, 1, -1, 1, -0.3, 0.1);
+                let frame = restFrame(0.45, 1, -1, 1, -1, 1, -0.3, 0.1, 2.8, 0);
                 expect.that(pick(mesh, frame, 2, ZERO_SEL, 50, 50, SX, SY)).is(0);
             });
 
             test("selected offset toward camera can win a depth contest", (expect) => {
                 // Facet 0 is a hair nearer; selecting facet 1 pops it toward
                 // the camera by SELECT_OFFSET_Z and it wins.
-                // Phase 0.45 keeps intrinsic z live with zero separation.
+                // Phase 0.45 keeps intrinsic z live with no separation; the
+                // steered camera isolates selection's toward-camera offset.
                 let verts = centreTri(0, -0.01, 1).concat(centreTri(1, 0, 1));
                 let mesh = makeMesh(verts, [0, 1, 2, 3, 4, 5]);
-                let frame = restFrame(0.45, 1, -1, 1, -1, 1, -0.2, 0.1);
+                let frame = restFrame(0.45, 1, -1, 1, -1, 1, -0.2, 0.1, 2.8, 0);
                 expect.that(pick(mesh, frame, 2, ZERO_SEL, 50, 50, SX, SY)).is(0);
                 let sel: Array<u32> = [2, 0, 0, 0, 0, 0, 0, 0]; // bit 1 of word 0
                 expect.that(pick(mesh, frame, 2, sel, 50, 50, SX, SY)).is(1);
