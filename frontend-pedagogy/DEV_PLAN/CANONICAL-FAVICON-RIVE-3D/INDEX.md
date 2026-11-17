@@ -48,6 +48,7 @@ Only the first word of each Gate cell is machine status.
 | 8 | [PHASE-X8.md](PHASE-X8.md) | Post-merge provenance hook with real PR/review/merge evidence | DONE — PR B #8; cold review clear |
 | 9 | [PHASE-X9.md](PHASE-X9.md) | Propose animation wisdom to TTOD from the findings this pack keeps | DONE — 9 proposals; cold review clear |
 | 10 | [PHASE-X10.md](PHASE-X10.md) | Correct the front-facing facet artifacts during early extrusion | DONE — committed-tree exit gate and local cold review passed; O1 closed |
+| 11 | [PHASE-X11.md](PHASE-X11.md) | Separate facets before the inspect turn; raise transport and make semantic facet toggles reliably acknowledge | READY — residual turn artifact and button-ack race reproduced |
 
 Every phase closes `VERIFYING → COLD_REVIEW → DONE`; the implementer never marks their own work DONE.
 
