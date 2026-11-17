@@ -1,6 +1,6 @@
 # PHASE-X10 · Keep front-facing facets coherent during extrusion
 
-**Status:** READY — X9 is DONE
+**Status:** DONE — committed-tree exit gate passed, local cold review clear, O1 closed
 
 ## Goal
 

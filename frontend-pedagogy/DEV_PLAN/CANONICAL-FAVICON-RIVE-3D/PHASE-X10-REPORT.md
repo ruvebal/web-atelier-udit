@@ -1,4 +1,4 @@
-**Status:** VERIFYING
+**Status:** DONE — committed-tree gate passed, local cold review clear, O1 closed
 **Branch:** `cascade/CANONICAL-FAVICON-RIVE-3D-10`
 **Worktree:** `/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10`
 **Base:** `2a8dc68` (`plan: add X10 front-phase facet regression`)
@@ -28,6 +28,9 @@ Changed or generated:
 - `frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/` — root-cause note, deterministic before/after captures, manifests, sanitized local-publish receipt, and command transcripts
 - `frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/build/x10-checks/A6.json`
 - `frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X10-EVIDENCE.json`
+- `frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X10-VERIFY-LOG.md`
+- `frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X10-COLD-REVIEW.md`
+- `frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X10-REVIEW-RESOLUTION.md`
 - this report
 
 The user-owned demo page was not edited. The published demo's host script still
@@ -86,6 +89,8 @@ Orchestrator triage O1 (P2), documented in
 `PHASE-X10-REVIEW-RESOLUTION.md`, closed the stale gate/review handoff in the
 earlier report text. No production code changed after the verified commit.
 
-**Resume point:** merge the reviewed phase branch into the cascade integration
-branch, then atomically promote the X10 runbook, report, and index to DONE.
-Rerun the implementation gate only if production code changes.
+**Promotion:** phase branch `cascade/CANONICAL-FAVICON-RIVE-3D-10` was merged
+non-fast-forward into `codex/canonical-favicon-rive-3d-cascade` in commit
+`8ba81075d24038bf62111a360ada207768f4be55`. The runbook, report, and index
+are now promoted to DONE. No production code changed after the verified
+implementation commit.
