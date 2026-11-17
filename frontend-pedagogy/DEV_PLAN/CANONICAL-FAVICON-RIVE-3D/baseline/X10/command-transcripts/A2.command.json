@@ -1,0 +1,7 @@
+{
+  "acceptanceId": "A2",
+  "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node scripts/svg-extrusion/verify-x10-front-phase.mjs",
+  "exitCode": 0,
+  "stdout": "PASS A1: X9 baseline reproduces clean phase 0.10/0.12 and artifacts at 0.15/0.20/0.30; runtime rive 1.9.2, viewport 720x480\nPASS A2: corrected phases 0.12/0.15/0.20/0.30 are byte-identical to phase-zero rest; captures p12=682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f p15=682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f p20=682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f p30=682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f\nPASS A4: phase-zero capture is unchanged and phase 0.72 inspect capture is distinct; inspect=079f51c6dc64314d114b8feeab20dd8a6687fe0eee08320a37431e086e1eb006\n",
+  "stderr": ""
+}

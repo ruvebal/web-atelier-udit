@@ -26,6 +26,7 @@ export const CHOREO = {
 	SELECT_OFFSET_Z: 0.08,
 	EXTRUDE_START: 0.1,
 	EXTRUDE_SPAN: 0.32,
+	INSPECT_SPAN: 0.25,
 	RETRACT_START: 0.72,
 	RETRACT_SPAN: 0.25,
 	SEP_RISE_START: 0.45,
@@ -71,7 +72,9 @@ const separation = (phase) =>
 	smoothstep((phase - CHOREO.SEP_RISE_START) / CHOREO.SEP_SPAN) *
 	smoothstep((CHOREO.SEP_FALL_END - phase) / CHOREO.SEP_SPAN);
 
-const inspectWeight = (phase) => smoothstep((phase - 0.12) / 0.25) * smoothstep((0.98 - phase) / 0.22);
+const INSPECT_START = CHOREO.EXTRUDE_START + CHOREO.EXTRUDE_SPAN;
+const inspectWeight = (phase) =>
+	smoothstep((phase - INSPECT_START) / CHOREO.INSPECT_SPAN) * smoothstep((0.98 - phase) / 0.22);
 
 // hashDir3_ from canonical-favicon.wgsl: deterministic per-facet separation
 // direction. Must stay bit-identical to the shader's u32 hash.

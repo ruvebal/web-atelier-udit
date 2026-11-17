@@ -1,0 +1,151 @@
+{
+  "schema": "canonical-favicon-rive-3d/x10-front-phase/v1",
+  "viewport": "720x480",
+  "phases": [
+    0.1,
+    0.12,
+    0.15,
+    0.2,
+    0.3
+  ],
+  "sessions": {
+    "before": {
+      "receipt": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/before/capture-receipt.json",
+      "receiptSha256": "047db2f43c5f75456617692cc18c2a24d84893c31397128c876f92d3d4cf9cf9",
+      "cli": {
+        "path": "/opt/homebrew/Caskroom/rive-cli/1.9.2/rive",
+        "version": "rive 1.9.2",
+        "sha256": "06dde043b2d8eddab4fd62561df6b916d71231060b70a4816378eb321042252f"
+      },
+      "sourceSha256": {
+        "web-foundations/docs/assets/icons/fava-mark-static.svg": "90cfa8a5dfb290e92515647141369111c821427c71fec3f402873c1221db51ad",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/choreo.as": "5fce883e56912f0cf3ac4a3b45df70c4526959b01f4a82bcf2600ea4f4b1f063",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/canonical-favicon.wgsl": "15af5efacdccee30729cf436405873e2dc9b5cffc6ee2e6936aa4c78e39bc225",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/pick.as": "75c345c4c70883d92f2206ad58cf2e86b20740b1f2005a8fc9b3f257dfe86b1b",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/main.as": "43d9c9e399de34e85a974af846b78dc9223b12bbc2946950d5435040111e28f1",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/rive.yaml": "878494618c557a50e048611d1dc1e4afe5d0d1ba46614803def77e390dec7ef9",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/geometry.json": "5d96714d0d75505347555b164cae198020fa6f64a2bd2072858f5a8edb6ef1e4"
+      },
+      "captures": [
+        {
+          "phase": 0,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/before/p00.png",
+          "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.1,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/before/p10.png",
+          "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.12,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/before/p12.png",
+          "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.15,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/before/p15.png",
+          "sha256": "dc04f9abc13c1e7c82153f5f8e70c7b3d2660f175876418551bb3f4ba4be8316",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.2,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/before/p20.png",
+          "sha256": "d06e0b5fa8cd6313ceb8c8c28cf6523fe7d4d769a350544e4e537d9b183ac9ae",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.3,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/before/p30.png",
+          "sha256": "ca013e03f95a0205225b2c92eb1f398142de6864c132f96a64f220bf028e99e1",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.42,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/before/p42.png",
+          "sha256": "7ac77759731e90d53a29d9bf4031195c1533fd46ec66e593f16d7962cb39e13c",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.72,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/before/p72.png",
+          "sha256": "079f51c6dc64314d114b8feeab20dd8a6687fe0eee08320a37431e086e1eb006",
+          "viewport": "720x480"
+        }
+      ]
+    },
+    "after": {
+      "receipt": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/capture-receipt.json",
+      "receiptSha256": "485aad653d542accd370e788c6443913b9d939c5db5e99f2f9f49b9598f5453b",
+      "cli": {
+        "path": "/opt/homebrew/Caskroom/rive-cli/1.9.2/rive",
+        "version": "rive 1.9.2",
+        "sha256": "06dde043b2d8eddab4fd62561df6b916d71231060b70a4816378eb321042252f"
+      },
+      "sourceSha256": {
+        "web-foundations/docs/assets/icons/fava-mark-static.svg": "90cfa8a5dfb290e92515647141369111c821427c71fec3f402873c1221db51ad",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/choreo.as": "7e97b21d86a0e5b8c543e33f661d953bc8573579e015b4e8217b9ac0e47dce76",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/canonical-favicon.wgsl": "15af5efacdccee30729cf436405873e2dc9b5cffc6ee2e6936aa4c78e39bc225",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/pick.as": "75c345c4c70883d92f2206ad58cf2e86b20740b1f2005a8fc9b3f257dfe86b1b",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/main.as": "43d9c9e399de34e85a974af846b78dc9223b12bbc2946950d5435040111e28f1",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/rive.yaml": "878494618c557a50e048611d1dc1e4afe5d0d1ba46614803def77e390dec7ef9",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+        "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/geometry.json": "5d96714d0d75505347555b164cae198020fa6f64a2bd2072858f5a8edb6ef1e4"
+      },
+      "captures": [
+        {
+          "phase": 0,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p00.png",
+          "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.1,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p10.png",
+          "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.12,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p12.png",
+          "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.15,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p15.png",
+          "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.2,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p20.png",
+          "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.3,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p30.png",
+          "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.42,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p42.png",
+          "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+          "viewport": "720x480"
+        },
+        {
+          "phase": 0.72,
+          "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p72.png",
+          "sha256": "079f51c6dc64314d114b8feeab20dd8a6687fe0eee08320a37431e086e1eb006",
+          "viewport": "720x480"
+        }
+      ]
+    }
+  }
+}

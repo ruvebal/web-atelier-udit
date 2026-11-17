@@ -1,0 +1,243 @@
+{
+  "phase": "X10",
+  "reportStatus": "VERIFYING",
+  "generatedBy": "capture-x10-evidence.mjs",
+  "items": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node scripts/svg-extrusion/verify-x10-front-phase.mjs",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/front-phase-manifest.json",
+      "sha256": "fa036f3410cf9a56484218759dc6d573ef07218cdd76e88b3ec6121ce33b6ab0",
+      "expected": {
+        "assertions": [
+          "x9_artifact_reproduced_at_0.15_0.20_0.30",
+          "720x480_viewport",
+          "source_and_runtime_hashes_recorded"
+        ],
+        "summary": "The deterministic X9 baseline shows the first artifact at 0.15 and reproduces it at 0.20/0.30; source and Rive runtime digests are recorded."
+      },
+      "observed": {
+        "assertions": [
+          "x9_artifact_reproduced_at_0.15_0.20_0.30",
+          "720x480_viewport",
+          "source_and_runtime_hashes_recorded"
+        ],
+        "summary": "The deterministic X9 baseline shows the first artifact at 0.15 and reproduces it at 0.20/0.30; source and Rive runtime digests are recorded."
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/command-transcripts/A1.command.json",
+        "sha256": "9406667790b32318bafb55d7883804cc4630bc7fc9651c66e1217a5bdf986573"
+      }
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node scripts/svg-extrusion/verify-x10-front-phase.mjs",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p12.png",
+      "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+      "expected": {
+        "assertions": [
+          "corrected_0.12_0.15_0.20_0.30_captures_hash_bound",
+          "manual_visual_inspection_recorded"
+        ],
+        "summary": "Each corrected capture was individually inspected at 720x480; all show coherent solid source facets without transient slashes, hatching, or fragments. Independent cold review remains a separate handoff."
+      },
+      "observed": {
+        "assertions": [
+          "corrected_0.12_0.15_0.20_0.30_captures_hash_bound",
+          "manual_visual_inspection_recorded"
+        ],
+        "summary": "Each corrected capture was individually inspected at 720x480; all show coherent solid source facets without transient slashes, hatching, or fragments. Independent cold review remains a separate handoff."
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/command-transcripts/A2.command.json",
+        "sha256": "7ef61f2bf3f3602d97eb74d668d68fd32139276229244eb5a74d81e71694948a"
+      },
+      "visualReview": {
+        "reviewer": "X10 implementer — preliminary visual inspection before cold review",
+        "decision": "Inspected each of the four named captures individually. All four show the clean frontal source facets with no transient colored slash, hatching, or fragment. The independent cold reviewer must record their separate decision during cold review.",
+        "captures": [
+          {
+            "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p12.png",
+            "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+            "viewport": "720x480"
+          },
+          {
+            "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p15.png",
+            "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+            "viewport": "720x480"
+          },
+          {
+            "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p20.png",
+            "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+            "viewport": "720x480"
+          },
+          {
+            "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p30.png",
+            "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+            "viewport": "720x480"
+          }
+        ]
+      }
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node scripts/svg-extrusion/verify-x10-acceptance.mjs A3",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/ROOT-CAUSE.md",
+      "sha256": "4733d70c669219eb236341a51ba67f019c522790eddcd256c3678b2c706b8099",
+      "expected": {
+        "assertions": [
+          "corrected_early_extrusion_regression_passes",
+          "x9_parent_regression_failed_22_of_23",
+          "all_four_early_phases_asserted"
+        ],
+        "summary": "The current early-extrusion regression passes; the retained X9-parent run failed the same contract (22/23), with nonzero inspect weights during the early interval."
+      },
+      "observed": {
+        "assertions": [
+          "corrected_early_extrusion_regression_passes",
+          "x9_parent_regression_failed_22_of_23",
+          "all_four_early_phases_asserted"
+        ],
+        "summary": "The current early-extrusion regression passes; the retained X9-parent run failed the same contract (22/23), with nonzero inspect weights during the early interval."
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/command-transcripts/A3.command.json",
+        "sha256": "475ec64d69347efef9105010044745cf4b338a05be8414c89a177bc266270e54"
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node scripts/svg-extrusion/verify-x10-front-phase.mjs",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p72.png",
+      "sha256": "079f51c6dc64314d114b8feeab20dd8a6687fe0eee08320a37431e086e1eb006",
+      "expected": {
+        "assertions": [
+          "phase_zero_matches_canonical_front",
+          "fully_extruded_inspect_pose_remains_oblique"
+        ],
+        "summary": "Phase zero and the early frontal captures remain byte-identical; phase 0.72 remains the distinct fully extruded oblique inspect pose."
+      },
+      "observed": {
+        "assertions": [
+          "phase_zero_matches_canonical_front",
+          "fully_extruded_inspect_pose_remains_oblique"
+        ],
+        "summary": "Phase zero and the early frontal captures remain byte-identical; phase 0.72 remains the distinct fully extruded oblique inspect pose."
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/command-transcripts/A4.command.json",
+        "sha256": "718d13c9d89873f2c99bf3159c5858c3cfe2963a377e771aaaed4746d9049ebf"
+      },
+      "visualReview": {
+        "reviewer": "X10 implementer — preliminary visual inspection before cold review",
+        "decision": "The exact frontal phase-zero capture remains unchanged; phase 0.72 visibly demonstrates the oblique fully extruded scene, including side walls and back-facing geometry. Depth/picking fixtures are independently rerun under A6.",
+        "captures": [
+          {
+            "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p00.png",
+            "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+            "viewport": "720x480"
+          },
+          {
+            "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p72.png",
+            "sha256": "079f51c6dc64314d114b8feeab20dd8a6687fe0eee08320a37431e086e1eb006",
+            "viewport": "720x480"
+          }
+        ]
+      }
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node scripts/svg-extrusion/verify-x10-acceptance.mjs A5",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/publish-receipt.json",
+      "sha256": "cd7aca44d392655e25e52a6efa740653e22625931423bf80bd9227ffa5952392",
+      "expected": {
+        "assertions": [
+          "signed_local_rive_publish_completed",
+          "built_site_asset_byte_matches_signed_asset",
+          "published_host_and_demo_select_asset"
+        ],
+        "summary": "The corrected signed local Rive export is byte-identical to the built-site asset; the published host and demo reference that asset path."
+      },
+      "observed": {
+        "assertions": [
+          "signed_local_rive_publish_completed",
+          "built_site_asset_byte_matches_signed_asset",
+          "published_host_and_demo_select_asset"
+        ],
+        "summary": "The corrected signed local Rive export is byte-identical to the built-site asset; the published host and demo reference that asset path."
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/command-transcripts/A5.command.json",
+        "sha256": "b126a832519285c0ebf8358183118c92dcad7133f7e676bd8d1b34d180d66d38"
+      }
+    },
+    {
+      "id": "A6",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node scripts/svg-extrusion/verify-x10-acceptance.mjs A6",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/build/x10-checks/A6.json",
+      "sha256": "6381a323a9e79f5c5ca9fe13a67707011038896bb5db93a1ad69303a7ce83c1d",
+      "expected": {
+        "assertions": [
+          "rive_zero_errors_warnings",
+          "rive_tests_23_of_23",
+          "front_phase_verifier_passed",
+          "picking_A1_A12_passed",
+          "web_foundations_build_and_publication_checks_passed"
+        ],
+        "summary": "The Rive project, regression suite, front-phase verifier, all picking fixtures, Jekyll site build, publication safety, and citation checks passed."
+      },
+      "observed": {
+        "assertions": [
+          "rive_zero_errors_warnings",
+          "rive_tests_23_of_23",
+          "front_phase_verifier_passed",
+          "picking_A1_A12_passed",
+          "web_foundations_build_and_publication_checks_passed"
+        ],
+        "summary": "The Rive project, regression suite, front-phase verifier, all picking fixtures, Jekyll site build, publication safety, and citation checks passed."
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/command-transcripts/A6.command.json",
+        "sha256": "9529df052c049bd136b43e5695f62a04ed289b46ddace695f678a07cae260fd6"
+      }
+    },
+    {
+      "id": "A7",
+      "status": "PASS",
+      "command": "node scripts/svg-extrusion/verify-x10-acceptance.mjs A7",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X10.md",
+      "sha256": "959d5dde63c9c0b62865b7ed4ed8104050fd4d49e07787ad78b98c51f71df9ab",
+      "expected": {
+        "assertions": [
+          "evidence_ids_match_runbook",
+          "receipt_artifact_and_transcript_digests_validate"
+        ],
+        "summary": "The receipt has exactly A1-A7, and all referenced artifacts and command transcripts are digest-bound."
+      },
+      "observed": {
+        "assertions": [
+          "evidence_ids_match_runbook",
+          "receipt_artifact_and_transcript_digests_validate"
+        ],
+        "summary": "The receipt has exactly A1-A7, and all referenced artifacts and command transcripts are digest-bound."
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/command-transcripts/A7.command.json",
+        "sha256": "3dbc8bfe9c15ab09df349c8f3b14ffcb11890b71151a2fb3ef2af40ffb6f5297"
+      }
+    }
+  ]
+}
