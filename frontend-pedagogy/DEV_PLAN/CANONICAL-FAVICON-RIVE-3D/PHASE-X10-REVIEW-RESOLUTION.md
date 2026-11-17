@@ -1,8 +1,8 @@
 # PHASE-X10 · Cold-review resolution
 
-**Review:** [PHASE-X10-COLD-REVIEW.md](PHASE-X10-COLD-REVIEW.md)  
-**Reviewed implementation:** `8d1bd70f7d6c802c6a50bd98011ef2ca009b6318`  
-**Harness gate:** [PHASE-X10-VERIFY-LOG.md](PHASE-X10-VERIFY-LOG.md), exit 0
+- **Review:** [PHASE-X10-COLD-REVIEW.md](PHASE-X10-COLD-REVIEW.md)
+- **Reviewed implementation:** `8d1bd70f7d6c802c6a50bd98011ef2ca009b6318`
+- **Harness gate:** [PHASE-X10-VERIFY-LOG.md](PHASE-X10-VERIFY-LOG.md), exit 0
 
 ## Orchestrator triage
 

@@ -1,12 +1,12 @@
 # PHASE-X10 · Cold review (local Qwen)
 
-**Model:** `qwen2.5:72b-instruct-q4_K_M` (D52)  
-**Endpoint:** `http://localhost:11434`  
-**Client:** `ollama.Client(host='http://localhost:11434', timeout=600)`  
-**Options:** `temperature=0`, JSON format  
-**Reviewed implementation:** `8d1bd70f7d6c802c6a50bd98011ef2ca009b6318`  
-**Harness transcript:** `PHASE-X10-VERIFY-LOG.md`, exit 0, bound to the implementation commit  
-**eligible_for_done:** `true`
+- **Model:** `qwen2.5:72b-instruct-q4_K_M` (D52)
+- **Endpoint:** `http://localhost:11434`
+- **Client:** `ollama.Client(host='http://localhost:11434', timeout=600)`
+- **Options:** `temperature=0`, JSON format
+- **Reviewed implementation:** `8d1bd70f7d6c802c6a50bd98011ef2ca009b6318`
+- **Harness transcript:** `PHASE-X10-VERIFY-LOG.md`, exit 0, bound to the implementation commit
+- **eligible_for_done:** `true`
 
 The final review packet was sent after the implementation was committed and the
 harness gate was rerun against that commit. An earlier oversized packet
