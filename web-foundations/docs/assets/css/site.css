@@ -180,6 +180,54 @@ img.footer-logo {
 	max-width: min(100%, 18rem);
 }
 
+.footer-research-group {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	width: min(100%, 42rem);
+	color: var(--text-primary);
+	text-decoration: none;
+}
+
+.footer-research-group:focus-visible {
+	border-radius: 0.25rem;
+	outline: 2px solid #2563eb;
+	outline-offset: 4px;
+}
+
+.footer-research-group:hover .footer-research-group__copy,
+.footer-research-group:focus-visible .footer-research-group__copy {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+.footer-research-group__mark {
+	display: block;
+	flex: 0 0 auto;
+	padding: 0.25rem;
+	border-radius: 0.25rem;
+	background: #111827;
+}
+
+.footer-research-group__mark picture {
+	display: block;
+}
+
+.footer-institutional-logos .footer-logo--ecs {
+	width: 6rem;
+	max-width: 6rem;
+	max-height: 4rem;
+}
+
+.footer-research-group__copy {
+	display: grid;
+	gap: 0.3rem;
+	min-width: 0;
+	font-size: 0.75rem;
+	font-weight: 600;
+	line-height: 1.35;
+}
+
 .container {
 	background: var(--bg-light);
 	max-width: var(--max);
@@ -3099,6 +3147,7 @@ main#main:has(.lesson-wrapper) {
 .svg-motion-demo:has(#same-result:target) .svg-motion-demo__rail a[href='#same-result'],
 .svg-motion-demo:has(#best-in-show:target) .svg-motion-demo__rail a[href='#best-in-show'],
 .svg-motion-demo:has(#interaction-lab:target) .svg-motion-demo__rail a[href='#interaction-lab'],
+.svg-motion-demo:has(#svgjs-lab:target) .svg-motion-demo__rail a[href='#svgjs-lab'],
 .svg-motion-demo:has(#authored-assets:target) .svg-motion-demo__rail a[href='#authored-assets'],
 .svg-motion-demo:has(#spatial-lab:target) .svg-motion-demo__rail a[href='#spatial-lab'],
 .svg-motion-demo:has(#verdict:target) .svg-motion-demo__rail a[href='#verdict'] {
@@ -3558,6 +3607,28 @@ main#main:has(.lesson-wrapper) {
 
 .svg-motion-demo .showcase-card .stage {
 	min-height: 10.625rem;
+}
+
+.svg-motion-demo .svgjs-card {
+	max-width: 46rem;
+}
+
+.svg-motion-demo .svgjs-card h3 {
+	margin: 0;
+	color: var(--text-primary);
+	font-size: 1.1rem;
+}
+
+.svg-motion-demo .svgjs-stage > [data-svgjs-stage] {
+	width: min(100%, 26rem);
+	height: 14rem;
+}
+
+.svg-motion-demo .svgjs-stage svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
 }
 
 .svg-motion-demo .showcase-card .fava {

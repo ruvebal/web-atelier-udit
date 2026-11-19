@@ -11,6 +11,7 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
     <a href="#same-result">Same result</a>
     <a href="#best-in-show">Best in show</a>
     <a href="#interaction-lab">Interaction lab</a>
+    <a href="#svgjs-lab">SVG.js</a>
     <a href="#authored-assets">Authored assets</a>
     <a href="#audio-specimen">Audio hum</a>
     <a href="#spatial-lab">Spatial lab</a>
@@ -188,6 +189,35 @@ permalink: /lessons/en/web-animations/svg-master-session/demo/
         <span class="best-at">Best at: compact target functions and ripples</span>
       </article>
     </section>
+  </section>
+
+  <section id="svgjs-lab" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="svgjs-lab-title">
+    <h2 id="svgjs-lab-title" class="round-title">SVG.js: change the geometry</h2>
+    <p class="lede">Most examples above animate opacity, transforms, or playback. SVG.js creates native SVG nodes and can interpolate their geometry. Open and fold the rosette: each of its six polygons keeps the same SVG node while its six point pairs move.</p>
+    <article class="showcase-card svgjs-card" data-svgjs="geometry">
+      <div class="card-head"><h3>Polygon point animation</h3><span class="category">SVG construction + motion</span></div>
+      <p class="asset-status" data-svgjs-status role="status" aria-live="polite">Loading SVG.js…</p>
+      <div class="stage svgjs-stage">
+        <div data-svgjs-stage aria-hidden="true">
+          <svg viewBox="0 0 320 220" focusable="false">
+            <g transform="translate(160 110)">
+              <polygon points="0,0 12,-5 60,-18 90,0 60,18 12,5" fill="#263f66" transform="rotate(0)" />
+              <polygon points="0,0 12,-5 60,-18 90,0 60,18 12,5" fill="#426aa0" transform="rotate(60)" />
+              <polygon points="0,0 12,-5 60,-18 90,0 60,18 12,5" fill="#7254a5" transform="rotate(120)" />
+              <polygon points="0,0 12,-5 60,-18 90,0 60,18 12,5" fill="#c5c944" transform="rotate(180)" />
+              <polygon points="0,0 12,-5 60,-18 90,0 60,18 12,5" fill="#4b9990" transform="rotate(240)" />
+              <polygon points="0,0 12,-5 60,-18 90,0 60,18 12,5" fill="#d8913a" transform="rotate(300)" />
+              <circle cx="0" cy="0" r="9" fill="#e0cb48" />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="showcase-control">
+        <button type="button" data-svgjs-toggle disabled>Fold to center</button>
+      </div>
+      <p class="showcase-copy">This is geometry interpolation, not a scale transform. The six-point arrays stay compatible, and the HTML button remains available when motion is reduced.</p>
+      <span class="best-at">Best at: creating and morphing SVG shapes in place</span>
+    </article>
   </section>
 
   <section id="authored-assets" class="svg-motion-demo__round svg-motion-demo__snap" aria-labelledby="authored-assets-title">
@@ -383,6 +413,11 @@ facet.addEventListener('click', () => {
   delay: (_, index) => Math.abs(index - selectedIndex) * 65
 });`],
 
+    'svgjs:geometry': ['js', `const petal = draw.polygon(startPoints);
+petal.animate({ duration: 720, delay: index * 55, when: 'now' })
+  .ease('<>')
+  .plot(endPoints);`],
+
     'authored:lottie': ['js', `const player = lottie.loadAnimation({
   container: stage,
   renderer: 'svg',
@@ -440,7 +475,8 @@ scene.add(new THREE.Mesh(geometry, material));`]
     ['[data-method]', 'method'],
     ['[data-show]', 'show'],
     ['[data-interaction]', 'interaction'],
-    ['[data-authored]', 'authored']
+    ['[data-authored]', 'authored'],
+    ['[data-svgjs]', 'svgjs']
   ];
 
   for (const [selector, namespace] of cardKeys) {
@@ -873,6 +909,87 @@ scene.add(new THREE.Mesh(geometry, material));`]
 
   buildWebGLStudy();
   window.addEventListener('pagehide', () => cancelAnimationFrame(projectedFrame), { once: true });
+</script>
+<script type="module">
+  const lab = document.querySelector('#svgjs-lab');
+
+  if (lab) {
+    const stage = lab.querySelector('[data-svgjs-stage]');
+    const toggle = lab.querySelector('[data-svgjs-toggle]');
+    const status = lab.querySelector('[data-svgjs-status]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const colors = ['#263f66', '#426aa0', '#7254a5', '#c5c944', '#4b9990', '#d8913a'];
+    const center = { x: 160, y: 110 };
+    let svgModule;
+
+    try {
+      svgModule = await import('https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.2.8/+esm');
+    } catch (error) {
+      status.textContent = 'SVG.js could not load; the static rosette remains available.';
+      console.error('SVG.js geometry lab failed to load', error);
+    }
+
+    if (svgModule) {
+      const draw = svgModule.SVG().size('100%', '100%').viewbox(0, 0, 320, 220);
+      draw.attr({ 'aria-hidden': 'true', focusable: 'false' });
+
+      function petalPoints(index, length, width) {
+        const angle = index * Math.PI / 3;
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        const localPoints = [
+          [0, 0],
+          [12, -5],
+          [length * 0.68, -width * 0.68],
+          [length, 0],
+          [length * 0.68, width * 0.68],
+          [12, 5],
+        ];
+
+        return localPoints.map(([x, y]) => [
+          center.x + x * cos - y * sin,
+          center.y + x * sin + y * cos,
+        ]);
+      }
+
+      const petals = colors.map((color, index) => draw.polygon(petalPoints(index, 90, 28))
+        .fill(color)
+        .stroke({ color: '#fffef9', width: 1.5 }));
+
+      draw.circle(18).center(center.x, center.y).fill('#e0cb48');
+      stage.replaceChildren(draw.node);
+
+      toggle.disabled = false;
+      let isOpen = true;
+      status.textContent = 'Six SVG polygons are ready. Fold or reopen the rosette.';
+
+      toggle.addEventListener('click', () => {
+        isOpen = !isOpen;
+        toggle.textContent = isOpen ? 'Fold to center' : 'Open the rosette';
+        const target = isOpen ? [90, 28] : [24, 10];
+        const nextPoints = petals.map((_, index) => petalPoints(index, ...target));
+
+        if (prefersReducedMotion) {
+          petals.forEach((petal, index) => petal.plot(nextPoints[index]));
+          status.textContent = 'Geometry updated without animation (reduced motion).';
+          return;
+        }
+
+        toggle.disabled = true;
+        status.textContent = `Morphing ${petals.length} polygon point arrays with SVG.js.`;
+        petals.forEach((petal, index) => {
+          petal.animate({ duration: 720, delay: index * 55, when: 'now' })
+            .ease('<>')
+            .plot(nextPoints[index]);
+        });
+
+        window.setTimeout(() => {
+          toggle.disabled = false;
+          status.textContent = isOpen ? 'Rosette open.' : 'Rosette folded.';
+        }, 720 + (petals.length - 1) * 55);
+      });
+    }
+  }
 </script>
 <script type="module">
   const interactionRoot = document.querySelector('#interaction-lab');

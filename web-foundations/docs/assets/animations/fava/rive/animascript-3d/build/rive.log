@@ -5086,3 +5086,21 @@
 [15:29:37.245] rive  bench advance: mean 0.015ms p50 0.014ms p95 0.024ms max 0.047ms
 [15:29:37.245] rive  bench render: mean 0.056ms p50 0.043ms p95 0.110ms max 0.430ms
 [15:29:37.245] rive  bench memory: 25 -> 41 wasm pages (+16) over 300 frames
+[15:47:03.139] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench
+[15:47:03.243] rive  built (736766 bytes, 104ms, 0 errors, 0 warnings)
+[15:47:03.244] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH
+[15:47:03.246] rive  showing main [1/1]
+[15:47:03.246] rive  viewport 720x480 @1x
+[15:47:03.246] rive  script frame gc: scavenging per frame
+[15:47:03.297] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p42.png
+[15:47:03.305] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p44.png
+[15:47:03.313] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p46.png
+[15:47:03.321] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p48.png
+[15:47:03.329] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p50.png
+[15:47:03.337] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p52.png
+[15:47:03.345] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p54.png
+[15:47:03.352] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p56.png
+[15:47:03.363] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p60.png
+[15:47:03.371] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p64.png
+[15:47:03.378] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p68.png
+[15:47:03.386] rive  wrote /Users/ruvebal/.copilot/session-state/624beb35-25af-4eb7-ae9f-715aa1b07a6b/files/x11-probes/p72.png

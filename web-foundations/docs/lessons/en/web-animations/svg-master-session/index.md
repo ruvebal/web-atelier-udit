@@ -7,7 +7,18 @@ date: 2026-11-08
 author: 'Rubén Vega Balbás, PhD'
 lang: en
 permalink: /lessons/en/web-animations/svg-master-session/
+status: complete
+tags: [animation, svg, motion, interaction]
 ---
+
+<!-- prettier-ignore-start -->
+
+## 📋 Table of Contents
+{: .no_toc }
+- TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
 
 <aside class="lesson-framing" aria-label="Master idea and studio test">
 <p><strong>Master idea:</strong> the best animation is the simplest technique that achieves the intended motion, remains understandable, and respects the people who use the page.</p>
@@ -22,12 +33,15 @@ Open the [interactive technique comparison]({{ '/lessons/en/web-animations/svg-m
 
 The comparison opens as a full page rather than a modal. Its wide stages, long-form evidence, browser history, and shareable URL are useful here; placing the same material in a focus-trapped overlay would introduce nested scrolling without improving the task. A compact, theme-aware section rail and proximity snap points preserve orientation without forcing every scroll gesture to stop.
 
+The SVG.js lab adds a different task: construct six native polygons, then animate their point lists into a folded form.
+
 ## Learning outcomes
 
 By the end of the session, students can:
 
 - explain when an SVG must be inline to target its internal paths from page CSS or JavaScript;
 - compare CSS transitions, CSS keyframes, SVG SMIL, WAAPI, GSAP, Motion for JavaScript, and Anime.js on the same visual task;
+- create native SVG shapes with SVG.js and animate compatible polygon point arrays with `plot()`;
 - distinguish direct DOM interaction, timeline control, packaged state machines, and authored runtime logic;
 - distinguish a Rive state machine from custom AnimaScript logic compiled to WebAssembly, including an `AudioProcessor` audio lane;
 - distinguish an animation technique from an exported format, player, or authoring runtime;
@@ -53,6 +67,7 @@ By the end of the session, students can:
 | GSAP | Staggered path reveal in a timeline | Clear sequencing, labels, easing, reversal, and interruption; already taught in FE I Session 11 | Adds a runtime for a very small effect; use it when choreography earns that cost |
 | Motion for JavaScript | Staggered path reveal with `animate()` and `stagger()` | Compact modern API, spring physics, and gesture response; works without React | Another dependency and API to learn when the CSS or WAAPI version already suffices |
 | Anime.js | Staggered path reveal with `animate()` and `stagger()` | Expressive targets, sequencing, and SVG line-drawing helpers | Another dependency; an equivalent result is already available in the course's GSAP path |
+| SVG.js | Six SVG polygons whose point arrays fold between two shapes | Creates SVG nodes and animates their native geometry with one SVG-focused API | Not exclusive to SVG.js; path interpolation requires compatible path commands |
 | Canvas 2.5D | A translated field whose `x/y/z` values are projected to a 2D canvas | Many shapes, seeded depth, camera response, and bounded draw cost without a 3D engine | No SVG DOM, no depth buffer, and manual hit testing, sorting, projection, and accessibility |
 | Lottie | Generated vector animation exported to Lottie JSON and rendered in the showreel | Portable motion-design format; can animate each facet with independent timing | Separate artwork/animation representation and player; JSON is 38 KB before transfer compression |
 | dotLottie | Two Lottie animations packaged in a v2 archive and played on canvas | Packages brand/night variants together; one 14 KB archive in this lesson | Still a Lottie player and archive, not a way to animate existing SVG DOM nodes |
@@ -61,7 +76,156 @@ By the end of the session, students can:
 | Rive + AnimaScript GPU Canvas | Thirteen instanced triangular prisms driven by AnimaScript and shaded in WGSL | One `.riv` packages the loop, GPU geometry, perspective projection, normals, lighting, depth testing, and palette | Requires the GPU-enabled Rive WebGL2 runtime; host HTML still owns fallback, accessibility, and reduced-motion policy |
 | Three.js reference | Converts SVG paths into shapes or extruded meshes in a camera scene | Genuine geometry, materials, lighting, depth testing, and camera control through WebGL | It is a 3D renderer/scene graph, not an SVG animation technique; conversion loses SVG DOM semantics |
 
-CSS, SMIL, and WAAPI are browser-native comparisons. GSAP, Motion, and Anime.js are JavaScript animation libraries. Lottie, dotLottie, and Rive are authored asset/runtime choices. AnimaScript belongs inside the Rive toolchain: it uses TypeScript-like syntax but is statically typed, has no DOM, and compiles to WebAssembly. Keep those categories separate when students score them. Current platform/library details: [MDN on SVG embedding](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Including_vector_graphics), [MDN on SVG SMIL](https://developer.mozilla.org/en-US/docs/Web/SVG/Guides/SVG_animation_with_SMIL), [MDN on WAAPI](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API), [GSAP installation](https://gsap.com/docs/v3/Installation/), [Motion quick start](https://motion.dev/docs/quick-start), [Anime.js animation API](https://animejs.com/documentation/animation/), [dotLottie web runtime](https://docs.lottiefiles.com/en/runtimes/distributions/js/v0.x), [Rive web use cases](https://rive.app/use-cases/websites), and [AnimaScript introduction](https://rive.app/rasc/docs/introduction.html).
+CSS, SMIL, and WAAPI are browser-native comparisons. GSAP, Motion, Anime.js, and SVG.js are JavaScript libraries; SVG.js focuses on creating and manipulating the SVG scene itself. Lottie, dotLottie, and Rive are authored asset/runtime choices. AnimaScript belongs inside the Rive toolchain: it uses TypeScript-like syntax but is statically typed, has no DOM, and compiles to WebAssembly. Keep those categories separate when students score them. Current platform/library details: [MDN on SVG embedding](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Including_vector_graphics), [MDN on SVG SMIL](https://developer.mozilla.org/en-US/docs/Web/SVG/Guides/SVG_animation_with_SMIL), [MDN on WAAPI](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API), [GSAP installation](https://gsap.com/docs/v3/Installation/), [Motion quick start](https://motion.dev/docs/quick-start), [Anime.js animation API](https://animejs.com/documentation/animation/), [SVG.js animation docs](https://svgjs.dev/docs/3.0/animating/), [SVG.js shape docs](https://svgjs.dev/docs/3.0/shape-elements/), [dotLottie web runtime](https://docs.lottiefiles.com/en/runtimes/distributions/js/v0.x), [Rive web use cases](https://rive.app/use-cases/websites), and [AnimaScript introduction](https://rive.app/rasc/docs/introduction.html).
+
+## SVG.js: animate the shape itself
+
+The other JavaScript examples mostly change opacity, transforms, or timing on existing artwork. SVG.js can also create the SVG elements and update their geometry directly. The [SVG.js rosette lab]({{ '/lessons/en/web-animations/svg-master-session/demo/#svgjs-lab' | relative_url }}) builds six native `<polygon>` elements, then animates each element's `points` with `animate().plot()`. The SVG nodes stay in the document; only their point lists change.
+
+This is not a capability unique to one library. SVG.js makes the SVG-specific operation concise and consistent across shapes. Here it is useful for a small generative mark that must unfold as vector geometry, not merely scale or fade. Path interpolation has a constraint: both paths need compatible commands. The example uses polygons with six points each, so every start and end shape has the same structure.
+
+Pinned as of **November 2026** — the demo imports this exact version; re-check before reusing the URL:
+
+| Package | Version | Note |
+| --- | --- | --- |
+| `@svgdotjs/svg.js` | `3.2.8` | Core library only; polygon plotting is built in, but path interpolation needs matching commands |
+
+**Code block convention in this lesson:** the standalone rosette below is **CodeSandbox-ready** as a complete `index.html`; partial examples elsewhere are **Excerpts**. It uses a browser ESM import, so the preview needs network access.
+
+**CodeSandbox-ready** — Create `index.html` in a Vanilla HTML/CSS/JS sandbox:
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SVG.js geometry morph</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, sans-serif;
+        color: #152b46;
+        background: #f3f2ea;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      main {
+        width: min(32rem, calc(100% - 2rem));
+        margin: 3rem auto;
+      }
+
+      #stage {
+        height: 16rem;
+        margin-block: 1.25rem;
+        border: 1px solid #c8c9c1;
+        background: #fffef9;
+      }
+
+      #stage svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      button {
+        border: 0;
+        padding: 0.7rem 1rem;
+        background: #263f66;
+        color: white;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      button:focus-visible {
+        outline: 3px solid #7254a5;
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Fold the rosette</h1>
+      <p>Each petal keeps its SVG node while its points move.</p>
+      <div id="stage" aria-hidden="true"></div>
+      <button id="toggle" type="button">Fold to center</button>
+      <p id="status" role="status" aria-live="polite">Building the SVG scene…</p>
+    </main>
+    <script type="module">
+      import { SVG } from 'https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.2.8/+esm';
+
+      const stage = document.querySelector('#stage');
+      const toggle = document.querySelector('#toggle');
+      const status = document.querySelector('#status');
+      const colors = ['#263f66', '#426aa0', '#7254a5', '#c5c944', '#4b9990', '#d8913a'];
+      const center = { x: 160, y: 110 };
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const draw = SVG().addTo(stage).size('100%', '100%').viewbox(0, 0, 320, 220);
+      const petals = colors.map((color, index) => {
+        const petal = draw.polygon(petalPoints(index, 90, 28))
+          .fill(color)
+          .stroke({ color: '#fffef9', width: 1.5 });
+        return petal;
+      });
+
+      draw.circle(18).center(center.x, center.y).fill('#e0cb48');
+      let isOpen = true;
+
+      function petalPoints(index, length, width) {
+        const angle = index * Math.PI / 3;
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        const localPoints = [
+          [0, 0],
+          [12, -5],
+          [length * 0.68, -width * 0.68],
+          [length, 0],
+          [length * 0.68, width * 0.68],
+          [12, 5],
+        ];
+
+        return localPoints.map(([x, y]) => [
+          center.x + x * cos - y * sin,
+          center.y + x * sin + y * cos,
+        ]);
+      }
+
+      toggle.addEventListener('click', () => {
+        isOpen = !isOpen;
+        toggle.textContent = isOpen ? 'Fold to center' : 'Open the rosette';
+        const target = isOpen ? [90, 28] : [24, 10];
+        const nextPoints = petals.map((_, index) => petalPoints(index, ...target));
+
+        if (reducedMotion) {
+          petals.forEach((petal, index) => petal.plot(nextPoints[index]));
+          status.textContent = 'Geometry updated without animation (reduced motion).';
+          return;
+        }
+
+        toggle.disabled = true;
+        status.textContent = `Folding ${petals.length} polygon point arrays with SVG.js.`;
+        petals.forEach((petal, index) => {
+          petal.animate({ duration: 720, delay: index * 55, when: 'now' })
+            .ease('<>')
+            .plot(nextPoints[index]);
+        });
+
+        window.setTimeout(() => {
+          toggle.disabled = false;
+          status.textContent = isOpen ? 'Rosette open.' : 'Rosette folded.';
+        }, 720 + (petals.length - 1) * 55);
+      });
+
+      status.textContent = 'Six SVG polygons are ready. Fold or reopen the rosette.';
+    </script>
+  </body>
+</html>
+```
+
+The button and live status remain HTML controls; the SVG is decorative. This keeps the interaction keyboard-operable and gives reduced-motion users the final geometry without playing the morph.
 
 ### Current platform signal
 
