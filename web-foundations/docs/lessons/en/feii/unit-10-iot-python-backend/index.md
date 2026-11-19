@@ -91,7 +91,7 @@ The evaluator-safe Ahmes review grounds the vocabulary and design object, never 
 - Real-time bidirectional web communication is a measured, adopted pattern, not a course convenience (Murley 2021, 1).
 {% if site.publication.publish_internal_metadata %}
 <!-- curriculum-internal:
-- Real-time bidirectional web communication is a measured, adopted pattern, not a course convenience (Murley, Ma, Mason, Bailey & Kharraz 2021, *WebSocket Adoption and the Landscape of the Real-Time Web*, WWW'21; DOI `10.1145/3442381.3450063`; coat `3442381_3450063_3ee00512` · nodo `40a6fdfe-be41-575f-a1d0-5c2964feaa60` · p. 1) — `(Murley 2021, 1)`. <!&#45;&#45; provenance: resolved live 2026-08-20 via `ahmes query &#45;&#45;cite &#45;&#45;require-evaluator-safe`, evaluator_safe=yes, confidence 0.95 (crossref).
+- Real-time bidirectional web communication is a measured, adopted pattern, not a course convenience (Murley, Ma, Mason, Bailey & Kharraz 2021, *WebSocket Adoption and the Landscape of the Real-Time Web*, WWW'21; DOI `10.1145/3442381.3450063`; coat `3442381_3450063_3ee00512` · nodo `40a6fdfe-be41-575f-a1d0-5c2964feaa60` · p. 1) — `(Murley 2021, 1)`. Pre-round 2026-11-11: DevIAC vector + GraphRAG discovery reconfirmed the same coat (`project_slug=profield-frontend-pedagogy`); graph vault unresolved for entity hops — citation still Ahmes-node only. Prior resolve 2026-08-20 `evaluator_safe=yes`.
 -->
 {% endif %}
 - IoT data streams and dashboards carry an accessibility dimension from the start: semantic HTML5 and WAI-ARIA over raw sensor values, not as an afterthought (Stelea 2025, 1).
@@ -115,7 +115,7 @@ You are inside the gap: connection-lifetime discipline and the human-machine-int
 -->
 {% endif %}
 
-**Platform notes** (checked 2026-08-20): `fastapi@0.121` (Python ≥3.10) · WebSocket API is a browser standard (no npm version to pin) · React `useEffect`/`useState` as already taught in FE I. Vendor/spec docs are HOW, not bibliography.
+**Platform notes** (checked 2026-11-11): `fastapi@0.121` (Python ≥3.10) · WebSocket API is a browser standard (no npm version to pin) · `msw@3` WebSocket mocking (`ws.link` / `connection`) for the Streamfield sandbox · React `useEffect`/`useState` as already taught in FE I. Vendor/spec docs are HOW, not bibliography.
 
 ---
 
@@ -124,8 +124,11 @@ You are inside the gap: connection-lifetime discipline and the human-machine-int
 By the end of this unit, you will be able to:
 
 - **See the data-source transfer** — Same component model (props, state, hooks); the data source's *shape* changes from stateless request/response to a stateful, bidirectional connection.
+- **Name a telemetry frame** — Know that `snapshot(sequence)` builds one JSON message (not a Rive Snapshot), and map its fields to the Streamfield graphics.
 - **Implement WebSocket connections with a full lifecycle** — Connect, reconnect, and **close** — not just `onmessage`.
-- **Build a control-panel interface** — React components driven by live device/sensor state.
+- **Build a control-panel interface** — React components driven by live device/sensor state, including a visual membrane that can go live/stale/offline.
+- **Trace the Streamfield file map** — Say what `contract`, `handlers`, `useDeviceStream`, continuum, RIS, and aura each own.
+- **Mock or run the stream** — Rehearse against an MSW (or other) WebSocket mock before (or beside) a FastAPI process; know which tool owns which test layer.
 - **Consume a Python-backed service** — REST and WebSocket endpoints from a FastAPI backend.
 - **Declare AI assistance** — Log ACCEPT / REJECT on any AI-drafted hook or endpoint (same discipline as Units 6, 8, 9).
 - **Fold a delta stream** — Tell a full snapshot from a patch, and say why the patch needs a long-lived process.
@@ -134,27 +137,36 @@ By the end of this unit, you will be able to:
 
 ## 📖 Beyond REST/GraphQL
 
-Most interfaces consume REST or GraphQL. IoT/robotics needs a different shape:
+Most interfaces consume REST or GraphQL. IoT/robotics needs a different transport shape — not a different React model.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│           DATA SOURCE TRANSFER                          │
-├─────────────────────────────────────────────────────────┤
-│                                                          │
-│   REST/GraphQL API        IoT/Robotics/Python Service     │
-│   ┌─────────────┐         ┌─────────────┐              │
-│   │ request/response      │ WebSocket    │              │
-│   │ JSON over HTTP         │ Bi-directional│              │
-│   │ Stateless              │ Stateful     │              │
-│   └─────────────┘         └─────────────┘              │
-│                                                          │
-│   Same component model: props, state, hooks               │
-│   Different data source: HTTP vs WebSocket vs Device API  │
-│                                                          │
-└─────────────────────────────────────────────────────────┘
-```
+<figure class="spectacle-image" markdown="0">
+<img src="{{ '/assets/images/feii/unit-10/websocket-membrane-v1.svg' | relative_url }}" alt="Device and control panel exchange frames through an open WebSocket membrane; states live, reconnecting, and closed" width="680" height="420" loading="lazy" />
+<figcaption>
+<p>WebSocket as an operational membrane: one open channel, many frames, and states the panel must show.</p>
+<p class="image-credit">visual-forger · studio figure · websocket-membrane-v1</p>
+</figcaption>
+</figure>
 
-**Key insight:** The component model stays the same. Only the data source's shape changes — and a stateful connection has a lifecycle a stateless request never had (Murley 2021, 1): it opens, it can drop, it must be closed. That lifecycle is this unit's real subject.
+| | REST / GraphQL | WebSocket (this unit) |
+| --- | --- | --- |
+| Shape | request → response | open channel → many messages |
+| State | stateless per call | stateful connection |
+| Lifecycle you own | almost none | open · drop · reconnect · **close** |
+| Typical use here | one-shot command (`POST …/commands`) | continuous telemetry stream |
+
+**Key insight:** The component model stays the same (props, state, hooks). Only the data source's shape changes — and a stateful connection has a lifecycle a stateless request never had (Murley 2021, 1). That lifecycle is this unit's real subject.
+
+### Vocabulary — frame vs snapshot
+
+Students often meet two different words for the same JSON blob, and a third word from Rive that means something else entirely:
+
+| Word in this unit | Means | Does **not** mean |
+| --- | --- | --- |
+| **Telemetry frame** | One JSON message on the wire (one tick of the stream) | A screenshot or browser Snapshot API |
+| **`snapshot(sequence)`** | The **function name** in the Python Template and `contract.js` that *builds* that frame | A Rive AnimaScript `Snapshot` (audio/layout lane) |
+| **History ring** | The last ~48 `readings` kept in the hook for drawing | The live connection itself |
+
+When the lesson or Ex6 says “latest frame,” it means the last object returned by `snapshot(n)` / received in `onmessage`.
 
 ---
 
@@ -264,6 +276,104 @@ function DeviceControlPanel() {
 
 ---
 
+## Flagship sandbox — Streamfield
+
+The membrane is easier to defend when you can **see** live / stale / reconnecting *and* name which file owns each part. Ex6 is not a mystery dashboard: it is the Entrega 2 `lab-01` contract made audible-visible.
+
+**Open:** in `react-template`, run Vite and open `/ex6-streamfield`. Start with **MSW mock**, aura **off**. Read the JSON frame in the side panel first; then the continuum ribbon; then the RIS. Toggle aura only after you can explain the SVG without it.
+
+### What one frame looks like
+
+<figure class="spectacle-image" markdown="0">
+<img src="{{ '/assets/images/feii/unit-10/telemetry-frame-v1.svg' | relative_url }}" alt="Sequence of telemetry frames on a WebSocket wire with JSON fields mapped to RIS radius, ring opacity, and ripple" width="680" height="460" loading="lazy" />
+<figcaption>
+<p>One telemetry frame on the wire. <code>snapshot(sequence)</code> builds that JSON; the graphics map fields to geometry.</p>
+<p class="image-credit">visual-forger · studio figure · telemetry-frame-v1</p>
+</figcaption>
+</figure>
+
+| Field | Role | Where you see it in Ex6 |
+| --- | --- | --- |
+| `deviceId` | Which simulated device | Readout |
+| `online` | Device claims presence | Part of the frame (panel can still be reconnecting) |
+| `readings.temperatureC` | Primary continuous value | Continuum **Y**; RIS **radius** |
+| `readings.humidityPct` | Secondary continuous value | RIS **ring opacity**; continuum label |
+| `sequence` | Frame order (monotonic) | RIS **ripple**; readout |
+| `timestamp` | Wall clock of the frame | Freshness / stale risk |
+
+### File map — every participant
+
+<figure class="spectacle-image" markdown="0">
+<img src="{{ '/assets/images/feii/unit-10/streamfield-files-v1.svg' | relative_url }}" alt="Flow from contract and MSW handlers through useDeviceStream into Ex6 page, then StreamReadout, RIS and continuum, and optional StreamAura" width="680" height="520" loading="lazy" />
+<figcaption>
+<p>Who owns what in <code>src/streamfield/</code>. Green leaves are operational truth; grey aura is optional atmosphere.</p>
+<p class="image-credit">visual-forger · studio figure · streamfield-files-v1</p>
+</figcaption>
+</figure>
+
+| File | Owns | Teach with |
+| --- | --- | --- |
+| `contract.js` | `STREAM_URL` + `snapshot(sequence)` shape | Compare to the Python Template’s `snapshot` |
+| `handlers.js` | MSW `ws.link` → `client.send` every 1 s | “Mock owns transport when FastAPI is down” |
+| `browser.js` | Start/stop the service worker for this route | Toggle MSW ↔ live must **stop** the interceptor |
+| `useDeviceStream.js` | open · `onmessage` · backoff reconnect · `close` on unmount | History ring (~48 readings) feeds the SVGs |
+| `Ex6Streamfield.jsx` | Source toggle, aura toggle, composition | Page is wiring — not business logic |
+| `StreamReadout.jsx` | Status, freshness, field → graphic map, **latest JSON** | Human decision surface |
+| `StreamContinuum.jsx` | Time-domain ribbon (Catmull–Rom + CSS dash flow) | Live = flowing dash; reconnecting = gap |
+| `RisField.jsx` | Polar view of the **same** history | Radius / rings / ripple = the three fields |
+| `path.js` | Shared Catmull–Rom helper | Continuity maths, not a second data source |
+| `StreamAura.jsx` | R3F décor | Off by default; never the grade |
+
+That split reuses the [SVG master session]({{ '/lessons/en/web-animations/svg-master-session/' | relative_url }}) Round-4 question — *who owns time, who owns space, who draws the pixels?* — inside a WebSocket panel. SVG + readout answer the human decision; WebGL is atmosphere.
+
+### How to read the graphics (in order)
+
+1. **Latest telemetry frame** (JSON in the readout) — prove you know what arrived.
+2. **Continuum** — temperature across the history ring; dash motion means the channel is live.
+3. **RIS** — same history, polar layout (not a second sensor).
+4. **Aura** (optional) — mood only; if it conflicts with SVG/readout, trust SVG/readout.
+
+**Studio test:** kill MSW or uvicorn → status becomes reconnecting → freshness drifts → ribbon gaps. That is the unit’s measure, not how pretty the aura looks.
+
+**Excerpt — MSW WebSocket handler** (sandbox twin: `src/streamfield/handlers.js`):
+
+```js
+import { ws } from 'msw/ws';
+import { STREAM_URL, snapshot } from './contract.js';
+
+const device = ws.link(STREAM_URL);
+
+export const handlers = [
+  device.addEventListener('connection', ({ client }) => {
+    let sequence = 0;
+    const push = () => {
+      client.send(JSON.stringify(snapshot(sequence)));
+      sequence += 1;
+    };
+    push();
+    const timer = setInterval(push, 1000);
+    client.addEventListener('close', () => clearInterval(timer));
+  }),
+];
+```
+
+---
+
+## Mock sockets — test without a device
+
+You do not need a robot on the desk to rehearse lifecycle. Pick the mock layer that matches the question you are asking (FE I already taught MSW for HTTP; here the same library owns WHATWG WebSockets).
+
+| Tool | Best when | How it touches the socket | Primary docs |
+| --- | --- | --- | --- |
+| **MSW** | Unit / component work in the browser or Node, same handlers as FE I | `ws.link(url)` + `connection` → `client.send` / listen to client `message` | [MSW WebSockets](https://mswjs.io/docs/websocket/) |
+| **WireMock** | Integration tests against a robust stub server (JVM/admin API; 4.x messaging) | Accept WS on a path; stub by message content; templated responses; verify via Admin API | [WireMock WebSockets](https://wiremock.org/docs/websockets/) |
+| **Playwright** | E2E: assert UI behaviour under controlled frames | `page.routeWebSocket(url, (ws) => { … ws.onMessage / ws.send })` — no app code change | [Playwright WebSocketRoute](https://playwright.dev/docs/network#websockets) |
+| **Mockoon** | Fast local desktop mock for demos / non-coders on the team | Native `ws://` / `wss://`; conversational, 1:1, or broadcast modes | [Mockoon WebSockets](https://mockoon.com/docs/latest/api-endpoints/websockets/) |
+
+**Studio rule:** MSW is the default rehearsal for Streamfield and for Vitest/RTL-shaped work. WireMock when the contract must be shared with a Java/backend pipeline. Playwright when the grade is “the panel behaves under drop/reconnect.” Mockoon when someone needs a GUI stub before the FastAPI Template is running. None of these replace the versioned Python contract for Entrega 2 — they let you fail the membrane safely first.
+
+---
+
 ## 🐍 Python-Backed Services — Excerpt
 
 ### FastAPI shape
@@ -345,6 +455,7 @@ class DeviceCommand(BaseModel):
 
 
 def snapshot(sequence: int) -> dict:
+    """Build one telemetry frame (JSON message). Not a Rive Snapshot."""
     phase = sequence / 4
     return {
         "deviceId": DEVICE_ID,
@@ -396,13 +507,13 @@ python -m venv .venv
 
 ### Contract surface
 
-- **Snapshot:** GET http://localhost:8000/v1/devices/lab-01
-- **Stream:** ws://localhost:8000/v1/devices/lab-01/stream
+- **One-shot frame (REST):** GET http://localhost:8000/v1/devices/lab-01 — returns one telemetry frame (same shape as a stream message; built by `snapshot(0)`).
+- **Stream:** ws://localhost:8000/v1/devices/lab-01/stream — sends a new frame every second (`snapshot(0)`, `snapshot(1)`, …).
 - **Control:** POST http://localhost:8000/v1/devices/lab-01/commands
-- **Stream shape:** deviceId, online, readings (temperatureC and humidityPct), sequence, timestamp
-- **Control shape:** command (move or stop) and optional target coordinates
+- **Frame shape:** `deviceId`, `online`, `readings` (`temperatureC`, `humidityPct`), `sequence`, `timestamp`
+- **Control shape:** `command` (`move` or `stop`) and optional `target` coordinates
 
-Unit 5's contract test runs against the snapshot endpoint. It is the guard that tells the frontend and backend teams when a field was renamed or a shape changed.
+Unit 5's contract test runs against the REST frame endpoint. It is the guard that tells the frontend and backend teams when a field was renamed or a shape changed.
 
 The snapshot socket repeats the whole frame. [Continuous flow — delta streaming](#continuous-flow--delta-streaming) adds a second socket that sends only the fields that changed. That second socket needs a process you start. The graded contract on this page stays the snapshot route.
 
@@ -803,11 +914,12 @@ async def device_delta(websocket: WebSocket) -> None:
 
 On the shared Entrega 2 repo, alongside Units 8–9's 3D core:
 
-1. Start the versioned local contract and wire its WebSocket stream into the project as a live-data panel. Use its command endpoint for one move or stop interaction; the simulator is sufficient for Entrega 2.
-2. Implement the **full connection lifecycle**: connect, reconnect on drop, and `close()` on unmount. A hook that never closes is not done.
-3. Write a short release note: which reconnect strategy you chose (fixed delay, backoff, none) and why.
-4. Log every AI-assisted diff ACCEPT / REJECT ([Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}) workflow).
-5. Human review after any AI review; CI green.
+1. Rehearse first on **Ex6 Streamfield** (`/ex6-streamfield`): MSW mock, aura off. Name each file in the [file map](#file-map--every-participant). Note live / reconnecting / stale in one sentence each; paste one telemetry frame into the release note.
+2. Start the versioned local contract and wire its WebSocket stream into the project as a live-data panel. Use its command endpoint for one move or stop interaction; the simulator is sufficient for Entrega 2.
+3. Implement the **full connection lifecycle**: connect, reconnect on drop, and `close()` on unmount. A hook that never closes is not done.
+4. Write a short release note: which reconnect strategy you chose (fixed delay, backoff, none) and why; which mock tool (if any) you used before the live socket.
+5. Log every AI-assisted diff ACCEPT / REJECT ([Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}) workflow).
+6. Human review after any AI review; CI green.
 
 **Deliverable:** branch on the shared repo + `docs/ai-declaration-log.md` row + the release note above.
 
@@ -831,11 +943,26 @@ Not the showroom. Isolate the strategy:
 
 ## 📚 Platform notes (HOW, not bibliography)
 
+Pinned as of **November 2026** — re-verify before the term starts:
+
+| Package / surface | Version / note |
+| --- | --- |
+| `fastapi` | `0.121` · Python ≥ 3.10 |
+| `uvicorn` | `^0.34` |
+| `msw` (Streamfield sandbox) | `^3` · WebSocket via `msw/ws` |
+| Browser `WebSocket` | Standard — no npm pin |
+
 - FastAPI — https://fastapi.tiangolo.com/
 - WebSocket API (MDN) — https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
 - WHATWG WebSocket protocol — https://websockets.spec.whatwg.org/
+<<<<<<< HEAD
 - `ws@8.23.0` — https://github.com/websockets/ws — the local delta server. Checked 2026-11-19.
 - GitHub Pages — https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages — static file hosting. The delta process does not run there.
+=======
+- MSW WebSockets — https://mswjs.io/docs/websocket/
+- Playwright `routeWebSocket` — https://playwright.dev/docs/network#websockets
+- SVG master session (spatial model) — [lesson]({{ '/lessons/en/web-animations/svg-master-session/' | relative_url }})
+>>>>>>> 03163b9803002c521d6b4d495e04819c52cf4e6e
 
 ---
 

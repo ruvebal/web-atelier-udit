@@ -1,0 +1,8 @@
+{
+  "schema": "x0-command-transcript/v1",
+  "acceptanceId": "A1",
+  "command": "node web-foundations/scripts/svg-extrusion/verify-x0-acceptance.mjs A1",
+  "exitCode": 0,
+  "stdout": "PASS A1: source digest, source-order path inventory, golden fixture N=13, and dynamic capacity verified\n",
+  "stderr": ""
+}

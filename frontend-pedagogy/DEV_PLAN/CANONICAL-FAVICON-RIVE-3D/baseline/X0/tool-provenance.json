@@ -1,0 +1,173 @@
+{
+  "schema": "x0-command-provenance/v1",
+  "probes": [
+    {
+      "label": "Rive CLI",
+      "startedAtUtc": "2026-11-11T18:05:47.367Z",
+      "endedAtUtc": "2026-11-11T18:05:47.395Z",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "executable": "/opt/homebrew/bin/rive",
+      "argv": [
+        "/opt/homebrew/bin/rive",
+        "--version"
+      ],
+      "environment": {
+        "RBENV_VERSION": "3.3.11",
+        "PATH": "/Users/ruvebal/.rbenv/shims:/Users/ruvebal/.antigravity/antigravity/bin:/Users/ruvebal/.codeium/windsurf/bin:/Users/ruvebal/.nvm/versions/node/v24.22.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/X11/bin:/Library/TeX/texbin:/Applications/Wireshark.app/Contents/MacOS:/opt/homebrew/bin:/opt/podman/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/ruvebal/.codex/tmp/arg0-macos/codex-arg0YX2ixR:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS"
+      },
+      "exitCode": 0,
+      "stdout": "rive 1.9.2\n",
+      "stderr": "",
+      "stdoutSha256": "0bd395f608ab9c199b1096a05ce37c5d903c7fb6b9e85fa432be2a086f41267f",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Node.js",
+      "startedAtUtc": "2026-11-11T18:05:47.395Z",
+      "endedAtUtc": "2026-11-11T18:05:47.410Z",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "executable": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+      "argv": [
+        "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+        "--version"
+      ],
+      "environment": {
+        "RBENV_VERSION": "3.3.11",
+        "PATH": "/Users/ruvebal/.rbenv/shims:/Users/ruvebal/.antigravity/antigravity/bin:/Users/ruvebal/.codeium/windsurf/bin:/Users/ruvebal/.nvm/versions/node/v24.22.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/X11/bin:/Library/TeX/texbin:/Applications/Wireshark.app/Contents/MacOS:/opt/homebrew/bin:/opt/podman/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/ruvebal/.codex/tmp/arg0-macos/codex-arg0YX2ixR:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS"
+      },
+      "exitCode": 0,
+      "stdout": "v24.22.1\n",
+      "stderr": "",
+      "stdoutSha256": "249baf635bb43877fcb9422efa1a4904b702d0ddf14d3949b7cd0950d5229c81",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "npm",
+      "startedAtUtc": "2026-11-11T18:05:47.410Z",
+      "endedAtUtc": "2026-11-11T18:05:47.473Z",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "executable": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/npm",
+      "argv": [
+        "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/npm",
+        "--version"
+      ],
+      "environment": {
+        "RBENV_VERSION": "3.3.11",
+        "PATH": "/Users/ruvebal/.rbenv/shims:/Users/ruvebal/.antigravity/antigravity/bin:/Users/ruvebal/.codeium/windsurf/bin:/Users/ruvebal/.nvm/versions/node/v24.22.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/X11/bin:/Library/TeX/texbin:/Applications/Wireshark.app/Contents/MacOS:/opt/homebrew/bin:/opt/podman/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/ruvebal/.codex/tmp/arg0-macos/codex-arg0YX2ixR:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS"
+      },
+      "exitCode": 0,
+      "stdout": "11.19.1\n",
+      "stderr": "",
+      "stdoutSha256": "acb90e420303a6e949fec90f74faf64cc372894b3964e310a261689b898f41b0",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "pnpm",
+      "startedAtUtc": "2026-11-11T18:05:47.473Z",
+      "endedAtUtc": "2026-11-11T18:05:47.598Z",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "executable": "/opt/homebrew/bin/pnpm",
+      "argv": [
+        "/opt/homebrew/bin/pnpm",
+        "--version"
+      ],
+      "environment": {
+        "RBENV_VERSION": "3.3.11",
+        "PATH": "/Users/ruvebal/.rbenv/shims:/Users/ruvebal/.antigravity/antigravity/bin:/Users/ruvebal/.codeium/windsurf/bin:/Users/ruvebal/.nvm/versions/node/v24.22.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/X11/bin:/Library/TeX/texbin:/Applications/Wireshark.app/Contents/MacOS:/opt/homebrew/bin:/opt/podman/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/ruvebal/.codex/tmp/arg0-macos/codex-arg0YX2ixR:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS"
+      },
+      "exitCode": 0,
+      "stdout": "10.30.0\n",
+      "stderr": "",
+      "stdoutSha256": "298875c935093a49c97171f4520f0ead958019c938816f6bee35c9e8219bcaf9",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Ruby",
+      "startedAtUtc": "2026-11-11T18:05:47.598Z",
+      "endedAtUtc": "2026-11-11T18:05:47.662Z",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations",
+      "executable": "/opt/homebrew/bin/rbenv",
+      "argv": [
+        "/opt/homebrew/bin/rbenv",
+        "exec",
+        "ruby",
+        "--version"
+      ],
+      "environment": {
+        "RBENV_VERSION": "3.3.11",
+        "PATH": "/Users/ruvebal/.rbenv/shims:/Users/ruvebal/.antigravity/antigravity/bin:/Users/ruvebal/.codeium/windsurf/bin:/Users/ruvebal/.nvm/versions/node/v24.22.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/X11/bin:/Library/TeX/texbin:/Applications/Wireshark.app/Contents/MacOS:/opt/homebrew/bin:/opt/podman/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/ruvebal/.codex/tmp/arg0-macos/codex-arg0YX2ixR:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS"
+      },
+      "exitCode": 0,
+      "stdout": "ruby 3.3.11 (2026-03-26 revision 1f2d15125a) [arm64-darwin25]\n",
+      "stderr": "",
+      "stdoutSha256": "c3907477c65993e3edda1d6374248bea46f71ed232ad4a809793ffe74990f70b",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Bundler",
+      "startedAtUtc": "2026-11-11T18:05:47.662Z",
+      "endedAtUtc": "2026-11-11T18:05:47.789Z",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations",
+      "executable": "/opt/homebrew/bin/rbenv",
+      "argv": [
+        "/opt/homebrew/bin/rbenv",
+        "exec",
+        "bundle",
+        "--version"
+      ],
+      "environment": {
+        "RBENV_VERSION": "3.3.11",
+        "PATH": "/Users/ruvebal/.rbenv/shims:/Users/ruvebal/.antigravity/antigravity/bin:/Users/ruvebal/.codeium/windsurf/bin:/Users/ruvebal/.nvm/versions/node/v24.22.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/X11/bin:/Library/TeX/texbin:/Applications/Wireshark.app/Contents/MacOS:/opt/homebrew/bin:/opt/podman/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/ruvebal/.codex/tmp/arg0-macos/codex-arg0YX2ixR:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS"
+      },
+      "exitCode": 0,
+      "stdout": "Bundler version 2.5.22\n",
+      "stderr": "",
+      "stdoutSha256": "bf0b12ec6626d7b693195b96b9118c8403f53c6c7fb58b6be7801389db287e77",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Jekyll",
+      "startedAtUtc": "2026-11-11T18:05:47.789Z",
+      "endedAtUtc": "2026-11-11T18:05:48.083Z",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations",
+      "executable": "/opt/homebrew/bin/rbenv",
+      "argv": [
+        "/opt/homebrew/bin/rbenv",
+        "exec",
+        "bundle",
+        "exec",
+        "jekyll",
+        "--version"
+      ],
+      "environment": {
+        "RBENV_VERSION": "3.3.11",
+        "PATH": "/Users/ruvebal/.rbenv/shims:/Users/ruvebal/.antigravity/antigravity/bin:/Users/ruvebal/.codeium/windsurf/bin:/Users/ruvebal/.nvm/versions/node/v24.22.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/X11/bin:/Library/TeX/texbin:/Applications/Wireshark.app/Contents/MacOS:/opt/homebrew/bin:/opt/podman/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/ruvebal/.codex/tmp/arg0-macos/codex-arg0YX2ixR:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS"
+      },
+      "exitCode": 0,
+      "stdout": "jekyll 3.10.0\n",
+      "stderr": "",
+      "stdoutSha256": "680ebb270958da3d0c3251ed989cd26732f7d7cc8b2bc2ddcb6d610f11f3b551",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Chrome",
+      "startedAtUtc": "2026-11-11T18:05:48.083Z",
+      "endedAtUtc": "2026-11-11T18:05:48.109Z",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+      "argv": [
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "--version"
+      ],
+      "environment": {
+        "RBENV_VERSION": "3.3.11",
+        "PATH": "/Users/ruvebal/.rbenv/shims:/Users/ruvebal/.antigravity/antigravity/bin:/Users/ruvebal/.codeium/windsurf/bin:/Users/ruvebal/.nvm/versions/node/v24.22.1/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/X11/bin:/Library/TeX/texbin:/Applications/Wireshark.app/Contents/MacOS:/opt/homebrew/bin:/opt/podman/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:/Users/ruvebal/.codex/tmp/arg0-macos/codex-arg0YX2ixR:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/Users/ruvebal/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS"
+      },
+      "exitCode": 0,
+      "stdout": "Google Chrome 157.0.8103.51 \n",
+      "stderr": "",
+      "stdoutSha256": "0fb1576c3fb25fca160c52aa171fb37ec21f9c127791341727db2e6e10c2ebcf",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

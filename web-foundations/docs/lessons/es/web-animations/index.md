@@ -1001,6 +1001,8 @@ Si los usuarios ven tu loader a menudo:
 
 > **✅ CSS Puro + SVG - No Requiere JavaScript**
 
+> **Sesión maestra:** [Compara siete técnicas de animación SVG con el favicon ruvebal]({{ '/lessons/es/web-animations/svg-master-session/' | relative_url }}). Incluye CSS, SMIL, WAAPI, GSAP, Motion, Anime.js y los costes de entrega de Lottie, dotLottie y Rive.
+
 **Objetivo**: Animar gráficos SVG usando CSS puro para animaciones profesionales y escalables.
 
 ---

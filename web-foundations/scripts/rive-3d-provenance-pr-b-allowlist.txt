@@ -1,0 +1,19 @@
+# PR B / X8 docs-data allowlist (repo-relative paths, one per line).
+# Globs use a single trailing /** for directory trees.
+# Lines starting with # are comments.
+
+web-foundations/docs/_data/rive_3d_provenance.yml
+web-foundations/scripts/verify-rive-3d-provenance.mjs
+web-foundations/scripts/rive-3d-provenance-pr-b-allowlist.txt
+web-foundations/scripts/svg-extrusion/capture-x8-evidence.mjs
+web-foundations/docs/lessons/en/web-animations/svg-master-session/agentic-rive-3d/index.md
+web-foundations/docs/lessons/es/web-animations/svg-master-session/agentic-rive-3d/index.md
+web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x8-checks/**
+frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/INDEX.md
+frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X8.md
+frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X8-REPORT.md
+frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X8-EVIDENCE.json
+frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X8-VERIFY-LOG.md
+frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X8/**
+frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X8-COLD-REVIEW.md
+frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X9.md

@@ -1,0 +1,353 @@
+{
+  "schema": "svg-to-rive-3d/v1",
+  "compilerVersion": "1.0.9",
+  "supportedSubset": "closed-filled-path-MLCZ-affine/v1",
+  "source": {
+    "sha256": "90cfa8a5dfb290e92515647141369111c821427c71fec3f402873c1221db51ad",
+    "viewBox": [
+      0,
+      0,
+      1024,
+      920
+    ],
+    "path": "fava-mark-static.svg"
+  },
+  "facetCount": 13,
+  "facets": [
+    {
+      "id": "facet-01",
+      "sourceId": null,
+      "sourceOrder": 0,
+      "fill": "#1D4ED8",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.1194374004,
+      "centroid": [
+        0.0246073528,
+        0.0184291043
+      ],
+      "depth": 0.22,
+      "contourVertexCount": 135,
+      "frontTriangleCount": 133,
+      "mesh": {
+        "vertexStart": 0,
+        "vertexCount": 810,
+        "indexStart": 0,
+        "indexCount": 1608
+      }
+    },
+    {
+      "id": "facet-02",
+      "sourceId": null,
+      "sourceOrder": 1,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0131792069,
+      "centroid": [
+        0.014441905,
+        -0.0925463872
+      ],
+      "depth": 0.0997925358,
+      "contourVertexCount": 4,
+      "frontTriangleCount": 2,
+      "mesh": {
+        "vertexStart": 810,
+        "vertexCount": 24,
+        "indexStart": 1608,
+        "indexCount": 36
+      }
+    },
+    {
+      "id": "facet-03",
+      "sourceId": null,
+      "sourceOrder": 2,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0042054528,
+      "centroid": [
+        -0.0064421344,
+        -0.1938861523
+      ],
+      "depth": 0.0737760386,
+      "contourVertexCount": 3,
+      "frontTriangleCount": 1,
+      "mesh": {
+        "vertexStart": 834,
+        "vertexCount": 18,
+        "indexStart": 1644,
+        "indexCount": 24
+      }
+    },
+    {
+      "id": "facet-04",
+      "sourceId": null,
+      "sourceOrder": 3,
+      "fill": "#93C5FD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0044511308,
+      "centroid": [
+        -0.0689412896,
+        0.0169140317
+      ],
+      "depth": 0.0747486158,
+      "contourVertexCount": 28,
+      "frontTriangleCount": 26,
+      "mesh": {
+        "vertexStart": 852,
+        "vertexCount": 168,
+        "indexStart": 1668,
+        "indexCount": 324
+      }
+    },
+    {
+      "id": "facet-05",
+      "sourceId": null,
+      "sourceOrder": 4,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0219376978,
+      "centroid": [
+        -0.0557137516,
+        0.1154329083
+      ],
+      "depth": 0.1171432371,
+      "contourVertexCount": 56,
+      "frontTriangleCount": 54,
+      "mesh": {
+        "vertexStart": 1020,
+        "vertexCount": 336,
+        "indexStart": 1992,
+        "indexCount": 660
+      }
+    },
+    {
+      "id": "facet-06",
+      "sourceId": null,
+      "sourceOrder": 5,
+      "fill": "#1D4ED8",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0044302017,
+      "centroid": [
+        -0.0059671909,
+        0.040523462
+      ],
+      "depth": 0.0746668263,
+      "contourVertexCount": 29,
+      "frontTriangleCount": 27,
+      "mesh": {
+        "vertexStart": 1356,
+        "vertexCount": 174,
+        "indexStart": 2652,
+        "indexCount": 336
+      }
+    },
+    {
+      "id": "facet-07",
+      "sourceId": null,
+      "sourceOrder": 6,
+      "fill": "#C9C932",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0043961353,
+      "centroid": [
+        -0.0054437449,
+        0.0876714882
+      ],
+      "depth": 0.0745332821,
+      "contourVertexCount": 18,
+      "frontTriangleCount": 16,
+      "mesh": {
+        "vertexStart": 1530,
+        "vertexCount": 108,
+        "indexStart": 2988,
+        "indexCount": 204
+      }
+    },
+    {
+      "id": "facet-08",
+      "sourceId": null,
+      "sourceOrder": 7,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0088070305,
+      "centroid": [
+        0.1518937586,
+        0.0994100429
+      ],
+      "depth": 0.0888784115,
+      "contourVertexCount": 28,
+      "frontTriangleCount": 26,
+      "mesh": {
+        "vertexStart": 1638,
+        "vertexCount": 168,
+        "indexStart": 3192,
+        "indexCount": 324
+      }
+    },
+    {
+      "id": "facet-09",
+      "sourceId": null,
+      "sourceOrder": 8,
+      "fill": "#C9C932",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0044648329,
+      "centroid": [
+        0.0569590884,
+        0.0169446588
+      ],
+      "depth": 0.074802059,
+      "contourVertexCount": 27,
+      "frontTriangleCount": 25,
+      "mesh": {
+        "vertexStart": 1806,
+        "vertexCount": 162,
+        "indexStart": 3516,
+        "indexCount": 312
+      }
+    },
+    {
+      "id": "facet-10",
+      "sourceId": null,
+      "sourceOrder": 9,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0043907589,
+      "centroid": [
+        0.1830410356,
+        0.0167492344
+      ],
+      "depth": 0.0745121592,
+      "contourVertexCount": 30,
+      "frontTriangleCount": 28,
+      "mesh": {
+        "vertexStart": 1968,
+        "vertexCount": 180,
+        "indexStart": 3828,
+        "indexCount": 348
+      }
+    },
+    {
+      "id": "facet-11",
+      "sourceId": null,
+      "sourceOrder": 10,
+      "fill": "#C9C932",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0043483345,
+      "centroid": [
+        0.1201528468,
+        0.1815106542
+      ],
+      "depth": 0.0743450228,
+      "contourVertexCount": 18,
+      "frontTriangleCount": 16,
+      "mesh": {
+        "vertexStart": 2148,
+        "vertexCount": 108,
+        "indexStart": 4176,
+        "indexCount": 204
+      }
+    },
+    {
+      "id": "facet-12",
+      "sourceId": null,
+      "sourceOrder": 11,
+      "fill": "#00295E",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0177987675,
+      "centroid": [
+        -0.1626354811,
+        0.0643426052
+      ],
+      "depth": 0.1094859979,
+      "contourVertexCount": 48,
+      "frontTriangleCount": 46,
+      "mesh": {
+        "vertexStart": 2256,
+        "vertexCount": 288,
+        "indexStart": 4380,
+        "indexCount": 564
+      }
+    },
+    {
+      "id": "facet-13",
+      "sourceId": null,
+      "sourceOrder": 12,
+      "fill": "#1D4ED8",
+      "fillRule": "nonzero",
+      "transform": "scale(0.610979 0.61089)",
+      "area": 0.0044918517,
+      "centroid": [
+        0.0569396248,
+        0.2529956616
+      ],
+      "depth": 0.0749072021,
+      "contourVertexCount": 22,
+      "frontTriangleCount": 20,
+      "mesh": {
+        "vertexStart": 2544,
+        "vertexCount": 132,
+        "indexStart": 4944,
+        "indexCount": 252
+      }
+    }
+  ],
+  "geometry": {
+    "vertexCount": 2676,
+    "indexCount": 5196,
+    "primitive": "triangle-list",
+    "channels": [
+      "position",
+      "normal"
+    ]
+  },
+  "coordinateSystem": {
+    "sourceY": "down",
+    "worldHandedness": "right",
+    "cameraForward": "negative-z",
+    "frontWinding": "ccw",
+    "matrixOrder": "column-vector",
+    "normalization": "viewBox-max-dimension-centered"
+  },
+  "flattening": {
+    "screenTolerancePx": 0.35,
+    "maximumDisplayScale": 4,
+    "modelTolerance": 0.0000854492,
+    "method": "adaptive-de-casteljau-after-affine-bake"
+  },
+  "depth": {
+    "policy": "sqrt-relative-area",
+    "minimum": 0.04,
+    "maximum": 0.22
+  },
+  "paint": {
+    "grammar": "solid-hex-or-rgb/v1",
+    "opacity": "opaque-only",
+    "styleProperties": [
+      "fill",
+      "fill-rule",
+      "stroke:none"
+    ],
+    "unresolvedClasses": "reject"
+  },
+  "fillRules": [
+    "nonzero"
+  ],
+  "supportedFillRules": [
+    "nonzero",
+    "evenodd"
+  ],
+  "centroidMethod": "signed-polygon-area",
+  "windingNormalization": "ccw-after-svg-y-inversion",
+  "warnings": [],
+  "resolvedConfigSha256": "f0a16297ce04f9fc3fabce6c7cd5273332b5a2d3571364df88ff091cb4aa1671"
+}

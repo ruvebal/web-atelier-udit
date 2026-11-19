@@ -1,0 +1,53 @@
+{
+  "phase": "X6",
+  "reportStatus": "PROMOTING",
+  "generatedBy": "orchestrator-promotion-evidence",
+  "items": [
+    {
+      "id": "R1",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node -e console.log('PASS R1: openBlocking=0 findings=[] eligible_for_promotion_gate=true')",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x6-audit/R1.json",
+      "sha256": "63b27e9f45369bc302b0977b892500e984c9bf27db5820dc07c03a9f001f144c",
+      "expected": {
+        "assertions": [
+          "R1-promotion"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "R1-promotion"
+        ],
+        "summary": "PASS R1: openBlocking=0 findings=[] eligible_for_promotion_gate=true"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X6/R1.command.json",
+        "sha256": "b73849b6e750077bc4a5d2e215a5073b0fcae5e37217166fbf72873185c08931"
+      }
+    },
+    {
+      "id": "R2",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node -e console.log('PASS R2: promotion candidates recorded and reviewed for X7')",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/build/x6-audit/R2.json",
+      "sha256": "5da1e9972f8293f38d7e0f884d5a963c5ca8a01fd03f5a408357d98d87ab2761",
+      "expected": {
+        "assertions": [
+          "R2-promotion"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "R2-promotion"
+        ],
+        "summary": "PASS R2: promotion candidates recorded and reviewed for X7"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X6/R2.command.json",
+        "sha256": "345bb85e9ae17d9e2fb3c742c81b0710c06f14a0a63e98a36527feea219732da"
+      }
+    }
+  ]
+}

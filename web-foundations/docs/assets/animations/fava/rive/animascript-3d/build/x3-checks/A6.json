@@ -1,0 +1,31 @@
+{
+  "fixture": {
+    "x": 292,
+    "y": 284,
+    "facet": 0
+  },
+  "details": [
+    {
+      "vp": "400x480",
+      "wantCenter": 5,
+      "gotCenter": 5,
+      "off": {
+        "x": 182,
+        "y": 318,
+        "facet": 1
+      },
+      "gotOff": 1
+    },
+    {
+      "vp": "1200x480",
+      "wantCenter": 5,
+      "gotCenter": 5,
+      "off": {
+        "x": 578,
+        "y": 336,
+        "facet": 1
+      },
+      "gotOff": 1
+    }
+  ]
+}

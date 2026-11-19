@@ -1,0 +1,9 @@
+name: ruvebal-favicon-animascript
+scripting: wasm
+artboard:
+  width: 1024
+  height: 920
+  background: "#090B12"
+logs:
+  file: build/rive.log
+  problems: build/problems.log

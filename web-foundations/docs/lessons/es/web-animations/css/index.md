@@ -308,9 +308,9 @@ Estos métodos sofisticados son para estudiantes listos para ir más allá de lo
   - **SVG**: Logo animado con efecto de dibujo de ruta.
   - **CSS**:
     ```css
-    .logo-path {
-    	stroke-dasharray: 1000;
-    	stroke-dashoffset: 1000;
+     .logo-path {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
     	animation: draw 3s ease-in-out forwards;
     }
     @keyframes draw {
@@ -321,8 +321,10 @@ Estos métodos sofisticados son para estudiantes listos para ir más allá de lo
     ```
   - **Puntos Clave**:
     - `stroke-dasharray` y `stroke-dashoffset` crean el efecto de dibujo.
+    - Añade `pathLength="1"` a la ruta SVG para normalizar los valores del trazo, sin adivinar la longitud de cada ruta.
     - Los SVG escalan perfectamente en todas las pantallas.
     - Excelente para iconos, ilustraciones y logos.
+    - `<animate>` de SVG (SMIL) sigue siendo una opción compatible; compara su portabilidad y control desde la página en la [sesión maestra de animación SVG]({{ '/lessons/en/web-animations/svg-master-session/' | relative_url }}).
 
 > **💡 Más Allá de CSS para Animaciones SVG:**
 > Mientras CSS puede animar propiedades SVG, **el morphing SVG complejo, secuenciación y animaciones basadas en física** se benefician significativamente de bibliotecas de animación JavaScript como **GSAP (GreenSock Animation Platform)**. GSAP proporciona:
@@ -330,7 +332,7 @@ Estos métodos sofisticados son para estudiantes listos para ir más allá de lo
 > - **Plugin MorphSVG**: Transforma suavemente entre formas SVG completamente diferentes
 > - **Plugin DrawSVG**: Más control sobre el dibujo de paths que CSS `stroke-dashoffset`
 > - **Secuenciación con Timeline**: Orquesta coreografías complejas multi-elemento
-> - **Consistencia Cross-browser**: Elimina peculiaridades de animación CSS entre navegadores
+> - **Utilidad para dibujar paths**: `DrawSVG` anima segmentos parciales y se integra en timelines de GSAP; el dibujo básico de toda la ruta también se puede hacer con valores de trazo CSS normalizados.
 > - **Física y Easing**: Funciones de easing avanzadas y movimiento basado en física
 >
 > **Cuándo usar CSS vs GSAP para SVG:**

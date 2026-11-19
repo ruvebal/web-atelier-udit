@@ -1,0 +1,15 @@
+{
+  "acceptanceId": "A7",
+  "expected": {
+    "assertions": [
+      "A7-cold-reviews-and-decisions-unchanged"
+    ]
+  },
+  "observed": {
+    "assertions": [
+      "A7-cold-reviews-and-decisions-unchanged"
+    ],
+    "summary": "PASS A7: {\"protectedUnchanged\":true,\"checkedFiles\":22}"
+  },
+  "exitCode": 0
+}

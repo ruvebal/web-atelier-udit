@@ -1,0 +1,10 @@
+{
+  "id": "A2",
+  "status": "PASS",
+  "observed": {
+    "svg": true,
+    "projected25d": true,
+    "depthTested": true
+  },
+  "lessonSha256": "cc9ac9060ba03366d6460b597f9b32d5bbf3c229ce47d08efb54c524431440b8"
+}

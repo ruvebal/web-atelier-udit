@@ -1,0 +1,20 @@
+{
+  "paths": {
+    "mouse": {
+      "ok": true,
+      "events": 1
+    },
+    "touch": {
+      "ok": true,
+      "events": 1
+    },
+    "fineMotion": {
+      "microOk": true,
+      "dragOk": true
+    },
+    "keyboard": {
+      "kbOk": true
+    }
+  },
+  "pageErrors": []
+}

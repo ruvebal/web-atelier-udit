@@ -1,0 +1,168 @@
+{
+  "phase": "X9",
+  "reportStatus": "VERIFYING",
+  "generatedBy": "x9-acceptance-checks.py",
+  "items": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "command": "/Users/ruvebal/src/ttod/.venv/bin/python /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-9/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/x9-acceptance-checks.py A1",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/build/x9-checks/A1.json",
+      "sha256": "351351387c4cd686f7bccb25b5b9eed9c32ef5410a1e28bbbf1b34d8409cac2b",
+      "expected": {
+        "assertions": [
+          "A1-sources-cite-present-ids"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A1-sources-cite-present-ids"
+        ],
+        "summary": "PASS A1: {\"proposals\":9,\"allSourcesCitePresentIds\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/A1.command.json",
+        "sha256": "a450842b167bbc5f437637cd5e1111a2f5ad37f7de839fe8a0b93c76a213e0ca"
+      }
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "command": "/Users/ruvebal/src/ttod/.venv/bin/python /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-9/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/x9-acceptance-checks.py A2",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/build/x9-checks/A2.json",
+      "sha256": "69d979b4722832e357e87a4dca7de052fce6ed0bfa47de06f47c2b8f3ede3015",
+      "expected": {
+        "assertions": [
+          "A2-ttod-yml-byte-identical"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A2-ttod-yml-byte-identical"
+        ],
+        "summary": "PASS A2: {\"ttodYmlSha256\":\"9503e81d6bcd52c5fbdf52c45200372b2a0ca7fef8892a0a7e913fc46d8f7850\",\"identical\":true,\"proposalCount\":9}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/A2.command.json",
+        "sha256": "28ebbd1a76497413e4285be5d33a418dc8c45322a9aff5343791a80859c30270"
+      }
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "command": "/Users/ruvebal/src/ttod/.venv/bin/python /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-9/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/x9-acceptance-checks.py A3",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/build/x9-checks/A3.json",
+      "sha256": "fd9aed9749f7671339a291591decd7c1528fd95b6570f5f9e02e009fbbe0b33a",
+      "expected": {
+        "assertions": [
+          "A3-blackbox-awaiting-review-no-validated-by"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A3-blackbox-awaiting-review-no-validated-by"
+        ],
+        "summary": "PASS A3: {\"proposals\":9,\"origin\":\"blackbox\",\"status\":\"awaiting_human_review\",\"hasValidatedBy\":false}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/A3.command.json",
+        "sha256": "124743b23fdfe0beed501da1dde3f789ee73177a939d878368c7c8e7af8a7367"
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "command": "/Users/ruvebal/src/ttod/.venv/bin/python /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-9/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/x9-acceptance-checks.py A4",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/build/x9-checks/A4.json",
+      "sha256": "0494033f89df5769f16c704d296a09b871b4256ff8e355a1fb9755e7586ad13d",
+      "expected": {
+        "assertions": [
+          "A4-section-and-prefix"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A4-section-and-prefix"
+        ],
+        "summary": "OK A4 sections+prefixes verified\n{\"sectionsOk\": true, \"checked\": 9}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/A4.command.json",
+        "sha256": "c40cfaa8a15ace53cfff92a88e04432ce233b18061f193d5c89894e59fd2354d"
+      }
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "command": "/Users/ruvebal/src/ttod/.venv/bin/python /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-9/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/x9-acceptance-checks.py A5",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/build/x9-checks/A5.json",
+      "sha256": "bbfa06819999a5fec0a82b19a60f86222c2b0e4eba5a5611ae5636edece29552",
+      "expected": {
+        "assertions": [
+          "A5-not-already-active-quote"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A5-not-already-active-quote"
+        ],
+        "summary": "PASS A5: {\"proposals\":9,\"duplicatesInActiveTTOD\":0}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/A5.command.json",
+        "sha256": "509fa17e2791d81ba154873083567033786fb6a0a9c3474f7f1ff68d1f34c6a9"
+      }
+    },
+    {
+      "id": "A6",
+      "status": "PASS",
+      "command": "/Users/ruvebal/src/ttod/.venv/bin/python /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-9/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/x9-acceptance-checks.py A6",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/build/x9-checks/A6.json",
+      "sha256": "a9393ea925c485550a4427e36dd719d965270eb3ccef4eee61b9346f48942681",
+      "expected": {
+        "assertions": [
+          "A6-transcript-names-model-endpoint"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A6-transcript-names-model-endpoint"
+        ],
+        "summary": "PASS A6: {\"model\":\"qwen2.5:72b-instruct-q4_K_M\",\"endpoint\":\"http://localhost:11434\",\"transcriptNamed\":true}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/A6.command.json",
+        "sha256": "465cff810e9ba804071c567592e792edabdabaffa9a8f1ec2c7c3463c5b3b8a7"
+      }
+    },
+    {
+      "id": "A7",
+      "status": "PASS",
+      "command": "/Users/ruvebal/src/ttod/.venv/bin/python /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-9/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/x9-acceptance-checks.py A7",
+      "exitCode": 0,
+      "artifact": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/build/x9-checks/A7.json",
+      "sha256": "a9912c1f4cbfe7a2810add420fca96c5cafd7c7b63f64a8212f9fde639989f1d",
+      "expected": {
+        "assertions": [
+          "A7-cold-reviews-and-decisions-unchanged"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A7-cold-reviews-and-decisions-unchanged"
+        ],
+        "summary": "PASS A7: {\"protectedUnchanged\":true,\"checkedFiles\":22}"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X9/A7.command.json",
+        "sha256": "e576d39c3e3b671cc97469864feeb98a052c408c147b5872c020273c4693b01f"
+      }
+    }
+  ]
+}

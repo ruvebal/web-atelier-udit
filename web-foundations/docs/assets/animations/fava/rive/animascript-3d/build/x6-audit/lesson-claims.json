@@ -1,0 +1,22 @@
+[
+  {
+    "id": "sample-clock",
+    "evidence": "hum.as + verify-x5 A11"
+  },
+  {
+    "id": "n13-fixture",
+    "evidence": "favicon manifest facetCount=13"
+  },
+  {
+    "id": "pending-pr",
+    "evidence": "rive_3d_provenance.yml pending rows"
+  },
+  {
+    "id": "d4-engineering",
+    "evidence": "compiler depth formula + test.mjs"
+  },
+  {
+    "id": "x3pick-host",
+    "evidence": "verify-rive-3d-host / verify-picking"
+  }
+]

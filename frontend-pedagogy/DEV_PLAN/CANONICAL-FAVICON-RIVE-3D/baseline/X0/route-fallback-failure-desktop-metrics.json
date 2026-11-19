@@ -1,0 +1,31 @@
+{
+  "status": "The GPU scene could not load; its verified static frame remains visible.",
+  "buttonLabel": "GPU scene unavailable",
+  "buttonDisabled": true,
+  "staticFallbackVisible": true,
+  "fallbackNaturalWidth": 720,
+  "viewportWidth": 1440,
+  "viewportHeight": 893,
+  "pageWidth": 1433,
+  "cardRect": {
+    "x": 520.5,
+    "y": 394.140625,
+    "width": 384,
+    "height": 571.09375,
+    "top": 394.140625,
+    "right": 904.5,
+    "bottom": 965.234375,
+    "left": 520.5
+  },
+  "imageRect": {
+    "x": 538.5,
+    "y": 496.453125,
+    "width": 348,
+    "height": 232,
+    "top": 496.453125,
+    "right": 886.5,
+    "bottom": 728.453125,
+    "left": 538.5
+  },
+  "failureInjection": "Chrome --disable-gpu --disable-webgl"
+}

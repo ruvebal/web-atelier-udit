@@ -10,6 +10,7 @@ permalink: /tracks/fei/
 description: 'Track anual del Grado en Desarrollo Full-Stack y Ciencia de Datos e IA (UDIT). Semestre 1: vanilla JS/CSS sin frameworks. Semestre 2: React moderno con IA asistida. 6 ECTS, 150 h totales (30 h laboratorio).'
 tags: [frontend, html, css, javascript, react, accessibility, responsive, animation, 3d, udit, annual]
 status: complete
+hero_tagline: 'Critical coding for a better living.'
 ---
 
 <!-- prettier-ignore-start -->
@@ -22,8 +23,6 @@ status: complete
 <!-- prettier-ignore-end -->
 
 ---
-
-> _"Critical coding for a better living."_
 
 > **Declaración de asistencia IA:** Este track integra desarrollo asistido por IA siguiendo la metodología docs-first. Planes, prompts e informes de implementación se documentan durante todo el proceso. La pedagogía está fundamentada en la experiencia de aula y la reflexión crítica sobre el rol de la IA en la educación.
 
@@ -111,7 +110,7 @@ La carga oficial de 150 h es **10 h lección magistral + 30 h laboratorio + 14 h
 | S8  | [Manipulación del DOM: strings, APIs, plantillas]({{ '/lessons/es/js-dom-manipulation/'                   | relative_url }}) | 3 h        | 1 h          | innerHTML vs APIs nativas, seguridad XSS, patrones de actualización           |
 | S9  | [Módulos JavaScript: modularidad ES6]({{ '/lessons/es/js-modules/'                                    | relative_url }}) | 2 h        | 1 h          | Módulos ES nativos, import/export, grafo de imports               |
 | S10 | [Linting y formateo: estándares profesionales]({{ '/lessons/es/linting-and-formatting/'              | relative_url }}) | 1,5 h      | 0,5 h        | Prettier, ESLint, Stylelint, HTMLHint configuration               |
-| S11 | [GSAP: animación tipográfica y SVG]({{ '/lessons/es/gsap/overview/'                                   | relative_url }}) | 3 h        | 1,5 h        | Timelines GSAP, stagger, easing, ScrollTrigger                    |
+| S11 | [GSAP: animación tipográfica y SVG]({{ '/lessons/es/gsap/overview/'                                   | relative_url }}) · [Sesión maestra: técnicas SVG]({{ '/lessons/es/web-animations/svg-master-session/' | relative_url }}) | 3 h        | 1,5 h        | Comparación con el mismo movimiento y ronda de especialidades; análisis de Lottie/Rive |
 | S12 | [Tendencias de diseño web moderno]({{ '/lessons/es/modern-web-design-trends/'                                | relative_url }}) | 2 h        | 1 h          | Parallax, glassmorphism, neumorphism, dark mode demos             |
 | S13 | [Brief plantilla portfolio (proyecto semestre 1)]({{ '/lessons/es/portfolio-template-brief/challenge/' | relative_url }}) | 4 h        | 1,5 h        | Integrador semestral: portfolio en tres niveles           |
 {: .track-session-table }

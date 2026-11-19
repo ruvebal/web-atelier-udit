@@ -1,0 +1,70 @@
+{
+  "schema": "x0-cdp-transcript/v1",
+  "startedAtUtc": "2026-11-11T18:06:11.933Z",
+  "endedAtUtc": "2026-11-11T18:06:24.873Z",
+  "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "argv": [
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "--headless=new",
+    "--remote-debugging-port=9228",
+    "--user-data-dir=/var/folders/p5/3_v4l4693yd4s9dssccyq_dr0000gn/T/x0-cdp-mobile-a8AorB",
+    "--no-first-run",
+    "--no-default-browser-check",
+    "about:blank"
+  ],
+  "target": "http://127.0.0.1:4177/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/?force-rive3d-failure=1#authored-assets",
+  "commands": [
+    {
+      "id": 1,
+      "method": "Page.enable",
+      "params": {}
+    },
+    {
+      "id": 2,
+      "method": "Runtime.enable",
+      "params": {}
+    },
+    {
+      "id": 3,
+      "method": "Emulation.setDeviceMetricsOverride",
+      "params": {
+        "width": 390,
+        "height": 844,
+        "deviceScaleFactor": 1,
+        "mobile": true
+      }
+    },
+    {
+      "id": 4,
+      "method": "Page.navigate",
+      "params": {
+        "url": "http://127.0.0.1:4177/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/?force-rive3d-failure=1#authored-assets"
+      }
+    },
+    {
+      "id": 5,
+      "method": "Runtime.evaluate",
+      "params": {
+        "expression": "document.querySelector('[data-authored=\"animascript3d\"]')?.scrollIntoView({block: 'start'})"
+      }
+    },
+    {
+      "id": 6,
+      "method": "Runtime.evaluate",
+      "params": {
+        "expression": "JSON.stringify({html: document.documentElement.outerHTML, pageWidth: document.documentElement.scrollWidth, viewportWidth: window.innerWidth, viewportHeight: window.innerHeight, status: document.querySelector('[data-asset-status=\"animascript3d\"]')?.textContent?.trim(), buttonLabel: document.querySelector('[data-rive-3d-toggle]')?.textContent?.trim(), buttonDisabled: document.querySelector('[data-rive-3d-toggle]')?.disabled, staticFallbackVisible: (() => { const image = document.querySelector('[data-authored=\"animascript3d\"] .asset-preview img'); if (!image) return false; const r = image.getBoundingClientRect(); const s = getComputedStyle(image); return image.complete && r.width > 0 && r.height > 0 && s.display !== 'none' && s.visibility !== 'hidden'; })()})",
+        "returnByValue": true
+      }
+    },
+    {
+      "id": 7,
+      "method": "Page.captureScreenshot",
+      "params": {
+        "format": "png",
+        "captureBeyondViewport": false,
+        "fromSurface": true
+      }
+    }
+  ],
+  "chromeStderrSha256": "b264bd4d0fae1bd8d95b69bd73bb52a6ee0abfc64290e48183a2a059b18303b7"
+}

@@ -1,0 +1,30 @@
+{
+  "state": {
+    "mode": "static",
+    "playing": false,
+    "destroyed": false,
+    "sel": [],
+    "selSize": 0,
+    "elapsed": 0,
+    "phase": 0,
+    "orbit": {
+      "yaw": 0,
+      "pitch": 0,
+      "yawTarget": 0,
+      "pitchTarget": 0
+    },
+    "facetCount": 13
+  },
+  "dom": {
+    "imgSrc": "/web-atelier-udit/assets/animations/fava/rive/animascript-3d/stills/assembled.png",
+    "imgVisible": true,
+    "canvasDisplayed": false,
+    "status": "The GPU scene could not load (forced failure test); verified stills remain available.",
+    "buttons": 13
+  },
+  "sel": {
+    "imgSrc": "/web-atelier-udit/assets/animations/fava/rive/animascript-3d/stills/facet-01.png",
+    "pressed": "true"
+  },
+  "pageErrors": []
+}

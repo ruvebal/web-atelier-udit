@@ -504,7 +504,7 @@ gsap.to('.path', {
 	duration: 2,
 });
 
-// DrawSVG plugin (requires Club GreenSock membership)
+// DrawSVG: available from npm with GSAP 3.13+
 gsap.from('.path', {
 	drawSVG: 0, // Draw from 0% to 100%
 	duration: 2,
@@ -528,7 +528,7 @@ tl
 #### SVG Morphing
 
 ```javascript
-// MorphSVG plugin (requires Club GreenSock - $99/year)
+// MorphSVG plugin (available from npm with GSAP 3.13+)
 gsap.to('#circle', {
 	morphSVG: '#star', // Morph circle into star
 	duration: 2,
@@ -876,7 +876,7 @@ function loadingAnimation() {
    - Add pause/play/restart controls
    - Create chapter navigation
 
-10. **SVG Morphing Animation** _(Requires Club GreenSock)_
+10. **SVG Morphing Animation**
     - Morph between 5 different shapes smoothly
     - Create an animated icon set
     - Build a shape-shifting logo
@@ -976,7 +976,7 @@ recognition.onresult = (event) => {
 
 ### Advanced Topics
 
-- [Club GreenSock](https://greensock.com/club/) — Premium plugins ($99/year)
+- [GSAP installation and plugins](https://gsap.com/docs/v3/Installation/) — current npm and CDN setup
 - [React GSAP](https://github.com/bitworking/react-gsap) — GSAP in React
 - [GSAP + Three.js](https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-character-with-three-js/) — 3D animation integration
 - [GSAP Performance](https://css-tricks.com/myth-busting-css-animations-vs-javascript/) — Deep dive into optimization
@@ -1047,7 +1047,7 @@ recognition.onresult = (event) => {
 
 <figure class="quote">
   <blockquote>
-    GSAP's pricing model is reverse psychological warfare. You spend a month with the free version, realize you need MorphSVG, and suddenly $99/year seems like a bargain for your sanity.
+    GSAP's SVG plugins are available from npm in GSAP 3.13 and later. Add one when its path-drawing or shape-matching tools save more authoring effort than the extra dependency costs.
   </blockquote>
   <figcaption>
     &mdash; Anonymous Designer-Developer Quote #7
@@ -1073,7 +1073,7 @@ recognition.onresult = (event) => {
 | -------------------- | --------------- | -------------------- |
 | Simple hover effects | ✅ Perfect      | ⚠️ Overkill          |
 | Complex sequences    | ❌ Painful      | ✅ Perfect           |
-| SVG morphing         | ❌ Impossible   | ✅ Easy              |
+| SVG morphing         | ⚠️ Compatible paths only, with limited browser availability for CSS `d: path()` | ✅ Easy with `MorphSVG` |
 | Timeline control     | ❌ Limited      | ✅ Powerful          |
 | Scroll animations    | ⚠️ Experimental | ✅ Production-ready  |
 | Performance          | ✅ Good         | ✅ Better            |
@@ -1173,7 +1173,7 @@ Once you've built your GSAP-powered animations:
 
 **This Month:**
 
-1. Consider [Club GreenSock](https://greensock.com/club/) membership for premium plugins
+1. Compare the [GSAP plugins](https://gsap.com/docs/v3/Plugins/) with native CSS and WAAPI before adding one
 2. Build one complex interactive piece
 3. Share your work on Twitter/CodePen with #GSAP
 

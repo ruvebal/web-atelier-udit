@@ -1,0 +1,425 @@
+{
+  "schema": "canonical-svg-path-inventory/v1",
+  "capturedAtUtc": "2026-11-11T12:09:49+00:00",
+  "source": "web-foundations/docs/assets/icons/fava-mark-static.svg",
+  "sourceSha256": "90cfa8a5dfb290e92515647141369111c821427c71fec3f402873c1221db51ad",
+  "viewBox": "0 0 1024 920",
+  "width": "1024",
+  "height": "920",
+  "observedFacetCount": 13,
+  "expectedCanonicalFixtureFacetCount": 13,
+  "fixtureCountMatchesExpectation": true,
+  "architectureFacetCount": "N (runtime/compiler capacity is data-driven)",
+  "pathCommandKinds": [
+    "C",
+    "L",
+    "M",
+    "Z"
+  ],
+  "facets": [
+    {
+      "id": "facet-01",
+      "sourceOrdinal": 1,
+      "svgId": null,
+      "fill": "#1D4ED8",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 29,
+        "L": 13,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "L",
+        "C",
+        "C",
+        "L",
+        "L",
+        "C",
+        "C",
+        "L",
+        "C",
+        "L",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "L",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "L",
+        "C",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "L",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "L",
+        "C",
+        "Z"
+      ],
+      "commandCount": 44,
+      "numberTokenCount": 202,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-02",
+      "sourceOrdinal": 2,
+      "svgId": null,
+      "fill": "#9373DD",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "L": 3,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "L",
+        "L",
+        "L",
+        "Z"
+      ],
+      "commandCount": 5,
+      "numberTokenCount": 8,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-03",
+      "sourceOrdinal": 3,
+      "svgId": null,
+      "fill": "#9373DD",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "L": 2,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "L",
+        "L",
+        "Z"
+      ],
+      "commandCount": 4,
+      "numberTokenCount": 6,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-04",
+      "sourceOrdinal": 4,
+      "svgId": null,
+      "fill": "#93C5FD",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 7,
+        "L": 3,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "L",
+        "C",
+        "C",
+        "C",
+        "C",
+        "L",
+        "L",
+        "C",
+        "C",
+        "C",
+        "Z"
+      ],
+      "commandCount": 12,
+      "numberTokenCount": 50,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-05",
+      "sourceOrdinal": 5,
+      "svgId": null,
+      "fill": "#9373DD",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 12,
+        "L": 4,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "L",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "L",
+        "C",
+        "L",
+        "C",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "C",
+        "Z"
+      ],
+      "commandCount": 18,
+      "numberTokenCount": 82,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-06",
+      "sourceOrdinal": 6,
+      "svgId": null,
+      "fill": "#1D4ED8",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 6,
+        "L": 2,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "C",
+        "L",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "C",
+        "Z"
+      ],
+      "commandCount": 10,
+      "numberTokenCount": 42,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-07",
+      "sourceOrdinal": 7,
+      "svgId": null,
+      "fill": "#C9C932",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 4,
+        "L": 1,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "L",
+        "C",
+        "C",
+        "C",
+        "C",
+        "Z"
+      ],
+      "commandCount": 7,
+      "numberTokenCount": 28,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-08",
+      "sourceOrdinal": 8,
+      "svgId": null,
+      "fill": "#9373DD",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 6,
+        "L": 1,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "C",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "C",
+        "Z"
+      ],
+      "commandCount": 9,
+      "numberTokenCount": 40,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-09",
+      "sourceOrdinal": 9,
+      "svgId": null,
+      "fill": "#C9C932",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 7,
+        "L": 2,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "C",
+        "C",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "L",
+        "C",
+        "Z"
+      ],
+      "commandCount": 11,
+      "numberTokenCount": 48,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-10",
+      "sourceOrdinal": 10,
+      "svgId": null,
+      "fill": "#9373DD",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 5,
+        "L": 1,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "C",
+        "Z"
+      ],
+      "commandCount": 8,
+      "numberTokenCount": 34,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-11",
+      "sourceOrdinal": 11,
+      "svgId": null,
+      "fill": "#C9C932",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 4,
+        "L": 3,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "L",
+        "C",
+        "C",
+        "L",
+        "C",
+        "L",
+        "C",
+        "Z"
+      ],
+      "commandCount": 9,
+      "numberTokenCount": 32,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-12",
+      "sourceOrdinal": 12,
+      "svgId": null,
+      "fill": "#00295E",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 12,
+        "L": 2,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "C",
+        "C",
+        "C",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "L",
+        "C",
+        "C",
+        "C",
+        "Z"
+      ],
+      "commandCount": 16,
+      "numberTokenCount": 78,
+      "closed": true,
+      "unsupportedCommands": []
+    },
+    {
+      "id": "facet-13",
+      "sourceOrdinal": 13,
+      "svgId": null,
+      "fill": "#1D4ED8",
+      "transform": "scale(0.610979 0.61089)",
+      "pathCommands": {
+        "C": 5,
+        "M": 1,
+        "Z": 1
+      },
+      "commandSequence": [
+        "M",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "Z"
+      ],
+      "commandCount": 7,
+      "numberTokenCount": 32,
+      "closed": true,
+      "unsupportedCommands": []
+    }
+  ]
+}

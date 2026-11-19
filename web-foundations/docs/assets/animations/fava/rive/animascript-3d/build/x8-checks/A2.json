@@ -1,0 +1,9 @@
+{
+  "id": "A2",
+  "status": "PASS",
+  "observed": {
+    "fetchedOriginMain": true,
+    "mergeIsAncestor": true,
+    "prMergeMatches": true
+  }
+}

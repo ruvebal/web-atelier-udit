@@ -71,15 +71,12 @@ import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
 ```
 
-## Premium Plugins (Club GreenSock)
+## Optional Plugins
 
-For MorphSVG, DrawSVG, SplitText, etc., you need:
-1. [Club GreenSock membership](https://greensock.com/club/) ($99/year)
-2. npm auth token from account
-3. Install via private registry
+GSAP 3.13 and later publish plugins such as MorphSVG, DrawSVG, and SplitText on npm. Import only the plugins the project uses, then register them with `gsap.registerPlugin()`.
 
 ```bash
-npm install gsap@npm:@gsap/business
+npm install gsap
 ```
 
 ## Resources

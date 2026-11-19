@@ -1,0 +1,82 @@
+#!/usr/bin/env node
+// X4 evidence capture. The exit gate runs `verify-rive-3d-host.mjs` with no
+// argument (--all): A1/A2/A6 share one live page, so per-check invocations
+// produce different artifacts than the gated run. Evidence must therefore be
+// captured from the same command the gate executes. One --all run writes all
+// six check JSONs; each acceptance item records that same transcript, which
+// contains every `PASS A<n>:` line.
+import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { relative, resolve } from 'node:path';
+const web = resolve(import.meta.dirname, '../..'),
+	repo = resolve(web, '..'),
+	pack = resolve(repo, 'frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D'),
+	out = resolve(pack, 'baseline/X4');
+mkdirSync(out, { recursive: true });
+const rel = (p) => relative(repo, p),
+	hash = (p) => createHash('sha256').update(readFileSync(p)).digest('hex');
+const checks = resolve(web, 'docs/assets/animations/fava/rive/animascript-3d/build/x4-checks');
+const artifacts = {
+	A1: resolve(checks, 'A1.json'),
+	A2: resolve(checks, 'A2.json'),
+	A3: resolve(checks, 'A3.json'),
+	A4: resolve(checks, 'A4.json'),
+	A5: resolve(checks, 'A5.json'),
+	A6: resolve(checks, 'A6.json'),
+};
+const argv = ['web-foundations/scripts/verify-rive-3d-host.mjs', '--all'];
+const run = spawnSync(process.execPath, argv, { cwd: repo, encoding: 'utf8' });
+const code = run.status ?? 1,
+	stdout = run.stdout ?? '',
+	stderr = run.stderr ?? '';
+const command = `${process.execPath} ${argv.join(' ')}`;
+if (code !== 0) {
+	console.error(`verify-rive-3d-host --all exited ${code}:\n${stdout}\n${stderr}`);
+	process.exit(1);
+}
+const items = [];
+for (let n = 1; n <= 6; n++) {
+	const id = `A${n}`;
+	if (!stdout.includes(`PASS ${id}:`)) {
+		console.error(`${id}: transcript has no PASS line`);
+		process.exit(1);
+	}
+	const transcriptPath = resolve(out, `${id}.command.json`),
+		transcript = { acceptanceId: id, command, argv: [process.execPath, ...argv], cwd: repo, exitCode: 0, stdout, stderr };
+	writeFileSync(transcriptPath, JSON.stringify(transcript, null, 2) + '\n');
+	const artifact = artifacts[id];
+	const item = {
+		id,
+		status: 'PASS',
+		command,
+		exitCode: 0,
+		artifact: rel(artifact),
+		sha256: hash(artifact),
+		expected: { assertions: [`${id}-independent-live-check`] },
+		observed: { assertions: [`${id}-independent-live-check`], summary: stdout.trim() },
+		commandTranscript: { path: rel(transcriptPath), sha256: hash(transcriptPath) },
+	};
+	if (id === 'A3') {
+		// The six responsive/theme captures are A3's visual evidence; bind
+		// them into the digest via visualReview.
+		const a3 = JSON.parse(readFileSync(artifact, 'utf8'));
+		item.visualReview = {
+			reviewer: 'verify-rive-3d-host.mjs',
+			decision:
+				'scripted capture review: cardOverflow<=2px, docOverflow<=8px pre-existing baseline, canvas sized at all six viewport/theme pairs',
+			captures: a3.captures.map((c) => ({
+				path: rel(resolve(checks, c.capture)),
+				sha256: hash(resolve(checks, c.capture)),
+				viewport: `${c.width}x800 ${c.theme}`,
+			})),
+		};
+	}
+	items.push(item);
+}
+writeFileSync(
+	resolve(pack, 'PHASE-X4-EVIDENCE.json'),
+	JSON.stringify({ phase: 'X4', reportStatus: 'VERIFYING', generatedBy: 'capture-x4-evidence.mjs', items }, null, 2) +
+		'\n'
+);
+console.log('captured X4 evidence for A1-A6 from the --all gate run');

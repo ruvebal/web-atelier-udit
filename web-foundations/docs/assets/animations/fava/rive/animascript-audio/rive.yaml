@@ -1,0 +1,16 @@
+# Pedagogical specimen: AnimaScript audio processor (sample-accurate lane).
+# Verify: rive docs/assets/animations/fava/rive/animascript-audio --verify
+# Render: rive docs/assets/animations/fava/rive/animascript-audio --render-audio=build/hum.wav --advance=2s
+name: ruvebal-favicon-animascript-audio
+main: humming
+scripting: wasm
+artboard:
+  width: 512
+  height: 160
+  background: "#090B12"
+output:
+  dir: build
+logs:
+  file: build/rive.log
+  problems: build/problems.log
+

@@ -1,0 +1,151 @@
+# Canonical favicon · Rive 3D — public provenance (append-only)
+# Pending events must stay pending until a real GitHub event exists.
+schema_version: '1'
+phase: X8
+reportStatus: VERIFYING
+merge_sha: b109707510e10687cd51d8b70da440a6b83f7108
+pr_a:
+  number: '7'
+  url: https://github.com/ruvebal/web-atelier-udit/pull/7
+  title: Canonical favicon · Rive + AnimaScript 3D (cascade X0–X7)
+  created_at: '2026-11-14T15:51:19Z'
+  merged_at: '2026-11-15T19:05:36Z'
+  merge_commit_sha: b109707510e10687cd51d8b70da440a6b83f7108
+  author: ruvebal
+events:
+  - id: x1-xml-decl-offset-0
+    url: local://git/4d24ef185123dbc01401dc8897c5813edd13c94b
+    immutable_id: '4d24ef185123dbc01401dc8897c5813edd13c94b'
+    actor_role: agent-implementation
+    timestamp: '2026-11-11T22:16:25+01:00'
+    label: summary
+    summary: 'X1 compiler pins XML declaration match to raw source offset 0.'
+    source_digest: '4d24ef185123dbc01401dc8897c5813edd13c94b'
+    pending: false
+  - id: x2-frontal-gpu-hardened
+    url: local://git/9f733466bd3622e286d2a4db48300cf97a0cb74c
+    immutable_id: '9f733466bd3622e286d2a4db48300cf97a0cb74c'
+    actor_role: agent-implementation
+    timestamp: '2026-11-12T11:06:05+01:00'
+    label: summary
+    summary: 'X2 frontal GPU scene and cold-review F1–F4 closures.'
+    source_digest: '9f733466bd3622e286d2a4db48300cf97a0cb74c'
+    pending: false
+  - id: x4-host-integration
+    url: local://git/0b47e076cf972d84e6a9a0747e0315ab12231d13
+    immutable_id: '0b47e076cf972d84e6a9a0747e0315ab12231d13'
+    actor_role: agent-implementation
+    timestamp: '2026-11-13T21:26:48+01:00'
+    label: summary
+    summary: 'X4 responsive host, stills, and near-margin scene change.'
+    source_digest: '0b47e076cf972d84e6a9a0747e0315ab12231d13'
+    pending: false
+  - id: x4-cold-review-closures
+    url: local://git/8b698be67ec27ff598991b171b8988b4e6cf2255
+    immutable_id: '8b698be67ec27ff598991b171b8988b4e6cf2255'
+    actor_role: agent-implementation
+    timestamp: '2026-11-14T12:38:31+01:00'
+    label: summary
+    summary: 'X4 cold-review F1–F5 closures including A12 near-margin fixture.'
+    source_digest: '8b698be67ec27ff598991b171b8988b4e6cf2255'
+    pending: false
+  - id: x4-still-capture-digest
+    url: local://git/01a53612db3d83e8c56406c31494d988aa018fc3
+    immutable_id: '01a53612db3d83e8c56406c31494d988aa018fc3'
+    actor_role: agent-implementation
+    timestamp: '2026-11-14T14:50:30+01:00'
+    label: summary
+    summary: 'A3 hashed captures use visibility-hidden stills under the live canvas box.'
+    source_digest: '01a53612db3d83e8c56406c31494d988aa018fc3'
+    pending: false
+  - id: x4-closure-cold-review
+    url: local://file/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/PHASE-X4-CLOSURE-COLD-REVIEW.md
+    immutable_id: 'PHASE-X4-CLOSURE-COLD-REVIEW.md'
+    actor_role: cold-reviewer
+    timestamp: '2026-11-14T14:56:00+01:00'
+    label: summary
+    summary: 'Local Qwen closure review found no further blockers for X4.'
+    source_digest: 'PHASE-X4-CLOSURE-COLD-REVIEW.md'
+    pending: false
+  - id: pr-a-open
+    url: https://github.com/ruvebal/web-atelier-udit/pull/7
+    immutable_id: '7'
+    actor_role: human
+    timestamp: '2026-11-14T15:51:19Z'
+    label: summary
+    summary: 'Implementation PR A #7 opened by ruvebal (title: Canonical favicon · Rive + AnimaScript 3D (cascade X0–X7)).'
+    source_digest: '7'
+    pending: false
+  - id: pr-a-ci-lychee
+    url: https://github.com/ruvebal/web-atelier-udit/actions/runs/43612667989/job/132500887761
+    immutable_id: '132500887761'
+    actor_role: automation
+    timestamp: '2026-11-14T16:11:11Z'
+    label: summary
+    summary: 'GitHub Actions check lychee concluded SUCCESS on PR A head.'
+    source_digest: '132500887761'
+    pending: false
+  - id: pr-a-ci-yaml-lint
+    url: https://github.com/ruvebal/web-atelier-udit/actions/runs/43612667976/job/132500887912
+    immutable_id: '132500887912'
+    actor_role: automation
+    timestamp: '2026-11-14T15:54:49Z'
+    label: summary
+    summary: 'GitHub Actions check yaml-lint concluded SUCCESS on PR A head.'
+    source_digest: '132500887912'
+    pending: false
+  - id: pr-a-ci-web-foundations-build
+    url: https://github.com/ruvebal/web-atelier-udit/actions/runs/43612667976/job/132500887734
+    immutable_id: '132500887734'
+    actor_role: automation
+    timestamp: '2026-11-14T15:54:57Z'
+    label: summary
+    summary: 'GitHub Actions check web-foundations-build concluded SUCCESS on PR A head.'
+    source_digest: '132500887734'
+    pending: false
+  - id: pr-a-ci-professor-template-build
+    url: https://github.com/ruvebal/web-atelier-udit/actions/runs/43612667976/job/132500887904
+    immutable_id: '132500887904'
+    actor_role: automation
+    timestamp: '2026-11-14T15:55:22Z'
+    label: summary
+    summary: 'GitHub Actions check professor-template-build concluded SUCCESS on PR A head.'
+    source_digest: '132500887904'
+    pending: false
+  - id: pr-a-ci-student-template-checks
+    url: https://github.com/ruvebal/web-atelier-udit/actions/runs/43612667976/job/132500888044
+    immutable_id: '132500888044'
+    actor_role: automation
+    timestamp: '2026-11-14T15:54:30Z'
+    label: summary
+    summary: 'GitHub Actions check student-template-checks concluded SUCCESS on PR A head.'
+    source_digest: '132500888044'
+    pending: false
+  - id: x7-cold-review
+    url: local://git/80ab83101c31311706ea2450e72b3a5249e9b069
+    immutable_id: '80ab83101c31311706ea2450e72b3a5249e9b069'
+    actor_role: cold-reviewer
+    timestamp: '2026-11-14T16:53:15+01:00'
+    label: summary
+    summary: 'Independent cold review of skill promotion and PR A recorded in pack; GitHub had zero review threads on #7.'
+    source_digest: '80ab83101c31311706ea2450e72b3a5249e9b069'
+    pending: false
+  - id: pr-a-merge
+    url: https://github.com/ruvebal/web-atelier-udit/commit/b109707510e10687cd51d8b70da440a6b83f7108
+    immutable_id: b109707510e10687cd51d8b70da440a6b83f7108
+    actor_role: human
+    timestamp: '2026-11-15T19:05:36Z'
+    label: summary
+    summary: 'PR A #7 merged to main at merge commit b109707510e10687cd51d8b70da440a6b83f7108.'
+    source_digest: b109707510e10687cd51d8b70da440a6b83f7108
+    pending: false
+  - id: pr-a-github-review-threads
+    url: https://github.com/ruvebal/web-atelier-udit/pull/7
+    immutable_id: pending
+    actor_role: human
+    timestamp: pending
+    label: summary
+    summary: 'GitHub PR review findings and resolutions on PR A.'
+    source_digest: pending
+    pending: true
+    pending_reason: 'gh api reported zero pull-request reviews and zero review threads on #7; nothing to import without inventing.'

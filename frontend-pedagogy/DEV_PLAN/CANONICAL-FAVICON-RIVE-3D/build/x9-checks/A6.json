@@ -1,0 +1,15 @@
+{
+  "acceptanceId": "A6",
+  "expected": {
+    "assertions": [
+      "A6-transcript-names-model-endpoint"
+    ]
+  },
+  "observed": {
+    "assertions": [
+      "A6-transcript-names-model-endpoint"
+    ],
+    "summary": "PASS A6: {\"model\":\"qwen2.5:72b-instruct-q4_K_M\",\"endpoint\":\"http://localhost:11434\",\"transcriptNamed\":true}"
+  },
+  "exitCode": 0
+}

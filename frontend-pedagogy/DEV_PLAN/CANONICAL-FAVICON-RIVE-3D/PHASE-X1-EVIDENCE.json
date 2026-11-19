@@ -1,0 +1,306 @@
+{
+  "phase": "X1",
+  "reportStatus": "VERIFYING",
+  "generatedBy": "capture-x1-evidence.mjs",
+  "items": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A1",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A1-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A1-independent-live-check"
+        ],
+        "summary": "PASS A1: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A1.command.json",
+        "sha256": "1f22c905189c75ca3fde417c7506836ff485ee0afe318ae17f4a151826383aba"
+      }
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A2",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A2-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A2-independent-live-check"
+        ],
+        "summary": "PASS A2: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A2.command.json",
+        "sha256": "64872b83b596ce3c814d8fcb786f4e2b41a2097473619fa3dd8a25f15b2ca446"
+      }
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A3",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A3-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A3-independent-live-check"
+        ],
+        "summary": "PASS A3: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A3.command.json",
+        "sha256": "db5b24de876583467336a5cbd0f32676fdb658dfe83e630aef1d5b7e1d1a0fae"
+      }
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A4",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A4-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A4-independent-live-check"
+        ],
+        "summary": "PASS A4: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A4.command.json",
+        "sha256": "ca648ca7b5532e99109e76ae914d47f1652bae5901fddf5b99303007bba6d8a8"
+      }
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A5",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A5-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A5-independent-live-check"
+        ],
+        "summary": "PASS A5: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A5.command.json",
+        "sha256": "5369e04170a4905be703887f59b24203cd4118c8e77ce73822a8c1f3e1c96e59"
+      }
+    },
+    {
+      "id": "A6",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A6",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A6-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A6-independent-live-check"
+        ],
+        "summary": "PASS A6: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A6.command.json",
+        "sha256": "bca4ceff2ba44739c7a0850eebcd123b88d28b0d54b0d1a72a927821c2476ecd"
+      }
+    },
+    {
+      "id": "A7",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A7",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A7-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A7-independent-live-check"
+        ],
+        "summary": "PASS A7: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A7.command.json",
+        "sha256": "068822cfb49c29b434a544befcbe3ba48049a00179b76ccc7dec6dff80f7b06b"
+      }
+    },
+    {
+      "id": "A8",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A8",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A8-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A8-independent-live-check"
+        ],
+        "summary": "PASS A8: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A8.command.json",
+        "sha256": "2de9bd3a9a3b0f14a92623a4eda79d86a686f2a4d3639a5100abbe83cb679421"
+      }
+    },
+    {
+      "id": "A9",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A9",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A9-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A9-independent-live-check"
+        ],
+        "summary": "PASS A9: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A9.command.json",
+        "sha256": "448e3905bc5eb5a7f4cb5f9b7dd43238176c99a6cd60c43501bca13b05af6372"
+      }
+    },
+    {
+      "id": "A10",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A10",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A10-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A10-independent-live-check"
+        ],
+        "summary": "PASS A10: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A10.command.json",
+        "sha256": "a6f4f28d47ab942685c088406d3e4ab47747df6a73dc22ee8d02b12eb294cf2f"
+      }
+    },
+    {
+      "id": "A11",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A11",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A11-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A11-independent-live-check"
+        ],
+        "summary": "PASS A11: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A11.command.json",
+        "sha256": "339cff7a44f651c67d375c8405ecbf58566c3ff0ec8dd60f33edc4a376cd171f"
+      }
+    },
+    {
+      "id": "A12",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A12",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A12-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A12-independent-live-check"
+        ],
+        "summary": "PASS A12: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A12.command.json",
+        "sha256": "1a1c4294d449bb29cbdecf955dc0aff3fc4ebdb1d7398faa2388150d026b916b"
+      }
+    },
+    {
+      "id": "A13",
+      "status": "PASS",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node web-foundations/scripts/svg-extrusion/verify-x1-acceptance.mjs A13",
+      "exitCode": 0,
+      "artifact": "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json",
+      "sha256": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+      "expected": {
+        "assertions": [
+          "A13-independent-live-check"
+        ]
+      },
+      "observed": {
+        "assertions": [
+          "A13-independent-live-check"
+        ],
+        "summary": "PASS A13: independent X1 acceptance verified"
+      },
+      "commandTranscript": {
+        "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X1/A13.command.json",
+        "sha256": "2738ef76a82bd90f7ba42c844deb9c162271997b778fc5a3f386d3af56dbd0e4"
+      }
+    }
+  ]
+}

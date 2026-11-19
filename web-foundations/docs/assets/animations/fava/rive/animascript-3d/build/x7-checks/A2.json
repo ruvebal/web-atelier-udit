@@ -1,0 +1,10 @@
+{
+  "id": "A2",
+  "status": "PASS",
+  "observed": {
+    "verifiedAdapter": true,
+    "d4": true,
+    "d19": true,
+    "dynamicN": true
+  }
+}

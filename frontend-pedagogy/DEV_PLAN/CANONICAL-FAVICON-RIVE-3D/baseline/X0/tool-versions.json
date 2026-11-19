@@ -1,0 +1,115 @@
+{
+  "schema": "x0-tool-versions/v3",
+  "capturedAtUtc": "2026-11-11T18:05:47.367Z",
+  "tools": [
+    {
+      "label": "Rive CLI",
+      "command": "/opt/homebrew/bin/rive --version",
+      "exitCode": 0,
+      "stdout": "rive 1.9.2",
+      "stderr": "",
+      "executable": "/opt/homebrew/bin/rive",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "startedAtUtc": "2026-11-11T18:05:47.367Z",
+      "endedAtUtc": "2026-11-11T18:05:47.395Z",
+      "stdoutSha256": "0bd395f608ab9c199b1096a05ce37c5d903c7fb6b9e85fa432be2a086f41267f",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Node.js",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node --version",
+      "exitCode": 0,
+      "stdout": "v24.22.1",
+      "stderr": "",
+      "executable": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/node",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "startedAtUtc": "2026-11-11T18:05:47.395Z",
+      "endedAtUtc": "2026-11-11T18:05:47.410Z",
+      "stdoutSha256": "249baf635bb43877fcb9422efa1a4904b702d0ddf14d3949b7cd0950d5229c81",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "npm",
+      "command": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/npm --version",
+      "exitCode": 0,
+      "stdout": "11.19.1",
+      "stderr": "",
+      "executable": "/Users/ruvebal/.nvm/versions/node/v24.22.1/bin/npm",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "startedAtUtc": "2026-11-11T18:05:47.410Z",
+      "endedAtUtc": "2026-11-11T18:05:47.473Z",
+      "stdoutSha256": "acb90e420303a6e949fec90f74faf64cc372894b3964e310a261689b898f41b0",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "pnpm",
+      "command": "/opt/homebrew/bin/pnpm --version",
+      "exitCode": 0,
+      "stdout": "10.30.0",
+      "stderr": "",
+      "executable": "/opt/homebrew/bin/pnpm",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "startedAtUtc": "2026-11-11T18:05:47.473Z",
+      "endedAtUtc": "2026-11-11T18:05:47.598Z",
+      "stdoutSha256": "298875c935093a49c97171f4520f0ead958019c938816f6bee35c9e8219bcaf9",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Ruby",
+      "command": "/opt/homebrew/bin/rbenv exec ruby --version",
+      "exitCode": 0,
+      "stdout": "ruby 3.3.11 (2026-03-26 revision 1f2d15125a) [arm64-darwin25]",
+      "stderr": "",
+      "executable": "/opt/homebrew/bin/rbenv",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations",
+      "startedAtUtc": "2026-11-11T18:05:47.598Z",
+      "endedAtUtc": "2026-11-11T18:05:47.662Z",
+      "stdoutSha256": "c3907477c65993e3edda1d6374248bea46f71ed232ad4a809793ffe74990f70b",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Bundler",
+      "command": "/opt/homebrew/bin/rbenv exec bundle --version",
+      "exitCode": 0,
+      "stdout": "Bundler version 2.5.22",
+      "stderr": "",
+      "executable": "/opt/homebrew/bin/rbenv",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations",
+      "startedAtUtc": "2026-11-11T18:05:47.662Z",
+      "endedAtUtc": "2026-11-11T18:05:47.789Z",
+      "stdoutSha256": "bf0b12ec6626d7b693195b96b9118c8403f53c6c7fb58b6be7801389db287e77",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Jekyll",
+      "command": "/opt/homebrew/bin/rbenv exec bundle exec jekyll --version",
+      "exitCode": 0,
+      "stdout": "jekyll 3.10.0",
+      "stderr": "",
+      "executable": "/opt/homebrew/bin/rbenv",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0/web-foundations",
+      "startedAtUtc": "2026-11-11T18:05:47.789Z",
+      "endedAtUtc": "2026-11-11T18:05:48.083Z",
+      "stdoutSha256": "680ebb270958da3d0c3251ed989cd26732f7d7cc8b2bc2ddcb6d610f11f3b551",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Chrome",
+      "command": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome --version",
+      "exitCode": 0,
+      "stdout": "Google Chrome 157.0.8103.51",
+      "stderr": "",
+      "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "startedAtUtc": "2026-11-11T18:05:48.083Z",
+      "endedAtUtc": "2026-11-11T18:05:48.109Z",
+      "stdoutSha256": "0fb1576c3fb25fca160c52aa171fb37ec21f9c127791341727db2e6e10c2ebcf",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "environment": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "RBENV_VERSION": "3.3.11"
+  }
+}

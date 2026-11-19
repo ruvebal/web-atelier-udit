@@ -1,0 +1,8 @@
+{
+  "id": "A5",
+  "status": "PASS",
+  "observed": {
+    "skillReceipts": true,
+    "webAtelierCommit": "6a8a6bfcd022f11781d516a21097b35ffb8ed7a6"
+  }
+}

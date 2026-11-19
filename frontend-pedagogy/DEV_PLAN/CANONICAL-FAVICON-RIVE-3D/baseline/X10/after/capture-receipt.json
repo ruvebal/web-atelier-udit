@@ -1,0 +1,75 @@
+{
+  "mode": "after",
+  "capturedAt": "2026-11-17T11:41:30.557Z",
+  "viewport": "720x480",
+  "cli": {
+    "path": "/opt/homebrew/Caskroom/rive-cli/1.9.2/rive",
+    "version": "rive 1.9.2",
+    "sha256": "06dde043b2d8eddab4fd62561df6b916d71231060b70a4816378eb321042252f"
+  },
+  "sourceSha256": {
+    "web-foundations/docs/assets/icons/fava-mark-static.svg": "90cfa8a5dfb290e92515647141369111c821427c71fec3f402873c1221db51ad",
+    "web-foundations/docs/assets/animations/fava/rive/animascript-3d/choreo.as": "7e97b21d86a0e5b8c543e33f661d953bc8573579e015b4e8217b9ac0e47dce76",
+    "web-foundations/docs/assets/animations/fava/rive/animascript-3d/canonical-favicon.wgsl": "15af5efacdccee30729cf436405873e2dc9b5cffc6ee2e6936aa4c78e39bc225",
+    "web-foundations/docs/assets/animations/fava/rive/animascript-3d/pick.as": "75c345c4c70883d92f2206ad58cf2e86b20740b1f2005a8fc9b3f257dfe86b1b",
+    "web-foundations/docs/assets/animations/fava/rive/animascript-3d/main.as": "43d9c9e399de34e85a974af846b78dc9223b12bbc2946950d5435040111e28f1",
+    "web-foundations/docs/assets/animations/fava/rive/animascript-3d/rive.yaml": "878494618c557a50e048611d1dc1e4afe5d0d1ba46614803def77e390dec7ef9",
+    "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/manifest.json": "9f89090d4e55a8e210e0a8cac2bd9bfb93975f371e9a218fe4b83eaded9b631d",
+    "web-foundations/docs/assets/animations/fava/rive/animascript-3d/generated/favicon/geometry.json": "5d96714d0d75505347555b164cae198020fa6f64a2bd2072858f5a8edb6ef1e4"
+  },
+  "command": "rive . --commands --viewport=720x480",
+  "commandInput": "screenshot /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p00.png\nadvance 900ms\nscreenshot /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p10.png\nadvance 180ms\nscreenshot /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p12.png\nadvance 270ms\nscreenshot /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p15.png\nadvance 450ms\nscreenshot /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p20.png\nadvance 900ms\nscreenshot /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p30.png\nadvance 1080ms\nscreenshot /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p42.png\nadvance 2700ms\nscreenshot /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p72.png\nquit\n",
+  "exitCode": 0,
+  "stdout": "ok screenshot: /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p00.png\nok advance\nok screenshot: /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p10.png\nok advance\nok screenshot: /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p12.png\nok advance\nok screenshot: /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p15.png\nok advance\nok screenshot: /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p20.png\nok advance\nok screenshot: /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p30.png\nok advance\nok screenshot: /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p42.png\nok advance\nok screenshot: /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p72.png\nok quit\n",
+  "stderr": "[12:41:30.394] rive  deferred replay: inline\n[12:41:30.395] rive  your scripts carry fuel counters in every loop and run slower than published; time them with --bench\n[12:41:30.454] rive  built (736766 bytes, 59ms, 0 errors, 0 warnings)\n[12:41:30.454] rive  script tier: interp, no wamrc, set RIVE_WAMRC or pass --aot with our wamrc on PATH\n[12:41:30.454] rive  showing main [1/1]\n[12:41:30.454] rive  viewport 720x480 @1x\n[12:41:30.494] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p00.png\n[12:41:30.494] rive  script frame gc: scavenging per frame\n[12:41:30.503] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p10.png\n[12:41:30.510] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p12.png\n[12:41:30.517] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p15.png\n[12:41:30.524] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p20.png\n[12:41:30.533] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p30.png\n[12:41:30.541] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p42.png\n[12:41:30.553] rive  wrote /Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-10/frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p72.png\n",
+  "captures": [
+    {
+      "phase": 0,
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p00.png",
+      "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+      "viewport": "720x480"
+    },
+    {
+      "phase": 0.1,
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p10.png",
+      "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+      "viewport": "720x480"
+    },
+    {
+      "phase": 0.12,
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p12.png",
+      "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+      "viewport": "720x480"
+    },
+    {
+      "phase": 0.15,
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p15.png",
+      "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+      "viewport": "720x480"
+    },
+    {
+      "phase": 0.2,
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p20.png",
+      "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+      "viewport": "720x480"
+    },
+    {
+      "phase": 0.3,
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p30.png",
+      "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+      "viewport": "720x480"
+    },
+    {
+      "phase": 0.42,
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p42.png",
+      "sha256": "682cce47d744a48f0189ce9fe0bbdb9c219445d866f0eae2c429631f3be2f02f",
+      "viewport": "720x480"
+    },
+    {
+      "phase": 0.72,
+      "path": "frontend-pedagogy/DEV_PLAN/CANONICAL-FAVICON-RIVE-3D/baseline/X10/after/p72.png",
+      "sha256": "079f51c6dc64314d114b8feeab20dd8a6687fe0eee08320a37431e086e1eb006",
+      "viewport": "720x480"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "acceptanceId": "A1",
+  "expected": {
+    "assertions": [
+      "A1-sources-cite-present-ids"
+    ]
+  },
+  "observed": {
+    "assertions": [
+      "A1-sources-cite-present-ids"
+    ],
+    "summary": "PASS A1: {\"proposals\":9,\"allSourcesCitePresentIds\":true}"
+  },
+  "exitCode": 0
+}

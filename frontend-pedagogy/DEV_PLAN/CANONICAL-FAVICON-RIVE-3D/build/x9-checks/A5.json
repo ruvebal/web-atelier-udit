@@ -1,0 +1,15 @@
+{
+  "acceptanceId": "A5",
+  "expected": {
+    "assertions": [
+      "A5-not-already-active-quote"
+    ]
+  },
+  "observed": {
+    "assertions": [
+      "A5-not-already-active-quote"
+    ],
+    "summary": "PASS A5: {\"proposals\":9,\"duplicatesInActiveTTOD\":0}"
+  },
+  "exitCode": 0
+}

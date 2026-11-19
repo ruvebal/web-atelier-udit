@@ -135,8 +135,8 @@ Has aprendido animaciones CSS. Son elegantes para transiciones simples. Pero com
 | Intención de diseño | Realidad CSS | Solución GSAP |
 |--------------|-------------|---------------|
 | "Animar cada letra en secuencia" | Delays manuales por carácter | `SplitText` + `stagger` |
-| "Dibujar este logo al hacer scroll" | Control limitado de `stroke-dashoffset` | `DrawSVG` + `ScrollTrigger` |
-| "Morphing círculo a estrella" | Imposible | plugin `MorphSVG` |
+| "Dibujar este logo al hacer scroll" | Dibujo completo con guiones; segmentos parciales requieren más control manual | `DrawSVG` + `ScrollTrigger` para segmentos parciales y control de timeline |
+| "Morphing círculo a estrella" | Posible entre rutas compatibles donde funciona CSS `d: path()`; no es una opción interoperable por defecto | `MorphSVG` normaliza las rutas y empareja las formas |
 | "Sincronizar 10 animaciones" | Callback hell | `Timeline` con labels |
 | "Pausar, revertir, scrub con scroll" | No posible | Control total de reproducción |
 

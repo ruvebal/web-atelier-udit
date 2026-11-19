@@ -94,8 +94,8 @@
 				stroke: #667eea;
 				stroke-width: 3;
 				fill: none;
-				stroke-dasharray: 1000;
-				stroke-dashoffset: 1000;
+				stroke-dasharray: 1;
+				stroke-dashoffset: 1;
 				animation: draw 3s ease-in-out forwards;
 			}
 
@@ -112,22 +112,6 @@
 			.svg-rotate {
 				animation: rotateSVG 4s linear infinite;
 				transform-origin: center;
-			}
-
-			/* Demo 3: Morphing Path */
-			.svg-morph-path {
-				fill: #f093fb;
-				animation: morphPath 4s ease-in-out infinite;
-			}
-
-			@keyframes morphPath {
-				0%,
-				100% {
-					d: path('M 50 50 Q 100 100 150 50 T 250 50');
-				}
-				50% {
-					d: path('M 50 100 Q 100 50 150 100 T 250 100');
-				}
 			}
 
 			/* Demo 4: Fill Color Animation */
@@ -150,25 +134,7 @@
 				animation: fillColor 4s ease-in-out infinite;
 			}
 
-			/* Demo 5: Pulsing Circle */
-			@keyframes pulseSVG {
-				0%,
-				100% {
-					r: 30;
-					opacity: 1;
-				}
-				50% {
-					r: 50;
-					opacity: 0.5;
-				}
-			}
-
-			.svg-pulse {
-				fill: #8b5cf6;
-				transform-origin: center;
-			}
-
-			/* Demo 6: Animated Icon */
+			/* Demo 3: Animated Icon */
 			.animated-icon {
 				width: 100px;
 				height: 100px;
@@ -182,14 +148,14 @@
 			}
 
 			.icon-circle {
-				stroke-dasharray: 200;
-				stroke-dashoffset: 200;
+				stroke-dasharray: 1;
+				stroke-dashoffset: 1;
 				animation: drawCircle 1s ease-out forwards;
 			}
 
 			.icon-check {
-				stroke-dasharray: 50;
-				stroke-dashoffset: 50;
+				stroke-dasharray: 1;
+				stroke-dashoffset: 1;
 				animation: drawCheck 0.5s ease-out 0.5s forwards;
 			}
 
@@ -244,13 +210,14 @@
 					<svg width="300" height="150" viewBox="0 0 300 150">
 						<path
 							class="svg-path-draw"
+							pathLength="1"
 							d="M 20 75 Q 50 20, 100 75 T 180 75 Q 220 120, 280 75" />
 					</svg>
 				</div>
 				<div class="code-snippet">
 .svg-path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
   animation: draw 3s forwards;
 }
 
@@ -294,22 +261,24 @@
 							class="icon-check-circle icon-circle"
 							cx="50"
 							cy="50"
-							r="40" />
+							r="40"
+							pathLength="1" />
 						<polyline
 							class="icon-check-circle icon-check"
-							points="30,50 45,65 70,35" />
+							points="30,50 45,65 70,35"
+							pathLength="1" />
 					</svg>
 				</div>
 				<div class="code-snippet">
 .icon-circle {
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
   animation: drawCircle 1s forwards;
 }
 
 .icon-check {
-  stroke-dasharray: 50;
-  stroke-dashoffset: 50;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
   animation: drawCheck 0.5s 0.5s forwards;
 }
 				</div>
@@ -411,7 +380,7 @@
 				<ul style="color: #4a5568; padding-left: 1.5rem">
 					<li><strong>Path drawing:</strong> Use <code>stroke-dasharray</code> and <code>stroke-dashoffset</code> for line animations</li>
 					<li><strong>Resolution-independent:</strong> SVGs scale perfectly on all screens and devices</li>
-					<li><strong>CSS vs SMIL:</strong> CSS animations have better browser support; SMIL is deprecated in some browsers</li>
+					<li><strong>CSS vs SMIL:</strong> both are viable SVG animation tools; choose CSS for page styling and states, SMIL for motion that should travel inside an SVG</li>
 					<li><strong>Transform origin:</strong> SVG uses a different coordinate system; set <code>transform-origin: center</code></li>
 					<li><strong>Use cases:</strong> Logos, icons, illustrations, data visualizations, loading animations</li>
 					<li><strong>Tools:</strong> Use <a href="https://jakearchibald.github.io/svgomg/" target="_blank">SVGOMG</a> to optimize SVG files</li>

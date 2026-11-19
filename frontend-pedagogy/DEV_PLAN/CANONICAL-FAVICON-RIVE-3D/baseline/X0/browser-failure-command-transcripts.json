@@ -1,0 +1,65 @@
+{
+  "schema": "x0-browser-failure-provenance/v1",
+  "sessions": [
+    {
+      "label": "Induced Rive runtime failure desktop",
+      "startedAtUtc": "2026-11-11T18:05:56.910Z",
+      "endedAtUtc": "2026-11-11T18:06:09.893Z",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+      "argv": [
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "--headless=new",
+        "--remote-debugging-port=9227",
+        "--user-data-dir=/var/folders/p5/3_v4l4693yd4s9dssccyq_dr0000gn/T/x0-cdp-desktop-yVdWv6",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "target": "http://127.0.0.1:4177/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/?force-rive3d-failure=1#authored-assets",
+      "exitCode": 0,
+      "domPath": "raw-provenance/failure-desktop.dom.html",
+      "domSha256": "b8334771f5043674cb4241f4aefd40eaee72e8327d5a22177fcf7757045dcd63",
+      "screenshotPath": "route-fallback-failure-desktop.png",
+      "screenshotSha256": "4785c8656e1c973bc0671d9151e51955ac5359a98857825edc3f4ee6378e3a33",
+      "metricsPath": "raw-provenance/failure-desktop.session.json",
+      "metricsSha256": "4160759a9cc84d3f00a3691b3e619fc60cd41c21c64ebd2ee4acaa41c5c37d09",
+      "transcriptPath": "raw-provenance/failure-desktop.cdp.json",
+      "transcriptSha256": "30f050e94c8f3dda86368b9f1d522f9ba2a09c6e2cc5813a87ccb7f75359b08b",
+      "requestedViewport": {
+        "width": 1440,
+        "height": 893
+      }
+    },
+    {
+      "label": "Induced Rive runtime failure mobile",
+      "startedAtUtc": "2026-11-11T18:06:11.933Z",
+      "endedAtUtc": "2026-11-11T18:06:24.873Z",
+      "cwd": "/Users/ruvebal/projects/ruvebal/scholar/udit/web-atelier-udit-CANONICAL-FAVICON-RIVE-3D-0",
+      "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+      "argv": [
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "--headless=new",
+        "--remote-debugging-port=9228",
+        "--user-data-dir=/var/folders/p5/3_v4l4693yd4s9dssccyq_dr0000gn/T/x0-cdp-mobile-a8AorB",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "target": "http://127.0.0.1:4177/web-atelier-udit/lessons/en/web-animations/svg-master-session/demo/?force-rive3d-failure=1#authored-assets",
+      "exitCode": 0,
+      "domPath": "raw-provenance/failure-mobile.dom.html",
+      "domSha256": "b5a31aefaf57d4acd483daa1abb3034309de261241436b47cbdc14ca543eb5ac",
+      "screenshotPath": "route-fallback-failure-mobile.png",
+      "screenshotSha256": "15a8b686641006ea166fb1cb3e749e4458259478bfb9ddf45f78b1076268cd68",
+      "metricsPath": "raw-provenance/failure-mobile.session.json",
+      "metricsSha256": "766c3ee11c55aa0ef2899926828b7cf10e197d1058e606ab4f468c607068db56",
+      "transcriptPath": "raw-provenance/failure-mobile.cdp.json",
+      "transcriptSha256": "43f69ca1e5723ecd1c465e61c06e1d44fe66e3c3663ea3be133702b9e35025b4",
+      "requestedViewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  ]
+}

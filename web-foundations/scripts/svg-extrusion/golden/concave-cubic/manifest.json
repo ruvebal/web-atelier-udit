@@ -1,0 +1,111 @@
+{
+  "schema": "svg-to-rive-3d/v1",
+  "compilerVersion": "1.0.9",
+  "supportedSubset": "closed-filled-path-MLCZ-affine/v1",
+  "source": {
+    "sha256": "07455962cfce8549042733879e56ff6fb986d36cfe224563047101e5ff812cf6",
+    "viewBox": [
+      0,
+      0,
+      100,
+      100
+    ],
+    "path": "concave-cubic.svg"
+  },
+  "facetCount": 2,
+  "facets": [
+    {
+      "id": "facet-01",
+      "sourceId": "concave",
+      "sourceOrder": 0,
+      "fill": "#1D4ED8",
+      "fillRule": "nonzero",
+      "transform": null,
+      "area": 0.11,
+      "centroid": [
+        -0.2954545455,
+        0.2840909091
+      ],
+      "depth": 0.22,
+      "contourVertexCount": 6,
+      "frontTriangleCount": 4,
+      "mesh": {
+        "vertexStart": 0,
+        "vertexCount": 36,
+        "indexStart": 0,
+        "indexCount": 60
+      }
+    },
+    {
+      "id": "facet-02",
+      "sourceId": "cubic",
+      "sourceOrder": 1,
+      "fill": "#9373DD",
+      "fillRule": "nonzero",
+      "transform": "translate(50 5) scale(.8 1.1)",
+      "area": 0.0935510705,
+      "centroid": [
+        0.18,
+        0.0976565476
+      ],
+      "depth": 0.2059971162,
+      "contourVertexCount": 31,
+      "frontTriangleCount": 29,
+      "mesh": {
+        "vertexStart": 36,
+        "vertexCount": 186,
+        "indexStart": 60,
+        "indexCount": 360
+      }
+    }
+  ],
+  "geometry": {
+    "vertexCount": 222,
+    "indexCount": 420,
+    "primitive": "triangle-list",
+    "channels": [
+      "position",
+      "normal"
+    ]
+  },
+  "coordinateSystem": {
+    "sourceY": "down",
+    "worldHandedness": "right",
+    "cameraForward": "negative-z",
+    "frontWinding": "ccw",
+    "matrixOrder": "column-vector",
+    "normalization": "viewBox-max-dimension-centered"
+  },
+  "flattening": {
+    "screenTolerancePx": 0.35,
+    "maximumDisplayScale": 4,
+    "modelTolerance": 0.000875,
+    "method": "adaptive-de-casteljau-after-affine-bake"
+  },
+  "depth": {
+    "policy": "sqrt-relative-area",
+    "minimum": 0.04,
+    "maximum": 0.22
+  },
+  "paint": {
+    "grammar": "solid-hex-or-rgb/v1",
+    "opacity": "opaque-only",
+    "styleProperties": [
+      "fill",
+      "fill-rule",
+      "stroke:none"
+    ],
+    "unresolvedClasses": "reject"
+  },
+  "fillRules": [
+    "nonzero"
+  ],
+  "supportedFillRules": [
+    "nonzero",
+    "evenodd"
+  ],
+  "centroidMethod": "signed-polygon-area",
+  "windingNormalization": "ccw-after-svg-y-inversion",
+  "warnings": [],
+  "resolvedConfigSha256": "f0a16297ce04f9fc3fabce6c7cd5273332b5a2d3571364df88ff091cb4aa1671"
+}

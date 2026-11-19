@@ -228,6 +228,7 @@ export function createHexField(canvas, options = {}) {
 
   const reducedQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   let reduced = reducedQuery.matches;
+  let cameraPaused = false;
   const onReduced = () => {
     reduced = reducedQuery.matches;
   };
@@ -259,6 +260,7 @@ export function createHexField(canvas, options = {}) {
   /** Wheel→pitch only when the canvas itself is the interaction surface (not page heroes). */
   const wheelPitch = options.wheelPitch ?? pointerRoot === canvas;
   const pointerAmp = options.pointerAmp ?? 1;
+  const neutralRoot = options.neutralRoot || null;
 
   let nodes = new Float32Array(0);
   let count = 0;
@@ -294,6 +296,8 @@ export function createHexField(canvas, options = {}) {
 
   let pointerX = 0.5;
   let pointerY = 0.5;
+  let targetPointerX = 0.5;
+  let targetPointerY = 0.5;
   let hasPointer = false;
   let raf = 0;
   let last = performance.now();
@@ -371,6 +375,24 @@ export function createHexField(canvas, options = {}) {
     };
   }
 
+  function neutralPoint() {
+    if (!neutralRoot?.getBoundingClientRect) return { x: 0.5, y: 0.5 };
+    const rootRect = pointerRoot.getBoundingClientRect();
+    const neutralRect = neutralRoot.getBoundingClientRect();
+    return {
+      x: (neutralRect.left + neutralRect.width * 0.5 - rootRect.left) / Math.max(1, rootRect.width),
+      y: (neutralRect.top + neutralRect.height * 0.5 - rootRect.top) / Math.max(1, rootRect.height),
+    };
+  }
+
+  function neutralResponse(x, y, neutral) {
+    const distance = Math.hypot(x - neutral.x, y - neutral.y);
+    const deadZone = options.neutralDeadZone ?? 0.045;
+    const fullResponse = Math.max(deadZone + 0.001, options.neutralFullResponse ?? 0.42);
+    const t = Math.max(0, Math.min(1, (distance - deadZone) / (fullResponse - deadZone)));
+    return t * t * (3 - 2 * t);
+  }
+
   function frame(now) {
     const dt = Math.min(0.05, (now - last) / 1000);
     last = now;
@@ -385,7 +407,25 @@ export function createHexField(canvas, options = {}) {
 
     if (!reduced) {
       time += dt;
+      const pointerK = 1 - Math.exp(-dt * (options.pointerFollow ?? 4.2));
+      pointerX += (targetPointerX - pointerX) * pointerK;
+      pointerY += (targetPointerY - pointerY) * pointerK;
+    }
+
+    const neutral = neutralPoint();
+    const gravityGain = neutralResponse(pointerX, pointerY, neutral);
+    if (!reduced) {
       const k = 1 - Math.exp(-dt * 6);
+      if (hasPointer) {
+        const rest = restPose();
+        const amp = pointerAmp;
+        const dx = pointerX - neutral.x;
+        const dy = pointerY - neutral.y;
+        targetYaw = rest.yaw + dx * gravityGain * 0.95 * amp;
+        targetPitch = rest.pitch + dy * gravityGain * 0.48 * amp;
+        targetPanX = rest.panX + dx * gravityGain * width * 0.07 * amp;
+        targetPanY = rest.panY + dy * gravityGain * height * 0.055 * amp;
+      }
       pitch += (targetPitch - pitch) * k;
       yaw += (targetYaw - yaw) * k;
       panX += (targetPanX - panX) * k;
@@ -402,8 +442,14 @@ export function createHexField(canvas, options = {}) {
     const px = pointerX * width;
     const py = pointerY * height;
     const ptrSigma = (200 * dpr) ** 2;
-    const ptrK = hasPointer && !reduced && interactive ? 1 - Math.exp(-dt * 8) : 0;
-    const decayK = !hasPointer && !reduced ? Math.exp(-dt * 1.8) : 1;
+    const ptrK = hasPointer && !reduced && interactive
+      ? 1 - Math.exp(-dt * (options.geometryFollow ?? 3.6))
+      : 0;
+    // Pointer-displaced geometry should float home, not snap back as if pulled
+    // by a stiff spring. Keep this recovery independent from camera response.
+    const decayK = !hasPointer && !reduced
+      ? Math.exp(-dt * (options.pointerRecovery ?? 0.55))
+      : 1;
 
     const g = ctx.createLinearGradient(0, 0, width, height);
     g.addColorStop(0, paper);
@@ -430,7 +476,7 @@ export function createHexField(canvas, options = {}) {
         const probe = projectRaw(wx, wy, wz - energyN * 36 * dpr, cosY, sinY, cosX, sinX);
         const dx = probe.x - px;
         const dy = probe.y - py;
-        const pulse = Math.exp(-(dx * dx + dy * dy) / (2 * ptrSigma));
+        const pulse = Math.exp(-(dx * dx + dy * dy) / (2 * ptrSigma)) * gravityGain;
         energyN += (pulse - energyN) * ptrK;
         nodes[o + 4] = energyN;
       } else if (!reduced) {
@@ -568,20 +614,14 @@ export function createHexField(canvas, options = {}) {
   function onPointer(clientX, clientY) {
     if (!interactive) return;
     const rect = pointerRoot.getBoundingClientRect();
-    pointerX = (clientX - rect.left) / Math.max(1, rect.width);
-    pointerY = (clientY - rect.top) / Math.max(1, rect.height);
+    targetPointerX = Math.max(0, Math.min(1, (clientX - rect.left) / Math.max(1, rect.width)));
+    targetPointerY = Math.max(0, Math.min(1, (clientY - rect.top) / Math.max(1, rect.height)));
     hasPointer = true;
-    const rest = restPose();
-    const amp = pointerAmp;
-    targetYaw = rest.yaw + (pointerX - 0.5) * 0.95 * amp;
-    targetPitch = rest.pitch + (pointerY - 0.5) * 0.48 * amp;
-    targetPanX = rest.panX + (pointerX - 0.5) * width * 0.07 * amp;
-    targetPanY = rest.panY + (pointerY - 0.5) * height * 0.055 * amp;
   }
 
   function onPointerLeave() {
-    hasPointer = false;
-    applyRestTargets();
+    // Latch the last meaningful position. A stationary mouse or released touch
+    // is still a position; only a later pointer sample should replace it.
   }
 
   function onWheel(event) {
@@ -591,7 +631,7 @@ export function createHexField(canvas, options = {}) {
   }
 
   function onScrollParallax() {
-    if (!scrollParallax || reduced) return;
+    if (!scrollParallax || reduced || cameraPaused) return;
     const rect = pointerRoot.getBoundingClientRect();
     const viewH = window.innerHeight || 1;
     const mid = rect.top + rect.height * 0.5;
@@ -623,7 +663,8 @@ export function createHexField(canvas, options = {}) {
   if (scrollParallax) {
     window.addEventListener('scroll', onScrollParallax, { passive: true });
     window.addEventListener('resize', onScrollParallax, { passive: true });
-    onScrollParallax();
+    // Some hero mounts request a face-on first frame before scroll motion begins.
+    if (options.frontStart !== true) onScrollParallax();
   }
 
   raf = requestAnimationFrame(frame);
@@ -650,6 +691,19 @@ export function createHexField(canvas, options = {}) {
     setVelocity(next) {
       velocity = Math.max(0, Math.min(1.5, Number(next) || 0));
       return { velocity };
+    },
+    setCameraPaused(next) {
+      cameraPaused = Boolean(next);
+      if (cameraPaused) {
+        // Hover itself must not pull the background to rest. The next frames
+        // may still approach the focal neutral point from actual pointer
+        // position, while competing scroll-camera targets remain suspended.
+        targetYaw = yaw;
+        targetPitch = pitch;
+        targetPanX = panX;
+        targetPanY = panY;
+      }
+      return { cameraPaused };
     },
     getSeed: () => seed,
     getComplexity: () => complexity,

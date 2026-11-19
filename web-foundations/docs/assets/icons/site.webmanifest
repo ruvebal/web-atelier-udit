@@ -1,0 +1,24 @@
+{
+  "name": "WEB ATELIER (UDIT)",
+  "short_name": "WEB ATELIER",
+  "start_url": "/web-atelier-udit/",
+  "scope": "/web-atelier-udit/",
+  "display": "standalone",
+  "background_color": "#00295E",
+  "theme_color": "#00295E",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
+

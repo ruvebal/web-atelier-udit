@@ -1,0 +1,69 @@
+---
+layout: default
+title: "Laboratorio de cabecera neoplástica"
+description: "Tres variantes de cabecera: el cuadrado de Duijvestijn como fractal, en la paleta del curso."
+lang: es
+robots: noindex
+sitemap: false
+hide_site_hero: true
+---
+<div class="np-lab" style="--np-red:#ff7a59;--np-yellow:#f3c969;--np-blue:#54d6be;--np-black:#f7f2e8;--np-white:#050816;--np-line:#f7f2e8;">
+<header class="np-lab__intro">
+<p class="np-hero__kicker">Web Atelier (UDIT) · laboratorio</p>
+<h1 class="np-lab__title">Laboratorio de cabecera neoplástica</h1>
+<p>En lugar de hexágonos o triángulos, el campo de esta cabecera es un cuadrado perfecto: 21 cuadrados, ninguno igual, que llenan un cuadrado de lado 112 (Duijvestijn, 1978). Cada plano del fondo puede abrirse en el todo. Tres modos, una geometría, la paleta de este curso.</p>
+<ul class="np-lab__toc" aria-label="Variantes">
+<li><a href="#planes">Web Atelier</a></li>
+<li><a href="#descent">Cada plano contiene el todo</a></li>
+<li><a href="#focus">La retícula se abre donde miras</a></li>
+</ul>
+</header>
+{% include neoplastic-hero.html id="planes" mode="planes" kicker="Variante 1 · Relieve" title="Web Atelier" lede="Aprender haciendo, con teoría, práctica y reflexión compartida." twin="/assets/images/neoplastic/hero-twin-9de1d8748aff.svg" %}
+{% include neoplastic-hero.html id="descent" mode="descent" kicker="Variante 2 · Descenso" title="Cada plano contiene el todo" lede="Un zoom sin fin hacia los planos del fondo: cuando uno llena el marco, vuelve a ser el cuadrado entero." twin="/assets/images/neoplastic/hero-twin-9de1d8748aff.svg" %}
+{% include neoplastic-hero.html id="focus" mode="focus" kicker="Variante 3 · Foveal" title="La retícula se abre donde miras" lede="El nivel de detalle sigue al puntero y se asienta donde no miras." twin="/assets/images/neoplastic/hero-twin-9de1d8748aff.svg" %}
+<aside class="np-lab__grounding">
+<h2>Fundamento</h2>
+<p>Matemáticas, no proporciones de Mondrian: la disección de Duijvestijn es el único cuadrado perfecto simple de orden mínimo (21). Los planos de color nunca se mezclan; entran por barrido ortogonal. Con movimiento reducido se mantiene la imagen fija.</p>
+</aside>
+</div>
+
+<style>
+.np-lab { --np-arm: clamp(6px, 0.8vw, 12px); background: var(--np-white); color: var(--np-line); padding: var(--np-arm); display: grid; gap: var(--np-arm); }
+.np-lab__intro, .np-lab__grounding { padding: clamp(1.25rem, 3vw, 2.5rem); border: var(--np-arm) solid var(--np-line); }
+.np-lab__title { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; margin: 0 0 1rem; font-weight: 500; letter-spacing: -0.02em; }
+.np-lab__intro p, .np-lab__grounding p { max-width: 64ch; line-height: 1.6; margin: 0; }
+.np-lab__toc { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; padding: 0; margin: 1.25rem 0 0; list-style: none; }
+.np-lab__toc a, .np-hero__link a { color: inherit; text-underline-offset: 0.2em; }
+.np-lab__grounding h2 { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.75rem; font-weight: 500; }
+.np-hero { position: relative; min-height: min(92vh, 56rem); overflow: hidden; display: grid; align-items: end; scroll-margin-top: 5rem; }
+.np-hero__twin, .np-hero__canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.np-hero__canvas { opacity: 0; transition: opacity 600ms ease; }
+.np-hero.is-live .np-hero__canvas { opacity: 1; }
+.np-hero__plane { position: relative; z-index: 1; margin: clamp(1rem, 4vw, 3rem); max-width: 34rem; background: var(--np-white); color: var(--np-line); padding: clamp(1.25rem, 3vw, 2.25rem); outline: var(--np-arm) solid var(--np-line); }
+.np-hero__kicker { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.6rem; opacity: 0.85; }
+.np-hero__title { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.02; margin: 0 0 0.75rem; font-weight: 500; letter-spacing: -0.015em; }
+.np-hero__lede { line-height: 1.55; margin: 0; }
+.np-hero__link { margin: 0.9rem 0 0; font-size: 0.85rem; opacity: 0.8; }
+@media (prefers-reduced-motion: reduce) { .np-hero__canvas { display: none; } }
+</style>
+
+<script type="module">
+import { createNeoplasticField } from '{{ "/assets/js/neoplastic/neoplastic-field.js" | relative_url }}';
+const root = document.querySelector('.np-lab');
+const css = getComputedStyle(root);
+const palette = Object.fromEntries(['red', 'yellow', 'blue', 'black', 'white', 'line'].map((k) => [k, css.getPropertyValue('--np-' + k).trim()]));
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  for (const hero of root.querySelectorAll('.np-hero')) {
+    try {
+      const field = createNeoplasticField(hero.querySelector('.np-hero__canvas'), { mode: hero.dataset.npMode, palette, pointerRoot: hero, lineRatio: 0.02 });
+      hero.classList.add('is-live');
+      const plane = hero.querySelector('.np-hero__plane');
+      plane.addEventListener('pointerenter', () => field.setCameraPaused(true));
+      plane.addEventListener('pointerleave', () => field.setCameraPaused(false));
+      addEventListener('pagehide', () => field.destroy(), { once: true });
+    } catch (error) {
+      console.warn('[neoplastic-hero] static twin kept', error);
+    }
+  }
+}
+</script>
