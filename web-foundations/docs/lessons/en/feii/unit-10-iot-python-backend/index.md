@@ -47,7 +47,7 @@ status: complete
 
 > **AI Assistance Disclosure:** Assistants draft WebSocket hooks and FastAPI endpoints fluently. You remain responsible for connection lifecycle (open/reconnect/close) and the merge log. Same ACCEPT / REJECT discipline as [Unit 6]({{ '/lessons/en/feii/unit-6-ai-code-review/' | relative_url }}) and the [AI-Assisted 3D covenant]({{ '/lessons/en/feii/ai-assisted-3d-covenant/' | relative_url }}) (device/network state is a different failure surface than a 3D scene, same review habit applies).
 
-**Code in this unit:** every fence is an **Excerpt** unless labelled otherwise — illustrative device-control and WebSocket patterns, not a routed CodeSandbox lesson. The versioned local lab contract below is a **Template**: copy it unchanged first, then document any project-specific contract change rather than silently substituting an endpoint.
+**Code in this unit:** every fence is an **Excerpt** unless labelled **Template**. The versioned local lab contract is a **Template**: copy it unchanged first, then document any project-specific contract change. The [Streamfield](#flagship-sandbox--streamfield) section links the running files in `react-template`. The delta-server fence is a **Template** you run on your machine. GitHub Pages publishes files; it does not run that process.
 
 ---
 
@@ -128,6 +128,7 @@ By the end of this unit, you will be able to:
 - **Build a control-panel interface** — React components driven by live device/sensor state.
 - **Consume a Python-backed service** — REST and WebSocket endpoints from a FastAPI backend.
 - **Declare AI assistance** — Log ACCEPT / REJECT on any AI-drafted hook or endpoint (same discipline as Units 6, 8, 9).
+- **Fold a delta stream** — Tell a full snapshot from a patch, and say why the patch needs a long-lived process.
 
 ---
 
@@ -403,7 +404,400 @@ python -m venv .venv
 
 Unit 5's contract test runs against the snapshot endpoint. It is the guard that tells the frontend and backend teams when a field was renamed or a shape changed.
 
+The snapshot socket repeats the whole frame. [Continuous flow — delta streaming](#continuous-flow--delta-streaming) adds a second socket that sends only the fields that changed. That second socket needs a process you start. The graded contract on this page stays the snapshot route.
+
 ---
+
+## Flagship sandbox — Streamfield {#flagship-sandbox--streamfield}
+
+The wired rehearsal is Ex6 in the instructor sandbox [`react-template`](https://github.com/ruvebal/react-template).
+
+Running reference: [live route](https://ruvebal.github.io/react-template/ex6-streamfield) · [page source](https://github.com/ruvebal/react-template/blob/main/src/pages/Ex6Streamfield.jsx).
+
+The live route moves because [MSW](https://mswjs.io/docs/websocket/) answers `ws://localhost:8000/v1/devices/lab-01/stream` inside the browser. The service worker is shipped as a file, and GitHub Pages can serve that file. Each visit gets its own private clock. Two browsers do not share a sequence, and closing the tab ends the clock.
+
+The same page has a **Delta server** radio. On the published site that radio stays disconnected. The reason is the next section: a continuous delta flow needs a process, and Pages does not run processes. The page is also served over HTTPS, and browsers refuse `ws://` from an HTTPS origin. Run both processes over `http://localhost` when you want to see patches fold.
+
+Each file below links back to this lesson from its header comment. The Focus strip on the route (`src/focus.js`) links here, to the file map, and to the delta section.
+
+## File map — every participant {#file-map--every-participant}
+
+| File | Job |
+| --- | --- |
+| [`src/pages/Ex6Streamfield.jsx`](https://github.com/ruvebal/react-template/blob/main/src/pages/Ex6Streamfield.jsx) | Route. Starts MSW for snapshots. Points the delta radio at port 8001. |
+| [`src/streamfield/useDeviceStream.js`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/useDeviceStream.js) | Connect, reconnect with backoff, `close()` on unmount. |
+| [`src/streamfield/reduce.js`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/reduce.js) | `applyFrame` — snapshot replaces, delta folds, a sequence gap is refused. |
+| [`src/streamfield/contract.js`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/contract.js) | `snapshot(sequence)`, `STREAM_URL` (port 8000), `DELTA_URL` (port 8001). |
+| [`src/streamfield/handlers.js`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/handlers.js) | MSW clock. Full snapshot every second. This is the Pages path. |
+| [`src/streamfield/browser.js`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/browser.js) | Starts and stops the service worker. The worker URL respects Vite `base`. |
+| [`src/streamfield/StreamReadout.jsx`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/StreamReadout.jsx) | Status, freshness, wire message, folded frame. |
+| [`src/streamfield/StreamContinuum.jsx`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/StreamContinuum.jsx) | Temperature ribbon over the last 48 folded readings. |
+| [`src/streamfield/RisField.jsx`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/RisField.jsx) | Same history in polar form. Radius, ring opacity, ripple. |
+| [`src/streamfield/StreamAura.jsx`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/StreamAura.jsx) | Optional WebGL mood. The SVG and the readout own the data. |
+| [`src/streamfield/path.js`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/path.js) | Catmull–Rom ribbon shared by the continuum and the RIS trail. |
+| [`server/delta-stream.mjs`](https://github.com/ruvebal/react-template/blob/main/server/delta-stream.mjs) | The process. One sequence, shared by every browser that connects. |
+| [`src/focus.js`](https://github.com/ruvebal/react-template/blob/main/src/focus.js) | Focus strip. Those three links point back at this lesson. |
+
+## How to read the graphics, in order {#how-to-read-the-graphics-in-order}
+
+1. **The frame.** On a snapshot source the wire and the frame are the same JSON object. On the delta source, read the wire message first (often only `temperatureC`), then the folded frame (both readings).
+2. **Continuum** ([`StreamContinuum.jsx`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/StreamContinuum.jsx)). Temperature over the history ring. A solid flowing dash means the channel is live. A dashed gap means reconnecting.
+3. **RIS** ([`RisField.jsx`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/RisField.jsx)). The same history drawn in polar form. Temperature sets the radius, humidity sets the ring opacity, sequence sets the ripple.
+4. **Aura** ([`StreamAura.jsx`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/StreamAura.jsx)), off unless you turn it on. Grade the membrane from the SVG and the readout.
+
+Studio test: stop the source (MSW, uvicorn, or `server/delta-stream.mjs`). Connection goes to reconnecting, freshness ages, and the last folded frame stays on screen. A panel that blanks the last good reading hides the outage.
+
+## Continuous flow — delta streaming {#continuous-flow--delta-streaming}
+
+A snapshot stream repeats every field on every tick. The v1 contract does that, and the MSW handler does that. It is easy to read: each message is a complete frame, and a client that joins late needs nothing it does not already hold.
+
+A continuous flow sends the first full frame, then the difference. The server remembers the previous readings. The client remembers them too, and writes the patch on top:
+
+```json
+{ "kind": "snapshot", "deviceId": "lab-01", "online": true, "readings": { "temperatureC": 21.0, "humidityPct": 45.0 }, "sequence": 4, "timestamp": 1000 }
+```
+
+```json
+{ "kind": "delta", "deviceId": "lab-01", "sequence": 5, "timestamp": 2000, "patch": { "temperatureC": 21.4 } }
+```
+
+After that delta the folded frame still has `humidityPct: 45.0`. Humidity was held. The wire did not need to say so.
+
+That memory has to live somewhere between ticks. GitHub Pages stores the built HTML, CSS, and JavaScript and returns those files when a browser asks. It does not keep a WebSocket open, it does not remember sequence 41, and it does not compute a patch. The published Ex6 page can still show snapshots because the MSW service worker is running in the visitor's own browser, pretending to be `localhost:8000`. That pretense ends when the tab closes, and it is a different clock in every tab.
+
+A delta stream that two browsers share, and that continues while you reload, is a process you start. In this sandbox that process is `server/delta-stream.mjs`, bound to `127.0.0.1:8001` so it does not collide with the snapshot contract on port 8000. The Pages site is `https://ruvebal.github.io`. A page loaded over HTTPS will not open `ws://127.0.0.1:8001`, even if the process is running on the same laptop. Use `npm run dev` (`http://localhost:5173/ex6-streamfield`) next to `npm run delta-server`.
+
+Three rules keep the fold honest:
+
+- The first message to a client is a **snapshot** of the current sequence, so a late joiner has a base.
+- A **delta** is accepted only when `sequence === previous + 1`. A skipped number means a patch was lost. The client keeps the last good frame and waits. Drawing a guessed temperature would be a lie.
+- Every 8th tick is a **keyframe snapshot**. Deltas are not a journal you can replay from zero. The keyframe heals a client that refused a gap. An empty `patch` still advances the sequence: the channel is alive, the readings are unchanged.
+
+The lab simulator moves temperature every tick and holds humidity for four ticks. If both fields changed every tick, the patch would be the whole frame plus the bookkeeping. Two floats rarely justify a delta. The same fold is what you use when the frame is a pose, a point cloud slice, or a document and most of it did not move.
+
+Pinned as of **19 November 2026**:
+
+| Package | Version | Note |
+| --- | --- | --- |
+| `ws` | `8.23.0` | Node WebSocket server. Imported only by `server/delta-stream.mjs`, so the Pages bundle does not ship it. |
+| Node.js | `24.5.0` on the machine that checked this | `ws@8.23.0` also runs on Node 22. |
+
+### The fold — `src/streamfield/reduce.js`
+
+**Excerpt.** This is the complete module the hook calls. Pasting it into an empty page does nothing until `useDeviceStream.js` passes each parsed message through `applyFrame`. A snapshot, including a legacy frame with no `kind` (the MSW clock and the v1 FastAPI route), replaces the frame. A delta folds. Anything else is refused and the previous frame stays.
+
+Source: [`src/streamfield/reduce.js`](https://github.com/ruvebal/react-template/blob/main/src/streamfield/reduce.js). The header of that file links back to this section.
+
+{% raw %}
+
+```js
+/**
+ * Fold a WebSocket message into the last full telemetry frame.
+ *
+ * Lesson — Unit 10, Continuous flow — delta streaming:
+ * https://ruvebal.github.io/web-atelier-udit/lessons/en/feii/unit-10-iot-python-backend/#continuous-flow--delta-streaming
+ *
+ * A snapshot replaces the frame. A delta is only the fields that changed, so
+ * it is meaningful only when we still hold the previous frame and the
+ * sequence advanced by one. A gap means a patch was lost; inventing the
+ * missing readings would draw a lie, so the previous frame stays put.
+ */
+
+/**
+ * @param {Record<string, unknown> | null} prev Folded frame already on screen.
+ * @param {unknown} message Parsed JSON from the socket.
+ * @returns {{ frame: Record<string, unknown> | null, accepted: boolean }}
+ */
+export function applyFrame(prev, message) {
+  if (!isRecord(message)) return { frame: prev, accepted: false };
+
+  if (message.kind === 'delta') {
+    const sequence = message.sequence;
+    if (!isRecord(prev) || typeof sequence !== 'number' || sequence !== prev.sequence + 1) {
+      return { frame: prev, accepted: false };
+    }
+    if (message.patch != null && !isRecord(message.patch)) {
+      return { frame: prev, accepted: false };
+    }
+    const patch = isRecord(message.patch) ? message.patch : {};
+    const prevReadings = isRecord(prev.readings) ? prev.readings : {};
+    return {
+      frame: {
+        ...prev,
+        sequence,
+        timestamp: typeof message.timestamp === 'number' ? message.timestamp : prev.timestamp,
+        readings: { ...prevReadings, ...patch },
+      },
+      accepted: true,
+    };
+  }
+
+  // Snapshot, or a legacy full frame with no kind (MSW and the v1 FastAPI route).
+  if (isRecord(message.readings) && typeof message.sequence === 'number') {
+    return { frame: message, accepted: true };
+  }
+
+  return { frame: prev, accepted: false };
+}
+
+/**
+ * @param {unknown} value
+ * @returns {value is Record<string, unknown>}
+ */
+function isRecord(value) {
+  return value != null && typeof value === 'object' && !Array.isArray(value);
+}
+```
+
+{% endraw %}
+
+### The process — `server/delta-stream.mjs`
+
+**Template.** Run this file; do not deploy it to GitHub Pages. `npm run delta-server` from the `react-template` repo starts it. Host and port are the values the Ex6 radio expects (`127.0.0.1:8001`). Move them only by changing this file and `DELTA_URL` in `contract.js` together. Loopback is deliberate: the simulator is a lab clock, not a service on the network.
+
+One sequence is shared. A new socket receives a snapshot of the current readings immediately, then the same ticks as every client already connected. That shared clock is the part a service worker in one tab cannot do for another tab.
+
+Source: [`server/delta-stream.mjs`](https://github.com/ruvebal/react-template/blob/main/server/delta-stream.mjs).
+
+{% raw %}
+
+```js
+#!/usr/bin/env node
+/**
+ * Continuous-flow delta server for Ex6 Streamfield.
+ *
+ * Lesson — Unit 10, Continuous flow — delta streaming:
+ * https://ruvebal.github.io/web-atelier-udit/lessons/en/feii/unit-10-iot-python-backend/#continuous-flow--delta-streaming
+ *
+ * GitHub Pages publishes files. It cannot remember the previous frame or
+ * keep a socket open, so this process has to run on your machine.
+ * Bind is loopback only: the lab simulator is not a service on the network.
+ *
+ * The Ex6 "Delta server" radio opens ws://127.0.0.1:8001/v1/devices/lab-01/delta.
+ * Do not point it at port 8000 — that port is the snapshot FastAPI contract.
+ */
+import { createServer } from 'node:http';
+import { WebSocketServer } from 'ws';
+
+const HOST = '127.0.0.1';
+const PORT = 8001;
+const SOCKET_PATH = '/v1/devices/lab-01/delta';
+const DEVICE_ID = 'lab-01';
+const TICK_MS = 1000;
+// A keyframe snapshot heals a client that missed a patch. Deltas are not a
+// journal you can rebuild from zero unless you still hold the base frame.
+const KEYFRAME_EVERY = 8;
+
+/**
+ * Temperature moves every tick. Humidity is held for four ticks so most
+ * deltas carry only temperatureC — otherwise a two-field frame that changes
+ * entirely is a snapshot with extra bookkeeping.
+ *
+ * @param {number} sequence
+ */
+function readingsAt(sequence) {
+  const phase = sequence / 4;
+  const humidityStep = Math.floor(sequence / 4);
+  return {
+    temperatureC: Math.round((21 + Math.sin(phase) * 2) * 10) / 10,
+    humidityPct: Math.round((45 + Math.cos(humidityStep) * 5) * 10) / 10,
+  };
+}
+
+/**
+ * @param {number} sequence
+ * @param {{ temperatureC: number, humidityPct: number }} readings
+ */
+function snapshotMessage(sequence, readings) {
+  return {
+    kind: 'snapshot',
+    deviceId: DEVICE_ID,
+    online: true,
+    readings,
+    sequence,
+    timestamp: Date.now(),
+  };
+}
+
+/**
+ * @param {number} sequence
+ * @param {{ temperatureC: number, humidityPct: number }} previous
+ * @param {{ temperatureC: number, humidityPct: number }} next
+ */
+function deltaMessage(sequence, previous, next) {
+  /** @type {{ temperatureC?: number, humidityPct?: number }} */
+  const patch = {};
+  if (next.temperatureC !== previous.temperatureC) patch.temperatureC = next.temperatureC;
+  if (next.humidityPct !== previous.humidityPct) patch.humidityPct = next.humidityPct;
+  return {
+    kind: 'delta',
+    deviceId: DEVICE_ID,
+    sequence,
+    timestamp: Date.now(),
+    patch,
+  };
+}
+
+/** @param {Record<string, unknown>} record */
+function log(record) {
+  process.stdout.write(
+    `${JSON.stringify({ ts: new Date().toISOString(), service: 'delta-stream', ...record })}\n`,
+  );
+}
+
+// One sequence for every browser. A new client receives the current snapshot
+// immediately, then the same ticks as everyone already connected.
+let sequence = 0;
+let readings = readingsAt(0);
+
+const httpServer = createServer((req, res) => {
+  res.writeHead(200, { 'content-type': 'text/plain; charset=utf-8' });
+  res.end(`Delta stream WebSocket is at ${SOCKET_PATH}\n`);
+});
+
+const wss = new WebSocketServer({ server: httpServer, path: SOCKET_PATH });
+
+/**
+ * @param {import('ws').WebSocket} socket
+ * @param {Record<string, unknown>} message
+ */
+function send(socket, message) {
+  if (socket.readyState === socket.OPEN) socket.send(JSON.stringify(message));
+}
+
+wss.on('connection', (socket) => {
+  log({ event: 'connection', sequence, clients: wss.clients.size });
+  send(socket, snapshotMessage(sequence, readings));
+  socket.on('close', () => {
+    log({ event: 'close', clients: wss.clients.size });
+  });
+});
+
+const timer = setInterval(() => {
+  const previous = readings;
+  sequence += 1;
+  readings = readingsAt(sequence);
+  const message =
+    sequence % KEYFRAME_EVERY === 0
+      ? snapshotMessage(sequence, readings)
+      : deltaMessage(sequence, previous, readings);
+  for (const socket of wss.clients) send(socket, message);
+}, TICK_MS);
+
+httpServer.on('error', (err) => {
+  log({ event: 'error', message: err instanceof Error ? err.message : String(err) });
+  process.exit(1);
+});
+
+httpServer.listen(PORT, HOST, () => {
+  log({ event: 'listen', host: HOST, port: PORT, path: SOCKET_PATH });
+});
+
+function shutdown() {
+  clearInterval(timer);
+  wss.close();
+  httpServer.close(() => process.exit(0));
+}
+
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
+```
+
+{% endraw %}
+
+```bash
+npm install
+npm run delta-server
+```
+
+In a second terminal: `npm run dev`, then open `http://localhost:5173/ex6-streamfield` and choose **Delta server**. The wire panel should show `kind: "delta"` and, on most ticks, a patch that names only `temperatureC`. The folded frame keeps `humidityPct` until a later patch changes it. Stop the server: the pill goes to reconnecting, and the last folded frame stays.
+
+### The same messages on FastAPI
+
+**Template.** Paste the block below into the v1 `backend/main.py` under the snapshot route. Leave the snapshot route in place. This clock is the entrega-shaped copy of `server/delta-stream.mjs`: one shared sequence, a snapshot on join, deltas between keyframes. It listens on the FastAPI process (port 8000, path `/v1/devices/lab-01/delta`). The Ex6 radio does not use that URL. It uses the Node process on 8001 so the two servers can run at once. A backend pair that owns the clock can point a client at this route by changing `DELTA_URL`.
+
+```python
+KEYFRAME_EVERY = 8
+delta_clients: set[WebSocket] = set()
+delta_sequence = 0
+
+
+def delta_readings(sequence: int) -> dict:
+    # Humidity is held for four ticks so a delta often carries only temperatureC.
+    phase = sequence / 4
+    humidity_step = sequence // 4
+    return {
+        "temperatureC": round(21 + math.sin(phase) * 2, 1),
+        "humidityPct": round(45 + math.cos(humidity_step) * 5, 1),
+    }
+
+
+delta_readings_now = delta_readings(0)
+
+
+def snapshot_message(sequence: int, readings: dict) -> dict:
+    return {
+        "kind": "snapshot",
+        "deviceId": DEVICE_ID,
+        "online": True,
+        "readings": readings,
+        "sequence": sequence,
+        "timestamp": int(time.time() * 1000),
+    }
+
+
+def delta_message(sequence: int, previous: dict, readings: dict) -> dict:
+    patch = {}
+    if readings["temperatureC"] != previous["temperatureC"]:
+        patch["temperatureC"] = readings["temperatureC"]
+    if readings["humidityPct"] != previous["humidityPct"]:
+        patch["humidityPct"] = readings["humidityPct"]
+    return {
+        "kind": "delta",
+        "deviceId": DEVICE_ID,
+        "sequence": sequence,
+        "timestamp": int(time.time() * 1000),
+        "patch": patch,
+    }
+
+
+async def delta_clock() -> None:
+    global delta_sequence, delta_readings_now
+    while True:
+        await asyncio.sleep(1)
+        previous = delta_readings_now
+        delta_sequence += 1
+        delta_readings_now = delta_readings(delta_sequence)
+        if delta_sequence % KEYFRAME_EVERY == 0:
+            message = snapshot_message(delta_sequence, delta_readings_now)
+        else:
+            message = delta_message(delta_sequence, previous, delta_readings_now)
+        for client in list(delta_clients):
+            try:
+                await client.send_json(message)
+            except Exception:
+                delta_clients.discard(client)
+
+
+@app.on_event("startup")
+async def start_delta_clock() -> None:
+    # The process lifetime. A static host has no equivalent hook.
+    asyncio.create_task(delta_clock())
+
+
+@app.websocket("/v1/devices/lab-01/delta")
+async def device_delta(websocket: WebSocket) -> None:
+    await websocket.accept()
+    delta_clients.add(websocket)
+    await websocket.send_json(snapshot_message(delta_sequence, delta_readings_now))
+    try:
+        while True:
+            await websocket.receive_text()
+    except WebSocketDisconnect:
+        delta_clients.discard(websocket)
+```
+
+`set` is a builtin in the Python that runs this course. `asyncio`, `math`, `time`, `WebSocket`, and `WebSocketDisconnect` are the same imports as the snapshot template.
 
 ## Lab (team) — workplace-like · 4 h
 
@@ -429,8 +823,9 @@ Not the showroom. Isolate the strategy:
 1. **Diagnostic:** given a `useDeviceStream` hook whose `useEffect` never returns a cleanup function, explain what leaks when the component unmounts and fix it.
 2. **Solvable without AI, declared as such:** for three data-shape descriptions — (a) a one-shot "turn on the light" command, (b) a continuous temperature stream, (c) an occasional "device is alive" ping — decide REST, WebSocket, or polling for each, one sentence of justification each.
 3. Write two sentences: what is the same as consuming a REST API in React, and what is genuinely new about a stateful connection.
+4. **Fold:** the folded frame is at sequence 10. A delta arrives with sequence 12 and a temperature patch. What stays on screen, and which later message is allowed to replace it?
 
-<!-- Professor answer sketch, not the student handout: (1) missing `socket.close()` in the cleanup return — the old socket keeps receiving/reconnecting after the component is gone, duplicating state updates or throwing on a stale closure. (2) a=REST (one-shot, fire-and-forget), b=WebSocket (continuous, low-latency, bidirectional not required but the shape fits), c=polling or a lightweight heartbeat WebSocket message, not a fresh REST call per ping. -->
+<!-- Professor answer sketch, not the student handout: (1) missing `socket.close()` in the cleanup return — the old socket keeps receiving/reconnecting after the component is gone, duplicating state updates or throwing on a stale closure. (2) a=REST (one-shot, fire-and-forget), b=WebSocket (continuous, low-latency, bidirectional not required but the shape fits), c=polling or a lightweight heartbeat WebSocket message, not a fresh REST call per ping. (4) refuse the delta, keep sequence 10 and the previous readings, status waits for a snapshot; the next keyframe snapshot replaces the frame. -->
 
 ---
 
@@ -439,6 +834,8 @@ Not the showroom. Isolate the strategy:
 - FastAPI — https://fastapi.tiangolo.com/
 - WebSocket API (MDN) — https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
 - WHATWG WebSocket protocol — https://websockets.spec.whatwg.org/
+- `ws@8.23.0` — https://github.com/websockets/ws — the local delta server. Checked 2026-11-19.
+- GitHub Pages — https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages — static file hosting. The delta process does not run there.
 
 ---
 
