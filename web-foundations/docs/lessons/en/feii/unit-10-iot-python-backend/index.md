@@ -955,14 +955,11 @@ Pinned as of **November 2026** — re-verify before the term starts:
 - FastAPI — https://fastapi.tiangolo.com/
 - WebSocket API (MDN) — https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
 - WHATWG WebSocket protocol — https://websockets.spec.whatwg.org/
-<<<<<<< HEAD
-- `ws@8.23.0` — https://github.com/websockets/ws — the local delta server. Checked 2026-11-19.
-- GitHub Pages — https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages — static file hosting. The delta process does not run there.
-=======
 - MSW WebSockets — https://mswjs.io/docs/websocket/
 - Playwright `routeWebSocket` — https://playwright.dev/docs/network#websockets
+- `ws@8.23.0` — https://github.com/websockets/ws — the local delta server. Checked 2026-11-19.
+- GitHub Pages — https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages — static file hosting. The delta process does not run there.
 - SVG master session (spatial model) — [lesson]({{ '/lessons/en/web-animations/svg-master-session/' | relative_url }})
->>>>>>> 03163b9803002c521d6b4d495e04819c52cf4e6e
 
 ---
 
