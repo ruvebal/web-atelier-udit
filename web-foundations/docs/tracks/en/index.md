@@ -15,6 +15,10 @@ Thematic learning paths that group canonical lessons into complete, structured e
 
 Taught in the **Grado en Desarrollo Full-Stack** and the **Grado en Ciencia de Datos e IA**.
 
+### Studio pilot: Rust/Wasm Music Visualizer
+
+Three four-hour studios connecting Rust/Wasm, Web Audio and GPU 3D through a separately versioned experiment repository. The route is [indexed here]({{ '/tracks/en/udit/rust-wasm-music-visualizer/' | relative_url }}); its six canonical lessons are [listed in the lesson library]({{ '/lessons/en/rust-wasm-music-visualizer/' | relative_url }}).
+
 ### Desarrollo Web: Front-End I
 
 **Duration:** annual, 6 ECTS (150 h · 30 h lab)
