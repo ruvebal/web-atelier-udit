@@ -1,0 +1,539 @@
+Cold-review Phase X1. You did not implement it. Audit the actual prototype against PHASE-X1 Acceptance and hard constraints. This is an early vertical slice, not a complete plugin system. Check Rust/Wasm export boundary, audio handling, GPU scene, tests, build reproducibility, accessibility claims, asset provenance, lifecycle risks and whether the report honestly states what is not yet proven. Report F1 etc with P0/P1/P2, whether it blocks X1 closure, evidence and remedy. Do not demand X2/X3 features unless X1 falsely claims them. Do not mark DONE. At most 1000 words.
+
+FILE PHASE-X1.md
+# Phase X1 — A complete vertical slice
+
+## Goal
+
+Prove Rust UI → browser audio → Rust/Wasm mapping → GPU 3D on the classroom hardware.
+
+## Entry gate
+
+PHASE-X0-REPORT.md is DONE with evidence and cold-review disposition. Recheck facts on the target environment.
+
+## Deliverables
+
+Local repository destination decision; exact lockfiles/toolchain; one playable reference plugin; reproducible build instructions; measured clock/renderer baseline.
+
+## Scope
+
+One Leptos CSR UI, one Rust kernel, one Three.js mesh and local audio. No remote service, SSR, custom DSP or Rive 3D dependency yet.
+
+## Implementation prompt
+
+Template — execute only after the entry gate passes.
+
+```text
+Read INDEX, TECHNICAL-DIRECTOR-CASCADE, SOURCES and this runbook.
+Inspect existing course-repo contracts and choose a local app directory without creating a remote. Read current primary docs and freeze compatible versions. Apply the appropriate frontend design skill for a polished semantic player. Build a complete vertical slice, with Rust control state visible in the scene. Generate/license small audio fixtures. Make compile, test, build and serve commands executable. Record actual installed versions, browser/device capability and measured timing.
+Run the Acceptance checks below and record actual commands and exits.
+Do not mark DONE; hand off the packet for fresh local Qwen cold review.
+Use the orchestrator's closing protocol and amend-on-surprise rule.
+```
+
+## Acceptance
+
+- [ ] A clean checkout with locked dependencies builds through documented commands; tests run on the native kernel and browser Wasm boundary.
+- [ ] User gesture starts audio; loading, pause, seek, end, silence and unsupported input have coherent states.
+- [ ] Changing a Rust-rendered control reaches the Rust mapping and a visibly depth-tested GPU scene.
+- [ ] Run on the reference laptop/browser; record timings, artifact sizes, console/network errors and the calibration method.
+- [ ] Screenshots and keyboard walkthrough verify a usable wide/narrow layout and renderer failure state; required full suites pass.
+
+## Risks
+
+Interop ownership conflicts; incompatible tool versions; hidden GPU assumptions; decoded-track memory use.
+
+
+
+FILE ARCHITECTURE.md
+# The player as a teaching instrument
+
+Proposed architecture; X1 must validate it before it becomes starter code. Component names below are design targets, not existing APIs.
+
+## Default stack and alternatives
+
+| Layer | Proposed default | Reason / boundary |
+| --- | --- | --- |
+| UI and application state | Rust + Leptos CSR | Semantic DOM, browser app, explicit Rust UI; no SSR required for the studio |
+| Browser interop | wasm-bindgen + web-sys; small JS renderer adapters | Browser audio/DOM and Three.js/Rive remain explicit external boundaries |
+| Audio transport | Browser Web Audio with local/licensed track input | One graph and one clock owned by the host, controlled from Rust |
+| Student computation | Separate Rust/Wasm kernel per plugin | Testable smoothing/mapping/simulation; no claim that Wasm is automatically faster |
+| Baseline rendering | Three.js WebGL2 | Reuse familiar GPU 3D concepts and existing shader literacy |
+| Authored animation | Rive web runtime, verified package/runtime pair | Optional control skin or scene adapter; verify true-3D capability separately |
+| Network | Native Rust Axum relay + browser WebSocket client | Small room/control service; static frontend can work without it |
+| Extensions | wgpu/WGSL; Three.js WebGPURenderer/TSL; alternate Rust UI | Each needs a tested adapter and a justified scope, not framework accumulation |
+
+Leptos is the recommended starting point, not a claim of universal superiority over Yew, Dioxus or egui. Students compare alternatives in the ADR; the first cohort should not implement several UI frameworks. Use vanilla Three.js behind an adapter rather than nesting React Three Fiber in the Rust UI just to reproduce existing lessons.
+
+## Data and ownership
+
+1. User gesture unlocks the host audio context. The player selects a local file or a licensed HTTP fixture.
+2. A single audio graph provides playback and an analyser. The host samples time-domain/frequency data and normalizes the declared bands.
+3. A frame carries feature values, playback position and clock identity. Student Rust transforms these values into scene parameters.
+4. The active renderer adapter updates its GPU scene. The host owns the outer frame scheduler; adapters must not accidentally start competing loops.
+5. Rust UI controls update a typed parameter store. The same validated commands can arrive from a second client through the relay.
+6. The gallery switches plugins without restarting the track. Disposing a plugin releases its graphics resources and listeners, not the host audio context.
+
+A Rust-based player still relies on browser audio output, decoding and GPU APIs. Wasm does not bypass the browser sandbox. The native Axum relay and browser Wasm are separate compilation targets.
+
+## Plugin contract v0 — design target
+
+One student folder contains `plugin.json`, a Rust kernel crate, a renderer module, optional assets, tests and a short README. A build-generated, allowlisted registry supplies the gallery. Student modules are reviewed and built before inclusion; there is no arbitrary user-upload execution in v0.
+
+| Surface | Contract |
+| --- | --- |
+| Manifest | `apiVersion`, unique `id`, display name, author, renderer kind, entry module, kernel artifact, asset credits, thumbnail and parameter schema |
+| Parameters | Stable key, label, finite default, min/max/step or enum choices; host Rust UI renders labelled semantic controls |
+| `mount` | Async resource loading and capability report; receives canvas/container and explicit host services |
+| `update` | Receives timestamped feature frame and parameter values; finite bounded output; no per-frame resource creation |
+| `resize` | Width, height and clamped DPR; preserve scene state |
+| `reset` | Track/seek epoch, deterministic seed and playback position; clears smoothing and history |
+| `dispose` | Idempotent cleanup of listeners, GPU objects and owned async work |
+| Kernel | Exported Rust `step`/`reset` boundary; fixture-testable without audio hardware; define concrete layouts in X1 |
+
+Use ES modules plus generated wasm-bindgen glue for v0. Do not promise dynamic linking of arbitrary Rust traits, a browser-native WASI plugin ABI, or interchangeable raw `.wasm` files. Every independently built module has its own glue/memory; transfer small feature/control arrays with explicit copies first. A borrowed view into Wasm memory must not outlive allocation/growth assumptions. Measure before introducing shared memory or threads.
+
+Rust UI requirement is met by the host's real Rust-rendered controls and each plugin's declared parameter/state path. The kernel and visual interpretation remain individual work. A student-written Rust UI component is a supported extension once the host extension API is proven.
+
+Same-origin reviewed modules are trusted code, not a security sandbox. JS exceptions can be caught, but a synchronous infinite loop cannot be reliably timed out on the main thread. X2 must enforce review/budgets and document that limit. An untrusted plugin marketplace would require a different origin/process design and is outside v0.
+
+## Frame and clock contract
+
+Proposed `AudioFrame`: `version`, `trackId`, `epoch`, `sequence`, `contextTimeSeconds`, `trackTimeSeconds`, `sampleRateHz`, `fftSize`, `rms`, `bands`, and optional `onsetStrength`. Band definitions and normalization are versioned; silence maps to finite zeros. RMS is not loudness in LUFS; analyser magnitudes are not beat labels. The minimal kernel needs only a small fixed set of scalars.
+
+`contextTimeSeconds` is local to an AudioContext. `trackTimeSeconds` identifies position within the current track and changes on seek. Neither is a globally synchronized network clock. The host increments `epoch` on track/seek discontinuities and resets plugin state. Use elapsed audio/playback time for choreography and delta time for smoothing; do not count rendered frames as musical time.
+
+`requestAnimationFrame` schedules drawing, not sample-accurate audio. Where available, `getOutputTimestamp()` maps an audio context position to a performance-clock estimate. Capability-test it, record output/device latency and retain a fallback. Analyser sampling and display scanout still introduce delay; exact audiovisual sample lock is not a baseline claim.
+
+Verification fixture: silence, sustained tone, frequency sweep and regularly spaced clicks. Schedule audio from the audio clock, log intended cue times and render timestamps, then capture audible/visible output on the reference machine. Report median and p95 offset and jitter, plus method/resolution. A provisional local visual-offset target is ≤80 ms p95; calibrate its feasibility in X1 and publish the final threshold before the assignment. A JS timing log alone does not measure sound-to-photon latency.
+
+## WebSocket contract and music input
+
+Baseline: music enters via the player's file picker or a licensed fixture URL. WebSocket messages carry `setParameter`, `selectPreset`, `transportState`, `stateSnapshot` and optionally `featureFrame`. One teacher-controlled sender owns transport; reconnect obtains a snapshot rather than replaying an unbounded history.
+
+Envelope: protocol version, room ID, sender ID, monotonically increasing sequence, track ID/epoch and a typed payload. Keep command and feature message types separate. Reject unknown versions, oversized payloads, nonfinite values and invalid parameter keys. An initial feature budget is 20 Hz and ≤4 KiB/frame; parameter changes are rate-limited and coalesced. Keep only the newest pending visual-feature frame. Use bounded server queues, client `bufferedAmount` thresholds and explicit drop counters; browser WebSocket has no automatic receive-side backpressure.
+
+Remote features may drive a silent display. For a remote browser also playing the music, distribute the same track separately and estimate clock offset/drift; stream IDs/timestamps alone do not synchronize devices. That is an extension. Use HTTPS/WSS when hosted, origin checks and a room capability for the classroom relay; omit private tokens from bundles. A static Pages host cannot run Axum, so the relay needs an explicit local or server deployment target. Offline simulation remains available.
+
+If live music input is essential later, first define source, codec, sample rate, channel count, timestamp, jitter buffer, reconnect and latency budget. Compare WebRTC media transport with custom WebSocket audio. Do not send arbitrary MediaRecorder fragments to `decodeAudioData` and assume each fragment is a decodable, gapless file. This extension is not part of the three-session minimum.
+
+## Rive path
+
+Demonstrate the existing authored audio and GPU 3D specimens; audit their build/runtime provenance before adapting them. The standard web package is a JS/Wasm runtime. `.riv` is an asset format, and AnimaScript is not Rust. Promote three bounded uses: responsive control skin, audio-driven authored state, and the separately verified true-3D scene path.
+
+All adapters consume the same host features. For the base competition, the player owns audible music; Rive's own audio is muted/disabled to avoid a second clock and duplicate sound. A native Rive audio processor remains an instructor extension until browser hosting, threading/COI and common-track behaviour are demonstrated. Existing offline WAV capture is not proof of a live audio worklet.
+
+## UX and performance acceptance targets
+
+Player layout: focusable transport with track/connection status, central scene, labelled parameter panel, plugin gallery and an optional diagnostics drawer. Keyboard access, volume, pause and reduced motion must remain usable when the canvas fails. This is a design brief; the implementation phase applies the frontend design skill to produce and visually test the interface.
+
+Provisional benchmark: 60-second common track, 1280×720, DPR capped at 1.5, one active scene; aim for p95 frame interval ≤33.3 ms on the named reference laptop. Record load time and compressed artifact size separately. Avoid absolute GPU-time claims from CPU frame intervals. Repeat plugin switching 20 times and check canvas/listener/resource counts for growth. Tighten or relax budgets only from X1/X2 rehearsal evidence, before students are graded.
+
+
+FILE SOURCES.md
+# Source ledger and technical watch
+
+Checked 2026-11-24. This file is instructor-only provenance. It separates technical reading, pedagogical evidence and mutable platform documentation. No extraction databases or full source books are copied into the repository.
+
+## Supplied and discovered books
+
+| Source identity | Verified contents / use | Current citation boundary |
+| --- | --- | --- |
+| Steve Klabnik, Carol Nichols and Chris Krycho, *The Rust Programming Language*, No Starch Press, supplied 2026 EPUB, ISBN 9781718504455 | OPF lists all three authors; chs. 1, 4–6, 9 and 11 support the reading path. Chapter 17 covers async. Use the book as the Rust foundation. | Fresh extraction initially has no bibliographic metadata rows; resolver returns BIBLIO-GAP. OPF identity is verified separately; do not publish a resolver-safe citation until metadata is resolved. |
+| Adam Jones, *Rust Mastery Unlocked: Advanced Techniques for High-Performance Development*, supplied 2025 EPUB | OPF author/date verified. Ch. 7 addresses Rust/Wasm, including bindings and Yew/Seed; chs. 9–10 concern performance/testing. | OPF has placeholder identifier `http://example.com/document`, not a verified ISBN; publisher in filename is not corroborated by the OPF. Missing vault metadata. Use as a secondary topic map, audit every code sample against current APIs. |
+| Boris Smus, *Web Audio API: Advanced Sound for Games and Interactive Apps*, supplied 2013 EPUB | Ch. 2 timing/latency and ch. 5 analysis/visualization. Existing 441-node vault reused. | Author/ISBN available, year missing in vault metadata; sampled node unresolved. Historical API examples require modernization. |
+| Joshua Reiss, *Working with the Web Audio API*, supplied 2022 EPUB | Existing 3,992-node vault. Substantive analyser and AudioParam timing nodes read. EPUB3 navigation yields 218 TOC entries: ch. 5 scheduling/parameters and ch. 7 analysis/visualization. | Missing year; metadata also lists Francis Rumsey as chair, not a verified co-author. Do not promote that role to authorship. |
+| William Turner, *JavaScript for Sound Artists*, edited by Steve Leonard | Existing 2,094-node PDF vault. Ch. 21 “Time” grounds audio-clock scheduling. | **Direct front-matter check:** authored by Turner, edited by Leonard; second edition published **2023**. Registry-derived vault metadata says 2022 and treats Leonard as co-author. Resolver says safe but bibliographic audit rejects those fields; repair before public citation. |
+| Indo Yoon, *Beginning Axum: Learning Modern Web Development With Rust*, Apress, 2026 | Found beside supplied Rust books; TOC ch. 5 covers WebSocket, concurrency and authentication. | OPF/TOC scanned only; not ingested, not cited as substantive evidence. Candidate for X0 if server teaching expands. |
+
+The metadata/TOC inventory and SHA-256 digests are in `evidence/epub-inventory.json`. Full texts remain in the local library. Rust Mastery retained 2,790 of 17,101 extracted blocks: extraction success is not code fidelity. Rust book extraction warned about a missing cover-image reference; no claim of complete image extraction is made.
+
+## Verified evidence anchors
+
+| Claim/use | Anchor and actual locator | Gate and transfer limit |
+| --- | --- | --- |
+| Design from desired results and evidence before activities | Wiggins/McTighe vault ending `6a0018aa`; node `d2d094ae-c2d9-56a6-ace9-5d37e8a126a5`; extraction page index 18; full printed pages **8–9** inspected via pdftotext | evaluator_safe=yes, human metadata. The CLI prints “19” because it uses PDF order; use printed folios. This grounds design order, not an effect size or 12-hour feasibility. |
+| Critique, verification journals and fading as proposed pedagogical strategies | Canonical scholar vault `s40594_025_00592_w_dc2bd27d`; node `5ef651db-df6d-5906-b714-1672f8810a22`; page index 16, printed **17** | evaluator_safe=yes, metadata confidence .95. Conclusion and surrounding page read; theory-building account, not efficacy trial. Duplicate vaults with the same source hash have unsafe metadata and are not citation sources. |
+| Web Audio scheduling uses the audio context's time in seconds | Turner vault ending `c503004c`; node `75332c3f-df34-519c-9274-cd7eff2de45d`; page index 211, printed **191** | evaluator_safe=yes, .95, but source audit finds year/role mismatch. Use the source-verified 2023/Turner-author identity only after the metadata discrepancy is explicitly resolved. PDF page 212 is not printed p. 191. |
+| Analyser provides time/frequency data without changing the signal | Reiss node `8cf15ed4-5e14-5490-94cc-e84dc78d4964`, EPUB section at extraction index 20; adjacent substantive node `da4bfc68-ad87-5c1c-9945-eb0264420b87` read | BIBLIO-GAP; use current platform documentation for implementation while keeping this book as a reading candidate. Index 20 is not a printed page. |
+
+`evidence/citation-audit.json` preserves sampled resolver outputs and exact DB paths. `evidence/didactics-anchors.json` preserves the backward-design audit. Unresolved reasons were established by inspecting metadata: empty fresh Rust metadata; missing year for Smus/Reiss; low-quality/unresolved duplicate Liu coats. Do not silently substitute a polished citation for those outputs.
+
+## Scholarly references retained
+
+- Wiggins, Grant, and Jay McTighe. 2011. *The Understanding by Design Guide to Creating High-Quality Units*. Alexandria, VA: ASCD. Printed pp. 8–9 verified in the local source.
+- Liu, Dandan, Guangrui Fan, and Lihu Pan. 2026. “Tool, Tutor, or Crutch?: A Grounded Theory of Cognitive Scaffolding and Offloading in AI-Assisted Programming Education.” *International Journal of STEM Education* 13, article 10. https://doi.org/10.1186/s40594-025-00592-w. Full author names verified against the local PDF title page; the planning citation uses Liu, Fan, and Pan.
+
+Source-verified reading entry, **pending metadata reconciliation before public citation**: Turner, William. 2023. *JavaScript for Sound Artists: Learn to Code with the Web Audio API*. Edited by Steve Leonard. 2nd ed. CRC Press. https://doi.org/10.1201/9781003201496. Timing passage at printed p. 191. This discrepancy illustrates why resolver safety is not sufficient by itself.
+
+## Discovery scopes and exclusions
+
+- `profield-frontend-pedagogy`, `scholar`: searched for scaffolding, worked examples and programming. Kept the substantive Liu conclusion after opening the actual page. Discarded title-only hits, keywords, a bibliography entry to Shin et al., and a secondary curriculum-as-code snippet as insufficient for direct claims.
+- `scholar-technics`, `scholar`: initial audio query returned unrelated AI infrastructure material; discarded. This project was not used as the injection destination.
+- `profield-didactics`, `scholar`: not present in the current Athanor project list; explicit search failed. Used the existing local Wiggins/McTighe vault read-only. Do not report a successful vector search over this scope.
+- `rust-wasm-music-visualizer`, `scholar`: newly created for this authorized ingestion. Two Rust and three existing audio vaults form its initial technical scope. Injection completion and actual vector coverage are separate checks, recorded in SESSION-RECEIPT.md.
+
+No claim is made that the corpus proves six lessons, particular grading percentages or improved learning from competition. These are explicit pilot design decisions.
+
+## Platform notes — checked 2026-11-24
+
+These are implementation references, not pedagogical bibliography. Version observations are research snapshots, **not a tested compatible lockfile**. X1 must select and freeze a buildable set.
+
+| Topic | Observed current source | Design consequence |
+| --- | --- | --- |
+| Rust book | [Official book](https://doc.rust-lang.org/book/): text states Rust 1.98.0 or later, edition 2024 | Record actual compiler/MSRV in X1; do not infer newest stable release from the book |
+| Bindings | [wasm-bindgen guide](https://wasm-bindgen.github.io/wasm-bindgen/) and [crate docs](https://docs.rs/wasm-bindgen/latest/wasm_bindgen/), 0.2.130 observed | Rust/JS boundary and generated glue; match CLI and crate versions |
+| Rust UI | [Leptos docs](https://docs.rs/leptos/latest/leptos/), 0.8.23; [CSR setup](https://book.leptos.dev/getting_started/index.html) | CSR is a supported path; avoid unnecessary SSR infrastructure |
+| JS integration | [Leptos interop](https://book.leptos.dev/web_sys.html) | Keep renderer-owned canvas/DOM separate from Rust UI-owned DOM |
+| Native relay | [Axum WebSocket module](https://docs.rs/axum/latest/axum/extract/ws/index.html), 0.8.9, `ws` feature | Separate native server; async connection tasks; not browser `std::net` |
+| GPU rendering | [Three.js WebGLRenderer](https://threejs.org/docs/pages/WebGLRenderer) | WebGL2 is an actual GPU path; baseline does not need WebGPU |
+| Newer renderer | [Three.js WebGPURenderer](https://threejs.org/manual/pages/webgpurenderer) | WebGL2 fallback exists; old ShaderMaterial/EffectComposer recipes do not transfer unchanged; docs call renderer experimental |
+| All-Rust graphics option | [wgpu docs](https://docs.rs/wgpu/latest/wgpu/), 30.0.2 observed | WebGPU/WebGL2 on Wasm; extension requires a version-specific tested example |
+| Rive | [Web JS runtime](https://rive.app/docs/runtimes/web/web-js) | JS/Wasm runtime with recommended webgl2 package; runtime feature parity must be checked, not assumed |
+| Signal extraction | [Web Audio visualization guide](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API) | Shared analyser, reusable arrays, explicit FFT/time-domain interpretation |
+| Clock mapping | [AudioContext.getOutputTimestamp](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/getOutputTimestamp) | Relates audio context position and performance-clock estimate; does not synchronize machines |
+| Network bounds | [WebSocket reference](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) | No automatic receive backpressure; bound/coalesce application traffic |
+
+Package versions for Three.js/Rive and their compatibility with the existing custom 3D runtime are deliberately **not frozen** here. The researched docs are sufficient for a direction; X1/X4 runtime checks are required for a release claim. The attempted Rive `/runtimes/audio` URL was inaccessible; no claim rests on it.
+
+## Existing repository material to reuse
+
+- `web-foundations/docs/lessons/en/3d/threejs-core/index.md` and `3d/animation/index.md`.
+- `web-foundations/docs/lessons/en/feii/unit-9-shader-literacy/index.md`.
+- `web-foundations/docs/lessons/en/feii/ai-assisted-3d-covenant/index.md`: instructor infrastructure vs student judgement; keep the individual review discipline.
+- `web-foundations/docs/lessons/en/web-animations/svg-master-session/agentic-rive-3d/index.md`: sample-clock vs elapsed-time distinction; recorded audio is not live browser worklet evidence.
+- `frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/`: precedent for aggregator/contribution shape; its status/version claims are historical, not new verification.
+
+Before lesson publication, reread the exact prerequisite pages, resolve each retained source, and gate private provenance using the site's fail-closed publication switch. This pack has no student-facing publication authorization or deployment action attached to it.
+
+
+FILE prototype/README.md
+# X1 vertical slice
+
+This is the first instructor prototype for the Rust/Wasm music visualizer cascade.
+
+The browser owns the Web Audio graph and Three.js renderer. The dependency-free Rust kernel owns smoothing and the feature-to-scale mapping. This deliberately proves the data boundary before introducing Leptos, plugins or WebSockets.
+
+## Run
+
+```sh
+npm install
+npm run test:rust
+npm run build
+npm run dev -- --host 127.0.0.1
+```
+
+Open the Vite URL, press **Start audio**, and observe the RMS/Bass readout and the three depth-tested icosahedra. A local fixture is included for the prototype; the file picker accepts a local audio file without uploading it.
+
+## Current boundary
+
+- `rust/src/lib.rs`: exported `set_gain`, `set_smoothing`, `reset` and `step` functions plus native Rust tests.
+- `src/main.js`: Web Audio analyser, Wasm loader and Three.js scene.
+- `src/style.css`: responsive, keyboard-reachable host controls and reduced-motion-safe shell.
+
+The HTML controls are host controls in this first slice. A Rust-rendered UI layer is a deliberate X2 decision after the kernel/browser boundary is stable; this prototype must not be described as a completed Leptos implementation.
+
+
+FILE prototype/package.json
+{
+  "name": "rust-wasm-music-visualizer-x1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:wasm": "cargo build --manifest-path rust/Cargo.toml --target wasm32-unknown-unknown --release && mkdir -p public/wasm && cp rust/target/wasm32-unknown-unknown/release/visualizer_kernel.wasm public/wasm/visualizer_kernel.wasm",
+    "dev": "vite",
+    "build": "npm run build:wasm && vite build",
+    "test:rust": "cargo test --manifest-path rust/Cargo.toml -- --test-threads=1"
+  },
+  "dependencies": {
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.7"
+  }
+}
+
+
+FILE prototype/index.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="X1 Rust and WebAssembly music visualizer vertical slice" />
+    <title>Signal / Form — Rust Wasm Visualizer</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="masthead" aria-labelledby="page-title">
+        <p class="eyebrow">X1 · Signal to form</p>
+        <h1 id="page-title">Signal / Form</h1>
+        <p class="lede">A browser audio graph feeds a Rust/Wasm mapping kernel, then a depth-tested Three.js scene.</p>
+        <div class="status-row" aria-live="polite">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status">Loading kernel…</span>
+        </div>
+      </section>
+
+      <section class="stage" aria-label="Visualizer stage">
+        <canvas id="scene" aria-label="Audio reactive 3D scene"></canvas>
+        <div class="stage-overlay"><span id="feature-readout">RMS — · Bass —</span><span id="fps-readout">— FPS</span></div>
+      </section>
+
+      <section class="controls" aria-labelledby="controls-heading">
+        <div class="controls-heading"><div><p class="eyebrow">Host controls</p><h2 id="controls-heading">Shape the response</h2></div><button class="primary" id="play" type="button">Start audio</button></div>
+        <label>Gain <output id="gain-output">1.0×</output><input id="gain" type="range" min="0.1" max="3" step="0.1" value="1" /></label>
+        <label>Smoothing <output id="smoothing-output">0.18</output><input id="smoothing" type="range" min="0.01" max="0.9" step="0.01" value="0.18" /></label>
+        <label class="file-label">Use a local audio file<input id="file" type="file" accept="audio/*" /></label>
+        <p class="note">Audio stays local. The Rust kernel receives only normalized feature values; it does not decode or transmit the track.</p>
+      </section>
+    </main>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
+
+
+FILE prototype/src/main.js
+import * as THREE from 'three';
+import './style.css';
+
+const $ = (id) => document.getElementById(id);
+const status = $('status');
+const sceneCanvas = $('scene');
+const gain = $('gain');
+const smoothing = $('smoothing');
+const file = $('file');
+const play = $('play');
+
+let kernel;
+let audioContext;
+let analyser;
+let source;
+let audioElement;
+let frequencyData;
+let timeData;
+let started = false;
+let lastFrame = performance.now();
+let frameCount = 0;
+let fpsWindowStart = lastFrame;
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#090c14');
+const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 50);
+camera.position.set(0, 0.2, 5.6);
+const renderer = new THREE.WebGLRenderer({ canvas: sceneCanvas, antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+const group = new THREE.Group();
+scene.add(group);
+for (let i = 0; i < 3; i += 1) {
+  const mesh = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(0.66 - i * 0.12, 1),
+    new THREE.MeshStandardMaterial({ color: new THREE.Color().setHSL(0.43 + i * 0.08, 0.7, 0.68), roughness: 0.28, metalness: 0.3 }),
+  );
+  mesh.position.x = (i - 1) * 1.25;
+  mesh.rotation.y = i * 0.8;
+  group.add(mesh);
+}
+scene.add(new THREE.HemisphereLight('#effff8', '#11182b', 2.2));
+const key = new THREE.DirectionalLight('#ffe0b5', 3.2);
+key.position.set(3, 4, 5);
+scene.add(key);
+
+function resize() {
+  const width = sceneCanvas.clientWidth;
+  const height = sceneCanvas.clientHeight;
+  if (!width || !height) return;
+  renderer.setSize(width, height, false);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(sceneCanvas);
+
+async function loadKernel() {
+  const response = await fetch('/wasm/visualizer_kernel.wasm');
+  if (!response.ok) throw new Error(`kernel request failed: ${response.status}`);
+  const result = await WebAssembly.instantiateStreaming(response);
+  kernel = result.instance.exports;
+  status.textContent = 'Rust/Wasm kernel ready';
+}
+
+function featureValues() {
+  if (!analyser) return { rms: 0, bass: 0 };
+  analyser.getByteTimeDomainData(timeData);
+  analyser.getByteFrequencyData(frequencyData);
+  let square = 0;
+  for (const value of timeData) { const normalized = (value - 128) / 128; square += normalized * normalized; }
+  const rms = Math.min(1, Math.sqrt(square / timeData.length) * 2.4);
+  const limit = Math.max(1, Math.floor(frequencyData.length * 0.12));
+  let bass = 0;
+  for (let i = 0; i < limit; i += 1) bass += frequencyData[i] / 255;
+  return { rms, bass: Math.min(1, (bass / limit) * 1.6) };
+}
+
+async function startAudio() {
+  audioContext ??= new AudioContext();
+  await audioContext.resume();
+  if (!audioElement) { audioElement = new Audio('/audio/fixture-tone.wav'); audioElement.loop = true; }
+  if (!source) {
+    source = audioContext.createMediaElementSource(audioElement);
+    analyser = audioContext.createAnalyser();
+    analyser.fftSize = 512;
+    source.connect(analyser).connect(audioContext.destination);
+    frequencyData = new Uint8Array(analyser.frequencyBinCount);
+    timeData = new Uint8Array(analyser.fftSize);
+  }
+  await audioElement.play();
+  started = true;
+  play.textContent = 'Pause audio';
+  status.textContent = 'Playing local fixture';
+}
+
+play.addEventListener('click', async () => {
+  if (started && audioElement) { audioElement.pause(); started = false; play.textContent = 'Start audio'; status.textContent = 'Paused'; return; }
+  try { await startAudio(); } catch (error) { status.textContent = `Audio unavailable: ${error.message}`; }
+});
+
+file.addEventListener('change', () => {
+  const selected = file.files?.[0];
+  if (!selected) return;
+  if (audioElement) audioElement.pause();
+  audioElement = new Audio(URL.createObjectURL(selected));
+  audioElement.loop = true;
+  started = false;
+  play.textContent = 'Start audio';
+  status.textContent = `Ready: ${selected.name}`;
+});
+
+gain.addEventListener('input', () => { $('gain-output').textContent = `${Number(gain.value).toFixed(1)}×`; kernel?.set_gain(Number(gain.value)); });
+smoothing.addEventListener('input', () => { $('smoothing-output').textContent = Number(smoothing.value).toFixed(2); kernel?.set_smoothing(Number(smoothing.value)); });
+
+function animate(now = performance.now()) {
+  requestAnimationFrame(animate);
+  const delta = Math.min(0.1, (now - lastFrame) / 1000);
+  lastFrame = now;
+  frameCount += 1;
+  if (now - fpsWindowStart > 500) { $('fps-readout').textContent = `${Math.round(frameCount * 1000 / (now - fpsWindowStart))} FPS`; frameCount = 0; fpsWindowStart = now; }
+  const features = featureValues();
+  const scale = kernel ? kernel.step(features.rms, features.bass, now / 1000) : 1;
+  group.scale.lerp(new THREE.Vector3(scale, scale, scale), Math.min(1, delta * 9));
+  group.rotation.y += delta * (0.22 + features.bass * 0.8);
+  group.rotation.x = Math.sin(now / 2400) * 0.16;
+  group.children.forEach((mesh, index) => { mesh.rotation.x += delta * (0.14 + index * 0.06); mesh.rotation.z -= delta * 0.12; });
+  $('feature-readout').textContent = `RMS ${(features.rms * 100).toFixed(0)}% · Bass ${(features.bass * 100).toFixed(0)}%`;
+  renderer.render(scene, camera);
+}
+
+loadKernel().catch((error) => { status.textContent = `Kernel unavailable: ${error.message}`; $('status-dot').classList.add('error'); });
+resize();
+animate();
+
+
+FILE prototype/src/style.css
+:root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #090c14; color: #f3f6f4; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: radial-gradient(circle at 70% 8%, #17352d 0, #090c14 44%); }
+.app-shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 52px 0 72px; }
+.masthead { display: grid; grid-template-columns: 1fr minmax(260px, 430px); gap: 24px; align-items: end; }
+.eyebrow { margin: 0 0 10px; color: #8fe9b7; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 750; }
+h1, h2, p { margin-top: 0; } h1 { margin-bottom: 12px; font-size: clamp(3rem, 8vw, 6.6rem); line-height: .86; letter-spacing: -.08em; } h2 { margin: 0; font-size: 1.45rem; }
+.lede { max-width: 36ch; margin-bottom: 0; color: #aebbb6; line-height: 1.55; }
+.status-row { display: flex; justify-content: flex-end; align-items: center; gap: 9px; color: #b9d9c8; font-size: .88rem; }
+.status-dot { width: 9px; height: 9px; border-radius: 50%; background: #8fe9b7; box-shadow: 0 0 18px #8fe9b7; } .status-dot.error { background: #ff896e; box-shadow: 0 0 18px #ff896e; }
+.stage { position: relative; height: min(62vh, 610px); min-height: 380px; margin-top: 36px; overflow: hidden; border-radius: 28px; background: #090c14; box-shadow: 0 30px 100px #0008; }
+canvas { width: 100%; height: 100%; display: block; } .stage-overlay { position: absolute; inset: 18px 20px auto; display:flex; justify-content:space-between; color:#aebbb6; font: .75rem/1.2 ui-monospace, monospace; }
+.controls { max-width: 620px; margin: 24px 0 0 auto; padding: 24px; border: 1px solid #ffffff18; border-radius: 24px; background: #ffffff09; backdrop-filter: blur(18px); }
+.controls-heading { display:flex; justify-content:space-between; gap:20px; align-items:start; margin-bottom: 24px; } label { display:grid; grid-template-columns:1fr auto; gap:9px; margin-top:18px; color:#e6efea; font-size:.92rem; } output { color:#8fe9b7; font-variant-numeric:tabular-nums; } input[type=range] { grid-column:1/-1; width:100%; accent-color:#8fe9b7; } .primary { border:0; border-radius:999px; padding:11px 16px; background:#b7f5d8; color:#0b1712; font-weight:800; cursor:pointer; } .file-label { display:block; padding-top:17px; border-top:1px solid #ffffff18; } input[type=file] { display:block; margin-top:10px; color:#aebbb6; } .note { margin:18px 0 0; color:#8d9b95; font-size:.78rem; line-height:1.5; }
+@media (max-width: 700px) { .app-shell { width:min(100% - 24px, 560px); padding-top:30px; } .masthead { grid-template-columns:1fr; } .status-row { justify-content:flex-start; } .stage { min-height:330px; height:55vh; } .controls { margin-top:16px; padding:18px; } .controls-heading { display:block; } .primary { margin-top:16px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; } }
+
+
+FILE prototype/rust/Cargo.toml
+[package]
+name = "visualizer-kernel"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+
+
+FILE prototype/rust/src/lib.rs
+//! Small, dependency-free Rust/Wasm signal mapper for the X1 vertical slice.
+//! The browser owns Web Audio and rendering; this module owns smoothing and mapping state.
+
+static mut GAIN: f32 = 1.0;
+static mut SMOOTHING: f32 = 0.18;
+static mut LEVEL: f32 = 0.0;
+
+#[unsafe(no_mangle)]
+pub extern "C" fn set_gain(value: f32) {
+    unsafe { GAIN = value.clamp(0.1, 3.0); }
+}
+
+#[unsafe(no_mangle)]
+pub extern "C" fn set_smoothing(value: f32) {
+    unsafe { SMOOTHING = value.clamp(0.01, 0.9); }
+}
+
+#[unsafe(no_mangle)]
+pub extern "C" fn reset() {
+    unsafe { LEVEL = 0.0; }
+}
+
+/// Returns a bounded, smoothed scale for the current audio level.
+#[unsafe(no_mangle)]
+pub extern "C" fn step(rms: f32, bass: f32, elapsed_seconds: f32) -> f32 {
+    let input = (rms * 0.55 + bass * 0.45).clamp(0.0, 1.0);
+    let wave = (elapsed_seconds * 1.7).sin() * 0.035;
+    unsafe {
+        LEVEL += (input - LEVEL) * SMOOTHING;
+        (1.0 + LEVEL * GAIN * 1.8 + wave).clamp(0.78, 3.6)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn silence_is_finite_and_bounded() {
+        reset();
+        let value = step(0.0, 0.0, 0.0);
+        assert!(value.is_finite());
+        assert!((0.78..=3.6).contains(&value));
+    }
+
+    #[test]
+    fn smoothing_rises_without_overshoot() {
+        reset();
+        set_gain(1.0);
+        set_smoothing(0.2);
+        let first = step(1.0, 1.0, 0.0);
+        let second = step(1.0, 1.0, 0.0);
+        assert!(second > first);
+        assert!(second <= 2.0);
+    }
+
+    #[test]
+    fn gain_is_clamped() {
+        set_gain(100.0);
+        reset();
+        let value = step(1.0, 1.0, 0.0);
+        assert!(value > 1.0);
+        assert!(value <= 3.6);
+    }
+}
+
+
+VERIFICATION
+npm run test:rust passed, 3 tests.
+npm run build passed, wasm32 release plus Vite bundle.
+Browser loaded the kernel, started local fixture audio, showed RMS/Bass values, 120 FPS and visible Three.js objects.

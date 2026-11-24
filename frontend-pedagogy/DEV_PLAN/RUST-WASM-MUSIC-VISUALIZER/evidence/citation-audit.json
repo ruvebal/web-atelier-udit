@@ -1,0 +1,50 @@
+[
+  {
+    "db": "/Users/ruvebal/ahmes-library/scholar/documents/rust_mastery_unlocked_advanced_techniques_for_high_performance_development_adam_jones_2025_independently_published_4b116289/extract/extraction.db",
+    "node": "30f5ab5b-30b1-5f8b-ba6e-016d8d15bc26",
+    "page": 8,
+    "citation": "[BIBLIO-GAP] 30f5ab5b-30b1-5f8b-ba6e-016d8d15bc26\n"
+  },
+  {
+    "db": "/Users/ruvebal/ahmes-library/scholar/documents/boris_smus_web_audio_api_advanced_sound_for_games_and_interactive_apps_o_reilly_media_2013_a12a565b/extract/extraction.db",
+    "node": "0e7de127-2723-53c8-97b3-84a2ff42e904",
+    "page": 6,
+    "citation": "[BIBLIO-GAP] 0e7de127-2723-53c8-97b3-84a2ff42e904\n"
+  },
+  {
+    "db": "/Users/ruvebal/ahmes-library/scholar/documents/reiss_joshua_working_with_the_web_audio_api_taylor_francis_group_2022_c7e2fa46/extract/extraction.db",
+    "node": "8cf15ed4-5e14-5490-94cc-e84dc78d4964",
+    "page": 20,
+    "citation": "[BIBLIO-GAP] 8cf15ed4-5e14-5490-94cc-e84dc78d4964\n"
+  },
+  {
+    "db": "/Users/ruvebal/ahmes-library/scholar/documents/w_turner_s_leonard_javascript_for_sound_artists_learn_to_code_with_the_web_audio_api_2023_c503004c/extract/extraction.db",
+    "node": "75332c3f-df34-519c-9274-cd7eff2de45d",
+    "page": 211,
+    "citation": "(Turner 2022, 212)  [75332c3f-df34-519c-9274-cd7eff2de45d]  page_index=211\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes\n"
+  },
+  {
+    "db": "/Users/ruvebal/ahmes-library/scholar/documents/tool_tutor_or_crutch_a_grounded_theory_of_cognitive_scaffolding_and_offloading_in_ai_assisted_prog_dc2bd27d/extract/extraction.db",
+    "node": "5ef651db-df6d-5906-b714-1672f8810a22",
+    "page": 16,
+    "citation": "[BIBLIO-GAP] 5ef651db-df6d-5906-b714-1672f8810a22\n"
+  },
+  {
+    "db": "/Users/ruvebal/ahmes-library/scholar/documents/liu_fan_pan_tool_tutor_or_crutch_a_grounded_theory_of_cognitive_scaffolding_and_offloading_in_dc2bd27d/extract/extraction.db",
+    "node": "5ef651db-df6d-5906-b714-1672f8810a22",
+    "page": 16,
+    "citation": "[BIBLIO-GAP] 5ef651db-df6d-5906-b714-1672f8810a22\n"
+  },
+  {
+    "db": "/Users/ruvebal/ahmes-library/scholar/documents/s40594_025_00592_w_dc2bd27d/extract/extraction.db",
+    "node": "5ef651db-df6d-5906-b714-1672f8810a22",
+    "page": 16,
+    "citation": "(Liu 2026, 17)  [5ef651db-df6d-5906-b714-1672f8810a22]  page_index=16\n  confidence=0.95 source=metadata kind=person scheme=pdf_order evaluator_safe=yes\n"
+  },
+  {
+    "db": "/Users/ruvebal/ahmes-library/scholar/documents/the_rust_programming_language_steve_klabnik_amp_carol_nichols_amp_chris_krycho_2026_no_starch_press_60304dd5/extract/extraction.db",
+    "node": "e2ca7abe-b635-52b2-b57a-33db8bdfc449",
+    "page": 13,
+    "citation": "[BIBLIO-GAP] e2ca7abe-b635-52b2-b57a-33db8bdfc449\n"
+  }
+]

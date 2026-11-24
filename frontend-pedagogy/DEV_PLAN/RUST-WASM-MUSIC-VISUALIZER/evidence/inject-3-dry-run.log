@@ -1,0 +1,5 @@
+Usage: athanor inject [OPTIONS] [db_path]
+Try 'athanor inject --help' for help.
+╭─ Error ──────────────────────────────────────────────────────────────────────╮
+│ Got unexpected extra argument(s) (true)                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯

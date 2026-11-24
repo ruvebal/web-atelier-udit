@@ -1,0 +1,422 @@
+[
+  {
+    "knowledge_id": "1bf2d633-ce7b-516b-a00e-18e4cd1640db",
+    "collection_name": "project_f49505bbf4914139a2115f3dd19037c3",
+    "source_locator": "1c052eca-c98c-5d5d-bedb-26b8979821a7#page=17",
+    "content": "All audio nodes have adjustable parameters which can be set, known asAudioParams. They control individual aspects of an AudioNode’s functionality, such as the frequency of anoscillatorNode, or the gain applied by againNode. AnAudioParamcan be set immediately to a value using thevalueattribute, or scheduled to happen at precise times based on theAudioContext’scurrentTimeattribute. Thus, timeline-based automation curves can be set on anyAudioParam. And audio signals from the outputs ofAudioNodes can be connected to anAudioParam, summing with theintrinsicparameter value.",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "rust-wasm-music-visualizer",
+    "knowledge_scope": "teaching-development",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.721758398537437,
+    "metadata": {
+      "node_id": "1bf2d633-ce7b-516b-a00e-18e4cd1640db",
+      "document_id": "1c052eca-c98c-5d5d-bedb-26b8979821a7",
+      "document_title": "# Working with the Web Audio API",
+      "file_name": "Reiss, Joshua_ - Working with the Web Audio API-Taylor & Francis Group (2022).epub",
+      "source_hash": "c7e2fa4611db59a1989d7ac2690ce83078233eb8844d9925aa75fdb6ba9ba704",
+      "library": "scholar",
+      "page_index": 17,
+      "document_metadata": {
+        "title": {
+          "value": "# Working with the Web Audio API",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "authors": {
+          "value": [
+            {
+              "given": "Joshua",
+              "family": "Reiss"
+            },
+            {
+              "kind": "person",
+              "name": "Francis Rumsey",
+              "role": "chair"
+            }
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "keywords": {
+          "value": [
+            "Web Audio API",
+            "audio processing",
+            "web development",
+            "sound design",
+            "music production",
+            "signal processing",
+            "digital music"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "book",
+          "confidence": 0.7,
+          "provenance": "llm"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "1331a48a-5bd1-5bf7-9925-6732727cf88b",
+    "collection_name": "project_f49505bbf4914139a2115f3dd19037c3",
+    "source_locator": "1c052eca-c98c-5d5d-bedb-26b8979821a7#page=17",
+    "content": "The Web Audio API has high-precision timing by accessing the audio subsystem’s hardware clock through theAudioContext’scurrentTimeproperty. It is used with scheduled source nodes if we want a source to start or stop at specific times, and it also allows parameter changes to be scheduled at precise times in the future.",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "rust-wasm-music-visualizer",
+    "knowledge_scope": "teaching-development",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.7068367096204194,
+    "metadata": {
+      "node_id": "1331a48a-5bd1-5bf7-9925-6732727cf88b",
+      "document_id": "1c052eca-c98c-5d5d-bedb-26b8979821a7",
+      "document_title": "# Working with the Web Audio API",
+      "file_name": "Reiss, Joshua_ - Working with the Web Audio API-Taylor & Francis Group (2022).epub",
+      "source_hash": "c7e2fa4611db59a1989d7ac2690ce83078233eb8844d9925aa75fdb6ba9ba704",
+      "library": "scholar",
+      "page_index": 17,
+      "document_metadata": {
+        "title": {
+          "value": "# Working with the Web Audio API",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "authors": {
+          "value": [
+            {
+              "given": "Joshua",
+              "family": "Reiss"
+            },
+            {
+              "kind": "person",
+              "name": "Francis Rumsey",
+              "role": "chair"
+            }
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "keywords": {
+          "value": [
+            "Web Audio API",
+            "audio processing",
+            "web development",
+            "sound design",
+            "music production",
+            "signal processing",
+            "digital music"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "book",
+          "confidence": 0.7,
+          "provenance": "llm"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "8cf15ed4-5e14-5490-94cc-e84dc78d4964",
+    "collection_name": "project_f49505bbf4914139a2115f3dd19037c3",
+    "source_locator": "1c052eca-c98c-5d5d-bedb-26b8979821a7#page=20",
+    "content": "This chapter introduces the Web Audio API’s AnalyserNode. It is somewhat unique amongst nodes in that it can be used as a destination or an intermediate node. It does not modify the incoming audio, but instead provides data about the stream that is useful for analysis, visualization or metering purposes. This data can be in either time or frequency domain. Here, we again provide some Fourier theory so that one can understand how the frequency domain data is acquired and represented. An example is given for visualizing the data returned by the AnalyserNode.",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "rust-wasm-music-visualizer",
+    "knowledge_scope": "teaching-development",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.7065430235705201,
+    "metadata": {
+      "node_id": "8cf15ed4-5e14-5490-94cc-e84dc78d4964",
+      "document_id": "1c052eca-c98c-5d5d-bedb-26b8979821a7",
+      "document_title": "# Working with the Web Audio API",
+      "file_name": "Reiss, Joshua_ - Working with the Web Audio API-Taylor & Francis Group (2022).epub",
+      "source_hash": "c7e2fa4611db59a1989d7ac2690ce83078233eb8844d9925aa75fdb6ba9ba704",
+      "library": "scholar",
+      "page_index": 20,
+      "document_metadata": {
+        "title": {
+          "value": "# Working with the Web Audio API",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "authors": {
+          "value": [
+            {
+              "given": "Joshua",
+              "family": "Reiss"
+            },
+            {
+              "kind": "person",
+              "name": "Francis Rumsey",
+              "role": "chair"
+            }
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "keywords": {
+          "value": [
+            "Web Audio API",
+            "audio processing",
+            "web development",
+            "sound design",
+            "music production",
+            "signal processing",
+            "digital music"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "book",
+          "confidence": 0.7,
+          "provenance": "llm"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "b515e13e-905d-5b3b-8fff-5dcea953f2dd",
+    "collection_name": "project_f49505bbf4914139a2115f3dd19037c3",
+    "source_locator": "c7fb961e-a8a4-5911-abfa-e92073b80a25#page=7",
+    "content": "An alternative implementation of metering could poll a real-time\n    analyzer in the audio graph forgetFloatFrequencyDataat\n    render time, as determined byrequestAnimationFrame(seeChapter 5). This approach is more efficient, but misses a\n    lot of the signal (including places where it potentially clips), since\n    rendering happens most at 60 times a second, whereas the audio signal\n    changes far more quickly.",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "rust-wasm-music-visualizer",
+    "knowledge_scope": "teaching-development",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.6869719341012676,
+    "metadata": {
+      "node_id": "b515e13e-905d-5b3b-8fff-5dcea953f2dd",
+      "document_id": "c7fb961e-a8a4-5911-abfa-e92073b80a25",
+      "document_title": "# Web Audio API",
+      "file_name": "Boris Smus - Web Audio API_ Advanced Sound for Games and Interactive Apps-O'Reilly Media (2013).epub",
+      "source_hash": "a12a565b62bb49c1c37c847f94ee7a891fd9b73ea2c9307e9b4ecbb0a096cdb4",
+      "library": "scholar",
+      "page_index": 7,
+      "document_metadata": {
+        "isbn": {
+          "value": 9781449332686,
+          "confidence": 1.0,
+          "provenance": "regex"
+        },
+        "title": {
+          "value": "# Web Audio API",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "authors": {
+          "value": [
+            {
+              "kind": "person",
+              "name": "Boris Smus",
+              "role": "author",
+              "given": "Boris",
+              "family": "Smus"
+            }
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "keywords": {
+          "value": [
+            "Web Audio API",
+            "sound frequency",
+            "oscillators",
+            "frequency domain",
+            "digital-audio guru",
+            "code snippets",
+            "fair use",
+            "permissions@oreilly.com",
+            "Facebook",
+            "YouTube"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "book",
+          "confidence": 0.7,
+          "provenance": "llm"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "72e203fd-7c82-578c-8941-a084faf44a1e",
+    "collection_name": "project_f49505bbf4914139a2115f3dd19037c3",
+    "source_locator": "1c052eca-c98c-5d5d-bedb-26b8979821a7#page=12",
+    "content": "In the next three chapters, we focus on using the scheduled source nodes to generate audio, though theAudioBufferSourceNodecan also be used to load existing content. And one of the ways that we illustrate use of these nodes is mainly by looking at several different ways to create a square wave: as a default type of theOscillatorNode(Code example 2.1); using thePeriodicWaveto set Fourier coefficients for a square wave (Code example 2.2); processing the output of anAudioBufferSourceNodethat contains one period of a waveform (Code example 3.3); using theConstantSourceNodeto set the frequency parameters of manyOscillatorNodes(Code example 4.2), and for comparison, setting the frequency parameters of manyOscillatorNodeswithout aConstantSourceNode(Code example 4.3).",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "rust-wasm-music-visualizer",
+    "knowledge_scope": "teaching-development",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.677205882151347,
+    "metadata": {
+      "node_id": "72e203fd-7c82-578c-8941-a084faf44a1e",
+      "document_id": "1c052eca-c98c-5d5d-bedb-26b8979821a7",
+      "document_title": "# Working with the Web Audio API",
+      "file_name": "Reiss, Joshua_ - Working with the Web Audio API-Taylor & Francis Group (2022).epub",
+      "source_hash": "c7e2fa4611db59a1989d7ac2690ce83078233eb8844d9925aa75fdb6ba9ba704",
+      "library": "scholar",
+      "page_index": 12,
+      "document_metadata": {
+        "title": {
+          "value": "# Working with the Web Audio API",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "authors": {
+          "value": [
+            {
+              "given": "Joshua",
+              "family": "Reiss"
+            },
+            {
+              "kind": "person",
+              "name": "Francis Rumsey",
+              "role": "chair"
+            }
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "keywords": {
+          "value": [
+            "Web Audio API",
+            "audio processing",
+            "web development",
+            "sound design",
+            "music production",
+            "signal processing",
+            "digital music"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "book",
+          "confidence": 0.7,
+          "provenance": "llm"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "0d3bdd51-2f1a-531b-a6c6-1710212c8355",
+    "collection_name": "project_f49505bbf4914139a2115f3dd19037c3",
+    "source_locator": "1c052eca-c98c-5d5d-bedb-26b8979821a7#page=17",
+    "content": "AnAudioParammaintains a list ofautomation eventsthat specify changes to the parameter’s value over a specific time range. The behavior of an automation event is a function of theAudioContext’s current time, as well as the automation event times of this event and of adjacent events in the list.",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "rust-wasm-music-visualizer",
+    "knowledge_scope": "teaching-development",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.6730571076267039,
+    "metadata": {
+      "node_id": "0d3bdd51-2f1a-531b-a6c6-1710212c8355",
+      "document_id": "1c052eca-c98c-5d5d-bedb-26b8979821a7",
+      "document_title": "# Working with the Web Audio API",
+      "file_name": "Reiss, Joshua_ - Working with the Web Audio API-Taylor & Francis Group (2022).epub",
+      "source_hash": "c7e2fa4611db59a1989d7ac2690ce83078233eb8844d9925aa75fdb6ba9ba704",
+      "library": "scholar",
+      "page_index": 17,
+      "document_metadata": {
+        "title": {
+          "value": "# Working with the Web Audio API",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "authors": {
+          "value": [
+            {
+              "given": "Joshua",
+              "family": "Reiss"
+            },
+            {
+              "kind": "person",
+              "name": "Francis Rumsey",
+              "role": "chair"
+            }
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "keywords": {
+          "value": [
+            "Web Audio API",
+            "audio processing",
+            "web development",
+            "sound design",
+            "music production",
+            "signal processing",
+            "digital music"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "book",
+          "confidence": 0.7,
+          "provenance": "llm"
+        }
+      }
+    }
+  }
+]

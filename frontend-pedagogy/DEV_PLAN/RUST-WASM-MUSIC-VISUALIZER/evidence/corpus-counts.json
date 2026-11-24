@@ -1,0 +1,32 @@
+[
+  {
+    "file_name": "Boris Smus - Web Audio API_ Advanced Sound for Games and Interactive Apps-O'Reilly Media (2013).epub",
+    "nodes": 441,
+    "nonempty_nodes": 409,
+    "vectors": 409
+  },
+  {
+    "file_name": "Reiss, Joshua_ - Working with the Web Audio API-Taylor & Francis Group (2022).epub",
+    "nodes": 3992,
+    "nonempty_nodes": 3937,
+    "vectors": 3937
+  },
+  {
+    "file_name": "Rust Mastery Unlocked_ Advanced Techniques for High-Performance Development{Adam Jones}(2025, Independently Published).epub",
+    "nodes": 2790,
+    "nonempty_nodes": 2790,
+    "vectors": 2790
+  },
+  {
+    "file_name": "The Rust Programming Language{Steve Klabnik &amp_ Carol Nichols &amp_ Chris Krycho}(2026, No Starch Press).epub",
+    "nodes": 6825,
+    "nonempty_nodes": 6771,
+    "vectors": 6771
+  },
+  {
+    "file_name": "W. Turner, S. Leonard - JavaScript for Sound Artists. Learn to Code with the Web Audio API (2023).pdf",
+    "nodes": 2094,
+    "nonempty_nodes": 1987,
+    "vectors": 1987
+  }
+]

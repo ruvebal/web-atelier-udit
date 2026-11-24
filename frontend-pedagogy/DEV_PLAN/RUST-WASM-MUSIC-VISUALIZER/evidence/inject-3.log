@@ -1,0 +1,13 @@
+{
+  "injection_id": "290ee75d-132b-4a7e-9f95-aaba0bffe4f4",
+  "project_id": "f49505bb-f491-4139-a211-5f3dd19037c3",
+  "document_id": "73818406-aeba-5755-b3fc-28387d7a1503",
+  "source_hash": "60304dd52e51b69d33e285e57c046a75b14da9fc836ed9d3ce23b6d9caf752cd",
+  "file_name": "The Rust Programming Language{Steve Klabnik &amp_ Carol Nichols &amp_ Chris Krycho}(2026, No Starch Press).epub",
+  "library": "scholar",
+  "node_count": 6825,
+  "entity_count": 0,
+  "relation_count": 0,
+  "status": "InjectionStatus.COMPLETED",
+  "injected_at": "2026-11-24T15:17:41.209886+00:00"
+}

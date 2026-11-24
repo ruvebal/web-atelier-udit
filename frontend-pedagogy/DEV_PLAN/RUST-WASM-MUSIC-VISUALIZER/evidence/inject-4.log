@@ -1,0 +1,13 @@
+{
+  "injection_id": "e15d87f3-54a0-4046-b6e2-c02235ced15b",
+  "project_id": "f49505bb-f491-4139-a211-5f3dd19037c3",
+  "document_id": "be7b94ad-1091-58a7-9770-fb944600f04a",
+  "source_hash": "c503004c73f7d8e905cea8b52ddc0eb9065662ce86c8bfe9a22cbfae4716f742",
+  "file_name": "W. Turner, S. Leonard - JavaScript for Sound Artists. Learn to Code with the Web Audio API (2023).pdf",
+  "library": "scholar",
+  "node_count": 2094,
+  "entity_count": 612,
+  "relation_count": 0,
+  "status": "InjectionStatus.COMPLETED",
+  "injected_at": "2026-11-24T15:19:54.014604+00:00"
+}

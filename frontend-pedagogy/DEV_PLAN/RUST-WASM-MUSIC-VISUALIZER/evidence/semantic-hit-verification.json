@@ -1,0 +1,18 @@
+[
+  {
+    "query_file": "rust-semantic-search.json",
+    "db": "/Users/ruvebal/ahmes-library/scholar/documents/rust_mastery_unlocked_advanced_techniques_for_high_performance_development_adam_jones_2025_independently_published_4b116289/extract/extraction.db",
+    "node": "8a390a63-bee2-55e5-a483-365ff2e5512d",
+    "page_index": 9,
+    "citation": "[BIBLIO-GAP] 8a390a63-bee2-55e5-a483-365ff2e5512d\n",
+    "decision": "Useful technical reading; unresolved bibliography, use verified platform docs for implementation claims."
+  },
+  {
+    "query_file": "audio-semantic-search.json",
+    "db": "/Users/ruvebal/ahmes-library/scholar/documents/reiss_joshua_working_with_the_web_audio_api_taylor_francis_group_2022_c7e2fa46/extract/extraction.db",
+    "node": "1bf2d633-ce7b-516b-a00e-18e4cd1640db",
+    "page_index": 17,
+    "citation": "[BIBLIO-GAP] 1bf2d633-ce7b-516b-a00e-18e4cd1640db\n",
+    "decision": "Useful technical reading; unresolved bibliography, use verified platform docs for implementation claims."
+  }
+]

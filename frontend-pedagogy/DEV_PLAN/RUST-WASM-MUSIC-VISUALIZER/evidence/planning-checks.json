@@ -1,0 +1,13 @@
+{
+  "phase_runbooks": 8,
+  "session_minutes": [
+    240,
+    240,
+    240
+  ],
+  "rubric_total": 100,
+  "broken_links": [],
+  "markdown_fences": "balanced",
+  "new_file_whitespace": "passed",
+  "application_tests": "not applicable; no application code created"
+}

@@ -1,0 +1,13 @@
+{
+  "injection_id": "cef1b892-61f8-43b5-b1d5-aa651836e32f",
+  "project_id": "f49505bb-f491-4139-a211-5f3dd19037c3",
+  "document_id": "1c052eca-c98c-5d5d-bedb-26b8979821a7",
+  "source_hash": "c7e2fa4611db59a1989d7ac2690ce83078233eb8844d9925aa75fdb6ba9ba704",
+  "file_name": "Reiss, Joshua_ - Working with the Web Audio API-Taylor & Francis Group (2022).epub",
+  "library": "scholar",
+  "node_count": 3992,
+  "entity_count": 1056,
+  "relation_count": 0,
+  "status": "InjectionStatus.COMPLETED",
+  "injected_at": "2026-11-24T15:09:48.353262+00:00"
+}
