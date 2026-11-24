@@ -1459,3 +1459,80 @@
    en: complete
   category: 3d
   tags: [3d, r3f, webgl, corpus]
+- slug: rust-wasm-music-visualizer
+  title:
+   en: 'Rust/Wasm Music Visualizer — Studio Sequence'
+  path:
+   en: /lessons/en/rust-wasm-music-visualizer/
+  file:
+   en: lessons/en/rust-wasm-music-visualizer/index.md
+  status:
+   en: complete
+  category: 3d
+  tags: [rust, wasm, web-audio, threejs, gpu, atelier]
+- slug: rust-wasm-music-visualizer-l1
+  title:
+   en: 'L1 · Rust at the Browser Boundary'
+  path:
+   en: /lessons/en/rust-wasm-music-visualizer/l1-rust-browser-boundary/
+  file:
+   en: lessons/en/rust-wasm-music-visualizer/l1-rust-browser-boundary/index.md
+  status:
+   en: complete
+  category: 3d
+  tags: [rust, wasm, interop]
+- slug: rust-wasm-music-visualizer-l2
+  title:
+   en: 'L2 · Listening Before Drawing'
+  path:
+   en: /lessons/en/rust-wasm-music-visualizer/l2-audio-features/
+  file:
+   en: lessons/en/rust-wasm-music-visualizer/l2-audio-features/index.md
+  status:
+   en: complete
+  category: media
+  tags: [web-audio, fft, rms]
+- slug: rust-wasm-music-visualizer-l3
+  title:
+   en: 'L3 · Giving Sound a Body'
+  path:
+   en: /lessons/en/rust-wasm-music-visualizer/l3-gpu-3d/
+  file:
+   en: lessons/en/rust-wasm-music-visualizer/l3-gpu-3d/index.md
+  status:
+   en: complete
+  category: 3d
+  tags: [threejs, gpu, depth]
+- slug: rust-wasm-music-visualizer-l4
+  title:
+   en: 'L4 · Animation Systems and Clocks'
+  path:
+   en: /lessons/en/rust-wasm-music-visualizer/l4-clocks-controls/
+  file:
+   en: lessons/en/rust-wasm-music-visualizer/l4-clocks-controls/index.md
+  status:
+   en: complete
+  category: animations
+  tags: [animation, clocks, accessibility, rive]
+- slug: rust-wasm-music-visualizer-l5
+  title:
+   en: 'L5 · Sending Intention Over a Network'
+  path:
+   en: /lessons/en/rust-wasm-music-visualizer/l5-websocket-control/
+  file:
+   en: lessons/en/rust-wasm-music-visualizer/l5-websocket-control/index.md
+  status:
+   en: stub
+  category: js
+  tags: [websocket, axum, realtime]
+- slug: rust-wasm-music-visualizer-l6
+  title:
+   en: 'L6 · Proving and Exhibiting the Instrument'
+  path:
+   en: /lessons/en/rust-wasm-music-visualizer/l6-proof-exhibition/
+  file:
+   en: lessons/en/rust-wasm-music-visualizer/l6-proof-exhibition/index.md
+  status:
+   en: stub
+  category: 3d
+  tags: [testing, accessibility, performance, defence]
