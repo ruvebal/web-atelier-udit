@@ -26,3 +26,43 @@ This is the canonical lesson index for the six-lesson studio. The runnable appli
 | [L6 · Proving and exhibiting the instrument](l6-proof-exhibition/) | What makes the work defensible? | Tests, benchmark and defence |
 
 L1–L4 are runnable against the current X1 baseline. L5 becomes runnable when the X3 relay is tagged; L6 is the release and exhibition gate.
+
+## If Rust is new to you
+
+You do not need to know Rust before Studio 1. We will learn only the pieces this instrument needs:
+
+1. a function takes values and returns a value;
+2. a `struct` groups related data (we use one later for plugin state);
+3. a type such as `f32` tells us this is a 32-bit floating-point number;
+4. `cargo test` runs checks, and `cargo build --target wasm32-unknown-unknown` produces a browser-loadable module;
+5. the browser calls the exported function; Rust does not replace the browser’s audio or rendering APIs.
+
+Every lesson follows the same rhythm: predict → run → inspect → change one thing → explain. You may ask an assistant for a syntax hint, but your submission must include the prediction, the test result and the reason for the change.
+
+## Grounding note
+
+The sequence uses backward design: begin with the evidence students must produce, then build the activities that make that evidence possible (Wiggins and McTighe 2011, 8–9). The prediction-and-verification rhythm is a course design choice informed by research on cognitive scaffolding in AI-assisted programming education (Liu, Fan, and Pan 2026, 17); it is not presented as a measured effect of this exact studio.
+
+### References
+
+- Liu, Dandan, Guangrui Fan, and Lihu Pan. 2026. “Tool, Tutor, or Crutch?: A Grounded Theory of Cognitive Scaffolding and Offloading in AI-Assisted Programming Education.” *International Journal of STEM Education* 13, article 10. https://doi.org/10.1186/s40594-025-00592-w.
+- Wiggins, Grant, and Jay McTighe. 2011. *The Understanding by Design Guide to Creating High-Quality Units*. Alexandria, VA: ASCD.
+
+## Shared setup
+
+```sh
+git clone https://github.com/ruvebal/rust-wasm-music-visualizer.git
+cd rust-wasm-music-visualizer/web-foundations/private/x1-vertical-slice
+npm install
+npm test
+npm run dev -- --host 127.0.0.1
+```
+
+Open the Vite URL, not the HTML file directly. The browser needs HTTP to fetch the Wasm module.
+
+{% if site.publication.publish_internal_metadata %}
+<!-- curriculum-internal:
+[VERIFIED] Backward-design frame: Ahmes anchor `d2d094ae-c2d9-56a6-ace9-5d37e8a126a5`, local Wiggins/McTighe source, printed pp. 8–9, evaluator_safe=yes. Transfer boundary: supports sequencing from desired evidence; it does not prove this exact six-lesson schedule.
+[VERIFIED] AI-assisted programming pedagogy frame: Ahmes anchor `5ef651db-df6d-5906-b714-1672f8810a22`, Liu/Fan/Pan source, printed p. 17, evaluator_safe=yes. Transfer boundary: supports prediction, verification and individual explanation as design choices; it is not an efficacy claim about this studio.
+-->
+{% endif %}

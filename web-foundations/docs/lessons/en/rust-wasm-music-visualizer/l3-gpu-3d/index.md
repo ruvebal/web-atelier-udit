@@ -32,3 +32,33 @@ Replace the three icosahedra with an original composition. Keep the camera, mate
 Provide a mapping table: feature → property → intended listener perception. Include one screenshot at rest and one under audio.
 
 **Grounding:** the existing Three.js lesson corpus supplies the scene-graph and GPU vocabulary; the experiment is the executable reference.
+
+## Start from the scene graph
+
+The scene is a tree. The camera looks at the tree. The renderer turns the visible surfaces into pixels. A `Group` lets one scale or rotate several meshes together; a mesh combines geometry (shape) and material (appearance).
+
+## Worked construction
+
+1. Identify the `Scene`, `PerspectiveCamera`, `Group` and three `Mesh` objects in `src/main.js:32-57`.
+2. Change only one geometry parameter.
+3. Rotate the camera and explain what changed: object, camera or projection?
+4. Turn one mesh so it passes in front of another and verify depth occlusion.
+5. Map one audio feature to one spatial property, not to every property at once.
+
+## Deliberately broken variation
+
+Set every mesh to the same position. The renderer still works, but the composition becomes unreadable. Diagnose the difference between “GPU renders” and “the listener can perceive a deliberate form.”
+
+## Vocabulary
+
+| Term | Plain meaning |
+| --- | --- |
+| scene graph | A tree of objects and their transforms |
+| geometry | The vertices and faces that describe a shape |
+| material | The rules for how a surface looks under light |
+| depth test | The rule that nearer surfaces hide farther surfaces |
+| frame | One rendered image in the animation loop |
+
+## Accessibility pause
+
+Describe the scene without relying on colour or speed alone. The final plugin must retain a usable control path when motion is reduced.

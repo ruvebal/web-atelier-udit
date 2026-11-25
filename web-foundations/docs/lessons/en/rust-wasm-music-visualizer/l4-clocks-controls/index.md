@@ -33,3 +33,28 @@ Test pause, seek, end, loop and an unreadable input. Then compare the supplied T
 Record one lifecycle bug you found, the state transition that fixes it, and the reduced-motion or renderer-failure behavior.
 
 **Grounding:** audio-clock reasoning is grounded in the indexed sound sources; Rive capability claims remain gated by the verified runtime specimen.
+
+## Three clocks, in plain language
+
+- **Audio time:** where the track is (`currentTime`).
+- **Frame time:** how much time passed since the last animation frame (`delta`).
+- **Wall-clock estimate:** `performance.now()`, useful for a gentle phase or diagnostic.
+
+Do not use frame count as seconds. A 120 Hz screen and a 60 Hz screen must reach the same visual state after the same elapsed duration.
+
+## Worked lifecycle walkthrough
+
+1. Press Start and observe `Playing local fixture`.
+2. Pause and verify the button and status change.
+3. Seek after metadata loads.
+4. Turn Loop on and let the fixture reach its end.
+5. Choose the Pulse rings visualizer and compare the same features with a different motion rule.
+6. Explain what happens if WebGL creation fails at `main.js:37-43`.
+
+## Deliberately broken variation
+
+Replace `delta` with a fixed `0.016` in a local branch. Explain why the result changes with refresh rate and why a reduced-motion mode must preserve state without preserving every movement.
+
+## Rive boundary
+
+Rive may provide an authored control skin or animation state machine. It does not automatically provide the required true-3D depth scene. Students must name which clock drives Rive and which clock drives Three.js.
