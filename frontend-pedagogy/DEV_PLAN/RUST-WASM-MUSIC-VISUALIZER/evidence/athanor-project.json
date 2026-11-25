@@ -1,0 +1,14 @@
+{
+  "project_id": "f49505bb-f491-4139-a211-5f3dd19037c3",
+  "owner_id": "ec857335-d625-5209-b882-e96ed00c337d",
+  "name": "Rust/Wasm Music Visualizer — teaching corpus",
+  "schema_name": "project_f49505bbf4914139a2115f3dd19037c3",
+  "slug": "rust-wasm-music-visualizer",
+  "library": "scholar",
+  "application": "studio",
+  "tenant": "default",
+  "scope": "teaching-development",
+  "metadata": {},
+  "description": null,
+  "created_at": "2026-11-24T15:01:41.186539+00:00"
+}

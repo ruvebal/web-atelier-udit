@@ -1,0 +1,516 @@
+You are a fresh cold reviewer of an instructor planning pack. You did not implement it. This is a PLAN, not completed application code or delivered lessons. Audit consistency, 3x4h feasibility, explicit Rust/Wasm/student contribution, Rust UI, GPU 3D, clock/network correctness, Rive boundaries, assessment alignment and evidence honesty. Hard constraints: local AI only; keep source provenance private; no fabricated citations; no self-certification; no new pipeline code; no claim that the planned app exists. Verification transcript in packet covers structural plan checks, not software. Report concise actionable findings as F1 etc with P0/P1/P2, blocks plan acceptance yes/no, concrete file evidence and remedy. Distinguish launch-readiness gaps intentionally left open from defects in the plan. Do not invent additional features or demand completed apps for a planning deliverable. Do not mark any phase DONE. Output at most 1200 words.
+
+FILE PHASE-X0.md
+# Phase X0 — Evidence and readiness
+
+## Goal
+
+Complete source discovery, verify corpus coverage and freeze the teaching assumptions before product work.
+
+## Entry gate
+
+User request and studio/project contracts read. Initial work is recorded in SESSION-RECEIPT.md; do not restart completed extraction.
+
+## Deliverables
+
+Citation/source ledger; source hashes and vector counts; cohort readiness checklist; placement/hour decision; refined architecture.
+
+## Scope
+
+Read books and existing lessons; complete authorized indexing and verification. Do not rewrite shared pipelines, invent source metadata or publish lessons.
+
+## Implementation prompt
+
+Template — execute only after the entry gate passes.
+
+```text
+Read INDEX, TECHNICAL-DIRECTOR-CASCADE, SOURCES and this runbook.
+Read SESSION-RECEIPT and inspect any active ingestion first. Verify all five technical vaults are indexed with measurable vector coverage. Run scoped Rust/Wasm and audio searches, open full candidate nodes and resolve citations. Resolve or explicitly quarantine bibliographic gaps. Confirm cohort size, prior Rust/JS/3D knowledge, target devices, homework allowance and exact location in the course. Record assumptions as provisional if answers are unavailable. Adopt six short lessons only with a feasible rehearsal plan.
+Run the Acceptance checks below and record actual commands and exits.
+Do not mark DONE; hand off the packet for fresh local Qwen cold review.
+Use the orchestrator's closing protocol and amend-on-surprise rule.
+```
+
+## Acceptance
+
+- [ ] Every supplied EPUB has a SHA-256, readable extraction, nonzero node count and documented extraction warnings.
+- [ ] Read-only Postgres counts distinguish nodes from vectors for each source; semantic retrieval returns relevant non-heading content from both Rust and audio sources.
+- [ ] Every published-intent scholarly claim has an actual source node, full context, resolver result and verified printed folio/section; unresolved claims stay private or are omitted.
+- [ ] Timetable sums to 720 minutes; assess required prior knowledge and explicitly account for breaks/homework and official course placement.
+- [ ] Local Qwen reviews the planning pack; unresolved cohort facts keep the launch-readiness gate open.
+
+## Risks
+
+Unreliable metadata; source duplicates; vector success without citation readiness; unknown prior knowledge.
+
+
+
+FILE RATIONALE.md
+# One instrument, many interpretations
+
+Build a shared player whose visual identity changes with each student plugin. The pedagogical object is a traceable chain: **sound → measured feature → Rust transformation → GPU geometry → human control**. The competition asks who can make that chain expressive, understandable and robust.
+
+Twelve contact hours are enough for a bounded extension of a functioning scaffold, conditional on prior JavaScript, Git, browser debugging and basic 3D experience. They are not a credible allowance for novices to independently learn Rust ownership, a Rust UI framework, GPU APIs, DSP and network media transport from zero. This is a planning judgement to test in the rehearsal, not a measured learning claim.
+
+## Recommended scope
+
+| Requirement | Instructor prepares | Each student demonstrates |
+| --- | --- | --- |
+| Rust and Wasm | Reproducible toolchain and kernel interface | Meaningful Rust feature-to-motion function, tests and browser-loaded `.wasm` |
+| Rust UI | Leptos player and schema-driven controls | Two declared controls routed through the Rust UI into their kernel; explain the event/state path |
+| GPU and true 3D | Three.js adapter and depth-tested example | Own mesh/scene composition, camera and visible occlusion; explain GPU work |
+| Audio synchronization | One audio graph, timestamped features, diagnostic click track | Audio-clock-driven motion; pause/seek/reset behaviour and measured limitations |
+| WebSockets | Axum room relay, client and offline simulator | One remote control or feature mode, disconnect behaviour and packet explanation |
+| Animation/Rive | Rive Wasm runtime adapter and a comparison specimen | Choose Rive alongside the 3D renderer, or a verified true-3D Rive path; defend the choice |
+| Integration | Registry, validation, gallery and fixture suite | One independently identifiable plugin and PR with evidence |
+
+“Rust UI” means actual Rust components rendering semantic DOM. Student-specified controls are rendered by that host. It does not imply every student authors an entire UI framework application. A custom Rust component is an extension. “GPU” may mean WebGL2; WebGPU and Rust `wgpu` are ambitious alternatives with an instructor-tested starter, not extra grading credit by themselves.
+
+## The competition
+
+Working title: **Make Sound Visible — the Music Visualizer Challenge**.
+
+One common audio pack and one common player permit comparison. Students choose an expressive concept and defend a stack. Award a jury prize, an engineering prize and a separate audience choice; the audience vote never determines a grade. A quieter, accessible composition can win over a costly particle spectacle.
+
+Every student submits their own plugin, even when debugging in pairs. The product gallery is collective; assessment of understanding remains individual. AI assistance follows the existing course declaration and ACCEPT/REJECT review discipline. No grade depends on purchasing software or on paid model access.
+
+## Grounding and limits
+
+The sequence follows desired results → acceptable evidence → learning activities, using the verified backward-design passage in Wiggins and McTighe (2011, 8–9). That gives us the order of design; it does not prove that six lessons is the optimal number.
+
+Liu, Fan, and Pan (2026, 17) present a theory-building account of scaffolding/offloading and propose critique, verification journals and fading support. We adopt an individual explanation and a small unaided transfer task as course design choices. Their paper explicitly calls for further empirical verification; do not claim causal efficacy for this competition.
+
+The Rust and audio books ground technical concepts and reading selections. Their TOCs are not a syllabus. Their bibliographic issues and current-API limits remain visible in [SOURCES.md](SOURCES.md).
+
+## What the initial release leaves for later
+
+Live PCM/Opus music over a custom WebSocket, multiplayer acoustic synchronization, streaming-service integration, arbitrary plugin uploads, native desktop packaging, custom audio decoders and production accounts are later projects. The base product plays local/licensed files and sends controls or analysis data over WebSockets. A network feature stream contains information about sound, not the sound itself.
+
+The three-session pilot has **12 scheduled hours including three 10-minute breaks**, plus an explicitly proposed 90-minute readiness activity and at most two optional 60-minute polish periods. If no work outside the studios is available, use the prebuilt scaffold and keep the reference renderer. Do not move essential Rust/GPU work into undisclosed homework.
+
+
+FILE CURRICULUM.md
+# Six lessons, three studios, one accumulating product
+
+Planning specification, not the finished monograph or published lesson prose. The curricular unit here is the three-session studio. Six lessons are short conceptual sections within it, not six additional meetings.
+
+## Outcomes and acceptable evidence
+
+| Outcome | Evidence in final product | Individual check |
+| --- | --- | --- |
+| Explain the browser/Rust/Wasm boundary | A compiled Rust mapping function is called during visualization | Trace one input sample/feature to one mesh property |
+| Interpret audio features without confusing energy and beat | Named, normalized feature mappings and a diagnostic overlay | Explain why bass energy is not automatically beat detection |
+| Build and control GPU 3D | Depth-tested mesh, camera and two meaningful controls | Predict what a parameter change will do before running it |
+| Reason about clocks and transport | Correct pause/seek/reset and network/offline states | Diagnose stale or out-of-order feature frames |
+| Defend an engineering choice | Short ADR, measured performance and a rejected alternative | Explain a trade-off using observed evidence |
+
+## Six lessons and cumulative assignments
+
+| Lesson | Central question | Small worked example | Product increment | Reading selection |
+| --- | --- | --- | --- | --- |
+| L1. Rust at the browser boundary | What should Rust own, and what does the browser still do? | Rust consumes a borrowed feature slice and returns a clamped value | Load the kernel; render a Rust-owned parameter control | Rust book chs. 1, 4–6, 9; binding platform note |
+| L2. Listening before drawing | What are we actually measuring? | Waveform/RMS, FFT bins and bass/mid/high mapping | Audio graph → Rust smoothing → moving mesh | Smus chs. 2 and 5; Reiss analyser/automation sections; Turner/Leonard ch. 21 |
+| L3. Giving sound a body | Which property of a sound should become which spatial change? | Instanced bars or a deforming low-poly object | Original composition, depth and camera interaction | Existing Three.js core, FE II shader literacy; Rust book structs/collections |
+| L4. Animation systems and clocks | Is this reactive motion, a timeline cue, or synchronized playback? | Same feature drives a Three.js object and Rive input | Two controls; explicit reset and motion policy | Existing Rive making-of; current runtime docs; Jones ch. 7 as audited comparison |
+| L5. Sending intention over a network | Do we need to send sound, or only a command? | Two browser clients exchange a preset via Axum | WebSocket mode, status and reconnect snapshot | Existing WebSocket material; Axum docs; optional Yoon ch. 5 after citation audit |
+| L6. Proving and exhibiting the instrument | What makes this good beyond a successful demo? | Fault-injected plugin and common benchmark track | Tested release, fallback and stack defence | Rust book ch. 11; Jones chs. 9–10 only after example verification |
+
+Reading selections are selective references, not whole-book homework. Source resolution and edition notes are in SOURCES.md. Chapters from the supplied EPUBs must be cited by section unless print page markers are verified.
+
+## Repeatable lesson structure
+
+Each lesson package contains a master idea, a prediction question, one complete worked example, one deliberately broken variation, a product increment and an exit check. Its B1 section explains the concept; B2 is the contextual plugin lab; B3 isolates a strategy individually. Label all code as CodeSandbox-ready, Excerpt or Template. Rust build instructions require a tested repository/toolchain route; do not label native compiler setup CodeSandbox-ready without proving it there.
+
+The lesson authoring phase uses `curriculum-forger` and the local `lesson-scribe` workflow for conceptual prose. Existing React material is a prerequisite reference, not something to silently re-teach. Use a small Leptos bridge to meet the Rust UI requirement without running two competing framework roots over the same DOM subtree.
+
+## Studio 1 — Hear, measure, compile
+
+| Minutes | Activity | Evidence |
+| --- | --- | --- |
+| 0–15 | Hear the common track; predict two visual mappings | Initial sketch and prediction |
+| 15–40 | L1 worked example and boundary explanation | Rust/JS/browser ownership diagram |
+| 40–85 | Guided kernel/UI build | Browser loads student's Rust module |
+| 85–95 | Break | — |
+| 95–120 | L2 waveform, frequency and time demonstration | Feature vocabulary |
+| 120–205 | Build a one-mesh audio-reactive slice | First executable plugin |
+| 205–225 | Individual B3: bounded mapping and silence case | Test + explanation without generation tools |
+| 225–240 | Submit A1 and select concept | Commit/tag and brief |
+
+**A1 — Signal to form:** one mesh, one Rust mapping, silence-safe output, a working Wasm load, and a one-page concept/stack hypothesis. This becomes the foundation of A2. Optional between-session polish: 60 minutes, replacing the visual sketch only; no new required system.
+
+## Studio 2 — Compose and interact
+
+| Minutes | Activity | Evidence |
+| --- | --- | --- |
+| 0–15 | Compare A1 predictions and actual output | One corrected assumption |
+| 15–40 | L3 mesh, camera, material and GPU cost | Spatial mapping plan |
+| 40–85 | Guided 3D construction and profiling | Scene with real depth |
+| 85–95 | Break | — |
+| 95–120 | L4 Three.js/Rive comparison and audio clock | Renderer decision |
+| 120–205 | Extend original plugin; add two controls and a preset | A2 candidate |
+| 205–225 | Individual B3: seek/reset and frame-rate independence | Small isolated test and prediction |
+| 225–240 | Submit A2 and peer critique | Revision note |
+
+**A2 — Playable composition:** extend A1 with original 3D, two controls in the Rust UI, deterministic pause/seek/reset and a 200–300-word architecture decision comparing two plausible stacks. Optional polish: 60 minutes for asset/parameter refinement. Rive is a supported expressive option, not an extra mandatory framework for every student.
+
+## Studio 3 — Connect, prove, defend
+
+| Minutes | Activity | Evidence |
+| --- | --- | --- |
+| 0–15 | Diagnose a delayed/out-of-order packet fixture | Prediction |
+| 15–40 | L5 WebSocket control vs feature vs audio transport | Protocol explanation |
+| 40–85 | Connect prepared relay; exercise disconnect/reconnect | One remote parameter or preset |
+| 85–95 | Break | — |
+| 95–120 | L6 profiling, accessibility and fair comparison | Verification checklist |
+| 120–165 | Fix failures and package plugin | Release candidate |
+| 165–185 | Individual B3: unseen feature sequence + short explanation | Transfer evidence |
+| 185–230 | Exhibition and defence | Demo, peer questions, jury notes |
+| 230–240 | Submit A3 and reflection | Final release |
+
+**A3 — Exhibition release:** A2 plus a WebSocket interaction, offline mode, lifecycle evidence, benchmark results and individual defence. With more than nine five-minute demo slots, use concurrent stations and brief individual recordings collected in the B3 block; do not quietly add a fourth session. Confirm cohort size in X0 and rehearse the chosen format.
+
+## Pedagogical scaffold
+
+Desired result: students can explain and alter an instrument, not merely replay a template. Acceptable evidence: an original mapping, a tested plugin and a small unfamiliar transfer task. Learning plan: reproduce → vary → independently diagnose. This is the backward-design application grounded in Wiggins and McTighe (2011, 8–9).
+
+| Strand | Process × knowledge type | Scaffolding |
+| --- | --- | --- |
+| B1 | Understand × conceptual | Instructor explains one boundary or clock at a time |
+| B2 | Create × procedural | Complete reference → constrained adaptation → original plugin |
+| B3 | Analyze × conceptual | Small fresh inputs, no production scaffold or generative completion |
+| Defence | Evaluate × metacognitive | Compare intention, results and an abandoned alternative |
+
+These Bloom placements are design classifications. Resolve the relevant taxonomy passage before using them as public scholarly claims. A formal 5E cycle is not imposed on compiler installation or lifecycle compliance. The inquiry portion uses prediction, experimentation, explanation, revision and evaluation without claiming a separately validated 5E intervention.
+
+Load decisions: supply toolchain and relay; introduce one interop boundary first; postpone wgpu/AudioWorklet/custom streaming. Critical questions are concrete: does a better GPU buy a better grade; does proprietary asset authoring constrain reproducibility; does a high-motion interface exclude listeners; who owns uploaded music? Address these through the shared benchmark, a free starter path, motion controls and local-file default. No audience upload collection is needed.
+
+The evidence from Liu, Fan, and Pan (2026, 17) informs the critique and individual explanation design. It does not establish the optimal lesson count, homework allowance or scoring weights.
+
+## Monograph architecture
+
+Proposed title: **Sound into Space: Rust, WebAssembly and the Design of Musical Interfaces**.
+
+Write a compact teaching monograph, approximately 12,000–18,000 words as an editorial target, with six core chapters matching L1–L6. Each chapter includes a durable concept, current platform note, runnable specimen, failure case, reading guide and corresponding assignment increment. Appendices hold installation/troubleshooting, plugin/protocol reference, source/citation ledger and the competition brief. Do not reproduce six separate boilerplate applications: use one growing player with tagged chapter milestones.
+
+The code must precede the final explanatory prose. X1–X4 establish what actually runs; X5 writes and verifies the monograph against those releases. The first edition is English; any requested Spanish lesson/deck twins go through local Qwen and structural parity checks. Language expansion does not block review of this English planning pack.
+
+
+FILE CHALLENGE.md
+# Make Sound Visible
+
+Draft challenge brief for instructor review. Starter links, repository URL and deadlines are supplied only after the rehearsal passes.
+
+**Create a music visualizer that makes a listener notice something new.** You will develop a plugin for our shared Rust/WebAssembly player, turn audio features into interactive GPU 3D, and defend how your technology choices serve the experience.
+
+## Choose a direction
+
+| Concept | Minimum viable interpretation | Ambitious extension |
+| --- | --- | --- |
+| Spectral sculpture | Three bands deform one low-poly mesh | Rust-generated geometry |
+| Rhythm city | Instanced buildings respond to spectral bands | Camera paths with measured onset cues |
+| Orbital ensemble | Bass, mid and treble control three orbiting bodies | User-composed parameter relationships |
+| Kinetic instrument | One articulated object responds to level/envelope | Rive control skin plus Three.js body |
+| Resonant garden | A small set of stems bend with energy | Instanced growth and seed presets |
+| Particle chamber | A bounded cloud expands and changes colour | wgpu compute on a verified device |
+| Living album | A 3D cover opens into an audio-reactive scene | Rive-authored transitions |
+| Listening room | Calm spatial changes reveal contrast and silence | Accessible alternate visual modes |
+
+Each concept can succeed at baseline scope. More particles, paid assets or more frameworks do not earn marks by themselves. Propose another concept if it satisfies the same evidence contract.
+
+## What must work
+
+1. An identifiable student plugin with an original spatial composition, camera and visible 3D occlusion.
+2. Student-authored Rust compiled to WebAssembly performs a meaningful feature-to-motion calculation. A pass-through wrapper or dependency's Wasm file is insufficient.
+3. GPU rendering through an approved adapter; name WebGL2 or WebGPU accurately.
+4. At least two meaningful interactive controls rendered by the shared Rust UI; show their values reaching your kernel. Explain the provided UI component and your parameter declarations.
+5. Audio-reactive behaviour on the common test tracks, correct silence handling and a coherent pause/seek/reset policy. Explain the synchronization limit you measured.
+6. One WebSocket-controlled parameter or preset, visible connection state and local operation after disconnect. You use the supplied relay; you need not build a streaming server.
+7. Keyboard-operable controls, pause/reduced-motion mode, readable labels and a usable renderer-failure state. Keep the audio playable when a scene fails.
+8. Tests and a brief defence that explain your choices and your own contribution.
+
+Rive is encouraged for authored interaction and animation. Standard Rive vector animation alone does not meet the true-3D criterion. Pair it with a 3D renderer or use the instructor-verified Rive 3D specimen. Do not claim that WebAssembly is automatically GPU execution, that volume peaks are beat tracking, or that remote features transmit audible music.
+
+## Deliverables
+
+- A1: first working Rust/Wasm audio-to-mesh slice and concept sketch.
+- A2: original composition, two controls, preset and architecture decision.
+- A3: tested plugin, remote interaction, fallback and final evidence.
+- Final package: source, lockfiles, manifest, thumbnail, asset credits, test results, short demo, benchmark environment and AI-use declaration. No copyrighted music copied into the submission unless licensed for redistribution.
+- Defence: explain the path from sound to geometry, compare two stacks, show one meaningful failure you fixed, and predict the result of a small change before running it.
+
+The weekly deliverables are versions of the same product. Feedback on A1 and A2 must be addressed or explicitly declined with a reason in A3.
+
+## Assessment proposal — assignment rubric, not course-wide weights
+
+| Criterion | Weight | Evidence |
+| --- | --- | --- |
+| Musical and visual interpretation | 25% | Coherent mappings, restraint, response to contrasting tracks and silence |
+| Rust/Wasm and engineering explanation | 20% | Meaningful kernel, interop trace, tests and defensible choices |
+| 3D interaction and accessibility | 20% | Depth, composition, useful controls, keyboard and reduced motion |
+| Timing, reliability and performance | 20% | Seek/reset, network faults, lifecycle cleanup and common-device measurements |
+| Individual understanding and process | 15% | Transfer task, contribution evidence, critique and oral explanation |
+
+Competition eligibility requires all eight functional requirements to be demonstrated or a documented accessibility accommodation approved under the course process. Missing features receive criterion-specific feedback and marks; do not invent an automatic course failure or let an audience vote override assessment.
+
+Jury: use the same reference laptop/browser, resolution, fixture pack and run duration for every entry. Record platform limitations. Audience choice is a separate recognition. Publish the criteria before students choose their concept.
+
+## Stack defence template
+
+Template — replace each prompt with your own evidence.
+
+| Question | Your answer |
+| --- | --- |
+| What experience do you intend? | Listener, musical feature and spatial metaphor |
+| What did Rust contribute? | Function, data types, test and measured/correctness reason |
+| What owns the UI, audio clock and rendering? | Named components and interfaces |
+| Which alternative did you reject? | One fair comparison, including implementation cost |
+| What fails on a weaker device or network? | Observed failure and fallback |
+| Which AI suggestion did you change or reject? | Suggestion, reasoning and verification |
+
+
+FILE ARCHITECTURE.md
+# The player as a teaching instrument
+
+Proposed architecture; X1 must validate it before it becomes starter code. Component names below are design targets, not existing APIs.
+
+## Default stack and alternatives
+
+| Layer | Proposed default | Reason / boundary |
+| --- | --- | --- |
+| UI and application state | Rust + Leptos CSR | Semantic DOM, browser app, explicit Rust UI; no SSR required for the studio |
+| Browser interop | wasm-bindgen + web-sys; small JS renderer adapters | Browser audio/DOM and Three.js/Rive remain explicit external boundaries |
+| Audio transport | Browser Web Audio with local/licensed track input | One graph and one clock owned by the host, controlled from Rust |
+| Student computation | Separate Rust/Wasm kernel per plugin | Testable smoothing/mapping/simulation; no claim that Wasm is automatically faster |
+| Baseline rendering | Three.js WebGL2 | Reuse familiar GPU 3D concepts and existing shader literacy |
+| Authored animation | Rive web runtime, verified package/runtime pair | Optional control skin or scene adapter; verify true-3D capability separately |
+| Network | Native Rust Axum relay + browser WebSocket client | Small room/control service; static frontend can work without it |
+| Extensions | wgpu/WGSL; Three.js WebGPURenderer/TSL; alternate Rust UI | Each needs a tested adapter and a justified scope, not framework accumulation |
+
+Leptos is the recommended starting point, not a claim of universal superiority over Yew, Dioxus or egui. Students compare alternatives in the ADR; the first cohort should not implement several UI frameworks. Use vanilla Three.js behind an adapter rather than nesting React Three Fiber in the Rust UI just to reproduce existing lessons.
+
+## Data and ownership
+
+1. User gesture unlocks the host audio context. The player selects a local file or a licensed HTTP fixture.
+2. A single audio graph provides playback and an analyser. The host samples time-domain/frequency data and normalizes the declared bands.
+3. A frame carries feature values, playback position and clock identity. Student Rust transforms these values into scene parameters.
+4. The active renderer adapter updates its GPU scene. The host owns the outer frame scheduler; adapters must not accidentally start competing loops.
+5. Rust UI controls update a typed parameter store. The same validated commands can arrive from a second client through the relay.
+6. The gallery switches plugins without restarting the track. Disposing a plugin releases its graphics resources and listeners, not the host audio context.
+
+A Rust-based player still relies on browser audio output, decoding and GPU APIs. Wasm does not bypass the browser sandbox. The native Axum relay and browser Wasm are separate compilation targets.
+
+## Plugin contract v0 — design target
+
+One student folder contains `plugin.json`, a Rust kernel crate, a renderer module, optional assets, tests and a short README. A build-generated, allowlisted registry supplies the gallery. Student modules are reviewed and built before inclusion; there is no arbitrary user-upload execution in v0.
+
+| Surface | Contract |
+| --- | --- |
+| Manifest | `apiVersion`, unique `id`, display name, author, renderer kind, entry module, kernel artifact, asset credits, thumbnail and parameter schema |
+| Parameters | Stable key, label, finite default, min/max/step or enum choices; host Rust UI renders labelled semantic controls |
+| `mount` | Async resource loading and capability report; receives canvas/container and explicit host services |
+| `update` | Receives timestamped feature frame and parameter values; finite bounded output; no per-frame resource creation |
+| `resize` | Width, height and clamped DPR; preserve scene state |
+| `reset` | Track/seek epoch, deterministic seed and playback position; clears smoothing and history |
+| `dispose` | Idempotent cleanup of listeners, GPU objects and owned async work |
+| Kernel | Exported Rust `step`/`reset` boundary; fixture-testable without audio hardware; define concrete layouts in X1 |
+
+Use ES modules plus generated wasm-bindgen glue for v0. Do not promise dynamic linking of arbitrary Rust traits, a browser-native WASI plugin ABI, or interchangeable raw `.wasm` files. Every independently built module has its own glue/memory; transfer small feature/control arrays with explicit copies first. A borrowed view into Wasm memory must not outlive allocation/growth assumptions. Measure before introducing shared memory or threads.
+
+Rust UI requirement is met by the host's real Rust-rendered controls and each plugin's declared parameter/state path. The kernel and visual interpretation remain individual work. A student-written Rust UI component is a supported extension once the host extension API is proven.
+
+Same-origin reviewed modules are trusted code, not a security sandbox. JS exceptions can be caught, but a synchronous infinite loop cannot be reliably timed out on the main thread. X2 must enforce review/budgets and document that limit. An untrusted plugin marketplace would require a different origin/process design and is outside v0.
+
+## Frame and clock contract
+
+Proposed `AudioFrame`: `version`, `trackId`, `epoch`, `sequence`, `contextTimeSeconds`, `trackTimeSeconds`, `sampleRateHz`, `fftSize`, `rms`, `bands`, and optional `onsetStrength`. Band definitions and normalization are versioned; silence maps to finite zeros. RMS is not loudness in LUFS; analyser magnitudes are not beat labels. The minimal kernel needs only a small fixed set of scalars.
+
+`contextTimeSeconds` is local to an AudioContext. `trackTimeSeconds` identifies position within the current track and changes on seek. Neither is a globally synchronized network clock. The host increments `epoch` on track/seek discontinuities and resets plugin state. Use elapsed audio/playback time for choreography and delta time for smoothing; do not count rendered frames as musical time.
+
+`requestAnimationFrame` schedules drawing, not sample-accurate audio. Where available, `getOutputTimestamp()` maps an audio context position to a performance-clock estimate. Capability-test it, record output/device latency and retain a fallback. Analyser sampling and display scanout still introduce delay; exact audiovisual sample lock is not a baseline claim.
+
+Verification fixture: silence, sustained tone, frequency sweep and regularly spaced clicks. Schedule audio from the audio clock, log intended cue times and render timestamps, then capture audible/visible output on the reference machine. Report median and p95 offset and jitter, plus method/resolution. A provisional local visual-offset target is ≤80 ms p95; calibrate its feasibility in X1 and publish the final threshold before the assignment. A JS timing log alone does not measure sound-to-photon latency.
+
+## WebSocket contract and music input
+
+Baseline: music enters via the player's file picker or a licensed fixture URL. WebSocket messages carry `setParameter`, `selectPreset`, `transportState`, `stateSnapshot` and optionally `featureFrame`. One teacher-controlled sender owns transport; reconnect obtains a snapshot rather than replaying an unbounded history.
+
+Envelope: protocol version, room ID, sender ID, monotonically increasing sequence, track ID/epoch and a typed payload. Keep command and feature message types separate. Reject unknown versions, oversized payloads, nonfinite values and invalid parameter keys. An initial feature budget is 20 Hz and ≤4 KiB/frame; parameter changes are rate-limited and coalesced. Keep only the newest pending visual-feature frame. Use bounded server queues, client `bufferedAmount` thresholds and explicit drop counters; browser WebSocket has no automatic receive-side backpressure.
+
+Remote features may drive a silent display. For a remote browser also playing the music, distribute the same track separately and estimate clock offset/drift; stream IDs/timestamps alone do not synchronize devices. That is an extension. Use HTTPS/WSS when hosted, origin checks and a room capability for the classroom relay; omit private tokens from bundles. A static Pages host cannot run Axum, so the relay needs an explicit local or server deployment target. Offline simulation remains available.
+
+If live music input is essential later, first define source, codec, sample rate, channel count, timestamp, jitter buffer, reconnect and latency budget. Compare WebRTC media transport with custom WebSocket audio. Do not send arbitrary MediaRecorder fragments to `decodeAudioData` and assume each fragment is a decodable, gapless file. This extension is not part of the three-session minimum.
+
+## Rive path
+
+Demonstrate the existing authored audio and GPU 3D specimens; audit their build/runtime provenance before adapting them. The standard web package is a JS/Wasm runtime. `.riv` is an asset format, and AnimaScript is not Rust. Promote three bounded uses: responsive control skin, audio-driven authored state, and the separately verified true-3D scene path.
+
+All adapters consume the same host features. For the base competition, the player owns audible music; Rive's own audio is muted/disabled to avoid a second clock and duplicate sound. A native Rive audio processor remains an instructor extension until browser hosting, threading/COI and common-track behaviour are demonstrated. Existing offline WAV capture is not proof of a live audio worklet.
+
+## UX and performance acceptance targets
+
+Player layout: focusable transport with track/connection status, central scene, labelled parameter panel, plugin gallery and an optional diagnostics drawer. Keyboard access, volume, pause and reduced motion must remain usable when the canvas fails. This is a design brief; the implementation phase applies the frontend design skill to produce and visually test the interface.
+
+Provisional benchmark: 60-second common track, 1280×720, DPR capped at 1.5, one active scene; aim for p95 frame interval ≤33.3 ms on the named reference laptop. Record load time and compressed artifact size separately. Avoid absolute GPU-time claims from CPU frame intervals. Repeat plugin switching 20 times and check canvas/listener/resource counts for growth. Tighten or relax budgets only from X1/X2 rehearsal evidence, before students are graded.
+
+
+FILE SOURCES.md
+# Source ledger and technical watch
+
+Checked 2026-11-24. This file is instructor-only provenance. It separates technical reading, pedagogical evidence and mutable platform documentation. No extraction databases or full source books are copied into the repository.
+
+## Supplied and discovered books
+
+| Source identity | Verified contents / use | Current citation boundary |
+| --- | --- | --- |
+| Steve Klabnik, Carol Nichols and Chris Krycho, *The Rust Programming Language*, No Starch Press, supplied 2026 EPUB, ISBN 9781718504455 | OPF lists all three authors; chs. 1, 4–6, 9 and 11 support the reading path. Chapter 17 covers async. Use the book as the Rust foundation. | Fresh extraction initially has no bibliographic metadata rows; resolver returns BIBLIO-GAP. OPF identity is verified separately; do not publish a resolver-safe citation until metadata is resolved. |
+| Adam Jones, *Rust Mastery Unlocked: Advanced Techniques for High-Performance Development*, supplied 2025 EPUB | OPF author/date verified. Ch. 7 addresses Rust/Wasm, including bindings and Yew/Seed; chs. 9–10 concern performance/testing. | OPF has placeholder identifier `http://example.com/document`, not a verified ISBN; publisher in filename is not corroborated by the OPF. Missing vault metadata. Use as a secondary topic map, audit every code sample against current APIs. |
+| Boris Smus, *Web Audio API: Advanced Sound for Games and Interactive Apps*, supplied 2013 EPUB | Ch. 2 timing/latency and ch. 5 analysis/visualization. Existing 441-node vault reused. | Author/ISBN available, year missing in vault metadata; sampled node unresolved. Historical API examples require modernization. |
+| Joshua Reiss, *Working with the Web Audio API*, supplied 2022 EPUB | Existing 3,992-node vault. Substantive analyser and AudioParam timing nodes read. | Missing year; metadata also lists Francis Rumsey as chair, not a verified co-author. Do not promote that role to authorship. EPUB nav needs fuller TOC extraction; NCX-only inventory found none. |
+| William Turner, *JavaScript for Sound Artists*, edited by Steve Leonard | Existing 2,094-node PDF vault. Ch. 21 “Time” grounds audio-clock scheduling. | **Direct front-matter check:** authored by Turner, edited by Leonard; second edition published **2023**. Registry-derived vault metadata says 2022 and treats Leonard as co-author. Resolver says safe but bibliographic audit rejects those fields; repair before public citation. |
+| Indo Yoon, *Beginning Axum: Learning Modern Web Development With Rust*, Apress, 2026 | Found beside supplied Rust books; TOC ch. 5 covers WebSocket, concurrency and authentication. | OPF/TOC scanned only; not ingested, not cited as substantive evidence. Candidate for X0 if server teaching expands. |
+
+The metadata/TOC inventory and SHA-256 digests are in `evidence/epub-inventory.json`. Full texts remain in the local library. Rust Mastery retained 2,790 of 17,101 extracted blocks: extraction success is not code fidelity. Rust book extraction warned about a missing cover-image reference; no claim of complete image extraction is made.
+
+## Verified evidence anchors
+
+| Claim/use | Anchor and actual locator | Gate and transfer limit |
+| --- | --- | --- |
+| Design from desired results and evidence before activities | Wiggins/McTighe vault ending `6a0018aa`; node `d2d094ae-c2d9-56a6-ace9-5d37e8a126a5`; extraction page index 18; full printed pages **8–9** inspected via pdftotext | evaluator_safe=yes, human metadata. The CLI prints “19” because it uses PDF order; use printed folios. This grounds design order, not an effect size or 12-hour feasibility. |
+| Critique, verification journals and fading as proposed pedagogical strategies | Canonical scholar vault `s40594_025_00592_w_dc2bd27d`; node `5ef651db-df6d-5906-b714-1672f8810a22`; page index 16, printed **17** | evaluator_safe=yes, metadata confidence .95. Conclusion and surrounding page read; theory-building account, not efficacy trial. Duplicate vaults with the same source hash have unsafe metadata and are not citation sources. |
+| Web Audio scheduling uses the audio context's time in seconds | Turner vault ending `c503004c`; node `75332c3f-df34-519c-9274-cd7eff2de45d`; page index 211, printed **191** | evaluator_safe=yes, .95, but source audit finds year/role mismatch. Use the source-verified 2023/Turner-author identity only after the metadata discrepancy is explicitly resolved. PDF page 212 is not printed p. 191. |
+| Analyser provides time/frequency data without changing the signal | Reiss node `8cf15ed4-5e14-5490-94cc-e84dc78d4964`, EPUB section at extraction index 20; adjacent substantive node `da4bfc68-ad87-5c1c-9945-eb0264420b87` read | BIBLIO-GAP; use current platform documentation for implementation while keeping this book as a reading candidate. Index 20 is not a printed page. |
+
+`evidence/citation-audit.json` preserves sampled resolver outputs and exact DB paths. `evidence/didactics-anchors.json` preserves the backward-design audit. Unresolved reasons were established by inspecting metadata: empty fresh Rust metadata; missing year for Smus/Reiss; low-quality/unresolved duplicate Liu coats. Do not silently substitute a polished citation for those outputs.
+
+## Scholarly references retained
+
+- Wiggins, Grant, and Jay McTighe. 2011. *The Understanding by Design Guide to Creating High-Quality Units*. Alexandria, VA: ASCD. Printed pp. 8–9 verified in the local source.
+- Liu, Dandan, Guangrui Fan, and Lihu Pan. 2026. “Tool, Tutor, or Crutch?: A Grounded Theory of Cognitive Scaffolding and Offloading in AI-Assisted Programming Education.” *International Journal of STEM Education* 13, article 10. https://doi.org/10.1186/s40594-025-00592-w. Full author names verified against the local PDF title page; the planning citation uses Liu, Fan, and Pan.
+
+Source-verified reading entry, **pending metadata reconciliation before public citation**: Turner, William. 2023. *JavaScript for Sound Artists: Learn to Code with the Web Audio API*. Edited by Steve Leonard. 2nd ed. CRC Press. https://doi.org/10.1201/9781003201496. Timing passage at printed p. 191. This discrepancy illustrates why resolver safety is not sufficient by itself.
+
+## Discovery scopes and exclusions
+
+- `profield-frontend-pedagogy`, `scholar`: searched for scaffolding, worked examples and programming. Kept the substantive Liu conclusion after opening the actual page. Discarded title-only hits, keywords, a bibliography entry to Shin et al., and a secondary curriculum-as-code snippet as insufficient for direct claims.
+- `scholar-technics`, `scholar`: initial audio query returned unrelated AI infrastructure material; discarded. This project was not used as the injection destination.
+- `profield-didactics`, `scholar`: not present in the current Athanor project list; explicit search failed. Used the existing local Wiggins/McTighe vault read-only. Do not report a successful vector search over this scope.
+- `rust-wasm-music-visualizer`, `scholar`: newly created for this authorized ingestion. Two Rust and three existing audio vaults form its initial technical scope. Injection completion and actual vector coverage are separate checks, recorded in SESSION-RECEIPT.md.
+
+No claim is made that the corpus proves six lessons, particular grading percentages or improved learning from competition. These are explicit pilot design decisions.
+
+## Platform notes — checked 2026-11-24
+
+These are implementation references, not pedagogical bibliography. Version observations are research snapshots, **not a tested compatible lockfile**. X1 must select and freeze a buildable set.
+
+| Topic | Observed current source | Design consequence |
+| --- | --- | --- |
+| Rust book | [Official book](https://doc.rust-lang.org/book/): text states Rust 1.98.0 or later, edition 2024 | Record actual compiler/MSRV in X1; do not infer newest stable release from the book |
+| Bindings | [wasm-bindgen guide](https://wasm-bindgen.github.io/wasm-bindgen/) and [crate docs](https://docs.rs/wasm-bindgen/latest/wasm_bindgen/), 0.2.130 observed | Rust/JS boundary and generated glue; match CLI and crate versions |
+| Rust UI | [Leptos docs](https://docs.rs/leptos/latest/leptos/), 0.8.23; [CSR setup](https://book.leptos.dev/getting_started/index.html) | CSR is a supported path; avoid unnecessary SSR infrastructure |
+| JS integration | [Leptos interop](https://book.leptos.dev/web_sys.html) | Keep renderer-owned canvas/DOM separate from Rust UI-owned DOM |
+| Native relay | [Axum WebSocket module](https://docs.rs/axum/latest/axum/extract/ws/index.html), 0.8.9, `ws` feature | Separate native server; async connection tasks; not browser `std::net` |
+| GPU rendering | [Three.js WebGLRenderer](https://threejs.org/docs/pages/WebGLRenderer) | WebGL2 is an actual GPU path; baseline does not need WebGPU |
+| Newer renderer | [Three.js WebGPURenderer](https://threejs.org/manual/pages/webgpurenderer) | WebGL2 fallback exists; old ShaderMaterial/EffectComposer recipes do not transfer unchanged; docs call renderer experimental |
+| All-Rust graphics option | [wgpu docs](https://docs.rs/wgpu/latest/wgpu/), 30.0.2 observed | WebGPU/WebGL2 on Wasm; extension requires a version-specific tested example |
+| Rive | [Web JS runtime](https://rive.app/docs/runtimes/web/web-js) | JS/Wasm runtime with recommended webgl2 package; runtime feature parity must be checked, not assumed |
+| Signal extraction | [Web Audio visualization guide](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API) | Shared analyser, reusable arrays, explicit FFT/time-domain interpretation |
+| Clock mapping | [AudioContext.getOutputTimestamp](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/getOutputTimestamp) | Relates audio context position and performance-clock estimate; does not synchronize machines |
+| Network bounds | [WebSocket reference](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) | No automatic receive backpressure; bound/coalesce application traffic |
+
+Package versions for Three.js/Rive and their compatibility with the existing custom 3D runtime are deliberately **not frozen** here. The researched docs are sufficient for a direction; X1/X4 runtime checks are required for a release claim. The attempted Rive `/runtimes/audio` URL was inaccessible; no claim rests on it.
+
+## Existing repository material to reuse
+
+- `web-foundations/docs/lessons/en/3d/threejs-core/index.md` and `3d/animation/index.md`.
+- `web-foundations/docs/lessons/en/feii/unit-9-shader-literacy/index.md`.
+- `web-foundations/docs/lessons/en/feii/ai-assisted-3d-covenant/index.md`: instructor infrastructure vs student judgement; keep the individual review discipline.
+- `web-foundations/docs/lessons/en/web-animations/svg-master-session/agentic-rive-3d/index.md`: sample-clock vs elapsed-time distinction; recorded audio is not live browser worklet evidence.
+- `frontend-pedagogy/DEV_PLAN/FEII-3D-ALBUM-KTX/`: precedent for aggregator/contribution shape; its status/version claims are historical, not new verification.
+
+Before lesson publication, reread the exact prerequisite pages, resolve each retained source, and gate private provenance using the site's fail-closed publication switch. This pack has no student-facing publication authorization or deployment action attached to it.
+
+
+FILE TECHNICAL-DIRECTOR-CASCADE.md
+# Technical director cascade
+
+Read [INDEX.md](INDEX.md) for the programme table, current statuses and live snapshot. This file governs execution; the rationale and architecture explain why.
+
+## Master prompt
+
+Template — use this pack's absolute location if invoked from another checkout.
+
+```text
+Continue frontend-pedagogy/DEV_PLAN/RUST-WASM-MUSIC-VISUALIZER/.
+Read the studio/project AGENTS contracts, INDEX, SESSION-RECEIPT,
+RATIONALE, SOURCES, ARCHITECTURE and the next phase runbook.
+Preserve unrelated worktree changes. Check actual processes and receipts
+before restarting any ingestion or embedding job.
+Use the closed status enum and resume rules below.
+Implement only the next phase whose entry gate is satisfied.
+Do not mark application or lesson delivery complete because a plan exists.
+Use local Ollama for embeddings, cold reviews and teaching translations.
+Keep source books, extraction databases and secrets out of the teaching site.
+Do not change Ahmes/Athanor pipeline code or unrelated project defaults.
+Do not create public repositories, deploy, commit or push unless requested.
+Build reviewable artifacts and run the phase's acceptance checks.
+Stop at VERIFYING; supply the evidence packet for a fresh local Qwen review.
+Amend downstream runbooks when observed behaviour changes an assumption.
+```
+
+The user's current request authorizes the source ingestion, local research and planning pack. It does not mean the seven later implementation phases have already occurred. Later requests to execute this cascade authorize the specified development scope; do not add repetitive approval stops for routine reversible work.
+
+## Closed statuses and resume rules
+
+| Status | Resume action |
+| --- | --- |
+| BLOCKED | Name the unmet prerequisite. Work on independent research if useful; do not claim the gate passed. |
+| READY | Recheck entry facts, record owner/time and start the phase. |
+| IN_PROGRESS | Inspect process IDs, logs and changed artifacts; attach to surviving work. Retry idempotently only after determining prior state. |
+| VERIFYING | Run or complete the documented checks; failed checks return to IN_PROGRESS. |
+| COLD_REVIEW | Run/await fresh local Qwen review, triage numbered findings and amend the pack. |
+| DONE | Check report and evidence existence, then advance to the next phase. Missing evidence reopens VERIFYING. |
+
+Only one implementation phase is active at a time. Book embedding and independent document drafting may overlap within X0; never mutate an extraction DB while a live injection is reading it.
+
+## Closing protocol
+
+READY → IN_PROGRESS → VERIFYING → COLD_REVIEW → DONE. A phase may return to BLOCKED when an external prerequisite fails. The implementer does not certify their own DONE.
+
+Before handoff, record actual commands/exits and required full existing suites for touched code repositories. A documentation-only phase uses structural/link/source checks; do not run Ahmes's entire test suite merely because its unchanged CLI was used. Any Ahmes code edit would require its full suite, but such edits are out of scope here.
+
+Cold reviewer receives the runbook, explicit path list/diff, verification transcript and hard constraints only. Use local Ollama Qwen per the studio rule: preferred qwen2.5:72b-instruct-q4_K_M; available fallback qwen3.8:27b with thinking disabled where necessary. Use the Python client with explicit timeout. Preserve exact output, model and decoding settings. No cloud reviewer, no implementer wearing a reviewer role.
+
+Review output: Fn, P0/P1/P2, blocks closure?, evidence, remedy. File PHASE-Xn-COLD-REVIEW.md. Resolve blockers; record deferred issues with rationale. Amend INDEX, this orchestrator and downstream phases in the same change when a discovery invalidates their assumptions.
+
+PHASE-Xn-REPORT.md begins with a status from the enum and includes: owner; dependencies; touched paths; commands/exits; metrics; artifact paths; rejected hypotheses; cold reviewer identity; findings disposition; amendments; safe resume point. Keep open checkboxes open. A planning review cannot close a missing browser build or a cohort-delivery phase.
+
+## Store and artifact boundaries
+
+| Layer | Reads | Writes | Consumer |
+| --- | --- | --- | --- |
+| Evidence | Supplied EPUB/PDF, existing local vaults, official docs | Ahmes scholar vaults; authorized dedicated Athanor project; private provenance | Monograph/lesson authors |
+| Product | Frozen interfaces and fixture assets | Local player/SDK/relay code in destination chosen in X1 | Students and gallery |
+| Teaching | Verified product milestones and safe citations | Monograph, B1/B2/B3 packages, challenge kit | Students |
+| Publication | Built lessons and permitted app artifacts | Registry/site only after checks; deployment separately authorized | Class/public audience |
+| Assessment | Student submissions and individual evidence | Course assessment records through existing process | Instructor; not public ranking data |
+
+## Estimates and stop conditions
+
+Planning estimates: X1 1–2 instructor days; X2 2–3; X3 0.5–1; X4 1–2; X5 2–4; X6 1–2, then rehearsal fixes. These are scheduling hypotheses, not commitments. The prepared teaching platform is a separate workload from the students' 12 hours.
+
+If X1 cannot achieve a reproducible Rust UI + kernel + audio + mesh slice, simplify the integration before authoring six lessons. If Rive true-3D fails X4, keep the Three.js 3D baseline and Rive control/state example, and explicitly defer that advanced path. If target hardware cannot meet budgets, amend budgets before assessment. If beginners cannot complete the rehearsal, increase preparatory support or reduce features; do not disguise that work as optional homework.
+
+
+FILE evidence/planning-checks.json
+{
+  "phases": 8,
+  "session_minutes": [
+    240,
+    240,
+    240
+  ],
+  "rubric_total": 100,
+  "broken_links": [],
+  "fences": "balanced",
+  "application_tests": "not applicable: no application implemented"
+}

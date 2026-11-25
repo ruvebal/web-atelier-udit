@@ -383,6 +383,50 @@ tracks:
    conceptual: 25
 
  # ────────────────────────────────────────────────────────────────────────────
+ # Rust/Wasm Music Visualizer Studio
+ # ────────────────────────────────────────────────────────────────────────────
+ rust-wasm-music-visualizer:
+  title: 'Rust/Wasm Music Visualizer — Studio Track'
+  title_alt: 'Rust/Wasm Music Visualizer — Studio Track'
+  description: 'Three 4-hour studios connecting Rust/Wasm, Web Audio, Three.js GPU 3D, animation clocks and a staged plugin challenge.'
+  lang: en
+  permalink: /tracks/en/udit/rust-wasm-music-visualizer/
+  sessions: 3
+  duration: '12 hours'
+  tags: [rust, wasm, web-audio, threejs, gpu, websocket, rive, atelier, udit]
+  sessions_list:
+   - title: 'Studio 1 — Hear, measure, compile'
+     slug: 'rust-wasm-music-visualizer-studio-1'
+     description: 'L1 and L2: trace the Rust/Wasm boundary, interpret RMS/bass and submit A1.'
+     duration: '4 hours'
+     tags: [rust, wasm, web-audio, a1]
+   - title: 'Studio 2 — Compose and interact'
+     slug: 'rust-wasm-music-visualizer-studio-2'
+     description: 'L3 and L4: build depth-tested 3D, controls and clock-safe lifecycle behavior for A2.'
+     duration: '4 hours'
+     tags: [threejs, gpu, animation, rive, a2]
+   - title: 'Studio 3 — Connect, prove, defend'
+     slug: 'rust-wasm-music-visualizer-studio-3'
+     description: 'L5 and L6: add the released relay, test failures and defend the exhibition release.'
+     duration: '4 hours'
+     tags: [websocket, testing, performance, defence, a3]
+  objectives:
+   - 'Explain the browser/Rust/Wasm ownership boundary and trace a feature to a mesh property.'
+   - 'Interpret time-domain and frequency-domain audio features without confusing energy and beat detection.'
+   - 'Build an original depth-tested GPU 3D composition with accessible controls and a bounded Rust mapping.'
+   - 'Defend transport, clock, networking and renderer choices with tests and measured evidence.'
+  deliverables:
+   - 'A1: one Rust/Wasm audio-to-mesh slice, silence-safe test and concept hypothesis.'
+   - 'A2: original 3D composition, two controls, lifecycle behavior and stack decision.'
+   - 'A3: tested plugin, released relay interaction, fallback evidence and oral defence.'
+  methodology: 'ATELIER (Exploración, Conceptualización, Producción, Exhibición, Reflexión)'
+  evaluation:
+   technical: 40
+   interpretation: 25
+   reliability: 20
+   defence: 15
+
+ # ────────────────────────────────────────────────────────────────────────────
  # Front-End II — Desarrollo Web: Front-End II (UDIT)
  # ────────────────────────────────────────────────────────────────────────────
  feii:

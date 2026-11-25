@@ -1,0 +1,13 @@
+{
+  "injection_id": "08cb5ffa-e025-43a5-8be5-e799545cdde4",
+  "project_id": "f49505bb-f491-4139-a211-5f3dd19037c3",
+  "document_id": "c7fb961e-a8a4-5911-abfa-e92073b80a25",
+  "source_hash": "a12a565b62bb49c1c37c847f94ee7a891fd9b73ea2c9307e9b4ecbb0a096cdb4",
+  "file_name": "Boris Smus - Web Audio API_ Advanced Sound for Games and Interactive Apps-O'Reilly Media (2013).epub",
+  "library": "scholar",
+  "node_count": 441,
+  "entity_count": 578,
+  "relation_count": 0,
+  "status": "InjectionStatus.COMPLETED",
+  "injected_at": "2026-11-24T15:05:37.164987+00:00"
+}

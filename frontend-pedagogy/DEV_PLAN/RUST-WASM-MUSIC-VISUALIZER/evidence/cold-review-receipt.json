@@ -1,0 +1,11 @@
+{
+  "model": "qwen3.8:27b",
+  "temperature": 0.1,
+  "num_ctx": 32768,
+  "num_predict": 2500,
+  "think": false,
+  "elapsed_seconds": 120.65,
+  "prompt_eval_count": 11368,
+  "eval_count": 2354,
+  "done_reason": "stop"
+}

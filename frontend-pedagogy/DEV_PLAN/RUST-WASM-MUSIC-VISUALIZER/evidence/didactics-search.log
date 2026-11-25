@@ -1,0 +1,137 @@
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/ruvebal/src/athanor/athanor_cli/main.py:245 in search                 │
+│                                                                              │
+│   242 │   │   return [asdict(result) for result in results]                  │
+│   243 │                                                                      │
+│   244 │   try:                                                               │
+│ ❱ 245 │   │   _print(asyncio.run(run()))                                     │
+│   246 │   except Exception as exc:                                           │
+│   247 │   │   raise ClickException(str(exc)) from exc                        │
+│   248                                                                        │
+│                                                                              │
+│ /Users/ruvebal/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib │
+│ /python3.12/asyncio/runners.py:195 in run                                    │
+│                                                                              │
+│   192 │   │   │   "asyncio.run() cannot be called from a running event       │
+│       loop")                                                                 │
+│   193 │                                                                      │
+│   194 │   with Runner(debug=debug, loop_factory=loop_factory) as runner:     │
+│ ❱ 195 │   │   return runner.run(main)                                        │
+│   196                                                                        │
+│   197                                                                        │
+│   198 def _cancel_all_tasks(loop):                                           │
+│                                                                              │
+│ /Users/ruvebal/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib │
+│ /python3.12/asyncio/runners.py:118 in run                                    │
+│                                                                              │
+│   115 │   │                                                                  │
+│   116 │   │   self._interrupt_count = 0                                      │
+│   117 │   │   try:                                                           │
+│ ❱ 118 │   │   │   return self._loop.run_until_complete(task)                 │
+│   119 │   │   except exceptions.CancelledError:                              │
+│   120 │   │   │   if self._interrupt_count > 0:                              │
+│   121 │   │   │   │   uncancel = getattr(task, "uncancel", None)             │
+│                                                                              │
+│ /Users/ruvebal/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib │
+│ /python3.12/asyncio/base_events.py:691 in run_until_complete                 │
+│                                                                              │
+│    688 │   │   if not future.done():                                         │
+│    689 │   │   │   raise RuntimeError('Event loop stopped before Future      │
+│        completed.')                                                          │
+│    690 │   │                                                                 │
+│ ❱  691 │   │   return future.result()                                        │
+│    692 │                                                                     │
+│    693 │   def stop(self):                                                   │
+│    694 │   │   """Stop running the event loop.                               │
+│                                                                              │
+│ /Users/ruvebal/src/athanor/athanor_cli/main.py:235 in run                    │
+│                                                                              │
+│   232 │                                                                      │
+│   233 │   async def run() -> list[Any]:                                      │
+│   234 │   │   repository = PostgresCorpusRepository(_dsn())                  │
+│ ❱ 235 │   │   results = await CorpusQueryService(repository,                 │
+│       OllamaEmbedder()).search(                                              │
+│   236 │   │   │   query=query,                                               │
+│   237 │   │   │   project_slug=project_slug,                                 │
+│   238 │   │   │   library=library_name,                                      │
+│                                                                              │
+│ /Users/ruvebal/src/athanor/athanor_api/application/use_cases.py:493 in       │
+│ search                                                                       │
+│                                                                              │
+│   490 │   │   if embedding:                                                  │
+│   491 │   │   │   return cast(                                               │
+│   492 │   │   │   │   list[Any],                                             │
+│ ❱ 493 │   │   │   │   await _call(self.corpus, "search_nodes", slug,         │
+│       library_name, embedding, top_k, *floor),                               │
+│   494 │   │   │   )                                                          │
+│   495 │   │   if hasattr(self.corpus, "search_text"):                        │
+│   496 │   │   │   return cast(                                               │
+│                                                                              │
+│ /Users/ruvebal/src/athanor/athanor_api/application/use_cases.py:101 in _call │
+│                                                                              │
+│    98                                                                        │
+│    99 async def _call(corpus: Any, method: str, *args: Any, **kwargs: Any)   │
+│       -> Any:                                                                │
+│   100 │   function = getattr(corpus, method)                                 │
+│ ❱ 101 │   return await _maybe_await(function(*args, **kwargs))               │
+│   102                                                                        │
+│   103                                                                        │
+│   104 async def _call_batches(corpus: Any, method: str, schema: str, rows:   │
+│       list[dict[str, Any]]) -> None:                                         │
+│                                                                              │
+│ /Users/ruvebal/src/athanor/athanor_api/application/use_cases.py:96 in        │
+│ _maybe_await                                                                 │
+│                                                                              │
+│    93                                                                        │
+│    94                                                                        │
+│    95 async def _maybe_await(value: Any) -> Any:                             │
+│ ❱  96 │   return await value if inspect.isawaitable(value) else value        │
+│    97                                                                        │
+│    98                                                                        │
+│    99 async def _call(corpus: Any, method: str, *args: Any, **kwargs: Any)   │
+│       -> Any:                                                                │
+│                                                                              │
+│ /Users/ruvebal/src/athanor/athanor_api/infrastructure/postgres/corpus.py:715 │
+│ in search_nodes                                                              │
+│                                                                              │
+│   712 │   │   top_k: int = 10,                                               │
+│   713 │   │   min_content_chars: int = DEFAULT_MIN_CONTENT_CHARS,            │
+│   714 │   ) -> list[KnowledgeRecord]:                                        │
+│ ❱ 715 │   │   project, schema = await self._project_scope(project_slug,      │
+│       library)                                                               │
+│   716 │   │   if not query_embedding:                                        │
+│   717 │   │   │   return []                                                  │
+│   718 │   │   vector = "[" + ",".join(str(float(value)) for value in         │
+│       query_embedding) + "]"                                                 │
+│                                                                              │
+│ /Users/ruvebal/src/athanor/athanor_api/infrastructure/postgres/corpus.py:374 │
+│ in _project_scope                                                            │
+│                                                                              │
+│   371 │   async def _project_scope(self, project_slug: str, library: str) -> │
+│       tuple[Project, str]:                                                   │
+│   372 │   │   project = await self.get_project_by_slug(project_slug,         │
+│       library)                                                               │
+│   373 │   │   if project is None:                                            │
+│ ❱ 374 │   │   │   raise LookupError(f"project_slug not found for library:    │
+│       {project_slug!r}")                                                     │
+│   375 │   │   return project, _validated_schema(project.schema_name)         │
+│   376 │                                                                      │
+│   377 │   async def get_injection(self, project_id: UUID, document_id: UUID) │
+│       -> Injection | None:                                                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+LookupError: project_slug not found for library: 'profield-didactics'
+
+The above exception was the direct cause of the following exception:
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/ruvebal/src/athanor/athanor_cli/main.py:247 in search                 │
+│                                                                              │
+│   244 │   try:                                                               │
+│   245 │   │   _print(asyncio.run(run()))                                     │
+│   246 │   except Exception as exc:                                           │
+│ ❱ 247 │   │   raise ClickException(str(exc)) from exc                        │
+│   248                                                                        │
+│   249                                                                        │
+│   250 @app.command("mcp")                                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ClickException: project_slug not found for library: 'profield-didactics'

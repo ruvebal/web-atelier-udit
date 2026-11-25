@@ -1,0 +1,545 @@
+[
+  {
+    "knowledge_id": "7b171714-876f-5eaa-bad1-d0f5e9f11e87",
+    "collection_name": "project_723f8d32efdb4604a9a94c9812bbec8b",
+    "source_locator": "e01a70e9-5610-5410-9708-b80259bfdefe#page=0",
+    "content": "Tool, tutor, or crutch?: A grounded theory of cognitive scaffolding and offloading in AIassisted programming education",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "profield-frontend-pedagogy",
+    "knowledge_scope": "field_prospection",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.7303936537584044,
+    "metadata": {
+      "node_id": "7b171714-876f-5eaa-bad1-d0f5e9f11e87",
+      "document_id": "e01a70e9-5610-5410-9708-b80259bfdefe",
+      "document_title": "Abstract",
+      "file_name": "Liu,_Fan_&_Pan,_“Tool,_tutor,_or_crutch_A_grounded_theory_of_cognitive_scaffolding_and_offloading_in.pdf",
+      "source_hash": "dc2bd27de1fc47e2d5407c8f1bc05b3adce2cecbdf0d60bd60af677df863ad69",
+      "library": "scholar",
+      "page_index": 0,
+      "document_metadata": {
+        "title": {
+          "value": "Abstract",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "keywords": {
+          "value": [
+            "Generative AI",
+            "Programming education",
+            "Cognitive scaffolding",
+            "Cognitive offloading",
+            "Grounded theory",
+            "Metacognition",
+            "Self-efficacy"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "article",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "host_title_mismatch": {
+          "value": true,
+          "confidence": 1.0,
+          "provenance": "host_guard"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "422b6f75-e7fa-5a52-bbd3-58474616b4f2",
+    "collection_name": "project_723f8d32efdb4604a9a94c9812bbec8b",
+    "source_locator": "e01a70e9-5610-5410-9708-b80259bfdefe#page=0",
+    "content": "Keywords Generative AI, Programming education, Cognitive scaffolding, Cognitive offloading, Grounded theory, Metacognition, Self-efficacy",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "profield-frontend-pedagogy",
+    "knowledge_scope": "field_prospection",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.7241620853580769,
+    "metadata": {
+      "node_id": "422b6f75-e7fa-5a52-bbd3-58474616b4f2",
+      "document_id": "e01a70e9-5610-5410-9708-b80259bfdefe",
+      "document_title": "Abstract",
+      "file_name": "Liu,_Fan_&_Pan,_“Tool,_tutor,_or_crutch_A_grounded_theory_of_cognitive_scaffolding_and_offloading_in.pdf",
+      "source_hash": "dc2bd27de1fc47e2d5407c8f1bc05b3adce2cecbdf0d60bd60af677df863ad69",
+      "library": "scholar",
+      "page_index": 0,
+      "document_metadata": {
+        "title": {
+          "value": "Abstract",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "keywords": {
+          "value": [
+            "Generative AI",
+            "Programming education",
+            "Cognitive scaffolding",
+            "Cognitive offloading",
+            "Grounded theory",
+            "Metacognition",
+            "Self-efficacy"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "article",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "host_title_mismatch": {
+          "value": true,
+          "confidence": 1.0,
+          "provenance": "host_guard"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "b0a0060b-c3ea-5d43-b73f-3f9c81a1996c",
+    "collection_name": "project_723f8d32efdb4604a9a94c9812bbec8b",
+    "source_locator": "1dfbce3e-031f-5e99-87e0-033c337fe1da#page=10",
+    "content": "Yoonhee Shin, Jaewon Jung, Joerg Zumbach, and Eunseon Yi. The Effects of Worked-out Example and Metacognitive Scaffolding on Problem-solving Programming. Journal of Educational Computing Research , 61, 2023.",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "profield-frontend-pedagogy",
+    "knowledge_scope": "field_prospection",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.7203304743395472,
+    "metadata": {
+      "node_id": "b0a0060b-c3ea-5d43-b73f-3f9c81a1996c",
+      "document_id": "1dfbce3e-031f-5e99-87e0-033c337fe1da",
+      "document_title": "1 Introduction",
+      "file_name": "Phung_et_al.,_“Plan_More,_Debug_Less,”_arXiv_`2509.03171`_AIED_2025_(data-science_programming).pdf",
+      "source_hash": "ea8cf54ca129eaeec41a29d5b97fcecd25237e24d5882e631509bfaa90dc754c",
+      "library": "scholar",
+      "page_index": 10,
+      "document_metadata": {
+        "year": {
+          "value": 2025,
+          "confidence": 0.6,
+          "provenance": "slug"
+        },
+        "title": {
+          "value": "1 Introduction",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "authors": {
+          "value": [
+            {
+              "family": "Phung_et_al.,_“Plan_More,_Debug_Less,”_arXiv_`2509.03171`_AIED"
+            }
+          ],
+          "confidence": 0.6,
+          "provenance": "slug"
+        },
+        "keywords": {
+          "value": [
+            "generative AI",
+            "programming education",
+            "metacognitive scaffolds",
+            "pedagogical principles",
+            "AI-assisted learning",
+            "hint system"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "article",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "host_title_mismatch": {
+          "value": true,
+          "confidence": 1.0,
+          "provenance": "host_guard"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "41f5ab69-b552-5eee-9263-06568fcc0c23",
+    "collection_name": "project_723f8d32efdb4604a9a94c9812bbec8b",
+    "source_locator": "21345c43-8fe1-532b-b14d-16d30a0c1b06#page=0",
+    "content": "Liu, D., Fan, G., & Pan, L. (2026). Tool, tutor, or crutch?: A grounded theory of cognitive scaffolding and offloading in AI-assisted programming education. International Journal of STEM Education, 13 , 10.   h  t t  p s  : /  / d  o  i . o  r g  /  1 0  . 1  1  8 6  / s  4 0  5  9 4  0  2  5 -  0 0  5  9  2  - w",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "profield-frontend-pedagogy",
+    "knowledge_scope": "field_prospection",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.7121286551803945,
+    "metadata": {
+      "node_id": "41f5ab69-b552-5eee-9263-06568fcc0c23",
+      "document_id": "21345c43-8fe1-532b-b14d-16d30a0c1b06",
+      "document_title": "Reference",
+      "file_name": "Correction_to_Tool,_tutor,_or_crutch.pdf",
+      "source_hash": "4429a07ef6e85f6da13a8065c6873dacc6bc35675fd2dc0611025903f8ce6cae",
+      "library": "scholar",
+      "page_index": 0,
+      "document_metadata": {
+        "doi": {
+          "value": "10.1186/s40594-025-00592-w",
+          "confidence": 0.95,
+          "provenance": "crossref"
+        },
+        "date": {
+          "value": "2026-01-01",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "title": {
+          "value": "Reference",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "doi_url": {
+          "value": "https://doi.org/10.1186/s40594-025-00592-w",
+          "confidence": 0.95,
+          "provenance": "crossref"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "article",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "registry_source": {
+          "value": "crossref",
+          "confidence": 0.95,
+          "provenance": "crossref"
+        },
+        "registry_raw_hash": {
+          "value": "823ae146f00b02a296d0c30e256ef8a3343c263192e7917ec25ba0e14d61a56e",
+          "confidence": 0.95,
+          "provenance": "crossref"
+        },
+        "registry_cache_hit": {
+          "value": false,
+          "confidence": 1.0,
+          "provenance": "cache"
+        },
+        "host_registry_match": {
+          "value": false,
+          "confidence": 0.35,
+          "provenance": "host_validator"
+        },
+        "host_title_mismatch": {
+          "value": true,
+          "confidence": 1.0,
+          "provenance": "host_guard"
+        },
+        "host_registry_reason": {
+          "value": "registry title disagrees with host heading/pdf_title/slug",
+          "confidence": 1.0,
+          "provenance": "host_validator"
+        },
+        "host_registry_mismatch": {
+          "value": true,
+          "confidence": 1.0,
+          "provenance": "host_validator"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "15544e5b-236c-53cc-abc4-792f6094b00d",
+    "collection_name": "project_723f8d32efdb4604a9a94c9812bbec8b",
+    "source_locator": "e01a70e9-5610-5410-9708-b80259bfdefe#page=12",
+    "content": "Scaffolding  loop When  students  have  time  or  adopt a  mastery  orientation,  they  often  begin  with  Socratic Inquiry  and  pursue  modification,  testing,  and  explanation of AI suggestions. In CLT terms, this pattern is consistent with reduced extraneous effort (less syntax/search churn) while retaining or increasing germane processing (reasoning about structure and tests) (Debue & Van De Leemput, 2014; Gkintoni et al., 2025). It also coheres with the  literature  on  'productive  struggle'  and  productive failure:  structured  difficulty  and  delayed  direct  instruction  can  strengthen  long-term  knowledge  organization",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "profield-frontend-pedagogy",
+    "knowledge_scope": "field_prospection",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.7043070591419647,
+    "metadata": {
+      "node_id": "15544e5b-236c-53cc-abc4-792f6094b00d",
+      "document_id": "e01a70e9-5610-5410-9708-b80259bfdefe",
+      "document_title": "Abstract",
+      "file_name": "Liu,_Fan_&_Pan,_“Tool,_tutor,_or_crutch_A_grounded_theory_of_cognitive_scaffolding_and_offloading_in.pdf",
+      "source_hash": "dc2bd27de1fc47e2d5407c8f1bc05b3adce2cecbdf0d60bd60af677df863ad69",
+      "library": "scholar",
+      "page_index": 12,
+      "document_metadata": {
+        "title": {
+          "value": "Abstract",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "keywords": {
+          "value": [
+            "Generative AI",
+            "Programming education",
+            "Cognitive scaffolding",
+            "Cognitive offloading",
+            "Grounded theory",
+            "Metacognition",
+            "Self-efficacy"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "article",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "host_title_mismatch": {
+          "value": true,
+          "confidence": 1.0,
+          "provenance": "host_guard"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "e215675e-7ef1-5710-a0c5-18d05ee37fff",
+    "collection_name": "project_723f8d32efdb4604a9a94c9812bbec8b",
+    "source_locator": "2540b0f3-4444-5571-a6af-d52cd929cd69#page=2",
+    "content": "Complementing this, Cognitive Load Theory (CLT) [35] provides the cognitive psychological foundation that dictates how information should be structured for optimal learning. CLT distinguishes between intrinsic cognitive load, determined by the complexity of the subject matter; extraneous cognitive load, caused by poor instructional design; and germane cognitive load, which facilitates schema acquisition. For engineering and STEM education, where the intrinsic complexity is inherently high, the primary theoretical implication is that instructional materials must drastically minimize extraneous load through clear structure, eliminate redundant information, and utilize signaling cues to guide attention. Consequently, a theoretically grounded instructional architecture must incorporate principles such as the modality effect, the splitattention effect, and the guidance-fading effect to ensure that the generated assets cultivate meaningful learning rather than cognitive overload. These theoretical directives establish the",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "profield-frontend-pedagogy",
+    "knowledge_scope": "field_prospection",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.7040740152253965,
+    "metadata": {
+      "node_id": "e215675e-7ef1-5710-a0c5-18d05ee37fff",
+      "document_id": "2540b0f3-4444-5571-a6af-d52cd929cd69",
+      "document_title": "Curriculum as Code: An AI-Assisted Architecture for Instructional Design in STEM Education",
+      "file_name": "2608.07364v1-paiva-curriculum-as-code.pdf",
+      "source_hash": "749851aa636c042f917e0a0dc94bce607ade2e357eaa9fdcb8eb1b77e7dc2607",
+      "library": "scholar",
+      "page_index": 2,
+      "document_metadata": {
+        "doi": {
+          "value": "10.48550/arXiv.2608.07364",
+          "confidence": null,
+          "provenance": "llm"
+        },
+        "year": {
+          "value": 2026,
+          "confidence": null,
+          "provenance": "llm"
+        },
+        "title": {
+          "value": "Curriculum as Code: An AI-Assisted Architecture for Instructional Design in STEM Education",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "authors": {
+          "value": [
+            {
+              "kind": "person",
+              "name": "Henrique Mohallem Paiva",
+              "role": "author",
+              "given": "Henrique Mohallem",
+              "family": "Paiva"
+            }
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "keywords": {
+          "value": [
+            "Curriculum as Code",
+            "AI-assisted instructional design",
+            "STEM education",
+            "Generative AI",
+            "Active learning",
+            "Instructional materials",
+            "Visual authoring tools",
+            "WYSIWYG",
+            "LaTeX",
+            "Python"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "published": {
+          "value": "2026-08-07",
+          "confidence": null,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "article",
+          "confidence": 0.7,
+          "provenance": "llm"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "1db27080-0b57-51d1-b44a-0239b5bbf687",
+    "collection_name": "project_723f8d32efdb4604a9a94c9812bbec8b",
+    "source_locator": "e01a70e9-5610-5410-9708-b80259bfdefe#page=1",
+    "content": "Yet  these  performance  improvements  raise  a  critical question:  do  they  reflect  genuine  learning  facilitated  by effective  scaffolding,  or  do  they  co-occur  with  superficial  dependency  enabled  by  cognitive  offloading?  (Yan et  al.,  2025).  Scaffolding,  in  a  Vygotskian  sense,  is  temporary,  adaptive  support  that  helps  a  learner  master  a task  just  beyond  their  independent  ability.  In  contrast, cognitive  offloading  occurs  when  a  learner  delegates essential mental work to an external tool, bypassing the productive struggle (Leinwand et al., 2014; Kapur, 2008) necessary  to  build  robust,  long-term  knowledge  schemas (Jose et al., 2025). This concern is empirically noted as well. Studies now warn that students who rely heavily on GenAI often struggle to articulate why autogenerated code works (Jose et al., 2025) and score lower on delayed conceptual tests (Bastani et al., 2024). Observational data further reveal reductions in independent debugging and problem  decomposition-the  very  practices  thought  to cultivate durable expertise (Shihab et al., 2025). This tension  between  visible  success  and  invisible  understanding has been labelled the performance-learning paradox (Yan et al., 2025).",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "profield-frontend-pedagogy",
+    "knowledge_scope": "field_prospection",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.701160291605632,
+    "metadata": {
+      "node_id": "1db27080-0b57-51d1-b44a-0239b5bbf687",
+      "document_id": "e01a70e9-5610-5410-9708-b80259bfdefe",
+      "document_title": "Abstract",
+      "file_name": "Liu,_Fan_&_Pan,_“Tool,_tutor,_or_crutch_A_grounded_theory_of_cognitive_scaffolding_and_offloading_in.pdf",
+      "source_hash": "dc2bd27de1fc47e2d5407c8f1bc05b3adce2cecbdf0d60bd60af677df863ad69",
+      "library": "scholar",
+      "page_index": 1,
+      "document_metadata": {
+        "title": {
+          "value": "Abstract",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "keywords": {
+          "value": [
+            "Generative AI",
+            "Programming education",
+            "Cognitive scaffolding",
+            "Cognitive offloading",
+            "Grounded theory",
+            "Metacognition",
+            "Self-efficacy"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "article",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "host_title_mismatch": {
+          "value": true,
+          "confidence": 1.0,
+          "provenance": "host_guard"
+        }
+      }
+    }
+  },
+  {
+    "knowledge_id": "5ef651db-df6d-5906-b714-1672f8810a22",
+    "collection_name": "project_723f8d32efdb4604a9a94c9812bbec8b",
+    "source_locator": "e01a70e9-5610-5410-9708-b80259bfdefe#page=16",
+    "content": "This study offers a process-level, theory-building account of AI-assisted  learning  in  an  authentic  undergraduate  programming  context.  Anchored  in  Cognitive  Load Theory  and  Self-Determination  Theory,  the  proposed tension model describes how learners navigate between Domain  Mastery (concepts, explanation, evaluation) and  Tool  Mastery  (procedural  efficiency  with  AI),  and how boundary conditions (time pressure, task complexity/familiarity,  and  scaffolding  design)  may  be  associated with movement between a Scaffolding Loop and an Offloading  Loop.  Rather  than  adjudicating  efficacy,  our contribution  helps  explain  how  widely  reported  performance and affect gains can co-occur with thinner opportunities for germane processing and authorship, and why some students exhibit attenuated metacognitive calibration  when  offloading  becomes  routine.  Practically,  the model introduces specific strategies designed to leverage AI's benefits while strengthening the user's critical evaluation  and  reflection.  These  methods  include  dedicated 'critique-the-AI' phases, planned fading of AI assistance through offline tasks, verification journals, and contrastive  prompting.  Conceptually,  this  approach  shifts  the conversation from a simple 'use or ban' debate to a more nuanced discussion of how and when the tool aligns with learning goals and motivational needs.",
+    "chunk_index": 0,
+    "total_chunks": 1,
+    "project_slug": "profield-frontend-pedagogy",
+    "knowledge_scope": "field_prospection",
+    "user_slug": null,
+    "source_type": "fission_node",
+    "authority_level": "canonical",
+    "origin_system": "ahmes",
+    "similarity": 0.6916520661494516,
+    "metadata": {
+      "node_id": "5ef651db-df6d-5906-b714-1672f8810a22",
+      "document_id": "e01a70e9-5610-5410-9708-b80259bfdefe",
+      "document_title": "Abstract",
+      "file_name": "Liu,_Fan_&_Pan,_“Tool,_tutor,_or_crutch_A_grounded_theory_of_cognitive_scaffolding_and_offloading_in.pdf",
+      "source_hash": "dc2bd27de1fc47e2d5407c8f1bc05b3adce2cecbdf0d60bd60af677df863ad69",
+      "library": "scholar",
+      "page_index": 16,
+      "document_metadata": {
+        "title": {
+          "value": "Abstract",
+          "confidence": 0.85,
+          "provenance": "heading"
+        },
+        "keywords": {
+          "value": [
+            "Generative AI",
+            "Programming education",
+            "Cognitive scaffolding",
+            "Cognitive offloading",
+            "Grounded theory",
+            "Metacognition",
+            "Self-efficacy"
+          ],
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "language": {
+          "value": "en",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "document_type": {
+          "value": "article",
+          "confidence": 0.7,
+          "provenance": "llm"
+        },
+        "host_title_mismatch": {
+          "value": true,
+          "confidence": 1.0,
+          "provenance": "host_guard"
+        }
+      }
+    }
+  }
+]
