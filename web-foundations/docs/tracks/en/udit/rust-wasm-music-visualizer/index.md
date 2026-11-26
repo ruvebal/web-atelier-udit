@@ -67,6 +67,8 @@ export function createVisualizer({ scene, THREE, features, options }) {
 
 `features.bpm` is an estimate, not a metronome truth. The baseline uses a small energy/onset tracker in `src/rhythm.js` so its threshold, refractory interval and reset behavior can be tested in one lesson. Research extensions may compare spectral flux + autocorrelation, wavelet decomposition or a classical DSP library such as aubio; FFT is useful here, but it is not the only valid BPM method. Do not claim “machine learning” for aubio without evidence.
 
+The onset threshold is intentionally tunable: `threshold = baseline × thresholdFactor` with a small floor. Students must record the factor they choose, show one false-positive or missed-beat case, and explain the trade-off. A visualizer may also add an orbiting “moon” or satellite, but the orbit must be driven by a documented signal or authored clock—not by an unexplained random animation.
+
 ## Release boundary
 
 L1–L4 are runnable against the current deployed X1 baseline. L5 is a preparation lesson until the X3 relay is tagged. L6 is the release/exhibition gate for the current baseline: tests, evidence, accessibility, AI declaration and defence are ready now. This status is deliberate; the track does not promise an unimplemented WebSocket or Rive runtime.
