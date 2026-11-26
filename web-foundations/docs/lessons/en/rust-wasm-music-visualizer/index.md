@@ -29,26 +29,10 @@ L1–L4 are runnable against the current X1 baseline. L5 becomes runnable when t
 
 ## Read the stack as one instrument
 
-```mermaid
-flowchart LR
-  A[Local audio file] --> B[HTMLAudioElement]
-  B --> C[Web Audio Analyser]
-  C --> D[RMS + bass features]
-  D --> E[Rust/Wasm step]
-  E --> F[bounded scale]
-  F --> G[Three.js Group]
-  G --> H[WebGL2 canvas]
-  I[Host controls] --> E
-  J[Student visualizer module] --> G
-  K[Future WebSocket preset] --> I
-
-  classDef browser fill:#dff7ea,stroke:#1d6b4a,color:#10251b;
-  classDef rust fill:#ffe7cf,stroke:#a34c14,color:#321506;
-  classDef future fill:#ece7ff,stroke:#5b46a8,color:#211845;
-  class A,B,C,D,G,H,I browser;
-  class E,F rust;
-  class J,K future;
-```
+<figure>
+<img src="{{ '/assets/images/rust-wasm-visualizer-stack.svg' | relative_url }}" alt="Architecture map: local audio flows through Web Audio features into a Rust WebAssembly mapper, then a bounded scale drives a Three.js GPU canvas; host controls and student plugins extend the live path, while a future relay remains dashed." loading="lazy">
+<figcaption>Solid path: the X1 experiment running now. Dashed path: later plugin and relay extensions.</figcaption>
+</figure>
 
 The ownership rule is the key: the browser decodes audio and draws pixels; Rust transforms normalized features; students replace or extend the mapping and scene. WebSockets, Rive and a formal plugin lifecycle are later layers, not hidden requirements in the X1 baseline.
 

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Rust WebAssembly music visualizer stack</title>
+  <desc id="desc">A left-to-right data path from local audio through Web Audio features, Rust WebAssembly mapping, Three.js GPU rendering, and a canvas. Host controls feed Rust, while student plugins extend the Three.js group and future WebSocket presets feed controls.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#8fe9b7"/></marker>
+    <style>
+      .bg{fill:#090c14}.box{fill:#101a26;stroke:#8fe9b7;stroke-width:2}.rust{fill:#2b1c13;stroke:#ffb26e}.future{fill:#211b3d;stroke:#b9a7ff}.t{font:600 22px Inter,Arial,sans-serif;fill:#f3f6f4}.s{font:400 16px Inter,Arial,sans-serif;fill:#b9d9c8}.line{stroke:#8fe9b7;stroke-width:3;fill:none;marker-end:url(#arrow);stroke-linecap:round}.dash{stroke:#b9a7ff;stroke-width:3;fill:none;marker-end:url(#arrow);stroke-dasharray:10 8;stroke-linecap:round}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="650" rx="28"/>
+  <text class="s" x="48" y="48">LIVE EXPERIMENT · DATA OWNERSHIP MAP</text>
+  <rect class="box" x="45" y="105" width="190" height="105" rx="16"/><text class="t" x="65" y="145">Local audio</text><text class="s" x="65" y="177">HTMLAudioElement</text>
+  <rect class="box" x="285" y="105" width="190" height="105" rx="16"/><text class="t" x="305" y="145">Web Audio</text><text class="s" x="305" y="177">RMS + bass arrays</text>
+  <rect class="rust" x="525" y="105" width="190" height="105" rx="16"/><text class="t" x="545" y="145">Rust / Wasm</text><text class="s" x="545" y="177">smooth + clamp</text>
+  <rect class="rust" x="765" y="105" width="150" height="105" rx="16"/><text class="t" x="785" y="145">Scale</text><text class="s" x="785" y="177">bounded output</text>
+  <rect class="box" x="965" y="105" width="190" height="105" rx="16"/><text class="t" x="985" y="145">Three.js / GPU</text><text class="s" x="985" y="177">depth-tested canvas</text>
+  <path class="line" d="M235 157H280"/><path class="line" d="M475 157H520"/><path class="line" d="M715 157H760"/><path class="line" d="M915 157H960"/>
+  <rect class="box" x="285" y="330" width="235" height="105" rx="16"/><text class="t" x="305" y="370">Host controls</text><text class="s" x="305" y="402">play · seek · gain · loop</text>
+  <path class="line" d="M402 330V218"/>
+  <rect class="future" x="625" y="330" width="235" height="105" rx="16"/><text class="t" x="645" y="370">Student plugin</text><text class="s" x="645" y="402">createVisualizer()</text>
+  <path class="dash" d="M742 330V218"/>
+  <rect class="future" x="965" y="330" width="190" height="105" rx="16"/><text class="t" x="985" y="370">Future relay</text><text class="s" x="985" y="402">preset / intent only</text>
+  <path class="dash" d="M1060 330V218"/>
+  <text class="s" x="48" y="535">Solid path = X1 running now</text><text class="s" x="48" y="570">Dashed path = X2/X3 extension, released only after its tests pass</text>
+</svg>
