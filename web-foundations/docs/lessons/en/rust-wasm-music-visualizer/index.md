@@ -37,11 +37,11 @@ The ownership rule is the key: the browser decodes audio and draws pixels; Rust 
 
 | Layer | Current responsibility | Where to look |
 | --- | --- | --- |
-| Browser transport | Play, pause, seek, loop and local file selection | `src/main.js:99-158` |
-| Web Audio | Read time-domain and frequency-domain arrays | `src/main.js:86-97` |
-| Rust/Wasm | Smooth, clamp and map features to scale | `rust/src/lib.rs:23-31` |
-| Three.js/GPU | Create meshes, light the scene and render frames | `src/main.js:32-62`, `176-191` |
-| Student seam | Load a same-origin module with `createVisualizer()` | `src/main.js:163-174` |
+| Browser transport | Play, pause, seek, loop and local file selection | `src/audio.js:4-165`, `src/main.js:123-156` |
+| Web Audio | Read time-domain and frequency-domain arrays | `src/audio.js:41-55`, `145-149` |
+| Rust/Wasm | Smooth, clamp and map features to bounded values | `rust/src/lib.rs:5-50`, `src/main.js:195-225` |
+| Three.js/GPU | Create meshes, light the scene and render frames | `src/main.js:23-104`, `212-245` |
+| Student seam | Replace the static visualizer module with `createVisualizer()` | `src/main.js:5`, `src/visualizers/tidal-orrery.js:1-130` |
 | Future network | Send bounded presets or parameter intent | L5, after X3 relay release |
 
 ## If Rust is new to you
@@ -54,7 +54,7 @@ You do not need to know Rust before Studio 1. We will learn only the pieces this
 4. `cargo test` runs checks, and `cargo build --target wasm32-unknown-unknown` produces a browser-loadable module;
 5. the browser calls the exported function; Rust does not replace the browser’s audio or rendering APIs.
 
-Every lesson follows the same rhythm: predict → run → inspect → change one thing → explain. You may ask an assistant for a syntax hint, but your submission must include the prediction, the test result and the reason for the change.
+Every lesson follows the same rhythm: predict → run → inspect → change one thing → explain. AI assistance is allowed as a bounded studio tool, but your submission must include the prediction, the test result, the reason for the change, and a precise AI-use declaration.
 
 ## Grounding note
 

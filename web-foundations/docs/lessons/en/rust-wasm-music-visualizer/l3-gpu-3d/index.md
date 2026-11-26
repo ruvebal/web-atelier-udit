@@ -18,9 +18,9 @@ category: 3d
 
 ## Read the repository
 
-- `src/main.js:32-47` creates the scene, camera and renderer.
-- `src/main.js:48-62` creates the grouped meshes, materials and lights.
-- `src/main.js:184-187` applies scale and rotation every frame.
+- `src/main.js:23-26` creates the scene and camera; `82-99` creates the renderer and controls.
+- `src/visualizers/tidal-orrery.js:2-90` creates the owned groups, extruded vanes, rings, lights and materials.
+- `src/visualizers/tidal-orrery.js:94-109` applies the mapped values to the sculpture every frame.
 - `src/style.css` defines the responsive stage that contains the canvas.
 
 ## Studio move
@@ -39,7 +39,7 @@ The scene is a tree. The camera looks at the tree. The renderer turns the visibl
 
 ## Worked construction
 
-1. Identify the `Scene`, `PerspectiveCamera`, `Group` and three `Mesh` objects in `src/main.js:32-57`.
+1. Identify the `Scene`, `PerspectiveCamera`, `Group` and meshes in `src/main.js:23-26` and `src/visualizers/tidal-orrery.js:2-75`.
 2. Change only one geometry parameter.
 3. Rotate the camera and explain what changed: object, camera or projection?
 4. Turn one mesh so it passes in front of another and verify depth occlusion.

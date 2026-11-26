@@ -18,14 +18,14 @@ category: 3d
 
 ## Read the repository
 
-- `rust/src/lib.rs:8-32` exports `set_gain`, `set_smoothing`, `reset` and `step`.
-- `src/main.js:75-84` fetches `visualizer_kernel.wasm` and exposes its exports.
-- `src/main.js:182-184` calls `kernel.step(features.rms, features.bass, ...)` and applies the returned scale.
+- `rust/src/lib.rs:5-50` defines the finite, bounded `smooth`, `aperture`, `core_scale` and `radiance` exports.
+- `src/main.js:195-209` fetches `visualizer_kernel.wasm`, validates its exports and reports a recoverable error.
+- `src/main.js:218-227` smooths the feature channels, maps them through Rust and passes bounded values to the visualizer.
 - `package.json:5-11` defines the reproducible build and test gates.
 
 ## Studio move
 
-Run `npm test`, then change the formula in `step` while keeping the return value finite and within `0.78..=3.6`. Run `npm run build`, open the Vite URL, and predict how the scene changes.
+Run `npm test`, then change one mapping in `rust/src/lib.rs` while keeping the return value finite and inside its documented range. Run `npm run build`, open the Vite URL, and predict how the scene changes.
 
 ## Exit ticket
 
@@ -48,15 +48,15 @@ pub extern "C" fn step(rms: f32, bass: f32, elapsed_seconds: f32) -> f32 {
 
 ## Worked trace
 
-1. `featureValues()` in JavaScript returns `{ rms, bass }`.
-2. `kernel.step(...)` crosses the WebAssembly boundary.
-3. Rust clamps and smooths the values.
-4. JavaScript receives one number named `scale`.
-5. `group.scale.lerp(...)` changes the Three.js group.
+1. `transport.features()` returns normalized `{ rms, bass, high }` readings.
+2. `kernel.smooth(...)` crosses the WebAssembly boundary for each channel.
+3. Rust clamps and maps the channels to `aperture`, `coreScale` and `radiance`.
+4. JavaScript receives bounded numbers with an explicit contract.
+5. `visualizer.update(...)` changes the owned Three.js scene subtree.
 
 ## Deliberately broken variation
 
-Return `rms * 1000.0` without clamping. Run the silence and bounded-output tests. The point is not to “make it fail”; it is to see why a visual mapping needs a contract at its boundary.
+Return an unclamped value from one mapping function. Run the silence and bounded-output tests. The point is not to “make it fail”; it is to see why a visual mapping needs a contract at its boundary.
 
 ## Vocabulary
 

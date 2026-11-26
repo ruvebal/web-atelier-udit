@@ -18,11 +18,11 @@ category: animations
 
 ## Read the repository
 
-- `src/main.js:176-191` calculates `delta`, reads features and renders the frame.
-- `src/main.js:129-136` handles metadata, time updates, end and error states.
-- `src/main.js:138-161` wires play, file replacement, seek, loop, gain and smoothing.
-- `index.html:27-35` exposes the keyboard-reachable controls.
-- `src/main.js:37-46` demonstrates the renderer-failure state.
+- `src/main.js:212-245` calculates `delta`, reads features and renders the frame.
+- `src/audio.js:20-35` handles metadata, time updates, end and error states.
+- `src/main.js:123-156` wires play, file replacement, seek, loop, gain, smoothing and reset.
+- `index.html:20-56` exposes the keyboard-reachable controls.
+- `src/main.js:107-120` demonstrates the renderer-failure and recovery states.
 
 ## Studio move
 
@@ -44,12 +44,12 @@ Do not use frame count as seconds. A 120 Hz screen and a 60 Hz screen must reach
 
 ## Worked lifecycle walkthrough
 
-1. Press Start and observe `Playing local fixture`.
+1. Press Play and observe `Playing Studio test tone`.
 2. Pause and verify the button and status change.
 3. Seek after metadata loads.
 4. Turn Loop on and let the fixture reach its end.
-5. Choose the Pulse rings visualizer and compare the same features with a different motion rule.
-6. Explain what happens if WebGL creation fails at `main.js:37-43`.
+5. Toggle reduced motion and compare the same features with the fixed spatial rule.
+6. Explain what happens if WebGL creation fails at `main.js:82-104`.
 
 ## Deliberately broken variation
 

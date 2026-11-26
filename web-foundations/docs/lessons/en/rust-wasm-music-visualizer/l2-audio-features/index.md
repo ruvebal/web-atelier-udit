@@ -18,10 +18,10 @@ category: media
 
 ## Read the repository
 
-- `src/main.js:86-97` fills the time-domain and frequency-domain arrays.
-- `src/main.js:90-92` computes RMS energy.
-- `src/main.js:93-96` averages low frequency bins into the bass feature.
-- `src/main.js:190` renders the diagnostic `RMS … · Bass …` overlay.
+- `src/audio.js:41-55` creates one analyser graph and owns its typed arrays.
+- `src/audio.js:145-149` reads the arrays and calls the pure extractor.
+- `src/features.js:5-28` computes RMS, bass and highs, including the silence gate.
+- `src/main.js:239-244` renders the three feature meters.
 
 ## Studio move
 
@@ -52,7 +52,7 @@ The lesson’s `rms` value is a compact estimate of signal energy. The `bass` va
 
 ## Deliberately broken variation
 
-Change the multiplier in `main.js:92` until quiet audio fills the visualizer. Explain why scaling is a calibration choice, not a scientific measurement.
+Change one multiplier in `features.js:14` or `features.js:21` until quiet audio fills the visualizer. Explain why scaling is a calibration choice, not a scientific measurement.
 
 ## Vocabulary
 

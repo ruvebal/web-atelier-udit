@@ -18,7 +18,7 @@ category: js
 
 ## Current boundary
 
-The X1 repository intentionally has no relay. The student module seam is visible in `src/main.js:163-174`; the X3 lesson becomes runnable after the Axum relay is tagged and two clients pass reconnect/offline checks.
+The X1 repository intentionally has no relay. The student module seam is the static import at `src/main.js:5` and the module contract in `src/visualizers/tidal-orrery.js:2-130`; the X3 lesson becomes runnable after the Axum relay is tagged and two clients pass reconnect/offline checks.
 
 ## Preparation exercise
 

@@ -8,7 +8,7 @@ lang: en
 permalink: /lessons/en/rust-wasm-music-visualizer/l6-proof-exhibition/
 description: 'Turn a successful demo into a tested, accessible and defensible release.'
 tags: [testing, accessibility, performance, defence]
-status: stub
+status: complete
 category: 3d
 ---
 
@@ -18,9 +18,10 @@ category: 3d
 
 ## Read the repository
 
-- `rust/src/lib.rs:34-65` contains native tests for silence, smoothing and clamping.
-- `test/wasm-boundary.mjs:1-15` checks the compiled Wasm exports and bounded results.
-- `package.json:5-11` defines `npm test` and the production build.
+- `rust/src/lib.rs:52-110` contains native tests for hostile inputs, silence, smoothing and frame-rate invariance.
+- `test/wasm-boundary.mjs:4-28` checks the compiled Wasm exports, bounded results and replay behavior.
+- `test/e2e/instrument.spec.js:30-230` checks the user-facing transport, failure recovery, accessibility and performance boundaries.
+- `package.json:5-15` defines the Rust, unit, Wasm, browser and production-build gates.
 - `.github/workflows/pages.yml` runs the same gates before deployment.
 
 ## Studio move
@@ -59,3 +60,7 @@ Remove the silence assertion or make the output unbounded. Ask whether the remai
 ## Defence prompt
 
 “Show me one input, one Rust decision, one GPU property and one observed limitation.” Students should answer from their own diff and test output, not from a generated summary.
+
+## AI-use declaration
+
+AI assistance is permitted when it is declared and verified. Add `AI-USE.md` to the project and record the tool/model, date, context supplied, generated or transformed material, files affected, tests run, browser checks, one suggestion rejected, and one remaining limitation. A vague sentence such as “AI helped me code” is not evidence. The student must be able to explain the submitted architecture and reproduce the important checks without asking the model to speak on their behalf.

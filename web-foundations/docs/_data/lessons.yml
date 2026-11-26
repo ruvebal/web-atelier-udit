@@ -1533,6 +1533,6 @@
   file:
    en: lessons/en/rust-wasm-music-visualizer/l6-proof-exhibition/index.md
   status:
-   en: stub
+   en: complete
   category: 3d
   tags: [testing, accessibility, performance, defence]
