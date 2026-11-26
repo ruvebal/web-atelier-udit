@@ -70,7 +70,7 @@ Use this as the live “making of” explanation. The visual polish is the resul
 3. **Keep Rust small.** `rust/src/lib.rs` has no DOM, audio or Three.js knowledge. It clamps hostile values, smooths using elapsed seconds and maps features into designed ranges.
 4. **Author a spatial metaphor.** `src/visualizers/tidal-orrery.js` owns the sculpture’s groups, extruded vanes, rings, lights and materials. Twelve vanes, a core, a cage and gimbals make the audio mapping legible as a mechanism.
 5. **Let the host schedule.** `src/main.js` owns the renderer, camera, controls, keyboard path, reduced-motion behavior, WebGL recovery and frame loop. The module receives values and returns `update`, `resize` and `dispose`.
-6. **Make time honest.** Geometry uses media time for authored phase; Rust smoothing uses seconds rather than frame count. The result is explainable across refresh rates without claiming sample-accurate audiovisual synchronization.
+6. **Make time honest.** The visualizer separates media time (the musical relationship) from an authored motion clock (the gentle idle orbit); Rust smoothing uses seconds rather than frame count. The result is explainable across refresh rates without claiming sample-accurate audiovisual synchronization.
 7. **Prove the edges.** Native Rust tests, a real Wasm ABI test and Playwright tests cover hostile numbers, silence, file errors, loop, keyboard controls, reduced motion, mobile layout, context loss and resource disposal.
 
 This is the professor’s teaching point: beauty comes after ownership, bounded data, deliberate form and verification. Students may choose another metaphor, but they must preserve the same clarity.

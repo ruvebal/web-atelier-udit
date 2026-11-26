@@ -14,7 +14,7 @@ category: animations
 
 # L4 · Animation Systems and Clocks
 
-**Master idea:** local audio time, frame time and authored animation are related clocks, not one clock.
+**Master idea:** local audio time, frame time and authored animation are related clocks, not one clock. Tidal Orrery keeps an independent authored orbit so the form remains alive when audio is paused.
 
 ## Read the repository
 
@@ -38,7 +38,7 @@ Record one lifecycle bug you found, the state transition that fixes it, and the 
 
 - **Audio time:** where the track is (`currentTime`).
 - **Frame time:** how much time passed since the last animation frame (`delta`).
-- **Wall-clock estimate:** `performance.now()`, useful for a gentle phase or diagnostic.
+- **Authored motion time:** a bounded elapsed clock used for the quiet orbit; it is not a claim that the audio is still playing.
 
 Do not use frame count as seconds. A 120 Hz screen and a 60 Hz screen must reach the same visual state after the same elapsed duration.
 
@@ -53,7 +53,7 @@ Do not use frame count as seconds. A 120 Hz screen and a 60 Hz screen must reach
 
 ## Deliberately broken variation
 
-Replace `delta` with a fixed `0.016` in a local branch. Explain why the result changes with refresh rate and why a reduced-motion mode must preserve state without preserving every movement.
+Replace `delta` with a fixed `0.016` in a local branch. Explain why the result changes with refresh rate, why the idle orbit must not be derived from a paused audio clock, and why a reduced-motion mode must preserve state without preserving every movement.
 
 ## Rive boundary
 
