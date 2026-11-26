@@ -45,6 +45,7 @@ The scene is a tree. The camera looks at the tree. The renderer turns the visibl
 4. Turn one mesh so it passes in front of another and verify depth occlusion.
 5. Map one audio feature to one spatial property, not to every property at once.
 6. Put any satellite or “moon” inside an intentional wire/group. In the reference, `Moon orbit` is a child of `ringB`, so it cannot float outside the display; its orbit is authored time plus a small BPM term.
+7. Check the whole wire sweep against the plinth and floor. The reference lifts `gimbals` to `y = 0.78` so the secondary orbit remains visually suspended rather than dipping below the base.
 
 ## Deliberately broken variation
 
