@@ -20,7 +20,7 @@ This is the three-studio teaching route for the [canonical six-lesson sequence](
 
 1. Clone the experiment and run `npm test`.
 2. Open the Vite URL; do not open `index.html` with `file://`.
-3. Read the public [Teacher Guide]({{ '/lessons/en/rust-wasm-music-visualizer/teacher-guide/' | relative_url }}) and begin L1.
+3. Read the served [architecture guide](https://ruvebal.github.io/rust-wasm-music-visualizer/architecture.html) and the public [Teacher Guide]({{ '/lessons/en/rust-wasm-music-visualizer/teacher-guide/' | relative_url }}), then begin L1.
 
 ## Three studios · 12 hours
 
@@ -68,6 +68,19 @@ export function createVisualizer({ scene, THREE, features, options }) {
 `features.bpm` is an estimate, not a metronome truth. The baseline uses a small energy/onset tracker in `src/rhythm.js` so its threshold, refractory interval and reset behavior can be tested in one lesson. Research extensions may compare spectral flux + autocorrelation, wavelet decomposition or a classical DSP library such as aubio; FFT is useful here, but it is not the only valid BPM method. Do not claim “machine learning” for aubio without evidence.
 
 The onset threshold is intentionally tunable: `threshold = baseline × thresholdFactor` with a small floor. Students must record the factor they choose, show one false-positive or missed-beat case, and explain the trade-off. A visualizer may also add an orbiting “moon” or satellite, but the orbit must be driven by a documented signal or authored clock—not by an unexplained random animation.
+
+## Minimum pass: what every student must deliver
+
+The project passes the core brief when it can be run from a clean checkout and demonstrates all of these without a second audio graph or animation loop:
+
+1. A real depth-tested 3D scene with one clear visual metaphor.
+2. Three distinct continuous mappings: low, mid and high must affect different spatial or material properties. “Everything gets louder” is not three mappings.
+3. A documented rhythm decision: use `beatPulse`/`bpm`, or demonstrate a tested reason for leaving rhythm out (for example, the chosen track has no reliable onset pattern). Never invent a BPM number when the estimate is unavailable.
+4. A usable play, seek, gain, loop/reset, keyboard and reduced-motion path.
+5. A clean silence case, one invalid/failure case, a resource-disposal check and a short evidence note.
+6. An individual explanation of the data path: audio → analyser → features → Rust mapping → visualizer.
+
+The moon, satellite, colour system, Rive layer, WebSocket relay and advanced BPM algorithm are design choices or stretch work. They improve a defensible core; they do not replace it.
 
 ## Release boundary
 
@@ -121,8 +134,8 @@ Submit one repository or tagged branch containing:
 | Criterion | Points | Full-credit evidence |
 | --- | ---: | --- |
 | Concept and audiovisual authorship | 15 | A specific metaphor; the visual form is intentional and not a generic equalizer. |
-| Audio and Rust/Wasm understanding | 20 | Correctly traces local audio → features → Rust mapping → bounded values; explains silence and limits. |
-| 3D/GPU craft | 20 | Real depth-tested geometry, materials, camera and spatial composition; performance remains usable. |
+| Audio and Rust/Wasm understanding | 20 | Correctly traces local audio → low/mid/high features → Rust mapping → bounded values; explains silence, BPM uncertainty and limits. |
+| 3D/GPU craft | 20 | Real depth-tested geometry, materials, camera, signal-led colour and spatial composition; performance remains usable. |
 | Interaction and accessibility | 15 | Play/seek/gain/loop/reset work; keyboard and reduced-motion paths are usable; labels and status are clear. |
 | Engineering quality and evidence | 15 | Tests or repeatable checks, clean console, resource disposal, responsive behavior and a reproducible run. |
 | Defence and critical judgement | 10 | Explains one rejected alternative, one limitation and one meaningful trade-off without reading a generated summary. |
