@@ -27,6 +27,40 @@ This is the canonical lesson index for the six-lesson studio. The runnable appli
 
 L1–L4 are runnable against the current X1 baseline. L5 becomes runnable when the X3 relay is tagged; L6 is the release and exhibition gate.
 
+## Read the stack as one instrument
+
+```mermaid
+flowchart LR
+  A[Local audio file] --> B[HTMLAudioElement]
+  B --> C[Web Audio Analyser]
+  C --> D[RMS + bass features]
+  D --> E[Rust/Wasm step]
+  E --> F[bounded scale]
+  F --> G[Three.js Group]
+  G --> H[WebGL2 canvas]
+  I[Host controls] --> E
+  J[Student visualizer module] --> G
+  K[Future WebSocket preset] --> I
+
+  classDef browser fill:#dff7ea,stroke:#1d6b4a,color:#10251b;
+  classDef rust fill:#ffe7cf,stroke:#a34c14,color:#321506;
+  classDef future fill:#ece7ff,stroke:#5b46a8,color:#211845;
+  class A,B,C,D,G,H,I browser;
+  class E,F rust;
+  class J,K future;
+```
+
+The ownership rule is the key: the browser decodes audio and draws pixels; Rust transforms normalized features; students replace or extend the mapping and scene. WebSockets, Rive and a formal plugin lifecycle are later layers, not hidden requirements in the X1 baseline.
+
+| Layer | Current responsibility | Where to look |
+| --- | --- | --- |
+| Browser transport | Play, pause, seek, loop and local file selection | `src/main.js:99-158` |
+| Web Audio | Read time-domain and frequency-domain arrays | `src/main.js:86-97` |
+| Rust/Wasm | Smooth, clamp and map features to scale | `rust/src/lib.rs:23-31` |
+| Three.js/GPU | Create meshes, light the scene and render frames | `src/main.js:32-62`, `176-191` |
+| Student seam | Load a same-origin module with `createVisualizer()` | `src/main.js:163-174` |
+| Future network | Send bounded presets or parameter intent | L5, after X3 relay release |
+
 ## If Rust is new to you
 
 You do not need to know Rust before Studio 1. We will learn only the pieces this instrument needs:
