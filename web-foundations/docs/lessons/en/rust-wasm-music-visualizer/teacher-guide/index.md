@@ -59,7 +59,7 @@ The key teaching sentence is: **the browser orchestrates, Web Audio measures, Ru
 | --- | --- | --- |
 | L1 | `rust/src/lib.rs:5-50`; `src/main.js:195-227` | Trace `{ rms, bass, mid, high }` through Wasm into bounded visual values. |
 | L2 | `src/audio.js:41-55,145-149`; `src/features.js:5-29`; `src/rhythm.js:1-38` | Explain why bands are not beats, then defend the onset/BPM estimate. |
-| L3 | `src/visualizers/tidal-orrery.js:2-90,94-109` | Replace the metaphor while retaining real depth and ownership. |
+| L3 | `src/visualizers/tidal-orrery.js:2-90,94-120` | Replace the metaphor while retaining real depth, signal-led colour and an intentional orbit hierarchy. |
 | L4 | `src/main.js:212-245`; `src/audio.js:20-35` | Distinguish audio time, frame delta and authored idle motion. |
 | L5 | Static module seam at `src/main.js:5`; contract in `src/visualizers/tidal-orrery.js:2-130` | Design a bounded remote-intent message; relay implementation is stretch. |
 | L6 | `rust/src/lib.rs:52-110`; `test/wasm-boundary.mjs`; `test/e2e/instrument.spec.js` | Produce a release evidence bundle and defend one trade-off. |

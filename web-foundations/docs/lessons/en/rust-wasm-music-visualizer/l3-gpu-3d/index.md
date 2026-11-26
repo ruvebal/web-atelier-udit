@@ -20,7 +20,7 @@ category: 3d
 
 - `src/main.js:23-26` creates the scene and camera; `82-99` creates the renderer and controls.
 - `src/visualizers/tidal-orrery.js:2-90` creates the owned groups, extruded vanes, rings, lights and materials.
-- `src/visualizers/tidal-orrery.js:94-109` applies the mapped values to the sculpture every frame.
+- `src/visualizers/tidal-orrery.js:94-120` applies the mapped values, low/mid/high colour fields, beat pulse and moon orbit every frame.
 - `src/style.css` defines the responsive stage that contains the canvas.
 
 ## Studio move
@@ -44,10 +44,15 @@ The scene is a tree. The camera looks at the tree. The renderer turns the visibl
 3. Rotate the camera and explain what changed: object, camera or projection?
 4. Turn one mesh so it passes in front of another and verify depth occlusion.
 5. Map one audio feature to one spatial property, not to every property at once.
+6. Put any satellite or “moon” inside an intentional wire/group. In the reference, `Moon orbit` is a child of `ringB`, so it cannot float outside the display; its orbit is authored time plus a small BPM term.
 
 ## Deliberately broken variation
 
 Set every mesh to the same position. The renderer still works, but the composition becomes unreadable. Diagnose the difference between “GPU renders” and “the listener can perceive a deliberate form.”
+
+## Colour is also a mapping
+
+Do not reserve audio response for scale. The reference uses low energy for warmer brass, mids for the metal/cage hue, highs for emissive and edge colour, and `beatPulse` for a brief light surge. Your mapping table must state the colour space or property you change and what the listener should perceive. A random hue cycle is authored motion, not frequency inference.
 
 ## Vocabulary
 
