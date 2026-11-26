@@ -35,7 +35,7 @@ This is an instructor planning pack outside the Jekyll publication tree. It does
 | Step | File | Deliverable | Gate |
 | --- | --- | --- | --- |
 | X0 | [PHASE-X0.md](PHASE-X0.md) | Evidence and cohort readiness | IN_PROGRESS — corpus ingested, plan drafted and cold-reviewed (see [PHASE-X0-REPORT.md](PHASE-X0-REPORT.md)); remaining acceptance items recorded in [SESSION-RECEIPT.md](SESSION-RECEIPT.md) |
-| X1 | [PHASE-X1.md](PHASE-X1.md) | Locked toolchain and vertical slice | VERIFYING — code fixes landed; fresh browser walkthrough pending |
+| X1 | [PHASE-X1.md](PHASE-X1.md) | Locked toolchain and vertical slice | VERIFIED — Tidal Orrery walkthrough, full tests and teaching handoff complete |
 | X2 | [PHASE-X2.md](PHASE-X2.md) | Player and plugin SDK | BLOCKED — X1; two independent plugins pass lifecycle checks |
 | X3 | [PHASE-X3.md](PHASE-X3.md) | WebSocket control/feature relay | BLOCKED — X2; two clients, bounded queues, reconnect and offline operation |
 | X4 | [PHASE-X4.md](PHASE-X4.md) | Rive adapter and comparison specimen | BLOCKED — X3; identical input fixture; runtime capability evidence |
