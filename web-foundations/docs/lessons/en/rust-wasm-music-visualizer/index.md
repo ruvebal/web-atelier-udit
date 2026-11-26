@@ -29,10 +29,9 @@ L1–L4 are runnable against the current X1 baseline. L5 becomes runnable when t
 
 ## Read the stack as one instrument
 
-<figure>
-<img src="{{ '/assets/images/rust-wasm-visualizer-stack.svg' | relative_url }}" alt="Architecture map: local audio flows through Web Audio features into a Rust WebAssembly mapper, then a bounded scale drives a Three.js GPU canvas; host controls and student plugins extend the live path, while a future relay remains dashed." loading="lazy">
-<figcaption>Solid path: the X1 experiment running now. Dashed path: later plugin and relay extensions.</figcaption>
-</figure>
+![Architecture map: local audio flows through Web Audio features into a Rust WebAssembly mapper, then a bounded scale drives a Three.js GPU canvas; host controls and student plugins extend the live path, while a future relay remains dashed.]({{ '/assets/images/rust-wasm-visualizer-stack.svg' | relative_url }})
+
+_Solid path: the X1 experiment running now. Dashed path: later plugin and relay extensions._
 
 The ownership rule is the key: the browser decodes audio and draws pixels; Rust transforms normalized features; students replace or extend the mapping and scene. WebSockets, Rive and a formal plugin lifecycle are later layers, not hidden requirements in the X1 baseline.
 
