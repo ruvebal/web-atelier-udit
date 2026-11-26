@@ -56,6 +56,10 @@ The lesson’s `rms` value is a compact estimate of signal energy. The low/mid/h
 
 Change one multiplier in `features.js:14` or `features.js:21` until quiet audio fills the visualizer. Explain why scaling is a calibration choice, not a scientific measurement.
 
+## Research correction
+
+FFT is not mandatory for BPM. The served example uses FFT-derived low-band energy plus a deliberately small onset tracker because the code is easy to inspect and test in a three-session sprint. More advanced families include spectral flux with autocorrelation/tempograms and wavelet band envelopes. `aubio` is classical DSP, not automatically machine learning. Treat these as comparison research or stretch implementations, not requirements for the baseline.
+
 ## Vocabulary
 
 | Term | Plain meaning |

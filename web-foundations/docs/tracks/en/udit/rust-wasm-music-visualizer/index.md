@@ -32,6 +32,41 @@ This is the three-studio teaching route for the [canonical six-lesson sequence](
 
 The required product is the local, audio-reactive 3D visualizer. WebSockets, Rive and a second client are stretch options; they are not prerequisites for a fair three-session sprint. Every team must finish a coherent core before attempting one.
 
+## The shared analysis plug-in contract
+
+Students do not need to rebuild the audio analyser. A visualizer module receives the shared `features` object in its factory and can use the same analysis as the served Tidal Orrery:
+
+| Signal | Meaning | Good first visual mapping |
+| --- | --- | --- |
+| `features.rms` | overall relative energy, 0–1 | global scale or aperture |
+| `features.bass` | low band, 35–250 Hz, 0–1 | weight, expansion, warm colour |
+| `features.mid` | mid band, 250–2000 Hz, 0–1 | rotation, deformation, hue |
+| `features.high` | high band, 2–10 kHz, 0–1 | emissive light, edge opacity, sparkle |
+| `features.bpm` | bounded BPM estimate, available after repeated onset candidates | tempo-labelled UI or phase choice |
+| `features.beatPulse` | short 0–1 onset pulse | a ring burst, marker flash or bounded camera accent |
+
+The direct seam is `src/main.js:224-251` → `src/visualizers/tidal-orrery.js:2-116` in the experiment repository. A student keeps the host and replaces only the owned module:
+
+```js
+export function createVisualizer({ scene, THREE, features, options }) {
+  const root = new THREE.Group();
+  scene.add(root);
+  return {
+    update({ time, motionTime, reducedMotion }) {
+      const low = features.bass;
+      const mids = features.mid;
+      const highs = features.high;
+      const pulse = features.beatPulse;
+      // Map each signal to a deliberate spatial or material property.
+    },
+    resize() {},
+    dispose() { scene.remove(root); },
+  };
+}
+```
+
+`features.bpm` is an estimate, not a metronome truth. The baseline uses a small energy/onset tracker in `src/rhythm.js` so its threshold, refractory interval and reset behavior can be tested in one lesson. Research extensions may compare spectral flux + autocorrelation, wavelet decomposition or a classical DSP library such as aubio; FFT is useful here, but it is not the only valid BPM method. Do not claim “machine learning” for aubio without evidence.
+
 ## Release boundary
 
 L1–L4 are runnable against the current deployed X1 baseline. L5 is a preparation lesson until the X3 relay is tagged. L6 is the release/exhibition gate for the current baseline: tests, evidence, accessibility, AI declaration and defence are ready now. This status is deliberate; the track does not promise an unimplemented WebSocket or Rive runtime.
@@ -128,7 +163,7 @@ The declaration must name the tool, contribution and verification. “I used AI�
 
 - Rive for an authored 2D control skin or presentation overlay.
 - WebSocket messages for preset/parameter intent, with rate limits and offline fallback.
-- Beat/event detection as a separately tested pure module.
+- Replace the baseline onset estimate with spectral flux, autocorrelation, wavelet or aubio-based analysis, with a comparison note and tests.
 - A second visualizer module using the same host contract.
 
 Stretch work cannot compensate for a missing core visualizer, missing evidence or missing AI declaration.
