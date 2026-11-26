@@ -1470,6 +1470,17 @@
    en: complete
   category: 3d
   tags: [rust, wasm, web-audio, threejs, gpu, atelier]
+- slug: rust-wasm-music-visualizer-teacher-guide
+  title:
+   en: 'Teacher Guide · Rust/Wasm Music Visualizer Studio'
+  path:
+   en: /lessons/en/rust-wasm-music-visualizer/teacher-guide/
+  file:
+   en: lessons/en/rust-wasm-music-visualizer/teacher-guide/index.md
+  status:
+   en: complete
+  category: 3d
+  tags: [rust, wasm, teaching, rubric, ai-literacy]
 - slug: rust-wasm-music-visualizer-l1
   title:
    en: 'L1 · Rust at the Browser Boundary'

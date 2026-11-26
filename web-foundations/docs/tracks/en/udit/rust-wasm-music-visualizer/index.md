@@ -20,7 +20,7 @@ This is the three-studio teaching route for the [canonical six-lesson sequence](
 
 1. Clone the experiment and run `npm test`.
 2. Open the Vite URL; do not open `index.html` with `file://`.
-3. Read the [teacher guide]({{ '/lessons/en/rust-wasm-music-visualizer/' | relative_url }}) and begin L1.
+3. Read the public [Teacher Guide]({{ '/lessons/en/rust-wasm-music-visualizer/teacher-guide/' | relative_url }}) and begin L1.
 
 ## Three studios · 12 hours
 

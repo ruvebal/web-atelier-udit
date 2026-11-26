@@ -16,6 +16,8 @@ category: 3d
 
 This is the canonical lesson index for the six-lesson studio. The runnable application is maintained separately in the [Rust/Wasm Music Visualizer experiment repository](https://github.com/ruvebal/rust-wasm-music-visualizer). Start with the [live X1 experiment](https://ruvebal.github.io/rust-wasm-music-visualizer/), then clone the repository when you need to edit code.
 
+Instructor: use the public [Teacher Guide](teacher-guide/) for setup, the professor’s making-of explanation, direct code references, the three-session timetable and the AI-use standard.
+
 | Lesson | Question | Product increment |
 | --- | --- | --- |
 | [L1 · Rust at the browser boundary](l1-rust-browser-boundary/) | What should Rust own? | A bounded Rust/Wasm mapping call |
