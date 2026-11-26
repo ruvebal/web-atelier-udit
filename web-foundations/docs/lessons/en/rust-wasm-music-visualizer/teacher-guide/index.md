@@ -43,12 +43,13 @@ npm run dev -- --host 127.0.0.1
 The reference was built as a sequence of explicit ownership boundaries:
 
 1. `src/audio.js` owns one `HTMLAudioElement`, one Web Audio graph, local-file URLs, transport and disposal.
-2. `src/features.js` extracts finite RMS, bass and high-band readings; silence is explicitly gated.
-3. `rust/src/lib.rs` smooths and maps normalized values without knowing about the DOM, audio or Three.js.
-4. `src/main.js` owns the renderer, camera, controls, keyboard path, Wasm loading, clocks and recovery states.
-5. `src/visualizers/tidal-orrery.js` owns the 3D scene subtree: vanes, rings, gimbals, lights, materials and disposal.
-6. Audio time explains the musical relationship; an authored motion clock keeps a gentle idle orbit when playback is paused. Reduced motion freezes spatial movement.
-7. Rust tests, Wasm ABI checks and Playwright tests prove bounded values, silence, controls, failures, mobile layout and resource cleanup.
+2. `src/features.js` extracts finite RMS plus low/mid/high band readings; silence is explicitly gated.
+3. `src/rhythm.js` estimates BPM from repeated low-frequency rises and emits a short beat pulse; it is intentionally explainable rather than “AI magic.”
+4. `rust/src/lib.rs` smooths and maps normalized values without knowing about the DOM, audio or Three.js.
+5. `src/main.js` owns the renderer, camera, controls, keyboard path, Wasm loading, clocks and recovery states.
+6. `src/visualizers/tidal-orrery.js` owns the 3D scene subtree: vanes, rings, gimbals, lights, materials and disposal. Low changes aperture/warmth, mids change assembly motion/hue, highs change edge light, and the beat pulse marks an onset.
+7. Audio time explains the musical relationship; an authored motion clock keeps a gentle idle orbit when playback is paused. Reduced motion freezes spatial movement.
+8. Rust tests, Wasm ABI checks and Playwright tests prove bounded values, silence, controls, failures, mobile layout and resource cleanup.
 
 The key teaching sentence is: **the browser orchestrates, Web Audio measures, Rust transforms, and Three.js makes the interpretation spatial.**
 
@@ -56,8 +57,8 @@ The key teaching sentence is: **the browser orchestrates, Web Audio measures, Ru
 
 | Lesson | Walk through | Student evidence |
 | --- | --- | --- |
-| L1 | `rust/src/lib.rs:5-50`; `src/main.js:195-227` | Trace `{ rms, bass, high }` through Wasm into bounded visual values. |
-| L2 | `src/audio.js:41-55,145-149`; `src/features.js:5-28` | Explain why energy is not automatically beat detection. |
+| L1 | `rust/src/lib.rs:5-50`; `src/main.js:195-227` | Trace `{ rms, bass, mid, high }` through Wasm into bounded visual values. |
+| L2 | `src/audio.js:41-55,145-149`; `src/features.js:5-29`; `src/rhythm.js:1-38` | Explain why bands are not beats, then defend the onset/BPM estimate. |
 | L3 | `src/visualizers/tidal-orrery.js:2-90,94-109` | Replace the metaphor while retaining real depth and ownership. |
 | L4 | `src/main.js:212-245`; `src/audio.js:20-35` | Distinguish audio time, frame delta and authored idle motion. |
 | L5 | Static module seam at `src/main.js:5`; contract in `src/visualizers/tidal-orrery.js:2-130` | Design a bounded remote-intent message; relay implementation is stretch. |
