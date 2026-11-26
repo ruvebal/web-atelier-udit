@@ -11,19 +11,19 @@ Executable teaching references are maintained in [TEACHER-GUIDE.md](TEACHER-GUID
 | Explain the browser/Rust/Wasm boundary | A compiled Rust mapping function is called during visualization | Trace one input sample/feature to one mesh property |
 | Interpret audio features without confusing energy and beat | Named, normalized feature mappings and a diagnostic overlay | Explain why bass energy is not automatically beat detection |
 | Build and control GPU 3D | Depth-tested mesh, camera and two meaningful controls | Predict what a parameter change will do before running it |
-| Reason about clocks and transport | Correct pause/seek/reset and network/offline states | Diagnose stale or out-of-order feature frames |
+| Reason about clocks and transport | Correct pause/seek/reset and a clearly bounded future network path | Diagnose why remote intent is not shared audio time |
 | Defend an engineering choice | Short ADR, measured performance and a rejected alternative | Explain a trade-off using observed evidence |
 
 ## Six lessons and cumulative assignments
 
 | Lesson | Central question | Small worked example | Product increment | Reading selection |
 | --- | --- | --- | --- | --- |
-| L1. Rust at the browser boundary | What should Rust own, and what does the browser still do? | Rust consumes a borrowed feature slice and returns a clamped value | Load the kernel; render a Rust-owned parameter control | Rust book chs. 1, 4–6, 9; binding platform note |
-| L2. Listening before drawing | What are we actually measuring? | Waveform/RMS, FFT bins and bass/mid/high mapping | Audio graph → Rust smoothing → moving mesh | Smus chs. 2 and 5; Reiss chs. 5 and 7; Turner ch. 21 |
-| L3. Giving sound a body | Which property of a sound should become which spatial change? | Instanced bars or a deforming low-poly object | Original composition, depth and camera interaction | Existing Three.js core, FE II shader literacy; Rust book structs/collections |
-| L4. Animation systems and clocks | Is this reactive motion, a timeline cue, or synchronized playback? | Same feature drives a Three.js object and Rive input | Two controls; explicit reset and motion policy | Existing Rive making-of; current runtime docs; Jones ch. 7 as audited comparison |
-| L5. Sending intention over a network | Do we need to send sound, or only a command? | Two browser clients exchange a preset via Axum | WebSocket mode, status and reconnect snapshot | Existing WebSocket material; Axum docs; optional Yoon ch. 5 after citation audit |
-| L6. Proving and exhibiting the instrument | What makes this good beyond a successful demo? | Fault-injected plugin and common benchmark track | Tested release, fallback and stack defence | Rust book ch. 11; Jones chs. 9–10 only after example verification |
+| L1. Rust at the browser boundary | What should Rust own, and what does the browser still do? | Rust receives normalized features and returns bounded values | Load the kernel; change one mapping and preserve its contract | Rust book chs. 1, 4–6, 9; binding platform note |
+| L2. Listening before drawing | What are we actually measuring? | Waveform/RMS, FFT bins and bass/high mapping | Audio graph → feature extraction → Rust smoothing | Smus chs. 2 and 5; Reiss chs. 5 and 7; Turner ch. 21 |
+| L3. Giving sound a body | Which property of a sound should become which spatial change? | Extruded vanes, rings or a deforming low-poly object | Original composition, depth and camera interaction | Existing Three.js core, FE II shader literacy; Rust book structs/collections |
+| L4. Animation systems and clocks | Is this reactive motion, a timeline cue, or synchronized playback? | Same feature drives a Three.js object under audio time | Transport controls, explicit reset and motion policy | Existing Rive making-of; current runtime docs; Jones ch. 7 as audited comparison |
+| L5. Sending intention over a network | Do we need to send sound, or only a command? | A bounded preset message designed on paper | Protocol sketch with rate limit, stale-message rule and offline fallback | Existing WebSocket material; Axum docs; optional Yoon ch. 5 after citation audit |
+| L6. Proving and exhibiting the instrument | What makes this good beyond a successful demo? | Fault-injected module and common benchmark track | Tested release, evidence, AI declaration and stack defence | Rust book ch. 11; Jones chs. 9–10 only after example verification |
 
 Reading selections are selective references, not whole-book homework. Source resolution and edition notes are in SOURCES.md. Chapters from the supplied EPUBs must be cited by section unless print page markers are verified.
 
@@ -35,7 +35,7 @@ L3 depth check: rotate a pair of crossing/intersecting meshes and verify near su
 
 Each lesson package contains a master idea, a prediction question, one complete worked example, one deliberately broken variation, a product increment and an exit check. Its B1 section explains the concept; B2 is the contextual plugin lab; B3 isolates a strategy individually. Label all code as CodeSandbox-ready, Excerpt or Template. Rust build instructions require a tested repository/toolchain route; do not label native compiler setup CodeSandbox-ready without proving it there.
 
-The lesson authoring phase uses `curriculum-forger` and the local `lesson-scribe` workflow for conceptual prose. Existing React material is a prerequisite reference, not something to silently re-teach. Use a small Leptos bridge to meet the Rust UI requirement without running two competing framework roots over the same DOM subtree.
+The lesson authoring phase uses `curriculum-forger` and the local `lesson-scribe` workflow for conceptual prose. Existing React material is a prerequisite reference, not something to silently re-teach. The current X1 host intentionally uses HTML controls; a Rust-rendered UI is a future comparison, not a hidden sprint requirement.
 
 ## Studio 1 — Hear, measure, compile
 
@@ -71,17 +71,17 @@ The lesson authoring phase uses `curriculum-forger` and the local `lesson-scribe
 
 | Minutes | Activity | Evidence |
 | --- | --- | --- |
-| 0–15 | Diagnose a delayed/out-of-order packet fixture | Prediction |
+| 0–15 | Diagnose why a remote command is not shared audio time | Prediction |
 | 15–40 | L5 WebSocket control vs feature vs audio transport | Protocol explanation |
-| 40–85 | Connect prepared relay; exercise disconnect/reconnect | One remote parameter or preset |
+| 40–85 | Harden the local visualizer; design a bounded stretch message only if core passes | Release candidate or protocol sketch |
 | 85–95 | Break | — |
 | 95–120 | L6 profiling, accessibility and fair comparison | Verification checklist |
-| 120–165 | Fix failures and package plugin | Release candidate |
+| 120–165 | Fix failures and package the visualizer | Release candidate |
 | 165–185 | Individual B3: unseen feature sequence + short explanation | Transfer evidence |
 | 185–230 | Exhibition and defence | Demo, peer questions, jury notes |
 | 230–240 | Submit A3 and reflection | Final release |
 
-**A3 — Exhibition release:** A2 plus a WebSocket interaction, offline mode, lifecycle evidence, benchmark results and individual defence. With more than nine five-minute demo slots, use concurrent stations and brief individual recordings collected in the B3 block; do not quietly add a fourth session. Confirm cohort size in X0 and rehearse the chosen format.
+**A3 — Exhibition release:** A2 plus lifecycle evidence, benchmark results, failure fallback, asset credits, AI-use declaration and individual defence. WebSocket interaction is stretch, not a gate. With more than nine five-minute demo slots, use concurrent stations and brief individual recordings collected in the B3 block; do not quietly add a fourth session. Confirm cohort size in X0 and rehearse the chosen format.
 
 ## Pedagogical scaffold
 
